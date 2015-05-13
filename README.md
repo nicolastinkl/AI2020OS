@@ -3,16 +3,14 @@
 ![](https://img.shields.io/github/release/qubyte/rubidium.svg)
 ![](https://img.shields.io/cocoapods/p/AFNetworking.svg)
 
-# 一： 准备账号和git ssh key
+# 一： 准备账号 和 git ssh key
 
 
 
-- 1 [bitbucket.org](bitbucket.org)注册账号后，需要在[bitbucket.org](bitbucket.org)添加个人本地rsa_key密钥信息，在 
+- 1 www.github.com 添加个人本地rsa_key密钥信息，在 
 
-https://bitbucket.org/account/user/*****/ssh-keys/ 处加入你本地的rsa key
-
-![](http://tinkl.qiniudn.com/tinkl2HJKDJSF*KDJKJSDKF8907230194.jpg)
-
+	https://github.com/settings/ssh/ 处加入你本地的rsa key
+ 
 - 2 加入私有repo源到本机 `pod repo add gameworksLibSpec git@bitbucket.org:tinkl/podspec.git`
 
 - 3 在项目Podfile文件里` pod "GWGameKitLib",:head`
@@ -35,15 +33,17 @@ https://bitbucket.org/account/user/*****/ssh-keys/ 处加入你本地的rsa key
 
 # 二：移动端IOS版本App项目地址
 
-1. git : [**git clone git@bitbucket.org:tinkl/2020os.git**](git@bitbucket.org:tinkl/2020os.git)
-2. wiki: [https://bitbucket.org/tinkl/2020os/wiki/Home](https://bitbucket.org/tinkl/2020os/wiki/Home)
+1. git : https://github.com/nicolastinkl/AI2020OS
+2. wiki: https://github.com/nicolastinkl/AI2020OS/wiki
 3. 每位成员需要创建个人branch
 
 
 # 三：规范
 
+
 ## 1. 语言规范
 
+- 参考apple官方: https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingMethods.html#//apple_ref/doc/uid/20001282-BCIGIJJF
 
 ```
  #!函数注释的格式为
