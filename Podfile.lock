@@ -1,0 +1,37 @@
+PODS:
+  - Alamofire (1.1.4)
+  - AwesomeCache (1.0)
+  - Cartography (0.4.0)
+  - CryptoSwift (0.0.8)
+  - JSONJoy-Swift (0.9.1)
+  - JSQNotificationObserverKit (1.0.0)
+  - Spring (1.0.2)
+  - SwiftLog (0.9.1)
+  - SwiftyUserDefaults (1.1.0)
+  - Toucan (0.2.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 1.1.4)
+  - AwesomeCache (~> 1.0)
+  - Cartography (~> 0.4.0)
+  - CryptoSwift (~> 0.0.8)
+  - JSONJoy-Swift (~> 0.9.1)
+  - JSQNotificationObserverKit
+  - Spring (~> 1.0.1)
+  - SwiftLog (~> 0.9.1)
+  - SwiftyUserDefaults (~> 1.1.0)
+  - Toucan (~> 0.2.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 6a2cbaebe78a6d469bc55ee37f0a24ba22af76ac
+  AwesomeCache: 31250987360b132d4e4424c7a372d38d5ebbbd5a
+  Cartography: 7e11b7f9d58ea4effcec3982ec0893b8fa8817e0
+  CryptoSwift: 6d1b93af5b48e02e57366bfad28b00170af405ee
+  JSONJoy-Swift: 97441093ca05590e0fd2c860734e9528efc96fdc
+  JSQNotificationObserverKit: f1c86b08ca3a0f505e610e1e9f348db960ebf766
+  Spring: b9c8a315befd509c531701f2edc4405ab9d00bad
+  SwiftLog: 82dc4ef232f2029efd76bc7a4f922d5a5b065f8c
+  SwiftyUserDefaults: ae600cd466daa1420a058d09aefbf45ccb6caf1e
+  Toucan: 61d31928e7d75c401e1d51cd2b13d8275a7a579c
+
+COCOAPODS: 0.36.0
