@@ -7,15 +7,20 @@
 //
 
 import Foundation
+import Spring
+
 class AIHomeAvatorViewCell : UITableViewCell {
+ 
+    @IBOutlet weak var avatorImageView: AsyncImageView!
+    @IBOutlet weak var nickName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.avatorImageView.maskWithEllipse()
     }
-    
-    func homeAvatorViewCell()->AIHomeAvatorViewCell{
-        var cell = NSBundle.mainBundle().loadNibNamed("AIHomeAvatorViewCell", owner: self, options: nil).last  as AIHomeAvatorViewCell
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        
+    func currentViewCell()->AIHomeAvatorViewCell{
+        var cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDAvatorViewCell, owner: self, options: nil).last  as AIHomeAvatorViewCell
         return cell
     }
 }

@@ -31,12 +31,22 @@ struct AIApplication{
         }
         
         struct CellIdentifiers {
-            static let Cell = ""
+            static let AIHomeSDAvatorViewCell   = "AIHomeAvatorViewCell"    // avator
+            static let AIHomeSDDefaultViewCell  = "AIHomeSDDefaultViewCell" // price
+            static let AIHomeSDDesViewCell      = "AIHomeSDDesViewCell"     // description
+            static let AIHomeSDCommentViewCell  = "AIHomeSDCommentViewCell" // comment list
+            static let AIHomeSDParamesViewCell  = "AIHomeSDParamesViewCell" // params
+        }
+        
+        struct ViewIdentifiers {
+            static let AIOrderBuyView = "AIOrderBuyView"
         }
     }
+    
+    // Notification with IM or System Push.
     struct Notification{
-        static let UIAIASINFOWillShowBarNotification = "UIAIASINFOWillShowBarNotification"
-        static let UIAIASINFOWillhiddenBarNotification = "UIAIASINFOWillhiddenBarNotification"
+        static let UIAIASINFOWillShowBarNotification    = "UIAIASINFOWillShowBarNotification"
+        static let UIAIASINFOWillhiddenBarNotification  = "UIAIASINFOWillhiddenBarNotification"
     }
     
     // MARK: 系统主题颜色

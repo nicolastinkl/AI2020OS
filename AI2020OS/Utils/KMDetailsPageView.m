@@ -70,6 +70,11 @@
     [self.tableView removeObserver:self forKeyPath:@"contentOffset"];
 }
 
+- (void) registerCells:(UINib*) nib identifier:(NSString *) Identifier
+{
+    [self.tableView registerNib:nib forCellReuseIdentifier:Identifier];
+}
+
 #pragma mark -
 #pragma mark View layout
 

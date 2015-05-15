@@ -76,6 +76,8 @@ struct AIKMMovie {
     let movieVoteAverage: String?
     let moviePopularity: String?
     let movieOverview: String?
+    var moviePCompanies: Array<PCompanies>?
+    
     init() {
         
     }
@@ -98,9 +100,39 @@ struct AIKMMovie {
         
         self.movieThumbnailBackdropImageUrl = "http://image.tmdb.org/t/p/w92/" + b_path
         self.movieThumbnailPosterImageUrl = "http://image.tmdb.org/t/p/w92/" + p_path
+     
+        
+        let unparsedComments = decoder["production_companies"] as? [NSDictionary] ?? []
+        let parsedComments = unparsedComments.map(flattenedPCompanies)
+        let flattenedParsedComments = parsedComments.reduce([], +)
+        self.moviePCompanies  = flattenedParsedComments
         
     }
+}
 
+private func flattenedPCompanies (comment: NSDictionary) -> [PCompanies] {
+    // comment is JSON string....
+    let comments = comment["production_companies"] as? [NSDictionary] ?? []
+    
+    return comments.reduce([PCompanies(comment)]) { acc, x in
+        acc + flattenedPCompanies(x)
+    }
+}
+
+
+
+struct PCompanies{
+    
+    let pcId: String?
+    let pcName: String?
+    init() {
+        
+    }
+    
+    init(_ decoder: NSDictionary) {
+        self.pcId = decoder["id"] as? String ?? ""
+        self.pcName = decoder["name"]  as? String ?? ""
+    }
 }
 
 

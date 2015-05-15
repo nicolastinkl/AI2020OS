@@ -26,14 +26,14 @@ class AIDiscoveryViewController: UIViewController , RAReorderableLayoutDelegate,
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
-        self.imagesForSection0.append(UIImage(named: "Home_discover_01")!)
-        
-        self.imagesForSection1.append(UIImage(named: "Home_discover_02")!)
-        self.imagesForSection1.append(UIImage(named: "Home_discover_03")!)
-        
-        self.imagesForSection2.append(UIImage(named: "Home_discover_04")!)
-        self.imagesForSection2.append(UIImage(named: "Home_discover_05")!)
-        self.imagesForSection2.append(UIImage(named: "Home_discover_06")!)
+//        self.imagesForSection0.append(UIImage(named: "Home_discover_01")!)
+//        
+//        self.imagesForSection1.append(UIImage(named: "Home_discover_02")!)
+//        self.imagesForSection1.append(UIImage(named: "Home_discover_03")!)
+//        
+//        self.imagesForSection2.append(UIImage(named: "Home_discover_04")!)
+//        self.imagesForSection2.append(UIImage(named: "Home_discover_05")!)
+//        self.imagesForSection2.append(UIImage(named: "Home_discover_06")!)
         
         
     }

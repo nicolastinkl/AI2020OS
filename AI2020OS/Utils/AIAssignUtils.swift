@@ -18,4 +18,6 @@ extension String{
         let classNameSS = self.componentsSeparatedByString(".").last! as String
         return classNameSS;
     }
+    
+    
 }

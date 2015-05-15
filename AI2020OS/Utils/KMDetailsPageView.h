@@ -113,4 +113,7 @@
  */
 - (void)hideHeaderImageView:(BOOL)hidden;
 
+
+- (void) registerCells:(UINib*) nib identifier:(NSString *) Identifier;
+
 @end

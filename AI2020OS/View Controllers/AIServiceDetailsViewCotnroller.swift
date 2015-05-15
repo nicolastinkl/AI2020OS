@@ -7,12 +7,17 @@
 //
 
 import Foundation
+import Spring
 
 class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDelegate{
 
+    @IBOutlet weak var navigationBarView: SpringView!
+    @IBOutlet weak var orderViewContain: UIView!
+    
     @IBOutlet weak var networkLoadingContainerView: UIView!
 
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var naviImageView: UIImageView!
 
     @IBOutlet weak var detailsPageView: KMDetailsPageView!
 
@@ -42,13 +47,29 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         self.detailsPageView.tableViewDataSource = self
         self.detailsPageView.tableViewDelegate = self
         
-        // register cells
-        var cellNib:UINib = UINib(nibName: "ApplicationCell", bundle: nil)!
-        self.detailsPageView.tableView.registerNib(cellNib, forCellReuseIdentifier: "ApplicationCell")
+        //Register Cells
+        //registerCells()
         
         // Do any additional setup after loading the view, typically from a nib.
-        
         requestMovieDetails()
+        
+    }
+    
+    func registerCells(){
+        
+        registerNib(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDAvatorViewCell)
+        registerNib(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDefaultViewCell)
+        registerNib(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDesViewCell)
+        registerNib(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDCommentViewCell)
+        registerNib(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell)
+        
+    }
+    
+    func registerNib(cellReuseIdentifier:String){
+        
+        var paramsCellNib:UINib = UINib(nibName: cellReuseIdentifier, bundle: nil)!
+        self.detailsPageView.registerCells(paramsCellNib, identifier: cellReuseIdentifier)
+        
     }
     
     
@@ -58,10 +79,10 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         if segue.identifier == className{
             networkLoadingViewController = segue.destinationViewController as? AINetworkLoadingViewController
             networkLoadingViewController?.delegate = self
-            
         }
     }
     
+    //retry
     func retryRequest() {
         requestMovieDetails() 
     }
@@ -75,8 +96,18 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
                 strongSelf.movieDetailsResponse = AIKMMovieS
                 strongSelf.hideLoadingView()
                 strongSelf.detailsPageView.reloadData()
+                strongSelf.fillViews()
             }
         })
+        
+    }
+    
+    func fillViews(){
+        self.detailsPageView.navBarView = self.navigationBarView
+//        var controlView = AIOrderBuyView().currentViewCell()
+//        self.orderViewContain.addSubview(controlView)
+//        controlView.frame.width  == self.view.frame.width
+        
     }
     
     func reloadHeaderView()
@@ -112,25 +143,105 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
 }
 
-// MARK  UITableViewDataSource
-extension AIServiceDetailsViewCotnroller : UITableViewDataSource{
+// MARK  UITableViewDelegate,UITableViewDataSource
+extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSource{
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath section: Int) -> CGFloat {
-        return 100
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch indexPath.section{
+        case 0:
+            return 92
+        case 1:
+            return 72
+        case 2:
+            return 60
+        case 3:
+            return 120
+        case 4:
+            return 60
+        case 5:
+            return 65
+        default:
+            break
+        }
+        return 0
     }
-}
-
-// MARK  UITableViewDelegate
-extension AIServiceDetailsViewCotnroller : UITableViewDelegate{
-    // MARK: TableViewDelegate
     
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 6
+    }
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if section == 4{
+            let count = self.movieDetailsResponse?.moviePCompanies?.count ?? 0
+            return count
+        }
+        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let homeCell = AIHomeAvatorViewCell().homeAvatorViewCell();
-        return homeCell
+        
+        switch indexPath.section{
+        case 0:
+            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDAvatorViewCell) as? AIHomeAvatorViewCell
+            if  avCell == nil {
+                avCell = AIHomeAvatorViewCell().currentViewCell()
+            }
+            
+            avCell?.avatorImageView.setURL(self.movieDetailsResponse?.movieThumbnailPosterImageUrl?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
+            avCell?.nickName.text = self.movieDetailsResponse?.movieTitle
+            return avCell!
+        case 1:
+            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDefaultViewCell) as? AIHomeSDDefaultViewCell
+            if  avCell == nil {
+                avCell = AIHomeSDDefaultViewCell().currentViewCell()
+            }
+            return avCell!
+        case 2:
+            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
+            if  avCell == nil {
+                avCell = AIHomeSDParamesViewCell().currentViewCell()
+            }
+            avCell?.textLabel?.text = "选择入住时间"
+            avCell?.detailTextLabel?.text = ""
+            return avCell!
+            
+        case 3:
+            
+            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDesViewCell) as? AIHomeSDDesViewCell
+            if  avCell == nil {
+                avCell = AIHomeSDDesViewCell().currentViewCell()
+            }
+
+            avCell?.desLabel.text = self.movieDetailsResponse?.movieOverview
+            
+            return avCell!
+        case 4:
+            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
+            if  avCell == nil {
+                avCell = AIHomeSDParamesViewCell().currentViewCell()
+            }
+            let pcPis =  self.movieDetailsResponse?.moviePCompanies as Array<PCompanies>?
+            let pCompics = pcPis![indexPath.row] as PCompanies
+            
+            avCell?.textLabel?.text = pCompics.pcName
+            avCell?.detailTextLabel?.text = pCompics.pcId
+            return avCell!
+        default:
+            break
+        }
+        
+        //placeholder cell
+        var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
+        if  avCell == nil {
+            avCell = AIHomeSDParamesViewCell().currentViewCell()
+        }
+        avCell?.textLabel?.text = ""
+        avCell?.detailTextLabel?.text = ""
+        avCell?.accessoryType = UITableViewCellAccessoryType.None
+        
+        return avCell!
+        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -149,11 +260,14 @@ extension AIServiceDetailsViewCotnroller : KMDetailsPageDelegate{
     
     func detailsPage(detailsPageView: KMDetailsPageView!, imageDataForImageView imageView: UIImageView!) -> UIImageView! {
         var newImageView = imageView
-        let blockImageview = newImageView.sd_setImageWithURL(self.movieDetailsResponse?.movieOriginalPosterImageUrl?.toURL(), placeholderImage: UIImage(named: "Placeholder")) {
+        let blockImageview = newImageView.sd_setImageWithURL(self.movieDetailsResponse?.movieOriginalPosterImageUrl?.toURL(), placeholderImage: UIImage(named: "Placeholder")) {[weak self] in
             if let delegates = detailsPageView.delegate {
                 if delegates.respondsToSelector("headerImageViewFinishedLoading:"){
                     delegates.headerImageViewFinishedLoading!(newImageView)
                 }
+            }
+            if let strongSelf = self{
+                strongSelf.naviImageView.image = newImageView.image
             }
         }
         return blockImageview

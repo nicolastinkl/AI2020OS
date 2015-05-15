@@ -19,4 +19,17 @@ extension UIView {
         
         return thisView.last as UIView
     }
+    
+    /*!
+        圆角处理
+    */
+    func maskWithEllipse() {
+        
+        var maskLayer = CALayer()
+        maskLayer.frame = CGRectMake(
+            0, 0, self.bounds.width, self.bounds.height)
+        maskLayer.contents = UIImage(named: "profileview_avatar_mask")?.CGImage
+        self.layer.mask = maskLayer
+        
+    }
 }

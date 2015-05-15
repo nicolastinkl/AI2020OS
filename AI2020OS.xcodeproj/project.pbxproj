@@ -71,13 +71,21 @@
 		93AC3FD41ACA40C8000024A4 /* AITimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FD31ACA40C8000024A4 /* AITimelineViewController.swift */; };
 		93AC3FD61ACA40ED000024A4 /* AISelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FD51ACA40ED000024A4 /* AISelfViewController.swift */; };
 		93AC3FD81ACA44F4000024A4 /* AISwiftLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FD71ACA44F4000024A4 /* AISwiftLogger.swift */; };
+		93BD09041B05F2BC00C8B96B /* AIOrderBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD09031B05F2BC00C8B96B /* AIOrderBuyView.swift */; };
+		93BD09061B05F2D000C8B96B /* AIOrderBuyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BD09051B05F2D000C8B96B /* AIOrderBuyView.xib */; };
 		93CB34621AE5F26100D49FB2 /* AIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CB34611AE5F26100D49FB2 /* AIImage.swift */; };
 		93CED3DF1AD530C000761B4D /* AIUIViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CED3DE1AD530C000761B4D /* AIUIViewUtils.swift */; };
+		93CF230F1B05CF960082AC73 /* AIHomeSDDefaultViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CF230E1B05CF960082AC73 /* AIHomeSDDefaultViewCell.xib */; };
+		93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF23101B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift */; };
 		93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFC0761AD6551200B82CC9 /* RAReorderableLayout.swift */; };
 		93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFC0781AD6580400B82CC9 /* AIKinectButton.swift */; };
 		93D80A421ACA7149004BC7C0 /* CoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D80A411ACA7149004BC7C0 /* CoreTextView.swift */; };
 		93D80A441ACA71DA004BC7C0 /* AILocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D80A431ACA71DA004BC7C0 /* AILocalStore.swift */; };
 		93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB59891AE62EAD00D1E39C /* AIMaterialDButton.swift */; };
+		93DE16AD1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DE16AC1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift */; };
+		93DE16AF1B05E26E0056A1E3 /* AIHomeSDDesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93DE16AE1B05E26D0056A1E3 /* AIHomeSDDesViewCell.xib */; };
+		93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93DE16B01B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib */; };
+		93DE16B31B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DE16B21B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift */; };
 		93E8266A1AD78246006B3BA1 /* AIAssignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E826691AD78246006B3BA1 /* AIAssignUtils.swift */; };
 		93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */; };
 		93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */; };
@@ -176,13 +184,21 @@
 		93AC3FD31ACA40C8000024A4 /* AITimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineViewController.swift; sourceTree = "<group>"; };
 		93AC3FD51ACA40ED000024A4 /* AISelfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelfViewController.swift; sourceTree = "<group>"; };
 		93AC3FD71ACA44F4000024A4 /* AISwiftLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwiftLogger.swift; sourceTree = "<group>"; };
+		93BD09031B05F2BC00C8B96B /* AIOrderBuyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderBuyView.swift; sourceTree = "<group>"; };
+		93BD09051B05F2D000C8B96B /* AIOrderBuyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIOrderBuyView.xib; sourceTree = "<group>"; };
 		93CB34611AE5F26100D49FB2 /* AIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImage.swift; sourceTree = "<group>"; };
 		93CED3DE1AD530C000761B4D /* AIUIViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUIViewUtils.swift; sourceTree = "<group>"; };
+		93CF230E1B05CF960082AC73 /* AIHomeSDDefaultViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeSDDefaultViewCell.xib; sourceTree = "<group>"; };
+		93CF23101B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeSDDefaultViewCell.swift; sourceTree = "<group>"; };
 		93CFC0761AD6551200B82CC9 /* RAReorderableLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAReorderableLayout.swift; sourceTree = "<group>"; };
 		93CFC0781AD6580400B82CC9 /* AIKinectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIKinectButton.swift; sourceTree = "<group>"; };
 		93D80A411ACA7149004BC7C0 /* CoreTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextView.swift; sourceTree = "<group>"; };
 		93D80A431ACA71DA004BC7C0 /* AILocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILocalStore.swift; sourceTree = "<group>"; };
 		93DB59891AE62EAD00D1E39C /* AIMaterialDButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMaterialDButton.swift; sourceTree = "<group>"; };
+		93DE16AC1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeSDDesViewCell.swift; sourceTree = "<group>"; };
+		93DE16AE1B05E26D0056A1E3 /* AIHomeSDDesViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeSDDesViewCell.xib; sourceTree = "<group>"; };
+		93DE16B01B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeSDParamesViewCell.xib; sourceTree = "<group>"; };
+		93DE16B21B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeSDParamesViewCell.swift; sourceTree = "<group>"; };
 		93E826691AD78246006B3BA1 /* AIAssignUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssignUtils.swift; sourceTree = "<group>"; };
 		93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchNaviViewController.swift; sourceTree = "<group>"; };
 		93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -491,6 +507,12 @@
 			children = (
 				93049D031B04A3270051467A /* AIHomeAvatorViewCell.xib */,
 				93049D051B04A3420051467A /* AIHomeAvatorViewCell.swift */,
+				93CF230E1B05CF960082AC73 /* AIHomeSDDefaultViewCell.xib */,
+				93CF23101B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift */,
+				93DE16AE1B05E26D0056A1E3 /* AIHomeSDDesViewCell.xib */,
+				93DE16AC1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift */,
+				93DE16B01B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib */,
+				93DE16B21B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -562,10 +584,20 @@
 		93B75D0C1B048A78005D0CEF /* ServiceDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				93BD09021B05F27400C8B96B /* Controls */,
 				937055301AEF924A00CEE9A5 /* Cells */,
 				9337FF5B1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift */,
 			);
 			name = ServiceDetailView;
+			sourceTree = "<group>";
+		};
+		93BD09021B05F27400C8B96B /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				93BD09031B05F2BC00C8B96B /* AIOrderBuyView.swift */,
+				93BD09051B05F2D000C8B96B /* AIOrderBuyView.xib */,
+			);
+			name = Controls;
 			sourceTree = "<group>";
 		};
 		93DB59881AE62E5200D1E39C /* AIControls */ = {
@@ -706,11 +738,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */,
+				93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */,
+				93BD09061B05F2D000C8B96B /* AIOrderBuyView.xib in Resources */,
+				93DE16AF1B05E26E0056A1E3 /* AIHomeSDDesViewCell.xib in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
 				933ED3F61AC8F90A00E4AADB /* LaunchScreen.xib in Resources */,
 				933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */,
 				936D62471AD4D44A00609FCD /* AILoadingStoryboard.storyboard in Resources */,
 				93692C9D1ACAB94700D66211 /* AILoginStoryboard.storyboard in Resources */,
+				93CF230F1B05CF960082AC73 /* AIHomeSDDefaultViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,16 +873,20 @@
 				93049D061B04A3420051467A /* AIHomeAvatorViewCell.swift in Sources */,
 				9384E3051AF8E39700DA0E39 /* AIFavoritsHandler.swift in Sources */,
 				935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */,
+				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
 				936DAC1A1ADCF2D20025483B /* AIISRViewController.m in Sources */,
+				93DE16AD1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift in Sources */,
 				936D624F1AD4D6F300609FCD /* KMActivityIndicator.m in Sources */,
 				93F8C3D21AE6314D003C58B2 /* UIView+MaterialDesign.m in Sources */,
 				933ED43B1AC92C3300E4AADB /* AIApplication.swift in Sources */,
+				93DE16B31B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift in Sources */,
 				936D62491AD4D54100609FCD /* AINetworkLoadingViewController.swift in Sources */,
 				93AC3FCC1AC95EBB000024A4 /* RAMItemAnimationProtocol.swift in Sources */,
 				93AC3FC71AC95EBB000024A4 /* RAMBounceAnimation.swift in Sources */,
 				93AC3FD61ACA40ED000024A4 /* AISelfViewController.swift in Sources */,
 				93CED3DF1AD530C000761B4D /* AIUIViewUtils.swift in Sources */,
 				933668861AD671A4007556D7 /* AITransitionManager.swift in Sources */,
+				93BD09041B05F2BC00C8B96B /* AIOrderBuyView.swift in Sources */,
 				93AC3FBA1AC95E6D000024A4 /* AIMainTabBarController.swift in Sources */,
 				9337FF5C1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift in Sources */,
 				93AC3FD21ACA40A9000024A4 /* AISearchViewController.swift in Sources */,
