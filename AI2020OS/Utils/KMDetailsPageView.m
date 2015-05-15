@@ -8,7 +8,7 @@
 
 #import "KMDetailsPageView.h"
 
-#define kDefaultImagePagerHeight 375.0f
+#define kDefaultImagePagerHeight 368.0f
 #define kDefaultTableViewHeaderMargin 95.0f
 #define kDefaultImageAlpha 500.0f
 #define kDefaultImageScalingFactor 300.0f
@@ -61,6 +61,8 @@
     self.autoresizesSubviews = YES;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorColor = [UIColor clearColor];
 }
 
 - (void)dealloc

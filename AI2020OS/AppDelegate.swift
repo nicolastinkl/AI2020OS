@@ -15,27 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
         
-        swizzlingMethod(UIViewController.self,
-            oldSelector: "viewDidLoad",
-            newSelector: "viewDidLoadForChangeTitleColor")
-        
+        //AVOS
         AVOSCloud.setApplicationId(AIApplication.AVOSCLOUDID,
               clientKey: AIApplication.AVOSCLOUDKEY)
-
+        
         //处理讯飞语音初始化
         AIAppInit().xfINIT()
+        
+        //Hook Viewdidview and ViewDidDisappear.
+        AIApplication.hookViewDidLoad()
+        AIApplication.hookViewWillAppear()
+        AIApplication.hookViewWillDisappear()
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     
         return true
     }
     
-    func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {
-        let oldMethod = class_getInstanceMethod(clzz, oldSelector)
-        let newMethod = class_getInstanceMethod(clzz, newSelector)
-        method_exchangeImplementations(oldMethod, newMethod)
-    }
+    
     
 
     func applicationWillResignActive(application: UIApplication) {

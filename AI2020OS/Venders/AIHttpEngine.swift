@@ -78,7 +78,7 @@ struct AIHttpEngine{
         Alamofire.request(.GET, "http://api.themoviedb.org/3/movie/"+movieId+"?api_key=328c283cd27bd1877d9080ccb1604c91")
             .responseJSON { (_,_,JSON,_) in
                 if let reponsess: AnyObject = JSON{
-                    var httpreponse = AIKMMovie(JSON as NSDictionary)
+                    var httpreponse = AIKMMovie(JSON as NSDictionary)                    
                     response(httpreponse)
                 }else{
                     response(AIKMMovie())

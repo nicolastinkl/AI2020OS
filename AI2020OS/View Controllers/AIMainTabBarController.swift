@@ -8,11 +8,13 @@
 
 import Foundation
 import UIKit
+import Spring
 
 class RAMAnimatedTabBarItem: UITabBarItem {
     
     @IBOutlet weak var animation: RAMItemAnimation!
     @IBInspectable var textColor: UIColor = UIColor.whiteColor()
+    
     
     func playAnimation(icon: UIImageView, textLabel: UILabel) {
         
@@ -40,7 +42,6 @@ class AIMainTabBarController: UITabBarController {
     var iconsView: [(icon: UIImageView, textLabel: UILabel)] = Array()
     
     // MARK: life circle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,12 +49,22 @@ class AIMainTabBarController: UITabBarController {
         
         createCustomIcons(containers)
         
-//        addCenterButtonWithImage(UIImage(named: "tabbar_btn_popup_camera_ios7")!, highlightImage: UIImage(named: "tabbar_btn_popup_camera_ios7")!)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"showBottomBar", name: AIApplication.Notification.UIAIASINFOWillShowBarNotification, object: nil)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"hiddenBottomBar", name: AIApplication.Notification.UIAIASINFOWillhiddenBarNotification, object: nil)
     }
     
-    // MARK Add Center button
     
+    func showBottomBar(){
+        setTabBarHidden(false, animated: true)
+    }
+    
+    func hiddenBottomBar(){
+        setTabBarHidden(true, animated: true)
+    }
+    
+    
+    // MARK Add Center button
     func addCenterButtonWithImage(buttonImage : UIImage, highlightImage : UIImage){
         var button = UIButton()
         button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
@@ -62,9 +73,7 @@ class AIMainTabBarController: UITabBarController {
         var  heightDifference : CGFloat = buttonImage.size.height - self.tabBar.frame.size.height
         if (heightDifference < 0){
             button.center = self.tabBar.center
-        }
-        else
-        {
+        }else{
             var center:CGPoint = self.tabBar.center
             center.y = center.y - heightDifference/2.0 + 10
             button.center = center
@@ -76,22 +85,19 @@ class AIMainTabBarController: UITabBarController {
     func AudioSearchClick(sender: AnyObject?){
         // open view controller  AIAudioNavigation
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("AISearchNavigation") as UINavigationController
-        
         self.showViewController(controller, sender: self)
         
         //self.presentViewController(controller, animated: true, completion: { () -> Void in
             //controller.transitioningDelegate = TransitionManager()
         //})
     }
-    
-    
     // MARK: create methods
     
     func createCustomIcons(containers : NSDictionary) {
         
         if let items = tabBar.items {
-            let itemsCount = tabBar.items!.count as Int - 1
-            var index = 0
+            let itemsCount = tabBar.items!.count as Int
+            var index = 1
             for item in self.tabBar.items as [RAMAnimatedTabBarItem] {
                 
                 assert(item.image != nil, "add image icon in UITabBarItem")
@@ -122,7 +128,7 @@ class AIMainTabBarController: UITabBarController {
                 let iconsAndLabels = (icon:icon, textLabel:textLabel)
                 iconsView.append(iconsAndLabels)
                 
-                if 0 == index { // selected first elemet
+                if 1 == index { // selected first elemet
                     item.selectedState(icon, textLabel: textLabel)
                 }
                 
@@ -199,11 +205,10 @@ class AIMainTabBarController: UITabBarController {
     }
     
     func createViewContainer() -> UIView {
-        var viewContainer = UIView();
+        var viewContainer = UIView()
         viewContainer.backgroundColor = UIColor.clearColor() // for test
         viewContainer.setTranslatesAutoresizingMaskIntoConstraints(false)
         view.addSubview(viewContainer)
-        
         // add gesture
         var tapGesture = UITapGestureRecognizer(target: self, action: "tapHeandler:")
         tapGesture.numberOfTouchesRequired = 1
@@ -237,7 +242,7 @@ class AIMainTabBarController: UITabBarController {
         
         let items = tabBar.items as [RAMAnimatedTabBarItem]
         
-        let currentIndex = gesture.view!.tag
+        let currentIndex = gesture.view!.tag - 1
         if selectedIndex != currentIndex {
             var animationItem : RAMAnimatedTabBarItem = items[currentIndex]
             var icon = iconsView[currentIndex].icon
@@ -249,14 +254,34 @@ class AIMainTabBarController: UITabBarController {
             let deselectItem = items[selectedIndex]
             deselectItem.deselectAnimation(deselelectIcon, textLabel: deselelectTextLabel)
             
-            selectedIndex = gesture.view!.tag
+            selectedIndex = gesture.view!.tag - 1
         }
     }
     
-    // show tabbar
+    func isTabBarHidden()->(Bool){
+        let viewFrame:CGRect = self.view.frame;
+        let tabBarFrame:CGRect = self.tabBar.frame;
+        return tabBarFrame.origin.y >= viewFrame.size.height;
+    }
     
+    func setTabBarHidden(hidden:Bool){
+        setTabBarHidden(hidden, animated: false)
+    }
     
-    // hidden tabbar
+    func setTabBarHidden(hidden:Bool,animated:Bool){
+        UIView.animateWithDuration(0.3, animations: {
+            self.tabBar.hidden = hidden
+        })
+         let itemsCount : Int = tabBar.items!.count as Int
+         self.view.subviews.filter({(view:AnyObject)->Bool in
+            let someView = view as UIView
+            if someView.tag <= itemsCount && someView.tag >= 1{
+                someView.hidden = hidden
+            }
+            return true
+        })
+        
+    }
     
 }
 

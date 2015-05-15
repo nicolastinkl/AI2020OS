@@ -45,6 +45,7 @@ class AIHomeViewController: UITableViewController {
         }
     }
     
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -90,7 +91,7 @@ extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let controller:AITESTViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier("TESTVIEWCONTTROLLER") as AITESTViewCotnroller
+        let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier("TESTVIEWCONTTROLLER") as AIServiceDetailsViewCotnroller
         controller.movieDetails = stories[indexPath.row] as Movie
         navigationController?.pushViewController(controller, animated: true)
     }

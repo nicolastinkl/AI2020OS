@@ -75,7 +75,7 @@ struct AIKMMovie {
     let movieVoteCount: String?
     let movieVoteAverage: String?
     let moviePopularity: String?
-
+    let movieOverview: String?
     init() {
         
     }
@@ -89,7 +89,7 @@ struct AIKMMovie {
         self.movieVoteCount = decoder["vote_count"] as? String ?? ""
         self.movieVoteAverage = decoder["vote_average"] as? String ?? ""
         self.moviePopularity = decoder["popularity"] as? String ?? ""
-        
+        self.movieOverview = decoder["overview"] as? String ?? ""
         let b_path = decoder["backdrop_path"] as? String ?? ""
         self.movieOriginalBackdropImageUrl = "http://image.tmdb.org/t/p/w300/" + b_path
 

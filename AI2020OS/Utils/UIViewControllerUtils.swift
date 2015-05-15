@@ -17,9 +17,7 @@ import Foundation
 extension UIViewController {
     func viewDidLoadForChangeTitleColor() {
         self.viewDidLoadForChangeTitleColor()
-        
         //setNeedsStatusBarAppearanceUpdate()
-        
         if self.isKindOfClass(UINavigationController.classForCoder()) {
             self.changeNavigationBarTextColor(self as UINavigationController)
         }
@@ -30,12 +28,35 @@ extension UIViewController {
         let dic = NSDictionary(object: UIColor.applicationMainColor(),
             forKey:NSForegroundColorAttributeName)
         nav.navigationBar.titleTextAttributes = dic
-        //nav.navigationBar.barTintColor = UIColor.applicationSecondColor()
         nav.navigationBar.tintColor = UIColor.applicationMainColor()
-//nav.navigationBar.lt_setBackgroundColor(UIColor.applicationMainColor().colorWithAlphaComponent(0))
+        //nav.navigationBar.lt_setBackgroundColor(
+        //UIColor.applicationMainColor().colorWithAlphaComponent(0))
         //nav.setNavigationBarHidden(true, animated: true)
         self.title = ""
         UINavigationBar.appearance().shadowImage = UIColor.clearColor().clearImage()
-
     }
+    
+    func viewWillDisappearForHiddenBottomBar(animated: Bool){
+        self.viewWillDisappearForHiddenBottomBar(animated)
+        if self.isKindOfClass(AIHomeViewController.classForCoder()) ||
+            self.isKindOfClass(AIDiscoveryViewController.classForCoder()) ||
+            self.isKindOfClass(AITimelineViewController.classForCoder()) ||
+            self.isKindOfClass(AIFavoritesViewController.classForCoder()) ||
+            self.isKindOfClass(AISelfViewController.classForCoder()) {
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOWillhiddenBarNotification, object: nil)
+        }
+    }
+    
+    func viewWillAppearForShowBottomBar(animated: Bool){
+        self.viewWillAppearForShowBottomBar(animated)
+        if self.isKindOfClass(AIHomeViewController.classForCoder()) ||
+            self.isKindOfClass(AIDiscoveryViewController.classForCoder()) ||
+            self.isKindOfClass(AITimelineViewController.classForCoder()) ||
+            self.isKindOfClass(AIFavoritesViewController.classForCoder()) ||
+            self.isKindOfClass(AISelfViewController.classForCoder()){
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOWillShowBarNotification, object: nil)
+        }
+    }
+    
+    
 }

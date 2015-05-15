@@ -34,6 +34,10 @@ struct AIApplication{
             static let Cell = ""
         }
     }
+    struct Notification{
+        static let UIAIASINFOWillShowBarNotification = "UIAIASINFOWillShowBarNotification"
+        static let UIAIASINFOWillhiddenBarNotification = "UIAIASINFOWillhiddenBarNotification"
+    }
     
     // MARK: 系统主题颜色
     struct AIColor {
@@ -53,4 +57,37 @@ struct AIApplication{
         */
         UIApplication.sharedApplication().sendAction(Selector(functionName), to: nil, from: ownerName, forEvent: nil)
     }
+    
+    /*!
+        Application hook viewdidload
+    */
+    static func hookViewDidLoad(){
+        swizzlingMethod(UIViewController.self,
+            oldSelector: "viewDidLoad",
+            newSelector: "viewDidLoadForChangeTitleColor")
+    }
+    
+    /*!
+        Application hookViewDesLoad
+    */
+    static func hookViewWillAppear(){
+        swizzlingMethod(UIViewController.self,
+            oldSelector: "viewDidAppear:",
+            newSelector: "viewWillAppearForShowBottomBar:")
+    }
+    
+    static func hookViewWillDisappear(){
+        swizzlingMethod(UIViewController.self,
+            oldSelector: "viewWillDisappear:",
+            newSelector: "viewWillDisappearForHiddenBottomBar:")
+    }
+    
+    
+    static func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {
+        let oldMethod = class_getInstanceMethod(clzz, oldSelector)
+        let newMethod = class_getInstanceMethod(clzz, newSelector)
+        method_exchangeImplementations(oldMethod, newMethod)
+    }
+    
+    
 }

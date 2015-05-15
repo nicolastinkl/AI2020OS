@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93049D031B04A3270051467A /* AIHomeAvatorViewCell.xib */; };
+		93049D061B04A3420051467A /* AIHomeAvatorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93049D051B04A3420051467A /* AIHomeAvatorViewCell.swift */; };
 		93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93266FAA1AEF80FB00DD0021 /* AIFavoritesViewController.swift */; };
 		93266FB21AEF81E100DD0021 /* AIFavoritsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93266FB11AEF81E100DD0021 /* AIFavoritsCommand.swift */; };
 		933668861AD671A4007556D7 /* AITransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933668851AD671A4007556D7 /* AITransitionManager.swift */; };
@@ -20,7 +22,7 @@
 		933668981AD67979007556D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933668971AD67979007556D7 /* CoreGraphics.framework */; };
 		9336689A1AD67994007556D7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933668991AD67994007556D7 /* AddressBook.framework */; };
 		9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337FF591AD3B9990046F8DC /* AIImageView.swift */; };
-		9337FF5C1AD3DA140046F8DC /* AITESTViewCotnroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337FF5B1AD3DA140046F8DC /* AITESTViewCotnroller.swift */; };
+		9337FF5C1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337FF5B1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift */; };
 		9337FF611AD4097A0046F8DC /* AIUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9337FF601AD4097A0046F8DC /* AIUINavigationController.m */; };
 		933ED3EA1AC8F90A00E4AADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933ED3E91AC8F90A00E4AADB /* AppDelegate.swift */; };
 		933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933ED3F21AC8F90A00E4AADB /* Images.xcassets */; };
@@ -96,6 +98,8 @@
 
 /* Begin PBXFileReference section */
 		185C5C827FF9C9E6B31333B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		93049D031B04A3270051467A /* AIHomeAvatorViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeAvatorViewCell.xib; sourceTree = "<group>"; };
+		93049D051B04A3420051467A /* AIHomeAvatorViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeAvatorViewCell.swift; sourceTree = "<group>"; };
 		93266FAA1AEF80FB00DD0021 /* AIFavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoritesViewController.swift; sourceTree = "<group>"; };
 		93266FB11AEF81E100DD0021 /* AIFavoritsCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoritsCommand.swift; sourceTree = "<group>"; };
 		933668851AD671A4007556D7 /* AITransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITransitionManager.swift; sourceTree = "<group>"; };
@@ -110,7 +114,7 @@
 		933668971AD67979007556D7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		933668991AD67994007556D7 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		9337FF591AD3B9990046F8DC /* AIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIImageView.swift; path = ../Libs/AIImageView.swift; sourceTree = "<group>"; };
-		9337FF5B1AD3DA140046F8DC /* AITESTViewCotnroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITESTViewCotnroller.swift; sourceTree = "<group>"; };
+		9337FF5B1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceDetailsViewCotnroller.swift; sourceTree = "<group>"; };
 		9337FF5F1AD4097A0046F8DC /* AIUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIUINavigationController.h; path = ../Libs/AIUINavigationController.h; sourceTree = "<group>"; };
 		9337FF601AD4097A0046F8DC /* AIUINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIUINavigationController.m; path = ../Libs/AIUINavigationController.m; sourceTree = "<group>"; };
 		933ED3E41AC8F90A00E4AADB /* AI2020OS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AI2020OS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -394,7 +398,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				937055301AEF924A00CEE9A5 /* Cells */,
+				93B75D0C1B048A78005D0CEF /* ServiceDetailView */,
 				93266FAF1AEF815500DD0021 /* Home */,
 				93266FAE1AEF814F00DD0021 /* Discovery */,
 				93266FAD1AEF814700DD0021 /* TimLine */,
@@ -402,7 +406,6 @@
 				93266FA91AEF807A00DD0021 /* Favorites */,
 				93AC3FBB1AC95EBB000024A4 /* Animations */,
 				93F6E14B1ADBC64900CE4062 /* UISearchView */,
-				9337FF5B1AD3DA140046F8DC /* AITESTViewCotnroller.swift */,
 				936D62481AD4D54100609FCD /* AINetworkLoadingViewController.swift */,
 			);
 			name = "View Controllers";
@@ -486,6 +489,8 @@
 		937055301AEF924A00CEE9A5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				93049D031B04A3270051467A /* AIHomeAvatorViewCell.xib */,
+				93049D051B04A3420051467A /* AIHomeAvatorViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -552,6 +557,15 @@
 				93AC3FC51AC95EBB000024A4 /* RAMTransitionItemAnimation.swift */,
 			);
 			path = TransitionAniamtions;
+			sourceTree = "<group>";
+		};
+		93B75D0C1B048A78005D0CEF /* ServiceDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				937055301AEF924A00CEE9A5 /* Cells */,
+				9337FF5B1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift */,
+			);
+			name = ServiceDetailView;
 			sourceTree = "<group>";
 		};
 		93DB59881AE62E5200D1E39C /* AIControls */ = {
@@ -691,6 +705,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
 				933ED3F61AC8F90A00E4AADB /* LaunchScreen.xib in Resources */,
 				933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */,
@@ -819,6 +834,7 @@
 				936DAC201ADCF8510025483B /* SCSiriWaveformView.m in Sources */,
 				937301071ACBEA5A00CA17BC /* UINavigationBar+Awesome.m in Sources */,
 				9349300B1ADD0B6800D81FE2 /* AIAppInit.m in Sources */,
+				93049D061B04A3420051467A /* AIHomeAvatorViewCell.swift in Sources */,
 				9384E3051AF8E39700DA0E39 /* AIFavoritsHandler.swift in Sources */,
 				935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */,
 				936DAC1A1ADCF2D20025483B /* AIISRViewController.m in Sources */,
@@ -832,7 +848,7 @@
 				93CED3DF1AD530C000761B4D /* AIUIViewUtils.swift in Sources */,
 				933668861AD671A4007556D7 /* AITransitionManager.swift in Sources */,
 				93AC3FBA1AC95E6D000024A4 /* AIMainTabBarController.swift in Sources */,
-				9337FF5C1AD3DA140046F8DC /* AITESTViewCotnroller.swift in Sources */,
+				9337FF5C1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift in Sources */,
 				93AC3FD21ACA40A9000024A4 /* AISearchViewController.swift in Sources */,
 				93AC3FCA1AC95EBB000024A4 /* RAMRotationAnimation.swift in Sources */,
 				9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */,

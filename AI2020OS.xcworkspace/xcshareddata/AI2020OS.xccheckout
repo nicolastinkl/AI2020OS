@@ -10,14 +10,14 @@
 	<string>AI2020OS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0BAAC75A2BD0990F28D98247ED0B1173B0D84981</key>
+		<key>88218B3E6AC9BE23B9415C199DDB4591CB70AC3D</key>
 		<string>bitbucket.org:tinkl/2020os.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>AI2020OS.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0BAAC75A2BD0990F28D98247ED0B1173B0D84981</key>
+		<key>88218B3E6AC9BE23B9415C199DDB4591CB70AC3D</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0BAAC75A2BD0990F28D98247ED0B1173B0D84981</string>
+	<string>88218B3E6AC9BE23B9415C199DDB4591CB70AC3D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0BAAC75A2BD0990F28D98247ED0B1173B0D84981</string>
+			<string>88218B3E6AC9BE23B9415C199DDB4591CB70AC3D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>AI2020OS</string>
 		</dict>

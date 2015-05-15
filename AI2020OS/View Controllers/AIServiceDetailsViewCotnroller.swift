@@ -1,5 +1,5 @@
 //
-//  AITESTViewCotnroller.swift
+//  AIServiceDetailsViewCotnroller.swift
 //  AI2020OS
 //
 //  Created by tinkl on 7/4/15.
@@ -8,12 +8,14 @@
 
 import Foundation
 
-class AITESTViewCotnroller: UIViewController,AINetworkLoadingViewDelegate,UITableViewDelegate,  UITableViewDataSource {
+class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDelegate{
 
     @IBOutlet weak var networkLoadingContainerView: UIView!
 
     @IBOutlet weak var tableview: UITableView!
-    
+
+    @IBOutlet weak var detailsPageView: KMDetailsPageView!
+
     var movieDetails:Movie?
     
     private var movieDetailsResponse:AIKMMovie?
@@ -24,12 +26,31 @@ class AITESTViewCotnroller: UIViewController,AINetworkLoadingViewDelegate,UITabl
     private var avatorImage:UIImageView?
     private var nickLabel:UILabel?
     
+    private var scrollViewDragPointsss : CGPoint?
+    
+// #MARK  View Lifecycle 
     override func viewWillAppear(animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
-        
         navigationController?.interactivePopGestureRecognizer.delegate = nil
         super.viewWillAppear(animated)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.detailsPageView.delegate = self
+        self.detailsPageView.tableViewDataSource = self
+        self.detailsPageView.tableViewDelegate = self
+        
+        // register cells
+        var cellNib:UINib = UINib(nibName: "ApplicationCell", bundle: nil)!
+        self.detailsPageView.tableView.registerNib(cellNib, forCellReuseIdentifier: "ApplicationCell")
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        requestMovieDetails()
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -53,19 +74,10 @@ class AITESTViewCotnroller: UIViewController,AINetworkLoadingViewDelegate,UITabl
             if let strongSelf = self{
                 strongSelf.movieDetailsResponse = AIKMMovieS
                 strongSelf.hideLoadingView()
-                strongSelf.reloadHeaderView()
+                strongSelf.detailsPageView.reloadData()
             }
         })
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        requestMovieDetails()
-        
-    }
-    
     
     func reloadHeaderView()
     {
@@ -98,27 +110,72 @@ class AITESTViewCotnroller: UIViewController,AINetworkLoadingViewDelegate,UITabl
         }
     }
     
+}
+
+// MARK  UITableViewDataSource
+extension AIServiceDetailsViewCotnroller : UITableViewDataSource{
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath section: Int) -> CGFloat {
+        return 100
+    }
+}
+
+// MARK  UITableViewDelegate
+extension AIServiceDetailsViewCotnroller : UITableViewDelegate{
     // MARK: TableViewDelegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 10
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell") as UITableViewCell
-        return cell
+        let homeCell = AIHomeAvatorViewCell().homeAvatorViewCell();
+        return homeCell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
-    }
+}
 
+// MARK KMDetailsPageDelegate
+extension AIServiceDetailsViewCotnroller : KMDetailsPageDelegate{
     
+    func detailsPage(detailsPageView: KMDetailsPageView!, headerViewDidLoad headerView: UIView!) {
+        headerView.alpha = 0.0
+        headerView.hidden = true
+    }
+    
+    func detailsPage(detailsPageView: KMDetailsPageView!, imageDataForImageView imageView: UIImageView!) -> UIImageView! {
+        var newImageView = imageView
+        let blockImageview = newImageView.sd_setImageWithURL(self.movieDetailsResponse?.movieOriginalPosterImageUrl?.toURL(), placeholderImage: UIImage(named: "Placeholder")) {
+            if let delegates = detailsPageView.delegate {
+                if delegates.respondsToSelector("headerImageViewFinishedLoading:"){
+                    delegates.headerImageViewFinishedLoading!(newImageView)
+                }
+            }
+        }
+        return blockImageview
+    }
+    
+    func detailsPage(detailsPageView: KMDetailsPageView!, tableViewDidLoad tableView: UITableView!) {
+//        tableview.separatorStyle = UITableViewCellSeparatorStyle.None
+    }
+    
+    func detailsPage(detailsPageView: KMDetailsPageView!, tableViewWillBeginDragging tableView: UITableView!) -> CGPoint {
+        if let point = self.scrollViewDragPointsss{
+            return self.scrollViewDragPointsss!;
+        }
+        return CGPoint(x: 0, y: 0)
+    }
+    
+    func contentModeForImage(imageView: UIImageView!) -> UIViewContentMode {
+        return UIViewContentMode.ScaleAspectFill
+    }
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.scrollViewDragPointsss = scrollView.contentOffset
+    }
     
     
 }
