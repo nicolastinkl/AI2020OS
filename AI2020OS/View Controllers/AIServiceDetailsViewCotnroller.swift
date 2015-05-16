@@ -73,6 +73,9 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     }
     
     
+    @IBAction func showMenuClick(sender: AnyObject) {
+        showMenuViewController()
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let className = NSStringFromClass(AINetworkLoadingViewController).viewControllerClassName()

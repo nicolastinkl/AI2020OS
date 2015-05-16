@@ -1,7 +1,109 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NbP-zF-heK">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="0zj-fu-w7v">
+            <objects>
+                <viewController storyboardIdentifier="AIMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NbP-zF-heK" customClass="AIMenuViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gmZ-xV-mMC"/>
+                        <viewControllerLayoutGuide type="bottom" id="hTC-gk-46O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fTU-Zt-wFG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvi-Co-SAI">
+                                <rect key="frame" x="237" y="92" width="126" height="415"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inr-mQ-n5d">
+                                        <rect key="frame" x="22" y="10" width="83" height="83"/>
+                                        <color key="backgroundColor" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="menu_ico_home">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showHome:" destination="NbP-zF-heK" eventType="touchUpInside" id="kUK-PE-fvz"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="首页" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3R-fQ-mcq">
+                                        <rect key="frame" x="46" y="101" width="34" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoF-sm-Grj">
+                                        <rect key="frame" x="22" y="152" width="83" height="83"/>
+                                        <color key="backgroundColor" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="menu_ico_message">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showMessage:" destination="NbP-zF-heK" eventType="touchUpInside" id="kFU-fE-gZR"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="消息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdK-Om-hHN">
+                                        <rect key="frame" x="46" y="243" width="34" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFv-8i-Fn4">
+                                        <rect key="frame" x="22" y="293" width="83" height="83"/>
+                                        <color key="backgroundColor" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="menu_ico_setting">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showSettings:" destination="NbP-zF-heK" eventType="touchUpInside" id="Zxo-GG-lEG"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gp6-br-bvV">
+                                        <rect key="frame" x="46" y="384" width="34" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="HcS-9x-mMf"/>
+                                    <constraint firstAttribute="height" constant="415" id="PI7-Vl-OFo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="mvi-Co-SAI" secondAttribute="centerX" id="DiW-Yw-DSo"/>
+                            <constraint firstAttribute="centerY" secondItem="mvi-Co-SAI" secondAttribute="centerY" id="PFV-ZP-J1h"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9lA-2F-PgW" appends="YES" id="eLF-7d-IEx"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="menuHomeButton" destination="Inr-mQ-n5d" id="OLF-jO-BF6"/>
+                        <outlet property="menuMessageButton" destination="YoF-sm-Grj" id="I8B-4W-9Mn"/>
+                        <outlet property="menuSettingsButton" destination="UFv-8i-Fn4" id="C9f-Zm-rhU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDV-Rh-aRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="No4-Qe-HBg" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="9lA-2F-PgW">
+                    <connections>
+                        <segue destination="No4-Qe-HBg" kind="unwind" unwindAction="unwindToViewController:" id="kq7-7l-scH"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="689" y="-14"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="menu_ico_home" width="45" height="45"/>
+        <image name="menu_ico_message" width="33" height="31"/>
+        <image name="menu_ico_setting" width="45" height="45"/>
+    </resources>
 </document>

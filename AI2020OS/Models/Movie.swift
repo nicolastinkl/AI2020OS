@@ -56,7 +56,7 @@ struct Movie{
         self.title = decoder["title"]  as? String ?? ""
         self.original_title = decoder["original_title"] as? String ?? ""
         let b_path = decoder["backdrop_path"] as? String ?? ""
-        self.backdrop_path = "http://image.tmdb.org/t/p/w300/" + b_path
+        self.backdrop_path = "http://image.tmdb.org/t/p/w780/" + b_path
         self.poster_path = decoder["poster_path"] as? String ?? ""
         self.release_date = decoder["release_date"] as? String ?? ""
     }

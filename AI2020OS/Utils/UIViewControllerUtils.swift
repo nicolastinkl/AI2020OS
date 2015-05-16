@@ -56,6 +56,13 @@ extension UIViewController {
             self.isKindOfClass(AISelfViewController.classForCoder()){
             NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOWillShowBarNotification, object: nil)
         }
+    } 
+    
+    func showMenuViewController(){
+        //AIMenuStoryboard
+        
+        let menuViewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIMenuStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIMenuViewController) as AIMenuViewController
+        self.showDetailViewController(menuViewController, sender: self)
     }
     
     

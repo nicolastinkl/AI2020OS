@@ -25,9 +25,18 @@ struct AIApplication{
     
     // MARK: 所有ViewController Identifiers
     struct MainStoryboard {
+        
+        struct MainStoryboardIdentifiers {
+            static let AIMainStoryboard             = "AIMainStoryboard"
+            static let AILoginStoryboard            = "AILoginStoryboard"
+            static let AILoadingStoryboard          = "AILoadingStoryboard"
+            static let AIMenuStoryboard             = "AIMenuStoryboard"
+        }
+        
         struct ViewControllerIdentifiers {
-            static let listViewController = "listViewController"
-            static let favoritsTableViewController = "AIFavoritsTableViewController"
+            static let listViewController           = "listViewController"
+            static let favoritsTableViewController  = "AIFavoritsTableViewController"
+            static let AIMenuViewController         = "AIMenuViewController"
         }
         
         struct CellIdentifiers {
@@ -39,7 +48,7 @@ struct AIApplication{
         }
         
         struct ViewIdentifiers {
-            static let AIOrderBuyView = "AIOrderBuyView"
+            static let AIOrderBuyView           = "AIOrderBuyView"
         }
     }
     
