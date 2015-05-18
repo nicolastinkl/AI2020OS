@@ -96,7 +96,7 @@ struct AIKMMovie {
         self.movieOriginalBackdropImageUrl = "http://image.tmdb.org/t/p/w300/" + b_path
 
         let p_path = decoder["poster_path"] as? String ?? ""
-        self.movieOriginalPosterImageUrl = "http://image.tmdb.org/t/p/w300/" + p_path
+        self.movieOriginalPosterImageUrl = "http://image.tmdb.org/t/p/w780/" + p_path
         
         self.movieThumbnailBackdropImageUrl = "http://image.tmdb.org/t/p/w92/" + b_path
         self.movieThumbnailPosterImageUrl = "http://image.tmdb.org/t/p/w92/" + p_path

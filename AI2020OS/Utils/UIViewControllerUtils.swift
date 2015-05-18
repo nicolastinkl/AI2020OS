@@ -62,7 +62,9 @@ extension UIViewController {
         //AIMenuStoryboard
         
         let menuViewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIMenuStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIMenuViewController) as AIMenuViewController
+        menuViewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
         self.showDetailViewController(menuViewController, sender: self)
+//        menuViewController.transitioningDelegate = AITransitionManagerMenuAnimation()
     }
     
     

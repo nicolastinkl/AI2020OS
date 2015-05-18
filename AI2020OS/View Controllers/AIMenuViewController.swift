@@ -39,16 +39,19 @@ class AIMenuViewController: UIViewController {
         
     }
     
-     // MARK: animation with viewCotroller
+    // MARK: animation with viewCotroller
     
-    //重写动画
-    override func transitionFromViewController(fromViewController: UIViewController, toViewController: UIViewController, duration: NSTimeInterval, options: UIViewAnimationOptions, animations: () -> Void, completion: ((Bool) -> Void)?) {
+    /*override func transitionFromViewController(fromViewController: UIViewController, toViewController: UIViewController, duration: NSTimeInterval, options: UIViewAnimationOptions, animations: () -> Void, completion: ((Bool) -> Void)?) {
+        // create a tuple of our screens
+        let screens : (from:UIViewController, to:UIViewController) = (transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
         
-    }
+        // assign references to our menu view controller and the 'bottom' view controller from the tuple
+        // remember that our menuViewController will alternate between the from and to view controller depending if we're presenting or dismissing
+        let menuViewController = !self.presenting ? screens.from as UIViewController : screens.to as UIViewController
+        let bottomViewController = !self.presenting ? screens.to as UIViewController : screens.from as UIViewController
+        
+        let menuView = menuViewController.view
+        let bottomView = bottomViewController.view
+    }*/
     
-    // TODO: and
-    
-    
-    
-    // FIXME:
 }

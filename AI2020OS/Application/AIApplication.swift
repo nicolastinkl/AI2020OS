@@ -49,6 +49,7 @@ struct AIApplication{
         
         struct ViewIdentifiers {
             static let AIOrderBuyView           = "AIOrderBuyView"
+            static let AILoginViewController    = "AILoginViewController"
         }
     }
     
@@ -56,6 +57,8 @@ struct AIApplication{
     struct Notification{
         static let UIAIASINFOWillShowBarNotification    = "UIAIASINFOWillShowBarNotification"
         static let UIAIASINFOWillhiddenBarNotification  = "UIAIASINFOWillhiddenBarNotification"
+        static let UIAIASINFOLoginNotification          = "UIAIASINFOLoginNotification"
+        static let UIAIASINFOLogOutNotification         = "UIAIASINFOLogOutNotification"
     }
     
     // MARK: 系统主题颜色

@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="-34" y="315"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="AIb-76-iKM">
             <objects>
-                <viewController id="CX8-re-LJj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CX8-re-LJj" customClass="LoginViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g6W-qy-VG2"/>
                         <viewControllerLayoutGuide type="bottom" id="SGK-nH-hde"/>

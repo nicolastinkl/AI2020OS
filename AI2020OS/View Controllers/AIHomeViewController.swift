@@ -43,6 +43,8 @@ class AIHomeViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+        
+        
     }
     
     

@@ -2,20 +2,29 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NbP-zF-heK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Menu View Controller-->
         <scene sceneID="0zj-fu-w7v">
             <objects>
-                <viewController storyboardIdentifier="AIMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NbP-zF-heK" customClass="AIMenuViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AIMenuViewController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NbP-zF-heK" customClass="AIMenuViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gmZ-xV-mMC"/>
                         <viewControllerLayoutGuide type="bottom" id="hTC-gk-46O"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fTU-Zt-wFG">
+                    <view key="view" alpha="0.94999999999999996" contentMode="scaleToFill" id="fTU-Zt-wFG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTp-e8-o9t">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="geC-k3-JiR">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvi-Co-SAI">
                                 <rect key="frame" x="237" y="92" width="126" height="415"/>
                                 <subviews>
@@ -79,6 +88,10 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="mvi-Co-SAI" secondAttribute="centerX" id="DiW-Yw-DSo"/>
                             <constraint firstAttribute="centerY" secondItem="mvi-Co-SAI" secondAttribute="centerY" id="PFV-ZP-J1h"/>
+                            <constraint firstItem="MTp-e8-o9t" firstAttribute="leading" secondItem="fTU-Zt-wFG" secondAttribute="leadingMargin" constant="-16" id="Qz0-IU-HfJ"/>
+                            <constraint firstItem="MTp-e8-o9t" firstAttribute="top" secondItem="gmZ-xV-mMC" secondAttribute="bottom" constant="-20" id="ahK-v1-Stx"/>
+                            <constraint firstItem="hTC-gk-46O" firstAttribute="top" secondItem="MTp-e8-o9t" secondAttribute="bottom" id="fcU-wS-fSG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MTp-e8-o9t" secondAttribute="trailing" constant="-16" id="gwn-0k-che"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="9lA-2F-PgW" appends="YES" id="eLF-7d-IEx"/>
