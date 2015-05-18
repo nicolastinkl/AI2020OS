@@ -15,6 +15,7 @@ import Foundation
 *  NOTICE:Changing this property’s value provides visual feedback in the user interface, including the running of any associated animations. The selected item displays the tab bar item’s selectedImage image, using the tab bar’s selectedImageTintColor value. To prevent system coloring of an item, provide images using the UIImageRenderingModeAlwaysOriginal rendering mode.
 */
 extension UIViewController {
+    
     func viewDidLoadForChangeTitleColor() {
         self.viewDidLoadForChangeTitleColor()
         //setNeedsStatusBarAppearanceUpdate()
@@ -44,7 +45,7 @@ extension UIViewController {
             self.isKindOfClass(AIFavoritesViewController.classForCoder()) ||
             self.isKindOfClass(AISelfViewController.classForCoder()) {
             NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOWillhiddenBarNotification, object: nil)
-        }
+       }
     }
     
     func viewWillAppearForShowBottomBar(animated: Bool){
@@ -59,12 +60,11 @@ extension UIViewController {
     } 
     
     func showMenuViewController(){
-        //AIMenuStoryboard
         
         let menuViewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIMenuStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIMenuViewController) as AIMenuViewController
         menuViewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
         self.showDetailViewController(menuViewController, sender: self)
-//        menuViewController.transitioningDelegate = AITransitionManagerMenuAnimation()
+        
     }
     
     

@@ -23,10 +23,10 @@ class LoginAction : NSObject, AILoginViewControllerDelegate {
         super.init()
         loginHandler = completion
         let loginViewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AILoginViewController) as AILoginViewController
-        loginViewController.modalPresentationStyle = .OverCurrentContext
-        loginViewController.modalTransitionStyle = .CrossDissolve
+        loginViewController.modalPresentationStyle = .OverFullScreen
         loginViewController.delegate = self
-        viewController.presentViewController(loginViewController, animated: false, completion: nil)
+        //viewController.presentViewController(loginViewController, animated: false, completion: nil)
+        viewController.showDetailViewController(loginViewController, sender: nil)
     }
     
     func didLogin(completion: LoginHandler) {
@@ -39,6 +39,8 @@ class LoginAction : NSObject, AILoginViewControllerDelegate {
     }
 }
 
+// TODO: LogoutAction
+
 class LogoutAction : NSObject {
     
     override init() {
@@ -47,6 +49,8 @@ class LogoutAction : NSObject {
         NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOLogOutNotification, object: nil)
     }
 }
+
+// TODO: LoginStateHandler
 
 class LoginStateHandler : NSObject {
     

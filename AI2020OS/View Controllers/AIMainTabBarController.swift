@@ -10,31 +10,12 @@ import Foundation
 import UIKit
 import Spring
 
+
+
+/*
 class RAMAnimatedTabBarItem: UITabBarItem {
     
-    @IBOutlet weak var animation: RAMItemAnimation!
-    @IBInspectable var textColor: UIColor = UIColor.whiteColor()
-    
-    
-    func playAnimation(icon: UIImageView, textLabel: UILabel) {
-        
-        assert(animation != nil, "add animation in UITabBarItem")
-        if animation != nil {
-            animation.playAnimation(icon, textLabel: textLabel)
-        }
-    }
-    
-    func deselectAnimation(icon: UIImageView, textLabel: UILabel) {
-        if animation != nil {
-            animation.deselectAnimation(icon, textLabel: textLabel, defaultTextColor: textColor)
-        }
-    }
-    
-    func selectedState(icon: UIImageView, textLabel: UILabel) {
-        if animation != nil {
-            animation.selectedState(icon, textLabel: textLabel)
-        }
-    }
+   
 }
 
 class AIMainTabBarController: UITabBarController {
@@ -284,4 +265,4 @@ class AIMainTabBarController: UITabBarController {
     }
     
 }
-
+*/

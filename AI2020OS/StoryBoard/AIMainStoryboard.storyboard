@@ -120,7 +120,7 @@
         <!--Service Details View Cotnroller-->
         <scene sceneID="eXT-bU-3Vt">
             <objects>
-                <viewController storyboardIdentifier="TESTVIEWCONTTROLLER" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aMn-dT-4gL" customClass="AIServiceDetailsViewCotnroller" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TESTVIEWCONTTROLLER" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aMn-dT-4gL" customClass="AIServiceDetailsViewCotnroller" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AQp-Ha-XYC"/>
                         <viewControllerLayoutGuide type="bottom" id="UCs-hZ-Y2B"/>
@@ -340,16 +340,7 @@
         <scene sceneID="UBJ-ge-w3S">
             <objects>
                 <navigationController id="JDt-wj-Qhy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="home_tab_home" id="rVm-EF-hgj" customClass="RAMAnimatedTabBarItem" customModule="AI2020OS" customModuleProvider="target">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="9II-W2-lzZ" id="hzr-SQ-7d7"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="首页" image="home_tab_home" id="rVm-EF-hgj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qTI-zJ-fHO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -359,36 +350,39 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8t-ml-FzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="9II-W2-lzZ" customClass="RAMFlipLeftTransitionItemAniamtions" customModule="AI2020OS" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.0" green="0.80784313725490198" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="1329" y="-286"/>
         </scene>
-        <!--Main Tab Bar Controller-->
+        <!--Designable Tab Bar Controller-->
         <scene sceneID="xsn-Bh-hRn">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="nom-2e-QSc" customClass="AIMainTabBarController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="nom-2e-QSc" customClass="DesignableTabBarController" customModule="Spring" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="Tabbar_background" id="WWH-1o-mqA">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="normalTint">
+                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedTint">
+                            <color key="value" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="image" keyPath="firstSelectedImage" value="home_tab_home"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="secondSelectedImage" value="home_tab_discover"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="fourthSelectedImage" value="home_favorite_normal"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="fifthSelectedImage" value="home_tab_userpage"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="thirdSelectedImage" value="home_tab_timeline"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="JDt-wj-Qhy" kind="relationship" relationship="viewControllers" id="fXj-qf-FHe"/>
                         <segue destination="q57-6z-ybH" kind="relationship" relationship="viewControllers" id="RfZ-01-I4l"/>
-                        <segue destination="lnR-KP-hAe" kind="relationship" relationship="viewControllers" id="kVS-8p-ImR"/>
                         <segue destination="KvX-yt-xhR" kind="relationship" relationship="viewControllers" id="LTA-wg-3Fz"/>
+                        <segue destination="lnR-KP-hAe" kind="relationship" relationship="viewControllers" id="kVS-8p-ImR"/>
                         <segue destination="WMV-8y-dry" kind="relationship" relationship="viewControllers" id="UjF-pZ-Kd7"/>
                     </connections>
                 </tabBarController>
@@ -400,16 +394,7 @@
         <scene sceneID="vXD-85-gBA">
             <objects>
                 <navigationController id="lnR-KP-hAe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="收藏夹" image="home_favorite_normal" id="Jm4-XV-0uO" customClass="RAMAnimatedTabBarItem" customModule="AI2020OS" customModuleProvider="target">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="WT4-z7-xgS" id="h5x-uo-2su"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="收藏夹" image="home_favorite_normal" id="Jm4-XV-0uO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fmq-B9-UwZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -419,16 +404,6 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yka-Hh-Le5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="WT4-z7-xgS" customClass="RAMFlipLeftTransitionItemAniamtions" customModule="AI2020OS" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="-321" y="999"/>
         </scene>
@@ -582,16 +557,7 @@
         <scene sceneID="WKx-86-RKL">
             <objects>
                 <navigationController title="发现" id="q57-6z-ybH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="发现" image="home_tab_discover" id="NaB-dM-dcC" customClass="RAMAnimatedTabBarItem" customModule="AI2020OS" customModuleProvider="target">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="wja-pZ-gPh" id="zKy-tt-yuc"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="发现" image="home_tab_discover" id="NaB-dM-dcC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jLZ-As-oZe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -601,16 +567,6 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEN-cL-DWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="wja-pZ-gPh" customClass="RAMFlipLeftTransitionItemAniamtions" customModule="AI2020OS" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="1329" y="450"/>
         </scene>
@@ -645,16 +601,7 @@
         <scene sceneID="Jpz-dS-XXk">
             <objects>
                 <navigationController title="时间线" id="KvX-yt-xhR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="时间线" image="home_tab_timeline" id="Emp-Qp-qiA" customClass="RAMAnimatedTabBarItem" customModule="AI2020OS" customModuleProvider="target">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="pcv-Qa-wNe" id="IuT-Vo-9H9"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="时间线" image="home_tab_timeline" id="Emp-Qp-qiA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bgB-s0-dkr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -664,16 +611,6 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZQ-OZ-kUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="pcv-Qa-wNe" customClass="RAMFlipLeftTransitionItemAniamtions" customModule="AI2020OS" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="1329" y="1252"/>
         </scene>
@@ -1348,16 +1285,7 @@
         <scene sceneID="4Vm-B4-btl">
             <objects>
                 <navigationController title="我" id="WMV-8y-dry" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" image="home_tab_userpage" id="DeB-Uu-RAZ" customClass="RAMAnimatedTabBarItem" customModule="AI2020OS" customModuleProvider="target">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="7t4-Dz-mbh" id="30G-tS-38b"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="我" image="home_tab_userpage" id="DeB-Uu-RAZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UTm-E9-Lvs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1367,16 +1295,6 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q80-Gf-s4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="7t4-Dz-mbh" customClass="RAMFlipLeftTransitionItemAniamtions" customModule="AI2020OS" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="487" y="2066"/>
         </scene>

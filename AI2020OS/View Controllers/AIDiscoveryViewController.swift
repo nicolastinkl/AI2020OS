@@ -21,6 +21,8 @@ class AIDiscoveryViewController: UIViewController , RAReorderableLayoutDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "发现"
+        
         let nib = UINib(nibName: "verticalCell", bundle: nil)
         self.collectionView.registerNib(nib, forCellWithReuseIdentifier: "cell")
         self.collectionView.delegate = self

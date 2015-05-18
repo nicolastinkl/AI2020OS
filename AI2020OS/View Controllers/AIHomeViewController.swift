@@ -14,13 +14,19 @@ import Spring
 class AIHomeViewController: UITableViewController {
     
     @IBOutlet var tableview: UITableView!
+
     private var stories = [Movie]()
     
     private var weatherValue:WeatherModel?
+
+    private var loginAction : LoginAction?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         Async.userInteractive{
+        self.title = "首页"
+        
+        Async.userInteractive{
             AIHttpEngine.weatherForLocation({ weather in
                 let resualt: WeatherModel = weather
                 self.weatherValue = resualt
@@ -34,7 +40,7 @@ class AIHomeViewController: UITableViewController {
                     weatherLabel?.text = "现在是\(weak),天气\(weather1)"
                 }
             })
-            }
+        }
         
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
@@ -45,6 +51,12 @@ class AIHomeViewController: UITableViewController {
         }
         
         
+        if let token = AILocalStore.accessToken() {
+            
+        }else
+        {
+            self.loginAction = LoginAction(viewController: self, completion: nil)
+        }
     }
     
     

@@ -62,12 +62,6 @@
 		939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F4BD41AD6648000CE530C /* AIAudioViewController.swift */; };
 		93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93AC3FB71AC95E03000024A4 /* AIMainStoryboard.storyboard */; };
 		93AC3FBA1AC95E6D000024A4 /* AIMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FB91AC95E6D000024A4 /* AIMainTabBarController.swift */; };
-		93AC3FC71AC95EBB000024A4 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FBD1AC95EBB000024A4 /* RAMBounceAnimation.swift */; };
-		93AC3FC81AC95EBB000024A4 /* RAMFrameItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FBF1AC95EBB000024A4 /* RAMFrameItemAnimation.swift */; };
-		93AC3FC91AC95EBB000024A4 /* RAMFumeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FC11AC95EBB000024A4 /* RAMFumeAnimation.swift */; };
-		93AC3FCA1AC95EBB000024A4 /* RAMRotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FC31AC95EBB000024A4 /* RAMRotationAnimation.swift */; };
-		93AC3FCB1AC95EBB000024A4 /* RAMTransitionItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FC51AC95EBB000024A4 /* RAMTransitionItemAnimation.swift */; };
-		93AC3FCC1AC95EBB000024A4 /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FC61AC95EBB000024A4 /* RAMItemAnimationProtocol.swift */; };
 		93AC3FCE1AC960BA000024A4 /* AIDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FCD1AC960BA000024A4 /* AIDiscoveryViewController.swift */; };
 		93AC3FD01ACA402A000024A4 /* AIHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FCF1ACA402A000024A4 /* AIHomeViewController.swift */; };
 		93AC3FD21ACA40A9000024A4 /* AISearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FD11ACA40A9000024A4 /* AISearchViewController.swift */; };
@@ -181,12 +175,6 @@
 		939F4BD41AD6648000CE530C /* AIAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioViewController.swift; sourceTree = "<group>"; };
 		93AC3FB71AC95E03000024A4 /* AIMainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIMainStoryboard.storyboard; sourceTree = "<group>"; };
 		93AC3FB91AC95E6D000024A4 /* AIMainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMainTabBarController.swift; sourceTree = "<group>"; };
-		93AC3FBD1AC95EBB000024A4 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
-		93AC3FBF1AC95EBB000024A4 /* RAMFrameItemAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMFrameItemAnimation.swift; sourceTree = "<group>"; };
-		93AC3FC11AC95EBB000024A4 /* RAMFumeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMFumeAnimation.swift; sourceTree = "<group>"; };
-		93AC3FC31AC95EBB000024A4 /* RAMRotationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMRotationAnimation.swift; sourceTree = "<group>"; };
-		93AC3FC51AC95EBB000024A4 /* RAMTransitionItemAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMTransitionItemAnimation.swift; sourceTree = "<group>"; };
-		93AC3FC61AC95EBB000024A4 /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
 		93AC3FCD1AC960BA000024A4 /* AIDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIDiscoveryViewController.swift; sourceTree = "<group>"; };
 		93AC3FCF1ACA402A000024A4 /* AIHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeViewController.swift; sourceTree = "<group>"; };
 		93AC3FD11ACA40A9000024A4 /* AISearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchViewController.swift; sourceTree = "<group>"; };
@@ -326,7 +314,6 @@
 		93266FAF1AEF815500DD0021 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				93AC3FC61AC95EBB000024A4 /* RAMItemAnimationProtocol.swift */,
 				93AC3FB91AC95E6D000024A4 /* AIMainTabBarController.swift */,
 				93AC3FCF1ACA402A000024A4 /* AIHomeViewController.swift */,
 			);
@@ -564,54 +551,9 @@
 		93AC3FBB1AC95EBB000024A4 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				93AC3FBC1AC95EBB000024A4 /* BounceAnimation */,
-				93AC3FBE1AC95EBB000024A4 /* FrameAnimation */,
-				93AC3FC01AC95EBB000024A4 /* FumeAnimation */,
-				93AC3FC21AC95EBB000024A4 /* RotationAnimation */,
-				93AC3FC41AC95EBB000024A4 /* TransitionAniamtions */,
 				933668851AD671A4007556D7 /* AITransitionManager.swift */,
 			);
 			path = Animations;
-			sourceTree = "<group>";
-		};
-		93AC3FBC1AC95EBB000024A4 /* BounceAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				93AC3FBD1AC95EBB000024A4 /* RAMBounceAnimation.swift */,
-			);
-			path = BounceAnimation;
-			sourceTree = "<group>";
-		};
-		93AC3FBE1AC95EBB000024A4 /* FrameAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				93AC3FBF1AC95EBB000024A4 /* RAMFrameItemAnimation.swift */,
-			);
-			path = FrameAnimation;
-			sourceTree = "<group>";
-		};
-		93AC3FC01AC95EBB000024A4 /* FumeAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				93AC3FC11AC95EBB000024A4 /* RAMFumeAnimation.swift */,
-			);
-			path = FumeAnimation;
-			sourceTree = "<group>";
-		};
-		93AC3FC21AC95EBB000024A4 /* RotationAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				93AC3FC31AC95EBB000024A4 /* RAMRotationAnimation.swift */,
-			);
-			path = RotationAnimation;
-			sourceTree = "<group>";
-		};
-		93AC3FC41AC95EBB000024A4 /* TransitionAniamtions */ = {
-			isa = PBXGroup;
-			children = (
-				93AC3FC51AC95EBB000024A4 /* RAMTransitionItemAnimation.swift */,
-			);
-			path = TransitionAniamtions;
 			sourceTree = "<group>";
 		};
 		93B75D0C1B048A78005D0CEF /* ServiceDetailView */ = {
@@ -899,7 +841,6 @@
 				93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */,
 				935F38701ACD27DF004BE0E7 /* Movie.swift in Sources */,
 				93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */,
-				93AC3FCB1AC95EBB000024A4 /* RAMTransitionItemAnimation.swift in Sources */,
 				93D80A441ACA71DA004BC7C0 /* AILocalStore.swift in Sources */,
 				93266FB21AEF81E100DD0021 /* AIFavoritsCommand.swift in Sources */,
 				93FA15451AE66F95006BA310 /* WeatherModel.swift in Sources */,
@@ -912,7 +853,6 @@
 				93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */,
 				9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */,
 				93692C971ACAA52A00D66211 /* Async.swift in Sources */,
-				93AC3FC91AC95EBB000024A4 /* RAMFumeAnimation.swift in Sources */,
 				93CB34621AE5F26100D49FB2 /* AIImage.swift in Sources */,
 				936DAC201ADCF8510025483B /* SCSiriWaveformView.m in Sources */,
 				937301071ACBEA5A00CA17BC /* UINavigationBar+Awesome.m in Sources */,
@@ -928,8 +868,6 @@
 				933ED43B1AC92C3300E4AADB /* AIApplication.swift in Sources */,
 				93DE16B31B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift in Sources */,
 				936D62491AD4D54100609FCD /* AINetworkLoadingViewController.swift in Sources */,
-				93AC3FCC1AC95EBB000024A4 /* RAMItemAnimationProtocol.swift in Sources */,
-				93AC3FC71AC95EBB000024A4 /* RAMBounceAnimation.swift in Sources */,
 				93AC3FD61ACA40ED000024A4 /* AISelfViewController.swift in Sources */,
 				93CED3DF1AD530C000761B4D /* AIUIViewUtils.swift in Sources */,
 				933668861AD671A4007556D7 /* AITransitionManager.swift in Sources */,
@@ -937,10 +875,8 @@
 				93AC3FBA1AC95E6D000024A4 /* AIMainTabBarController.swift in Sources */,
 				9337FF5C1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift in Sources */,
 				93AC3FD21ACA40A9000024A4 /* AISearchViewController.swift in Sources */,
-				93AC3FCA1AC95EBB000024A4 /* RAMRotationAnimation.swift in Sources */,
 				9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */,
 				9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */,
-				93AC3FC81AC95EBB000024A4 /* RAMFrameItemAnimation.swift in Sources */,
 				933ED3EA1AC8F90A00E4AADB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

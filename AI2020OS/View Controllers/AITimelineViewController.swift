@@ -15,6 +15,9 @@ class AITimelineViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "时间线"
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     

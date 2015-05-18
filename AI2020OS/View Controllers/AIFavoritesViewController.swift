@@ -37,6 +37,8 @@ class AIFavoritesViewController : UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "收藏夹"
+        
         view.backgroundColor = UIColor.whiteColor()
         
         dataSource = self

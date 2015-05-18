@@ -18,6 +18,9 @@ class AISelfViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "我的"
+        
         // Do any additional setup after loading the view, typically from a nib.
         
 //        let headerview = self.tableview.tableHeaderView as UIView?

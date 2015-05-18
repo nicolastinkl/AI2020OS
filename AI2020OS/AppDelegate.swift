@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Hook Viewdidview and ViewDidDisappear.
         AIApplication.hookViewDidLoad()
-        AIApplication.hookViewWillAppear()
-        AIApplication.hookViewWillDisappear()
+        //AIApplication.hookViewWillAppear()
+        //AIApplication.hookViewWillDisappear()
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     
