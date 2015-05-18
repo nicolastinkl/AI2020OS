@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2954252781DA85C8DA5935C8"
+               BlueprintIdentifier = "63F94B4163ECB3AF7F184960"
                BuildableName = "JSQNotificationObserverKit.framework"
                BlueprintName = "Pods-JSQNotificationObserverKit"
                ReferencedContainer = "container:Pods.xcodeproj">

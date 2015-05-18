@@ -22,11 +22,9 @@ class LoginAction : NSObject, AILoginViewControllerDelegate {
     init(viewController: UIViewController, completion: LoginHandler?) {
         super.init()
         loginHandler = completion
-        let loginViewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AILoginViewController) as AILoginViewController
-        loginViewController.modalPresentationStyle = .OverFullScreen
-        loginViewController.delegate = self
-        //viewController.presentViewController(loginViewController, animated: false, completion: nil)
-        viewController.showDetailViewController(loginViewController, sender: nil)
+        let storyBoard:UIStoryboard = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil)
+        let viewNavi = storyBoard.instantiateInitialViewController() as UINavigationController
+        viewController.presentViewController(viewNavi, animated: false, completion: nil)
     }
     
     func didLogin(completion: LoginHandler) {

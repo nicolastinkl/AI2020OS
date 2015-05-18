@@ -53,10 +53,12 @@ class AIHomeViewController: UITableViewController {
         
         if let token = AILocalStore.accessToken() {
             
-        }else
-        {
-            self.loginAction = LoginAction(viewController: self, completion: nil)
+        }else{
+            
         }
+        
+        self.loginAction = LoginAction(viewController: self, completion: nil)
+        
     }
     
     

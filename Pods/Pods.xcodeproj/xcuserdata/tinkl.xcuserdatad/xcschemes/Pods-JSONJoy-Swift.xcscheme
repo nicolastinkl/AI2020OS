@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F38431E26C4BF35DC9DA6D12"
+               BlueprintIdentifier = "07E324252D2E128A2F0F57D9"
                BuildableName = "JSONJoy.framework"
                BlueprintName = "Pods-JSONJoy-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">

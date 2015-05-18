@@ -42,6 +42,7 @@
 		933ED4381AC92B6700E4AADB /* AIBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 933ED4371AC92B6700E4AADB /* AIBridge.m */; };
 		933ED43B1AC92C3300E4AADB /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933ED43A1AC92C3300E4AADB /* AIApplication.swift */; };
 		9349300B1ADD0B6800D81FE2 /* AIAppInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9349300A1ADD0B6800D81FE2 /* AIAppInit.m */; };
+		934986F61B0A1135003086D1 /* AIRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934986F51B0A1135003086D1 /* AIRegisterViewController.swift */; };
 		935A25771AE79AF10089B240 /* AIServicesRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A25761AE79AF10089B240 /* AIServicesRequester.swift */; };
 		935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935F386D1ACD266F004BE0E7 /* AIHttpEngine.swift */; };
 		935F38701ACD27DF004BE0E7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935F386F1ACD27DF004BE0E7 /* Movie.swift */; };
@@ -149,6 +150,7 @@
 		933ED43A1AC92C3300E4AADB /* AIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIApplication.swift; sourceTree = "<group>"; };
 		934930091ADD0B6800D81FE2 /* AIAppInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAppInit.h; sourceTree = "<group>"; };
 		9349300A1ADD0B6800D81FE2 /* AIAppInit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAppInit.m; sourceTree = "<group>"; };
+		934986F51B0A1135003086D1 /* AIRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRegisterViewController.swift; sourceTree = "<group>"; };
 		935A25761AE79AF10089B240 /* AIServicesRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServicesRequester.swift; sourceTree = "<group>"; };
 		935F386D1ACD266F004BE0E7 /* AIHttpEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHttpEngine.swift; sourceTree = "<group>"; };
 		935F386F1ACD27DF004BE0E7 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			children = (
 				9301B0791B0998C700C1EE79 /* AILoginViewController.swift */,
 				9301B07B1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift */,
+				934986F51B0A1135003086D1 /* AIRegisterViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 				9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */,
 				9337FF611AD4097A0046F8DC /* AIUINavigationController.m in Sources */,
 				9370552F1AEF916900CEE9A5 /* AIFavoritsTableViewController.swift in Sources */,
+				934986F61B0A1135003086D1 /* AIRegisterViewController.swift in Sources */,
 				93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */,
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
 				93AC3FD41ACA40C8000024A4 /* AITimelineViewController.swift in Sources */,

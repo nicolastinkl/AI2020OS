@@ -102,15 +102,11 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
                 strongSelf.fillViews()
             }
         })
-        
     }
     
     func fillViews(){
         self.detailsPageView.navBarView = self.navigationBarView
-//        var controlView = AIOrderBuyView().currentViewCell()
-//        self.orderViewContain.addSubview(controlView)
-//        controlView.frame.width  == self.view.frame.width
-        
+        self.orderViewContain.hidden = false
     }
     
     func reloadHeaderView()

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "30ACFB79835DF6AC7717A0DD"
-               BuildableName = "AwesomeCache.framework"
-               BlueprintName = "Pods-AwesomeCache"
+               BlueprintIdentifier = "86BF60A5A131203D74C73041"
+               BuildableName = "SCLAlertView.framework"
+               BlueprintName = "Pods-SCLAlertView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

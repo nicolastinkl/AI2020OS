@@ -42,6 +42,12 @@
 #define COCOAPODS_VERSION_MINOR_JSQNotificationObserverKit 0
 #define COCOAPODS_VERSION_PATCH_JSQNotificationObserverKit 0
 
+// SCLAlertView
+#define COCOAPODS_POD_AVAILABLE_SCLAlertView
+#define COCOAPODS_VERSION_MAJOR_SCLAlertView 0
+#define COCOAPODS_VERSION_MINOR_SCLAlertView 3
+#define COCOAPODS_VERSION_PATCH_SCLAlertView 1
+
 // Spring
 #define COCOAPODS_POD_AVAILABLE_Spring
 #define COCOAPODS_VERSION_MAJOR_Spring 1

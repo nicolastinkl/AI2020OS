@@ -24,6 +24,7 @@ pod 'JSQNotificationObserverKit'
 # UI/UX
 pod 'Spring', '~> 1.0.1'
 pod 'Cartography', '~> 0.4.0'
+pod 'SCLAlertView', '~> 0.3.1'
 
 
 #AVOSCloud 已经通过文件方式添加

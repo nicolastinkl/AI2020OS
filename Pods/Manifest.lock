@@ -5,6 +5,7 @@ PODS:
   - CryptoSwift (0.0.8)
   - JSONJoy-Swift (0.9.1)
   - JSQNotificationObserverKit (1.0.0)
+  - SCLAlertView (0.3.1)
   - Spring (1.0.2)
   - SwiftLog (0.9.1)
   - SwiftyUserDefaults (1.1.0)
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - CryptoSwift (~> 0.0.8)
   - JSONJoy-Swift (~> 0.9.1)
   - JSQNotificationObserverKit
+  - SCLAlertView (~> 0.3.1)
   - Spring (~> 1.0.1)
   - SwiftLog (~> 0.9.1)
   - SwiftyUserDefaults (~> 1.1.0)
@@ -29,6 +31,7 @@ SPEC CHECKSUMS:
   CryptoSwift: 6d1b93af5b48e02e57366bfad28b00170af405ee
   JSONJoy-Swift: 97441093ca05590e0fd2c860734e9528efc96fdc
   JSQNotificationObserverKit: f1c86b08ca3a0f505e610e1e9f348db960ebf766
+  SCLAlertView: 3fa76c45826177a02e272c29a9e992585faa189a
   Spring: b9c8a315befd509c531701f2edc4405ab9d00bad
   SwiftLog: 82dc4ef232f2029efd76bc7a4f922d5a5b065f8c
   SwiftyUserDefaults: ae600cd466daa1420a058d09aefbf45ccb6caf1e

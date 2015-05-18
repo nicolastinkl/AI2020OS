@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E1FFC064152AEE6FBE2FA32D"
+               BlueprintIdentifier = "364B82B4A6D058C74C70ACEB"
                BuildableName = "SwiftLog.framework"
                BlueprintName = "Pods-SwiftLog"
                ReferencedContainer = "container:Pods.xcodeproj">
