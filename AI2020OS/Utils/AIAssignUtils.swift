@@ -19,5 +19,9 @@ extension String{
         return classNameSS;
     }
     
+    var localized: String {
+        return NSLocalizedString(self, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+    }
+    
     
 }

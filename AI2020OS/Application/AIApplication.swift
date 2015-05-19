@@ -40,11 +40,17 @@ struct AIApplication{
         }
         
         struct CellIdentifiers {
+            
+            // MARK: HOME
             static let AIHomeSDAvatorViewCell   = "AIHomeAvatorViewCell"    // avator
             static let AIHomeSDDefaultViewCell  = "AIHomeSDDefaultViewCell" // price
             static let AIHomeSDDesViewCell      = "AIHomeSDDesViewCell"     // description
             static let AIHomeSDCommentViewCell  = "AIHomeSDCommentViewCell" // comment list
             static let AIHomeSDParamesViewCell  = "AIHomeSDParamesViewCell" // params
+            
+            // MARK: TIME LINE
+            static let AITIMELINESDTimesViewCell        = "AITIMELINESDTimesViewCell"
+            static let AITIMELINESDContentViewCell      = "AITIMELINESDContentViewCell"
         }
         
         struct ViewIdentifiers {

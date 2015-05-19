@@ -497,16 +497,99 @@
         <scene sceneID="37O-Dx-Wq9">
             <objects>
                 <tableViewController id="4wf-Wf-RcJ" customClass="AITimelineViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="134" sectionHeaderHeight="22" sectionFooterHeight="22" id="n4f-gn-1QZ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="107" sectionHeaderHeight="22" sectionFooterHeight="22" id="n4f-gn-1QZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeLineCell" rowHeight="134" id="Syi-JP-DhK">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="AITIMELINESDTimesViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="AITIMELINESDTimesViewCell" rowHeight="44" id="Syi-JP-DhK" customClass="AITIMELINESDTimesViewCell" customModule="AI2020OS" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Syi-JP-DhK" id="B56-tk-mUP">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3月14号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEt-f2-X83">
+                                            <rect key="frame" x="22" y="11" width="65" height="21"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="ycC-pC-4wC"/>
+                                                <constraint firstAttribute="width" constant="65" id="zai-8U-hbf"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iEt-f2-X83" firstAttribute="leading" secondItem="B56-tk-mUP" secondAttribute="leadingMargin" constant="14" id="Ftc-BT-h2f"/>
+                                        <constraint firstAttribute="centerY" secondItem="iEt-f2-X83" secondAttribute="centerY" id="rA8-nW-EDF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="monthLabel" destination="iEt-f2-X83" id="DJT-G5-m9c"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="AITIMELINESDContentViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="AITIMELINESDContentViewCell" rowHeight="82" id="eu3-Rq-3EO" customClass="AITIMELINESDContentViewCell" customModule="AI2020OS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eu3-Rq-3EO" id="cgy-Y1-QpM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bm-Bz-J2P">
+                                            <rect key="frame" x="22" y="30" width="61" height="21"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="a63-3w-TFI"/>
+                                                <constraint firstAttribute="width" constant="61" id="aBf-KE-PaD"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timeline_bg" translatesAutoresizingMaskIntoConstraints="NO" id="M2g-iO-NPa">
+                                            <rect key="frame" x="81" y="12" width="495" height="58"/>
+                                            <rect key="contentStretch" x="0.39999999999999997" y="0.70000000000000007" width="0.24999999999999967" height="0.0"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="瑞特瑜伽课" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNY-pQ-j1X">
+                                            <rect key="frame" x="106" y="19" width="439" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="rj3-Ur-ggT"/>
+                                                <constraint firstAttribute="width" constant="439" id="yVK-vi-kCq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="瑞特瑜伽课" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzA-MU-QaN">
+                                            <rect key="frame" x="106" y="40" width="439" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="T8E-2v-pbL"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="M2g-iO-NPa" firstAttribute="leading" secondItem="8bm-Bz-J2P" secondAttribute="trailing" constant="-2" id="4ol-Q8-aWu"/>
+                                        <constraint firstItem="M2g-iO-NPa" firstAttribute="leading" secondItem="eNY-pQ-j1X" secondAttribute="trailing" constant="-464" id="GE3-vJ-Nh5"/>
+                                        <constraint firstAttribute="centerY" secondItem="8bm-Bz-J2P" secondAttribute="centerY" id="Gms-gB-iJI"/>
+                                        <constraint firstItem="eNY-pQ-j1X" firstAttribute="top" secondItem="M2g-iO-NPa" secondAttribute="top" constant="7" id="Krg-hZ-Zv0"/>
+                                        <constraint firstItem="eNY-pQ-j1X" firstAttribute="leading" secondItem="QzA-MU-QaN" secondAttribute="trailing" constant="-439" id="PXm-Ub-k2X"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="M2g-iO-NPa" secondAttribute="trailing" constant="16" id="QT7-H5-6b5"/>
+                                        <constraint firstAttribute="centerY" secondItem="M2g-iO-NPa" secondAttribute="centerY" id="VcT-cr-Dwl"/>
+                                        <constraint firstItem="eNY-pQ-j1X" firstAttribute="width" secondItem="QzA-MU-QaN" secondAttribute="width" id="WKH-KM-MWo"/>
+                                        <constraint firstItem="QzA-MU-QaN" firstAttribute="top" secondItem="eNY-pQ-j1X" secondAttribute="bottom" constant="-3" id="mMs-xy-o2b"/>
+                                        <constraint firstItem="8bm-Bz-J2P" firstAttribute="leading" secondItem="cgy-Y1-QpM" secondAttribute="leadingMargin" constant="14" id="pVC-RF-08q"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="contentBgImageView" destination="M2g-iO-NPa" id="FhJ-mW-uDL"/>
+                                    <outlet property="contentLabel" destination="QzA-MU-QaN" id="7kA-HU-kfS"/>
+                                    <outlet property="timeLabel" destination="8bm-Bz-J2P" id="5CX-m8-TRU"/>
+                                    <outlet property="titleLabel" destination="eNY-pQ-j1X" id="qWB-b2-iSu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -518,7 +601,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khb-hf-TrK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="1215"/>
+            <point key="canvasLocation" x="2107" y="1182"/>
         </scene>
         <!--时间线-->
         <scene sceneID="Jpz-dS-XXk">
@@ -1485,5 +1568,6 @@
         <image name="ico_more_narmal" width="27" height="10"/>
         <image name="ppc_audio_record" width="21" height="27"/>
         <image name="refresh_button" width="30" height="30"/>
+        <image name="timeline_bg" width="31" height="58"/>
     </resources>
 </document>

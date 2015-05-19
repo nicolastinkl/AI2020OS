@@ -32,4 +32,27 @@ extension UIView {
         self.layer.mask = maskLayer
         
     }
+    
+    /*!
+    虚线处理
+    */
+    func addDashedBorder() {
+        let color = UIColor(rgba: "#a7a7a7").CGColor
+        
+        let shapeLayer:CAShapeLayer = CAShapeLayer()
+        let frameSize = self.frame.size
+        let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
+        
+        shapeLayer.bounds = shapeRect
+        shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
+        shapeLayer.fillColor = UIColor.clearColor().CGColor
+        shapeLayer.strokeColor = color
+        shapeLayer.lineWidth = 0.5
+        shapeLayer.lineJoin = kCALineJoinRound
+        shapeLayer.lineDashPattern = [2,1]
+        shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 0).CGPath
+        
+        self.layer.addSublayer(shapeLayer)
+        
+    }
 }
