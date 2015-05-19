@@ -43,21 +43,20 @@ class AIHomeViewController: UITableViewController {
         }
         
         Async.background(){
+            self.view.showLoading()
             // Do any additional setup after loading the view, typically from a nib.
             AIHttpEngine.moviesForSection {  movies  in
                 self.stories = movies
+                self.view.hideLoading()
                 self.tableView.reloadData()
             }
         }
         
-        
         if let token = AILocalStore.accessToken() {
             
         }else{
-            
+            self.loginAction = LoginAction(viewController: self, completion: nil)
         }
-        
-        self.loginAction = LoginAction(viewController: self, completion: nil)
         
     }
     

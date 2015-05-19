@@ -12,6 +12,7 @@
 #define kDefaultTableViewHeaderMargin 95.0f
 #define kDefaultImageAlpha 500.0f
 #define kDefaultImageScalingFactor 300.0f
+#define KDefaultFristCellHeight 92.0f
 
 @interface KMDetailsPageView ()
 
@@ -109,7 +110,8 @@
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     if (self.tableViewSeparatorColor)
         self.tableView.separatorColor = self.tableViewSeparatorColor;
-    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorColor = [UIColor clearColor];
     // Add scroll view KVO
     void *context = (__bridge void *)self;
     [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
@@ -292,23 +294,40 @@
     }
 }
 
+- (id)subviewWithTag:(NSInteger)tag{
+    for(UIView *view in [_navBarView subviews]){
+        if(view.tag == tag){
+            return view;
+        }
+    }
+    return nil;
+}
+
 - (void)animateNavigationBar:(CGFloat)scrollOffset draggingPoint:(CGPoint)scrollViewDragPoint
-{
-    if(scrollOffset > _navBarFadingOffset && _navBarView.alpha == 0.0)
+{    
+    UIImageView * _naviImageView = [self subviewWithTag:2];
+    UIView * effectView =  [self subviewWithTag:3];
+    if(scrollOffset > (_navBarFadingOffset+KDefaultFristCellHeight) && _naviImageView.alpha == 0.0)
     { //make the navbar appear
-        _navBarView.alpha = 0;
-        _navBarView.hidden = NO;
+        _naviImageView.alpha = 0;
+        _naviImageView.hidden = NO;
+        
+        effectView.alpha = 0;
+        effectView.hidden = NO;
         [UIView animateWithDuration:0.3 animations:^
          {
-             _navBarView.alpha = 1;
+             _naviImageView.alpha = 1;
+             effectView.alpha = 1;
          }];
     }
-    else if(scrollOffset < _navBarFadingOffset && _navBarView.alpha == 1.0)
+    else if(scrollOffset < (_navBarFadingOffset+KDefaultFristCellHeight) && _naviImageView.alpha == 1.0)
     { //make the navbar disappear
         [UIView animateWithDuration:0.3 animations:^{
-            _navBarView.alpha = 0;
+            _naviImageView.alpha = 0;
+            effectView.alpha = 0;
         } completion: ^(BOOL finished) {
-            _navBarView.hidden = YES;
+            _naviImageView.hidden = YES;
+            effectView.hidden = YES;
         }];
     }
 }

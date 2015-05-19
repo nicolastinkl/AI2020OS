@@ -309,6 +309,7 @@
 		93266FAE1AEF814F00DD0021 /* Discovery */ = {
 			isa = PBXGroup;
 			children = (
+				93AC3FCF1ACA402A000024A4 /* AIHomeViewController.swift */,
 				93AC3FCD1AC960BA000024A4 /* AIDiscoveryViewController.swift */,
 			);
 			name = Discovery;
@@ -318,7 +319,6 @@
 			isa = PBXGroup;
 			children = (
 				93AC3FB91AC95E6D000024A4 /* AIMainTabBarController.swift */,
-				93AC3FCF1ACA402A000024A4 /* AIHomeViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";

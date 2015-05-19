@@ -10,7 +10,7 @@ import Foundation
 
 class AIOrderBuyView: UIView {
     
-    func currentViewCell()->AIOrderBuyView{
+    class func currentView()->AIOrderBuyView{
         var cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.ViewIdentifiers.AIOrderBuyView, owner: self, options: nil).last  as AIOrderBuyView
         return cell
     }

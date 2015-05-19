@@ -34,6 +34,7 @@ class AILoginViewController: UIViewController {
                 self.view.hideLoading()
                 if let u = user{
                     // dissmiss viewController
+                    AILocalStore.setAccessToken(self.phoneTextFlied.text)
                     self.dismissViewControllerAnimated(true, completion: { () -> Void in
                         
                     })

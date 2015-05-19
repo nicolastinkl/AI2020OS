@@ -12,11 +12,11 @@ import Spring
 class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDelegate{
 
     @IBOutlet weak var navigationBarView: SpringView!
-    @IBOutlet weak var orderViewContain: UIView!
     
     @IBOutlet weak var networkLoadingContainerView: UIView!
 
     @IBOutlet weak var tableview: UITableView!
+    
     @IBOutlet weak var naviImageView: UIImageView!
 
     @IBOutlet weak var detailsPageView: KMDetailsPageView!
@@ -106,7 +106,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
     func fillViews(){
         self.detailsPageView.navBarView = self.navigationBarView
-        self.orderViewContain.hidden = false
+        self.detailsPageView.tableView.tableFooterView = AIOrderBuyView.currentView()
     }
     
     func reloadHeaderView()
@@ -167,7 +167,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
     
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 6
+        return 5
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -253,8 +253,8 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
 extension AIServiceDetailsViewCotnroller : KMDetailsPageDelegate{
     
     func detailsPage(detailsPageView: KMDetailsPageView!, headerViewDidLoad headerView: UIView!) {
-        headerView.alpha = 0.0
-        headerView.hidden = true
+        headerView.alpha = 1.0
+        headerView.hidden = false
     }
     
     func detailsPage(detailsPageView: KMDetailsPageView!, imageDataForImageView imageView: UIImageView!) -> UIImageView! {
@@ -273,7 +273,7 @@ extension AIServiceDetailsViewCotnroller : KMDetailsPageDelegate{
     }
     
     func detailsPage(detailsPageView: KMDetailsPageView!, tableViewDidLoad tableView: UITableView!) {
-//        tableview.separatorStyle = UITableViewCellSeparatorStyle.None
+        // tableview.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
     func detailsPage(detailsPageView: KMDetailsPageView!, tableViewWillBeginDragging tableView: UITableView!) -> CGPoint {

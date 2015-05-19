@@ -34,7 +34,8 @@ class AIRegisterViewController : UIViewController {
         self.verifyTextFeild.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
         
-        AVUser.requestMobilePhoneVerify(self.phoneTextField.text, withBlock: { (bol, error) -> Void in
+        let phoneText  = self.phoneTextField.text
+        AVUser.requestMobilePhoneVerify(phoneText, withBlock: { (bol, error) -> Void in
             if bol{
                 self.requestVerify.enabled = false
                 self.remainTime = 60
@@ -65,7 +66,7 @@ class AIRegisterViewController : UIViewController {
     
     @IBAction func registerAction(sender: AnyObject) {
         
-        //二次验证验证码是否正确
+        
         if self.phoneTextField.text.length > 0 && self.passwordTextField.text.length > 0{
 
             self.view.showLoading()
@@ -73,20 +74,24 @@ class AIRegisterViewController : UIViewController {
             self.verifyTextFeild.resignFirstResponder()
             self.passwordTextField.resignFirstResponder()
             
-            AVUser.verifyMobilePhone(self.verifyTextFeild.text, withBlock: { (bol, Error) -> Void in
-                if bol{
-                    
-                    var newUser:AVUser = AVUser.currentUser()
-                    //正式注册
-                    newUser.mobilePhoneNumber = self.phoneTextField.text
-                    newUser.password = self.passwordTextField.text
-                    newUser.signUpInBackgroundWithBlock({ (bol, error) -> Void in
-                        self.view.hideLoading()
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                    })
-                    
+            var newUser:AVUser = AVUser()
+            //正式注册
+            newUser.username = self.phoneTextField.text
+            newUser.mobilePhoneNumber = self.phoneTextField.text
+            newUser.password = self.passwordTextField.text
+            newUser.signUpInBackgroundWithBlock({ (succeeded, error) -> Void in
+                if succeeded{
+                    AILocalStore.setAccessToken(self.phoneTextField.text)
+                    self.view.hideLoading()
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }else{
+                     SCLAlertView().showError("提示", subTitle: "注册失败", closeButtonTitle: "关闭", duration: 2)
                 }
             })
+
+            //二次验证验证码是否正确
+            /*AVUser.verifyMobilePhone(self.verifyTextFeild.text, withBlock: { (bol, Error) -> Void in
+            })*/
             
         }
         
