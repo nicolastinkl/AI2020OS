@@ -23,6 +23,7 @@ class AIFavoritsCommand  {
             case .Facilitator: return "服务商"
             case .Content: return "内容"
             case .Services: return "服务"
+                
             }
         }
     }

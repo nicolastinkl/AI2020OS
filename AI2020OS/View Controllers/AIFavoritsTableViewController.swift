@@ -12,4 +12,10 @@ class AIFavoritsTableViewController: UITableViewController{
     
     // MARK: TableViewDelegate
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "资讯"
+    }
+    
 }
+

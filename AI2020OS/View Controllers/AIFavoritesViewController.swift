@@ -15,8 +15,11 @@ import Foundation
 */
 class AIFavoritesViewController : UIPageViewController {
 
-    @IBOutlet weak var navTitleLabel: UILabel!
-    @IBOutlet weak var pageIndicator: UIPageControl!
+    @IBOutlet weak var naturalLabel: UILabel!
+    @IBOutlet weak var buyLabel: UILabel!
+    @IBOutlet weak var serviceLabel: UILabel!
+    
+    @IBOutlet weak var navigationItemApp: UINavigationItem!
     
     lazy var _controllers : [AIFavoritsTableViewController] = {
         let facilitatorController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.favoritsTableViewController) as AIFavoritsTableViewController
@@ -45,41 +48,58 @@ class AIFavoritesViewController : UIPageViewController {
         delegate = self
         
         turnToPage(0)
-
-        pageIndicator.numberOfPages = _controllers.count
-        pageIndicator.transform = CGAffineTransformMakeScale(0.6, 0.6)
+        
+        let leftItem:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "bookmark_page_grid"), style: UIBarButtonItemStyle.Done, target: self, action: "exchangeListOrGridAction:")
+        
+         navigationItemApp.leftBarButtonItem = leftItem        
         
     }
     
-    func configureForDisplayingViewController(controller: AIFavoritsTableViewController) {
-        let title = controller.navigationItem.title
-        navTitleLabel.text = title
+    func exchangeListOrGridAction(sender: AnyObject){
+        
+    }
+    
+    func configureForDisplayingViewController(controller: UITableViewController) {
         
         for (index, vc) in enumerate(_controllers) {
             // when more than one scroll view on screen
             // 1. Fix scroll to top
             // 2. Update page indicator
+            
             let viewcontr = vc as AIFavoritsTableViewController
             if controller === vc {
-                viewcontr.tableView.scrollsToTop = true
-                pageIndicator.currentPage = index
-                animateTitle()
+            
+                switch index{
+                case 0:
+                    self.naturalLabel.textColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor)
+                    self.buyLabel.textColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+                    self.serviceLabel.textColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+                    break
+                case 1:
+                    self.naturalLabel.textColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+                    self.buyLabel.textColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor)
+                    self.serviceLabel.textColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+                    break
+                case 2:
+                    self.naturalLabel.textColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+                    self.buyLabel.textColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+                    self.serviceLabel.textColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor)
+                    break
+                default:
+                    break
+                    
+                }
             } else {
-                viewcontr.tableView.scrollsToTop = false
+                //viewcontr.tableView.scrollsToTop = false
             }
+            
+            
+            
         }
     }
     
-    func animateTitle() {
-        pageIndicator.alpha = 0
-        navTitleLabel.alpha = 0
-        UIView.animateWithDuration(0.5, animations: {
-            self.pageIndicator.alpha = 1
-            self.navTitleLabel.alpha = 1
-        })
-    }
-    
     func turnToPage(index: Int) {
+        
         let controller = _controllers[index]
         var direction = UIPageViewControllerNavigationDirection.Forward
         
@@ -92,6 +112,7 @@ class AIFavoritesViewController : UIPageViewController {
         }
         
         configureForDisplayingViewController(controller)
+        
         setViewControllers([controller],
             direction: direction,
             animated: true) { (completion) -> Void in
@@ -132,12 +153,12 @@ extension AIFavoritesViewController : UIPageViewControllerDataSource {
 extension AIFavoritesViewController : UIPageViewControllerDelegate {
     
     func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [AnyObject]) {
-        configureForDisplayingViewController(pendingViewControllers.first as AIFavoritsTableViewController)
+        configureForDisplayingViewController(pendingViewControllers.first as UITableViewController)
     }
     
     func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
         if !completed {
-            configureForDisplayingViewController(previousViewControllers.first as AIFavoritsTableViewController)
+            configureForDisplayingViewController(previousViewControllers.first as UITableViewController)
         }
     }
     

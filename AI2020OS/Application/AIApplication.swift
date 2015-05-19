@@ -73,6 +73,9 @@ struct AIApplication{
         static let MainTabBarBgColor = "#00cec0"
         static let MainYellowBgColor = "#f0ff00"
         static let MainGreenBgColor  = "#5fc30d"
+        
+        static let MainSystemBlueColor   = "#00CEC3"
+        static let MainSystemBlackColor  = "#848484"
     }
     
     // MARK: 处理响应事件

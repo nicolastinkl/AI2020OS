@@ -64,7 +64,6 @@
 		937301071ACBEA5A00CA17BC /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 937301061ACBEA5A00CA17BC /* UINavigationBar+Awesome.m */; };
 		9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373010A1ACBEAE300CA17BC /* UIColorUtils.swift */; };
 		9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373010C1ACBEB0B00CA17BC /* UIViewControllerUtils.swift */; };
-		9384E3051AF8E39700DA0E39 /* AIFavoritsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384E3041AF8E39700DA0E39 /* AIFavoritsHandler.swift */; };
 		939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F4BD41AD6648000CE530C /* AIAudioViewController.swift */; };
 		93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93AC3FB71AC95E03000024A4 /* AIMainStoryboard.storyboard */; };
 		93AC3FBA1AC95E6D000024A4 /* AIMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC3FB91AC95E6D000024A4 /* AIMainTabBarController.swift */; };
@@ -184,7 +183,6 @@
 		937301061ACBEA5A00CA17BC /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Awesome.m"; path = "../Libs/UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		9373010A1ACBEAE300CA17BC /* UIColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtils.swift; sourceTree = "<group>"; };
 		9373010C1ACBEB0B00CA17BC /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
-		9384E3041AF8E39700DA0E39 /* AIFavoritsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoritsHandler.swift; sourceTree = "<group>"; };
 		939F4BD41AD6648000CE530C /* AIAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioViewController.swift; sourceTree = "<group>"; };
 		93AC3FB71AC95E03000024A4 /* AIMainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIMainStoryboard.storyboard; sourceTree = "<group>"; };
 		93AC3FB91AC95E6D000024A4 /* AIMainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMainTabBarController.swift; sourceTree = "<group>"; };
@@ -296,7 +294,6 @@
 				93266FAA1AEF80FB00DD0021 /* AIFavoritesViewController.swift */,
 				93266FB11AEF81E100DD0021 /* AIFavoritsCommand.swift */,
 				9370552E1AEF916900CEE9A5 /* AIFavoritsTableViewController.swift */,
-				9384E3041AF8E39700DA0E39 /* AIFavoritsHandler.swift */,
 			);
 			name = Favorites;
 			sourceTree = "<group>";
@@ -890,7 +887,6 @@
 				937301071ACBEA5A00CA17BC /* UINavigationBar+Awesome.m in Sources */,
 				9349300B1ADD0B6800D81FE2 /* AIAppInit.m in Sources */,
 				93049D061B04A3420051467A /* AIHomeAvatorViewCell.swift in Sources */,
-				9384E3051AF8E39700DA0E39 /* AIFavoritsHandler.swift in Sources */,
 				935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */,
 				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
 				936DAC1A1ADCF2D20025483B /* AIISRViewController.m in Sources */,
