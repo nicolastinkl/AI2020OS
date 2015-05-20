@@ -42,12 +42,12 @@ class AIHomeViewController: UITableViewController {
             })
         }
         
+        self.view.showProgressViewLoading()
+        
         Async.background(){
-            self.view.showLoading()
             // Do any additional setup after loading the view, typically from a nib.
             AIHttpEngine.moviesForSection {  movies  in
                 self.stories = movies
-                self.view.hideLoading()
                 self.tableView.reloadData()
             }
         }
@@ -57,6 +57,8 @@ class AIHomeViewController: UITableViewController {
         }else{
             self.loginAction = LoginAction(viewController: self, completion: nil)
         }
+        
+        AIApplication.showMessageUnreadView()
         
     }
     
@@ -71,8 +73,6 @@ class AIHomeViewController: UITableViewController {
         super.viewWillDisappear(animated)
         //self.navigationController?.navigationBar.lt_reset()
     }
-    
-    // MARK: TableViewDelegate
     
     
     override func didReceiveMemoryWarning() {

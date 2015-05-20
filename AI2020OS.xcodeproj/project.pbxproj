@@ -48,6 +48,8 @@
 		934987011B0B1750003086D1 /* AITIMELINESDContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934987001B0B1750003086D1 /* AITIMELINESDContentViewCell.swift */; };
 		934987031B0B305A003086D1 /* AITIMELINESDTITLEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934987021B0B305A003086D1 /* AITIMELINESDTITLEView.swift */; };
 		934987051B0B3074003086D1 /* AITIMELINESDTITLEView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934987041B0B3074003086D1 /* AITIMELINESDTITLEView.xib */; };
+		934987071B0C75E0003086D1 /* AIMessageUnReadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934987061B0C75E0003086D1 /* AIMessageUnReadView.xib */; };
+		934987091B0C75E9003086D1 /* AIMessageUnReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934987081B0C75E9003086D1 /* AIMessageUnReadView.swift */; };
 		935A25771AE79AF10089B240 /* AIServicesRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A25761AE79AF10089B240 /* AIServicesRequester.swift */; };
 		935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935F386D1ACD266F004BE0E7 /* AIHttpEngine.swift */; };
 		935F38701ACD27DF004BE0E7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935F386F1ACD27DF004BE0E7 /* Movie.swift */; };
@@ -161,6 +163,8 @@
 		934987001B0B1750003086D1 /* AITIMELINESDContentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITIMELINESDContentViewCell.swift; sourceTree = "<group>"; };
 		934987021B0B305A003086D1 /* AITIMELINESDTITLEView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITIMELINESDTITLEView.swift; sourceTree = "<group>"; };
 		934987041B0B3074003086D1 /* AITIMELINESDTITLEView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITIMELINESDTITLEView.xib; sourceTree = "<group>"; };
+		934987061B0C75E0003086D1 /* AIMessageUnReadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIMessageUnReadView.xib; sourceTree = "<group>"; };
+		934987081B0C75E9003086D1 /* AIMessageUnReadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMessageUnReadView.swift; sourceTree = "<group>"; };
 		935A25761AE79AF10089B240 /* AIServicesRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServicesRequester.swift; sourceTree = "<group>"; };
 		935F386D1ACD266F004BE0E7 /* AIHttpEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHttpEngine.swift; sourceTree = "<group>"; };
 		935F386F1ACD27DF004BE0E7 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -463,6 +467,8 @@
 			isa = PBXGroup;
 			children = (
 				93D80A411ACA7149004BC7C0 /* CoreTextView.swift */,
+				934987061B0C75E0003086D1 /* AIMessageUnReadView.xib */,
+				934987081B0C75E9003086D1 /* AIMessageUnReadView.swift */,
 			);
 			name = Views;
 			path = AI2020OS/Views;
@@ -752,6 +758,7 @@
 				93DE16AF1B05E26E0056A1E3 /* AIHomeSDDesViewCell.xib in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
 				93BD09081B06F97B00C8B96B /* AIMenuStoryboard.storyboard in Resources */,
+				934987071B0C75E0003086D1 /* AIMessageUnReadView.xib in Resources */,
 				933ED3F61AC8F90A00E4AADB /* LaunchScreen.xib in Resources */,
 				933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */,
 				934987051B0B3074003086D1 /* AITIMELINESDTITLEView.xib in Resources */,
@@ -852,6 +859,7 @@
 				936DAC1D1ADCF4170025483B /* AIRecognizerFactory.m in Sources */,
 				93D80A421ACA7149004BC7C0 /* CoreTextView.swift in Sources */,
 				935A25771AE79AF10089B240 /* AIServicesRequester.swift in Sources */,
+				934987091B0C75E9003086D1 /* AIMessageUnReadView.swift in Sources */,
 				933ED4381AC92B6700E4AADB /* AIBridge.m in Sources */,
 				934987011B0B1750003086D1 /* AITIMELINESDContentViewCell.swift in Sources */,
 				9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */,

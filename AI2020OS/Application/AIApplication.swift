@@ -8,6 +8,8 @@
 
 import Foundation
 
+import Cartography
+
 /*!
 *  @author tinkl, 15-03-30 15:03:35
 *
@@ -56,6 +58,7 @@ struct AIApplication{
         struct ViewIdentifiers {
             static let AIOrderBuyView           = "AIOrderBuyView"
             static let AILoginViewController    = "AILoginViewController"
+            static let AIMessageUnReadView      = "AIMessageUnReadView"
         }
     }
     
@@ -77,6 +80,11 @@ struct AIApplication{
         static let MainSystemBlueColor   = "#00CEC3"
         static let MainSystemBlackColor  = "#848484"
     }
+    
+    struct AIViewTags {
+        static let loadingProcessTag     = 101
+    }
+    
     
     // MARK: 处理响应事件
     internal func SendAction(functionName:String,ownerName:AnyObject){
@@ -113,12 +121,24 @@ struct AIApplication{
             newSelector: "viewWillDisappearForHiddenBottomBar:")
     }
     
-    
     static func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {
         let oldMethod = class_getInstanceMethod(clzz, oldSelector)
         let newMethod = class_getInstanceMethod(clzz, newSelector)
         method_exchangeImplementations(oldMethod, newMethod)
     }
     
+    static func showMessageUnreadView(){
+        let unreadView = AIMessageUnReadView.currentView() as AIMessageUnReadView
+        //self.view.addSubview(unreadView)
+        UIApplication.sharedApplication().keyWindow!.addSubview(unreadView)
+        layout(unreadView) { view in
+            view.width  == 80
+            view.height == 74
+            view.top >= view.superview!.top
+            view.right >= view.superview!.right+10
+        }
+ 
+        
+    }
     
 }

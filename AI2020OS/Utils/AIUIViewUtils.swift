@@ -7,9 +7,13 @@
 //
 
 import Foundation
-
+import Spring
 
 extension UIView {
+    
+    /*!
+        根据tag 获取视图对象
+    */
     func getViewByTag(tag:Int) -> UIView{
         
         let thisView = self.subviews.filter({(view:AnyObject)->Bool in
@@ -34,7 +38,7 @@ extension UIView {
     }
     
     /*!
-    虚线处理
+        虚线处理
     */
     func addDashedBorder() {
         let color = UIColor(rgba: "#a7a7a7").CGColor
@@ -54,5 +58,50 @@ extension UIView {
         
         self.layer.addSublayer(shapeLayer)
         
+    }     
+    
+    /*!
+        处理加载展示
+    */
+    public func showProgressViewLoading() {
+        
+        if let loadingXibView = self.viewWithTag(AIApplication.AIViewTags.loadingProcessTag) {
+            // If loading view is already found in current view hierachy, do nothing
+            return
+        }
+        
+        let loadingXibView:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)!
+        loadingXibView.frame = self.bounds
+        loadingXibView.tag = AIApplication.AIViewTags.loadingProcessTag
+        loadingXibView.color = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor)
+        loadingXibView.hidesWhenStopped = true
+        self.addSubview(loadingXibView)
+
+        loadingXibView.startAnimating()
+        
+        loadingXibView.alpha = 0
+        spring(0.7, {
+            loadingXibView.alpha = 1
+        })
     }
+    
+    /*!
+        处理加载隐藏
+    */
+    public func hideProgressViewLoading() {
+        
+        if let loadingXibView = self.viewWithTag(AIApplication.AIViewTags.loadingProcessTag) {
+            loadingXibView.alpha = 1
+            let viewss = loadingXibView as UIActivityIndicatorView
+            springWithCompletion(0.7, {
+                loadingXibView.alpha = 0
+                viewss.stopAnimating()
+                loadingXibView.transform = CGAffineTransformMakeScale(1.5, 1.5)
+                }, { (completed) -> Void in
+                    loadingXibView.removeFromSuperview()
+            })
+        }
+    }
+    
+    
 }

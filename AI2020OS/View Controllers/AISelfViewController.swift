@@ -12,6 +12,7 @@ import UIKit
 class AISelfViewController: UITableViewController {
     
     @IBOutlet var expandBgImageView: UIImageView!
+    
     @IBOutlet var tableview: UITableView!
 
     private let kImageOriginHight:CGFloat = 240.0
@@ -23,29 +24,25 @@ class AISelfViewController: UITableViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-//        let headerview = self.tableview.tableHeaderView as UIView?
-//        let headerImg =  headerview?.getViewByTag(1) as UIImageView?
-        // referesh UI
+        let headerview = self.tableview.tableHeaderView as UIView?
+        let headerImg =  headerview?.viewWithTag(2) as UIImageView?
         
-        //Just put this blur view on the imageView
-//        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
-//        visualEffectView.frame = self.expandBgImageView.bounds
-//        self.expandBgImageView.addSubview(visualEffectView)
+        headerImg?.maskWithEllipse()
         
-        self.tableView.contentInset = UIEdgeInsetsMake(kImageOriginHight, 0, 0, 0);
-        self.tableView.addSubview(self.expandBgImageView);
-        self.expandBgImageView.frame = CGRectMake(0, -kImageOriginHight, self.tableView.frame.size.width, kImageOriginHight);
+        self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
+        
     }
     
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
+    /*override func scrollViewDidScroll(scrollView: UIScrollView) {
+        let viewTableHead: UIView = self.tableview.tableHeaderView!
         let yOffset:CGFloat   = scrollView.contentOffset.y;
         if (yOffset < -kImageOriginHight) {
-            var f:CGRect = self.expandBgImageView.frame;
-            f.origin.y = yOffset;
-            f.size.height =  -yOffset;
-            self.expandBgImageView.frame = f;
+            var f:CGRect = viewTableHead.frame
+            f.origin.y = yOffset
+            f.size.height =  -yOffset
+            viewTableHead.frame = f
         }
-    }
+    }*/
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
