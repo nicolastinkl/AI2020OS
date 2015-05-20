@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import Spring
-
+import Cartography
 
 class AIHomeViewController: UITableViewController {
     
@@ -17,6 +17,7 @@ class AIHomeViewController: UITableViewController {
 
     private var stories = [Movie]()
     
+    @IBOutlet weak var searchButton: UIButton!
     private var weatherValue:WeatherModel?
 
     private var loginAction : LoginAction?
@@ -49,6 +50,7 @@ class AIHomeViewController: UITableViewController {
             AIHttpEngine.moviesForSection {  movies  in
                 self.stories = movies
                 self.tableView.reloadData()
+                self.view.hideProgressViewLoading()
             }
         }
         
@@ -59,6 +61,10 @@ class AIHomeViewController: UITableViewController {
         }
         
         AIApplication.showMessageUnreadView()
+        
+        //self.searchButton.setWidth(self.view.frame.width * 0.58)
+
+        //self.searchButton.superview?.layoutIfNeeded()
         
     }
     

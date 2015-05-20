@@ -12,8 +12,6 @@ import Spring
 class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDelegate{
 
     @IBOutlet weak var navigationBarView: SpringView!
-    
-    @IBOutlet weak var networkLoadingContainerView: UIView!
 
     @IBOutlet weak var tableview: UITableView!
     
@@ -24,8 +22,6 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     var movieDetails:Movie?
     
     private var movieDetailsResponse:AIKMMovie?
-
-    private var networkLoadingViewController:AINetworkLoadingViewController?
     
     private var bgImage:UIImageView?
     private var avatorImage:UIImageView?
@@ -50,6 +46,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         //Register Cells
         //registerCells()
         
+        view.showProgressViewLoading()
         // Do any additional setup after loading the view, typically from a nib.
         requestMovieDetails()
         
@@ -72,17 +69,17 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         
     }
     
-    
     @IBAction func showMenuClick(sender: AnyObject) {
         showMenuViewController()
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        /*
         let className = NSStringFromClass(AINetworkLoadingViewController).viewControllerClassName()
         if segue.identifier == className{
             networkLoadingViewController = segue.destinationViewController as? AINetworkLoadingViewController
             networkLoadingViewController?.delegate = self
-        }
+        }*/
     }
     
     //retry
@@ -97,14 +94,15 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         AIHttpEngine.kmdetailsForMoive(movieid, response: {[weak self] (AIKMMovieS) -> () in
             if let strongSelf = self{
                 strongSelf.movieDetailsResponse = AIKMMovieS
-                strongSelf.hideLoadingView()
                 strongSelf.detailsPageView.reloadData()
                 strongSelf.fillViews()
+               
             }
         })
     }
     
     func fillViews(){
+        view.hideProgressViewLoading()
         self.detailsPageView.navBarView = self.navigationBarView
         self.detailsPageView.tableView.tableFooterView = AIOrderBuyView.currentView()
     }
@@ -126,18 +124,6 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func hideLoadingView(){
-        UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.CurveLinear, animations: { [weak self]  () -> Void in
-            if let strongSelf = self{
-                strongSelf.networkLoadingContainerView.removeFromSuperview()
-            }
-        }) {  [weak self] (Bool) -> Void in
-            if let strongSelf = self{
-                strongSelf.networkLoadingContainerView = nil
-            }
-        }
     }
     
 }
