@@ -152,7 +152,7 @@ extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
                     (cacheView as AIHomeViewStyleMultiepleView).fillDataWithModel(moive)
                     break
                 default:
-                    (cacheView as AIHomeViewStyleTitleView).fillDataWithModel(moive)
+                    //(cacheView as AIHomeViewStyleTitleView).fillDataWithModel(moive)
                     break
                 }
                 
