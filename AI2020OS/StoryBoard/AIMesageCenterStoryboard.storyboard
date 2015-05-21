@@ -33,11 +33,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RZ0-QX-lN0"/>
+                    <navigationItem key="navigationItem" id="RZ0-QX-lN0">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="rJt-79-DvZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2vU-B5-7cr">
+                                <rect key="frame" x="16" y="11" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ico_back"/>
+                                <connections>
+                                    <action selector="backViewAction:" destination="K8j-UD-K55" eventType="touchUpInside" id="oCe-Rn-AAB"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1E2-O8-bdn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="981" y="293"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ico_back" width="26" height="22"/>
+    </resources>
 </document>
