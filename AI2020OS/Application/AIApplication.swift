@@ -44,6 +44,8 @@ struct AIApplication{
         struct CellIdentifiers {
             
             // MARK: HOME
+            static let AIHomeViewCell           = "AIHomeViewCell"
+            
             static let AIHomeSDAvatorViewCell   = "AIHomeAvatorViewCell"    // avator
             static let AIHomeSDDefaultViewCell  = "AIHomeSDDefaultViewCell" // price
             static let AIHomeSDDesViewCell      = "AIHomeSDDesViewCell"     // description
@@ -59,6 +61,11 @@ struct AIApplication{
             static let AIOrderBuyView           = "AIOrderBuyView"
             static let AILoginViewController    = "AILoginViewController"
             static let AIMessageUnReadView      = "AIMessageUnReadView"
+            static let AIHomeViewStyleMultiepleView = "AIHomeViewStyleMultiepleView"
+            static let AIHomeViewStyleTitleView = "AIHomeViewStyleTitleView"
+            static let AIHomeViewStyleTitleAndContentView = "AIHomeViewStyleTitleAndContentView"
+            static let AIServiceDetailsViewCotnroller = "AIServiceDetailsViewCotnroller"
+            static let AIErrorRetryView = "AIErrorRetryView"
         }
     }
     
@@ -68,6 +75,7 @@ struct AIApplication{
         static let UIAIASINFOWillhiddenBarNotification  = "UIAIASINFOWillhiddenBarNotification"
         static let UIAIASINFOLoginNotification          = "UIAIASINFOLoginNotification"
         static let UIAIASINFOLogOutNotification         = "UIAIASINFOLogOutNotification"
+        
     }
     
     // MARK: 系统主题颜色
@@ -82,7 +90,8 @@ struct AIApplication{
     }
     
     struct AIViewTags {
-        static let loadingProcessTag     = 101
+        static let loadingProcessTag        = 101
+        static let errorviewTag             = 102
     }
     
     

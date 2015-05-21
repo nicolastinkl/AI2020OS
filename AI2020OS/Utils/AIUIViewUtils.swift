@@ -104,6 +104,45 @@ extension UIView {
         }
     }
     
+    /*!
+        显示错误视图
+    */
+    public func showErrorView(){
+        if let loadingXibView = self.viewWithTag(AIApplication.AIViewTags.errorviewTag) {
+            // If loading view is already found in current view hierachy, do nothing
+            return
+        }
+        
+        let errorview = AIErrorRetryView.currentView()
+        errorview.tag = AIApplication.AIViewTags.errorviewTag
+        errorview.center = self.center
+        self.addSubview(errorview)
+        
+        errorview.alpha = 0
+        spring(0.7, {
+            errorview.alpha = 1
+        })
+        
+    }
+    
+    
+    /*!
+        隐藏错误视图
+    */
+    public func hideErrorView(){
+        if let loadingXibView = self.viewWithTag(AIApplication.AIViewTags.errorviewTag) {
+            loadingXibView.alpha = 1
+            springWithCompletion(0.7, {
+                loadingXibView.alpha = 0
+                loadingXibView.transform = CGAffineTransformMakeScale(1.5, 1.5)
+                }, { (completed) -> Void in
+                    loadingXibView.removeFromSuperview()
+            })
+        }
+    }
+    
+    
+    
     
     // MARK: SYSTEM Extension
     var width:      CGFloat { return self.frame.size.width }

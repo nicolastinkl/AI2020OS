@@ -43,55 +43,46 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeViewCell" rowHeight="290" id="caH-Nb-GcL" customClass="HomeStoryTableViewCell" customModule="AI2020OS" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="AIHomeViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="AIHomeViewCell" rowHeight="292" id="caH-Nb-GcL" customClass="AIHomeViewCell" customModule="AI2020OS" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="caH-Nb-GcL" id="jsC-d1-4yn">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iTN-mw-GnQ" customClass="AIImageView" customModule="AI2020OS" customModuleProvider="target">
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfA-7l-B05">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="290"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOL-co-8vx">
-                                            <rect key="frame" x="10" y="19" width="320" height="65"/>
+                                            <color key="backgroundColor" red="0.81658561860000001" green="0.81658561860000001" blue="0.81658561860000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="320" id="CAn-dt-cLM"/>
-                                                <constraint firstAttribute="height" constant="65" id="Ycb-k9-All"/>
+                                                <constraint firstAttribute="height" constant="290" id="u8Q-Yv-u7z"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格参数" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0Y-hO-VsP">
-                                            <rect key="frame" x="10" y="92" width="214" height="21"/>
+                                        </scrollView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrh-Za-krr">
+                                            <rect key="frame" x="0.0" y="290" width="600" height="2"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="214" id="OI1-Rz-1kx"/>
+                                                <constraint firstAttribute="height" constant="2" id="p0E-6r-2JP"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="pOL-co-8vx" firstAttribute="leading" secondItem="jsC-d1-4yn" secondAttribute="leadingMargin" constant="2" id="0K0-IT-ep7"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="iTN-mw-GnQ" secondAttribute="trailing" constant="-8" id="BZs-gE-8Xs"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="pOL-co-8vx" secondAttribute="trailing" constant="262" id="CQ9-TA-8ID"/>
-                                        <constraint firstItem="a0Y-hO-VsP" firstAttribute="top" secondItem="pOL-co-8vx" secondAttribute="bottom" constant="8" id="NNk-NF-cHa"/>
-                                        <constraint firstItem="iTN-mw-GnQ" firstAttribute="leading" secondItem="jsC-d1-4yn" secondAttribute="leadingMargin" constant="-8" id="OZX-FO-W6F"/>
-                                        <constraint firstItem="iTN-mw-GnQ" firstAttribute="top" secondItem="jsC-d1-4yn" secondAttribute="topMargin" constant="-8" id="XNY-fP-Zwg"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="iTN-mw-GnQ" secondAttribute="bottom" constant="-8" id="iCt-qX-4XZ"/>
-                                        <constraint firstItem="pOL-co-8vx" firstAttribute="top" secondItem="jsC-d1-4yn" secondAttribute="topMargin" constant="11" id="n2p-yH-xYL"/>
-                                        <constraint firstItem="a0Y-hO-VsP" firstAttribute="leading" secondItem="jsC-d1-4yn" secondAttribute="leadingMargin" constant="2" id="rmK-kx-6QR"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pfA-7l-B05" secondAttribute="trailing" constant="-8" id="GUX-zl-A84"/>
+                                        <constraint firstItem="Rrh-Za-krr" firstAttribute="top" secondItem="pfA-7l-B05" secondAttribute="bottom" id="TMW-SV-YfT"/>
+                                        <constraint firstItem="Rrh-Za-krr" firstAttribute="leading" secondItem="jsC-d1-4yn" secondAttribute="leadingMargin" constant="-8" id="Yc6-FL-NUz"/>
+                                        <constraint firstItem="Rrh-Za-krr" firstAttribute="width" secondItem="pfA-7l-B05" secondAttribute="width" id="fSB-df-Tbe"/>
+                                        <constraint firstItem="pfA-7l-B05" firstAttribute="leading" secondItem="jsC-d1-4yn" secondAttribute="leadingMargin" constant="-8" id="kYO-5N-ho8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Rrh-Za-krr" secondAttribute="trailing" constant="-8" id="lfR-ku-s9P"/>
+                                        <constraint firstItem="pfA-7l-B05" firstAttribute="top" secondItem="jsC-d1-4yn" secondAttribute="topMargin" constant="-8" id="ylc-kv-6PG"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="CQ9-TA-8ID"/>
+                                            <exclude reference="fSB-df-Tbe"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="avatarImageView" destination="iTN-mw-GnQ" id="YL3-QS-rOu"/>
-                                    <outlet property="infoLabel" destination="pOL-co-8vx" id="mek-hX-Xcj"/>
-                                    <outlet property="nameLabel" destination="a0Y-hO-VsP" id="Uen-Fg-qBL"/>
+                                    <outlet property="contentScrollView" destination="pfA-7l-B05" id="5Ix-jq-FH3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -128,7 +119,7 @@
         <!--Service Details View Cotnroller-->
         <scene sceneID="eXT-bU-3Vt">
             <objects>
-                <viewController storyboardIdentifier="TESTVIEWCONTTROLLER" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aMn-dT-4gL" customClass="AIServiceDetailsViewCotnroller" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AIServiceDetailsViewCotnroller" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aMn-dT-4gL" customClass="AIServiceDetailsViewCotnroller" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AQp-Ha-XYC"/>
                         <viewControllerLayoutGuide type="bottom" id="UCs-hZ-Y2B"/>
@@ -244,7 +235,7 @@
                 <exit id="A1q-3r-H8h" userLabel="Exit" sceneMemberID="exit"/>
                 <customObject id="1qG-M3-0Ax"/>
             </objects>
-            <point key="canvasLocation" x="2795" y="-457"/>
+            <point key="canvasLocation" x="2833" y="-286"/>
         </scene>
         <!--首页-->
         <scene sceneID="UBJ-ge-w3S">
