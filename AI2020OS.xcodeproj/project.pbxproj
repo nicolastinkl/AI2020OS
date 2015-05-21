@@ -59,6 +59,8 @@
 		934987181B0DA9B4003086D1 /* AIHomeViewStyleTitleAndContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934987171B0DA9B4003086D1 /* AIHomeViewStyleTitleAndContentView.swift */; };
 		9349871A1B0DBDC7003086D1 /* AIErrorRetryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934987191B0DBDC7003086D1 /* AIErrorRetryView.swift */; };
 		9349871C1B0DBDE2003086D1 /* AIErrorRetryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9349871B1B0DBDE2003086D1 /* AIErrorRetryView.xib */; };
+		9349871E1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9349871D1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard */; };
+		934987211B0E06DD003086D1 /* AIMessageCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934987201B0E06DD003086D1 /* AIMessageCenterViewController.swift */; };
 		935A25771AE79AF10089B240 /* AIServicesRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A25761AE79AF10089B240 /* AIServicesRequester.swift */; };
 		935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935F386D1ACD266F004BE0E7 /* AIHttpEngine.swift */; };
 		935F38701ACD27DF004BE0E7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935F386F1ACD27DF004BE0E7 /* Movie.swift */; };
@@ -183,6 +185,8 @@
 		934987171B0DA9B4003086D1 /* AIHomeViewStyleTitleAndContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeViewStyleTitleAndContentView.swift; sourceTree = "<group>"; };
 		934987191B0DBDC7003086D1 /* AIErrorRetryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIErrorRetryView.swift; sourceTree = "<group>"; };
 		9349871B1B0DBDE2003086D1 /* AIErrorRetryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIErrorRetryView.xib; sourceTree = "<group>"; };
+		9349871D1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIMesageCenterStoryboard.storyboard; sourceTree = "<group>"; };
+		934987201B0E06DD003086D1 /* AIMessageCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMessageCenterViewController.swift; sourceTree = "<group>"; };
 		935A25761AE79AF10089B240 /* AIServicesRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServicesRequester.swift; sourceTree = "<group>"; };
 		935F386D1ACD266F004BE0E7 /* AIHttpEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHttpEngine.swift; sourceTree = "<group>"; };
 		935F386F1ACD27DF004BE0E7 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -468,6 +472,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9349871F1B0E051C003086D1 /* MessageCenter */,
 				9301B0781B0998A300C1EE79 /* Login */,
 				9301B0771B09989A00C1EE79 /* Loading */,
 				93B75D0C1B048A78005D0CEF /* ServiceDetailView */,
@@ -586,6 +591,14 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		9349871F1B0E051C003086D1 /* MessageCenter */ = {
+			isa = PBXGroup;
+			children = (
+				934987201B0E06DD003086D1 /* AIMessageCenterViewController.swift */,
+			);
+			name = MessageCenter;
+			sourceTree = "<group>";
+		};
 		937055301AEF924A00CEE9A5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,6 +621,7 @@
 				93692C9C1ACAB94700D66211 /* AILoginStoryboard.storyboard */,
 				936D62461AD4D44A00609FCD /* AILoadingStoryboard.storyboard */,
 				93BD09071B06F97B00C8B96B /* AIMenuStoryboard.storyboard */,
+				9349871D1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard */,
 			);
 			name = StoryBoard;
 			path = AI2020OS/StoryBoard;
@@ -798,6 +812,7 @@
 				933ED3F61AC8F90A00E4AADB /* LaunchScreen.xib in Resources */,
 				934987141B0DA850003086D1 /* AIHomeViewStyleTitleView.xib in Resources */,
 				934987161B0DA9A7003086D1 /* AIHomeViewStyleTitleAndContentView.xib in Resources */,
+				9349871E1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard in Resources */,
 				9349870E1B0DA348003086D1 /* AIHomeViewStyleMultiepleView.xib in Resources */,
 				933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */,
 				934987051B0B3074003086D1 /* AITIMELINESDTITLEView.xib in Resources */,
@@ -900,6 +915,7 @@
 				935A25771AE79AF10089B240 /* AIServicesRequester.swift in Sources */,
 				934987091B0C75E9003086D1 /* AIMessageUnReadView.swift in Sources */,
 				933ED4381AC92B6700E4AADB /* AIBridge.m in Sources */,
+				934987211B0E06DD003086D1 /* AIMessageCenterViewController.swift in Sources */,
 				934987011B0B1750003086D1 /* AITIMELINESDContentViewCell.swift in Sources */,
 				9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */,
 				9337FF611AD4097A0046F8DC /* AIUINavigationController.m in Sources */,

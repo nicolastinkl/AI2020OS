@@ -33,12 +33,14 @@ struct AIApplication{
             static let AILoginStoryboard            = "AILoginStoryboard"
             static let AILoadingStoryboard          = "AILoadingStoryboard"
             static let AIMenuStoryboard             = "AIMenuStoryboard"
+            static let AIMesageCenterStoryboard     = "AIMesageCenterStoryboard"
         }
         
         struct ViewControllerIdentifiers {
             static let listViewController           = "listViewController"
             static let favoritsTableViewController  = "AIFavoritsTableViewController"
             static let AIMenuViewController         = "AIMenuViewController"
+            static let AIMessageCenterViewController = "AIMessageCenterViewController"
         }
         
         struct CellIdentifiers {
@@ -92,6 +94,7 @@ struct AIApplication{
     struct AIViewTags {
         static let loadingProcessTag        = 101
         static let errorviewTag             = 102
+        static let AIMessageUnReadViewTag   = 103
     }
     
     
@@ -136,18 +139,30 @@ struct AIApplication{
         method_exchangeImplementations(oldMethod, newMethod)
     }
     
+    // MARK: 全局未读提示
+    
     static func showMessageUnreadView(){
-        let unreadView = AIMessageUnReadView.currentView() as AIMessageUnReadView
-        //self.view.addSubview(unreadView)
-        UIApplication.sharedApplication().keyWindow!.addSubview(unreadView)
-        layout(unreadView) { view in
-            view.width  == 80
-            view.height == 74
-            view.top >= view.superview!.top
-            view.right >= view.superview!.right+10
+        
+        if let loadingXibView = UIApplication.sharedApplication().keyWindow!.viewWithTag(AIApplication.AIViewTags.AIMessageUnReadViewTag) {
+            loadingXibView.hidden = false
+        }else
+        {
+            let unreadView = AIMessageUnReadView.currentView() as AIMessageUnReadView
+            UIApplication.sharedApplication().keyWindow!.addSubview(unreadView)
+            unreadView.tag = AIApplication.AIViewTags.AIMessageUnReadViewTag            
+            layout(unreadView) { view in
+                view.width  == 80
+                view.height == 74
+                view.top >= view.superview!.top
+                view.right >= view.superview!.right+10
+            }
         }
- 
         
     }
     
+    static func hideMessageUnreadView(){
+        if let loadingXibView = UIApplication.sharedApplication().keyWindow!.viewWithTag(AIApplication.AIViewTags.AIMessageUnReadViewTag) {
+            loadingXibView.hidden = true
+        }
+    }
 }

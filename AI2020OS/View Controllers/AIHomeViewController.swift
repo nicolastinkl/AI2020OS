@@ -15,6 +15,7 @@ class AIHomeViewController: UITableViewController {
     
     @IBOutlet var tableview: UITableView!
 
+    // MARK: Priate Variable
     private var stories = [Movie]()
     
     @IBOutlet weak var searchButton: UIButton!
@@ -22,36 +23,20 @@ class AIHomeViewController: UITableViewController {
 
     private var loginAction : LoginAction?
 
+    // MARK: View LifeCirle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "首页"
         
-        Async.userInteractive{
-            AIHttpEngine.weatherForLocation({ weather in
-                let resualt: WeatherModel = weather
-                self.weatherValue = resualt
-                if let xx = self.weatherValue?.city{
-                    
-                    let headerview = self.tableview.tableHeaderView as UIView?
-                    // referesh UI
-                    let weatherLabel =  headerview?.getViewByTag(1) as UILabel?
-                    let weak = self.weatherValue?.week as String? ?? ""
-                    let weather1 = self.weatherValue?.weather1 as String? ?? ""
-                    weatherLabel?.text = "现在是\(weak),天气\(weather1)"
-                }
-            })
-        }
-        
         retryNetworkingAction()
         
         if let token = AILocalStore.accessToken() {
-            
+            AIApplication.showMessageUnreadView()
         }else{
             self.loginAction = LoginAction(viewController: self, completion: nil)
         }
         
-        AIApplication.showMessageUnreadView()
         
     }
     
@@ -64,7 +49,6 @@ class AIHomeViewController: UITableViewController {
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
             AIHttpEngine.moviesForSection {  movies  in
-                print("\(movies)")
                 self.view.hideProgressViewLoading()
                 if movies.count > 0{
                     self.stories = movies
@@ -84,15 +68,36 @@ class AIHomeViewController: UITableViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Home_page_weather_bg"), forBarMetrics: UIBarMetrics.Default)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        //self.navigationController?.navigationBar.lt_reset()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        Async.userInteractive{
+            AIHttpEngine.weatherForLocation({ weather in
+                let resualt: WeatherModel = weather
+                self.weatherValue = resualt
+                if let xx = self.weatherValue?.city{
+                    
+                    let headerview = self.tableview.tableHeaderView as UIView?
+                    // referesh UI
+                    let weatherLabel =  headerview?.getViewByTag(1) as UILabel?
+                    let weak = self.weatherValue?.week as String? ?? ""
+                    let weather1 = self.weatherValue?.weather1 as String? ?? ""
+                    weatherLabel?.text = "现在是\(weak),天气\(weather1)"
+                }
+            })
+        }
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func targetForServicesAction(sender:AnyObject){
+        let imageview = sender as AIImageView
+        let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
+        controller.movieDetails = imageview.assemblyID!
+        showViewController(controller, sender: self)
     }
     
 }
@@ -118,29 +123,20 @@ extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
         cell.configWithModel(moive, indexPath: indexPath)
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        /*
-        let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
-        controller.movieDetails = stories[indexPath.row] as Movie
-        showViewController(controller, sender: self)
-        */
-    }
-    
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let cellSelf = cell as AIHomeViewCell
         cellSelf.contentScrollView.contentSize = CGSizeMake(self.view.width*3, cellSelf.contentScrollView.height) 
         var index = 0
         if cellSelf.contentScrollView.subviews.count > 0{
             for viewCell in cellSelf.contentScrollView.subviews{
-                let cacheView = viewCell as SpringView
+                let cacheView = viewCell  as UIView
                 cacheView.setLeft(self.view.width * CGFloat(index))
                 let moive = stories[indexPath.row]
                 
-                
-                switch indexPath.row {
+                var selected: AIHomeCellViewStyle = .ViewStyleTitle
+                switch index{
                 case 0:
                     (cacheView as AIHomeViewStyleTitleView).fillDataWithModel(moive)
-                    
                     break
                 case 1:
                     (cacheView as AIHomeViewStyleTitleAndContentView).fillDataWithModel(moive)
@@ -148,16 +144,12 @@ extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
                 case 2:
                     (cacheView as AIHomeViewStyleMultiepleView).fillDataWithModel(moive)
                     break
-                case 3:
-                    (cacheView as AIHomeViewStyleMultiepleView).fillDataWithModel(moive)
-                    break
                 default:
-                    //(cacheView as AIHomeViewStyleTitleView).fillDataWithModel(moive)
                     break
                 }
                 
-                
                 index = index+1
+                
             }
         }else{
             cellSelf.contentScrollView.contentOffset = CGPointMake(0, 0)
@@ -165,9 +157,6 @@ extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
         
     }
     
-    override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 292
@@ -175,6 +164,7 @@ extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
     
 }
 
+    // TODO: Cell
 
 class AIHomeViewCell : UITableViewCell{
     
@@ -191,10 +181,11 @@ class AIHomeViewCell : UITableViewCell{
                 //reset contentOffSet
                 
             }else{
-                var selected: AIHomeCellViewStyle  = .ViewStyleTitle
-                switch indexPath.row {
-                case 0:
-                    selected = AIHomeCellViewStyle.ViewStyleTitle
+                
+                var selected: AIHomeCellViewStyle = .ViewStyleTitle
+                switch xOffset{
+                    case 0:
+                        selected = AIHomeCellViewStyle.ViewStyleTitle
                     break
                 case 1:
                     selected = AIHomeCellViewStyle.ViewStyleTitleAndContent
@@ -202,13 +193,10 @@ class AIHomeViewCell : UITableViewCell{
                 case 2:
                     selected = AIHomeCellViewStyle.ViewStyleMultiple
                     break
-                case 3:
-                    selected = AIHomeCellViewStyle.ViewStyleMultiple
-                    break
                 default:
-                    selected = AIHomeCellViewStyle.ViewStyleTitle
                     break
                 }
+                
                 var styleView = AIHomeStyleMananger.viewWithType(selected)
                 styleView.tag = tag
                 self.contentScrollView.addSubview(styleView)
@@ -217,7 +205,6 @@ class AIHomeViewCell : UITableViewCell{
             
             
         }
-        
         
     }
 }

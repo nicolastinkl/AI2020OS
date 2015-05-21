@@ -19,7 +19,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
 
     @IBOutlet weak var detailsPageView: KMDetailsPageView!
 
-    var movieDetails:Movie?
+    var movieDetails:String?
     
     private var movieDetailsResponse:AIKMMovie?
     
@@ -89,9 +89,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
     func requestMovieDetails()
     {
-        let idmov:Int? = self.movieDetails?.id
-        let movieid:String = String(idmov!)
-        AIHttpEngine.kmdetailsForMoive(movieid, response: {[weak self] (AIKMMovieS) -> () in
+        AIHttpEngine.kmdetailsForMoive(self.movieDetails!, response: {[weak self] (AIKMMovieS) -> () in
             if let strongSelf = self{
                 strongSelf.movieDetailsResponse = AIKMMovieS
                 strongSelf.detailsPageView.reloadData()

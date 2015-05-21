@@ -18,27 +18,60 @@ enum AIHomeCellViewStyle: Int{
 extension AIHomeViewStyleTitleView{
 
     func fillDataWithModel(model:Movie){
+        
+        let idmov:Int? = model.id
+        let movieid:String = String(idmov!)
+        self.contentImage.assemblyID = movieid
+        
         self.title.text = model.original_title
-        self.contentImage.setURL(model.backdrop_path?.toURL(), placeholderImage:UIImage(named: "Placeholder"))        
+        self.contentImage.setURL(model.backdrop_path?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
+
+        let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: Selector("targetImageClickAction"))
+        self.contentImage.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func targetImageClickAction(){
+        AIApplication().SendAction("targetForServicesAction:", ownerName: self.contentImage)
     }
 }
 
 extension AIHomeViewStyleTitleAndContentView{
     func fillDataWithModel(model:Movie){
+        let idmov:Int? = model.id
+        let movieid:String = String(idmov!)
+        self.contentImage.assemblyID = movieid
+        
         self.title.text = model.original_title
-        self.contentImage.setURL(model.backdrop_path?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
         self.price.text = model.title
+        self.contentImage.setURL(model.backdrop_path?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
+
+        let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: Selector("targetImageClickAction"))
+        self.contentImage.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func targetImageClickAction(){
+        AIApplication().SendAction("targetForServicesAction:", ownerName: self.contentImage)
     }
 }
 
 extension AIHomeViewStyleMultiepleView{
     func fillDataWithModel(model:Movie){
+        let idmov:Int? = model.id
+        let movieid:String = String(idmov!)
+        self.contentImage.assemblyID = movieid
+        
         self.title.text = model.original_title
         self.contentImage.setURL(model.backdrop_path?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
         self.price.text = model.title
         self.nick.text = model.title
         self.avator.setImageURL(model.backdrop_path?.toURL(), placeholderImage: UIImage(named: "Placeholder"), forState: UIControlState.Normal)
         
+        let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: Selector("targetImageClickAction"))
+        self.contentImage.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func targetImageClickAction(){
+        AIApplication().SendAction("targetForServicesAction:", ownerName: self.contentImage)
     }
 }
 
@@ -49,22 +82,18 @@ class AIHomeStyleMananger: NSObject {
         switch type{
             case .ViewStyleTitle:
                 let view = AIHomeViewStyleTitleView.currentView()
-                //view.fillDataWithModel(model)
                 return view
             
             case .ViewStyleTitleAndContent:
                 let view = AIHomeViewStyleTitleAndContentView.currentView()
-                //view.fillDataWithModel(model)
                 return view
             
             case .ViewStyleMultiple:
                 let view = AIHomeViewStyleMultiepleView.currentView()
-                //view.fillDataWithModel(model)
                 return view
             
             case .ViewStyleMultipleWithList:
                 let view = AIHomeViewStyleMultiepleView.currentView()
-                //view.fillDataWithModel(model)
                 return view
             default:
                return  AIHomeViewStyleTitleView.currentView()

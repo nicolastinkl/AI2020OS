@@ -10,6 +10,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="290"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hJC-SY-Mh6" customClass="AIImageView" customModule="AI2020OS" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="598" height="290"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVK-8l-T8X">
                     <rect key="frame" x="10" y="10" width="320" height="65"/>
                     <constraints>
@@ -30,9 +33,6 @@
                     <color key="textColor" red="1" green="0.98823529409999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hJC-SY-Mh6" customClass="AIImageView" customModule="AI2020OS" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="598" height="290"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

@@ -15,7 +15,21 @@ import Spring
 *  Loading image from url
 */
 
+//assembly key
+private var assemblyIDKey: Void
+
 public class AIImageView: UIImageView {
+    
+    
+    public var assemblyID: String? {
+        set{
+            objc_setAssociatedObject(self, &assemblyIDKey, newValue, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+        }
+        get{
+            return objc_getAssociatedObject(self, &assemblyIDKey) as? String
+        }
+    }
+
     
     public var placeholderImage : UIImage?
     

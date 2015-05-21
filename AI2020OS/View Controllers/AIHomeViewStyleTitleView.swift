@@ -19,5 +19,4 @@ class AIHomeViewStyleTitleView: SpringView {
         return cell
     }
     
-    
 }

@@ -48,8 +48,8 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APt-s4-Sdj">
-                            <rect key="frame" x="49" y="31" width="111" height="21"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star_rating_results_highlight" translatesAutoresizingMaskIntoConstraints="NO" id="APt-s4-Sdj">
+                            <rect key="frame" x="146" y="31" width="14" height="14"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -86,5 +86,6 @@
     </objects>
     <resources>
         <image name="Placeholder" width="550" height="250"/>
+        <image name="star_rating_results_highlight" width="14" height="14"/>
     </resources>
 </document>
