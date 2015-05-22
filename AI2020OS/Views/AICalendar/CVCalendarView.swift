@@ -34,7 +34,8 @@ class CVCalendarView: UIView {
                 }
             }
         }
-        println("Mode is : \(calendarMode?)")
+         self.calendarMode = .MonthView
+        //println("Mode is : \(calendarMode?)")
     }
     
     // MARK: - Current date 

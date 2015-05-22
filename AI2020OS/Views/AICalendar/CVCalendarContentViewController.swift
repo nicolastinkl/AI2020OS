@@ -47,10 +47,10 @@ class CVCalendarContentViewController: UIViewController, UIScrollViewDelegate {
         
         if calendarView.calendarMode == CalendarMode.MonthView {
             delegate = MonthContent(contentController: self)
-            println("Scroll View: \(scrollView)")
+//            println("Scroll View: \(scrollView)")
         } else {
             delegate = WeekContent(contentController: self)
-            println("Scroll View: \(scrollView)")
+//            println("Scroll View: \(scrollView)")
         }
         
     }

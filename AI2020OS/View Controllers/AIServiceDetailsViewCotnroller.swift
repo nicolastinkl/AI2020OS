@@ -50,6 +50,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         // Do any additional setup after loading the view, typically from a nib.
         requestMovieDetails()
         
+        self.navigationBarView.animate()
     }
     
     func registerCells(){
@@ -228,7 +229,12 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIComponentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICalendarViewController) as UIViewController
         
+        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+//        self.showViewController(viewController, sender: self)        
+        self.presentViewController(viewController, animated: true, completion: nil)
     }
     
 }

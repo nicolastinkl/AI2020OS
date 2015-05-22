@@ -96,7 +96,7 @@ class CVCalendarMenuView: UIView {
             
             let symbol = UILabel(frame: CGRectMake(x, y, width, height))
             symbol.textAlignment = .Center
-            print("  "+(self.symbols[i]).uppercaseString)
+            //print("  "+(self.symbols[i]).uppercaseString)
             
             symbol.text = weekdaysNumbers[(self.symbols[i]).uppercaseString]
             symbol.font = UIFont.boldSystemFontOfSize(10) // may be provided as a delegate property

@@ -34,6 +34,7 @@ struct AIApplication{
             static let AILoadingStoryboard          = "AILoadingStoryboard"
             static let AIMenuStoryboard             = "AIMenuStoryboard"
             static let AIMesageCenterStoryboard     = "AIMesageCenterStoryboard"
+            static let AIComponentStoryboard        = "AIComponentStoryboard"
         }
         
         struct ViewControllerIdentifiers {
@@ -41,6 +42,7 @@ struct AIApplication{
             static let favoritsTableViewController  = "AIFavoritsTableViewController"
             static let AIMenuViewController         = "AIMenuViewController"
             static let AIMessageCenterViewController = "AIMessageCenterViewController"
+            static let AICalendarViewController     = "AICalendarViewController"
         }
         
         struct CellIdentifiers {
