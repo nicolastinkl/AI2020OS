@@ -17,35 +17,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_icon_search_normal" translatesAutoresizingMaskIntoConstraints="NO" id="n0T-4f-NgA" userLabel="SearchBk">
-                                <rect key="frame" x="34" y="34" width="532" height="36"/>
-                                <rect key="contentStretch" x="0.79999999999999982" y="0.0" width="0.0" height="0.0"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bME-Mf-KmT" userLabel="SearchTextField">
-                                <rect key="frame" x="68" y="34" width="464" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duU-o1-1eO" userLabel="VoiceButton">
-                                <rect key="frame" x="540" y="34" width="13" height="36"/>
-                                <state key="normal" image="search_icon_mike_normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLq-eW-2oi">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KV9-Xh-Yvp">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_icon_search_normal" translatesAutoresizingMaskIntoConstraints="NO" id="n0T-4f-NgA" userLabel="SearchBk">
+                                            <rect key="frame" x="34" y="30" width="532" height="36"/>
+                                            <rect key="contentStretch" x="0.79999999999999982" y="0.0" width="0.0" height="0.0"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="jAh-nS-yJh"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duU-o1-1eO" userLabel="VoiceButton">
+                                            <rect key="frame" x="539" y="30" width="13" height="36"/>
+                                            <state key="normal" image="search_icon_mike_normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bME-Mf-KmT" userLabel="SearchTextField">
+                                            <rect key="frame" x="73" y="30" width="454" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="n0T-4f-NgA" firstAttribute="leading" secondItem="KV9-Xh-Yvp" secondAttribute="leading" constant="34" id="473-Ql-TvL"/>
+                                        <constraint firstItem="duU-o1-1eO" firstAttribute="leading" secondItem="bME-Mf-KmT" secondAttribute="trailing" constant="12" id="FQc-eF-ViE"/>
+                                        <constraint firstItem="bME-Mf-KmT" firstAttribute="height" secondItem="n0T-4f-NgA" secondAttribute="height" id="FfJ-ep-fNR"/>
+                                        <constraint firstItem="bME-Mf-KmT" firstAttribute="trailing" secondItem="n0T-4f-NgA" secondAttribute="trailing" constant="-39" id="LA9-yw-0gF"/>
+                                        <constraint firstItem="duU-o1-1eO" firstAttribute="top" secondItem="n0T-4f-NgA" secondAttribute="top" id="O1F-Re-fwE"/>
+                                        <constraint firstItem="duU-o1-1eO" firstAttribute="height" secondItem="n0T-4f-NgA" secondAttribute="height" id="dHU-Fo-pXR"/>
+                                        <constraint firstItem="bME-Mf-KmT" firstAttribute="leading" secondItem="n0T-4f-NgA" secondAttribute="leading" constant="39" id="hAL-sC-DkF"/>
+                                        <constraint firstAttribute="trailing" secondItem="n0T-4f-NgA" secondAttribute="trailing" constant="34" id="jcf-KF-Vzq"/>
+                                        <constraint firstItem="bME-Mf-KmT" firstAttribute="top" secondItem="n0T-4f-NgA" secondAttribute="top" id="uT8-dd-iNr"/>
+                                        <constraint firstItem="duU-o1-1eO" firstAttribute="centerY" secondItem="bME-Mf-KmT" secondAttribute="centerY" id="x76-2C-lMK"/>
+                                        <constraint firstItem="n0T-4f-NgA" firstAttribute="top" secondItem="KV9-Xh-Yvp" secondAttribute="top" constant="30" id="yxo-Ux-Qi3"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="n0T-4f-NgA" firstAttribute="leading" secondItem="CKc-Bq-T8P" secondAttribute="leadingMargin" constant="18" id="0TA-ey-Xa0"/>
-                            <constraint firstItem="duU-o1-1eO" firstAttribute="top" secondItem="n0T-4f-NgA" secondAttribute="top" id="5hP-Zz-YmT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="n0T-4f-NgA" secondAttribute="trailing" constant="18" id="Adc-P9-fb5"/>
-                            <constraint firstAttribute="centerX" secondItem="n0T-4f-NgA" secondAttribute="centerX" id="CSh-M2-Yzg"/>
-                            <constraint firstItem="bME-Mf-KmT" firstAttribute="trailing" secondItem="n0T-4f-NgA" secondAttribute="trailing" constant="-34" id="KaR-rI-gfk"/>
-                            <constraint firstItem="bME-Mf-KmT" firstAttribute="top" secondItem="n0T-4f-NgA" secondAttribute="top" id="NfR-8p-m7b"/>
-                            <constraint firstItem="bME-Mf-KmT" firstAttribute="height" secondItem="n0T-4f-NgA" secondAttribute="height" id="Nj0-4N-4ib"/>
-                            <constraint firstItem="duU-o1-1eO" firstAttribute="leading" secondItem="bME-Mf-KmT" secondAttribute="trailing" constant="8" id="Puc-JH-NQM"/>
-                            <constraint firstItem="bME-Mf-KmT" firstAttribute="leading" secondItem="n0T-4f-NgA" secondAttribute="leading" constant="34" id="tao-hG-jaN"/>
-                            <constraint firstItem="duU-o1-1eO" firstAttribute="height" secondItem="n0T-4f-NgA" secondAttribute="height" id="v47-aI-VxM"/>
-                            <constraint firstItem="n0T-4f-NgA" firstAttribute="top" secondItem="o3c-nF-smu" secondAttribute="bottom" constant="14" id="ylh-uE-lSj"/>
+                            <constraint firstItem="wLq-eW-2oi" firstAttribute="leading" secondItem="CKc-Bq-T8P" secondAttribute="leadingMargin" constant="-16" id="BaT-aB-kZn"/>
+                            <constraint firstItem="wLq-eW-2oi" firstAttribute="top" secondItem="o3c-nF-smu" secondAttribute="bottom" constant="-20" id="Ohl-8l-gvh"/>
+                            <constraint firstItem="Rcw-KQ-bpc" firstAttribute="top" secondItem="wLq-eW-2oi" secondAttribute="bottom" id="cwT-xx-c9q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wLq-eW-2oi" secondAttribute="trailing" constant="-16" id="mVe-aP-iWd"/>
                         </constraints>
                     </view>
                 </viewController>
