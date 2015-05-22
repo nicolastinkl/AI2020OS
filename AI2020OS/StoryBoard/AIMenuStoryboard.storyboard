@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="top" id="gmZ-xV-mMC"/>
                         <viewControllerLayoutGuide type="bottom" id="hTC-gk-46O"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.94999999999999996" contentMode="scaleToFill" id="fTU-Zt-wFG">
+                    <view key="view" contentMode="scaleToFill" id="fTU-Zt-wFG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -22,72 +22,97 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="geC-k3-JiR">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvi-Co-SAI">
+                                            <rect key="frame" x="237" y="93" width="126" height="415"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inr-mQ-n5d" customClass="SpringButton" customModule="Spring">
+                                                    <rect key="frame" x="22" y="10" width="83" height="83"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" image="menu_ico_home">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="showHome:" destination="NbP-zF-heK" eventType="touchUpInside" id="kUK-PE-fvz"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="首页" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3R-fQ-mcq">
+                                                    <rect key="frame" x="46" y="101" width="34" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoF-sm-Grj" customClass="SpringButton" customModule="Spring">
+                                                    <rect key="frame" x="22" y="152" width="83" height="83"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" image="menu_ico_message">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="showMessage:" destination="NbP-zF-heK" eventType="touchUpInside" id="kFU-fE-gZR"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="消息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdK-Om-hHN">
+                                                    <rect key="frame" x="46" y="243" width="34" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFv-8i-Fn4" customClass="SpringButton" customModule="Spring">
+                                                    <rect key="frame" x="22" y="293" width="83" height="83"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" image="menu_ico_setting">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="showSettings:" destination="NbP-zF-heK" eventType="touchUpInside" id="Zxo-GG-lEG"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gp6-br-bvV">
+                                                    <rect key="frame" x="46" y="384" width="34" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="126" id="HcS-9x-mMf"/>
+                                                <constraint firstAttribute="height" constant="415" id="PI7-Vl-OFo"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="mvi-Co-SAI" secondAttribute="centerX" id="tJz-ii-35G"/>
+                                        <constraint firstAttribute="centerY" secondItem="mvi-Co-SAI" secondAttribute="centerY" id="uur-49-H6D"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvi-Co-SAI">
-                                <rect key="frame" x="237" y="92" width="126" height="415"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inr-mQ-n5d">
-                                        <rect key="frame" x="22" y="10" width="83" height="83"/>
-                                        <color key="backgroundColor" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="menu_ico_home">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="showHome:" destination="NbP-zF-heK" eventType="touchUpInside" id="kUK-PE-fvz"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="首页" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3R-fQ-mcq">
-                                        <rect key="frame" x="46" y="101" width="34" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoF-sm-Grj">
-                                        <rect key="frame" x="22" y="152" width="83" height="83"/>
-                                        <color key="backgroundColor" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="menu_ico_message">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="showMessage:" destination="NbP-zF-heK" eventType="touchUpInside" id="kFU-fE-gZR"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="消息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdK-Om-hHN">
-                                        <rect key="frame" x="46" y="243" width="34" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFv-8i-Fn4">
-                                        <rect key="frame" x="22" y="293" width="83" height="83"/>
-                                        <color key="backgroundColor" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="menu_ico_setting">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="showSettings:" destination="NbP-zF-heK" eventType="touchUpInside" id="Zxo-GG-lEG"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gp6-br-bvV">
-                                        <rect key="frame" x="46" y="384" width="34" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="126" id="HcS-9x-mMf"/>
-                                    <constraint firstAttribute="height" constant="415" id="PI7-Vl-OFo"/>
-                                </constraints>
-                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="mvi-Co-SAI" secondAttribute="centerX" id="DiW-Yw-DSo"/>
-                            <constraint firstAttribute="centerY" secondItem="mvi-Co-SAI" secondAttribute="centerY" id="PFV-ZP-J1h"/>
                             <constraint firstItem="MTp-e8-o9t" firstAttribute="leading" secondItem="fTU-Zt-wFG" secondAttribute="leadingMargin" constant="-16" id="Qz0-IU-HfJ"/>
                             <constraint firstItem="MTp-e8-o9t" firstAttribute="top" secondItem="gmZ-xV-mMC" secondAttribute="bottom" constant="-20" id="ahK-v1-Stx"/>
                             <constraint firstItem="hTC-gk-46O" firstAttribute="top" secondItem="MTp-e8-o9t" secondAttribute="bottom" id="fcU-wS-fSG"/>
@@ -111,7 +136,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="689" y="-14"/>
+            <point key="canvasLocation" x="657" y="-56"/>
         </scene>
     </scenes>
     <resources>

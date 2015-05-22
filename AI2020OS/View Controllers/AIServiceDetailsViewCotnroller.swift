@@ -229,12 +229,21 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIComponentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICalendarViewController) as UIViewController
-        
-        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-//        self.showViewController(viewController, sender: self)        
-        self.presentViewController(viewController, animated: true, completion: nil)
+        if indexPath.section <= 1 {
+            let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIComponentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICalendarViewController) as UIViewController
+            
+            viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+            self.presentViewController(viewController, animated: true, completion: nil)
+        }else{
+            
+            let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIComponentChoseViewController) as UIViewController
+            
+            viewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+            viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+            self.presentViewController(viewController, animated: true, completion: nil)
+            
+        }
     }
     
 }

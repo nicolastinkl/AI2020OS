@@ -43,6 +43,7 @@ struct AIApplication{
             static let AIMenuViewController         = "AIMenuViewController"
             static let AIMessageCenterViewController = "AIMessageCenterViewController"
             static let AICalendarViewController     = "AICalendarViewController"
+            static let AIComponentChoseViewController   = "AIComponentChoseViewController"
         }
         
         struct CellIdentifiers {
@@ -59,6 +60,7 @@ struct AIApplication{
             // MARK: TIME LINE
             static let AITIMELINESDTimesViewCell        = "AITIMELINESDTimesViewCell"
             static let AITIMELINESDContentViewCell      = "AITIMELINESDContentViewCell"
+            
         }
         
         struct ViewIdentifiers {
@@ -70,6 +72,7 @@ struct AIApplication{
             static let AIHomeViewStyleTitleAndContentView = "AIHomeViewStyleTitleAndContentView"
             static let AIServiceDetailsViewCotnroller = "AIServiceDetailsViewCotnroller"
             static let AIErrorRetryView = "AIErrorRetryView"
+            static let AIServerScopeView = "AIServerScopeView"
         }
     }
     

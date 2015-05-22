@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import Spring
 
 class AIMenuViewController: UIViewController {
     
-    @IBOutlet weak var menuHomeButton: UIButton!
-    @IBOutlet weak var menuMessageButton: UIButton!
-    @IBOutlet weak var menuSettingsButton: UIButton!
+    @IBOutlet weak var menuHomeButton: SpringButton!
+    @IBOutlet weak var menuMessageButton: SpringButton!
+    @IBOutlet weak var menuSettingsButton: SpringButton!
 
     // MARK: view lifecricle
     
@@ -23,6 +24,25 @@ class AIMenuViewController: UIViewController {
         self.menuMessageButton.maskWithEllipse()
         self.menuSettingsButton.maskWithEllipse()
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)         
+        
+        self.menuHomeButton.animation = "zoomOut"
+        self.menuMessageButton.animation = "zoomOut"
+        self.menuSettingsButton.animation = "zoomOut"
+        
+        self.menuHomeButton.animate()
+        self.menuMessageButton.animate()
+        self.menuSettingsButton.animate()
     }
     
     // MARK: action

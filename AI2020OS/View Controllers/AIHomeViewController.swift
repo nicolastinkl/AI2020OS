@@ -14,16 +14,19 @@ import Cartography
 class AIHomeViewController: UITableViewController {
     
     @IBOutlet var tableview: UITableView!
-
-    // MARK: Priate Variable
-    private var stories = [Movie]()
     
     @IBOutlet weak var searchButton: UIButton!
+    
+    // MARK: Priate Variable
+    
+    private var stories = [Movie]()
+
     private var weatherValue:WeatherModel?
 
     private var loginAction : LoginAction?
 
-    // MARK: View LifeCirle
+    // MARK: View LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +39,6 @@ class AIHomeViewController: UITableViewController {
         }else{
             self.loginAction = LoginAction(viewController: self, completion: nil)
         }
-        
         
     }
     
@@ -96,7 +98,7 @@ class AIHomeViewController: UITableViewController {
     func targetForServicesAction(sender:AnyObject){
         let imageview = sender as AIImageView
         let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
-        controller.movieDetails = imageview.assemblyID!
+        controller.movieDetails = "\(imageview.assemblyID!)"
         showViewController(controller, sender: self)
     }
     
@@ -116,6 +118,7 @@ extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
         
         return cell
     }
+    
     
     func configureCell(cell: AIHomeViewCell, atIndexPath indexPath: NSIndexPath) {
         

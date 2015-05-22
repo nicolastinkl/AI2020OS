@@ -237,6 +237,64 @@
             </objects>
             <point key="canvasLocation" x="2833" y="-286"/>
         </scene>
+        <!--Component Chose View Controller-->
+        <scene sceneID="wgg-On-hNU">
+            <objects>
+                <viewController storyboardIdentifier="AIComponentChoseViewController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ipJ-wv-4cC" customClass="AIComponentChoseViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gF3-jg-2PV"/>
+                        <viewControllerLayoutGuide type="bottom" id="KYX-as-2v3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MQC-jP-TEK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jay-fq-fKN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4Qn-GO-e8F">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDy-SE-4x6">
+                                            <rect key="frame" x="0.0" y="114" width="600" height="486"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </scrollView>
+                                    </subviews>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="XDy-SE-4x6" secondAttribute="trailing" id="5pM-fa-Wxj"/>
+                                        <constraint firstItem="XDy-SE-4x6" firstAttribute="leading" secondItem="4Qn-GO-e8F" secondAttribute="leading" id="FEO-qn-PT1"/>
+                                        <constraint firstAttribute="bottom" secondItem="XDy-SE-4x6" secondAttribute="bottom" id="Ra2-vG-5Jw"/>
+                                        <constraint firstItem="XDy-SE-4x6" firstAttribute="top" secondItem="4Qn-GO-e8F" secondAttribute="top" constant="114" id="cGI-hG-h6o"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="6U4-nV-7iy" appends="YES" id="tJu-X6-EdG"/>
+                                    </connections>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="jay-fq-fKN" secondAttribute="trailing" constant="-16" id="1dR-2U-2lp"/>
+                            <constraint firstItem="KYX-as-2v3" firstAttribute="top" secondItem="jay-fq-fKN" secondAttribute="bottom" id="2Xr-gk-FgL"/>
+                            <constraint firstItem="jay-fq-fKN" firstAttribute="top" secondItem="gF3-jg-2PV" secondAttribute="bottom" constant="-20" id="3vu-Bg-Vmh"/>
+                            <constraint firstItem="jay-fq-fKN" firstAttribute="leading" secondItem="MQC-jP-TEK" secondAttribute="leadingMargin" constant="-16" id="ywt-NH-NFK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentScrollView" destination="XDy-SE-4x6" id="gAh-X2-Jz0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s9F-4h-Etv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6U4-nV-7iy">
+                    <connections>
+                        <action selector="disMissViewController:" destination="ipJ-wv-4cC" id="aUo-Uv-ExQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3510" y="-123"/>
+        </scene>
         <!--首页-->
         <scene sceneID="UBJ-ge-w3S">
             <objects>

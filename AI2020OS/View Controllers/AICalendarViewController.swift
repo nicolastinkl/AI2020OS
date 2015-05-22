@@ -12,21 +12,19 @@ import Spring
 class AICalendarViewController: UIViewController,CVCalendarViewDelegate {
     
     @IBOutlet weak var containerView: SpringView!
+    
     @IBOutlet weak var calendarView: CVCalendarView!
     
     @IBOutlet weak var menuView: CVCalendarMenuView!
     
     @IBOutlet weak var monthLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.monthLabel.text = CVDate(date: NSDate()).description()
         
-        self.calendarView.commitCalendarViewUpdate()
-        self.menuView.commitMenuViewUpdate()
-        spring(0.3, {
+        spring(0.5, {
             self.calendarView.alpha = 1
             self.menuView.alpha = 1
             
@@ -45,8 +43,13 @@ class AICalendarViewController: UIViewController,CVCalendarViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.calendarView.commitCalendarViewUpdate()
-        self.menuView.commitMenuViewUpdate()
+        spring(0.3, {
+            self.calendarView.commitCalendarViewUpdate()
+            self.menuView.commitMenuViewUpdate()
+            
+        })
+        
+        
     }
     
     

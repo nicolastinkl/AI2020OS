@@ -11,6 +11,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    struct AppDelegateStatic {
+        static var token: dispatch_once_t = 0
+    }
+    
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -24,9 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AIAppInit().xfINIT()
         
         //Hook Viewdidview and ViewDidDisappear.
-        AIApplication.hookViewDidLoad()
-        AIApplication.hookViewWillAppear()
-        AIApplication.hookViewWillDisappear()
+      
+        dispatch_once(&AppDelegateStatic.token) {
+            AIApplication.hookViewDidLoad()
+            AIApplication.hookViewWillAppear()
+            AIApplication.hookViewWillDisappear()
+        }
+        
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     

@@ -96,7 +96,21 @@ extension UIColor {
     class func applicationMainColor() -> UIColor {
         return UIColor(rgba: AIApplication.AIColor.MainTextColor)
     }
-     
+    
+    
+    func imageWithColor() -> UIImage {
+        let rect:CGRect = CGRectMake(0, 0, 1, 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context:CGContextRef = UIGraphicsGetCurrentContext()
+        
+        CGContextSetFillColorWithColor(context, self.CGColor)
+        CGContextFillRect(context, rect)
+        
+        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
     
     
     

@@ -58,8 +58,7 @@ struct AIHttpEngine{
                     response(response: nil, error:  Error(message: "Something went wrong", code: 0))
                 }
         }
-    }
-    
+    }    
     
     
     static func moviesForSection(response: ([Movie]) -> ()) {

@@ -11,6 +11,27 @@ import Spring
 
 extension UIView {
     
+    private struct AssociatedKeys {
+        static var DescriptiveName = "AIAssociatedName_UIView"
+    }
+    
+    var associatedName: String? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.DescriptiveName) as? String
+        }
+        set {
+            if let newValue = newValue {
+                objc_setAssociatedObject(
+                    self,
+                    &AssociatedKeys.DescriptiveName,
+                    newValue as NSString?,
+                    UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                )
+            }
+        }
+    }
+    
+    
     /*!
         根据tag 获取视图对象
     */
