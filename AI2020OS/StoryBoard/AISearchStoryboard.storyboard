@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Search View Controller-->
         <scene sceneID="xDs-e8-ai5">
             <objects>
-                <viewController id="s1r-sT-ksl" sceneMemberID="viewController">
+                <viewController id="s1r-sT-ksl" customClass="MainSearchViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o3c-nF-smu"/>
                         <viewControllerLayoutGuide type="bottom" id="Rcw-KQ-bpc"/>
@@ -41,25 +41,13 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QeQ-24-dfy">
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="QeQ-24-dfy">
                                             <rect key="frame" x="0.0" y="92" width="600" height="438"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <prototypes>
-                                                <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="W08-ks-YXg">
+                                                <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchTag" rowHeight="106" id="W08-ks-YXg">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W08-ks-YXg" id="iuc-rO-bix">
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                    </tableViewCellContentView>
-                                                </tableViewCell>
-                                                <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ohk-re-DSg">
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ohk-re-DSg" id="KQH-3C-Kk7">
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                    </tableViewCellContentView>
-                                                </tableViewCell>
-                                                <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gwf-s9-4lS">
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gwf-s9-4lS" id="h17-P5-aXn">
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </tableViewCellContentView>
                                                 </tableViewCell>
@@ -128,6 +116,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="wLq-eW-2oi" secondAttribute="trailing" constant="-16" id="mVe-aP-iWd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="QeQ-24-dfy" id="Uib-a6-gyw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VA4-aW-a5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
