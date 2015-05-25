@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import  JSONJoy
 
 /*!
 *  @author tinkl, 15-04-22 17:04:51
@@ -14,7 +15,7 @@ import Foundation
 *  服务列表请求类
 */
 class AIServicesRequester {
-    typealias ServicesRequesterCompletion = (data:[Movie]) ->()
+    typealias ServicesRequesterCompletion = (data:[AIServiceTopicListModel]) ->()
     
     private (set) var hasMore : Bool = false
     private var page : Int = 1
@@ -27,16 +28,20 @@ class AIServicesRequester {
         }
         
         isLoading = true
-        AIHttpEngine.moviesForSection {  [weak self] movies  in
-            if let strongSelf = self {
+        
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetServicesTopic, parameters: ["page_num":"1"]) {  [weak self] (response, error) -> () in
+            if let strongSelf = self{
                 strongSelf.isLoading = false
-                completion(data: movies)
+                if let responseJSON: AnyObject = response{
+                    let service =  AIServiceTopicResult(JSONDecoder(responseJSON))
+                    completion(data: service.service_array!)
+                }
             }
         }
         
     }
     
-    func next(completion: (stories:[Movie]) ->()) {
+    func next(completion: (services:[AIServiceTopicListModel]) ->()) {
         if isLoading {
             return
         }

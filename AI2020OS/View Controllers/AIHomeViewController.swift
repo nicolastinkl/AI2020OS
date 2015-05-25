@@ -20,8 +20,9 @@ class AIHomeViewController: UITableViewController {
     @IBOutlet weak var searchButton: UIButton!
     
     // MARK: Priate Variable
-    
     private var stories = [Movie]()
+    
+    private var serviceTopicList = [AIServiceTopicListModel]()
 
     private var weatherValue:WeatherModel?
 
@@ -69,12 +70,6 @@ class AIHomeViewController: UITableViewController {
             })
         }
         
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIComponentChoseViewController) as UIViewController
-        
-        viewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-        self.presentViewController(viewController, animated: true, completion: nil)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,16 +84,26 @@ class AIHomeViewController: UITableViewController {
         
         self.view.showProgressViewLoading()
         
+        
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
+            
+            AIServicesRequester().load(page: 1, completion: { (data) -> () in
+                
+            })
+            
+        }
+        
+        Async.background(){
+            // Do any additional setup after loading the view, typically from a nib.
+            
             AIHttpEngine.moviesForSection {  movies  in
                 self.view.hideProgressViewLoading()
                 if movies.count > 0{
                     self.stories = movies
                     self.tableView.reloadData()
                     self.view.hideErrorView()
-                }else
-                {
+                }else{
                     self.view.showErrorView()
                 }
             }

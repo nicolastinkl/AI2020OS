@@ -22,8 +22,10 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     @IBOutlet weak var detailsPageView: KMDetailsPageView!
 
     // MARK: getters and setters
-    
+    private let transitionManager = TransitionManager()
+
     var movieDetails:String?
+    
     private var movieDetailsResponse:AIKMMovie?
     
     private var bgImage:UIImageView?
@@ -248,6 +250,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             
             viewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
             viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+            //viewController.transitioningDelegate = self.transitionManager
             self.presentViewController(viewController, animated: true, completion: nil)
             
         }

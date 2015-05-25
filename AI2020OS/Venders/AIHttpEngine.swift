@@ -23,42 +23,54 @@ struct Error {
  */
 struct AIHttpEngine{
     
-    
-    private static let baseURL = "https://api.asiainfo.com"
+    private static let baseURL = "http://10.1.228.179:8282"
     private static let clientID = "750ab22aac78be1c0a1a6d"
     private static let clientSecret = "53e3822c41c5bf26d0ef982693f215c72d87da"
 
     // MARK ResourcePath With domain
-    private enum ResourcePath: Printable {
-        case Login
-        case Stories
+    enum ResourcePath: Printable {
+        case GetServicesTopic
+        case GetServiceDetail
         case CommentUpvote(commentId: Int)
         case CommentReply(commentId: Int)
 
         var description: String {
             switch self {
-            case .Login: return "/oauth/token"
-            case .Stories: return "/api/v1/stories"
+            case .GetServiceDetail: return "/sboss/getServiceDetail"
+            case .GetServicesTopic: return "/sboss/getServiceTopic"
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
             }
         }
     }
     
-    private static func postRequestWithParameters(path:ResourcePath,response: (response:AnyObject?,error:Error?) -> ()) {
-        Alamofire.request(.POST, self.baseURL+path.description)
+    static func postRequestWithParameters(path:ResourcePath,parameters: [String: AnyObject]? = nil,response: (response:AnyObject?,error:Error?) -> ()) {
+        println("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
+        let encoding = Alamofire.ParameterEncoding.JSON
+        Alamofire.request(.POST, self.baseURL+path.description,parameters:parameters, encoding: encoding)
             .responseJSON { (_,_,JSON,_) in
-                if let reponsess: AnyObject = JSON{
-                    var httpreponse = JSON as NSDictionary
-                    let statusCode = httpreponse["responseCode"] as? Int
-                    if statusCode == 200  {
-                        response(response: httpreponse, error: nil)
+                
+                func fail(){
+                    response(response: nil, error: Error(message: "", code: 0))
+                }
+                
+                if let reponsess = JSON as? NSDictionary {
+                    if let descValue = reponsess["desc"] as? NSDictionary{
+                        let stas: AnyObject = descValue["result_code"]!
+
+                        if let dataValue = reponsess["data"] as? NSDictionary{
+                            println(dataValue)
+                            response(response: dataValue, error: nil)
+                        }
+                        
                     }
                 }else{
-                    response(response: nil, error:  Error(message: "Something went wrong", code: 0))
+                    fail()
                 }
+                
+                
         }
-    }    
+    }
     
     
     static func moviesForSection(response: ([Movie]) -> ()) {

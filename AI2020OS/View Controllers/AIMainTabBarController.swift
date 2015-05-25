@@ -69,7 +69,7 @@ class AIMainTabBarController: UITabBarController {
         self.showViewController(controller, sender: self)
         
         //self.presentViewController(controller, animated: true, completion: { () -> Void in
-            //controller.transitioningDelegate = TransitionManager()
+            //controller.transitioningDelegate = AITransitionManager()
         //})
     }
     // MARK: create methods
