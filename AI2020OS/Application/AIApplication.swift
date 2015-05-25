@@ -72,8 +72,10 @@ struct AIApplication{
             static let AIHomeViewStyleTitleView = "AIHomeViewStyleTitleView"
             static let AIHomeViewStyleTitleAndContentView = "AIHomeViewStyleTitleAndContentView"
             static let AIServiceDetailsViewCotnroller = "AIServiceDetailsViewCotnroller"
-            static let AIErrorRetryView = "AIErrorRetryView"
-            static let AIServerScopeView = "AIServerScopeView"
+            static let AIErrorRetryView     = "AIErrorRetryView"
+            static let AIServerScopeView    = "AIServerScopeView"
+            static let AIServerTimeView     = "AIServerTimeView"
+            static let AIServerAddressView  = "AIServerAddressView"
         }
     }
     
