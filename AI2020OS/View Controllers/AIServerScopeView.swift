@@ -18,6 +18,8 @@ struct ServerScopeModel {
     }
 }
 
+// MARK: life cycle
+
 class AIServerScopeView: UIView {
     
     private var selectedButton: UIButton?

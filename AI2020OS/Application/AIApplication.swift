@@ -13,7 +13,7 @@ import Cartography
 /*!
 *  @author tinkl, 15-03-30 15:03:35
 *
-*  AI2020OS 全局参数
+*  AI2020OS Application Paramters
 */
 struct AIApplication{
 
@@ -22,10 +22,10 @@ struct AIApplication{
     
     internal static let AVOSCLOUDKEY = "qqcxwtjlx3ctw32buizjkaw5elwf0s41u4xf8ct7glbox171"
     
-    // MARK: 讯飞语音助手APPID
+    // MARK: XUNFEI APPID
     internal static let XUNFEIAPPID  = "551ba83b"
     
-    // MARK: 所有ViewController Identifiers
+    // MARK: All the ViewController Identifiers
     struct MainStoryboard {
         
         struct MainStoryboardIdentifiers {
@@ -37,6 +37,7 @@ struct AIApplication{
             static let AIComponentStoryboard        = "AIComponentStoryboard"
         }
         
+        // MARK: View
         struct ViewControllerIdentifiers {
             static let listViewController           = "listViewController"
             static let favoritsTableViewController  = "AIFavoritsTableViewController"
@@ -76,7 +77,7 @@ struct AIApplication{
         }
     }
     
-    // Notification with IM or System Push.
+    // MARK: Notification with IM or System Push.
     struct Notification{
         static let UIAIASINFOWillShowBarNotification    = "UIAIASINFOWillShowBarNotification"
         static let UIAIASINFOWillhiddenBarNotification  = "UIAIASINFOWillhiddenBarNotification"
@@ -85,7 +86,7 @@ struct AIApplication{
         
     }
     
-    // MARK: 系统主题颜色
+    // MARK: System theme's color
     struct AIColor {
         static let MainTextColor     = "#41414C"
         static let MainTabBarBgColor = "#00cec0"
@@ -103,7 +104,7 @@ struct AIApplication{
     }
     
     
-    // MARK: 处理响应事件
+    // MARK: The Application preferorm
     internal func SendAction(functionName:String,ownerName:AnyObject){
         /*!
         *  @author tinkl, 15-04-22 16:04:07
@@ -144,8 +145,7 @@ struct AIApplication{
         method_exchangeImplementations(oldMethod, newMethod)
     }
     
-    // MARK: 全局未读提示
-    
+    // MARK: Application Unread ViewController.
     static func showMessageUnreadView(){
         
         if let loadingXibView = UIApplication.sharedApplication().keyWindow!.viewWithTag(AIApplication.AIViewTags.AIMessageUnReadViewTag) {

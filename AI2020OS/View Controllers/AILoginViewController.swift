@@ -12,16 +12,29 @@ import SCLAlertView
 
 class AILoginViewController: UIViewController {
     
+    // MARK: getters and setters
+    
     weak var delegate: AILoginViewControllerDelegate?
     
     @IBOutlet weak var phoneTextFlied: DesignableTextField!
     
     @IBOutlet weak var passwordTextFlied: DesignableTextField!
     
+    // MARK: life cycle
+    
     override func viewDidLoad() {
+    
         super.viewDidLoad()
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.interactivePopGestureRecognizer.delegate = nil
+        super.viewWillAppear(animated)
+    }
+    
+    // MARK: event response
     
     @IBAction func loginAction(sender: AnyObject) {
         
@@ -50,16 +63,10 @@ class AILoginViewController: UIViewController {
         
         
         
-    }
-    
-    // #MARK  View Lifecycle
-    override func viewWillAppear(animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        navigationController?.interactivePopGestureRecognizer.delegate = nil
-        super.viewWillAppear(animated)
-    }
-    
+    }    
 }
+
+// MARK: function extension
 
 extension AILoginViewController: UITextFieldDelegate{
     func textFieldShouldReturn(textField: UITextField) -> Bool {

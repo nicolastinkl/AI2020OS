@@ -11,6 +11,9 @@ import Spring
 
 class AICalendarViewController: UIViewController,CVCalendarViewDelegate {
     
+    
+    // MARK: swift controls
+    
     @IBOutlet weak var containerView: SpringView!
     
     @IBOutlet weak var calendarView: CVCalendarView!
@@ -18,6 +21,8 @@ class AICalendarViewController: UIViewController,CVCalendarViewDelegate {
     @IBOutlet weak var menuView: CVCalendarMenuView!
     
     @IBOutlet weak var monthLabel: UILabel!
+    
+    // MARK: life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +34,6 @@ class AICalendarViewController: UIViewController,CVCalendarViewDelegate {
             self.menuView.alpha = 1
             
         })
-    }
-    
-    @IBAction func dismissCurrentViewAction(sender: AnyObject) {
-        
-        
-        self.containerView.animation = "zoomOut"
-        self.containerView.animate()
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,6 +48,16 @@ class AICalendarViewController: UIViewController,CVCalendarViewDelegate {
         
     }
     
+    // MARK: event response
+    
+    @IBAction func dismissCurrentViewAction(sender: AnyObject) {
+        
+        
+        self.containerView.animation = "zoomOut"
+        self.containerView.animate()
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func todayMonthView() {
         self.calendarView.toggleTodayMonthView()

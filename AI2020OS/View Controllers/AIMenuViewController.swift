@@ -11,11 +11,13 @@ import Spring
 
 class AIMenuViewController: UIViewController {
     
+    // MARK: swift controls
+    
     @IBOutlet weak var menuHomeButton: SpringButton!
     @IBOutlet weak var menuMessageButton: SpringButton!
     @IBOutlet weak var menuSettingsButton: SpringButton!
 
-    // MARK: view lifecricle
+    // MARK: life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,6 @@ class AIMenuViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-
         
     }
     
@@ -45,7 +46,7 @@ class AIMenuViewController: UIViewController {
         self.menuSettingsButton.animate()
     }
     
-    // MARK: action
+    // MARK: event response
     
     @IBAction func showSettings(sender: AnyObject) {
         

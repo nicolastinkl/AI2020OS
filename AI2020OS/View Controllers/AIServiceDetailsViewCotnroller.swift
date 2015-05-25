@@ -10,7 +10,9 @@ import Foundation
 import Spring
 
 class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDelegate{
-
+    
+    // MARK: swift controls
+    
     @IBOutlet weak var navigationBarView: SpringView!
 
     @IBOutlet weak var tableview: UITableView!
@@ -19,8 +21,9 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
 
     @IBOutlet weak var detailsPageView: KMDetailsPageView!
 
-    var movieDetails:String?
+    // MARK: getters and setters
     
+    var movieDetails:String?
     private var movieDetailsResponse:AIKMMovie?
     
     private var bgImage:UIImageView?
@@ -29,7 +32,8 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
     private var scrollViewDragPointsss : CGPoint?
     
-// #MARK  View Lifecycle 
+    // MARK: life cycle
+    
     override func viewWillAppear(animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
         navigationController?.interactivePopGestureRecognizer.delegate = nil
@@ -69,6 +73,8 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         self.detailsPageView.registerCells(paramsCellNib, identifier: cellReuseIdentifier)
         
     }
+    
+    // MARK: event response
     
     @IBAction func showMenuClick(sender: AnyObject) {
         showMenuViewController()
@@ -127,7 +133,8 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
 }
 
-// MARK  UITableViewDelegate,UITableViewDataSource
+// MARK: function extension
+// MARK:  UITableViewDelegate,UITableViewDataSource
 extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

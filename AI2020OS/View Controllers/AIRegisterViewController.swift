@@ -13,6 +13,8 @@ import SCLAlertView
 
 class AIRegisterViewController : UIViewController {
 
+    // MARK: swift controls
+    
     @IBOutlet weak var phoneTextField: DesignableTextField!
     
     @IBOutlet weak var verifyTextFeild: DesignableTextField!
@@ -21,13 +23,19 @@ class AIRegisterViewController : UIViewController {
     
     @IBOutlet weak var requestVerify: DesignableButton!
     
+    // MARK: getters and setters
+    
     private var timer: NSTimer!
     private var remainTime: Int!
+    
+    // MARK: life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
+    // MARK: event response
     
     @IBAction func requestVerifyAction(sender: AnyObject) {
         self.phoneTextField.resignFirstResponder()

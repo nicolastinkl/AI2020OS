@@ -9,13 +9,18 @@
 import Foundation
 
 class AIComponentChoseViewController: UIViewController {
-
+    
+    // MARK: swift controls
+    
     @IBOutlet weak var contentScrollView: UIScrollView!
+    
+    
+    // MARK: life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK: TITLE
+        // MARK TITLE
         
         var title = UILabel()
         title.text = "服务范围"
@@ -26,7 +31,7 @@ class AIComponentChoseViewController: UIViewController {
         title.setTop(20)
         self.contentScrollView.addSubview(title)
         
-        // MARK: CONTENT
+        // MARK CONTENT
         let scopeView =  AIServerScopeView.currentView()
         scopeView.initWithViewsArray([
             ServerScopeModel(outId: "2", outContent: "一居室 90元一次"),
@@ -37,7 +42,7 @@ class AIComponentChoseViewController: UIViewController {
         self.contentScrollView.addSubview(scopeView)
         scopeView.setTop(title.height + title.top)
         
-        // MARK: LINE
+        // MARK LINE
         var line =  UILabel()
         line.setWidth(self.view.width*0.9)
         line.setHeight(0.5)
@@ -47,6 +52,8 @@ class AIComponentChoseViewController: UIViewController {
         self.contentScrollView.addSubview(line)
     }
     
+    
+    // MARK: event response
     @IBAction func disMissViewController(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }

@@ -13,6 +13,8 @@ import Cartography
 
 class AIHomeViewController: UITableViewController {
     
+    // MARK: swift controls
+    
     @IBOutlet var tableview: UITableView!
     
     @IBOutlet weak var searchButton: UIButton!
@@ -40,28 +42,6 @@ class AIHomeViewController: UITableViewController {
             self.loginAction = LoginAction(viewController: self, completion: nil)
         }
         
-    }
-    
-    // application actions
-    func retryNetworkingAction(){
-        self.view.hideProgressViewLoading()
-        
-        self.view.showProgressViewLoading()
-        
-        Async.background(){
-            // Do any additional setup after loading the view, typically from a nib.
-            AIHttpEngine.moviesForSection {  movies  in
-                self.view.hideProgressViewLoading()
-                if movies.count > 0{
-                    self.stories = movies
-                    self.tableView.reloadData()
-                    self.view.hideErrorView()
-                }else
-                {
-                    self.view.showErrorView()
-                }
-            }
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -94,6 +74,30 @@ class AIHomeViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    // application actions
+    func retryNetworkingAction(){
+        self.view.hideProgressViewLoading()
+        
+        self.view.showProgressViewLoading()
+        
+        Async.background(){
+            // Do any additional setup after loading the view, typically from a nib.
+            AIHttpEngine.moviesForSection {  movies  in
+                self.view.hideProgressViewLoading()
+                if movies.count > 0{
+                    self.stories = movies
+                    self.tableView.reloadData()
+                    self.view.hideErrorView()
+                }else
+                {
+                    self.view.showErrorView()
+                }
+            }
+        }
+    }
+
     
     func targetForServicesAction(sender:AnyObject){
         let imageview = sender as AIImageView
