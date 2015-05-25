@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84951FB61B1312E500179483 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB41B1312E500179483 /* SearchEngine.swift */; };
+		84951FB71B1312E500179483 /* SearchEngineImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB51B1312E500179483 /* SearchEngineImp.swift */; };
 		84CC00011B107F430073B24A /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC00001B107F430073B24A /* ServiceModel.swift */; };
-		84CC00031B1080EC0073B24A /* SearchEngineImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC00021B1080EC0073B24A /* SearchEngineImp.swift */; };
-		84CCFFFF1B107E350073B24A /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCFFFE1B107E350073B24A /* SearchEngine.swift */; };
 		84D132221B0F26E700B977F5 /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D132211B0F26E700B977F5 /* MainSearchViewController.swift */; };
 		84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
@@ -119,9 +119,9 @@
 
 /* Begin PBXFileReference section */
 		185C5C827FF9C9E6B31333B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		84951FB41B1312E500179483 /* SearchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngine.swift; sourceTree = "<group>"; };
+		84951FB51B1312E500179483 /* SearchEngineImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngineImp.swift; sourceTree = "<group>"; };
 		84CC00001B107F430073B24A /* ServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
-		84CC00021B1080EC0073B24A /* SearchEngineImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngineImp.swift; sourceTree = "<group>"; };
-		84CCFFFE1B107E350073B24A /* SearchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngine.swift; sourceTree = "<group>"; };
 		84D132211B0F26E700B977F5 /* MainSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
 		84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryRecord.swift; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
@@ -286,13 +286,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		84CCFFFD1B107D0C0073B24A /* Search */ = {
+		84951FB31B13117300179483 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				84CCFFFE1B107E350073B24A /* SearchEngine.swift */,
-				84CC00021B1080EC0073B24A /* SearchEngineImp.swift */,
+				84951FB41B1312E500179483 /* SearchEngine.swift */,
+				84951FB51B1312E500179483 /* SearchEngineImp.swift */,
 			);
 			name = Search;
+			path = AI2020OS/Search;
 			sourceTree = "<group>";
 		};
 		84D1321E1B0F0BAD00B977F5 /* Search */ = {
@@ -377,6 +378,7 @@
 		933ED3DB1AC8F90A00E4AADB = {
 			isa = PBXGroup;
 			children = (
+				84951FB31B13117300179483 /* Search */,
 				93AC3FB61AC95DF5000024A4 /* StoryBoard */,
 				933ED4391AC92BF700E4AADB /* Application */,
 				933ED4351AC92B5700E4AADB /* Bridging */,
@@ -385,7 +387,6 @@
 				933ED4181AC9221100E4AADB /* Venders */,
 				933ED40E1AC921BD00E4AADB /* Libs */,
 				933ED40F1AC921BD00E4AADB /* Models */,
-				84CCFFFD1B107D0C0073B24A /* Search */,
 				933ED4101AC921BD00E4AADB /* Services */,
 				933ED4111AC921BD00E4AADB /* View Controllers */,
 				933ED4141AC921BD00E4AADB /* Views */,
@@ -893,7 +894,7 @@
 			files = (
 				936DAC1D1ADCF4170025483B /* AIRecognizerFactory.m in Sources */,
 				93D80A421ACA7149004BC7C0 /* CoreTextView.swift in Sources */,
-				84CC00031B1080EC0073B24A /* SearchEngineImp.swift in Sources */,
+				84951FB71B1312E500179483 /* SearchEngineImp.swift in Sources */,
 				935A25771AE79AF10089B240 /* AIServicesRequester.swift in Sources */,
 				934987091B0C75E9003086D1 /* AIMessageUnReadView.swift in Sources */,
 				933ED4381AC92B6700E4AADB /* AIBridge.m in Sources */,
@@ -916,6 +917,7 @@
 				93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */,
 				93D80A441ACA71DA004BC7C0 /* AILocalStore.swift in Sources */,
 				93266FB21AEF81E100DD0021 /* AIFavoritsCommand.swift in Sources */,
+				84951FB61B1312E500179483 /* SearchEngine.swift in Sources */,
 				934986FF1B0B1727003086D1 /* AITIMELINESDTimesViewCell.swift in Sources */,
 				93FA15451AE66F95006BA310 /* WeatherModel.swift in Sources */,
 				84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */,
@@ -927,7 +929,6 @@
 				93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */,
 				93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */,
 				9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */,
-				84CCFFFF1B107E350073B24A /* SearchEngine.swift in Sources */,
 				93692C971ACAA52A00D66211 /* Async.swift in Sources */,
 				93CB34621AE5F26100D49FB2 /* AIImage.swift in Sources */,
 				936DAC201ADCF8510025483B /* SCSiriWaveformView.m in Sources */,
