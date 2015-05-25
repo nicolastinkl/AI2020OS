@@ -87,11 +87,14 @@ class AIServerScopeView: UIView {
         if self.selectedButton == button{
             return
         }else{
-            //disselect pre button
-            disSelected(self.selectedButton!)
-            // select current button
-            selected(button)
-
+            if let buttons = self.selectedButton{
+                //disselect pre button
+                disSelected(self.selectedButton!)
+                // select current button
+                selected(button)
+            }else{
+                 selected(button)
+            }
         }
         self.selectedButton = button
         

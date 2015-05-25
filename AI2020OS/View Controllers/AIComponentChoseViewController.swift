@@ -14,6 +14,7 @@ class AIComponentChoseViewController: UIViewController {
     
     @IBOutlet weak var contentScrollView: UIScrollView!
     
+    private let margeheight:CGFloat = 20
     
     // MARK: life cycle
     
@@ -50,6 +51,57 @@ class AIComponentChoseViewController: UIViewController {
         line.setLeft((self.view.width - line.width)/2)
         line.backgroundColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
         self.contentScrollView.addSubview(line)
+        
+        // MARK TITLE
+        var title2 = UILabel()
+        title2.text = "服务时间"
+        title2.setWidth(self.view.width)
+        title2.textColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+        title2.setHeight(30)
+        title2.setLeft(25)
+        title2.setTop(line.top+margeheight)
+        self.contentScrollView.addSubview(title2)
+        
+        // MARK CONTENT
+        
+        var timePickerView = AIServerTimeView.currentView()
+        self.contentScrollView.addSubview(timePickerView)
+        timePickerView.setTop(title2.height + title2.top)
+        
+        // MARK LINE
+        var line2 =  UILabel()
+        line2.setWidth(self.view.width*0.9)
+        line2.setHeight(0.5)
+        line2.setTop(timePickerView.height + timePickerView.top + 50)
+        line2.setLeft((self.view.width - line2.width)/2)
+        line2.backgroundColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+        self.contentScrollView.addSubview(line2)
+        
+        // MARK TITLE
+        var title3 = UILabel()
+        title3.text = "服务地址"
+        title3.setWidth(self.view.width)
+        title3.textColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+        title3.setHeight(30)
+        title3.setLeft(25)
+        title3.setTop(line2.top+margeheight)
+        self.contentScrollView.addSubview(title3)
+
+        var addressPickerView = AIServerAddressView.currentView()
+        self.contentScrollView.addSubview(addressPickerView)
+        addressPickerView.setTop(title3.height + title3.top)
+        
+        // MARK LINE
+        var line3 =  UILabel()
+        line3.setWidth(self.view.width*0.9)
+        line3.setHeight(0.5)
+        line3.setTop(addressPickerView.height + addressPickerView.top + 50)
+        line3.setLeft((self.view.width - line3.width)/2)
+        line3.backgroundColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+        self.contentScrollView.addSubview(line3)
+        self.contentScrollView.contentSize = CGSizeMake(self.view.width, line3.top+10)
+        
+        
     }
     
     

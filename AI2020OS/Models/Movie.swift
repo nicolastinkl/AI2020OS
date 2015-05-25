@@ -13,12 +13,31 @@ import JSONJoy
 *  @author tinkl, 15-04-23 11:04:05
 *
 *  The first function will take an Array with JSON values and map it using the second function
+
+
+ struct Addresses : JSONJoy {
+
+    var addresses: Array<Address>?
+        init() {
+    }
+  init(_ decoder: JSONDecoder) {
+//we check if the array is valid then alloc our array and loop through it, creating the new address objects.
+    if let addrs = decoder["addresses"].array {
+    addresses = Array<Address>()
+    for addrDecoder in addrs {
+        addresses.append(Address(addrDecoder))
+    }
+  }
+ }
+}
+
 */
-struct MovieReponse {
+struct MovieReponse  {
     let page: Int?
     var results: Array<Movie>?
     init() {
     }
+    
     init(_ decoder: NSDictionary) {
         self.page = decoder["page"] as? Int ?? 0
         //decoder.getArray(&results) //pass the optional array by reference, it will be allocated if it is not and filled
@@ -118,8 +137,6 @@ private func flattenedPCompanies (comment: NSDictionary) -> [PCompanies] {
         acc + flattenedPCompanies(x)
     }
 }
-
-
 
 struct PCompanies{
     

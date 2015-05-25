@@ -68,6 +68,13 @@ class AIHomeViewController: UITableViewController {
                 }
             })
         }
+        
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIComponentChoseViewController) as UIViewController
+        
+        viewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        self.presentViewController(viewController, animated: true, completion: nil)
+        
     }
     
     override func didReceiveMemoryWarning() {
