@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class SearchHistoryRecord {
+    var name: String
+    
+    init(searchName str : String) {
+        name = str
+    }
+    
+}

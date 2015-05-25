@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class ServiceModel {
+    
+    var name: String = ""
+    var description = ""
+    var price: Double = 0.0
+    
+}

@@ -45,7 +45,7 @@
                                             <rect key="frame" x="0.0" y="92" width="600" height="438"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <prototypes>
-                                                <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchTag" rowHeight="106" id="W08-ks-YXg">
+                                                <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="W08-ks-YXg">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W08-ks-YXg" id="iuc-rO-bix">
                                                         <autoresizingMask key="autoresizingMask"/>
