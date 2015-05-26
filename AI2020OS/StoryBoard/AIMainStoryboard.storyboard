@@ -1148,8 +1148,9 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCj-Cc-zau">
                                                             <rect key="frame" x="125" y="8" width="350" height="124"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待处理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNY-bD-VAe">
+                                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待处理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNY-bD-VAe">
                                                                     <rect key="frame" x="42" y="32" width="78" height="26"/>
+                                                                    <gestureRecognizers/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="26" id="8gd-WI-qPu"/>
                                                                         <constraint firstAttribute="width" constant="78" id="J2Q-U2-tCo"/>
@@ -1157,6 +1158,9 @@
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
+                                                                    <connections>
+                                                                        <outletCollection property="gestureRecognizers" destination="vAq-JW-eUK" appends="YES" id="vgQ-Ou-1ws"/>
+                                                                    </connections>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卖家订单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiC-8A-Pte">
                                                                     <rect key="frame" x="42" y="65" width="84" height="26"/>
@@ -1563,6 +1567,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <tapGestureRecognizer id="vAq-JW-eUK">
+                    <connections>
+                        <action selector="targetToOrderViewControllerAction:" destination="tNT-Re-7VD" id="9lb-Fd-wkn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1290" y="2036"/>
         </scene>

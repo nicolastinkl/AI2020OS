@@ -33,6 +33,10 @@ class AISelfViewController: UITableViewController {
         
     }
     
+    @IBAction func targetToOrderViewControllerAction(sender: AnyObject) {
+         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
+         self.navigationController?.pushViewController(viewController, animated: true)
+    }
     /*override func scrollViewDidScroll(scrollView: UIScrollView) {
         let viewTableHead: UIView = self.tableview.tableHeaderView!
         let yOffset:CGFloat   = scrollView.contentOffset.y;

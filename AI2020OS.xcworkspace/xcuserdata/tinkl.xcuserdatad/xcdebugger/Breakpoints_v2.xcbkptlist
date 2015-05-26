@@ -672,11 +672,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/Application/AIApplication.swift"
-            timestampString = "454338504.163675"
+            timestampString = "454339485.793529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "hideMessageUnreadView()"
             landmarkType = "5">
          </BreakpointContent>
@@ -688,23 +688,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/Application/AIApplication.swift"
-            timestampString = "454338504.163675"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "showMessageUnreadView()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AI2020OS/Application/AIApplication.swift"
-            timestampString = "454338504.163675"
+            timestampString = "454339485.793529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
@@ -720,11 +704,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/Application/AIApplication.swift"
-            timestampString = "454338504.163675"
+            timestampString = "454339485.793529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "showMessageUnreadView()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AI2020OS/Application/AIApplication.swift"
+            timestampString = "454339485.793529"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "hideMessageUnreadView()"
             landmarkType = "5">
          </BreakpointContent>

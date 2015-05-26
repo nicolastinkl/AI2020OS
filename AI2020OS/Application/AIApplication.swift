@@ -36,6 +36,7 @@ struct AIApplication{
             static let AIMesageCenterStoryboard     = "AIMesageCenterStoryboard"
             static let AIComponentStoryboard        = "AIComponentStoryboard"
             static let AISettingsStoryboard         = "AISettingsStoryboard"
+            static let AIOrderStoryboard            = "AIOrderStoryboard"
         }
         
         // MARK: View
