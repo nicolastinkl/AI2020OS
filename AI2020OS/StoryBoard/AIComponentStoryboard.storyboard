@@ -26,25 +26,8 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDQ-N7-Qlk" customClass="SpringView" customModule="Spring">
                                             <rect key="frame" x="16" y="100" width="568" height="400"/>
                                             <subviews>
-                                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhb-me-fbe" customClass="CVCalendarMenuView" customModule="AI2020OS" customModuleProvider="target">
-                                                    <rect key="frame" x="35" y="45" width="503" height="24"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="ThZ-yF-3Cw"/>
-                                                    </constraints>
-                                                </view>
-                                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRF-Lq-AYp" customClass="CVCalendarView" customModule="AI2020OS" customModuleProvider="target">
-                                                    <rect key="frame" x="35" y="77" width="503" height="300"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="300" id="5ZT-B7-Nsg"/>
-                                                    </constraints>
-                                                    <connections>
-                                                        <outlet property="calendarDelegate" destination="dqs-M8-LcU" id="78X-9M-nHq"/>
-                                                    </connections>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCT-m4-O1H">
-                                                    <rect key="frame" x="35" y="13" width="127" height="24"/>
+                                                    <rect key="frame" x="18" y="13" width="127" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="q8O-Oo-bh8"/>
                                                         <constraint firstAttribute="width" constant="127" id="vNo-G8-oT2"/>
@@ -53,23 +36,72 @@
                                                     <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhb-me-fbe" customClass="CVCalendarMenuView" customModule="AI2020OS" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="45" width="533" height="24"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="ThZ-yF-3Cw"/>
+                                                        <constraint firstAttribute="width" constant="533" id="bxW-TC-uVy"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="bxW-TC-uVy"/>
+                                                        </mask>
+                                                    </variation>
+                                                </view>
+                                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRF-Lq-AYp" customClass="CVCalendarView" customModule="AI2020OS" customModuleProvider="target">
+                                                    <rect key="frame" x="11" y="77" width="550" height="300"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="300" id="5ZT-B7-Nsg"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="calendarDelegate" destination="dqs-M8-LcU" id="78X-9M-nHq"/>
+                                                    </connections>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="WCT-m4-O1H" firstAttribute="leading" secondItem="KDQ-N7-Qlk" secondAttribute="leading" constant="18" id="056-6S-q2J"/>
                                                 <constraint firstItem="WCT-m4-O1H" firstAttribute="leading" secondItem="KDQ-N7-Qlk" secondAttribute="leading" constant="35" id="3Yb-Aa-nCh"/>
                                                 <constraint firstAttribute="height" constant="400" id="3d3-Wm-uae"/>
+                                                <constraint firstItem="vhb-me-fbe" firstAttribute="centerX" secondItem="KDQ-N7-Qlk" secondAttribute="centerX" id="77V-7p-mv5"/>
                                                 <constraint firstItem="FRF-Lq-AYp" firstAttribute="top" secondItem="vhb-me-fbe" secondAttribute="bottom" constant="8" id="CGU-JB-e8e"/>
-                                                <constraint firstAttribute="trailing" secondItem="FRF-Lq-AYp" secondAttribute="trailing" constant="30" id="Gke-ct-fS9"/>
+                                                <constraint firstAttribute="trailing" secondItem="FRF-Lq-AYp" secondAttribute="trailing" constant="20" id="Gke-ct-fS9"/>
+                                                <constraint firstAttribute="trailing" secondItem="FRF-Lq-AYp" secondAttribute="trailing" constant="7" id="JNQ-CG-qeR"/>
+                                                <constraint firstAttribute="centerX" secondItem="FRF-Lq-AYp" secondAttribute="centerX" id="MIK-Up-L3S"/>
                                                 <constraint firstItem="WCT-m4-O1H" firstAttribute="leading" secondItem="vhb-me-fbe" secondAttribute="leading" id="PvU-nX-ycK"/>
-                                                <constraint firstItem="vhb-me-fbe" firstAttribute="leading" secondItem="FRF-Lq-AYp" secondAttribute="leading" id="YgR-ZL-IWL"/>
-                                                <constraint firstAttribute="trailing" secondItem="vhb-me-fbe" secondAttribute="trailing" constant="30" id="aHn-Rf-fVx"/>
+                                                <constraint firstItem="vhb-me-fbe" firstAttribute="leading" secondItem="FRF-Lq-AYp" secondAttribute="leading" constant="20" id="YgR-ZL-IWL"/>
+                                                <constraint firstAttribute="trailing" secondItem="vhb-me-fbe" secondAttribute="trailing" id="aHn-Rf-fVx"/>
+                                                <constraint firstAttribute="trailing" secondItem="vhb-me-fbe" secondAttribute="trailing" constant="17" id="csU-sk-Vyq"/>
+                                                <constraint firstItem="vhb-me-fbe" firstAttribute="leading" secondItem="KDQ-N7-Qlk" secondAttribute="leading" constant="18" id="gzg-Xo-TA9"/>
+                                                <constraint firstItem="vhb-me-fbe" firstAttribute="leading" secondItem="KDQ-N7-Qlk" secondAttribute="leading" constant="18" id="l03-2O-dsf"/>
+                                                <constraint firstItem="vhb-me-fbe" firstAttribute="leading" secondItem="WCT-m4-O1H" secondAttribute="leading" id="m5Q-vA-gZB"/>
+                                                <constraint firstItem="vhb-me-fbe" firstAttribute="leading" secondItem="WCT-m4-O1H" secondAttribute="leading" id="mBR-0H-9IX"/>
+                                                <constraint firstItem="FRF-Lq-AYp" firstAttribute="leading" secondItem="KDQ-N7-Qlk" secondAttribute="leading" constant="11" id="sWG-6x-0Os"/>
                                                 <constraint firstItem="WCT-m4-O1H" firstAttribute="top" secondItem="KDQ-N7-Qlk" secondAttribute="top" constant="13" id="um7-OA-dWx"/>
+                                                <constraint firstItem="FRF-Lq-AYp" firstAttribute="leading" secondItem="KDQ-N7-Qlk" secondAttribute="leading" constant="11" id="wHa-Fb-aeD"/>
                                                 <constraint firstItem="vhb-me-fbe" firstAttribute="top" secondItem="WCT-m4-O1H" secondAttribute="bottom" constant="8" id="wf7-X7-4pw"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                             </userDefinedRuntimeAttributes>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="056-6S-q2J"/>
+                                                    <exclude reference="3Yb-Aa-nCh"/>
+                                                    <exclude reference="PvU-nX-ycK"/>
+                                                    <exclude reference="YgR-ZL-IWL"/>
+                                                    <exclude reference="aHn-Rf-fVx"/>
+                                                    <exclude reference="gzg-Xo-TA9"/>
+                                                    <exclude reference="l03-2O-dsf"/>
+                                                    <exclude reference="m5Q-vA-gZB"/>
+                                                    <exclude reference="Gke-ct-fS9"/>
+                                                    <exclude reference="MIK-Up-L3S"/>
+                                                    <exclude reference="sWG-6x-0Os"/>
+                                                </mask>
+                                            </variation>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOe-cA-D4G">
                                             <rect key="frame" x="36" y="530" width="256" height="50"/>
@@ -98,6 +130,8 @@
                                     </subviews>
                                     <gestureRecognizers/>
                                     <constraints>
+                                        <constraint firstItem="VHW-vr-0PU" firstAttribute="top" secondItem="KDQ-N7-Qlk" secondAttribute="bottom" constant="30" id="5mk-sI-PIQ"/>
+                                        <constraint firstItem="rOe-cA-D4G" firstAttribute="top" secondItem="KDQ-N7-Qlk" secondAttribute="bottom" constant="30" id="9rf-Xn-j6x"/>
                                         <constraint firstItem="VHW-vr-0PU" firstAttribute="top" secondItem="Qfi-Wo-UNP" secondAttribute="top" constant="530" id="Gjt-bj-ftp"/>
                                         <constraint firstItem="VHW-vr-0PU" firstAttribute="leading" secondItem="rOe-cA-D4G" secondAttribute="trailing" constant="15" id="U3v-md-nVc"/>
                                         <constraint firstItem="KDQ-N7-Qlk" firstAttribute="leading" secondItem="Qfi-Wo-UNP" secondAttribute="leading" constant="16" id="V4M-6R-N0f"/>
@@ -109,6 +143,12 @@
                                         <constraint firstItem="rOe-cA-D4G" firstAttribute="top" secondItem="Qfi-Wo-UNP" secondAttribute="top" constant="530" id="uwS-pk-BuF"/>
                                         <constraint firstAttribute="trailing" secondItem="KDQ-N7-Qlk" secondAttribute="trailing" constant="16" id="zOx-vE-60g"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="uwS-pk-BuF"/>
+                                            <exclude reference="Gjt-bj-ftp"/>
+                                        </mask>
+                                    </variation>
                                     <connections>
                                         <outletCollection property="gestureRecognizers" destination="ch7-Rr-tTU" appends="YES" id="zeH-Wi-ZcI"/>
                                     </connections>
@@ -138,7 +178,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="331" y="368"/>
+            <point key="canvasLocation" x="347" y="374"/>
         </scene>
     </scenes>
 </document>

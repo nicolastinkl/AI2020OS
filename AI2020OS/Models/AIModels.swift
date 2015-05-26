@@ -62,10 +62,8 @@ struct AIServiceTopicModel: JSONJoy  {
         provider_id = decoder["provider_id"].string
         provider_name = decoder["provider_name"].string
         service_rating = decoder["service_rating"].string
-        provider_portrait_url = "http://gtms02.alicdn.com/tps/i2/TB1YHZnHXXXXXa2aXXXSutbFXXX.jpg_190x190.jpg"
-        //decoder["provider_portrait_url"].string
-        service_intro_url = "http://img.hb.aicdn.com/551053d96f65fe88074cd4049a7d21be5f72e403382e9-dFYCbv_fw658"
-        //decoder["service_intro_url"].string
+        provider_portrait_url = decoder["provider_portrait_url"].string
+        service_intro_url = decoder["service_intro_url"].string
     }
 }
 
@@ -87,10 +85,12 @@ struct AIServiceDetailModel: JSONJoy  {
     var service_guarantee: String?
     var service_process: String?
     var service_restraint: String?
+    var service_param_list: Array<AIServiceDetailParamsModel>?
     
-    
-    var service_param_list: Array<AIServiceTopicModel>?
-    
+    init(){
+        
+    }
+
     
     init(_ decoder: JSONDecoder) {
         service_id = decoder["service_id"].integer
@@ -103,26 +103,56 @@ struct AIServiceDetailModel: JSONJoy  {
         provider_portrait_url = "http://gtms02.alicdn.com/tps/i2/TB1YHZnHXXXXXa2aXXXSutbFXXX.jpg_190x190.jpg"
         //decoder["provider_portrait_url"].string
         service_intro_url = "http://img.hb.aicdn.com/551053d96f65fe88074cd4049a7d21be5f72e403382e9-dFYCbv_fw658"
-        
         service_provider = decoder["service_provider"].string
         service_guarantee = decoder["service_guarantee"].string
         service_restraint = decoder["service_restraint"].string
         service_process = decoder["service_process"].string
+        
+        if let addrs = decoder["service_param_list"].array {
+            service_param_list = Array<AIServiceDetailParamsModel>()
+            for addrDecoder in addrs {
+                service_param_list?.append(AIServiceDetailParamsModel(addrDecoder))
+            }
+        }
+        
     }
 }
-
 
 struct AIServiceDetailParamsModel: JSONJoy  {
     
     var param_type: Int?
     var param_key: String?
-    var param_value: Array<String>?
+    var param_value: Array<AIServiceDetailParamsDetailModel>?
     
     init(_ decoder: JSONDecoder) {
         
+        param_type = decoder["param_type"].integer
+        param_key = decoder["param_key"].string
+        
+        if let addrs = decoder["param_value"].array {
+            param_value = Array<AIServiceDetailParamsDetailModel>()
+            for addrDecoder in addrs {
+                param_value?.append(AIServiceDetailParamsDetailModel(addrDecoder))
+            }
+        }
     }
     
-    
+    struct AIServiceDetailParamsDetailModel: JSONJoy  {
+
+        var id: Int?
+        var title: String?
+        var content: String?
+        var memo: String?
+        var value: String?
+        
+        init(_ decoder: JSONDecoder) {
+            id = decoder["id"].integer
+            title = decoder["title"].string
+            content = decoder["content"].string
+            memo = decoder["memo"].string
+            value = decoder["value"].string
+        }
+    }
     
 }
 

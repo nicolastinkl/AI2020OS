@@ -116,7 +116,7 @@ class AIHomeViewController: UITableViewController {
     func targetForServicesAction(sender:AnyObject){
         let imageview = sender as AIImageView
         let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
-        controller.movieDetails = "157336"//"\(imageview.assemblyID!)"
+        controller.server_id = "\(imageview.assemblyID!)"
         showViewController(controller, sender: self)
     }
     
@@ -158,7 +158,9 @@ extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
                 cacheView.setLeft(self.view.width * CGFloat(index))
                 let moive: AIServiceTopicListModel = self.serviceTopicList[indexPath.row]
                 let array = moive.service_array!
-                if array.count > 0 {
+                
+                if array.count > 0 && array.count > index{
+                    
                     let model:AIServiceTopicModel = array[index]
                     var selected: AIHomeCellViewStyle = .ViewStyleTitle
                     switch index{
@@ -199,6 +201,14 @@ class AIHomeViewCell : UITableViewCell{
     
     func configWithModel(model:AIServiceTopicListModel,indexPath: NSIndexPath){
         let count = model.service_array?.count ?? 0
+        
+        if count == 0{
+            return
+        }
+
+        println("count: \(count)   NSIndexPath: \(indexPath.row)")
+
+        //200215958514
         for xOffset in 0...(count-1){
             let index:Int = xOffset
             

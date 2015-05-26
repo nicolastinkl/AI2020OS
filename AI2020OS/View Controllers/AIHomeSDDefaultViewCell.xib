@@ -28,6 +28,9 @@
                     <constraint firstAttribute="centerX" secondItem="px5-5c-Lm8" secondAttribute="centerX" id="7wi-Xe-gcU"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="priceLabel" destination="px5-5c-Lm8" id="Hap-Yb-FCN"/>
+            </connections>
             <point key="canvasLocation" x="513" y="326"/>
         </tableViewCell>
     </objects>

@@ -9,6 +9,8 @@
 import Foundation
 
 class AIHomeSDDefaultViewCell: UITableViewCell {
+
+    @IBOutlet weak var priceLabel: UILabel!
  
     override func awakeFromNib() {        
         super.awakeFromNib()

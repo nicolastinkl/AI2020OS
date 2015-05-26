@@ -22,7 +22,6 @@ class AIMessageUnReadView: UIView {
     @IBAction func showMessageCenterAction(sender: AnyObject) {
         let storyBoard:UIStoryboard = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIMesageCenterStoryboard, bundle: nil)
         let viewNavi = storyBoard.instantiateInitialViewController() as UINavigationController
-//        let viewNavi = storyBoard.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIMessageCenterViewController) as UIViewController
         let rootViewConrooler = UIApplication.sharedApplication().keyWindow?.rootViewController
         rootViewConrooler?.showViewController(viewNavi, sender: nil)
 

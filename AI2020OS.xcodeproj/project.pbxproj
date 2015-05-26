@@ -111,6 +111,7 @@
 		93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93DE16B01B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib */; };
 		93DE16B31B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DE16B21B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift */; };
 		93E2F7A41B09890D00483CFA /* AITransitionManagerMenuAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F7A31B09890D00483CFA /* AITransitionManagerMenuAnimation.swift */; };
+		93E4D5AB1B14A5F700992CA3 /* AISettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E4D5AA1B14A5F700992CA3 /* AISettingsStoryboard.storyboard */; };
 		93E8266A1AD78246006B3BA1 /* AIAssignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E826691AD78246006B3BA1 /* AIAssignUtils.swift */; };
 		93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */; };
 		93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */; };
@@ -262,6 +263,7 @@
 		93BD09071B06F97B00C8B96B /* AIMenuStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIMenuStoryboard.storyboard; sourceTree = "<group>"; };
 		93BD090A1B06FBBF00C8B96B /* AIMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMenuViewController.swift; sourceTree = "<group>"; };
 		93CB34611AE5F26100D49FB2 /* AIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImage.swift; sourceTree = "<group>"; };
+		93CE6E051B148EAE000CFB4E /* MyPlaygroundTEST.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlaygroundTEST.playground; sourceTree = "<group>"; };
 		93CED3DE1AD530C000761B4D /* AIUIViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUIViewUtils.swift; sourceTree = "<group>"; };
 		93CF230E1B05CF960082AC73 /* AIHomeSDDefaultViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeSDDefaultViewCell.xib; sourceTree = "<group>"; };
 		93CF23101B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeSDDefaultViewCell.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 		93DE16B01B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeSDParamesViewCell.xib; sourceTree = "<group>"; };
 		93DE16B21B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeSDParamesViewCell.swift; sourceTree = "<group>"; };
 		93E2F7A31B09890D00483CFA /* AITransitionManagerMenuAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITransitionManagerMenuAnimation.swift; sourceTree = "<group>"; };
+		93E4D5AA1B14A5F700992CA3 /* AISettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		93E826691AD78246006B3BA1 /* AIAssignUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssignUtils.swift; sourceTree = "<group>"; };
 		93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchNaviViewController.swift; sourceTree = "<group>"; };
 		93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -489,6 +492,7 @@
 			children = (
 				933ED4011AC8F90A00E4AADB /* AI2020OSTests.swift */,
 				933ED3FF1AC8F90A00E4AADB /* Supporting Files */,
+				93CE6E051B148EAE000CFB4E /* MyPlaygroundTEST.playground */,
 			);
 			path = AI2020OSTests;
 			sourceTree = "<group>";
@@ -691,6 +695,7 @@
 				93BD09071B06F97B00C8B96B /* AIMenuStoryboard.storyboard */,
 				9349871D1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard */,
 				93FF74741B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard */,
+				93E4D5AA1B14A5F700992CA3 /* AISettingsStoryboard.storyboard */,
 			);
 			name = StoryBoard;
 			path = AI2020OS/StoryBoard;
@@ -923,6 +928,7 @@
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
 				93BD09081B06F97B00C8B96B /* AIMenuStoryboard.storyboard in Resources */,
 				934987071B0C75E0003086D1 /* AIMessageUnReadView.xib in Resources */,
+				93E4D5AB1B14A5F700992CA3 /* AISettingsStoryboard.storyboard in Resources */,
 				93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */,
 				933ED3F61AC8F90A00E4AADB /* LaunchScreen.xib in Resources */,
 				934987141B0DA850003086D1 /* AIHomeViewStyleTitleView.xib in Resources */,

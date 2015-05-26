@@ -97,7 +97,7 @@ class AIComponentChoseViewController: UIViewController {
         line3.setHeight(0.5)
         line3.setTop(addressPickerView.height + addressPickerView.top + 50)
         line3.setLeft((self.view.width - line3.width)/2)
-        line3.backgroundColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+        //line3.backgroundColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
         self.contentScrollView.addSubview(line3)
         
         var object: AnyObject =  UIButton.buttonWithType(UIButtonType.Custom)

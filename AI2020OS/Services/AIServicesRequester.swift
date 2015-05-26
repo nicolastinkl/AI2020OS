@@ -36,6 +36,8 @@ class AIServicesRequester {
             if let responseJSON: AnyObject = response{
                 let service =  AIServiceTopicResult(JSONDecoder(responseJSON))
                 completion(data: service.service_array!)
+            }else{
+                completion(data: [])
             }
         }
         
@@ -48,5 +50,19 @@ class AIServicesRequester {
         
         ++page
         load(page: page, completion)
+    }
+    
+    func loadServiceDetail(server_id:Int?,service_type:Int?,completion:(data:AIServiceDetailModel) ->()){
+        
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetServiceDetail, parameters: ["service_id":server_id!,"service_type":service_type!]) {   (response, error) -> () in
+            
+            if let responseJSON: AnyObject = response{
+                let service =  AIServiceDetailModel(JSONDecoder(responseJSON))
+                completion(data: service)
+            }else{
+                completion(data: AIServiceDetailModel())
+            }
+        }
+        
     }
 }

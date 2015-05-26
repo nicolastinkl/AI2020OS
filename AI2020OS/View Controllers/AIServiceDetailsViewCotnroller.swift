@@ -25,9 +25,9 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     // MARK: getters and setters
     private let transitionManager = TransitionManager()
 
-    var movieDetails:String?
+    var server_id:String?
     
-    private var movieDetailsResponse:AIKMMovie?
+    private var movieDetailsResponse:AIServiceDetailModel?
     
     private var bgImage:UIImageView?
     private var avatorImage:UIImageView?
@@ -99,35 +99,46 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
     func requestMovieDetails()
     {
-        AIHttpEngine.kmdetailsForMoive(self.movieDetails!, response: {[weak self] (AIKMMovieS) -> () in
+        let id = self.server_id!.toInt()
+        AIServicesRequester().loadServiceDetail(1, service_type: 0) { [weak self](data) -> () in
+            if let strongSelf = self{
+                strongSelf.movieDetailsResponse = data
+                strongSelf.detailsPageView.reloadData()
+                strongSelf.fillViews()
+                
+            }
+        }
+        
+        
+        /*AIHttpEngine.kmdetailsForMoive(self.movieDetails!, response: {[weak self] (AIKMMovieS) -> () in
             if let strongSelf = self{
                 strongSelf.movieDetailsResponse = AIKMMovieS
                 strongSelf.detailsPageView.reloadData()
                 strongSelf.fillViews()
                
             }
-        })
+        })*/
     }
     
     func fillViews(){
         view.hideProgressViewLoading()
         self.detailsPageView.navBarView = self.navigationBarView
         self.detailsPageView.tableView.tableFooterView = AIOrderBuyView.currentView()
-        self.titleLabel.text = self.movieDetailsResponse?.movieTitle
+        self.titleLabel.text = self.movieDetailsResponse?.service_name
     }
     
     func reloadHeaderView()
     {
         let headerview = tableview.tableHeaderView as UIView?
         let imageview = headerview?.getViewByTag(1) as AIImageView
-        let url:String? = movieDetailsResponse?.movieOriginalPosterImageUrl
-        imageview.setURL(movieDetailsResponse?.movieOriginalPosterImageUrl?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
+        let url:String? = movieDetailsResponse?.service_intro_url
+        imageview.setURL(movieDetailsResponse?.service_intro_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
         
         let imageviewAvator = headerview?.getViewByTag(2).getViewByTag(3) as  AIImageView
-        imageviewAvator.setURL(movieDetailsResponse?.movieThumbnailPosterImageUrl?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
+        imageviewAvator.setURL(movieDetailsResponse?.service_intro_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
         
         let nickLabel = headerview?.getViewByTag(2).getViewByTag(4) as  UILabel
-        nickLabel.text = movieDetailsResponse?.movieTitle
+        nickLabel.text = movieDetailsResponse?.service_name
     }
     
     override func didReceiveMemoryWarning() {
@@ -168,7 +179,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 4{
-            let count = self.movieDetailsResponse?.moviePCompanies?.count ?? 0
+            let count = self.movieDetailsResponse?.service_param_list?.count ?? 0
             return count
         }
         return 1
@@ -182,15 +193,15 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             if  avCell == nil {
                 avCell = AIHomeAvatorViewCell().currentViewCell()
             }
-            
-            avCell?.avatorImageView.setURL(self.movieDetailsResponse?.movieThumbnailPosterImageUrl?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
-            avCell?.nickName.text = self.movieDetailsResponse?.movieTitle
+            avCell?.avatorImageView.setURL(self.movieDetailsResponse?.service_intro_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
+            avCell?.nickName.text = self.movieDetailsResponse?.service_name
             return avCell!
         case 1:
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDefaultViewCell) as? AIHomeSDDefaultViewCell
             if  avCell == nil {
                 avCell = AIHomeSDDefaultViewCell().currentViewCell()
             }
+            avCell?.priceLabel.text = self.movieDetailsResponse?.service_price
             avCell?.addBottomBorderLine()
             return avCell!
         case 2:
@@ -210,18 +221,18 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
                 avCell = AIHomeSDDesViewCell().currentViewCell()
             }
 
-            avCell?.desLabel.text = self.movieDetailsResponse?.movieOverview
+            avCell?.desLabel.text = self.movieDetailsResponse?.service_intro
             return avCell!
         case 4:
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
             if  avCell == nil {
                 avCell = AIHomeSDParamesViewCell().currentViewCell()
             }
-            let pcPis =  self.movieDetailsResponse?.moviePCompanies as Array<PCompanies>?
-            let pCompics = pcPis![indexPath.row] as PCompanies
+            let pcPis =  self.movieDetailsResponse?.service_param_list as Array<AIServiceDetailParamsModel>?
+            let pCompics = pcPis![indexPath.row] as AIServiceDetailParamsModel
             
-            avCell?.textLabel?.text = pCompics.pcName
-            avCell?.detailTextLabel?.text = pCompics.pcId
+            avCell?.textLabel?.text = pCompics.param_key
+            avCell?.detailTextLabel?.text = pCompics.param_key
             avCell?.addBottomBorderLine()
             return avCell!
         default:
@@ -273,7 +284,7 @@ extension AIServiceDetailsViewCotnroller : KMDetailsPageDelegate{
     
     func detailsPage(detailsPageView: KMDetailsPageView!, imageDataForImageView imageView: UIImageView!) -> UIImageView! {
         var newImageView = imageView
-        let blockImageview = newImageView.sd_setImageWithURL(self.movieDetailsResponse?.movieOriginalPosterImageUrl?.toURL(), placeholderImage: UIImage(named: "Placeholder")) {[weak self] in
+        let blockImageview = newImageView.sd_setImageWithURL(self.movieDetailsResponse?.service_intro_url?.toURL(), placeholderImage: UIImage(named: "Placeholder")) {[weak self] in
             if let delegates = detailsPageView.delegate {
                 if delegates.respondsToSelector("headerImageViewFinishedLoading:"){
                     delegates.headerImageViewFinishedLoading!(newImageView)

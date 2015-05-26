@@ -48,7 +48,7 @@ struct AIHttpEngine{
         println("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
         let encoding = Alamofire.ParameterEncoding.JSON
         Alamofire.request(.POST, self.baseURL+path.description,parameters:parameters, encoding: encoding)
-            .responseJSON { (_,_,JSON,_) in
+            .responseJSON { (_,_,JSON,error) in
                 
                 func fail(){
                     response(response: nil, error: Error(message: "", code: 0))
@@ -64,10 +64,10 @@ struct AIHttpEngine{
                         }
                         
                     }
-                }else{
+                }
+                if let eror = error{
                     fail()
                 }
-                
                 
         }
     }

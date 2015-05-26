@@ -29,9 +29,7 @@ class AIMenuViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        
-        
+        super.viewDidAppear(true)        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -49,14 +47,28 @@ class AIMenuViewController: UIViewController {
     // MARK: event response
     
     @IBAction func showSettings(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {
+            let viewNavi = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISettingsStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
+            let rootViewConrooler = UIApplication.sharedApplication().keyWindow?.rootViewController
+            rootViewConrooler?.showViewController(viewNavi, sender: nil)
+        })
         
     }
     
     @IBAction func showMessage(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {
+            let storyBoard:UIStoryboard = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIMesageCenterStoryboard, bundle: nil)
+            let viewNavi = storyBoard.instantiateInitialViewController() as UINavigationController
+            let rootViewConrooler = UIApplication.sharedApplication().keyWindow?.rootViewController
+            rootViewConrooler?.showViewController(viewNavi, sender: nil)
+        })
         
     }
     
     @IBAction func showHome(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {
+            
+        })
         
     }
     
