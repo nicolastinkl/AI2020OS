@@ -31,11 +31,11 @@ class AIServicesRequester {
         
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetServicesTopic, parameters: ["page_num":"1"]) {  [weak self] (response, error) -> () in
             if let strongSelf = self{
-                strongSelf.isLoading = false
-                if let responseJSON: AnyObject = response{
-                    let service =  AIServiceTopicResult(JSONDecoder(responseJSON))
-                    completion(data: service.service_array!)
-                }
+                strongSelf.isLoading = false                
+            }
+            if let responseJSON: AnyObject = response{
+                let service =  AIServiceTopicResult(JSONDecoder(responseJSON))
+                completion(data: service.service_array!)
             }
         }
         

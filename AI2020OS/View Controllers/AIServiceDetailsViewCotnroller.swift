@@ -21,6 +21,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
 
     @IBOutlet weak var detailsPageView: KMDetailsPageView!
 
+    @IBOutlet weak var titleLabel: UILabel!
     // MARK: getters and setters
     private let transitionManager = TransitionManager()
 
@@ -112,6 +113,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         view.hideProgressViewLoading()
         self.detailsPageView.navBarView = self.navigationBarView
         self.detailsPageView.tableView.tableFooterView = AIOrderBuyView.currentView()
+        self.titleLabel.text = self.movieDetailsResponse?.movieTitle
     }
     
     func reloadHeaderView()
@@ -189,6 +191,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             if  avCell == nil {
                 avCell = AIHomeSDDefaultViewCell().currentViewCell()
             }
+            avCell?.addBottomBorderLine()
             return avCell!
         case 2:
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
@@ -197,6 +200,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             }
             avCell?.textLabel?.text = "选择入住时间"
             avCell?.detailTextLabel?.text = ""
+            avCell?.addBottomBorderLine()
             return avCell!
             
         case 3:
@@ -207,7 +211,6 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             }
 
             avCell?.desLabel.text = self.movieDetailsResponse?.movieOverview
-            
             return avCell!
         case 4:
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
@@ -219,6 +222,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             
             avCell?.textLabel?.text = pCompics.pcName
             avCell?.detailTextLabel?.text = pCompics.pcId
+            avCell?.addBottomBorderLine()
             return avCell!
         default:
             break
@@ -238,13 +242,14 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section <= 1 {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if indexPath.section == 2 {
             let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIComponentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICalendarViewController) as UIViewController
             
             viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
             self.presentViewController(viewController, animated: true, completion: nil)
-        }else{
+        }else if indexPath.section == 4 {
             
             let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIComponentChoseViewController) as UIViewController
             

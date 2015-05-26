@@ -79,7 +79,19 @@ extension UIView {
         
         self.layer.addSublayer(shapeLayer)
         
-    }     
+    }
+    
+    /*!
+    虚线处理
+    */
+    func addBottomBorderLine() {
+        let color = UIColor(rgba: "#a7a7a7").CGColor
+        let lineLayer =  CALayer()
+        lineLayer.backgroundColor = color
+        let left = self.width*0.9/2
+        lineLayer.frame = CGRectMake(20, self.height-1, self.width*0.9, 0.5)
+        self.layer.addSublayer(lineLayer)
+    }
     
     /*!
         处理加载展示

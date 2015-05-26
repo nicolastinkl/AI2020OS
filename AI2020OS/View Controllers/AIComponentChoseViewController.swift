@@ -35,11 +35,11 @@ class AIComponentChoseViewController: UIViewController {
         // MARK CONTENT
         let scopeView =  AIServerScopeView.currentView()
         scopeView.initWithViewsArray([
-            ServerScopeModel(outId: "2", outContent: "一居室 90元一次"),
-            ServerScopeModel(outId: "6", outContent: "居室 9D"),
-            ServerScopeModel(outId: "3", outContent: "两室 190元一次SDF"),
-            ServerScopeModel(outId: "5", outContent: "两室 190DF次"),
-            ServerScopeModel(outId: "7", outContent: "两室 190元")], parentView: self.view)
+            ServerScopeModel(outId: "2", outContent: "90元一次"),
+            ServerScopeModel(outId: "6", outContent: "120元一次"),
+            ServerScopeModel(outId: "3", outContent: "190元一次"),
+            ServerScopeModel(outId: "5", outContent: "190元两次"),
+            ServerScopeModel(outId: "7", outContent: "190元三次")], parentView: self.view)
         self.contentScrollView.addSubview(scopeView)
         scopeView.setTop(title.height + title.top)
         
@@ -99,8 +99,31 @@ class AIComponentChoseViewController: UIViewController {
         line3.setLeft((self.view.width - line3.width)/2)
         line3.backgroundColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
         self.contentScrollView.addSubview(line3)
-        self.contentScrollView.contentSize = CGSizeMake(self.view.width, line3.top+10)
         
+        var object: AnyObject =  UIButton.buttonWithType(UIButtonType.Custom)
+        var button = object as UIButton
+        
+        button.layer.borderColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
+        
+        // TODO: title Color
+        button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        
+        // TODO: Background Image
+        button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Normal)
+        button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Highlighted)
+        //button.addTarget(self, action: Selector("buttonDownAction:"), forControlEvents: UIControlEvents.TouchDown)
+        
+        button.layer.borderColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
+        button.layer.borderWidth = 1
+        
+        button.titleLabel?.font = UIFont.boldSystemFontOfSize(18)
+        
+        self.contentScrollView.addSubview(button)
+        button.setTop(line3.top + line3.height + 5)
+        button.setWidth(self.view.width)
+        button.setHeight(50)
+        button.setTitle("立即购买", forState: UIControlState.Normal)
+        self.contentScrollView.contentSize = CGSizeMake(self.view.width, button.top+button.height)
         
     }
     

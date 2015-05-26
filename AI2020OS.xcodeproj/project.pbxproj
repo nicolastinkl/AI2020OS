@@ -77,6 +77,7 @@
 		937301071ACBEA5A00CA17BC /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 937301061ACBEA5A00CA17BC /* UINavigationBar+Awesome.m */; };
 		9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373010A1ACBEAE300CA17BC /* UIColorUtils.swift */; };
 		9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373010C1ACBEB0B00CA17BC /* UIViewControllerUtils.swift */; };
+		9394D2281B133F0C00EE578E /* AIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394D2271B133F0C00EE578E /* AIModels.swift */; };
 		939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F4BD41AD6648000CE530C /* AIAudioViewController.swift */; };
 		93A7058E1B12CAD800E8193C /* AIServerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */; };
 		93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A705911B12CAF000E8193C /* AIServerTimeView.xib */; };
@@ -240,6 +241,7 @@
 		937301061ACBEA5A00CA17BC /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Awesome.m"; path = "../Libs/UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		9373010A1ACBEAE300CA17BC /* UIColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtils.swift; sourceTree = "<group>"; };
 		9373010C1ACBEB0B00CA17BC /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
+		9394D2271B133F0C00EE578E /* AIModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModels.swift; sourceTree = "<group>"; };
 		939F4BD41AD6648000CE530C /* AIAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioViewController.swift; sourceTree = "<group>"; };
 		93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServerTimeView.swift; sourceTree = "<group>"; };
 		93A705911B12CAF000E8193C /* AIServerTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIServerTimeView.xib; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				935F386F1ACD27DF004BE0E7 /* Movie.swift */,
 				93FA15441AE66F95006BA310 /* WeatherModel.swift */,
 				93A705991B12D2C000E8193C /* AITSLocation.swift */,
+				9394D2271B133F0C00EE578E /* AIModels.swift */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -1035,6 +1038,7 @@
 				9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */,
 				93FF74691B0ECEA000FD97C1 /* CVCalendarView.swift in Sources */,
 				9337FF611AD4097A0046F8DC /* AIUINavigationController.m in Sources */,
+				9394D2281B133F0C00EE578E /* AIModels.swift in Sources */,
 				9370552F1AEF916900CEE9A5 /* AIFavoritsTableViewController.swift in Sources */,
 				934986F61B0A1135003086D1 /* AIRegisterViewController.swift in Sources */,
 				9349870C1B0D8DEE003086D1 /* AIHomeStyleMananger.swift in Sources */,

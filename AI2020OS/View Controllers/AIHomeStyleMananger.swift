@@ -17,14 +17,14 @@ enum AIHomeCellViewStyle: Int{
 
 extension AIHomeViewStyleTitleView{
 
-    func fillDataWithModel(model:Movie){
+    func fillDataWithModel(model:AIServiceTopicModel){
         
-        let idmov:Int? = model.id
+        let idmov:Int? = model.service_id
         let movieid:String = String(idmov!)
         self.contentImage.assemblyID = movieid
         
-        self.title.text = model.original_title
-        self.contentImage.setURL(model.backdrop_path?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
+        self.title.text = model.service_name
+        self.contentImage.setURL(model.service_intro_url?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
 
         let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: Selector("targetImageClickAction"))
         self.contentImage.addGestureRecognizer(gestureRecognizer)
@@ -36,14 +36,14 @@ extension AIHomeViewStyleTitleView{
 }
 
 extension AIHomeViewStyleTitleAndContentView{
-    func fillDataWithModel(model:Movie){
-        let idmov:Int? = model.id
+    func fillDataWithModel(model:AIServiceTopicModel){
+        let idmov:Int? = model.service_id
         let movieid:String = String(idmov!)
         self.contentImage.assemblyID = movieid
         
-        self.title.text = model.original_title
-        self.price.text = model.title
-        self.contentImage.setURL(model.backdrop_path?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
+        self.title.text = model.service_name
+        self.price.text = model.service_price
+        self.contentImage.setURL(model.service_intro_url?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
 
         let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: Selector("targetImageClickAction"))
         self.contentImage.addGestureRecognizer(gestureRecognizer)
@@ -55,16 +55,16 @@ extension AIHomeViewStyleTitleAndContentView{
 }
 
 extension AIHomeViewStyleMultiepleView{
-    func fillDataWithModel(model:Movie){
-        let idmov:Int? = model.id
+    func fillDataWithModel(model:AIServiceTopicModel){
+        let idmov:Int? = model.service_id
         let movieid:String = String(idmov!)
         self.contentImage.assemblyID = movieid
         
-        self.title.text = model.original_title
-        self.contentImage.setURL(model.backdrop_path?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
-        self.price.text = model.title
-        self.nick.text = model.title
-        self.avator.setImageURL(model.backdrop_path?.toURL(), placeholderImage: UIImage(named: "Placeholder"), forState: UIControlState.Normal)
+        self.title.text = model.service_name
+        self.contentImage.setURL(model.service_intro_url?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
+        self.price.text = model.service_price
+        self.nick.text = model.service_intro
+        self.avator.setImageURL(model.service_intro_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"), forState: UIControlState.Normal)
         
         let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: Selector("targetImageClickAction"))
         self.contentImage.addGestureRecognizer(gestureRecognizer)

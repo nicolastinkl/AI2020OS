@@ -20,7 +20,6 @@ class AIHomeViewController: UITableViewController {
     @IBOutlet weak var searchButton: UIButton!
     
     // MARK: Priate Variable
-    private var stories = [Movie]()
     
     private var serviceTopicList = [AIServiceTopicListModel]()
 
@@ -81,20 +80,23 @@ class AIHomeViewController: UITableViewController {
     // application actions
     func retryNetworkingAction(){
         self.view.hideProgressViewLoading()
-        
-        self.view.showProgressViewLoading()
-        
+        self.view.showProgressViewLoading()        
         
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
-            
             AIServicesRequester().load(page: 1, completion: { (data) -> () in
-                
+                self.view.hideProgressViewLoading()
+                if data.count > 0{
+                    self.serviceTopicList = data
+                    self.tableView.reloadData()
+                    self.view.hideErrorView()
+                }else{
+                    self.view.showErrorView()
+                }
             })
-            
         }
         
-        Async.background(){
+        /*Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
             
             AIHttpEngine.moviesForSection {  movies  in
@@ -107,14 +109,14 @@ class AIHomeViewController: UITableViewController {
                     self.view.showErrorView()
                 }
             }
-        }
+        }*/
     }
 
     
     func targetForServicesAction(sender:AnyObject){
         let imageview = sender as AIImageView
         let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
-        controller.movieDetails = "\(imageview.assemblyID!)"
+        controller.movieDetails = "157336"//"\(imageview.assemblyID!)"
         showViewController(controller, sender: self)
     }
     
@@ -123,7 +125,7 @@ class AIHomeViewController: UITableViewController {
 // MARK: - UITableViewDataSource
 extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stories.count
+        return self.serviceTopicList.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -138,35 +140,41 @@ extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
     
     func configureCell(cell: AIHomeViewCell, atIndexPath indexPath: NSIndexPath) {
         
-        let moive = stories[indexPath.row]
+        let moive = self.serviceTopicList[indexPath.row]
         cell.configWithModel(moive, indexPath: indexPath)
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let cellSelf = cell as AIHomeViewCell
-        cellSelf.contentScrollView.contentSize = CGSizeMake(self.view.width*3, cellSelf.contentScrollView.height) 
+        
+        let moive: AIServiceTopicListModel = self.serviceTopicList[indexPath.row]
+        let array = moive.service_array!
+        
+        cellSelf.contentScrollView.contentSize = CGSizeMake(self.view.width*CGFloat(array.count), cellSelf.contentScrollView.height)
         var index = 0
         if cellSelf.contentScrollView.subviews.count > 0{
             for viewCell in cellSelf.contentScrollView.subviews{
                 let cacheView = viewCell  as UIView
                 cacheView.setLeft(self.view.width * CGFloat(index))
-                let moive = stories[indexPath.row]
-                
-                var selected: AIHomeCellViewStyle = .ViewStyleTitle
-                switch index{
-                case 0:
-                    (cacheView as AIHomeViewStyleTitleView).fillDataWithModel(moive)
-                    break
-                case 1:
-                    (cacheView as AIHomeViewStyleTitleAndContentView).fillDataWithModel(moive)
-                    break
-                case 2:
-                    (cacheView as AIHomeViewStyleMultiepleView).fillDataWithModel(moive)
-                    break
-                default:
-                    break
+                let moive: AIServiceTopicListModel = self.serviceTopicList[indexPath.row]
+                let array = moive.service_array!
+                if array.count > 0 {
+                    let model:AIServiceTopicModel = array[index]
+                    var selected: AIHomeCellViewStyle = .ViewStyleTitle
+                    switch index{
+                    case 0:
+                        (cacheView as AIHomeViewStyleTitleView).fillDataWithModel(model)
+                        break
+                    case 1:
+                        (cacheView as AIHomeViewStyleTitleAndContentView).fillDataWithModel(model)
+                        break
+                    case 2:
+                        (cacheView as AIHomeViewStyleMultiepleView).fillDataWithModel(model)
+                        break
+                    default:
+                        break
+                    }
                 }
-                
                 index = index+1
                 
             }
@@ -189,10 +197,9 @@ class AIHomeViewCell : UITableViewCell{
     
     @IBOutlet weak var contentScrollView: UIScrollView!
     
-    func configWithModel(model:Movie,indexPath: NSIndexPath){
-        
-        
-        for xOffset in 0...2{
+    func configWithModel(model:AIServiceTopicListModel,indexPath: NSIndexPath){
+        let count = model.service_array?.count ?? 0
+        for xOffset in 0...(count-1){
             let index:Int = xOffset
             
             var tag = index + 10
@@ -203,8 +210,8 @@ class AIHomeViewCell : UITableViewCell{
                 
                 var selected: AIHomeCellViewStyle = .ViewStyleTitle
                 switch xOffset{
-                    case 0:
-                        selected = AIHomeCellViewStyle.ViewStyleTitle
+                case 0:
+                    selected = AIHomeCellViewStyle.ViewStyleTitle
                     break
                 case 1:
                     selected = AIHomeCellViewStyle.ViewStyleTitleAndContent
