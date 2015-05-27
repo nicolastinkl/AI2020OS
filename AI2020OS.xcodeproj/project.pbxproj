@@ -114,6 +114,7 @@
 		93E4D5AB1B14A5F700992CA3 /* AISettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E4D5AA1B14A5F700992CA3 /* AISettingsStoryboard.storyboard */; };
 		93E4D5AD1B14AA5900992CA3 /* AIOrderStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E4D5AC1B14AA5900992CA3 /* AIOrderStoryboard.storyboard */; };
 		93E4D5B01B14AA7800992CA3 /* AIOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4D5AF1B14AA7800992CA3 /* AIOrderListViewController.swift */; };
+		93E4D5B31B15681600992CA3 /* AIGitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4D5B21B15681600992CA3 /* AIGitHub.swift */; };
 		93E8266A1AD78246006B3BA1 /* AIAssignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E826691AD78246006B3BA1 /* AIAssignUtils.swift */; };
 		93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */; };
 		93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */; };
@@ -282,6 +283,7 @@
 		93E4D5AA1B14A5F700992CA3 /* AISettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		93E4D5AC1B14AA5900992CA3 /* AIOrderStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIOrderStoryboard.storyboard; sourceTree = "<group>"; };
 		93E4D5AF1B14AA7800992CA3 /* AIOrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderListViewController.swift; sourceTree = "<group>"; };
+		93E4D5B21B15681600992CA3 /* AIGitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIGitHub.swift; sourceTree = "<group>"; };
 		93E826691AD78246006B3BA1 /* AIAssignUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssignUtils.swift; sourceTree = "<group>"; };
 		93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchNaviViewController.swift; sourceTree = "<group>"; };
 		93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 				933ED3E51AC8F90A00E4AADB /* Products */,
 				A4AC8450885364663CAD817D /* Pods */,
 				04BC61216E8447686C7C5949 /* Frameworks */,
+				93E4D5B11B15680600992CA3 /* Github */,
 			);
 			sourceTree = "<group>";
 		};
@@ -767,6 +770,15 @@
 				93E4D5AF1B14AA7800992CA3 /* AIOrderListViewController.swift */,
 			);
 			name = Order;
+			sourceTree = "<group>";
+		};
+		93E4D5B11B15680600992CA3 /* Github */ = {
+			isa = PBXGroup;
+			children = (
+				93E4D5B21B15681600992CA3 /* AIGitHub.swift */,
+			);
+			name = Github;
+			path = AI2020OS/Github;
 			sourceTree = "<group>";
 		};
 		93F6E14B1ADBC64900CE4062 /* UISearchView */ = {
@@ -1096,6 +1108,7 @@
 				93AC3FD01ACA402A000024A4 /* AIHomeViewController.swift in Sources */,
 				93A705941B12D0E600E8193C /* AIServerAddressView.swift in Sources */,
 				93AC3FD81ACA44F4000024A4 /* AISwiftLogger.swift in Sources */,
+				93E4D5B31B15681600992CA3 /* AIGitHub.swift in Sources */,
 				93FF74701B0ECEA000FD97C1 /* CVCalendarWeekContentView.swift in Sources */,
 				934987181B0DA9B4003086D1 /* AIHomeViewStyleTitleAndContentView.swift in Sources */,
 				93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */,
