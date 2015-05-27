@@ -11,12 +11,20 @@ import UIKit
 class MainSearchViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    
+    var historyRecorder: SearchRecorder?
+    var searchEngin: SearchEngine?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         initTableView()
+        
+        var mockEngine = MockSearchEngine()
+        historyRecorder = mockEngine
+        searchEngin = mockEngine
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +43,7 @@ class MainSearchViewController: UIViewController , UITableViewDelegate , UITable
     }
     */
     
-    func initTableView() {
+    private func initTableView() {
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -56,23 +64,56 @@ class MainSearchViewController: UIViewController , UITableViewDelegate , UITable
         // 添加FooterView，去除多余的单元格
         tableView.tableFooterView = UIView(frame:CGRectZero)
         
+        
         let myIdentifier = "SearchTag"
         var cell  = tableView.dequeueReusableCellWithIdentifier(myIdentifier) as? UITableViewCell
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: myIdentifier)
             cell?.accessoryType = UITableViewCellAccessoryType.None
             
+            
+
+        }
+        
+        let tagWith = 60
+        let tagHeight = 20
+        let space = 10
+        let padding = 10
+        
+        let records = historyRecorder!.getSearchHistoryItems()
+        let services = searchEngin!.queryHotSearchedServices()
+        var count = 0
+        
+        if indexPath.section == 0 {
+            count = records.count
+        } else if indexPath.section == 1 {
+            count = services.count
+        }
+        
+        for var i = 0; i < count; i++ {
+            var tagName = ""
+            if indexPath.section == 0 {
+                tagName = records[i].name
+            } else if indexPath.section == 1 {
+                tagName = services[i].name
+            }
+            
             let button = UIButton.buttonWithType(.System) as UIButton
-            button.frame = CGRect(x: 0, y: 10, width: 90, height: 20)
-            button.setTitle("lable", forState:UIControlState.Normal)
-
+            let tagX = padding + tagWith * i + space * i
+            let tagY = 10
+            button.frame = CGRect(x: tagX, y: tagY, width: tagWith, height: tagHeight)
+            button.setTitle(tagName, forState:UIControlState.Normal)
+            button.titleLabel?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+            button.titleLabel?.backgroundColor = UIColor.grayColor()
+            
             cell?.contentView.addSubview(button)
-
-        }      
+        }
         
         
         return cell!
     }
+    
+
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
