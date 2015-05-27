@@ -385,7 +385,7 @@
                     <navigationItem key="navigationItem" id="njr-uS-avm">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="wFt-sv-enG">
-                            <rect key="frame" x="100" y="5.5" width="400" height="33"/>
+                            <rect key="frame" x="100" y="6" width="400" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="资讯" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="849-At-ywF">
@@ -1143,7 +1143,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKS-MF-LVa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="139.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="139"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCj-Cc-zau">
                                                             <rect key="frame" x="125" y="8" width="350" height="124"/>
@@ -1687,7 +1687,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-8Q-ycI">
-                                    <rect key="frame" x="-55" y="0.5" width="295" height="36"/>
+                                    <rect key="frame" x="-55" y="1" width="295" height="36"/>
                                     <state key="normal" backgroundImage="Home_search_bg">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>

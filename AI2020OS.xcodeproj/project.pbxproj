@@ -12,6 +12,9 @@
 		9301B07C1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B07B1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift */; };
 		93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93049D031B04A3270051467A /* AIHomeAvatorViewCell.xib */; };
 		93049D061B04A3420051467A /* AIHomeAvatorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93049D051B04A3420051467A /* AIHomeAvatorViewCell.swift */; };
+		931718811B159C3600EC9C14 /* AIOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931718801B159C3600EC9C14 /* AIOrderDetailViewController.swift */; };
+		931718831B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */; };
+		931718851B15A35400EC9C14 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931718841B15A35400EC9C14 /* MapKit.framework */; };
 		93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93266FAA1AEF80FB00DD0021 /* AIFavoritesViewController.swift */; };
 		93266FB21AEF81E100DD0021 /* AIFavoritsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93266FB11AEF81E100DD0021 /* AIFavoritsCommand.swift */; };
 		933668861AD671A4007556D7 /* AITransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933668851AD671A4007556D7 /* AITransitionManager.swift */; };
@@ -165,6 +168,9 @@
 		9301B07B1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewControllerDelegate.swift; sourceTree = "<group>"; };
 		93049D031B04A3270051467A /* AIHomeAvatorViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeAvatorViewCell.xib; sourceTree = "<group>"; };
 		93049D051B04A3420051467A /* AIHomeAvatorViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeAvatorViewCell.swift; sourceTree = "<group>"; };
+		931718801B159C3600EC9C14 /* AIOrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderDetailViewController.swift; sourceTree = "<group>"; };
+		931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIOrderDetailStoryboard.storyboard; sourceTree = "<group>"; };
+		931718841B15A35400EC9C14 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		93266FAA1AEF80FB00DD0021 /* AIFavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoritesViewController.swift; sourceTree = "<group>"; };
 		93266FB11AEF81E100DD0021 /* AIFavoritsCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoritsCommand.swift; sourceTree = "<group>"; };
 		933668851AD671A4007556D7 /* AITransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITransitionManager.swift; sourceTree = "<group>"; };
@@ -332,6 +338,7 @@
 				933ED42C1AC927C600E4AADB /* CoreLocation.framework in Frameworks */,
 				933668921AD678F7007556D7 /* AVFoundation.framework in Frameworks */,
 				933668901AD678EE007556D7 /* QuartzCore.framework in Frameworks */,
+				931718851B15A35400EC9C14 /* MapKit.framework in Frameworks */,
 				9336688E1AD678E3007556D7 /* AddressBookUI.framework in Frameworks */,
 				933ED42E1AC9280100E4AADB /* libicucore.dylib in Frameworks */,
 				933ED42A1AC927C100E4AADB /* CFNetwork.framework in Frameworks */,
@@ -611,6 +618,7 @@
 		933ED42F1AC9282A00E4AADB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				931718841B15A35400EC9C14 /* MapKit.framework */,
 				933668991AD67994007556D7 /* AddressBook.framework */,
 				933668971AD67979007556D7 /* CoreGraphics.framework */,
 				933668951AD67969007556D7 /* AudioToolbox.framework */,
@@ -705,6 +713,7 @@
 				93FF74741B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard */,
 				93E4D5AA1B14A5F700992CA3 /* AISettingsStoryboard.storyboard */,
 				93E4D5AC1B14AA5900992CA3 /* AIOrderStoryboard.storyboard */,
+				931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */,
 			);
 			name = StoryBoard;
 			path = AI2020OS/StoryBoard;
@@ -768,6 +777,7 @@
 			isa = PBXGroup;
 			children = (
 				93E4D5AF1B14AA7800992CA3 /* AIOrderListViewController.swift */,
+				931718801B159C3600EC9C14 /* AIOrderDetailViewController.swift */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -912,6 +922,11 @@
 				TargetAttributes = {
 					933ED3E31AC8F90A00E4AADB = {
 						CreatedOnToolsVersion = 6.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					933ED3FA1AC8F90A00E4AADB = {
 						CreatedOnToolsVersion = 6.1;
@@ -947,6 +962,7 @@
 				93A705961B12D0EF00E8193C /* AIServerAddressView.xib in Resources */,
 				93E4D5AD1B14AA5900992CA3 /* AIOrderStoryboard.storyboard in Resources */,
 				93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */,
+				931718831B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard in Resources */,
 				93FF74751B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard in Resources */,
 				934986F91B0B13FD003086D1 /* InfoPlist.strings in Resources */,
 				93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */,
@@ -1154,6 +1170,7 @@
 				934987101B0DA354003086D1 /* AIHomeViewStyleMultiepleView.swift in Sources */,
 				9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */,
 				933ED3EA1AC8F90A00E4AADB /* AppDelegate.swift in Sources */,
+				931718811B159C3600EC9C14 /* AIOrderDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

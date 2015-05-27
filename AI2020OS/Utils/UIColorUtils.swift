@@ -17,7 +17,6 @@ extension UIColor {
     /*!
     how to use it??
     
-    
     var strokeColor = UIColor(rgba: "#ffcc00").CGColor // Solid color
     
     var fillColor = UIColor(rgba: "#ffcc00dd").CGColor // Color with alpha

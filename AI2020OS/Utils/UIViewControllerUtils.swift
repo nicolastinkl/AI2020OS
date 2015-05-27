@@ -57,7 +57,9 @@ extension UIViewController {
             self.isKindOfClass(AITimelineViewController.classForCoder()) ||
             self.isKindOfClass(AIFavoritesViewController.classForCoder()) ||
             self.isKindOfClass(AISelfViewController.classForCoder()){
-               AIApplication.showMessageUnreadView()
+                if let token = AILocalStore.accessToken() {
+                    AIApplication.showMessageUnreadView()
+                }
         }
     } 
     

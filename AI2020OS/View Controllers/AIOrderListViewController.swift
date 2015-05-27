@@ -16,6 +16,13 @@ class AIOrderListViewController:UIViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     
+    
+    override func viewWillAppear(animated: Bool) {
+//        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.interactivePopGestureRecognizer.delegate = nil
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initTableView()
@@ -74,6 +81,12 @@ class AIOrderListViewController:UIViewController,UITableViewDelegate,UITableView
             buildDynaButton(orderListModel.orderState, orderType: "", buttonView: buttonView)
         }
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //AIOrderDetailStoryboard
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderDetailStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     //不同状态的订单动态创建按钮

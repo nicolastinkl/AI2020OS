@@ -36,7 +36,7 @@ extension UIView {
         根据tag 获取视图对象
     */
     func getViewByTag(tag:Int) -> UIView{
-        
+
         let thisView = self.subviews.filter({(view:AnyObject)->Bool in
             let someView = view as UIView
             return someView.tag == tag
@@ -82,7 +82,7 @@ extension UIView {
     }
     
     /*!
-    虚线处理
+    Cell下线处理
     */
     func addBottomBorderLine() {
         let color = UIColor(rgba: "#a7a7a7").CGColor

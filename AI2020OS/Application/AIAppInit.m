@@ -11,6 +11,7 @@
 #import "iflyMSC/iflySetting.h" 
 #import "iflyMSC/IFlySpeechUtility.h"
 #import "IFlyFlowerCollector.h"
+#import <objc/runtime.h>
 
 #define APPID_VALUE           @"551ba83b"
 #define URL_VALUE             @""                 // url
