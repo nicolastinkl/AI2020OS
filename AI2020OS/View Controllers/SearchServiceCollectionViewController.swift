@@ -8,18 +8,33 @@
 
 import UIKit
 
-let reuseIdentifier = "Cell"
 
-class SearchServiceViewControllerCollectionViewController: UICollectionViewController {
 
+class SearchServiceViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    
+    private var historyRecorder: SearchRecorder?
+    private var searchEngin: SearchEngine?
+    
+    private let SECTION_HOT_SERVICES = 0
+    private let SECTION_HISTORY = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initCollectionView()
+        
+        var mockEngine = MockSearchEngine()
+        historyRecorder = mockEngine
+        searchEngin = mockEngine
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+     //   self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -41,23 +56,107 @@ class SearchServiceViewControllerCollectionViewController: UICollectionViewContr
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
-        return 0
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 2
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //#warning Incomplete method implementation -- Return the number of items in the section
-        return 0
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var itemNum = 0
+        
+        switch section {
+        case SECTION_HOT_SERVICES:
+            itemNum = searchEngin!.queryHotSearchedServices().count
+        case SECTION_HISTORY:
+            itemNum = historyRecorder!.getSearchHistoryItems().count
+        default:
+            itemNum = 0
+        }
+        
+        if itemNum > 10 {
+            itemNum = 10
+        }
+        
+        return itemNum
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CONTENT", forIndexPath: indexPath) as SearchTagCell
     
-        // Configure the cell
+        cell.maxWidth = collectionView.bounds.size.width
+        
+        let records = historyRecorder!.getSearchHistoryItems()
+        let services = searchEngin!.queryHotSearchedServices()
+        
+        var tagName = ""
+        
+        if indexPath.section == SECTION_HOT_SERVICES {
+            tagName = services[indexPath.item].name
+        } else if indexPath.section == SECTION_HISTORY {
+            tagName = records[indexPath.item].name
+        }
+        
+        cell.text = tagName
     
         return cell
+    }
+  
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+
+        if (kind == UICollectionElementKindSectionHeader) {
+            let cell =
+            collectionView.dequeueReusableSupplementaryViewOfKind(
+                kind, withReuseIdentifier: "HEADER",
+                forIndexPath: indexPath) as SearchHeaderCell
+            cell.maxWidth = collectionView.bounds.size.width
+            
+            if indexPath.section == SECTION_HOT_SERVICES {
+                cell.text = "热门服务"
+            } else if indexPath.section == SECTION_HISTORY {
+                cell.text = "搜索历史"
+            }
+
+            
+            return cell
+        }
+        abort()
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        indexPath.row
+            let records = historyRecorder!.getSearchHistoryItems()
+            let services = searchEngin!.queryHotSearchedServices()
+            
+            var tagName = ""
+            
+            if indexPath.section == SECTION_HOT_SERVICES {
+                tagName = services[indexPath.item].name
+            } else if indexPath.section == SECTION_HISTORY {
+                tagName = records[indexPath.item].name
+            }
+            
+        let size = SearchTagCell.sizeForContentString(tagName,
+                forMaxWidth: collectionView.bounds.size.width / 2)
+        return size
+    }
+    
+    private func initCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        let layout = collectionView.collectionViewLayout
+        let flow = layout as UICollectionViewFlowLayout
+        flow.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
+        
+        collectionView.registerClass(SearchTagCell.self,
+            forCellWithReuseIdentifier: "CONTENT")
+        collectionView.registerClass(SearchHeaderCell.self,
+            forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+            withReuseIdentifier: "HEADER")
+        
     }
 
     // MARK: UICollectionViewDelegate
@@ -76,19 +175,36 @@ class SearchServiceViewControllerCollectionViewController: UICollectionViewContr
     }
     */
 
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
     
+    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+//    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return false
+//    }
+//
+//    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+//        return false
+//    }
+
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let records = historyRecorder!.getSearchHistoryItems()
+        let services = searchEngin!.queryHotSearchedServices()
+        
+        if indexPath.section == SECTION_HOT_SERVICES {
+            println(services[indexPath.item].name)
+       //     tagName = services[indexPath.item].name
+        } else if indexPath.section == SECTION_HISTORY {
+            println(records[indexPath.item].name)
+     //       tagName = records[indexPath.item].name
+        }
     }
-    */
+    
+    @IBAction func showAllServices(sender: UIButton) {
+        println("showAllServices")
+    }
+
+    @IBAction func myFavorites(sender: AnyObject) {
+        println("myFavorites")
+    }
 
 }
