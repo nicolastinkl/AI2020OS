@@ -72,4 +72,11 @@ extension UIViewController {
         
     }
     
+    /*!
+        the local coding scope.
+    */
+    func localCode(closeure:()->()){
+        closeure()
+    }
+    
 }
