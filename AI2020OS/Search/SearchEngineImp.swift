@@ -15,6 +15,26 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
     var hotServiceList = [ServiceModel]()
     
     init() {
+        initServiceData()
+    }
+    
+    func searchServiceByText(serviceName: String) -> [ServiceModel] {
+        return [ServiceModel]()
+    }
+    
+    func queryHotSearchedServices() -> [ServiceModel] {
+        return hotServiceList
+    }
+    
+    func recordSearch(searchRecord: SearchHistoryRecord) {
+        recordList.append(searchRecord)
+    }
+    
+    func getSearchHistoryItems() -> [SearchHistoryRecord] {
+        return recordList
+    }
+    
+    private func initServiceData() {
         var service = ServiceModel()
         service.name = "美容"
         hotServiceList.append(service)
@@ -36,21 +56,8 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         hotServiceList.append(service)
     }
     
-    func searchServiceByText(serviceName: String) -> [ServiceModel]? {
-        return [ServiceModel]()
-    }
-    
-    func queryHotSearchedServices() -> [ServiceModel] {
-        return hotServiceList
-    }
-    
-    func recordSearch(searchRecord: SearchHistoryRecord) {
-        recordList.append(searchRecord)
-    }
-    
-    func getSearchHistoryItems() -> [SearchHistoryRecord]? {
-        return recordList
-    }
-    
+//    private func initHistoryData() {
+//        var record = SearchHistoryRecord(searchName: "")
+//    }
 }
 

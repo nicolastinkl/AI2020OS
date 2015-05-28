@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8415F4E31B135688003160B4 /* SearchServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */; };
 		84951FB61B1312E500179483 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB41B1312E500179483 /* SearchEngine.swift */; };
 		84951FB71B1312E500179483 /* SearchEngineImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB51B1312E500179483 /* SearchEngineImp.swift */; };
+		84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */; };
+		84CB36851B16E95300D66BBD /* AICatalogTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36831B16E95300D66BBD /* AICatalogTableCellTableViewCell.swift */; };
+		84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */; };
 		84CC00011B107F430073B24A /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC00001B107F430073B24A /* ServiceModel.swift */; };
+		84CDC16E1B1494D000EA78BC /* SearchTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */; };
+		84CDC1701B14952500EA78BC /* SearchHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */; };
 		84D132221B0F26E700B977F5 /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D132211B0F26E700B977F5 /* MainSearchViewController.swift */; };
 		84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
@@ -119,9 +125,15 @@
 
 /* Begin PBXFileReference section */
 		185C5C827FF9C9E6B31333B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchServiceCollectionViewController.swift; sourceTree = "<group>"; };
 		84951FB41B1312E500179483 /* SearchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngine.swift; sourceTree = "<group>"; };
 		84951FB51B1312E500179483 /* SearchEngineImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngineImp.swift; sourceTree = "<group>"; };
+		84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogViewController.swift; sourceTree = "<group>"; };
+		84CB36831B16E95300D66BBD /* AICatalogTableCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICatalogTableCellTableViewCell.swift; sourceTree = "<group>"; };
+		84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICatalogTableCellTableViewCell.xib; sourceTree = "<group>"; };
 		84CC00001B107F430073B24A /* ServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTagCell.swift; sourceTree = "<group>"; };
+		84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHeaderCell.swift; sourceTree = "<group>"; };
 		84D132211B0F26E700B977F5 /* MainSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
 		84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryRecord.swift; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
@@ -296,10 +308,24 @@
 			path = AI2020OS/Search;
 			sourceTree = "<group>";
 		};
+		84CB36821B16E88200D66BBD /* view */ = {
+			isa = PBXGroup;
+			children = (
+				84CB36831B16E95300D66BBD /* AICatalogTableCellTableViewCell.swift */,
+				84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		84D1321E1B0F0BAD00B977F5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				84CB36821B16E88200D66BBD /* view */,
 				84D132211B0F26E700B977F5 /* MainSearchViewController.swift */,
+				8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */,
+				84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */,
+				84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */,
+				84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -378,7 +404,6 @@
 		933ED3DB1AC8F90A00E4AADB = {
 			isa = PBXGroup;
 			children = (
-				84951FB31B13117300179483 /* Search */,
 				93AC3FB61AC95DF5000024A4 /* StoryBoard */,
 				933ED4391AC92BF700E4AADB /* Application */,
 				933ED4351AC92B5700E4AADB /* Bridging */,
@@ -387,6 +412,7 @@
 				933ED4181AC9221100E4AADB /* Venders */,
 				933ED40E1AC921BD00E4AADB /* Libs */,
 				933ED40F1AC921BD00E4AADB /* Models */,
+				84951FB31B13117300179483 /* Search */,
 				933ED4101AC921BD00E4AADB /* Services */,
 				933ED4111AC921BD00E4AADB /* View Controllers */,
 				933ED4141AC921BD00E4AADB /* Views */,
@@ -790,6 +816,7 @@
 				934986F91B0B13FD003086D1 /* InfoPlist.strings in Resources */,
 				93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */,
 				93BD09061B05F2D000C8B96B /* AIOrderBuyView.xib in Resources */,
+				84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */,
 				93DE16AF1B05E26E0056A1E3 /* AIHomeSDDesViewCell.xib in Resources */,
 				84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
@@ -896,6 +923,7 @@
 				93D80A421ACA7149004BC7C0 /* CoreTextView.swift in Sources */,
 				84951FB71B1312E500179483 /* SearchEngineImp.swift in Sources */,
 				935A25771AE79AF10089B240 /* AIServicesRequester.swift in Sources */,
+				84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */,
 				934987091B0C75E9003086D1 /* AIMessageUnReadView.swift in Sources */,
 				933ED4381AC92B6700E4AADB /* AIBridge.m in Sources */,
 				934987011B0B1750003086D1 /* AITIMELINESDContentViewCell.swift in Sources */,
@@ -904,6 +932,7 @@
 				9370552F1AEF916900CEE9A5 /* AIFavoritsTableViewController.swift in Sources */,
 				934986F61B0A1135003086D1 /* AIRegisterViewController.swift in Sources */,
 				93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */,
+				84CDC16E1B1494D000EA78BC /* SearchTagCell.swift in Sources */,
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
 				93AC3FD41ACA40C8000024A4 /* AITimelineViewController.swift in Sources */,
 				936D62531AD5144100609FCD /* KMDetailsPageView.m in Sources */,
@@ -930,6 +959,7 @@
 				93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */,
 				9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */,
 				93692C971ACAA52A00D66211 /* Async.swift in Sources */,
+				8415F4E31B135688003160B4 /* SearchServiceCollectionViewController.swift in Sources */,
 				93CB34621AE5F26100D49FB2 /* AIImage.swift in Sources */,
 				936DAC201ADCF8510025483B /* SCSiriWaveformView.m in Sources */,
 				937301071ACBEA5A00CA17BC /* UINavigationBar+Awesome.m in Sources */,
@@ -944,6 +974,7 @@
 				933ED43B1AC92C3300E4AADB /* AIApplication.swift in Sources */,
 				93DE16B31B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift in Sources */,
 				936D62491AD4D54100609FCD /* AINetworkLoadingViewController.swift in Sources */,
+				84CDC1701B14952500EA78BC /* SearchHeaderCell.swift in Sources */,
 				934987031B0B305A003086D1 /* AITIMELINESDTITLEView.swift in Sources */,
 				93AC3FD61ACA40ED000024A4 /* AISelfViewController.swift in Sources */,
 				93CED3DF1AD530C000761B4D /* AIUIViewUtils.swift in Sources */,
@@ -953,6 +984,7 @@
 				9337FF5C1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift in Sources */,
 				93AC3FD21ACA40A9000024A4 /* AISearchViewController.swift in Sources */,
 				9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */,
+				84CB36851B16E95300D66BBD /* AICatalogTableCellTableViewCell.swift in Sources */,
 				9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */,
 				933ED3EA1AC8F90A00E4AADB /* AppDelegate.swift in Sources */,
 				84D132221B0F26E700B977F5 /* MainSearchViewController.swift in Sources */,

@@ -11,12 +11,12 @@ import Foundation
 /*
 */
 protocol SearchEngine {
-    func searchServiceByText(serviceName: String) -> [ServiceModel]?
+    func searchServiceByText(serviceName: String) -> [ServiceModel]
     func queryHotSearchedServices() -> [ServiceModel]
 }
 
 protocol SearchRecorder {
     func recordSearch(historyRecord: SearchHistoryRecord)
-    func getSearchHistoryItems() -> [SearchHistoryRecord]?
+    func getSearchHistoryItems() -> [SearchHistoryRecord]
 }
 
