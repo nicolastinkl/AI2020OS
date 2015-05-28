@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    var rootNavigationController:UINavigationController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -34,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AIApplication.hookViewWillAppear()
             AIApplication.hookViewWillDisappear()
         }
-        
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     

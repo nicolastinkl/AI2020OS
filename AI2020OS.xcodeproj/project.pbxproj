@@ -12,6 +12,9 @@
 		9301B07C1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B07B1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift */; };
 		93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93049D031B04A3270051467A /* AIHomeAvatorViewCell.xib */; };
 		93049D061B04A3420051467A /* AIHomeAvatorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93049D051B04A3420051467A /* AIHomeAvatorViewCell.swift */; };
+		9316D61E1B1716AD0099D4A8 /* AIIMConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9316D61D1B1716AD0099D4A8 /* AIIMConversation.swift */; };
+		9316D6221B17194F0099D4A8 /* AIIMNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9316D6211B17194F0099D4A8 /* AIIMNotify.swift */; };
+		9316D6241B171D6C0099D4A8 /* AIIMCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9316D6231B171D6C0099D4A8 /* AIIMCenter.swift */; };
 		931718811B159C3600EC9C14 /* AIOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931718801B159C3600EC9C14 /* AIOrderDetailViewController.swift */; };
 		931718831B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */; };
 		931718851B15A35400EC9C14 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931718841B15A35400EC9C14 /* MapKit.framework */; };
@@ -168,6 +171,9 @@
 		9301B07B1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewControllerDelegate.swift; sourceTree = "<group>"; };
 		93049D031B04A3270051467A /* AIHomeAvatorViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeAvatorViewCell.xib; sourceTree = "<group>"; };
 		93049D051B04A3420051467A /* AIHomeAvatorViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeAvatorViewCell.swift; sourceTree = "<group>"; };
+		9316D61D1B1716AD0099D4A8 /* AIIMConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIMConversation.swift; sourceTree = "<group>"; };
+		9316D6211B17194F0099D4A8 /* AIIMNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIMNotify.swift; sourceTree = "<group>"; };
+		9316D6231B171D6C0099D4A8 /* AIIMCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIMCenter.swift; sourceTree = "<group>"; };
 		931718801B159C3600EC9C14 /* AIOrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderDetailViewController.swift; sourceTree = "<group>"; };
 		931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIOrderDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		931718841B15A35400EC9C14 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -394,6 +400,17 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		9316D61C1B1716640099D4A8 /* AIIM */ = {
+			isa = PBXGroup;
+			children = (
+				9316D61D1B1716AD0099D4A8 /* AIIMConversation.swift */,
+				9316D6211B17194F0099D4A8 /* AIIMNotify.swift */,
+				9316D6231B171D6C0099D4A8 /* AIIMCenter.swift */,
+			);
+			name = AIIM;
+			path = AI2020OS/AIIM;
+			sourceTree = "<group>";
+		};
 		93266FA91AEF807A00DD0021 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +483,7 @@
 				933ED3E61AC8F90A00E4AADB /* AI2020OS */,
 				933ED3FE1AC8F90A00E4AADB /* AI2020OSTests */,
 				933ED3E51AC8F90A00E4AADB /* Products */,
+				9316D61C1B1716640099D4A8 /* AIIM */,
 				A4AC8450885364663CAD817D /* Pods */,
 				04BC61216E8447686C7C5949 /* Frameworks */,
 				93E4D5B11B15680600992CA3 /* Github */,
@@ -1078,6 +1096,7 @@
 			files = (
 				936DAC1D1ADCF4170025483B /* AIRecognizerFactory.m in Sources */,
 				93D80A421ACA7149004BC7C0 /* CoreTextView.swift in Sources */,
+				9316D6221B17194F0099D4A8 /* AIIMNotify.swift in Sources */,
 				935A25771AE79AF10089B240 /* AIServicesRequester.swift in Sources */,
 				93FF74721B0ECEA000FD97C1 /* CVCircleView.swift in Sources */,
 				934987091B0C75E9003086D1 /* AIMessageUnReadView.swift in Sources */,
@@ -1139,6 +1158,7 @@
 				9349300B1ADD0B6800D81FE2 /* AIAppInit.m in Sources */,
 				93049D061B04A3420051467A /* AIHomeAvatorViewCell.swift in Sources */,
 				93FF74651B0ECEA000FD97C1 /* CVCalendarMenuView.swift in Sources */,
+				9316D6241B171D6C0099D4A8 /* AIIMCenter.swift in Sources */,
 				93FF74711B0ECEA000FD97C1 /* CVCalendarWeekView.swift in Sources */,
 				935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */,
 				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
@@ -1152,6 +1172,7 @@
 				93DE16B31B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift in Sources */,
 				93FF747E1B0F171700FD97C1 /* AIComponentChoseViewController.swift in Sources */,
 				93FF74631B0ECEA000FD97C1 /* CVCalendarDayViewControlCoordinator.swift in Sources */,
+				9316D61E1B1716AD0099D4A8 /* AIIMConversation.swift in Sources */,
 				93FF746F1B0ECEA000FD97C1 /* CVCalendarWeekContentRecovery.swift in Sources */,
 				936D62491AD4D54100609FCD /* AINetworkLoadingViewController.swift in Sources */,
 				934987031B0B305A003086D1 /* AITIMELINESDTITLEView.swift in Sources */,
