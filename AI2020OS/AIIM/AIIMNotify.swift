@@ -16,7 +16,7 @@ import Foundation
 
 private let sharedInstance = AIIMNotify()
 
-class AIIMNotify {
+class AIIMNotify: NSObject {
     
     // MARK: create singlon object
     class var sharedManager : AIIMNotify {

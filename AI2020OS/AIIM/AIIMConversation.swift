@@ -22,14 +22,15 @@ extension AVIMConversation{
         case CDConvTypeGroup = 1
     }
     
-    var type:AIConvType?
+    /*
+    var type: AIConvType?
     
-    var otherId:String?
+    var otherId: String?
     
-    var displayName:String?
+    var displayName: String?
     
-    var title:String?
+    var title: String?
     
-    var icon:String?    
-    
+    var icon: String?
+    */
 }

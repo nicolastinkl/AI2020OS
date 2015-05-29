@@ -13,24 +13,24 @@ enum AIIMConversationType:Int{
     case AIIMConversationTypeAsiaInfo = 2
 }
 
-private let sharedInstance = AIIMCenter(AIIMConversationType.AIIMConversationTypeLeanCloud)
+private let sharedInstance = AIIMCenter()
 
 /*!
 *  @author tinkl, 15-05-28 17:05:02
 *
 *  this leanCloud message receive and send center.
 */
-class AIIMCenter {
+class AIIMCenter: NSObject,AVIMClientDelegate, AVIMSignatureDataSource{
     
     // MARK: create singlon object
     class var sharedManager : AIIMCenter {
         return sharedInstance
     }
     
-    convenience init(type:AIIMConversationType){
-        super.init()
-        
-    }
+    
+    /*convenience init(type:AIIMConversationType){
+        self.init()
+    }*/
  
     var imClient:AVIMClient?
     
@@ -38,10 +38,31 @@ class AIIMCenter {
     
     var connect:Bool?
     
+    var cachedConvs: NSMutableArray?
+    
+    var notify: AIIMNotify?
+    
+    override init() {
+        super.init()
+        self.imClient = AVIMClient()
+        self.imClient?.delegate = self
+        self.notify = AIIMNotify.sharedManager
+        self.cachedConvs = NSMutableArray()
+        
+       // self.connect = (self.imClient?.status ?? AVIMClientStatusOpened)
+    }
+    
+    deinit{
+        self.removeObserver(self, forKeyPath: "status")
+    }
+    
     func openWithClientId(clientId:String,callback:AVIMBooleanResultBlock){
         selfClientId = clientId
         
         
     }
+    
+    
+    
     
 }
