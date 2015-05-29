@@ -46,6 +46,7 @@ struct AIOrderListItemModel : JSONJoy{
     var service_type : Int?
     var provider_portrait_url : String?
     var service_time_duration : String?
+    var order_price : String?
     
     init(){
     
@@ -63,5 +64,6 @@ struct AIOrderListItemModel : JSONJoy{
         service_type = decoder["service_type"].integer
         provider_portrait_url = decoder["provider_portrait_url"].string
         service_time_duration = decoder["service_time_duration"].string
+        order_price = decoder["order_price"].string
     }
 }
