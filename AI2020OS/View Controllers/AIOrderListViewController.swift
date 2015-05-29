@@ -22,16 +22,7 @@ class AIOrderListViewController:UIViewController{
 
     // MARK: variables
 
-    private var orderList = [OrderListModel(
-        orderList:["createDate":"12:37","orderName":"带你深度畅游SANTORINI","serviceDate":"3月17日－3月22日","orderPrice":"7200元","orderState":"已完成"]),
-        OrderListModel(
-            orderList:["createDate":"12:37","orderName":"带你畅游SANTORINI","serviceDate":"3月17日－3月22日","orderPrice":"3500元","orderState":"待处理"]),
-        OrderListModel(
-            orderList:["createDate":"12:37","orderName":"带你深度畅游SANTORINI","serviceDate":"3月17日－3月22日","orderPrice":"7200元","orderState":"待处理"]),
-        OrderListModel(
-            orderList:["createDate":"12:37","orderName":"带你深度畅游SANTORINI","serviceDate":"3月17日－3月22日","orderPrice":"7200元","orderState":"已完成"])
-    ]
-
+    private var orderList:AIOrderListModel
     // MARK: life cycle
     override func viewWillAppear(animated: Bool) {
 //        navigationController?.setNavigationBarHidden(true, animated: true)
@@ -47,8 +38,27 @@ class AIOrderListViewController:UIViewController{
         
         scrollView.contentSize = CGSizeMake(650, 40)
     }
+    
+    func retryNetworkingAction(){
+        self.view.hideProgressViewLoading()
+        self.view.showProgressViewLoading()
+        //后台请求数据
+        Async.background(){
+            // Do any additional setup after loading the view, typically from a nib.
+            AIOrderRequester().queryOrderList(page: 1, completion: { (data) -> () in
+                self.view.hideProgressViewLoading()
+                if data.count > 0{
+                    self.orderList = data
+                    self.tableView.reloadData()
+                    self.view.hideErrorView()
+                }else{
+                    self.view.showErrorView()
+                }
+            })
+        }
+    }
 
-     
+    
 // MARK: view layoutSubviews with liuxian.
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单
@@ -82,11 +92,6 @@ class AIOrderListViewController:UIViewController{
             buttonView.addSubview(button)
             x = x + 40
             
-//            if let someButton = button as? UIButton{
-//                layout(someButton){ button in
-//                    button.left  == button.superview?.left + 20
-//                }
-//            }
             
         }
     }
@@ -94,21 +99,21 @@ class AIOrderListViewController:UIViewController{
 
 // TODO: struct for testing.
 //订单列表信息模型
-struct OrderListModel {
-    var createDate = "12:37"
-    var orderName = "带你深度畅游SANTORINI"
-    var serviceDate = "3月17日－3月22日"
-    var orderPrice = "7200元"
-    var orderState = "待处理"
-    
-    init(orderList:Dictionary<String,String>){
-        self.createDate = orderList["createDate"]!
-        self.orderName = orderList["orderName"]!
-        self.serviceDate = orderList["serviceDate"]!
-        self.orderPrice = orderList["orderPrice"]!
-        self.orderState = orderList["orderState"]!
-    }
-}
+//struct OrderListModel {
+//    var createDate = "12:37"
+//    var orderName = "带你深度畅游SANTORINI"
+//    var serviceDate = "3月17日－3月22日"
+//    var orderPrice = "7200元"
+//    var orderState = "待处理"
+//    
+//    init(orderList:Dictionary<String,String>){
+//        self.createDate = orderList["createDate"]!
+//        self.orderName = orderList["orderName"]!
+//        self.serviceDate = orderList["serviceDate"]!
+//        self.orderPrice = orderList["orderPrice"]!
+//        self.orderState = orderList["orderState"]!
+//    }
+//}
 
 struct ButtonModel{
     var title = ""
