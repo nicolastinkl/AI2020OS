@@ -47,7 +47,7 @@ struct AIOrderListItemModel : JSONJoy{
     var provider_portrait_url : String?
     var service_time_duration : String?
     
-    int(){
+    init(){
     
     }
     
