@@ -21,8 +21,7 @@ class AIServiceCatalogViewController: UIViewController {
         let nib = UINib(nibName: "AICatalogTableCellTableViewCell", bundle: nil)
         catalogTable.registerNib(nib,
             forCellReuseIdentifier: "CatalogCell")
-        catalogTable.separatorInset = UIEdgeInsetsZero
-        catalogTable.layoutMargins = UIEdgeInsetsZero
+
         catalogTable.dataSource = self
         catalogTable.delegate = self
         
@@ -79,21 +78,18 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
         if tableView == catalogTable {
             let catalogCell  = tableView.dequeueReusableCellWithIdentifier("CatalogCell") as AICatalogTableCellTableViewCell
             catalogCell.name = "catalog"
+            catalogCell.addBottomWholeBorderLine()
             cell = catalogCell
         } else if tableView == serviceTable {
             cell  = tableView.dequeueReusableCellWithIdentifier("ServiceCell") as UITableViewCell
             cell!.textLabel.text = "service"
         }
         
-        cell.setHeight(CGFloat(60))
         return cell!
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-
-   //     catalogTable.respondsToSelector(aSelector: Selector)
-        catalogTable.separatorInset = UIEdgeInsetsZero
-        catalogTable.layoutMargins = UIEdgeInsetsZero
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        <#code#>
     }
     
 }

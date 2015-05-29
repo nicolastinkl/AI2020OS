@@ -13,9 +13,12 @@
 		84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */; };
 		84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */; };
 		84CB368A1B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36881B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift */; };
+		84CB36901B17431700D66BBD /* AIProviderAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB368F1B17431700D66BBD /* AIProviderAvatarView.swift */; };
+		84CB36921B17433D00D66BBD /* AIProviderAvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36911B17433D00D66BBD /* AIProviderAvatarView.xib */; };
 		84CC00011B107F430073B24A /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC00001B107F430073B24A /* ServiceModel.swift */; };
 		84CDC16E1B1494D000EA78BC /* SearchTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */; };
 		84CDC1701B14952500EA78BC /* SearchHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */; };
+		84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */; };
 		84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
 		9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0751B09979500C1EE79 /* AILoginService.swift */; };
@@ -180,9 +183,13 @@
 		84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogViewController.swift; sourceTree = "<group>"; };
 		84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICatalogTableCellTableViewCell.xib; sourceTree = "<group>"; };
 		84CB36881B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICatalogTableCellTableViewCell.swift; sourceTree = "<group>"; };
+		84CB368F1B17431700D66BBD /* AIProviderAvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProviderAvatarView.swift; sourceTree = "<group>"; };
+		84CB36911B17433D00D66BBD /* AIProviderAvatarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProviderAvatarView.xib; sourceTree = "<group>"; };
 		84CC00001B107F430073B24A /* ServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTagCell.swift; sourceTree = "<group>"; };
 		84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHeaderCell.swift; sourceTree = "<group>"; };
+		84CF6A801B17F9A3001C4E72 /* CWStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
+		84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
 		84D132211B0F26E700B977F5 /* MainSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
 		84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryRecord.swift; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
@@ -414,8 +421,19 @@
 			children = (
 				84CB36881B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift */,
 				84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */,
+				84CB368F1B17431700D66BBD /* AIProviderAvatarView.swift */,
+				84CB36911B17433D00D66BBD /* AIProviderAvatarView.xib */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		84CF6A7F1B17F976001C4E72 /* StarRating */ = {
+			isa = PBXGroup;
+			children = (
+				84CF6A801B17F9A3001C4E72 /* CWStarRateView.h */,
+				84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */,
+			);
+			name = StarRating;
 			sourceTree = "<group>";
 		};
 		84D1321E1B0F0BAD00B977F5 /* Search */ = {
@@ -636,6 +654,7 @@
 		933ED4141AC921BD00E4AADB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84CF6A7F1B17F976001C4E72 /* StarRating */,
 				93FF744B1B0ECEA000FD97C1 /* AICalendar */,
 				93D80A411ACA7149004BC7C0 /* CoreTextView.swift */,
 				934987061B0C75E0003086D1 /* AIMessageUnReadView.xib */,
@@ -1036,6 +1055,7 @@
 				93E4D5AB1B14A5F700992CA3 /* AISettingsStoryboard.storyboard in Resources */,
 				93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */,
 				933ED3F61AC8F90A00E4AADB /* LaunchScreen.xib in Resources */,
+				84CB36921B17433D00D66BBD /* AIProviderAvatarView.xib in Resources */,
 				934987141B0DA850003086D1 /* AIHomeViewStyleTitleView.xib in Resources */,
 				934987161B0DA9A7003086D1 /* AIHomeViewStyleTitleAndContentView.xib in Resources */,
 				9349871E1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard in Resources */,
@@ -1158,6 +1178,7 @@
 				93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */,
 				84CDC16E1B1494D000EA78BC /* SearchTagCell.swift in Sources */,
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
+				84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */,
 				93FF74621B0ECEA000FD97C1 /* CVCalendarDayView.swift in Sources */,
 				93FF746E1B0ECEA000FD97C1 /* CVCalendarViewDelegate.swift in Sources */,
 				93AC3FD41ACA40C8000024A4 /* AITimelineViewController.swift in Sources */,
@@ -1222,6 +1243,7 @@
 				93DE16B31B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift in Sources */,
 				93FF747E1B0F171700FD97C1 /* AIComponentChoseViewController.swift in Sources */,
 				93FF74631B0ECEA000FD97C1 /* CVCalendarDayViewControlCoordinator.swift in Sources */,
+				84CB36901B17431700D66BBD /* AIProviderAvatarView.swift in Sources */,
 				93FF746F1B0ECEA000FD97C1 /* CVCalendarWeekContentRecovery.swift in Sources */,
 				936D62491AD4D54100609FCD /* AINetworkLoadingViewController.swift in Sources */,
 				84CDC1701B14952500EA78BC /* SearchHeaderCell.swift in Sources */,
