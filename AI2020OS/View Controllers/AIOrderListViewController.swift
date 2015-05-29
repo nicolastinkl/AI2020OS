@@ -22,7 +22,7 @@ class AIOrderListViewController:UIViewController{
 
     // MARK: variables
 
-    private var orderList:AIOrderListModel
+    private var orderList = Array<AIOrderListItemModel>()
     //fuckfuckfuck by liux
     // MARK: life cycle
     override func viewWillAppear(animated: Bool) {
@@ -38,6 +38,7 @@ class AIOrderListViewController:UIViewController{
         super.viewDidLoad()
         
         scrollView.contentSize = CGSizeMake(650, 40)
+        retryNetworkingAction()
     }
     
     func retryNetworkingAction(){
@@ -143,25 +144,25 @@ extension AIOrderListViewController:UITableViewDelegate,UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("OrderListCell", forIndexPath: indexPath) as UITableViewCell //1
         
-        let orderListModel = orderList[indexPath.row] as OrderListModel //2
+        let orderListModel = orderList[indexPath.row] as AIOrderListItemModel //2
         
         if let createDateLabel = cell.viewWithTag(110) as? UILabel { //3
-            createDateLabel.text = orderListModel.createDate
+            createDateLabel.text = orderListModel.order_create_time
         }
         if let orderNameLabel = cell.viewWithTag(120) as? UILabel {
-            orderNameLabel.text = orderListModel.orderName
+            orderNameLabel.text = orderListModel.service_name
         }
         if let serviceDateLabel = cell.viewWithTag(130) as? UILabel {
-            serviceDateLabel.text = orderListModel.serviceDate
+            serviceDateLabel.text = orderListModel.service_time_duration
         }
         if let orderPriceLabel = cell.viewWithTag(150) as? UILabel {
-            orderPriceLabel.text = orderListModel.orderPrice
+            orderPriceLabel.text = orderListModel.order_price
         }
         if let orderStateLabel = cell.viewWithTag(170) as? UILabel {
-            orderStateLabel.text = orderListModel.orderState
+            orderStateLabel.text = orderListModel.order_state_name
         }
         if let buttonView = cell.viewWithTag(180) {
-            buildDynaButton(orderListModel.orderState, orderType: "", buttonView: buttonView)
+            buildDynaButton(orderListModel.order_state_name!, orderType: "", buttonView: buttonView)
         }
         return cell
     }
