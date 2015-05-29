@@ -106,6 +106,17 @@ extension UIView {
     }
 
     /*!
+    Cell下线处理
+    */
+    func addBottomWholeBorderLine() {
+        let color = UIColor(rgba: "#a7a7a7").CGColor
+        let lineLayer =  CALayer()
+        lineLayer.backgroundColor = color
+        lineLayer.frame = CGRectMake(0, self.height-1, 85, 0.5)
+        self.layer.addSublayer(lineLayer)
+    }
+    
+    /*!
         处理加载展示
     */
     public func showProgressViewLoading() {
