@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12142F0F1B18266300BDBC95 /* AIOrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12142F0E1B18266300BDBC95 /* AIOrderService.swift */; };
+		12142F111B18267100BDBC95 /* AIOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12142F101B18267100BDBC95 /* AIOrderModel.swift */; };
 		9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0751B09979500C1EE79 /* AILoginService.swift */; };
 		9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0791B0998C700C1EE79 /* AILoginViewController.swift */; };
 		9301B07C1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B07B1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift */; };
@@ -165,6 +167,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12142F0E1B18266300BDBC95 /* AIOrderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderService.swift; sourceTree = "<group>"; };
+		12142F101B18267100BDBC95 /* AIOrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderModel.swift; sourceTree = "<group>"; };
 		185C5C827FF9C9E6B31333B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9301B0751B09979500C1EE79 /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
 		9301B0791B0998C700C1EE79 /* AILoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewController.swift; sourceTree = "<group>"; };
@@ -551,6 +555,7 @@
 		933ED40F1AC921BD00E4AADB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				12142F101B18267100BDBC95 /* AIOrderModel.swift */,
 				935F386F1ACD27DF004BE0E7 /* Movie.swift */,
 				93FA15441AE66F95006BA310 /* WeatherModel.swift */,
 				93A705991B12D2C000E8193C /* AITSLocation.swift */,
@@ -563,6 +568,7 @@
 		933ED4101AC921BD00E4AADB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				12142F0E1B18266300BDBC95 /* AIOrderService.swift */,
 				93D80A431ACA71DA004BC7C0 /* AILocalStore.swift */,
 				935A25761AE79AF10089B240 /* AIServicesRequester.swift */,
 				9301B0751B09979500C1EE79 /* AILoginService.swift */,
@@ -1134,6 +1140,7 @@
 				93266FB21AEF81E100DD0021 /* AIFavoritsCommand.swift in Sources */,
 				934986FF1B0B1727003086D1 /* AITIMELINESDTimesViewCell.swift in Sources */,
 				93FF74681B0ECEA000FD97C1 /* CVCalendarRenderer.swift in Sources */,
+				12142F0F1B18266300BDBC95 /* AIOrderService.swift in Sources */,
 				93A7058E1B12CAD800E8193C /* AIServerTimeView.swift in Sources */,
 				93FA15451AE66F95006BA310 /* WeatherModel.swift in Sources */,
 				93FF74611B0ECEA000FD97C1 /* CVCalendarContentViewController.swift in Sources */,
@@ -1165,6 +1172,7 @@
 				936DAC1A1ADCF2D20025483B /* AIISRViewController.m in Sources */,
 				93DE16AD1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift in Sources */,
 				93FF747A1B0F0AFF00FD97C1 /* AIServerScopeView.swift in Sources */,
+				12142F111B18267100BDBC95 /* AIOrderModel.swift in Sources */,
 				936D624F1AD4D6F300609FCD /* KMActivityIndicator.m in Sources */,
 				93FF74601B0ECEA000FD97C1 /* CVCalendarContentDelegate.swift in Sources */,
 				93F8C3D21AE6314D003C58B2 /* UIView+MaterialDesign.m in Sources */,
