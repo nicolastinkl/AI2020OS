@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import JSONJoy
 
 // 模拟的SearchEngine，用于Demo
 class MockSearchEngine : SearchEngine, SearchRecorder {
     
-    var recordList = [SearchHistoryRecord]()
-    var hotServiceList = [ServiceModel]()
+    private var recordList = [SearchHistoryRecord]()
+    private var hotServiceList = [AICatalogItemModel]()
     
     init() {
         initServiceData()
@@ -22,8 +23,8 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         return [ServiceModel]()
     }
     
-    func queryHotSearchedServices() -> [ServiceModel] {
-        return hotServiceList
+    func queryHotSearchedServices() -> ([AICatalogItemModel], Error?) {
+        return (hotServiceList, nil)
     }
     
     func recordSearch(searchRecord: SearchHistoryRecord) {
@@ -35,24 +36,24 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
     }
     
     private func initServiceData() {
-        var service = ServiceModel()
-        service.name = "美容"
+        var service = AICatalogItemModel()
+        service.catalog_name = "美容"
         hotServiceList.append(service)
         
-        service = ServiceModel()
-        service.name = "理财"
+        service = AICatalogItemModel()
+        service.catalog_name = "理财"
         hotServiceList.append(service)
         
-        service = ServiceModel()
-        service.name = "租房"
+        service = AICatalogItemModel()
+        service.catalog_name = "租房"
         hotServiceList.append(service)
         
-        service = ServiceModel()
-        service.name = "服饰搭配"
+        service = AICatalogItemModel()
+        service.catalog_name = "服饰搭配"
         hotServiceList.append(service)
         
-        service = ServiceModel()
-        service.name = "保洁"
+        service = AICatalogItemModel()
+        service.catalog_name = "保洁"
         hotServiceList.append(service)
     }
     
@@ -60,4 +61,57 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
 //        var record = SearchHistoryRecord(searchName: "")
 //    }
 }
+
+
+class HttpSearchEngine : SearchEngine, SearchRecorder {
+    
+    var isLoading : Bool = false
+    
+    private var recordList = [SearchHistoryRecord]()
+    private var hotServiceList = [AICatalogItemModel]()
+    
+    func searchServiceByText(serviceName: String) -> [ServiceModel] {
+        return [ServiceModel]()
+    }
+    
+    func queryHotSearchedServices() -> ([AICatalogItemModel], Error?) {
+        if isLoading {
+            return (hotServiceList, nil)
+        }
+        
+        var listModel :AICatalogListModel?
+        
+        isLoading = true
+        
+        var responseError:Error?
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryHotSearch, parameters: nil) {  [weak self] (response, error) -> () in
+            responseError = error
+            if let strongSelf = self{
+                strongSelf.isLoading = false
+            }
+            if let responseJSON: AnyObject = response{
+                listModel =  AICatalogListModel(JSONDecoder(responseJSON))
+                
+                if let strongSelf = self {
+                    strongSelf.hotServiceList = listModel!.catalogArray!
+                }
+                
+            }else{
+
+            }
+        }
+        
+        return (hotServiceList, responseError)
+    }
+    
+    func recordSearch(searchRecord: SearchHistoryRecord) {
+        recordList.append(searchRecord)
+    }
+    
+    func getSearchHistoryItems() -> [SearchHistoryRecord] {
+        return recordList
+    }
+    
+}
+
 

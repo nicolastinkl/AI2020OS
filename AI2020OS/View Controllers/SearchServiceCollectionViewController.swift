@@ -10,13 +10,13 @@ import UIKit
 
 
 
-class SearchServiceViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class SearchServiceViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     
     private var historyRecorder: SearchRecorder?
-    private var searchEngin: SearchEngine?
+    private var searchEngine: SearchEngine?
     
     private let SECTION_HOT_SERVICES = 0
     private let SECTION_HISTORY = 1
@@ -26,9 +26,9 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         
         initCollectionView()
         
-        var mockEngine = MockSearchEngine()
-        historyRecorder = mockEngine
-        searchEngin = mockEngine
+        var engine = HttpSearchEngine()
+        historyRecorder = engine
+        searchEngine = engine
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -66,7 +66,8 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         
         switch section {
         case SECTION_HOT_SERVICES:
-            itemNum = searchEngin!.queryHotSearchedServices().count
+            var (list, error) = searchEngine!.queryHotSearchedServices()
+            itemNum = list.count
         case SECTION_HISTORY:
             itemNum = historyRecorder!.getSearchHistoryItems().count
         default:
@@ -87,12 +88,13 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         cell.maxWidth = collectionView.bounds.size.width
         
         let records = historyRecorder!.getSearchHistoryItems()
-        let services = searchEngin!.queryHotSearchedServices()
+        
+        let (list, error) = searchEngine!.queryHotSearchedServices()
         
         var tagName = ""
         
         if indexPath.section == SECTION_HOT_SERVICES {
-            tagName = services[indexPath.item].name
+            tagName = list[indexPath.item].catalog_name!
         } else if indexPath.section == SECTION_HISTORY {
             tagName = records[indexPath.item].name
         }
@@ -128,12 +130,12 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         indexPath.row
             let records = historyRecorder!.getSearchHistoryItems()
-            let services = searchEngin!.queryHotSearchedServices()
-            
+            let (list, error) = searchEngine!.queryHotSearchedServices()
+
             var tagName = ""
             
             if indexPath.section == SECTION_HOT_SERVICES {
-                tagName = services[indexPath.item].name
+                tagName = list[indexPath.item].catalog_name!
             } else if indexPath.section == SECTION_HISTORY {
                 tagName = records[indexPath.item].name
             }
@@ -188,10 +190,10 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let records = historyRecorder!.getSearchHistoryItems()
-        let services = searchEngin!.queryHotSearchedServices()
+        let (list, error) = searchEngine!.queryHotSearchedServices()
         
         if indexPath.section == SECTION_HOT_SERVICES {
-            println(services[indexPath.item].name)
+            println(list[indexPath.item].catalog_name)
        //     tagName = services[indexPath.item].name
         } else if indexPath.section == SECTION_HISTORY {
             println(records[indexPath.item].name)
@@ -205,6 +207,11 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
 
     @IBAction func myFavorites(sender: AnyObject) {
         println("myFavorites")
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        searchEngine!.queryHotSearchedServices()
+        return true
     }
 
 }
