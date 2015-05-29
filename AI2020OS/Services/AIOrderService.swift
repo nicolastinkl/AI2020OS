@@ -27,7 +27,7 @@ class AIOrderRequester {
             }
             if let responseJSON: AnyObject = response{
                 let orders =  AIOrderListModel(JSONDecoder(responseJSON))
-                completion(data: orders.orderArray)
+      //          completion(data: orders.orderArray)
             }else{
                 completion(data: [])
             }

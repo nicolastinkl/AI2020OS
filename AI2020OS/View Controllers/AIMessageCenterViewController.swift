@@ -18,7 +18,7 @@ class AIMessageCenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        self.toolBarView.addBottomGreenBorderLine()
+        self.toolBarView.addBottomWholeBorderLine()
     }
     
     override func viewWillAppear(animated: Bool) {

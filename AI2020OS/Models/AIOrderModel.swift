@@ -59,7 +59,7 @@ struct AIOrderListItemModel : JSONJoy{
         order_create_time = decoder["order_create_time"].string
         service_id = decoder["service_id"].integer
         service_name = decoder["service_name"].string
-        provider_id = decoder["provider_id"].string
+ //       provider_id = decoder["provider_id"].string
         service_type = decoder["service_type"].integer
         provider_portrait_url = decoder["provider_portrait_url"].string
         service_time_duration = decoder["service_time_duration"].string
