@@ -25,9 +25,11 @@ class AICatalogTableCellTableViewCell: UITableViewCell {
             catalogName.text = name
         }
     }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 
