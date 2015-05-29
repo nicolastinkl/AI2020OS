@@ -11,6 +11,18 @@
 import UIKit
 
 class AIProviderAvatarView: UIView {
+    
+    
+    var starRating: CWStarRateView?
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        starRating = CWStarRateView(frame: CGRect(x: 35, y: 82, width: 70, height: 10), numberOfStars: 5)
+        addSubview(starRating!)
+        
+    }
 
     /*
     // Only override drawRect: if you perform custom drawing.

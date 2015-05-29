@@ -89,7 +89,8 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        <#code#>
+        var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView
+        return header
     }
     
 }
