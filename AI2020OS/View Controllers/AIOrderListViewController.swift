@@ -23,6 +23,7 @@ class AIOrderListViewController:UIViewController{
     // MARK: variables
 
     private var orderList:AIOrderListModel
+    //fuckfuckfuck by liux
     // MARK: life cycle
     override func viewWillAppear(animated: Bool) {
 //        navigationController?.setNavigationBarHidden(true, animated: true)
