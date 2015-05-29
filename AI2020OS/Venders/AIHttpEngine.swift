@@ -44,7 +44,7 @@ struct AIHttpEngine{
             case .GetServicesTopic: return "/sboss/getServiceTopic"
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
-            case .GetOrderList: return "/sboss/getOrderList"
+            case .GetOrderList: return "/sboss/queryOrderList"
             case .QueryHotSearch: return "/sboss/queryHotSearch"
             }
         }
