@@ -42,7 +42,7 @@
                 <constraint firstAttribute="centerY" secondItem="Zra-1S-QJU" secondAttribute="centerY" id="Qkl-yp-MHa"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="148" y="359.5"/>
+            <point key="canvasLocation" x="117" y="279.5"/>
         </view>
     </objects>
 </document>

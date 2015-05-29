@@ -11,8 +11,10 @@ import Foundation
 struct AIGitHub {
     /*
     
-        1. github地址: https://github.com/nicolastinkl/AI2020OS
-        2. git 合并用法
+    1. github地址: https://github.com/nicolastinkl/AI2020OS
+
+    2. git 合并用法
+    ==================================
     去自己的工作分支
     $ git checkout liujiehong_tinkl
     

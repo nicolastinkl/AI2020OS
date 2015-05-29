@@ -10,20 +10,19 @@ import Foundation
 import UIKit
 import Cartography
 
-class AIOrderListViewController:UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
-    
+
+class AIOrderListViewController:UIViewController{
+
+    // MARK: swift source
+
     @IBOutlet weak var scrollView: UIScrollView!
+
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        initTableView()
-        
-        scrollView.contentSize = CGSizeMake(650, 40)
-    }
-    
-    var orderList = [OrderListModel(
+
+    // MARK: variables
+
+    private var orderList = [OrderListModel(
         orderList:["createDate":"12:37","orderName":"带你深度畅游SANTORINI","serviceDate":"3月17日－3月22日","orderPrice":"7200元","orderState":"已完成"]),
         OrderListModel(
             orderList:["createDate":"12:37","orderName":"带你畅游SANTORINI","serviceDate":"3月17日－3月22日","orderPrice":"3500元","orderState":"待处理"]),
@@ -32,50 +31,25 @@ class AIOrderListViewController:UIViewController,UITableViewDelegate,UITableView
         OrderListModel(
             orderList:["createDate":"12:37","orderName":"带你深度畅游SANTORINI","serviceDate":"3月17日－3月22日","orderPrice":"7200元","orderState":"已完成"])
     ]
-    
-    func initTableView(){
-        tableView.delegate = self
-        tableView.dataSource = self
+
+    // MARK: life cycle
+    override func viewWillAppear(animated: Bool) {
+//        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.interactivePopGestureRecognizer.delegate = nil
+        super.viewWillAppear(animated)
     }
     
-    //实现tableViewDelegate的方法
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int{
-        return 1
+    /*!
+    ads
+    */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        scrollView.contentSize = CGSizeMake(650, 40)
     }
 
-    //实现tableViewDataSource的方法
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderList.count
-    }
-    
-    //实现tableViewDataSource的方法
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("OrderListCell", forIndexPath: indexPath) as UITableViewCell //1
-        
-        let orderListModel = orderList[indexPath.row] as OrderListModel //2
-        
-        if let createDateLabel = cell.viewWithTag(110) as? UILabel { //3
-            createDateLabel.text = orderListModel.createDate
-        }
-        if let orderNameLabel = cell.viewWithTag(120) as? UILabel {
-            orderNameLabel.text = orderListModel.orderName
-        }
-        if let serviceDateLabel = cell.viewWithTag(130) as? UILabel {
-            serviceDateLabel.text = orderListModel.serviceDate
-        }
-        if let orderPriceLabel = cell.viewWithTag(150) as? UILabel {
-            orderPriceLabel.text = orderListModel.orderPrice
-        }
-        if let orderStateLabel = cell.viewWithTag(170) as? UILabel {
-            orderStateLabel.text = orderListModel.orderState
-        }
-        if let buttonView = cell.viewWithTag(180) {
-            buildDynaButton(orderListModel.orderState, orderType: "", buttonView: buttonView)
-        }
-        return cell
-    }
-    
+     
+// MARK: view layoutSubviews with liuxian.
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单
     //orderState: 待处理 进行中 待完成 已完成
@@ -118,6 +92,7 @@ class AIOrderListViewController:UIViewController,UITableViewDelegate,UITableView
     }
 }
 
+// TODO: struct for testing.
 //订单列表信息模型
 struct OrderListModel {
     var createDate = "12:37"
@@ -140,5 +115,54 @@ struct ButtonModel{
     
     init(title:String){
         self.title = title
+    }
+}
+
+
+// MARK: extension UITableView
+extension AIOrderListViewController:UITableViewDelegate,UITableViewDataSource{
+    
+    //实现tableViewDelegate的方法
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int{
+        return 1
+    }
+    
+    //实现tableViewDataSource的方法
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orderList.count
+    }
+    
+    //实现tableViewDataSource的方法
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("OrderListCell", forIndexPath: indexPath) as UITableViewCell //1
+        
+        let orderListModel = orderList[indexPath.row] as OrderListModel //2
+        
+        if let createDateLabel = cell.viewWithTag(110) as? UILabel { //3
+            createDateLabel.text = orderListModel.createDate
+        }
+        if let orderNameLabel = cell.viewWithTag(120) as? UILabel {
+            orderNameLabel.text = orderListModel.orderName
+        }
+        if let serviceDateLabel = cell.viewWithTag(130) as? UILabel {
+            serviceDateLabel.text = orderListModel.serviceDate
+        }
+        if let orderPriceLabel = cell.viewWithTag(150) as? UILabel {
+            orderPriceLabel.text = orderListModel.orderPrice
+        }
+        if let orderStateLabel = cell.viewWithTag(170) as? UILabel {
+            orderStateLabel.text = orderListModel.orderState
+        }
+        if let buttonView = cell.viewWithTag(180) {
+            buildDynaButton(orderListModel.orderState, orderType: "", buttonView: buttonView)
+        }
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //AIOrderDetailStoryboard
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderDetailStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

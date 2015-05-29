@@ -35,6 +35,10 @@ class AILoginViewController: UIViewController {
     }
     
     // MARK: event response
+    @IBAction func disMissKeyboardAction(sender: UITapGestureRecognizer) {
+        self.phoneTextFlied.resignFirstResponder()
+        self.passwordTextFlied.resignFirstResponder()
+    }
     
     @IBAction func loginAction(sender: AnyObject) {
         

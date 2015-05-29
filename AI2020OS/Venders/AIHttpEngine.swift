@@ -23,7 +23,7 @@ struct Error {
  */
 struct AIHttpEngine{
     
-    private static let baseURL = "http://10.1.228.179:8282"
+    private static let baseURL = "http://171.221.254.231:8282"
     private static let clientID = "750ab22aac78be1c0a1a6d"
     private static let clientSecret = "53e3822c41c5bf26d0ef982693f215c72d87da"
 
@@ -51,7 +51,7 @@ struct AIHttpEngine{
             .responseJSON { (_,_,JSON,error) in
                 
                 func fail(){
-                    response(response: nil, error: Error(message: "", code: 0))
+                    response(response: nil, error: Error(message: "Error", code: 0))
                 }
                 
                 if let reponsess = JSON as? NSDictionary {

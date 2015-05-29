@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8wC-dU-f2c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="K8j-UD-K55">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="MtF-ew-zd2">
-            <objects>
-                <navigationController modalTransitionStyle="crossDissolve" id="8wC-dU-f2c" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="egA-a1-47m">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="K8j-UD-K55" kind="relationship" relationship="rootViewController" id="CKv-xQ-upG"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YR8-Od-ie1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="99" y="293"/>
-        </scene>
-        <!--Message Center View Controller-->
+        <!--消息-->
         <scene sceneID="4rn-Wk-Tpl">
             <objects>
-                <viewController storyboardIdentifier="AIMessageCenterViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K8j-UD-K55" customClass="AIMessageCenterViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AIMessageCenterViewController" modalTransitionStyle="crossDissolve" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K8j-UD-K55" customClass="AIMessageCenterViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jtw-W5-tqs"/>
                         <viewControllerLayoutGuide type="bottom" id="S2X-LV-ZaP"/>
@@ -34,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHp-da-qUD">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84V-Zu-R13">
                                         <rect key="frame" x="140" y="0.0" width="320" height="44"/>
@@ -43,7 +27,7 @@
                                                 <rect key="frame" x="8" y="7" width="46" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="全部">
-                                                    <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.0" green="0.80784313725490198" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
@@ -51,7 +35,7 @@
                                                 <rect key="frame" x="68" y="6" width="46" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="系统">
-                                                    <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
@@ -59,7 +43,7 @@
                                                 <rect key="frame" x="137" y="6" width="46" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="客户">
-                                                    <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
@@ -67,7 +51,7 @@
                                                 <rect key="frame" x="198" y="6" width="46" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="卖家">
-                                                    <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
@@ -75,7 +59,7 @@
                                                 <rect key="frame" x="266" y="6" width="46" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="好友">
-                                                    <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
@@ -102,14 +86,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="jHp-da-qUD" secondAttribute="trailing" constant="-16" id="nQ7-Xo-d12"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="RZ0-QX-lN0">
+                    <navigationItem key="navigationItem" title="消息" id="RZ0-QX-lN0">
                         <barButtonItem key="leftBarButtonItem" style="done" id="rJt-79-DvZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2vU-B5-7cr">
                                 <rect key="frame" x="16" y="11" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="ico_back"/>
                                 <connections>
-                                    <action selector="backViewAction:" destination="K8j-UD-K55" eventType="touchUpInside" id="oCe-Rn-AAB"/>
+                                    <segue destination="BhZ-ec-JHc" kind="unwind" unwindAction="unwindToViewController:" id="fYF-lM-VSk"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -137,8 +121,12 @@
                             </view>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="toolBarView" destination="jHp-da-qUD" id="kVR-Nx-tE4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1E2-O8-bdn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BhZ-ec-JHc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="981" y="293"/>
         </scene>

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hSM-fn-zSc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -32,11 +33,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="xFz-MQ-ulb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rov-uN-kfJ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HU5-Do-q1l">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apf-c3-vn1">
                                 <rect key="frame" x="150" y="125" width="300" height="350"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cxv-3C-CEc" customClass="DesignableTextField" customModule="Spring">
                                         <rect key="frame" x="18" y="65" width="265" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -44,15 +57,19 @@
                                                 <color key="value" red="0.0" green="0.80784313730000001" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
+                                                <real key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="roE-F7-o5X" customClass="DesignableTextField" customModule="Spring">
                                         <rect key="frame" x="18" y="119" width="265" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -63,7 +80,10 @@
                                                 <real key="value" value="0.5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
@@ -83,12 +103,6 @@
                                             <action selector="loginAction:" destination="CX8-re-LJj" eventType="touchUpInside" id="NvC-Ki-Gur"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="登录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpw-Dr-6lu">
-                                        <rect key="frame" x="133" y="10" width="34" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqV-tg-9LR">
                                         <rect key="frame" x="224" y="236" width="84" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -101,18 +115,30 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="QCV-bV-hhi"/>
                                     <constraint firstAttribute="height" constant="350" id="wEc-F2-iyz"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="xFz-MQ-ulb" firstAttribute="leading" secondItem="ol6-nB-uJD" secondAttribute="leadingMargin" constant="-16" id="7rz-wg-2Ez"/>
                             <constraint firstAttribute="centerX" secondItem="apf-c3-vn1" secondAttribute="centerX" id="9D0-hH-jpg"/>
+                            <constraint firstItem="xFz-MQ-ulb" firstAttribute="top" secondItem="g6W-qy-VG2" secondAttribute="bottom" constant="-64" id="9me-ic-CdY"/>
+                            <constraint firstItem="SGK-nH-hde" firstAttribute="top" secondItem="Rov-uN-kfJ" secondAttribute="bottom" id="Eqh-3W-mPO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xFz-MQ-ulb" secondAttribute="trailing" constant="-16" id="bF8-4S-h3K"/>
+                            <constraint firstItem="Rov-uN-kfJ" firstAttribute="leading" secondItem="ol6-nB-uJD" secondAttribute="leadingMargin" constant="-16" id="duS-T3-wPD"/>
+                            <constraint firstItem="SGK-nH-hde" firstAttribute="top" secondItem="xFz-MQ-ulb" secondAttribute="bottom" id="ers-Zf-k4g"/>
+                            <constraint firstItem="Rov-uN-kfJ" firstAttribute="top" secondItem="g6W-qy-VG2" secondAttribute="bottom" constant="-64" id="mPa-gv-icd"/>
                             <constraint firstAttribute="centerY" secondItem="apf-c3-vn1" secondAttribute="centerY" id="vt3-mF-Lk5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rov-uN-kfJ" secondAttribute="trailing" constant="-16" id="wy9-n0-bCQ"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="XDC-Id-LQv" appends="YES" id="32b-NO-9Ue"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="mhI-Q0-9dK"/>
                     <connections>
@@ -121,6 +147,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9L-Xn-nny" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XDC-Id-LQv">
+                    <connections>
+                        <action selector="disMissKeyboardAction:" destination="CX8-re-LJj" id="iJP-wW-Mil"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="759" y="346"/>
         </scene>
@@ -228,10 +259,14 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="iHc-L6-UbD" secondAttribute="centerY" id="1dm-ni-8Df"/>
                             <constraint firstAttribute="centerX" secondItem="iHc-L6-UbD" secondAttribute="centerX" id="U9e-4a-jXf"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="AJh-oK-BEy" appends="YES" id="UtL-H9-fbc"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="orl-Pv-Ih1" id="UBC-a8-cvY"/>
@@ -241,8 +276,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03M-2b-eSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="AJh-oK-BEy">
+                    <connections>
+                        <action selector="disMissKeyboardAction:" destination="Dyx-eX-lJK" id="Ee1-PZ-Ex4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1660" y="315"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="744" height="1392"/>
+    </resources>
 </document>

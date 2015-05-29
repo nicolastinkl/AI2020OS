@@ -22,6 +22,9 @@ class AIComponentChoseViewController: UIViewController {
         super.viewDidLoad()
         
         // MARK TITLE
+        localCode {
+            
+        }
         
         var title = UILabel()
         title.text = "服务范围"

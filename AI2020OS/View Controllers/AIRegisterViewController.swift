@@ -37,6 +37,12 @@ class AIRegisterViewController : UIViewController {
     
     // MARK: event response
     
+    @IBAction func disMissKeyboardAction(sender: UITapGestureRecognizer) {
+        self.phoneTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
+        
+    }
+    
     @IBAction func requestVerifyAction(sender: AnyObject) {
         self.phoneTextField.resignFirstResponder()
         self.verifyTextFeild.resignFirstResponder()
@@ -44,6 +50,7 @@ class AIRegisterViewController : UIViewController {
         
         let phoneText  = self.phoneTextField.text
         AVUser.requestMobilePhoneVerify(phoneText, withBlock: { (bol, error) -> Void in
+            self.view.hideLoading()
             if bol{
                 self.requestVerify.enabled = false
                 self.remainTime = 60
@@ -88,9 +95,10 @@ class AIRegisterViewController : UIViewController {
             newUser.mobilePhoneNumber = self.phoneTextField.text
             newUser.password = self.passwordTextField.text
             newUser.signUpInBackgroundWithBlock({ (succeeded, error) -> Void in
+                self.view.hideLoading()
                 if succeeded{
                     AILocalStore.setAccessToken(self.phoneTextField.text)
-                    self.view.hideLoading()
+                    
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }else{
                      SCLAlertView().showError("提示", subTitle: "注册失败", closeButtonTitle: "关闭", duration: 2)

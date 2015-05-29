@@ -47,12 +47,13 @@ class AIMenuViewController: UIViewController {
     // MARK: event response
     
     @IBAction func showSettings(sender: AnyObject) {
+ /*
         self.dismissViewControllerAnimated(true, completion: {
             let viewNavi = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISettingsStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
             let rootViewConrooler = UIApplication.sharedApplication().keyWindow?.rootViewController
             rootViewConrooler?.showViewController(viewNavi, sender: nil)
         })
-        
+   */     
     }
     
     @IBAction func showMessage(sender: AnyObject) {

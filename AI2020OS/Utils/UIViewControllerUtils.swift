@@ -57,7 +57,11 @@ extension UIViewController {
             self.isKindOfClass(AITimelineViewController.classForCoder()) ||
             self.isKindOfClass(AIFavoritesViewController.classForCoder()) ||
             self.isKindOfClass(AISelfViewController.classForCoder()){
-               AIApplication.showMessageUnreadView()
+                let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                appDelegate.rootNavigationController = self.navigationController
+                if let token = AILocalStore.accessToken() {
+                    AIApplication.showMessageUnreadView()
+                }
         }
     } 
     
@@ -68,6 +72,13 @@ extension UIViewController {
         menuViewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
         self.showDetailViewController(menuViewController, sender: self)
         
+    }
+    
+    /*!
+        the local coding scope.
+    */
+    func localCode(closeure:()->()){
+        closeure()
     }
     
 }

@@ -10,9 +10,9 @@ import Foundation
 import Spring
 
 class AIErrorRetryView: SpringView {
-    
+
     class func currentView()->AIErrorRetryView{
-        var cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.ViewIdentifiers.AIErrorRetryView, owner: self, options: nil).last  as AIErrorRetryView
+        var cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.ViewIdentifiers.AIErrorRetryView, owner: self, options: nil).first  as AIErrorRetryView
         return cell
     }
     

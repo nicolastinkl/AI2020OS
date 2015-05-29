@@ -22,6 +22,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     @IBOutlet weak var detailsPageView: KMDetailsPageView!
 
     @IBOutlet weak var titleLabel: UILabel!
+    
     // MARK: getters and setters
     private let transitionManager = TransitionManager()
 
@@ -201,7 +202,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             if  avCell == nil {
                 avCell = AIHomeSDDefaultViewCell().currentViewCell()
             }
-            avCell?.priceLabel.text = self.movieDetailsResponse?.service_price
+            avCell?.priceLabel.text = "260元"//self.movieDetailsResponse?.service_price
             avCell?.addBottomBorderLine()
             return avCell!
         case 2:
