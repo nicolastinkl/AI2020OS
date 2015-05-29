@@ -25,9 +25,14 @@ class AIServiceCatalogViewController: UIViewController {
         catalogTable.dataSource = self
         catalogTable.delegate = self
         
+        
+        
         serviceTable.dataSource = self
         serviceTable.delegate = self
 
+       var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView
+        serviceTable.tableHeaderView =  header
+        serviceTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,10 +93,6 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
         return cell!
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView
-        return header
-    }
     
 }
 
