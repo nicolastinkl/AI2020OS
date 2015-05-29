@@ -12,7 +12,7 @@ import Foundation
 */
 protocol SearchEngine {
     func searchServiceByText(serviceName: String) -> [ServiceModel]
-    func queryHotSearchedServices() -> [ServiceModel]
+    func queryHotSearchedServices() -> ([AICatalogItemModel], Error?)
 }
 
 protocol SearchRecorder {

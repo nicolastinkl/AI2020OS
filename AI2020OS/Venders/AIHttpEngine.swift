@@ -35,6 +35,8 @@ struct AIHttpEngine{
         case CommentReply(commentId: Int)
         //add by liux 查询订单列表
         case GetOrderList
+        // 查询热门搜索
+        case QueryHotSearch
 
         var description: String {
             switch self {
@@ -43,6 +45,7 @@ struct AIHttpEngine{
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
             case .GetOrderList: return "/sboss/getOrderList"
+            case .QueryHotSearch: return "/sboss/queryHotSearch"
             }
         }
     }
