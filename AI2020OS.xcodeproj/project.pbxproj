@@ -122,6 +122,8 @@
 		93E4D5B01B14AA7800992CA3 /* AIOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4D5AF1B14AA7800992CA3 /* AIOrderListViewController.swift */; };
 		93E4D5B31B15681600992CA3 /* AIGitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4D5B21B15681600992CA3 /* AIGitHub.swift */; };
 		93E8266A1AD78246006B3BA1 /* AIAssignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E826691AD78246006B3BA1 /* AIAssignUtils.swift */; };
+		93F66DE01B184ECC00AEA92A /* AIIMStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F66DDF1B184ECC00AEA92A /* AIIMStorage.swift */; };
+		93F66DE21B18501000AEA92A /* AIIMRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F66DE11B18501000AEA92A /* AIIMRoom.swift */; };
 		93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */; };
 		93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */; };
 		93F8C3D21AE6314D003C58B2 /* UIView+MaterialDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8C3D11AE6314D003C58B2 /* UIView+MaterialDesign.m */; };
@@ -297,6 +299,8 @@
 		93E4D5AF1B14AA7800992CA3 /* AIOrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderListViewController.swift; sourceTree = "<group>"; };
 		93E4D5B21B15681600992CA3 /* AIGitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIGitHub.swift; sourceTree = "<group>"; };
 		93E826691AD78246006B3BA1 /* AIAssignUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssignUtils.swift; sourceTree = "<group>"; };
+		93F66DDF1B184ECC00AEA92A /* AIIMStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIMStorage.swift; sourceTree = "<group>"; };
+		93F66DE11B18501000AEA92A /* AIIMRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIMRoom.swift; sourceTree = "<group>"; };
 		93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchNaviViewController.swift; sourceTree = "<group>"; };
 		93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchMenuTableViewController.swift; sourceTree = "<group>"; };
 		93F8C3D01AE6314D003C58B2 /* UIView+MaterialDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MaterialDesign.h"; sourceTree = "<group>"; };
@@ -406,6 +410,8 @@
 				9316D61D1B1716AD0099D4A8 /* AIIMConversation.swift */,
 				9316D6211B17194F0099D4A8 /* AIIMNotify.swift */,
 				9316D6231B171D6C0099D4A8 /* AIIMCenter.swift */,
+				93F66DDF1B184ECC00AEA92A /* AIIMStorage.swift */,
+				93F66DE11B18501000AEA92A /* AIIMRoom.swift */,
 			);
 			name = AIIM;
 			path = AI2020OS/AIIM;
@@ -1128,6 +1134,7 @@
 				93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */,
 				93FF746C1B0ECEA000FD97C1 /* CVCalendarViewAppearance.swift in Sources */,
 				935F38701ACD27DF004BE0E7 /* Movie.swift in Sources */,
+				93F66DE21B18501000AEA92A /* AIIMRoom.swift in Sources */,
 				93FF74671B0ECEA000FD97C1 /* CVCalendarMonthView.swift in Sources */,
 				93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */,
 				93D80A441ACA71DA004BC7C0 /* AILocalStore.swift in Sources */,
@@ -1141,6 +1148,7 @@
 				9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */,
 				939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */,
 				93AC3FD01ACA402A000024A4 /* AIHomeViewController.swift in Sources */,
+				93F66DE01B184ECC00AEA92A /* AIIMStorage.swift in Sources */,
 				93A705941B12D0E600E8193C /* AIServerAddressView.swift in Sources */,
 				93AC3FD81ACA44F4000024A4 /* AISwiftLogger.swift in Sources */,
 				93E4D5B31B15681600992CA3 /* AIGitHub.swift in Sources */,

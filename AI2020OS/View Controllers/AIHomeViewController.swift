@@ -38,6 +38,10 @@ class AIHomeViewController: UITableViewController {
         
         if let token = AILocalStore.accessToken() {
             //AIApplication.showMessageUnreadView()
+            
+            AIIMCenter().openWithClientId(AVUser.currentUser().objectId, callbackBlock: { (success, error) -> Void in
+                
+            })
         }else{
             self.loginAction = LoginAction(viewController: self, completion: nil)
         }
