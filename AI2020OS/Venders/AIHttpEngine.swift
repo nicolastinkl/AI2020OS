@@ -68,6 +68,10 @@ struct AIHttpEngine{
                             println(dataValue)
                             response(response: dataValue, error: nil)
                         }
+                        if let dataValue = reponsess["data"] as? NSArray{
+                            println(dataValue)
+                            response(response: dataValue, error: nil)
+                        }
                         
                     }
                 }

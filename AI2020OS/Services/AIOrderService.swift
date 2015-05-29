@@ -36,22 +36,17 @@ class AIOrderRequester {
                 return orders.orderArray!
             }
             
-//            completion(data: fakeData())
-            
             if let responseJSON: AnyObject = response{
                 let orders =  AIOrderListModel(JSONDecoder(responseJSON))
                 completion(data: orders.orderArray!)
             }else{
-                //这里的意义是强引用，
-                
-                
-                
-//                if let strongSelf = self{
-//                    completion(data: strongSelf.fakeData())
-//                }
-//                else{
-//                    return completion(data:[])
-//                }
+             
+                if let strongSelf = self{
+                    return completion(data: fakeData())
+                }
+                else{
+                    return completion(data:[])
+                }
                 
             }
         }
