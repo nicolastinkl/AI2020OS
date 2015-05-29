@@ -100,6 +100,7 @@ struct AIApplication{
         
         static let MainSystemBlueColor   = "#00CEC3"
         static let MainSystemBlackColor  = "#848484"
+        static let MainSystemGreenColor  = "#00cec0"
     }
     
     struct AIViewTags {
@@ -174,5 +175,13 @@ struct AIApplication{
         if let loadingXibView = UIApplication.sharedApplication().keyWindow!.viewWithTag(AIApplication.AIViewTags.AIMessageUnReadViewTag) {
             loadingXibView.hidden = true
         }
+    }
+    
+    static func pushViewController(view:UIViewController){
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if let rootViewController = appDelegate.rootNavigationController{
+            rootViewController.pushViewController(view, animated: true)
+        }
+
     }
 }

@@ -47,13 +47,8 @@ class AIOrderListViewController:UIViewController{
         
         scrollView.contentSize = CGSizeMake(650, 40)
     }
-    
-    // application actions
-    func retryNetworkingAction(){
-        
-    }
 
-    
+     
 // MARK: view layoutSubviews with liuxian.
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单

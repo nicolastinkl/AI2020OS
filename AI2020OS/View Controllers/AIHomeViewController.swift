@@ -41,7 +41,8 @@ class AIHomeViewController: UITableViewController {
         }else{
             self.loginAction = LoginAction(viewController: self, completion: nil)
         }
-
+        
+        
     }
     
     override func viewWillAppear(animated: Bool) {

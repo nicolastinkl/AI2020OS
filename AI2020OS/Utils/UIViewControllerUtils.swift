@@ -57,6 +57,8 @@ extension UIViewController {
             self.isKindOfClass(AITimelineViewController.classForCoder()) ||
             self.isKindOfClass(AIFavoritesViewController.classForCoder()) ||
             self.isKindOfClass(AISelfViewController.classForCoder()){
+                let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                appDelegate.rootNavigationController = self.navigationController
                 if let token = AILocalStore.accessToken() {
                     AIApplication.showMessageUnreadView()
                 }

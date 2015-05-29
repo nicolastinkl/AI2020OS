@@ -42,7 +42,7 @@ struct AIGitHub {
     合并工作分支的修改，此时不会产生冲突。
     $ git merge liujiehong_tinkl
     
-    提交到远程主干mm 
+    提交到远程主干
     $ git push
     */
 }
