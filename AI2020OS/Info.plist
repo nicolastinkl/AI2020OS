@@ -26,8 +26,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-
-	<string>1.0.1970</string>
+	<string>1.0.1972</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -44,8 +43,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-
-	<string>1971</string>
+	<string>1973</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
