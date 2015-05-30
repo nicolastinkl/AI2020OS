@@ -54,11 +54,9 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
     }
     override func viewDidAppear(animated: Bool) {
 
-        self.searchEngine?.queryHotSearchedServices(self.loadTableViewData)
-        
-        Async.background {
-            
-            //
+        Async.background { () -> Void in
+            self.searchEngine?.queryHotSearchedServices(self.loadTableViewData)
+            return
         }
         
 //        Async.background {
