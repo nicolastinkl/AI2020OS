@@ -135,15 +135,15 @@ struct AIHttpEngine{
                 println("response: \(_response)")
                 println("JSON: \(JSON)")
                 
-                if let reponsess = JSON as? NSDictionary {
-                    if let dataValue = reponsess["data"] as? NSDictionary{
-                        println(dataValue)
+                if let reponses = JSON as? NSDictionary {
+                    if let dataValue = reponses["data"] as? NSDictionary{
+                  //      println(dataValue)
                         result = true
                         responseHandler(response: dataValue, error: nil)
                     }
                 }
                 
-                if let eror = error {
+                if (error != nil) {
                     result = false
                 }
                 

@@ -11,12 +11,17 @@ import JSONJoy
 
 //订单列表model
 struct AICatalogListModel : JSONJoy {
-    var catalogArray: Array<AICatalogItemModel>?
+    var catalogArray = Array<AICatalogItemModel>()
+    init() {
+
+    }
+    
     init(_ decoder: JSONDecoder) {
-        if let addrs = decoder.array {
+        
+        if var jsonArray = decoder["catalog_list"].array {
             catalogArray = Array<AICatalogItemModel>()
-            for item in addrs {
-                catalogArray?.append(AICatalogItemModel(item))
+            for subDecoder in jsonArray {
+                catalogArray.append(AICatalogItemModel(subDecoder))
             }
         }
     }
@@ -33,7 +38,9 @@ struct AICatalogItemModel : JSONJoy{
     }
     
     init(_ decoder: JSONDecoder) {
-        catalog_id = decoder["order_id"].integer
-        catalog_name = decoder["order_number"].string
+        var id = decoder["catalog_id"].integer
+        catalog_id = decoder["catalog_id"].integer
+        var name = decoder["catalog_name"].string
+        catalog_name = decoder["catalog_name"].string
     }
 }
