@@ -203,6 +203,7 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
     
     @IBAction func showAllServices(sender: UIButton) {
         println("showAllServices")
+        searchEngine!.queryHotSearchedServices()
     }
 
     @IBAction func myFavorites(sender: AnyObject) {
@@ -210,7 +211,7 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        searchEngine!.queryHotSearchedServices()
+   //     searchEngine!.queryHotSearchedServices()
         return true
     }
 
