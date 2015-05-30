@@ -32,6 +32,8 @@ class AIServiceCatalogViewController: UIViewController {
 
        var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView
         serviceTable.tableHeaderView =  header
+        header.avatar.maskWithEllipse()
+        header.avatar.image = UIImage(named: "Sample1")
         serviceTable.reloadData()
     }
 
