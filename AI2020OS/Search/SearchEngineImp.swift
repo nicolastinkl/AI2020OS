@@ -76,7 +76,7 @@ class HttpSearchEngine : SearchEngine, SearchRecorder {
     
     func queryHotSearchedServices() -> ([AICatalogItemModel], Error?) {
         if isLoading {
-            return (hotServiceList, nil)
+        //    return (hotServiceList, nil)
         }
         
         var listModel :AICatalogListModel?
@@ -84,7 +84,7 @@ class HttpSearchEngine : SearchEngine, SearchRecorder {
         isLoading = true
         
         var responseError:Error?
-        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryHotSearch, parameters: nil) {  [weak self] (response, error) -> () in
+        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.QueryHotSearch, parameters: nil) {  [weak self] (response, error) -> () in
             responseError = error
             if let strongSelf = self{
                 strongSelf.isLoading = false
