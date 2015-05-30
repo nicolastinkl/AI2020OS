@@ -13,13 +13,21 @@ import UIKit
 class AIProviderAvatarView: UIView {
     
     
+    @IBOutlet weak var avatar: UIImageView!
+    
+    var avatarImg: UIImageView {
+        get {
+            return avatar
+        }
+    }
+    
     var starRating: CWStarRateView?
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        starRating = CWStarRateView(frame: CGRect(x: 35, y: 82, width: 70, height: 10), numberOfStars: 5)
+        starRating = CWStarRateView(frame: CGRect(x: 40, y: 72, width: 60, height: 10), numberOfStars: 5)
         addSubview(starRating!)
         
     }
