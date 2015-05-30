@@ -167,6 +167,7 @@
 		93FF747C1B0F0CA800FD97C1 /* AIServerScopeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93FF747B1B0F0CA800FD97C1 /* AIServerScopeView.xib */; };
 		93FF747E1B0F171700FD97C1 /* AIComponentChoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FF747D1B0F171700FD97C1 /* AIComponentChoseViewController.swift */; };
 		BC4B1B3E329348200D9BF382 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9118F5AD06B215C4AAA1AD0 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F2DACC2B1B197A7500233EFD /* AIOrderDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DACC2A1B197A7500233EFD /* AIOrderDetailModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -361,6 +362,7 @@
 		93FF747D1B0F171700FD97C1 /* AIComponentChoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIComponentChoseViewController.swift; sourceTree = "<group>"; };
 		B9118F5AD06B215C4AAA1AD0 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C757FF35A2EBAB4FD999BDCE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F2DACC2A1B197A7500233EFD /* AIOrderDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -623,6 +625,7 @@
 				84CC00001B107F430073B24A /* ServiceModel.swift */,
 				84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */,
 				84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */,
+				F2DACC2A1B197A7500233EFD /* AIOrderDetailModel.swift */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -1246,6 +1249,7 @@
 				93FF74651B0ECEA000FD97C1 /* CVCalendarMenuView.swift in Sources */,
 				93FF74711B0ECEA000FD97C1 /* CVCalendarWeekView.swift in Sources */,
 				935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */,
+				F2DACC2B1B197A7500233EFD /* AIOrderDetailModel.swift in Sources */,
 				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
 				12A20DAB1B1719F3003E412A /* AIOrderService.swift in Sources */,
 				936DAC1A1ADCF2D20025483B /* AIISRViewController.m in Sources */,
