@@ -13,6 +13,7 @@ class MainSearchViewController: UIViewController , UITableViewDelegate , UITable
     @IBOutlet weak var tableView: UITableView!
     var historyRecorder: SearchRecorder?
     var searchEngin: SearchEngine?
+    var catalogList:[AICatalogItemModel]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,12 @@ class MainSearchViewController: UIViewController , UITableViewDelegate , UITable
         var mockEngine = MockSearchEngine()
         historyRecorder = mockEngine
         searchEngin = mockEngine
+        
+        
+        
+        if catalogList = searchEngin!.queryHotSearchedServices() {
+            tableView.reloadData()
+        }
         
 
     }
@@ -64,7 +71,6 @@ class MainSearchViewController: UIViewController , UITableViewDelegate , UITable
         // 添加FooterView，去除多余的单元格
         tableView.tableFooterView = UIView(frame:CGRectZero)
         
-        
         let myIdentifier = "SearchTag"
         var cell  = tableView.dequeueReusableCellWithIdentifier(myIdentifier) as? UITableViewCell
         if cell == nil {
@@ -81,7 +87,7 @@ class MainSearchViewController: UIViewController , UITableViewDelegate , UITable
         let padding = 10
         
         let records = historyRecorder!.getSearchHistoryItems()
-        let services = searchEngin!.queryHotSearchedServices()
+        let services = catalogList
         var count = 0
         
         if indexPath.section == 0 {
