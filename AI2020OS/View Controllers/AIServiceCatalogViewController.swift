@@ -22,7 +22,7 @@ class AIServiceCatalogViewController: UIViewController {
         createProviderTableView()
         
         let nib = UINib(nibName: "AICatalogTableCellTableViewCell", bundle: nil)
-        catalogTable.registerNib(nib,
+        catalogTable.registerNib(nib!,
             forCellReuseIdentifier: "CatalogCell")
 
         catalogTable.dataSource = self
@@ -103,7 +103,7 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
             cell = catalogCell
         } else if tableView == serviceTable {
             cell = tableView.dequeueReusableCellWithIdentifier("ServiceCell") as UITableViewCell
-            cell!.textLabel.text = "service"
+            cell!.textLabel?.text = "service"
         } else if tableView == providerTable {
             
             var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView

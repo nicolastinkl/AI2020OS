@@ -25,12 +25,9 @@ class MainSearchViewController: UIViewController , UITableViewDelegate , UITable
         historyRecorder = mockEngine
         searchEngin = mockEngine
         
-        
-        
-        if catalogList = searchEngin!.queryHotSearchedServices() {
-            tableView.reloadData()
-        }
-        
+//        catalogList = searchEngin?.queryHotSearchedServices()
+
+        tableView.reloadData()
 
     }
 
@@ -93,7 +90,7 @@ class MainSearchViewController: UIViewController , UITableViewDelegate , UITable
         if indexPath.section == 0 {
             count = records.count
         } else if indexPath.section == 1 {
-            count = services.count
+//            count = services?.count
         }
         
         for var i = 0; i < count; i++ {
@@ -101,7 +98,7 @@ class MainSearchViewController: UIViewController , UITableViewDelegate , UITable
             if indexPath.section == 0 {
                 tagName = records[i].name
             } else if indexPath.section == 1 {
-                tagName = services[i].name
+//                tagName = services[i]?.name
             }
             
             let button = UIButton.buttonWithType(.System) as UIButton

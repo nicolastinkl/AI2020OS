@@ -50,6 +50,7 @@ struct AIApplication{
             static let AICalendarViewController     = "AICalendarViewController"
             static let AIComponentChoseViewController   = "AIComponentChoseViewController"
             static let AISearchServiceCollectionViewController = "AISearchServiceCollectionViewController"
+
         }
         
         struct CellIdentifiers {

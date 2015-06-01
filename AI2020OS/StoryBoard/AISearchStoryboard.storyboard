@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="v38-6T-zKl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="v38-6T-zKl">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Search Service View Controller-->
         <scene sceneID="8xP-dq-bG6">
             <objects>
-                <viewController id="oxc-Oa-trz" customClass="SearchServiceViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchServiceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oxc-Oa-trz" customClass="SearchServiceViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gZv-ij-B31"/>
                         <viewControllerLayoutGuide type="bottom" id="waN-aT-f72"/>
@@ -59,7 +59,7 @@
         <!--Main Search View Controller-->
         <scene sceneID="xDs-e8-ai5">
             <objects>
-                <viewController id="s1r-sT-ksl" customClass="MainSearchViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s1r-sT-ksl" customClass="MainSearchViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o3c-nF-smu"/>
                         <viewControllerLayoutGuide type="bottom" id="Rcw-KQ-bpc"/>
@@ -96,7 +96,7 @@
                                             <rect key="frame" x="0.0" y="92" width="600" height="438"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <prototypes>
-                                                <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="W08-ks-YXg">
+                                                <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tag1" rowHeight="106" id="W08-ks-YXg">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W08-ks-YXg" id="iuc-rO-bix">
                                                         <autoresizingMask key="autoresizingMask"/>
@@ -268,7 +268,7 @@
                                                     </view>
                                                 </collectionViewCell>
                                             </cells>
-                                            <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="z4D-O2-qEt">
+                                            <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="head" id="z4D-O2-qEt">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </collectionReusableView>
@@ -332,7 +332,7 @@
         <!--Service Catalog View Controller-->
         <scene sceneID="ucn-h4-qgj">
             <objects>
-                <viewController id="k6R-cE-Sw3" customClass="AIServiceCatalogViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AIServiceCatalogViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k6R-cE-Sw3" customClass="AIServiceCatalogViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YOa-r2-dAc"/>
                         <viewControllerLayoutGuide type="bottom" id="QVc-qn-Upb"/>
