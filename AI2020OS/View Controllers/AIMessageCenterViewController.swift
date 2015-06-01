@@ -36,7 +36,7 @@ class AIMessageCenterViewController: UIViewController {
         self.notify = AIIMNotify.sharedManager
         self.storage = AIIMStorage.sharedManager
         
-        self.toolBarView.addBottomGreenBorderLine()
+        //self.toolBarView.addBottomGreenBorderLine()
         
         self.im?.createConvWithMembers([AIApplication.AIIMOBJECTS.AIYUJINGID], type: AVIMConversation.AIConvType.CDConvTypeSingle, callback: {  (object, error) -> Void in
             print(object)

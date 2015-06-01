@@ -22,16 +22,8 @@ class AIOrderListViewController:UIViewController{
 
     // MARK: variables
 
-    private var orderList = [OrderListModel(
-        orderList:["createDate":"12:37","orderName":"带你深度畅游SANTORINI","serviceDate":"3月17日－3月22日","orderPrice":"7200元","orderState":"已完成"]),
-        OrderListModel(
-            orderList:["createDate":"12:37","orderName":"带你畅游SANTORINI","serviceDate":"3月17日－3月22日","orderPrice":"3500元","orderState":"待处理"]),
-        OrderListModel(
-            orderList:["createDate":"12:37","orderName":"带你深度畅游SANTORINI","serviceDate":"3月17日－3月22日","orderPrice":"7200元","orderState":"待处理"]),
-        OrderListModel(
-            orderList:["createDate":"12:37","orderName":"带你深度畅游SANTORINI","serviceDate":"3月17日－3月22日","orderPrice":"7200元","orderState":"已完成"])
-    ]
-
+    private var orderList = Array<AIOrderListItemModel>()
+    //fuckfuckfuck by liux
     // MARK: life cycle
     override func viewWillAppear(animated: Bool) {
 //        navigationController?.setNavigationBarHidden(true, animated: true)
@@ -46,10 +38,30 @@ class AIOrderListViewController:UIViewController{
         super.viewDidLoad()
         
         scrollView.contentSize = CGSizeMake(650, 40)
-        
+ 
+        retryNetworkingAction()
+    }
+    
+    func retryNetworkingAction(){
+        self.view.hideProgressViewLoading()
+        self.view.showProgressViewLoading()
+        //后台请求数据
+        Async.background(){
+            // Do any additional setup after loading the view, typically from a nib.
+            AIOrderRequester().queryOrderList(page: 1, completion: { (data) -> () in
+                self.view.hideProgressViewLoading()
+                if data.count > 0{
+                    self.orderList = data
+                    self.tableView.reloadData()
+                    self.view.hideErrorView()
+                }else{
+                    self.view.showErrorView()
+                }
+            })
+        } 
     }
 
-     
+    
 // MARK: view layoutSubviews with liuxian.
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单
@@ -83,11 +95,6 @@ class AIOrderListViewController:UIViewController{
             buttonView.addSubview(button)
             x = x + 40
             
-//            if let someButton = button as? UIButton{
-//                layout(someButton){ button in
-//                    button.left  == button.superview?.left + 20
-//                }
-//            }
             
         }
     }
@@ -95,21 +102,21 @@ class AIOrderListViewController:UIViewController{
 
 // TODO: struct for testing.
 //订单列表信息模型
-struct OrderListModel {
-    var createDate = "12:37"
-    var orderName = "带你深度畅游SANTORINI"
-    var serviceDate = "3月17日－3月22日"
-    var orderPrice = "7200元"
-    var orderState = "待处理"
-    
-    init(orderList:Dictionary<String,String>){
-        self.createDate = orderList["createDate"]!
-        self.orderName = orderList["orderName"]!
-        self.serviceDate = orderList["serviceDate"]!
-        self.orderPrice = orderList["orderPrice"]!
-        self.orderState = orderList["orderState"]!
-    }
-}
+//struct OrderListModel {
+//    var createDate = "12:37"
+//    var orderName = "带你深度畅游SANTORINI"
+//    var serviceDate = "3月17日－3月22日"
+//    var orderPrice = "7200元"
+//    var orderState = "待处理"
+//    
+//    init(orderList:Dictionary<String,String>){
+//        self.createDate = orderList["createDate"]!
+//        self.orderName = orderList["orderName"]!
+//        self.serviceDate = orderList["serviceDate"]!
+//        self.orderPrice = orderList["orderPrice"]!
+//        self.orderState = orderList["orderState"]!
+//    }
+//}
 
 struct ButtonModel{
     var title = ""
@@ -138,25 +145,25 @@ extension AIOrderListViewController:UITableViewDelegate,UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("OrderListCell", forIndexPath: indexPath) as UITableViewCell //1
         
-        let orderListModel = orderList[indexPath.row] as OrderListModel //2
+        let orderListModel = orderList[indexPath.row] as AIOrderListItemModel //2
         
         if let createDateLabel = cell.viewWithTag(110) as? UILabel { //3
-            createDateLabel.text = orderListModel.createDate
+            createDateLabel.text = orderListModel.order_create_time
         }
         if let orderNameLabel = cell.viewWithTag(120) as? UILabel {
-            orderNameLabel.text = orderListModel.orderName
+            orderNameLabel.text = orderListModel.service_name
         }
         if let serviceDateLabel = cell.viewWithTag(130) as? UILabel {
-            serviceDateLabel.text = orderListModel.serviceDate
+            serviceDateLabel.text = orderListModel.service_time_duration
         }
         if let orderPriceLabel = cell.viewWithTag(150) as? UILabel {
-            orderPriceLabel.text = orderListModel.orderPrice
+            orderPriceLabel.text = orderListModel.order_price
         }
         if let orderStateLabel = cell.viewWithTag(170) as? UILabel {
-            orderStateLabel.text = orderListModel.orderState
+            orderStateLabel.text = orderListModel.order_state_name
         }
         if let buttonView = cell.viewWithTag(180) {
-            buildDynaButton(orderListModel.orderState, orderType: "", buttonView: buttonView)
+            buildDynaButton(orderListModel.order_state_name!, orderType: "", buttonView: buttonView)
         }
         return cell
     }
