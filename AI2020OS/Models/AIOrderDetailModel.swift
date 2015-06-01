@@ -15,6 +15,7 @@ struct OrderDetailModel : JSONJoy {
     var orderState : Int?
     var orderStateName : String?
     var orderTime : String?
+    var serviceName : String?
     var servicePrice : String?
     var providerId : Int?
     var providerName : String?
@@ -27,6 +28,7 @@ struct OrderDetailModel : JSONJoy {
         orderTime = decoder["order_time"].string
         orderState = decoder["order_state"].integer
         orderStateName = decoder["order_state_name"].string
+        serviceName = decoder["service_name"].string
         servicePrice = decoder["service_price"].string
         providerId = decoder["provider_id"].integer
         providerName = decoder["provider_name"].string
@@ -48,6 +50,10 @@ struct ServiceParam {
     var paramKey : Int?
     var paramValue : String?
     var paramName : String?
+
+    init(){
+    
+    }
     
     init(_ decoder: JSONDecoder) {
         paramKey = decoder["param_key"].integer

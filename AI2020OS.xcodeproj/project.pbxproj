@@ -167,6 +167,7 @@
 		93FF747C1B0F0CA800FD97C1 /* AIServerScopeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93FF747B1B0F0CA800FD97C1 /* AIServerScopeView.xib */; };
 		93FF747E1B0F171700FD97C1 /* AIComponentChoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FF747D1B0F171700FD97C1 /* AIComponentChoseViewController.swift */; };
 		BC4B1B3E329348200D9BF382 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9118F5AD06B215C4AAA1AD0 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F2AF4C531B19B6DE007E9493 /* AIOrderDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AF4C521B19B6DE007E9493 /* AIOrderDetailService.swift */; };
 		F2DACC2B1B197A7500233EFD /* AIOrderDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DACC2A1B197A7500233EFD /* AIOrderDetailModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -362,6 +363,7 @@
 		93FF747D1B0F171700FD97C1 /* AIComponentChoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIComponentChoseViewController.swift; sourceTree = "<group>"; };
 		B9118F5AD06B215C4AAA1AD0 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C757FF35A2EBAB4FD999BDCE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F2AF4C521B19B6DE007E9493 /* AIOrderDetailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderDetailService.swift; sourceTree = "<group>"; };
 		F2DACC2A1B197A7500233EFD /* AIOrderDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -639,6 +641,7 @@
 				935A25761AE79AF10089B240 /* AIServicesRequester.swift */,
 				9301B0751B09979500C1EE79 /* AILoginService.swift */,
 				126A4E2E1B1860EA000C6C9E /* jsonfile.json */,
+				F2AF4C521B19B6DE007E9493 /* AIOrderDetailService.swift */,
 			);
 			name = Services;
 			path = AI2020OS/Services;
@@ -1211,6 +1214,7 @@
 				93BD090B1B06FBBF00C8B96B /* AIMenuViewController.swift in Sources */,
 				93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */,
 				93FF746C1B0ECEA000FD97C1 /* CVCalendarViewAppearance.swift in Sources */,
+				F2AF4C531B19B6DE007E9493 /* AIOrderDetailService.swift in Sources */,
 				935F38701ACD27DF004BE0E7 /* Movie.swift in Sources */,
 				93FF74671B0ECEA000FD97C1 /* CVCalendarMonthView.swift in Sources */,
 				84CB368A1B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift in Sources */,
