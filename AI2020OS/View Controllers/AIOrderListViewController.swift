@@ -46,6 +46,7 @@ class AIOrderListViewController:UIViewController{
         super.viewDidLoad()
         
         scrollView.contentSize = CGSizeMake(650, 40)
+        
     }
 
      
@@ -123,9 +124,9 @@ struct ButtonModel{
 extension AIOrderListViewController:UITableViewDelegate,UITableViewDataSource{
     
     //实现tableViewDelegate的方法
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int{
-        return 1
-    }
+//    func numberOfSectionsInTableView(tableView: UITableView) -> Int{
+//        return 1
+//    }
     
     //实现tableViewDataSource的方法
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -158,6 +159,9 @@ extension AIOrderListViewController:UITableViewDelegate,UITableViewDataSource{
             buildDynaButton(orderListModel.orderState, orderType: "", buttonView: buttonView)
         }
         return cell
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 167
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
