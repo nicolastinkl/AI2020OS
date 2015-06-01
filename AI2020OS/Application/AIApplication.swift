@@ -67,6 +67,9 @@ struct AIApplication{
             static let AITIMELINESDTimesViewCell        = "AITIMELINESDTimesViewCell"
             static let AITIMELINESDContentViewCell      = "AITIMELINESDContentViewCell"
             
+            // MARK: IM CNETER
+            static let AITMSGSDContentViewCell          = "AITMSGSDContentViewCell"
+            
         }
         
         struct ViewIdentifiers {

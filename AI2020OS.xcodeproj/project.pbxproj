@@ -137,6 +137,13 @@
 		93E4D5B01B14AA7800992CA3 /* AIOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4D5AF1B14AA7800992CA3 /* AIOrderListViewController.swift */; };
 		93E4D5B31B15681600992CA3 /* AIGitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4D5B21B15681600992CA3 /* AIGitHub.swift */; };
 		93E8266A1AD78246006B3BA1 /* AIAssignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E826691AD78246006B3BA1 /* AIAssignUtils.swift */; };
+<<<<<<< HEAD
+=======
+		93F66DE01B184ECC00AEA92A /* AIIMStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F66DDF1B184ECC00AEA92A /* AIIMStorage.swift */; };
+		93F66DE21B18501000AEA92A /* AIIMRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F66DE11B18501000AEA92A /* AIIMRoom.swift */; };
+		93F66DE41B196F5500AEA92A /* AITMSGSDContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F66DE31B196F5500AEA92A /* AITMSGSDContentViewCell.swift */; };
+		93F66DE71B1976AC00AEA92A /* AIChatNewSprintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F66DE61B1976AC00AEA92A /* AIChatNewSprintViewController.swift */; };
+>>>>>>> 添加最新消息中心和电子白板处理类
 		93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */; };
 		93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */; };
 		93F8C3D21AE6314D003C58B2 /* UIView+MaterialDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8C3D11AE6314D003C58B2 /* UIView+MaterialDesign.m */; };
@@ -331,6 +338,13 @@
 		93E4D5AF1B14AA7800992CA3 /* AIOrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderListViewController.swift; sourceTree = "<group>"; };
 		93E4D5B21B15681600992CA3 /* AIGitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIGitHub.swift; sourceTree = "<group>"; };
 		93E826691AD78246006B3BA1 /* AIAssignUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssignUtils.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		93F66DDF1B184ECC00AEA92A /* AIIMStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIMStorage.swift; sourceTree = "<group>"; };
+		93F66DE11B18501000AEA92A /* AIIMRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIMRoom.swift; sourceTree = "<group>"; };
+		93F66DE31B196F5500AEA92A /* AITMSGSDContentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITMSGSDContentViewCell.swift; sourceTree = "<group>"; };
+		93F66DE61B1976AC00AEA92A /* AIChatNewSprintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChatNewSprintViewController.swift; sourceTree = "<group>"; };
+>>>>>>> 添加最新消息中心和电子白板处理类
 		93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchNaviViewController.swift; sourceTree = "<group>"; };
 		93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchMenuTableViewController.swift; sourceTree = "<group>"; };
 		93F8C3D01AE6314D003C58B2 /* UIView+MaterialDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MaterialDesign.h"; sourceTree = "<group>"; };
@@ -650,6 +664,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				93F66DE51B19767000AEA92A /* ChatNewSprint */,
 				93E4D5AE1B14AA6700992CA3 /* Order */,
 				93FF74761B0ECF1D00FD97C1 /* Component */,
 				9349871F1B0E051C003086D1 /* MessageCenter */,
@@ -779,6 +794,7 @@
 			isa = PBXGroup;
 			children = (
 				934987201B0E06DD003086D1 /* AIMessageCenterViewController.swift */,
+				93F66DE31B196F5500AEA92A /* AITMSGSDContentViewCell.swift */,
 			);
 			name = MessageCenter;
 			sourceTree = "<group>";
@@ -886,6 +902,14 @@
 			);
 			name = Github;
 			path = AI2020OS/Github;
+			sourceTree = "<group>";
+		};
+		93F66DE51B19767000AEA92A /* ChatNewSprint */ = {
+			isa = PBXGroup;
+			children = (
+				93F66DE61B1976AC00AEA92A /* AIChatNewSprintViewController.swift */,
+			);
+			name = ChatNewSprint;
 			sourceTree = "<group>";
 		};
 		93F6E14B1ADBC64900CE4062 /* UISearchView */ = {
@@ -1195,7 +1219,11 @@
 				934986F61B0A1135003086D1 /* AIRegisterViewController.swift in Sources */,
 				9349870C1B0D8DEE003086D1 /* AIHomeStyleMananger.swift in Sources */,
 				93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */,
+<<<<<<< HEAD
 				84CDC16E1B1494D000EA78BC /* SearchTagCell.swift in Sources */,
+=======
+				93F66DE71B1976AC00AEA92A /* AIChatNewSprintViewController.swift in Sources */,
+>>>>>>> 添加最新消息中心和电子白板处理类
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
 				84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */,
 				93FF74621B0ECEA000FD97C1 /* CVCalendarDayView.swift in Sources */,
@@ -1229,6 +1257,7 @@
 				93FF74611B0ECEA000FD97C1 /* CVCalendarContentViewController.swift in Sources */,
 				84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */,
 				93E8266A1AD78246006B3BA1 /* AIAssignUtils.swift in Sources */,
+				93F66DE41B196F5500AEA92A /* AITMSGSDContentViewCell.swift in Sources */,
 				9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */,
 				939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */,
 				93AC3FD01ACA402A000024A4 /* AIHomeViewController.swift in Sources */,
