@@ -28,6 +28,11 @@ class AIServiceCatalogViewController: UIViewController {
         serviceTable.dataSource = self
         serviceTable.delegate = self
 
+       var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView
+        serviceTable.tableHeaderView =  header
+        header.avatar.maskWithEllipse()
+        header.avatar.image = UIImage(named: "Sample1")
+        serviceTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

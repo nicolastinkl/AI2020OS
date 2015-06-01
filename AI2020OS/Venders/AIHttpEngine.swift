@@ -85,7 +85,6 @@ struct AIHttpEngine{
         }
     }
     
-    
     static func moviesForSection(response: ([Movie]) -> ()) {
         Alamofire.request(.GET, "http://api.themoviedb.org/3/discover/movie?api_key=328c283cd27bd1877d9080ccb1604c91&sort_by=popularity.desc")
             .responseJSON { (_,_,JSON,_) in
@@ -122,6 +121,40 @@ struct AIHttpEngine{
                 }
         }
         
+    }
+    
+    // add by liliang: for text
+    static func postWithParameters(path:ResourcePath,parameters: [String: AnyObject]? = nil, responseHandler: (response:AnyObject?, error:Error?) -> ()) {
+        println("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
+        let encoding = Alamofire.ParameterEncoding.JSON
+        Alamofire.request(.POST, self.baseURL+path.description,parameters:parameters, encoding: encoding)
+            .responseJSON { (_request, _response, JSON, error) in
+                
+                func fail(){
+                    responseHandler(response: nil, error: Error(message: "Error", code: 0))
+                }
+                
+                var result = false
+                println("response: \(_response)")
+                println("JSON: \(JSON)")
+                
+                if let reponses = JSON as? NSDictionary {
+                    if let dataValue = reponses["data"] as? NSDictionary{
+                  //      println(dataValue)
+                        result = true
+                        responseHandler(response: dataValue, error: nil)
+                    }
+                }
+                
+                if (error != nil) {
+                    result = false
+                }
+                
+                if !result {
+                    fail()
+                }
+                
+        }
     }
     
     

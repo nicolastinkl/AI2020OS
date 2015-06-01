@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 ___ASIAINFO___. All rights reserved.
 //
 
-import UIKit
+import UIKit 
 
 
 
@@ -21,6 +21,8 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
     private let SECTION_HOT_SERVICES = 0
     private let SECTION_HISTORY = 1
     
+    private var catalogList:[AICatalogItemModel]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +31,9 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         var engine = HttpSearchEngine()
         historyRecorder = engine
         searchEngine = engine
-
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,6 +41,56 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
      //   self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func loadTableViewData(result: (model: [AICatalogItemModel], err: Error?)) {
+        
+        if result.err == nil {
+            catalogList = result.model
+            collectionView.reloadData()
+        }
+        
+    }
+    override func viewDidAppear(animated: Bool) {
+
+        Async.background { () -> Void in
+            self.searchEngine?.queryHotSearchedServices(self.loadTableViewData)
+            return
+        }
+        
+//        Async.background {
+//            self.searchEngine?.queryHotSearchedServices(self.loadTableViewData)
+//        }
+        
+        
+//        Async.background { () -> Void in
+//            self.searchEngine?.queryHotSearchedServices(result: { (<#([AICatalogItemModel], Error?)#>) -> Void in
+//                
+//            })
+//        }
+//        Async.background { () -> Void in
+//            self.searchEngine?.queryHotSearchedServices({ ((model: [AICatalogItemModel], err: Error?)) -> Void in
+//                if data.err == nil {
+//                    self.catalogList = model
+//                    collectionView.reloadData()
+//                }
+//            })
+
+//            self.searchEngine?.queryHotSearchedServices(completion :{(data :(model: [AICatalogItemModel], err: Error?)) ->  Void in
+//                if data.err == nil {
+//                    self.catalogList = model
+//                    collectionView.reloadData()
+//                }
+//             })
+            
+//            let (list, error) = self.searchEngine!.queryHotSearchedServices()
+//            if error == nil {
+//                self.catalogList = list
+//                self.collectionView.reloadData()
+//            }
+//        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,8 +120,9 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         
         switch section {
         case SECTION_HOT_SERVICES:
-            var (list, error) = searchEngine!.queryHotSearchedServices()
-            itemNum = list.count
+            if catalogList != nil {
+                itemNum = catalogList!.count
+            }
         case SECTION_HISTORY:
             itemNum = historyRecorder!.getSearchHistoryItems().count
         default:
@@ -89,12 +144,12 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         
         let records = historyRecorder!.getSearchHistoryItems()
         
-        let (list, error) = searchEngine!.queryHotSearchedServices()
-        
         var tagName = ""
         
         if indexPath.section == SECTION_HOT_SERVICES {
-            tagName = list[indexPath.item].catalog_name!
+            if catalogList != nil {
+                tagName = catalogList![indexPath.item].catalog_name!
+            }
         } else if indexPath.section == SECTION_HISTORY {
             tagName = records[indexPath.item].name
         }
@@ -130,12 +185,14 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         indexPath.row
             let records = historyRecorder!.getSearchHistoryItems()
-            let (list, error) = searchEngine!.queryHotSearchedServices()
-
+           
             var tagName = ""
             
             if indexPath.section == SECTION_HOT_SERVICES {
-                tagName = list[indexPath.item].catalog_name!
+                if catalogList != nil {
+                    tagName = catalogList![indexPath.item].catalog_name!
+                }
+                
             } else if indexPath.section == SECTION_HISTORY {
                 tagName = records[indexPath.item].name
             }
@@ -190,19 +247,21 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let records = historyRecorder!.getSearchHistoryItems()
-        let (list, error) = searchEngine!.queryHotSearchedServices()
         
         if indexPath.section == SECTION_HOT_SERVICES {
-            println(list[indexPath.item].catalog_name)
        //     tagName = services[indexPath.item].name
         } else if indexPath.section == SECTION_HISTORY {
-            println(records[indexPath.item].name)
      //       tagName = records[indexPath.item].name
         }
     }
     
     @IBAction func showAllServices(sender: UIButton) {
         println("showAllServices")
+        let (list, error) = searchEngine!.queryHotSearchedServices()
+        if error == nil {
+            catalogList = list
+            collectionView.reloadData()            
+        }
     }
 
     @IBAction func myFavorites(sender: AnyObject) {
@@ -210,7 +269,7 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        searchEngine!.queryHotSearchedServices()
+   //     searchEngine!.queryHotSearchedServices()
         return true
     }
 

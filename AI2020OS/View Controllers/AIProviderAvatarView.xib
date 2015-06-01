@@ -26,24 +26,12 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdm-rW-Fac" userLabel="star1">
-                    <rect key="frame" x="35" y="82" width="10" height="10"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ERr-h0-WTL" userLabel="star2">
-                    <rect key="frame" x="50" y="82" width="10" height="10"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BxR-sm-42S" userLabel="star3">
-                    <rect key="frame" x="65" y="82" width="10" height="10"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zfy-4n-ReJ" userLabel="star4">
-                    <rect key="frame" x="80" y="82" width="10" height="10"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A0Q-AP-zkK" userLabel="star5">
-                    <rect key="frame" x="95" y="82" width="10" height="10"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="avatar" destination="ABu-2S-GbM" id="MNX-hk-PTy"/>
+            </connections>
             <point key="canvasLocation" x="310" y="527"/>
         </view>
     </objects>

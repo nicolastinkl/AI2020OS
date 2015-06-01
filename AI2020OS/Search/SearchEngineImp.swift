@@ -11,7 +11,7 @@ import JSONJoy
 
 // 模拟的SearchEngine，用于Demo
 class MockSearchEngine : SearchEngine, SearchRecorder {
-    
+
     private var recordList = [SearchHistoryRecord]()
     private var hotServiceList = [AICatalogItemModel]()
     
@@ -26,6 +26,11 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
     func queryHotSearchedServices() -> ([AICatalogItemModel], Error?) {
         return (hotServiceList, nil)
     }
+    
+    func queryHotSearchedServices(completion: (([AICatalogItemModel], Error?)) -> Void) {
+        completion((hotServiceList, nil))
+    }
+
     
     func recordSearch(searchRecord: SearchHistoryRecord) {
         recordList.append(searchRecord)
@@ -64,7 +69,7 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
 
 
 class HttpSearchEngine : SearchEngine, SearchRecorder {
-    
+
     var isLoading : Bool = false
     
     private var recordList = [SearchHistoryRecord]()
@@ -76,7 +81,7 @@ class HttpSearchEngine : SearchEngine, SearchRecorder {
     
     func queryHotSearchedServices() -> ([AICatalogItemModel], Error?) {
         if isLoading {
-            return (hotServiceList, nil)
+        //    return (hotServiceList, nil)
         }
         
         var listModel :AICatalogListModel?
@@ -84,16 +89,16 @@ class HttpSearchEngine : SearchEngine, SearchRecorder {
         isLoading = true
         
         var responseError:Error?
-        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryHotSearch, parameters: nil) {  [weak self] (response, error) -> () in
+        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.QueryHotSearch, parameters: nil) {  [weak self] (response, error) -> () in
             responseError = error
             if let strongSelf = self{
                 strongSelf.isLoading = false
             }
-            if let responseJSON: AnyObject = response{
+            if let responseJSON: AnyObject = response {
                 listModel =  AICatalogListModel(JSONDecoder(responseJSON))
                 
                 if let strongSelf = self {
-                    strongSelf.hotServiceList = listModel!.catalogArray!
+                    strongSelf.hotServiceList = listModel!.catalogArray
                 }
                 
             }else{
@@ -102,6 +107,34 @@ class HttpSearchEngine : SearchEngine, SearchRecorder {
         }
         
         return (hotServiceList, responseError)
+    }
+    
+    func queryHotSearchedServices(completion: (([AICatalogItemModel], Error?)) -> Void) {
+        if isLoading {
+            return
+        }
+        
+        var listModel :AICatalogListModel?
+        
+        isLoading = true
+        
+        var responseError:Error?
+        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.QueryHotSearch, parameters: nil) {  [weak self] (response, error) -> () in
+            responseError = error
+            if let strongSelf = self{
+                strongSelf.isLoading = false
+            }
+            if let responseJSON: AnyObject = response {
+                listModel =  AICatalogListModel(JSONDecoder(responseJSON))
+            }
+            
+            if listModel == nil {
+                listModel = AICatalogListModel()
+            }
+            
+            completion((listModel!.catalogArray, error))
+        }
+        
     }
     
     func recordSearch(searchRecord: SearchHistoryRecord) {
