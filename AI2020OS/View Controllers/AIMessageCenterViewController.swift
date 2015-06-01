@@ -31,7 +31,6 @@ class AIMessageCenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-<<<<<<< HEAD
         self.rooms = NSMutableArray()
         self.im = AIIMCenter.sharedManager
         self.notify = AIIMNotify.sharedManager
@@ -52,9 +51,6 @@ class AIMessageCenterViewController: UIViewController {
             self.refresh()
         }
         
-=======
-        self.toolBarView.addBottomWholeBorderLine()
->>>>>>> dad07ba38a0f5f074a5a680210b8dbce0ba04253
     }
      
     

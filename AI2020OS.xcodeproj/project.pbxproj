@@ -489,7 +489,6 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		9316D61C1B1716640099D4A8 /* AIIM */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,9 +501,7 @@
 			name = AIIM;
 			path = AI2020OS/AIIM;
 			sourceTree = "<group>";
-		};
-=======
->>>>>>> dad07ba38a0f5f074a5a680210b8dbce0ba04253
+		}; 
 		93266FA91AEF807A00DD0021 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -1232,11 +1229,7 @@
 				934986F61B0A1135003086D1 /* AIRegisterViewController.swift in Sources */,
 				9349870C1B0D8DEE003086D1 /* AIHomeStyleMananger.swift in Sources */,
 				93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */,
-<<<<<<< HEAD
 				93F66DE71B1976AC00AEA92A /* AIChatNewSprintViewController.swift in Sources */,
-=======
-				84CDC16E1B1494D000EA78BC /* SearchTagCell.swift in Sources */,
->>>>>>> dad07ba38a0f5f074a5a680210b8dbce0ba04253
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
 				84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */,
 				93FF74621B0ECEA000FD97C1 /* CVCalendarDayView.swift in Sources */,

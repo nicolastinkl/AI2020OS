@@ -38,9 +38,7 @@ class AIOrderListViewController:UIViewController{
         super.viewDidLoad()
         
         scrollView.contentSize = CGSizeMake(650, 40)
-<<<<<<< HEAD
-        
-=======
+ 
         retryNetworkingAction()
     }
     
@@ -60,8 +58,7 @@ class AIOrderListViewController:UIViewController{
                     self.view.showErrorView()
                 }
             })
-        }
->>>>>>> dad07ba38a0f5f074a5a680210b8dbce0ba04253
+        } 
     }
 
     
