@@ -10,14 +10,17 @@ import UIKit
 
 class AIServiceCatalogViewController: UIViewController {
 
+    let PI = 3.1415926
     
     @IBOutlet weak var catalogTable: UITableView!
     @IBOutlet weak var serviceTable: UITableView!
+    private var providerTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        createProviderTableView()
+        
         let nib = UINib(nibName: "AICatalogTableCellTableViewCell", bundle: nil)
         catalogTable.registerNib(nib,
             forCellReuseIdentifier: "CatalogCell")
@@ -27,17 +30,25 @@ class AIServiceCatalogViewController: UIViewController {
         
         serviceTable.dataSource = self
         serviceTable.delegate = self
+        
+        serviceTable.tableHeaderView =  providerTable
+        serviceTable.tableHeaderView?.setHeight(CGFloat(140))
+        serviceTable.tableHeaderView?.autoresizesSubviews = false
 
-       var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView
-        serviceTable.tableHeaderView =  header
-        header.avatar.maskWithEllipse()
-        header.avatar.image = UIImage(named: "Sample1")
-        serviceTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func createProviderTableView() {
+        providerTable = UITableView(frame: CGRect(x: 0, y: 0, width: 140, height: catalogTable.height), style:.Plain)
+        providerTable.transform = CGAffineTransformMakeRotation(CGFloat(-PI/2))
+        providerTable.separatorStyle = .None
+        providerTable.showsVerticalScrollIndicator = false
+        providerTable.dataSource = self
+        providerTable.delegate = self
     }
     
 
@@ -59,6 +70,8 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
             return 5
         } else if tableView == serviceTable {
             return 10
+        } else if tableView == providerTable {
+            return 10
         }
         
         return 0
@@ -73,11 +86,14 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if tableView == providerTable {
+            return 100
+        }
+        
         return CGFloat(60)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
 
         var cell: UITableViewCell!
         if tableView == catalogTable {
@@ -86,17 +102,29 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
             catalogCell.addBottomWholeBorderLine()
             cell = catalogCell
         } else if tableView == serviceTable {
-            cell  = tableView.dequeueReusableCellWithIdentifier("ServiceCell") as UITableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("ServiceCell") as UITableViewCell
             cell!.textLabel.text = "service"
+        } else if tableView == providerTable {
+            
+            var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView
+            header.avatar.maskWithEllipse()
+            header.avatar.image = UIImage(named: "Sample1")
+            header.transform = CGAffineTransformMakeRotation(CGFloat(PI/2))
+            
+            let newView = UITableViewCell(frame:  CGRectMake(0, 0, 140, 140))
+            header.setWidth(CGFloat(50))
+            header.setHeight(CGFloat(40))
+            header.center = newView.center
+            newView.contentView.addSubview(header)
+   
+            header.center.y -= 20
+            cell = newView
         }
         
         return cell!
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView
-        return header
-    }
+
     
 }
 

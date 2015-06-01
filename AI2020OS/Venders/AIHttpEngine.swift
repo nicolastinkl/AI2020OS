@@ -39,6 +39,7 @@ struct AIHttpEngine{
         case GetOrderDetail
         // 查询热门搜索
         case QueryHotSearch
+        case QueryServiceItems
 
         var description: String {
             switch self {
@@ -49,6 +50,7 @@ struct AIHttpEngine{
             case .GetOrderList: return "/sboss/queryOrderList"
             case .GetOrderDetail: return "/sboss/queryOrderDetail"
             case .QueryHotSearch: return "/sboss/queryHotSearch"
+            case .QueryServiceItems: return "/sboss/queryServiceItems"
             }
         }
     }
