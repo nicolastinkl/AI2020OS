@@ -92,19 +92,18 @@ extension UIView {
         lineLayer.frame = CGRectMake(20, self.height-1, self.width*0.9, 0.5)
         self.layer.addSublayer(lineLayer)
     }
-
+    
     /*!
-        消息中心下线处理
+    Cell下线处理
     */
-    func addBottomGreenBorderLine() {
-        let color = UIColor(rgba: AIApplication.AIColor.MainSystemGreenColor).CGColor
+    func addBottomWholeBorderLine() {
+        let color = UIColor(rgba: "#a7a7a7").CGColor
         let lineLayer =  CALayer()
         lineLayer.backgroundColor = color
-        let left = self.width
-        lineLayer.frame = CGRectMake(0, self.height-1, self.width, 1)
+        lineLayer.frame = CGRectMake(0, self.height-1, 85, 0.5)
         self.layer.addSublayer(lineLayer)
     }
-
+    
     /*!
         处理加载展示
     */

@@ -132,6 +132,10 @@ class AIHomeViewController: UITableViewController {
         showViewController(controller, sender: self)
     }
     
+    @IBAction func searchServices(sender: AnyObject) {
+        showSearchMainViewController()
+    }
+    
 }
 
 // MARK: - UITableViewDataSource

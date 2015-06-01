@@ -38,6 +38,7 @@ struct AIApplication{
             static let AISettingsStoryboard         = "AISettingsStoryboard"
             static let AIOrderStoryboard            = "AIOrderStoryboard"
             static let AIOrderDetailStoryboard      = "AIOrderDetailStoryboard"
+            static let AISearchStoryboard           = "AISearchStoryboard"
         }
         
         // MARK: View
@@ -48,6 +49,7 @@ struct AIApplication{
             static let AIMessageCenterViewController = "AIMessageCenterViewController"
             static let AICalendarViewController     = "AICalendarViewController"
             static let AIComponentChoseViewController   = "AIComponentChoseViewController"
+            static let AISearchServiceCollectionViewController = "AISearchServiceCollectionViewController"
         }
         
         struct CellIdentifiers {
