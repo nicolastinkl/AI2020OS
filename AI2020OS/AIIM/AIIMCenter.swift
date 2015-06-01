@@ -39,7 +39,7 @@ class AIIMCenter: NSObject,AVIMClientDelegate, AVIMSignatureDataSource{
     
     var connect:Bool?
     
-    var cachedConvs: NSMutableArray?
+    var cachedConvs: NSMutableDictionary?
     
     var notify: AIIMNotify?
     
@@ -49,7 +49,7 @@ class AIIMCenter: NSObject,AVIMClientDelegate, AVIMSignatureDataSource{
         self.imClient = AVIMClient()
         self.imClient?.delegate = self
         self.notify = AIIMNotify.sharedManager
-        self.cachedConvs = NSMutableArray()
+        self.cachedConvs = NSMutableDictionary()
         self.storage = AIIMStorage.sharedManager
         
         updateConnectStatus()
@@ -289,7 +289,10 @@ class AIIMCenter: NSObject,AVIMClientDelegate, AVIMSignatureDataSource{
     // MARK : AVIMConversation cache
     
     func lookupConvById(convid:String) -> AVIMConversation!{
-        return self.cachedConvs?.valueForKey(convid) as AVIMConversation
+        if let cacahe = self.cachedConvs{
+            return cacahe.valueForKey(convid) as AVIMConversation?
+        }
+        return nil
     }
     
     func registerConvs(convs:NSArray){
@@ -320,8 +323,8 @@ class AIIMCenter: NSObject,AVIMClientDelegate, AVIMSignatureDataSource{
     // MARK: Recent roooms
     
     func findRecentRoomsWithBlock(block: AVArrayResultBlock){
-        let newArray: AnyObject? = self.storage?.getRooms().mutableCopy()
-        let rooms = NSMutableArray(object: newArray!)
+        let newArray: AnyObject?  = self.storage?.getRooms().mutableCopy()
+        let rooms = NSMutableArray(array: newArray! as NSMutableArray)
         let convids:NSMutableSet = NSMutableSet()
         for room in rooms {
             let romitem = room as AIIMRoom

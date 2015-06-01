@@ -126,6 +126,7 @@
 		93F66DE21B18501000AEA92A /* AIIMRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F66DE11B18501000AEA92A /* AIIMRoom.swift */; };
 		93F66DE41B196F5500AEA92A /* AITMSGSDContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F66DE31B196F5500AEA92A /* AITMSGSDContentViewCell.swift */; };
 		93F66DE71B1976AC00AEA92A /* AIChatNewSprintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F66DE61B1976AC00AEA92A /* AIChatNewSprintViewController.swift */; };
+		93F66DE91B19D7B800AEA92A /* NSObjcetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F66DE81B19D7B800AEA92A /* NSObjcetUtils.swift */; };
 		93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */; };
 		93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */; };
 		93F8C3D21AE6314D003C58B2 /* UIView+MaterialDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8C3D11AE6314D003C58B2 /* UIView+MaterialDesign.m */; };
@@ -305,6 +306,7 @@
 		93F66DE11B18501000AEA92A /* AIIMRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIMRoom.swift; sourceTree = "<group>"; };
 		93F66DE31B196F5500AEA92A /* AITMSGSDContentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITMSGSDContentViewCell.swift; sourceTree = "<group>"; };
 		93F66DE61B1976AC00AEA92A /* AIChatNewSprintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChatNewSprintViewController.swift; sourceTree = "<group>"; };
+		93F66DE81B19D7B800AEA92A /* NSObjcetUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjcetUtils.swift; sourceTree = "<group>"; };
 		93F6E1491ADBC56E00CE4062 /* AISearchNaviViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchNaviViewController.swift; sourceTree = "<group>"; };
 		93F6E14C1ADBC67300CE4062 /* AISearchMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchMenuTableViewController.swift; sourceTree = "<group>"; };
 		93F8C3D01AE6314D003C58B2 /* UIView+MaterialDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MaterialDesign.h"; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 				937301051ACBEA5A00CA17BC /* UINavigationBar+Awesome.h */,
 				937301061ACBEA5A00CA17BC /* UINavigationBar+Awesome.m */,
 				93E2F7A31B09890D00483CFA /* AITransitionManagerMenuAnimation.swift */,
+				93F66DE81B19D7B800AEA92A /* NSObjcetUtils.swift */,
 			);
 			name = Utils;
 			path = AI2020OS/Utils;
@@ -1173,6 +1176,7 @@
 				93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */,
 				93FF74641B0ECEA000FD97C1 /* CVCalendarManager.swift in Sources */,
 				93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */,
+				93F66DE91B19D7B800AEA92A /* NSObjcetUtils.swift in Sources */,
 				9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */,
 				93692C971ACAA52A00D66211 /* Async.swift in Sources */,
 				93CB34621AE5F26100D49FB2 /* AIImage.swift in Sources */,

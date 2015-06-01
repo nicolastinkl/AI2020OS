@@ -89,8 +89,22 @@ extension AVIMConversation{
         }
     }
     
-    
     class func nameOfUserIds(members:NSArray) -> String{
-        return ""
+        // 根据objectid获取nickname
+        var name:String? = ""
+        let query:AVQuery = AVUser.query()
+        query.whereKey("objectId", equalTo: members.firstObject)
+        query.findObjectsInBackgroundWithBlock { (obejcts, error) -> Void in
+            if (error != nil) {
+                name = ""
+            }else
+            {
+                let user = obejcts.first as AVUser?
+                if let hasUser = user{
+                    name = hasUser.objectForKey("nickname") as String?
+                }
+            }
+        }
+        return name!
     }
 }

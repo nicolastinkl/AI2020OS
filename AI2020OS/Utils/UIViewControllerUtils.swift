@@ -77,7 +77,7 @@ extension UIViewController {
     /*!
         the local coding scope.
     */
-    func localCode(closeure:()->()){
+    override func localCode(closeure:()->()){
         closeure()
     }
     

@@ -18,8 +18,22 @@ class AIIMStorage: NSObject {
         return sharedInstance
     }
     
-    func getRooms() -> NSArray {
-        return NSArray()
+    func getRooms() -> NSMutableArray{
+        
+        var newArray = NSMutableArray()
+
+        localCode{
+            
+            let room = AIIMRoom() //预警通知
+            room.convid = "yujing1"
+            room.unreadCount = 0
+            var conversation = AVIMConversation()
+            room.conv = conversation
+            
+            newArray.addObject(room)
+        }
+        
+        return    newArray
     }
     
     func cacheUserByIds(userIds:NSSet,block:AVBooleanResultBlock){

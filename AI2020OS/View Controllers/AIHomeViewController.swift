@@ -39,9 +39,15 @@ class AIHomeViewController: UITableViewController {
         if let token = AILocalStore.accessToken() {
             //AIApplication.showMessageUnreadView()
             
+            /*
             AIIMCenter().openWithClientId(AVUser.currentUser().objectId, callbackBlock: { (success, error) -> Void in
-                
+                if success {
+                    logInfo("open IM success")
+                }else{
+                    logError("open IM failure")
+                }
             })
+            */
         }else{
             self.loginAction = LoginAction(viewController: self, completion: nil)
         }

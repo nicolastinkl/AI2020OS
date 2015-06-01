@@ -27,21 +27,32 @@ class AIMessageCenterViewController: UIViewController {
     
     
     // MARK: life cycle
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.rooms = NSMutableArray()
         self.im = AIIMCenter.sharedManager
         self.notify = AIIMNotify.sharedManager
         self.storage = AIIMStorage.sharedManager
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
+        
         self.toolBarView.addBottomGreenBorderLine()
         
+        self.im?.createConvWithMembers([AIApplication.AIIMOBJECTS.AIYUJINGID], type: AVIMConversation.AIConvType.CDConvTypeSingle, callback: {  (object, error) -> Void in
+            print(object)
+            println(error)
+        })
+//        self.im?.imClient?.createConversationWithName("预警通知", clientIds: [AIApplication.AIIMOBJECTS.AIYUJINGID], callback: { (object, error) -> Void in
+//            //AVIMConversation
+//            
+//        })
+        
+        Async.userInitiated {
+            self.refresh()
+        }
+        
     }
+     
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navigationbar-white"), forBarMetrics: UIBarMetrics.Default)
@@ -56,9 +67,6 @@ class AIMessageCenterViewController: UIViewController {
         notify?.addMessageObserver(self, selector: "refresh")
         self.im?.addObserver(self, forKeyPath: "connect", options: NSKeyValueObservingOptions.New, context: nil)
         
-        Async.userInitiated {
-            self.refresh()
-        }
     }
     
     override func viewDidDisappear(animated: Bool) {
