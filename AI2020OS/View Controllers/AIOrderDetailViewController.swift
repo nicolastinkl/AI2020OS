@@ -21,63 +21,59 @@ class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITa
     // MARK: variables
     let titleColon = ":";
     // 订单详情数据模型
-    var orderDetail : OrderDetailModel?
-
-
-    func initTableView() {
-        // 绑定代理
-        self.tableView.delegate = self
-        // 绑定数据源
-        self.tableView.dataSource = self
-    }
+    var orderDetail : OrderDetailModel = OrderDetailModel()
     
     // 初始化headerView的所有数据
     func initHeaderView() {
         let orderNoTitle = self.tableView.tableHeaderView?.viewWithTag(100) as UILabel
-        let orderNo = self.tableView.tableHeaderView?.viewWithTag(101) as UILabel
+        
         let orderStateTitle = self.tableView.tableHeaderView?.viewWithTag(102) as UILabel
-        let orderState = self.tableView.tableHeaderView?.viewWithTag(103) as UILabel
         
         orderNoTitle.text = "订单号" + titleColon
-        orderNo.text = String(orderDetail!.orderNum!)
+//        orderNo.text = String(orderDetail.orderNum!)
         orderStateTitle.text = "订单状态" + titleColon
-        orderState.text = getOrderStateName(orderDetail!.orderState!)
+//        orderState.text = getOrderStateName(orderDetail.orderState!)
     }
     
     // 初始化footerView的所有数据
     func initFooterView(){
-        let serviceName = self.tableView.tableFooterView?.viewWithTag(100) as UILabel
-        let servicePrice = self.tableView.tableFooterView?.viewWithTag(101) as UILabel
+        
+        
         let servicePic = self.tableView.tableFooterView?.viewWithTag(103) as UIImageView
         let collect = self.tableView.tableFooterView?.viewWithTag(102) as UIButton
-        serviceName.text = orderDetail!.serviceName
-        servicePrice.text = orderDetail!.servicePrice
+        
         servicePic.image = UIImage(named: "Sample1")
     }
     
     func retryNetworkingAction(){
-        self.view.hideProgressViewLoading()
-        self.view.showProgressViewLoading()
+//        self.view.hideProgressViewLoading()
+//        self.view.showProgressViewLoading()
         //后台请求数据
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
-            AIOrderDetailRequester().queryOrderDetail({ (data) -> () in
+            AIOrderDetailRequester().queryOrderDetail({ (data,error) -> () in
                 self.view.hideProgressViewLoading()
                 
-                self.orderDetail! = data
-                self.tableView.reloadData()
-                self.view.hideErrorView()
-                
-//                if data != nil {
-//                    self.orderDetail! = data
-//                    self.tableView.reloadData()
-//                    self.view.hideErrorView()
-//                }else{
-//                    self.view.showErrorView()
-//                }
-
-
-                
+                if error != nil{
+                    self.view.showErrorView()
+                }else{
+                    self.orderDetail = data
+                    
+                    let orderNo = self.tableView.tableHeaderView?.viewWithTag(101) as UILabel
+                    let orderState = self.tableView.tableHeaderView?.viewWithTag(103) as UILabel
+                    
+                    let servicePrice = self.tableView.tableFooterView?.viewWithTag(101) as UILabel
+                    let serviceName = self.tableView.tableFooterView?.viewWithTag(100) as UILabel
+                    
+                    orderNo.text = String(data.orderNum!)
+                    orderState.text = self.getOrderStateName(data.orderState!)
+                    
+                    serviceName.text = data.serviceName
+                    servicePrice.text = data.servicePrice
+                    
+                    self.tableView.reloadData()
+                    self.view.hideErrorView()
+                }
             })
         }
     }
@@ -94,12 +90,15 @@ class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initTableView()
+        // 绑定代理
+        self.tableView.delegate = self
+        // 绑定数据源
+        self.tableView.dataSource = self
         
-        retryNetworkingAction()
-
         initHeaderView()
         initFooterView()
+        
+        retryNetworkingAction()
         
 //        loadOrderDetailData()
 
@@ -128,16 +127,18 @@ class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return orderDetail!.params!.count
+        // 注意界面加载起来的时候可能为空
+        return orderDetail.params == nil ? 0 : orderDetail.params!.count
     }
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("orderDetail") as DetailTableViewCell
 
-        let param = orderDetail!.params![indexPath.row] as ServiceParam
+        let param = orderDetail.params![indexPath.row] as ServiceParam
         // 标题
         if let titleLabel = cell.viewWithTag(100) as? UILabel {
+            println(param.paramName)
             titleLabel.text = param.paramName
         }
         if let contentLabel = cell.viewWithTag(101) as? UILabel {

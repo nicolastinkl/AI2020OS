@@ -169,6 +169,7 @@ extension AIOrderListViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //AIOrderDetailStoryboard
+//        println("执行跳转逻辑")
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderDetailStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
         self.navigationController?.pushViewController(viewController, animated: true)
     }
