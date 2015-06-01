@@ -10,7 +10,7 @@
 
 import UIKit
 
-class AIProviderAvatarView: UIView {
+class AIProviderAvatarView: UITableViewCell {
     
     
     @IBOutlet weak var avatar: UIImageView!
@@ -27,6 +27,8 @@ class AIProviderAvatarView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setWidth(CGFloat(140))
+        setHeight(CGFloat(140))
         starRating = CWStarRateView(frame: CGRect(x: 40, y: 72, width: 60, height: 10), numberOfStars: 5)
         addSubview(starRating!)
         

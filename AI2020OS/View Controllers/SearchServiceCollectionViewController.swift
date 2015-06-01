@@ -59,38 +59,6 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
             return
         }
         
-//        Async.background {
-//            self.searchEngine?.queryHotSearchedServices(self.loadTableViewData)
-//        }
-        
-        
-//        Async.background { () -> Void in
-//            self.searchEngine?.queryHotSearchedServices(result: { (<#([AICatalogItemModel], Error?)#>) -> Void in
-//                
-//            })
-//        }
-//        Async.background { () -> Void in
-//            self.searchEngine?.queryHotSearchedServices({ ((model: [AICatalogItemModel], err: Error?)) -> Void in
-//                if data.err == nil {
-//                    self.catalogList = model
-//                    collectionView.reloadData()
-//                }
-//            })
-
-//            self.searchEngine?.queryHotSearchedServices(completion :{(data :(model: [AICatalogItemModel], err: Error?)) ->  Void in
-//                if data.err == nil {
-//                    self.catalogList = model
-//                    collectionView.reloadData()
-//                }
-//             })
-            
-//            let (list, error) = self.searchEngine!.queryHotSearchedServices()
-//            if error == nil {
-//                self.catalogList = list
-//                self.collectionView.reloadData()
-//            }
-//        }
-        
     }
 
     override func didReceiveMemoryWarning() {
