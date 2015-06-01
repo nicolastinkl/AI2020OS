@@ -38,6 +38,16 @@ class AIHomeViewController: UITableViewController {
         
         if let token = AILocalStore.accessToken() {
             //AIApplication.showMessageUnreadView()
+            
+            /*
+            AIIMCenter().openWithClientId(AVUser.currentUser().objectId, callbackBlock: { (success, error) -> Void in
+                if success {
+                    logInfo("open IM success")
+                }else{
+                    logError("open IM failure")
+                }
+            })
+            */
         }else{
             self.loginAction = LoginAction(viewController: self, completion: nil)
         }
@@ -120,10 +130,6 @@ class AIHomeViewController: UITableViewController {
         let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
         controller.server_id = "\(imageview.assemblyID!)"
         showViewController(controller, sender: self)
-    }
-    
-    @IBAction func searchServices(sender: AnyObject) {
-        showSearchMainViewController()
     }
     
 }

@@ -25,6 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //AVOS
         AVOSCloud.setApplicationId(AIApplication.AVOSCLOUDID,
               clientKey: AIApplication.AVOSCLOUDKEY)
+
+        // DEBUG
+        AVAnalytics.setCrashReportEnabled(true)
+        AVAnalytics.setAnalyticsEnabled(true)
+        AVOSCloud.setVerbosePolicy(kAVVerboseShow)
+        AVLogger.addLoggerDomain(AVLoggerDomainIM)
+        AVLogger.addLoggerDomain(AVLoggerDomainCURL)
+        AVLogger.setLoggerLevelMask(AVLoggerLevelAll.value)
         
         //处理讯飞语音初始化
         AIAppInit().xfINIT()

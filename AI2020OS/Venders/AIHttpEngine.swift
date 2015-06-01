@@ -33,12 +33,6 @@ struct AIHttpEngine{
         case GetServiceDetail
         case CommentUpvote(commentId: Int)
         case CommentReply(commentId: Int)
-        //add by liux 查询订单列表
-        case GetOrderList
-        // 查询订单详情
-        case GetOrderDetail
-        // 查询热门搜索
-        case QueryHotSearch
 
         var description: String {
             switch self {
@@ -46,9 +40,6 @@ struct AIHttpEngine{
             case .GetServicesTopic: return "/sboss/getServiceTopic"
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
-            case .GetOrderList: return "/sboss/queryOrderList"
-            case .GetOrderDetail: return "/sboss/queryOrderDetail"
-            case .QueryHotSearch: return "/sboss/queryHotSearch"
             }
         }
     }
@@ -71,10 +62,6 @@ struct AIHttpEngine{
                             println(dataValue)
                             response(response: dataValue, error: nil)
                         }
-                        if let dataValue = reponsess["data"] as? NSArray{
-                            println(dataValue)
-                            response(response: dataValue, error: nil)
-                        }
                         
                     }
                 }
@@ -84,6 +71,7 @@ struct AIHttpEngine{
                 
         }
     }
+    
     
     static func moviesForSection(response: ([Movie]) -> ()) {
         Alamofire.request(.GET, "http://api.themoviedb.org/3/discover/movie?api_key=328c283cd27bd1877d9080ccb1604c91&sort_by=popularity.desc")
@@ -121,40 +109,6 @@ struct AIHttpEngine{
                 }
         }
         
-    }
-    
-    // add by liliang: for text
-    static func postWithParameters(path:ResourcePath,parameters: [String: AnyObject]? = nil, responseHandler: (response:AnyObject?, error:Error?) -> ()) {
-        println("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
-        let encoding = Alamofire.ParameterEncoding.JSON
-        Alamofire.request(.POST, self.baseURL+path.description,parameters:parameters, encoding: encoding)
-            .responseJSON { (_request, _response, JSON, error) in
-                
-                func fail(){
-                    responseHandler(response: nil, error: Error(message: "Error", code: 0))
-                }
-                
-                var result = false
-                println("response: \(_response)")
-                println("JSON: \(JSON)")
-                
-                if let reponses = JSON as? NSDictionary {
-                    if let dataValue = reponses["data"] as? NSDictionary{
-                  //      println(dataValue)
-                        result = true
-                        responseHandler(response: dataValue, error: nil)
-                    }
-                }
-                
-                if (error != nil) {
-                    result = false
-                }
-                
-                if !result {
-                    fail()
-                }
-                
-        }
     }
     
     

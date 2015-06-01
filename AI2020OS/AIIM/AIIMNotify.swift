@@ -49,8 +49,8 @@ class AIIMNotify: NSObject {
         NSNotificationCenter.defaultCenter().removeObserver(observer, name: NOTIFICATION_MESSAGE_UPDATED, object: nil)
     }
     
-    func postMessageNotify(){
-        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_MESSAGE_UPDATED, object: nil)
+    func postMessageNotify(msg:AVIMTypedMessage){
+        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_MESSAGE_UPDATED, object: msg)
     }
     
 }

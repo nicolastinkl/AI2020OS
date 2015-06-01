@@ -24,3 +24,10 @@ extension String{
     }
     
 }
+
+extension Int{
+//    func string -> String{
+//        let returnString:String = "\(self)"
+//        return returnString
+//    }
+}

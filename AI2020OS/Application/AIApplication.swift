@@ -38,7 +38,6 @@ struct AIApplication{
             static let AISettingsStoryboard         = "AISettingsStoryboard"
             static let AIOrderStoryboard            = "AIOrderStoryboard"
             static let AIOrderDetailStoryboard      = "AIOrderDetailStoryboard"
-            static let AISearchStoryboard           = "AISearchStoryboard"
         }
         
         // MARK: View
@@ -49,7 +48,6 @@ struct AIApplication{
             static let AIMessageCenterViewController = "AIMessageCenterViewController"
             static let AICalendarViewController     = "AICalendarViewController"
             static let AIComponentChoseViewController   = "AIComponentChoseViewController"
-            static let AISearchServiceCollectionViewController = "AISearchServiceCollectionViewController"
         }
         
         struct CellIdentifiers {
@@ -112,6 +110,14 @@ struct AIApplication{
         static let loadingProcessTag        = 101
         static let errorviewTag             = 102
         static let AIMessageUnReadViewTag   = 103
+    }
+    
+    // MARK: IM ObjectIDS
+    struct AIIMOBJECTS {
+        static let AIYUJINGID = "556c0a2ae4b09419962544b7"          //预警通知
+        static let AIFUWUTUIJISNID = "556c0acce4b0941996254a49"     //服务推荐
+        static let AITUIKUAN = "556c0b8fe4b0941996254f8f"           //退款通知
+        static let AIXITONG = "556c0c06e4b0941996255223"            //系统通知
     }
     
     

@@ -77,18 +77,8 @@ extension UIViewController {
     /*!
         the local coding scope.
     */
-    func localCode(closeure:()->()){
+    override func localCode(closeure:()->()){
         closeure()
-    }
-    
-    // 显示搜索主界面
-    func showSearchMainViewController() {
-        
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISearchServiceCollectionViewController) as SearchServiceViewController
-        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-        self.showDetailViewController(viewController, sender: self)
-        
     }
     
 }

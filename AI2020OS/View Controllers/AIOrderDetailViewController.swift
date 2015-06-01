@@ -9,20 +9,25 @@
 import UIKit
 
 
+struct OrderDetail {
+    var title = ""
+    var content = ""
+}
 
+struct OrderTitle {
+    var title = ""
+    var content = ""
+}
+
+let titleColon = ":";
+
+var titles = [OrderTitle]()
+var details = [OrderDetail]()
 
 class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // MARK: storyboard elements
     // 订单详情参数tableView
     @IBOutlet weak var tableView: UITableView!
-
-
-    // MARK: variables
-    let titleColon = ":";
-    // 订单详情数据模型
-    var orderDetail : OrderDetailModel?
-
 
     func initTableView() {
         // 绑定代理
@@ -39,9 +44,9 @@ class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITa
         let orderState = self.tableView.tableHeaderView?.viewWithTag(103) as UILabel
         
         orderNoTitle.text = "订单号" + titleColon
-        orderNo.text = String(orderDetail!.orderNum!)
+        orderNo.text = "2012312312312321"
         orderStateTitle.text = "订单状态" + titleColon
-        orderState.text = getOrderStateName(orderDetail!.orderState!)
+        orderState.text = "已支付"
     }
     
     // 初始化footerView的所有数据
@@ -50,40 +55,25 @@ class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITa
         let servicePrice = self.tableView.tableFooterView?.viewWithTag(101) as UILabel
         let servicePic = self.tableView.tableFooterView?.viewWithTag(103) as UIImageView
         let collect = self.tableView.tableFooterView?.viewWithTag(102) as UIButton
-        serviceName.text = orderDetail!.serviceName
-        servicePrice.text = orderDetail!.servicePrice
+        serviceName.text = "小丽上门保洁";
+        servicePrice.text = "120元/次 起"
         servicePic.image = UIImage(named: "Sample1")
     }
     
-    func retryNetworkingAction(){
-        self.view.hideProgressViewLoading()
-        self.view.showProgressViewLoading()
-        //后台请求数据
-        Async.background(){
-            // Do any additional setup after loading the view, typically from a nib.
-            AIOrderDetailRequester().queryOrderDetail({ (data) -> () in
-                self.view.hideProgressViewLoading()
-                
-                self.orderDetail! = data
-                self.tableView.reloadData()
-                self.view.hideErrorView()
-                
-//                if data != nil {
-//                    self.orderDetail! = data
-//                    self.tableView.reloadData()
-//                    self.view.hideErrorView()
-//                }else{
-//                    self.view.showErrorView()
-//                }
-
-
-                
-            })
-        }
+    func loadOrderDetailData() {
+        details.removeAll(keepCapacity: true);
+        let detail1 = OrderDetail(title: "服务名" + titleColon, content: "小丽上门保洁")
+        details.append(detail1)
+        let detail2 = OrderDetail(title: "服务商" + titleColon, content: "小丽家政")
+        details.append(detail2)
+        let detail3 = OrderDetail(title: "服务时间" + titleColon, content: "2015-04-07 14:00")
+        details.append(detail3)
+        let detail4 = OrderDetail(title: "上门地址" + titleColon, content: "安河桥北龙背村路220号")
+        details.append(detail4)
+        self.tableView.reloadData()
     }
-
     
-    // MARK:life cycle
+    
     override func viewWillAppear(animated: Bool) {
         navigationController?.interactivePopGestureRecognizer.delegate = nil
         super.viewWillAppear(animated)
@@ -94,14 +84,12 @@ class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initTableView()
         
-        retryNetworkingAction()
-
+        initTableView()
         initHeaderView()
         initFooterView()
         
-//        loadOrderDetailData()
+        loadOrderDetailData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -128,36 +116,22 @@ class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return orderDetail!.params!.count
+        return details.count
     }
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("orderDetail") as DetailTableViewCell
 
-        let param = orderDetail!.params![indexPath.row] as ServiceParam
+        let orderDetail = details[indexPath.row] as OrderDetail
         // 标题
         if let titleLabel = cell.viewWithTag(100) as? UILabel {
-            titleLabel.text = param.paramName
+            titleLabel.text = orderDetail.title
         }
         if let contentLabel = cell.viewWithTag(101) as? UILabel {
-            contentLabel.text = param.paramValue
+            contentLabel.text = orderDetail.content
         }
         return cell
-    }
-    
-    func getOrderStateName (orderState: Int) -> String {
-        switch orderState {
-        case 0:
-            return "已下单"
-        case 1:
-            return "已支付"
-        case 2:
-            return "已完成"
-        default:
-            return "已下单"
-        }
-    
     }
     
 

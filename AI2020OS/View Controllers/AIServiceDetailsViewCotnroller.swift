@@ -73,7 +73,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
     func registerNib(cellReuseIdentifier:String){
         
-        var paramsCellNib:UINib = UINib(nibName: cellReuseIdentifier, bundle: nil)
+        var paramsCellNib:UINib = UINib(nibName: cellReuseIdentifier, bundle: nil)!
         self.detailsPageView.registerCells(paramsCellNib, identifier: cellReuseIdentifier)
         
     }
@@ -210,7 +210,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             if  avCell == nil {
                 avCell = AIHomeSDParamesViewCell().currentViewCell()
             }
-            avCell?.textLabel.text = "选择入住时间"
+            avCell?.textLabel?.text = "选择入住时间"
             avCell?.detailTextLabel?.text = ""
             avCell?.addBottomBorderLine()
             return avCell!
@@ -232,7 +232,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             let pcPis =  self.movieDetailsResponse?.service_param_list as Array<AIServiceDetailParamsModel>?
             let pCompics = pcPis![indexPath.row] as AIServiceDetailParamsModel
             
-            avCell?.textLabel.text = pCompics.param_key
+            avCell?.textLabel?.text = pCompics.param_key
             avCell?.detailTextLabel?.text = pCompics.param_key
             avCell?.addBottomBorderLine()
             return avCell!
@@ -245,7 +245,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         if  avCell == nil {
             avCell = AIHomeSDParamesViewCell().currentViewCell()
         }
-        avCell?.textLabel.text = ""
+        avCell?.textLabel?.text = ""
         avCell?.detailTextLabel?.text = ""
         avCell?.accessoryType = UITableViewCellAccessoryType.None
         
