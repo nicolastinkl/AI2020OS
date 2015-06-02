@@ -37,7 +37,7 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         completion((allCatalogList, nil))
     }
 
-    func queryServices(catalogId: Int, pageNum: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
+    func queryServices(catalogId: Int, pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
         completion((queryServices, nil))
     }
     
@@ -77,7 +77,7 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
 }
 
 
-class HttpSearchEngine : SearchEngine, SearchRecorder {
+class HttpSearchEngine : SearchEngine {
 
     var isLoading : Bool = false
     
@@ -174,7 +174,7 @@ class HttpSearchEngine : SearchEngine, SearchRecorder {
 
     }
     
-    func queryServices(catalogId: Int, pageNum: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
+    func queryServices(catalogId: Int, pageNum: Int, pageSize: Int = 1, completion: (([AIServiceTopicModel], Error?)) -> Void) {
         if isLoading {
             return
         }
@@ -184,7 +184,7 @@ class HttpSearchEngine : SearchEngine, SearchRecorder {
         isLoading = true
         
         var responseError:Error?
-        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.QueryServiceItemsByCatalogId, parameters: ["page_num":pageNum, "order_role":catalogId]) {  [weak self] (response, error) -> () in
+        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.QueryServiceItemsByCatalogId, parameters: ["page_num":pageNum, "catalog_id":catalogId, "page_size": pageSize]) {  [weak self] (response, error) -> () in
             responseError = error
             if let strongSelf = self{
                 strongSelf.isLoading = false
@@ -200,14 +200,6 @@ class HttpSearchEngine : SearchEngine, SearchRecorder {
             completion((listModel!.services, error))
         }
 
-    }
-    
-    func recordSearch(searchRecord: SearchHistoryRecord) {
-        recordList.append(searchRecord)
-    }
-    
-    func getSearchHistoryItems() -> [SearchHistoryRecord] {
-        return recordList
     }
     
 }

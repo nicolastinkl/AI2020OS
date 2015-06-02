@@ -24,6 +24,7 @@ class AIServiceCatalogViewController: UIViewController {
         super.viewDidLoad()
         
         createProviderTableView()
+        createProviderHeader()
         
         var engine = HttpSearchEngine()
         searchEngine = engine
@@ -41,10 +42,16 @@ class AIServiceCatalogViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Action
+    
+    @IBAction func back(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: - Private
     private func createProviderHeader() {
         let nib = UINib(nibName: "AICatalogTableCellTableViewCell", bundle: nil)
-        catalogTable.registerNib(nib!,
+        catalogTable.registerNib(nib,
             forCellReuseIdentifier: "CatalogCell")
         
         catalogTable.dataSource = self
@@ -71,6 +78,13 @@ class AIServiceCatalogViewController: UIViewController {
         if result.err == nil {
             catalogList = result.model
             catalogTable.reloadData()
+            
+            if var count = catalogList?.count {
+                if count > 0 {
+                    catalogDidSelected(catalogList![0])
+                }
+            }
+            
         }
     }
     
@@ -78,6 +92,16 @@ class AIServiceCatalogViewController: UIViewController {
         if result.err == nil {
             serviceList = result.model
             serviceTable.reloadData()
+        }
+    }
+    
+    private func catalogDidSelected(catalog: AICatalogItemModel) {
+        if catalog.catalog_id != nil {
+            Async.background() {
+            
+            self.searchEngine?.queryServices(catalog.catalog_id!, pageNum: 1, pageSize: 10, completion: self.loadServicesData)
+            return
+            }
         }
     }
 
@@ -94,6 +118,7 @@ class AIServiceCatalogViewController: UIViewController {
 }
 
 extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var number = 0
         if tableView == catalogTable {
@@ -101,12 +126,14 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
                 number = catalogList!.count
             }
         } else if tableView == serviceTable {
-            return 10
+            if serviceList != nil {
+                number = serviceList!.count
+            }
         } else if tableView == providerTable {
             return 10
         }
         
-        return 0
+        return number
     }
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -130,7 +157,7 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
         var cell: UITableViewCell!
         if tableView == catalogTable {
             let catalogCell  = tableView.dequeueReusableCellWithIdentifier("CatalogCell") as AICatalogTableCellTableViewCell
-            
+
             if catalogList != nil {
                 catalogCell.name = catalogList![indexPath.item].catalog_name!
             }
@@ -139,7 +166,10 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
             cell = catalogCell
         } else if tableView == serviceTable {
             cell = tableView.dequeueReusableCellWithIdentifier("ServiceCell") as UITableViewCell
-            cell!.textLabel?.text = "service"
+            
+            if serviceList != nil {
+                cell!.textLabel.text = serviceList![indexPath.item].service_name
+            }
         } else if tableView == providerTable {
             
             var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView
@@ -162,12 +192,10 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == catalogTable {
-            let catalog = self.catalogList?[indexPath.item]
-            
-            Async.background() {
-                
-                self.searchEngine?.queryServices(catalog!.catalog_id!, pageNum: 1, completion: self.loadServicesData)
-                return
+            if var count = catalogList?.count {
+                if count > 0 {
+                    catalogDidSelected(catalogList![indexPath.item])
+                }
             }
         } else if tableView == serviceTable {
             

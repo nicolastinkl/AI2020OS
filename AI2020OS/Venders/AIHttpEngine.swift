@@ -53,7 +53,7 @@ struct AIHttpEngine{
             case .GetOrderList: return "/sboss/queryOrderList"
             case .GetOrderDetail: return "/sboss/queryOrderDetail"
             case .QueryHotSearch: return "/sboss/queryHotSearch"
-            case .QueryServiceItemsByCatalogId: return "/sboss/queryServiceItemsByCatalogId"
+            case .QueryServiceItemsByCatalogId: return "/sboss/getService"
             case .GetAllServiceCatalog: return "/sboss/getAllServiceCatalog"
             }
         }
