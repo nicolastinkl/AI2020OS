@@ -53,6 +53,7 @@ class AIFavoritesViewController : UIPageViewController {
         
          navigationItemApp.leftBarButtonItem = leftItem        
         
+        //self.navigationController?.hidesBottomBarWhenPushed = true
     }
     
     func exchangeListOrGridAction(sender: AnyObject){

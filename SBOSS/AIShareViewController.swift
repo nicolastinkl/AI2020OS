@@ -18,12 +18,6 @@ class AIShareViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-        ("http://detail.m.tmall.com/item.htm?id=38131345289&spm=a2147.7632989.mainList.5",
-        "<WBUPrintPageRenderer: 0x7fe1bb42cfb0>",
-        "<UIPrintInfo: 0x7fe1bb3846e0>")
-        */
-
         let item: NSExtensionItem = self.extensionContext!.inputItems.first as NSExtensionItem
        
         let itemProvider = item.attachments?.first as NSItemProvider

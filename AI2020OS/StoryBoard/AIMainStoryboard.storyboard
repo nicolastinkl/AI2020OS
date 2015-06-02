@@ -330,7 +330,7 @@
                 <tabBarController storyboardIdentifier="DesignableTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nom-2e-QSc" customClass="DesignableTabBarController" customModule="Spring" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="Tabbar_background" id="WWH-1o-mqA">
+                    <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" backgroundImage="Tabbar_background" id="WWH-1o-mqA">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -350,10 +350,10 @@
                         <userDefinedRuntimeAttribute type="image" keyPath="thirdSelectedImage" value="home_tab_timeline"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <segue destination="lnR-KP-hAe" kind="relationship" relationship="viewControllers" id="kVS-8p-ImR"/>
                         <segue destination="JDt-wj-Qhy" kind="relationship" relationship="viewControllers" id="fXj-qf-FHe"/>
                         <segue destination="q57-6z-ybH" kind="relationship" relationship="viewControllers" id="RfZ-01-I4l"/>
                         <segue destination="KvX-yt-xhR" kind="relationship" relationship="viewControllers" id="LTA-wg-3Fz"/>
-                        <segue destination="lnR-KP-hAe" kind="relationship" relationship="viewControllers" id="kVS-8p-ImR"/>
                         <segue destination="WMV-8y-dry" kind="relationship" relationship="viewControllers" id="UjF-pZ-Kd7"/>
                     </connections>
                 </tabBarController>
@@ -385,7 +385,7 @@
                     <navigationItem key="navigationItem" id="njr-uS-avm">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="wFt-sv-enG">
-                            <rect key="frame" x="100" y="6" width="400" height="33"/>
+                            <rect key="frame" x="100" y="5.5" width="400" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="资讯" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="849-At-ywF">
