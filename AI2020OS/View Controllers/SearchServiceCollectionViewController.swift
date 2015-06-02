@@ -2,7 +2,7 @@
 //  SearchServiceViewControllerCollectionViewController.swift
 //  AI2020OS
 //
-//  Created by admin on 15/5/25.
+//  Created by liliang on 15/5/25.
 //  Copyright (c) 2015年 ___ASIAINFO___. All rights reserved.
 //
 
@@ -21,7 +21,7 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
     private let SECTION_HOT_SERVICES = 0
     private let SECTION_HISTORY = 1
     
-    private var catalogList:[AICatalogItemModel]?
+    private var catalogList: [AICatalogItemModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()

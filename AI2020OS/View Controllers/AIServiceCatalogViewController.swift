@@ -16,15 +16,37 @@ class AIServiceCatalogViewController: UIViewController {
     @IBOutlet weak var serviceTable: UITableView!
     private var providerTable: UITableView!
     
+    private var searchEngine: SearchEngine?
+    private var catalogList:[AICatalogItemModel]?
+    private var serviceList: [AIServiceTopicModel]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createProviderTableView()
         
+        var engine = HttpSearchEngine()
+        searchEngine = engine
+
+        
+        
+        Async.background() {
+            self.searchEngine?.getAllServiceCatalog(self.loadCatalogData)
+            return
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Private
+    private func createProviderHeader() {
         let nib = UINib(nibName: "AICatalogTableCellTableViewCell", bundle: nil)
         catalogTable.registerNib(nib!,
             forCellReuseIdentifier: "CatalogCell")
-
+        
         catalogTable.dataSource = self
         catalogTable.delegate = self
         
@@ -33,13 +55,6 @@ class AIServiceCatalogViewController: UIViewController {
         
         serviceTable.tableHeaderView =  providerTable
         serviceTable.tableHeaderView?.setHeight(CGFloat(140))
-        serviceTable.tableHeaderView?.autoresizesSubviews = false
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     private func createProviderTableView() {
@@ -51,6 +66,20 @@ class AIServiceCatalogViewController: UIViewController {
         providerTable.delegate = self
     }
     
+    private func loadCatalogData(result: (model: [AICatalogItemModel], err: Error?)) {
+        
+        if result.err == nil {
+            catalogList = result.model
+            catalogTable.reloadData()
+        }
+    }
+    
+    private func loadServicesData(result: (model: [AIServiceTopicModel], err: Error?)) {
+        if result.err == nil {
+            serviceList = result.model
+            serviceTable.reloadData()
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -66,8 +95,11 @@ class AIServiceCatalogViewController: UIViewController {
 
 extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var number = 0
         if tableView == catalogTable {
-            return 5
+            if catalogList != nil {
+                number = catalogList!.count
+            }
         } else if tableView == serviceTable {
             return 10
         } else if tableView == providerTable {
@@ -98,7 +130,11 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
         var cell: UITableViewCell!
         if tableView == catalogTable {
             let catalogCell  = tableView.dequeueReusableCellWithIdentifier("CatalogCell") as AICatalogTableCellTableViewCell
-            catalogCell.name = "catalog"
+            
+            if catalogList != nil {
+                catalogCell.name = catalogList![indexPath.item].catalog_name!
+            }
+            
             catalogCell.addBottomWholeBorderLine()
             cell = catalogCell
         } else if tableView == serviceTable {
@@ -124,7 +160,21 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
         return cell!
     }
     
-
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if tableView == catalogTable {
+            let catalog = self.catalogList?[indexPath.item]
+            
+            Async.background() {
+                
+                self.searchEngine?.queryServices(catalog!.catalog_id!, pageNum: 1, completion: self.loadServicesData)
+                return
+            }
+        } else if tableView == serviceTable {
+            
+        } else if tableView == providerTable {
+            
+        }
+    }
     
 }
 

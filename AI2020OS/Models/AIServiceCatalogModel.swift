@@ -9,7 +9,6 @@
 import Foundation
 import JSONJoy
 
-//订单列表model
 struct AICatalogListModel : JSONJoy {
     var catalogArray = Array<AICatalogItemModel>()
     init() {
@@ -27,20 +26,23 @@ struct AICatalogListModel : JSONJoy {
     }
 }
 
-//订单列表项model
 struct AICatalogItemModel : JSONJoy{
 
     var catalog_id : Int?
     var catalog_name : String?
+    var level: Int?
+    var has_children: Bool?
+    var parent_id: Int?
     
     init(){
         
     }
     
     init(_ decoder: JSONDecoder) {
-        var id = decoder["catalog_id"].integer
         catalog_id = decoder["catalog_id"].integer
-        var name = decoder["catalog_name"].string
         catalog_name = decoder["catalog_name"].string
+        level = decoder["level"].integer
+        has_children = decoder["has_children"].bool
+        parent_id = decoder["parent_id"].integer
     }
 }

@@ -39,7 +39,10 @@ struct AIHttpEngine{
         case GetOrderDetail
         // 查询热门搜索
         case QueryHotSearch
-        case QueryServiceItems
+        // 按服务目录查询服务
+        case QueryServiceItemsByCatalogId
+        // 获取所有的服务类
+        case GetAllServiceCatalog
 
         var description: String {
             switch self {
@@ -50,7 +53,8 @@ struct AIHttpEngine{
             case .GetOrderList: return "/sboss/queryOrderList"
             case .GetOrderDetail: return "/sboss/queryOrderDetail"
             case .QueryHotSearch: return "/sboss/queryHotSearch"
-            case .QueryServiceItems: return "/sboss/queryServiceItems"
+            case .QueryServiceItemsByCatalogId: return "/sboss/queryServiceItemsByCatalogId"
+            case .GetAllServiceCatalog: return "/sboss/getAllServiceCatalog"
             }
         }
     }
