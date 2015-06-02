@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var rootNavigationController:UINavigationController?
     
+    var backgroudtask: UIBackgroundTaskIdentifier = 0
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -27,15 +29,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
               clientKey: AIApplication.AVOSCLOUDKEY)
 
         // DEBUG
-        AVAnalytics.setCrashReportEnabled(true)
-        AVAnalytics.setAnalyticsEnabled(true)
-        AVOSCloud.setVerbosePolicy(kAVVerboseShow)
-        AVLogger.addLoggerDomain(AVLoggerDomainIM)
-        AVLogger.addLoggerDomain(AVLoggerDomainCURL)
-        AVLogger.setLoggerLevelMask(AVLoggerLevelAll.value)
+//        AVAnalytics.setCrashReportEnabled(true)
+//        AVAnalytics.setAnalyticsEnabled(true)
+//        AVOSCloud.setVerbosePolicy(kAVVerboseShow)
+//        AVLogger.addLoggerDomain(AVLoggerDomainIM)
+//        AVLogger.addLoggerDomain(AVLoggerDomainCURL)
+//        AVLogger.setLoggerLevelMask(AVLoggerLevelAll.value)
         
         //处理讯飞语音初始化
         AIAppInit().xfINIT()
+        
+        //  Ask for permission to show badges.
+        let types: UIUserNotificationType = UIUserNotificationType.Sound | UIUserNotificationType.Badge | UIUserNotificationType.Alert
+        let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
+    
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
         //Hook Viewdidview and ViewDidDisappear.
       
@@ -50,9 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    
-    
-
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -61,6 +66,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        beginBackgroudupdateTask()
+
+        Async.background(after: 5) {
+            // do somethings
+            let localNotify =  UILocalNotification()
+//            localNotify.alertAction = "查看"
+            localNotify.alertBody = "收藏夹有新动态"
+            localNotify.timeZone = NSTimeZone.defaultTimeZone()
+            //localNotify.repeatInterval = NSCalendarUnit.CalendarCalendarUnit
+            localNotify.applicationIconBadgeNumber = 1
+            localNotify.userInfo = ["key":"name"]
+            localNotify.fireDate = NSDate(timeIntervalSinceNow: 5)
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotify)
+        }
+    }
+    
+    func beginBackgroudupdateTask(){
+        backgroudtask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+            
+        }
+    }
+    
+    func endBackgroudUpdateTask(){
+        UIApplication.sharedApplication().endBackgroundTask(backgroudtask)
+        
+        self.backgroudtask = UIBackgroundTaskInvalid
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -69,12 +100,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        endBackgroudUpdateTask()
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
 
+        println(notification)
+    }
+    
+    
 }
 

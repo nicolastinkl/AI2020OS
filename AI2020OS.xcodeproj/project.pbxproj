@@ -102,6 +102,10 @@
 		937301071ACBEA5A00CA17BC /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 937301061ACBEA5A00CA17BC /* UINavigationBar+Awesome.m */; };
 		9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373010A1ACBEAE300CA17BC /* UIColorUtils.swift */; };
 		9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373010C1ACBEB0B00CA17BC /* UIViewControllerUtils.swift */; };
+		93735D8E1B1D976C00D52431 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93735D8D1B1D976C00D52431 /* ShareViewController.swift */; };
+		93735D901B1D976C00D52431 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93735D8F1B1D976C00D52431 /* MainInterface.storyboard */; };
+		93735D931B1D976C00D52431 /* SBOSS.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 93735D891B1D976C00D52431 /* SBOSS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		93735D991B1D9A4000D52431 /* AIShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93735D981B1D9A4000D52431 /* AIShareViewController.swift */; };
 		9394D2281B133F0C00EE578E /* AIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394D2271B133F0C00EE578E /* AIModels.swift */; };
 		939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F4BD41AD6648000CE530C /* AIAudioViewController.swift */; };
 		93A7058E1B12CAD800E8193C /* AIServerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */; };
@@ -188,7 +192,28 @@
 			remoteGlobalIDString = 933ED3E31AC8F90A00E4AADB;
 			remoteInfo = AI2020OS;
 		};
+		93735D911B1D976C00D52431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 933ED3DC1AC8F90A00E4AADB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93735D881B1D976C00D52431;
+			remoteInfo = SBOSS;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		93735D971B1D976C00D52431 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				93735D931B1D976C00D52431 /* SBOSS.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		126A4E2E1B1860EA000C6C9E /* jsonfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonfile.json; sourceTree = "<group>"; };
@@ -305,6 +330,13 @@
 		937301061ACBEA5A00CA17BC /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Awesome.m"; path = "../Libs/UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		9373010A1ACBEAE300CA17BC /* UIColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtils.swift; sourceTree = "<group>"; };
 		9373010C1ACBEB0B00CA17BC /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
+		93735D891B1D976C00D52431 /* SBOSS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SBOSS.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		93735D8C1B1D976C00D52431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93735D8D1B1D976C00D52431 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		93735D8F1B1D976C00D52431 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		93735D981B1D9A4000D52431 /* AIShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIShareViewController.swift; sourceTree = "<group>"; };
+		93735D9A1B1DAEED00D52431 /* SBOSS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SBOSS.entitlements; sourceTree = "<group>"; };
+		93735D9B1B1DAF3600D52431 /* AI2020OS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AI2020OS.entitlements; sourceTree = "<group>"; };
 		9394D2271B133F0C00EE578E /* AIModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModels.swift; sourceTree = "<group>"; };
 		939F4BD41AD6648000CE530C /* AIAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioViewController.swift; sourceTree = "<group>"; };
 		93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServerTimeView.swift; sourceTree = "<group>"; };
@@ -412,6 +444,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		933ED3F81AC8F90A00E4AADB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93735D861B1D976C00D52431 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -557,6 +596,7 @@
 				93AC3FB61AC95DF5000024A4 /* StoryBoard */,
 				933ED4391AC92BF700E4AADB /* Application */,
 				933ED4351AC92B5700E4AADB /* Bridging */,
+				93735D8A1B1D976C00D52431 /* SBOSS */,
 				933ED42F1AC9282A00E4AADB /* Frameworks */,
 				933ED4171AC9221100E4AADB /* Utils */,
 				933ED4181AC9221100E4AADB /* Venders */,
@@ -581,6 +621,7 @@
 			children = (
 				933ED3E41AC8F90A00E4AADB /* AI2020OS.app */,
 				933ED3FB1AC8F90A00E4AADB /* AI2020OSTests.xctest */,
+				93735D891B1D976C00D52431 /* SBOSS.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -588,6 +629,7 @@
 		933ED3E61AC8F90A00E4AADB /* AI2020OS */ = {
 			isa = PBXGroup;
 			children = (
+				93735D9B1B1DAF3600D52431 /* AI2020OS.entitlements */,
 				933ED3E91AC8F90A00E4AADB /* AppDelegate.swift */,
 				933ED3F21AC8F90A00E4AADB /* Images.xcassets */,
 				933ED3F41AC8F90A00E4AADB /* LaunchScreen.xib */,
@@ -832,6 +874,26 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		93735D8A1B1D976C00D52431 /* SBOSS */ = {
+			isa = PBXGroup;
+			children = (
+				93735D9A1B1DAEED00D52431 /* SBOSS.entitlements */,
+				93735D8D1B1D976C00D52431 /* ShareViewController.swift */,
+				93735D8F1B1D976C00D52431 /* MainInterface.storyboard */,
+				93735D8B1B1D976C00D52431 /* Supporting Files */,
+				93735D981B1D9A4000D52431 /* AIShareViewController.swift */,
+			);
+			path = SBOSS;
+			sourceTree = "<group>";
+		};
+		93735D8B1B1D976C00D52431 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93735D8C1B1D976C00D52431 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		93AC3FB61AC95DF5000024A4 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -1022,10 +1084,12 @@
 				933ED40C1AC8F9CA00E4AADB /* ShellScript */,
 				85082EEEF932726933AF0BE2 /* Embed Pods Frameworks */,
 				A96ECCBD274F402AAC7916BB /* Copy Pods Resources */,
+				93735D971B1D976C00D52431 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				93735D921B1D976C00D52431 /* PBXTargetDependency */,
 			);
 			name = AI2020OS;
 			productName = AI2020OS;
@@ -1050,6 +1114,23 @@
 			productReference = 933ED3FB1AC8F90A00E4AADB /* AI2020OSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		93735D881B1D976C00D52431 /* SBOSS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93735D941B1D976C00D52431 /* Build configuration list for PBXNativeTarget "SBOSS" */;
+			buildPhases = (
+				93735D851B1D976C00D52431 /* Sources */,
+				93735D861B1D976C00D52431 /* Frameworks */,
+				93735D871B1D976C00D52431 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SBOSS;
+			productName = SBOSS;
+			productReference = 93735D891B1D976C00D52431 /* SBOSS.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1061,7 +1142,14 @@
 				TargetAttributes = {
 					933ED3E31AC8F90A00E4AADB = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 89RFBF2W4Q;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -1070,6 +1158,15 @@
 					933ED3FA1AC8F90A00E4AADB = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = 933ED3E31AC8F90A00E4AADB;
+					};
+					93735D881B1D976C00D52431 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 89RFBF2W4Q;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1088,6 +1185,7 @@
 			targets = (
 				933ED3E31AC8F90A00E4AADB /* AI2020OS */,
 				933ED3FA1AC8F90A00E4AADB /* AI2020OSTests */,
+				93735D881B1D976C00D52431 /* SBOSS */,
 			);
 		};
 /* End PBXProject section */
@@ -1135,6 +1233,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93735D871B1D976C00D52431 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93735D901B1D976C00D52431 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1350,6 +1456,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		93735D851B1D976C00D52431 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93735D991B1D9A4000D52431 /* AIShareViewController.swift in Sources */,
+				93735D8E1B1D976C00D52431 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1357,6 +1472,11 @@
 			isa = PBXTargetDependency;
 			target = 933ED3E31AC8F90A00E4AADB /* AI2020OS */;
 			targetProxy = 933ED3FC1AC8F90A00E4AADB /* PBXContainerItemProxy */;
+		};
+		93735D921B1D976C00D52431 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93735D881B1D976C00D52431 /* SBOSS */;
+			targetProxy = 93735D911B1D976C00D52431 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1464,6 +1584,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AI2020OS/AI2020OS.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AI2020OS/frameworks",
@@ -1478,6 +1602,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AI2020OS/Bridging/AI2020OS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1489,6 +1614,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AI2020OS/AI2020OS.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AI2020OS/frameworks",
@@ -1503,6 +1632,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AI2020OS/Bridging/AI2020OS-Bridging-Header.h";
 			};
 			name = Release;
@@ -1541,6 +1671,38 @@
 			};
 			name = Release;
 		};
+		93735D951B1D976C00D52431 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SBOSS/SBOSS.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SBOSS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		93735D961B1D976C00D52431 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SBOSS/SBOSS.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = SBOSS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1570,6 +1732,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		93735D941B1D976C00D52431 /* Build configuration list for PBXNativeTarget "SBOSS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93735D951B1D976C00D52431 /* Debug */,
+				93735D961B1D976C00D52431 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SBOSS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>933ED3FA1AC8F90A00E4AADB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>93735D881B1D976C00D52431</key>
 		<dict>
 			<key>primary</key>
 			<true/>
