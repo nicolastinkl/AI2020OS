@@ -2,7 +2,7 @@
 //  SearchServiceViewControllerCollectionViewController.swift
 //  AI2020OS
 //
-//  Created by admin on 15/5/25.
+//  Created by liliang on 15/5/25.
 //  Copyright (c) 2015年 ___ASIAINFO___. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class SearchServiceViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+class SearchServiceViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,7 +21,8 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
     private let SECTION_HOT_SERVICES = 0
     private let SECTION_HISTORY = 1
     
-    private var catalogList:[AICatalogItemModel]?
+    private var catalogList: [AICatalogItemModel]?
+    private var recordList: [SearchHistoryRecord]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,18 +30,10 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         initCollectionView()
         
         var engine = HttpSearchEngine()
-        historyRecorder = engine
+        historyRecorder = MockSearchEngine()
         searchEngine = engine
         
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-     //   self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        recordList = historyRecorder?.getSearchHistoryItems()
     }
     
     
@@ -52,6 +45,7 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         }
         
     }
+    
     override func viewDidAppear(animated: Bool) {
 
         Async.background { () -> Void in
@@ -65,6 +59,17 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Call back
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        let record: SearchHistoryRecord = SearchHistoryRecord(searchName: textField.text)
+        historyRecorder?.recordSearch(record)
+        recordList?.append(record)
+        collectionView.reloadData()
+        //     searchEngine!.queryHotSearchedServices()
+        return true
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -75,100 +80,6 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         // Pass the selected object to the new view controller.
     }
     */
-
-    // MARK: UICollectionViewDataSource
-
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 2
-    }
-
-
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var itemNum = 0
-        
-        switch section {
-        case SECTION_HOT_SERVICES:
-            if catalogList != nil {
-                itemNum = catalogList!.count
-            }
-        case SECTION_HISTORY:
-            itemNum = historyRecorder!.getSearchHistoryItems().count
-        default:
-            itemNum = 0
-        }
-        
-        if itemNum > 10 {
-            itemNum = 10
-        }
-        
-        return itemNum
-    }
-
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CONTENT", forIndexPath: indexPath) as SearchTagCell
-    
-        cell.maxWidth = collectionView.bounds.size.width
-        
-        let records = historyRecorder!.getSearchHistoryItems()
-        
-        var tagName = ""
-        
-        if indexPath.section == SECTION_HOT_SERVICES {
-            if catalogList != nil {
-                tagName = catalogList![indexPath.item].catalog_name!
-            }
-        } else if indexPath.section == SECTION_HISTORY {
-            tagName = records[indexPath.item].name
-        }
-        
-        cell.text = tagName
-    
-        return cell
-    }
-  
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-
-        if (kind == UICollectionElementKindSectionHeader) {
-            let cell =
-            collectionView.dequeueReusableSupplementaryViewOfKind(
-                kind, withReuseIdentifier: "HEADER",
-                forIndexPath: indexPath) as SearchHeaderCell
-            cell.maxWidth = collectionView.bounds.size.width
-            
-            if indexPath.section == SECTION_HOT_SERVICES {
-                cell.text = "热门服务"
-            } else if indexPath.section == SECTION_HISTORY {
-                cell.text = "搜索历史"
-            }
-
-            
-            return cell
-        }
-        abort()
-    }
-    
-    func collectionView(collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        indexPath.row
-            let records = historyRecorder!.getSearchHistoryItems()
-           
-            var tagName = ""
-            
-            if indexPath.section == SECTION_HOT_SERVICES {
-                if catalogList != nil {
-                    tagName = catalogList![indexPath.item].catalog_name!
-                }
-                
-            } else if indexPath.section == SECTION_HISTORY {
-                tagName = records[indexPath.item].name
-            }
-            
-        let size = SearchTagCell.sizeForContentString(tagName,
-                forMaxWidth: collectionView.bounds.size.width / 2)
-        return size
-    }
     
     private func initCollectionView() {
         collectionView.dataSource = self
@@ -185,43 +96,6 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
             withReuseIdentifier: "HEADER")
         
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-//    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        return false
-//    }
-//
-//    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-//        return false
-//    }
-
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        let records = historyRecorder!.getSearchHistoryItems()
-        
-        if indexPath.section == SECTION_HOT_SERVICES {
-       //     tagName = services[indexPath.item].name
-        } else if indexPath.section == SECTION_HISTORY {
-     //       tagName = records[indexPath.item].name
-        }
-    }
     
     @IBAction func showAllServices(sender: UIButton) {
         println("showAllServices")
@@ -236,9 +110,121 @@ class SearchServiceViewController: UIViewController, UICollectionViewDelegate, U
         println("myFavorites")
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-   //     searchEngine!.queryHotSearchedServices()
-        return true
-    }
+    
 
+}
+
+extension SearchServiceViewController: UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    
+    // MARK: UICollectionViewDataSource
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var itemNum = 0
+        
+        switch section {
+        case SECTION_HOT_SERVICES:
+            if catalogList != nil {
+                itemNum = catalogList!.count
+            }
+        case SECTION_HISTORY:
+            if recordList != nil {
+                itemNum = recordList!.count
+            }
+        default:
+            itemNum = 0
+        }
+        
+        if itemNum > 10 {
+            itemNum = 10
+        }
+        
+        return itemNum
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CONTENT", forIndexPath: indexPath) as SearchTagCell
+        
+        cell.maxWidth = collectionView.bounds.size.width
+        
+        
+        var tagName = ""
+        
+        if indexPath.section == SECTION_HOT_SERVICES {
+            if catalogList != nil {
+                tagName = catalogList![indexPath.item].catalog_name!
+            }
+        } else if indexPath.section == SECTION_HISTORY {
+            if recordList != nil {
+                tagName = recordList![indexPath.item].name
+            }
+        }
+        
+        cell.text = tagName
+        
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        if (kind == UICollectionElementKindSectionHeader) {
+            let cell =
+            collectionView.dequeueReusableSupplementaryViewOfKind(
+                kind, withReuseIdentifier: "HEADER",
+                forIndexPath: indexPath) as SearchHeaderCell
+            cell.maxWidth = collectionView.bounds.size.width
+            
+            if indexPath.section == SECTION_HOT_SERVICES {
+                cell.text = "热门服务"
+            } else if indexPath.section == SECTION_HISTORY {
+                cell.text = "搜索历史"
+            }
+            
+            
+            return cell
+        }
+        abort()
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+            indexPath.row
+            let records = historyRecorder!.getSearchHistoryItems()
+            
+            var tagName = ""
+            
+            if indexPath.section == SECTION_HOT_SERVICES {
+                if catalogList != nil {
+                    tagName = catalogList![indexPath.item].catalog_name!
+                }
+                
+            } else if indexPath.section == SECTION_HISTORY {
+                tagName = records[indexPath.item].name
+            }
+            
+            let size = SearchTagCell.sizeForContentString(tagName,
+                forMaxWidth: collectionView.bounds.size.width / 2)
+            return size
+    }
+    
+    
+    // MARK: UICollectionViewDelegate
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let records = historyRecorder!.getSearchHistoryItems()
+        
+        if indexPath.section == SECTION_HOT_SERVICES {
+            //     tagName = services[indexPath.item].name
+        } else if indexPath.section == SECTION_HISTORY {
+            //       tagName = records[indexPath.item].name
+        }
+    }
+    
 }

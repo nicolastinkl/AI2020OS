@@ -22,6 +22,7 @@
 		84CC00011B107F430073B24A /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC00001B107F430073B24A /* ServiceModel.swift */; };
 		84CDC1701B14952500EA78BC /* SearchHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */; };
 		84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */; };
+		84D5D2C81B1C636D001E9F37 /* AICatalogServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */; };
 		84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
 		9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0751B09979500C1EE79 /* AILoginService.swift */; };
@@ -94,6 +95,7 @@
 		93659F611B1EEFB40065E661 /* AIExtensionAICContentAndService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93659F601B1EEFB40065E661 /* AIExtensionAICContentAndService.swift */; };
 		93659F641B1EF2090065E661 /* AITableViewInsetMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93659F631B1EF2090065E661 /* AITableViewInsetMakeView.swift */; };
 		93659F661B1EF21A0065E661 /* AITableViewInsetMakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93659F651B1EF21A0065E661 /* AITableViewInsetMakeView.xib */; };
+		93659F681B1F010F0065E661 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93659F671B1F010F0065E661 /* Default-568h@2x.png */; };
 		93692C971ACAA52A00D66211 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93692C961ACAA52A00D66211 /* Async.swift */; };
 		93692C9D1ACAB94700D66211 /* AILoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93692C9C1ACAB94700D66211 /* AILoginStoryboard.storyboard */; };
 		936D62471AD4D44A00609FCD /* AILoadingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936D62461AD4D44A00609FCD /* AILoadingStoryboard.storyboard */; };
@@ -243,6 +245,7 @@
 		84CF6A801B17F9A3001C4E72 /* CWStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
 		84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
 		84D132211B0F26E700B977F5 /* MainSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
+		84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICatalogServicesModel.swift; sourceTree = "<group>"; };
 		84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryRecord.swift; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
 		9301B0751B09979500C1EE79 /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
@@ -326,6 +329,7 @@
 		93659F601B1EEFB40065E661 /* AIExtensionAICContentAndService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIExtensionAICContentAndService.swift; sourceTree = "<group>"; };
 		93659F631B1EF2090065E661 /* AITableViewInsetMakeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITableViewInsetMakeView.swift; sourceTree = "<group>"; };
 		93659F651B1EF21A0065E661 /* AITableViewInsetMakeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITableViewInsetMakeView.xib; sourceTree = "<group>"; };
+		93659F671B1F010F0065E661 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		93692C961ACAA52A00D66211 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		93692C9C1ACAB94700D66211 /* AILoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AILoginStoryboard.storyboard; sourceTree = "<group>"; };
 		936D62461AD4D44A00609FCD /* AILoadingStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AILoadingStoryboard.storyboard; sourceTree = "<group>"; };
@@ -350,8 +354,6 @@
 		93735D8D1B1D976C00D52431 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		93735D8F1B1D976C00D52431 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		93735D981B1D9A4000D52431 /* AIShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIShareViewController.swift; sourceTree = "<group>"; };
-		93735D9A1B1DAEED00D52431 /* SBOSS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SBOSS.entitlements; sourceTree = "<group>"; };
-		93735D9B1B1DAF3600D52431 /* AI2020OS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AI2020OS.entitlements; sourceTree = "<group>"; };
 		937C77631B1E98AB006FF589 /* AIConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIConnectViewController.swift; sourceTree = "<group>"; };
 		937C77651B1E9B71006FF589 /* AICContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICContentViewController.swift; sourceTree = "<group>"; };
 		937C77671B1E9BBB006FF589 /* AICServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICServiceViewController.swift; sourceTree = "<group>"; };
@@ -652,7 +654,7 @@
 		933ED3E61AC8F90A00E4AADB /* AI2020OS */ = {
 			isa = PBXGroup;
 			children = (
-				93735D9B1B1DAF3600D52431 /* AI2020OS.entitlements */,
+				93659F671B1F010F0065E661 /* Default-568h@2x.png */,
 				933ED3E91AC8F90A00E4AADB /* AppDelegate.swift */,
 				933ED3F21AC8F90A00E4AADB /* Images.xcassets */,
 				933ED3F41AC8F90A00E4AADB /* LaunchScreen.xib */,
@@ -711,6 +713,7 @@
 				84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */,
 				84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */,
 				F2DACC2A1B197A7500233EFD /* AIOrderDetailModel.swift */,
+				84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -921,7 +924,6 @@
 		93735D8A1B1D976C00D52431 /* SBOSS */ = {
 			isa = PBXGroup;
 			children = (
-				93735D9A1B1DAEED00D52431 /* SBOSS.entitlements */,
 				93735D8D1B1D976C00D52431 /* ShareViewController.swift */,
 				93735D8F1B1D976C00D52431 /* MainInterface.storyboard */,
 				93735D8B1B1D976C00D52431 /* Supporting Files */,
@@ -1189,7 +1191,7 @@
 						DevelopmentTeam = 89RFBF2W4Q;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1208,7 +1210,7 @@
 						DevelopmentTeam = 89RFBF2W4Q;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1262,6 +1264,7 @@
 				934987161B0DA9A7003086D1 /* AIHomeViewStyleTitleAndContentView.xib in Resources */,
 				9349871E1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard in Resources */,
 				93659F661B1EF21A0065E661 /* AITableViewInsetMakeView.xib in Resources */,
+				93659F681B1F010F0065E661 /* Default-568h@2x.png in Resources */,
 				9349870E1B0DA348003086D1 /* AIHomeViewStyleMultiepleView.xib in Resources */,
 				93FF747C1B0F0CA800FD97C1 /* AIServerScopeView.xib in Resources */,
 				933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */,
@@ -1403,6 +1406,7 @@
 				9301B07C1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift in Sources */,
 				934FE7D41B1C6BB300B745D4 /* AIIMNotify.swift in Sources */,
 				93FF746B1B0ECEA000FD97C1 /* CVCalendarViewAnimatorDelegate.swift in Sources */,
+				84D5D2C81B1C636D001E9F37 /* AICatalogServicesModel.swift in Sources */,
 				93A7059A1B12D2C000E8193C /* AITSLocation.swift in Sources */,
 				93E2F7A41B09890D00483CFA /* AITransitionManagerMenuAnimation.swift in Sources */,
 				84CC00011B107F430073B24A /* ServiceModel.swift in Sources */,
@@ -1636,7 +1640,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AI2020OS/AI2020OS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -1666,7 +1669,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AI2020OS/AI2020OS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -1726,7 +1728,6 @@
 		93735D951B1D976C00D52431 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = SBOSS/SBOSS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1744,7 +1745,6 @@
 		93735D961B1D976C00D52431 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = SBOSS/SBOSS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SBOSS/Info.plist;

@@ -137,14 +137,15 @@ extension UIView {
         
         if let loadingXibView = self.viewWithTag(AIApplication.AIViewTags.loadingProcessTag) {
             loadingXibView.alpha = 1
-            let viewss = loadingXibView as UIActivityIndicatorView
-            springWithCompletion(0.7, {
-                loadingXibView.alpha = 0
-                viewss.stopAnimating()
-                loadingXibView.transform = CGAffineTransformMakeScale(1.5, 1.5)
-                }, { (completed) -> Void in
-                    loadingXibView.removeFromSuperview()
-            })
+            if let viewss = loadingXibView as? UIActivityIndicatorView{
+                springWithCompletion(0.7, {
+                    loadingXibView.alpha = 0
+                    viewss.stopAnimating()
+                    loadingXibView.transform = CGAffineTransformMakeScale(1.5, 1.5)
+                    }, { (completed) -> Void in
+                        loadingXibView.removeFromSuperview()
+                })
+            }
         }
     }
     

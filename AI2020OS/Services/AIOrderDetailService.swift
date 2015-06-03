@@ -11,7 +11,7 @@ import JSONJoy
 
 
 class AIOrderDetailRequester {
-    typealias OrderDetailRequesterCompletion = (data:OrderDetailModel) ->()
+    typealias OrderDetailRequesterCompletion = (data:OrderDetailModel,error:Error?) ->()
     private var isLoading : Bool = false
     
     //查询订单详情
@@ -32,7 +32,7 @@ class AIOrderDetailRequester {
             
             if let responseJSON: AnyObject = response{
                 let orderDetail =  OrderDetailModel(JSONDecoder(responseJSON))
-                completion(data: orderDetail)
+                completion(data: orderDetail, error: error)
             }
 
         }

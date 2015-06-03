@@ -20,6 +20,9 @@ struct OrderDetailModel : JSONJoy {
     var providerId : Int?
     var providerName : String?
     
+    init(){
+    
+    }
     var params: Array<ServiceParam>?
     
     
@@ -33,7 +36,7 @@ struct OrderDetailModel : JSONJoy {
         providerId = decoder["provider_id"].integer
         providerName = decoder["provider_name"].string
         
-        if let sparam = decoder.array {
+        if let sparam = decoder["service_param_list"].array {
             params = Array<ServiceParam>()
             for serviceParam in sparam {
                 params?.append(ServiceParam(serviceParam))

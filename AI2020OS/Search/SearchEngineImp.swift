@@ -14,6 +14,8 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
 
     private var recordList = [SearchHistoryRecord]()
     private var hotServiceList = [AICatalogItemModel]()
+    private var allCatalogList = [AICatalogItemModel]()
+    private var queryServices = [AIServiceTopicModel]()
     
     init() {
         initServiceData()
@@ -30,7 +32,14 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
     func queryHotSearchedServices(completion: (([AICatalogItemModel], Error?)) -> Void) {
         completion((hotServiceList, nil))
     }
+    
+    func getAllServiceCatalog(completion: (([AICatalogItemModel], Error?)) -> Void) {
+        completion((allCatalogList, nil))
+    }
 
+    func queryServices(catalogId: Int, pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
+        completion((queryServices, nil))
+    }
     
     func recordSearch(searchRecord: SearchHistoryRecord) {
         recordList.append(searchRecord)
@@ -68,7 +77,7 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
 }
 
 
-class HttpSearchEngine : SearchEngine, SearchRecorder {
+class HttpSearchEngine : SearchEngine {
 
     var isLoading : Bool = false
     
@@ -137,12 +146,60 @@ class HttpSearchEngine : SearchEngine, SearchRecorder {
         
     }
     
-    func recordSearch(searchRecord: SearchHistoryRecord) {
-        recordList.append(searchRecord)
+    func getAllServiceCatalog(completion: (([AICatalogItemModel], Error?)) -> ()) {
+        if isLoading {
+            return
+        }
+        
+        var listModel :AICatalogListModel?
+        
+        isLoading = true
+        
+        var responseError:Error?
+        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.GetAllServiceCatalog, parameters: nil) {  [weak self] (response, error) -> () in
+            responseError = error
+            if let strongSelf = self{
+                strongSelf.isLoading = false
+            }
+            if let responseJSON: AnyObject = response {
+                listModel =  AICatalogListModel(JSONDecoder(responseJSON))
+            }
+            
+            if listModel == nil {
+                listModel = AICatalogListModel()
+            }
+            
+            completion((listModel!.catalogArray, error))
+        }
+
     }
     
-    func getSearchHistoryItems() -> [SearchHistoryRecord] {
-        return recordList
+    func queryServices(catalogId: Int, pageNum: Int, pageSize: Int = 1, completion: (([AIServiceTopicModel], Error?)) -> Void) {
+        if isLoading {
+            return
+        }
+        
+        var listModel :AICatalogServicesResult?
+        
+        isLoading = true
+        
+        var responseError:Error?
+        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.QueryServiceItemsByCatalogId, parameters: ["page_num":pageNum, "catalog_id":catalogId, "page_size": pageSize]) {  [weak self] (response, error) -> () in
+            responseError = error
+            if let strongSelf = self{
+                strongSelf.isLoading = false
+            }
+            if let responseJSON: AnyObject = response {
+                listModel =  AICatalogServicesResult(JSONDecoder(responseJSON))
+            }
+            
+            if listModel == nil {
+                listModel = AICatalogServicesResult()
+            }
+            
+            completion((listModel!.services, error))
+        }
+
     }
     
 }

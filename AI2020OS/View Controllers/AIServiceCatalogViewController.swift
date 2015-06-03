@@ -16,15 +16,44 @@ class AIServiceCatalogViewController: UIViewController {
     @IBOutlet weak var serviceTable: UITableView!
     private var providerTable: UITableView!
     
+    private var searchEngine: SearchEngine?
+    private var catalogList:[AICatalogItemModel]?
+    private var serviceList: [AIServiceTopicModel]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createProviderTableView()
+        createProviderHeader()
         
+        var engine = HttpSearchEngine()
+        searchEngine = engine
+
+        
+        
+        Async.background() {
+            self.searchEngine?.getAllServiceCatalog(self.loadCatalogData)
+            return
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Action
+    
+    @IBAction func back(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - Private
+    private func createProviderHeader() {
         let nib = UINib(nibName: "AICatalogTableCellTableViewCell", bundle: nil)
         catalogTable.registerNib(nib!,
             forCellReuseIdentifier: "CatalogCell")
-
+        
         catalogTable.dataSource = self
         catalogTable.delegate = self
         
@@ -33,13 +62,6 @@ class AIServiceCatalogViewController: UIViewController {
         
         serviceTable.tableHeaderView =  providerTable
         serviceTable.tableHeaderView?.setHeight(CGFloat(140))
-        serviceTable.tableHeaderView?.autoresizesSubviews = false
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     private func createProviderTableView() {
@@ -51,6 +73,37 @@ class AIServiceCatalogViewController: UIViewController {
         providerTable.delegate = self
     }
     
+    private func loadCatalogData(result: (model: [AICatalogItemModel], err: Error?)) {
+        
+        if result.err == nil {
+            catalogList = result.model
+            catalogTable.reloadData()
+            
+            if var count = catalogList?.count {
+                if count > 0 {
+                    catalogDidSelected(catalogList![0])
+                }
+            }
+            
+        }
+    }
+    
+    private func loadServicesData(result: (model: [AIServiceTopicModel], err: Error?)) {
+        if result.err == nil {
+            serviceList = result.model
+            serviceTable.reloadData()
+        }
+    }
+    
+    private func catalogDidSelected(catalog: AICatalogItemModel) {
+        if catalog.catalog_id != nil {
+            Async.background() {
+            
+            self.searchEngine?.queryServices(catalog.catalog_id!, pageNum: 1, pageSize: 10, completion: self.loadServicesData)
+            return
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -65,16 +118,22 @@ class AIServiceCatalogViewController: UIViewController {
 }
 
 extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var number = 0
         if tableView == catalogTable {
-            return 5
+            if catalogList != nil {
+                number = catalogList!.count
+            }
         } else if tableView == serviceTable {
-            return 10
+            if serviceList != nil {
+                number = serviceList!.count
+            }
         } else if tableView == providerTable {
             return 10
         }
         
-        return 0
+        return number
     }
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -98,12 +157,19 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
         var cell: UITableViewCell!
         if tableView == catalogTable {
             let catalogCell  = tableView.dequeueReusableCellWithIdentifier("CatalogCell") as AICatalogTableCellTableViewCell
-            catalogCell.name = "catalog"
+
+            if catalogList != nil {
+                catalogCell.name = catalogList![indexPath.item].catalog_name!
+            }
+            
             catalogCell.addBottomWholeBorderLine()
             cell = catalogCell
         } else if tableView == serviceTable {
             cell = tableView.dequeueReusableCellWithIdentifier("ServiceCell") as UITableViewCell
-            cell!.textLabel?.text = "service"
+            
+            if serviceList != nil {
+                cell!.textLabel?.text = serviceList![indexPath.item].service_name
+            }
         } else if tableView == providerTable {
             
             var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView
@@ -124,7 +190,19 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
         return cell!
     }
     
-
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if tableView == catalogTable {
+            if var count = catalogList?.count {
+                if count > 0 {
+                    catalogDidSelected(catalogList![indexPath.item])
+                }
+            }
+        } else if tableView == serviceTable {
+            
+        } else if tableView == providerTable {
+            
+        }
+    }
     
 }
 

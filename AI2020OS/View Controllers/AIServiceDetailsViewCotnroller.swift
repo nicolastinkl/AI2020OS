@@ -73,8 +73,8 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
     func registerNib(cellReuseIdentifier:String){
         
-        var paramsCellNib:UINib = UINib(nibName: cellReuseIdentifier, bundle: nil)!
-        self.detailsPageView.registerCells(paramsCellNib, identifier: cellReuseIdentifier)
+//        var paramsCellNib:UINib = UINib(nibName: cellReuseIdentifier, bundle: nil)!
+//        self.detailsPageView.registerCells(paramsCellNib, identifier: cellReuseIdentifier)
         
     }
     
