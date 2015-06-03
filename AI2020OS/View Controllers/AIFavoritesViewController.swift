@@ -11,7 +11,7 @@ import Foundation
 /*!
 *  @author tinkl, 15-04-28 16:04:29
 *
-*  收藏夹 Favorites
+*  收藏夹 Favorites Pages
 */
 class AIFavoritesViewController : UIPageViewController {
 

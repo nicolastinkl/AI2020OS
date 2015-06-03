@@ -7,7 +7,6 @@
  */
 //
 
-
 // MARK: 引入AVOS 头文件
 #import <AVOSCloud/AVOSCloud.h>
 #import <AVOSCloudIM/AVOSCloudIM.h>
@@ -27,3 +26,8 @@
 // MARK: 自定义视图
 #import "UIView+MaterialDesign.h"
 #import "CWStarRateView.h"
+
+// MARK: Cell
+
+#import "MGSwipeTableCell.h"
+#import "MGSwipeButton.h"

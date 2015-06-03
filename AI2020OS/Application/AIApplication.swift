@@ -71,6 +71,13 @@ struct AIApplication{
             // MARK: IM CNETER
             static let AITMSGSDContentViewCell          = "AITMSGSDContentViewCell"
             
+            static let AICContentViewControllerCell     = "AICContentViewControllerCell"
+            static let AICContentViewControllerImageCell     = "AICContentViewControllerImageCell"            
+            
+            static let AICServiceViewControllerCell     = "AICServiceViewControllerCell"
+            static let AICServiceViewControllerImageCell     = "AICServiceViewControllerImageCell"
+            
+            
         }
         
         struct ViewIdentifiers {
@@ -85,6 +92,7 @@ struct AIApplication{
             static let AIServerScopeView    = "AIServerScopeView"
             static let AIServerTimeView     = "AIServerTimeView"
             static let AIServerAddressView  = "AIServerAddressView"
+            static let AITableViewInsetMakeView =   "AITableViewInsetMakeView"
         }
     }
     
