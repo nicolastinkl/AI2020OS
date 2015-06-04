@@ -72,6 +72,7 @@ struct AIApplication{
             static let AITMSGSDContentViewCell          = "AITMSGSDContentViewCell"
             
             static let AICContentViewControllerCell     = "AICContentViewControllerCell"
+            static let AICContentViewControllerAttachedCell   = "AICContentViewControllerAttachedCell"
             static let AICContentViewControllerImageCell     = "AICContentViewControllerImageCell"            
             
             static let AICServiceViewControllerCell     = "AICServiceViewControllerCell"

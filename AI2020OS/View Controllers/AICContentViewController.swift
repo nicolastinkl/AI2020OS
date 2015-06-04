@@ -22,6 +22,17 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
         return AITableViewInsetMakeView.currentView()
     }
     
+    private var MainCell:String     = "MainCell"
+    private var AttachedCell:String = "AttachedCell"
+    
+    private var array:NSMutableArray = {
+        let dic:NSDictionary = ["Cell": "MainCell","isAttached":false]
+        return [dic,dic,dic,dic,dic,dic,dic]
+    }()
+    
+    
+    
+    
     // MARK: life cycle
     
     override func viewDidLoad() {
@@ -42,10 +53,8 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
 //                f.size.height =  kImageOriginHight + sin((kImageOriginHight - yOffset))
 //                viewTableHead.frame = f
             }
-        
         }
     }
-    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -69,16 +78,20 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
         if currentModel == ConnectViewModel.ImageView{
             return 290
         }else{
-            return 110
+            let dict = self.array[indexPath.row] as NSDictionary
+            if (dict["Cell"] as String) == self.MainCell {
+                return 110
+            }
+            return 75
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return array.count
+//    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return array.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -88,14 +101,63 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
             cell.configData()
             return cell
         }else{
-            let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICContentViewControllerCell) as  AICContentViewControllerCell
-            cell.configData()
-            cell.delegate = self
-            return cell
-            
+            let dict = self.array[indexPath.row] as NSDictionary
+            if (dict["Cell"] as String) == self.MainCell {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICContentViewControllerCell) as  AICContentViewControllerCell
+                cell.configData()
+                cell.delegate = self
+                return cell
+                
+            }else if (dict["Cell"] as String) == self.AttachedCell {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICContentViewControllerAttachedCell) as  AICContentViewControllerAttachedCell
+                cell.configData()
+                cell.delegate = self
+                return cell
+            }
         }
+        
+        return UITableViewCell()
     }
    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
+        var path:NSIndexPath?
+        
+        let dict = self.array[indexPath.row] as NSDictionary
+        if (dict["Cell"] as String) == self.MainCell {
+            path = NSIndexPath(forItem: (indexPath.row+1), inSection: indexPath.section)
+        }else{
+            path = indexPath
+        }
+        if let bol = dict["isAttached"] as? Bool {
+            if bol {
+                let dic:NSDictionary = ["Cell": "MainCell","isAttached":false]
+                self.array[path!.row-1] = dic
+                self.array.removeObjectAtIndex(path!.row)
+                
+                self.tableView.beginUpdates()
+                self.tableView.deleteRowsAtIndexPaths([path!], withRowAnimation: UITableViewRowAnimation.Top)
+                self.tableView.endUpdates()
+                
+                
+            }else{
+                
+                let dic:NSDictionary = ["Cell": "MainCell","isAttached":true]
+                self.array[path!.row-1] = dic
+                let addDic:NSDictionary = ["Cell": "AttachedCell","isAttached":true]
+                self.array.insertObject(addDic, atIndex: path!.row)
+                
+                self.tableView.beginUpdates()
+                self.tableView.insertRowsAtIndexPaths([path!], withRowAnimation: UITableViewRowAnimation.Top)
+                self.tableView.endUpdates()
+            }
+        }
+        
+    }
 }
 
 
@@ -119,42 +181,35 @@ extension AICContentViewController: MGSwipeTableCellDelegate{
             expansionSettings.threshold = 1.1
             let padding:Int = 15
 
-            let trash = MGSwipeButton(title: "删除", backgroundColor: UIColor.redColor(), padding: padding, callback: { (cell) -> Bool in
-                let indexpath: NSIndexPath = self.tableView.indexPathForCell(cell as AICContentViewControllerCell)!
-//                self.tableView.deleteRowsAtIndexPaths([indexpath], withRowAnimation: UITableViewRowAnimation.Left)
-                return false
-            })
-                        
-            let edit = MGSwipeButton(title: "编辑", backgroundColor: UIColor(red: 1.0, green: 149/255, blue: 0.05, alpha: 1), padding: padding, callback: { (cell) -> Bool in
-                return true
-            })
+            if cell.reuseIdentifier! == AIApplication.MainStoryboard.CellIdentifiers.AICContentViewControllerCell {
+                
+                let trash = MGSwipeButton(title: "删除", backgroundColor: UIColor.redColor(), padding: padding, callback: { (cell) -> Bool in
+                    let indexpath: NSIndexPath = self.tableView.indexPathForCell(cell as AICContentViewControllerCell)!
+                    //                self.tableView.deleteRowsAtIndexPaths([indexpath], withRowAnimation: UITableViewRowAnimation.Left)
+                    return false
+                })
+                
+                let edit = MGSwipeButton(title: "编辑", backgroundColor: UIColor(red: 1.0, green: 149/255, blue: 0.05, alpha: 1), padding: padding, callback: { (cell) -> Bool in
+                    return true
+                })
+                
+                return [trash,edit]
+            }else if cell.reuseIdentifier! == AIApplication.MainStoryboard.CellIdentifiers.AICContentViewControllerAttachedCell{
+                
+                let edit = MGSwipeButton(title: "收藏", backgroundColor: UIColor(hex: "#436CD1"), padding: padding, callback: { (cell) -> Bool in
+                    return true
+                })
+                return [edit]
+            }
             
-            return [trash,edit]
+            
+            return []
         }
     }
     
     func swipeTableCell(cell: MGSwipeTableCell!, didChangeSwipeState state: MGSwipeState, gestureIsActive: Bool) {
         
-        var str = ""
-        switch state{
-        case .None :
-            str = "None"
-            break
-        case .ExpandingLeftToRight:
-            str = "ExpandingLeftToRight"
-            break
-        case .ExpandingRightToLeft:
-            str = "ExpandingRightToLeft"
-            break
-        case .SwippingLeftToRight:
-            str = "SwippingLeftToRight"
-            break
-        case .SwippingRightToLeft:
-            str = "SwippingRightToLeft"
-            break
-        default:
-            break
-        }
+        
     }
 }
 
@@ -249,3 +304,17 @@ class AICContentViewControllerImageCell: UITableViewCell,AITabelViewMenuViewDele
     
 }
 
+class AICContentViewControllerAttachedCell:MGSwipeTableCell{
+    
+    @IBOutlet weak var contentImage: AsyncImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var price: UILabel!
+    func configData(){
+        self.contentImage.maskWithEllipse()
+        contentImage.setURL(NSURL(string: "http://imglf0.ph.126.net/2PAScdjOGW7u_SF8n_YA0Q==/6630531204025177476.jpg"), placeholderImage: UIImage(named: "Placeholder"))
+        title.text = "Cafe Del Mar是Ibiza最为出名的地方"
+        price.text = "1380元"
+        
+    }
+    
+}

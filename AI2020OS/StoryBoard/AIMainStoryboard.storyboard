@@ -647,6 +647,56 @@
                                     <outlet property="title" destination="Xqu-Wq-KkC" id="gon-nK-evs"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="AICContentViewControllerAttachedCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="AICContentViewControllerAttachedCell" rowHeight="75" id="HKF-gY-FqE" customClass="AICContentViewControllerAttachedCell" customModule="AI2020OS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HKF-gY-FqE" id="um0-lx-FyD">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="epH-TC-8E4" customClass="AsyncImageView" customModule="Spring">
+                                            <rect key="frame" x="15" y="3" width="70" height="70"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="eaG-kI-1kc"/>
+                                                <constraint firstAttribute="height" constant="70" id="oDx-zp-lBD"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="俄罗斯精品油画展" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iq-Nv-4g1">
+                                            <rect key="frame" x="105" y="16" width="416" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="XHL-g8-qlP"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krg-HZ-ZjQ">
+                                            <rect key="frame" x="105" y="36" width="151" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="D9L-Dr-RGu"/>
+                                                <constraint firstAttribute="width" constant="151" id="R8Q-BA-Lse"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" red="0.99215686270000003" green="0.65490196079999996" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="8iq-Nv-4g1" firstAttribute="leading" secondItem="Krg-HZ-ZjQ" secondAttribute="trailing" constant="-151" id="0tx-5J-6h9"/>
+                                        <constraint firstItem="Krg-HZ-ZjQ" firstAttribute="leading" secondItem="epH-TC-8E4" secondAttribute="trailing" constant="20" id="4dM-be-eWI"/>
+                                        <constraint firstAttribute="centerY" secondItem="epH-TC-8E4" secondAttribute="centerY" id="Dtu-WL-3tP"/>
+                                        <constraint firstItem="8iq-Nv-4g1" firstAttribute="leading" secondItem="epH-TC-8E4" secondAttribute="trailing" constant="20" id="PxR-wk-u2O"/>
+                                        <constraint firstItem="8iq-Nv-4g1" firstAttribute="top" secondItem="um0-lx-FyD" secondAttribute="topMargin" constant="8" id="WMc-wG-aaV"/>
+                                        <constraint firstItem="Krg-HZ-ZjQ" firstAttribute="top" secondItem="8iq-Nv-4g1" secondAttribute="bottom" constant="-1" id="d1v-3T-SWa"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="8iq-Nv-4g1" secondAttribute="trailing" constant="71" id="exE-Pr-6GU"/>
+                                        <constraint firstItem="epH-TC-8E4" firstAttribute="leading" secondItem="um0-lx-FyD" secondAttribute="leadingMargin" constant="7" id="sZa-dv-PSz"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentImage" destination="epH-TC-8E4" id="Q7Y-iZ-d1Q"/>
+                                    <outlet property="price" destination="Krg-HZ-ZjQ" id="saG-Wa-F9v"/>
+                                    <outlet property="title" destination="8iq-Nv-4g1" id="rC1-pl-zcu"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="AICContentViewControllerImageCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="AICContentViewControllerImageCell" rowHeight="290" id="IL6-jx-Eld" customClass="AICContentViewControllerImageCell" customModule="AI2020OS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
