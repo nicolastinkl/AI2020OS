@@ -188,7 +188,6 @@ class AICContentViewControllerCell: MGSwipeTableCell{
 */
 class AICContentViewControllerImageCell: UITableViewCell{
     
-    
     @IBOutlet weak var contentImageView: AIImageView!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var title: UILabel!
