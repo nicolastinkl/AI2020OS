@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nom-2e-QSc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nom-2e-QSc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -731,6 +731,14 @@
                                                 <action selector="moreAction:" destination="IL6-jx-Eld" eventType="touchUpInside" id="rFM-UC-XnF"/>
                                             </connections>
                                         </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWd-pX-cUY">
+                                            <rect key="frame" x="496" y="43" width="90" height="160"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="90" id="VUn-1s-Xee"/>
+                                                <constraint firstAttribute="height" constant="160" id="wuB-gE-f9u"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="9Fs-hg-sdX" firstAttribute="trailing" secondItem="7nY-aB-85d" secondAttribute="trailingMargin" id="7Jj-4C-hhU"/>
@@ -739,9 +747,11 @@
                                         <constraint firstItem="jxX-xZ-8VD" firstAttribute="top" secondItem="7nY-aB-85d" secondAttribute="topMargin" constant="-8" id="DtS-NO-Aho"/>
                                         <constraint firstItem="tZQ-yN-Yzn" firstAttribute="leading" secondItem="emK-IY-5fc" secondAttribute="trailing" constant="-214" id="IXC-ED-boy"/>
                                         <constraint firstItem="eJl-nw-pOy" firstAttribute="top" secondItem="7nY-aB-85d" secondAttribute="topMargin" constant="4" id="J2o-7d-Upe"/>
+                                        <constraint firstItem="PWd-pX-cUY" firstAttribute="top" secondItem="7nY-aB-85d" secondAttribute="topMargin" constant="35" id="N9m-0i-bIf"/>
                                         <constraint firstItem="eJl-nw-pOy" firstAttribute="trailing" secondItem="7nY-aB-85d" secondAttribute="trailingMargin" id="aLJ-NA-rug"/>
                                         <constraint firstItem="jxX-xZ-8VD" firstAttribute="leading" secondItem="7nY-aB-85d" secondAttribute="leadingMargin" constant="-8" id="bL8-gQ-7VH"/>
                                         <constraint firstItem="tZQ-yN-Yzn" firstAttribute="top" secondItem="7nY-aB-85d" secondAttribute="topMargin" constant="2" id="dAH-XS-oQc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="PWd-pX-cUY" secondAttribute="trailing" constant="6" id="h6V-6k-KBF"/>
                                         <constraint firstItem="tZQ-yN-Yzn" firstAttribute="leading" secondItem="7nY-aB-85d" secondAttribute="leadingMargin" constant="2" id="wOt-cA-jvd"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="jxX-xZ-8VD" secondAttribute="bottom" constant="-8" id="wcK-gM-DYd"/>
                                         <constraint firstItem="emK-IY-5fc" firstAttribute="top" secondItem="tZQ-yN-Yzn" secondAttribute="bottom" constant="8" id="zbk-O0-GYA"/>
@@ -751,6 +761,7 @@
                                     <outlet property="avatorButton" destination="rlf-My-lt5" id="soE-TJ-Usu"/>
                                     <outlet property="contentImageView" destination="jxX-xZ-8VD" id="bZV-rj-SVY"/>
                                     <outlet property="des" destination="emK-IY-5fc" id="WT0-vl-CKY"/>
+                                    <outlet property="menuView" destination="PWd-pX-cUY" id="9hk-R1-zan"/>
                                     <outlet property="moreButton" destination="eJl-nw-pOy" id="kuS-Xz-bT8"/>
                                     <outlet property="nick" destination="kJO-Kg-GUS" id="Ju6-6x-wLn"/>
                                     <outlet property="signButton" destination="paz-fe-6HP" id="ThR-oR-MWw"/>
@@ -766,7 +777,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psy-oN-fsO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1243" y="2629"/>
+            <point key="canvasLocation" x="-1231" y="2629.5"/>
         </scene>
         <!--收藏夹-->
         <scene sceneID="Cdn-DZ-DpY">

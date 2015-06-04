@@ -186,7 +186,7 @@ class AICContentViewControllerCell: MGSwipeTableCell{
 *
 *  Image push model
 */
-class AICContentViewControllerImageCell: UITableViewCell{
+class AICContentViewControllerImageCell: UITableViewCell,AITabelViewMenuViewDelegate{
     
     @IBOutlet weak var contentImageView: AIImageView!
     @IBOutlet weak var moreButton: UIButton!
@@ -195,6 +195,27 @@ class AICContentViewControllerImageCell: UITableViewCell{
     @IBOutlet weak var avatorButton: AsyncButton!
     @IBOutlet weak var nick: UILabel!
     @IBOutlet weak var des: UILabel!
+    @IBOutlet weak var menuView: UIView!
+    
+    func shareAction() {
+        
+    }
+    
+    func editLabelAction() {
+        
+    }
+    
+    func buyAction() {
+        
+    }
+    
+    func deleteAction() {
+        
+    }
+    
+    func mutliDelAction() {
+        
+    }
     
     func configData(){
         contentImageView.setURL(NSURL(string: "http://imglf0.ph.126.net/2PAScdjOGW7u_SF8n_YA0Q==/6630531204025177476.jpg"), placeholderImage: UIImage(named: "Placeholder"))
@@ -206,7 +227,20 @@ class AICContentViewControllerImageCell: UITableViewCell{
     }
     
     @IBAction func moreAction(sender: AnyObject) {
-    
+        if menuView.subviews.first != nil{
+            let cview = menuView.subviews.first as AITabelViewMenuView
+            cview.animation = "zoomOut"
+            cview.animate()
+            Async.userInitiated(after: 0.5, block: { () -> Void in
+                cview.removeFromSuperview()
+            })
+            
+        }else{
+            let menu = AITabelViewMenuView.currentView()
+            menu.delegate = self
+            menuView.addSubview(menu)
+        }
+        
     }
     
     @IBAction func signAction(sender: AnyObject) {

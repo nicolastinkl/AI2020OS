@@ -77,7 +77,7 @@ struct AIApplication{
             static let AICServiceViewControllerCell     = "AICServiceViewControllerCell"
             static let AICServiceViewControllerImageCell     = "AICServiceViewControllerImageCell"
             
-            
+            static let AITabelViewMenuViewCell  = "AITabelViewMenuViewCell"            
         }
         
         struct ViewIdentifiers {
@@ -93,6 +93,8 @@ struct AIApplication{
             static let AIServerTimeView     = "AIServerTimeView"
             static let AIServerAddressView  = "AIServerAddressView"
             static let AITableViewInsetMakeView =   "AITableViewInsetMakeView"
+            static let AITabelViewMenuView  = "AITabelViewMenuView"
+
         }
     }
     
@@ -129,8 +131,7 @@ struct AIApplication{
         static let AIFUWUTUIJISNID = "556c0acce4b0941996254a49"     //服务推荐
         static let AITUIKUAN = "556c0b8fe4b0941996254f8f"           //退款通知
         static let AIXITONG = "556c0c06e4b0941996255223"            //系统通知
-    }
-    
+    }    
     
     // MARK: The Application preferorm
     internal func SendAction(functionName:String,ownerName:AnyObject){
