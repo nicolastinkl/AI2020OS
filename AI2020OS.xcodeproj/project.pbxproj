@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1205C0DD1B20574F003E27C4 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1205C0DB1B20574F003E27C4 /* ENSideMenu.swift */; };
+		1205C0DE1B20574F003E27C4 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1205C0DC1B20574F003E27C4 /* ENSideMenuNavigationController.swift */; };
+		1239DBB71B204F48002F6A4F /* TagFilterData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1239DBB61B204F48002F6A4F /* TagFilterData.plist */; };
+		1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1239DBB81B2052A8002F6A4F /* TagFilterData.plist */; };
 		126A4E2F1B1860EA000C6C9E /* jsonfile.json in Resources */ = {isa = PBXBuildFile; fileRef = 126A4E2E1B1860EA000C6C9E /* jsonfile.json */; };
 		1284ABC41B2036B500636F35 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1284ABC11B2036B500636F35 /* SectionHeaderView.swift */; };
 		1284ABC51B2036B500636F35 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1284ABC21B2036B500636F35 /* SectionHeaderView.xib */; };
@@ -232,6 +236,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1205C0DB1B20574F003E27C4 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
+		1205C0DC1B20574F003E27C4 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
+		1239DBB61B204F48002F6A4F /* TagFilterData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TagFilterData.plist; path = AI2020OSTests/TagFilterData.plist; sourceTree = SOURCE_ROOT; };
+		1239DBB81B2052A8002F6A4F /* TagFilterData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TagFilterData.plist; sourceTree = "<group>"; };
 		126A4E2E1B1860EA000C6C9E /* jsonfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonfile.json; sourceTree = "<group>"; };
 		1284ABC11B2036B500636F35 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		1284ABC21B2036B500636F35 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
@@ -506,6 +514,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1205C0DA1B20571C003E27C4 /* sidemenu */ = {
+			isa = PBXGroup;
+			children = (
+				1205C0DB1B20574F003E27C4 /* ENSideMenu.swift */,
+				1205C0DC1B20574F003E27C4 /* ENSideMenuNavigationController.swift */,
+			);
+			name = sidemenu;
+			sourceTree = "<group>";
+		};
 		1284ABBF1B20368600636F35 /* TagFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,6 +701,7 @@
 		933ED3E61AC8F90A00E4AADB /* AI2020OS */ = {
 			isa = PBXGroup;
 			children = (
+				1239DBB81B2052A8002F6A4F /* TagFilterData.plist */,
 				93659F671B1F010F0065E661 /* Default-568h@2x.png */,
 				933ED3E91AC8F90A00E4AADB /* AppDelegate.swift */,
 				933ED3F21AC8F90A00E4AADB /* Images.xcassets */,
@@ -696,6 +714,7 @@
 		933ED3E71AC8F90A00E4AADB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1239DBB61B204F48002F6A4F /* TagFilterData.plist */,
 				933ED3E81AC8F90A00E4AADB /* Info.plist */,
 				934986FB1B0B13FD003086D1 /* InfoPlist.strings */,
 			);
@@ -723,6 +742,7 @@
 		933ED40E1AC921BD00E4AADB /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				1205C0DA1B20571C003E27C4 /* sidemenu */,
 				933668891AD6787B007556D7 /* sunflower */,
 				93692C961ACAA52A00D66211 /* Async.swift */,
 				93CFC0761AD6551200B82CC9 /* RAReorderableLayout.swift */,
@@ -1288,6 +1308,7 @@
 				93DE16AF1B05E26E0056A1E3 /* AIHomeSDDesViewCell.xib in Resources */,
 				84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
+				1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */,
 				93BD09081B06F97B00C8B96B /* AIMenuStoryboard.storyboard in Resources */,
 				934987071B0C75E0003086D1 /* AIMessageUnReadView.xib in Resources */,
 				93E4D5AB1B14A5F700992CA3 /* AISettingsStoryboard.storyboard in Resources */,
@@ -1317,6 +1338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1239DBB71B204F48002F6A4F /* TagFilterData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1439,6 +1461,7 @@
 				93FF74621B0ECEA000FD97C1 /* CVCalendarDayView.swift in Sources */,
 				93FF746E1B0ECEA000FD97C1 /* CVCalendarViewDelegate.swift in Sources */,
 				93AC3FD41ACA40C8000024A4 /* AITimelineViewController.swift in Sources */,
+				1205C0DD1B20574F003E27C4 /* ENSideMenu.swift in Sources */,
 				936D62531AD5144100609FCD /* KMDetailsPageView.m in Sources */,
 				9301B07C1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift in Sources */,
 				934FE7D41B1C6BB300B745D4 /* AIIMNotify.swift in Sources */,
@@ -1452,6 +1475,7 @@
 				934FE7D51B1C6BB300B745D4 /* AIIMRoom.swift in Sources */,
 				93FF74661B0ECEA000FD97C1 /* CVCalendarMonthContentView.swift in Sources */,
 				93659F5F1B1EDA100065E661 /* MGSwipeTableCell.m in Sources */,
+				1205C0DE1B20574F003E27C4 /* ENSideMenuNavigationController.swift in Sources */,
 				93FF74781B0ECF3800FD97C1 /* AICalendarViewController.swift in Sources */,
 				93BD090B1B06FBBF00C8B96B /* AIMenuViewController.swift in Sources */,
 				93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */,

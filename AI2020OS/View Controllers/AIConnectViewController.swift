@@ -111,9 +111,9 @@ class AIConnectViewController: UIViewController {
         
     }
     
-    @IBAction func tagFilterAction(sender: UITapGestureRecognizer) {
-        let viewController = UIStoryboard(name: "AITagFilterViewController", bundle: nil).instantiateInitialViewController() as UIViewController
-        self.navigationController?.pushViewController(viewController, animated: true)
+    @IBAction func showFilterAction(sender: UIButton) {
+        //let viewController = UIStoryboard(name: "AITagFilterStoryboard", bundle: nil).instantiateInitialViewController() as AITagFilterViewController
+        showViewController(UIStoryboard(name: "AITagFilterStoryboard", bundle: nil).instantiateInitialViewController() as AITagFilterViewController, sender: self)
     }
     
 }

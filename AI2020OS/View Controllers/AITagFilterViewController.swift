@@ -13,7 +13,7 @@ class EmailMenuItem: UIMenuItem{
     var indexPath: NSIndexPath!
 }
 
-class AITagFilterViewController: UITableViewController,MFMailComposeViewControllerDelegate,SectionHeaderViewDelegate{
+class AITagFilterViewController: UIViewController,MFMailComposeViewControllerDelegate,SectionHeaderViewDelegate,UITableViewDataSource,UITableViewDelegate{
 
     let SectionHeaderViewIdentifier = "SectionHeaderViewIdentifier"
     var plays:NSArray!
@@ -24,12 +24,13 @@ class AITagFilterViewController: UITableViewController,MFMailComposeViewControll
     
     var playe:NSMutableArray?
     
+    @IBOutlet weak var tableView: UITableView!
     var sectionHeaderView:SectionHeaderView!
     
     //当缩放手势同时改变了所有单元格高度时使用uniformRowHeight
     var uniformRowHeight: Int!
     
-    let DefaultRowHeight = 88
+    let DefaultRowHeight = 48
     let HeaderHeight = 48
     
     override func viewDidLoad() {
@@ -91,14 +92,18 @@ class AITagFilterViewController: UITableViewController,MFMailComposeViewControll
             
             self.sectionInfoArray  = infoArray
         }
+        
+        
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    // MARK: TableView dataSource delegate
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // 这个方法返回 tableview 有多少个section
         return self.plays.count
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 这个方法返回对应的section有多少个元素，也就是多少行
         var sectionInfo: SectionInfo = self.sectionInfoArray[section] as SectionInfo
         var numStoriesInSection = sectionInfo.play.quotations.count
@@ -107,19 +112,19 @@ class AITagFilterViewController: UITableViewController,MFMailComposeViewControll
         return sectionOpen ? numStoriesInSection : 0
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 返回指定的row 的cell。这个地方是比较关键的地方，一般在这个地方来定制各种个性化的 cell元素。这里只是使用最简单最基本的cell 类型。其中有一个主标题 cell.textLabel 还有一个副标题cell.detailTextLabel,  还有一个 image在最前头 叫cell.imageView.  还可以设置右边的图标，通过cell.accessoryType 可以设置是饱满的向右的蓝色箭头，还是单薄的向右箭头，还是勾勾标记。
         
-        let QuoteCellIdentifier = "QuoteCellIdentifier"
+        let QuoteCellIdentifier = "tagFilterTableCell"
         var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
         
         var play:Play = (self.sectionInfoArray[indexPath.section] as SectionInfo).play
         let quotation = play.quotations[indexPath.row] as NSDictionary
-        cell.textLabel.text = String.convertFromStringInterpolationSegment(quotation["tagName"])
+        cell.textLabel.text = quotation["tagName"] as? String
         return cell
     }
     
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // 返回指定的 section header 的view，如果没有，这个函数可以不返回view
         var sectionHeaderView: SectionHeaderView = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier(SectionHeaderViewIdentifier) as SectionHeaderView
         var sectionInfo: SectionInfo = self.sectionInfoArray[section] as SectionInfo
@@ -132,7 +137,7 @@ class AITagFilterViewController: UITableViewController,MFMailComposeViewControll
         return sectionHeaderView
     }
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         // 这个方法返回指定的 row 的高度
         var sectionInfo: SectionInfo = self.sectionInfoArray[indexPath.section] as SectionInfo
 
