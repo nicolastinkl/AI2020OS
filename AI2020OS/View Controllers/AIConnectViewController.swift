@@ -111,9 +111,10 @@ class AIConnectViewController: UIViewController {
         
     }
     
+
     @IBAction func showFilterAction(sender: UIButton) {
-        //let viewController = UIStoryboard(name: "AITagFilterStoryboard", bundle: nil).instantiateInitialViewController() as AITagFilterViewController
-        showViewController(UIStoryboard(name: "AITagFilterStoryboard", bundle: nil).instantiateInitialViewController() as AITagFilterViewController, sender: self)
+        let viewController = UIStoryboard(name: "AITagFilterStoryboard", bundle: nil).instantiateInitialViewController() as AITagFilterViewController
+        showViewController(viewController, sender: self)
     }
     
 }

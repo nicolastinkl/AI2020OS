@@ -434,7 +434,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Wag-CS-yOp" appends="YES" id="1m9-DZ-OqS"/>
+                                            <action selector="showFilterAction:" destination="Puy-Vg-Mpb" eventType="touchUpInside" id="AZB-05-E5m"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -533,11 +533,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTL-6V-9OR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Wag-CS-yOp">
-                    <connections>
-                        <action selector="tagFilterAction:" destination="Puy-Vg-Mpb" id="Q45-UW-eTA"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-986" y="1820"/>
         </scene>

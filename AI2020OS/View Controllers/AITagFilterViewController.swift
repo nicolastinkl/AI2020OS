@@ -13,7 +13,7 @@ class EmailMenuItem: UIMenuItem{
     var indexPath: NSIndexPath!
 }
 
-class AITagFilterViewController: UIViewController,MFMailComposeViewControllerDelegate,SectionHeaderViewDelegate,UITableViewDataSource,UITableViewDelegate{
+class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITableViewDataSource,UITableViewDelegate{
 
     let SectionHeaderViewIdentifier = "SectionHeaderViewIdentifier"
     var plays:NSArray!
