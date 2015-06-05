@@ -14,7 +14,7 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
 
     
     // MARK: Priate Variable
-    
+    private var serviceList: [AIServiceTopicModel]?
     var currentModel: ConnectViewModel = ConnectViewModel.ListView
     
     override func viewDidLoad() {
@@ -35,7 +35,11 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        if serviceList != nil {
+            return serviceList!.count
+        }
+        
+        return 0
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -49,14 +53,16 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if currentModel == ConnectViewModel.ListView{
+        if currentModel == ConnectViewModel.ListView {
             let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICollectServiceListCell) as  AICollectServiceListCell
             cell.configData()
+            cell.delegate = self
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICollectServiceGridCell) as  AICollectServiceGridCell
-       //     cell.configData()
-      //      cell.delegate = self
+            
+            cell.configData()
+            
             
             return cell
             
@@ -65,12 +71,47 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     
 }
 
+extension AICServiceViewController: MGSwipeTableCellDelegate {
+    func swipeTableCell(cell: MGSwipeTableCell!, canSwipe direction: MGSwipeDirection) -> Bool {
+        return true
+    }
+    
+    func swipeTableCell(cell: MGSwipeTableCell!, swipeButtonsForDirection direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]! {
+        
+        swipeSettings.transition = MGSwipeTransition.Border
+        expansionSettings.buttonIndex = 0
+        
+        if direction == MGSwipeDirection.LeftToRight {
+            expansionSettings.fillOnTrigger = false
+            expansionSettings.threshold = 2
+            return []
+        } else {
+            expansionSettings.fillOnTrigger = true
+            expansionSettings.threshold = 1.1
+            let padding:Int = 15
+            
+            let delete = MGSwipeButton(title: "删除", backgroundColor: UIColor.redColor(), padding: padding, callback: { (cell) -> Bool in
+                
+                return false
+            })
+            
+            let edit = MGSwipeButton(title: "编辑", backgroundColor: UIColor(red: 1.0, green: 149/255, blue: 0.05, alpha: 1), padding: padding, callback: { (cell) -> Bool in
+                return false
+            })
+            
+            return [delete, edit]
+        }
+    }
+}
+
 /*!
 *  @author tinkl, 15-06-03 11:06:40
 *
 *  List View model
 */
-class AICollectServiceListCell: UITableViewCell {
+class AICollectServiceListCell: MGSwipeTableCell {
+    
+    var service: AIServiceTopicModel?
     
     @IBOutlet weak var serviceImg: AsyncImageView!
     @IBOutlet weak var serviceName: UILabel!
@@ -83,8 +124,19 @@ class AICollectServiceListCell: UITableViewCell {
     func configData(){
         serviceImg.setURL(NSURL(string: "http://imglf0.ph.126.net/2PAScdjOGW7u_SF8n_YA0Q==/6630531204025177476.jpg"), placeholderImage: UIImage(named: "Placeholder"))
     }
-}
+    
+    func setData(service: AIServiceTopicModel) {
 
+        if service.service_name != nil {
+            serviceName.text = service.service_name
+        }
+        
+        if service.service_intro_url != nil {
+            serviceImg.setURL(NSURL(string: service.service_intro_url!), placeholderImage: UIImage(named: "Placeholder"))
+        }
+
+    }
+}
 
 /*!
 *  @author tinkl, 15-06-03 11:06:13
@@ -95,7 +147,11 @@ class AICollectServiceGridCell: UITableViewCell {
     
     @IBOutlet weak var serviceImg: AIImageView!
     @IBOutlet weak var serviceName: UILabel!
-    @IBOutlet weak var Description: UILabel!
+    @IBOutlet weak var serviceContents: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var fromSource: UILabel!
+    
+    func configData(){
+        serviceImg.setURL(NSURL(string: "http://imglf0.ph.126.net/2PAScdjOGW7u_SF8n_YA0Q==/6630531204025177476.jpg"), placeholderImage: UIImage(named: "Placeholder"))
+    }
 }
