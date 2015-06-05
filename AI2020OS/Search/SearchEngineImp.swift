@@ -49,6 +49,49 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         return recordList
     }
     
+    func getFavorServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
+        var list = [AIServiceTopicModel]()
+        var service = AIServiceTopicModel()
+        service.service_name = "去上海出差"
+        service.service_intro_url = "http://www.czgu.com/uploads/allimg/140904/0644594560-0.jpg"
+        service.contents.append("机票")
+        service.contents.append("住宿")
+        service.contents.append("接机")
+        service.contents.append("宠物寄养")
+        list.append(service)
+        
+        service = AIServiceTopicModel()
+        service.service_name = "做个柔软的胖子"
+        service.service_intro_url = "http://www.wendaoyoga.com/userfiles/images/P-1.jpg"
+        service.contents.append("场地")
+        service.contents.append("瑜伽教练")
+        list.append(service)
+        
+        service = AIServiceTopicModel()
+        service.service_name = "周末打羽毛球"
+        service.service_intro_url = "http://photocdn.sohu.com/20110809/Img315878985.jpg"
+        service.contents.append("场地")
+        service.contents.append("教练")
+        list.append(service)
+        
+        service = AIServiceTopicModel()
+        service.service_name = "家宴"
+        service.service_intro_url = "http://hunjia.shangdu.com/file/upload/201403/20/16-39-25-78-972.jpg"
+        service.contents.append("大厨")
+        service.contents.append("食物代购")
+        list.append(service)
+        
+        service = AIServiceTopicModel()
+        service.service_name = "同学聚会"
+        service.service_intro_url = "http://photocdn.sohu.com/20150603/mp17561615_1433325849459_1.jpeg"
+        service.contents.append("场地")
+        service.contents.append("食物代购")
+        service.contents.append("代驾")
+        service.contents.append("专车")
+        list.append(service)
+        completion((list, nil))
+    }
+    
     private func initServiceData() {
         var service = AICatalogItemModel()
         service.catalog_name = "美容"
@@ -200,6 +243,14 @@ class HttpSearchEngine : SearchEngine {
             completion((listModel!.services, error))
         }
 
+    }
+    
+    func getFavorServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
+        let list = [AIServiceTopicModel]()
+        var service = AIServiceTopicModel()
+        
+    //    list.
+        completion((list, nil))
     }
     
 }
