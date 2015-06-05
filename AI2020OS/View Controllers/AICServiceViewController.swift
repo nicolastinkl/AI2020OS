@@ -16,10 +16,13 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     // MARK: Priate Variable
     private var serviceList: [AIServiceTopicModel]?
     var currentModel: ConnectViewModel = ConnectViewModel.ListView
+    var searchEngine: SearchEngine?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchEngine = MockSearchEngine()
+        searchEngine?.getFavorServices(1, pageSize: 10, completion: loadData)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -55,7 +58,7 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
         
         if currentModel == ConnectViewModel.ListView {
             let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICollectServiceListCell) as  AICollectServiceListCell
-            cell.configData()
+            cell.setData(serviceList![indexPath.row])
             cell.delegate = self
             return cell
         } else {
@@ -68,6 +71,14 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
             
         }
     }
+    
+    private func loadData(result: (model: [AIServiceTopicModel], err: Error?)) {
+        if result.err == nil {
+            serviceList = result.model
+            tableView.reloadData()
+        }
+    }
+    
     
 }
 
@@ -121,9 +132,6 @@ class AICollectServiceListCell: MGSwipeTableCell {
     @IBOutlet weak var tagButton: DesignableButton!
     @IBOutlet weak var favoritesButton: UIButton!
     
-    func configData(){
-        serviceImg.setURL(NSURL(string: "http://imglf0.ph.126.net/2PAScdjOGW7u_SF8n_YA0Q==/6630531204025177476.jpg"), placeholderImage: UIImage(named: "Placeholder"))
-    }
     
     func setData(service: AIServiceTopicModel) {
 
@@ -132,9 +140,23 @@ class AICollectServiceListCell: MGSwipeTableCell {
         }
         
         if service.service_intro_url != nil {
-            serviceImg.setURL(NSURL(string: service.service_intro_url!), placeholderImage: UIImage(named: "Placeholder"))
+            var url = service.service_intro_url!
+//            url = "http://imglf0.ph.126.net/2PAScdjOGW7u_SF8n_YA0Q==/6630531204025177476.jpg"
+            serviceImg.setURL(NSURL(string: url), placeholderImage: UIImage(named: "Placeholder"))
         }
-
+        
+        if serviceContents != nil {
+            var contentStr = ""
+            for var i = 0; i < service.contents.count; i++ {
+                contentStr += service.contents[i]
+                
+                if i != service.contents.count {
+                    contentStr += " | "
+                }
+            }
+            
+            serviceContents.text = contentStr
+        }
     }
 }
 

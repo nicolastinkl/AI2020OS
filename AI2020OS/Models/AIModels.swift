@@ -49,6 +49,8 @@ struct AIServiceTopicModel: JSONJoy  {
     var service_rating: String?
     var provider_portrait_url: String?
     var service_intro_url: String?
+    var contents = [String]()
+    var tags = [String]()
 
     init() {
         
