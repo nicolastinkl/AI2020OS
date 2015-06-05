@@ -125,37 +125,43 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
-        var path:NSIndexPath?
+        if currentModel == ConnectViewModel.ImageView{
         
-        let dict = self.array[indexPath.row] as NSDictionary
-        if (dict["Cell"] as String) == self.MainCell {
-            path = NSIndexPath(forItem: (indexPath.row+1), inSection: indexPath.section)
         }else{
-            path = indexPath
-        }
-        if let bol = dict["isAttached"] as? Bool {
-            if bol {
-                let dic:NSDictionary = ["Cell": "MainCell","isAttached":false]
-                self.array[path!.row-1] = dic
-                self.array.removeObjectAtIndex(path!.row)
-                
-                self.tableView.beginUpdates()
-                self.tableView.deleteRowsAtIndexPaths([path!], withRowAnimation: UITableViewRowAnimation.Top)
-                self.tableView.endUpdates()
-                
-                
+            var path:NSIndexPath?
+            
+            let dict = self.array[indexPath.row] as NSDictionary
+            if (dict["Cell"] as String) == self.MainCell {
+                path = NSIndexPath(forItem: (indexPath.row+1), inSection: indexPath.section)
             }else{
-                
-                let dic:NSDictionary = ["Cell": "MainCell","isAttached":true]
-                self.array[path!.row-1] = dic
-                let addDic:NSDictionary = ["Cell": "AttachedCell","isAttached":true]
-                self.array.insertObject(addDic, atIndex: path!.row)
-                
-                self.tableView.beginUpdates()
-                self.tableView.insertRowsAtIndexPaths([path!], withRowAnimation: UITableViewRowAnimation.Top)
-                self.tableView.endUpdates()
+                path = indexPath
+            }
+            if let bol = dict["isAttached"] as? Bool {
+                if bol {
+                    let dic:NSDictionary = ["Cell": "MainCell","isAttached":false]
+                    self.array[path!.row-1] = dic
+                    self.array.removeObjectAtIndex(path!.row)
+                    
+                    self.tableView.beginUpdates()
+                    self.tableView.deleteRowsAtIndexPaths([path!], withRowAnimation: UITableViewRowAnimation.Top)
+                    self.tableView.endUpdates()
+                    
+                    
+                }else{
+                    
+                    let dic:NSDictionary = ["Cell": "MainCell","isAttached":true]
+                    self.array[path!.row-1] = dic
+                    let addDic:NSDictionary = ["Cell": "AttachedCell","isAttached":true]
+                    self.array.insertObject(addDic, atIndex: path!.row)
+                    
+                    self.tableView.beginUpdates()
+                    self.tableView.insertRowsAtIndexPaths([path!], withRowAnimation: UITableViewRowAnimation.Top)
+                    self.tableView.endUpdates()
+                    
+                }
             }
         }
+        
         
     }
 }
