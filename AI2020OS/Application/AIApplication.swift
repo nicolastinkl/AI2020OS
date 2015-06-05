@@ -79,6 +79,10 @@ struct AIApplication{
             static let AICServiceViewControllerImageCell     = "AICServiceViewControllerImageCell"
             
             static let AITabelViewMenuViewCell  = "AITabelViewMenuViewCell"            
+            // Collect Service
+            static let AICollectServiceListCell = "AICollectServiceListCell"
+            static let AICollectServiceGridCell = "AICollectServiceGridCell"
+            
         }
         
         struct ViewIdentifiers {

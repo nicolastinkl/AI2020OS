@@ -7,9 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1205C0DD1B20574F003E27C4 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1205C0DB1B20574F003E27C4 /* ENSideMenu.swift */; };
+		1205C0DE1B20574F003E27C4 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1205C0DC1B20574F003E27C4 /* ENSideMenuNavigationController.swift */; };
+		1239DBB71B204F48002F6A4F /* TagFilterData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1239DBB61B204F48002F6A4F /* TagFilterData.plist */; };
+		1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1239DBB81B2052A8002F6A4F /* TagFilterData.plist */; };
 		126A4E2F1B1860EA000C6C9E /* jsonfile.json in Resources */ = {isa = PBXBuildFile; fileRef = 126A4E2E1B1860EA000C6C9E /* jsonfile.json */; };
+		1284ABC41B2036B500636F35 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1284ABC11B2036B500636F35 /* SectionHeaderView.swift */; };
+		1284ABC51B2036B500636F35 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1284ABC21B2036B500636F35 /* SectionHeaderView.xib */; };
+		1284ABC61B2036B500636F35 /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1284ABC31B2036B500636F35 /* SectionInfo.swift */; };
+		1284ABC81B2036C600636F35 /* AITagFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1284ABC71B2036C600636F35 /* AITagFilterViewController.swift */; };
+		1284ABCA1B2036F500636F35 /* AITagFilterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1284ABC91B2036F500636F35 /* AITagFilterStoryboard.storyboard */; };
 		12A20DA91B1719D0003E412A /* AIOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A20DA81B1719D0003E412A /* AIOrderModel.swift */; };
 		12A20DAB1B1719F3003E412A /* AIOrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A20DAA1B1719F3003E412A /* AIOrderService.swift */; };
+		12C9ED281B203E9C003E2215 /* AITagFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9ED271B203E9C003E2215 /* AITagFilterModel.swift */; };
 		84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */; };
 		8415F4E31B135688003160B4 /* SearchServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */; };
 		84951FB61B1312E500179483 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB41B1312E500179483 /* SearchEngine.swift */; };
@@ -231,9 +241,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1205C0DB1B20574F003E27C4 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
+		1205C0DC1B20574F003E27C4 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
+		1239DBB61B204F48002F6A4F /* TagFilterData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TagFilterData.plist; path = AI2020OSTests/TagFilterData.plist; sourceTree = SOURCE_ROOT; };
+		1239DBB81B2052A8002F6A4F /* TagFilterData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TagFilterData.plist; sourceTree = "<group>"; };
 		126A4E2E1B1860EA000C6C9E /* jsonfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonfile.json; sourceTree = "<group>"; };
+		1284ABC11B2036B500636F35 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		1284ABC21B2036B500636F35 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
+		1284ABC31B2036B500636F35 /* SectionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
+		1284ABC71B2036C600636F35 /* AITagFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITagFilterViewController.swift; sourceTree = "<group>"; };
+		1284ABC91B2036F500636F35 /* AITagFilterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AITagFilterStoryboard.storyboard; sourceTree = "<group>"; };
 		12A20DA81B1719D0003E412A /* AIOrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderModel.swift; sourceTree = "<group>"; };
 		12A20DAA1B1719F3003E412A /* AIOrderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderService.swift; sourceTree = "<group>"; };
+		12C9ED271B203E9C003E2215 /* AITagFilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITagFilterModel.swift; sourceTree = "<group>"; };
 		185C5C827FF9C9E6B31333B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogModel.swift; sourceTree = "<group>"; };
 		8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchServiceCollectionViewController.swift; sourceTree = "<group>"; };
@@ -504,6 +524,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1205C0DA1B20571C003E27C4 /* sidemenu */ = {
+			isa = PBXGroup;
+			children = (
+				1205C0DB1B20574F003E27C4 /* ENSideMenu.swift */,
+				1205C0DC1B20574F003E27C4 /* ENSideMenuNavigationController.swift */,
+			);
+			name = sidemenu;
+			sourceTree = "<group>";
+		};
+		1284ABBF1B20368600636F35 /* TagFilter */ = {
+			isa = PBXGroup;
+			children = (
+				1284ABC71B2036C600636F35 /* AITagFilterViewController.swift */,
+			);
+			name = TagFilter;
+			sourceTree = "<group>";
+		};
+		1284ABC01B20369400636F35 /* TagFilter */ = {
+			isa = PBXGroup;
+			children = (
+				1284ABC11B2036B500636F35 /* SectionHeaderView.swift */,
+				1284ABC21B2036B500636F35 /* SectionHeaderView.xib */,
+				1284ABC31B2036B500636F35 /* SectionInfo.swift */,
+			);
+			name = TagFilter;
+			sourceTree = "<group>";
+		};
 		84951FB31B13117300179483 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +711,7 @@
 		933ED3E61AC8F90A00E4AADB /* AI2020OS */ = {
 			isa = PBXGroup;
 			children = (
+				1239DBB81B2052A8002F6A4F /* TagFilterData.plist */,
 				93659F671B1F010F0065E661 /* Default-568h@2x.png */,
 				933ED3E91AC8F90A00E4AADB /* AppDelegate.swift */,
 				933ED3F21AC8F90A00E4AADB /* Images.xcassets */,
@@ -676,6 +724,7 @@
 		933ED3E71AC8F90A00E4AADB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1239DBB61B204F48002F6A4F /* TagFilterData.plist */,
 				933ED3E81AC8F90A00E4AADB /* Info.plist */,
 				934986FB1B0B13FD003086D1 /* InfoPlist.strings */,
 			);
@@ -703,6 +752,7 @@
 		933ED40E1AC921BD00E4AADB /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				1205C0DA1B20571C003E27C4 /* sidemenu */,
 				933668891AD6787B007556D7 /* sunflower */,
 				93692C961ACAA52A00D66211 /* Async.swift */,
 				93CFC0761AD6551200B82CC9 /* RAReorderableLayout.swift */,
@@ -714,6 +764,7 @@
 		933ED40F1AC921BD00E4AADB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				12C9ED271B203E9C003E2215 /* AITagFilterModel.swift */,
 				12A20DA81B1719D0003E412A /* AIOrderModel.swift */,
 				935F386F1ACD27DF004BE0E7 /* Movie.swift */,
 				93FA15441AE66F95006BA310 /* WeatherModel.swift */,
@@ -746,6 +797,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1284ABBF1B20368600636F35 /* TagFilter */,
 				93F66DE51B19767000AEA92A /* ChatNewSprint */,
 				93E4D5AE1B14AA6700992CA3 /* Order */,
 				93FF74761B0ECF1D00FD97C1 /* Component */,
@@ -770,6 +822,7 @@
 			isa = PBXGroup;
 			children = (
 				938A39841B2001AE00E3A5BF /* Menu */,
+				1284ABC01B20369400636F35 /* TagFilter */,
 				93659F621B1EF1F50065E661 /* TableViewInsetMakeView */,
 				84CF6A7F1B17F976001C4E72 /* StarRating */,
 				93FF744B1B0ECEA000FD97C1 /* AICalendar */,
@@ -966,6 +1019,7 @@
 		93AC3FB61AC95DF5000024A4 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				1284ABC91B2036F500636F35 /* AITagFilterStoryboard.storyboard */,
 				93AC3FB71AC95E03000024A4 /* AIMainStoryboard.storyboard */,
 				93692C9C1ACAB94700D66211 /* AILoginStoryboard.storyboard */,
 				936D62461AD4D44A00609FCD /* AILoadingStoryboard.storyboard */,
@@ -1278,12 +1332,14 @@
 				93DE16AF1B05E26E0056A1E3 /* AIHomeSDDesViewCell.xib in Resources */,
 				84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
+				1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */,
 				93BD09081B06F97B00C8B96B /* AIMenuStoryboard.storyboard in Resources */,
 				934987071B0C75E0003086D1 /* AIMessageUnReadView.xib in Resources */,
 				93E4D5AB1B14A5F700992CA3 /* AISettingsStoryboard.storyboard in Resources */,
 				93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */,
 				933ED3F61AC8F90A00E4AADB /* LaunchScreen.xib in Resources */,
 				84CB36921B17433D00D66BBD /* AIProviderAvatarView.xib in Resources */,
+				1284ABC51B2036B500636F35 /* SectionHeaderView.xib in Resources */,
 				934987141B0DA850003086D1 /* AIHomeViewStyleTitleView.xib in Resources */,
 				938A398E1B20255E00E3A5BF /* AITabelViewMenuViewCell.xib in Resources */,
 				934987161B0DA9A7003086D1 /* AIHomeViewStyleTitleAndContentView.xib in Resources */,
@@ -1297,6 +1353,7 @@
 				936D62471AD4D44A00609FCD /* AILoadingStoryboard.storyboard in Resources */,
 				93692C9D1ACAB94700D66211 /* AILoginStoryboard.storyboard in Resources */,
 				93CF230F1B05CF960082AC73 /* AIHomeSDDefaultViewCell.xib in Resources */,
+				1284ABCA1B2036F500636F35 /* AITagFilterStoryboard.storyboard in Resources */,
 				93A705981B12D19900E8193C /* ProvincesAndCities.plist in Resources */,
 				126A4E2F1B1860EA000C6C9E /* jsonfile.json in Resources */,
 			);
@@ -1306,6 +1363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1239DBB71B204F48002F6A4F /* TagFilterData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1410,6 +1468,7 @@
 				934987091B0C75E9003086D1 /* AIMessageUnReadView.swift in Sources */,
 				933ED4381AC92B6700E4AADB /* AIBridge.m in Sources */,
 				934987211B0E06DD003086D1 /* AIMessageCenterViewController.swift in Sources */,
+				1284ABC81B2036C600636F35 /* AITagFilterViewController.swift in Sources */,
 				93659F641B1EF2090065E661 /* AITableViewInsetMakeView.swift in Sources */,
 				934987011B0B1750003086D1 /* AITIMELINESDContentViewCell.swift in Sources */,
 				9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */,
@@ -1427,6 +1486,7 @@
 				93FF74621B0ECEA000FD97C1 /* CVCalendarDayView.swift in Sources */,
 				93FF746E1B0ECEA000FD97C1 /* CVCalendarViewDelegate.swift in Sources */,
 				93AC3FD41ACA40C8000024A4 /* AITimelineViewController.swift in Sources */,
+				1205C0DD1B20574F003E27C4 /* ENSideMenu.swift in Sources */,
 				936D62531AD5144100609FCD /* KMDetailsPageView.m in Sources */,
 				9301B07C1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift in Sources */,
 				934FE7D41B1C6BB300B745D4 /* AIIMNotify.swift in Sources */,
@@ -1441,6 +1501,7 @@
 				934FE7D51B1C6BB300B745D4 /* AIIMRoom.swift in Sources */,
 				93FF74661B0ECEA000FD97C1 /* CVCalendarMonthContentView.swift in Sources */,
 				93659F5F1B1EDA100065E661 /* MGSwipeTableCell.m in Sources */,
+				1205C0DE1B20574F003E27C4 /* ENSideMenuNavigationController.swift in Sources */,
 				93FF74781B0ECF3800FD97C1 /* AICalendarViewController.swift in Sources */,
 				93BD090B1B06FBBF00C8B96B /* AIMenuViewController.swift in Sources */,
 				93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */,
@@ -1453,6 +1514,7 @@
 				93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */,
 				938A398A1B2020F200E3A5BF /* AIButtonUtils.swift in Sources */,
 				93D80A441ACA71DA004BC7C0 /* AILocalStore.swift in Sources */,
+				12C9ED281B203E9C003E2215 /* AITagFilterModel.swift in Sources */,
 				93266FB21AEF81E100DD0021 /* AIFavoritsCommand.swift in Sources */,
 				84951FB61B1312E500179483 /* SearchEngine.swift in Sources */,
 				934986FF1B0B1727003086D1 /* AITIMELINESDTimesViewCell.swift in Sources */,
@@ -1500,6 +1562,7 @@
 				93FF747A1B0F0AFF00FD97C1 /* AIServerScopeView.swift in Sources */,
 				936D624F1AD4D6F300609FCD /* KMActivityIndicator.m in Sources */,
 				93FF74601B0ECEA000FD97C1 /* CVCalendarContentDelegate.swift in Sources */,
+				1284ABC61B2036B500636F35 /* SectionInfo.swift in Sources */,
 				93F8C3D21AE6314D003C58B2 /* UIView+MaterialDesign.m in Sources */,
 				933ED43B1AC92C3300E4AADB /* AIApplication.swift in Sources */,
 				93DE16B31B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift in Sources */,
@@ -1528,6 +1591,7 @@
 				934987101B0DA354003086D1 /* AIHomeViewStyleMultiepleView.swift in Sources */,
 				9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */,
 				933ED3EA1AC8F90A00E4AADB /* AppDelegate.swift in Sources */,
+				1284ABC41B2036B500636F35 /* SectionHeaderView.swift in Sources */,
 				931718811B159C3600EC9C14 /* AIOrderDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
