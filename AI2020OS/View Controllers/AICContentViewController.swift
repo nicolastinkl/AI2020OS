@@ -272,6 +272,7 @@ class AICContentViewControllerImageCell: UITableViewCell,AITabelViewMenuViewDele
     @IBOutlet weak var menuView: UIView!
     
     func shareAction() {
+        AIApplication.shareAction("shareAction")
         
     }
     

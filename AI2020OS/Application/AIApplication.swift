@@ -215,4 +215,21 @@ struct AIApplication{
         }
 
     }
+    
+    static func shareAction(url:String){
+        if let viewcontroller =  UIApplication.sharedApplication().keyWindow?.rootViewController{
+            let textToShare = "Swift is awesome!  Check out this website about it!"
+            
+            if let myWebsite = NSURL(string: "http://www.codingexplorer.com/")
+            {
+                let objectsToShare = [textToShare, myWebsite]
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                
+                //New Excluded Activities Code
+                activityVC.excludedActivityTypes = [UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypeAirDrop, UIActivityTypeAddToReadingList,UIActivityTypePostToWeibo]
+                
+                viewcontroller.presentViewController(activityVC, animated: true, completion: nil)
+            }
+        }
+    }
 }
