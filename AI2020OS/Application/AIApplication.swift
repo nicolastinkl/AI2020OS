@@ -41,6 +41,7 @@ struct AIApplication{
             static let AISearchStoryboard           = "AISearchStoryboard"
             static let AIConnectMeunStoryboard      = "AIConnectMeunStoryboard"
             static let AITagFilterStoryboard        = "AITagFilterStoryboard"
+            static let AIVideoStoryboard            = "AIVideoStoryboard"
         }
         
         // MARK: View

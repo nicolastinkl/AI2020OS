@@ -31,3 +31,8 @@
 
 #import "MGSwipeTableCell.h"
 #import "MGSwipeButton.h"
+
+
+// MARK: VIDEO
+
+#import "AIVideoRecorderViewController.h"

@@ -108,7 +108,6 @@ class AIConnectViewController: UIViewController {
         self.serviceButton.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor), forState: UIControlState.Normal)
         
         currentSelection = CollectSelection.Service
-        
     }
     
     @IBAction func contentAction(sender: AnyObject) {
@@ -129,6 +128,11 @@ class AIConnectViewController: UIViewController {
         
         self.findHamburguerViewController()?.showMenuViewController()
         
+    }
+    
+    @IBAction func showWholeAction(sender: UIButton){
+        
+//        self.showViewController(AIVideoRecorderViewController(nibName: "AIVideoRecorderViewController", bundle: nil), sender: self)
     }
     
 }
