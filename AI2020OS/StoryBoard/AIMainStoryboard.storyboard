@@ -967,6 +967,9 @@
                                                     <state key="normal" image="ico_favorite">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="favorAction:" destination="FeM-mI-hFQ" eventType="touchUpInside" id="0Br-E1-RX7"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
