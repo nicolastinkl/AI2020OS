@@ -59,13 +59,13 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        AIConnectView.sharedManager.delegate = self
+        AIConnectView.sharedManager.delegates.append(self)
     }
     
     // MARK: event response    
     
     
-    func exchangeViewModel(viewModel: ConnectViewModel) {
+    func exchangeViewModel(viewModel: ConnectViewModel, selection: CollectSelection) {
         
         self.currentModel = viewModel
         

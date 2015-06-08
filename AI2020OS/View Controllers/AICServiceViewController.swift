@@ -28,10 +28,10 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        AIConnectView.sharedManager.delegate = self
+        AIConnectView.sharedManager.delegates.append(self)
     }
     
-    func exchangeViewModel(viewModel: ConnectViewModel) {
+    func exchangeViewModel(viewModel: ConnectViewModel, selection: CollectSelection) {
         currentModel = viewModel
         
         tableView.reloadData()

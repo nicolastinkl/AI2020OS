@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol AIConnectViewDelegate{
-     func exchangeViewModel(viewModel:ConnectViewModel)
+    func exchangeViewModel(viewModel:ConnectViewModel, selection: CollectSelection)
 }
 
 enum ConnectViewModel:Int{
@@ -18,11 +18,15 @@ enum ConnectViewModel:Int{
     case ImageView = 1
 }
 
+enum CollectSelection: Int {
+    case Content = 0, Service
+}
+
 private let sharedInstance = AIConnectView()
 
 class  AIConnectView: NSObject{
     
-    var delegate:AIConnectViewDelegate?
+    var delegates = [AIConnectViewDelegate]()
     
     class var sharedManager : AIConnectView {
         return sharedInstance
@@ -54,6 +58,7 @@ class AIConnectViewController: UIViewController {
     // MARK: Priate Variable
     
     var currentModel:ConnectViewModel = ConnectViewModel.ListView
+    var currentSelection = CollectSelection.Content
 
     // MARK: life cycle
     
@@ -88,7 +93,10 @@ class AIConnectViewController: UIViewController {
             navigationItemApp.leftBarButtonItem = leftItem
             currentModel = ConnectViewModel.ListView
         }
-        AIConnectView.sharedManager.delegate?.exchangeViewModel(currentModel)
+        
+        for delegated in AIConnectView.sharedManager.delegates {
+            delegated.exchangeViewModel(currentModel, selection: currentSelection)
+        }
     }
     
     @IBAction func serviceAction(sender: AnyObject) {
@@ -98,6 +106,8 @@ class AIConnectViewController: UIViewController {
         self.contentButton.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor), forState: UIControlState.Normal)
         
         self.serviceButton.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor), forState: UIControlState.Normal)
+        
+        currentSelection = CollectSelection.Service
         
     }
     
@@ -109,6 +119,7 @@ class AIConnectViewController: UIViewController {
         
         self.serviceButton.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor), forState: UIControlState.Normal)
         
+        currentSelection = CollectSelection.Content
     }
     
 
