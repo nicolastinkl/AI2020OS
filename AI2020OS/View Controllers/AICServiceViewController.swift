@@ -132,9 +132,22 @@ class AICollectServiceListCell: MGSwipeTableCell {
     @IBOutlet weak var tagButton: DesignableButton!
     @IBOutlet weak var favoritesButton: UIButton!
     
+    @IBAction func favorAction(sender: AnyObject) {
+        if service != nil {
+            service!.isFavor = !service!.isFavor
+            
+            if service!.isFavor {
+                favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
+            } else {
+                favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
+            }
+        }
+    }
     
     func setData(service: AIServiceTopicModel) {
 
+        self.service = service
+        
         if service.service_name != nil {
             serviceName.text = service.service_name
         }
