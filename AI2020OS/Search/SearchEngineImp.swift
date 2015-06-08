@@ -58,6 +58,8 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         service.contents.append("住宿")
         service.contents.append("接机")
         service.contents.append("宠物寄养")
+        
+        service.tags.append("工作")
         list.append(service)
         
         service = AIServiceTopicModel()
@@ -65,6 +67,8 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         service.service_intro_url = "http://www.wendaoyoga.com/userfiles/images/P-1.jpg"
         service.contents.append("场地")
         service.contents.append("瑜伽教练")
+        
+        service.tags.append("健身")
         list.append(service)
         
         service = AIServiceTopicModel()
@@ -72,6 +76,8 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         service.service_intro_url = "http://photocdn.sohu.com/20110809/Img315878985.jpg"
         service.contents.append("场地")
         service.contents.append("教练")
+        
+        service.tags.append("健身")
         list.append(service)
         
         service = AIServiceTopicModel()
@@ -79,6 +85,8 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         service.service_intro_url = "http://hunjia.shangdu.com/file/upload/201403/20/16-39-25-78-972.jpg"
         service.contents.append("大厨")
         service.contents.append("食物代购")
+        
+        service.tags.append("生活")
         list.append(service)
         
         service = AIServiceTopicModel()
@@ -88,6 +96,8 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         service.contents.append("食物代购")
         service.contents.append("代驾")
         service.contents.append("专车")
+        
+        service.tags.append("生活")
         list.append(service)
         completion((list, nil))
     }
