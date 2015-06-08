@@ -8,9 +8,6 @@
 
 import UIKit
 
-
-
-
 class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: storyboard elements

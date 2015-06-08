@@ -131,6 +131,10 @@
 		938A398A1B2020F200E3A5BF /* AIButtonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938A39891B2020F200E3A5BF /* AIButtonUtils.swift */; };
 		938A398C1B20255300E3A5BF /* AITabelViewMenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938A398B1B20255300E3A5BF /* AITabelViewMenuViewCell.swift */; };
 		938A398E1B20255E00E3A5BF /* AITabelViewMenuViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938A398D1B20255E00E3A5BF /* AITabelViewMenuViewCell.xib */; };
+		938A39911B2153DA00E3A5BF /* DLHamburguerContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938A398F1B2153DA00E3A5BF /* DLHamburguerContainerViewController.swift */; };
+		938A39921B2153DA00E3A5BF /* DLHamburguerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938A39901B2153DA00E3A5BF /* DLHamburguerViewController.swift */; };
+		938A39941B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938A39931B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard */; };
+		938A39961B253FF200E3A5BF /* AIConnectMeunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938A39951B253FF200E3A5BF /* AIConnectMeunViewController.swift */; };
 		9394D2281B133F0C00EE578E /* AIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394D2271B133F0C00EE578E /* AIModels.swift */; };
 		939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F4BD41AD6648000CE530C /* AIAudioViewController.swift */; };
 		93A7058E1B12CAD800E8193C /* AIServerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */; };
@@ -387,6 +391,10 @@
 		938A39891B2020F200E3A5BF /* AIButtonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIButtonUtils.swift; sourceTree = "<group>"; };
 		938A398B1B20255300E3A5BF /* AITabelViewMenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITabelViewMenuViewCell.swift; sourceTree = "<group>"; };
 		938A398D1B20255E00E3A5BF /* AITabelViewMenuViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITabelViewMenuViewCell.xib; sourceTree = "<group>"; };
+		938A398F1B2153DA00E3A5BF /* DLHamburguerContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLHamburguerContainerViewController.swift; sourceTree = "<group>"; };
+		938A39901B2153DA00E3A5BF /* DLHamburguerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLHamburguerViewController.swift; sourceTree = "<group>"; };
+		938A39931B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIConnectMeunStoryboard.storyboard; sourceTree = "<group>"; };
+		938A39951B253FF200E3A5BF /* AIConnectMeunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIConnectMeunViewController.swift; sourceTree = "<group>"; };
 		9394D2271B133F0C00EE578E /* AIModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModels.swift; sourceTree = "<group>"; };
 		939F4BD41AD6648000CE530C /* AIAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioViewController.swift; sourceTree = "<group>"; };
 		93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServerTimeView.swift; sourceTree = "<group>"; };
@@ -623,6 +631,7 @@
 				937C77651B1E9B71006FF589 /* AICContentViewController.swift */,
 				937C77671B1E9BBB006FF589 /* AICServiceViewController.swift */,
 				93659F601B1EEFB40065E661 /* AIExtensionAICContentAndService.swift */,
+				938A39951B253FF200E3A5BF /* AIConnectMeunViewController.swift */,
 			);
 			name = Favorites;
 			sourceTree = "<group>";
@@ -831,6 +840,8 @@
 				934987081B0C75E9003086D1 /* AIMessageUnReadView.swift */,
 				934987191B0DBDC7003086D1 /* AIErrorRetryView.swift */,
 				9349871B1B0DBDE2003086D1 /* AIErrorRetryView.xib */,
+				938A398F1B2153DA00E3A5BF /* DLHamburguerContainerViewController.swift */,
+				938A39901B2153DA00E3A5BF /* DLHamburguerViewController.swift */,
 			);
 			name = Views;
 			path = AI2020OS/Views;
@@ -1030,6 +1041,7 @@
 				93E4D5AA1B14A5F700992CA3 /* AISettingsStoryboard.storyboard */,
 				93E4D5AC1B14AA5900992CA3 /* AIOrderStoryboard.storyboard */,
 				931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */,
+				938A39931B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard */,
 			);
 			name = StoryBoard;
 			path = AI2020OS/StoryBoard;
@@ -1321,6 +1333,7 @@
 				9349871C1B0DBDE2003086D1 /* AIErrorRetryView.xib in Resources */,
 				93A705961B12D0EF00E8193C /* AIServerAddressView.xib in Resources */,
 				93E4D5AD1B14AA5900992CA3 /* AIOrderStoryboard.storyboard in Resources */,
+				938A39941B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard in Resources */,
 				93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */,
 				931718831B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard in Resources */,
 				93FF74751B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard in Resources */,
@@ -1472,6 +1485,7 @@
 				93659F641B1EF2090065E661 /* AITableViewInsetMakeView.swift in Sources */,
 				934987011B0B1750003086D1 /* AITIMELINESDContentViewCell.swift in Sources */,
 				9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */,
+				938A39911B2153DA00E3A5BF /* DLHamburguerContainerViewController.swift in Sources */,
 				93FF74691B0ECEA000FD97C1 /* CVCalendarView.swift in Sources */,
 				9337FF611AD4097A0046F8DC /* AIUINavigationController.m in Sources */,
 				9394D2281B133F0C00EE578E /* AIModels.swift in Sources */,
@@ -1567,7 +1581,9 @@
 				933ED43B1AC92C3300E4AADB /* AIApplication.swift in Sources */,
 				93DE16B31B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift in Sources */,
 				93FF747E1B0F171700FD97C1 /* AIComponentChoseViewController.swift in Sources */,
+				938A39961B253FF200E3A5BF /* AIConnectMeunViewController.swift in Sources */,
 				93FF74631B0ECEA000FD97C1 /* CVCalendarDayViewControlCoordinator.swift in Sources */,
+				938A39921B2153DA00E3A5BF /* DLHamburguerViewController.swift in Sources */,
 				84CB36901B17431700D66BBD /* AIProviderAvatarView.swift in Sources */,
 				93FF746F1B0ECEA000FD97C1 /* CVCalendarWeekContentRecovery.swift in Sources */,
 				936D62491AD4D54100609FCD /* AINetworkLoadingViewController.swift in Sources */,

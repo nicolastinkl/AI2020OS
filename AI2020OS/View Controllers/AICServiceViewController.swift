@@ -32,6 +32,7 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
         currentModel = viewModel
         
         tableView.reloadData()
+       
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

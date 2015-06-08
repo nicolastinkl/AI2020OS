@@ -31,8 +31,6 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
     }()
     
     
-    
-    
     // MARK: life cycle
     
     override func viewDidLoad() {

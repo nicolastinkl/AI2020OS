@@ -113,8 +113,11 @@ class AIConnectViewController: UIViewController {
     
 
     @IBAction func showFilterAction(sender: UIButton) {
-        let viewController = UIStoryboard(name: "AITagFilterStoryboard", bundle: nil).instantiateInitialViewController() as AITagFilterViewController
-        showViewController(viewController, sender: self)
+        /*let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AITagFilterStoryboard, bundle: nil).instantiateInitialViewController() as AITagFilterViewController
+        showViewController(viewController, sender: self)*/
+        
+        self.findHamburguerViewController()?.showMenuViewController()
+        
     }
     
 }
