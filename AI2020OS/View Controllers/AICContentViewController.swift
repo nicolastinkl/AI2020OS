@@ -54,10 +54,25 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
         }
     }
     
+    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if let viewTableHead = self.tableView.tableHeaderView?.subviews.first as UIView?{
+            let yOffset:CGFloat = scrollView.contentOffset.y
+            println(yOffset)
+            if (yOffset < 100) {
+                let viewContr = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIVideoStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
+                self.showViewController(viewContr, sender: self)
+            }
+            
+        }
+    }
+    
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         AIConnectView.sharedManager.delegates.append(self)
+        
+        
     }
     
     // MARK: event response    

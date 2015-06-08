@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>AIVideoCore.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>SBOSS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -28,6 +33,16 @@
 			<true/>
 		</dict>
 		<key>93735D881B1D976C00D52431</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>938A3AAD1B25735B00E3A5BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>938A3AB71B25735B00E3A5BF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -34,6 +34,20 @@
                ReferencedContainer = "container:AI2020OS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "938A3AB71B25735B00E3A5BF"
+               BuildableName = "AIVideoCoreTests.xctest"
+               BlueprintName = "AIVideoCoreTests"
+               ReferencedContainer = "container:AI2020OS.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "933ED3FA1AC8F90A00E4AADB"
                BuildableName = "AI2020OSTests.xctest"
                BlueprintName = "AI2020OSTests"
+               ReferencedContainer = "container:AI2020OS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "938A3AB71B25735B00E3A5BF"
+               BuildableName = "AIVideoCoreTests.xctest"
+               BlueprintName = "AIVideoCoreTests"
                ReferencedContainer = "container:AI2020OS.xcodeproj">
             </BuildableReference>
          </TestableReference>

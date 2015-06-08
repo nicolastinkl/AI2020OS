@@ -135,6 +135,25 @@
 		938A39921B2153DA00E3A5BF /* DLHamburguerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938A39901B2153DA00E3A5BF /* DLHamburguerViewController.swift */; };
 		938A39941B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938A39931B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard */; };
 		938A39961B253FF200E3A5BF /* AIConnectMeunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938A39951B253FF200E3A5BF /* AIConnectMeunViewController.swift */; };
+		938A3AB31B25735B00E3A5BF /* AIVideoCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A3AB21B25735B00E3A5BF /* AIVideoCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		938A3AB91B25735B00E3A5BF /* AIVideoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938A3AAE1B25735B00E3A5BF /* AIVideoCore.framework */; };
+		938A3AC21B25735B00E3A5BF /* AIVideoCoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A3AC11B25735B00E3A5BF /* AIVideoCoreTests.m */; };
+		938A3AC51B25735B00E3A5BF /* AIVideoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938A3AAE1B25735B00E3A5BF /* AIVideoCore.framework */; };
+		938A3AC61B25735B00E3A5BF /* AIVideoCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 938A3AAE1B25735B00E3A5BF /* AIVideoCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		938A3AD11B25737E00E3A5BF /* SBCaptureDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A3ACE1B25737E00E3A5BF /* SBCaptureDefine.h */; };
+		938A3AD21B25737E00E3A5BF /* SBCaptureToolKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A3ACF1B25737E00E3A5BF /* SBCaptureToolKit.h */; };
+		938A3AD31B25737E00E3A5BF /* SBCaptureToolKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A3AD01B25737E00E3A5BF /* SBCaptureToolKit.m */; };
+		938A3AD61B25738700E3A5BF /* SBVideoRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A3AD41B25738700E3A5BF /* SBVideoRecorder.h */; };
+		938A3AD71B25738700E3A5BF /* SBVideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A3AD51B25738700E3A5BF /* SBVideoRecorder.m */; };
+		938A3ADF1B25744400E3A5BF /* ProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A3ADD1B25744400E3A5BF /* ProgressBar.h */; };
+		938A3AE01B25744400E3A5BF /* ProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A3ADE1B25744400E3A5BF /* ProgressBar.m */; };
+		938A3AE31B2574FF00E3A5BF /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A3AE11B2574FF00E3A5BF /* MBProgressHUD.h */; };
+		938A3AE41B2574FF00E3A5BF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A3AE21B2574FF00E3A5BF /* MBProgressHUD.m */; };
+		938A3AEA1B25768000E3A5BF /* AIVideoRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A3AE71B25768000E3A5BF /* AIVideoRecorderViewController.h */; };
+		938A3AEB1B25768000E3A5BF /* AIVideoRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A3AE81B25768000E3A5BF /* AIVideoRecorderViewController.m */; };
+		938A3AEC1B25768000E3A5BF /* AIVideoRecorderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938A3AE91B25768000E3A5BF /* AIVideoRecorderViewController.xib */; };
+		938A3AFE1B257FC200E3A5BF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938A3AFD1B257FC200E3A5BF /* MediaPlayer.framework */; };
+		938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */; };
 		9394D2281B133F0C00EE578E /* AIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394D2271B133F0C00EE578E /* AIModels.swift */; };
 		939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F4BD41AD6648000CE530C /* AIAudioViewController.swift */; };
 		93A7058E1B12CAD800E8193C /* AIServerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */; };
@@ -228,6 +247,27 @@
 			remoteGlobalIDString = 93735D881B1D976C00D52431;
 			remoteInfo = SBOSS;
 		};
+		938A3ABA1B25735B00E3A5BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 933ED3DC1AC8F90A00E4AADB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 938A3AAD1B25735B00E3A5BF;
+			remoteInfo = AIVideoCore;
+		};
+		938A3ABC1B25735B00E3A5BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 933ED3DC1AC8F90A00E4AADB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 933ED3E31AC8F90A00E4AADB;
+			remoteInfo = AI2020OS;
+		};
+		938A3AC31B25735B00E3A5BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 933ED3DC1AC8F90A00E4AADB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 938A3AAD1B25735B00E3A5BF;
+			remoteInfo = AIVideoCore;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -240,6 +280,17 @@
 				93735D931B1D976C00D52431 /* SBOSS.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		938A3ACA1B25735C00E3A5BF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				938A3AC61B25735B00E3A5BF /* AIVideoCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -395,6 +446,26 @@
 		938A39901B2153DA00E3A5BF /* DLHamburguerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLHamburguerViewController.swift; sourceTree = "<group>"; };
 		938A39931B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIConnectMeunStoryboard.storyboard; sourceTree = "<group>"; };
 		938A39951B253FF200E3A5BF /* AIConnectMeunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIConnectMeunViewController.swift; sourceTree = "<group>"; };
+		938A3AAE1B25735B00E3A5BF /* AIVideoCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AIVideoCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		938A3AB11B25735B00E3A5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		938A3AB21B25735B00E3A5BF /* AIVideoCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIVideoCore.h; sourceTree = "<group>"; };
+		938A3AB81B25735B00E3A5BF /* AIVideoCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIVideoCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		938A3AC01B25735B00E3A5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		938A3AC11B25735B00E3A5BF /* AIVideoCoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AIVideoCoreTests.m; sourceTree = "<group>"; };
+		938A3ACE1B25737E00E3A5BF /* SBCaptureDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCaptureDefine.h; sourceTree = "<group>"; };
+		938A3ACF1B25737E00E3A5BF /* SBCaptureToolKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCaptureToolKit.h; sourceTree = "<group>"; };
+		938A3AD01B25737E00E3A5BF /* SBCaptureToolKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCaptureToolKit.m; sourceTree = "<group>"; };
+		938A3AD41B25738700E3A5BF /* SBVideoRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBVideoRecorder.h; sourceTree = "<group>"; };
+		938A3AD51B25738700E3A5BF /* SBVideoRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBVideoRecorder.m; sourceTree = "<group>"; };
+		938A3ADD1B25744400E3A5BF /* ProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBar.h; sourceTree = "<group>"; };
+		938A3ADE1B25744400E3A5BF /* ProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressBar.m; sourceTree = "<group>"; };
+		938A3AE11B2574FF00E3A5BF /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		938A3AE21B2574FF00E3A5BF /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		938A3AE71B25768000E3A5BF /* AIVideoRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIVideoRecorderViewController.h; sourceTree = "<group>"; };
+		938A3AE81B25768000E3A5BF /* AIVideoRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIVideoRecorderViewController.m; sourceTree = "<group>"; };
+		938A3AE91B25768000E3A5BF /* AIVideoRecorderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIVideoRecorderViewController.xib; sourceTree = "<group>"; };
+		938A3AFD1B257FC200E3A5BF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIVideoStoryboard.storyboard; sourceTree = "<group>"; };
 		9394D2271B133F0C00EE578E /* AIModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModels.swift; sourceTree = "<group>"; };
 		939F4BD41AD6648000CE530C /* AIAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioViewController.swift; sourceTree = "<group>"; };
 		93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServerTimeView.swift; sourceTree = "<group>"; };
@@ -479,9 +550,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				938A3AFE1B257FC200E3A5BF /* MediaPlayer.framework in Frameworks */,
 				9336689A1AD67994007556D7 /* AddressBook.framework in Frameworks */,
 				933668981AD67979007556D7 /* CoreGraphics.framework in Frameworks */,
 				933668961AD67969007556D7 /* AudioToolbox.framework in Frameworks */,
+				938A3AC51B25735B00E3A5BF /* AIVideoCore.framework in Frameworks */,
 				933ED4281AC927BB00E4AADB /* CoreTelephony.framework in Frameworks */,
 				933668941AD67924007556D7 /* libz.dylib in Frameworks */,
 				933ED42C1AC927C600E4AADB /* CoreLocation.framework in Frameworks */,
@@ -512,6 +585,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		938A3AAA1B25735B00E3A5BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		938A3AB51B25735B00E3A5BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				938A3AB91B25735B00E3A5BF /* AIVideoCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +776,8 @@
 				933ED4391AC92BF700E4AADB /* Application */,
 				933ED4351AC92B5700E4AADB /* Bridging */,
 				93735D8A1B1D976C00D52431 /* SBOSS */,
+				938A3AAF1B25735B00E3A5BF /* AIVideoCore */,
+				938A3ABE1B25735B00E3A5BF /* AIVideoCoreTests */,
 				933ED42F1AC9282A00E4AADB /* Frameworks */,
 				933ED4171AC9221100E4AADB /* Utils */,
 				933ED4181AC9221100E4AADB /* Venders */,
@@ -713,6 +803,8 @@
 				933ED3E41AC8F90A00E4AADB /* AI2020OS.app */,
 				933ED3FB1AC8F90A00E4AADB /* AI2020OSTests.xctest */,
 				93735D891B1D976C00D52431 /* SBOSS.appex */,
+				938A3AAE1B25735B00E3A5BF /* AIVideoCore.framework */,
+				938A3AB81B25735B00E3A5BF /* AIVideoCoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -806,6 +898,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				938A3AD81B2573B100E3A5BF /* Video */,
 				1284ABBF1B20368600636F35 /* TagFilter */,
 				93F66DE51B19767000AEA92A /* ChatNewSprint */,
 				93E4D5AE1B14AA6700992CA3 /* Order */,
@@ -879,6 +972,7 @@
 		933ED42F1AC9282A00E4AADB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				938A3AFD1B257FC200E3A5BF /* MediaPlayer.framework */,
 				931718841B15A35400EC9C14 /* MapKit.framework */,
 				933668991AD67994007556D7 /* AddressBook.framework */,
 				933668971AD67979007556D7 /* CoreGraphics.framework */,
@@ -1027,6 +1121,59 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		938A3AAF1B25735B00E3A5BF /* AIVideoCore */ = {
+			isa = PBXGroup;
+			children = (
+				938A3AB21B25735B00E3A5BF /* AIVideoCore.h */,
+				938A3ADD1B25744400E3A5BF /* ProgressBar.h */,
+				938A3ADE1B25744400E3A5BF /* ProgressBar.m */,
+				938A3ACE1B25737E00E3A5BF /* SBCaptureDefine.h */,
+				938A3ACF1B25737E00E3A5BF /* SBCaptureToolKit.h */,
+				938A3AD01B25737E00E3A5BF /* SBCaptureToolKit.m */,
+				938A3AD41B25738700E3A5BF /* SBVideoRecorder.h */,
+				938A3AD51B25738700E3A5BF /* SBVideoRecorder.m */,
+				938A3AE11B2574FF00E3A5BF /* MBProgressHUD.h */,
+				938A3AE21B2574FF00E3A5BF /* MBProgressHUD.m */,
+				938A3AB01B25735B00E3A5BF /* Supporting Files */,
+				938A3AE71B25768000E3A5BF /* AIVideoRecorderViewController.h */,
+				938A3AE81B25768000E3A5BF /* AIVideoRecorderViewController.m */,
+				938A3AE91B25768000E3A5BF /* AIVideoRecorderViewController.xib */,
+			);
+			path = AIVideoCore;
+			sourceTree = "<group>";
+		};
+		938A3AB01B25735B00E3A5BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				938A3AB11B25735B00E3A5BF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		938A3ABE1B25735B00E3A5BF /* AIVideoCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				938A3AC11B25735B00E3A5BF /* AIVideoCoreTests.m */,
+				938A3ABF1B25735B00E3A5BF /* Supporting Files */,
+			);
+			path = AIVideoCoreTests;
+			sourceTree = "<group>";
+		};
+		938A3ABF1B25735B00E3A5BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				938A3AC01B25735B00E3A5BF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		938A3AD81B2573B100E3A5BF /* Video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
 		93AC3FB61AC95DF5000024A4 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -1042,6 +1189,7 @@
 				93E4D5AC1B14AA5900992CA3 /* AIOrderStoryboard.storyboard */,
 				931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */,
 				938A39931B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard */,
+				938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */,
 			);
 			name = StoryBoard;
 			path = AI2020OS/StoryBoard;
@@ -1206,6 +1354,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		938A3AAB1B25735B00E3A5BF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				938A3AD21B25737E00E3A5BF /* SBCaptureToolKit.h in Headers */,
+				938A3AD61B25738700E3A5BF /* SBVideoRecorder.h in Headers */,
+				938A3AB31B25735B00E3A5BF /* AIVideoCore.h in Headers */,
+				938A3AEA1B25768000E3A5BF /* AIVideoRecorderViewController.h in Headers */,
+				938A3AE31B2574FF00E3A5BF /* MBProgressHUD.h in Headers */,
+				938A3ADF1B25744400E3A5BF /* ProgressBar.h in Headers */,
+				938A3AD11B25737E00E3A5BF /* SBCaptureDefine.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		933ED3E31AC8F90A00E4AADB /* AI2020OS */ = {
 			isa = PBXNativeTarget;
@@ -1220,11 +1385,13 @@
 				85082EEEF932726933AF0BE2 /* Embed Pods Frameworks */,
 				A96ECCBD274F402AAC7916BB /* Copy Pods Resources */,
 				93735D971B1D976C00D52431 /* Embed App Extensions */,
+				938A3ACA1B25735C00E3A5BF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				93735D921B1D976C00D52431 /* PBXTargetDependency */,
+				938A3AC41B25735B00E3A5BF /* PBXTargetDependency */,
 			);
 			name = AI2020OS;
 			productName = AI2020OS;
@@ -1266,6 +1433,43 @@
 			productReference = 93735D891B1D976C00D52431 /* SBOSS.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		938A3AAD1B25735B00E3A5BF /* AIVideoCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 938A3AC71B25735C00E3A5BF /* Build configuration list for PBXNativeTarget "AIVideoCore" */;
+			buildPhases = (
+				938A3AA91B25735B00E3A5BF /* Sources */,
+				938A3AAA1B25735B00E3A5BF /* Frameworks */,
+				938A3AAB1B25735B00E3A5BF /* Headers */,
+				938A3AAC1B25735B00E3A5BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AIVideoCore;
+			productName = AIVideoCore;
+			productReference = 938A3AAE1B25735B00E3A5BF /* AIVideoCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		938A3AB71B25735B00E3A5BF /* AIVideoCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 938A3ACB1B25735C00E3A5BF /* Build configuration list for PBXNativeTarget "AIVideoCoreTests" */;
+			buildPhases = (
+				938A3AB41B25735B00E3A5BF /* Sources */,
+				938A3AB51B25735B00E3A5BF /* Frameworks */,
+				938A3AB61B25735B00E3A5BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				938A3ABB1B25735B00E3A5BF /* PBXTargetDependency */,
+				938A3ABD1B25735B00E3A5BF /* PBXTargetDependency */,
+			);
+			name = AIVideoCoreTests;
+			productName = AIVideoCoreTests;
+			productReference = 938A3AB81B25735B00E3A5BF /* AIVideoCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1303,6 +1507,14 @@
 							};
 						};
 					};
+					938A3AAD1B25735B00E3A5BF = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 89RFBF2W4Q;
+					};
+					938A3AB71B25735B00E3A5BF = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 933ED3E31AC8F90A00E4AADB;
+					};
 				};
 			};
 			buildConfigurationList = 933ED3DF1AC8F90A00E4AADB /* Build configuration list for PBXProject "AI2020OS" */;
@@ -1321,6 +1533,8 @@
 				933ED3E31AC8F90A00E4AADB /* AI2020OS */,
 				933ED3FA1AC8F90A00E4AADB /* AI2020OSTests */,
 				93735D881B1D976C00D52431 /* SBOSS */,
+				938A3AAD1B25735B00E3A5BF /* AIVideoCore */,
+				938A3AB71B25735B00E3A5BF /* AIVideoCoreTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1335,6 +1549,7 @@
 				93E4D5AD1B14AA5900992CA3 /* AIOrderStoryboard.storyboard in Resources */,
 				938A39941B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard in Resources */,
 				93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */,
+				938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */,
 				931718831B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard in Resources */,
 				93FF74751B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard in Resources */,
 				934986F91B0B13FD003086D1 /* InfoPlist.strings in Resources */,
@@ -1385,6 +1600,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				93735D901B1D976C00D52431 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		938A3AAC1B25735B00E3A5BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				938A3AEC1B25768000E3A5BF /* AIVideoRecorderViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		938A3AB61B25735B00E3A5BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1629,6 +1859,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		938A3AA91B25735B00E3A5BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				938A3AD71B25738700E3A5BF /* SBVideoRecorder.m in Sources */,
+				938A3AEB1B25768000E3A5BF /* AIVideoRecorderViewController.m in Sources */,
+				938A3AE41B2574FF00E3A5BF /* MBProgressHUD.m in Sources */,
+				938A3AE01B25744400E3A5BF /* ProgressBar.m in Sources */,
+				938A3AD31B25737E00E3A5BF /* SBCaptureToolKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		938A3AB41B25735B00E3A5BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				938A3AC21B25735B00E3A5BF /* AIVideoCoreTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1641,6 +1891,21 @@
 			isa = PBXTargetDependency;
 			target = 93735D881B1D976C00D52431 /* SBOSS */;
 			targetProxy = 93735D911B1D976C00D52431 /* PBXContainerItemProxy */;
+		};
+		938A3ABB1B25735B00E3A5BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 938A3AAD1B25735B00E3A5BF /* AIVideoCore */;
+			targetProxy = 938A3ABA1B25735B00E3A5BF /* PBXContainerItemProxy */;
+		};
+		938A3ABD1B25735B00E3A5BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 933ED3E31AC8F90A00E4AADB /* AI2020OS */;
+			targetProxy = 938A3ABC1B25735B00E3A5BF /* PBXContainerItemProxy */;
+		};
+		938A3AC41B25735B00E3A5BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 938A3AAD1B25735B00E3A5BF /* AIVideoCore */;
+			targetProxy = 938A3AC31B25735B00E3A5BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1863,6 +2128,84 @@
 			};
 			name = Release;
 		};
+		938A3AC81B25735C00E3A5BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AIVideoCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		938A3AC91B25735C00E3A5BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AIVideoCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		938A3ACC1B25735C00E3A5BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AIVideoCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AI2020OS.app/AI2020OS";
+			};
+			name = Debug;
+		};
+		938A3ACD1B25735C00E3A5BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AIVideoCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AI2020OS.app/AI2020OS";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1901,6 +2244,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		938A3AC71B25735C00E3A5BF /* Build configuration list for PBXNativeTarget "AIVideoCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				938A3AC81B25735C00E3A5BF /* Debug */,
+				938A3AC91B25735C00E3A5BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		938A3ACB1B25735C00E3A5BF /* Build configuration list for PBXNativeTarget "AIVideoCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				938A3ACC1B25735C00E3A5BF /* Debug */,
+				938A3ACD1B25735C00E3A5BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
