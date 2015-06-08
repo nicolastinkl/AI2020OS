@@ -51,6 +51,7 @@ struct AIServiceTopicModel: JSONJoy  {
     var service_intro_url: String?
     var contents = [String]()
     var tags = [String]()
+    var isFavor = false
 
     init() {
         
