@@ -9,8 +9,9 @@
 import UIKit
 import MessageUI
 
-class EmailMenuItem: UIMenuItem{
-    var indexPath: NSIndexPath!
+//传值用的delegate
+protocol AIFilterViewDelegate{
+    func passChoosedValue(value String)
 }
 
 class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITableViewDataSource,UITableViewDelegate{
@@ -23,6 +24,8 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     var initialPinchHeight:CGFloat!
     
     var playe:NSMutableArray?
+    //筛选值的delegate变量，初始化这个controller的时候要传进来
+    var delegate:AIFilterViewDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     var sectionHeaderView:SectionHeaderView!
