@@ -28,13 +28,14 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        AIConnectView.sharedManager.delegate = self
+        AIConnectView.sharedManager.delegates.append(self)
     }
     
-    func exchangeViewModel(viewModel: ConnectViewModel) {
+    func exchangeViewModel(viewModel: ConnectViewModel, selection: CollectSelection) {
         currentModel = viewModel
         
         tableView.reloadData()
+       
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,15 +64,15 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICollectServiceGridCell) as  AICollectServiceGridCell
-            
-            cell.configData()
-            
+
+            cell.setData(serviceList![indexPath.row])
             
             return cell
             
         }
     }
     
+    // MARK: Private function
     private func loadData(result: (model: [AIServiceTopicModel], err: Error?)) {
         if result.err == nil {
             serviceList = result.model
@@ -132,16 +133,28 @@ class AICollectServiceListCell: MGSwipeTableCell {
     @IBOutlet weak var tagButton: DesignableButton!
     @IBOutlet weak var favoritesButton: UIButton!
     
+    @IBAction func favorAction(sender: AnyObject) {
+        if service != nil {
+            service!.isFavor = !service!.isFavor
+            
+            if service!.isFavor {
+                favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
+            } else {
+                favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
+            }
+        }
+    }
     
     func setData(service: AIServiceTopicModel) {
 
+        self.service = service
+        
         if service.service_name != nil {
             serviceName.text = service.service_name
         }
         
         if service.service_intro_url != nil {
             var url = service.service_intro_url!
-//            url = "http://imglf0.ph.126.net/2PAScdjOGW7u_SF8n_YA0Q==/6630531204025177476.jpg"
             serviceImg.setURL(NSURL(string: url), placeholderImage: UIImage(named: "Placeholder"))
         }
         
@@ -156,6 +169,12 @@ class AICollectServiceListCell: MGSwipeTableCell {
             }
             
             serviceContents.text = contentStr
+        }
+        
+        if service.isFavor {
+            favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
+        } else {
+            favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
         }
     }
 }
@@ -172,8 +191,29 @@ class AICollectServiceGridCell: UITableViewCell {
     @IBOutlet weak var serviceContents: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var fromSource: UILabel!
-    
-    func configData(){
-        serviceImg.setURL(NSURL(string: "http://imglf0.ph.126.net/2PAScdjOGW7u_SF8n_YA0Q==/6630531204025177476.jpg"), placeholderImage: UIImage(named: "Placeholder"))
+
+    func setData(service: AIServiceTopicModel) {
+
+        if service.service_name != nil {
+            serviceName.text = service.service_name
+        }
+        
+        if service.service_intro_url != nil {
+            var url = service.service_intro_url!
+            serviceImg.setURL(NSURL(string: url), placeholderImage: UIImage(named: "Placeholder"))
+        }
+        
+        if serviceContents != nil {
+            var contentStr = ""
+            for var i = 0; i < service.contents.count; i++ {
+                contentStr += service.contents[i]
+                
+                if i != service.contents.count {
+                    contentStr += " | "
+                }
+            }
+            
+            serviceContents.text = contentStr
+        }
     }
 }

@@ -39,6 +39,8 @@ struct AIApplication{
             static let AIOrderStoryboard            = "AIOrderStoryboard"
             static let AIOrderDetailStoryboard      = "AIOrderDetailStoryboard"
             static let AISearchStoryboard           = "AISearchStoryboard"
+            static let AIConnectMeunStoryboard      = "AIConnectMeunStoryboard"
+            static let AITagFilterStoryboard        = "AITagFilterStoryboard"
         }
         
         // MARK: View

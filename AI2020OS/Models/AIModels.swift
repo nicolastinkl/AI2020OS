@@ -38,7 +38,7 @@ struct AIServiceTopicListModel: JSONJoy  {
     }
 }
 
-struct AIServiceTopicModel: JSONJoy  {
+class AIServiceTopicModel: JSONJoy  {
 
     var service_id: Int?
     var service_name: String?
@@ -51,12 +51,13 @@ struct AIServiceTopicModel: JSONJoy  {
     var service_intro_url: String?
     var contents = [String]()
     var tags = [String]()
+    var isFavor = false
 
     init() {
         
     }
     
-    init(_ decoder: JSONDecoder) {
+    required init(_ decoder: JSONDecoder) {
         service_id = decoder["service_id"].integer
         service_name = decoder["service_name"].string
         service_price = decoder["service_price"].string
