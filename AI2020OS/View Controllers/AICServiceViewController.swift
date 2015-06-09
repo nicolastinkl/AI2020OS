@@ -16,13 +16,13 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     // MARK: Priate Variable
     private var serviceList: [AIServiceTopicModel]?
     var currentModel: ConnectViewModel = ConnectViewModel.ListView
-    var searchEngine: SearchEngine?
+    var favorServicesManager: AIFavorServicesManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchEngine = MockSearchEngine()
-        searchEngine?.getFavorServices(1, pageSize: 10, completion: loadData)
+        favorServicesManager = AIMockFavorServicesManager()
+        favorServicesManager?.getFavoriteServices(1, pageSize: 10, completion: loadData)
     }
     
     override func viewDidAppear(animated: Bool) {
