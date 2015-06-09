@@ -5,6 +5,8 @@
         <dict>
             <key>playName</key>
             <string>我喜欢的☆</string>
+            <key>filterType</key>
+            <string>contentFavorite</string>
             <key>quotations</key>
             <array>
             </array>
@@ -12,6 +14,8 @@
             <dict>
                 <key>playName</key>
                 <string>按标签筛选</string>
+                <key>filterType</key>
+                <string>tagName</string>
                 <key>quotations</key>
                 <array>
                     <dict>
@@ -35,6 +39,8 @@
             <dict>
                 <key>playName</key>
                 <string>按来源筛选</string>
+                <key>filterType</key>
+                <string>contentOrigin</string>
                 <key>quotations</key>
                 <array>
                     <dict>

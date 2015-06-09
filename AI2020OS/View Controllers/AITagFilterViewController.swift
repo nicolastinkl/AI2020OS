@@ -153,11 +153,10 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var play:Play = (self.sectionInfoArray[indexPath.section] as SectionInfo).play
         let quotation = play.quotations[indexPath.row] as NSDictionary
-        
-        let selValue = quotation["tagName"] as? String
+        var userInfo:Dictionary<String,String!> = ["tagName":quotation["tagName"] as? String,"filterType":play.filterType]
         //发送消息通知
         
-        NSNotificationCenter.defaultCenter().postNotificationName("filterFlagChoose", object: nil, userInfo:  ["value":selValue!])
+        NSNotificationCenter.defaultCenter().postNotificationName("filterFlagChoose", object: nil, userInfo:  userInfo)
         
         self.findHamburguerViewController()?.hideMenuViewControllerWithCompletion(nil)
         
@@ -371,7 +370,7 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
                 
                 var play: Play! = Play()
                 play.name = playDictionary["playName"] as String
-                
+                play.filterType = playDictionary["filterType"] as String
                 var quotationDictionaries:NSArray = playDictionary["quotations"] as NSArray
                 var quotations = NSMutableArray(capacity: quotationDictionaries.count)
                 

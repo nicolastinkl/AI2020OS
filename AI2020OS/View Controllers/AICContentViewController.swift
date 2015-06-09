@@ -180,8 +180,8 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
     }
     
     @objc func reloadTableWithCond(notification: NSNotification){
-        let selValue = notification.object as String
-        println("notification message:" + selValue)
+        let userInfo:Dictionary<String,String!> = notification.userInfo as Dictionary<String,String!>
+        println("notification message:" + userInfo["tagName"]! + userInfo["filterType"]!)
     }
     
     func addFilterOberver(){
