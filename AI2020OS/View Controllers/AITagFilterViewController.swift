@@ -9,8 +9,9 @@
 import UIKit
 import MessageUI
 
-class EmailMenuItem: UIMenuItem{
-    var indexPath: NSIndexPath!
+//传值用的delegate
+protocol AIFilterViewDelegate{
+    func passChoosedValue(value:String)
 }
 
 class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITableViewDataSource,UITableViewDelegate{
@@ -23,6 +24,8 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     var initialPinchHeight:CGFloat!
     
     var playe:NSMutableArray?
+    //筛选值的delegate变量，初始化这个controller的时候要传进来
+    var delegate:AIFilterViewDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     var sectionHeaderView:SectionHeaderView!
@@ -32,6 +35,7 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     
     let DefaultRowHeight = 48
     let HeaderHeight = 48
+    let QuoteCellIdentifier = "tagFilterTableCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +119,7 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 返回指定的row 的cell。这个地方是比较关键的地方，一般在这个地方来定制各种个性化的 cell元素。这里只是使用最简单最基本的cell 类型。其中有一个主标题 cell.textLabel 还有一个副标题cell.detailTextLabel,  还有一个 image在最前头 叫cell.imageView.  还可以设置右边的图标，通过cell.accessoryType 可以设置是饱满的向右的蓝色箭头，还是单薄的向右箭头，还是勾勾标记。
         
-        let QuoteCellIdentifier = "tagFilterTableCell"
+        
         var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
         
         var play:Play = (self.sectionInfoArray[indexPath.section] as SectionInfo).play
@@ -143,6 +147,15 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
 
         return CGFloat(sectionInfo.objectInRowHeightsAtIndex(indexPath.row) as NSNumber)
         //又或者，返回单元格的行高
+    }
+    
+    //点击事件
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
+        let selValue = cell.detailTextLabel?.text
+        NSNoti
+        //self.delegate?.passChoosedValue(selValue!)
     }
     
     // _________________________________________________________________________
