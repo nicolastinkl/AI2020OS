@@ -154,7 +154,7 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
         
         var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
         let selValue = cell.detailTextLabel?.text
-        NSNoti
+        
         //self.delegate?.passChoosedValue(selValue!)
     }
     
