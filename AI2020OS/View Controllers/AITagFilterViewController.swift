@@ -151,10 +151,17 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     
     //点击事件
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var play:Play = (self.sectionInfoArray[indexPath.section] as SectionInfo).play
+        let quotation = play.quotations[indexPath.row] as NSDictionary
         
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
-        let selValue = cell.detailTextLabel?.text
-        NSNoti
+        let selValue = quotation["tagName"] as? String
+        //发送消息通知
+        var notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.postNotificationName("filterFlagChoose", object: selValue,userInfo: )
+        
+        self.findHamburguerViewController()?.hideMenuViewControllerWithCompletion(nil)
+        
+        
         //self.delegate?.passChoosedValue(selValue!)
     }
     

@@ -39,7 +39,8 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
         self.tableView.contentInset = UIEdgeInsetsMake(-kImageOriginHight, 0, 0, 0)
         self.expandZoomImageView.setHeight(kImageOriginHight)
         self.tableView.tableHeaderView?.addSubview(self.expandZoomImageView)
-        
+        //注册筛选消息的监听
+        addFilterOberver()
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -175,6 +176,17 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
             }
         }
         
+        
+    }
+    
+    @objc func reloadTableWithCond(notification: NSNotification){
+        let selValue = notification.object as String
+        println("notification message:" + selValue)
+    }
+    
+    func addFilterOberver(){
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTableWithCond:", name: "filterFlagChoose", object: nil)
         
     }
 }

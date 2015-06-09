@@ -126,7 +126,7 @@ class AIConnectViewController: UIViewController {
         /*let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AITagFilterStoryboard, bundle: nil).instantiateInitialViewController() as AITagFilterViewController
         showViewController(viewController, sender: self)*/
         
-        self.findHamburguerViewController()?.showMenuViewController()
+        self.findHamburguerViewController()?.showMenuViewController()                
         
     }
     
@@ -134,5 +134,6 @@ class AIConnectViewController: UIViewController {
         
 //        self.showViewController(AIVideoRecorderViewController(nibName: "AIVideoRecorderViewController", bundle: nil), sender: self)
     }
+    
     
 }
