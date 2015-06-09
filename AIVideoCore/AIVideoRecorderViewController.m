@@ -217,8 +217,7 @@
     } else {
         NSLog(@"删除了视频: %@", fileURL);
         NSLog(@"现在视频长度: %f", totalDur);
-    }
-    
+    }    
 }
 
 - (void)videoRecorder:(SBVideoRecorder *)videoRecorder didRecordingToOutPutFileAtURL:(NSURL *)outputFileURL duration:(CGFloat)videoDuration recordedVideosTotalDur:(CGFloat)totalDur

@@ -1095,9 +1095,9 @@
 			isa = PBXGroup;
 			children = (
 				93735D8D1B1D976C00D52431 /* ShareViewController.swift */,
+				93735D981B1D9A4000D52431 /* AIShareViewController.swift */,
 				93735D8F1B1D976C00D52431 /* MainInterface.storyboard */,
 				93735D8B1B1D976C00D52431 /* Supporting Files */,
-				93735D981B1D9A4000D52431 /* AIShareViewController.swift */,
 			);
 			path = SBOSS;
 			sourceTree = "<group>";
@@ -1481,7 +1481,6 @@
 				TargetAttributes = {
 					933ED3E31AC8F90A00E4AADB = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 89RFBF2W4Q;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -1500,7 +1499,6 @@
 					};
 					93735D881B1D976C00D52431 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 89RFBF2W4Q;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -1509,7 +1507,6 @@
 					};
 					938A3AAD1B25735B00E3A5BF = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 89RFBF2W4Q;
 					};
 					938A3AB71B25735B00E3A5BF = {
 						CreatedOnToolsVersion = 6.1;

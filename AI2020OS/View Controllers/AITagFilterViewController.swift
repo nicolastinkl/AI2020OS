@@ -162,6 +162,9 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
         self.findHamburguerViewController()?.hideMenuViewControllerWithCompletion(nil)
         
         
+        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
+        let selValue = cell.detailTextLabel?.text
+        
         //self.delegate?.passChoosedValue(selValue!)
     }
     

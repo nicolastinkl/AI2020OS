@@ -285,6 +285,8 @@ class AICContentViewControllerImageCell: UITableViewCell,AITabelViewMenuViewDele
     
     func shareAction() {
         
+        AIApplication.shareAction("shareAction")
+        
     }
     
     func editLabelAction() {
