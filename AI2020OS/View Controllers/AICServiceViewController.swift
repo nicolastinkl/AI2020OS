@@ -16,13 +16,13 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     // MARK: Priate Variable
     private var serviceList: [AIServiceTopicModel]?
     var currentModel: ConnectViewModel = ConnectViewModel.ListView
-    var searchEngine: SearchEngine?
+    var favorServicesManager: AIFavorServicesManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchEngine = MockSearchEngine()
-        searchEngine?.getFavorServices(1, pageSize: 10, completion: loadData)
+        favorServicesManager = AIMockFavorServicesManager()
+        favorServicesManager?.getFavoriteServices(1, pageSize: 10, completion: loadData)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -78,9 +78,7 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
             serviceList = result.model
             tableView.reloadData()
         }
-    }
-    
-    
+    }  
 }
 
 extension AICServiceViewController: MGSwipeTableCellDelegate {
@@ -176,6 +174,10 @@ class AICollectServiceListCell: MGSwipeTableCell {
         } else {
             favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
         }
+        
+        if service.tags.count > 0 {
+            tagButton.setTitle(service.tags[0], forState: UIControlState.Normal)
+        }
     }
 }
 
@@ -186,13 +188,30 @@ class AICollectServiceListCell: MGSwipeTableCell {
 */
 class AICollectServiceGridCell: UITableViewCell {
     
+    var service: AIServiceTopicModel?
+    
     @IBOutlet weak var serviceImg: AIImageView!
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var serviceContents: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var fromSource: UILabel!
+    @IBOutlet weak var tagButton: DesignableButton!
+    @IBOutlet weak var favoritesButton: UIButton!
 
+    @IBAction func favoAction(sender: AnyObject) {
+        if service != nil {
+            service!.isFavor = !service!.isFavor
+            
+            if service!.isFavor {
+                favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
+            } else {
+                favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
+            }
+        }
+    }
     func setData(service: AIServiceTopicModel) {
+        
+        self.service = service
 
         if service.service_name != nil {
             serviceName.text = service.service_name
@@ -214,6 +233,16 @@ class AICollectServiceGridCell: UITableViewCell {
             }
             
             serviceContents.text = contentStr
+        }
+        
+        if service.isFavor {
+            favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
+        } else {
+            favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
+        }
+
+        if service.tags.count > 0 {
+            tagButton.setTitle(service.tags[0], forState: UIControlState.Normal)
         }
     }
 }
