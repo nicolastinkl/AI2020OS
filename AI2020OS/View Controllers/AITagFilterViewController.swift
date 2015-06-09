@@ -156,14 +156,14 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
         
         let selValue = quotation["tagName"] as? String
         //发送消息通知
-        var notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.postNotificationName("filterFlagChoose", object: selValue,userInfo: )
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("filterFlagChoose", object: nil, userInfo:  ["value":selValue!])
         
         self.findHamburguerViewController()?.hideMenuViewControllerWithCompletion(nil)
         
         
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
-        let selValue = cell.detailTextLabel?.text
+//        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
+//        let selValue = cell.detailTextLabel?.text
         
         //self.delegate?.passChoosedValue(selValue!)
     }
