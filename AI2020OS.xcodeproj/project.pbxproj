@@ -11,7 +11,6 @@
 		1205C0DE1B20574F003E27C4 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1205C0DC1B20574F003E27C4 /* ENSideMenuNavigationController.swift */; };
 		1239DBB71B204F48002F6A4F /* TagFilterData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1239DBB61B204F48002F6A4F /* TagFilterData.plist */; };
 		1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1239DBB81B2052A8002F6A4F /* TagFilterData.plist */; };
-		126A4E2F1B1860EA000C6C9E /* jsonfile.json in Resources */ = {isa = PBXBuildFile; fileRef = 126A4E2E1B1860EA000C6C9E /* jsonfile.json */; };
 		1284ABC41B2036B500636F35 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1284ABC11B2036B500636F35 /* SectionHeaderView.swift */; };
 		1284ABC51B2036B500636F35 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1284ABC21B2036B500636F35 /* SectionHeaderView.xib */; };
 		1284ABC61B2036B500636F35 /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1284ABC31B2036B500636F35 /* SectionInfo.swift */; };
@@ -155,6 +154,8 @@
 		938A3AFE1B257FC200E3A5BF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938A3AFD1B257FC200E3A5BF /* MediaPlayer.framework */; };
 		938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */; };
 		9394D2281B133F0C00EE578E /* AIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394D2271B133F0C00EE578E /* AIModels.swift */; };
+		939E663A1B27EAE900FD5FBA /* AIFavoriteContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E66391B27EAE900FD5FBA /* AIFavoriteContentModel.swift */; };
+		939E663C1B280E8900FD5FBA /* AIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E663B1B280E8900FD5FBA /* AIWebViewController.swift */; };
 		939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F4BD41AD6648000CE530C /* AIAudioViewController.swift */; };
 		93A7058E1B12CAD800E8193C /* AIServerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */; };
 		93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A705911B12CAF000E8193C /* AIServerTimeView.xib */; };
@@ -300,7 +301,6 @@
 		1205C0DC1B20574F003E27C4 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
 		1239DBB61B204F48002F6A4F /* TagFilterData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TagFilterData.plist; path = AI2020OSTests/TagFilterData.plist; sourceTree = SOURCE_ROOT; };
 		1239DBB81B2052A8002F6A4F /* TagFilterData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TagFilterData.plist; sourceTree = "<group>"; };
-		126A4E2E1B1860EA000C6C9E /* jsonfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonfile.json; sourceTree = "<group>"; };
 		1284ABC11B2036B500636F35 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		1284ABC21B2036B500636F35 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		1284ABC31B2036B500636F35 /* SectionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
@@ -467,6 +467,8 @@
 		938A3AFD1B257FC200E3A5BF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIVideoStoryboard.storyboard; sourceTree = "<group>"; };
 		9394D2271B133F0C00EE578E /* AIModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModels.swift; sourceTree = "<group>"; };
+		939E66391B27EAE900FD5FBA /* AIFavoriteContentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoriteContentModel.swift; sourceTree = "<group>"; };
+		939E663B1B280E8900FD5FBA /* AIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWebViewController.swift; sourceTree = "<group>"; };
 		939F4BD41AD6648000CE530C /* AIAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioViewController.swift; sourceTree = "<group>"; };
 		93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServerTimeView.swift; sourceTree = "<group>"; };
 		93A705911B12CAF000E8193C /* AIServerTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIServerTimeView.xib; sourceTree = "<group>"; };
@@ -720,6 +722,7 @@
 				937C77671B1E9BBB006FF589 /* AICServiceViewController.swift */,
 				93659F601B1EEFB40065E661 /* AIExtensionAICContentAndService.swift */,
 				938A39951B253FF200E3A5BF /* AIConnectMeunViewController.swift */,
+				939E663B1B280E8900FD5FBA /* AIWebViewController.swift */,
 			);
 			name = Favorites;
 			sourceTree = "<group>";
@@ -876,6 +879,7 @@
 				84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */,
 				F2DACC2A1B197A7500233EFD /* AIOrderDetailModel.swift */,
 				84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */,
+				939E66391B27EAE900FD5FBA /* AIFavoriteContentModel.swift */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -888,7 +892,6 @@
 				93D80A431ACA71DA004BC7C0 /* AILocalStore.swift */,
 				935A25761AE79AF10089B240 /* AIServicesRequester.swift */,
 				9301B0751B09979500C1EE79 /* AILoginService.swift */,
-				126A4E2E1B1860EA000C6C9E /* jsonfile.json */,
 				F2AF4C521B19B6DE007E9493 /* AIOrderDetailService.swift */,
 			);
 			name = Services;
@@ -1580,7 +1583,6 @@
 				93CF230F1B05CF960082AC73 /* AIHomeSDDefaultViewCell.xib in Resources */,
 				1284ABCA1B2036F500636F35 /* AITagFilterStoryboard.storyboard in Resources */,
 				93A705981B12D19900E8193C /* ProvincesAndCities.plist in Resources */,
-				126A4E2F1B1860EA000C6C9E /* jsonfile.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1723,6 +1725,7 @@
 				93F66DE71B1976AC00AEA92A /* AIChatNewSprintViewController.swift in Sources */,
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
 				937C77681B1E9BBB006FF589 /* AICServiceViewController.swift in Sources */,
+				939E663C1B280E8900FD5FBA /* AIWebViewController.swift in Sources */,
 				84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */,
 				93FF74621B0ECEA000FD97C1 /* CVCalendarDayView.swift in Sources */,
 				93FF746E1B0ECEA000FD97C1 /* CVCalendarViewDelegate.swift in Sources */,
@@ -1750,6 +1753,7 @@
 				F2AF4C531B19B6DE007E9493 /* AIOrderDetailService.swift in Sources */,
 				935F38701ACD27DF004BE0E7 /* Movie.swift in Sources */,
 				937C77641B1E98AB006FF589 /* AIConnectViewController.swift in Sources */,
+				939E663A1B27EAE900FD5FBA /* AIFavoriteContentModel.swift in Sources */,
 				93FF74671B0ECEA000FD97C1 /* CVCalendarMonthView.swift in Sources */,
 				84CB368A1B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift in Sources */,
 				93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */,
@@ -2249,6 +2253,7 @@
 				938A3AC91B25735C00E3A5BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		938A3ACB1B25735C00E3A5BF /* Build configuration list for PBXNativeTarget "AIVideoCoreTests" */ = {
 			isa = XCConfigurationList;
@@ -2257,6 +2262,7 @@
 				938A3ACD1B25735C00E3A5BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

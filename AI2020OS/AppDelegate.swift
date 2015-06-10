@@ -113,6 +113,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println(notification)
     }
     
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        //Optional("readtext") , nil , Optional("com.apple.mobilesafari")
+        logInfo("\(url.scheme) , \(url.query) , \(sourceApplication)")
+        return true
+    }
     
 }
 

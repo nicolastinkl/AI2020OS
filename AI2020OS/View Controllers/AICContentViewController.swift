@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 import Spring
+import Cartography
+
+// MARK: List Action's Delegate.
+
+@objc protocol AICContentViewCellListDelegate: class {
+    func listTableViewCell(cell: AICContentViewControllerCell, likeButtonPressed sender: AnyObject)
+    func listTableViewCell(cell: AICContentViewControllerCell, signButtonPressed sender: AnyObject)
+    func listTableViewCell(cell: AICContentViewControllerCell, exchangedButtonPressed sender: AnyObject)
+}
+
 
 class AICContentViewController: UITableViewController,AIConnectViewDelegate {
     
@@ -18,17 +28,21 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
     
     private let kImageOriginHight:CGFloat = 240.0
     
-    private var expandZoomImageView: UIView{
+    private var expandZoomImageView: AITableViewInsetMakeView{
         return AITableViewInsetMakeView.currentView()
     }
+    
+    lazy private var dataArray:[AIFavoriteContentModel] = {
+        return []
+    }()
     
     private var MainCell:String     = "MainCell"
     private var AttachedCell:String = "AttachedCell"
     
-    private var array:NSMutableArray = {
-        let dic:NSDictionary = ["Cell": "MainCell","isAttached":false]
-        return [dic,dic,dic,dic,dic,dic,dic]
-    }()
+//    private var array:NSMutableArray = {
+//        let dic:NSDictionary = ["Cell": "MainCell","isAttached":false]
+//        return [dic,dic,dic,dic,dic,dic,dic]
+//    }()
     
     
     // MARK: life cycle
@@ -36,20 +50,106 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        test()
+        
         self.tableView.contentInset = UIEdgeInsetsMake(-kImageOriginHight, 0, 0, 0)
         self.expandZoomImageView.setHeight(kImageOriginHight)
         self.tableView.tableHeaderView?.addSubview(self.expandZoomImageView)
         
     }
     
+    func test(){
+        
+        localCode { () -> () in
+            let item = AIFavoriteContentModel()
+            item.favoriteTitle = "校园生活很忙"
+            item.favoriteDes = "韩映社区"
+            item.favoriteFromWhere = "来自澎湃新闻"
+            item.favoriteTags = ["流行","美女","帅哥"]
+            item.favoriteCurrentTag = "音乐"
+            item.favoriteAvator = "http://mvavatar1.meitudata.com/545e65ff5ea4c884.jpg"
+            item.isFavorite = 0
+            item.favoriteType = FavoriteTypeEnum.music.value()
+            item.favoriteFromWhereURL = "http://www.meipai.com/media/343568815"
+            item.isAttached  = false
+            
+            var list = [AIServiceTopicModel]()
+            var service = AIServiceTopicModel()
+            service.service_name = "去上海出差"
+            service.service_price = "123元"
+            service.service_intro_url = "http://www.czgu.com/uploads/allimg/140904/0644594560-0.jpg"
+            service.contents.append("机票")
+            service.contents.append("住宿")
+            service.contents.append("接机")
+            service.contents.append("宠物寄养")
+            service.isFavor = true
+            service.tags.append("工作")
+            
+            list.append(service)
+            
+            service = AIServiceTopicModel()
+            service.service_name = "做个柔软的胖子"
+            service.service_price = "123元"
+            service.service_intro_url = "http://www.wendaoyoga.com/userfiles/images/P-1.jpg"
+            service.contents.append("场地")
+            service.contents.append("瑜伽教练")
+            service.isFavor = false
+            service.tags.append("健身")
+            list.append(service)
+            item.serverList = list
+            
+            self.dataArray.append(item)
+        }
+        
+        localCode { () -> () in
+            let item = AIFavoriteContentModel()
+            item.favoriteTitle = "SuSan"
+            item.favoriteDes = "韩映社区"
+            item.favoriteFromWhere = "来自澎湃新闻"
+            item.favoriteTags = ["流行","美食"]
+            item.favoriteCurrentTag = "音乐"
+            item.favoriteAvator = "http://mvavatar1.meitudata.com/54108b74bb0a7773.jpg"
+            item.isFavorite = 0
+            item.favoriteType = FavoriteTypeEnum.music.value()
+            item.favoriteFromWhereURL = "http://www.meipai.com/media/343568815"
+            item.isAttached  = false
+            
+            var list = [AIServiceTopicModel]()
+            var service = AIServiceTopicModel()
+            service.service_name = "去上海出差"
+            service.service_price = "123元"
+            service.service_intro_url = "http://www.czgu.com/uploads/allimg/140904/0644594560-0.jpg"
+            service.contents.append("机票")
+            service.contents.append("住宿")
+            service.contents.append("接机")
+            service.contents.append("宠物寄养")
+            service.isFavor = true
+            service.tags.append("工作")
+            
+            list.append(service)
+            
+            item.serverList = list
+            
+            self.dataArray.append(item)
+        }
+        
+    }
+    
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        if let viewTableHead = self.tableView.tableHeaderView?.subviews.first as UIView?{
+        if let viewTableHead = self.tableView.tableHeaderView?.subviews.first as AITableViewInsetMakeView?{
             let yOffset:CGFloat = scrollView.contentOffset.y
-            if (yOffset < kImageOriginHight) {
+            
+            if yOffset < kImageOriginHight {
 //                var f:CGRect = viewTableHead.frame
 //                //f.origin.y = -(kImageOriginHight + (kImageOriginHight - yOffset))
-//                f.size.height =  kImageOriginHight + sin((kImageOriginHight - yOffset))
+//                f.size.height = kImageOriginHight + logb((kImageOriginHight - yOffset))
 //                viewTableHead.frame = f
+            }
+            
+            if (yOffset < 100) {
+                viewTableHead.exchangeSuccess()
+            }else{
+                viewTableHead.exchangeDefault()
             }
         }
     }
@@ -57,8 +157,8 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
     override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if let viewTableHead = self.tableView.tableHeaderView?.subviews.first as UIView?{
             let yOffset:CGFloat = scrollView.contentOffset.y
-            println(yOffset)
             if (yOffset < 100) {
+                
                 let viewContr = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIVideoStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
                 self.showViewController(viewContr, sender: self)
             }
@@ -71,7 +171,6 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
         super.viewDidAppear(animated)
         
         AIConnectView.sharedManager.delegates.append(self)
-        
         
     }
     
@@ -91,94 +190,100 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
         if currentModel == ConnectViewModel.ImageView{
             return 290
         }else{
-            let dict = self.array[indexPath.row] as NSDictionary
-            if (dict["Cell"] as String) == self.MainCell {
-                return 110
+            let dict = self.dataArray[indexPath.section] as AIFavoriteContentModel
+            if indexPath.row == 0 {
+                // Main Cell
+                
+                if dict.isAttached {
+                    return 140
+                }else{
+                    return 110
+                }
+            }else{
+                
+                // Attach Cell
+                if dict.isAttached {
+                    return 75
+                }
+                return 0
             }
-            return 75
+            
+            
         }
     }
     
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return array.count
-//    }
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.dataArray.count
+    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        if currentModel == ConnectViewModel.ImageView{
+            return 1
+        }
+        let model = self.dataArray[section] as AIFavoriteContentModel
+        let count = (model.serverList?.count ?? 0) + 1
+        return count
+        
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+        let dict = self.dataArray[indexPath.section] as AIFavoriteContentModel
         if currentModel == ConnectViewModel.ImageView{
             let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICContentViewControllerImageCell) as  AICContentViewControllerImageCell
-            cell.configData()
+            cell.configData(dict)
             return cell
         }else{
-            let dict = self.array[indexPath.row] as NSDictionary
-            if (dict["Cell"] as String) == self.MainCell {
-                
+            if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICContentViewControllerCell) as  AICContentViewControllerCell
-                cell.configData()
+                cell.configData(dict)
                 cell.delegate = self
-                return cell
+                cell.listDelegate = self
                 
-            }else if (dict["Cell"] as String) == self.AttachedCell {
-                
-                let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICContentViewControllerAttachedCell) as  AICContentViewControllerAttachedCell
-                cell.configData()
-                cell.delegate = self
-                return cell
-            }
-        }
-        
-        return UITableViewCell()
-    }
-   
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
-        if currentModel == ConnectViewModel.ImageView{
-        
-        }else{
-            var path:NSIndexPath?
-            
-            let dict = self.array[indexPath.row] as NSDictionary
-            if (dict["Cell"] as String) == self.MainCell {
-                path = NSIndexPath(forItem: (indexPath.row+1), inSection: indexPath.section)
-            }else{
-                path = indexPath
-            }
-            if let bol = dict["isAttached"] as? Bool {
-                if bol {
-                    let dic:NSDictionary = ["Cell": "MainCell","isAttached":false]
-                    self.array[path!.row-1] = dic
-                    self.array.removeObjectAtIndex(path!.row)
-                    
-                    self.tableView.beginUpdates()
-                    self.tableView.deleteRowsAtIndexPaths([path!], withRowAnimation: UITableViewRowAnimation.Top)
-                    self.tableView.endUpdates()
-                    
-                    
+                if dict.isAttached {
+                    cell.actionView.hidden = false
                 }else{
+                    cell.actionView.hidden = true
+                }
+                
+                return cell
+            }else{
+                if dict.isAttached {
                     
-                    let dic:NSDictionary = ["Cell": "MainCell","isAttached":true]
-                    self.array[path!.row-1] = dic
-                    let addDic:NSDictionary = ["Cell": "AttachedCell","isAttached":true]
-                    self.array.insertObject(addDic, atIndex: path!.row)
+                    let server = dict.serverList?[indexPath.row-1] as AIServiceTopicModel?
                     
-                    self.tableView.beginUpdates()
-                    self.tableView.insertRowsAtIndexPaths([path!], withRowAnimation: UITableViewRowAnimation.Top)
-                    self.tableView.endUpdates()
-                    
+                    let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICContentViewControllerAttachedCell) as  AICContentViewControllerAttachedCell
+                    cell.configData(server!)
+                    cell.delegate = self
+                    return cell
+                }else{
+                    return UITableViewCell()
                 }
             }
         }
+    }
+   
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if cell is AICContentViewControllerCell{
+            cell.addTopBorderLine()
+        }
+        
+        cell.layoutIfNeeded()
+        cell.layoutSubviews()
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        print(indexPath)
+        let dict = self.dataArray[indexPath.section] as AIFavoriteContentModel
+
+        showViewController(AIWebViewController(url: NSURL(string:  dict.favoriteFromWhereURL!)!), sender: self)
         
         
     }
 }
 
+// MARK: datasource
 
 extension AICContentViewController: MGSwipeTableCellDelegate{
     
@@ -232,6 +337,56 @@ extension AICContentViewController: MGSwipeTableCellDelegate{
     }
 }
 
+// MARK: AICContentViewCellListDelegate
+
+extension AICContentViewController: AICContentViewCellListDelegate{
+
+    func listTableViewCell(cell: AICContentViewControllerCell, likeButtonPressed sender: AnyObject) {
+        if let model = cell.currentModel {
+            
+            if model.isFavorite == 0{
+                model.isFavorite = 1
+            }else{
+                model.isFavorite = 0
+            }
+            cell.refereshLikeButton()
+        }
+    }
+    
+    func listTableViewCell(cell: AICContentViewControllerCell, signButtonPressed sender: AnyObject) {
+        if let model = cell.currentModel {
+            
+        }
+    }
+    
+    func listTableViewCell(cell: AICContentViewControllerCell, exchangedButtonPressed sender: AnyObject) {
+        if let model = cell.currentModel {
+            if model.isAttached {
+                model.isAttached = false
+            }else{
+                model.isAttached = true
+            }
+            
+            self.tableView.reloadData()
+            
+            /*
+            if let indexPath = self.tableView.indexPathForCell(cell) {
+            
+            self.tableView.beginUpdates()
+            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
+            self.tableView.endUpdates()
+            
+            
+            }
+            */
+            
+        }
+    }
+    
+}
+
+// MARK: AICContentViewControllerCell
+
 /*!
 *  @author tinkl, 15-06-03 11:06:13
 *
@@ -243,18 +398,95 @@ class AICContentViewControllerCell: MGSwipeTableCell{
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var descrip: UILabel!
     @IBOutlet weak var fromWhere: UILabel!
-    @IBOutlet weak var like: UIButton!
+    @IBOutlet weak var like: DesignableButton!
     @IBOutlet weak var signButton: DesignableButton!
-    @IBOutlet weak var moreButton: UIButton!
+    @IBOutlet weak var moreButton: DesignableButton!
     
-    func configData(){
-        contentImageView.setURL(NSURL(string: "http://imglf0.ph.126.net/2PAScdjOGW7u_SF8n_YA0Q==/6630531204025177476.jpg"), placeholderImage: UIImage(named: "Placeholder"))
-        title.text = "Cafe Del Mar是Ibiza最为出名的地方"
-        descrip.text = "这是一座可以从海水看到日落倒影的海岸咖啡馆,面朝夕阳无限好的橘色日落景象 ,结合令人心旷神怡的Lounge音乐"
-        fromWhere.text = "来自网易轻博客"
+    @IBOutlet weak var actionView: SpringView!
+    
+    
+    weak var listDelegate: AICContentViewCellListDelegate?
+    
+    var currentModel:AIFavoriteContentModel?
+    
+    func configData(model:AIFavoriteContentModel){
+        currentModel = model
+        contentImageView.setURL(NSURL(string: model.favoriteAvator! ?? ""), placeholderImage: UIImage(named: "Placeholder"))
+        title.text = model.favoriteTitle! ?? ""
+        descrip.text = model.favoriteDes! ?? ""
+        fromWhere.text = model.favoriteFromWhere ?? ""
+        signButton.setTitle(model.favoriteCurrentTag! ?? "", forState: UIControlState.Normal)
+
+        var perButton:UIButton?
+        
+        
+        localCode { () -> () in
+            var button = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+            
+            button.setTitle("全部", forState: UIControlState.Normal)
+            button.titleLabel?.font = UIFont.systemFontOfSize(14)
+            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            button.layer.borderColor = UIColor.grayColor().CGColor
+            button.layer.borderWidth = 0.5
+            button.layer.cornerRadius = 10
+            self.actionView.addSubview(button)
+            button.frame = CGRectMake(0, 0, 60, 22)
+            perButton = button
+        }
+        for item in model.favoriteTags! ?? []{
+
+            var button = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+            button.setTitle(item, forState: UIControlState.Normal)
+            button.titleLabel?.font = UIFont.systemFontOfSize(14)
+            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            button.layer.borderColor = UIColor.grayColor().CGColor
+            button.layer.borderWidth = 0.5
+            button.layer.cornerRadius = 10
+            actionView.addSubview(button)
+            if let butt = perButton {
+                button.frame = CGRectMake(butt.left + butt.width + 20, 0, 60, 22)
+            }
+            perButton = button
+            
+        }
+        
+        refereshLikeButton()
+    }
+    
+    
+    @IBAction func likeAction(sender: AnyObject) {
+        listDelegate?.listTableViewCell(self, likeButtonPressed: sender)
+        animateButton(like)
+    }
+    
+    func refereshLikeButton(){
+        if currentModel!.isFavorite == 0{
+            like.setImage(UIImage(named: "pictureHeartLike_0"), forState: UIControlState.Normal)
+        }else{
+            like.setImage(UIImage(named: "pictureHeartLike_1"), forState: UIControlState.Normal)
+        }
+    }
+    
+    @IBAction func signAction(sender: AnyObject) {
+        listDelegate?.listTableViewCell(self, signButtonPressed: sender)
+        animateButton(signButton)
+    }
+    
+    @IBAction func exchangedAction(sender: AnyObject) {
+        listDelegate?.listTableViewCell(self, exchangedButtonPressed: sender)
+        animateButton(moreButton)
+    }
+    
+    func animateButton(layer: SpringButton) {
+        layer.animation = "pop"
+        layer.force = 1.5
+        layer.animate()
     }
 }
 
+
+
+// MARK: AICContentViewControllerImageCell
 /*!
 *  @author tinkl, 15-06-03 11:06:13
 *
@@ -270,6 +502,8 @@ class AICContentViewControllerImageCell: UITableViewCell,AITabelViewMenuViewDele
     @IBOutlet weak var nick: UILabel!
     @IBOutlet weak var des: UILabel!
     @IBOutlet weak var menuView: UIView!
+    
+    var currentModel:AIFavoriteContentModel?
     
     func shareAction() {
         
@@ -293,13 +527,14 @@ class AICContentViewControllerImageCell: UITableViewCell,AITabelViewMenuViewDele
         
     }
     
-    func configData(){
-        contentImageView.setURL(NSURL(string: "http://imglf0.ph.126.net/2PAScdjOGW7u_SF8n_YA0Q==/6630531204025177476.jpg"), placeholderImage: UIImage(named: "Placeholder"))
-        title.text = "Cafe Del Mar是Ibiza最为出名的地方"
-        des.text = "这是一座可以从海水看到日落倒影的海岸咖啡馆,面朝夕阳无限好的橘色日落景象 ,结合令人心旷神怡的Lounge音乐"
-        nick.text = "南方在线"
+    func configData(model:AIFavoriteContentModel){
+        currentModel = model
+        contentImageView.setURL(NSURL(string: model.favoriteAvator! ?? ""), placeholderImage: UIImage(named: "Placeholder"))
+        title.text = model.favoriteTitle! ?? ""
+        des.text = model.favoriteDes! ?? ""
+        nick.text = model.favoriteFromWhere ?? ""
+        signButton.setTitle(model.favoriteCurrentTag! ?? "", forState: UIControlState.Normal)
         avatorButton.maskWithEllipse()
-        signButton.setTitle("网易", forState: UIControlState.Normal)
     }
     
     @IBAction func moreAction(sender: AnyObject) {
@@ -325,16 +560,19 @@ class AICContentViewControllerImageCell: UITableViewCell,AITabelViewMenuViewDele
     
 }
 
+// MARK: AICContentViewControllerAttachedCell
+
 class AICContentViewControllerAttachedCell:MGSwipeTableCell{
     
     @IBOutlet weak var contentImage: AsyncImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var price: UILabel!
-    func configData(){
+    
+    func configData(model: AIServiceTopicModel){
         self.contentImage.maskWithEllipse()
-        contentImage.setURL(NSURL(string: "http://imglf0.ph.126.net/2PAScdjOGW7u_SF8n_YA0Q==/6630531204025177476.jpg"), placeholderImage: UIImage(named: "Placeholder"))
-        title.text = "Cafe Del Mar是Ibiza最为出名的地方"
-        price.text = "1380元"
+        contentImage.setURL(NSURL(string: model.service_intro_url!), placeholderImage: UIImage(named: "Placeholder"))
+        title.text = model.service_name
+        price.text = model.service_price
         
     }
     

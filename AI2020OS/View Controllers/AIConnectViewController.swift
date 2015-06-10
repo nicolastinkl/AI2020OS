@@ -120,7 +120,6 @@ class AIConnectViewController: UIViewController {
         
         currentSelection = CollectSelection.Content
     }
-    
 
     @IBAction func showFilterAction(sender: UIButton) {
         /*let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AITagFilterStoryboard, bundle: nil).instantiateInitialViewController() as AITagFilterViewController

@@ -94,6 +94,19 @@ extension UIView {
     }
     
     /*!
+    Cell上线处理
+    */
+    func addTopBorderLine() {
+        let color = UIColor(rgba: "#898989").CGColor
+        let lineLayer =  CALayer()
+        lineLayer.backgroundColor = color
+        let left = self.width*0.9/2
+        lineLayer.frame = CGRectMake(20, 1, self.width*0.9, 0.5)
+        self.layer.addSublayer(lineLayer)
+    }
+    
+    
+    /*!
     Cell下线处理
     */
     func addBottomWholeBorderLine() {

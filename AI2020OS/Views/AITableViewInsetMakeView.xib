@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6249" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -29,7 +29,7 @@
                     <blurEffect style="dark"/>
                 </visualEffectView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="继续下拉, 开始拍摄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxd-FD-LLF">
-                    <rect key="frame" x="132" y="37" width="336" height="45"/>
+                    <rect key="frame" x="132" y="77.5" width="336" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="336" id="XnF-5Z-70A"/>
                         <constraint firstAttribute="height" constant="45" id="aQs-LC-gVn"/>
@@ -38,30 +38,45 @@
                     <color key="textColor" red="0.83719161184210522" green="0.83719161184210522" blue="0.83719161184210522" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attachmentCameraLargeNormal" translatesAutoresizingMaskIntoConstraints="NO" id="tUA-ua-itg">
-                    <rect key="frame" x="276" y="101" width="48" height="38"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attachmentCameraLargeNormal" translatesAutoresizingMaskIntoConstraints="NO" id="tUA-ua-itg" customClass="SpringImageView" customModule="Spring">
+                    <rect key="frame" x="276" y="136" width="48" height="38"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="38" id="Nag-0l-7gW"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="Rqv-mr-S9z"/>
                         <constraint firstAttribute="width" constant="48" id="dZc-S4-RBp"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="repeatCount">
+                            <real key="value" value="1000"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteArrow" translatesAutoresizingMaskIntoConstraints="NO" id="1lw-yY-hvd">
-                    <rect key="frame" x="288" y="166" width="23" height="60"/>
+                    <rect key="frame" x="293" y="192" width="13" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="Eeq-A3-47o"/>
-                        <constraint firstAttribute="width" constant="23" id="qMC-Oz-f3R"/>
+                        <constraint firstAttribute="height" constant="40" id="Eeq-A3-47o"/>
+                        <constraint firstAttribute="width" constant="13" id="qMC-Oz-f3R"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="1lw-yY-hvd" secondAttribute="bottom" constant="8" id="1RW-te-evS"/>
                 <constraint firstAttribute="centerX" secondItem="tUA-ua-itg" secondAttribute="centerX" id="4y3-if-Lgf"/>
                 <constraint firstItem="yx8-3e-ZxH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="FPK-fr-j8H"/>
-                <constraint firstItem="wxd-FD-LLF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="37" id="MwJ-dl-ZiX"/>
+                <constraint firstItem="wxd-FD-LLF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MwJ-dl-ZiX"/>
                 <constraint firstAttribute="trailing" secondItem="yx8-3e-ZxH" secondAttribute="trailing" id="Qcu-9p-YBt"/>
                 <constraint firstItem="yXs-5n-egJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="R3r-X3-YmG"/>
                 <constraint firstItem="yXs-5n-egJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TJ7-ed-ZnK"/>
+                <constraint firstAttribute="centerY" secondItem="wxd-FD-LLF" secondAttribute="centerY" constant="20" id="TZy-Wt-sMD"/>
                 <constraint firstAttribute="bottom" secondItem="yXs-5n-egJ" secondAttribute="bottom" id="UdE-5D-LPJ"/>
                 <constraint firstAttribute="centerX" secondItem="1lw-yY-hvd" secondAttribute="centerX" id="W88-CF-UMg"/>
                 <constraint firstAttribute="centerX" secondItem="wxd-FD-LLF" secondAttribute="centerX" id="ZR2-jf-5oh"/>
@@ -69,9 +84,18 @@
                 <constraint firstItem="yx8-3e-ZxH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ewV-dh-fmg"/>
                 <constraint firstItem="1lw-yY-hvd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="166" id="krd-On-OUF"/>
                 <constraint firstAttribute="trailing" secondItem="yXs-5n-egJ" secondAttribute="trailing" id="pY8-Bi-1ZL"/>
-                <constraint firstAttribute="centerY" secondItem="tUA-ua-itg" secondAttribute="centerY" id="rgL-za-5hN"/>
+                <constraint firstAttribute="centerY" secondItem="tUA-ua-itg" secondAttribute="centerY" constant="-35" id="rgL-za-5hN"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="MwJ-dl-ZiX"/>
+                    <exclude reference="krd-On-OUF"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="content" destination="wxd-FD-LLF" id="DLG-ii-KPM"/>
+            </connections>
             <point key="canvasLocation" x="400" y="265"/>
         </view>
     </objects>
