@@ -10,5 +10,6 @@ import Foundation
 
 class Play: NSObject {
     var name:String = ""
+    var filterType:String = "contentFavorite"
     var quotations: NSArray = NSArray()
 }

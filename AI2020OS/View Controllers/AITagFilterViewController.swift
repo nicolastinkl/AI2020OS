@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 
 //传值用的delegate
-protocol AIFilterViewDelegate{
+@objc protocol AIFilterViewDelegate{
     func passChoosedValue(value:String)
 }
 
@@ -36,6 +36,7 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     let DefaultRowHeight = 48
     let HeaderHeight = 48
     let QuoteCellIdentifier = "tagFilterTableCell"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,9 +152,21 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     
     //点击事件
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var play:Play = (self.sectionInfoArray[indexPath.section] as SectionInfo).play
+        let quotation = play.quotations[indexPath.row] as NSDictionary
+        var userInfo:Dictionary<String,String!> = ["tagName":quotation["tagName"] as? String,"filterType":play.filterType]
+        //发送消息通知
         
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
-        let selValue = cell.detailTextLabel?.text
+        NSNotificationCenter.defaultCenter().postNotificationName("filterFlagChoose", object: nil, userInfo:  userInfo)
+        
+        self.findHamburguerViewController()?.hideMenuViewControllerWithCompletion({ (Void) -> Void in
+            self.delegate?.passChoosedValue(userInfo["tagName"]!)
+            return
+        })
+        
+        
+//        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
+//        let selValue = cell.detailTextLabel?.text
         
         //self.delegate?.passChoosedValue(selValue!)
     }
@@ -361,7 +374,7 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
                 
                 var play: Play! = Play()
                 play.name = playDictionary["playName"] as String
-                
+                play.filterType = playDictionary["filterType"] as String
                 var quotationDictionaries:NSArray = playDictionary["quotations"] as NSArray
                 var quotations = NSMutableArray(capacity: quotationDictionaries.count)
                 

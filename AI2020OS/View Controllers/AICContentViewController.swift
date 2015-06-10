@@ -55,7 +55,8 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
         self.tableView.contentInset = UIEdgeInsetsMake(-kImageOriginHight, 0, 0, 0)
         self.expandZoomImageView.setHeight(kImageOriginHight)
         self.tableView.tableHeaderView?.addSubview(self.expandZoomImageView)
-        
+        //注册筛选消息的监听
+        addFilterOberver()
     }
     
     func test(){
@@ -279,6 +280,17 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
 
         showViewController(AIWebViewController(url: NSURL(string:  dict.favoriteFromWhereURL!)!), sender: self)
         
+        
+    }
+    
+    @objc func reloadTableWithCond(notification: NSNotification){
+        let userInfo:Dictionary<String,String!> = notification.userInfo as Dictionary<String,String!>
+        println("notification message:" + userInfo["tagName"]! + userInfo["filterType"]!)
+    }
+    
+    func addFilterOberver(){
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTableWithCond:", name: "filterFlagChoose", object: nil)
         
     }
 }

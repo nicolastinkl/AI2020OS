@@ -19,6 +19,8 @@
 		12A20DA91B1719D0003E412A /* AIOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A20DA81B1719D0003E412A /* AIOrderModel.swift */; };
 		12A20DAB1B1719F3003E412A /* AIOrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A20DAA1B1719F3003E412A /* AIOrderService.swift */; };
 		12C9ED281B203E9C003E2215 /* AITagFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9ED271B203E9C003E2215 /* AITagFilterModel.swift */; };
+		12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616001B27DE8A0032DACE /* AITagEditViewController.swift */; };
+		12E616041B28105B0032DACE /* RRTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */; };
 		84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */; };
 		8415F4E31B135688003160B4 /* SearchServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */; };
 		84951FB61B1312E500179483 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB41B1312E500179483 /* SearchEngine.swift */; };
@@ -33,6 +35,9 @@
 		84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */; };
 		84D5D2C81B1C636D001E9F37 /* AICatalogServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */; };
 		84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */; };
+		84DBFF641B26D71F00F7FED6 /* AIFavorServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */; };
+		84DBFF661B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */; };
+		84DBFF681B26E68200F7FED6 /* AIServiceTagFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFF671B26E68200F7FED6 /* AIServiceTagFilterViewController.swift */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
 		9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0751B09979500C1EE79 /* AILoginService.swift */; };
 		9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0791B0998C700C1EE79 /* AILoginViewController.swift */; };
@@ -309,6 +314,8 @@
 		12A20DA81B1719D0003E412A /* AIOrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderModel.swift; sourceTree = "<group>"; };
 		12A20DAA1B1719F3003E412A /* AIOrderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderService.swift; sourceTree = "<group>"; };
 		12C9ED271B203E9C003E2215 /* AITagFilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITagFilterModel.swift; sourceTree = "<group>"; };
+		12E616001B27DE8A0032DACE /* AITagEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITagEditViewController.swift; sourceTree = "<group>"; };
+		12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		185C5C827FF9C9E6B31333B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogModel.swift; sourceTree = "<group>"; };
 		8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchServiceCollectionViewController.swift; sourceTree = "<group>"; };
@@ -327,6 +334,9 @@
 		84D132211B0F26E700B977F5 /* MainSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
 		84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICatalogServicesModel.swift; sourceTree = "<group>"; };
 		84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryRecord.swift; sourceTree = "<group>"; };
+		84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavorServicesManager.swift; sourceTree = "<group>"; };
+		84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceFilterStoryboard.storyboard; sourceTree = "<group>"; };
+		84DBFF671B26E68200F7FED6 /* AIServiceTagFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceTagFilterViewController.swift; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
 		9301B0751B09979500C1EE79 /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
 		9301B0791B0998C700C1EE79 /* AILoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewController.swift; sourceTree = "<group>"; };
@@ -634,7 +644,10 @@
 		1284ABBF1B20368600636F35 /* TagFilter */ = {
 			isa = PBXGroup;
 			children = (
+				12E616021B2810490032DACE /* Cells */,
 				1284ABC71B2036C600636F35 /* AITagFilterViewController.swift */,
+				12E616001B27DE8A0032DACE /* AITagEditViewController.swift */,
+				84DBFF671B26E68200F7FED6 /* AIServiceTagFilterViewController.swift */,
 			);
 			name = TagFilter;
 			sourceTree = "<group>";
@@ -647,6 +660,14 @@
 				1284ABC31B2036B500636F35 /* SectionInfo.swift */,
 			);
 			name = TagFilter;
+			sourceTree = "<group>";
+		};
+		12E616021B2810490032DACE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		84951FB31B13117300179483 /* Search */ = {
@@ -893,6 +914,7 @@
 				935A25761AE79AF10089B240 /* AIServicesRequester.swift */,
 				9301B0751B09979500C1EE79 /* AILoginService.swift */,
 				F2AF4C521B19B6DE007E9493 /* AIOrderDetailService.swift */,
+				84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */,
 			);
 			name = Services;
 			path = AI2020OS/Services;
@@ -1193,6 +1215,7 @@
 				931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */,
 				938A39931B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard */,
 				938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */,
+				84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */,
 			);
 			name = StoryBoard;
 			path = AI2020OS/StoryBoard;
@@ -1561,6 +1584,7 @@
 				84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
 				1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */,
+				84DBFF661B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard in Resources */,
 				93BD09081B06F97B00C8B96B /* AIMenuStoryboard.storyboard in Resources */,
 				934987071B0C75E0003086D1 /* AIMessageUnReadView.xib in Resources */,
 				93E4D5AB1B14A5F700992CA3 /* AISettingsStoryboard.storyboard in Resources */,
@@ -1750,6 +1774,7 @@
 				93BD090B1B06FBBF00C8B96B /* AIMenuViewController.swift in Sources */,
 				93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */,
 				93FF746C1B0ECEA000FD97C1 /* CVCalendarViewAppearance.swift in Sources */,
+				12E616041B28105B0032DACE /* RRTagCollectionViewCell.swift in Sources */,
 				F2AF4C531B19B6DE007E9493 /* AIOrderDetailService.swift in Sources */,
 				935F38701ACD27DF004BE0E7 /* Movie.swift in Sources */,
 				937C77641B1E98AB006FF589 /* AIConnectViewController.swift in Sources */,
@@ -1777,7 +1802,9 @@
 				93A705941B12D0E600E8193C /* AIServerAddressView.swift in Sources */,
 				93AC3FD81ACA44F4000024A4 /* AISwiftLogger.swift in Sources */,
 				93E4D5B31B15681600992CA3 /* AIGitHub.swift in Sources */,
+				84DBFF681B26E68200F7FED6 /* AIServiceTagFilterViewController.swift in Sources */,
 				93FF74701B0ECEA000FD97C1 /* CVCalendarWeekContentView.swift in Sources */,
+				84DBFF641B26D71F00F7FED6 /* AIFavorServicesManager.swift in Sources */,
 				934987181B0DA9B4003086D1 /* AIHomeViewStyleTitleAndContentView.swift in Sources */,
 				938A398C1B20255300E3A5BF /* AITabelViewMenuViewCell.swift in Sources */,
 				93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */,
@@ -1802,6 +1829,7 @@
 				F2DACC2B1B197A7500233EFD /* AIOrderDetailModel.swift in Sources */,
 				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
 				12A20DAB1B1719F3003E412A /* AIOrderService.swift in Sources */,
+				12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */,
 				936DAC1A1ADCF2D20025483B /* AIISRViewController.m in Sources */,
 				93DE16AD1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift in Sources */,
 				93FF747A1B0F0AFF00FD97C1 /* AIServerScopeView.swift in Sources */,
