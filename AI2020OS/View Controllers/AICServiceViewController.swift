@@ -10,11 +10,14 @@ import Foundation
 import UIKit
 import Spring
 
-class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
 
+var instanceOfAICServiceViewController: AICServiceViewController?
+
+class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     
     // MARK: Priate Variable
     private var serviceList: [AIServiceTopicModel]?
+    private var filtedServices: [AIServiceTopicModel]?
     var currentModel: ConnectViewModel = ConnectViewModel.ListView
     var favorServicesManager: AIFavorServicesManager?
     
@@ -23,6 +26,7 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
         
         favorServicesManager = AIMockFavorServicesManager()
         favorServicesManager?.getFavoriteServices(1, pageSize: 10, completion: loadData)
+        instanceOfAICServiceViewController = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -39,8 +43,8 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if serviceList != nil {
-            return serviceList!.count
+        if filtedServices != nil {
+            return filtedServices!.count
         }
         
         return 0
@@ -59,13 +63,13 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
         
         if currentModel == ConnectViewModel.ListView {
             let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICollectServiceListCell) as  AICollectServiceListCell
-            cell.setData(serviceList![indexPath.row])
+            cell.setData(filtedServices![indexPath.row])
             cell.delegate = self
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AICollectServiceGridCell) as  AICollectServiceGridCell
 
-            cell.setData(serviceList![indexPath.row])
+            cell.setData(filtedServices![indexPath.row])
             
             return cell
             
@@ -76,6 +80,7 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     private func loadData(result: (model: [AIServiceTopicModel], err: Error?)) {
         if result.err == nil {
             serviceList = result.model
+            filtedServices = result.model
             tableView.reloadData()
         }
     }  
@@ -209,6 +214,7 @@ class AICollectServiceGridCell: UITableViewCell {
             }
         }
     }
+    
     func setData(service: AIServiceTopicModel) {
         
         self.service = service
@@ -243,6 +249,24 @@ class AICollectServiceGridCell: UITableViewCell {
 
         if service.tags.count > 0 {
             tagButton.setTitle(service.tags[0], forState: UIControlState.Normal)
+        }
+    }
+}
+
+extension AICServiceViewController : AIFilterViewDelegate {
+    func passChoosedValue(value:String) {
+        
+        if serviceList != nil {
+            filtedServices = serviceList?.filter({ (service: AIServiceTopicModel) -> Bool in
+                for tag in service.tags {
+                    if value == tag {
+                        return true
+                    }
+                }
+                return false
+            })
+            
+            self.tableView.reloadData()
         }
     }
 }

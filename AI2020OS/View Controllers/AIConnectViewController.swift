@@ -60,7 +60,7 @@ class AIConnectViewController: UIViewController {
     var currentModel:ConnectViewModel = ConnectViewModel.ListView
     var currentSelection = CollectSelection.Content
     
-    var serviceFilterMenu: UIViewController!
+    var serviceFilterMenu: AIServiceTagFilterViewController!
     var contentFilterMenu: UIViewController!
 
     // MARK: life cycle
@@ -75,7 +75,7 @@ class AIConnectViewController: UIViewController {
         let leftItem:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "bookmark_page_grid"), style: UIBarButtonItemStyle.Done, target: self, action: "exchangeListOrGridAction:")
         navigationItemApp.leftBarButtonItem = leftItem
         
-        serviceFilterMenu = UIStoryboard(name: "AIServiceFilterStoryboard", bundle: nil).instantiateInitialViewController() as UIViewController
+        serviceFilterMenu = UIStoryboard(name: "AIServiceFilterStoryboard", bundle: nil).instantiateInitialViewController() as AIServiceTagFilterViewController
         contentFilterMenu = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AITagFilterStoryboard, bundle: nil).instantiateInitialViewController() as AITagFilterViewController
         
         findHamburguerViewController()?.menuViewController = contentFilterMenu
@@ -85,6 +85,10 @@ class AIConnectViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Home_page_weather_bg"), forBarMetrics: UIBarMetrics.Default)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println("prepareForSegue")
     }
        
     // MARK: event response
@@ -117,6 +121,11 @@ class AIConnectViewController: UIViewController {
         
         currentSelection = CollectSelection.Service
         findHamburguerViewController()?.menuViewController = serviceFilterMenu
+        findHamburguerViewController()?.delegate = serviceFilterMenu
+ 
+        if instanceOfAICServiceViewController != nil {
+            serviceFilterMenu.delegate = instanceOfAICServiceViewController
+        }      
     }
     
     @IBAction func contentAction(sender: AnyObject) {
@@ -129,6 +138,13 @@ class AIConnectViewController: UIViewController {
         
         currentSelection = CollectSelection.Content
         findHamburguerViewController()?.menuViewController = contentFilterMenu
+        if contentFilterMenu is DLHamburguerViewControllerDelegate {
+            findHamburguerViewController()?.delegate = (contentFilterMenu as DLHamburguerViewControllerDelegate)
+        } else {
+            findHamburguerViewController()?.delegate = nil
+        }
+        
+        serviceFilterMenu.delegate = nil
     }
     
 

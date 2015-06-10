@@ -13,6 +13,7 @@ class AIServiceTagFilterViewController: AITagFilterViewController {
     private var tags: [String]?
     private var manager: AIFavorServicesManager?
     
+    
     override func viewDidLoad() {
         manager = AIMockFavorServicesManager()
         
@@ -50,6 +51,9 @@ class AIServiceTagFilterViewController: AITagFilterViewController {
         return playe!
     }
     
+    
+
+    
     private func loadTagData(result: (model: [String], err: Error?)) {
         
         if result.err == nil {
@@ -57,4 +61,11 @@ class AIServiceTagFilterViewController: AITagFilterViewController {
         }
     }
 }
+
+extension AIServiceTagFilterViewController : DLHamburguerViewControllerDelegate {
+    @objc func hamburguerViewController(hamburguerViewController: DLHamburguerViewController, willHideMenuViewController menuViewController: UIViewController) {
+        println("willHideMenuViewController")
+    }
+}
+
 
