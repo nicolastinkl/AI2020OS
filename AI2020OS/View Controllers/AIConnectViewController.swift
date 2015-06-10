@@ -77,9 +77,13 @@ class AIConnectViewController: UIViewController {
         
         serviceFilterMenu = UIStoryboard(name: "AIServiceFilterStoryboard", bundle: nil).instantiateInitialViewController() as AIServiceTagFilterViewController
         contentFilterMenu = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AITagFilterStoryboard, bundle: nil).instantiateInitialViewController() as AITagFilterViewController
-        
+                
+        contentFilterMenu.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        contentFilterMenu.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+
         findHamburguerViewController()?.menuViewController = contentFilterMenu
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didFinishMergingVideosToOutPut:", name: AIApplication.Notification.NSNotirydidFinishMergingVideosToOutPutFileAtURL, object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -90,7 +94,24 @@ class AIConnectViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         println("prepareForSegue")
     }
-       
+    
+    // MARK: notification
+    
+    func didFinishMergingVideosToOutPut(object:NSNotification){
+        let userinfo = object.userInfo as Dictionary<String,AnyObject>
+        let outputFileURL = userinfo["url"] as NSURL
+        
+        // FIXME: TEST.........
+        // file:///var/mobile/Containers/Data/Application/08F63D09-6069-441C-8157-B17F79BC0358/Documents/videos/20150610172503.mp4
+        
+        let videoFile = AVFile.fileWithURL(outputFileURL.URLString) as AVFile
+        videoFile.saveInBackgroundWithBlock({ (success, error) -> Void in
+            logInfo("success: \(success),error:\(error) ,outputFileURL.URLString:\(outputFileURL.URLString)")
+        }, progressBlock: { (processIndex) -> Void in
+            logInfo("processIndex: \(processIndex)")
+        })
+    }
+    
     // MARK: event response
     
     func exchangeListOrGridAction(sender: AnyObject){

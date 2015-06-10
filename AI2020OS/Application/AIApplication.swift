@@ -113,6 +113,8 @@ struct AIApplication{
         static let UIAIASINFOLoginNotification          = "UIAIASINFOLoginNotification"
         static let UIAIASINFOLogOutNotification         = "UIAIASINFOLogOutNotification"
         
+        // FIXME: 视频拍摄完成文件地址
+        static let NSNotirydidFinishMergingVideosToOutPutFileAtURL  = "NSNotirydidFinishMergingVideosToOutPutFileAtURL"
     }
     
     // MARK: System theme's color

@@ -33,6 +33,8 @@ class SectionHeaderView: UITableViewHeaderFooterView {
         var tapGesture = UITapGestureRecognizer(target: self, action: "toggleOpen:")
         
         self.addGestureRecognizer(tapGesture)
+        
+        self.addBottomWholeSSBorderLine()
     }
     
     @IBAction func toggleOpen(sender: UITapGestureRecognizer){

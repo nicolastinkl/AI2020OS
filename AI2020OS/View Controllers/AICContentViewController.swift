@@ -431,36 +431,39 @@ class AICContentViewControllerCell: MGSwipeTableCell{
 
         var perButton:UIButton?
         
-        
-        localCode { () -> () in
-            var button = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        if self.actionView.subviews.count  == 1{
             
-            button.setTitle("全部", forState: UIControlState.Normal)
-            button.titleLabel?.font = UIFont.systemFontOfSize(14)
-            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
-            button.layer.borderColor = UIColor.grayColor().CGColor
-            button.layer.borderWidth = 0.5
-            button.layer.cornerRadius = 10
-            self.actionView.addSubview(button)
-            button.frame = CGRectMake(0, 0, 60, 22)
-            perButton = button
-        }
-        for item in model.favoriteTags! ?? []{
-
-            var button = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
-            button.setTitle(item, forState: UIControlState.Normal)
-            button.titleLabel?.font = UIFont.systemFontOfSize(14)
-            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
-            button.layer.borderColor = UIColor.grayColor().CGColor
-            button.layer.borderWidth = 0.5
-            button.layer.cornerRadius = 10
-            actionView.addSubview(button)
-            if let butt = perButton {
-                button.frame = CGRectMake(butt.left + butt.width + 20, 0, 60, 22)
+            localCode { () -> () in
+                var button = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+                
+                button.setTitle("全部", forState: UIControlState.Normal)
+                button.titleLabel?.font = UIFont.systemFontOfSize(14)
+                button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+                button.layer.borderColor = UIColor.grayColor().CGColor
+                button.layer.borderWidth = 0.5
+                button.layer.cornerRadius = 10
+                self.actionView.addSubview(button)
+                button.frame = CGRectMake(0, 0, 60, 22)
+                perButton = button
             }
-            perButton = button
-            
+            for item in model.favoriteTags! ?? []{
+                
+                var button = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+                button.setTitle(item, forState: UIControlState.Normal)
+                button.titleLabel?.font = UIFont.systemFontOfSize(14)
+                button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+                button.layer.borderColor = UIColor.grayColor().CGColor
+                button.layer.borderWidth = 0.5
+                button.layer.cornerRadius = 10
+                actionView.addSubview(button)
+                if let butt = perButton {
+                    button.frame = CGRectMake(butt.left + butt.width + 10, 0, 60, 22)
+                }
+                perButton = button
+                
+            }
         }
+        
         
         refereshLikeButton()
     }
