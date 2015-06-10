@@ -65,7 +65,7 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         
         service = AIServiceTopicModel()
         service.service_name = "做个柔软的胖子"
-        service.service_intro_url = "http://www.wendaoyoga.com/userfiles/images/P-1.jpg"
+        service.service_intro_url = "http://brand.gzmama.com/attachments/gzmama/2012/09/8111699_2012091611055819bgd.jpg"
         service.contents.append("场地")
         service.contents.append("瑜伽教练")
         service.isFavor = false

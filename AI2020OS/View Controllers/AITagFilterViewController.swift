@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 
 //传值用的delegate
-protocol AIFilterViewDelegate{
+@objc protocol AIFilterViewDelegate{
     func passChoosedValue(value:String)
 }
 
@@ -159,7 +159,10 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
         
         NSNotificationCenter.defaultCenter().postNotificationName("filterFlagChoose", object: nil, userInfo:  userInfo)
         
-        self.findHamburguerViewController()?.hideMenuViewControllerWithCompletion(nil)
+        self.findHamburguerViewController()?.hideMenuViewControllerWithCompletion({ (Void) -> Void in
+            self.delegate?.passChoosedValue(userInfo["tagName"]!)
+            return
+        })
         
         
 //        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
