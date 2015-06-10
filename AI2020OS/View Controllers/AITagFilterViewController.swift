@@ -37,6 +37,7 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     let HeaderHeight = 48
     let QuoteCellIdentifier = "tagFilterTableCell"
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

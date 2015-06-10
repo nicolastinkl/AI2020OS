@@ -130,6 +130,10 @@ class AIConnectViewController: UIViewController {
         
     }
     
+    @IBAction func showEditTagAction(sender: UIButton) {
+        var controller = UIStoryboard(name : "AITagFilterStoryboard",bundle:nil).instantiateViewControllerWithIdentifier("AITagEditStoryboard") as AITagEditViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     @IBAction func showWholeAction(sender: UIButton){
         
 //        self.showViewController(AIVideoRecorderViewController(nibName: "AIVideoRecorderViewController", bundle: nil), sender: self)

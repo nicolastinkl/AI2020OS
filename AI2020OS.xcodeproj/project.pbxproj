@@ -20,6 +20,8 @@
 		12A20DA91B1719D0003E412A /* AIOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A20DA81B1719D0003E412A /* AIOrderModel.swift */; };
 		12A20DAB1B1719F3003E412A /* AIOrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A20DAA1B1719F3003E412A /* AIOrderService.swift */; };
 		12C9ED281B203E9C003E2215 /* AITagFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9ED271B203E9C003E2215 /* AITagFilterModel.swift */; };
+		12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616001B27DE8A0032DACE /* AITagEditViewController.swift */; };
+		12E616041B28105B0032DACE /* RRTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */; };
 		84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */; };
 		8415F4E31B135688003160B4 /* SearchServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */; };
 		84951FB61B1312E500179483 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB41B1312E500179483 /* SearchEngine.swift */; };
@@ -309,6 +311,8 @@
 		12A20DA81B1719D0003E412A /* AIOrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderModel.swift; sourceTree = "<group>"; };
 		12A20DAA1B1719F3003E412A /* AIOrderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderService.swift; sourceTree = "<group>"; };
 		12C9ED271B203E9C003E2215 /* AITagFilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITagFilterModel.swift; sourceTree = "<group>"; };
+		12E616001B27DE8A0032DACE /* AITagEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITagEditViewController.swift; sourceTree = "<group>"; };
+		12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		185C5C827FF9C9E6B31333B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogModel.swift; sourceTree = "<group>"; };
 		8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchServiceCollectionViewController.swift; sourceTree = "<group>"; };
@@ -632,7 +636,9 @@
 		1284ABBF1B20368600636F35 /* TagFilter */ = {
 			isa = PBXGroup;
 			children = (
+				12E616021B2810490032DACE /* Cells */,
 				1284ABC71B2036C600636F35 /* AITagFilterViewController.swift */,
+				12E616001B27DE8A0032DACE /* AITagEditViewController.swift */,
 			);
 			name = TagFilter;
 			sourceTree = "<group>";
@@ -645,6 +651,14 @@
 				1284ABC31B2036B500636F35 /* SectionInfo.swift */,
 			);
 			name = TagFilter;
+			sourceTree = "<group>";
+		};
+		12E616021B2810490032DACE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		84951FB31B13117300179483 /* Search */ = {
@@ -1747,6 +1761,7 @@
 				93BD090B1B06FBBF00C8B96B /* AIMenuViewController.swift in Sources */,
 				93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */,
 				93FF746C1B0ECEA000FD97C1 /* CVCalendarViewAppearance.swift in Sources */,
+				12E616041B28105B0032DACE /* RRTagCollectionViewCell.swift in Sources */,
 				F2AF4C531B19B6DE007E9493 /* AIOrderDetailService.swift in Sources */,
 				935F38701ACD27DF004BE0E7 /* Movie.swift in Sources */,
 				937C77641B1E98AB006FF589 /* AIConnectViewController.swift in Sources */,
@@ -1798,6 +1813,7 @@
 				F2DACC2B1B197A7500233EFD /* AIOrderDetailModel.swift in Sources */,
 				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
 				12A20DAB1B1719F3003E412A /* AIOrderService.swift in Sources */,
+				12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */,
 				936DAC1A1ADCF2D20025483B /* AIISRViewController.m in Sources */,
 				93DE16AD1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift in Sources */,
 				93FF747A1B0F0AFF00FD97C1 /* AIServerScopeView.swift in Sources */,

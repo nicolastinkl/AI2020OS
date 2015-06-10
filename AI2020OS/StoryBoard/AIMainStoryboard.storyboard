@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nom-2e-QSc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nom-2e-QSc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -440,6 +440,21 @@
                                             <action selector="showFilterAction:" destination="Puy-Vg-Mpb" eventType="touchUpInside" id="AZB-05-E5m"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvO-iv-qhU">
+                                        <rect key="frame" x="492" y="8" width="46" height="30"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="IxN-Xv-d0n"/>
+                                            <constraint firstAttribute="height" constant="30" id="Mab-rd-wvh"/>
+                                        </constraints>
+                                        <state key="normal" title="编辑">
+                                            <color key="titleColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showEditTagAction:" destination="Puy-Vg-Mpb" eventType="touchUpInside" id="c7p-ff-xNy"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="csC-ss-cIx" secondAttribute="trailing" id="13u-cl-XpR"/>
@@ -447,7 +462,9 @@
                                     <constraint firstAttribute="trailing" secondItem="3H0-2M-NWS" secondAttribute="trailing" constant="8" id="7CT-va-b1g"/>
                                     <constraint firstItem="csC-ss-cIx" firstAttribute="top" secondItem="jyi-WZ-3RP" secondAttribute="top" id="IAy-Pr-7Il"/>
                                     <constraint firstItem="3H0-2M-NWS" firstAttribute="top" secondItem="jyi-WZ-3RP" secondAttribute="top" constant="8" id="Oih-Fr-m7G"/>
+                                    <constraint firstItem="3H0-2M-NWS" firstAttribute="leading" secondItem="OvO-iv-qhU" secondAttribute="trailing" constant="8" symbolic="YES" id="VMx-1q-aKQ"/>
                                     <constraint firstItem="wp0-aH-oaA" firstAttribute="top" secondItem="jyi-WZ-3RP" secondAttribute="top" constant="8" id="Vr9-he-8W3"/>
+                                    <constraint firstItem="OvO-iv-qhU" firstAttribute="baseline" secondItem="3H0-2M-NWS" secondAttribute="baseline" id="YMr-V7-aD7"/>
                                     <constraint firstAttribute="height" constant="42" id="Yli-wQ-pbw"/>
                                     <constraint firstAttribute="bottom" secondItem="csC-ss-cIx" secondAttribute="bottom" id="ik8-iM-Gyp"/>
                                     <constraint firstItem="csC-ss-cIx" firstAttribute="leading" secondItem="jyi-WZ-3RP" secondAttribute="leading" id="mMS-Z7-kc5"/>
