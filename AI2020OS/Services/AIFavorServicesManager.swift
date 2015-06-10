@@ -16,11 +16,14 @@ protocol AIFavorServicesManager {
     func queryFavoriteServices(tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void)
     // 改变收藏服务的状态。 状态：是否是我喜欢的
     func changeFavoriteServiceState(isFavor: Bool, completion: (Error?) -> Void)
+    // 获取收藏服务标签
+    func getServiceTags(completion: (([String], Error?)) -> Void)
 }
 
 class AIMockFavorServicesManager : AIFavorServicesManager {
     
     private var favorServices = [AIServiceTopicModel]()
+    private var tags = NSMutableSet()
     
     init() {
         var service = AIServiceTopicModel()
@@ -34,6 +37,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         service.tags.append("工作")
         
         favorServices.append(service)
+        tags.addObject(service.tags[0])
         
         service = AIServiceTopicModel()
         service.service_name = "做个柔软的胖子"
@@ -43,6 +47,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         service.isFavor = false
         service.tags.append("健身")
         favorServices.append(service)
+        tags.addObject(service.tags[0])
         
         service = AIServiceTopicModel()
         service.service_name = "周末打羽毛球"
@@ -52,6 +57,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         service.isFavor = true
         service.tags.append("健身")
         favorServices.append(service)
+        tags.addObject(service.tags[0])
         
         service = AIServiceTopicModel()
         service.service_name = "家宴"
@@ -61,6 +67,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         service.isFavor = false
         service.tags.append("生活")
         favorServices.append(service)
+        tags.addObject(service.tags[0])
         
         service = AIServiceTopicModel()
         service.service_name = "同学聚会"
@@ -72,6 +79,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         service.isFavor = true
         service.tags.append("生活")
         favorServices.append(service)
+        tags.addObject(service.tags[0])
     }
     
     func getFavoriteServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
@@ -113,6 +121,17 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
     
     func changeFavoriteServiceState(isFavor: Bool, completion: (Error?) -> Void) {
         
+    }
+    
+    func getServiceTags(completion: (([String], Error?)) -> Void) {
+        
+        var tagList = [String]()
+        
+        for obj in tags.allObjects {
+            tagList.append(obj as String)
+        }
+        
+        completion((tagList, nil))
     }
     
 }

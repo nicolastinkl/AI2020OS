@@ -35,6 +35,8 @@
 		84D5D2C81B1C636D001E9F37 /* AICatalogServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */; };
 		84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */; };
 		84DBFF641B26D71F00F7FED6 /* AIFavorServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */; };
+		84DBFF661B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */; };
+		84DBFF681B26E68200F7FED6 /* AIServiceTagFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFF671B26E68200F7FED6 /* AIServiceTagFilterViewController.swift */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
 		9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0751B09979500C1EE79 /* AILoginService.swift */; };
 		9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0791B0998C700C1EE79 /* AILoginViewController.swift */; };
@@ -329,6 +331,8 @@
 		84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICatalogServicesModel.swift; sourceTree = "<group>"; };
 		84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryRecord.swift; sourceTree = "<group>"; };
 		84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavorServicesManager.swift; sourceTree = "<group>"; };
+		84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceFilterStoryboard.storyboard; sourceTree = "<group>"; };
+		84DBFF671B26E68200F7FED6 /* AIServiceTagFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceTagFilterViewController.swift; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
 		9301B0751B09979500C1EE79 /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
 		9301B0791B0998C700C1EE79 /* AILoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewController.swift; sourceTree = "<group>"; };
@@ -635,6 +639,7 @@
 			isa = PBXGroup;
 			children = (
 				1284ABC71B2036C600636F35 /* AITagFilterViewController.swift */,
+				84DBFF671B26E68200F7FED6 /* AIServiceTagFilterViewController.swift */,
 			);
 			name = TagFilter;
 			sourceTree = "<group>";
@@ -1193,6 +1198,7 @@
 				931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */,
 				938A39931B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard */,
 				938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */,
+				84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */,
 			);
 			name = StoryBoard;
 			path = AI2020OS/StoryBoard;
@@ -1561,6 +1567,7 @@
 				84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
 				1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */,
+				84DBFF661B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard in Resources */,
 				93BD09081B06F97B00C8B96B /* AIMenuStoryboard.storyboard in Resources */,
 				934987071B0C75E0003086D1 /* AIMessageUnReadView.xib in Resources */,
 				93E4D5AB1B14A5F700992CA3 /* AISettingsStoryboard.storyboard in Resources */,
@@ -1776,6 +1783,7 @@
 				93A705941B12D0E600E8193C /* AIServerAddressView.swift in Sources */,
 				93AC3FD81ACA44F4000024A4 /* AISwiftLogger.swift in Sources */,
 				93E4D5B31B15681600992CA3 /* AIGitHub.swift in Sources */,
+				84DBFF681B26E68200F7FED6 /* AIServiceTagFilterViewController.swift in Sources */,
 				93FF74701B0ECEA000FD97C1 /* CVCalendarWeekContentView.swift in Sources */,
 				84DBFF641B26D71F00F7FED6 /* AIFavorServicesManager.swift in Sources */,
 				934987181B0DA9B4003086D1 /* AIHomeViewStyleTitleAndContentView.swift in Sources */,

@@ -59,6 +59,9 @@ class AIConnectViewController: UIViewController {
     
     var currentModel:ConnectViewModel = ConnectViewModel.ListView
     var currentSelection = CollectSelection.Content
+    
+    var serviceFilterMenu: UIViewController!
+    var contentFilterMenu: UIViewController!
 
     // MARK: life cycle
     
@@ -71,6 +74,11 @@ class AIConnectViewController: UIViewController {
         
         let leftItem:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "bookmark_page_grid"), style: UIBarButtonItemStyle.Done, target: self, action: "exchangeListOrGridAction:")
         navigationItemApp.leftBarButtonItem = leftItem
+        
+        serviceFilterMenu = UIStoryboard(name: "AIServiceFilterStoryboard", bundle: nil).instantiateInitialViewController() as UIViewController
+        contentFilterMenu = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AITagFilterStoryboard, bundle: nil).instantiateInitialViewController() as AITagFilterViewController
+        
+        findHamburguerViewController()?.menuViewController = contentFilterMenu
         
     }
     
@@ -108,6 +116,7 @@ class AIConnectViewController: UIViewController {
         self.serviceButton.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor), forState: UIControlState.Normal)
         
         currentSelection = CollectSelection.Service
+        findHamburguerViewController()?.menuViewController = serviceFilterMenu
     }
     
     @IBAction func contentAction(sender: AnyObject) {
@@ -119,12 +128,16 @@ class AIConnectViewController: UIViewController {
         self.serviceButton.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor), forState: UIControlState.Normal)
         
         currentSelection = CollectSelection.Content
+        findHamburguerViewController()?.menuViewController = contentFilterMenu
     }
     
 
     @IBAction func showFilterAction(sender: UIButton) {
         /*let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AITagFilterStoryboard, bundle: nil).instantiateInitialViewController() as AITagFilterViewController
         showViewController(viewController, sender: self)*/
+
+
+    //    self.findHamburguerViewController()?.menuViewController = UIStoryboard(name: "AIServiceFilterStoryboard", bundle: nil).instantiateInitialViewController() as AIServiceTagFilterViewController
         
         self.findHamburguerViewController()?.showMenuViewController()                
         
