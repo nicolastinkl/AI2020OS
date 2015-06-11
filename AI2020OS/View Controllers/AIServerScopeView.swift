@@ -28,9 +28,11 @@ class AIServerScopeView: UIView {
     
     typealias SelectedHandler = ()->(String)
     
-    func initWithViewsArray(array:[ServerScopeModel],parentView:UIView){
+    func initWithViewsArray(array:[ServerScopeModel],parentView:UIView,fontSize:CGFloat){
         // Setup 1: addSubViews.
         // Setup 2: layoutIfNeeds this frame.
+        let size = (fontSize >= 0) ? fontSize : 18
+        
         var x:CGFloat = 14
         var y:CGFloat = 14
         var n = 0
@@ -55,11 +57,11 @@ class AIServerScopeView: UIView {
             button.layer.borderWidth = 1
             button.layer.cornerRadius = 2
             
-            button.titleLabel?.font = UIFont.boldSystemFontOfSize(18)
+            button.titleLabel?.font = UIFont.boldSystemFontOfSize(size)
             button.associatedName = item.id!
             let value  = item.content!
             button.setTitle("\(value)", forState: UIControlState.Normal)
-            let width:CGFloat  = CGFloat("\(value)".length) * 18
+            let width:CGFloat  = CGFloat("\(value)".length) * size
             
             if (x + width + tagMargin) > parentView.width {
                 n = 0
