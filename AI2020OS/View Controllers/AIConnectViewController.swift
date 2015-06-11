@@ -98,10 +98,12 @@ class AIConnectViewController: UIViewController {
               
         }
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Home_page_weather_bg"), forBarMetrics: UIBarMetrics.Default)
+        
+        self.navigationController?.tabBarController?.tabBar.hidden = true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -117,9 +119,10 @@ class AIConnectViewController: UIViewController {
         // FIXME: TEST.........
         // file:///var/mobile/Containers/Data/Application/08F63D09-6069-441C-8157-B17F79BC0358/Documents/videos/20150610172503.mp4
         
-        let videoFile = AVFile.fileWithURL(outputFileURL.URLString) as AVFile
+        let videoFile = AVFile.fileWithName("\(NSDate().timeIntervalSinceReferenceDate).mp4", data:NSData(contentsOfURL: outputFileURL)) as AVFile
+        //  AVFile.fileWithURL(outputFileURL.URLString) as AVFile
         videoFile.saveInBackgroundWithBlock({ (success, error) -> Void in
-            logInfo("success: \(success),error:\(error) ,outputFileURL.URLString:\(outputFileURL.URLString)")
+            logInfo("success: \(success),error:\(error) ,outputFileURL.URLString:\(outputFileURL.URLString)  url\(videoFile.url)")
         }, progressBlock: { (processIndex) -> Void in
             logInfo("processIndex: \(processIndex)")
         })

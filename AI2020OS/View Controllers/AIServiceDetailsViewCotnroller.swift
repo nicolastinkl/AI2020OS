@@ -42,6 +42,10 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         navigationController?.setNavigationBarHidden(true, animated: true)
         navigationController?.interactivePopGestureRecognizer.delegate = nil
         super.viewWillAppear(animated)
+        
+        //self.tabBarController?.hidesBottomBarWhenPushed = true
+        //self.navigationController?.setToolbarHidden(true, animated: false)
+        
     }
     
     override func viewDidLoad() {

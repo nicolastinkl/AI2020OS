@@ -285,8 +285,8 @@
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="eSx-Wp-4cZ"/>
                                                 <exclude reference="FOe-Am-VHx"/>
+                                                <exclude reference="eSx-Wp-4cZ"/>
                                             </mask>
                                         </variation>
                                     </label>
