@@ -62,7 +62,9 @@ class AIConnectViewController: UIViewController {
     
     var serviceFilterMenu: AIServiceTagFilterViewController!
     var contentFilterMenu: UIViewController!
-
+    
+    private var loginAction : LoginAction?
+    
     // MARK: life cycle
     
     override func viewDidLoad() {
@@ -84,6 +86,17 @@ class AIConnectViewController: UIViewController {
         findHamburguerViewController()?.menuViewController = contentFilterMenu
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didFinishMergingVideosToOutPut:", name: AIApplication.Notification.NSNotirydidFinishMergingVideosToOutPutFileAtURL, object: nil)
+        
+        showLogin()
+    }
+    
+    func showLogin(){
+        if let token = AILocalStore.accessToken() {
+            //AIApplication.showMessageUnreadView()
+        }else{
+             self.loginAction = LoginAction(viewController: self, completion: nil)
+              
+        }
     }
     
     override func viewDidAppear(animated: Bool) {

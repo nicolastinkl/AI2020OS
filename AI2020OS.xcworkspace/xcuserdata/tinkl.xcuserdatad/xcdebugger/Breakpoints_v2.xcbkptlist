@@ -397,54 +397,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AI2020OS/View Controllers/AIRegisterViewController.swift"
-            timestampString = "454396304.075123"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "requestVerifyAction(_:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AI2020OS.AIRegisterViewController.requestVerifyAction (AI2020OS.AIRegisterViewController)(Swift.AnyObject) -&gt; ()"
-                  moduleName = "AI2020OS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tinkl/Documents/project-xcode/iosProjce/AI2020OS/AI2020OS/View%20Controllers/AIRegisterViewController.swift"
-                  timestampString = "453696238.856275"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "1417">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "reabstraction thunk helper from @callee_owned (@unowned Swift.Bool, @owned Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSError&gt;) -&gt; (@unowned ()) to @callee_unowned @objc_block (@unowned ObjectiveC.ObjCBool, @unowned Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSError&gt;) -&gt; (@unowned ())"
-                  moduleName = "AI2020OS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tinkl/Documents/project-xcode/iosProjce/AI2020OS/AI2020OS/View%20Controllers/AIRegisterViewController.swift"
-                  timestampString = "453696238.85655"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "11">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "AI2020OS/Utils/KMDetailsPageView.m"
             timestampString = "453710067.44145"
             startingColumnNumber = "9223372036854775807"
@@ -670,11 +622,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/Application/AIApplication.swift"
-            timestampString = "455620350.766795"
+            timestampString = "455697440.218229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "showMessageUnreadView()"
             landmarkType = "5">
          </BreakpointContent>
@@ -686,11 +638,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/Application/AIApplication.swift"
-            timestampString = "455620350.766795"
+            timestampString = "455697440.218229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "swizzlingMethod(_:oldSelector:newSelector:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -702,11 +654,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/Application/AIApplication.swift"
-            timestampString = "455620350.766795"
+            timestampString = "455697440.218229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "swizzlingMethod(_:oldSelector:newSelector:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -718,11 +670,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/Application/AIApplication.swift"
-            timestampString = "455620350.766795"
+            timestampString = "455697440.218229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "showMessageUnreadView()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1094,11 +1046,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/View Controllers/AILoginViewController.swift"
-            timestampString = "454391691.725056"
+            timestampString = "455686893.904517"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "loginAction(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1126,23 +1078,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/Application/AIApplication.swift"
-            timestampString = "455620350.766795"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "hideMessageUnreadView()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AI2020OS/Application/AIApplication.swift"
-            timestampString = "455620350.766795"
+            timestampString = "455697440.218229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "211"
@@ -1158,11 +1094,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/Application/AIApplication.swift"
-            timestampString = "455620350.766795"
+            timestampString = "455697440.218229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "hideMessageUnreadView()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AI2020OS/Application/AIApplication.swift"
+            timestampString = "455697440.218229"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "AIApplication"
             landmarkType = "3">
          </BreakpointContent>
@@ -1366,11 +1318,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/View Controllers/AIConnectViewController.swift"
-            timestampString = "455622296.656193"
+            timestampString = "455682062.554014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1382,11 +1334,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/View Controllers/AIConnectViewController.swift"
-            timestampString = "455012070.479807"
+            timestampString = "455682062.554014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1398,11 +1350,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/View Controllers/AIConnectViewController.swift"
-            timestampString = "455622296.656193"
+            timestampString = "455682496.534852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>

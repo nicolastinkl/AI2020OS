@@ -165,6 +165,7 @@
 		939E66431B291F4100FD5FBA /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E663F1B291F4100FD5FBA /* KSTokenField.swift */; };
 		939E66441B291F4100FD5FBA /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E66401B291F4100FD5FBA /* KSTokenView.swift */; };
 		939E66451B291F4100FD5FBA /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E66411B291F4100FD5FBA /* KSUtils.swift */; };
+		939E66471B293F7900FD5FBA /* AILoginWithSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E66461B293F7900FD5FBA /* AILoginWithSMSViewController.swift */; };
 		939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F4BD41AD6648000CE530C /* AIAudioViewController.swift */; };
 		93A7058E1B12CAD800E8193C /* AIServerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */; };
 		93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A705911B12CAF000E8193C /* AIServerTimeView.xib */; };
@@ -487,6 +488,7 @@
 		939E663F1B291F4100FD5FBA /* KSTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
 		939E66401B291F4100FD5FBA /* KSTokenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
 		939E66411B291F4100FD5FBA /* KSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
+		939E66461B293F7900FD5FBA /* AILoginWithSMSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginWithSMSViewController.swift; sourceTree = "<group>"; };
 		939F4BD41AD6648000CE530C /* AIAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioViewController.swift; sourceTree = "<group>"; };
 		93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServerTimeView.swift; sourceTree = "<group>"; };
 		93A705911B12CAF000E8193C /* AIServerTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIServerTimeView.xib; sourceTree = "<group>"; };
@@ -735,6 +737,7 @@
 				9301B0791B0998C700C1EE79 /* AILoginViewController.swift */,
 				9301B07B1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift */,
 				934986F51B0A1135003086D1 /* AIRegisterViewController.swift */,
+				939E66461B293F7900FD5FBA /* AILoginWithSMSViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -1877,6 +1880,7 @@
 				933668861AD671A4007556D7 /* AITransitionManager.swift in Sources */,
 				84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */,
 				9349871A1B0DBDC7003086D1 /* AIErrorRetryView.swift in Sources */,
+				939E66471B293F7900FD5FBA /* AILoginWithSMSViewController.swift in Sources */,
 				93BD09041B05F2BC00C8B96B /* AIOrderBuyView.swift in Sources */,
 				93AC3FBA1AC95E6D000024A4 /* AIMainTabBarController.swift in Sources */,
 				93FF746A1B0ECEA000FD97C1 /* CVCalendarViewAnimator.swift in Sources */,
