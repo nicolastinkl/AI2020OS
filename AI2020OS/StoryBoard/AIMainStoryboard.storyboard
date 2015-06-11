@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nom-2e-QSc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nom-2e-QSc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -1026,9 +1026,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwZ-Bl-8C9" userLabel="Favorites">
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwZ-Bl-8C9" userLabel="Favorites" customClass="DesignableButton" customModule="Spring">
                                                     <rect key="frame" x="36" y="0.0" width="40" height="38"/>
-                                                    <state key="normal" image="ico_favorite">
+                                                    <state key="normal" image="pictureHeartLike_0">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1160,13 +1160,13 @@
                                                 <action selector="moreAction:" destination="xZ0-eS-fCp" eventType="touchUpInside" id="LPB-kc-9TO"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5R-Nu-9iS" userLabel="FavoButton">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5R-Nu-9iS" userLabel="FavoButton" customClass="DesignableButton" customModule="Spring">
                                             <rect key="frame" x="489" y="19" width="44" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="0z6-66-CdL"/>
                                                 <constraint firstAttribute="height" constant="25" id="tXl-YB-Bai"/>
                                             </constraints>
-                                            <state key="normal" image="ico_favorite">
+                                            <state key="normal" image="pictureHeartLike_0">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
