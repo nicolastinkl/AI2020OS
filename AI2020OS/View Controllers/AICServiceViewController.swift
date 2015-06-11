@@ -10,6 +10,30 @@ import Foundation
 import UIKit
 import Spring
 
+let BTN_FAVOR_IMG = "pictureHeartLike_1"
+let BTN_UNFAVOR_IMG = "pictureHeartLike_0"
+
+private class ViewUtils {
+    class func refereshFavorButton(isFavor: Bool, button: UIButton, animation: Bool = false) {
+        if isFavor {
+            button.setImage(UIImage(named: BTN_FAVOR_IMG), forState: UIControlState.Normal)
+        } else {
+            button.setImage(UIImage(named: BTN_UNFAVOR_IMG), forState: UIControlState.Normal)
+        }
+        
+        if animation {
+            if let springBtn = button as? SpringButton {
+                springBtn.animation = "pop"
+                springBtn.force = 1.5
+                springBtn.animate()
+            }
+        }
+        
+        
+    }
+}
+
+
 
 var instanceOfAICServiceViewController: AICServiceViewController?
 
@@ -140,11 +164,7 @@ class AICollectServiceListCell: MGSwipeTableCell {
         if service != nil {
             service!.isFavor = !service!.isFavor
             
-            if service!.isFavor {
-                favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
-            } else {
-                favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
-            }
+            ViewUtils.refereshFavorButton(service!.isFavor, button: favoritesButton, animation: true)
         }
     }
     
@@ -174,11 +194,7 @@ class AICollectServiceListCell: MGSwipeTableCell {
             serviceContents.text = contentStr
         }
         
-        if service.isFavor {
-            favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
-        } else {
-            favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
-        }
+        ViewUtils.refereshFavorButton(service.isFavor, button: favoritesButton)
         
         if service.tags.count > 0 {
             tagButton.setTitle(service.tags[0], forState: UIControlState.Normal)
@@ -207,11 +223,7 @@ class AICollectServiceGridCell: UITableViewCell {
         if service != nil {
             service!.isFavor = !service!.isFavor
             
-            if service!.isFavor {
-                favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
-            } else {
-                favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
-            }
+            ViewUtils.refereshFavorButton(service!.isFavor, button: favoritesButton, animation: true)
         }
     }
     
@@ -241,11 +253,7 @@ class AICollectServiceGridCell: UITableViewCell {
             serviceContents.text = contentStr
         }
         
-        if service.isFavor {
-            favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
-        } else {
-            favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
-        }
+        ViewUtils.refereshFavorButton(service.isFavor, button: favoritesButton)
 
         if service.tags.count > 0 {
             tagButton.setTitle(service.tags[0], forState: UIControlState.Normal)
