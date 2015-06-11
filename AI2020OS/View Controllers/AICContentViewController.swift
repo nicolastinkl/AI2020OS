@@ -275,10 +275,15 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        print(indexPath)
-        let dict = self.dataArray[indexPath.section] as AIFavoriteContentModel
 
-        showViewController(AIWebViewController(url: NSURL(string:  dict.favoriteFromWhereURL!)!), sender: self)
+        if indexPath.row > 0 {
+            let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
+            controller.server_id = "1"
+            showViewController(controller, sender: self)
+        } else {
+            let dict = self.dataArray[indexPath.section] as AIFavoriteContentModel
+            showViewController(AIWebViewController(url: NSURL(string:  dict.favoriteFromWhereURL!)!), sender: self)
+        }
         
         
     }

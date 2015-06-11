@@ -98,10 +98,6 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        showViewController(AIWebViewController(url: NSURL(string:  "http://www.meipai.com/media/343568815")), sender: self)
-    }
-    
     // MARK: Private function
     private func loadData(result: (model: [AIServiceTopicModel], err: Error?)) {
         if result.err == nil {

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nom-2e-QSc">
-=======
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nom-2e-QSc">
->>>>>>> Justin
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nom-2e-QSc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -149,7 +145,7 @@
                                             <subviews>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqB-4B-Hxl">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EcJ-tE-vAB">
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="EcJ-tE-vAB">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </view>
@@ -331,7 +327,7 @@
         <!--Designable Tab Bar Controller-->
         <scene sceneID="xsn-Bh-hRn">
             <objects>
-                <tabBarController storyboardIdentifier="DesignableTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nom-2e-QSc" customClass="DesignableTabBarController" customModule="Spring" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="DesignableTabBarController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nom-2e-QSc" customClass="DesignableTabBarController" customModule="Spring" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" backgroundImage="Tabbar_background" id="WWH-1o-mqA">
@@ -354,8 +350,8 @@
                         <userDefinedRuntimeAttribute type="image" keyPath="thirdSelectedImage" value="home_tab_timeline"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="JDt-wj-Qhy" kind="relationship" relationship="viewControllers" id="fXj-qf-FHe"/>
                         <segue destination="lnR-KP-hAe" kind="relationship" relationship="viewControllers" id="kVS-8p-ImR"/>
+                        <segue destination="JDt-wj-Qhy" kind="relationship" relationship="viewControllers" id="fXj-qf-FHe"/>
                         <segue destination="q57-6z-ybH" kind="relationship" relationship="viewControllers" id="RfZ-01-I4l"/>
                         <segue destination="KvX-yt-xhR" kind="relationship" relationship="viewControllers" id="LTA-wg-3Fz"/>
                         <segue destination="WMV-8y-dry" kind="relationship" relationship="viewControllers" id="UjF-pZ-Kd7"/>
@@ -505,7 +501,7 @@
                     <navigationItem key="navigationItem" id="ZzP-YY-Yut">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="9lH-r4-aMa">
-                            <rect key="frame" x="100" y="6" width="400" height="33"/>
+                            <rect key="frame" x="100" y="5.5" width="400" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5C-aW-66O">
@@ -1010,11 +1006,25 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uuz-zP-Els">
                                             <rect key="frame" x="408" y="65" width="184" height="37"/>
                                             <subviews>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbt-Fb-BEZ" userLabel="More">
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbt-Fb-BEZ" userLabel="More">
                                                     <rect key="frame" x="144" y="0.0" width="40" height="38"/>
                                                     <state key="normal" image="ico_more">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyc-rP-u8t" userLabel="tag" customClass="DesignableButton" customModule="Spring">
+                                                    <rect key="frame" x="84" y="4" width="57" height="30"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="娱乐">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwZ-Bl-8C9" userLabel="Favorites" customClass="DesignableButton" customModule="Spring">
                                                     <rect key="frame" x="36" y="0.0" width="40" height="38"/>
@@ -1024,20 +1034,6 @@
                                                     <connections>
                                                         <action selector="favorAction:" destination="FeM-mI-hFQ" eventType="touchUpInside" id="0Br-E1-RX7"/>
                                                     </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyc-rP-u8t" userLabel="tag" customClass="DesignableButton" customModule="Spring">
-                                                    <rect key="frame" x="84" y="6" width="40" height="25"/>
-                                                    <color key="backgroundColor" red="0.34509803919999998" green="0.3411764706" blue="0.3411764706" alpha="0.67000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                    <state key="normal" title="娱乐">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="12"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1446,7 +1442,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEN-cL-DWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1329" y="436"/>
+            <point key="canvasLocation" x="1329" y="450"/>
         </scene>
         <!--Timeline View Controller-->
         <scene sceneID="37O-Dx-Wq9">
@@ -1823,7 +1819,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sg8-0z-cKI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2263" y="4052"/>
+            <point key="canvasLocation" x="2263" y="4058"/>
         </scene>
         <!--Self View Controller-->
         <scene sceneID="LWM-cu-kMI">

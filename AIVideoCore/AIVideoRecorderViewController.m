@@ -37,6 +37,8 @@
 
 @property (assign, nonatomic) BOOL isProcessingData;
 
+@property (assign, nonatomic) BOOL canComplate;
+
 @property (strong, nonatomic) UIImageView *focusRectView;
 
 @end
@@ -44,9 +46,11 @@
 
 @implementation AIVideoRecorderViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.canComplate = NO;
     self.title = @"拍摄内容";
     self.view.backgroundColor = color(16, 16, 16, 1);
     self.preview.backgroundColor = color(16, 16, 16, 1);
@@ -55,10 +59,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO];
-}
 
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -111,13 +113,15 @@
     [_recorder startRecordingToOutputFileURL:[NSURL fileURLWithPath:filePath]];
 }
 
-
 -(IBAction)stopRecordVideo:(id)sender{
     if (_isProcessingData) {
         return;
     }
-    
     [_recorder stopCurrentVideoRecording];
+    
+    if(self.canComplate) {
+        [self didFinishRecording];
+    }
 }
 
 - (void) initRectLayout{
@@ -193,6 +197,7 @@
     [self.progressBar addProgressView];
     [_progressBar stopShining];
     
+    
 }
 
 - (void)videoRecorder:(SBVideoRecorder *)videoRecorder didFinishRecordingToOutPutFileAtURL:(NSURL *)outputFileURL duration:(CGFloat)videoDuration totalDur:(CGFloat)totalDur error:(NSError *)error
@@ -223,7 +228,7 @@
 - (void)videoRecorder:(SBVideoRecorder *)videoRecorder didRecordingToOutPutFileAtURL:(NSURL *)outputFileURL duration:(CGFloat)videoDuration recordedVideosTotalDur:(CGFloat)totalDur
 {
     [_progressBar setLastProgressToWidth:videoDuration / MAX_VIDEO_DUR * _progressBar.frame.size.width];
-    
+    self.canComplate = (videoDuration + totalDur >= MIN_VIDEO_DUR);
 }
 
 - (void)videoRecorder:(SBVideoRecorder *)videoRecorder didFinishMergingVideosToOutPutFileAtURL:(NSURL *)outputFileURL
