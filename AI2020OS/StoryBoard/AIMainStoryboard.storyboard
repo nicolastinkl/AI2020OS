@@ -1165,7 +1165,7 @@
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5i-x4-WQG" userLabel="MoreMenuView">
                                             <rect key="frame" x="497" y="43" width="90" height="160"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="160" id="Zlx-9R-pKg"/>
                                                 <constraint firstAttribute="width" constant="90" id="bPH-NG-KeA"/>
@@ -1195,7 +1195,7 @@
                                     <outlet property="favoritesButton" destination="v5R-Nu-9iS" id="FMc-PX-ffn"/>
                                     <outlet property="fromSource" destination="K5J-gN-7cn" id="WQP-xD-BTI"/>
                                     <outlet property="moreButton" destination="rOb-ZF-VEL" id="3tP-Rp-KpF"/>
-                                    <outlet property="moreMenuView" destination="X5i-x4-WQG" id="vgl-Yu-d8x"/>
+                                    <outlet property="moreMenuContainer" destination="X5i-x4-WQG" id="Bol-8e-ZuX"/>
                                     <outlet property="serviceContents" destination="ZNm-uC-g3W" id="3oA-Ai-dej"/>
                                     <outlet property="serviceImg" destination="bGh-Io-Qcu" id="zbT-iT-tuI"/>
                                     <outlet property="serviceName" destination="vwY-pG-POV" id="Z0v-uc-wSk"/>

@@ -208,6 +208,7 @@ class AICollectServiceListCell: MGSwipeTableCell {
 class AICollectServiceGridCell: UITableViewCell {
     
     var service: AIServiceTopicModel?
+    private var menuView: AITabelViewMenuView?
     
     @IBOutlet weak var serviceImg: AIImageView!
     @IBOutlet weak var serviceName: UILabel!
@@ -216,7 +217,7 @@ class AICollectServiceGridCell: UITableViewCell {
     @IBOutlet weak var fromSource: UILabel!
     @IBOutlet weak var tagButton: DesignableButton!
     @IBOutlet weak var favoritesButton: UIButton!
-    @IBOutlet weak var moreMenuView: UIView!
+    @IBOutlet weak var moreMenuContainer: UIView!
     
     @IBAction func favoAction(sender: AnyObject) {
         if service != nil {
@@ -225,6 +226,27 @@ class AICollectServiceGridCell: UITableViewCell {
             ViewUtils.refereshFavorButton(service!.isFavor, button: favoritesButton, animation: true)
         }
     }
+
+    @IBAction func moreAction(sender: AnyObject) {
+        if menuView == nil {
+            menuView = AITabelViewMenuView.currentView()
+            menuView!.delegate = self
+        }
+
+        if moreMenuContainer.subviews.first != nil {
+            let cview = moreMenuContainer.subviews.first as AITabelViewMenuView
+            cview.animation = "zoomOut"
+            cview.animate()
+            Async.userInitiated(after: 0.5, block: { () -> Void in
+                cview.removeFromSuperview()
+            })
+            
+        } else {
+            moreMenuContainer.addSubview(menuView!)
+        }
+        
+    }
+
     
     func setData(service: AIServiceTopicModel) {
         
@@ -257,6 +279,28 @@ class AICollectServiceGridCell: UITableViewCell {
         if service.tags.count > 0 {
             tagButton.setTitle(service.tags[0], forState: UIControlState.Normal)
         }
+    }
+}
+
+extension AICollectServiceGridCell : AITabelViewMenuViewDelegate {
+    func shareAction() {
+        
+    }
+    
+    func editLabelAction() {
+        
+    }
+    
+    func buyAction() {
+        
+    }
+    
+    func deleteAction() {
+        
+    }
+    
+    func mutliDelAction() {
+        
     }
 }
 
