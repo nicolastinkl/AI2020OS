@@ -24,6 +24,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     @IBOutlet weak var titleLabel: UILabel!
     
     // MARK: getters and setters
+    
     private let transitionManager = TransitionManager()
 
     var server_id:String?
@@ -31,7 +32,9 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     private var movieDetailsResponse:AIServiceDetailModel?
     
     private var bgImage:UIImageView?
+    
     private var avatorImage:UIImageView?
+    
     private var nickLabel:UILabel?
     
     private var scrollViewDragPointsss : CGPoint?
@@ -113,7 +116,6 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
                 
             }
         }
-        
         
         /*AIHttpEngine.kmdetailsForMoive(self.movieDetails!, response: {[weak self] (AIKMMovieS) -> () in
             if let strongSelf = self{
