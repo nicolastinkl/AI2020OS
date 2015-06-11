@@ -56,6 +56,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         
         view.showProgressViewLoading()
         // Do any additional setup after loading the view, typically from a nib.
+        // 请求服务详情数据
         requestMovieDetails()
         
         self.navigationBarView.animate()
@@ -153,20 +154,32 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
 // MARK:  UITableViewDelegate,UITableViewDataSource
 extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSource{
     
+    // 根据服务详情返回数据是否为空来决定是否显示section
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch indexPath.section{
         case 0:
             return 92
+        // 服务简介
         case 1:
-            return 72
+            return 90
+        // 服务价格
         case 2:
-            return 60
+            return 72
+        // 服务保障
         case 3:
-            return 120
-        case 4:
+            if (self.movieDetailsResponse?.service_guarantee?.isEmpty == true) {
+                return 0
+            }
+            
+            if let strDes = self.movieDetailsResponse?.service_guarantee {
+                
+            }
             return 60
-        case 5:
+        // 服务参数
+        case 4:
             return 65
+        // 预留服务评论
+        // 服务流程，服务约束在下拉显示更多中展示
         default:
             break
         }
@@ -178,62 +191,78 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         return 5
     }
 
+    // 返回每个section中的行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 4{
-            let count = self.movieDetailsResponse?.service_param_list?.count ?? 0
-            return count
-        }
+//        if section == 4{
+//            let count = self.movieDetailsResponse?.service_param_list?.count ?? 0
+//            return count
+//        }
         return 1
     }
     
+    // 每个section的展示
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         switch indexPath.section{
+        // 顶部展示服务提供商
         case 0:
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDAvatorViewCell) as? AIHomeAvatorViewCell
             if  avCell == nil {
                 avCell = AIHomeAvatorViewCell().currentViewCell()
             }
             avCell?.avatorImageView.setURL(self.movieDetailsResponse?.service_intro_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
-            avCell?.nickName.text = self.movieDetailsResponse?.service_name
+            avCell?.nickName.text = self.movieDetailsResponse?.provider_name
             return avCell!
+        // 展示服务详情
         case 1:
-            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDefaultViewCell) as? AIHomeSDDefaultViewCell
-            if  avCell == nil {
-                avCell = AIHomeSDDefaultViewCell().currentViewCell()
-            }
-            avCell?.priceLabel.text = "260元"//self.movieDetailsResponse?.service_price
-            avCell?.addBottomBorderLine()
-            return avCell!
-        case 2:
-            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
-            if  avCell == nil {
-                avCell = AIHomeSDParamesViewCell().currentViewCell()
-            }
-            avCell?.textLabel.text = "选择入住时间"
-            avCell?.detailTextLabel?.text = ""
-            avCell?.addBottomBorderLine()
-            return avCell!
-            
-        case 3:
-            
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDesViewCell) as? AIHomeSDDesViewCell
             if  avCell == nil {
                 avCell = AIHomeSDDesViewCell().currentViewCell()
             }
 
             avCell?.desLabel.text = self.movieDetailsResponse?.service_intro
+            avCell?.addBottomBorderLine()
             return avCell!
+        // 显示服务价格
+        case 2:
+            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDefaultViewCell) as? AIHomeSDDefaultViewCell
+            if  avCell == nil {
+                avCell = AIHomeSDDefaultViewCell().currentViewCell()
+            }
+            avCell?.priceLabel.text = self.movieDetailsResponse?.service_price
+            avCell?.addBottomBorderLine()
+            return avCell!
+        //  显示服务保障
+        case 3:
+            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDesViewCell) as? AIHomeSDDesViewCell
+            if  avCell == nil {
+                avCell = AIHomeSDDesViewCell().currentViewCell()
+            }
+            avCell?.desLabel.text = self.movieDetailsResponse?.service_guarantee
+            avCell?.desLabel.font = UIFont.systemFontOfSize(10)
+            avCell?.addBottomBorderLine()
+            return avCell!
+//        
+//        case 4:
+//            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
+//            if  avCell == nil {
+//                avCell = AIHomeSDParamesViewCell().currentViewCell()
+//            }
+//            let pcPis =  self.movieDetailsResponse?.service_param_list as Array<AIServiceDetailParamsModel>?
+//            let pCompics = pcPis![indexPath.row] as AIServiceDetailParamsModel
+//            
+//            avCell?.textLabel?.text = pCompics.param_key
+//            avCell?.detailTextLabel?.text = pCompics.param_key
+//            avCell?.addBottomBorderLine()
+//            return avCell!
+        // 显示参数选择
         case 4:
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
             if  avCell == nil {
                 avCell = AIHomeSDParamesViewCell().currentViewCell()
             }
-            let pcPis =  self.movieDetailsResponse?.service_param_list as Array<AIServiceDetailParamsModel>?
-            let pCompics = pcPis![indexPath.row] as AIServiceDetailParamsModel
-            
-            avCell?.textLabel.text = pCompics.param_key
-            avCell?.detailTextLabel?.text = pCompics.param_key
+            avCell?.textLabel?.text = self.movieDetailsResponse?.service_param_name
+            avCell?.detailTextLabel?.text = ""
             avCell?.addBottomBorderLine()
             return avCell!
         default:
@@ -245,23 +274,25 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         if  avCell == nil {
             avCell = AIHomeSDParamesViewCell().currentViewCell()
         }
-        avCell?.textLabel.text = ""
+        avCell?.textLabel?.text = ""
         avCell?.detailTextLabel?.text = ""
         avCell?.accessoryType = UITableViewCellAccessoryType.None
-        
+        avCell?.addBottomBorderLine()
         return avCell!
         
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        if indexPath.section == 2 {
-            let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIComponentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICalendarViewController) as UIViewController
-            
-            viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-            viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-            self.presentViewController(viewController, animated: true, completion: nil)
-        }else if indexPath.section == 4 {
+//        if indexPath.section == 2 {
+//            let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIComponentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICalendarViewController) as UIViewController
+//            
+//            viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+//            viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+//            self.presentViewController(viewController, animated: true, completion: nil)
+//        }
+        // 参数选择跳转
+        if indexPath.section == 4 {
             
             let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIComponentChoseViewController) as UIViewController
             
