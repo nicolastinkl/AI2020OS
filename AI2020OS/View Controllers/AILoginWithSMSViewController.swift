@@ -109,7 +109,7 @@ class AILoginWithSMSViewController: UIViewController {
                 self.view.hideLoading()
                 if success {
                     self.verfyButton.enabled = false
-                    self.remainTime = 60
+                    self.remainTime = 300
                     self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countDown", userInfo: nil, repeats:true);
                     self.timer.fire()
                 }else{

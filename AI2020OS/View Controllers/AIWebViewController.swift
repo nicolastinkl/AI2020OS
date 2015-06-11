@@ -128,8 +128,6 @@ public class AIWebViewController: UIViewController {
         self.navigationController?.hidesBottomBarWhenPushed = true
     }
     
-    
-    
     ///  :nodoc:
     public override func viewWillAppear(animated: Bool) {
         assert(navigationController != nil, "\(AIWebViewController.self) must be presented in a \(UINavigationController.self)")
