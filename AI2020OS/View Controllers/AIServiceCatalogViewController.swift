@@ -168,7 +168,7 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
             cell = tableView.dequeueReusableCellWithIdentifier("ServiceCell") as UITableViewCell
             
             if serviceList != nil {
-                cell!.textLabel.text = serviceList![indexPath.item].service_name
+                cell!.textLabel?.text = serviceList![indexPath.item].service_name
             }
         } else if tableView == providerTable {
             

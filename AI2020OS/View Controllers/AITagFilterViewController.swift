@@ -126,7 +126,7 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
         
         var play:Play = (self.sectionInfoArray[indexPath.section] as SectionInfo).play
         let quotation = play.quotations[indexPath.row] as NSDictionary
-        cell.textLabel.text = quotation["tagName"] as? String
+        cell.textLabel?.text = quotation["tagName"] as? String
         return cell
     }
     

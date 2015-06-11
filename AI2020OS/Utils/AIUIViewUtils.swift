@@ -89,7 +89,9 @@ extension UIView {
         let lineLayer =  CALayer()
         lineLayer.backgroundColor = color
         let left = self.width*0.9/2
-        lineLayer.frame = CGRectMake(20, self.height-1, self.width*0.9, 0.5)
+//        lineLayer.frame = CGRectMake(20, self.height-1, self.width*0.9, 0.5)
+        lineLayer.frame = CGRectMake(0, self.height-1, self.width, 0.5)
+        
         self.layer.addSublayer(lineLayer)
     }
     

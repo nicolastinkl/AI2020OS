@@ -71,7 +71,7 @@ class AIServiceTopicModel: JSONJoy  {
 }
 
 
-
+// 服务详情数据模型
 struct AIServiceDetailModel: JSONJoy  {
     
     var service_id: Int?
@@ -88,6 +88,7 @@ struct AIServiceDetailModel: JSONJoy  {
     var service_guarantee: String?
     var service_process: String?
     var service_restraint: String?
+    var service_param_name: String?
     var service_param_list: Array<AIServiceDetailParamsModel>?
     
     init(){
@@ -110,6 +111,7 @@ struct AIServiceDetailModel: JSONJoy  {
         service_guarantee = decoder["service_guarantee"].string
         service_restraint = decoder["service_restraint"].string
         service_process = decoder["service_process"].string
+        service_param_name = decoder["service_param_name"].string
         
         if let addrs = decoder["service_param_list"].array {
             service_param_list = Array<AIServiceDetailParamsModel>()
