@@ -1105,21 +1105,11 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9T-uQ-XpT">
                                             <rect key="frame" x="371" y="222" width="221" height="60"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLQ-gA-Tof" userLabel="ActionButton" customClass="AsyncButton" customModule="Spring">
-                                                    <rect key="frame" x="168" y="7" width="45" height="45"/>
-                                                    <state key="normal" backgroundImage="Placeholder">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5J-gN-7cn" userLabel="FromSource">
-                                                    <rect key="frame" x="23" y="8" width="137" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star_rating_results_highlight" translatesAutoresizingMaskIntoConstraints="NO" id="3Fu-hk-TQk">
-                                                    <rect key="frame" x="146" y="31" width="14" height="14"/>
-                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -1173,14 +1163,24 @@
                                                 <action selector="favoAction:" destination="xZ0-eS-fCp" eventType="touchUpInside" id="ynD-wf-kNy"/>
                                             </connections>
                                         </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5i-x4-WQG" userLabel="MoreMenuView">
+                                            <rect key="frame" x="497" y="43" width="90" height="160"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="160" id="Zlx-9R-pKg"/>
+                                                <constraint firstAttribute="width" constant="90" id="bPH-NG-KeA"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="X5i-x4-WQG" firstAttribute="top" secondItem="cUT-FL-22Z" secondAttribute="topMargin" constant="35" id="36V-CJ-l7E"/>
                                         <constraint firstItem="bGh-Io-Qcu" firstAttribute="top" secondItem="cUT-FL-22Z" secondAttribute="topMargin" constant="-8" id="3Of-UP-8lD"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="bGh-Io-Qcu" secondAttribute="bottom" constant="-8" id="3eu-nZ-UGB"/>
                                         <constraint firstItem="vwY-pG-POV" firstAttribute="leading" secondItem="cUT-FL-22Z" secondAttribute="leadingMargin" constant="2" id="5PL-qm-yWn"/>
                                         <constraint firstItem="rOb-ZF-VEL" firstAttribute="trailing" secondItem="cUT-FL-22Z" secondAttribute="trailingMargin" id="8Rv-fy-jkq"/>
                                         <constraint firstItem="bGh-Io-Qcu" firstAttribute="leading" secondItem="cUT-FL-22Z" secondAttribute="leadingMargin" constant="-8" id="8fn-UE-Tgj"/>
                                         <constraint firstItem="vwY-pG-POV" firstAttribute="top" secondItem="cUT-FL-22Z" secondAttribute="topMargin" constant="2" id="BfM-A8-wrt"/>
+                                        <constraint firstItem="X5i-x4-WQG" firstAttribute="trailing" secondItem="rOb-ZF-VEL" secondAttribute="trailing" constant="-5" id="DSa-GV-kKV"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="bGh-Io-Qcu" secondAttribute="trailing" constant="-8" id="F4z-oT-geC"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="v5R-Nu-9iS" secondAttribute="trailing" constant="59" id="MJN-YY-xR2"/>
                                         <constraint firstItem="vwY-pG-POV" firstAttribute="leading" secondItem="ZNm-uC-g3W" secondAttribute="trailing" constant="-214" id="Nej-Kl-a9J"/>
@@ -1195,6 +1195,7 @@
                                     <outlet property="favoritesButton" destination="v5R-Nu-9iS" id="FMc-PX-ffn"/>
                                     <outlet property="fromSource" destination="K5J-gN-7cn" id="WQP-xD-BTI"/>
                                     <outlet property="moreButton" destination="rOb-ZF-VEL" id="3tP-Rp-KpF"/>
+                                    <outlet property="moreMenuView" destination="X5i-x4-WQG" id="vgl-Yu-d8x"/>
                                     <outlet property="serviceContents" destination="ZNm-uC-g3W" id="3oA-Ai-dej"/>
                                     <outlet property="serviceImg" destination="bGh-Io-Qcu" id="zbT-iT-tuI"/>
                                     <outlet property="serviceName" destination="vwY-pG-POV" id="Z0v-uc-wSk"/>

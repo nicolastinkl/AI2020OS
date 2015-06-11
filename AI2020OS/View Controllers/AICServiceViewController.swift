@@ -28,8 +28,6 @@ private class ViewUtils {
                 springBtn.animate()
             }
         }
-        
-        
     }
 }
 
@@ -218,7 +216,8 @@ class AICollectServiceGridCell: UITableViewCell {
     @IBOutlet weak var fromSource: UILabel!
     @IBOutlet weak var tagButton: DesignableButton!
     @IBOutlet weak var favoritesButton: UIButton!
-
+    @IBOutlet weak var moreMenuView: UIView!
+    
     @IBAction func favoAction(sender: AnyObject) {
         if service != nil {
             service!.isFavor = !service!.isFavor
