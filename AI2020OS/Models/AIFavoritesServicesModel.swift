@@ -9,19 +9,36 @@
 import Foundation
 import JSONJoy
 
-struct AIFavoritesServicesResult: JSONJoy {
+class AIFavoritesServicesResult: JSONJoy {
     var services = [AIServiceTopicModel]()
 
     init() {
         
     }
     
-    init(_ decoder: JSONDecoder) {
+    required init(_ decoder: JSONDecoder) {
         if var jsonArray = decoder["collected_services"].array {
             for subDecoder in jsonArray {
                 services.append(AIServiceTopicModel(subDecoder))
             }
         }
     }
+}
 
+class AIFavoritesServiceTagsResult: JSONJoy {
+    var tags = [String]()
+    
+    init() {
+        
+    }
+    
+    required init(_ decoder: JSONDecoder) {
+        if var jsonArray = decoder["service_tags"].array {
+            for subDecoder in jsonArray {
+                if let tag = subDecoder["tag_name"].string {
+                    tags.append(tag)
+                }
+            }
+        }
+    }
 }

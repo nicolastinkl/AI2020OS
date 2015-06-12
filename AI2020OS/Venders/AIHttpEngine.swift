@@ -45,6 +45,8 @@ struct AIHttpEngine{
         case GetAllServiceCatalog
         // 获取收藏的服务
         case QueryCollectedServices
+        // 获取收藏服务所有标签
+        case QueryServiceTags
 
         var description: String {
             switch self {
@@ -58,6 +60,7 @@ struct AIHttpEngine{
             case .QueryServiceItemsByCatalogId: return "/sboss/getService"
             case .GetAllServiceCatalog: return "/sboss/getAllServiceCatalog"
             case .QueryCollectedServices: return "/sboss/queryCollectedServices"
+            case .QueryServiceTags: return "/sboss/queryServiceTags"
             }
         }
     }

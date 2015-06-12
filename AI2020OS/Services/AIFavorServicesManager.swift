@@ -12,9 +12,7 @@ import JSONJoy
 
 protocol AIFavorServicesManager {
     // 获取收藏服务列表
-    func getFavoriteServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void)
-    // 按标签查询服务
-    func queryFavoriteServices(tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void)
+    func getFavoriteServices(pageNum: Int, pageSize: Int, tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void)
     // 改变收藏服务的状态。 状态：是否是我喜欢的
     func changeFavoriteServiceState(isFavor: Bool, completion: (Error?) -> Void)
     // 获取收藏服务标签
@@ -83,8 +81,42 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         tags.addObject(service.tags[0])
     }
     
-    func getFavoriteServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
-        completion((favorServices, nil))
+    func getFavoriteServices(pageNum: Int, pageSize: Int, tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void) {
+        
+        
+        if tags.count == 0 {
+            completion((favorServices, nil))
+            return
+        }
+        
+        var tempList = [AIServiceTopicModel]()
+        
+        for service in favorServices {
+            
+            for tag in service.tags {
+                
+                func isInTags(srcTag: String, desTags: [String]) -> Bool {
+                    if desTags.count == 0 {
+                        return false
+                    } else {
+                        for tag in desTags {
+                            if tag == srcTag {
+                                return true
+                            }
+                        }
+                        
+                        return false
+                    }
+                }
+                
+                if isInTags(tag, tags) {
+                    tempList.append(service)
+                    break
+                }
+            }
+        }
+        
+        completion((tempList, nil))
     }
     
     func queryFavoriteServices(tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void) {
@@ -141,7 +173,7 @@ class AIHttpFavorServicesManager : AIMockFavorServicesManager {
     
     var isLoading : Bool = false
     
-    override func getFavoriteServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
+    override func getFavoriteServices(pageNum: Int, pageSize: Int, tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void) {
         if isLoading {
             return
         }
@@ -153,9 +185,9 @@ class AIHttpFavorServicesManager : AIMockFavorServicesManager {
         
         let paras = [
             "data":[
-                "page_no": 1,
-                "page_size": 10,
-                "service_tags":[String]()
+                "page_no": pageNum,
+                "page_size": pageSize,
+                "service_tags":tags
             ],
             "desc":[
                 "data_mode": 0,
@@ -180,33 +212,31 @@ class AIHttpFavorServicesManager : AIMockFavorServicesManager {
         }
 
     }
-  /*
-    override func queryFavoriteServices(tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void) {
+
+    override func getServiceTags(completion: (([String], Error?)) -> Void) {
         if isLoading {
             return
         }
         
-        var listModel: AIFavoritesServicesResult?
+        var listModel: AIFavoritesServiceTagsResult?
         var responseError:Error?
         
         isLoading = true
         
-        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.QueryCollectedServices, parameters: nil) {  [weak self] (response, error) -> () in
+        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.QueryServiceTags, parameters: nil) {  [weak self] (response, error) -> () in
             responseError = error
             if let strongSelf = self{
                 strongSelf.isLoading = false
             }
             if let responseJSON: AnyObject = response {
-                listModel =  AIFavoritesServicesResult(JSONDecoder(responseJSON))
+                listModel =  AIFavoritesServiceTagsResult(JSONDecoder(responseJSON))
             }
             
             if listModel == nil {
-                listModel = AIFavoritesServicesResult()
+                listModel = AIFavoritesServiceTagsResult()
             }
             
-            completion((listModel!.services, error))
+            completion((listModel!.tags, error))
         }
     }
-*/
-    
 }
