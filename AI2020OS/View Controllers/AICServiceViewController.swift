@@ -10,6 +10,28 @@ import Foundation
 import UIKit
 import Spring
 
+let BTN_FAVOR_IMG = "pictureHeartLike_1"
+let BTN_UNFAVOR_IMG = "pictureHeartLike_0"
+
+private class ViewUtils {
+    class func refereshFavorButton(isFavor: Bool, button: UIButton, animation: Bool = false) {
+        if isFavor {
+            button.setImage(UIImage(named: BTN_FAVOR_IMG), forState: UIControlState.Normal)
+        } else {
+            button.setImage(UIImage(named: BTN_UNFAVOR_IMG), forState: UIControlState.Normal)
+        }
+        
+        if animation {
+            if let springBtn = button as? SpringButton {
+                springBtn.animation = "pop"
+                springBtn.force = 1.5
+                springBtn.animate()
+            }
+        }
+    }
+}
+
+
 
 var instanceOfAICServiceViewController: AICServiceViewController?
 
@@ -24,7 +46,7 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        favorServicesManager = AIMockFavorServicesManager()
+        favorServicesManager = AIHttpFavorServicesManager()
         favorServicesManager?.getFavoriteServices(1, pageSize: 10, completion: loadData)
         instanceOfAICServiceViewController = self
     }
@@ -140,11 +162,7 @@ class AICollectServiceListCell: MGSwipeTableCell {
         if service != nil {
             service!.isFavor = !service!.isFavor
             
-            if service!.isFavor {
-                favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
-            } else {
-                favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
-            }
+            ViewUtils.refereshFavorButton(service!.isFavor, button: favoritesButton, animation: true)
         }
     }
     
@@ -156,9 +174,10 @@ class AICollectServiceListCell: MGSwipeTableCell {
             serviceName.text = service.service_name
         }
         
-        if service.service_intro_url != nil {
-            var url = service.service_intro_url!
+        if service.service_thumbnail_url != nil {
+            var url = service.service_thumbnail_url!
             serviceImg.setURL(NSURL(string: url), placeholderImage: UIImage(named: "Placeholder"))
+            
         }
         
         if serviceContents != nil {
@@ -174,11 +193,7 @@ class AICollectServiceListCell: MGSwipeTableCell {
             serviceContents.text = contentStr
         }
         
-        if service.isFavor {
-            favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
-        } else {
-            favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
-        }
+        ViewUtils.refereshFavorButton(service.isFavor, button: favoritesButton)
         
         if service.tags.count > 0 {
             tagButton.setTitle(service.tags[0], forState: UIControlState.Normal)
@@ -194,6 +209,7 @@ class AICollectServiceListCell: MGSwipeTableCell {
 class AICollectServiceGridCell: UITableViewCell {
     
     var service: AIServiceTopicModel?
+    private var menuView: AITabelViewMenuView?
     
     @IBOutlet weak var serviceImg: AIImageView!
     @IBOutlet weak var serviceName: UILabel!
@@ -202,18 +218,36 @@ class AICollectServiceGridCell: UITableViewCell {
     @IBOutlet weak var fromSource: UILabel!
     @IBOutlet weak var tagButton: DesignableButton!
     @IBOutlet weak var favoritesButton: UIButton!
-
+    @IBOutlet weak var moreMenuContainer: UIView!
+    
     @IBAction func favoAction(sender: AnyObject) {
         if service != nil {
             service!.isFavor = !service!.isFavor
             
-            if service!.isFavor {
-                favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
-            } else {
-                favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
-            }
+            ViewUtils.refereshFavorButton(service!.isFavor, button: favoritesButton, animation: true)
         }
     }
+
+    @IBAction func moreAction(sender: AnyObject) {
+        if menuView == nil {
+            menuView = AITabelViewMenuView.currentView()
+            menuView!.delegate = self
+        }
+
+        if moreMenuContainer.subviews.first != nil {
+            let cview = moreMenuContainer.subviews.first as AITabelViewMenuView
+            cview.animation = "zoomOut"
+            cview.animate()
+            Async.userInitiated(after: 0.5, block: { () -> Void in
+                cview.removeFromSuperview()
+            })
+            
+        } else {
+            moreMenuContainer.addSubview(menuView!)
+        }
+        
+    }
+
     
     func setData(service: AIServiceTopicModel) {
         
@@ -223,8 +257,8 @@ class AICollectServiceGridCell: UITableViewCell {
             serviceName.text = service.service_name
         }
         
-        if service.service_intro_url != nil {
-            var url = service.service_intro_url!
+        if service.service_thumbnail_url != nil {
+            var url = service.service_thumbnail_url!
             serviceImg.setURL(NSURL(string: url), placeholderImage: UIImage(named: "Placeholder"))
         }
         
@@ -241,15 +275,33 @@ class AICollectServiceGridCell: UITableViewCell {
             serviceContents.text = contentStr
         }
         
-        if service.isFavor {
-            favoritesButton.setImage(UIImage(named: "ico_favorite"), forState: UIControlState.Normal)
-        } else {
-            favoritesButton.setImage(UIImage(named: "ico_favorite_normal"), forState: UIControlState.Normal)
-        }
+        ViewUtils.refereshFavorButton(service.isFavor, button: favoritesButton)
 
         if service.tags.count > 0 {
             tagButton.setTitle(service.tags[0], forState: UIControlState.Normal)
         }
+    }
+}
+
+extension AICollectServiceGridCell : AITabelViewMenuViewDelegate {
+    func shareAction() {
+        
+    }
+    
+    func editLabelAction() {
+        
+    }
+    
+    func buyAction() {
+        
+    }
+    
+    func deleteAction() {
+        
+    }
+    
+    func mutliDelAction() {
+        
     }
 }
 

@@ -33,6 +33,8 @@
 		84CC00011B107F430073B24A /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC00001B107F430073B24A /* ServiceModel.swift */; };
 		84CDC1701B14952500EA78BC /* SearchHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */; };
 		84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */; };
+		84D393E41B2A78BA0045EE3A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84D393E31B2A78BA0045EE3A /* Info.plist */; };
+		84D393E61B2A88800045EE3A /* AIFavoritesServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D393E51B2A88800045EE3A /* AIFavoritesServicesModel.swift */; };
 		84D5D2C81B1C636D001E9F37 /* AICatalogServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */; };
 		84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */; };
 		84DBFF641B26D71F00F7FED6 /* AIFavorServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */; };
@@ -78,7 +80,6 @@
 		933ED43B1AC92C3300E4AADB /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933ED43A1AC92C3300E4AADB /* AIApplication.swift */; };
 		9349300B1ADD0B6800D81FE2 /* AIAppInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9349300A1ADD0B6800D81FE2 /* AIAppInit.m */; };
 		934986F61B0A1135003086D1 /* AIRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934986F51B0A1135003086D1 /* AIRegisterViewController.swift */; };
-		934986F91B0B13FD003086D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 934986FB1B0B13FD003086D1 /* InfoPlist.strings */; };
 		934986FF1B0B1727003086D1 /* AITIMELINESDTimesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934986FE1B0B1727003086D1 /* AITIMELINESDTimesViewCell.swift */; };
 		934987011B0B1750003086D1 /* AITIMELINESDContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934987001B0B1750003086D1 /* AITIMELINESDContentViewCell.swift */; };
 		934987031B0B305A003086D1 /* AITIMELINESDTITLEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934987021B0B305A003086D1 /* AITIMELINESDTITLEView.swift */; };
@@ -109,7 +110,6 @@
 		93659F611B1EEFB40065E661 /* AIExtensionAICContentAndService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93659F601B1EEFB40065E661 /* AIExtensionAICContentAndService.swift */; };
 		93659F641B1EF2090065E661 /* AITableViewInsetMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93659F631B1EF2090065E661 /* AITableViewInsetMakeView.swift */; };
 		93659F661B1EF21A0065E661 /* AITableViewInsetMakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93659F651B1EF21A0065E661 /* AITableViewInsetMakeView.xib */; };
-		93659F681B1F010F0065E661 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93659F671B1F010F0065E661 /* Default-568h@2x.png */; };
 		93692C971ACAA52A00D66211 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93692C961ACAA52A00D66211 /* Async.swift */; };
 		93692C9D1ACAB94700D66211 /* AILoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93692C9C1ACAB94700D66211 /* AILoginStoryboard.storyboard */; };
 		936D62471AD4D44A00609FCD /* AILoadingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936D62461AD4D44A00609FCD /* AILoadingStoryboard.storyboard */; };
@@ -165,6 +165,7 @@
 		939E66431B291F4100FD5FBA /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E663F1B291F4100FD5FBA /* KSTokenField.swift */; };
 		939E66441B291F4100FD5FBA /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E66401B291F4100FD5FBA /* KSTokenView.swift */; };
 		939E66451B291F4100FD5FBA /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E66411B291F4100FD5FBA /* KSUtils.swift */; };
+		939E66471B293F7900FD5FBA /* AILoginWithSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E66461B293F7900FD5FBA /* AILoginWithSMSViewController.swift */; };
 		939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F4BD41AD6648000CE530C /* AIAudioViewController.swift */; };
 		93A7058E1B12CAD800E8193C /* AIServerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */; };
 		93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A705911B12CAF000E8193C /* AIServerTimeView.xib */; };
@@ -336,6 +337,8 @@
 		84CF6A801B17F9A3001C4E72 /* CWStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
 		84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
 		84D132211B0F26E700B977F5 /* MainSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
+		84D393E31B2A78BA0045EE3A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84D393E51B2A88800045EE3A /* AIFavoritesServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoritesServicesModel.swift; sourceTree = "<group>"; };
 		84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICatalogServicesModel.swift; sourceTree = "<group>"; };
 		84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryRecord.swift; sourceTree = "<group>"; };
 		84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavorServicesManager.swift; sourceTree = "<group>"; };
@@ -389,8 +392,6 @@
 		934930091ADD0B6800D81FE2 /* AIAppInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAppInit.h; sourceTree = "<group>"; };
 		9349300A1ADD0B6800D81FE2 /* AIAppInit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAppInit.m; sourceTree = "<group>"; };
 		934986F51B0A1135003086D1 /* AIRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRegisterViewController.swift; sourceTree = "<group>"; };
-		934986FA1B0B13FD003086D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		934986FC1B0B13FF003086D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		934986FE1B0B1727003086D1 /* AITIMELINESDTimesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITIMELINESDTimesViewCell.swift; sourceTree = "<group>"; };
 		934987001B0B1750003086D1 /* AITIMELINESDContentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITIMELINESDContentViewCell.swift; sourceTree = "<group>"; };
 		934987021B0B305A003086D1 /* AITIMELINESDTITLEView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITIMELINESDTITLEView.swift; sourceTree = "<group>"; };
@@ -423,7 +424,6 @@
 		93659F601B1EEFB40065E661 /* AIExtensionAICContentAndService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIExtensionAICContentAndService.swift; sourceTree = "<group>"; };
 		93659F631B1EF2090065E661 /* AITableViewInsetMakeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITableViewInsetMakeView.swift; sourceTree = "<group>"; };
 		93659F651B1EF21A0065E661 /* AITableViewInsetMakeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITableViewInsetMakeView.xib; sourceTree = "<group>"; };
-		93659F671B1F010F0065E661 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		93692C961ACAA52A00D66211 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		93692C9C1ACAB94700D66211 /* AILoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AILoginStoryboard.storyboard; sourceTree = "<group>"; };
 		936D62461AD4D44A00609FCD /* AILoadingStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AILoadingStoryboard.storyboard; sourceTree = "<group>"; };
@@ -487,6 +487,7 @@
 		939E663F1B291F4100FD5FBA /* KSTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
 		939E66401B291F4100FD5FBA /* KSTokenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
 		939E66411B291F4100FD5FBA /* KSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
+		939E66461B293F7900FD5FBA /* AILoginWithSMSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginWithSMSViewController.swift; sourceTree = "<group>"; };
 		939F4BD41AD6648000CE530C /* AIAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioViewController.swift; sourceTree = "<group>"; };
 		93A7058D1B12CAD800E8193C /* AIServerTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServerTimeView.swift; sourceTree = "<group>"; };
 		93A705911B12CAF000E8193C /* AIServerTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIServerTimeView.xib; sourceTree = "<group>"; };
@@ -735,6 +736,7 @@
 				9301B0791B0998C700C1EE79 /* AILoginViewController.swift */,
 				9301B07B1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift */,
 				934986F51B0A1135003086D1 /* AIRegisterViewController.swift */,
+				939E66461B293F7900FD5FBA /* AILoginWithSMSViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -845,7 +847,6 @@
 			isa = PBXGroup;
 			children = (
 				1239DBB81B2052A8002F6A4F /* TagFilterData.plist */,
-				93659F671B1F010F0065E661 /* Default-568h@2x.png */,
 				933ED3E91AC8F90A00E4AADB /* AppDelegate.swift */,
 				933ED3F21AC8F90A00E4AADB /* Images.xcassets */,
 				933ED3F41AC8F90A00E4AADB /* LaunchScreen.xib */,
@@ -859,7 +860,6 @@
 			children = (
 				1239DBB61B204F48002F6A4F /* TagFilterData.plist */,
 				933ED3E81AC8F90A00E4AADB /* Info.plist */,
-				934986FB1B0B13FD003086D1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -909,6 +909,7 @@
 				F2DACC2A1B197A7500233EFD /* AIOrderDetailModel.swift */,
 				84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */,
 				939E66391B27EAE900FD5FBA /* AIFavoriteContentModel.swift */,
+				84D393E51B2A88800045EE3A /* AIFavoritesServicesModel.swift */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -1595,7 +1596,6 @@
 				938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */,
 				931718831B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard in Resources */,
 				93FF74751B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard in Resources */,
-				934986F91B0B13FD003086D1 /* InfoPlist.strings in Resources */,
 				93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */,
 				93BD09061B05F2D000C8B96B /* AIOrderBuyView.xib in Resources */,
 				938A39881B2001DF00E3A5BF /* AITabelViewMenuView.xib in Resources */,
@@ -1617,7 +1617,6 @@
 				934987161B0DA9A7003086D1 /* AIHomeViewStyleTitleAndContentView.xib in Resources */,
 				9349871E1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard in Resources */,
 				93659F661B1EF21A0065E661 /* AITableViewInsetMakeView.xib in Resources */,
-				93659F681B1F010F0065E661 /* Default-568h@2x.png in Resources */,
 				9349870E1B0DA348003086D1 /* AIHomeViewStyleMultiepleView.xib in Resources */,
 				93FF747C1B0F0CA800FD97C1 /* AIServerScopeView.xib in Resources */,
 				933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */,
@@ -1849,6 +1848,7 @@
 				93FF74711B0ECEA000FD97C1 /* CVCalendarWeekView.swift in Sources */,
 				935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */,
 				F2DACC2B1B197A7500233EFD /* AIOrderDetailModel.swift in Sources */,
+				84D393E61B2A88800045EE3A /* AIFavoritesServicesModel.swift in Sources */,
 				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
 				12A20DAB1B1719F3003E412A /* AIOrderService.swift in Sources */,
 				12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */,
@@ -1877,6 +1877,7 @@
 				933668861AD671A4007556D7 /* AITransitionManager.swift in Sources */,
 				84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */,
 				9349871A1B0DBDC7003086D1 /* AIErrorRetryView.swift in Sources */,
+				939E66471B293F7900FD5FBA /* AILoginWithSMSViewController.swift in Sources */,
 				93BD09041B05F2BC00C8B96B /* AIOrderBuyView.swift in Sources */,
 				93AC3FBA1AC95E6D000024A4 /* AIMainTabBarController.swift in Sources */,
 				93FF746A1B0ECEA000FD97C1 /* CVCalendarViewAnimator.swift in Sources */,
@@ -1969,15 +1970,6 @@
 				933ED3F51AC8F90A00E4AADB /* Base */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		934986FB1B0B13FD003086D1 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				934986FA1B0B13FD003086D1 /* Base */,
-				934986FC1B0B13FF003086D1 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

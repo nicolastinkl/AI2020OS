@@ -37,6 +37,8 @@
 
 @property (assign, nonatomic) BOOL isProcessingData;
 
+@property (assign, nonatomic) BOOL canComplate;
+
 @property (strong, nonatomic) UIImageView *focusRectView;
 
 @end
@@ -44,9 +46,11 @@
 
 @implementation AIVideoRecorderViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.canComplate = NO;
     self.title = @"拍摄内容";
     self.view.backgroundColor = color(16, 16, 16, 1);
     self.preview.backgroundColor = color(16, 16, 16, 1);
@@ -55,10 +59,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO];
-}
 
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -111,13 +113,15 @@
     [_recorder startRecordingToOutputFileURL:[NSURL fileURLWithPath:filePath]];
 }
 
-
 -(IBAction)stopRecordVideo:(id)sender{
     if (_isProcessingData) {
         return;
     }
-    
     [_recorder stopCurrentVideoRecording];
+    
+    if(self.canComplate) {
+        //[self didFinishRecording];
+    }
 }
 
 - (void) initRectLayout{
@@ -163,7 +167,6 @@
     }];
 }
 
-
 /*!
  *  @author tinkl, 15-06-08 15:06:58
  *
@@ -174,12 +177,12 @@
         return;
     }
     
-    if (!self.hud) {
-        self.hud = [[MBProgressHUD alloc] initWithView:self.view];
-        _hud.labelText = @"努力处理中";
-    }
-    [_hud show:YES];
-    [self.view addSubview:_hud];
+//    if (!self.hud) {
+//        self.hud = [[MBProgressHUD alloc] initWithView:self.view];
+//        _hud.labelText = @"努力处理中";
+//    }
+//    [_hud show:YES];
+//    [self.view addSubview:_hud];
     
     [_recorder mergeVideoFiles];
     self.isProcessingData = YES;
@@ -192,6 +195,7 @@
     
     [self.progressBar addProgressView];
     [_progressBar stopShining];
+    
     
 }
 
@@ -223,7 +227,7 @@
 - (void)videoRecorder:(SBVideoRecorder *)videoRecorder didRecordingToOutPutFileAtURL:(NSURL *)outputFileURL duration:(CGFloat)videoDuration recordedVideosTotalDur:(CGFloat)totalDur
 {
     [_progressBar setLastProgressToWidth:videoDuration / MAX_VIDEO_DUR * _progressBar.frame.size.width];
-    
+    self.canComplate = (videoDuration >= MIN_VIDEO_DUR);
 }
 
 - (void)videoRecorder:(SBVideoRecorder *)videoRecorder didFinishMergingVideosToOutPutFileAtURL:(NSURL *)outputFileURL
@@ -231,6 +235,10 @@
     [_hud hide:YES];
     self.isProcessingData = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NSNotirydidFinishMergingVideosToOutPutFileAtURL" object:nil userInfo:@{@"url":outputFileURL}];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //[self.navigationController popViewControllerAnimated:YES];
+    });
+
 }
 
 #pragma mark - Touch Event

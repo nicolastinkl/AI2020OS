@@ -24,6 +24,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     @IBOutlet weak var titleLabel: UILabel!
     
     // MARK: getters and setters
+    
     private let transitionManager = TransitionManager()
 
     var server_id:String?
@@ -31,7 +32,9 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     private var movieDetailsResponse:AIServiceDetailModel?
     
     private var bgImage:UIImageView?
+    
     private var avatorImage:UIImageView?
+    
     private var nickLabel:UILabel?
     
     private var scrollViewDragPointsss : CGPoint?
@@ -42,6 +45,10 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         navigationController?.setNavigationBarHidden(true, animated: true)
         navigationController?.interactivePopGestureRecognizer.delegate = nil
         super.viewWillAppear(animated)
+        
+        //self.tabBarController?.hidesBottomBarWhenPushed = true
+        //self.navigationController?.setToolbarHidden(true, animated: false)
+        
     }
     
     override func viewDidLoad() {
@@ -110,7 +117,6 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
             }
         }
         
-        
         /*AIHttpEngine.kmdetailsForMoive(self.movieDetails!, response: {[weak self] (AIKMMovieS) -> () in
             if let strongSelf = self{
                 strongSelf.movieDetailsResponse = AIKMMovieS
@@ -154,6 +160,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
 extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+
         switch indexPath.section{
         case 0:
             return 92
@@ -165,17 +172,22 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             return 120
         case 4:
             return 60
-        case 5:
-            return 65
         default:
             break
         }
+        
+        if let str = self.movieDetailsResponse?.service_intro{
+            
+            var heightLines =  str.stringHeightWith(14, width: self.view.width) + 60
+            return heightLines
+            
+        }
+        
         return 0
-    }
-    
+    }    
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5
+        return 5+2
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -236,18 +248,22 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.detailTextLabel?.text = pCompics.param_key
             avCell?.addBottomBorderLine()
             return avCell!
+            
+            
         default:
             break
         }
         
-        //placeholder cell
-        var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
+        var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDesViewCell) as? AIHomeSDDesViewCell
         if  avCell == nil {
-            avCell = AIHomeSDParamesViewCell().currentViewCell()
+            avCell = AIHomeSDDesViewCell().currentViewCell()
         }
-        avCell?.textLabel.text = ""
-        avCell?.detailTextLabel?.text = ""
-        avCell?.accessoryType = UITableViewCellAccessoryType.None
+        
+        avCell?.desLabel.text = self.movieDetailsResponse?.service_intro
+        if let str = self.movieDetailsResponse?.service_intro {
+            var heightLines = str.stringHeightWith(14, width: self.view.width) + 60
+            avCell?.addBottomBorderLine(heightLines)
+        }
         
         return avCell!
         

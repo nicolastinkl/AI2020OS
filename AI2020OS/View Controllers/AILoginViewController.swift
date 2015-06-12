@@ -20,18 +20,62 @@ class AILoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextFlied: DesignableTextField!
     
+    
+    
+    
+    
+    
     // MARK: life cycle
     
     override func viewDidLoad() {
     
         super.viewDidLoad()
+      
+        addLine()
+       
+    }
+    
+    func addLine(){
+        localCode({
         
+            let color = UIColor(rgba: AIApplication.AIColor.AIVIEWLINEColor).CGColor
+            let lineLayer =  CALayer()
+            lineLayer.backgroundColor = color
+            lineLayer.frame = CGRectMake(0, 0, self.phoneTextFlied.width, 0.5)
+            self.phoneTextFlied.layer.addSublayer(lineLayer)
+        
+        })
+        
+        
+        localCode { () -> () in
+            
+            let color = UIColor(rgba: AIApplication.AIColor.AIVIEWLINEColor).CGColor
+            let lineLayer =  CALayer()
+            lineLayer.backgroundColor = color
+            lineLayer.frame = CGRectMake(0, 0, self.phoneTextFlied.width, 0.5)
+            self.passwordTextFlied.layer.addSublayer(lineLayer)
+            
+        }
+
+        
+        
+        localCode { () -> () in
+            let color = UIColor(rgba: AIApplication.AIColor.AIVIEWLINEColor).CGColor
+            let lineLayer =  CALayer()
+            lineLayer.backgroundColor = color
+            lineLayer.frame = CGRectMake(0, self.passwordTextFlied.height-1, self.phoneTextFlied.width, 0.5)
+            self.passwordTextFlied.layer.addSublayer(lineLayer)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        navigationController?.interactivePopGestureRecognizer.delegate = nil
+        
         super.viewWillAppear(animated)
+        
+//        navigationController?.setNavigationBarHidden(true, animated: true)
+
+       self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navigationbar-white"), forBarMetrics: UIBarMetrics.Default)
+        navigationController?.interactivePopGestureRecognizer.delegate = nil
     }
     
     // MARK: event response

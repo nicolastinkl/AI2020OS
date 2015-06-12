@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SCLAlertView
 
 protocol AIConnectViewDelegate{
     func exchangeViewModel(viewModel:ConnectViewModel, selection: CollectSelection)
@@ -62,7 +63,9 @@ class AIConnectViewController: UIViewController {
     
     var serviceFilterMenu: AIServiceTagFilterViewController!
     var contentFilterMenu: UIViewController!
-
+    
+    private var loginAction : LoginAction?
+    
     // MARK: life cycle
     
     override func viewDidLoad() {
@@ -84,11 +87,24 @@ class AIConnectViewController: UIViewController {
         findHamburguerViewController()?.menuViewController = contentFilterMenu
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didFinishMergingVideosToOutPut:", name: AIApplication.Notification.NSNotirydidFinishMergingVideosToOutPutFileAtURL, object: nil)
+        
+        showLogin()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    func showLogin(){
+        if let token = AILocalStore.accessToken() {
+            //AIApplication.showMessageUnreadView()
+        }else{
+             self.loginAction = LoginAction(viewController: self, completion: nil)
+              
+        }
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Home_page_weather_bg"), forBarMetrics: UIBarMetrics.Default)
+        
+        self.navigationController?.tabBarController?.tabBar.hidden = true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -98,18 +114,24 @@ class AIConnectViewController: UIViewController {
     // MARK: notification
     
     func didFinishMergingVideosToOutPut(object:NSNotification){
+        
         let userinfo = object.userInfo as Dictionary<String,AnyObject>
         let outputFileURL = userinfo["url"] as NSURL
         
-        // FIXME: TEST.........
-        // file:///var/mobile/Containers/Data/Application/08F63D09-6069-441C-8157-B17F79BC0358/Documents/videos/20150610172503.mp4
-        
-        let videoFile = AVFile.fileWithURL(outputFileURL.URLString) as AVFile
-        videoFile.saveInBackgroundWithBlock({ (success, error) -> Void in
-            logInfo("success: \(success),error:\(error) ,outputFileURL.URLString:\(outputFileURL.URLString)")
-        }, progressBlock: { (processIndex) -> Void in
-            logInfo("processIndex: \(processIndex)")
-        })
+        if outputFileURL.URLString.isEmpty {
+            self.view.showLoading()
+            
+            let videoFile = AVFile.fileWithName("\(NSDate().timeIntervalSinceReferenceDate).mp4", data:NSData(contentsOfURL: outputFileURL)) as AVFile
+            videoFile.saveInBackgroundWithBlock({ (success, error) -> Void in
+                logInfo("success: \(success),error:\(error) ,outputFileURL.URLString:\(outputFileURL.URLString)  url\(videoFile.url)")
+                self.view.hideLoading()
+                
+                SCLAlertView().showSuccess("成功", subTitle: "小视频上传成功", closeButtonTitle: "关闭", duration: 2)
+                
+                }, progressBlock: { (processIndex) -> Void in
+                    logInfo("processIndex: \(processIndex)")
+            })
+        }
     }
     
     // MARK: event response
