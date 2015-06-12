@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HwK-XE-ubi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HwK-XE-ubi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,22 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6r4-0c-ipy">
-                                <rect key="frame" x="16" y="24" width="51" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="A0B-gd-LAx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ciL-cm-fSB">
-                                <rect key="frame" x="83" y="20" width="491" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8Q8-PM-e5B">
-                                <rect key="frame" x="0.0" y="62" width="600" height="488"/>
+                                <rect key="frame" x="0.0" y="104" width="600" height="496"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="446" id="OxY-Ha-ZSj"/>
+                                    <constraint firstAttribute="height" constant="446" id="VIu-jt-9eE"/>
+                                    <constraint firstAttribute="height" constant="496" id="map-Cu-Xji"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L2m-i5-rWa">
                                     <size key="itemSize" width="50" height="25"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
@@ -50,28 +44,79 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="ra4-0V-L0q">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionHeaderView" id="ra4-0V-L0q">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="历史标签：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXw-s5-Cba">
+                                            <rect key="frame" x="27" y="4" width="85" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAe-pS-6yL">
+                                            <rect key="frame" x="525" y="0.0" width="60" height="30"/>
+                                            <state key="normal" title="清除历史">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="xXw-s5-Cba" firstAttribute="leading" secondItem="ra4-0V-L0q" secondAttribute="leadingMargin" constant="19" id="efT-qU-tx3"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="QAe-pS-6yL" secondAttribute="trailing" constant="7" id="elX-Ei-oAI"/>
+                                        <constraint firstItem="xXw-s5-Cba" firstAttribute="baseline" secondItem="QAe-pS-6yL" secondAttribute="firstBaseline" id="nCw-fa-abQ"/>
+                                        <constraint firstItem="xXw-s5-Cba" firstAttribute="baseline" secondItem="QAe-pS-6yL" secondAttribute="baseline" id="nbp-gz-Szy"/>
+                                        <constraint firstItem="xXw-s5-Cba" firstAttribute="top" secondItem="ra4-0V-L0q" secondAttribute="topMargin" constant="-4" id="p0X-AS-6lx"/>
+                                        <constraint firstItem="QAe-pS-6yL" firstAttribute="top" secondItem="ra4-0V-L0q" secondAttribute="top" id="zIM-WB-Gs6"/>
+                                    </constraints>
                                 </collectionReusableView>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="OxY-Ha-ZSj"/>
+                                        <exclude reference="VIu-jt-9eE"/>
+                                    </mask>
+                                </variation>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ma-RK-sds" customClass="KSTokenView" customModule="AI2020OS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="30" width="600" height="69"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2ma-RK-sds" firstAttribute="leading" secondItem="8Q8-PM-e5B" secondAttribute="leading" id="2Cm-0R-80s"/>
                             <constraint firstItem="8Q8-PM-e5B" firstAttribute="leading" secondItem="KnX-n5-IKw" secondAttribute="leading" id="2D6-s5-WvU"/>
-                            <constraint firstItem="8Q8-PM-e5B" firstAttribute="top" secondItem="6r4-0c-ipy" secondAttribute="bottom" constant="17" id="9QL-Is-GIg"/>
-                            <constraint firstItem="ciL-cm-fSB" firstAttribute="top" secondItem="Wfr-A0-Amd" secondAttribute="bottom" id="GMZ-j9-EHN"/>
+                            <constraint firstItem="2ma-RK-sds" firstAttribute="top" secondItem="Wfr-A0-Amd" secondAttribute="bottom" id="B2b-ae-21m"/>
+                            <constraint firstItem="8Q8-PM-e5B" firstAttribute="top" secondItem="2ma-RK-sds" secondAttribute="bottom" constant="5" id="EGP-Ga-02x"/>
+                            <constraint firstItem="8Q8-PM-e5B" firstAttribute="top" secondItem="2ma-RK-sds" secondAttribute="bottom" constant="8" symbolic="YES" id="G3w-fl-VVi"/>
+                            <constraint firstAttribute="bottom" secondItem="2ma-RK-sds" secondAttribute="bottom" constant="546" id="I7R-kC-qd6"/>
                             <constraint firstAttribute="trailing" secondItem="8Q8-PM-e5B" secondAttribute="trailing" id="K1Z-Qe-Vbd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ciL-cm-fSB" secondAttribute="trailing" constant="10" id="PKp-jW-7NZ"/>
-                            <constraint firstItem="8Q8-PM-e5B" firstAttribute="top" secondItem="ciL-cm-fSB" secondAttribute="bottom" constant="12" id="bad-GF-sfG"/>
-                            <constraint firstItem="ciL-cm-fSB" firstAttribute="leading" secondItem="6r4-0c-ipy" secondAttribute="trailing" constant="16" id="dME-dp-kPN"/>
-                            <constraint firstItem="6r4-0c-ipy" firstAttribute="leading" secondItem="KnX-n5-IKw" secondAttribute="leadingMargin" id="f73-Gq-qcZ"/>
-                            <constraint firstItem="6r4-0c-ipy" firstAttribute="top" secondItem="Wfr-A0-Amd" secondAttribute="bottom" constant="4" id="gTK-4o-B6J"/>
+                            <constraint firstItem="2ma-RK-sds" firstAttribute="trailing" secondItem="8Q8-PM-e5B" secondAttribute="trailing" id="QvS-3o-zyP"/>
+                            <constraint firstAttribute="bottom" secondItem="2ma-RK-sds" secondAttribute="bottom" constant="546" id="UjN-yJ-DZC"/>
+                            <constraint firstItem="8Q8-PM-e5B" firstAttribute="top" secondItem="2ma-RK-sds" secondAttribute="bottom" constant="8" symbolic="YES" id="YA4-x6-sIv"/>
+                            <constraint firstItem="2ma-RK-sds" firstAttribute="trailing" secondItem="8Q8-PM-e5B" secondAttribute="trailing" id="ekb-WB-vIJ"/>
                             <constraint firstItem="wx2-AW-dfo" firstAttribute="top" secondItem="8Q8-PM-e5B" secondAttribute="bottom" constant="50" id="pYD-cn-hMV"/>
+                            <constraint firstItem="2ma-RK-sds" firstAttribute="leading" secondItem="8Q8-PM-e5B" secondAttribute="leading" id="r11-Ya-2ql"/>
+                            <constraint firstItem="8Q8-PM-e5B" firstAttribute="bottom" secondItem="wx2-AW-dfo" secondAttribute="top" id="xNx-d4-eYF"/>
+                            <constraint firstItem="2ma-RK-sds" firstAttribute="top" secondItem="Wfr-A0-Amd" secondAttribute="bottom" constant="10" id="z8X-Sr-yHE"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="B2b-ae-21m"/>
+                                <exclude reference="I7R-kC-qd6"/>
+                                <exclude reference="UjN-yJ-DZC"/>
+                                <exclude reference="ekb-WB-vIJ"/>
+                                <exclude reference="r11-Ya-2ql"/>
+                                <exclude reference="G3w-fl-VVi"/>
+                                <exclude reference="YA4-x6-sIv"/>
+                                <exclude reference="pYD-cn-hMV"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="8Q8-PM-e5B" id="bVr-qq-k2z"/>
+                        <outlet property="tokenView" destination="2ma-RK-sds" id="jQf-JA-aok"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gE5-wS-LCH" userLabel="First Responder" sceneMemberID="firstResponder"/>

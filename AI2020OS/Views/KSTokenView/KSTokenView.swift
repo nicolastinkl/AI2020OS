@@ -375,20 +375,21 @@ class KSTokenView: UIView {
       _searchTableView.frame = CGRectMake(0, frame.height, searchResultSize.width, searchResultSize.height)
       _searchTableView.delegate = self
       _searchTableView.dataSource = self
-      
-      if KSUtils.isIpad() {
-         let viewController = UIViewController()
-         viewController.view = _searchTableView
-         _popover = UIPopoverController(contentViewController: viewController)
-         _popover?.delegate = self
-         _popover?.backgroundColor = searchResultBackgroundColor
-         _popover?.passthroughViews = subviews
-         _popover?.popoverContentSize = searchResultSize
-         
-      } else {
-         addSubview(_searchTableView)
-         _hideSearchResults()
-      }
+    
+    //不加入弹出表格
+//      if KSUtils.isIpad() {
+//         let viewController = UIViewController()
+//         viewController.view = _searchTableView
+//         _popover = UIPopoverController(contentViewController: viewController)
+//         _popover?.delegate = self
+//         _popover?.backgroundColor = searchResultBackgroundColor
+//         _popover?.passthroughViews = subviews
+//         _popover?.popoverContentSize = searchResultSize
+//         
+//      } else {
+//         addSubview(_searchTableView)
+//         _hideSearchResults()
+//      }
    }
    
    //MARK: - Layout changes
@@ -673,15 +674,15 @@ class KSTokenView: UIView {
    }
    
    private func _displayData(results: Array<AnyObject>) {
-      _resultArray = _filteredSearchResults(results)
-      _searchTableView.reloadData()
-      _showSearchResults()
+//      _resultArray = _filteredSearchResults(results)
+//      _searchTableView.reloadData()
+//      _showSearchResults()
    }
    
    private func _showEmptyResults() {
-      _resultArray.removeAll(keepCapacity: false)
-      _searchTableView.reloadData()
-      _showSearchResults()
+//      _resultArray.removeAll(keepCapacity: false)
+//      _searchTableView.reloadData()
+//      _showSearchResults()
    }
    
    private func _showSearchResults() {

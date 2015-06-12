@@ -16,6 +16,7 @@ class AITagEditViewController : UIViewController,UICollectionViewDataSource,UICo
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var tokenView: KSTokenView!
     // MARK: variables
     
     var tagArray=[Tag(isSelected:false,isLocked:false,textContent:"音乐"),Tag(isSelected:false,isLocked:false,textContent:"视频"),Tag(isSelected:false,isLocked:false,textContent:"新闻"),Tag(isSelected:false,isLocked:false,textContent:"游记"),Tag(isSelected:false,isLocked:false,textContent:"出国游记"),Tag(isSelected:false,isLocked:false,textContent:"买电器评价"),Tag(isSelected:false,isLocked:false,textContent:"你是猪"),Tag(isSelected:false,isLocked:false,textContent:"oh my baby")]
@@ -72,13 +73,28 @@ class AITagEditViewController : UIViewController,UICollectionViewDataSource,UICo
             
             if tagArray[indexPath.row].isSelected == false {
                 tagArray[indexPath.row].isSelected = true
+                
                 selectedCell?.animateSelection(tagArray[indexPath.row].isSelected)
+                let ksToken = KSToken(title: tagArray[indexPath.row].textContent)
+                self.tokenView.addToken(ksToken)
                 //totalTagsSelected = 1
             }
             else {
                 tagArray[indexPath.row].isSelected = false
                 selectedCell?.animateSelection(tagArray[indexPath.row].isSelected)
                 //totalTagsSelected = -1
+                self.tokenView.deleteTokenWithObject(tagArray[indexPath.row].textContent)
             }
+    }
+    
+    //指定header的类
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        var resusableView:UICollectionReusableView? = nil
+        
+        if kind == UICollectionElementKindSectionHeader{
+            var headerView:UICollectionReusableView = self.collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "collectionHeaderView", forIndexPath: indexPath) as UICollectionReusableView
+            resusableView = headerView
+        }
+        return resusableView!
     }
 }
