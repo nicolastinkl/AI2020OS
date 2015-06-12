@@ -47,7 +47,7 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
         super.viewDidLoad()
         
         favorServicesManager = AIHttpFavorServicesManager()
-        favorServicesManager?.getFavoriteServices(1, pageSize: 10, completion: loadData)
+        favorServicesManager?.getFavoriteServices(1, pageSize: 10, tags: [String](), completion: loadData)
         instanceOfAICServiceViewController = self
     }
     
