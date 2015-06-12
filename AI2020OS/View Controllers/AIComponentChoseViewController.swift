@@ -16,14 +16,7 @@ class AIComponentChoseViewController: UIViewController {
     
     private let margeheight:CGFloat = 20
     
-    private var movieDetailsResponse:AIServiceDetailModel? 
-    
     // MARK: life cycle
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +42,7 @@ class AIComponentChoseViewController: UIViewController {
             ServerScopeModel(outId: "6", outContent: "120元一次"),
             ServerScopeModel(outId: "3", outContent: "190元一次"),
             ServerScopeModel(outId: "5", outContent: "190元两次"),
-            ServerScopeModel(outId: "7", outContent: "190元三次")], parentView: self.view, fontSize: 18)
+            ServerScopeModel(outId: "7", outContent: "190元三次")], parentView: self.view)
         self.contentScrollView.addSubview(scopeView)
         scopeView.setTop(title.height + title.top)
         
