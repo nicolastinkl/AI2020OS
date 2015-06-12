@@ -46,7 +46,7 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        favorServicesManager = AIMockFavorServicesManager()
+        favorServicesManager = AIHttpFavorServicesManager()
         favorServicesManager?.getFavoriteServices(1, pageSize: 10, completion: loadData)
         instanceOfAICServiceViewController = self
     }
@@ -174,9 +174,10 @@ class AICollectServiceListCell: MGSwipeTableCell {
             serviceName.text = service.service_name
         }
         
-        if service.service_intro_url != nil {
-            var url = service.service_intro_url!
+        if service.service_thumbnail_url != nil {
+            var url = service.service_thumbnail_url!
             serviceImg.setURL(NSURL(string: url), placeholderImage: UIImage(named: "Placeholder"))
+            
         }
         
         if serviceContents != nil {
@@ -256,8 +257,8 @@ class AICollectServiceGridCell: UITableViewCell {
             serviceName.text = service.service_name
         }
         
-        if service.service_intro_url != nil {
-            var url = service.service_intro_url!
+        if service.service_thumbnail_url != nil {
+            var url = service.service_thumbnail_url!
             serviceImg.setURL(NSURL(string: url), placeholderImage: UIImage(named: "Placeholder"))
         }
         

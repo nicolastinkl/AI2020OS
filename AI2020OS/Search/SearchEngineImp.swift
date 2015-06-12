@@ -177,7 +177,7 @@ class HttpSearchEngine : SearchEngine {
             return
         }
         
-        var listModel :AICatalogListModel?
+        var listModel: AICatalogListModel?
         
         isLoading = true
         

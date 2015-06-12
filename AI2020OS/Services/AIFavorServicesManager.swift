@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import JSONJoy
 
 protocol AIFavorServicesManager {
     // 获取收藏服务列表
@@ -28,7 +29,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
     init() {
         var service = AIServiceTopicModel()
         service.service_name = "去上海出差"
-        service.service_intro_url = "http://www.czgu.com/uploads/allimg/140904/0644594560-0.jpg"
+        service.service_thumbnail_url = "http://www.czgu.com/uploads/allimg/140904/0644594560-0.jpg"
         service.contents.append("机票")
         service.contents.append("住宿")
         service.contents.append("接机")
@@ -41,7 +42,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         
         service = AIServiceTopicModel()
         service.service_name = "做个柔软的胖子"
-        service.service_intro_url = "http://brand.gzmama.com/attachments/gzmama/2012/09/8111699_2012091611055819bgd.jpg"
+        service.service_thumbnail_url = "http://brand.gzmama.com/attachments/gzmama/2012/09/8111699_2012091611055819bgd.jpg"
         service.contents.append("场地")
         service.contents.append("瑜伽教练")
         service.isFavor = false
@@ -51,7 +52,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         
         service = AIServiceTopicModel()
         service.service_name = "周末打羽毛球"
-        service.service_intro_url = "http://photocdn.sohu.com/20110809/Img315878985.jpg"
+        service.service_thumbnail_url = "http://photocdn.sohu.com/20110809/Img315878985.jpg"
         service.contents.append("场地")
         service.contents.append("教练")
         service.isFavor = true
@@ -61,7 +62,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         
         service = AIServiceTopicModel()
         service.service_name = "家宴"
-        service.service_intro_url = "http://hunjia.shangdu.com/file/upload/201403/20/16-39-25-78-972.jpg"
+        service.service_thumbnail_url = "http://hunjia.shangdu.com/file/upload/201403/20/16-39-25-78-972.jpg"
         service.contents.append("大厨")
         service.contents.append("食物代购")
         service.isFavor = false
@@ -71,7 +72,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         
         service = AIServiceTopicModel()
         service.service_name = "同学聚会"
-        service.service_intro_url = "http://photocdn.sohu.com/20150603/mp17561615_1433325849459_1.jpeg"
+        service.service_thumbnail_url = "http://photocdn.sohu.com/20150603/mp17561615_1433325849459_1.jpeg"
         service.contents.append("场地")
         service.contents.append("食物代购")
         service.contents.append("代驾")
@@ -133,5 +134,79 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         
         completion((tagList, nil))
     }
+    
+}
+
+class AIHttpFavorServicesManager : AIMockFavorServicesManager {
+    
+    var isLoading : Bool = false
+    
+    override func getFavoriteServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
+        if isLoading {
+            return
+        }
+        
+        var listModel: AIFavoritesServicesResult?
+        var responseError:Error?
+        
+        isLoading = true
+        
+        let paras = [
+            "data":[
+                "page_no": 1,
+                "page_size": 10,
+                "service_tags":[String]()
+            ],
+            "desc":[
+                "data_mode": 0,
+                "digest": ""
+            ]
+        ]
+     
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryCollectedServices, parameters: paras) {  [weak self] (response, error) -> () in
+            responseError = error
+            if let strongSelf = self{
+                strongSelf.isLoading = false
+            }
+            if let responseJSON: AnyObject = response {
+                listModel =  AIFavoritesServicesResult(JSONDecoder(responseJSON))
+            }
+            
+            if listModel == nil {
+                listModel = AIFavoritesServicesResult()
+            }
+            
+            completion((listModel!.services, error))
+        }
+
+    }
+  /*
+    override func queryFavoriteServices(tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void) {
+        if isLoading {
+            return
+        }
+        
+        var listModel: AIFavoritesServicesResult?
+        var responseError:Error?
+        
+        isLoading = true
+        
+        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.QueryCollectedServices, parameters: nil) {  [weak self] (response, error) -> () in
+            responseError = error
+            if let strongSelf = self{
+                strongSelf.isLoading = false
+            }
+            if let responseJSON: AnyObject = response {
+                listModel =  AIFavoritesServicesResult(JSONDecoder(responseJSON))
+            }
+            
+            if listModel == nil {
+                listModel = AIFavoritesServicesResult()
+            }
+            
+            completion((listModel!.services, error))
+        }
+    }
+*/
     
 }
