@@ -49,6 +49,7 @@ class AIServiceTopicModel: JSONJoy  {
     var service_rating: String?
     var provider_portrait_url: String?
     var service_intro_url: String?
+    var service_thumbnail_url: String?
     var contents = [String]()
     var tags = [String]()
     var isFavor = false
@@ -67,6 +68,14 @@ class AIServiceTopicModel: JSONJoy  {
         service_rating = decoder["service_rating"].string
         provider_portrait_url = decoder["provider_portrait_url"].string
         service_intro_url = decoder["service_intro_url"].string
+        service_thumbnail_url = decoder["service_thumbnail_url"].string
+        if let tagsArray = decoder["service_tags"].array {
+            for dec in tagsArray {
+                if let tag = dec["tag_name"].string {
+                    tags.append(tag)
+                }
+            }
+        }
     }
 }
 

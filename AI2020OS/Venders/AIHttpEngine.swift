@@ -43,6 +43,8 @@ struct AIHttpEngine{
         case QueryServiceItemsByCatalogId
         // 获取所有的服务类
         case GetAllServiceCatalog
+        // 获取收藏的服务
+        case QueryCollectedServices
 
         var description: String {
             switch self {
@@ -55,6 +57,7 @@ struct AIHttpEngine{
             case .QueryHotSearch: return "/sboss/queryHotSearch"
             case .QueryServiceItemsByCatalogId: return "/sboss/getService"
             case .GetAllServiceCatalog: return "/sboss/getAllServiceCatalog"
+            case .QueryCollectedServices: return "/sboss/queryCollectedServices"
             }
         }
     }
