@@ -122,7 +122,6 @@ class AIConnectViewController: UIViewController {
             self.view.showLoading()
             
             let videoFile = AVFile.fileWithName("\(NSDate().timeIntervalSinceReferenceDate).mp4", data:NSData(contentsOfURL: outputFileURL)) as AVFile
-            //  AVFile.fileWithURL(outputFileURL.URLString) as AVFile
             videoFile.saveInBackgroundWithBlock({ (success, error) -> Void in
                 logInfo("success: \(success),error:\(error) ,outputFileURL.URLString:\(outputFileURL.URLString)  url\(videoFile.url)")
                 self.view.hideLoading()
