@@ -12,7 +12,7 @@ import JSONJoy
 
 protocol AIFavorServicesManager {
     // 获取收藏服务列表
-    func getFavoriteServices(pageNum: Int, pageSize: Int, tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void)
+    func getFavoriteServices(pageNum: Int, pageSize: Int, tags: [AITagModel], completion: (([AIServiceTopicModel], Error?)) -> Void)
     // 改变收藏服务的状态。 状态：是否是我喜欢的
     func changeFavoriteServiceState(isFavor: Bool, completion: (Error?) -> Void)
     // 获取收藏服务标签
@@ -81,7 +81,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         tags.addObject(service.tags[0])
     }
     
-    func getFavoriteServices(pageNum: Int, pageSize: Int, tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void) {
+    func getFavoriteServices(pageNum: Int, pageSize: Int, tags: [AITagModel], completion: (([AIServiceTopicModel], Error?)) -> Void) {
         
         
         if tags.count == 0 {
@@ -95,12 +95,12 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
             
             for tag in service.tags {
                 
-                func isInTags(srcTag: String, desTags: [String]) -> Bool {
+                func isInTags(srcTagName: String, desTags: [AITagModel]) -> Bool {
                     if desTags.count == 0 {
                         return false
                     } else {
                         for tag in desTags {
-                            if tag == srcTag {
+                            if tag.tag_name == srcTagName {
                                 return true
                             }
                         }
@@ -173,7 +173,7 @@ class AIHttpFavorServicesManager : AIMockFavorServicesManager {
     
     var isLoading : Bool = false
     
-    override func getFavoriteServices(pageNum: Int, pageSize: Int, tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void) {
+    override func getFavoriteServices(pageNum: Int, pageSize: Int, tags: [AITagModel], completion: (([AIServiceTopicModel], Error?)) -> Void) {
         if isLoading {
             return
         }
@@ -183,11 +183,17 @@ class AIHttpFavorServicesManager : AIMockFavorServicesManager {
         
         isLoading = true
         
+        let arrayString: [String] = tags.map({
+            obj in
+            let item = obj as AITagModel
+            return "\(item.toJson())"
+        })
+        
         let paras = [
             "data":[
                 "page_no": pageNum,
                 "page_size": pageSize,
-                "service_tags":tags
+                "service_tags": arrayString
             ],
             "desc":[
                 "data_mode": 0,

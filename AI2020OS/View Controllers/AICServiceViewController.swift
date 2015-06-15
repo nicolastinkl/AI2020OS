@@ -47,7 +47,7 @@ class AICServiceViewController: UITableViewController, AIConnectViewDelegate {
         super.viewDidLoad()
         
         favorServicesManager = AIHttpFavorServicesManager()
-        favorServicesManager?.getFavoriteServices(1, pageSize: 10, tags: [String](), completion: loadData)
+        favorServicesManager?.getFavoriteServices(1, pageSize: 10, tags: [AITagModel](), completion: loadData)
         instanceOfAICServiceViewController = self
     }
     
@@ -306,19 +306,28 @@ extension AICollectServiceGridCell : AITabelViewMenuViewDelegate {
 }
 
 extension AICServiceViewController : AIFilterViewDelegate {
-    func passChoosedValue(value:String) {
+    func passChoosedValue(value: String) {
         
-        if serviceList != nil {
-            filtedServices = serviceList?.filter({ (service: AIServiceTopicModel) -> Bool in
-                for tag in service.tags {
-                    if value == tag {
-                        return true
-                    }
-                }
-                return false
-            })
-            
-            self.tableView.reloadData()
+        var tags = [AITagModel]()
+        var tag = AITagModel()
+        if value != "" {
+            tag.tag_name = value
+            tags.append(tag)
         }
+        
+        favorServicesManager?.getFavoriteServices(1, pageSize: 10, tags: tags, completion: loadData)
+        
+//        if serviceList != nil {
+//            filtedServices = serviceList?.filter({ (service: AIServiceTopicModel) -> Bool in
+//                for tag in service.tags {
+//                    if value == tag {
+//                        return true
+//                    }
+//                }
+//                return false
+//            })
+//            
+//            self.tableView.reloadData()
+//        }
     }
 }
