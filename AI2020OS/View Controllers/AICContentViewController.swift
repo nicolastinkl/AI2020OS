@@ -383,8 +383,13 @@ extension AICContentViewController: AICContentViewCellListDelegate{
             }else{
                 model.isAttached = true
             }
-            
             self.tableView.reloadData()
+            
+            let animation = CATransition()
+            animation.type = kCATransitionFromTop
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+            animation.duration = 0.5
+            self.tableView.layer.addAnimation(animation, forKey: "UITableViewReloadDataAnimationKey")            
             
             /*
             if let indexPath = self.tableView.indexPathForCell(cell) {
@@ -494,7 +499,7 @@ class AICContentViewControllerCell: MGSwipeTableCell{
     
     @IBAction func exchangedAction(sender: AnyObject) {
         listDelegate?.listTableViewCell(self, exchangedButtonPressed: sender)
-        animateButton(moreButton)
+        moreButton.animate()
     }
     
     func animateButton(layer: SpringButton) {

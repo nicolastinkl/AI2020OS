@@ -1438,11 +1438,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/View Controllers/AICContentViewController.swift"
-            timestampString = "455704277.369874"
+            timestampString = "455791069.931047"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "552"
-            endingLineNumber = "552"
+            startingLineNumber = "558"
+            endingLineNumber = "558"
             landmarkName = "configData(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1454,11 +1454,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AI2020OS/View Controllers/AICContentViewController.swift"
-            timestampString = "455704277.369874"
+            timestampString = "455791069.931047"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "551"
-            endingLineNumber = "551"
+            startingLineNumber = "557"
+            endingLineNumber = "557"
             landmarkName = "configData(_:)"
             landmarkType = "5">
          </BreakpointContent>

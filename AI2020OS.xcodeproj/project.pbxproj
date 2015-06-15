@@ -122,7 +122,6 @@
 		9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373010A1ACBEAE300CA17BC /* UIColorUtils.swift */; };
 		9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373010C1ACBEB0B00CA17BC /* UIViewControllerUtils.swift */; };
 		93735D8E1B1D976C00D52431 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93735D8D1B1D976C00D52431 /* ShareViewController.swift */; };
-		93735D901B1D976C00D52431 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93735D8F1B1D976C00D52431 /* MainInterface.storyboard */; };
 		93735D931B1D976C00D52431 /* SBOSS.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 93735D891B1D976C00D52431 /* SBOSS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		93735D991B1D9A4000D52431 /* AIShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93735D981B1D9A4000D52431 /* AIShareViewController.swift */; };
 		937C77641B1E98AB006FF589 /* AIConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C77631B1E98AB006FF589 /* AIConnectViewController.swift */; };
@@ -157,6 +156,7 @@
 		938A3AFE1B257FC200E3A5BF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938A3AFD1B257FC200E3A5BF /* MediaPlayer.framework */; };
 		938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */; };
 		9394D2281B133F0C00EE578E /* AIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394D2271B133F0C00EE578E /* AIModels.swift */; };
+		939DDF281B2ADC1600F02745 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 939DDF271B2ADC1600F02745 /* MainInterface.storyboard */; };
 		939E663A1B27EAE900FD5FBA /* AIFavoriteContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E66391B27EAE900FD5FBA /* AIFavoriteContentModel.swift */; };
 		939E663C1B280E8900FD5FBA /* AIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E663B1B280E8900FD5FBA /* AIWebViewController.swift */; };
 		939E66421B291F4100FD5FBA /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E663E1B291F4100FD5FBA /* KSToken.swift */; };
@@ -442,7 +442,6 @@
 		93735D891B1D976C00D52431 /* SBOSS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SBOSS.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		93735D8C1B1D976C00D52431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93735D8D1B1D976C00D52431 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
-		93735D8F1B1D976C00D52431 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		93735D981B1D9A4000D52431 /* AIShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIShareViewController.swift; sourceTree = "<group>"; };
 		937C77631B1E98AB006FF589 /* AIConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIConnectViewController.swift; sourceTree = "<group>"; };
 		937C77651B1E9B71006FF589 /* AICContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICContentViewController.swift; sourceTree = "<group>"; };
@@ -477,6 +476,7 @@
 		938A3AFD1B257FC200E3A5BF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIVideoStoryboard.storyboard; sourceTree = "<group>"; };
 		9394D2271B133F0C00EE578E /* AIModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModels.swift; sourceTree = "<group>"; };
+		939DDF271B2ADC1600F02745 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		939E66391B27EAE900FD5FBA /* AIFavoriteContentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoriteContentModel.swift; sourceTree = "<group>"; };
 		939E663B1B280E8900FD5FBA /* AIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWebViewController.swift; sourceTree = "<group>"; };
 		939E663E1B291F4100FD5FBA /* KSToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
@@ -1126,7 +1126,7 @@
 			children = (
 				93735D8D1B1D976C00D52431 /* ShareViewController.swift */,
 				93735D981B1D9A4000D52431 /* AIShareViewController.swift */,
-				93735D8F1B1D976C00D52431 /* MainInterface.storyboard */,
+				939DDF271B2ADC1600F02745 /* MainInterface.storyboard */,
 				93735D8B1B1D976C00D52431 /* Supporting Files */,
 			);
 			path = SBOSS;
@@ -1636,7 +1636,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93735D901B1D976C00D52431 /* MainInterface.storyboard in Resources */,
+				939DDF281B2ADC1600F02745 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
