@@ -45,7 +45,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionHeaderView" id="ra4-0V-L0q">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="历史标签：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXw-s5-Cba">
@@ -81,6 +81,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ma-RK-sds" customClass="KSTokenView" customModule="AI2020OS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="30" width="600" height="69"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="b1g-zO-ua9"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -142,6 +145,9 @@
                                 </constraints>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="HwK-XE-ubi" id="kNc-Wc-GIS"/>
+                                </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzc-u5-m8q">
                                 <rect key="frame" x="283" y="10" width="34" height="20.5"/>
@@ -219,6 +225,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="contentSearchBar" destination="ckp-V9-qRT" id="wr8-pX-HtH"/>
                         <outlet property="tableView" destination="s5W-LS-jqt" id="Qjy-RQ-rMc"/>
                     </connections>
                 </viewController>

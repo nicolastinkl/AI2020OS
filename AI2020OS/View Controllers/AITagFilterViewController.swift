@@ -15,7 +15,7 @@ import MessageUI
 }
 
 class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITableViewDataSource,UITableViewDelegate{
-
+    // MARK: swift source
     let SectionHeaderViewIdentifier = "SectionHeaderViewIdentifier"
     var plays:NSArray!
     var sectionInfoArray:NSMutableArray!
@@ -26,7 +26,11 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     var playe:NSMutableArray?
     //筛选值的delegate变量，初始化这个controller的时候要传进来
     var delegate:AIFilterViewDelegate?
+    //筛选值
+    var searchContent = ""
     
+    // MARK: variables
+    @IBOutlet weak var contentSearchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var sectionHeaderView:SectionHeaderView!
     
@@ -37,7 +41,7 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     let HeaderHeight = 48
     let QuoteCellIdentifier = "tagFilterTableCell"
     
-    
+    // MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -247,125 +251,6 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
         self.opensectionindex = NSNotFound
     }
     
-    // ____________________________________________________________________
-    // 缩放操作处理
-//    
-//    func handlePinch(pinchRecognizer: UIPinchGestureRecognizer) {
-//        
-//        // 有手势识别有很多状态来对应不同的动作：
-//        // * 对于 Began 状态来说，是用缩放点的位置来找寻单元格的索引路径，并将索引路径与缩放操作进行绑定，同时在 pinchedIndexPath 中保留一个引用。接下来方法获取单元格的高度，然后存储其在缩放开始前的高度。最后，为缩放的单元格更新比例。
-//        // * 对于 Changed 状态来说，是为缩放的单元格更新比例（由 pinchedIndexPath 支持）
-//        // * 对于 Ended 或者 Canceled状态来说，是将 pinchedIndexPath 属性设置为 nil
-//        
-//        NSLog("pinch Gesture")
-//        if pinchRecognizer.state == UIGestureRecognizerState.Began {
-//            
-//            let pinchLocation = pinchRecognizer.locationInView(self.tableView)
-//            let newPinchedIndexPath = self.tableView.indexPathForRowAtPoint(pinchLocation)
-//            self.pinchedIndexPath = newPinchedIndexPath
-//            
-//            let sectionInfo: SectionInfo = self.sectionInfoArray[newPinchedIndexPath!.section] as! SectionInfo
-//            self.initialPinchHeight = sectionInfo.objectInRowHeightsAtIndex(newPinchedIndexPath!.row) as! CGFloat
-//            NSLog("pinch Gesture began")
-//            // 也可以设置为 initialPinchHeight = uniformRowHeight
-//            
-//            self.updateForPinchScale(pinchRecognizer.scale, indexPath: newPinchedIndexPath!)
-//        }else {
-//            if pinchRecognizer.state == UIGestureRecognizerState.Changed {
-//                self.updateForPinchScale(pinchRecognizer.scale, indexPath: self.pinchedIndexPath)
-//            }else if pinchRecognizer.state == UIGestureRecognizerState.Cancelled || pinchRecognizer.state == UIGestureRecognizerState.Ended {
-//                self.pinchedIndexPath = nil
-//            }
-//        }
-//    }
-//    
-//    func updateForPinchScale(scale: CGFloat, indexPath:NSIndexPath?) {
-//        
-//        let section:NSInteger = indexPath!.section
-//        let row:NSInteger = indexPath!.row
-//        let found:NSInteger = NSNotFound
-//        if  (section != found) && (row != found) && indexPath != nil {
-//        
-//            var newHeight:CGFloat!
-//            if self.initialPinchHeight > CGFloat(DefaultRowHeight) {
-//                newHeight = round(self.initialPinchHeight)
-//            }else {
-//                newHeight = round(CGFloat(DefaultRowHeight))
-//            }
-//            
-//            let sectionInfo: SectionInfo = self.sectionInfoArray[indexPath!.section] as! SectionInfo
-//            sectionInfo.replaceObjectInRowHeightsAtIndex(indexPath!.row, withObject: (newHeight))
-//            // 也可以设置为 uniformRowHeight = newHeight
-//            
-//            // 在单元格高度改变时关闭动画， 不然的话就会有迟滞的现象
-//            
-//            let animationsEnabled: Bool = UIView.areAnimationsEnabled()
-//            UIView.setAnimationsEnabled(false)
-//            self.tableView.beginUpdates()
-//            self.tableView.endUpdates()
-//            UIView.setAnimationsEnabled(animationsEnabled)
-//        }
-//    }
-//    
-//    // ________________________________________________________________________
-//    // 处理长按手势
-//    
-//    func handleLongPress(longPressRecognizer: UILongPressGestureRecognizer) {
-//        
-//        // 对于长按手势来说，唯一的状态是Began
-//        // 当长按手势被识别后，将会找寻按压点的单元格的索引路径
-//        // 如果按压位置存在一个单元格，那么就会创建一个菜单并展示它
-//        
-//        if longPressRecognizer.state == UIGestureRecognizerState.Began {
-//            
-//            let pressedIndexPath = self.tableView.indexPathForRowAtPoint(longPressRecognizer.locationInView(self.tableView))
-//            
-//            if pressedIndexPath != nil && pressedIndexPath?.row != NSNotFound && pressedIndexPath?.section != NSNotFound {
-//                
-//                self.becomeFirstResponder()
-//                let title = NSBundle.mainBundle().localizedStringForKey("邮件", value: "", table: nil)
-//                let menuItem: EmailMenuItem = EmailMenuItem(title: title, action: "emailMenuButtonPressed:")
-//                menuItem.indexPath = pressedIndexPath
-//                
-//                let menuController = UIMenuController.sharedMenuController()
-//                menuController.menuItems = [menuItem]
-//                
-//                var cellRect = self.tableView.rectForRowAtIndexPath(pressedIndexPath!)
-//                // 略微减少对象的长宽高（不要让其在单元格上方显示得太高）
-//                cellRect.origin.y = cellRect.origin.y + 40.0
-//                menuController.setTargetRect(cellRect, inView: self.tableView)
-//                menuController.setMenuVisible(true, animated: true)
-//            }
-//        }
-//    }
-//    
-//    func emailMenuButtonPressed(menuController: UIMenuController) {
-//        
-//        let menuItem: EmailMenuItem = UIMenuController.sharedMenuController().menuItems![0] as! EmailMenuItem
-//        if menuItem.indexPath != nil {
-//            self.resignFirstResponder()
-//            self.sendEmailForEntryAtIndexPath(menuItem.indexPath)
-//        }
-//    }
-//    
-//    func sendEmailForEntryAtIndexPath(indexPath: NSIndexPath) {
-//        
-//        let play: Play = self.plays[indexPath.section] as! Play
-//        let quotation: Quotation = play.quotations[indexPath.row] as! Quotation
-//        
-//        // 在实际使用中，可以调用邮件的API来实现真正的发送邮件
-//        println("用以下语录发送邮件: \(quotation.quotation)")
-//    }
-//    
-//    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
-//        
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//        if result.value == MFMailComposeResultFailed.value {
-//            // 在实际使用中，显示一个合适的警告框来提示用户
-//            println("邮件发送失败,错误信息: \(error)")
-//        }
-//    }
-    
     func played() -> NSArray {
         
         if playe == nil {
@@ -395,4 +280,21 @@ class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITa
     }
 }
 
+// MARK: extension UISearchBarDelegate
+extension AITagFilterViewController:UISearchBarDelegate{
+    
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        searchContent = searchText
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if (searchContent != ""){
+            var userInfo:Dictionary<String,String!> = ["tagName":searchContent,"filterType":"search"]
+            NSNotificationCenter.defaultCenter().postNotificationName("filterFlagChoose", object: nil, userInfo:  userInfo)
+        }
+        
+        self.findHamburguerViewController()?.hideMenuViewControllerWithCompletion(nil)
+    }
+}
 
