@@ -148,7 +148,6 @@ extension AIFavoritesViewController : UIPageViewControllerDataSource {
         
         return nil
     }
-    
 }
 
 extension AIFavoritesViewController : UIPageViewControllerDelegate {

@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
         //Hook Viewdidview and ViewDidDisappear.
-      
+        
         dispatch_once(&AppDelegateStatic.token) {
             AIApplication.hookViewDidLoad()
             AIApplication.hookViewWillAppear()
