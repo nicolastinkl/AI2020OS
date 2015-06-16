@@ -32,6 +32,7 @@ class AITagEditViewController : UIViewController,UICollectionViewDataSource,UICo
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.backgroundColor = UIColor.clearColor()
+        tokenView._tokenField.tokenize()
     }
     
     // MARK: extension UITableView

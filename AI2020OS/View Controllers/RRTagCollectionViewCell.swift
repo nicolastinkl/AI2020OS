@@ -41,8 +41,8 @@ class RRTagCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(textContent)
         textContent.text = tag.textContent
         textContent.sizeToFit()
-        textContent.frame.size.width = textContent.frame.size.width + 20
-        textContent.frame.size.height = textContent.frame.size.height + 10
+        textContent.frame.size.width = textContent.frame.size.width + 30
+        textContent.frame.size.height = textContent.frame.size.height + 20
         isSelected = tag.isSelected
         textContent.backgroundColor = UIColor.clearColor()
         self.textContent.layer.backgroundColor = (self.isSelected == true) ? colorSelectedTag.CGColor : colorUnselectedTag.CGColor
@@ -53,7 +53,7 @@ class RRTagCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(textContent)
         textContent.text = "+"
         textContent.sizeToFit()
-        textContent.frame.size = CGSizeMake(30, 30)
+        textContent.frame.size = CGSizeMake(40, 40)
         textContent.backgroundColor = UIColor.clearColor()
         self.textContent.layer.backgroundColor = UIColor.grayColor().CGColor
         self.textContent.textColor = UIColor.whiteColor()
@@ -78,7 +78,7 @@ class RRTagCollectionViewCell: UICollectionViewCell {
         let attributs = [NSParagraphStyleAttributeName:styleText, NSFontAttributeName:UIFont.boldSystemFontOfSize(17)]
         let sizeBoundsContent = (content as NSString).boundingRectWithSize(CGSizeMake(UIScreen.mainScreen().bounds.size.width,
             UIScreen.mainScreen().bounds.size.height), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributs, context: nil)
-        return CGSizeMake(sizeBoundsContent.width + 20, sizeBoundsContent.height + 10)
+        return CGSizeMake(sizeBoundsContent.width + 30, sizeBoundsContent.height + 20)
     }
 }
 

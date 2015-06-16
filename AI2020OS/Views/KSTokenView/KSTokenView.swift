@@ -91,7 +91,7 @@ class KSTokenView: UIView {
    //MARK: - Private Properties
    //__________________________________________________________________________________
    //
-   private var _tokenField: KSTokenField!
+   var _tokenField: KSTokenField!
    private var _searchTableView: UITableView = UITableView(frame: .zeroRect, style: UITableViewStyle.Plain)
    private var _resultArray = [AnyObject]()
    private var _showingSearchResult = false

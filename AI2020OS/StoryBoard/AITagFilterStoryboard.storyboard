@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8Q8-PM-e5B">
-                                <rect key="frame" x="0.0" y="104" width="600" height="496"/>
+                                <rect key="frame" x="0.0" y="70" width="600" height="530"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="446" id="OxY-Ha-ZSj"/>
@@ -28,8 +28,8 @@
                                     <constraint firstAttribute="height" constant="496" id="map-Cu-Xji"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L2m-i5-rWa">
-                                    <size key="itemSize" width="50" height="25"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="itemSize" width="80" height="30"/>
+                                    <size key="headerReferenceSize" width="30" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
@@ -38,7 +38,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="25"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -75,15 +75,23 @@
                                     <mask key="constraints">
                                         <exclude reference="OxY-Ha-ZSj"/>
                                         <exclude reference="VIu-jt-9eE"/>
+                                        <exclude reference="map-Cu-Xji"/>
                                     </mask>
                                 </variation>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ma-RK-sds" customClass="KSTokenView" customModule="AI2020OS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="30" width="600" height="69"/>
+                                <rect key="frame" x="31" y="30" width="300" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Feg-VL-U16"/>
                                     <constraint firstAttribute="height" constant="69" id="b1g-zO-ua9"/>
+                                    <constraint firstAttribute="width" constant="300" id="dZD-3k-3Rt"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="b1g-zO-ua9"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,19 +106,26 @@
                             <constraint firstItem="2ma-RK-sds" firstAttribute="trailing" secondItem="8Q8-PM-e5B" secondAttribute="trailing" id="QvS-3o-zyP"/>
                             <constraint firstAttribute="bottom" secondItem="2ma-RK-sds" secondAttribute="bottom" constant="546" id="UjN-yJ-DZC"/>
                             <constraint firstItem="8Q8-PM-e5B" firstAttribute="top" secondItem="2ma-RK-sds" secondAttribute="bottom" constant="8" symbolic="YES" id="YA4-x6-sIv"/>
+                            <constraint firstItem="2ma-RK-sds" firstAttribute="top" secondItem="Wfr-A0-Amd" secondAttribute="bottom" constant="10" id="bVA-6Y-mYX"/>
                             <constraint firstItem="2ma-RK-sds" firstAttribute="trailing" secondItem="8Q8-PM-e5B" secondAttribute="trailing" id="ekb-WB-vIJ"/>
+                            <constraint firstItem="8Q8-PM-e5B" firstAttribute="top" secondItem="2ma-RK-sds" secondAttribute="bottom" constant="10" id="ght-Gn-gGD"/>
                             <constraint firstItem="wx2-AW-dfo" firstAttribute="top" secondItem="8Q8-PM-e5B" secondAttribute="bottom" constant="50" id="pYD-cn-hMV"/>
                             <constraint firstItem="2ma-RK-sds" firstAttribute="leading" secondItem="8Q8-PM-e5B" secondAttribute="leading" id="r11-Ya-2ql"/>
+                            <constraint firstItem="2ma-RK-sds" firstAttribute="leading" secondItem="KnX-n5-IKw" secondAttribute="leadingMargin" constant="15" id="tfC-tj-QNZ"/>
                             <constraint firstItem="8Q8-PM-e5B" firstAttribute="bottom" secondItem="wx2-AW-dfo" secondAttribute="top" id="xNx-d4-eYF"/>
                             <constraint firstItem="2ma-RK-sds" firstAttribute="top" secondItem="Wfr-A0-Amd" secondAttribute="bottom" constant="10" id="z8X-Sr-yHE"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="2Cm-0R-80s"/>
                                 <exclude reference="B2b-ae-21m"/>
                                 <exclude reference="I7R-kC-qd6"/>
+                                <exclude reference="QvS-3o-zyP"/>
                                 <exclude reference="UjN-yJ-DZC"/>
                                 <exclude reference="ekb-WB-vIJ"/>
                                 <exclude reference="r11-Ya-2ql"/>
+                                <exclude reference="z8X-Sr-yHE"/>
+                                <exclude reference="EGP-Ga-02x"/>
                                 <exclude reference="G3w-fl-VVi"/>
                                 <exclude reference="YA4-x6-sIv"/>
                                 <exclude reference="pYD-cn-hMV"/>
