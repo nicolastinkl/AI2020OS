@@ -64,7 +64,6 @@
 		9337FF611AD4097A0046F8DC /* AIUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9337FF601AD4097A0046F8DC /* AIUINavigationController.m */; };
 		933ED3EA1AC8F90A00E4AADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933ED3E91AC8F90A00E4AADB /* AppDelegate.swift */; };
 		933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933ED3F21AC8F90A00E4AADB /* Images.xcassets */; };
-		933ED3F61AC8F90A00E4AADB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933ED3F41AC8F90A00E4AADB /* LaunchScreen.xib */; };
 		933ED4021AC8F90A00E4AADB /* AI2020OSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933ED4011AC8F90A00E4AADB /* AI2020OSTests.swift */; };
 		933ED4241AC9279200E4AADB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933ED4231AC9279200E4AADB /* SystemConfiguration.framework */; };
 		933ED4261AC9279900E4AADB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933ED4251AC9279900E4AADB /* MobileCoreServices.framework */; };
@@ -370,7 +369,6 @@
 		933ED3E81AC8F90A00E4AADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		933ED3E91AC8F90A00E4AADB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		933ED3F21AC8F90A00E4AADB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		933ED3F51AC8F90A00E4AADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		933ED3FB1AC8F90A00E4AADB /* AI2020OSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AI2020OSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		933ED4001AC8F90A00E4AADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		933ED4011AC8F90A00E4AADB /* AI2020OSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI2020OSTests.swift; sourceTree = "<group>"; };
@@ -845,7 +843,6 @@
 				1239DBB81B2052A8002F6A4F /* TagFilterData.plist */,
 				933ED3E91AC8F90A00E4AADB /* AppDelegate.swift */,
 				933ED3F21AC8F90A00E4AADB /* Images.xcassets */,
-				933ED3F41AC8F90A00E4AADB /* LaunchScreen.xib */,
 				933ED3E71AC8F90A00E4AADB /* Supporting Files */,
 			);
 			path = AI2020OS;
@@ -1604,7 +1601,6 @@
 				934987071B0C75E0003086D1 /* AIMessageUnReadView.xib in Resources */,
 				93E4D5AB1B14A5F700992CA3 /* AISettingsStoryboard.storyboard in Resources */,
 				93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */,
-				933ED3F61AC8F90A00E4AADB /* LaunchScreen.xib in Resources */,
 				84CB36921B17433D00D66BBD /* AIProviderAvatarView.xib in Resources */,
 				1284ABC51B2036B500636F35 /* SectionHeaderView.xib in Resources */,
 				934987141B0DA850003086D1 /* AIHomeViewStyleTitleView.xib in Resources */,
@@ -1956,17 +1952,6 @@
 			targetProxy = 938A3AC31B25735B00E3A5BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		933ED3F41AC8F90A00E4AADB /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				933ED3F51AC8F90A00E4AADB /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		933ED4031AC8F90A00E4AADB /* Debug */ = {
