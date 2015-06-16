@@ -175,6 +175,12 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
         
     }
     
+    //界面消失时取消观察者
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     // MARK: event response    
     
     
