@@ -19,14 +19,41 @@ class AITagEditViewController : UIViewController,UICollectionViewDataSource,UICo
     @IBOutlet weak var tokenView: KSTokenView!
     // MARK: variables
     
-    var tagArray=[Tag(isSelected:false,isLocked:false,textContent:"音乐"),Tag(isSelected:false,isLocked:false,textContent:"视频"),Tag(isSelected:false,isLocked:false,textContent:"新闻"),Tag(isSelected:false,isLocked:false,textContent:"游记"),Tag(isSelected:false,isLocked:false,textContent:"出国游记"),Tag(isSelected:false,isLocked:false,textContent:"买电器评价"),Tag(isSelected:false,isLocked:false,textContent:"你是猪"),Tag(isSelected:false,isLocked:false,textContent:"oh my baby")]
+    var tagArray = [Tag(isSelected:false,isLocked:false,textContent:"音乐"),Tag(isSelected:false,isLocked:false,textContent:"视频"),Tag(isSelected:false,isLocked:false,textContent:"新闻"),Tag(isSelected:false,isLocked:false,textContent:"游记"),Tag(isSelected:false,isLocked:false,textContent:"出国游记"),Tag(isSelected:false,isLocked:false,textContent:"买电器评价"),Tag(isSelected:false,isLocked:false,textContent:"你是猪"),Tag(isSelected:false,isLocked:false,textContent:"oh my baby")]
     
     // MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "修改表情"
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        self.tokenView.activityIndicatorColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor)
+        let rightItem = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.Done, target: self, action: "complateAction")
+        self.navigationItem.rightBarButtonItem = rightItem
+        
+        
+    }
+    
+    func addTopLayerLine(){
+        let color = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
+        let lineLayer =  CALayer()
+        lineLayer.backgroundColor = color
+        let left = self.collectionView.width*0.9/2
+        lineLayer.frame = CGRectMake(left, 0, self.collectionView.width*0.9, 0.5)
+        self.collectionView.layer.addSublayer(lineLayer)
+    }
+    
+    
+    func complateAction(){
+        
+    }
+    
+    @IBAction func clearArray(any: AnyObject){
+        tagArray.removeAll(keepCapacity: false)
+        self.collectionView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -56,11 +83,15 @@ class AITagEditViewController : UIViewController,UICollectionViewDataSource,UICo
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(5, 5, 5, 5)
+        return UIEdgeInsetsMake(5, 25, 5, 25)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(60, 30)
+        
+        var tag = tagArray[indexPath.row]
+        let len = tag.textContent.length
+        return CGSizeMake(CGFloat(len*20), 30)
+
     }
     
     func collectionView(collectionView: UICollectionView, shouldDeselectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -77,6 +108,7 @@ class AITagEditViewController : UIViewController,UICollectionViewDataSource,UICo
                 
                 selectedCell?.animateSelection(tagArray[indexPath.row].isSelected)
                 let ksToken = KSToken(title: tagArray[indexPath.row].textContent)
+                ksToken.tokenBackgroundColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor)
                 self.tokenView.addToken(ksToken)
                 //totalTagsSelected = 1
             }

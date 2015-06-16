@@ -165,7 +165,7 @@ class KSTokenView: UIView {
    }
    
    /// default is UIColor.blueColor()
-   var activityIndicatorColor: UIColor = UIColor.blueColor() {
+   var activityIndicatorColor: UIColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor) {
       didSet {
          _indicator.color = activityIndicatorColor
       }
@@ -288,7 +288,7 @@ class KSTokenView: UIView {
    }
    
    /// default is "To: "
-   var promptText: String = "To: " {
+   var promptText: String = "" {
       didSet {
          if (oldValue != promptText) {
             _updateTokenField()

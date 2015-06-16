@@ -14,11 +14,9 @@ struct Tag {
     var textContent: String
 }
 
-let colorUnselectedTag = UIColor.whiteColor()
-let colorSelectedTag = UIColor(red:0.22, green:0.7, blue:0.99, alpha:1)
 
-let colorTextUnSelectedTag = UIColor(red:0.33, green:0.33, blue:0.35, alpha:1)
-let colorTextSelectedTag = UIColor.whiteColor()
+let colorTextUnSelectedTag = UIColor(rgba: AIApplication.AIColor.MainSystemBlackColor)
+let colorTextSelectedTag = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor)
 
 let RRTagCollectionViewCellIdentifier = "RRTagCollectionViewCellIdentifier"
 
@@ -28,11 +26,7 @@ class RRTagCollectionViewCell: UICollectionViewCell {
     
     lazy var textContent: UILabel! = {
         let textContent = UILabel(frame: CGRectZero)
-        textContent.layer.masksToBounds = true
-        textContent.layer.cornerRadius = 20
-        textContent.layer.borderWidth = 1
-        textContent.layer.borderColor = UIColor(red:0.88, green:0.88, blue:0.88, alpha:1).CGColor
-        textContent.font = UIFont.boldSystemFontOfSize(17)
+        textContent.font = UIFont.boldSystemFontOfSize(16)
         textContent.textAlignment = NSTextAlignment.Center
         return textContent
     }()
@@ -41,35 +35,18 @@ class RRTagCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(textContent)
         textContent.text = tag.textContent
         textContent.sizeToFit()
-        textContent.frame.size.width = textContent.frame.size.width + 30
-        textContent.frame.size.height = textContent.frame.size.height + 20
+        textContent.frame.size.width = CGFloat(tag.textContent.length) * 20
+        textContent.frame.size.height = 30
         isSelected = tag.isSelected
         textContent.backgroundColor = UIColor.clearColor()
-        self.textContent.layer.backgroundColor = (self.isSelected == true) ? colorSelectedTag.CGColor : colorUnselectedTag.CGColor
         self.textContent.textColor = (self.isSelected == true) ? colorTextSelectedTag : colorTextUnSelectedTag
     }
     
-    func initAddButtonContent() {
-        self.contentView.addSubview(textContent)
-        textContent.text = "+"
-        textContent.sizeToFit()
-        textContent.frame.size = CGSizeMake(40, 40)
-        textContent.backgroundColor = UIColor.clearColor()
-        self.textContent.layer.backgroundColor = UIColor.grayColor().CGColor
-        self.textContent.textColor = UIColor.whiteColor()
-    }
     
     func animateSelection(selection: Bool) {
         isSelected = selection
-    
-        self.textContent.frame.size = CGSizeMake(self.textContent.frame.size.width - 20, self.textContent.frame.size.height - 20)
-        self.textContent.frame.origin = CGPointMake(self.textContent.frame.origin.x + 10, self.textContent.frame.origin.y + 10)
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.allZeros, animations: { () -> Void in
-            self.textContent.layer.backgroundColor = (self.isSelected == true) ? colorSelectedTag.CGColor : colorUnselectedTag.CGColor
-            self.textContent.textColor = (self.isSelected == true) ? colorTextSelectedTag : colorTextUnSelectedTag
-            self.textContent.frame.size = CGSizeMake(self.textContent.frame.size.width + 20, self.textContent.frame.size.height + 20)
-            self.textContent.center = CGPointMake(self.contentView.frame.size.width / 2, self.contentView.frame.size.height / 2)
-        }, completion: nil)
+        self.textContent.textColor = self.isSelected ? colorTextSelectedTag : colorTextUnSelectedTag
+        
     }
     
     class func contentHeight(content: String) -> CGSize {
