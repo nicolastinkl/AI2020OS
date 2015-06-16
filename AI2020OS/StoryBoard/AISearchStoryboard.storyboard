@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="v38-6T-zKl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="v38-6T-zKl">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,6 +19,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y8J-BW-DvH">
                                 <rect key="frame" x="0.0" y="79" width="600" height="521"/>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eXM-4f-J7j">
                                     <size key="itemSize" width="50" height="50"/>
@@ -35,17 +36,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfD-xg-9EF">
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <animations/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
@@ -76,6 +81,7 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_icon_search_normal" translatesAutoresizingMaskIntoConstraints="NO" id="n0T-4f-NgA" userLabel="SearchBk">
                                             <rect key="frame" x="34" y="30" width="532" height="36"/>
+                                            <animations/>
                                             <rect key="contentStretch" x="0.79999999999999982" y="0.0" width="0.0" height="0.0"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="jAh-nS-yJh"/>
@@ -83,30 +89,36 @@
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duU-o1-1eO" userLabel="VoiceButton">
                                             <rect key="frame" x="539" y="30" width="13" height="36"/>
+                                            <animations/>
                                             <state key="normal" image="search_icon_mike_normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bME-Mf-KmT" userLabel="SearchTextField">
                                             <rect key="frame" x="73" y="30" width="454" height="36"/>
+                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="QeQ-24-dfy">
                                             <rect key="frame" x="0.0" y="92" width="600" height="438"/>
+                                            <animations/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <prototypes>
                                                 <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tag1" rowHeight="106" id="W08-ks-YXg">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W08-ks-YXg" id="iuc-rO-bix">
                                                         <autoresizingMask key="autoresizingMask"/>
+                                                        <animations/>
                                                     </tableViewCellContentView>
+                                                    <animations/>
                                                 </tableViewCell>
                                             </prototypes>
                                             <sections/>
                                         </tableView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZs-TW-INX" userLabel="Favorites">
                                             <rect key="frame" x="305" y="550" width="275" height="39"/>
+                                            <animations/>
                                             <color key="backgroundColor" red="0.1019607843" green="0.7725490196" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -114,6 +126,7 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0Z-c2-2Qa" userLabel="AllServices">
                                             <rect key="frame" x="20" y="550" width="275" height="39"/>
+                                            <animations/>
                                             <color key="backgroundColor" red="0.10196078431372549" green="0.77254901960784317" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -121,11 +134,13 @@
                                         </button>
                                         <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRZ-d2-7hN" userLabel="PlaceHolder">
                                             <rect key="frame" x="295" y="550" width="10" height="39"/>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="10" id="ktj-na-Paa"/>
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="QeQ-24-dfy" secondAttribute="bottom" constant="70" id="0H1-qo-PVt"/>
                                         <constraint firstItem="n0T-4f-NgA" firstAttribute="leading" secondItem="KV9-Xh-Yvp" secondAttribute="leading" constant="34" id="473-Ql-TvL"/>
@@ -154,12 +169,14 @@
                                         <constraint firstItem="jRZ-d2-7hN" firstAttribute="leading" secondItem="D0Z-c2-2Qa" secondAttribute="trailing" id="zUV-Ui-Owa"/>
                                     </constraints>
                                 </view>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="jRZ-d2-7hN" secondAttribute="centerX" id="g99-MM-l2N"/>
                                 </constraints>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
+                        <animations/>
                         <constraints>
                             <constraint firstItem="wLq-eW-2oi" firstAttribute="leading" secondItem="CKc-Bq-T8P" secondAttribute="leadingMargin" constant="-16" id="BaT-aB-kZn"/>
                             <constraint firstItem="wLq-eW-2oi" firstAttribute="top" secondItem="o3c-nF-smu" secondAttribute="bottom" constant="-20" id="Ohl-8l-gvh"/>
@@ -195,6 +212,7 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_icon_search_normal" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-6z-Z1J" userLabel="SearchBk">
                                             <rect key="frame" x="34" y="30" width="532" height="36"/>
+                                            <animations/>
                                             <rect key="contentStretch" x="0.79999999999999982" y="0.0" width="0.0" height="0.0"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="X2A-qR-6eT"/>
@@ -202,12 +220,14 @@
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWW-VR-QCV" userLabel="VoiceButton">
                                             <rect key="frame" x="539" y="30" width="13" height="36"/>
+                                            <animations/>
                                             <state key="normal" image="search_icon_mike_normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yMm-k2-dzv" userLabel="SearchTextField">
                                             <rect key="frame" x="73" y="30" width="454" height="36"/>
+                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
@@ -216,6 +236,7 @@
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ias-9T-Pqi" userLabel="Favorites">
                                             <rect key="frame" x="305" y="550" width="275" height="39"/>
+                                            <animations/>
                                             <color key="backgroundColor" red="0.1019607843" green="0.7725490196" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -226,6 +247,7 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfL-1o-0nV" userLabel="AllServices">
                                             <rect key="frame" x="20" y="550" width="275" height="39"/>
+                                            <animations/>
                                             <color key="backgroundColor" red="0.1019607843" green="0.7725490196" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -237,12 +259,14 @@
                                         </button>
                                         <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDV-tH-ESN" userLabel="PlaceHolder">
                                             <rect key="frame" x="295" y="550" width="10" height="39"/>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="10" id="OH8-IF-P36"/>
                                             </constraints>
                                         </view>
                                         <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ISu-Id-1V0">
                                             <rect key="frame" x="0.0" y="74" width="600" height="457"/>
+                                            <animations/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1sf-AB-fOD">
                                                 <size key="itemSize" width="50" height="40"/>
@@ -259,27 +283,33 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="label" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulZ-yh-Oam">
+                                                                <animations/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
+                                                        <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
+                                                    <animations/>
                                                 </collectionViewCell>
                                             </cells>
                                             <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="head" id="z4D-O2-qEt">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <animations/>
                                             </collectionReusableView>
                                         </collectionView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ8-lf-pmq">
                                             <rect key="frame" x="1" y="37" width="25" height="22"/>
+                                            <animations/>
                                             <state key="normal" title="Button" image="ico_back">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
                                     </subviews>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstItem="aWW-VR-QCV" firstAttribute="top" secondItem="rjk-6z-Z1J" secondAttribute="top" id="0kd-Sn-tRT"/>
                                         <constraint firstItem="aWW-VR-QCV" firstAttribute="leading" secondItem="yMm-k2-dzv" secondAttribute="trailing" constant="12" id="34f-3V-Xre"/>
@@ -308,12 +338,14 @@
                                         <constraint firstItem="ISu-Id-1V0" firstAttribute="leading" secondItem="6iV-nU-eFu" secondAttribute="leading" id="zwy-BA-WrA"/>
                                     </constraints>
                                 </view>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="nDV-tH-ESN" secondAttribute="centerX" id="Klq-96-s3z"/>
                                 </constraints>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
+                        <animations/>
                         <constraints>
                             <constraint firstItem="A6h-Vg-y7j" firstAttribute="top" secondItem="IEc-v9-PQM" secondAttribute="bottom" constant="-20" id="PUX-Qe-Y8d"/>
                             <constraint firstItem="qmQ-7K-ha3" firstAttribute="top" secondItem="A6h-Vg-y7j" secondAttribute="bottom" id="PVe-Ha-GR9"/>
@@ -343,6 +375,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91h-3T-d7Y">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <animations/>
                                 <items>
                                     <navigationItem title="全部服务" id="mmd-5A-cxo">
                                         <barButtonItem key="leftBarButtonItem" image="ico_back" id="AoQ-CK-jSa">
@@ -355,6 +388,7 @@
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qfS-vv-a4q">
                                 <rect key="frame" x="0.0" y="64" width="85" height="580"/>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="pzo-VX-1pZ"/>
@@ -363,17 +397,21 @@
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oNz-Op-41c">
                                 <rect key="frame" x="85" y="64" width="515" height="536"/>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServiceCell" id="vSN-fr-1pf">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vSN-fr-1pf" id="bRR-CW-tTn">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="oNz-Op-41c" secondAttribute="trailing" constant="-16" id="A2M-Qa-MLQ"/>
