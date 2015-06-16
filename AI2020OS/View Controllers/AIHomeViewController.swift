@@ -133,7 +133,12 @@ class AIHomeViewController: UITableViewController {
     }
     
     @IBAction func searchServices(sender: AnyObject) {
-        showSearchMainViewController()
+   //     showSearchMainViewController()
+        
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISearchServiceCollectionViewController) as SearchServiceViewController
+        
+        navigationController?.pushViewController(viewController, animated: true)
+
     }
     
 }
