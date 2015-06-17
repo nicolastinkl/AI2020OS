@@ -27,6 +27,12 @@ class SearchServiceViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        if navigationController != nil {
+//            let titleView = NSBundle.mainBundle().loadNibNamed("AISearchBar", owner: self, options: nil).last as AISearchBarView
+//            titleView.inputTextField.delegate = self
+//            navigationItem.titleView = titleView
+//        }
+        
         initCollectionView()
         
         var engine = HttpSearchEngine()
