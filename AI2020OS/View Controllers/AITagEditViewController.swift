@@ -17,15 +17,16 @@ class AITagEditViewController : UIViewController,UICollectionViewDataSource,UICo
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var tokenView: KSTokenView!
+    
     // MARK: variables
     
-    var tagArray = [Tag(isSelected:false,isLocked:false,textContent:"音乐"),Tag(isSelected:false,isLocked:false,textContent:"视频"),Tag(isSelected:false,isLocked:false,textContent:"新闻"),Tag(isSelected:false,isLocked:false,textContent:"游记"),Tag(isSelected:false,isLocked:false,textContent:"出国游记"),Tag(isSelected:false,isLocked:false,textContent:"买电器评价"),Tag(isSelected:false,isLocked:false,textContent:"你是猪"),Tag(isSelected:false,isLocked:false,textContent:"oh my baby")]
+    var tagArray = [Tag(isSelected:false,isLocked:false,textContent:"音乐"),Tag(isSelected:false,isLocked:false,textContent:"视频"),Tag(isSelected:false,isLocked:false,textContent:"新闻"),Tag(isSelected:false,isLocked:false,textContent:"游记"),Tag(isSelected:false,isLocked:false,textContent:"出国游记"),Tag(isSelected:false,isLocked:false,textContent:"评价"),Tag(isSelected:false,isLocked:false,textContent:"美食"),Tag(isSelected:false,isLocked:false,textContent:"音乐")]
     
     // MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "修改表情"
+        self.title = "修改标签"
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -33,16 +34,16 @@ class AITagEditViewController : UIViewController,UICollectionViewDataSource,UICo
         self.tokenView.activityIndicatorColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor)
         let rightItem = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.Done, target: self, action: "complateAction")
         self.navigationItem.rightBarButtonItem = rightItem
-        
-        
+    
+        addTopLayerLine()
     }
     
     func addTopLayerLine(){
         let color = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
         let lineLayer =  CALayer()
         lineLayer.backgroundColor = color
-        let left = self.collectionView.width*0.9/2
-        lineLayer.frame = CGRectMake(left, 0, self.collectionView.width*0.9, 0.5)
+        let left = (self.view.width - self.view.width*0.9)/2
+        lineLayer.frame = CGRectMake(left, 0, self.view.width*0.9, 0.5)
         self.collectionView.layer.addSublayer(lineLayer)
     }
     

@@ -119,7 +119,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         //Optional("readtext") , nil , Optional("com.apple.mobilesafari")
-        logInfo("\(url.scheme) , \(url.query) , \(sourceApplication)")
+        logInfo("\(url.scheme) , \(url) , \(sourceApplication)")
+        
+
+        switch url.host! {
+            
+        case "browseServiceDetail":
+            
+            let controller:AIServiceDetailsViewCotnroller = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIMainStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
+            controller.server_id = "1"
+            //showViewController(controller, sender: self)            
+            UIApplication.sharedApplication().keyWindow?.rootViewController?.showViewController(controller, sender: UIApplication.sharedApplication().keyWindow?.rootViewController!)
+            
+            break
+            
+        case "browseMore":
+
+            break
+            
+            
+        default:
+            break
+        }
+        
         return true
     }
     

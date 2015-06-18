@@ -16,7 +16,7 @@ private let TitleKeyPath = "title"
 private let EstimatedProgressKeyPath = "estimatedProgress"
 
 
-public class AIShareViewController: UIViewController {
+public class AIShareViewController: UIViewController,UIWebViewDelegate {
  
     @IBOutlet weak var tableView: UITableView!
  
@@ -25,7 +25,7 @@ public class AIShareViewController: UIViewController {
     // MARK: Properties
     
     ///  Returns the web view for the controller.
-    public final var webView: WKWebView {
+    public final var webView: UIWebView {
         get {
             return _webView
         }
@@ -51,20 +51,21 @@ public class AIShareViewController: UIViewController {
     
     // MARK: Private properties
     
-    private lazy final var _webView: WKWebView = { [unowned self] in
+    private lazy final var _webView: UIWebView = { [unowned self] in
         // FIXME: prevent Swift bug, lazy property initialized twice from `init(coder:)`
         // return existing webView if webView already added
-        let views = self.view.subviews.filter {$0 is WKWebView } as [WKWebView]
+        let views = self.view.subviews.filter {$0 is UIWebView } as [UIWebView]
         if views.count != 0 {
             return views.first!
         }
         
-        let webView = WKWebView(frame: self.view.bounds, configuration: self.configuration)
+//        let webView = WKWebView(frame: self.view.bounds, configuration: self.configuration)
+        let webView = UIWebView(frame: self.view.bounds)
         self.view.addSubview(webView)
-
+        webView.delegate = self
         webView.addObserver(self, forKeyPath: TitleKeyPath, options: .New, context: nil)
         webView.addObserver(self, forKeyPath: EstimatedProgressKeyPath, options: .New, context: nil)
-        webView.allowsBackForwardNavigationGestures = true
+//        webView.allowsBackForwardNavigationGestures = true
         return webView
         }()
     
@@ -186,7 +187,7 @@ public class AIShareViewController: UIViewController {
     // MARK: KVO
     
     ///  :nodoc:
-    public override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+   /* public override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
         if object as? NSObject == webView {
             switch keyPath {
             case TitleKeyPath:
@@ -206,18 +207,21 @@ public class AIShareViewController: UIViewController {
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
         }
     }
-    
+    */
+
+    // MARK: Web Delegate
     
     func webView(webView: UIWebView!, shouldStartLoadWithRequest request: NSURLRequest!, navigationType: UIWebViewNavigationType) -> Bool {
         var url = request.URL.absoluteString!;
-        println("捕获到链接："+url);
+ 
         if(url.hasPrefix("ios://")){
+            println(url)
             var a = (url as NSString).substringFromIndex(6)
-            println("动作："+a);
-            
-            return false;
+            self.extensionContext!.openURL(NSURL(string: "sboss://"+a)!, completionHandler: nil)
+            self.closeThisViewController()
+            return false
         }
-        return true;
+        return true
     }
     
 }

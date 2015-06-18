@@ -60,6 +60,10 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAe-pS-6yL">
                                             <rect key="frame" x="525" y="0.0" width="60" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="Hch-co-LtI"/>
+                                                <constraint firstAttribute="width" constant="60" id="PJ6-2t-6hH"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" title="清除历史">
                                                 <color key="titleColor" red="0.011764705882352941" green="0.7803921568627451" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,6 +83,12 @@
                                         <constraint firstItem="xXw-s5-Cba" firstAttribute="top" secondItem="ra4-0V-L0q" secondAttribute="topMargin" constant="-4" id="p0X-AS-6lx"/>
                                         <constraint firstItem="QAe-pS-6yL" firstAttribute="top" secondItem="ra4-0V-L0q" secondAttribute="top" id="zIM-WB-Gs6"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="nCw-fa-abQ"/>
+                                            <exclude reference="nbp-gz-Szy"/>
+                                        </mask>
+                                    </variation>
                                 </collectionReusableView>
                                 <variation key="default">
                                     <mask key="constraints">

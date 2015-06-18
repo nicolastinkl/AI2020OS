@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.2445</string>
+	<string>1.0.2469</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -29,12 +29,12 @@
 			<string>AI.AI2020OS.RECEIVER</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>readtext</string>
+				<string>sboss</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2446</string>
+	<string>2470</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
