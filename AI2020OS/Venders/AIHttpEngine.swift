@@ -52,8 +52,6 @@ struct AIHttpEngine{
             switch self {
             case .GetServiceDetail: return "/sboss/getServiceDetail"
             case .GetServicesTopic: return "/sboss/getServiceTopic"
-            case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
-            case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
             case .GetOrderList: return "/sboss/queryOrderList"
             case .GetOrderDetail: return "/sboss/queryOrderDetail"
             case .QueryHotSearch: return "/sboss/queryHotSearch"
@@ -61,6 +59,9 @@ struct AIHttpEngine{
             case .GetAllServiceCatalog: return "/sboss/getAllServiceCatalog"
             case .QueryCollectedServices: return "/sboss/queryCollectedServices"
             case .QueryServiceTags: return "/sboss/queryServiceTags"
+                
+            case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
+            case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
             }
         }
     }

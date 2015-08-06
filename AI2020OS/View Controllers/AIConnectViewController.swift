@@ -71,6 +71,7 @@ class AIConnectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "收藏夹"
         self.contentView.hidden = false
         self.serviceView.hidden = true
         
@@ -104,7 +105,7 @@ class AIConnectViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Home_page_weather_bg"), forBarMetrics: UIBarMetrics.Default)
         
-        self.navigationController?.tabBarController?.tabBar.hidden = true
+        //self.navigationController?.tabBarController?.tabBar.hidden = true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
