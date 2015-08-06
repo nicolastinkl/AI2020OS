@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hSM-fn-zSc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hSM-fn-zSc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -103,7 +103,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用手机号码登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhb-mc-UEK">
-                                <rect key="frame" x="206" y="101" width="188" height="21.5"/>
+                                <rect key="frame" x="206" y="101" width="188" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21.5" id="4xG-fe-Ib6"/>
                                     <constraint firstAttribute="width" constant="188" id="v5J-ya-sBs"/>
@@ -275,7 +275,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="短信验证码已发送,请填写验证码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDn-n5-W9r">
-                                        <rect key="frame" x="171" y="52" width="257.5" height="21.5"/>
+                                        <rect key="frame" x="171" y="52" width="258" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="188" id="FOe-Am-VHx"/>
                                             <constraint firstAttribute="height" constant="21.5" id="eSx-Wp-4cZ"/>
@@ -488,7 +488,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用短信验证码登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZ5-jD-yKK">
-                                <rect key="frame" x="206" y="101" width="188" height="21.5"/>
+                                <rect key="frame" x="206" y="101" width="188" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21.5" id="9Pj-jw-R0w"/>
                                     <constraint firstAttribute="width" constant="188" id="IbB-yV-PGe"/>
