@@ -26,6 +26,8 @@ class AIProviderAvatarView: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        avatar.maskWithEllipse()
         
         setWidth(CGFloat(140))
         setHeight(CGFloat(140))

@@ -173,7 +173,6 @@ extension AIServiceCatalogViewController : UITableViewDelegate, UITableViewDataS
         } else if tableView == providerTable {
             
             var header = NSBundle.mainBundle().loadNibNamed("AIProviderAvatarView", owner: self, options: nil).last as AIProviderAvatarView
-            header.avatar.maskWithEllipse()
             header.avatar.image = UIImage(named: "Sample1")
             header.transform = CGAffineTransformMakeRotation(CGFloat(PI/2))
             
