@@ -206,7 +206,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             if  avCell == nil {
                 avCell = AIHomeAvatorViewCell().currentViewCell()
             }
-            avCell?.avatorImageView.setURL(self.movieDetailsResponse?.service_intro_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
+            avCell?.avatorImageView.setURL(self.movieDetailsResponse?.provider_portrait_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
             avCell?.nickName.text = self.movieDetailsResponse?.service_name
             return avCell!
         case 1:

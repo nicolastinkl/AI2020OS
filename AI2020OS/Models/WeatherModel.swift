@@ -29,8 +29,8 @@ struct WeatherModel{
         let weatherinfo : NSDictionary = decoder["weatherinfo"] as? NSDictionary ?? NSDictionary()
         self.city = weatherinfo["city"]  as? String ?? ""
         self.date_y = weatherinfo["date_y"] as? String ?? ""
-        self.week = weatherinfo["week"] as? String ?? ""
-        self.weather1 = weatherinfo["weather1"] as? String ?? ""
+        self.week = weatherinfo["time"] as? String ?? ""
+        self.weather1 = weatherinfo["WD"] as? String ?? ""
         self.index_d = weatherinfo["index_d"] as? String ?? ""
     }
 }
