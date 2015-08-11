@@ -67,9 +67,24 @@ struct AIHttpEngine{
     }
     
     static func postRequestWithParameters(path:ResourcePath,parameters: [String: AnyObject]? = nil,response: (response:AnyObject?,error:Error?) -> ()) {
+        
+        // Create manager
+        var manager = Manager.sharedInstance
+        
+        // Add Headers
+        manager.session.configuration.HTTPAdditionalHeaders = ["HttpQuery":"0&0&0&0"]
+        
+        let paras: [String: AnyObject]? = [
+            "data":parameters!,
+            "desc":[
+                "data_mode": 0,
+                "digest": ""
+            ]
+        ]
+        
         println("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
         let encoding = Alamofire.ParameterEncoding.JSON
-        Alamofire.request(.POST, self.baseURL+path.description,parameters:parameters, encoding: encoding)
+        Alamofire.request(.POST, self.baseURL+path.description,parameters:paras, encoding: encoding)
             .responseJSON { (_,_,JSON,error) in
                 
                 func fail(){
@@ -119,12 +134,11 @@ struct AIHttpEngine{
                 }else{
                     response(AIKMMovie())
                 }
-                
         }
     }    
     
     static func weatherForLocation(response: (WeatherModel) -> ()) {
-        Alamofire.request(.GET, "http://m.weather.com.cn/data/101010100.html")
+        Alamofire.request(.GET, "http://www.weather.com.cn/adat/sk/101010100.html")
             .responseJSON { (_,_,JSON,_) in
                 if let reponsess: AnyObject = JSON{
                     var httpreponse = WeatherModel(JSON as NSDictionary)
