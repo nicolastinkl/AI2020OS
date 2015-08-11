@@ -20,6 +20,9 @@
 
 @property (nonatomic, assign) NSInteger numberOfStars;
 
+@property (nonatomic, assign) NSString *foregroundIcon;
+@property (nonatomic, assign) NSString *backgroundIcon;
+
 @end
 
 @implementation CWStarRateView
@@ -50,15 +53,34 @@
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame numberOfStars:(NSInteger)numberOfStars starForegroundIcon:(NSString*)starForegroundIcon starBackgroundIcon:(NSString*)starBackgroundIcon {
+    if (self = [super initWithFrame:frame]) {
+        _numberOfStars = numberOfStars;
+        _foregroundIcon = starForegroundIcon;
+        _backgroundIcon = starBackgroundIcon;
+        [self buildDataAndUI];
+    }
+    return self;
+}
+
 #pragma mark - Private Methods
 
 - (void)buildDataAndUI {
     _scorePercent = 1;//默认为1
     _hasAnimation = NO;//默认为NO
     _allowIncompleteStar = NO;//默认为NO
+    _isChangable = YES;
 
-    self.foregroundStarView = [self createStarViewWithImage:FOREGROUND_STAR_IMAGE_NAME];
-    self.backgroundStarView = [self createStarViewWithImage:BACKGROUND_STAR_IMAGE_NAME];
+    if (_foregroundIcon == nil) {
+        _foregroundIcon = FOREGROUND_STAR_IMAGE_NAME;
+    }
+    
+    if (_backgroundIcon == nil) {
+        _backgroundIcon = BACKGROUND_STAR_IMAGE_NAME;
+    }
+    
+    self.foregroundStarView = [self createStarViewWithImage:_foregroundIcon];
+    self.backgroundStarView = [self createStarViewWithImage:_backgroundIcon];
     
     [self addSubview:self.backgroundStarView];
     [self addSubview:self.foregroundStarView];
@@ -69,6 +91,10 @@
 }
 
 - (void)userTapRateView:(UITapGestureRecognizer *)gesture {
+    if (!_isChangable) {
+        return;
+    }
+    
     CGPoint tapPoint = [gesture locationInView:self];
     CGFloat offset = tapPoint.x;
     CGFloat realStarScore = offset / (self.bounds.size.width / self.numberOfStars);
