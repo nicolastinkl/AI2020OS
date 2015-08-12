@@ -94,12 +94,9 @@ struct AIHttpEngine{
         ]
         
         println("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
-
-        // Create manager
-        var manager = Manager.sharedInstance
-        
+  
         // Add Headers
-        manager.session.configuration.HTTPAdditionalHeaders = ["HttpQuery":"0&0&100000001872&0"]
+        // manager.session.configuration.HTTPAdditionalHeaders = ["HttpQuery":"0&0&100000001872&0"]
 
         // Send Reqeust...
         let encoding = Alamofire.ParameterEncoding.JSON
