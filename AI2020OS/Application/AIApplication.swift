@@ -191,8 +191,7 @@ struct AIApplication{
         
         if let loadingXibView = UIApplication.sharedApplication().keyWindow!.viewWithTag(AIApplication.AIViewTags.AIMessageUnReadViewTag) {
             loadingXibView.hidden = false
-        }else
-        {
+        }else{
             let unreadView = AIMessageUnReadView.currentView() as AIMessageUnReadView
             UIApplication.sharedApplication().keyWindow!.addSubview(unreadView)
             unreadView.tag = AIApplication.AIViewTags.AIMessageUnReadViewTag            
@@ -203,7 +202,6 @@ struct AIApplication{
                 view.right >= view.superview!.right+10
             }
         }
-        
     }
     
     static func hideMessageUnreadView(){

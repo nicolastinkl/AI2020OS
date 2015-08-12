@@ -138,6 +138,8 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         if menuView.subviews.count == 0 {
             let buyView = AIOrderBuyView.currentView()
             buyView.buyButton.addTarget(self, action: "buyAction", forControlEvents: UIControlEvents.TouchUpInside)
+            buyView.chatButton.addTarget(self, action: "webChatAction", forControlEvents: UIControlEvents.TouchUpInside)
+            buyView.likeButton.addTarget(self, action: "likeAction:", forControlEvents: UIControlEvents.TouchUpInside)
             menuView.addSubview(buyView)
             layout(buyView){ view1 in
                 view1.width  == view1.superview!.width
@@ -145,6 +147,13 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
                 view1.top >= view1.superview!.top
             }
         }
+    }
+    func likeAction(sender: AnyObject){
+        
+    }
+    
+    func webChatAction(){
+        showViewController(AIWebViewController(url: NSURL(string:  "http://192.168.1.89/AIBoard/AIBoard.html")!), sender: self)
     }
     
     func buyAction(){
@@ -232,7 +241,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
                 avCell = AIHomeAvatorViewCell().currentViewCell()
             }
             avCell?.avatorImageView.setURL(self.movieDetailsResponse?.provider_portrait_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
-            avCell?.nickName.text = self.movieDetailsResponse?.service_name
+            avCell?.nickName.text = self.movieDetailsResponse?.provider_name
             return avCell!
         case 1:
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDefaultViewCell) as? AIHomeSDDefaultViewCell
