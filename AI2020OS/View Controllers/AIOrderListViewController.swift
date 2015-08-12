@@ -13,7 +13,7 @@ import Cartography
 
 class AIOrderListViewController:UIViewController{
 
-    // MARK: swift source
+    // MARK: - IBOutlets
 
     @IBOutlet weak var scrollView: UIScrollView!
 
@@ -23,7 +23,7 @@ class AIOrderListViewController:UIViewController{
     // MARK: variables
 
     private var orderList = Array<AIOrderListItemModel>()
-    //fuckfuckfuck by liux
+    
     // MARK: life cycle
     override func viewWillAppear(animated: Bool) {
 //        navigationController?.setNavigationBarHidden(true, animated: true)
@@ -31,17 +31,16 @@ class AIOrderListViewController:UIViewController{
         super.viewWillAppear(animated)
     }
     
-    /*!
-    ads
-    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
         scrollView.contentSize = CGSizeMake(650, 40)
  
         retryNetworkingAction()
+        buildDynaStatusButton()
     }
-    
+
+    // MARK: - utils
     func retryNetworkingAction(){
         self.view.hideProgressViewLoading()
         self.view.showProgressViewLoading()
@@ -62,23 +61,23 @@ class AIOrderListViewController:UIViewController{
     }
 
     
-// MARK: view layoutSubviews with liuxian.
+
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单
     //orderState: 待处理 进行中 待完成 已完成
-    func buildDynaButton(orderState : String,orderType : String,buttonView:UIView){
+    func buildDynaOperButton(orderState : String,orderType : String,buttonView:UIView){
         switch orderState{
             case "待处理":
-                addButton([ButtonModel(title: "派单"),ButtonModel(title: "处理")], buttonView: buttonView)
+                addOperButton([ButtonModel(title: "派单"),ButtonModel(title: "处理")], buttonView: buttonView)
             case "已完成":
-                addButton([ButtonModel(title: "评价")], buttonView: buttonView)
+                addOperButton([ButtonModel(title: "评价")], buttonView: buttonView)
             default :
                 return
             
         }
     }
 
-    func addButton(buttonArray:[ButtonModel],buttonView:UIView){
+    func addOperButton(buttonArray:[ButtonModel],buttonView:UIView){
         buttonView.subviews.filter{
             let value:UIButton = $0 as UIButton
             value.removeFromSuperview()
@@ -91,12 +90,66 @@ class AIOrderListViewController:UIViewController{
             button.setTitle(buttonModel.title, forState: UIControlState.Normal)
             //扩展的直接读取rgba颜色的方法
             button.setTitleColor(UIColor(rgba: "#30D7CE"), forState: UIControlState.Normal)
+            button.backgroundColor = UIColor.clearColor()
             button.titleLabel?.font = UIFont.boldSystemFontOfSize(14)
             buttonView.addSubview(button)
             x = x + 40
             
             
         }
+    }
+    
+    func buildDynaStatusButton(){
+        let buttonArray = [StatusButtonModel(title: "全部", amount: 9),StatusButtonModel(title: "待处理", amount: 1),StatusButtonModel(title: "待付款", amount: 0),StatusButtonModel(title: "待完成", amount: 2),StatusButtonModel(title: "待评价", amount: 3)]
+        addStatusButton(buttonArray, scrollView: scrollView)
+    }
+    
+    func addStatusButton(buttonArray:[StatusButtonModel],scrollView:UIScrollView){
+        scrollView.subviews.filter{
+            let value:UIView = $0 as UIView
+            value.removeFromSuperview()
+            return true
+        }
+        let statusButtonWidth:CGFloat = 60
+        let buttonPadding:CGFloat = 2
+        let statusLabelWidth:CGFloat = 10
+        
+        var x1:CGFloat = 0
+        var x2:CGFloat = statusButtonWidth
+        
+        for buttonModel in buttonArray{
+            var button = UIButton(frame: CGRectMake(x1, 0, statusButtonWidth, 33))
+            
+            button.setTitle(buttonModel.title, forState: UIControlState.Normal)
+            //扩展的直接读取rgba颜色的方法
+            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor(rgba: "#30D7CE"), forState: UIControlState.Selected)
+            button.backgroundColor = UIColor.clearColor()
+            button.titleLabel?.font = UIFont.systemFontOfSize(17)
+            
+            //add click event
+            button.addTarget(self, action: "filterOrderAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            scrollView.addSubview(button)
+            x1 = x1 + statusButtonWidth + statusButtonWidth + buttonPadding
+            
+            var label = UILabel(frame: CGRectMake(x2, 0, statusLabelWidth, 33))
+            label.font = UIFont.systemFontOfSize(17)
+            label.textColor = UIColor(rgba: "#30D7CE")
+            label.text = "\(buttonModel.amount)"
+            scrollView.addSubview(label)
+            x2 = x1 + statusButtonWidth
+            
+        }
+    }
+    
+    func filterOrderAction(target:UIButton){
+        scrollView.subviews.filter{
+            if let value:UIButton = $0 as? UIButton {
+                value.selected = false
+             }
+            return true
+        }
+        target.selected = true
     }
 }
 
@@ -118,16 +171,10 @@ class AIOrderListViewController:UIViewController{
 //    }
 //}
 
-struct ButtonModel{
-    var title = ""
-    
-    init(title:String){
-        self.title = title
-    }
-}
 
 
-// MARK: extension UITableView
+
+//MARK: - extension UITableView
 extension AIOrderListViewController:UITableViewDelegate,UITableViewDataSource{
     
     //实现tableViewDelegate的方法
@@ -163,7 +210,7 @@ extension AIOrderListViewController:UITableViewDelegate,UITableViewDataSource{
             orderStateLabel.text = orderListModel.order_state_name
         }
         if let buttonView = cell.viewWithTag(180) {
-            buildDynaButton(orderListModel.order_state_name!, orderType: "", buttonView: buttonView)
+            buildDynaOperButton(orderListModel.order_state_name!, orderType: "", buttonView: buttonView)
         }
         return cell
     }
