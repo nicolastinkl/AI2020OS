@@ -67,3 +67,21 @@ struct AIOrderListItemModel : JSONJoy{
         order_price = decoder["order_price"].string
     }
 }
+
+struct ButtonModel{
+    var title = ""
+    
+    init(title:String){
+        self.title = title
+    }
+}
+
+struct StatusButtonModel {
+    var title = ""
+    var amount = 0
+    
+    init(title:String,amount:Int){
+        self.title = title
+        self.amount = amount
+    }
+}
