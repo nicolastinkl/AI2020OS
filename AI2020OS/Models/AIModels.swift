@@ -112,9 +112,8 @@ struct AIServiceDetailModel: JSONJoy  {
         provider_id = decoder["provider_id"].string
         provider_name = decoder["provider_name"].string
         service_rating = decoder["service_rating"].string
-        provider_portrait_url = "http://gtms02.alicdn.com/tps/i2/TB1YHZnHXXXXXa2aXXXSutbFXXX.jpg_190x190.jpg"
-        //decoder["provider_portrait_url"].string
-        service_intro_url = "http://img.hb.aicdn.com/551053d96f65fe88074cd4049a7d21be5f72e403382e9-dFYCbv_fw658"
+        provider_portrait_url =  decoder["provider_portrait_url"].string
+        service_intro_url =  decoder["service_intro_url"].string
         service_provider = decoder["service_provider"].string
         service_guarantee = decoder["service_guarantee"].string
         service_restraint = decoder["service_restraint"].string

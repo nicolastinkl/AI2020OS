@@ -108,7 +108,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     func requestMovieDetails()
     {
         let id = self.server_id!.toInt()
-        AIServicesRequester().loadServiceDetail(1, service_type: 0) { [weak self](data) -> () in
+        AIServicesRequester().loadServiceDetail(id, service_type: 0) { [weak self](data) -> () in
             if let strongSelf = self{
                 strongSelf.movieDetailsResponse = data
                 strongSelf.detailsPageView.reloadData()
@@ -142,7 +142,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         imageview.setURL(movieDetailsResponse?.service_intro_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
         
         let imageviewAvator = headerview?.getViewByTag(2).getViewByTag(3) as  AIImageView
-        imageviewAvator.setURL(movieDetailsResponse?.service_intro_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
+        imageviewAvator.setURL(movieDetailsResponse?.provider_portrait_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
         
         let nickLabel = headerview?.getViewByTag(2).getViewByTag(4) as  UILabel
         nickLabel.text = movieDetailsResponse?.service_name
@@ -206,7 +206,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             if  avCell == nil {
                 avCell = AIHomeAvatorViewCell().currentViewCell()
             }
-            avCell?.avatorImageView.setURL(self.movieDetailsResponse?.service_intro_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
+            avCell?.avatorImageView.setURL(self.movieDetailsResponse?.provider_portrait_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
             avCell?.nickName.text = self.movieDetailsResponse?.service_name
             return avCell!
         case 1:
