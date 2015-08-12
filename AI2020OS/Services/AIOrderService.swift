@@ -11,6 +11,9 @@ import JSONJoy
 
 class AIOrderRequester {
     typealias OrderListRequesterCompletion = (data:[AIOrderListItemModel]) ->()
+    
+    typealias SubmitOrderCompletion = (success:Bool) -> Void
+    
     private var isLoading : Bool = false
     
     //查询订单列表 
@@ -21,7 +24,7 @@ class AIOrderRequester {
         }
         isLoading = true
         
-        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetOrderList, parameters: ["page_num":"1","order_role":1]) {  [weak self] (response, error) -> () in
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetOrderList, parameters: ["page_num":"1","order_role":1,"order_state":11]) {  [weak self] (response, error) -> () in
             if let strongSelf = self{
                 strongSelf.isLoading = false
             }
@@ -30,12 +33,12 @@ class AIOrderRequester {
 
                 let json = "[{order_id:5,order_number:12345}]"
                 let data = NSString(string: json).dataUsingEncoding(NSUTF8StringEncoding)
-                
-                //let responseJSONS = "[{\"order_id\": 1001,\"order_number\": \"2015052811234\",\"order_state\":\"3\",\"order_state_name\":\"待处理\",\"order_create_time\": \"2015-5-23 15:30\",\"service_id\":\"1002\",\"service_name\":\"地陪小王\",\"provider_id\":\"1003\",\"service_type\":1,\"provider_portrait_url\":\"http://xxxx/image\",\"service_time_duration\":\"3月１７日－３月２２日\"}]"
+                 
                 let orders =  AIOrderListModel(JSONDecoder(data as AnyObject))
                 return orders.orderArray!
             }
-                        if let responseJSON: AnyObject = response{
+            
+            if let responseJSON: AnyObject = response{
                 let orders =  AIOrderListModel(JSONDecoder(responseJSON))
                 completion(data: orders.orderArray!)
             }else{
@@ -51,5 +54,25 @@ class AIOrderRequester {
         }
     }
     
+
+ //订购方法
+    func submitOrder(serviceId : Int,completion : SubmitOrderCompletion){
+        if isLoading {
+            return
+        }
+        isLoading = true
+        
+        let paras = ["service_id": serviceId,
+            "service_exectime":"123456",
+            "service_param_list":[]
+        ]
+        
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.SubmitOrder, parameters: paras) {  [weak self] (response, error) -> () in
+            if let strongSelf = self{
+                strongSelf.isLoading = false
+            }
+            return completion(success: response != nil)
+        }
+    }
     
 }

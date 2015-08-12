@@ -159,9 +159,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqB-4B-Hxl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="EcJ-tE-vAB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <animations/>
                                                     </view>
@@ -205,7 +203,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Q-Fs-A6i">
-                                        <rect key="frame" x="150" y="22" width="300" height="30"/>
+                                        <rect key="frame" x="150" y="24" width="300" height="30"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="AbL-Xg-n1A"/>
@@ -228,7 +226,7 @@
                                     <constraint firstAttribute="height" constant="64" id="IQ4-pP-G18"/>
                                     <constraint firstItem="ABx-kp-Og4" firstAttribute="top" secondItem="k41-do-jpb" secondAttribute="top" id="KUa-z2-hGo"/>
                                     <constraint firstItem="wO9-xb-OBD" firstAttribute="top" secondItem="k41-do-jpb" secondAttribute="top" id="M4F-G6-hYO"/>
-                                    <constraint firstAttribute="centerY" secondItem="Y7Q-Fs-A6i" secondAttribute="centerY" constant="-5" id="Rfj-HI-OED"/>
+                                    <constraint firstAttribute="centerY" secondItem="Y7Q-Fs-A6i" secondAttribute="centerY" constant="-7" id="Rfj-HI-OED"/>
                                     <constraint firstAttribute="centerX" secondItem="Y7Q-Fs-A6i" secondAttribute="centerX" id="SOl-Ry-xfj"/>
                                     <constraint firstItem="ABx-kp-Og4" firstAttribute="leading" secondItem="k41-do-jpb" secondAttribute="leading" id="Xx2-Sn-vOL"/>
                                     <constraint firstItem="gOx-2X-FQE" firstAttribute="top" secondItem="k41-do-jpb" secondAttribute="top" constant="17" id="frt-64-SdD"/>
@@ -246,6 +244,13 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="af8-Dl-sK7">
+                                <rect key="frame" x="0.0" y="535" width="600" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="cB7-Qh-nYS"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -254,7 +259,10 @@
                             <constraint firstItem="k41-do-jpb" firstAttribute="leading" secondItem="Uw5-zh-Bxt" secondAttribute="leadingMargin" constant="-16" id="19a-S1-FFl"/>
                             <constraint firstItem="k41-do-jpb" firstAttribute="leading" secondItem="wXF-A4-Ths" secondAttribute="leading" id="491-Rk-ykG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="k41-do-jpb" secondAttribute="trailing" constant="-16" id="9gb-Aq-S2y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="af8-Dl-sK7" secondAttribute="trailing" constant="-16" id="Gdd-iF-5rk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wXF-A4-Ths" secondAttribute="trailing" constant="-16" id="Mv4-cJ-7AU"/>
+                            <constraint firstItem="af8-Dl-sK7" firstAttribute="leading" secondItem="Uw5-zh-Bxt" secondAttribute="leadingMargin" constant="-16" id="NUH-FQ-kJd"/>
+                            <constraint firstItem="UCs-hZ-Y2B" firstAttribute="top" secondItem="af8-Dl-sK7" secondAttribute="bottom" id="dg5-WJ-nb6"/>
                             <constraint firstItem="UCs-hZ-Y2B" firstAttribute="top" secondItem="wXF-A4-Ths" secondAttribute="bottom" id="hMg-XQ-15F"/>
                             <constraint firstItem="k41-do-jpb" firstAttribute="top" secondItem="wXF-A4-Ths" secondAttribute="top" id="uMK-UV-wn9"/>
                             <constraint firstItem="wXF-A4-Ths" firstAttribute="leading" secondItem="Uw5-zh-Bxt" secondAttribute="leadingMargin" constant="-16" id="zfE-wn-QMA"/>
@@ -262,6 +270,7 @@
                     </view>
                     <connections>
                         <outlet property="detailsPageView" destination="wXF-A4-Ths" id="9BH-Hg-tqh"/>
+                        <outlet property="menuView" destination="af8-Dl-sK7" id="Gpl-2X-9W5"/>
                         <outlet property="naviImageView" destination="wO9-xb-OBD" id="Og5-7D-FeE"/>
                         <outlet property="navigationBarView" destination="k41-do-jpb" id="LPT-0E-LNt"/>
                         <outlet property="titleLabel" destination="Y7Q-Fs-A6i" id="wa5-bo-5A2"/>
