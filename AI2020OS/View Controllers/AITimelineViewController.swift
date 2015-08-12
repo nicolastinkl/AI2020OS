@@ -15,6 +15,9 @@ import Cartography
 
 class AITimelineViewController: UITableViewController {
     
+    private var currentTimeView = AITIMELINESDTITLEView.currentView()
+    private var dateString:String!
+    
     private var dataTimeLineArray:Array<AnyObject>{
         return [
             ["paramsTime":"3月14日","currentTime":"10:20","title":"瑞士凯斯瑜伽课","content":"Jeeny老师|印度特色课"],
@@ -41,7 +44,11 @@ class AITimelineViewController: UITableViewController {
             view.leading == view.superview!.leading + 42
         }
         label.addDashedBorder()
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "hh:mm"
+        dateString = dateFormatter.stringFromDate(NSDate())
         
+        self.currentTimeView.labelTime.text = dateString
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,15 +67,31 @@ class AITimelineViewController: UITableViewController {
 extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 1{
-            return 60
+        
+        let currnetDicValue = dataTimeLineArray[section] as Dictionary<String,String>
+        
+        let time = currnetDicValue["currentTime"] as NSString?
+        
+        let arrayPre = time?.componentsSeparatedByString(":")
+        if dateString != nil {
+            
+            let arrayCurrent = dateString?.componentsSeparatedByString(":")
+            
+            let first = (arrayPre![0] as String).toInt()
+            
+            let firstS = (arrayCurrent![0] as String).toInt()
+            
+            if first < firstS  {
+                return 60
+            }
         }
+        
+        
         return 0
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-       
-        return  AITIMELINESDTITLEView.currentView()
+        return  self.currentTimeView
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
