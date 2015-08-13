@@ -16,14 +16,38 @@ import Cartography
 class AITimelineViewController: UITableViewController {
     
     private var currentTimeView = AITIMELINESDTITLEView.currentView()
+    
     private var dateString:String!
     
-    private var dataTimeLineArray:Array<AnyObject>{
-        return [
-            ["paramsTime":"3月14日","currentTime":"10:20","title":"瑞士凯斯瑜伽课","content":"Jeeny老师|印度特色课"],
-            ["paramsTime":"4月4日","currentTime":"16:20","title":"厨师培训课","content":"Jeeny老师|印度特色课"],
-            ["paramsTime":"4月14日","currentTime":"08:20","title":"雅典瑜伽课","content":"Jeeny老师|印度特色课"],
-            ["paramsTime":"6月14日","currentTime":"09:20","title":"教画画","content":"Jeeny老师|印度特色课"]]
+    private var dataTimeLineArray:Array<AITimeLineModel>{
+        var model =  AITimeLineModel()
+        model.title = "瑞士凯斯瑜伽课"
+        model.content = "Jeeny老师|印度特色课"
+        model.currentTimeStamp = 1429426741
+        
+        var model1 =  AITimeLineModel()
+        model1.title = "厨师培训课"
+        model1.content = "Jeeny老师|印度特色课"
+        model1.currentTimeStamp = 1438433741
+        
+        var model2 =  AITimeLineModel()
+        model2.title = "雅典瑜伽课"
+        model2.content = "Jeeny老师|印度特色课"
+        model2.currentTimeStamp = 1439134741
+        
+        var model3 =  AITimeLineModel()
+        model3.title = "教画画"
+        model3.content = "Jeeny老师|印度特色课"
+        model3.currentTimeStamp = 1439235741
+        
+        
+        var model4 =  AITimeLineModel()
+        model4.title = "圣托尼亚航班"
+        model4.content = "中国航空 CA2393 | 330"
+        model4.currentTimeStamp = 1439550715
+        
+        
+        return [model,model1,model2,model3,model4]
     }
     
     override func viewDidLoad() {
@@ -44,11 +68,23 @@ class AITimelineViewController: UITableViewController {
             view.leading == view.superview!.leading + 42
         }
         label.addDashedBorder()
+        
+        refereshCurrentTime()
+        
+        let timer =  NSTimer(timeInterval: 60, target: self, selector: "refereshCurrentTime", userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+        
+    }
+    
+    ///referesh current timer.
+    func refereshCurrentTime(){
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "hh:mm"
+        dateFormatter.dateFormat = "HH:mm"
         dateString = dateFormatter.stringFromDate(NSDate())
         
         self.currentTimeView.labelTime.text = dateString
+        
+        self.tableView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -68,25 +104,13 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        let currnetDicValue = dataTimeLineArray[section] as Dictionary<String,String>
+        let currnetDicValue = dataTimeLineArray[section] as AITimeLineModel
         
-        let time = currnetDicValue["currentTime"] as NSString?
+        let timeSpan = currnetDicValue.currentTimeStamp!
         
-        let arrayPre = time?.componentsSeparatedByString(":")
-        if dateString != nil {
-            
-            let arrayCurrent = dateString?.componentsSeparatedByString(":")
-            
-            let first = (arrayPre![0] as String).toInt()
-            
-            let firstS = (arrayCurrent![0] as String).toInt()
-            
-            if first < firstS  {
-                return 60
-            }
+        if timeSpan > NSDate().timeIntervalSince1970 {
+            return 60
         }
-        
-        
         return 0
     }
     
@@ -112,21 +136,31 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let currnetDicValue = dataTimeLineArray[indexPath.section] as Dictionary<String,String>
+        let currnetDicValue = dataTimeLineArray[indexPath.section] as AITimeLineModel
 
+        let date = NSDate(timeIntervalSince1970: currnetDicValue.currentTimeStamp!)
+        
         switch indexPath.row{
 
         case 0:
             //placeholder cell
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITIMELINESDTimesViewCell) as? AITIMELINESDTimesViewCell
-            avCell?.monthLabel.text = currnetDicValue["paramsTime"]
+            //月份
+            var  formatter = NSDateFormatter ()
+            formatter.dateFormat = "MM-dd"
+            avCell?.monthLabel?.text = formatter.stringFromDate(date)
+            
             return avCell!
         case 1:
             //placeholder cell
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITIMELINESDContentViewCell) as? AITIMELINESDContentViewCell
-            avCell?.timeLabel?.text = currnetDicValue["currentTime"]
-            avCell?.titleLabel?.text = currnetDicValue["title"]
-            avCell?.contentLabel?.text = currnetDicValue["content"]
+            //时间
+           
+            var  formatter = NSDateFormatter ()
+            formatter.dateFormat = "HH:MM"
+            avCell?.timeLabel?.text = formatter.stringFromDate(date)
+            avCell?.titleLabel?.text = currnetDicValue.title
+            avCell?.contentLabel?.text = currnetDicValue.content
             return avCell!
             
         default:
