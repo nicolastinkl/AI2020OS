@@ -141,7 +141,14 @@ class AIComponentChoseViewController: UIViewController {
                 Async.userInitiated { () -> Void in
                     AIOrderRequester().submitOrder(serverid, completion: { (success) -> Void in
                         self.view.hideLoading()
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                        //self.dismissViewControllerAnimated(true, completion: nil)
+                        
+                        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as UIViewController
+                        
+                        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+                        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+                        self.presentViewController(viewController, animated: true, completion: nil)
+                        
                     })
                 }
             }else{

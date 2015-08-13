@@ -36,6 +36,7 @@
 		84CDC1701B14952500EA78BC /* SearchHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */; };
 		84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */; };
 		84D142621B2EA04A00662291 /* AITagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D142611B2EA04A00662291 /* AITagModel.swift */; };
+		84D1B6DE1B7C33690094D553 /* AIOrderSubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1B6DD1B7C33690094D553 /* AIOrderSubmitViewController.swift */; };
 		84D393E61B2A88800045EE3A /* AIFavoritesServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D393E51B2A88800045EE3A /* AIFavoritesServicesModel.swift */; };
 		84D5D2C81B1C636D001E9F37 /* AICatalogServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */; };
 		84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */; };
@@ -342,6 +343,7 @@
 		84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
 		84D132211B0F26E700B977F5 /* MainSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
 		84D142611B2EA04A00662291 /* AITagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITagModel.swift; sourceTree = "<group>"; };
+		84D1B6DD1B7C33690094D553 /* AIOrderSubmitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderSubmitViewController.swift; sourceTree = "<group>"; };
 		84D393E51B2A88800045EE3A /* AIFavoritesServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoritesServicesModel.swift; sourceTree = "<group>"; };
 		84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICatalogServicesModel.swift; sourceTree = "<group>"; };
 		84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryRecord.swift; sourceTree = "<group>"; };
@@ -1324,6 +1326,7 @@
 			children = (
 				93E4D5AF1B14AA7800992CA3 /* AIOrderListViewController.swift */,
 				931718801B159C3600EC9C14 /* AIOrderDetailViewController.swift */,
+				84D1B6DD1B7C33690094D553 /* AIOrderSubmitViewController.swift */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -1882,6 +1885,7 @@
 				93DE16AD1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift in Sources */,
 				93FF747A1B0F0AFF00FD97C1 /* AIServerScopeView.swift in Sources */,
 				936D624F1AD4D6F300609FCD /* KMActivityIndicator.m in Sources */,
+				84D1B6DE1B7C33690094D553 /* AIOrderSubmitViewController.swift in Sources */,
 				93FF74601B0ECEA000FD97C1 /* CVCalendarContentDelegate.swift in Sources */,
 				1284ABC61B2036B500636F35 /* SectionInfo.swift in Sources */,
 				93F8C3D21AE6314D003C58B2 /* UIView+MaterialDesign.m in Sources */,
