@@ -1805,7 +1805,7 @@
                                     <outlet property="monthLabel" destination="iEt-f2-X83" id="DJT-G5-m9c"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="AITIMELINESDContentViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="AITIMELINESDContentViewCell" rowHeight="82" id="eu3-Rq-3EO" customClass="AITIMELINESDContentViewCell" customModule="AI2020OS" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="AITIMELINESDContentViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="AITIMELINESDContentViewCell" rowHeight="182" id="eu3-Rq-3EO" customClass="AITIMELINESDContentViewCell" customModule="AI2020OS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eu3-Rq-3EO" id="cgy-Y1-QpM">
@@ -1824,7 +1824,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timeline_bg" translatesAutoresizingMaskIntoConstraints="NO" id="M2g-iO-NPa">
-                                            <rect key="frame" x="81" y="12" width="495" height="58"/>
+                                            <rect key="frame" x="81" y="12" width="495" height="158"/>
                                             <animations/>
                                             <rect key="contentStretch" x="0.39999999999999997" y="0.70000000000000007" width="0.24999999999999967" height="0.0"/>
                                         </imageView>
@@ -1849,25 +1849,43 @@
                                             <color key="textColor" red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view tag="10" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Jd-Me-Hus">
+                                            <rect key="frame" x="106" y="70" width="460" height="92"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                     <animations/>
                                     <constraints>
                                         <constraint firstItem="M2g-iO-NPa" firstAttribute="leading" secondItem="8bm-Bz-J2P" secondAttribute="trailing" constant="-2" id="4ol-Q8-aWu"/>
+                                        <constraint firstItem="8bm-Bz-J2P" firstAttribute="top" secondItem="cgy-Y1-QpM" secondAttribute="topMargin" constant="22" id="5c9-KV-2GY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="M2g-iO-NPa" secondAttribute="bottom" constant="4" id="7kA-Oa-dNs"/>
                                         <constraint firstItem="M2g-iO-NPa" firstAttribute="leading" secondItem="eNY-pQ-j1X" secondAttribute="trailing" constant="-464" id="GE3-vJ-Nh5"/>
                                         <constraint firstAttribute="centerY" secondItem="8bm-Bz-J2P" secondAttribute="centerY" id="Gms-gB-iJI"/>
                                         <constraint firstItem="eNY-pQ-j1X" firstAttribute="top" secondItem="M2g-iO-NPa" secondAttribute="top" constant="7" id="Krg-hZ-Zv0"/>
                                         <constraint firstItem="eNY-pQ-j1X" firstAttribute="leading" secondItem="QzA-MU-QaN" secondAttribute="trailing" constant="-439" id="PXm-Ub-k2X"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="M2g-iO-NPa" secondAttribute="trailing" constant="16" id="QT7-H5-6b5"/>
                                         <constraint firstAttribute="centerY" secondItem="M2g-iO-NPa" secondAttribute="centerY" id="VcT-cr-Dwl"/>
+                                        <constraint firstItem="M2g-iO-NPa" firstAttribute="top" secondItem="cgy-Y1-QpM" secondAttribute="topMargin" constant="4" id="W8h-pJ-lKX"/>
                                         <constraint firstItem="eNY-pQ-j1X" firstAttribute="width" secondItem="QzA-MU-QaN" secondAttribute="width" id="WKH-KM-MWo"/>
                                         <constraint firstItem="QzA-MU-QaN" firstAttribute="top" secondItem="eNY-pQ-j1X" secondAttribute="bottom" constant="-3" id="mMs-xy-o2b"/>
+                                        <constraint firstItem="1Jd-Me-Hus" firstAttribute="leading" secondItem="cgy-Y1-QpM" secondAttribute="leadingMargin" constant="98" id="nBl-tm-ZXF"/>
                                         <constraint firstItem="8bm-Bz-J2P" firstAttribute="leading" secondItem="cgy-Y1-QpM" secondAttribute="leadingMargin" constant="14" id="pVC-RF-08q"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="1Jd-Me-Hus" secondAttribute="trailing" constant="26" id="qHO-qX-SY8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="1Jd-Me-Hus" secondAttribute="bottom" constant="12" id="vZP-l1-QRL"/>
+                                        <constraint firstItem="1Jd-Me-Hus" firstAttribute="top" secondItem="QzA-MU-QaN" secondAttribute="bottom" constant="6" id="wKg-TR-3YF"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Gms-gB-iJI"/>
+                                            <exclude reference="VcT-cr-Dwl"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="contentBgImageView" destination="M2g-iO-NPa" id="FhJ-mW-uDL"/>
+                                    <outlet property="contentFillView" destination="1Jd-Me-Hus" id="LBc-N5-l5o"/>
                                     <outlet property="contentLabel" destination="QzA-MU-QaN" id="7kA-HU-kfS"/>
                                     <outlet property="timeLabel" destination="8bm-Bz-J2P" id="5CX-m8-TRU"/>
                                     <outlet property="titleLabel" destination="eNY-pQ-j1X" id="qWB-b2-iSu"/>
@@ -1883,7 +1901,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khb-hf-TrK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2107" y="1182"/>
+            <point key="canvasLocation" x="2113" y="1252"/>
         </scene>
         <!--时间线-->
         <scene sceneID="Jpz-dS-XXk">

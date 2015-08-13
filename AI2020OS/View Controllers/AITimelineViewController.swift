@@ -34,12 +34,13 @@ class AITimelineViewController: UITableViewController {
         model2.title = "雅典瑜伽课"
         model2.content = "Jeeny老师|印度特色课"
         model2.currentTimeStamp = 1439134741
+        model2.type  = 1
         
         var model3 =  AITimeLineModel()
         model3.title = "教画画"
         model3.content = "Jeeny老师|印度特色课"
         model3.currentTimeStamp = 1439235741
-        
+        model3.type  = 2
         
         var model4 =  AITimeLineModel()
         model4.title = "圣托尼亚航班"
@@ -63,7 +64,7 @@ class AITimelineViewController: UITableViewController {
 
         layout(label) { view in
             view.width == 0.5
-            view.height == view.superview!.height+1000
+            view.height == view.superview!.height+10000
             view.centerY == view.superview!.centerY
             view.leading == view.superview!.leading + 42
         }
@@ -161,6 +162,20 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
             avCell?.timeLabel?.text = formatter.stringFromDate(date)
             avCell?.titleLabel?.text = currnetDicValue.title
             avCell?.contentLabel?.text = currnetDicValue.content
+            
+            if let expend = currnetDicValue.expend {
+                if expend == 1 {
+                    if let imageview =  avCell?.contentFillView.subviews.first as UIImageView?{
+                        imageview.image =  UIImage(named: "ziyouxing")
+                    }else{
+                        let imageview = UIImageView(image: UIImage(named: "ziyouxing"))
+                        imageview.contentMode = UIViewContentMode.ScaleAspectFill
+                        avCell?.contentFillView.addSubview(imageview)
+                    }
+                }
+            }
+            
+            
             return avCell!
             
         default:

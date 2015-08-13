@@ -15,6 +15,7 @@ class AITimeLineModel: JSONJoy {
     var title: String?
     var content: String?
     var type: Int?
+    var expend:Int?
     
     init() {
         //["currentTimeStamp":"1439436741","title":"瑞士凯斯瑜伽课","content":"Jeeny老师|印度特色课"],
