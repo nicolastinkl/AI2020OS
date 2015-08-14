@@ -72,7 +72,7 @@ struct AIHttpEngine{
         var manager = Manager.sharedInstance
         
         // Add Headers
-        manager.session.configuration.HTTPAdditionalHeaders = ["HttpQuery":"0&0&0&0"]
+        manager.session.configuration.HTTPAdditionalHeaders = ["HttpQuery":"0&0&100000001872&0"]
         
         let paras: [String: AnyObject]? = [
             "data":parameters!,
@@ -82,13 +82,7 @@ struct AIHttpEngine{
             ]
         ]
         
-        println("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
-
-        // Create manager
-        var manager = Manager.sharedInstance
-        
-        // Add Headers
-        manager.session.configuration.HTTPAdditionalHeaders = ["HttpQuery":"0&0&100000001872&0"]
+        println("url: \(self.baseURL+path.description)      ------------   parameters:\(paras)")
 
         // Send Reqeust...
         let encoding = Alamofire.ParameterEncoding.JSON
@@ -104,7 +98,7 @@ struct AIHttpEngine{
                         let stas: AnyObject = descValue["result_code"]!
 
                         if let dataValue = reponsess["data"] as? NSDictionary{
-                            println(dataValue)
+                            println("response: \(dataValue)")
                             response(response: dataValue, error: nil)
                         }
                         if let dataValue = reponsess["data"] as? NSArray{

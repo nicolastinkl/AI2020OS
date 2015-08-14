@@ -22,15 +22,9 @@ class AIOrderRequester {
         isLoading = true
         
         let paras = [
-            "data":[
-                "page_num": "1",
-                "order_role": "1",
-                "order_state": "11"
-            ],
-            "desc":[
-                "data_mode": 0,
-                "digest": ""
-            ]
+            "page_num": "1",
+            "order_role": "1",
+            "order_state": "11"
         ]
         
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetOrderList, parameters: paras) {  [weak self] (response, error) -> () in
