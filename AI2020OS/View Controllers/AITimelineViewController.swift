@@ -19,7 +19,13 @@ class AITimelineViewController: UITableViewController {
     
     private var dateString:String!
     
-    private var dataTimeLineArray:Array<AITimeLineModel>{
+    private var dataTimeLineArray:NSMutableArray!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "时间线"
+        
         var model =  AITimeLineModel()
         model.title = "瑞士凯斯瑜伽课"
         model.content = "Jeeny老师|印度特色课"
@@ -47,14 +53,7 @@ class AITimelineViewController: UITableViewController {
         model4.content = "中国航空 CA2393 | 330"
         model4.currentTimeStamp = 1439550715
         
-        
-        return [model,model1,model2,model3,model4]
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.title = "时间线"
+        dataTimeLineArray = NSMutableArray(array:  [model,model1,model2,model3,model4])
         
         self.tableView.reloadData()
         
@@ -123,6 +122,13 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
         if indexPath.row == 0{
             return 44.0
         }
+        let currnetDicValue = dataTimeLineArray[indexPath.section] as AITimeLineModel
+        
+        if let expend =  currnetDicValue.expend {
+            if expend == 1 {
+                return 282.0
+            }
+        }
         return 82.0
     }
     
@@ -156,7 +162,7 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
             //placeholder cell
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITIMELINESDContentViewCell) as? AITIMELINESDContentViewCell
             //时间
-           
+            
             var  formatter = NSDateFormatter ()
             formatter.dateFormat = "HH:MM"
             avCell?.timeLabel?.text = formatter.stringFromDate(date)
@@ -165,6 +171,7 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
             
             if let expend = currnetDicValue.expend {
                 if expend == 1 {
+                    avCell?.contentFillView.hidden = false
                     if let imageview =  avCell?.contentFillView.subviews.first as UIImageView?{
                         imageview.image =  UIImage(named: "ziyouxing")
                     }else{
@@ -172,6 +179,8 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
                         imageview.contentMode = UIViewContentMode.ScaleAspectFill
                         avCell?.contentFillView.addSubview(imageview)
                     }
+                }else{
+                    avCell?.contentFillView.hidden = true
                 }
             }
             
@@ -185,6 +194,22 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var currnetDicValue = dataTimeLineArray[indexPath.section] as AITimeLineModel
+        if let expend = currnetDicValue.expend {
+            if expend == 1 {
+                currnetDicValue.expend = 0
+            }else if expend == 0 {
+                currnetDicValue.expend = 1
+            }
+        }else{
+            currnetDicValue.expend = 1
+        }
+        dataTimeLineArray[indexPath.section] = currnetDicValue
+        
+        self.tableView.beginUpdates()
+        self.tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Automatic)
+        self.tableView.endUpdates()
         
     }
 }
