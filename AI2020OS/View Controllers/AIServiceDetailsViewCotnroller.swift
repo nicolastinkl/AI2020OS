@@ -9,6 +9,8 @@
 import Foundation
 import Spring
 
+import Cartography
+
 class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDelegate{
     
     // MARK: swift controls
@@ -36,6 +38,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     private var avatorImage:UIImageView?
     
     private var nickLabel:UILabel?
+    @IBOutlet weak var menuView: UIView!
     
     private var scrollViewDragPointsss : CGPoint?
     
@@ -130,8 +133,39 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     func fillViews(){
         view.hideProgressViewLoading()
         self.detailsPageView.navBarView = self.navigationBarView
-        self.detailsPageView.tableView.tableFooterView = AIOrderBuyView.currentView()
+        //self.detailsPageView.tableView.tableFooterView = AIOrderBuyView.currentView()
         self.titleLabel.text = self.movieDetailsResponse?.service_name
+        if menuView.subviews.count == 0 {
+            let buyView = AIOrderBuyView.currentView()
+            buyView.buyButton.addTarget(self, action: "buyAction", forControlEvents: UIControlEvents.TouchUpInside)
+            buyView.chatButton.addTarget(self, action: "webChatAction", forControlEvents: UIControlEvents.TouchUpInside)
+            buyView.likeButton.addTarget(self, action: "likeAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            menuView.addSubview(buyView)
+            layout(buyView){ view1 in
+                view1.width  == view1.superview!.width
+                view1.height == view1.superview!.height
+                view1.top >= view1.superview!.top
+            }
+        }
+    }
+    func likeAction(sender: AnyObject){
+        
+    }
+    
+    func webChatAction(){
+        showViewController(AIWebViewController(url: NSURL(string:  "http://192.168.1.89/AIBoard/AIBoard.html")!), sender: self)
+    }
+    
+    func buyAction(){
+        
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIComponentChoseViewController) as UIViewController
+        
+        viewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        //viewController.transitioningDelegate = self.transitionManager
+        viewController.title = self.server_id
+        self.presentViewController(viewController, animated: true, completion: nil)
+        
     }
     
     func reloadHeaderView()
@@ -187,7 +221,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
     }    
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5+2
+        return 5 + 8
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -207,14 +241,14 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
                 avCell = AIHomeAvatorViewCell().currentViewCell()
             }
             avCell?.avatorImageView.setURL(self.movieDetailsResponse?.provider_portrait_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
-            avCell?.nickName.text = self.movieDetailsResponse?.service_name
+            avCell?.nickName.text = self.movieDetailsResponse?.provider_name
             return avCell!
         case 1:
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDefaultViewCell) as? AIHomeSDDefaultViewCell
             if  avCell == nil {
                 avCell = AIHomeSDDefaultViewCell().currentViewCell()
             }
-            avCell?.priceLabel.text = "260元"//self.movieDetailsResponse?.service_price
+            avCell?.priceLabel.text =  self.movieDetailsResponse?.service_price ?? ""
             avCell?.addBottomBorderLine()
             return avCell!
         case 2:
@@ -235,6 +269,10 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             }
 
             avCell?.desLabel.text = self.movieDetailsResponse?.service_intro
+            if let str = self.movieDetailsResponse?.service_intro {
+                var heightLines = str.stringHeightWith(14, width: self.view.width) + 60
+                avCell?.addBottomBorderLine(heightLines)
+            }
             return avCell!
         case 4:
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
@@ -277,15 +315,6 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
             self.presentViewController(viewController, animated: true, completion: nil)
-        }else if indexPath.section == 4 {
-            
-            let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIComponentChoseViewController) as UIViewController
-            
-            viewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-            viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-            //viewController.transitioningDelegate = self.transitionManager
-            self.presentViewController(viewController, animated: true, completion: nil)
-            
         }
     }
     

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SCLAlertView
 
 class AIComponentChoseViewController: UIViewController {
     
@@ -15,6 +16,8 @@ class AIComponentChoseViewController: UIViewController {
     @IBOutlet weak var contentScrollView: UIScrollView!
     
     private let margeheight:CGFloat = 20
+    
+    var serviceId:String?
     
     // MARK: life cycle
     
@@ -113,7 +116,7 @@ class AIComponentChoseViewController: UIViewController {
         
         // TODO: Background Image
         button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Normal)
-        button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Highlighted)
+        //button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Highlighted)
         //button.addTarget(self, action: Selector("buttonDownAction:"), forControlEvents: UIControlEvents.TouchDown)
         
         button.layer.borderColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
@@ -125,11 +128,36 @@ class AIComponentChoseViewController: UIViewController {
         button.setTop(line3.top + line3.height + 5)
         button.setWidth(self.view.width)
         button.setHeight(50)
-        button.setTitle("立即购买", forState: UIControlState.Normal)
+        button.setTitle("提交订单", forState: UIControlState.Normal)
+        button.addTarget(self, action: "submitOrder", forControlEvents: UIControlEvents.TouchUpInside)
         self.contentScrollView.contentSize = CGSizeMake(self.view.width, button.top+button.height)
         
     }
     
+    func submitOrder(){
+        if let serverid = self.title?.toInt() {
+            if serverid > 0 {
+                self.view.showLoading()
+                Async.userInitiated { () -> Void in
+                    AIOrderRequester().submitOrder(serverid, completion: { (success) -> Void in
+                        self.view.hideLoading()
+                        //self.dismissViewControllerAnimated(true, completion: nil)
+                        
+                        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as UIViewController
+                        
+                        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+                        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+                        self.presentViewController(viewController, animated: true, completion: nil)
+                        
+                    })
+                }
+            }else{
+                SCLAlertView().showError("提交失败", subTitle: "参数有误", closeButtonTitle: "关闭", duration: 2)
+            }
+            
+        }
+        
+    }
     
     // MARK: event response
     @IBAction func disMissViewController(sender: AnyObject) {

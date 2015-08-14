@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6249" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,10 +13,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="260元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="px5-5c-Lm8">
-                        <rect key="frame" x="71" y="13" width="179" height="46"/>
+                        <rect key="frame" x="10" y="13" width="300" height="46"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="46" id="IQ7-Uq-Mhe"/>
-                            <constraint firstAttribute="width" constant="179" id="d8n-TU-5vO"/>
+                            <constraint firstAttribute="width" constant="300" id="d8n-TU-5vO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                         <color key="textColor" red="0.99783474206924438" green="0.81072600338247369" blue="0.06954903459996728" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,7 +31,7 @@
             <connections>
                 <outlet property="priceLabel" destination="px5-5c-Lm8" id="Hap-Yb-FCN"/>
             </connections>
-            <point key="canvasLocation" x="513" y="326"/>
+            <point key="canvasLocation" x="381" y="430"/>
         </tableViewCell>
     </objects>
 </document>

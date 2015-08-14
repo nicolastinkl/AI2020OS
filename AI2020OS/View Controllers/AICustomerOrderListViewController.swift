@@ -30,29 +30,30 @@ class AICustomerOrderListViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        buildDynaStatusButton()
-        scrollView.contentOffset = CGPointMake(0, 0)
-        println("scrollView frame: \(scrollView.frame),contentOffsit: \(scrollView.contentOffset),contentInset:\(scrollView.contentInset)")
-        //scrollView.backgroundColor = UIColor.redColor()
-        scrollView.contentSize = CGSizeMake(650, 40)
+        
         
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         println("scrollView layoutsubview frame: \(scrollView.frame),contentOffsit: \(scrollView.contentOffset),contentSize:\(scrollView.contentSize)")
-        scrollView.contentSize = CGSizeMake(650, 40)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Init buttons.
+        buildDynaStatusButton()
+        //scrollView.contentOffset = CGPointMake(0, 0)
+        //println("scrollView frame: \(scrollView.frame),contentOffsit: \(scrollView.contentOffset),contentInset:\(scrollView.contentInset)")
+        //scrollView.backgroundColor = UIColor.redColor()
+        scrollView.contentSize = CGSizeMake(650, 80)
         
-        
+        // request networking.
         retryNetworkingAction()
         
-        
-        //registerNib
+        //registerNib        
         tableView.registerNib(UINib(nibName:"CustomerOrderTableViewCell",bundle:NSBundle.mainBundle()), forCellReuseIdentifier: "CustomerOrderCell")
         tableView.delegate = self
         tableView.dataSource = self

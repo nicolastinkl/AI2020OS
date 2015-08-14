@@ -106,10 +106,20 @@
     UIView *view = [[UIView alloc] initWithFrame:self.bounds];
     view.clipsToBounds = YES;
     view.backgroundColor = [UIColor clearColor];
+    
+    CGFloat size = MIN(self.bounds.size.width / self.numberOfStars, self.bounds.size.height);
+    CGFloat space = 0;
+    if (self.numberOfStars > 1) {
+        space = (self.bounds.size.width - size * self.numberOfStars) / (self.numberOfStars - 1);
+    }
+    
     for (NSInteger i = 0; i < self.numberOfStars; i ++)
     {
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
-        imageView.frame = CGRectMake(i * self.bounds.size.width / self.numberOfStars, 0, self.bounds.size.width / self.numberOfStars, self.bounds.size.height);
+        
+        
+        imageView.frame = CGRectMake(i * (size + space), 0, size, size);
+//        imageView.frame = CGRectMake(i * self.bounds.size.width / self.numberOfStars, 0, self.bounds.size.width / self.numberOfStars, self.bounds.size.height);
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         [view addSubview:imageView];
     }

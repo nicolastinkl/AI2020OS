@@ -46,6 +46,7 @@ struct AIApplication{
         
         // MARK: View
         struct ViewControllerIdentifiers {
+            
             static let listViewController           = "listViewController"
             static let favoritsTableViewController  = "AIFavoritsTableViewController"
             static let AIMenuViewController         = "AIMenuViewController"
@@ -53,7 +54,8 @@ struct AIApplication{
             static let AICalendarViewController     = "AICalendarViewController"
             static let AIComponentChoseViewController   = "AIComponentChoseViewController"
             static let AISearchServiceCollectionViewController = "AISearchServiceCollectionViewController"
-
+            static let AIOrderSubmitViewController  = "AIOrderSubmitViewController"
+            
         }
         
         struct CellIdentifiers {
@@ -191,8 +193,7 @@ struct AIApplication{
         
         if let loadingXibView = UIApplication.sharedApplication().keyWindow!.viewWithTag(AIApplication.AIViewTags.AIMessageUnReadViewTag) {
             loadingXibView.hidden = false
-        }else
-        {
+        }else{
             let unreadView = AIMessageUnReadView.currentView() as AIMessageUnReadView
             UIApplication.sharedApplication().keyWindow!.addSubview(unreadView)
             unreadView.tag = AIApplication.AIViewTags.AIMessageUnReadViewTag            
@@ -203,7 +204,6 @@ struct AIApplication{
                 view.right >= view.superview!.right+10
             }
         }
-        
     }
     
     static func hideMessageUnreadView(){

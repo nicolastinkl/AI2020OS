@@ -47,6 +47,14 @@ struct AIHttpEngine{
         case QueryCollectedServices
         // 获取收藏服务所有标签
         case QueryServiceTags
+        // 获取收藏内容列表
+        case QueryCollectedContents
+        // 删除收藏内容
+        case DelContentFromFavorite
+        // 修改收藏内容星表
+        case ModifyFavoriteFlag
+        // 提交订单
+        case SubmitOrder
 
         var description: String {
             switch self {
@@ -59,7 +67,10 @@ struct AIHttpEngine{
             case .GetAllServiceCatalog: return "/sboss/getAllServiceCatalog"
             case .QueryCollectedServices: return "/sboss/queryCollectedServices"
             case .QueryServiceTags: return "/sboss/queryServiceTags"
-                
+            case .QueryCollectedContents: return "/sboss/queryCollectedContents"
+            case .DelContentFromFavorite: return "/sboss/delContentFromFavorite"
+            case .ModifyFavoriteFlag: return "/sboss/modifyFavoriteFlag"
+            case .SubmitOrder: return "/sboss/submitOrder"
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
             }
