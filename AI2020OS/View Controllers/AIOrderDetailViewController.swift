@@ -80,7 +80,7 @@ class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITa
     override func viewWillAppear(animated: Bool) {
         navigationController?.interactivePopGestureRecognizer.delegate = nil
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = false
+       // self.navigationController?.navigationBarHidden = false
         
     }
 

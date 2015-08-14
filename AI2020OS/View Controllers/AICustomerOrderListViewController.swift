@@ -25,6 +25,7 @@ class AICustomerOrderListViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         //        navigationController?.setNavigationBarHidden(true, animated: true)
         navigationController?.interactivePopGestureRecognizer.delegate = nil
+         
         super.viewWillAppear(animated)
     }
     
@@ -36,7 +37,7 @@ class AICustomerOrderListViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        println("scrollView layoutsubview frame: \(scrollView.frame),contentOffsit: \(scrollView.contentOffset),contentSize:\(scrollView.contentSize)")
+       // println("scrollView layoutsubview frame: \(scrollView.frame),contentOffsit: \(scrollView.contentOffset),contentSize:\(scrollView.contentSize)")
         
     }
     
