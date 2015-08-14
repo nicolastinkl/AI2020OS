@@ -45,10 +45,7 @@ class AICustomerOrderListViewController: UIViewController {
         
         // Init buttons.
         buildDynaStatusButton()
-        //scrollView.contentOffset = CGPointMake(0, 0)
-        //println("scrollView frame: \(scrollView.frame),contentOffsit: \(scrollView.contentOffset),contentInset:\(scrollView.contentInset)")
-        //scrollView.backgroundColor = UIColor.redColor()
-        scrollView.contentSize = CGSizeMake(650, 80)
+        self.scrollView.contentSize = CGSizeMake(450, 0)
         
         // request networking.
         retryNetworkingAction()
