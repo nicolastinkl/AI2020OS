@@ -86,6 +86,9 @@
 		84DE7DB11B79ECFB007E8F7F /* AIRoundImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DE7DB01B79ECFB007E8F7F /* AIRoundImageView.xib */; };
 		84DE7DB31B79ED51007E8F7F /* AIRoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */; };
 		84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */; };
+		84DF5F291B81CB7800C9A239 /* AIServiceCommentTagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF5F281B81CB7800C9A239 /* AIServiceCommentTagList.swift */; };
+		84DF5F2C1B81DB3A00C9A239 /* AIServiceCommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF5F2B1B81DB3A00C9A239 /* AIServiceCommentManager.swift */; };
+		84DF5F2E1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF5F2D1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift */; };
 		84DFAD1F1B7D8D580091B156 /* AISelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */; };
 		84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E052231B3006EF00B0299F /* AILaunchScreen.xib */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
@@ -493,6 +496,9 @@
 		84DE7DB01B79ECFB007E8F7F /* AIRoundImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRoundImageView.xib; sourceTree = "<group>"; };
 		84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRoundImageView.swift; sourceTree = "<group>"; };
 		84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentTagViewCell.swift; sourceTree = "<group>"; };
+		84DF5F281B81CB7800C9A239 /* AIServiceCommentTagList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentTagList.swift; sourceTree = "<group>"; };
+		84DF5F2B1B81DB3A00C9A239 /* AIServiceCommentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentManager.swift; sourceTree = "<group>"; };
+		84DF5F2D1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentManagerImp.swift; sourceTree = "<group>"; };
 		84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectableButton.swift; sourceTree = "<group>"; };
 		84E052231B3006EF00B0299F /* AILaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AILaunchScreen.xib; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
@@ -1088,6 +1094,15 @@
 			name = view;
 			sourceTree = "<group>";
 		};
+		84DF5F2A1B81DB0C00C9A239 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				84DF5F2B1B81DB3A00C9A239 /* AIServiceCommentManager.swift */,
+				84DF5F2D1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift */,
+			);
+			name = Comment;
+			sourceTree = "<group>";
+		};
 		84E052221B3006C000B0299F /* Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1193,6 +1208,7 @@
 				933ED4181AC9221100E4AADB /* Venders */,
 				933ED40E1AC921BD00E4AADB /* Libs */,
 				933ED40F1AC921BD00E4AADB /* Models */,
+				84DF5F2A1B81DB0C00C9A239 /* Comment */,
 				84951FB31B13117300179483 /* Search */,
 				933ED4101AC921BD00E4AADB /* Services */,
 				933ED4111AC921BD00E4AADB /* View Controllers */,
@@ -1288,6 +1304,7 @@
 				84D393E51B2A88800045EE3A /* AIFavoritesServicesModel.swift */,
 				84D142611B2EA04A00662291 /* AITagModel.swift */,
 				84D1B6DF1B7C49660094D553 /* AITimeLineModel.swift */,
+				84DF5F281B81CB7800C9A239 /* AIServiceCommentTagList.swift */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -2106,7 +2123,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# xcode-build-bump.sh\n# @desc Auto-increment the build number every time the project is run.\n# @usage\n# 1. Select: your Target in Xcode\n# 2. Select: Build Phases Tab\n# 3. Select: Add Build Phase -> Add Run Script\n# 4. Paste code below in to new \"Run Script\" section\n# 5. Drag the \"Run Script\" below \"Link Binaries With Libraries\"\n# 6. Insure that your starting build number is set to a whole integer and not a float (e.g. 1, not 1.0)\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+			shellScript = "# xcode-build-bump.sh\n# @desc Auto-increment the build number every time the project is run.\n# @usage\n# 1. Select: your Target in Xcode\n# 2. Select: Build Phases Tab\n# 3. Select: Add Build Phase -> Add Run Script\n# 4. Paste code below in to new \"Run Script\" section\n# 5. Drag the \"Run Script\" below \"Link Binaries With Libraries\"\n# 6. Insure that your starting build number is set to a whole integer and not a float (e.g. 1, not 1.0)\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n# /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 		933ED40C1AC8F9CA00E4AADB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2119,7 +2136,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# xcode-version-bump.sh\n# @desc Auto-increment the version number (only) when a project is archived for export.\n# @usage\n# 1. Select: your Target in Xcode\n# 2. Select: Build Phases Tab\n# 3. Select: Add Build Phase -> Add Run Script\n# 4. Paste code below in to new \"Run Script\" section\n# 5. Check the checkbox \"Run script only when installing\"\n# 6. Drag the \"Run Script\" below \"Link Binaries With Libraries\"\n# 7. Insure your starting version number is in SemVer format (e.g. 1.0.0)\n\n# This splits a two-decimal version string, such as \"0.45.123\", allowing us to increment the third position.\nVERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nNEWSUBVERSION=`echo $VERSIONNUM | awk -F \".\" '{print $3}'`\nNEWSUBVERSION=$(($NEWSUBVERSION + 1))\nNEWVERSIONSTRING=`echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+			shellScript = "# xcode-version-bump.sh\n# @desc Auto-increment the version number (only) when a project is archived for export.\n# @usage\n# 1. Select: your Target in Xcode\n# 2. Select: Build Phases Tab\n# 3. Select: Add Build Phase -> Add Run Script\n# 4. Paste code below in to new \"Run Script\" section\n# 5. Check the checkbox \"Run script only when installing\"\n# 6. Drag the \"Run Script\" below \"Link Binaries With Libraries\"\n# 7. Insure your starting version number is in SemVer format (e.g. 1.0.0)\n\n# This splits a two-decimal version string, such as \"0.45.123\", allowing us to increment the third position.\nVERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nNEWSUBVERSION=`echo $VERSIONNUM | awk -F \".\" '{print $3}'`\nNEWSUBVERSION=$(($NEWSUBVERSION + 1))\nNEWVERSIONSTRING=`echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }'`\n# /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 		A96ECCBD274F402AAC7916BB /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2235,8 +2252,10 @@
 				93FF74611B0ECEA000FD97C1 /* CVCalendarContentViewController.swift in Sources */,
 				84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */,
 				93E8266A1AD78246006B3BA1 /* AIAssignUtils.swift in Sources */,
+				84DF5F2C1B81DB3A00C9A239 /* AIServiceCommentManager.swift in Sources */,
 				93F66DE41B196F5500AEA92A /* AITMSGSDContentViewCell.swift in Sources */,
 				9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */,
+				84DF5F2E1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift in Sources */,
 				939E66421B291F4100FD5FBA /* KSToken.swift in Sources */,
 				8198ABD11B81840E0047E740 /* AFURLRequestSerialization.m in Sources */,
 				8198ABA41B8183B30047E740 /* AIMessageWrapper.m in Sources */,
@@ -2260,6 +2279,7 @@
 				814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */,
 				93F66DE91B19D7B800AEA92A /* NSObjcetUtils.swift in Sources */,
 				9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */,
+				84DF5F291B81CB7800C9A239 /* AIServiceCommentTagList.swift in Sources */,
 				93692C971ACAA52A00D66211 /* Async.swift in Sources */,
 				8415F4E31B135688003160B4 /* SearchServiceCollectionViewController.swift in Sources */,
 				93CB34621AE5F26100D49FB2 /* AIImage.swift in Sources */,
