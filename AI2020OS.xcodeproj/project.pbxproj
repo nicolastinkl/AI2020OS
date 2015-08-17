@@ -23,8 +23,12 @@
 		12C9ED281B203E9C003E2215 /* AITagFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9ED271B203E9C003E2215 /* AITagFilterModel.swift */; };
 		12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616001B27DE8A0032DACE /* AITagEditViewController.swift */; };
 		12E616041B28105B0032DACE /* RRTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */; };
+		12E926081B7C76570053D2E0 /* AICustomerOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E926071B7C76570053D2E0 /* AICustomerOrderListViewController.swift */; };
 		8119B2FF1B7D835200625FB4 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8119B2FE1B7D835200625FB4 /* AssetsLibrary.framework */; };
 		8119B3031B7D858000625FB4 /* AIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8119B3021B7D858000625FB4 /* AIWebViewController.m */; };
+		814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BCB1B81C9EB003A10A5 /* CDVCamera.m */; };
+		814B2BD21B81C9EB003A10A5 /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BCE1B81C9EB003A10A5 /* CDVJpegHeaderWriter.m */; };
+		814B2BD31B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD01B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m */; };
 		817E15D31B7C8A2700C298BE /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 817E15CF1B7C8A2700C298BE /* config.xml */; };
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
 		817E15F61B7C8DB800C298BE /* www in Resources */ = {isa = PBXBuildFile; fileRef = 817E15F51B7C8DB800C298BE /* www */; };
@@ -48,7 +52,6 @@
 		8198ABD81B81840E0047E740 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABC51B81840E0047E740 /* JSONModelError.m */; };
 		8198ABD91B81840E0047E740 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABC81B81840E0047E740 /* JSONKeyMapper.m */; };
 		8198ABDA1B81840E0047E740 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABCA1B81840E0047E740 /* JSONValueTransformer.m */; };
-		12E926081B7C76570053D2E0 /* AICustomerOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E926071B7C76570053D2E0 /* AICustomerOrderListViewController.swift */; };
 		84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */; };
 		8415F4E31B135688003160B4 /* SearchServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */; };
 		84951FB61B1312E500179483 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB41B1312E500179483 /* SearchEngine.swift */; };
@@ -366,6 +369,13 @@
 		8119B2FE1B7D835200625FB4 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8119B3011B7D858000625FB4 /* AIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIWebViewController.h; path = Web/AIWebViewController.h; sourceTree = "<group>"; };
 		8119B3021B7D858000625FB4 /* AIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIWebViewController.m; path = Web/AIWebViewController.m; sourceTree = "<group>"; };
+		814B2BCA1B81C9EB003A10A5 /* CDVCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVCamera.h; sourceTree = "<group>"; };
+		814B2BCB1B81C9EB003A10A5 /* CDVCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVCamera.m; sourceTree = "<group>"; };
+		814B2BCC1B81C9EB003A10A5 /* CDVExif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVExif.h; sourceTree = "<group>"; };
+		814B2BCD1B81C9EB003A10A5 /* CDVJpegHeaderWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVJpegHeaderWriter.h; sourceTree = "<group>"; };
+		814B2BCE1B81C9EB003A10A5 /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVJpegHeaderWriter.m; sourceTree = "<group>"; };
+		814B2BCF1B81C9EB003A10A5 /* UIImage+CropScaleOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropScaleOrientation.h"; sourceTree = "<group>"; };
+		814B2BD01B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropScaleOrientation.m"; sourceTree = "<group>"; };
 		817E15CF1B7C8A2700C298BE /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		817E15D81B7C8AB000C298BE /* CDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
 		817E15D91B7C8AB000C298BE /* CDVAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVAvailability.h; sourceTree = "<group>"; };
@@ -824,9 +834,24 @@
 			name = Web;
 			sourceTree = "<group>";
 		};
+		814B2BC91B81C9EA003A10A5 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				814B2BCA1B81C9EB003A10A5 /* CDVCamera.h */,
+				814B2BCB1B81C9EB003A10A5 /* CDVCamera.m */,
+				814B2BCC1B81C9EB003A10A5 /* CDVExif.h */,
+				814B2BCD1B81C9EB003A10A5 /* CDVJpegHeaderWriter.h */,
+				814B2BCE1B81C9EB003A10A5 /* CDVJpegHeaderWriter.m */,
+				814B2BCF1B81C9EB003A10A5 /* UIImage+CropScaleOrientation.h */,
+				814B2BD01B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		817E15CE1B7C8A2700C298BE /* Web */ = {
 			isa = PBXGroup;
 			children = (
+				814B2BC91B81C9EA003A10A5 /* Camera */,
 				817E15F71B7C8EB500C298BE /* Plugins */,
 				817E15F51B7C8DB800C298BE /* www */,
 				817E15CF1B7C8A2700C298BE /* config.xml */,
@@ -2089,6 +2114,7 @@
 				93D806CF1B1C6D7900B13FFF /* MainSearchViewController.swift in Sources */,
 				93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */,
 				936DAC1D1ADCF4170025483B /* AIRecognizerFactory.m in Sources */,
+				814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */,
 				8198ABA31B8183B30047E740 /* AIMessage.m in Sources */,
 				934FE7D61B1C6BB300B745D4 /* AIIMStorage.swift in Sources */,
 				93D80A421ACA7149004BC7C0 /* CoreTextView.swift in Sources */,
@@ -2158,6 +2184,7 @@
 				93FF74671B0ECEA000FD97C1 /* CVCalendarMonthView.swift in Sources */,
 				84CB368A1B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift in Sources */,
 				93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */,
+				814B2BD31B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m in Sources */,
 				938A398A1B2020F200E3A5BF /* AIButtonUtils.swift in Sources */,
 				93D80A441ACA71DA004BC7C0 /* AILocalStore.swift in Sources */,
 				12C9ED281B203E9C003E2215 /* AITagFilterModel.swift in Sources */,
@@ -2214,6 +2241,7 @@
 				84D393E61B2A88800045EE3A /* AIFavoritesServicesModel.swift in Sources */,
 				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
 				12A20DAB1B1719F3003E412A /* AIOrderService.swift in Sources */,
+				814B2BD21B81C9EB003A10A5 /* CDVJpegHeaderWriter.m in Sources */,
 				12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */,
 				936DAC1A1ADCF2D20025483B /* AIISRViewController.m in Sources */,
 				93DE16AD1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift in Sources */,
