@@ -79,6 +79,8 @@
 		84DE7DAF1B79E623007E8F7F /* AICommentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */; };
 		84DE7DB11B79ECFB007E8F7F /* AIRoundImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DE7DB01B79ECFB007E8F7F /* AIRoundImageView.xib */; };
 		84DE7DB31B79ED51007E8F7F /* AIRoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */; };
+		84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */; };
+		84DFAD1F1B7D8D580091B156 /* AISelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */; };
 		84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E052231B3006EF00B0299F /* AILaunchScreen.xib */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
 		9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0751B09979500C1EE79 /* AILoginService.swift */; };
@@ -471,6 +473,8 @@
 		84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AICommentStoryboard.storyboard; sourceTree = "<group>"; };
 		84DE7DB01B79ECFB007E8F7F /* AIRoundImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRoundImageView.xib; sourceTree = "<group>"; };
 		84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRoundImageView.swift; sourceTree = "<group>"; };
+		84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentTagViewCell.swift; sourceTree = "<group>"; };
+		84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectableButton.swift; sourceTree = "<group>"; };
 		84E052231B3006EF00B0299F /* AILaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AILaunchScreen.xib; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
 		9301B0751B09979500C1EE79 /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
@@ -1032,6 +1036,7 @@
 			children = (
 				84D9B81C1B7C2CA8005331B5 /* AISingleCommentView.xib */,
 				84D9B8201B7C353C005331B5 /* AISingleCommentView.swift */,
+				84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1302,6 +1307,7 @@
 				938A39901B2153DA00E3A5BF /* DLHamburguerViewController.swift */,
 				84DE7DB01B79ECFB007E8F7F /* AIRoundImageView.xib */,
 				84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */,
+				84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */,
 			);
 			name = Views;
 			path = AI2020OS/Views;
@@ -2104,6 +2110,7 @@
 				934987211B0E06DD003086D1 /* AIMessageCenterViewController.swift in Sources */,
 				84CA2EFC1B81883000FCB971 /* AITimeLineServices.swift in Sources */,
 				1284ABC81B2036C600636F35 /* AITagFilterViewController.swift in Sources */,
+				84DFAD1F1B7D8D580091B156 /* AISelectableButton.swift in Sources */,
 				93659F641B1EF2090065E661 /* AITableViewInsetMakeView.swift in Sources */,
 				8198ABA51B8183B30047E740 /* AINetEngine.m in Sources */,
 				939E66441B291F4100FD5FBA /* KSTokenView.swift in Sources */,
@@ -2264,6 +2271,7 @@
 				9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */,
 				93659F611B1EEFB40065E661 /* AIExtensionAICContentAndService.swift in Sources */,
 				934987101B0DA354003086D1 /* AIHomeViewStyleMultiepleView.swift in Sources */,
+				84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */,
 				9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */,
 				933ED3EA1AC8F90A00E4AADB /* AppDelegate.swift in Sources */,
 				1284ABC41B2036B500636F35 /* SectionHeaderView.swift in Sources */,
