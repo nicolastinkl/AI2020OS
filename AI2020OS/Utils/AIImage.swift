@@ -10,4 +10,20 @@ import Foundation
 
 extension UIImage {
     
+    class func imageWithColor(color: UIColor) -> UIImage {
+        var rect = CGRectMake(0.0, 0.0, 1.0, 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        
+        var context = UIGraphicsGetCurrentContext()
+        
+        CGContextSetFillColorWithColor(context, color.CGColor);
+        CGContextFillRect(context, rect);
+        
+        var image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext();
+        
+        return image
+    }
+    
 }
