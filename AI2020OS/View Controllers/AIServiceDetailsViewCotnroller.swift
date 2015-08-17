@@ -221,7 +221,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
     }    
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5
+        return 5 + 8
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

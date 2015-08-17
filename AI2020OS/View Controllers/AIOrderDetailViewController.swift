@@ -62,8 +62,8 @@ class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITa
                     let servicePrice = self.tableView.tableFooterView?.viewWithTag(101) as UILabel
                     let serviceName = self.tableView.tableFooterView?.viewWithTag(100) as UILabel
                     
-                    orderNo.text = String(data.orderNum!)
-                    orderState.text = self.getOrderStateName(data.orderState!)
+                    orderNo.text = String(data.orderNum ?? 0)
+                    orderState.text = self.getOrderStateName(data.orderState ?? 0)
                     
                     serviceName.text = data.serviceName
                     servicePrice.text = data.servicePrice
@@ -80,7 +80,7 @@ class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITa
     override func viewWillAppear(animated: Bool) {
         navigationController?.interactivePopGestureRecognizer.delegate = nil
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = false
+       // self.navigationController?.navigationBarHidden = false
         
     }
 

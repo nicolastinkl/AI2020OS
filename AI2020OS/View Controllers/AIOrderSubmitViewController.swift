@@ -24,6 +24,15 @@ class AIOrderSubmitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let titleLabel =  self.tableview.tableHeaderView?.viewWithTag(1) as UILabel
+        
+        
+        let color = UIColor(rgba: "#a7a7a7").CGColor
+        let lineLayer =  CALayer()
+        lineLayer.backgroundColor = color
+        lineLayer.frame = CGRectMake(0, titleLabel.height+8, titleLabel.width, 0.5)
+        titleLabel.layer.addSublayer(lineLayer)
+        
     }
     
     @IBAction func buyAction(sender: AnyObject) {
