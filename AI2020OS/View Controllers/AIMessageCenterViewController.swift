@@ -52,7 +52,6 @@ class AIMessageCenterViewController: UIViewController {
         }
         
     }
-     
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navigationbar-white"), forBarMetrics: UIBarMetrics.Default)

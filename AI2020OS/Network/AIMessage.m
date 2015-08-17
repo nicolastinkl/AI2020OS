@@ -36,13 +36,14 @@
 
 
 #pragma mark - 生成唯一标识
-- (void)makeUniqueID
+- (NSString *)makeUniqueID
 {
     CFUUIDRef uuid = CFUUIDCreate(NULL);
     CFStringRef uuidStr = CFUUIDCreateString(NULL, uuid);
-    NSString *_uniqueID =[[NSString alloc] initWithString:CFBridgingRelease(uuidStr)];
+    NSString *uniqueID =[[NSString alloc] initWithString:CFBridgingRelease(uuidStr)];
     CFRelease(uuidStr);
     CFRelease(uuid);
+    return uniqueID;
 }
 
 @end

@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+
 @class AIMessage;
 @interface AIMessageWrapper : NSObject
+
 
 /*说明:获取服务列表
  */
 + (AIMessage *)getServiceListWithTopicID:(NSString *)topicID dataMode:(NSString *)dataMode;
+
+
+
 
 @end

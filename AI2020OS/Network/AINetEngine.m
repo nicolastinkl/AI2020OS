@@ -148,6 +148,17 @@
     [_activitedTask removeAllObjects];
 }
 
+
+#pragma mark - 设置通用header
+
+#pragma mark - 增加默认header
+
+- (void)addCommonHeaders:(NSDictionary *)header
+{
+    
+}
+
+
 #pragma mark - Member Method
 
 - (void)removeCompletedTask:(NSURLSessionDataTask *)task
@@ -167,11 +178,12 @@
     }
     
     NSDictionary *des = [response objectForKey:kKeyForDesc];
+    NSDictionary *responseData = [response objectForKey:kKeyForData];
     
     NSNumber *resultCode = [des objectForKey:kKeyForResultCode];
     
     if ([resultCode isEqualToNumber:[NSNumber numberWithInteger:kSuccessCode]] && success) {
-        success(response);
+        success(responseData);
     }
     else
     {
