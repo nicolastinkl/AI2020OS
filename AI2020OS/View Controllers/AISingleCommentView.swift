@@ -12,6 +12,12 @@ class AISingleCommentView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var commentData: AIServiceComment? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
         
         collectionView.registerClass(AICommentTagViewCell.self,
@@ -30,15 +36,24 @@ class AISingleCommentView: UIView {
 
 extension AISingleCommentView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
+        if commentData == nil {
+            return 0
+        } else if commentData!.comment_tags == nil {
+            return 0
+        } else {
+            return 1
+        }
     }
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var itemNum = 8
-        
-        
-        return itemNum
+        if commentData == nil {
+            return 0
+        } else if commentData!.comment_tags == nil {
+            return 0
+        } else {
+            return commentData!.comment_tags!.count
+        }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -46,7 +61,7 @@ extension AISingleCommentView: UICollectionViewDelegateFlowLayout, UICollectionV
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CONTENT", forIndexPath: indexPath) as AICommentTagViewCell
         
         cell.maxWidth = collectionView.bounds.size.width
-        cell.text = "text"
+        cell.text = commentData!.comment_tags![indexPath.row].content?
         
         return cell
     }
@@ -55,13 +70,18 @@ extension AISingleCommentView: UICollectionViewDelegateFlowLayout, UICollectionV
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-            indexPath.row
             
-            var tagName = "text"
+            var tagContent = commentData!.comment_tags![indexPath.row].content?
+            
+            if tagContent == nil {
+                return CGSize(width: 0, height: 0)
+            } else {
+                let size = AICommentTagViewCell.sizeForCell(tagContent!,
+                    forMaxWidth: collectionView.bounds.size.width / 2)
+                return size
+            }
 
-            let size = AICommentTagViewCell.sizeForCell(tagName,
-                forMaxWidth: collectionView.bounds.size.width / 2)
-            return size
+            
     }
 
 }
