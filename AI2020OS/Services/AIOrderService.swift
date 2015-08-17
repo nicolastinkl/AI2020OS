@@ -63,7 +63,7 @@ class AIOrderRequester {
     
 
  //订购方法
-    func submitOrder(serviceId : Int,completion : SubmitOrderCompletion){
+    func submitOrder(serviceId : Int,serviceParams: NSMutableArray,completion : SubmitOrderCompletion){
         if isLoading {
             return
         }
@@ -71,7 +71,7 @@ class AIOrderRequester {
         
         let paras = ["service_id": serviceId,
             "service_exectime":"123456",
-            "service_param_list":[]
+            "service_param_list":serviceParams
         ]
         
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.SubmitOrder, parameters: paras) {  [weak self] (response, error) -> () in
