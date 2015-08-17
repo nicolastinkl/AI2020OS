@@ -29,6 +29,9 @@
 		814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BCB1B81C9EB003A10A5 /* CDVCamera.m */; };
 		814B2BD21B81C9EB003A10A5 /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BCE1B81C9EB003A10A5 /* CDVJpegHeaderWriter.m */; };
 		814B2BD31B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD01B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m */; };
+		814B2BD61B8204C2003A10A5 /* AIMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD51B8204C2003A10A5 /* AIMessageViewController.m */; };
+		814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD91B8204F2003A10A5 /* AIMessageModel.m */; };
+		814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BDC1B820529003A10A5 /* AIMessageCell.m */; };
 		817E15D31B7C8A2700C298BE /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 817E15CF1B7C8A2700C298BE /* config.xml */; };
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
 		817E15F61B7C8DB800C298BE /* www in Resources */ = {isa = PBXBuildFile; fileRef = 817E15F51B7C8DB800C298BE /* www */; };
@@ -379,6 +382,12 @@
 		814B2BCE1B81C9EB003A10A5 /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVJpegHeaderWriter.m; sourceTree = "<group>"; };
 		814B2BCF1B81C9EB003A10A5 /* UIImage+CropScaleOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropScaleOrientation.h"; sourceTree = "<group>"; };
 		814B2BD01B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropScaleOrientation.m"; sourceTree = "<group>"; };
+		814B2BD41B8204C2003A10A5 /* AIMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMessageViewController.h; path = Message/AIMessageViewController.h; sourceTree = "<group>"; };
+		814B2BD51B8204C2003A10A5 /* AIMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageViewController.m; path = Message/AIMessageViewController.m; sourceTree = "<group>"; };
+		814B2BD81B8204F2003A10A5 /* AIMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMessageModel.h; path = Message/AIMessageModel.h; sourceTree = "<group>"; };
+		814B2BD91B8204F2003A10A5 /* AIMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageModel.m; path = Message/AIMessageModel.m; sourceTree = "<group>"; };
+		814B2BDB1B820529003A10A5 /* AIMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMessageCell.h; path = Message/AIMessageCell.h; sourceTree = "<group>"; };
+		814B2BDC1B820529003A10A5 /* AIMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageCell.m; path = Message/AIMessageCell.m; sourceTree = "<group>"; };
 		817E15CF1B7C8A2700C298BE /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		817E15D81B7C8AB000C298BE /* CDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
 		817E15D91B7C8AB000C298BE /* CDVAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVAvailability.h; sourceTree = "<group>"; };
@@ -854,6 +863,19 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		814B2BD71B8204CF003A10A5 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				814B2BD41B8204C2003A10A5 /* AIMessageViewController.h */,
+				814B2BD51B8204C2003A10A5 /* AIMessageViewController.m */,
+				814B2BD81B8204F2003A10A5 /* AIMessageModel.h */,
+				814B2BD91B8204F2003A10A5 /* AIMessageModel.m */,
+				814B2BDB1B820529003A10A5 /* AIMessageCell.h */,
+				814B2BDC1B820529003A10A5 /* AIMessageCell.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
 		817E15CE1B7C8A2700C298BE /* Web */ = {
 			isa = PBXGroup;
 			children = (
@@ -1289,6 +1311,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				814B2BD71B8204CF003A10A5 /* Message */,
 				8119B3001B7D855500625FB4 /* Web */,
 				84D9B81A1B7C2C31005331B5 /* Comment */,
 				938A3AD81B2573B100E3A5BF /* Video */,
@@ -2122,6 +2145,7 @@
 			files = (
 				93D806CF1B1C6D7900B13FFF /* MainSearchViewController.swift in Sources */,
 				93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */,
+				814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */,
 				936DAC1D1ADCF4170025483B /* AIRecognizerFactory.m in Sources */,
 				814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */,
 				8198ABA31B8183B30047E740 /* AIMessage.m in Sources */,
@@ -2153,6 +2177,7 @@
 				9349870C1B0D8DEE003086D1 /* AIHomeStyleMananger.swift in Sources */,
 				93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */,
 				93F66DE71B1976AC00AEA92A /* AIChatNewSprintViewController.swift in Sources */,
+				814B2BD61B8204C2003A10A5 /* AIMessageViewController.m in Sources */,
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
 				8198ABD81B81840E0047E740 /* JSONModelError.m in Sources */,
 				937C77681B1E9BBB006FF589 /* AICServiceViewController.swift in Sources */,
@@ -2232,6 +2257,7 @@
 				93FF74641B0ECEA000FD97C1 /* CVCalendarManager.swift in Sources */,
 				12A20DA91B1719D0003E412A /* AIOrderModel.swift in Sources */,
 				93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */,
+				814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */,
 				93F66DE91B19D7B800AEA92A /* NSObjcetUtils.swift in Sources */,
 				9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */,
 				93692C971ACAA52A00D66211 /* Async.swift in Sources */,
