@@ -55,7 +55,8 @@ struct AIHttpEngine{
         case ModifyFavoriteFlag
         // 提交订单
         case SubmitOrder
-
+        // 查询时间轴
+        case QueryTimeLineServices
         var description: String {
             switch self {
             case .GetServiceDetail: return "/sboss/getServiceDetail"
@@ -71,8 +72,10 @@ struct AIHttpEngine{
             case .DelContentFromFavorite: return "/sboss/delContentFromFavorite"
             case .ModifyFavoriteFlag: return "/sboss/modifyFavoriteFlag"
             case .SubmitOrder: return "/sboss/submitOrder"
+            case .QueryTimeLineServices: return "/sboss/queryNodesFromTimeLine"
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
+                
             }
         }
     }

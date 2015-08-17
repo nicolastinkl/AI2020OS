@@ -74,8 +74,7 @@ class AIOrderDetailViewController: UIViewController, UITableViewDataSource, UITa
             })
         }
     }
-
-    
+ 
     // MARK:life cycle
     override func viewWillAppear(animated: Bool) {
         navigationController?.interactivePopGestureRecognizer.delegate = nil
