@@ -58,6 +58,7 @@
 		84951FB71B1312E500179483 /* SearchEngineImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB51B1312E500179483 /* SearchEngineImp.swift */; };
 		849EC6C31B31062E00930697 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849EC6C21B31062E00930697 /* AISearchBar.xib */; };
 		849EC6C71B310D3100930697 /* AISearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EC6C61B310D3100930697 /* AISearchBarView.swift */; };
+		84CA2EFC1B81883000FCB971 /* AITimeLineServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */; };
 		84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */; };
 		84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */; };
 		84CB368A1B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36881B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift */; };
@@ -453,6 +454,7 @@
 		84951FB51B1312E500179483 /* SearchEngineImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngineImp.swift; sourceTree = "<group>"; };
 		849EC6C21B31062E00930697 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
 		849EC6C61B310D3100930697 /* AISearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBarView.swift; sourceTree = "<group>"; };
+		84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimeLineServices.swift; sourceTree = "<group>"; };
 		84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogViewController.swift; sourceTree = "<group>"; };
 		84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICatalogTableCellTableViewCell.xib; sourceTree = "<group>"; };
 		84CB36881B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICatalogTableCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -1273,6 +1275,7 @@
 				9301B0751B09979500C1EE79 /* AILoginService.swift */,
 				F2AF4C521B19B6DE007E9493 /* AIOrderDetailService.swift */,
 				84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */,
+				84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */,
 			);
 			name = Services;
 			path = AI2020OS/Services;
@@ -2125,6 +2128,7 @@
 				934987091B0C75E9003086D1 /* AIMessageUnReadView.swift in Sources */,
 				933ED4381AC92B6700E4AADB /* AIBridge.m in Sources */,
 				934987211B0E06DD003086D1 /* AIMessageCenterViewController.swift in Sources */,
+				84CA2EFC1B81883000FCB971 /* AITimeLineServices.swift in Sources */,
 				1284ABC81B2036C600636F35 /* AITagFilterViewController.swift in Sources */,
 				93659F641B1EF2090065E661 /* AITableViewInsetMakeView.swift in Sources */,
 				8198ABA51B8183B30047E740 /* AINetEngine.m in Sources */,

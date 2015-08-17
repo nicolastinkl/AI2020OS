@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import Cartography
 
-
 class AIOrderListViewController:UIViewController{
 
     // MARK: - IBOutlets
