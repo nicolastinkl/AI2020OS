@@ -42,4 +42,8 @@ typedef void(^net_fail_block)(AINetError error, NSString *errorDes);
  */
 - (void)cancelAllMessages;
 
+/*说明:增加默认header
+ */
+- (void)addCommonHeaders:(NSDictionary *)header;
+
 @end
