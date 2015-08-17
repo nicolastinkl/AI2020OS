@@ -53,19 +53,6 @@ class AIMessageCenterViewController: UIViewController {
         
     }
     
-    
-    func message()
-    {
-        var message:AIMessage = AIMessage()
-        message.body.setObject("123", forKey: "value")
-        
-        AINetEngine.defaultEngine().postMessage(message, success: { (response:NSDictionary) -> Void in
-            
-            }) { (error:AINetError, errorDes) -> Void in
-            
-        }
-    }
-    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navigationbar-white"), forBarMetrics: UIBarMetrics.Default)
         navigationController?.setNavigationBarHidden(false, animated: true)

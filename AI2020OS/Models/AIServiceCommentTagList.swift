@@ -10,14 +10,14 @@ import Foundation
 
 class AIServiceCommentTagList :JSONModel {
     var content : String?
-    var service_comment_list : AIServiceComment[]
+    var service_comment_list : [AIServiceComment]?
 }
 
 class AIServiceComment :JSONModel {
-    var service_id : long?
+    var service_id : Int?
     var service_name : String?
     var provider_portrait_url : String?
-    var comment_tags : AICommentTag[]?
+    var comment_tags : [AICommentTag]?
     
 }
 
