@@ -23,6 +23,7 @@
 		12C9ED281B203E9C003E2215 /* AITagFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9ED271B203E9C003E2215 /* AITagFilterModel.swift */; };
 		12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616001B27DE8A0032DACE /* AITagEditViewController.swift */; };
 		12E616041B28105B0032DACE /* RRTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */; };
+		12E926081B7C76570053D2E0 /* AICustomerOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E926071B7C76570053D2E0 /* AICustomerOrderListViewController.swift */; };
 		8119B2FF1B7D835200625FB4 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8119B2FE1B7D835200625FB4 /* AssetsLibrary.framework */; };
 		8119B3031B7D858000625FB4 /* AIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8119B3021B7D858000625FB4 /* AIWebViewController.m */; };
 		817E15D31B7C8A2700C298BE /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 817E15CF1B7C8A2700C298BE /* config.xml */; };
@@ -48,7 +49,6 @@
 		8198ABD81B81840E0047E740 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABC51B81840E0047E740 /* JSONModelError.m */; };
 		8198ABD91B81840E0047E740 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABC81B81840E0047E740 /* JSONKeyMapper.m */; };
 		8198ABDA1B81840E0047E740 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABCA1B81840E0047E740 /* JSONValueTransformer.m */; };
-		12E926081B7C76570053D2E0 /* AICustomerOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E926071B7C76570053D2E0 /* AICustomerOrderListViewController.swift */; };
 		84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */; };
 		8415F4E31B135688003160B4 /* SearchServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */; };
 		84951FB61B1312E500179483 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB41B1312E500179483 /* SearchEngine.swift */; };
@@ -2052,7 +2052,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# xcode-build-bump.sh\n# @desc Auto-increment the build number every time the project is run.\n# @usage\n# 1. Select: your Target in Xcode\n# 2. Select: Build Phases Tab\n# 3. Select: Add Build Phase -> Add Run Script\n# 4. Paste code below in to new \"Run Script\" section\n# 5. Drag the \"Run Script\" below \"Link Binaries With Libraries\"\n# 6. Insure that your starting build number is set to a whole integer and not a float (e.g. 1, not 1.0)\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+			shellScript = "# xcode-build-bump.sh\n# @desc Auto-increment the build number every time the project is run.\n# @usage\n# 1. Select: your Target in Xcode\n# 2. Select: Build Phases Tab\n# 3. Select: Add Build Phase -> Add Run Script\n# 4. Paste code below in to new \"Run Script\" section\n# 5. Drag the \"Run Script\" below \"Link Binaries With Libraries\"\n# 6. Insure that your starting build number is set to a whole integer and not a float (e.g. 1, not 1.0)\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n# /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 		933ED40C1AC8F9CA00E4AADB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2065,7 +2065,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# xcode-version-bump.sh\n# @desc Auto-increment the version number (only) when a project is archived for export.\n# @usage\n# 1. Select: your Target in Xcode\n# 2. Select: Build Phases Tab\n# 3. Select: Add Build Phase -> Add Run Script\n# 4. Paste code below in to new \"Run Script\" section\n# 5. Check the checkbox \"Run script only when installing\"\n# 6. Drag the \"Run Script\" below \"Link Binaries With Libraries\"\n# 7. Insure your starting version number is in SemVer format (e.g. 1.0.0)\n\n# This splits a two-decimal version string, such as \"0.45.123\", allowing us to increment the third position.\nVERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nNEWSUBVERSION=`echo $VERSIONNUM | awk -F \".\" '{print $3}'`\nNEWSUBVERSION=$(($NEWSUBVERSION + 1))\nNEWVERSIONSTRING=`echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+			shellScript = "# xcode-version-bump.sh\n# @desc Auto-increment the version number (only) when a project is archived for export.\n# @usage\n# 1. Select: your Target in Xcode\n# 2. Select: Build Phases Tab\n# 3. Select: Add Build Phase -> Add Run Script\n# 4. Paste code below in to new \"Run Script\" section\n# 5. Check the checkbox \"Run script only when installing\"\n# 6. Drag the \"Run Script\" below \"Link Binaries With Libraries\"\n# 7. Insure your starting version number is in SemVer format (e.g. 1.0.0)\n\n# This splits a two-decimal version string, such as \"0.45.123\", allowing us to increment the third position.\nVERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nNEWSUBVERSION=`echo $VERSIONNUM | awk -F \".\" '{print $3}'`\nNEWSUBVERSION=$(($NEWSUBVERSION + 1))\nNEWVERSIONSTRING=`echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }'`\n# /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 		A96ECCBD274F402AAC7916BB /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
