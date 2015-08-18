@@ -83,8 +83,9 @@
 		84DBFF641B26D71F00F7FED6 /* AIFavorServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */; };
 		84DBFF661B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */; };
 		84DBFF681B26E68200F7FED6 /* AIServiceTagFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFF671B26E68200F7FED6 /* AIServiceTagFilterViewController.swift */; };
+		84DD649B1B82D128009BDB2A /* AIImageViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD649A1B82D128009BDB2A /* AIImageViewUtils.swift */; };
+		84DD649D1B831EA7009BDB2A /* AITipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD649C1B831EA7009BDB2A /* AITipModel.m */; };
 		84DE7DAF1B79E623007E8F7F /* AICommentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */; };
-		84DE7DB11B79ECFB007E8F7F /* AIRoundImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DE7DB01B79ECFB007E8F7F /* AIRoundImageView.xib */; };
 		84DE7DB31B79ED51007E8F7F /* AIRoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */; };
 		84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */; };
 		84DF5F291B81CB7800C9A239 /* AIServiceCommentTagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF5F281B81CB7800C9A239 /* AIServiceCommentTagList.swift */; };
@@ -494,8 +495,10 @@
 		84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavorServicesManager.swift; sourceTree = "<group>"; };
 		84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceFilterStoryboard.storyboard; sourceTree = "<group>"; };
 		84DBFF671B26E68200F7FED6 /* AIServiceTagFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceTagFilterViewController.swift; sourceTree = "<group>"; };
+		84DD649A1B82D128009BDB2A /* AIImageViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageViewUtils.swift; sourceTree = "<group>"; };
+		84DD649C1B831EA7009BDB2A /* AITipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITipModel.m; sourceTree = "<group>"; };
+		84DD649E1B831EE7009BDB2A /* AITipModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AITipModel.h; sourceTree = "<group>"; };
 		84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AICommentStoryboard.storyboard; sourceTree = "<group>"; };
-		84DE7DB01B79ECFB007E8F7F /* AIRoundImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRoundImageView.xib; sourceTree = "<group>"; };
 		84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRoundImageView.swift; sourceTree = "<group>"; };
 		84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentTagViewCell.swift; sourceTree = "<group>"; };
 		84DF5F281B81CB7800C9A239 /* AIServiceCommentTagList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentTagList.swift; sourceTree = "<group>"; };
@@ -1307,6 +1310,8 @@
 				84D142611B2EA04A00662291 /* AITagModel.swift */,
 				84D1B6DF1B7C49660094D553 /* AITimeLineModel.swift */,
 				84DF5F281B81CB7800C9A239 /* AIServiceCommentTagList.swift */,
+				84DD649C1B831EA7009BDB2A /* AITipModel.m */,
+				84DD649E1B831EE7009BDB2A /* AITipModel.h */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -1372,7 +1377,6 @@
 				9349871B1B0DBDE2003086D1 /* AIErrorRetryView.xib */,
 				938A398F1B2153DA00E3A5BF /* DLHamburguerContainerViewController.swift */,
 				938A39901B2153DA00E3A5BF /* DLHamburguerViewController.swift */,
-				84DE7DB01B79ECFB007E8F7F /* AIRoundImageView.xib */,
 				84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */,
 				84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */,
 			);
@@ -1395,6 +1399,7 @@
 				93E2F7A31B09890D00483CFA /* AITransitionManagerMenuAnimation.swift */,
 				93F66DE81B19D7B800AEA92A /* NSObjcetUtils.swift */,
 				938A39891B2020F200E3A5BF /* AIButtonUtils.swift */,
+				84DD649A1B82D128009BDB2A /* AIImageViewUtils.swift */,
 			);
 			name = Utils;
 			path = AI2020OS/Utils;
@@ -2009,7 +2014,6 @@
 				84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */,
 				93E4D5AD1B14AA5900992CA3 /* AIOrderStoryboard.storyboard in Resources */,
 				938A39941B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard in Resources */,
-				84DE7DB11B79ECFB007E8F7F /* AIRoundImageView.xib in Resources */,
 				93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */,
 				938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */,
 				931718831B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard in Resources */,
@@ -2188,6 +2192,7 @@
 				934987011B0B1750003086D1 /* AITIMELINESDContentViewCell.swift in Sources */,
 				9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */,
 				938A39911B2153DA00E3A5BF /* DLHamburguerContainerViewController.swift in Sources */,
+				84DD649D1B831EA7009BDB2A /* AITipModel.m in Sources */,
 				93FF74691B0ECEA000FD97C1 /* CVCalendarView.swift in Sources */,
 				84D9B81F1B7C320B005331B5 /* AISingleCommentViewController.swift in Sources */,
 				9337FF611AD4097A0046F8DC /* AIUINavigationController.m in Sources */,
@@ -2239,6 +2244,7 @@
 				939E663A1B27EAE900FD5FBA /* AIFavoriteContentModel.swift in Sources */,
 				93FF74671B0ECEA000FD97C1 /* CVCalendarMonthView.swift in Sources */,
 				84CB368A1B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift in Sources */,
+				84DD649B1B82D128009BDB2A /* AIImageViewUtils.swift in Sources */,
 				93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */,
 				814B2BD31B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m in Sources */,
 				938A398A1B2020F200E3A5BF /* AIButtonUtils.swift in Sources */,
