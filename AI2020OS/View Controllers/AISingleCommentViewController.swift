@@ -29,8 +29,34 @@ class AISingleCommentViewController : UIViewController {
  
         self.view.addSubview(commentView)
         
+            }
+    
+    override func viewDidAppear(animated: Bool) {
+        var tips = [AITipModel]()
+        var tip = AITipModel()
+        tip.value = 5
+        tip.desc = "+5元"
+        tips.append(tip)
+        
+        tip = AITipModel()
+        tip.value = 5
+        tip.desc = "+10元"
+        tips.append(tip)
+        
+        tip = AITipModel()
+        tip.value = 5
+        tip.desc = "自定义"
+        tips.append(tip)
+        
+        let space = commentView.buttonMargin
+        let width: CGFloat = (commentView.collectionView.width - space * CGFloat(tips.count - 1)) / CGFloat(tips.count)
+        commentView.tipButtonSize = CGSizeMake(width, commentView.scopeView.DEFAULT_HEIGHT)
+        commentView.tipsData = tips
+        
+        
         commentManager = AIServiceCommentMockManager()
         commentManager.getCommentTags(1234, success: loadSeccess, fail: loadFail)
+
     }
     
     private func loadSeccess(responseData: AIServiceCommentTagList) {

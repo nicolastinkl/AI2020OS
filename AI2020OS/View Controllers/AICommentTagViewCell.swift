@@ -22,7 +22,7 @@ class AICommentTagViewCell: UICollectionViewCell {
             var newContentFrame = contentView.frame
             let textSize = self.dynamicType.sizeForCell(newText,
                 forMaxWidth: maxWidth)
-            let buttonSize = CGSize(width: textSize.width + 10, height: textSize.height)
+            let buttonSize = CGSize(width: textSize.width + TagConstants.MARGIN_WIDTH, height: textSize.height + TagConstants.MARGIN_HEIGHT)
             newLabelFrame.size = textSize
             newContentFrame.size = textSize
             label.frame = newLabelFrame
@@ -50,8 +50,8 @@ class AICommentTagViewCell: UICollectionViewCell {
     class func sizeForCell(s: String,
         forMaxWidth maxWidth: CGFloat) -> CGSize {
             
-            let MARGIN_WIDTH = CGFloat(10)
-            let MARGIN_HEIGHT = CGFloat(0)
+      //      let MARGIN_WIDTH = CGFloat(10)
+      //      let MARGIN_HEIGHT = CGFloat(0)
             
             let maxSize = CGSizeMake(maxWidth, 1000)
             let opts = NSStringDrawingOptions.UsesLineFragmentOrigin
@@ -65,8 +65,13 @@ class AICommentTagViewCell: UICollectionViewCell {
             let rect = string.boundingRectWithSize(maxSize, options: opts,
                 attributes: attributes, context: nil)
             
-            let buttonSize = CGSize(width: rect.width + MARGIN_WIDTH, height: rect.height)
+            let buttonSize = CGSize(width: rect.width + TagConstants.MARGIN_WIDTH, height: rect.height + TagConstants.MARGIN_HEIGHT)
             return buttonSize
+    }
+    
+    struct TagConstants {
+        static let MARGIN_WIDTH = CGFloat(10)
+        static let MARGIN_HEIGHT = CGFloat(10)
     }
 }
 
