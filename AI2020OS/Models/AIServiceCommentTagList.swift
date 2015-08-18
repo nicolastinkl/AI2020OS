@@ -8,19 +8,18 @@
 
 import Foundation
 
-class AIServiceCommentTagList :JSONModel {
-    var content : String?
-    var service_comment_list : [AIServiceComment]?
+class AIServiceCommentTagList: JSONModel {
+    var service_comment_list: NSMutableArray?
 }
 
-class AIServiceComment :JSONModel {
+class AIServiceComment: JSONModel {
     var service_id : Int?
-    var service_name : String?
-    var provider_portrait_url : String?
-    var comment_tags : [AICommentTag]?
+    var service_name : NSString?
+    var provider_portrait_url : NSString?
+    var comment_tags : NSMutableArray?
     
 }
 
-class AICommentTag :JSONModel {
-    var content : String?
+class AICommentTag: JSONModel {
+    var content : NSString?
 }

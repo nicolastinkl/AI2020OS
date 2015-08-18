@@ -9,5 +9,5 @@
 import Foundation
 
 protocol AIServiceCommentManager {
-    func getCommentTags(serviceId: Int, success: (responseData: NSDictionary) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func getCommentTags(serviceId: Int, success: (responseData: AIServiceCommentTagList) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }

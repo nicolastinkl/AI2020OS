@@ -24,11 +24,15 @@
 		12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616001B27DE8A0032DACE /* AITagEditViewController.swift */; };
 		12E616041B28105B0032DACE /* RRTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */; };
 		12E926081B7C76570053D2E0 /* AICustomerOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E926071B7C76570053D2E0 /* AICustomerOrderListViewController.swift */; };
+		12E9260A1B81D6470053D2E0 /* AIProviderOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E926091B81D6470053D2E0 /* AIProviderOrderListViewController.swift */; };
 		8119B2FF1B7D835200625FB4 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8119B2FE1B7D835200625FB4 /* AssetsLibrary.framework */; };
 		8119B3031B7D858000625FB4 /* AIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8119B3021B7D858000625FB4 /* AIWebViewController.m */; };
 		814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BCB1B81C9EB003A10A5 /* CDVCamera.m */; };
 		814B2BD21B81C9EB003A10A5 /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BCE1B81C9EB003A10A5 /* CDVJpegHeaderWriter.m */; };
 		814B2BD31B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD01B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m */; };
+		814B2BD61B8204C2003A10A5 /* AIMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD51B8204C2003A10A5 /* AIMessageViewController.m */; };
+		814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD91B8204F2003A10A5 /* AIMessageModel.m */; };
+		814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BDC1B820529003A10A5 /* AIMessageCell.m */; };
 		817E15D31B7C8A2700C298BE /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 817E15CF1B7C8A2700C298BE /* config.xml */; };
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
 		817E15F61B7C8DB800C298BE /* www in Resources */ = {isa = PBXBuildFile; fileRef = 817E15F51B7C8DB800C298BE /* www */; };
@@ -85,6 +89,7 @@
 		84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */; };
 		84DF5F291B81CB7800C9A239 /* AIServiceCommentTagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF5F281B81CB7800C9A239 /* AIServiceCommentTagList.swift */; };
 		84DF5F2C1B81DB3A00C9A239 /* AIServiceCommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF5F2B1B81DB3A00C9A239 /* AIServiceCommentManager.swift */; };
+		84DF5F2E1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF5F2D1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift */; };
 		84DFAD1F1B7D8D580091B156 /* AISelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */; };
 		84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E052231B3006EF00B0299F /* AILaunchScreen.xib */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
@@ -370,6 +375,7 @@
 		12E616001B27DE8A0032DACE /* AITagEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITagEditViewController.swift; sourceTree = "<group>"; };
 		12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		12E926071B7C76570053D2E0 /* AICustomerOrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerOrderListViewController.swift; sourceTree = "<group>"; };
+		12E926091B81D6470053D2E0 /* AIProviderOrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProviderOrderListViewController.swift; sourceTree = "<group>"; };
 		185C5C827FF9C9E6B31333B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8119B2FE1B7D835200625FB4 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8119B3011B7D858000625FB4 /* AIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIWebViewController.h; path = Web/AIWebViewController.h; sourceTree = "<group>"; };
@@ -381,6 +387,12 @@
 		814B2BCE1B81C9EB003A10A5 /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVJpegHeaderWriter.m; sourceTree = "<group>"; };
 		814B2BCF1B81C9EB003A10A5 /* UIImage+CropScaleOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropScaleOrientation.h"; sourceTree = "<group>"; };
 		814B2BD01B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropScaleOrientation.m"; sourceTree = "<group>"; };
+		814B2BD41B8204C2003A10A5 /* AIMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMessageViewController.h; path = Message/AIMessageViewController.h; sourceTree = "<group>"; };
+		814B2BD51B8204C2003A10A5 /* AIMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageViewController.m; path = Message/AIMessageViewController.m; sourceTree = "<group>"; };
+		814B2BD81B8204F2003A10A5 /* AIMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMessageModel.h; path = Message/AIMessageModel.h; sourceTree = "<group>"; };
+		814B2BD91B8204F2003A10A5 /* AIMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageModel.m; path = Message/AIMessageModel.m; sourceTree = "<group>"; };
+		814B2BDB1B820529003A10A5 /* AIMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMessageCell.h; path = Message/AIMessageCell.h; sourceTree = "<group>"; };
+		814B2BDC1B820529003A10A5 /* AIMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageCell.m; path = Message/AIMessageCell.m; sourceTree = "<group>"; };
 		817E15CF1B7C8A2700C298BE /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		817E15D81B7C8AB000C298BE /* CDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
 		817E15D91B7C8AB000C298BE /* CDVAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVAvailability.h; sourceTree = "<group>"; };
@@ -488,6 +500,7 @@
 		84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentTagViewCell.swift; sourceTree = "<group>"; };
 		84DF5F281B81CB7800C9A239 /* AIServiceCommentTagList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentTagList.swift; sourceTree = "<group>"; };
 		84DF5F2B1B81DB3A00C9A239 /* AIServiceCommentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentManager.swift; sourceTree = "<group>"; };
+		84DF5F2D1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentManagerImp.swift; sourceTree = "<group>"; };
 		84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectableButton.swift; sourceTree = "<group>"; };
 		84E052231B3006EF00B0299F /* AILaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AILaunchScreen.xib; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
@@ -858,6 +871,19 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		814B2BD71B8204CF003A10A5 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				814B2BD41B8204C2003A10A5 /* AIMessageViewController.h */,
+				814B2BD51B8204C2003A10A5 /* AIMessageViewController.m */,
+				814B2BD81B8204F2003A10A5 /* AIMessageModel.h */,
+				814B2BD91B8204F2003A10A5 /* AIMessageModel.m */,
+				814B2BDB1B820529003A10A5 /* AIMessageCell.h */,
+				814B2BDC1B820529003A10A5 /* AIMessageCell.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
 		817E15CE1B7C8A2700C298BE /* Web */ = {
 			isa = PBXGroup;
 			children = (
@@ -1074,6 +1100,7 @@
 			isa = PBXGroup;
 			children = (
 				84DF5F2B1B81DB3A00C9A239 /* AIServiceCommentManager.swift */,
+				84DF5F2D1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift */,
 			);
 			name = Comment;
 			sourceTree = "<group>";
@@ -1303,6 +1330,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				814B2BD71B8204CF003A10A5 /* Message */,
 				8119B3001B7D855500625FB4 /* Web */,
 				84D9B81A1B7C2C31005331B5 /* Comment */,
 				938A3AD81B2573B100E3A5BF /* Video */,
@@ -1686,6 +1714,7 @@
 				931718801B159C3600EC9C14 /* AIOrderDetailViewController.swift */,
 				12E926071B7C76570053D2E0 /* AICustomerOrderListViewController.swift */,
 				84D1B6DD1B7C33690094D553 /* AIOrderSubmitViewController.swift */,
+				12E926091B81D6470053D2E0 /* AIProviderOrderListViewController.swift */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -2136,6 +2165,7 @@
 			files = (
 				93D806CF1B1C6D7900B13FFF /* MainSearchViewController.swift in Sources */,
 				93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */,
+				814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */,
 				936DAC1D1ADCF4170025483B /* AIRecognizerFactory.m in Sources */,
 				814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */,
 				8198ABA31B8183B30047E740 /* AIMessage.m in Sources */,
@@ -2167,6 +2197,7 @@
 				9349870C1B0D8DEE003086D1 /* AIHomeStyleMananger.swift in Sources */,
 				93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */,
 				93F66DE71B1976AC00AEA92A /* AIChatNewSprintViewController.swift in Sources */,
+				814B2BD61B8204C2003A10A5 /* AIMessageViewController.m in Sources */,
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
 				8198ABD81B81840E0047E740 /* JSONModelError.m in Sources */,
 				937C77681B1E9BBB006FF589 /* AICServiceViewController.swift in Sources */,
@@ -2227,6 +2258,7 @@
 				84DF5F2C1B81DB3A00C9A239 /* AIServiceCommentManager.swift in Sources */,
 				93F66DE41B196F5500AEA92A /* AITMSGSDContentViewCell.swift in Sources */,
 				9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */,
+				84DF5F2E1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift in Sources */,
 				939E66421B291F4100FD5FBA /* KSToken.swift in Sources */,
 				8198ABD11B81840E0047E740 /* AFURLRequestSerialization.m in Sources */,
 				8198ABA41B8183B30047E740 /* AIMessageWrapper.m in Sources */,
@@ -2247,6 +2279,7 @@
 				93FF74641B0ECEA000FD97C1 /* CVCalendarManager.swift in Sources */,
 				12A20DA91B1719D0003E412A /* AIOrderModel.swift in Sources */,
 				93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */,
+				814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */,
 				93F66DE91B19D7B800AEA92A /* NSObjcetUtils.swift in Sources */,
 				9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */,
 				84DF5F291B81CB7800C9A239 /* AIServiceCommentTagList.swift in Sources */,
@@ -2267,6 +2300,7 @@
 				F2DACC2B1B197A7500233EFD /* AIOrderDetailModel.swift in Sources */,
 				84D393E61B2A88800045EE3A /* AIFavoritesServicesModel.swift in Sources */,
 				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
+				12E9260A1B81D6470053D2E0 /* AIProviderOrderListViewController.swift in Sources */,
 				12A20DAB1B1719F3003E412A /* AIOrderService.swift in Sources */,
 				814B2BD21B81C9EB003A10A5 /* CDVJpegHeaderWriter.m in Sources */,
 				12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */,
