@@ -9,6 +9,21 @@
 import Foundation
 import JSONJoy
 
+
+struct AITimeLineModelResult: JSONJoy  {
+    var service_array: Array<AITimeLineModel>?
+    init(_ decoder: JSONDecoder) {
+        if let addrs = decoder["data"].array {
+            service_array = Array<AITimeLineModel>()
+            for addrDecoder in addrs {
+                service_array?.append(AITimeLineModel(addrDecoder))
+            }
+        }
+    }
+    
+}
+
+
 class AITimeLineModel: JSONJoy {
     var  Id: Int?
     var currentTimeStamp: Double?
@@ -18,11 +33,15 @@ class AITimeLineModel: JSONJoy {
     var expend:Int?
     
     init() {
-        //["currentTimeStamp":"1439436741","title":"瑞士凯斯瑜伽课","content":"Jeeny老师|印度特色课"],
+        
     }
     
     required init(_ decoder: JSONDecoder) {
-        
+        currentTimeStamp = decoder["timeStamp"].double
+        title = decoder["offerName"].string
+        content = decoder["stepDesc"].string
+        type = 0
+        expend = 0
     }
     
 }

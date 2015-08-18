@@ -53,9 +53,9 @@ class AITimelineViewController: UITableViewController {
         model4.content = "中国航空 CA2393 | 330"
         model4.currentTimeStamp = 1439550715
         
-        dataTimeLineArray = NSMutableArray(array:  [model,model1,model2,model3,model4])
+        //dataTimeLineArray = NSMutableArray(array:  [model,model1,model2,model3,model4])
         
-        self.tableView.reloadData()
+        dataTimeLineArray = NSMutableArray()
         
         var label = UILabel()
         //label.backgroundColor = UIColor(rgba: "#a7a7a7")
@@ -73,6 +73,30 @@ class AITimelineViewController: UITableViewController {
         
         let timer =  NSTimer(timeInterval: 60, target: self, selector: "refereshCurrentTime", userInfo: nil, repeats: true)
         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+
+        retryNetworkingAction()
+        
+        
+    }
+    
+    func retryNetworkingAction(){
+        self.view.hideProgressViewLoading()
+        self.view.showProgressViewLoading()
+        
+        Async.utility {
+            AITimeLineServices().queryAllTimeData("1", completion: { (data: [AITimeLineModel]) -> () in
+                self.view.hideProgressViewLoading()
+                if data.count > 0  {
+                    self.dataTimeLineArray = NSMutableArray(array: data)
+                    self.view.hideErrorView()
+                }else{
+                    self.view.showErrorView()
+                }
+                
+                self.tableView.reloadData()
+                
+            })
+        }
         
     }
     

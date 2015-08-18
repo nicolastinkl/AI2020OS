@@ -11,7 +11,9 @@ import UIKit
 
 class AISingleCommentViewController : UIViewController {
     
-    var commentView : AISingleCommentView!
+    var commentView: AISingleCommentView!
+    var commentManager: AIServiceCommentManager!
+    
     @IBOutlet weak var confirmBtn: UIButton!
     
     override func viewDidLoad() {
@@ -24,10 +26,20 @@ class AISingleCommentViewController : UIViewController {
         
         commentView = AISingleCommentView.instance(self)
         commentView.frame = commentFrame
-        
-        
-        
+ 
         self.view.addSubview(commentView)
-
+        
+        commentManager = AIServiceCommentMockManager()
+        commentManager.getCommentTags(1234, success: loadSeccess, fail: loadFail)
+    }
+    
+    private func loadSeccess(responseData: AIServiceCommentTagList) {
+        if responseData.service_comment_list != nil && responseData.service_comment_list!.count > 0 {
+            commentView.commentData = responseData.service_comment_list!.objectAtIndex(0) as? AIServiceComment
+        }
+    }
+    
+    private func loadFail(errType: AINetError, errDes: String) {
+        
     }
 }
