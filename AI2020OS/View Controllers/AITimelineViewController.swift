@@ -58,6 +58,7 @@ class AITimelineViewController: UITableViewController {
         dataTimeLineArray = NSMutableArray()
         
         var label = UILabel()
+        label.tag = 2
         //label.backgroundColor = UIColor(rgba: "#a7a7a7")
         self.view.insertSubview(label, atIndex: 0)
 
@@ -76,10 +77,11 @@ class AITimelineViewController: UITableViewController {
 
         retryNetworkingAction()
         
-        
     }
     
     func retryNetworkingAction(){
+        let viewLabel = self.view.viewWithTag(2)
+
         self.view.hideProgressViewLoading()
         self.view.showProgressViewLoading()
         
@@ -89,15 +91,15 @@ class AITimelineViewController: UITableViewController {
                 if data.count > 0  {
                     self.dataTimeLineArray = NSMutableArray(array: data)
                     self.view.hideErrorView()
+                    viewLabel?.hidden = false
                 }else{
                     self.view.showErrorView()
+                    viewLabel?.hidden = true
                 }
-                
                 self.tableView.reloadData()
                 
             })
         }
-        
     }
     
     ///referesh current timer.
