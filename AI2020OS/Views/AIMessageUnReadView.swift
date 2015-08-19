@@ -22,9 +22,14 @@ class AIMessageUnReadView: UIView {
     @IBAction func showMessageCenterAction(sender: AnyObject) {
         
         
+        var messageVC:AIMessageViewController = AIMessageViewController()
+        messageVC.hidesBottomBarWhenPushed = true
+        /*
         let storyBoard:UIStoryboard = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIMesageCenterStoryboard, bundle: nil)
         let viewNavi = storyBoard.instantiateInitialViewController() as UIViewController
-        AIApplication.pushViewController(viewNavi)
+*/
+
+        AIApplication.pushViewController(messageVC)
     }
     
 }
