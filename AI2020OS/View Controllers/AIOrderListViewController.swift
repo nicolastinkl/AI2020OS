@@ -31,6 +31,12 @@ class AIOrderListViewController:UIViewController{
         toggleOrderList(ORDER_ROLE_PROVIDER)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.title = " "
+    }
+    
+    
     // MARK: - life cycle
     override func viewWillAppear(animated: Bool) {
 //        navigationController?.setNavigationBarHidden(true, animated: true)
