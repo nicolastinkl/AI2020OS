@@ -202,12 +202,12 @@
                                             <action selector="showMenuClick:" destination="aMn-dT-4gL" eventType="touchUpInside" id="FJ7-Rt-eV2"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Q-Fs-A6i">
-                                        <rect key="frame" x="150" y="24" width="300" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务名称" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Q-Fs-A6i">
+                                        <rect key="frame" x="175" y="24" width="250" height="30"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="AbL-Xg-n1A"/>
-                                            <constraint firstAttribute="width" constant="300" id="aVR-ae-qka"/>
+                                            <constraint firstAttribute="width" constant="250" id="aVR-ae-qka"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
