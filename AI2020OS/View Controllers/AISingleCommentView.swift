@@ -40,7 +40,7 @@ class AISingleCommentView: UIView {
            //     tipsCollectionView.reloadData()
                 var models = [ServerScopeModel]()
                 
-                for var index = 0; index < 3; ++index {
+                for var index = 0; index < tipsData!.count; ++index {
                     var scopeModel = ServerScopeModel(outId: "\(index)", outContent: tipsData![index].desc)
                     models.append(scopeModel)
                 }

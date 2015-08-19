@@ -23,9 +23,8 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     
     // MARK: life cycle
     override func viewWillAppear(animated: Bool) {
-        //        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
         navigationController?.interactivePopGestureRecognizer.delegate = nil
-         
         super.viewWillAppear(animated)
     }
     
@@ -154,7 +153,11 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //AIOrderDetailStoryboard
         //        println("执行跳转逻辑")
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderDetailStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateViewControllerWithIdentifier("AICustomerOrderDetailViewController") as UIViewController
+        //setup next page back button ,but it didn't work
+        
+
+        
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -23,18 +23,20 @@ struct ServerScopeModel {
 class AIServerScopeView: UIView {
     
     let DEFAULT_HEIGHT: CGFloat = 35
+    let DEFAULT_LEFT_MARGIN: CGFloat = 14
     var buttonSize: CGSize?
     
     private var selectedButton: UIButton?
     
-    var tagMargin:CGFloat = 10
+    var tagMargin: CGFloat = 10
+    var leftMargin: CGFloat = 14
     
     typealias SelectedHandler = ()->(String)
     
     func initWithViewsArray(array:[ServerScopeModel],parentView:UIView){
         // Setup 1: addSubViews.
         // Setup 2: layoutIfNeeds this frame.
-        var x:CGFloat = 0
+        var x:CGFloat = leftMargin
         var y:CGFloat = 14
         var n = 0
         for item in array{
@@ -63,27 +65,31 @@ class AIServerScopeView: UIView {
             let value  = item.content!
             button.setTitle("\(value)", forState: UIControlState.Normal)
             
+            var size: CGSize!
             if buttonSize == nil {
                 let width:CGFloat  = CGFloat("\(value)".length) * 18
            
-                buttonSize = CGSizeMake(width, DEFAULT_HEIGHT)
+                size = CGSizeMake(width, DEFAULT_HEIGHT)
+            } else {
+                size = buttonSize!
             }
             
-            if (x + buttonSize!.width + tagMargin) > parentView.width {
+            if (x + size.width + tagMargin) > parentView.width {
                 n = 0
-                x = 0
-                y += buttonSize!.height + tagMargin
+                x = leftMargin
+                y += size.height + tagMargin
             } else {
                 if n > 0 {
                     x = x + tagMargin
-                }
-                n = n + 1  // MARK: Add 1
+                }    
             }
             
-            button.setSize(buttonSize!)
+            n = n + 1  // MARK: Add 1
+            
+            button.setSize(size)
             button.setOrigin(CGPointMake(x, y))
             addSubview(button)
-            x = x + buttonSize!.width
+            x = x + size.width
             
             
         }
