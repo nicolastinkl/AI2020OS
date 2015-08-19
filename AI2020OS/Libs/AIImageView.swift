@@ -73,7 +73,7 @@ public class AIImageView: UIImageView {
     
 }
 
-extension UIImageView{
+extension UIImageView {
     
     typealias DowloadHandler = ()->()
     func sd_setImageWithURL(url:NSURL?,placeholderImage: UIImage?,completion: DowloadHandler?)->UIImageView{

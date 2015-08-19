@@ -11,6 +11,7 @@
 		1205C0DE1B20574F003E27C4 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1205C0DC1B20574F003E27C4 /* ENSideMenuNavigationController.swift */; };
 		1239DBB71B204F48002F6A4F /* TagFilterData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1239DBB61B204F48002F6A4F /* TagFilterData.plist */; };
 		1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1239DBB81B2052A8002F6A4F /* TagFilterData.plist */; };
+		123A45F61B831B27008B9CF6 /* AICustomerOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A45F51B831B27008B9CF6 /* AICustomerOrderDetailViewController.swift */; };
 		1284ABC41B2036B500636F35 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1284ABC11B2036B500636F35 /* SectionHeaderView.swift */; };
 		1284ABC51B2036B500636F35 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1284ABC21B2036B500636F35 /* SectionHeaderView.xib */; };
 		1284ABC61B2036B500636F35 /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1284ABC31B2036B500636F35 /* SectionInfo.swift */; };
@@ -24,6 +25,7 @@
 		12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616001B27DE8A0032DACE /* AITagEditViewController.swift */; };
 		12E616041B28105B0032DACE /* RRTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */; };
 		12E926081B7C76570053D2E0 /* AICustomerOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E926071B7C76570053D2E0 /* AICustomerOrderListViewController.swift */; };
+		12E9260A1B81D6470053D2E0 /* AIProviderOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E926091B81D6470053D2E0 /* AIProviderOrderListViewController.swift */; };
 		8119B2FF1B7D835200625FB4 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8119B2FE1B7D835200625FB4 /* AssetsLibrary.framework */; };
 		8119B3031B7D858000625FB4 /* AIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8119B3021B7D858000625FB4 /* AIWebViewController.m */; };
 		812388BE1B8428BC00CEA574 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 812388B41B8428BC00CEA574 /* WMFooldView.m */; };
@@ -87,8 +89,9 @@
 		84DBFF641B26D71F00F7FED6 /* AIFavorServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */; };
 		84DBFF661B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */; };
 		84DBFF681B26E68200F7FED6 /* AIServiceTagFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFF671B26E68200F7FED6 /* AIServiceTagFilterViewController.swift */; };
+		84DD649B1B82D128009BDB2A /* AIImageViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD649A1B82D128009BDB2A /* AIImageViewUtils.swift */; };
+		84DD649D1B831EA7009BDB2A /* AITipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD649C1B831EA7009BDB2A /* AITipModel.m */; };
 		84DE7DAF1B79E623007E8F7F /* AICommentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */; };
-		84DE7DB11B79ECFB007E8F7F /* AIRoundImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DE7DB01B79ECFB007E8F7F /* AIRoundImageView.xib */; };
 		84DE7DB31B79ED51007E8F7F /* AIRoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */; };
 		84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */; };
 		84DF5F291B81CB7800C9A239 /* AIServiceCommentTagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF5F281B81CB7800C9A239 /* AIServiceCommentTagList.swift */; };
@@ -366,6 +369,7 @@
 		1205C0DC1B20574F003E27C4 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
 		1239DBB61B204F48002F6A4F /* TagFilterData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TagFilterData.plist; path = AI2020OSTests/TagFilterData.plist; sourceTree = SOURCE_ROOT; };
 		1239DBB81B2052A8002F6A4F /* TagFilterData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TagFilterData.plist; sourceTree = "<group>"; };
+		123A45F51B831B27008B9CF6 /* AICustomerOrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerOrderDetailViewController.swift; sourceTree = "<group>"; };
 		1284ABC11B2036B500636F35 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		1284ABC21B2036B500636F35 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		1284ABC31B2036B500636F35 /* SectionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 		12E616001B27DE8A0032DACE /* AITagEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITagEditViewController.swift; sourceTree = "<group>"; };
 		12E616031B28105B0032DACE /* RRTagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		12E926071B7C76570053D2E0 /* AICustomerOrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerOrderListViewController.swift; sourceTree = "<group>"; };
+		12E926091B81D6470053D2E0 /* AIProviderOrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProviderOrderListViewController.swift; sourceTree = "<group>"; };
 		185C5C827FF9C9E6B31333B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8119B2FE1B7D835200625FB4 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8119B3011B7D858000625FB4 /* AIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIWebViewController.h; path = Web/AIWebViewController.h; sourceTree = "<group>"; };
@@ -508,8 +513,10 @@
 		84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavorServicesManager.swift; sourceTree = "<group>"; };
 		84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceFilterStoryboard.storyboard; sourceTree = "<group>"; };
 		84DBFF671B26E68200F7FED6 /* AIServiceTagFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceTagFilterViewController.swift; sourceTree = "<group>"; };
+		84DD649A1B82D128009BDB2A /* AIImageViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageViewUtils.swift; sourceTree = "<group>"; };
+		84DD649C1B831EA7009BDB2A /* AITipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITipModel.m; sourceTree = "<group>"; };
+		84DD649E1B831EE7009BDB2A /* AITipModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AITipModel.h; sourceTree = "<group>"; };
 		84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AICommentStoryboard.storyboard; sourceTree = "<group>"; };
-		84DE7DB01B79ECFB007E8F7F /* AIRoundImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRoundImageView.xib; sourceTree = "<group>"; };
 		84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRoundImageView.swift; sourceTree = "<group>"; };
 		84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentTagViewCell.swift; sourceTree = "<group>"; };
 		84DF5F281B81CB7800C9A239 /* AIServiceCommentTagList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentTagList.swift; sourceTree = "<group>"; };
@@ -1347,6 +1354,8 @@
 				84D142611B2EA04A00662291 /* AITagModel.swift */,
 				84D1B6DF1B7C49660094D553 /* AITimeLineModel.swift */,
 				84DF5F281B81CB7800C9A239 /* AIServiceCommentTagList.swift */,
+				84DD649C1B831EA7009BDB2A /* AITipModel.m */,
+				84DD649E1B831EE7009BDB2A /* AITipModel.h */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -1412,7 +1421,6 @@
 				9349871B1B0DBDE2003086D1 /* AIErrorRetryView.xib */,
 				938A398F1B2153DA00E3A5BF /* DLHamburguerContainerViewController.swift */,
 				938A39901B2153DA00E3A5BF /* DLHamburguerViewController.swift */,
-				84DE7DB01B79ECFB007E8F7F /* AIRoundImageView.xib */,
 				84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */,
 				84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */,
 			);
@@ -1435,6 +1443,7 @@
 				93E2F7A31B09890D00483CFA /* AITransitionManagerMenuAnimation.swift */,
 				93F66DE81B19D7B800AEA92A /* NSObjcetUtils.swift */,
 				938A39891B2020F200E3A5BF /* AIButtonUtils.swift */,
+				84DD649A1B82D128009BDB2A /* AIImageViewUtils.swift */,
 			);
 			name = Utils;
 			path = AI2020OS/Utils;
@@ -1755,6 +1764,8 @@
 				931718801B159C3600EC9C14 /* AIOrderDetailViewController.swift */,
 				12E926071B7C76570053D2E0 /* AICustomerOrderListViewController.swift */,
 				84D1B6DD1B7C33690094D553 /* AIOrderSubmitViewController.swift */,
+				12E926091B81D6470053D2E0 /* AIProviderOrderListViewController.swift */,
+				123A45F51B831B27008B9CF6 /* AICustomerOrderDetailViewController.swift */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -2049,7 +2060,6 @@
 				84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */,
 				93E4D5AD1B14AA5900992CA3 /* AIOrderStoryboard.storyboard in Resources */,
 				938A39941B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard in Resources */,
-				84DE7DB11B79ECFB007E8F7F /* AIRoundImageView.xib in Resources */,
 				93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */,
 				938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */,
 				931718831B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard in Resources */,
@@ -2229,6 +2239,7 @@
 				934987011B0B1750003086D1 /* AITIMELINESDContentViewCell.swift in Sources */,
 				9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */,
 				938A39911B2153DA00E3A5BF /* DLHamburguerContainerViewController.swift in Sources */,
+				84DD649D1B831EA7009BDB2A /* AITipModel.m in Sources */,
 				93FF74691B0ECEA000FD97C1 /* CVCalendarView.swift in Sources */,
 				84D9B81F1B7C320B005331B5 /* AISingleCommentViewController.swift in Sources */,
 				9337FF611AD4097A0046F8DC /* AIUINavigationController.m in Sources */,
@@ -2243,6 +2254,7 @@
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
 				8198ABD81B81840E0047E740 /* JSONModelError.m in Sources */,
 				937C77681B1E9BBB006FF589 /* AICServiceViewController.swift in Sources */,
+				123A45F61B831B27008B9CF6 /* AICustomerOrderDetailViewController.swift in Sources */,
 				8198ABCF1B81840E0047E740 /* AFSecurityPolicy.m in Sources */,
 				939E663C1B280E8900FD5FBA /* AIWebViewController.swift in Sources */,
 				84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */,
@@ -2281,6 +2293,7 @@
 				939E663A1B27EAE900FD5FBA /* AIFavoriteContentModel.swift in Sources */,
 				93FF74671B0ECEA000FD97C1 /* CVCalendarMonthView.swift in Sources */,
 				84CB368A1B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift in Sources */,
+				84DD649B1B82D128009BDB2A /* AIImageViewUtils.swift in Sources */,
 				93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */,
 				814B2BD31B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m in Sources */,
 				938A398A1B2020F200E3A5BF /* AIButtonUtils.swift in Sources */,
@@ -2342,6 +2355,7 @@
 				F2DACC2B1B197A7500233EFD /* AIOrderDetailModel.swift in Sources */,
 				84D393E61B2A88800045EE3A /* AIFavoritesServicesModel.swift in Sources */,
 				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
+				12E9260A1B81D6470053D2E0 /* AIProviderOrderListViewController.swift in Sources */,
 				12A20DAB1B1719F3003E412A /* AIOrderService.swift in Sources */,
 				814B2BD21B81C9EB003A10A5 /* CDVJpegHeaderWriter.m in Sources */,
 				12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */,

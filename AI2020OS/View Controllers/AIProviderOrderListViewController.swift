@@ -1,57 +1,39 @@
 //
-//  AICustomerOrderListViewController.swift
+//  AIProviderOrderListViewController.swift
 //  AI2020OS
 //
-//  Created by 刘先 on 15/8/13.
+//  Created by 刘先 on 15/8/17.
 //  Copyright (c) 2015年 ___ASIAINFO___. All rights reserved.
 //
 
 import UIKit
 
-class AICustomerOrderListViewController: AIBaseOrderListViewController {
-
-    // MARK: - IBOutlets
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    @IBOutlet weak var tableView: UITableView!
-    
+class AIProviderOrderListViewController: AIBaseOrderListViewController {
     
     // MARK: variables
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var tableView: UITableView!
     private var orderList = Array<AIOrderListItemModel>()
-    
-    // MARK: life cycle
-    override func viewWillAppear(animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        navigationController?.interactivePopGestureRecognizer.delegate = nil
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-    }
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Init buttons.
         buildDynaStatusButton()
         self.scrollView.contentSize = CGSizeMake(450, 0)
         scrollView.contentOffset = CGPointMake(0, 0)
         // request networking.
         retryNetworkingAction()
-        
-        //registerNib        
+        //registerNib
         tableView.registerNib(UINib(nibName:"CustomerOrderTableViewCell",bundle:NSBundle.mainBundle()), forCellReuseIdentifier: "CustomerOrderCell")
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("segue:\(segue.identifier)")
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - utils
@@ -95,15 +77,16 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     
     
     func buildDynaStatusButton(){
-        let buttonArray = [StatusButtonModel(title: "全部", amount: 7),StatusButtonModel(title: "待执行", amount: 4),StatusButtonModel(title: "待付款", amount: 0),StatusButtonModel(title: "待评价", amount: 3)]
+        let buttonArray = [StatusButtonModel(title: "全部", amount: 9),StatusButtonModel(title: "待处理", amount: 4),StatusButtonModel(title: "待付款", amount: 0),StatusButtonModel(title: "待完成", amount: 2),StatusButtonModel(title: "待评价", amount: 3)]
         addStatusButton(buttonArray, scrollView: scrollView)
     }
-    
-    
+
+
+
 }
 
 //MARK: - extension UITableView
-extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataSource{
+extension AIProviderOrderListViewController:UITableViewDelegate,UITableViewDataSource{
     
     //实现tableViewDelegate的方法
     //    func numberOfSectionsInTableView(tableView: UITableView) -> Int{
@@ -153,11 +136,7 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //AIOrderDetailStoryboard
         //        println("执行跳转逻辑")
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateViewControllerWithIdentifier("AICustomerOrderDetailViewController") as UIViewController
-        //setup next page back button ,but it didn't work
-        
-
-        
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderDetailStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
