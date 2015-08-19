@@ -42,6 +42,8 @@
 // MARK: JSON
 #import "JSONModel.h"
 
+// MARK: Model
+#import "AITipModel.h"
 
 
 

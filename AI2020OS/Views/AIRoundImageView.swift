@@ -8,10 +8,9 @@
 
 import UIKit
 
-class AIRoundImageView : UIImageView {
+class AIRoundImageView : AIImageView {
     
-
-    required init(coder aDecoder: NSCoder) {
+    override required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         maskWithEllipse()
