@@ -51,14 +51,14 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2v-aW-SMZ" userLabel="leftDivider">
-                    <rect key="frame" x="0.0" y="426" width="242" height="1"/>
+                    <rect key="frame" x="0.0" y="434" width="242" height="1"/>
                     <color key="backgroundColor" red="0.82352941180000006" green="0.82745098039999998" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="xPo-wR-vf1"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBw-ka-m3H" userLabel="rightDivider">
-                    <rect key="frame" x="358" y="426" width="242" height="1"/>
+                    <rect key="frame" x="358" y="434" width="242" height="1"/>
                     <color key="backgroundColor" red="0.82352941180000006" green="0.82745098039999998" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="hjk-O6-BHW"/>
@@ -100,7 +100,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+Tips" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ5-Hy-EC6">
-                    <rect key="frame" x="279" y="416" width="43" height="21"/>
+                    <rect key="frame" x="279" y="424" width="43" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="43" id="hb2-a2-WXc"/>
                         <constraint firstAttribute="height" constant="21" id="iPO-GX-4o8"/>
@@ -110,7 +110,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="a5B-pl-dPp" userLabel="Collection Tips">
-                    <rect key="frame" x="15" y="441" width="570" height="40"/>
+                    <rect key="frame" x="15" y="449" width="570" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="TKD-aJ-iCs"/>
@@ -142,7 +142,7 @@
                 <constraint firstItem="d95-mb-SCr" firstAttribute="height" secondItem="upa-p2-ruy" secondAttribute="height" id="Wrl-rF-Ztq"/>
                 <constraint firstAttribute="centerX" secondItem="g6S-kf-Al1" secondAttribute="centerX" id="Z79-nF-IPY"/>
                 <constraint firstItem="FQ5-dK-a0f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="Ze2-6A-Mx0"/>
-                <constraint firstItem="ZJ5-Hy-EC6" firstAttribute="top" secondItem="AnF-bt-d4B" secondAttribute="bottom" constant="2" id="ZnN-rw-USm"/>
+                <constraint firstItem="ZJ5-Hy-EC6" firstAttribute="top" secondItem="AnF-bt-d4B" secondAttribute="bottom" constant="10" id="ZnN-rw-USm"/>
                 <constraint firstAttribute="centerX" secondItem="d95-mb-SCr" secondAttribute="centerX" id="Ztm-Ou-mCz"/>
                 <constraint firstItem="B6S-ls-yA2" firstAttribute="top" secondItem="upa-p2-ruy" secondAttribute="bottom" constant="16" id="b31-T6-PYn"/>
                 <constraint firstItem="d95-mb-SCr" firstAttribute="top" secondItem="NRL-yh-6m3" secondAttribute="bottom" constant="10" id="bPL-A9-bOE"/>

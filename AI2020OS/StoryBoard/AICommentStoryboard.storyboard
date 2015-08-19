@@ -62,7 +62,7 @@
         <!--Single Comment View Controller-->
         <scene sceneID="SJ0-QO-SSe">
             <objects>
-                <viewController id="dXc-Cl-nFd" customClass="AISingleCommentViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AISingleCommentViewController" id="dXc-Cl-nFd" customClass="AISingleCommentViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3au-p2-gn8"/>
                         <viewControllerLayoutGuide type="bottom" id="0Ky-vd-wBw"/>

@@ -42,6 +42,7 @@ struct AIApplication{
             static let AIConnectMeunStoryboard      = "AIConnectMeunStoryboard"
             static let AITagFilterStoryboard        = "AITagFilterStoryboard"
             static let AIVideoStoryboard            = "AIVideoStoryboard"
+            static let AICommentStoryboard          = "AICommentStoryboard"
         }
         
         // MARK: View
@@ -55,7 +56,7 @@ struct AIApplication{
             static let AIComponentChoseViewController   = "AIComponentChoseViewController"
             static let AISearchServiceCollectionViewController = "AISearchServiceCollectionViewController"
             static let AIOrderSubmitViewController  = "AIOrderSubmitViewController"
-            
+            static let AISingleCommentViewController = "AISingleCommentViewController"
         }
         
         struct CellIdentifiers {
