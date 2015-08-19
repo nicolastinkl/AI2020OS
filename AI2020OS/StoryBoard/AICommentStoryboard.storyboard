@@ -62,7 +62,7 @@
         <!--Single Comment View Controller-->
         <scene sceneID="SJ0-QO-SSe">
             <objects>
-                <viewController id="dXc-Cl-nFd" customClass="AISingleCommentViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AISingleCommentViewController" id="dXc-Cl-nFd" customClass="AISingleCommentViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3au-p2-gn8"/>
                         <viewControllerLayoutGuide type="bottom" id="0Ky-vd-wBw"/>
@@ -73,7 +73,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nb-Pa-53J">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
-                                <color key="backgroundColor" red="0.1019607843" green="0.7725490196" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.80784313725490198" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="h79-X8-HKU"/>
                                 </constraints>

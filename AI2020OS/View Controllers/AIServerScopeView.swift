@@ -22,16 +22,21 @@ struct ServerScopeModel {
 
 class AIServerScopeView: UIView {
     
+    let DEFAULT_HEIGHT: CGFloat = 35
+    let DEFAULT_LEFT_MARGIN: CGFloat = 14
+    var buttonSize: CGSize?
+    
     private var selectedButton: UIButton?
     
-    private let tagMargin:CGFloat = 10
+    var tagMargin: CGFloat = 10
+    var leftMargin: CGFloat = 14
     
     typealias SelectedHandler = ()->(String)
     
     func initWithViewsArray(array:[ServerScopeModel],parentView:UIView){
         // Setup 1: addSubViews.
         // Setup 2: layoutIfNeeds this frame.
-        var x:CGFloat = 14
+        var x:CGFloat = leftMargin
         var y:CGFloat = 14
         var n = 0
         for item in array{
@@ -59,22 +64,34 @@ class AIServerScopeView: UIView {
             button.associatedName = item.id!
             let value  = item.content!
             button.setTitle("\(value)", forState: UIControlState.Normal)
-            let width:CGFloat  = CGFloat("\(value)".length) * 18
             
-            if (x + width + tagMargin) > parentView.width {
-                n = 0
-                x = 24
-                y += 35 + tagMargin
-            }else{
-                x = x + tagMargin
+            var size: CGSize!
+            if buttonSize == nil {
+                let width:CGFloat  = CGFloat("\(value)".length) * 18
+           
+                size = CGSizeMake(width, DEFAULT_HEIGHT)
+            } else {
+                size = buttonSize!
             }
             
-            button.setSize(CGSizeMake(width, 35))
-            button.setOrigin(CGPointMake(x, y))
-            addSubview(button)
-            x = x + width
+            if (x + size.width + tagMargin) > parentView.width {
+                n = 0
+                x = leftMargin
+                y += size.height + tagMargin
+            } else {
+                if n > 0 {
+                    x = x + tagMargin
+                }    
+            }
             
             n = n + 1  // MARK: Add 1
+            
+            button.setSize(size)
+            button.setOrigin(CGPointMake(x, y))
+            addSubview(button)
+            x = x + size.width
+            
+            
         }
         
         self.setHeight(y+50)
