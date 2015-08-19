@@ -42,14 +42,15 @@ class AISingleCommentViewController : UIViewController {
         tip.value = 5
         tip.desc = "+10元"
         tips.append(tip)
-        
+     
         tip = AITipModel()
         tip.value = 5
         tip.desc = "自定义"
         tips.append(tip)
-        
+       
         let space = commentView.buttonMargin
         let width: CGFloat = (commentView.collectionView.width - space * CGFloat(tips.count - 1)) / CGFloat(tips.count)
+        commentView.scopeView.leftMargin = 0
         commentView.tipButtonSize = CGSizeMake(width, commentView.scopeView.DEFAULT_HEIGHT)
         commentView.tipsData = tips
         
