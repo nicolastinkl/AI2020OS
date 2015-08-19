@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -14,15 +14,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyC-EA-h60">
-                        <rect key="frame" x="11" y="8" width="299" height="61"/>
+                        <rect key="frame" x="18" y="8" width="284" height="61"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="kyC-EA-h60" firstAttribute="leading" secondItem="Aq4-pU-gFw" secondAttribute="leadingMargin" constant="3" id="Zfp-2U-Vyq"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="kyC-EA-h60" secondAttribute="trailing" constant="2" id="kfs-Eg-ALq"/>
+                    <constraint firstItem="kyC-EA-h60" firstAttribute="leading" secondItem="Aq4-pU-gFw" secondAttribute="leadingMargin" constant="10" id="Zfp-2U-Vyq"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="kyC-EA-h60" secondAttribute="trailing" constant="10" id="kfs-Eg-ALq"/>
                     <constraint firstItem="kyC-EA-h60" firstAttribute="top" secondItem="Aq4-pU-gFw" secondAttribute="topMargin" id="nP4-Vd-0mU"/>
                     <constraint firstAttribute="bottomMargin" secondItem="kyC-EA-h60" secondAttribute="bottom" constant="-0.5" id="uow-Il-Xjg"/>
                 </constraints>

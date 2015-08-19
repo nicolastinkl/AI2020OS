@@ -70,6 +70,10 @@
 		84CB36921B17433D00D66BBD /* AIProviderAvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36911B17433D00D66BBD /* AIProviderAvatarView.xib */; };
 		84CC00011B107F430073B24A /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC00001B107F430073B24A /* ServiceModel.swift */; };
 		84CDC1701B14952500EA78BC /* SearchHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */; };
+		84CDC8E41B842070002A29EE /* AIHomeDesChildViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC8E31B842070002A29EE /* AIHomeDesChildViewCell.swift */; };
+		84CDC8E61B84222B002A29EE /* AIHomeDesChildViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CDC8E51B84222B002A29EE /* AIHomeDesChildViewCell.xib */; };
+		84CDC8E81B848650002A29EE /* AIHomeCommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC8E71B848650002A29EE /* AIHomeCommentViewCell.swift */; };
+		84CDC8EA1B84867C002A29EE /* AIHomeCommentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CDC8E91B84867C002A29EE /* AIHomeCommentViewCell.xib */; };
 		84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */; };
 		84D142621B2EA04A00662291 /* AITagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D142611B2EA04A00662291 /* AITagModel.swift */; };
 		84D1B6DE1B7C33690094D553 /* AIOrderSubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1B6DD1B7C33690094D553 /* AIOrderSubmitViewController.swift */; };
@@ -480,6 +484,10 @@
 		84CC00001B107F430073B24A /* ServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTagCell.swift; sourceTree = "<group>"; };
 		84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHeaderCell.swift; sourceTree = "<group>"; };
+		84CDC8E31B842070002A29EE /* AIHomeDesChildViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeDesChildViewCell.swift; sourceTree = "<group>"; };
+		84CDC8E51B84222B002A29EE /* AIHomeDesChildViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeDesChildViewCell.xib; sourceTree = "<group>"; };
+		84CDC8E71B848650002A29EE /* AIHomeCommentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeCommentViewCell.swift; sourceTree = "<group>"; };
+		84CDC8E91B84867C002A29EE /* AIHomeCommentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeCommentViewCell.xib; sourceTree = "<group>"; };
 		84CF6A801B17F9A3001C4E72 /* CWStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
 		84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
 		84D132211B0F26E700B977F5 /* MainSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
@@ -1535,6 +1543,10 @@
 				93DE16AC1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift */,
 				93DE16B01B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib */,
 				93DE16B21B05E7C90056A1E3 /* AIHomeSDParamesViewCell.swift */,
+				84CDC8E31B842070002A29EE /* AIHomeDesChildViewCell.swift */,
+				84CDC8E51B84222B002A29EE /* AIHomeDesChildViewCell.xib */,
+				84CDC8E71B848650002A29EE /* AIHomeCommentViewCell.swift */,
+				84CDC8E91B84867C002A29EE /* AIHomeCommentViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -2013,6 +2025,7 @@
 				93A705961B12D0EF00E8193C /* AIServerAddressView.xib in Resources */,
 				84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */,
 				93E4D5AD1B14AA5900992CA3 /* AIOrderStoryboard.storyboard in Resources */,
+				84CDC8EA1B84867C002A29EE /* AIHomeCommentViewCell.xib in Resources */,
 				938A39941B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard in Resources */,
 				93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */,
 				938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */,
@@ -2020,6 +2033,7 @@
 				93FF74751B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard in Resources */,
 				93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */,
 				93BD09061B05F2D000C8B96B /* AIOrderBuyView.xib in Resources */,
+				84CDC8E61B84222B002A29EE /* AIHomeDesChildViewCell.xib in Resources */,
 				938A39881B2001DF00E3A5BF /* AITabelViewMenuView.xib in Resources */,
 				84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */,
 				93DE16AF1B05E26E0056A1E3 /* AIHomeSDDesViewCell.xib in Resources */,
@@ -2268,12 +2282,14 @@
 				939E66421B291F4100FD5FBA /* KSToken.swift in Sources */,
 				8198ABD11B81840E0047E740 /* AFURLRequestSerialization.m in Sources */,
 				8198ABA41B8183B30047E740 /* AIMessageWrapper.m in Sources */,
+				84CDC8E81B848650002A29EE /* AIHomeCommentViewCell.swift in Sources */,
 				939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */,
 				93AC3FD01ACA402A000024A4 /* AIHomeViewController.swift in Sources */,
 				8198ABD31B81840E0047E740 /* AFURLSessionManager.m in Sources */,
 				937C77661B1E9B71006FF589 /* AICContentViewController.swift in Sources */,
 				93A705941B12D0E600E8193C /* AIServerAddressView.swift in Sources */,
 				93AC3FD81ACA44F4000024A4 /* AISwiftLogger.swift in Sources */,
+				84CDC8E41B842070002A29EE /* AIHomeDesChildViewCell.swift in Sources */,
 				93E4D5B31B15681600992CA3 /* AIGitHub.swift in Sources */,
 				84DBFF681B26E68200F7FED6 /* AIServiceTagFilterViewController.swift in Sources */,
 				93FF74701B0ECEA000FD97C1 /* CVCalendarWeekContentView.swift in Sources */,

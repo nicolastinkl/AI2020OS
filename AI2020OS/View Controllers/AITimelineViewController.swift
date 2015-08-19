@@ -92,8 +92,8 @@ class AITimelineViewController: UITableViewController {
                     self.dataTimeLineArray = NSMutableArray(array: data)
                     self.view.hideErrorView()
                     viewLabel?.hidden = false
-                }else{
-                    self.view.showErrorView()
+                }else if data.count == 0{
+                    self.view.showErrorView("没有数据")
                     viewLabel?.hidden = true
                 }
                 self.tableView.reloadData()

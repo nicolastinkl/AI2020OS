@@ -88,6 +88,8 @@ struct AIApplication{
             static let AICollectServiceListCell = "AICollectServiceListCell"
             static let AICollectServiceGridCell = "AICollectServiceGridCell"
             
+            static let AIHomeDesChildViewCell   = "AIHomeDesChildViewCell"
+            static let AIHomeCommentViewCell    = "AIHomeCommentViewCell"
         }
         
         struct ViewIdentifiers {

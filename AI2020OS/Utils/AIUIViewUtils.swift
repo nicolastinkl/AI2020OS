@@ -209,6 +209,29 @@ extension UIView {
         
     }
     
+    /*!
+    显示错误视图 content: 自定义提示语
+    */
+    public func showErrorView(content: String){
+        if let loadingXibView = self.viewWithTag(AIApplication.AIViewTags.errorviewTag) {
+            // If loading view is already found in current view hierachy, do nothing
+            return
+        }
+        
+        let errorview = AIErrorRetryView.currentView()
+        errorview.alertContent.text = content
+        errorview.tag = AIApplication.AIViewTags.errorviewTag
+        errorview.center = self.center
+        self.addSubview(errorview)
+        
+        errorview.alpha = 0
+        spring(0.7, {
+            errorview.alpha = 1
+        })
+        
+    }
+
+    
     
     /*!
         隐藏错误视图
