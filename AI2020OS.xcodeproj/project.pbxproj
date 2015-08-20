@@ -36,12 +36,14 @@
 		812388C21B8428BC00CEA574 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 812388BD1B8428BC00CEA574 /* WMPageController.m */; };
 		812388D21B85CCB900CEA574 /* BarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 812388CF1B85CCB900CEA574 /* BarItem.m */; };
 		812388D31B85CCB900CEA574 /* CBStoreHouseRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 812388D11B85CCB900CEA574 /* CBStoreHouseRefreshControl.m */; };
+		812388D61B85CD1200CEA574 /* AIMessageTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 812388D51B85CD1200CEA574 /* AIMessageTableController.m */; };
 		814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BCB1B81C9EB003A10A5 /* CDVCamera.m */; };
 		814B2BD21B81C9EB003A10A5 /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BCE1B81C9EB003A10A5 /* CDVJpegHeaderWriter.m */; };
 		814B2BD31B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD01B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m */; };
 		814B2BD61B8204C2003A10A5 /* AIMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD51B8204C2003A10A5 /* AIMessageViewController.m */; };
 		814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD91B8204F2003A10A5 /* AIMessageModel.m */; };
 		814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BDC1B820529003A10A5 /* AIMessageCell.m */; };
+		816EA9121B85D08E00B76109 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 816EA9111B85D08E00B76109 /* Resources */; };
 		817E15D31B7C8A2700C298BE /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 817E15CF1B7C8A2700C298BE /* config.xml */; };
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
 		817E15F61B7C8DB800C298BE /* www in Resources */ = {isa = PBXBuildFile; fileRef = 817E15F51B7C8DB800C298BE /* www */; };
@@ -411,6 +413,8 @@
 		812388CF1B85CCB900CEA574 /* BarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarItem.m; sourceTree = "<group>"; };
 		812388D01B85CCB900CEA574 /* CBStoreHouseRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStoreHouseRefreshControl.h; sourceTree = "<group>"; };
 		812388D11B85CCB900CEA574 /* CBStoreHouseRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStoreHouseRefreshControl.m; sourceTree = "<group>"; };
+		812388D41B85CD1200CEA574 /* AIMessageTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMessageTableController.h; path = Message/AIMessageTableController.h; sourceTree = "<group>"; };
+		812388D51B85CD1200CEA574 /* AIMessageTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageTableController.m; path = Message/AIMessageTableController.m; sourceTree = "<group>"; };
 		814B2BCA1B81C9EB003A10A5 /* CDVCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVCamera.h; sourceTree = "<group>"; };
 		814B2BCB1B81C9EB003A10A5 /* CDVCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVCamera.m; sourceTree = "<group>"; };
 		814B2BCC1B81C9EB003A10A5 /* CDVExif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVExif.h; sourceTree = "<group>"; };
@@ -424,6 +428,7 @@
 		814B2BD91B8204F2003A10A5 /* AIMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageModel.m; path = Message/AIMessageModel.m; sourceTree = "<group>"; };
 		814B2BDB1B820529003A10A5 /* AIMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMessageCell.h; path = Message/AIMessageCell.h; sourceTree = "<group>"; };
 		814B2BDC1B820529003A10A5 /* AIMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageCell.m; path = Message/AIMessageCell.m; sourceTree = "<group>"; };
+		816EA9111B85D08E00B76109 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = AI2020OS/Resources; sourceTree = "<group>"; };
 		817E15CF1B7C8A2700C298BE /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		817E15D81B7C8AB000C298BE /* CDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
 		817E15D91B7C8AB000C298BE /* CDVAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVAvailability.h; sourceTree = "<group>"; };
@@ -949,6 +954,8 @@
 		814B2BD71B8204CF003A10A5 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				812388D41B85CD1200CEA574 /* AIMessageTableController.h */,
+				812388D51B85CD1200CEA574 /* AIMessageTableController.m */,
 				814B2BD41B8204C2003A10A5 /* AIMessageViewController.h */,
 				814B2BD51B8204C2003A10A5 /* AIMessageViewController.m */,
 				814B2BD81B8204F2003A10A5 /* AIMessageModel.h */,
@@ -1273,6 +1280,7 @@
 		933ED3DB1AC8F90A00E4AADB = {
 			isa = PBXGroup;
 			children = (
+				816EA9111B85D08E00B76109 /* Resources */,
 				8198AB9B1B8183B30047E740 /* Network */,
 				817E15CE1B7C8A2700C298BE /* Web */,
 				93AC3FB61AC95DF5000024A4 /* StoryBoard */,
@@ -2129,6 +2137,7 @@
 				933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */,
 				84DE7DAF1B79E623007E8F7F /* AICommentStoryboard.storyboard in Resources */,
 				934987051B0B3074003086D1 /* AITIMELINESDTITLEView.xib in Resources */,
+				816EA9121B85D08E00B76109 /* Resources in Resources */,
 				84D9B81D1B7C2CA8005331B5 /* AISingleCommentView.xib in Resources */,
 				936D62471AD4D44A00609FCD /* AILoadingStoryboard.storyboard in Resources */,
 				93692C9D1ACAB94700D66211 /* AILoginStoryboard.storyboard in Resources */,
@@ -2341,6 +2350,7 @@
 				93266FB21AEF81E100DD0021 /* AIFavoritsCommand.swift in Sources */,
 				8198ABCD1B81840E0047E740 /* AFHTTPSessionManager.m in Sources */,
 				84951FB61B1312E500179483 /* SearchEngine.swift in Sources */,
+				812388D61B85CD1200CEA574 /* AIMessageTableController.m in Sources */,
 				934986FF1B0B1727003086D1 /* AITIMELINESDTimesViewCell.swift in Sources */,
 				8198ABCE1B81840E0047E740 /* AFNetworkReachabilityManager.m in Sources */,
 				93FF74681B0ECEA000FD97C1 /* CVCalendarRenderer.swift in Sources */,
