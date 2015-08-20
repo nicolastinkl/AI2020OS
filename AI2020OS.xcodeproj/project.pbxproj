@@ -12,6 +12,7 @@
 		1239DBB71B204F48002F6A4F /* TagFilterData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1239DBB61B204F48002F6A4F /* TagFilterData.plist */; };
 		1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1239DBB81B2052A8002F6A4F /* TagFilterData.plist */; };
 		123A45F61B831B27008B9CF6 /* AICustomerOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A45F51B831B27008B9CF6 /* AICustomerOrderDetailViewController.swift */; };
+		123A45F81B847988008B9CF6 /* SubTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A45F71B847988008B9CF6 /* SubTimelineView.swift */; };
 		1284ABC41B2036B500636F35 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1284ABC11B2036B500636F35 /* SectionHeaderView.swift */; };
 		1284ABC51B2036B500636F35 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1284ABC21B2036B500636F35 /* SectionHeaderView.xib */; };
 		1284ABC61B2036B500636F35 /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1284ABC31B2036B500636F35 /* SectionInfo.swift */; };
@@ -365,6 +366,7 @@
 		1239DBB61B204F48002F6A4F /* TagFilterData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TagFilterData.plist; path = AI2020OSTests/TagFilterData.plist; sourceTree = SOURCE_ROOT; };
 		1239DBB81B2052A8002F6A4F /* TagFilterData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TagFilterData.plist; sourceTree = "<group>"; };
 		123A45F51B831B27008B9CF6 /* AICustomerOrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerOrderDetailViewController.swift; sourceTree = "<group>"; };
+		123A45F71B847988008B9CF6 /* SubTimelineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTimelineView.swift; sourceTree = "<group>"; };
 		1284ABC11B2036B500636F35 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		1284ABC21B2036B500636F35 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		1284ABC31B2036B500636F35 /* SectionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
@@ -1167,6 +1169,7 @@
 			children = (
 				934986FD1B0B171E003086D1 /* Cells */,
 				93AC3FD31ACA40C8000024A4 /* AITimelineViewController.swift */,
+				123A45F71B847988008B9CF6 /* SubTimelineView.swift */,
 			);
 			name = TimLine;
 			sourceTree = "<group>";
@@ -1950,7 +1953,6 @@
 				TargetAttributes = {
 					933ED3E31AC8F90A00E4AADB = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = T2362RFKT6;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -1965,6 +1967,7 @@
 					};
 					933ED3FA1AC8F90A00E4AADB = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = AEZABL2GM8;
 						TestTargetID = 933ED3E31AC8F90A00E4AADB;
 					};
 					93735D881B1D976C00D52431 = {
@@ -1980,6 +1983,7 @@
 					};
 					938A3AB71B25735B00E3A5BF = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = AEZABL2GM8;
 						TestTargetID = 933ED3E31AC8F90A00E4AADB;
 					};
 				};
@@ -2294,6 +2298,7 @@
 				9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */,
 				84DF5F291B81CB7800C9A239 /* AIServiceCommentTagList.swift in Sources */,
 				93692C971ACAA52A00D66211 /* Async.swift in Sources */,
+				123A45F81B847988008B9CF6 /* SubTimelineView.swift in Sources */,
 				8415F4E31B135688003160B4 /* SearchServiceCollectionViewController.swift in Sources */,
 				93CB34621AE5F26100D49FB2 /* AIImage.swift in Sources */,
 				936DAC201ADCF8510025483B /* SCSiriWaveformView.m in Sources */,
@@ -2523,7 +2528,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Li Wang (K6T493H8TW)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2540,7 +2545,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "666a7d99-6a72-4f68-8aea-3c01403729eb";
 				SWIFT_OBJC_BRIDGING_HEADER = "AI2020OS/Bridging/AI2020OS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2553,7 +2558,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Li Wang (K6T493H8TW)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2570,7 +2575,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "666a7d99-6a72-4f68-8aea-3c01403729eb";
 				SWIFT_OBJC_BRIDGING_HEADER = "AI2020OS/Bridging/AI2020OS-Bridging-Header.h";
 			};
 			name = Release;

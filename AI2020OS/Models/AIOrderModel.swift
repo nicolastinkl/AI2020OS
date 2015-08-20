@@ -70,9 +70,11 @@ struct AIOrderListItemModel : JSONJoy{
 
 struct ButtonModel{
     var title = ""
+    var action:Selector = ""
     
-    init(title:String){
+    init(title:String,action:Selector){
         self.title = title
+        self.action = action
     }
 }
 
