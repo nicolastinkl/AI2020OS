@@ -94,9 +94,9 @@ struct AIServiceDetailModel: JSONJoy  {
     var service_intro_url: String?
     
     var service_provider: String?
-    var service_guarantee: String?
-    var service_process: String?
-    var service_restraint: String?
+    var service_guarantee: String?  //服务保障
+    var service_process: String?    //服务流程
+    var service_restraint: String?  //服务约束
     var service_param_list: Array<AIServiceDetailParamsModel>?
     
     init(){
@@ -125,6 +125,11 @@ struct AIServiceDetailModel: JSONJoy  {
                 service_param_list?.append(AIServiceDetailParamsModel(addrDecoder))
             }
         }
+        
+        //这里测试默认值
+        service_guarantee = "一次性鞋套｜ 进口精油 ｜ 服务满50分钟 ｜ 美女服务员 ｜ 免费自选水果套餐 风味小吃（汤圆，水饺等）+时尚水果+饮料茶水"
+        service_process = "后背 → 后腿 → 胳膊 → 腹部 → 前腿（全程大约70分钟）"
+        service_restraint = "每张糯米券限1人使用，超出收费标准：按当时店内实际价格收取费用或者另购买糯米券 | 免费提供储物柜 | 免费提供洗浴用品 | 本单不适宜皮肤病、高血压等患者使用"
         
     }
 }

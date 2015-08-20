@@ -11,6 +11,7 @@ import Spring
 
 class AIErrorRetryView: SpringView {
 
+    @IBOutlet weak var alertContent: UILabel!
     class func currentView()->AIErrorRetryView{
         var cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.ViewIdentifiers.AIErrorRetryView, owner: self, options: nil).first  as AIErrorRetryView
         return cell

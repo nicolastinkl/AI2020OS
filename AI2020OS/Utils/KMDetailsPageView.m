@@ -64,6 +64,8 @@
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.separatorColor = [UIColor clearColor];
+    //self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0);
 }
 
 - (void)dealloc

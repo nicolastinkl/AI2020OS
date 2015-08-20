@@ -16,5 +16,4 @@ class AITIMELINESDTimesViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    
 }
