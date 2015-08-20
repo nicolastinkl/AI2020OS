@@ -25,50 +25,135 @@ class AIServerScopeView: UIView {
     let DEFAULT_HEIGHT: CGFloat = 35
     let DEFAULT_LEFT_MARGIN: CGFloat = 14
     var buttonSize: CGSize?
+    var dataSource: AIServerScopeViewDataSource?
     
     private var selectedButton: UIButton?
+    private var scopeArray: [ServerScopeModel]!
     
     var tagMargin: CGFloat = 10
     var leftMargin: CGFloat = 14
     
     typealias SelectedHandler = ()->(String)
     
-    func initWithViewsArray(array:[ServerScopeModel],parentView:UIView){
-        // Setup 1: addSubViews.
-        // Setup 2: layoutIfNeeds this frame.
+    func initWithViewsArray(array: [ServerScopeModel], parentView: UIView){
+        scopeArray = array
+        addUIControls(scopeArray.count, parentView: parentView)
+    }
+    
+    func buttonDownAction(sender:AnyObject){
+
+        let button = sender as UIButton
+        
+        button.selected = !button.selected
+        
+        if selectedButton != button {
+            selectedButton?.selected = false
+        }
+        
+        if button.selected {
+            selected(button)
+        } else {
+            disSelected(button)
+        }
+        
+        self.selectedButton = button
+        
+    }
+    
+    func disSelected(buttonS: UIButton?){
+
+    }
+    
+    func selected(buttonS: UIButton?) {
+
+    }
+    
+    func didSelectedItem(selectedItem:SelectedHandler){
+        
+    }
+    
+    func reload(parentView: UIView) {
+        if dataSource != nil {
+            
+            for subview in subviews {
+                subview.removeFromSuperview()
+            }
+            
+            let sd = dataSource!
+            
+            let count = sd.numberOfCell(self)
+            
+            addUIControls(count, parentView: parentView)
+        }
+    }
+    
+    class func currentView()->AIServerScopeView {
+        var cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.ViewIdentifiers.AIServerScopeView, owner: self, options: nil).last  as AIServerScopeView
+        return cell
+    }
+    
+    // 创建一个默认风格的tag控件
+    func defaultTagStyleButton() -> UIButton {
+        
+        var object: AnyObject =  UIButton.buttonWithType(UIButtonType.Custom)
+        var button = object as UIButton
+        
+        button.layer.borderColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
+        button.titleLabel?.font = UIFont.boldSystemFontOfSize(18)
+        
+        // TODO: title Color
+        button.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor), forState: UIControlState.Normal)
+        button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
+        button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
+        
+        // TODO: Background Image
+        button.setBackgroundImage(UIColor.whiteColor().imageWithColor(), forState: UIControlState.Normal)
+        button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Selected)
+        button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Highlighted)
+        button.addTarget(self, action: Selector("buttonDownAction:"), forControlEvents: UIControlEvents.TouchUpInside)
+        button.layer.borderColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 2
+        
+        return button
+    }
+    
+    private func createUIControl(index: Int) -> UIControl {
+        var control: UIControl!
+        if dataSource == nil {
+            control = defaultTagStyleButton()
+        } else {
+            control = dataSource!.scopeView(self, cellForItemAtIndex: index)
+        }
+    
+        return control
+    }
+    
+    // 将控件添加到ServerScopeView中. count：控件的数量
+    private func addUIControls(count: Int, parentView: UIView) {
         var x:CGFloat = leftMargin
         var y:CGFloat = 14
         var n = 0
-        for item in array{
-            var object: AnyObject =  UIButton.buttonWithType(UIButtonType.Custom)
-            var button = object as UIButton
-            
-            button.layer.borderColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
-            
-            // TODO: title Color
-            button.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor), forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
-            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
-            
-            // TODO: Background Image
-            button.setBackgroundImage(UIColor.whiteColor().imageWithColor(), forState: UIControlState.Normal)
-            button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Selected)
-            button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Highlighted)
-            button.addTarget(self, action: Selector("buttonDownAction:"), forControlEvents: UIControlEvents.TouchDown)
-            
-            button.layer.borderColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
-            button.layer.borderWidth = 1
-            button.layer.cornerRadius = 2
-            
-            button.titleLabel?.font = UIFont.boldSystemFontOfSize(18)
-            button.associatedName = item.id!
-            let value  = item.content!
-            button.setTitle("\(value)", forState: UIControlState.Normal)
+        
+        
+        
+        for var index = 0; index < count; ++index {
+            var uiControl = createUIControl(index)
+               
+            if dataSource == nil {
+                let value  = scopeArray[index].content!
+                var button = uiControl as UIButton
+                
+                button.associatedName = scopeArray[index].id!
+                
+                button.setTitle("\(value)", forState: UIControlState.Normal)
+            }
             
             var size: CGSize!
             if buttonSize == nil {
-                let width:CGFloat  = CGFloat("\(value)".length) * 18
-           
+                var button = uiControl as UIButton
+                let width: CGFloat  = CGFloat("\(button.titleLabel?.text)".length) * 18
+                
                 size = CGSizeMake(width, DEFAULT_HEIGHT)
             } else {
                 size = buttonSize!
@@ -81,83 +166,23 @@ class AIServerScopeView: UIView {
             } else {
                 if n > 0 {
                     x = x + tagMargin
-                }    
+                }
             }
             
             n = n + 1  // MARK: Add 1
             
-            button.setSize(size)
-            button.setOrigin(CGPointMake(x, y))
-            addSubview(button)
+            uiControl.setSize(size)
+            uiControl.setOrigin(CGPointMake(x, y))
+            addSubview(uiControl)
             x = x + size.width
-            
-            
         }
         
-        self.setHeight(y+50)
+        self.setHeight(y + 50)
     }
     
-    func buttonDownAction(sender:AnyObject){
-        // set self background != self.color
-        let button = sender as UIButton
-        
-        if self.selectedButton == button{
-            return
-        }else{
-            if let buttons = self.selectedButton{
-                //disselect pre button
-                disSelected(self.selectedButton!)
-                // select current button
-                selected(button)
-            }else{
-                 selected(button)
-            }
-        }
-        self.selectedButton = button
-        
-    }
-    
-    func disSelected(buttonS: UIButton?){
-        if var button = buttonS{
-            
-            // TODO: title Color
-            button.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor), forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
-            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
-            
-            // TODO: Background Image
-            button.setBackgroundImage(UIColor.whiteColor().imageWithColor(), forState: UIControlState.Normal)
-            button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Selected)
-            button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Highlighted)
-            
-            
-        }
-    }
-    
-    func selected(buttonS: UIButton?){
-        if var button = buttonS{
-            
-            // TODO: title Color
-            button.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor), forState: UIControlState.Selected)
-            button.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor), forState: UIControlState.Highlighted)
-            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-            
-            
-            // TODO: Background Image
-            button.setBackgroundImage(UIColor.whiteColor().imageWithColor(), forState: UIControlState.Normal)
-            button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Normal)
-            button.setBackgroundImage(UIColor.whiteColor().imageWithColor(), forState: UIControlState.Highlighted)
-            
-        }
-    }
-    
-    func didSelectedItem(selectedItem:SelectedHandler){
-        
-    }
-    
-    class func currentView()->AIServerScopeView{
-        var cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.ViewIdentifiers.AIServerScopeView, owner: self, options: nil).last  as AIServerScopeView
-        return cell
-    }
-    
+}
+
+protocol AIServerScopeViewDataSource {
+    func numberOfCell(scopeView: AIServerScopeView) -> Int
+    func scopeView(scopeView: AIServerScopeView, cellForItemAtIndex: Int) -> UIControl
 }
