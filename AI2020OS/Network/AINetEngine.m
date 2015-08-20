@@ -68,7 +68,7 @@
     [allHeaders addEntriesFromDictionary:headers];
     
     for (NSString *key in allHeaders.allKeys) {
-        id value = [headers objectForKey:key];
+        id value = [allHeaders objectForKey:key];
         [_sessionManager.requestSerializer setValue:value forHTTPHeaderField:key];
     }
 }
