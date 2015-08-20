@@ -49,9 +49,8 @@
 // MARK: Model
 #import "AITipModel.h"
 
-
-
-
+// MARK: AICardView
+#import "AICardView.h"
 
 
 

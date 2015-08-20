@@ -195,6 +195,14 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
 }
 
+// MARK: funcation extension
+extension AIServiceDetailsViewCotnroller : AIHomeCommentViewCellDelegate {
+    
+    // TODO: 处理查看更多评价
+    func moreCommendAction() {
+        
+    }
+}
 // MARK: function extension
 // MARK:  UITableViewDelegate,UITableViewDataSource
 extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSource{
@@ -323,6 +331,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             if  avCell == nil {
                 avCell = AIHomeCommentViewCell().currentViewCell()
             }
+            avCell?.delegate = self
             return avCell!
         default:
             

@@ -47,15 +47,20 @@ class AITimelineViewController: UITableViewController {
         model3.content = "Jeeny老师|印度特色课"
         model3.currentTimeStamp = 1439235741
         model3.type  = 2
+        model3.expendData = NSArray(objects:
+            ["HyperText":"DUO国际机场","IndicatorImage":"","IndicatorColor":"008AFF"],
+            ["HyperText":"DUO国际机场","IndicatorImage":"","IndicatorColor":"008AFF"],
+            ["HyperText":"DUO国际机场","IndicatorImage":"","IndicatorColor":"008AFF"],
+            ["HyperText":"DUO国际机场","IndicatorImage":"","IndicatorColor":"008AFF"],
+            ["HyperText":"DUO国际机场","IndicatorImage":"","IndicatorColor":"008AFF"])
         
         var model4 =  AITimeLineModel()
         model4.title = "圣托尼亚航班"
         model4.content = "中国航空 CA2393 | 330"
         model4.currentTimeStamp = 1439550715
         
-        //dataTimeLineArray = NSMutableArray(array:  [model,model1,model2,model3,model4])
+        dataTimeLineArray = NSMutableArray(array:  [model,model1,model2,model3,model4])
         
-        dataTimeLineArray = NSMutableArray()
         
         var label = UILabel()
         label.tag = 2
@@ -75,7 +80,8 @@ class AITimelineViewController: UITableViewController {
         let timer =  NSTimer(timeInterval: 60, target: self, selector: "refereshCurrentTime", userInfo: nil, repeats: true)
         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
 
-        retryNetworkingAction()
+//        dataTimeLineArray = NSMutableArray()
+//        retryNetworkingAction()
         
     }
     
@@ -152,7 +158,9 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
         
         if let expend =  currnetDicValue.expend {
             if expend == 1 {
-                return 282.0
+                let heights = currnetDicValue.expendData!.count
+                let ah = heights*41
+                return CGFloat(ah)+82
             }
         }
         return 82.0
@@ -195,18 +203,25 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
             avCell?.titleLabel?.text = currnetDicValue.title
             avCell?.contentLabel?.text = currnetDicValue.content
             
+            for cView in avCell?.contentFillView.subviews as [UIView] {
+                cView.removeFromSuperview()
+            }
+            
             if let expend = currnetDicValue.expend {
+                
                 if expend == 1 {
                     avCell?.contentFillView.hidden = false
-                    if let imageview =  avCell?.contentFillView.subviews.first as UIImageView?{
-                        imageview.image =  UIImage(named: "ziyouxing")
-                    }else{
-                        let imageview = UIImageView(image: UIImage(named: "ziyouxing"))
-                        imageview.contentMode = UIViewContentMode.ScaleAspectFill
-                        avCell?.contentFillView.addSubview(imageview)
+                    
+                    if currnetDicValue.expendData?.count > 0 {
+                        let width: CGFloat = avCell?.contentFillView.width ?? 0
+                        let cardView = AICardView(frame: CGRectMake(0, 0, width, 0), cards: currnetDicValue.expendData )
+                        
+                        avCell?.contentFillView.addSubview(cardView)
                     }
+                    
                 }else{
                     avCell?.contentFillView.hidden = true
+                    
                 }
             }
             
@@ -220,22 +235,27 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+      
         var currnetDicValue = dataTimeLineArray[indexPath.section] as AITimeLineModel
-        if let expend = currnetDicValue.expend {
-            if expend == 1 {
-                currnetDicValue.expend = 0
-            }else if expend == 0 {
+
+        if currnetDicValue.expendData?.count > 0 {
+            
+            if let expend = currnetDicValue.expend {
+                if expend == 1 {
+                    currnetDicValue.expend = 0
+                }else if expend == 0 {
+                    currnetDicValue.expend = 1
+                }
+            }else{
                 currnetDicValue.expend = 1
             }
-        }else{
-            currnetDicValue.expend = 1
+            dataTimeLineArray[indexPath.section] = currnetDicValue
+            
+            self.tableView.beginUpdates()
+            self.tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Automatic)
+            self.tableView.endUpdates()
         }
-        dataTimeLineArray[indexPath.section] = currnetDicValue
         
-        self.tableView.beginUpdates()
-        self.tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Automatic)
-        self.tableView.endUpdates()
         
     }
 }
