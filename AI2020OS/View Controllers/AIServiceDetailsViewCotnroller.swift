@@ -25,6 +25,8 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
 
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var menuView: UIView!
+    
     // MARK: getters and setters
     
     private let transitionManager = TransitionManager()
@@ -38,7 +40,8 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     private var avatorImage:UIImageView?
     
     private var nickLabel:UILabel?
-    @IBOutlet weak var menuView: UIView!
+    
+    private var tableCount:Int = 9
     
     private var scrollViewDragPointsss : CGPoint?
     
@@ -60,6 +63,9 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         self.detailsPageView.delegate = self
         self.detailsPageView.tableViewDataSource = self
         self.detailsPageView.tableViewDelegate = self
+        
+        // Fix: scrollview.
+        //self.detailsPageView.tableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0)
         
         //Register Cells
         //registerCells()
@@ -203,25 +209,47 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         case 2:
             return 60
         case 3:
-            return 120
+            if let str = self.movieDetailsResponse?.service_intro{
+                
+                var heightLines =  str.stringHeightWith(14, width: self.view.width) + 60
+                return heightLines
+                
+            }else{
+                return 0
+            }
         case 4:
-            return 60
+            if self.movieDetailsResponse?.service_param_list?.count > 0 {
+                return 60
+            }
+            return 0
+        case 5:
+            return 142
         default:
             break
         }
         
-        if let str = self.movieDetailsResponse?.service_intro{
-            
-            var heightLines =  str.stringHeightWith(14, width: self.view.width) + 60
-            return heightLines
-            
+        let number = tableCount-indexPath.section
+        if  number == 3{
+            if let str = self.movieDetailsResponse?.service_process {
+                var heightLines = str.stringHeightWith(17, width: self.view.width) + 60
+                return heightLines
+            }
+        }else if  number == 2{
+            if let str = self.movieDetailsResponse?.service_guarantee {
+                var heightLines = str.stringHeightWith(17, width: self.view.width) + 60
+                return heightLines
+            }
+        }else if  number == 1{
+            if let str = self.movieDetailsResponse?.service_restraint {
+                var heightLines = str.stringHeightWith(17, width: self.view.width) + 60
+                return heightLines
+            }
         }
-        
         return 0
-    }    
+    }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5 + 8
+        return tableCount
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -256,12 +284,12 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             if  avCell == nil {
                 avCell = AIHomeSDParamesViewCell().currentViewCell()
             }
-            avCell?.textLabel.text = "选择入住时间"
+            avCell?.textLabel.text = "选择时间"
             avCell?.detailTextLabel?.text = ""
             avCell?.addBottomBorderLine()
             return avCell!
             
-        case 3:
+        case 3: //服务详情
             
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDesViewCell) as? AIHomeSDDesViewCell
             if  avCell == nil {
@@ -269,12 +297,14 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             }
 
             avCell?.desLabel.text = self.movieDetailsResponse?.service_intro
+            avCell?.desLabel.sizeToFit()
             if let str = self.movieDetailsResponse?.service_intro {
                 var heightLines = str.stringHeightWith(14, width: self.view.width) + 60
                 avCell?.addBottomBorderLine(heightLines)
             }
+            
             return avCell!
-        case 4:
+        case 4: // 服务参数
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
             if  avCell == nil {
                 avCell = AIHomeSDParamesViewCell().currentViewCell()
@@ -287,24 +317,60 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.addBottomBorderLine()
             return avCell!
             
+        case 5: //最新评论
             
+            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeCommentViewCell) as? AIHomeCommentViewCell
+            if  avCell == nil {
+                avCell = AIHomeCommentViewCell().currentViewCell()
+            }
+            return avCell!
         default:
+            
             break
         }
         
-        var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDesViewCell) as? AIHomeSDDesViewCell
+        var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeDesChildViewCell) as? AIHomeDesChildViewCell
         if  avCell == nil {
-            avCell = AIHomeSDDesViewCell().currentViewCell()
+            avCell = AIHomeDesChildViewCell().currentViewCell()
         }
         
-        avCell?.desLabel.text = self.movieDetailsResponse?.service_intro
-        if let str = self.movieDetailsResponse?.service_intro {
-            var heightLines = str.stringHeightWith(14, width: self.view.width) + 60
-            avCell?.addBottomBorderLine(heightLines)
+        let number = tableCount-indexPath.section
+        if  number == 3{
+            avCell?.label_title.text = "服务流程"
+            if let str = self.movieDetailsResponse?.service_process {
+                avCell?.label_Content.text = str
+            }else{
+                avCell?.label_Content.text = "没有数据"
+            }
+             
+        }else if  number == 2{
+            avCell?.label_title.text = "服务保障"
+            if let str = self.movieDetailsResponse?.service_guarantee {
+                avCell?.label_Content.text = str
+                
+                
+            }else{
+                avCell?.label_Content.text = "没有数据"
+            }
+        }else if number == 1{
+            avCell?.label_title.text = "服务约束"
+            if let str = self.movieDetailsResponse?.service_restraint {
+                avCell?.label_Content.text = str
+                
+            }else{
+                avCell?.label_Content.text = "没有数据"
+            }
         }
+        
+        avCell?.label_Content.sizeToFit()
         
         return avCell!
         
+    }
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section > (tableCount-5) {
+            cell.addBottomBorderLine()
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

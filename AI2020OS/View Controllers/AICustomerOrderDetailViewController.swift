@@ -10,6 +10,7 @@ import UIKit
 
 class AICustomerOrderDetailViewController: UIViewController {
 
+    @IBOutlet weak var timeLineView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,4 +39,7 @@ class AICustomerOrderDetailViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
 
+    func buildTimeLineView(){
+        
+    }
 }

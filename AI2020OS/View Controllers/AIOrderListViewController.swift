@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Cartography
+import SCLAlertView
 
 class AIOrderListViewController:UIViewController{
     
@@ -68,6 +69,8 @@ class AIOrderListViewController:UIViewController{
 }
 
 class AIBaseOrderListViewController : UIViewController{
+    
+    // MARK: - operButtonActions
     func addOperButton(buttonArray:[ButtonModel],buttonView:UIView){
         buttonView.subviews.filter{
             let value:UIButton = $0 as UIButton
@@ -84,12 +87,30 @@ class AIBaseOrderListViewController : UIViewController{
             button.backgroundColor = UIColor.clearColor()
             button.titleLabel?.font = UIFont.boldSystemFontOfSize(14)
             buttonView.addSubview(button)
+            
+            button.addTarget(self, action: buttonModel.action, forControlEvents: UIControlEvents.TouchUpInside)
             x = x + 40
             
             
         }
     }
     
+    
+    func assignOrder(target:UIButton){
+        SCLAlertView().showInfo("提示", subTitle: "派单", closeButtonTitle: "关闭", duration: 3)
+    }
+    
+    func commentsOrder(target:UIButton){
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AICommentStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
+        self.navigationController?.pushViewController(viewController, animated: true)
+
+    }
+    
+    func excuteOrder(target:UIButton){
+        SCLAlertView().showInfo("提示", subTitle: "开始处理订单", closeButtonTitle: "关闭", duration: 3)
+    }
+    
+    // MARK: - statusButtons
     func addStatusButton(buttonArray:[StatusButtonModel],scrollView:UIScrollView){
         scrollView.subviews.filter{
             let value:UIView = $0 as UIView

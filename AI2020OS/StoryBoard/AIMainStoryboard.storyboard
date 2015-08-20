@@ -141,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXF-A4-Ths" customClass="KMDetailsPageView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="535"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -202,12 +202,12 @@
                                             <action selector="showMenuClick:" destination="aMn-dT-4gL" eventType="touchUpInside" id="FJ7-Rt-eV2"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Q-Fs-A6i">
-                                        <rect key="frame" x="150" y="24" width="300" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务名称" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Q-Fs-A6i">
+                                        <rect key="frame" x="175" y="24" width="250" height="30"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="AbL-Xg-n1A"/>
-                                            <constraint firstAttribute="width" constant="300" id="aVR-ae-qka"/>
+                                            <constraint firstAttribute="width" constant="250" id="aVR-ae-qka"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -262,11 +262,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="af8-Dl-sK7" secondAttribute="trailing" constant="-16" id="Gdd-iF-5rk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wXF-A4-Ths" secondAttribute="trailing" constant="-16" id="Mv4-cJ-7AU"/>
                             <constraint firstItem="af8-Dl-sK7" firstAttribute="leading" secondItem="Uw5-zh-Bxt" secondAttribute="leadingMargin" constant="-16" id="NUH-FQ-kJd"/>
+                            <constraint firstItem="af8-Dl-sK7" firstAttribute="top" secondItem="wXF-A4-Ths" secondAttribute="bottom" id="UzA-iO-eAn"/>
                             <constraint firstItem="UCs-hZ-Y2B" firstAttribute="top" secondItem="af8-Dl-sK7" secondAttribute="bottom" id="dg5-WJ-nb6"/>
                             <constraint firstItem="UCs-hZ-Y2B" firstAttribute="top" secondItem="wXF-A4-Ths" secondAttribute="bottom" id="hMg-XQ-15F"/>
                             <constraint firstItem="k41-do-jpb" firstAttribute="top" secondItem="wXF-A4-Ths" secondAttribute="top" id="uMK-UV-wn9"/>
                             <constraint firstItem="wXF-A4-Ths" firstAttribute="leading" secondItem="Uw5-zh-Bxt" secondAttribute="leadingMargin" constant="-16" id="zfE-wn-QMA"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hMg-XQ-15F"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="detailsPageView" destination="wXF-A4-Ths" id="9BH-Hg-tqh"/>
