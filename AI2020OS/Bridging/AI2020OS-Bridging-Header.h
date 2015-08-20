@@ -44,6 +44,7 @@
 
 // MARK: Model
 #import "AITipModel.h"
+#import "AIServiceCommentTagList.h"
 
 
 
