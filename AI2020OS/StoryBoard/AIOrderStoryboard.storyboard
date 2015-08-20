@@ -274,7 +274,7 @@
                                     <constraint firstAttribute="height" constant="85" id="vzR-aR-8pn"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugB-mm-dwZ" userLabel="timeLineView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugB-mm-dwZ" userLabel="timeLineView" customClass="SubTimelineView" customModule="AI2020OS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="105" width="600" height="345"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -315,7 +315,7 @@
                                         </variation>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigationbar_back" translatesAutoresizingMaskIntoConstraints="NO" id="CSl-J7-n5N">
-                                        <rect key="frame" x="8" y="14" width="65" height="65"/>
+                                        <rect key="frame" x="8" y="25" width="65" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="EIk-yf-EF0"/>
                                             <constraint firstAttribute="height" constant="65" id="Y3o-Al-Bhz"/>
@@ -389,7 +389,7 @@
                                     <constraint firstItem="qL0-UM-V9j" firstAttribute="leading" secondItem="CSl-J7-n5N" secondAttribute="trailing" constant="18" id="usK-PX-id6"/>
                                     <constraint firstItem="ARh-q5-7wU" firstAttribute="top" secondItem="3N1-6H-h2j" secondAttribute="bottom" constant="28" id="vhp-NZ-LFb"/>
                                     <constraint firstItem="ukv-tL-N5H" firstAttribute="leading" secondItem="CSl-J7-n5N" secondAttribute="trailing" constant="5" id="yZA-qh-QY3"/>
-                                    <constraint firstItem="CSl-J7-n5N" firstAttribute="top" secondItem="3N1-6H-h2j" secondAttribute="bottom" constant="5" id="zSb-EQ-PFa"/>
+                                    <constraint firstItem="CSl-J7-n5N" firstAttribute="top" secondItem="3N1-6H-h2j" secondAttribute="bottom" constant="16" id="zSb-EQ-PFa"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -440,6 +440,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ZmX-wG-RWI" secondAttribute="trailing" constant="-16" id="dqA-Cq-CYy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timeLineView" destination="ugB-mm-dwZ" id="m4Y-eb-hUb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VwT-px-85G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -48,6 +48,7 @@
 
 // MARK: Model
 #import "AITipModel.h"
+#import "AIServiceCommentTagList.h"
 
 // MARK: AICardView
 #import "AICardView.h"

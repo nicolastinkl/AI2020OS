@@ -47,12 +47,12 @@ class AIOrderRequester {
             
             if let responseJSON: AnyObject = response{
                 let orders =  AIOrderListModel(JSONDecoder(responseJSON))
-                if let arrayy = orders.orderArray {
-                    completion(data: arrayy)
-                }else{
+                if let data = orders.orderArray {
+                    completion(data: data)
+                }
+                else{
                     return completion(data:[])
                 }
-                
             }else{
              
                 if let strongSelf = self{

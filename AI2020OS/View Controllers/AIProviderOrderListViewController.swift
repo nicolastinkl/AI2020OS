@@ -63,12 +63,12 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
     //orderState: 待处理 进行中 待完成 已完成
     func buildDynaOperButton(orderState : String,orderType : String,buttonView:UIView){
         switch orderState{
-        case "待处理":
-            addOperButton([ButtonModel(title: "派单"),ButtonModel(title: "处理")], buttonView: buttonView)
+        case "11":
+            addOperButton([ButtonModel(title: "派单",action:"assignOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView)
         case "已完成":
-            addOperButton([ButtonModel(title: "评价")], buttonView: buttonView)
+            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:")], buttonView: buttonView)
         default :
-            addOperButton([ButtonModel(title: "派单"),ButtonModel(title: "处理")], buttonView: buttonView)
+            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView)
             return
             
         }
