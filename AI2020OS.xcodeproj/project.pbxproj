@@ -43,7 +43,6 @@
 		814B2BD61B8204C2003A10A5 /* AIMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD51B8204C2003A10A5 /* AIMessageViewController.m */; };
 		814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD91B8204F2003A10A5 /* AIMessageModel.m */; };
 		814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BDC1B820529003A10A5 /* AIMessageCell.m */; };
-		816EA9121B85D08E00B76109 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 816EA9111B85D08E00B76109 /* Resources */; };
 		817E15D31B7C8A2700C298BE /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 817E15CF1B7C8A2700C298BE /* config.xml */; };
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
 		817E15F61B7C8DB800C298BE /* www in Resources */ = {isa = PBXBuildFile; fileRef = 817E15F51B7C8DB800C298BE /* www */; };
@@ -85,6 +84,7 @@
 		84951FB71B1312E500179483 /* SearchEngineImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB51B1312E500179483 /* SearchEngineImp.swift */; };
 		849EC6C31B31062E00930697 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849EC6C21B31062E00930697 /* AISearchBar.xib */; };
 		849EC6C71B310D3100930697 /* AISearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EC6C61B310D3100930697 /* AISearchBarView.swift */; };
+		84A72C5F1B85D8C900B503A3 /* storehouse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A72C5E1B85D8C900B503A3 /* storehouse.plist */; };
 		84CA2EFC1B81883000FCB971 /* AITimeLineServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */; };
 		84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */; };
 		84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */; };
@@ -440,7 +440,6 @@
 		814B2BD91B8204F2003A10A5 /* AIMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageModel.m; path = Message/AIMessageModel.m; sourceTree = "<group>"; };
 		814B2BDB1B820529003A10A5 /* AIMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMessageCell.h; path = Message/AIMessageCell.h; sourceTree = "<group>"; };
 		814B2BDC1B820529003A10A5 /* AIMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageCell.m; path = Message/AIMessageCell.m; sourceTree = "<group>"; };
-		816EA9111B85D08E00B76109 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = AI2020OS/Resources; sourceTree = "<group>"; };
 		817E15CF1B7C8A2700C298BE /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		817E15D81B7C8AB000C298BE /* CDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
 		817E15D91B7C8AB000C298BE /* CDVAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVAvailability.h; sourceTree = "<group>"; };
@@ -539,6 +538,7 @@
 		84951FB51B1312E500179483 /* SearchEngineImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngineImp.swift; sourceTree = "<group>"; };
 		849EC6C21B31062E00930697 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
 		849EC6C61B310D3100930697 /* AISearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBarView.swift; sourceTree = "<group>"; };
+		84A72C5E1B85D8C900B503A3 /* storehouse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = storehouse.plist; sourceTree = "<group>"; };
 		84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimeLineServices.swift; sourceTree = "<group>"; };
 		84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogViewController.swift; sourceTree = "<group>"; };
 		84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICatalogTableCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -1199,6 +1199,15 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		84A72C5D1B85D8C900B503A3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84A72C5E1B85D8C900B503A3 /* storehouse.plist */,
+			);
+			name = Resources;
+			path = AI2020OS/Resources;
+			sourceTree = "<group>";
+		};
 		84CB36821B16E88200D66BBD /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -1355,7 +1364,7 @@
 		933ED3DB1AC8F90A00E4AADB = {
 			isa = PBXGroup;
 			children = (
-				816EA9111B85D08E00B76109 /* Resources */,
+				84A72C5D1B85D8C900B503A3 /* Resources */,
 				8198AB9B1B8183B30047E740 /* Network */,
 				817E15CE1B7C8A2700C298BE /* Web */,
 				93AC3FB61AC95DF5000024A4 /* StoryBoard */,
@@ -2210,6 +2219,7 @@
 				938A398E1B20255E00E3A5BF /* AITabelViewMenuViewCell.xib in Resources */,
 				934987161B0DA9A7003086D1 /* AIHomeViewStyleTitleAndContentView.xib in Resources */,
 				9349871E1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard in Resources */,
+				84A72C5F1B85D8C900B503A3 /* storehouse.plist in Resources */,
 				93659F661B1EF21A0065E661 /* AITableViewInsetMakeView.xib in Resources */,
 				817E15F61B7C8DB800C298BE /* www in Resources */,
 				9349870E1B0DA348003086D1 /* AIHomeViewStyleMultiepleView.xib in Resources */,
@@ -2217,7 +2227,6 @@
 				933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */,
 				84DE7DAF1B79E623007E8F7F /* AICommentStoryboard.storyboard in Resources */,
 				934987051B0B3074003086D1 /* AITIMELINESDTITLEView.xib in Resources */,
-				816EA9121B85D08E00B76109 /* Resources in Resources */,
 				84D9B81D1B7C2CA8005331B5 /* AISingleCommentView.xib in Resources */,
 				936D62471AD4D44A00609FCD /* AILoadingStoryboard.storyboard in Resources */,
 				93692C9D1ACAB94700D66211 /* AILoginStoryboard.storyboard in Resources */,
