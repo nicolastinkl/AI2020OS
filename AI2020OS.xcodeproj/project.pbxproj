@@ -33,6 +33,8 @@
 		812388C01B8428BC00CEA574 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 812388B81B8428BC00CEA574 /* WMMenuView.m */; };
 		812388C11B8428BC00CEA574 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 812388BA1B8428BC00CEA574 /* WMProgressView.m */; };
 		812388C21B8428BC00CEA574 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 812388BD1B8428BC00CEA574 /* WMPageController.m */; };
+		812388D21B85CCB900CEA574 /* BarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 812388CF1B85CCB900CEA574 /* BarItem.m */; };
+		812388D31B85CCB900CEA574 /* CBStoreHouseRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 812388D11B85CCB900CEA574 /* CBStoreHouseRefreshControl.m */; };
 		814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BCB1B81C9EB003A10A5 /* CDVCamera.m */; };
 		814B2BD21B81C9EB003A10A5 /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BCE1B81C9EB003A10A5 /* CDVJpegHeaderWriter.m */; };
 		814B2BD31B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD01B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m */; };
@@ -399,6 +401,10 @@
 		812388BB1B8428BC00CEA574 /* WMPageConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageConst.h; sourceTree = "<group>"; };
 		812388BC1B8428BC00CEA574 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
 		812388BD1B8428BC00CEA574 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
+		812388CE1B85CCB900CEA574 /* BarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarItem.h; sourceTree = "<group>"; };
+		812388CF1B85CCB900CEA574 /* BarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarItem.m; sourceTree = "<group>"; };
+		812388D01B85CCB900CEA574 /* CBStoreHouseRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStoreHouseRefreshControl.h; sourceTree = "<group>"; };
+		812388D11B85CCB900CEA574 /* CBStoreHouseRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStoreHouseRefreshControl.m; sourceTree = "<group>"; };
 		814B2BCA1B81C9EB003A10A5 /* CDVCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVCamera.h; sourceTree = "<group>"; };
 		814B2BCB1B81C9EB003A10A5 /* CDVCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVCamera.m; sourceTree = "<group>"; };
 		814B2BCC1B81C9EB003A10A5 /* CDVExif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVExif.h; sourceTree = "<group>"; };
@@ -902,6 +908,17 @@
 				812388BA1B8428BC00CEA574 /* WMProgressView.m */,
 			);
 			path = WMMenuView;
+			sourceTree = "<group>";
+		};
+		812388CD1B85CCB900CEA574 /* CBStoreHouseRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				812388CE1B85CCB900CEA574 /* BarItem.h */,
+				812388CF1B85CCB900CEA574 /* BarItem.m */,
+				812388D01B85CCB900CEA574 /* CBStoreHouseRefreshControl.h */,
+				812388D11B85CCB900CEA574 /* CBStoreHouseRefreshControl.m */,
+			);
+			path = CBStoreHouseRefreshControl;
 			sourceTree = "<group>";
 		};
 		814B2BC91B81C9EA003A10A5 /* Camera */ = {
@@ -1452,6 +1469,7 @@
 		933ED4181AC9221100E4AADB /* Venders */ = {
 			isa = PBXGroup;
 			children = (
+				812388CD1B85CCB900CEA574 /* CBStoreHouseRefreshControl */,
 				812388B11B8428BC00CEA574 /* WMPageController */,
 				8198ABA61B81840E0047E740 /* AFNetworking */,
 				8198ABBA1B81840E0047E740 /* JSONModel */,
@@ -2231,6 +2249,7 @@
 				934987211B0E06DD003086D1 /* AIMessageCenterViewController.swift in Sources */,
 				84CA2EFC1B81883000FCB971 /* AITimeLineServices.swift in Sources */,
 				1284ABC81B2036C600636F35 /* AITagFilterViewController.swift in Sources */,
+				812388D31B85CCB900CEA574 /* CBStoreHouseRefreshControl.m in Sources */,
 				84DFAD1F1B7D8D580091B156 /* AISelectableButton.swift in Sources */,
 				93659F641B1EF2090065E661 /* AITableViewInsetMakeView.swift in Sources */,
 				8198ABA51B8183B30047E740 /* AINetEngine.m in Sources */,
@@ -2349,6 +2368,7 @@
 				93049D061B04A3420051467A /* AIHomeAvatorViewCell.swift in Sources */,
 				93FF74651B0ECEA000FD97C1 /* CVCalendarMenuView.swift in Sources */,
 				934FE7D31B1C6BB300B745D4 /* AIIMConversation.swift in Sources */,
+				812388D21B85CCB900CEA574 /* BarItem.m in Sources */,
 				12B65F7B1B7B39C4008C05FC /* CustomerOrderTableViewCell.swift in Sources */,
 				93FF74711B0ECEA000FD97C1 /* CVCalendarWeekView.swift in Sources */,
 				935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */,

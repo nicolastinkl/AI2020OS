@@ -18,10 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationController.navigationBarHidden = NO;
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.title = @"消息";
+    [self configSelfProperties];
     [self resetNavigationBar];
     [self makePageController];
     
@@ -41,6 +38,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)configSelfProperties
+{
+    self.navigationController.navigationBarHidden = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.title = @"消息";
+}
 
 #pragma mark - Reset NavigationBar
 
