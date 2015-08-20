@@ -43,7 +43,6 @@
 		814B2BD61B8204C2003A10A5 /* AIMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD51B8204C2003A10A5 /* AIMessageViewController.m */; };
 		814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD91B8204F2003A10A5 /* AIMessageModel.m */; };
 		814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BDC1B820529003A10A5 /* AIMessageCell.m */; };
-		816EA9121B85D08E00B76109 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 816EA9111B85D08E00B76109 /* Resources */; };
 		817E15D31B7C8A2700C298BE /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 817E15CF1B7C8A2700C298BE /* config.xml */; };
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
 		817E15F61B7C8DB800C298BE /* www in Resources */ = {isa = PBXBuildFile; fileRef = 817E15F51B7C8DB800C298BE /* www */; };
@@ -67,12 +66,25 @@
 		8198ABD81B81840E0047E740 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABC51B81840E0047E740 /* JSONModelError.m */; };
 		8198ABD91B81840E0047E740 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABC81B81840E0047E740 /* JSONKeyMapper.m */; };
 		8198ABDA1B81840E0047E740 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABCA1B81840E0047E740 /* JSONValueTransformer.m */; };
+		840FDAA91B857D8100CE3DF9 /* AIOrderModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAA81B857D8100CE3DF9 /* AIOrderModifyView.swift */; };
+		840FDAAB1B857D9800CE3DF9 /* AIOrderModifyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840FDAAA1B857D9800CE3DF9 /* AIOrderModifyView.xib */; };
+		840FDAB21B85AF9500CE3DF9 /* AICardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAAE1B85AF9500CE3DF9 /* AICardCell.m */; };
+		840FDAB31B85AF9500CE3DF9 /* AICardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAB01B85AF9500CE3DF9 /* AICardView.m */; };
+		840FDAB41B85AF9500CE3DF9 /* airplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840FDAB11B85AF9500CE3DF9 /* airplane@2x.png */; };
+		840FDAC21B85AFDF00CE3DF9 /* CustomMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAB71B85AFDF00CE3DF9 /* CustomMethod.m */; };
+		840FDAC31B85AFDF00CE3DF9 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAB91B85AFDF00CE3DF9 /* MarkupParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		840FDAC41B85AFDF00CE3DF9 /* NSAttributedString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDABB1B85AFDF00CE3DF9 /* NSAttributedString+Attributes.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		840FDAC51B85AFDF00CE3DF9 /* OHAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDABD1B85AFDF00CE3DF9 /* OHAttributedLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		840FDAC61B85AFDF00CE3DF9 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDABF1B85AFDF00CE3DF9 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		840FDAC71B85AFDF00CE3DF9 /* SCGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAC11B85AFDF00CE3DF9 /* SCGIFImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		840FDACA1B85B01B00CE3DF9 /* AITools.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAC91B85B01B00CE3DF9 /* AITools.m */; };
 		84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */; };
 		8415F4E31B135688003160B4 /* SearchServiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */; };
 		84951FB61B1312E500179483 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB41B1312E500179483 /* SearchEngine.swift */; };
 		84951FB71B1312E500179483 /* SearchEngineImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB51B1312E500179483 /* SearchEngineImp.swift */; };
 		849EC6C31B31062E00930697 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849EC6C21B31062E00930697 /* AISearchBar.xib */; };
 		849EC6C71B310D3100930697 /* AISearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EC6C61B310D3100930697 /* AISearchBarView.swift */; };
+		84A72C5F1B85D8C900B503A3 /* storehouse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A72C5E1B85D8C900B503A3 /* storehouse.plist */; };
 		84CA2EFC1B81883000FCB971 /* AITimeLineServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */; };
 		84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */; };
 		84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */; };
@@ -428,7 +440,6 @@
 		814B2BD91B8204F2003A10A5 /* AIMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageModel.m; path = Message/AIMessageModel.m; sourceTree = "<group>"; };
 		814B2BDB1B820529003A10A5 /* AIMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMessageCell.h; path = Message/AIMessageCell.h; sourceTree = "<group>"; };
 		814B2BDC1B820529003A10A5 /* AIMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageCell.m; path = Message/AIMessageCell.m; sourceTree = "<group>"; };
-		816EA9111B85D08E00B76109 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = AI2020OS/Resources; sourceTree = "<group>"; };
 		817E15CF1B7C8A2700C298BE /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		817E15D81B7C8AB000C298BE /* CDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
 		817E15D91B7C8AB000C298BE /* CDVAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVAvailability.h; sourceTree = "<group>"; };
@@ -500,12 +511,34 @@
 		8198ABC81B81840E0047E740 /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
 		8198ABC91B81840E0047E740 /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
 		8198ABCA1B81840E0047E740 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
+		840FDAA81B857D8100CE3DF9 /* AIOrderModifyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderModifyView.swift; sourceTree = "<group>"; };
+		840FDAAA1B857D9800CE3DF9 /* AIOrderModifyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIOrderModifyView.xib; sourceTree = "<group>"; };
+		840FDAAD1B85AF9500CE3DF9 /* AICardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICardCell.h; sourceTree = "<group>"; };
+		840FDAAE1B85AF9500CE3DF9 /* AICardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICardCell.m; sourceTree = "<group>"; };
+		840FDAAF1B85AF9500CE3DF9 /* AICardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICardView.h; sourceTree = "<group>"; };
+		840FDAB01B85AF9500CE3DF9 /* AICardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICardView.m; sourceTree = "<group>"; };
+		840FDAB11B85AF9500CE3DF9 /* airplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplane@2x.png"; sourceTree = "<group>"; };
+		840FDAB61B85AFDF00CE3DF9 /* CustomMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMethod.h; sourceTree = "<group>"; };
+		840FDAB71B85AFDF00CE3DF9 /* CustomMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMethod.m; sourceTree = "<group>"; };
+		840FDAB81B85AFDF00CE3DF9 /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupParser.h; sourceTree = "<group>"; };
+		840FDAB91B85AFDF00CE3DF9 /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupParser.m; sourceTree = "<group>"; };
+		840FDABA1B85AFDF00CE3DF9 /* NSAttributedString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Attributes.h"; sourceTree = "<group>"; };
+		840FDABB1B85AFDF00CE3DF9 /* NSAttributedString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Attributes.m"; sourceTree = "<group>"; };
+		840FDABC1B85AFDF00CE3DF9 /* OHAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHAttributedLabel.h; sourceTree = "<group>"; };
+		840FDABD1B85AFDF00CE3DF9 /* OHAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHAttributedLabel.m; sourceTree = "<group>"; };
+		840FDABE1B85AFDF00CE3DF9 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		840FDABF1B85AFDF00CE3DF9 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		840FDAC01B85AFDF00CE3DF9 /* SCGIFImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGIFImageView.h; sourceTree = "<group>"; };
+		840FDAC11B85AFDF00CE3DF9 /* SCGIFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGIFImageView.m; sourceTree = "<group>"; };
+		840FDAC81B85B01B00CE3DF9 /* AITools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITools.h; sourceTree = "<group>"; };
+		840FDAC91B85B01B00CE3DF9 /* AITools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITools.m; sourceTree = "<group>"; };
 		84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogModel.swift; sourceTree = "<group>"; };
 		8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchServiceCollectionViewController.swift; sourceTree = "<group>"; };
 		84951FB41B1312E500179483 /* SearchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngine.swift; sourceTree = "<group>"; };
 		84951FB51B1312E500179483 /* SearchEngineImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngineImp.swift; sourceTree = "<group>"; };
 		849EC6C21B31062E00930697 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
 		849EC6C61B310D3100930697 /* AISearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBarView.swift; sourceTree = "<group>"; };
+		84A72C5E1B85D8C900B503A3 /* storehouse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = storehouse.plist; sourceTree = "<group>"; };
 		84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimeLineServices.swift; sourceTree = "<group>"; };
 		84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogViewController.swift; sourceTree = "<group>"; };
 		84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICatalogTableCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -1107,6 +1140,46 @@
 			path = JSONModelTransformations;
 			sourceTree = "<group>";
 		};
+		840FDAA71B857D6600CE3DF9 /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				840FDAA81B857D8100CE3DF9 /* AIOrderModifyView.swift */,
+				840FDAAA1B857D9800CE3DF9 /* AIOrderModifyView.xib */,
+			);
+			name = ContentView;
+			sourceTree = "<group>";
+		};
+		840FDAAC1B85AF9500CE3DF9 /* buyerCard */ = {
+			isa = PBXGroup;
+			children = (
+				840FDAAD1B85AF9500CE3DF9 /* AICardCell.h */,
+				840FDAAE1B85AF9500CE3DF9 /* AICardCell.m */,
+				840FDAAF1B85AF9500CE3DF9 /* AICardView.h */,
+				840FDAB01B85AF9500CE3DF9 /* AICardView.m */,
+				840FDAB11B85AF9500CE3DF9 /* airplane@2x.png */,
+			);
+			path = buyerCard;
+			sourceTree = "<group>";
+		};
+		840FDAB51B85AFDF00CE3DF9 /* CoreText */ = {
+			isa = PBXGroup;
+			children = (
+				840FDAB61B85AFDF00CE3DF9 /* CustomMethod.h */,
+				840FDAB71B85AFDF00CE3DF9 /* CustomMethod.m */,
+				840FDAB81B85AFDF00CE3DF9 /* MarkupParser.h */,
+				840FDAB91B85AFDF00CE3DF9 /* MarkupParser.m */,
+				840FDABA1B85AFDF00CE3DF9 /* NSAttributedString+Attributes.h */,
+				840FDABB1B85AFDF00CE3DF9 /* NSAttributedString+Attributes.m */,
+				840FDABC1B85AFDF00CE3DF9 /* OHAttributedLabel.h */,
+				840FDABD1B85AFDF00CE3DF9 /* OHAttributedLabel.m */,
+				840FDABE1B85AFDF00CE3DF9 /* RegexKitLite.h */,
+				840FDABF1B85AFDF00CE3DF9 /* RegexKitLite.m */,
+				840FDAC01B85AFDF00CE3DF9 /* SCGIFImageView.h */,
+				840FDAC11B85AFDF00CE3DF9 /* SCGIFImageView.m */,
+			);
+			path = CoreText;
+			sourceTree = "<group>";
+		};
 		84951FB31B13117300179483 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1124,6 +1197,15 @@
 				849EC6C61B310D3100930697 /* AISearchBarView.swift */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		84A72C5D1B85D8C900B503A3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84A72C5E1B85D8C900B503A3 /* storehouse.plist */,
+			);
+			name = Resources;
+			path = AI2020OS/Resources;
 			sourceTree = "<group>";
 		};
 		84CB36821B16E88200D66BBD /* view */ = {
@@ -1242,6 +1324,8 @@
 		93266FAD1AEF814700DD0021 /* TimLine */ = {
 			isa = PBXGroup;
 			children = (
+				840FDAAC1B85AF9500CE3DF9 /* buyerCard */,
+				840FDAA71B857D6600CE3DF9 /* ContentView */,
 				934986FD1B0B171E003086D1 /* Cells */,
 				93AC3FD31ACA40C8000024A4 /* AITimelineViewController.swift */,
 				123A45F71B847988008B9CF6 /* SubTimelineView.swift */,
@@ -1280,7 +1364,7 @@
 		933ED3DB1AC8F90A00E4AADB = {
 			isa = PBXGroup;
 			children = (
-				816EA9111B85D08E00B76109 /* Resources */,
+				84A72C5D1B85D8C900B503A3 /* Resources */,
 				8198AB9B1B8183B30047E740 /* Network */,
 				817E15CE1B7C8A2700C298BE /* Web */,
 				93AC3FB61AC95DF5000024A4 /* StoryBoard */,
@@ -1366,6 +1450,7 @@
 				1205C0DA1B20571C003E27C4 /* sidemenu */,
 				933668891AD6787B007556D7 /* sunflower */,
 				93692C961ACAA52A00D66211 /* Async.swift */,
+				840FDAB51B85AFDF00CE3DF9 /* CoreText */,
 				93CFC0761AD6551200B82CC9 /* RAReorderableLayout.swift */,
 			);
 			name = Libs;
@@ -1482,6 +1567,8 @@
 				93F66DE81B19D7B800AEA92A /* NSObjcetUtils.swift */,
 				938A39891B2020F200E3A5BF /* AIButtonUtils.swift */,
 				84DD649A1B82D128009BDB2A /* AIImageViewUtils.swift */,
+				840FDAC81B85B01B00CE3DF9 /* AITools.h */,
+				840FDAC91B85B01B00CE3DF9 /* AITools.m */,
 			);
 			name = Utils;
 			path = AI2020OS/Utils;
@@ -2106,10 +2193,12 @@
 				84CDC8EA1B84867C002A29EE /* AIHomeCommentViewCell.xib in Resources */,
 				938A39941B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard in Resources */,
 				93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */,
+				840FDAB41B85AF9500CE3DF9 /* airplane@2x.png in Resources */,
 				938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */,
 				931718831B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard in Resources */,
 				93FF74751B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard in Resources */,
 				93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */,
+				840FDAAB1B857D9800CE3DF9 /* AIOrderModifyView.xib in Resources */,
 				93BD09061B05F2D000C8B96B /* AIOrderBuyView.xib in Resources */,
 				84CDC8E61B84222B002A29EE /* AIHomeDesChildViewCell.xib in Resources */,
 				938A39881B2001DF00E3A5BF /* AITabelViewMenuView.xib in Resources */,
@@ -2130,6 +2219,7 @@
 				938A398E1B20255E00E3A5BF /* AITabelViewMenuViewCell.xib in Resources */,
 				934987161B0DA9A7003086D1 /* AIHomeViewStyleTitleAndContentView.xib in Resources */,
 				9349871E1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard in Resources */,
+				84A72C5F1B85D8C900B503A3 /* storehouse.plist in Resources */,
 				93659F661B1EF21A0065E661 /* AITableViewInsetMakeView.xib in Resources */,
 				817E15F61B7C8DB800C298BE /* www in Resources */,
 				9349870E1B0DA348003086D1 /* AIHomeViewStyleMultiepleView.xib in Resources */,
@@ -2137,7 +2227,6 @@
 				933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */,
 				84DE7DAF1B79E623007E8F7F /* AICommentStoryboard.storyboard in Resources */,
 				934987051B0B3074003086D1 /* AITIMELINESDTITLEView.xib in Resources */,
-				816EA9121B85D08E00B76109 /* Resources in Resources */,
 				84D9B81D1B7C2CA8005331B5 /* AISingleCommentView.xib in Resources */,
 				936D62471AD4D44A00609FCD /* AILoadingStoryboard.storyboard in Resources */,
 				93692C9D1ACAB94700D66211 /* AILoginStoryboard.storyboard in Resources */,
@@ -2263,6 +2352,7 @@
 				93D806CF1B1C6D7900B13FFF /* MainSearchViewController.swift in Sources */,
 				93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */,
 				814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */,
+				840FDAC61B85AFDF00CE3DF9 /* RegexKitLite.m in Sources */,
 				936DAC1D1ADCF4170025483B /* AIRecognizerFactory.m in Sources */,
 				814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */,
 				812388C21B8428BC00CEA574 /* WMPageController.m in Sources */,
@@ -2281,6 +2371,7 @@
 				812388D31B85CCB900CEA574 /* CBStoreHouseRefreshControl.m in Sources */,
 				84DFAD1F1B7D8D580091B156 /* AISelectableButton.swift in Sources */,
 				93659F641B1EF2090065E661 /* AITableViewInsetMakeView.swift in Sources */,
+				840FDACA1B85B01B00CE3DF9 /* AITools.m in Sources */,
 				8198ABA51B8183B30047E740 /* AINetEngine.m in Sources */,
 				939E66441B291F4100FD5FBA /* KSTokenView.swift in Sources */,
 				84D142621B2EA04A00662291 /* AITagModel.swift in Sources */,
@@ -2309,12 +2400,14 @@
 				93FF74621B0ECEA000FD97C1 /* CVCalendarDayView.swift in Sources */,
 				93FF746E1B0ECEA000FD97C1 /* CVCalendarViewDelegate.swift in Sources */,
 				93AC3FD41ACA40C8000024A4 /* AITimelineViewController.swift in Sources */,
+				840FDAC31B85AFDF00CE3DF9 /* MarkupParser.m in Sources */,
 				1205C0DD1B20574F003E27C4 /* ENSideMenu.swift in Sources */,
 				936D62531AD5144100609FCD /* KMDetailsPageView.m in Sources */,
 				8198ABD51B81840E0047E740 /* JSONModelArray.m in Sources */,
 				9301B07C1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift in Sources */,
 				934FE7D41B1C6BB300B745D4 /* AIIMNotify.swift in Sources */,
 				93FF746B1B0ECEA000FD97C1 /* CVCalendarViewAnimatorDelegate.swift in Sources */,
+				840FDAB31B85AF9500CE3DF9 /* AICardView.m in Sources */,
 				84D5D2C81B1C636D001E9F37 /* AICatalogServicesModel.swift in Sources */,
 				93A7059A1B12D2C000E8193C /* AITSLocation.swift in Sources */,
 				93E2F7A41B09890D00483CFA /* AITransitionManagerMenuAnimation.swift in Sources */,
@@ -2346,8 +2439,10 @@
 				814B2BD31B81C9EB003A10A5 /* UIImage+CropScaleOrientation.m in Sources */,
 				938A398A1B2020F200E3A5BF /* AIButtonUtils.swift in Sources */,
 				93D80A441ACA71DA004BC7C0 /* AILocalStore.swift in Sources */,
+				840FDAA91B857D8100CE3DF9 /* AIOrderModifyView.swift in Sources */,
 				12C9ED281B203E9C003E2215 /* AITagFilterModel.swift in Sources */,
 				93266FB21AEF81E100DD0021 /* AIFavoritsCommand.swift in Sources */,
+				840FDAC21B85AFDF00CE3DF9 /* CustomMethod.m in Sources */,
 				8198ABCD1B81840E0047E740 /* AFHTTPSessionManager.m in Sources */,
 				84951FB61B1312E500179483 /* SearchEngine.swift in Sources */,
 				812388D61B85CD1200CEA574 /* AIMessageTableController.m in Sources */,
@@ -2364,6 +2459,7 @@
 				9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */,
 				84DF5F2E1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift in Sources */,
 				939E66421B291F4100FD5FBA /* KSToken.swift in Sources */,
+				840FDAC71B85AFDF00CE3DF9 /* SCGIFImageView.m in Sources */,
 				8198ABD11B81840E0047E740 /* AFURLRequestSerialization.m in Sources */,
 				8198ABA41B8183B30047E740 /* AIMessageWrapper.m in Sources */,
 				84CDC8E81B848650002A29EE /* AIHomeCommentViewCell.swift in Sources */,
@@ -2379,6 +2475,7 @@
 				93FF74701B0ECEA000FD97C1 /* CVCalendarWeekContentView.swift in Sources */,
 				84DBFF641B26D71F00F7FED6 /* AIFavorServicesManager.swift in Sources */,
 				934987181B0DA9B4003086D1 /* AIHomeViewStyleTitleAndContentView.swift in Sources */,
+				840FDAB21B85AF9500CE3DF9 /* AICardCell.m in Sources */,
 				938A398C1B20255300E3A5BF /* AITabelViewMenuViewCell.swift in Sources */,
 				93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */,
 				84D9B8211B7C353C005331B5 /* AISingleCommentView.swift in Sources */,
@@ -2440,11 +2537,13 @@
 				84DE14FB1B85641E001BB5BD /* AIServiceCommentTagList.m in Sources */,
 				93CED3DF1AD530C000761B4D /* AIUIViewUtils.swift in Sources */,
 				933668861AD671A4007556D7 /* AITransitionManager.swift in Sources */,
+				840FDAC51B85AFDF00CE3DF9 /* OHAttributedLabel.m in Sources */,
 				84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */,
 				9349871A1B0DBDC7003086D1 /* AIErrorRetryView.swift in Sources */,
 				939E66471B293F7900FD5FBA /* AILoginWithSMSViewController.swift in Sources */,
 				93BD09041B05F2BC00C8B96B /* AIOrderBuyView.swift in Sources */,
 				93AC3FBA1AC95E6D000024A4 /* AIMainTabBarController.swift in Sources */,
+				840FDAC41B85AFDF00CE3DF9 /* NSAttributedString+Attributes.m in Sources */,
 				93FF746A1B0ECEA000FD97C1 /* CVCalendarViewAnimator.swift in Sources */,
 				9337FF5C1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift in Sources */,
 				812388BF1B8428BC00CEA574 /* WMMenuItem.m in Sources */,

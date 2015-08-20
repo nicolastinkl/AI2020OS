@@ -12,6 +12,7 @@ import Spring
 class AIHomeAvatorViewCell : UITableViewCell {
  
     @IBOutlet weak var avatorImageView: AsyncImageView!
+    
     @IBOutlet weak var nickName: UILabel!
     
     override func awakeFromNib() {
@@ -23,4 +24,5 @@ class AIHomeAvatorViewCell : UITableViewCell {
         var cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDAvatorViewCell, owner: self, options: nil).last  as AIHomeAvatorViewCell
         return cell
     }
+    
 }

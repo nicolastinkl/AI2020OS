@@ -8,7 +8,13 @@
 
 import Foundation
 
+protocol AIHomeCommentViewCellDelegate:class{
+    func moreCommendAction()
+}
+
 class AIHomeCommentViewCell: UITableViewCell {
+    
+    weak var delegate:AIHomeCommentViewCellDelegate?
     
     @IBOutlet weak var label_nick: UILabel!
     
@@ -26,6 +32,9 @@ class AIHomeCommentViewCell: UITableViewCell {
         var cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.CellIdentifiers.AIHomeCommentViewCell, owner: self, options: nil).last  as AIHomeCommentViewCell
         return cell
     }
+    
     @IBAction func targetMoreAction(sender: AnyObject) {
+        delegate?.moreCommendAction()
     }
+    
 }
