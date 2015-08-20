@@ -25,6 +25,8 @@
     
 }
 
+@property (nonatomic, strong) NSMutableDictionary *commonHeaders;
+
 @end
 
 @implementation AINetEngine
@@ -53,6 +55,7 @@
         
         _sessionManager.requestSerializer = [[AFJSONRequestSerializer alloc] init];
         _sessionManager.responseSerializer = [[AFJSONResponseSerializer alloc] init];
+        self.commonHeaders = [[NSMutableDictionary alloc] init];
     }
     
     return self;
@@ -60,16 +63,17 @@
 
 - (void)addHeaders:(NSDictionary *)headers
 {
-    for (NSString *key in headers.allKeys) {
+    NSMutableDictionary *allHeaders = [[NSMutableDictionary alloc] init];
+    [allHeaders addEntriesFromDictionary:self.commonHeaders];
+    [allHeaders addEntriesFromDictionary:headers];
+    
+    for (NSString *key in allHeaders.allKeys) {
         id value = [headers objectForKey:key];
         [_sessionManager.requestSerializer setValue:value forHTTPHeaderField:key];
     }
 }
 
-- (void)removeHeaders:(NSDictionary *)headers
-{
-    
-}
+
 
 #pragma mark - 发送POST请求
 
@@ -153,11 +157,16 @@
 
 #pragma mark - 增加默认header
 
-- (void)addCommonHeaders:(NSDictionary *)header
+- (void)configureCommonHeaders:(NSDictionary *)header
 {
-    
+    [self.commonHeaders addEntriesFromDictionary:header];
 }
 
+
+- (void)removeCommonHeaders
+{
+    [self.commonHeaders removeAllObjects];
+}
 
 #pragma mark - Member Method
 

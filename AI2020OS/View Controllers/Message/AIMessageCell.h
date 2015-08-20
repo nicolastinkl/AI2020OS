@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface AIMessageCell : UITableViewCell
+
+@property (nonatomic, readonly) UILabel *timeLabel;
+
+
+- (void)makeActions:(NSArray *)actions;
+
+
 
 @end
