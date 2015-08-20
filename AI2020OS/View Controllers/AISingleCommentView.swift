@@ -47,14 +47,17 @@ class AISingleCommentView: UIView {
                 
                 if scopeView == nil {
                     scopeView = AIServerScopeView.currentView()
+                    scopeView.dataSource = self
                 }
                 
                 if tipButtonSize != nil {
                     scopeView!.buttonSize = tipButtonSize
                 }
-                scopeView!.initWithViewsArray(models, parentView: self)
-                scopeView!.frame = CGRectMake(collectionView.frame.origin.x, tipsLabel.bottom + 10, collectionView.frame.width, 40)
-             //   scopeView!.setTop(tipsLabel.bottom + 10)
+                
+                scopeView!.reload(self)
+            //    scopeView!.initWithViewsArray(models, parentView: self)
+                scopeView!.frame = CGRectMake(collectionView.frame.origin.x, tipsLabel.bottom + 10, collectionView.frame.width, 60)
+                scopeView!.setTop(tipsLabel.bottom + 10)
                 
                 addSubview(scopeView!)
             }
@@ -84,9 +87,9 @@ class AISingleCommentView: UIView {
             forCellWithReuseIdentifier: "CONTENT")
 
         scopeView = AIServerScopeView.currentView()
-        
+        scopeView.dataSource = self
         setTextFieldStyle()
-  //      setTipsView()
+
 
   //      NSBundle.mainBundle().loadNibNamed("AISingleEvaluationView", owner: self, options: nil)
         
@@ -106,34 +109,6 @@ class AISingleCommentView: UIView {
         textField.layer.addSublayer(lineLayer)
     }
     
-    private func setTipsView() {
-        let scopeView =  AIServerScopeView.currentView()
-        scopeView.initWithViewsArray([
-            ServerScopeModel(outId: "2", outContent: "+5元"),
-            ServerScopeModel(outId: "6", outContent: "+10元"),
-            ServerScopeModel(outId: "3", outContent: "自定义")], parentView: self)
-        scopeView.setTop(tipsLabel.bottom + 10)
-        
-        addSubview(scopeView)
-        
-//        var tips = [AITipModel]()
-//        var tip = AITipModel()
-//        tip.value = 5
-//        tip.desc = "+5元"
-//        tips.append(tip)
-//        
-//        tip = AITipModel()
-//        tip.value = 5
-//        tip.desc = "+10元"
-//        tips.append(tip)
-//        
-//        tip = AITipModel()
-//        tip.value = 5
-//        tip.desc = "自定义"
-//        tips.append(tip)
-//        
-//        self.tipsData = tips
-    }
 }
 
 extension AISingleCommentView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -216,4 +191,28 @@ extension AISingleCommentView: UICollectionViewDelegateFlowLayout, UICollectionV
             
     }
 
+}
+
+extension AISingleCommentView: AIServerScopeViewDataSource {
+    func numberOfCell(scopeView: AIServerScopeView) -> Int {
+        if tipsData != nil {
+            return tipsData!.count
+        } else {
+            return 0
+        }
+    }
+    
+    func scopeView(scopeView: AIServerScopeView, cellForItemAtIndex: Int) -> UIControl {
+        var cellView = AISelectableButton.buttonWithType(UIButtonType.Custom) as AISelectableButton
+        
+  //      var cellView = scopeView.defaultTagStyleButton()
+        
+        if tipButtonSize != nil {
+            cellView.setSize(tipButtonSize!)
+        }
+        
+        cellView.setTitle(tipsData![cellForItemAtIndex].desc, forState: UIControlState.Normal)
+        cellView.titleLabel?.font = UIFont.boldSystemFontOfSize(18)
+        return cellView
+    }
 }
