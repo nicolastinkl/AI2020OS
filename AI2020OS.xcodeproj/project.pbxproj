@@ -85,6 +85,8 @@
 		849EC6C31B31062E00930697 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849EC6C21B31062E00930697 /* AISearchBar.xib */; };
 		849EC6C71B310D3100930697 /* AISearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EC6C61B310D3100930697 /* AISearchBarView.swift */; };
 		84A72C5F1B85D8C900B503A3 /* storehouse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A72C5E1B85D8C900B503A3 /* storehouse.plist */; };
+		84A72C631B85DEEA00B503A3 /* AIUserDesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A72C621B85DEEA00B503A3 /* AIUserDesViewController.swift */; };
+		84A72C651B85E15800B503A3 /* AIUserDesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A72C641B85E15800B503A3 /* AIUserDesStoryboard.storyboard */; };
 		84CA2EFC1B81883000FCB971 /* AITimeLineServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */; };
 		84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */; };
 		84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */; };
@@ -539,6 +541,8 @@
 		849EC6C21B31062E00930697 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
 		849EC6C61B310D3100930697 /* AISearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBarView.swift; sourceTree = "<group>"; };
 		84A72C5E1B85D8C900B503A3 /* storehouse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = storehouse.plist; sourceTree = "<group>"; };
+		84A72C621B85DEEA00B503A3 /* AIUserDesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUserDesViewController.swift; sourceTree = "<group>"; };
+		84A72C641B85E15800B503A3 /* AIUserDesStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIUserDesStoryboard.storyboard; sourceTree = "<group>"; };
 		84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimeLineServices.swift; sourceTree = "<group>"; };
 		84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogViewController.swift; sourceTree = "<group>"; };
 		84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICatalogTableCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -1208,6 +1212,14 @@
 			path = AI2020OS/Resources;
 			sourceTree = "<group>";
 		};
+		84A72C611B85DED600B503A3 /* UserDesView */ = {
+			isa = PBXGroup;
+			children = (
+				84A72C621B85DEEA00B503A3 /* AIUserDesViewController.swift */,
+			);
+			name = UserDesView;
+			sourceTree = "<group>";
+		};
 		84CB36821B16E88200D66BBD /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -1502,6 +1514,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84A72C611B85DED600B503A3 /* UserDesView */,
 				814B2BD71B8204CF003A10A5 /* Message */,
 				8119B3001B7D855500625FB4 /* Web */,
 				84D9B81A1B7C2C31005331B5 /* Comment */,
@@ -1827,6 +1840,7 @@
 				938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */,
 				84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */,
 				84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */,
+				84A72C641B85E15800B503A3 /* AIUserDesStoryboard.storyboard */,
 			);
 			name = StoryBoard;
 			path = AI2020OS/StoryBoard;
@@ -2200,6 +2214,7 @@
 				93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */,
 				840FDAAB1B857D9800CE3DF9 /* AIOrderModifyView.xib in Resources */,
 				93BD09061B05F2D000C8B96B /* AIOrderBuyView.xib in Resources */,
+				84A72C651B85E15800B503A3 /* AIUserDesStoryboard.storyboard in Resources */,
 				84CDC8E61B84222B002A29EE /* AIHomeDesChildViewCell.xib in Resources */,
 				938A39881B2001DF00E3A5BF /* AITabelViewMenuView.xib in Resources */,
 				84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */,
@@ -2469,6 +2484,7 @@
 				937C77661B1E9B71006FF589 /* AICContentViewController.swift in Sources */,
 				93A705941B12D0E600E8193C /* AIServerAddressView.swift in Sources */,
 				93AC3FD81ACA44F4000024A4 /* AISwiftLogger.swift in Sources */,
+				84A72C631B85DEEA00B503A3 /* AIUserDesViewController.swift in Sources */,
 				84CDC8E41B842070002A29EE /* AIHomeDesChildViewCell.swift in Sources */,
 				93E4D5B31B15681600992CA3 /* AIGitHub.swift in Sources */,
 				84DBFF681B26E68200F7FED6 /* AIServiceTagFilterViewController.swift in Sources */,

@@ -384,6 +384,12 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if indexPath.section == 0 {
+            let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIUserDesStoryboard, bundle: nil).instantiateInitialViewController() as AIUserDesViewController
+            viewController.avatorURL = self.movieDetailsResponse?.provider_portrait_url
+            self.showViewController(viewController, sender: self)
+        }
+        
         if indexPath.section == 2 {
             let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIComponentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICalendarViewController) as UIViewController
             
