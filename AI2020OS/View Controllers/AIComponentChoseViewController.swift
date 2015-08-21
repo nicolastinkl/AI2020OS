@@ -15,6 +15,9 @@ class AIComponentChoseViewController: UIViewController {
     
     @IBOutlet weak var contentScrollView: UIScrollView!
     
+    // 参数数据 
+    var movieDetailsResponse:AIServiceDetailModel?
+    
     private let margeheight:CGFloat = 20
     
     var serviceId:String?
@@ -24,8 +27,8 @@ class AIComponentChoseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK TITLE
-        localCode {
+      
+        if self.movieDetailsResponse?.service_param_list?.count > 0 {
             
         }
         
@@ -109,6 +112,8 @@ class AIComponentChoseViewController: UIViewController {
         var object: AnyObject =  UIButton.buttonWithType(UIButtonType.Custom)
         var button = object as UIButton
         
+        
+
         button.layer.borderColor = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
         
         // TODO: title Color
@@ -124,8 +129,9 @@ class AIComponentChoseViewController: UIViewController {
         
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(18)
         
-        self.contentScrollView.addSubview(button)
-        button.setTop(line3.top + line3.height + 5)
+        self.view.addSubview(button)
+        button.setTop(self.view.height - 50)
+        //button.setTop(line3.top + line3.height + 5)
         button.setWidth(self.view.width)
         button.setHeight(50)
         button.setTitle("提交订单", forState: UIControlState.Normal)

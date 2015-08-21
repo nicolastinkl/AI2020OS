@@ -120,20 +120,55 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         AIServicesRequester().loadServiceDetail(id, service_type: 0) { [weak self](data) -> () in
             if let strongSelf = self{
                 strongSelf.movieDetailsResponse = data
+                
+                // TEST
+                var detailParams = AIServiceDetailParamsModel()
+                detailParams.param_type = 7
+                detailParams.param_key = "选择课程"
+
+                var params1 = AIServiceDetailParamsDetailModel()
+                params1.id = 1
+                params1.title = "语音课程1小时"
+
+                var params2 = AIServiceDetailParamsDetailModel()
+                params2.id = 2
+                params2.title = "Wetalk课程1小时"
+
+                var params3 = AIServiceDetailParamsDetailModel()
+                params3.id = 3
+                params3.title = "VIP课程1小时"
+                
+                detailParams.param_value = [params1,params2,params3] // fill
+                
+                // --------------------
+                var detailParams1 = AIServiceDetailParamsModel()
+                detailParams1.param_type = 7
+                detailParams1.param_key = "选择老师"
+                
+                var params5 = AIServiceDetailParamsDetailModel()
+                params5.id = 5
+                params5.title = "Tony"
+                
+                var params4 = AIServiceDetailParamsDetailModel()
+                params4.id = 4
+                params4.title = "Echoooo"
+                
+                detailParams1.param_value = [params5,params4] // fill
+                
+                // --------------------
+                var detailParams2 = AIServiceDetailParamsModel()
+                detailParams2.param_type = 1
+                detailParams2.param_key = "选择时间"
+                
+                strongSelf.movieDetailsResponse?.service_param_list = [detailParams,detailParams1,detailParams2]
+                
+                // --------------------
                 strongSelf.detailsPageView.reloadData()
                 strongSelf.fillViews()
                 
             }
         }
-        
-        /*AIHttpEngine.kmdetailsForMoive(self.movieDetails!, response: {[weak self] (AIKMMovieS) -> () in
-            if let strongSelf = self{
-                strongSelf.movieDetailsResponse = AIKMMovieS
-                strongSelf.detailsPageView.reloadData()
-                strongSelf.fillViews()
-               
-            }
-        })*/
+         
     }
     
     func fillViews(){
@@ -164,12 +199,12 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
     func buyAction(){
         
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIComponentChoseViewController) as UIViewController
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIComponentChoseViewController) as AIComponentChoseViewController
         
         viewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-        //viewController.transitioningDelegate = self.transitionManager
         viewController.title = self.server_id
+        viewController.movieDetailsResponse = self.movieDetailsResponse
         self.presentViewController(viewController, animated: true, completion: nil)
         
     }
@@ -215,7 +250,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         case 1:
             return 72
         case 2:
-            return 60
+            return 0
         case 3:
             if let str = self.movieDetailsResponse?.service_intro{
                 
@@ -262,8 +297,9 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 4{
-            let count = self.movieDetailsResponse?.service_param_list?.count ?? 0
-            return count
+//            let count = self.movieDetailsResponse?.service_param_list?.count ?? 0
+//            return count
+              return 0
         }
         return 1
     }
@@ -271,7 +307,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         switch indexPath.section{
-        case 0:
+        case 0: //头像
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDAvatorViewCell) as? AIHomeAvatorViewCell
             if  avCell == nil {
                 avCell = AIHomeAvatorViewCell().currentViewCell()
@@ -279,7 +315,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.avatorImageView.setURL(self.movieDetailsResponse?.provider_portrait_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
             avCell?.nickName.text = self.movieDetailsResponse?.provider_name
             return avCell!
-        case 1:
+        case 1: //价格
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDefaultViewCell) as? AIHomeSDDefaultViewCell
             if  avCell == nil {
                 avCell = AIHomeSDDefaultViewCell().currentViewCell()
@@ -287,7 +323,9 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.priceLabel.text =  self.movieDetailsResponse?.service_price ?? ""
             avCell?.addBottomBorderLine()
             return avCell!
-        case 2:
+        case 2: //选择时间
+            return UITableViewCell()
+            /*
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
             if  avCell == nil {
                 avCell = AIHomeSDParamesViewCell().currentViewCell()
@@ -296,7 +334,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.detailTextLabel?.text = ""
             avCell?.addBottomBorderLine()
             return avCell!
-            
+            */
         case 3: //服务详情
             
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDesViewCell) as? AIHomeSDDesViewCell
@@ -344,30 +382,27 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         }
         
         let number = tableCount-indexPath.section
+        avCell?.label_Content.text = "没有数据"
         if  number == 3{
             avCell?.label_title.text = "服务流程"
             if let str = self.movieDetailsResponse?.service_process {
-                avCell?.label_Content.text = str
-            }else{
-                avCell?.label_Content.text = "没有数据"
+                if str.length > 0 {
+                    avCell?.label_Content.text = str
+                }
             }
-             
         }else if  number == 2{
             avCell?.label_title.text = "服务保障"
             if let str = self.movieDetailsResponse?.service_guarantee {
-                avCell?.label_Content.text = str
-                
-                
-            }else{
-                avCell?.label_Content.text = "没有数据"
+                if str.length > 0 {
+                    avCell?.label_Content.text = str
+                }
             }
         }else if number == 1{
             avCell?.label_title.text = "服务约束"
             if let str = self.movieDetailsResponse?.service_restraint {
-                avCell?.label_Content.text = str
-                
-            }else{
-                avCell?.label_Content.text = "没有数据"
+                if str.length > 0 {
+                    avCell?.label_Content.text = str
+                }
             }
         }
         
@@ -376,6 +411,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         return avCell!
         
     }
+    
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section > (tableCount-5) {
             cell.addBottomBorderLine()

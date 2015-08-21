@@ -23,6 +23,7 @@ struct AIServiceTopicResult: JSONJoy  {
     
 }
 
+// MARK: 首页服务列表
 struct AIServiceTopicListModel: JSONJoy  {
     var result_type: Int?
     var service_array: Array<AIServiceTopicModel>?
@@ -38,6 +39,7 @@ struct AIServiceTopicListModel: JSONJoy  {
     }
 }
 
+// MARK: 首页服务详情
 class AIServiceTopicModel: JSONJoy  {
 
     var service_id: Int?
@@ -80,7 +82,7 @@ class AIServiceTopicModel: JSONJoy  {
 }
 
 
-
+// MARK: 单个服务详情
 struct AIServiceDetailModel: JSONJoy  {
     
     var service_id: Int?
@@ -124,21 +126,43 @@ struct AIServiceDetailModel: JSONJoy  {
                 service_param_list?.append(AIServiceDetailParamsModel(addrDecoder))
             }
         }
-        
-        // TEST
-//        service_guarantee = "一次性鞋套｜ 进口精油 ｜ 服务满50分钟 ｜ 美女服务员 ｜ 免费自选水果套餐 风味小吃（汤圆，水饺等）+时尚水果+饮料茶水"
-//        service_process = "后背 → 后腿 → 胳膊 → 腹部 → 前腿（全程大约70分钟）"
-//        service_restraint = "每张糯米券限1人使用，超出收费标准：按当时店内实际价格收取费用或者另购买糯米券 | 免费提供储物柜 | 免费提供洗浴用品 | 本单不适宜皮肤病、高血压等患者使用"
+         
         
     }
 }
 
+
+struct AIServiceDetailParamsDetailModel: JSONJoy  {
+    
+    var id: Int?
+    var title: String?
+    var content: String?
+    var memo: String?
+    var value: String?
+    init(){
+        
+    }
+    init(_ decoder: JSONDecoder) {
+        id = decoder["id"].integer
+        title = decoder["title"].string
+        content = decoder["content"].string
+        memo = decoder["memo"].string
+        value = decoder["value"].string
+    }
+}
+
+// MARK： 参数列表  
 struct AIServiceDetailParamsModel: JSONJoy  {
     
+    /*
+     * 参数类型, 1-时间，2-int（选择商品数量），3-double, 4-bool(开关)，5-地址 ,6-子服务 , 7-多项单选, 8-多项多选
+    */
     var param_type: Int?
     var param_key: String?
     var param_value: Array<AIServiceDetailParamsDetailModel>?
-    
+    init(){
+        
+    }
     init(_ decoder: JSONDecoder) {
         
         param_type = decoder["param_type"].integer
@@ -151,26 +175,7 @@ struct AIServiceDetailParamsModel: JSONJoy  {
             }
         }
     }
-    
-    struct AIServiceDetailParamsDetailModel: JSONJoy  {
-
-        var id: Int?
-        var title: String?
-        var content: String?
-        var memo: String?
-        var value: String?
-        
-        init(_ decoder: JSONDecoder) {
-            id = decoder["id"].integer
-            title = decoder["title"].string
-            content = decoder["content"].string
-            memo = decoder["memo"].string
-            value = decoder["value"].string
-        }
-    }
-    
 }
-
 
 
 
