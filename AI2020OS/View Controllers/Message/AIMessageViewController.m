@@ -10,6 +10,9 @@
 #import "WMPageController.h"
 #import "AIMessageTableController.h"
 
+//#define kBlueColor [UIColor colorWithRed:0x00 green:0xCE blue:0xC0 alpha:1]
+#define kBlueColor [UIColor colorWithRed:(0x20/0xFF) green:(0xb5/0xFF) blue:(0x6f/0xFF) alpha:1]
+
 @interface AIMessageViewController ()
 
 @end
@@ -89,6 +92,17 @@
 
 #pragma mark - 构造pageController
 
+
+- (UIColor *)colorWithR:(CGFloat)r g:(CGFloat)g b:(CGFloat)b
+{
+    CGFloat sr = r/255;
+    CGFloat sg = g/255;
+    CGFloat sb = b/255;
+    UIColor *color = [UIColor colorWithRed:sr green:sg blue:sb alpha:1];
+    return color;
+}
+
+
 - (void)makePageController
 {
     Class class1 = [AIMessageTableController class];
@@ -103,7 +117,9 @@
     pageController.pageAnimatable = YES;
     pageController.menuItemWidth = [UIScreen mainScreen].bounds.size.width/5;
     //pageController.postNotification = YES;
+    pageController.menuBGColor = [UIColor whiteColor];
     pageController.menuViewStyle = WMMenuViewStyleLine;
+    pageController.titleColorSelected = [self colorWithR:34 g:154 b:107];
     pageController.titleSizeSelected = 16;
     
     [self addChildViewController:pageController];
