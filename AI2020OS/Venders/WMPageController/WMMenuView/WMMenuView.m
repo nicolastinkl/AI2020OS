@@ -29,7 +29,7 @@
 @property (nonatomic, strong) NSMutableArray *frames;
 @end
 // 下划线的高度
-static CGFloat const WMProgressHeight = 2.0;
+static CGFloat const WMProgressHeight = 5.0;
 
 @implementation WMMenuView
 
@@ -107,6 +107,7 @@ static CGFloat const WMProgressHeight = 2.0;
     [self addScrollView];
     [self addItems];
     [self makeStyle];
+    [self addLine];
 }
 
 // 有没更好地命名
@@ -193,6 +194,13 @@ static CGFloat const WMProgressHeight = 2.0;
     }
 }
 
+- (void)addLine
+{
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.frame)-1, CGRectGetWidth(self.frame), 1)];
+    line.backgroundColor = _selColor;
+    [self addSubview:line];
+}
+
 // 计算所有item的frame值，主要是为了适配所有item的宽度之和小于屏幕宽的情况
 // 这里与后面的 `-addItems` 做了重复的操作，并不是很合理
 - (void)calculateItemFrames {
@@ -225,12 +233,12 @@ static CGFloat const WMProgressHeight = 2.0;
 
 // MARK:Progress View
 - (void)addProgressView {
-    WMProgressView *pView = [[WMProgressView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-WMProgressHeight, self.scrollView.contentSize.width, WMProgressHeight)];
+    WMProgressView *pView = [[WMProgressView alloc] initWithFrame:CGRectMake(0, self.frame.size.height, self.scrollView.contentSize.width, WMProgressHeight)];
     pView.itemFrames = self.frames;
     pView.color = self.lineColor.CGColor;
     pView.backgroundColor = [UIColor clearColor];
     self.progressView = pView;
-    [self.scrollView addSubview:pView];
+    [self addSubview:pView];
 }
 
 - (void)addFooldViewHollow:(BOOL)isHollow {

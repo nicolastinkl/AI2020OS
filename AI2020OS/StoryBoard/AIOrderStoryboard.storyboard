@@ -314,7 +314,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigationbar_back" translatesAutoresizingMaskIntoConstraints="NO" id="CSl-J7-n5N">
+                                    <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample1" translatesAutoresizingMaskIntoConstraints="NO" id="CSl-J7-n5N">
                                         <rect key="frame" x="8" y="25" width="65" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="EIk-yf-EF0"/>
@@ -714,10 +714,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Sample1" width="504" height="429"/>
         <image name="ico_back" width="26" height="22"/>
         <image name="ico_chat" width="30" height="30"/>
         <image name="ico_favorite" width="25" height="25"/>
         <image name="ico_more" width="27" height="12"/>
-        <image name="navigationbar_back" width="30" height="30"/>
     </resources>
 </document>

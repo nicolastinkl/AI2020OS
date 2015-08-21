@@ -332,5 +332,11 @@ extension UIView {
         self.frame.origin.y = bottom - self.frame.size.height
     }
     
+    func removeAllSubviews() {
+        for subview in subviews {
+            subview.removeFromSuperview()
+        }
+    }
+    
     
 }

@@ -40,7 +40,8 @@ class AICommentTagViewCell: UICollectionViewCell {
     }
     
     class func defaultFont() -> UIFont {
-        return UIFont.preferredFontForTextStyle(UIFontTextStyleBody).fontWithSize(CGFloat(18.0))
+        return UIFont.boldSystemFontOfSize(18)
+  //      return UIFont.preferredFontForTextStyle(UIFontTextStyleBody).fontWithSize(CGFloat(18.0))
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -82,7 +82,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     func buildDynaOperButton(orderState : String,orderType : String,buttonView:UIView){
         switch orderState{
         case "11":
-            addOperButton([ButtonModel(title: "派单",action:"assignOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView)
+            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView)
         case "已完成":
             addOperButton([ButtonModel(title: "评价",action:"commentsOrder:")], buttonView: buttonView)
         default :
