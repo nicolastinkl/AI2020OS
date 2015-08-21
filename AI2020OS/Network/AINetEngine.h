@@ -21,6 +21,8 @@ typedef void(^net_fail_block)(AINetError error, NSString *errorDes);
 
 @interface AINetEngine : NSObject
 
+
+
 /*说明:获取网络单例
  */
 + (instancetype)defaultEngine;
@@ -44,6 +46,10 @@ typedef void(^net_fail_block)(AINetError error, NSString *errorDes);
 
 /*说明:增加默认header
  */
-- (void)addCommonHeaders:(NSDictionary *)header;
+- (void)configureCommonHeaders:(NSDictionary *)header;
+
+/*说明:删除默认header
+ */
+- (void)removeCommonHeaders;
 
 @end

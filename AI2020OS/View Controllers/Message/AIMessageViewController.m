@@ -8,6 +8,7 @@
 
 #import "AIMessageViewController.h"
 #import "WMPageController.h"
+#import "AIMessageTableController.h"
 
 @interface AIMessageViewController ()
 
@@ -18,10 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationController.navigationBarHidden = NO;
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.title = @"消息";
+    [self configSelfProperties];
     [self resetNavigationBar];
     [self makePageController];
     
@@ -41,6 +39,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)configSelfProperties
+{
+    self.navigationController.navigationBarHidden = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.title = @"消息";
+}
 
 #pragma mark - Reset NavigationBar
 
@@ -85,11 +91,11 @@
 
 - (void)makePageController
 {
-    Class class1 = [UIViewController class];
-    Class class2 = [UIViewController class];
-    Class class3 = [UIViewController class];
-    Class class4 = [UIViewController class];
-    Class class5 = [UIViewController class];
+    Class class1 = [AIMessageTableController class];
+    Class class2 = [AIMessageTableController class];
+    Class class3 = [AIMessageTableController class];
+    Class class4 = [AIMessageTableController class];
+    Class class5 = [AIMessageTableController class];
     NSArray *viewControllers = @[class1, class2, class3, class4, class5];
     NSArray *titles = @[@"全部", @"系统", @"客户", @"卖家", @"好友"];
     
