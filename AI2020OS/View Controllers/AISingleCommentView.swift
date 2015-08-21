@@ -11,12 +11,14 @@ import UIKit
 class AISingleCommentView: UIView {
     
     @IBOutlet weak var avatar: AIRoundImageView!
+    @IBOutlet weak var starRateView: CWStarRateView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tipsCollectionView: UICollectionView!
     @IBOutlet weak var tipsLabel: UILabel!
     
     var scopeView: AIServerScopeView!
+    var delegate: CommentViewDelegate?
     
     var commentData: AIServiceComment? {
         didSet {
@@ -90,6 +92,8 @@ class AISingleCommentView: UIView {
         scopeView.dataSource = self
         setTextFieldStyle()
 
+        starRateView.delegate = self
+        textField.delegate = self
 
   //      NSBundle.mainBundle().loadNibNamed("AISingleEvaluationView", owner: self, options: nil)
         
@@ -113,6 +117,7 @@ class AISingleCommentView: UIView {
 
 extension AISingleCommentView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+   
         if collectionView == self.collectionView {
             if commentData == nil {
                 return 0
@@ -150,6 +155,7 @@ extension AISingleCommentView: UICollectionViewDelegateFlowLayout, UICollectionV
         
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CONTENT", forIndexPath: indexPath) as AICommentTagViewCell
+        cell.label.delegate = self
         
         cell.maxWidth = collectionView.bounds.size.width
         
@@ -190,6 +196,16 @@ extension AISingleCommentView: UICollectionViewDelegateFlowLayout, UICollectionV
             return size
             
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as AICommentTagViewCell
+        delegate?.commentTagSelectedChanged(self, isSelected: cell.label.selected, tagView: cell, tagString: cell.text)
+    }
+    
+    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as AICommentTagViewCell
+        delegate?.commentTagSelectedChanged(self, isSelected: cell.label.selected, tagView: cell, tagString: cell.text)
+    }
 
 }
 
@@ -215,4 +231,30 @@ extension AISingleCommentView: AIServerScopeViewDataSource {
         cellView.titleLabel?.font = UIFont.boldSystemFontOfSize(18)
         return cellView
     }
+}
+
+extension AISingleCommentView: CWStarRateViewDelegate {
+    func starRateView(starRateView: CWStarRateView!, scroePercentDidChange newScorePercent: CGFloat) {
+        delegate?.ratingDidChanged(self, newRatingPercent: Float(newScorePercent))
+    }
+}
+
+extension AISingleCommentView: UITextFieldDelegate {
+    func textFieldDidEndEditing(textField: UITextField) {
+        delegate?.additionalCommentChanged(self, textField: textField)
+    }
+}
+
+extension AISingleCommentView: SelectableButtonDelegate {
+    func buttonSelectedChanged(button: AISelectableButton, isSelected: Bool) {
+        delegate?.commentTagSelectedChanged(self, isSelected: isSelected, tagView: button.superview!, tagString: button.titleLabel!.text!)
+    }
+}
+
+@objc
+protocol CommentViewDelegate {
+    func ratingDidChanged(commentView: AISingleCommentView, newRatingPercent: Float)
+    func additionalCommentChanged(commentView: AISingleCommentView, textField: UITextField)
+    func commentTagSelectedChanged(commentView: AISingleCommentView, isSelected: Bool, tagView: AnyObject, tagString: String)
+    optional func tipsDidSelected(commentView: AISingleCommentView, newTipMoney: Int)
 }

@@ -28,8 +28,8 @@ class AISingleCommentViewController : UIViewController {
         commentView.frame = commentFrame
  
         self.view.addSubview(commentView)
-        
-            }
+        commentView.delegate = self
+    }
     
     override func viewDidAppear(animated: Bool) {
         var tips = [AITipModel]()
@@ -60,7 +60,7 @@ class AISingleCommentViewController : UIViewController {
 
     }
     
-    private func loadSeccess(responseData: AIServiceCommentTagList) {
+    private func loadSeccess(responseData: AIServiceCommentListModel) {
         if responseData.service_comment_list != nil && responseData.service_comment_list!.count > 0 {
             commentView.commentData = responseData.service_comment_list!.objectAtIndex(0) as? AIServiceComment
         }
@@ -70,3 +70,18 @@ class AISingleCommentViewController : UIViewController {
         
     }
 }
+
+extension AISingleCommentViewController: CommentViewDelegate {
+    func ratingDidChanged(commentView: AISingleCommentView, newRatingPercent: Float) {
+        println("newRatingPercent:\(newRatingPercent)")
+    }
+    
+    func additionalCommentChanged(commentView: AISingleCommentView, textField: UITextField) {
+        println("additionalCommentChanged:\(textField.text)")
+    }
+    
+    func commentTagSelectedChanged(commentView: AISingleCommentView, isSelected: Bool, tagView: AnyObject, tagString: String) {
+        println("commentTagSelectedChanged  isSelected:\(isSelected)  tagString:\(tagString)")
+    }
+}
+
