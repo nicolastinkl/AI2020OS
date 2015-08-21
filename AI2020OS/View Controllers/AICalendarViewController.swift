@@ -22,12 +22,24 @@ class AICalendarViewController: UIViewController,CVCalendarViewDelegate {
     
     @IBOutlet weak var monthLabel: UILabel!
     
+    @IBOutlet weak var startDateButton: UIButton!
+    
+    @IBOutlet weak var endDateButton: UIButton!
+    
+    // MARK: variables
+    
+    private var selectIndex:Int = 0
+    
     // MARK: life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.monthLabel.text = CVDate(date: NSDate()).description()
+        
+        selected(self.startDateButton)
+        disSelected(self.endDateButton)
+        
         
         spring(0.5, {
             self.calendarView.alpha = 1
@@ -45,10 +57,56 @@ class AICalendarViewController: UIViewController,CVCalendarViewDelegate {
             
         })
         
-        
     }
     
     // MARK: event response
+    
+    @IBAction func startDownAtion(sender: AnyObject) {
+        selectIndex = 0
+        selected(self.startDateButton)
+        disSelected(self.endDateButton)
+    }
+    
+    @IBAction func endDownAtion(sender: AnyObject) {
+        selectIndex = 1
+        selected(self.endDateButton)
+        disSelected(self.startDateButton)
+    }
+    
+    
+    func disSelected(buttonS: UIButton?){
+        if var button = buttonS{
+            
+            // TODO: title Color
+            button.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
+            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
+            
+            // TODO: Background Image
+            button.setBackgroundImage(UIColor.whiteColor().imageWithColor(), forState: UIControlState.Normal)
+            button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Selected)
+            button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Highlighted)
+            
+            
+        }
+    }
+    
+    func selected(buttonS: UIButton?){
+        if var button = buttonS{
+            
+            // TODO: title Color
+            button.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor), forState: UIControlState.Selected)
+            button.setTitleColor(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor), forState: UIControlState.Highlighted)
+            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            
+            
+            // TODO: Background Image
+            button.setBackgroundImage(UIColor.whiteColor().imageWithColor(), forState: UIControlState.Normal)
+            button.setBackgroundImage(UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).imageWithColor(), forState: UIControlState.Normal)
+            button.setBackgroundImage(UIColor.whiteColor().imageWithColor(), forState: UIControlState.Highlighted)
+            
+        }
+    }
     
     @IBAction func dismissCurrentViewAction(sender: AnyObject) {
         
@@ -72,6 +130,8 @@ class AICalendarViewController: UIViewController,CVCalendarViewDelegate {
     
     func didSelectDayView(dayView: CVCalendarDayView) {
         // TODO:
+        
+        
     }
     
     func dotMarker(colorOnDayView dayView: CVCalendarDayView) -> UIColor {

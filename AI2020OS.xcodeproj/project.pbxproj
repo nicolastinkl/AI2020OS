@@ -85,6 +85,12 @@
 		84951FB71B1312E500179483 /* SearchEngineImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB51B1312E500179483 /* SearchEngineImp.swift */; };
 		849EC6C31B31062E00930697 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849EC6C21B31062E00930697 /* AISearchBar.xib */; };
 		849EC6C71B310D3100930697 /* AISearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EC6C61B310D3100930697 /* AISearchBarView.swift */; };
+		84A72C631B85DEEA00B503A3 /* AIUserDesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A72C621B85DEEA00B503A3 /* AIUserDesViewController.swift */; };
+		84A72C651B85E15800B503A3 /* AIUserDesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A72C641B85E15800B503A3 /* AIUserDesStoryboard.storyboard */; };
+		84ACACAF1B870763000258F9 /* AIServiceCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACACAE1B870763000258F9 /* AIServiceCountView.swift */; };
+		84ACACB11B870775000258F9 /* AIServiceCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ACACB01B870775000258F9 /* AIServiceCountView.xib */; };
+		84ACACB41B871305000258F9 /* AIServiceCommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACACB21B871305000258F9 /* AIServiceCommentManager.swift */; };
+		84ACACB51B871305000258F9 /* AIServiceCommentManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACACB31B871305000258F9 /* AIServiceCommentManagerImp.swift */; };
 		84CA2EFC1B81883000FCB971 /* AITimeLineServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */; };
 		84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */; };
 		84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */; };
@@ -116,8 +122,6 @@
 		84DE7DAF1B79E623007E8F7F /* AICommentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */; };
 		84DE7DB31B79ED51007E8F7F /* AIRoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */; };
 		84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */; };
-		84DF5F2C1B81DB3A00C9A239 /* AIServiceCommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF5F2B1B81DB3A00C9A239 /* AIServiceCommentManager.swift */; };
-		84DF5F2E1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF5F2D1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift */; };
 		84DFAD1F1B7D8D580091B156 /* AISelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */; };
 		84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E052231B3006EF00B0299F /* AILaunchScreen.xib */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
@@ -539,6 +543,12 @@
 		84951FB51B1312E500179483 /* SearchEngineImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngineImp.swift; sourceTree = "<group>"; };
 		849EC6C21B31062E00930697 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
 		849EC6C61B310D3100930697 /* AISearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBarView.swift; sourceTree = "<group>"; };
+		84A72C621B85DEEA00B503A3 /* AIUserDesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUserDesViewController.swift; sourceTree = "<group>"; };
+		84A72C641B85E15800B503A3 /* AIUserDesStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIUserDesStoryboard.storyboard; sourceTree = "<group>"; };
+		84ACACAE1B870763000258F9 /* AIServiceCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCountView.swift; sourceTree = "<group>"; };
+		84ACACB01B870775000258F9 /* AIServiceCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIServiceCountView.xib; sourceTree = "<group>"; };
+		84ACACB21B871305000258F9 /* AIServiceCommentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentManager.swift; sourceTree = "<group>"; };
+		84ACACB31B871305000258F9 /* AIServiceCommentManagerImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentManagerImp.swift; sourceTree = "<group>"; };
 		84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimeLineServices.swift; sourceTree = "<group>"; };
 		84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogViewController.swift; sourceTree = "<group>"; };
 		84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICatalogTableCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -575,8 +585,6 @@
 		84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AICommentStoryboard.storyboard; sourceTree = "<group>"; };
 		84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRoundImageView.swift; sourceTree = "<group>"; };
 		84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentTagViewCell.swift; sourceTree = "<group>"; };
-		84DF5F2B1B81DB3A00C9A239 /* AIServiceCommentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentManager.swift; sourceTree = "<group>"; };
-		84DF5F2D1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentManagerImp.swift; sourceTree = "<group>"; };
 		84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectableButton.swift; sourceTree = "<group>"; };
 		84E052231B3006EF00B0299F /* AILaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AILaunchScreen.xib; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
@@ -1208,6 +1216,14 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		84A72C611B85DED600B503A3 /* UserDesView */ = {
+			isa = PBXGroup;
+			children = (
+				84A72C621B85DEEA00B503A3 /* AIUserDesViewController.swift */,
+			);
+			name = UserDesView;
+			sourceTree = "<group>";
+		};
 		84CB36821B16E88200D66BBD /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -1258,15 +1274,6 @@
 				84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */,
 			);
 			name = view;
-			sourceTree = "<group>";
-		};
-		84DF5F2A1B81DB0C00C9A239 /* Comment */ = {
-			isa = PBXGroup;
-			children = (
-				84DF5F2B1B81DB3A00C9A239 /* AIServiceCommentManager.swift */,
-				84DF5F2D1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift */,
-			);
-			name = Comment;
 			sourceTree = "<group>";
 		};
 		84E052221B3006C000B0299F /* Launch */ = {
@@ -1378,7 +1385,6 @@
 				933ED4181AC9221100E4AADB /* Venders */,
 				933ED40E1AC921BD00E4AADB /* Libs */,
 				933ED40F1AC921BD00E4AADB /* Models */,
-				84DF5F2A1B81DB0C00C9A239 /* Comment */,
 				84951FB31B13117300179483 /* Search */,
 				933ED4101AC921BD00E4AADB /* Services */,
 				933ED4111AC921BD00E4AADB /* View Controllers */,
@@ -1487,6 +1493,8 @@
 		933ED4101AC921BD00E4AADB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				84ACACB21B871305000258F9 /* AIServiceCommentManager.swift */,
+				84ACACB31B871305000258F9 /* AIServiceCommentManagerImp.swift */,
 				12A20DAA1B1719F3003E412A /* AIOrderService.swift */,
 				93D80A431ACA71DA004BC7C0 /* AILocalStore.swift */,
 				935A25761AE79AF10089B240 /* AIServicesRequester.swift */,
@@ -1502,6 +1510,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84A72C611B85DED600B503A3 /* UserDesView */,
 				814B2BD71B8204CF003A10A5 /* Message */,
 				8119B3001B7D855500625FB4 /* Web */,
 				84D9B81A1B7C2C31005331B5 /* Comment */,
@@ -1827,6 +1836,7 @@
 				938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */,
 				84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */,
 				84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */,
+				84A72C641B85E15800B503A3 /* AIUserDesStoryboard.storyboard */,
 			);
 			name = StoryBoard;
 			path = AI2020OS/StoryBoard;
@@ -1981,6 +1991,8 @@
 				93A705931B12D0E600E8193C /* AIServerAddressView.swift */,
 				93A705951B12D0EF00E8193C /* AIServerAddressView.xib */,
 				93A705971B12D19900E8193C /* ProvincesAndCities.plist */,
+				84ACACAE1B870763000258F9 /* AIServiceCountView.swift */,
+				84ACACB01B870775000258F9 /* AIServiceCountView.xib */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -2123,6 +2135,7 @@
 				TargetAttributes = {
 					933ED3E31AC8F90A00E4AADB = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = T2362RFKT6;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -2200,12 +2213,14 @@
 				93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */,
 				840FDAAB1B857D9800CE3DF9 /* AIOrderModifyView.xib in Resources */,
 				93BD09061B05F2D000C8B96B /* AIOrderBuyView.xib in Resources */,
+				84A72C651B85E15800B503A3 /* AIUserDesStoryboard.storyboard in Resources */,
 				84CDC8E61B84222B002A29EE /* AIHomeDesChildViewCell.xib in Resources */,
 				938A39881B2001DF00E3A5BF /* AITabelViewMenuView.xib in Resources */,
 				84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */,
 				93DE16AF1B05E26E0056A1E3 /* AIHomeSDDesViewCell.xib in Resources */,
 				84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
+				84ACACB11B870775000258F9 /* AIServiceCountView.xib in Resources */,
 				1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */,
 				84DBFF661B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard in Resources */,
 				93BD09081B06F97B00C8B96B /* AIMenuStoryboard.storyboard in Resources */,
@@ -2352,6 +2367,7 @@
 				93D806CF1B1C6D7900B13FFF /* MainSearchViewController.swift in Sources */,
 				93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */,
 				814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */,
+				84ACACAF1B870763000258F9 /* AIServiceCountView.swift in Sources */,
 				840FDAC61B85AFDF00CE3DF9 /* RegexKitLite.m in Sources */,
 				936DAC1D1ADCF4170025483B /* AIRecognizerFactory.m in Sources */,
 				814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */,
@@ -2454,10 +2470,8 @@
 				93FF74611B0ECEA000FD97C1 /* CVCalendarContentViewController.swift in Sources */,
 				84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */,
 				93E8266A1AD78246006B3BA1 /* AIAssignUtils.swift in Sources */,
-				84DF5F2C1B81DB3A00C9A239 /* AIServiceCommentManager.swift in Sources */,
 				93F66DE41B196F5500AEA92A /* AITMSGSDContentViewCell.swift in Sources */,
 				9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */,
-				84DF5F2E1B81FBBD00C9A239 /* AIServiceCommentManagerImp.swift in Sources */,
 				939E66421B291F4100FD5FBA /* KSToken.swift in Sources */,
 				840FDAC71B85AFDF00CE3DF9 /* SCGIFImageView.m in Sources */,
 				8198ABD11B81840E0047E740 /* AFURLRequestSerialization.m in Sources */,
@@ -2469,7 +2483,9 @@
 				937C77661B1E9B71006FF589 /* AICContentViewController.swift in Sources */,
 				93A705941B12D0E600E8193C /* AIServerAddressView.swift in Sources */,
 				93AC3FD81ACA44F4000024A4 /* AISwiftLogger.swift in Sources */,
+				84A72C631B85DEEA00B503A3 /* AIUserDesViewController.swift in Sources */,
 				84CDC8E41B842070002A29EE /* AIHomeDesChildViewCell.swift in Sources */,
+				84ACACB41B871305000258F9 /* AIServiceCommentManager.swift in Sources */,
 				93E4D5B31B15681600992CA3 /* AIGitHub.swift in Sources */,
 				84DBFF681B26E68200F7FED6 /* AIServiceTagFilterViewController.swift in Sources */,
 				93FF74701B0ECEA000FD97C1 /* CVCalendarWeekContentView.swift in Sources */,
@@ -2562,6 +2578,7 @@
 				84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */,
 				9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */,
 				933ED3EA1AC8F90A00E4AADB /* AppDelegate.swift in Sources */,
+				84ACACB51B871305000258F9 /* AIServiceCommentManagerImp.swift in Sources */,
 				1284ABC41B2036B500636F35 /* SectionHeaderView.swift in Sources */,
 				8198ABDA1B81840E0047E740 /* JSONValueTransformer.m in Sources */,
 				849EC6C71B310D3100930697 /* AISearchBarView.swift in Sources */,
@@ -2639,6 +2656,135 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		123A45F91B8709D3008B9CF6 /* InHouse */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "de524d1c-17d1-4632-bf2f-c8d6cd756eed";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = InHouse;
+		};
+		123A45FA1B8709D3008B9CF6 /* InHouse */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C757FF35A2EBAB4FD999BDCE /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AI2020OS/frameworks",
+					"$(PROJECT_DIR)/AI2020OS/Frameworks",
+				);
+				INFOPLIST_FILE = AI2020OS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AI2020OS/Libs/sunflower",
+					"$(PROJECT_DIR)/AI2020OS/Libs/Cordova",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "666a7d99-6a72-4f68-8aea-3c01403729eb";
+				SWIFT_OBJC_BRIDGING_HEADER = "AI2020OS/Bridging/AI2020OS-Bridging-Header.h";
+			};
+			name = InHouse;
+		};
+		123A45FB1B8709D3008B9CF6 /* InHouse */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AI2020OSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AI2020OS.app/AI2020OS";
+			};
+			name = InHouse;
+		};
+		123A45FC1B8709D3008B9CF6 /* InHouse */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = SBOSS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = InHouse;
+		};
+		123A45FD1B8709D3008B9CF6 /* InHouse */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AIVideoCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = InHouse;
+		};
+		123A45FE1B8709D3008B9CF6 /* InHouse */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AIVideoCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AI2020OS.app/AI2020OS";
+			};
+			name = InHouse;
+		};
 		933ED4031AC8F90A00E4AADB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2676,6 +2822,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "de524d1c-17d1-4632-bf2f-c8d6cd756eed";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2698,7 +2845,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2711,6 +2859,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "de524d1c-17d1-4632-bf2f-c8d6cd756eed";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2723,7 +2872,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Li Wang (K6T493H8TW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2925,6 +3074,7 @@
 			buildConfigurations = (
 				933ED4031AC8F90A00E4AADB /* Debug */,
 				933ED4041AC8F90A00E4AADB /* Release */,
+				123A45F91B8709D3008B9CF6 /* InHouse */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2934,6 +3084,7 @@
 			buildConfigurations = (
 				933ED4061AC8F90A00E4AADB /* Debug */,
 				933ED4071AC8F90A00E4AADB /* Release */,
+				123A45FA1B8709D3008B9CF6 /* InHouse */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2943,6 +3094,7 @@
 			buildConfigurations = (
 				933ED4091AC8F90A00E4AADB /* Debug */,
 				933ED40A1AC8F90A00E4AADB /* Release */,
+				123A45FB1B8709D3008B9CF6 /* InHouse */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2952,6 +3104,7 @@
 			buildConfigurations = (
 				93735D951B1D976C00D52431 /* Debug */,
 				93735D961B1D976C00D52431 /* Release */,
+				123A45FC1B8709D3008B9CF6 /* InHouse */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2961,6 +3114,7 @@
 			buildConfigurations = (
 				938A3AC81B25735C00E3A5BF /* Debug */,
 				938A3AC91B25735C00E3A5BF /* Release */,
+				123A45FD1B8709D3008B9CF6 /* InHouse */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2970,6 +3124,7 @@
 			buildConfigurations = (
 				938A3ACC1B25735C00E3A5BF /* Debug */,
 				938A3ACD1B25735C00E3A5BF /* Release */,
+				123A45FE1B8709D3008B9CF6 /* InHouse */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
