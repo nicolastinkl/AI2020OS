@@ -327,19 +327,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		84AF1AF41B872EE700A561D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 933ED3DC1AC8F90A00E4AADB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93735D881B1D976C00D52431;
+			remoteInfo = SBOSS;
+		};
 		933ED3FC1AC8F90A00E4AADB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 933ED3DC1AC8F90A00E4AADB /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 933ED3E31AC8F90A00E4AADB;
 			remoteInfo = AI2020OS;
-		};
-		93735D911B1D976C00D52431 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 933ED3DC1AC8F90A00E4AADB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 93735D881B1D976C00D52431;
-			remoteInfo = SBOSS;
 		};
 		938A3ABA1B25735B00E3A5BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2044,7 +2044,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				93735D921B1D976C00D52431 /* PBXTargetDependency */,
+				84AF1AF51B872EE700A561D7 /* PBXTargetDependency */,
 				938A3AC41B25735B00E3A5BF /* PBXTargetDependency */,
 			);
 			name = AI2020OS;
@@ -2135,6 +2135,7 @@
 				TargetAttributes = {
 					933ED3E31AC8F90A00E4AADB = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = T2362RFKT6;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -2627,15 +2628,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		84AF1AF51B872EE700A561D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93735D881B1D976C00D52431 /* SBOSS */;
+			targetProxy = 84AF1AF41B872EE700A561D7 /* PBXContainerItemProxy */;
+		};
 		933ED3FD1AC8F90A00E4AADB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 933ED3E31AC8F90A00E4AADB /* AI2020OS */;
 			targetProxy = 933ED3FC1AC8F90A00E4AADB /* PBXContainerItemProxy */;
-		};
-		93735D921B1D976C00D52431 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 93735D881B1D976C00D52431 /* SBOSS */;
-			targetProxy = 93735D911B1D976C00D52431 /* PBXContainerItemProxy */;
 		};
 		938A3ABB1B25735B00E3A5BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2698,9 +2699,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
-
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2806,7 +2806,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-
 				CODE_SIGN_IDENTITY = "iPhone Developer: liu shawn (Y22XK53PPC)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liu shawn (Y22XK53PPC)";
 				COPY_PHASE_STRIP = NO;
@@ -2877,7 +2876,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: liu shawn (Y22XK53PPC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liu shawn (Y22XK53PPC)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2895,7 +2894,6 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-
 				PROVISIONING_PROFILE = "1c3303c7-ff27-46f2-bdbd-07661d6976fd";
 				SWIFT_OBJC_BRIDGING_HEADER = "AI2020OS/Bridging/AI2020OS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2908,8 +2906,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
