@@ -124,7 +124,8 @@
 
 // 包括宽高，子控制器视图frame
 - (void)calculateSize {
-    viewHeight = self.view.frame.size.height - self.menuHeight;
+    CGFloat yoffset = 5;
+    viewHeight = self.view.frame.size.height - self.menuHeight-yoffset;
     viewWidth = self.view.frame.size.width;
     // 重新计算各个控制器视图的宽高
     _childViewFrames = [NSMutableArray array];
@@ -327,7 +328,7 @@
     [super viewDidLayoutSubviews];
     // 计算宽高及子控制器的视图frame
     [self calculateSize];
-    CGRect scrollFrame = CGRectMake(0, self.menuHeight, viewWidth, viewHeight);
+    CGRect scrollFrame = CGRectMake(0, self.menuHeight+5, viewWidth, viewHeight);
     self.scrollView.frame = scrollFrame;
     self.scrollView.contentSize = CGSizeMake(self.titles.count*viewWidth, viewHeight);
     [self.scrollView setContentOffset:CGPointMake(self.selectIndex*viewWidth, 0)];

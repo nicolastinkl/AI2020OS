@@ -103,7 +103,9 @@
     pageController.pageAnimatable = YES;
     pageController.menuItemWidth = [UIScreen mainScreen].bounds.size.width/5;
     //pageController.postNotification = YES;
+    pageController.menuBGColor = [UIColor whiteColor];
     pageController.menuViewStyle = WMMenuViewStyleLine;
+    pageController.titleColorSelected = [UIColor blueColor];
     pageController.titleSizeSelected = 16;
     
     [self addChildViewController:pageController];
