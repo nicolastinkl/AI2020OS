@@ -14,6 +14,8 @@ class AIUserDesViewController: UIViewController {
     
     @IBOutlet weak var titleImage: AsyncImageView!
    
+    @IBOutlet weak var titleEffectView: UIVisualEffectView!
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var tableview: UITableView!
@@ -29,6 +31,8 @@ class AIUserDesViewController: UIViewController {
         handImageView.setURL(self.avatorURL?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
         
         self.tableview.reloadData()
+        
+        self.tableview.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0)
     }
     
     @IBAction func menuAction(sender: AnyObject) {
