@@ -157,5 +157,9 @@ class AIBaseOrderListViewController : UIViewController{
             return true
         }
         target.selected = true
+        //temp content
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateViewControllerWithIdentifier("AICustomerOrderDetailViewController") as UIViewController
+        self.navigationController?.pushViewController(viewController, animated: true)
+
     }
 }
