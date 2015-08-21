@@ -80,7 +80,7 @@
 
 - (void)refreshTriggered:(id)sender
 {
-    [self performSelector:@selector(finishRefreshControl) withObject:nil afterDelay:3 inModes:@[NSRunLoopCommonModes]];
+    [self performSelector:@selector(finishRefreshControl) withObject:nil afterDelay:3];
 }
 
 - (void)finishRefreshControl
