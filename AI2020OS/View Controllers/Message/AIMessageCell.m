@@ -18,6 +18,8 @@
 #define kTitleWidth                240
 #define kSeperateMaring            5
 
+
+
 typedef NS_ENUM(NSInteger, CellStatus) {
     CellStatusNone,        // 无收缩功能
     CellStatusExpended,    // 展开状态
@@ -76,6 +78,16 @@ typedef NS_ENUM(NSInteger, CellStatus) {
 }
 
 #pragma mark - 增加action按钮
+
+- (UIColor *)colorWithR:(CGFloat)r g:(CGFloat)g b:(CGFloat)b
+{
+    CGFloat sr = r/255;
+    CGFloat sg = g/255;
+    CGFloat sb = b/255;
+    UIColor *color = [UIColor colorWithRed:sr green:sg blue:sb alpha:1];
+    return color;
+}
+
 - (void)makeActions:(NSArray *)actions block:(AIMessageCellBlock)block
 {
     self.actions = actions;
@@ -103,7 +115,7 @@ typedef NS_ENUM(NSInteger, CellStatus) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(x, 0, size.width+2, kDetailFont);
         [button setTitle:title forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [button setTitleColor:[self colorWithR:34 g:154 b:107] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:kDetailFont];
         
         if ([type isEqualToString:@"0"]) {
