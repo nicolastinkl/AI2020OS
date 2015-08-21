@@ -115,7 +115,8 @@ typedef NS_ENUM(NSInteger, CellStatus) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(x, 0, size.width+2, kDetailFont);
         [button setTitle:title forState:UIControlStateNormal];
-        [button setTitleColor:[self colorWithR:34 g:154 b:107] forState:UIControlStateNormal];
+        UIColor *titleColor = [self colorWithR:34 g:154 b:107];//[UIColor colorWithPatternImage:[UIImage imageNamed:@"bubble_bg"]];
+        [button setTitleColor:titleColor forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:kDetailFont];
         
         if ([type isEqualToString:@"0"]) {

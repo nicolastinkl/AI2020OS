@@ -72,6 +72,7 @@ class AIServerScopeView: UIView {
         
     }
     
+    // 重新加载数据
     func reload(parentView: UIView) {
         if dataSource != nil {
             
@@ -183,6 +184,8 @@ class AIServerScopeView: UIView {
 }
 
 protocol AIServerScopeViewDataSource {
+    // 标签控件的数量
     func numberOfCell(scopeView: AIServerScopeView) -> Int
+    // 要求AIServerScopeViewDataSource返回一个UIControl，显示在AIServerScopeView中，cellForItemAtIndex是这个UIControl在AIServerScopeView的位置
     func scopeView(scopeView: AIServerScopeView, cellForItemAtIndex: Int) -> UIControl
 }
