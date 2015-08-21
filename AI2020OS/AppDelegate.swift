@@ -44,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
     
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
         
         //Hook Viewdidview and ViewDidDisappear.
         

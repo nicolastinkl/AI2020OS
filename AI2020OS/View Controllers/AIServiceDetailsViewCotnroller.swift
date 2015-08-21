@@ -160,7 +160,12 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
                 detailParams2.param_type = 1
                 detailParams2.param_key = "选择时间"
                 
-                strongSelf.movieDetailsResponse?.service_param_list = [detailParams,detailParams1,detailParams2]
+                
+                var detailParams3 = AIServiceDetailParamsModel()
+                detailParams3.param_type = 2
+                detailParams3.param_key = "选择数量"
+                
+                strongSelf.movieDetailsResponse?.service_param_list = [detailParams,detailParams1,detailParams2,detailParams3]
                 
                 // --------------------
                 strongSelf.detailsPageView.reloadData()
@@ -250,7 +255,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         case 1:
             return 72
         case 2:
-            return 0
+            return 60
         case 3:
             if let str = self.movieDetailsResponse?.service_intro{
                 
@@ -324,8 +329,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.addBottomBorderLine()
             return avCell!
         case 2: //选择时间
-            return UITableViewCell()
-            /*
+            
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
             if  avCell == nil {
                 avCell = AIHomeSDParamesViewCell().currentViewCell()
@@ -334,7 +338,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.detailTextLabel?.text = ""
             avCell?.addBottomBorderLine()
             return avCell!
-            */
+        
         case 3: //服务详情
             
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDesViewCell) as? AIHomeSDDesViewCell

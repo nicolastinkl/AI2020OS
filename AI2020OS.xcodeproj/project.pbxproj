@@ -87,6 +87,8 @@
 		84A72C5F1B85D8C900B503A3 /* storehouse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A72C5E1B85D8C900B503A3 /* storehouse.plist */; };
 		84A72C631B85DEEA00B503A3 /* AIUserDesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A72C621B85DEEA00B503A3 /* AIUserDesViewController.swift */; };
 		84A72C651B85E15800B503A3 /* AIUserDesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A72C641B85E15800B503A3 /* AIUserDesStoryboard.storyboard */; };
+		84ACACAF1B870763000258F9 /* AIServiceCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACACAE1B870763000258F9 /* AIServiceCountView.swift */; };
+		84ACACB11B870775000258F9 /* AIServiceCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ACACB01B870775000258F9 /* AIServiceCountView.xib */; };
 		84CA2EFC1B81883000FCB971 /* AITimeLineServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */; };
 		84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */; };
 		84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */; };
@@ -543,6 +545,8 @@
 		84A72C5E1B85D8C900B503A3 /* storehouse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = storehouse.plist; sourceTree = "<group>"; };
 		84A72C621B85DEEA00B503A3 /* AIUserDesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUserDesViewController.swift; sourceTree = "<group>"; };
 		84A72C641B85E15800B503A3 /* AIUserDesStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIUserDesStoryboard.storyboard; sourceTree = "<group>"; };
+		84ACACAE1B870763000258F9 /* AIServiceCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCountView.swift; sourceTree = "<group>"; };
+		84ACACB01B870775000258F9 /* AIServiceCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIServiceCountView.xib; sourceTree = "<group>"; };
 		84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimeLineServices.swift; sourceTree = "<group>"; };
 		84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogViewController.swift; sourceTree = "<group>"; };
 		84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICatalogTableCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -1995,6 +1999,8 @@
 				93A705931B12D0E600E8193C /* AIServerAddressView.swift */,
 				93A705951B12D0EF00E8193C /* AIServerAddressView.xib */,
 				93A705971B12D19900E8193C /* ProvincesAndCities.plist */,
+				84ACACAE1B870763000258F9 /* AIServiceCountView.swift */,
+				84ACACB01B870775000258F9 /* AIServiceCountView.xib */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -2221,6 +2227,7 @@
 				93DE16AF1B05E26E0056A1E3 /* AIHomeSDDesViewCell.xib in Resources */,
 				84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
+				84ACACB11B870775000258F9 /* AIServiceCountView.xib in Resources */,
 				1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */,
 				84DBFF661B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard in Resources */,
 				93BD09081B06F97B00C8B96B /* AIMenuStoryboard.storyboard in Resources */,
@@ -2367,6 +2374,7 @@
 				93D806CF1B1C6D7900B13FFF /* MainSearchViewController.swift in Sources */,
 				93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */,
 				814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */,
+				84ACACAF1B870763000258F9 /* AIServiceCountView.swift in Sources */,
 				840FDAC61B85AFDF00CE3DF9 /* RegexKitLite.m in Sources */,
 				936DAC1D1ADCF4170025483B /* AIRecognizerFactory.m in Sources */,
 				814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */,

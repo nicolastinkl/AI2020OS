@@ -135,7 +135,7 @@ struct AIServiceDetailModel: JSONJoy  {
 struct AIServiceDetailParamsDetailModel: JSONJoy  {
     
     var id: Int?
-    var title: String?
+    var title: String? 
     var content: String?
     var memo: String?
     var value: String?
@@ -143,11 +143,11 @@ struct AIServiceDetailParamsDetailModel: JSONJoy  {
         
     }
     init(_ decoder: JSONDecoder) {
-        id = decoder["id"].integer
-        title = decoder["title"].string
-        content = decoder["content"].string
-        memo = decoder["memo"].string
-        value = decoder["value"].string
+        id = decoder["id"].integer ?? 0
+        title = decoder["title"].string ?? ""
+        content = decoder["content"].string ?? ""
+        memo = decoder["memo"].string ?? ""
+        value = decoder["value"].string ?? ""
     }
 }
 
