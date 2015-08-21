@@ -47,7 +47,6 @@
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
 		817E15F61B7C8DB800C298BE /* www in Resources */ = {isa = PBXBuildFile; fileRef = 817E15F51B7C8DB800C298BE /* www */; };
 		817E15FE1B7C91E000C298BE /* AIWebPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E15FD1B7C91E000C298BE /* AIWebPlugin.m */; };
-		81919E0D1B862A4700454AFC /* BundleRes in Resources */ = {isa = PBXBuildFile; fileRef = 81919E0C1B862A4700454AFC /* BundleRes */; };
 		8198ABA31B8183B30047E740 /* AIMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198AB9D1B8183B30047E740 /* AIMessage.m */; };
 		8198ABA41B8183B30047E740 /* AIMessageWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198AB9F1B8183B30047E740 /* AIMessageWrapper.m */; };
 		8198ABA51B8183B30047E740 /* AINetEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABA11B8183B30047E740 /* AINetEngine.m */; };
@@ -67,6 +66,7 @@
 		8198ABD81B81840E0047E740 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABC51B81840E0047E740 /* JSONModelError.m */; };
 		8198ABD91B81840E0047E740 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABC81B81840E0047E740 /* JSONKeyMapper.m */; };
 		8198ABDA1B81840E0047E740 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABCA1B81840E0047E740 /* JSONValueTransformer.m */; };
+		81CF5F7C1B86BA2500FBF6BA /* storehouse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81CF5F7B1B86BA2500FBF6BA /* storehouse.plist */; };
 		840FDAA91B857D8100CE3DF9 /* AIOrderModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAA81B857D8100CE3DF9 /* AIOrderModifyView.swift */; };
 		840FDAAB1B857D9800CE3DF9 /* AIOrderModifyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840FDAAA1B857D9800CE3DF9 /* AIOrderModifyView.xib */; };
 		840FDAB21B85AF9500CE3DF9 /* AICardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAAE1B85AF9500CE3DF9 /* AICardCell.m */; };
@@ -471,7 +471,6 @@
 		817E15F51B7C8DB800C298BE /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		817E15FC1B7C91E000C298BE /* AIWebPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIWebPlugin.h; path = AI2020OS/Web/Plugin/AIWebPlugin.h; sourceTree = SOURCE_ROOT; };
 		817E15FD1B7C91E000C298BE /* AIWebPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIWebPlugin.m; path = AI2020OS/Web/Plugin/AIWebPlugin.m; sourceTree = SOURCE_ROOT; };
-		81919E0C1B862A4700454AFC /* BundleRes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BundleRes; path = AI2020OS/BundleRes; sourceTree = "<group>"; };
 		8198AB9C1B8183B30047E740 /* AIMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMessage.h; sourceTree = "<group>"; };
 		8198AB9D1B8183B30047E740 /* AIMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMessage.m; sourceTree = "<group>"; };
 		8198AB9E1B8183B30047E740 /* AIMessageWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMessageWrapper.h; sourceTree = "<group>"; };
@@ -512,6 +511,7 @@
 		8198ABC81B81840E0047E740 /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
 		8198ABC91B81840E0047E740 /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
 		8198ABCA1B81840E0047E740 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
+		81CF5F7B1B86BA2500FBF6BA /* storehouse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = storehouse.plist; sourceTree = "<group>"; };
 		840FDAA81B857D8100CE3DF9 /* AIOrderModifyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderModifyView.swift; sourceTree = "<group>"; };
 		840FDAAA1B857D9800CE3DF9 /* AIOrderModifyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIOrderModifyView.xib; sourceTree = "<group>"; };
 		840FDAAD1B85AF9500CE3DF9 /* AICardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICardCell.h; sourceTree = "<group>"; };
@@ -1140,6 +1140,15 @@
 			path = JSONModelTransformations;
 			sourceTree = "<group>";
 		};
+		81CF5F7A1B86BA2500FBF6BA /* BundleRes */ = {
+			isa = PBXGroup;
+			children = (
+				81CF5F7B1B86BA2500FBF6BA /* storehouse.plist */,
+			);
+			name = BundleRes;
+			path = AI2020OS/BundleRes;
+			sourceTree = "<group>";
+		};
 		840FDAA71B857D6600CE3DF9 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1355,7 +1364,7 @@
 		933ED3DB1AC8F90A00E4AADB = {
 			isa = PBXGroup;
 			children = (
-				81919E0C1B862A4700454AFC /* BundleRes */,
+				81CF5F7A1B86BA2500FBF6BA /* BundleRes */,
 				8198AB9B1B8183B30047E740 /* Network */,
 				817E15CE1B7C8A2700C298BE /* Web */,
 				93AC3FB61AC95DF5000024A4 /* StoryBoard */,
@@ -2206,11 +2215,11 @@
 				93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */,
 				84CB36921B17433D00D66BBD /* AIProviderAvatarView.xib in Resources */,
 				1284ABC51B2036B500636F35 /* SectionHeaderView.xib in Resources */,
-				81919E0D1B862A4700454AFC /* BundleRes in Resources */,
 				934987141B0DA850003086D1 /* AIHomeViewStyleTitleView.xib in Resources */,
 				938A398E1B20255E00E3A5BF /* AITabelViewMenuViewCell.xib in Resources */,
 				934987161B0DA9A7003086D1 /* AIHomeViewStyleTitleAndContentView.xib in Resources */,
 				9349871E1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard in Resources */,
+				81CF5F7C1B86BA2500FBF6BA /* storehouse.plist in Resources */,
 				93659F661B1EF21A0065E661 /* AITableViewInsetMakeView.xib in Resources */,
 				817E15F61B7C8DB800C298BE /* www in Resources */,
 				9349870E1B0DA348003086D1 /* AIHomeViewStyleMultiepleView.xib in Resources */,
