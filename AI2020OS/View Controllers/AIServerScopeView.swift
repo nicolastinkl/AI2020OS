@@ -153,7 +153,7 @@ class AIServerScopeView: UIView {
             var size: CGSize!
             if buttonSize == nil {
                 var button = uiControl as UIButton
-                let width: CGFloat  = CGFloat("\(button.titleLabel?.text)".length) * 18
+                let width: CGFloat  = CGFloat("\(button.titleLabel?.text)".length) * 7
                 
                 size = CGSizeMake(width, DEFAULT_HEIGHT)
             } else {
