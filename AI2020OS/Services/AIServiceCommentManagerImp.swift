@@ -10,8 +10,8 @@ import Foundation
 
 class AIServiceCommentMockManager :AIServiceCommentManager {
 
-    func getCommentTags(serviceId: Int, success: (responseData: AIServiceCommentTagList) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-        var list = AIServiceCommentTagList()
+    func getCommentTags(serviceId: Int, success: (responseData: AIServiceCommentListModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        var list = AIServiceCommentListModel()
         list.service_comment_list = NSMutableArray()
         
         var comment = AIServiceComment()

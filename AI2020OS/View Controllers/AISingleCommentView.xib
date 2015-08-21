@@ -173,6 +173,7 @@
             <connections>
                 <outlet property="avatar" destination="FQ5-dK-a0f" id="2Ne-bH-y7N"/>
                 <outlet property="collectionView" destination="B6S-ls-yA2" id="JP0-ok-2Pm"/>
+                <outlet property="starRateView" destination="g6S-kf-Al1" id="z9b-OV-8RD"/>
                 <outlet property="textField" destination="AnF-bt-d4B" id="ciW-I1-1E6"/>
                 <outlet property="tipsCollectionView" destination="a5B-pl-dPp" id="YOW-t2-jcJ"/>
                 <outlet property="tipsLabel" destination="ZJ5-Hy-EC6" id="807-hh-LWB"/>
