@@ -47,6 +47,7 @@
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
 		817E15F61B7C8DB800C298BE /* www in Resources */ = {isa = PBXBuildFile; fileRef = 817E15F51B7C8DB800C298BE /* www */; };
 		817E15FE1B7C91E000C298BE /* AIWebPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E15FD1B7C91E000C298BE /* AIWebPlugin.m */; };
+		81919E0D1B862A4700454AFC /* BundleRes in Resources */ = {isa = PBXBuildFile; fileRef = 81919E0C1B862A4700454AFC /* BundleRes */; };
 		8198ABA31B8183B30047E740 /* AIMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198AB9D1B8183B30047E740 /* AIMessage.m */; };
 		8198ABA41B8183B30047E740 /* AIMessageWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198AB9F1B8183B30047E740 /* AIMessageWrapper.m */; };
 		8198ABA51B8183B30047E740 /* AINetEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABA11B8183B30047E740 /* AINetEngine.m */; };
@@ -84,7 +85,6 @@
 		84951FB71B1312E500179483 /* SearchEngineImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB51B1312E500179483 /* SearchEngineImp.swift */; };
 		849EC6C31B31062E00930697 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849EC6C21B31062E00930697 /* AISearchBar.xib */; };
 		849EC6C71B310D3100930697 /* AISearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EC6C61B310D3100930697 /* AISearchBarView.swift */; };
-		84A72C5F1B85D8C900B503A3 /* storehouse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A72C5E1B85D8C900B503A3 /* storehouse.plist */; };
 		84CA2EFC1B81883000FCB971 /* AITimeLineServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */; };
 		84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */; };
 		84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */; };
@@ -471,6 +471,7 @@
 		817E15F51B7C8DB800C298BE /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		817E15FC1B7C91E000C298BE /* AIWebPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIWebPlugin.h; path = AI2020OS/Web/Plugin/AIWebPlugin.h; sourceTree = SOURCE_ROOT; };
 		817E15FD1B7C91E000C298BE /* AIWebPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIWebPlugin.m; path = AI2020OS/Web/Plugin/AIWebPlugin.m; sourceTree = SOURCE_ROOT; };
+		81919E0C1B862A4700454AFC /* BundleRes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BundleRes; path = AI2020OS/BundleRes; sourceTree = "<group>"; };
 		8198AB9C1B8183B30047E740 /* AIMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMessage.h; sourceTree = "<group>"; };
 		8198AB9D1B8183B30047E740 /* AIMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMessage.m; sourceTree = "<group>"; };
 		8198AB9E1B8183B30047E740 /* AIMessageWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMessageWrapper.h; sourceTree = "<group>"; };
@@ -538,7 +539,6 @@
 		84951FB51B1312E500179483 /* SearchEngineImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngineImp.swift; sourceTree = "<group>"; };
 		849EC6C21B31062E00930697 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
 		849EC6C61B310D3100930697 /* AISearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBarView.swift; sourceTree = "<group>"; };
-		84A72C5E1B85D8C900B503A3 /* storehouse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = storehouse.plist; sourceTree = "<group>"; };
 		84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimeLineServices.swift; sourceTree = "<group>"; };
 		84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogViewController.swift; sourceTree = "<group>"; };
 		84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICatalogTableCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -1199,15 +1199,6 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
-		84A72C5D1B85D8C900B503A3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				84A72C5E1B85D8C900B503A3 /* storehouse.plist */,
-			);
-			name = Resources;
-			path = AI2020OS/Resources;
-			sourceTree = "<group>";
-		};
 		84CB36821B16E88200D66BBD /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -1364,7 +1355,7 @@
 		933ED3DB1AC8F90A00E4AADB = {
 			isa = PBXGroup;
 			children = (
-				84A72C5D1B85D8C900B503A3 /* Resources */,
+				81919E0C1B862A4700454AFC /* BundleRes */,
 				8198AB9B1B8183B30047E740 /* Network */,
 				817E15CE1B7C8A2700C298BE /* Web */,
 				93AC3FB61AC95DF5000024A4 /* StoryBoard */,
@@ -2215,11 +2206,11 @@
 				93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */,
 				84CB36921B17433D00D66BBD /* AIProviderAvatarView.xib in Resources */,
 				1284ABC51B2036B500636F35 /* SectionHeaderView.xib in Resources */,
+				81919E0D1B862A4700454AFC /* BundleRes in Resources */,
 				934987141B0DA850003086D1 /* AIHomeViewStyleTitleView.xib in Resources */,
 				938A398E1B20255E00E3A5BF /* AITabelViewMenuViewCell.xib in Resources */,
 				934987161B0DA9A7003086D1 /* AIHomeViewStyleTitleAndContentView.xib in Resources */,
 				9349871E1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard in Resources */,
-				84A72C5F1B85D8C900B503A3 /* storehouse.plist in Resources */,
 				93659F661B1EF21A0065E661 /* AITableViewInsetMakeView.xib in Resources */,
 				817E15F61B7C8DB800C298BE /* www in Resources */,
 				9349870E1B0DA348003086D1 /* AIHomeViewStyleMultiepleView.xib in Resources */,

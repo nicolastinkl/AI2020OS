@@ -8,13 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^AIMessageCellBlock)(NSDictionary *action);
 
 @interface AIMessageCell : UITableViewCell
 
 @property (nonatomic, readonly) UILabel *timeLabel;
+@property (nonatomic, strong) NSString *textLabelStartString;
+@property (nonatomic, strong) NSString *textLabelEndString;
+@property (nonatomic, readonly) BOOL isExpend;
 
 
-- (void)makeActions:(NSArray *)actions;
++ (CGFloat)defaultCellHeight;
+
+- (void)expendSelfCompletion:(void(^)(BOOL isExpend))completion;
+
+
+
+- (void)makeActions:(NSArray *)actions block:(AIMessageCellBlock)block;
 
 
 
