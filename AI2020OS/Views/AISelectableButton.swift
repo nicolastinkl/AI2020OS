@@ -16,6 +16,8 @@ class AISelectableButton: UIButton {
     let SELECTED_COLOR = AIApplication.AIColor.MainSystemBlueColor
     let DEFAULT_TITLE_COLOR = AIApplication.AIColor.MainSystemBlueColor
     let SELECTED_TITLE_COLOR = "#ffffff"
+    
+    var delegate: SelectableButtonDelegate?
 
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -53,6 +55,7 @@ class AISelectableButton: UIButton {
     
     @IBAction private func didTapButton(button: UIView!) {
         selected = !selected
+        delegate?.buttonSelectedChanged(self, isSelected: selected)
     }
     
     func setNormalBackground(backgroundImage: UIImage) {
@@ -62,4 +65,8 @@ class AISelectableButton: UIButton {
     func setSelectedBackground(backgroundImage: UIImage) {
         setBackgroundImage(backgroundImage, forState: UIControlState.Selected)
     }
+}
+
+protocol SelectableButtonDelegate {
+    func buttonSelectedChanged(button: AISelectableButton, isSelected: Bool)
 }
