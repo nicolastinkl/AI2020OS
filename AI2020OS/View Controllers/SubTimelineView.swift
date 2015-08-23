@@ -8,6 +8,8 @@
 
 import UIKit
 
+let CELL_HEIGHT : CGFloat = 60
+
 struct SubTimelineLabelModel {
     var position:Int!
     var currentTime:String!
@@ -23,7 +25,7 @@ struct SubTimelineLabelModel {
 }
 
 enum SubTimelinePosition : Int{
-    case TopFuture = 1,Top
+    case Top = 1,Middle,Bottom
 }
 
 enum SubTimelineStatus : Int{
@@ -94,8 +96,11 @@ class SubTimelineCellView : UIView{
     let INFO_LABEL_SIZE:CGSize = CGSizeMake(100, 40)
     let INFO_LABEL_RELATED_Y:CGFloat = 50
     let IMAGE_X:CGFloat = 10
-    let IMAGE_RELATED_Y:CGFloat = 15
+    let IMAGE_RELATED_Y:CGFloat = 0
     let IMAGE_SIZE:CGSize = CGSizeMake(7, 60)
+    //image cycle size
+    let CYCLE_SIZE_SMALL:CGFloat = 10
+    let CYCLE_SIZE_BIG:CGFloat = 20
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -104,6 +109,25 @@ class SubTimelineCellView : UIView{
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         println("init by code")
+    }
+    
+    //重新分三段构造左边的竖线
+    func buildImage(){
+        let lineImage = UIImage(named: "connection_line")
+        
+        func buildTopLine(){
+            let imageFrame = CGRectMake(IMAGE_X, IMAGE_RELATED_Y, IMAGE_SIZE.width, (CELL_HEIGHT - CYCLE_SIZE_SMALL) / 2)
+            var topLineView = UIImageView(frame: imageFrame)
+            self.addSubview(topLineView)
+        }
+        
+        func buildCycleView(){
+            
+        }
+        
+        func buildBottomLine(){
+            
+        }
     }
 
     func buildCell(subTimelineModel:SubTimelineLabelModel){
