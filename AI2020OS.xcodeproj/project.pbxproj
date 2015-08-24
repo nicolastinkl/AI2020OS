@@ -125,6 +125,7 @@
 		84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */; };
 		84DFAD1F1B7D8D580091B156 /* AISelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */; };
 		84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E052231B3006EF00B0299F /* AILaunchScreen.xib */; };
+		84E052F31B8AB422009F88C5 /* AIServiceCatalogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E052F21B8AB422009F88C5 /* AIServiceCatalogModel.m */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
 		9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0751B09979500C1EE79 /* AILoginService.swift */; };
 		9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0791B0998C700C1EE79 /* AILoginViewController.swift */; };
@@ -275,8 +276,7 @@
 		93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF23101B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift */; };
 		93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFC0761AD6551200B82CC9 /* RAReorderableLayout.swift */; };
 		93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFC0781AD6580400B82CC9 /* AIKinectButton.swift */; };
-		93D806CF1B1C6D7900B13FFF /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D132211B0F26E700B977F5 /* MainSearchViewController.swift */; };
-		93D806D01B1C6D7900B13FFF /* AISearchTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16D1B1494D000EA78BC /* AISearchTagCell.swift */; };
+		93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */; };
 		93D80A421ACA7149004BC7C0 /* CoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D80A411ACA7149004BC7C0 /* CoreTextView.swift */; };
 		93D80A441ACA71DA004BC7C0 /* AILocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D80A431ACA71DA004BC7C0 /* AILocalStore.swift */; };
 		93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB59891AE62EAD00D1E39C /* AIMaterialDButton.swift */; };
@@ -565,7 +565,6 @@
 		84CDC8E91B84867C002A29EE /* AIHomeCommentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeCommentViewCell.xib; sourceTree = "<group>"; };
 		84CF6A801B17F9A3001C4E72 /* CWStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
 		84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
-		84D132211B0F26E700B977F5 /* MainSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
 		84D142611B2EA04A00662291 /* AITagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITagModel.swift; sourceTree = "<group>"; };
 		84D1B6DD1B7C33690094D553 /* AIOrderSubmitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderSubmitViewController.swift; sourceTree = "<group>"; };
 		84D1B6DF1B7C49660094D553 /* AITimeLineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimeLineModel.swift; sourceTree = "<group>"; };
@@ -589,6 +588,8 @@
 		84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentTagViewCell.swift; sourceTree = "<group>"; };
 		84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectableButton.swift; sourceTree = "<group>"; };
 		84E052231B3006EF00B0299F /* AILaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AILaunchScreen.xib; sourceTree = "<group>"; };
+		84E052F11B8AB422009F88C5 /* AIServiceCatalogModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIServiceCatalogModel.h; sourceTree = "<group>"; };
+		84E052F21B8AB422009F88C5 /* AIServiceCatalogModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIServiceCatalogModel.m; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
 		9301B0751B09979500C1EE79 /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
 		9301B0791B0998C700C1EE79 /* AILoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewController.swift; sourceTree = "<group>"; };
@@ -1250,10 +1251,9 @@
 			isa = PBXGroup;
 			children = (
 				84CB36821B16E88200D66BBD /* view */,
-				84D132211B0F26E700B977F5 /* MainSearchViewController.swift */,
-				8415F4E21B135688003160B4 /* AISearchServiceViewController.swift */,
-				84CDC16D1B1494D000EA78BC /* AISearchTagCell.swift */,
-				84CDC16F1B14952500EA78BC /* AISearchHeaderCell.swift */,
+				8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */,
+				84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */,
+				84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */,
 				84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */,
 			);
 			name = Search;
@@ -1488,6 +1488,8 @@
 				84DD649E1B831EE7009BDB2A /* AITipModel.h */,
 				84DE14F91B85641E001BB5BD /* AIServiceCommentModel.h */,
 				84DE14FA1B85641E001BB5BD /* AIServiceCommentModel.m */,
+				84E052F11B8AB422009F88C5 /* AIServiceCatalogModel.h */,
+				84E052F21B8AB422009F88C5 /* AIServiceCatalogModel.m */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -2367,8 +2369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D806CF1B1C6D7900B13FFF /* MainSearchViewController.swift in Sources */,
-				93D806D01B1C6D7900B13FFF /* AISearchTagCell.swift in Sources */,
+				93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */,
 				814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */,
 				84ACACAF1B870763000258F9 /* AIServiceCountView.swift in Sources */,
 				840FDAC61B85AFDF00CE3DF9 /* RegexKitLite.m in Sources */,
@@ -2381,6 +2382,7 @@
 				84951FB71B1312E500179483 /* SearchEngineImp.swift in Sources */,
 				935A25771AE79AF10089B240 /* AIServicesRequester.swift in Sources */,
 				84DBEFB11B871DA100DBCA5A /* AICompondCommentViewController.swift in Sources */,
+				84E052F31B8AB422009F88C5 /* AIServiceCatalogModel.m in Sources */,
 				93FF74721B0ECEA000FD97C1 /* CVCircleView.swift in Sources */,
 				84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */,
 				934987091B0C75E9003086D1 /* AIMessageUnReadView.swift in Sources */,

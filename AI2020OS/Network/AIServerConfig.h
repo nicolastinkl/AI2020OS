@@ -16,3 +16,6 @@
 #define kKey_TopicID                  @"topic_id"
 
 #define kKey_DataModel                @"data_mode"
+
+#define kHttp_Header_Query            @"HttpQuery"
+#define kUser_ID                      @"100000001872"

@@ -98,12 +98,8 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func showAllServices(sender: UIButton) {
-  
-        let (list, error) = searchEngine!.queryHotSearchedServices()
-        if error == nil {
-            catalogList = list
-            collectionView.reloadData()            
-        }
+        println("showAllServices")
+        searchEngine?.queryHotSearchedServices(self.loadTableViewData)
     }
 
     @IBAction func myFavorites(sender: AnyObject) {

@@ -25,10 +25,6 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         return [ServiceModel]()
     }
     
-    func queryHotSearchedServices() -> ([AICatalogItemModel], Error?) {
-        return (hotServiceList, nil)
-    }
-    
     func queryHotSearchedServices(completion: (([AICatalogItemModel], Error?)) -> Void) {
         completion((hotServiceList, nil))
     }
@@ -103,6 +99,10 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         completion((list, nil))
     }
     
+    func queryHotSearchedServices(successRes: (responseData: [AIServiceCatalogModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        
+    }
+    
     private func initServiceData() {
         var service = AICatalogItemModel()
         service.catalog_name = "美容"
@@ -131,48 +131,22 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
 }
 
 
-class HttpSearchEngine : SearchEngine {
+class HttpSearchEngine : MockSearchEngine {
 
     var isLoading : Bool = false
     
-    private var recordList = [SearchHistoryRecord]()
-    private var hotServiceList = [AICatalogItemModel]()
+ //   private var recordList = [SearchHistoryRecord]()
+ //   private var hotServiceList = [AICatalogItemModel]()
     
-    func searchServiceByText(serviceName: String) -> [ServiceModel] {
+    override init() {
+        
+    }
+    
+    override func searchServiceByText(serviceName: String) -> [ServiceModel] {
         return [ServiceModel]()
     }
-    
-    func queryHotSearchedServices() -> ([AICatalogItemModel], Error?) {
-        if isLoading {
-        //    return (hotServiceList, nil)
-        }
-        
-        var listModel :AICatalogListModel?
-        
-        isLoading = true
-        
-        var responseError:Error?
-        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.QueryHotSearch, parameters: nil) {  [weak self] (response, error) -> () in
-            responseError = error
-            if let strongSelf = self{
-                strongSelf.isLoading = false
-            }
-            if let responseJSON: AnyObject = response {
-                listModel =  AICatalogListModel(JSONDecoder(responseJSON))
-                
-                if let strongSelf = self {
-                    strongSelf.hotServiceList = listModel!.catalogArray
-                }
-                
-            }else{
-
-            }
-        }
-        
-        return (hotServiceList, responseError)
-    }
-    
-    func queryHotSearchedServices(completion: (([AICatalogItemModel], Error?)) -> Void) {
+   
+    override func queryHotSearchedServices(completion: (([AICatalogItemModel], Error?)) -> Void) {
         if isLoading {
             return
         }
@@ -200,7 +174,7 @@ class HttpSearchEngine : SearchEngine {
         
     }
     
-    func getAllServiceCatalog(completion: (([AICatalogItemModel], Error?)) -> ()) {
+    override func getAllServiceCatalog(completion: (([AICatalogItemModel], Error?)) -> ()) {
         if isLoading {
             return
         }
@@ -228,7 +202,7 @@ class HttpSearchEngine : SearchEngine {
 
     }
     
-    func queryServices(catalogId: Int, pageNum: Int, pageSize: Int = 1, completion: (([AIServiceTopicModel], Error?)) -> Void) {
+    override func queryServices(catalogId: Int, pageNum: Int, pageSize: Int = 1, completion: (([AIServiceTopicModel], Error?)) -> Void) {
         if isLoading {
             return
         }
@@ -256,12 +230,34 @@ class HttpSearchEngine : SearchEngine {
 
     }
     
-    func getFavorServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
+    override func getFavorServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
         let list = [AIServiceTopicModel]()
         var service = AIServiceTopicModel()
         
-    //    list.
         completion((list, nil))
+    }
+    
+    override func queryHotSearchedServices(successRes: (responseData: [AIServiceCatalogModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        
+        var message = AIMessage()
+        message.url = AIHttpEngine.ResourcePath.QueryHotSearch.description
+    
+        
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            var model: AIQueryHotSearchResponse = AIQueryHotSearchResponse(dictionary: response, error: nil)
+            successRes(responseData: model.catalog_list as AnyObject as [AIServiceCatalogModel])
+            }) { (error:AINetError, errorDes:String!) -> Void in
+                
+                fail(errType: error, errDes: errorDes)
+        }
+        
+//        AINetEngine.defaultEngine().postMessage(message, success:( { (response:NSDictionary) -> Void in
+//            
+//            }) { (err: AINetError, errDesc: String!) -> Void in
+//            
+//        }
     }
     
 }
