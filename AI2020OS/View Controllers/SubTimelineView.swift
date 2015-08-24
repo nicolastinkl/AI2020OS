@@ -8,6 +8,8 @@
 
 import UIKit
 
+let CELL_HEIGHT : CGFloat = 60
+
 struct SubTimelineLabelModel {
     var position:Int!
     var currentTime:String!
@@ -23,7 +25,7 @@ struct SubTimelineLabelModel {
 }
 
 enum SubTimelinePosition : Int{
-    case TopFuture = 1,Top
+    case Top = 1,Middle,Bottom
 }
 
 enum SubTimelineStatus : Int{
@@ -63,7 +65,7 @@ class SubTimelineView: UIView {
     }
     
     func fakeModelData(){
-        timelineDatas = [SubTimelineLabelModel(position: 4, currentTime: "12:50", label: "到达别人家",status : 2),SubTimelineLabelModel(position: 1, currentTime: "12:30", label: "已出发",status: 1),SubTimelineLabelModel(position: 1, currentTime: "12:00", label: "等待出发",status: 1),SubTimelineLabelModel(position: 1, currentTime: "12:30", label: "已出发",status: 1),SubTimelineLabelModel(position: 1, currentTime: "12:00", label: "等待出发",status:1),SubTimelineLabelModel(position: 3, currentTime: "11:30", label: "等待出发",status:1)]
+        timelineDatas = [SubTimelineLabelModel(position: 1, currentTime: "13:50", label: "到达别人家",status : 3),SubTimelineLabelModel(position: 2, currentTime: "12:30", label: "已出发",status: 2),SubTimelineLabelModel(position: 2, currentTime: "12:00", label: "等待出发",status: 1),SubTimelineLabelModel(position: 2, currentTime: "11:30", label: "准备指甲油准备指甲油准备指甲油",status: 1),SubTimelineLabelModel(position: 2, currentTime: "11:00", label: "清洁用具清洁用具清洁用具",status:1),SubTimelineLabelModel(position: 3, currentTime: "10:30", label: "准备用具准备用具准备用具",status:1)]
     }
     
     func buildViewContent(){
@@ -88,14 +90,17 @@ class SubTimelineCellView : UIView{
     let LEFT_PADDING:CGFloat = 10
     let POINT_LABEL_PADDING:CGFloat = 5
     let TIME_LABEL_X:CGFloat = 50
-    let TIME_LABEL_RELATED_Y:CGFloat = 20
-    let TIME_LABEL_SIZE:CGSize = CGSizeMake(30, 20)
+    let TIME_LABEL_RELATED_Y:CGFloat = 10
+    let TIME_LABEL_SIZE:CGSize = CGSizeMake(40, 15)
     //TODO size need caculate
-    let INFO_LABEL_SIZE:CGSize = CGSizeMake(100, 40)
-    let INFO_LABEL_RELATED_Y:CGFloat = 50
-    let IMAGE_X:CGFloat = 10
-    let IMAGE_RELATED_Y:CGFloat = 15
-    let IMAGE_SIZE:CGSize = CGSizeMake(7, 60)
+    let INFO_LABEL_SIZE:CGSize = CGSizeMake(300, 20)
+    let INFO_LABEL_RELATED_Y:CGFloat = 25
+    let IMAGE_X:CGFloat = 15
+    let IMAGE_RELATED_Y:CGFloat = 0
+    let IMAGE_SIZE:CGSize = CGSizeMake(1, 60)
+    //image cycle size
+    let CYCLE_SIZE_SMALL:CGFloat = 6
+    let CYCLE_SIZE_BIG:CGFloat = 12
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -105,44 +110,91 @@ class SubTimelineCellView : UIView{
         super.init(coder: aDecoder)
         println("init by code")
     }
+    
+    //重新分三段构造左边的竖线
+    func buildLineImage(subTimelineModel:SubTimelineLabelModel){
+        // connection_line
+        let lineImage = UIImage(named: "Tabbar_background")
+        let status = SubTimelineStatus(rawValue: subTimelineModel.status)
+        let position = SubTimelinePosition(rawValue: subTimelineModel.position)
+        
+        let cycleSize = status == SubTimelineStatus.Now ? CYCLE_SIZE_BIG : CYCLE_SIZE_SMALL
+        let cycleFrame = CGRectMake(IMAGE_X - cycleSize/2 + 0.5, (CELL_HEIGHT - cycleSize) / 2, cycleSize, cycleSize)
+        var cycleColor:UIColor
+        
+        switch status!{
+        case .Future:
+            cycleColor = UIColor.lightGrayColor()
+        case .Now:
+            cycleColor = UIColor.greenColor()
+        case .Past:
+            cycleColor = UIColor.blackColor()
+        default:
+            cycleColor = UIColor.blackColor()
+        }
+        
+        func buildTopLine(){
+            let imageFrame = CGRectMake(IMAGE_X, IMAGE_RELATED_Y, IMAGE_SIZE.width, (CELL_HEIGHT - cycleSize) / 2)
+            var topLineView = UIImageView(frame: imageFrame)
+            topLineView.image = lineImage
+            self.addSubview(topLineView)
+        }
+        
+        func buildCycleView(){
+            var cycleView = UIView(frame: cycleFrame)
+            cycleView.backgroundColor = cycleColor
+            cycleView.layer.cornerRadius = cycleSize / 2
+            self.addSubview(cycleView)
+        }
+        
+        func buildBottomLine(){
+            let imageFrame = CGRectMake(IMAGE_X, CGRectGetMaxY(cycleFrame), IMAGE_SIZE.width, (CELL_HEIGHT - cycleSize) / 2)
+            var buttomLineView = UIImageView(frame: imageFrame)
+            buttomLineView.image = lineImage
+            self.addSubview(buttomLineView)
+        }
+        
+        
+        
+        switch position!{
+        case .Top:
+            buildBottomLine()
+        case .Bottom:
+            buildTopLine()
+        default:
+            buildTopLine()
+            buildBottomLine()
+        }
+        
+        buildCycleView()
+    }
 
     func buildCell(subTimelineModel:SubTimelineLabelModel){
-        var imageString:String
-        let imagePrefix = "timeline_line_"
-        switch subTimelineModel.position {
-        case 1:
-            imageString = "\(imagePrefix)1"
-        case 2:
-            imageString = "\(imagePrefix)2"
-        case 3:
-            imageString = "\(imagePrefix)3"
-        case 4:
-            imageString = "\(imagePrefix)4"
-        default:
-            imageString = "cc"
-        }
-        let image = UIImage(named: imageString)
-        var imageView = UIImageView(frame: CGRectMake(IMAGE_X,  IMAGE_RELATED_Y, IMAGE_SIZE.width, IMAGE_SIZE.height))
-        imageView.image = image
-        imageView.contentMode = UIViewContentMode.Center
         
         var timeLabel = UILabel(frame: CGRectMake(TIME_LABEL_X,  TIME_LABEL_RELATED_Y, TIME_LABEL_SIZE.width, TIME_LABEL_SIZE.height))
         timeLabel.text = subTimelineModel.currentTime
+        timeLabel.textColor = UIColor.lightGrayColor()
         timeLabel.font = UIFont.systemFontOfSize(10)
         
         var infoLabel = UILabel(frame: CGRectMake(TIME_LABEL_X,  INFO_LABEL_RELATED_Y, INFO_LABEL_SIZE.width, INFO_LABEL_SIZE.height))
         infoLabel.text = subTimelineModel.label
-        infoLabel.font = UIFont.systemFontOfSize(12)
+        infoLabel.font = UIFont.systemFontOfSize(13)
         
         switch subTimelineModel.status{
-            case 1 : infoLabel.textColor = UIColor.blackColor()
-            case 2 : infoLabel.textColor = UIColor.greenColor()
-            case 3 : infoLabel.textColor = UIColor.lightGrayColor()
+            case 1 :
+                infoLabel.textColor = UIColor.blackColor()
+            case 2 :
+                infoLabel.textColor = UIColor.greenColor()
+                infoLabel.font = UIFont.boldSystemFontOfSize(15)
+            case 3 :
+                infoLabel.textColor = UIColor.lightGrayColor()
             default: infoLabel.textColor = UIColor.blackColor()
         }
         
-        self.addSubview(imageView)
+        //self.addSubview(imageView)
         self.addSubview(infoLabel)
         self.addSubview(timeLabel)
+        
+        buildLineImage(subTimelineModel)
     }
 }

@@ -26,6 +26,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         navigationController?.interactivePopGestureRecognizer.delegate = nil
         super.viewWillAppear(animated)
+        scrollView.contentOffset = CGPointMake(0, 0)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -40,7 +41,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         // Init buttons.
         buildDynaStatusButton()
         self.scrollView.contentSize = CGSizeMake(450, 0)
-        scrollView.contentOffset = CGPointMake(0, 0)
+        
         // request networking.
         retryNetworkingAction()
         
