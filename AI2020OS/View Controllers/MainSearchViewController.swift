@@ -74,8 +74,6 @@ class MainSearchViewController: UIViewController , UITableViewDelegate , UITable
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: myIdentifier)
             cell?.accessoryType = UITableViewCellAccessoryType.None
             
-            
-
         }
         
         let tagWith = 60
@@ -125,7 +123,7 @@ class MainSearchViewController: UIViewController , UITableViewDelegate , UITable
         case 1:
             return "搜索历史"
         default:
-            return "Other section"
+            return ""
         }
     }
 

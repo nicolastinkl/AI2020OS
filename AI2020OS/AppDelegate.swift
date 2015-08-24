@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
               clientKey: AIApplication.AVOSCLOUDKEY)
 
         // DEBUG
-//        AVAnalytics.setCrashReportEnabled(true)
+        AVAnalytics.setCrashReportEnabled(true)
 //        AVAnalytics.setAnalyticsEnabled(true)
 //        AVOSCloud.setVerbosePolicy(kAVVerboseShow)
 //        AVLogger.addLoggerDomain(AVLoggerDomainIM)
@@ -145,6 +145,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
+    }
+    
+    private func initNetEngine() {
+        let timeStamp: Int = 0
+        let token = "0"
+        let userId = kUser_ID
+        let RSA = "0"
+        
+        let headerContent = "\(timeStamp)" + token + userId + RSA
+        
+        let header = [kHttp_Header_Query: headerContent]
+        AINetEngine.defaultEngine().configureCommonHeaders(header)
     }
     
 }

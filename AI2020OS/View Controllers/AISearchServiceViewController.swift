@@ -1,5 +1,5 @@
 //
-//  SearchServiceViewControllerCollectionViewController.swift
+//  AISearchServiceViewControllerCollectionViewController.swift
 //  AI2020OS
 //
 //  Created by liliang on 15/5/25.
@@ -8,12 +8,9 @@
 
 import UIKit 
 
-
-
-class SearchServiceViewController: UIViewController, UITextFieldDelegate {
+class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
     
     private var historyRecorder: SearchRecorder?
     private var searchEngine: SearchEngine?
@@ -27,17 +24,14 @@ class SearchServiceViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if navigationController != nil {
-//            let titleView = NSBundle.mainBundle().loadNibNamed("AISearchBar", owner: self, options: nil).last as AISearchBarView
-//            titleView.inputTextField.delegate = self
-//            navigationItem.titleView = titleView
-//        }
-        
         initCollectionView()
         
         var engine = HttpSearchEngine()
         historyRecorder = MockSearchEngine()
         searchEngine = engine
+        
+        
+        AIApplication.hideMessageUnreadView()
         
         recordList = historyRecorder?.getSearchHistoryItems()
     }
@@ -95,9 +89,9 @@ class SearchServiceViewController: UIViewController, UITextFieldDelegate {
         let flow = layout as UICollectionViewFlowLayout
         flow.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
         
-        collectionView.registerClass(SearchTagCell.self,
+        collectionView.registerClass(AISearchTagCell.self,
             forCellWithReuseIdentifier: "CONTENT")
-        collectionView.registerClass(SearchHeaderCell.self,
+        collectionView.registerClass(AISearchHeaderCell.self,
             forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
             withReuseIdentifier: "HEADER")
         
@@ -105,22 +99,18 @@ class SearchServiceViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func showAllServices(sender: UIButton) {
         println("showAllServices")
-        let (list, error) = searchEngine!.queryHotSearchedServices()
-        if error == nil {
-            catalogList = list
-            collectionView.reloadData()            
-        }
+        searchEngine?.queryHotSearchedServices(self.loadTableViewData)
     }
 
     @IBAction func myFavorites(sender: AnyObject) {
-        println("myFavorites")
+        
     }
     
     
 
 }
 
-extension SearchServiceViewController: UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     // MARK: UICollectionViewDataSource
     
@@ -154,7 +144,7 @@ extension SearchServiceViewController: UICollectionViewDelegate, UIScrollViewDel
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CONTENT", forIndexPath: indexPath) as SearchTagCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CONTENT", forIndexPath: indexPath) as AISearchTagCell
         
         cell.maxWidth = collectionView.bounds.size.width
         
@@ -182,7 +172,7 @@ extension SearchServiceViewController: UICollectionViewDelegate, UIScrollViewDel
             let cell =
             collectionView.dequeueReusableSupplementaryViewOfKind(
                 kind, withReuseIdentifier: "HEADER",
-                forIndexPath: indexPath) as SearchHeaderCell
+                forIndexPath: indexPath) as AISearchHeaderCell
             cell.maxWidth = collectionView.bounds.size.width
             
             if indexPath.section == SECTION_HOT_SERVICES {
@@ -190,7 +180,6 @@ extension SearchServiceViewController: UICollectionViewDelegate, UIScrollViewDel
             } else if indexPath.section == SECTION_HISTORY {
                 cell.text = "搜索历史"
             }
-            
             
             return cell
         }
@@ -214,7 +203,7 @@ extension SearchServiceViewController: UICollectionViewDelegate, UIScrollViewDel
                 tagName = records[indexPath.item].name
             }
             
-            let size = SearchTagCell.sizeForContentString(tagName,
+            let size = AISearchTagCell.sizeForContentString(tagName,
                 forMaxWidth: collectionView.bounds.size.width / 2)
             return size
     }

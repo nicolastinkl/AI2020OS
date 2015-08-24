@@ -426,7 +426,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         if indexPath.section == 0 {
             let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIUserDesStoryboard, bundle: nil).instantiateInitialViewController() as AIUserDesViewController
-            viewController.avatorURL = self.movieDetailsResponse?.provider_portrait_url
+            viewController.avatorURL = self.movieDetailsResponse?.provider_portrait_url ?? ""
             self.showViewController(viewController, sender: self)
         }
         

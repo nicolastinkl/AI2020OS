@@ -9,3 +9,11 @@
 #import "AIServiceCommentModel.h"
 
 
+@implementation AIServiceCommentListModel
+@end
+
+@implementation AIServiceComment
+@end
+
+@implementation AICommentTag
+@end

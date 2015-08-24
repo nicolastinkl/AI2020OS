@@ -1,5 +1,5 @@
 //
-//  SearchHeaderCell.swift
+//  AISearchHeaderCell.swift
 //  AI2020OS
 //
 //  Created by admin on 15/5/26.
@@ -8,22 +8,20 @@
 
 import UIKit
 
-class SearchHeaderCell: SearchTagCell {
+class AISearchHeaderCell: AISearchTagCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        label.backgroundColor = UIColor(red: 0.91, green: 0.92,
-            blue: 0.92, alpha: 0.5)
-        label.textColor = UIColor(red: 0.47, green: 0.47,
-            blue: 0.47, alpha: 1.0)
-        label.setWidth(2000)
+        //label.backgroundColor = UIColor(rgba: "#eeeeef")
+        label.textColor = UIColor(rgba: "#c4c3c2")
+        label.setWidth(600)
         label.textAlignment = .Left
     }
     override var text: String! {
         get {
             return super.text
         }
-        
+
         set(newText) {
             label.text = "  " + newText
         }

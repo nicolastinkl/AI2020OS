@@ -57,6 +57,10 @@ struct AIHttpEngine{
         case SubmitOrder
         // 查询时间轴
         case QueryTimeLineServices
+        // 查询个人信息
+        case QueryUserInfoServices
+        
+        /// 返回具体URL
         var description: String {
             switch self {
             case .GetServiceDetail: return "/sboss/getServiceDetail"
@@ -75,7 +79,7 @@ struct AIHttpEngine{
             case .QueryTimeLineServices: return "/sboss/queryNodesFromTimeLine"
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
-                
+            case .QueryUserInfoServices : return "getUserInfo"
             }
         }
     }
@@ -85,8 +89,17 @@ struct AIHttpEngine{
         // Create manager
         var manager = Manager.sharedInstance
         
+        let timeStamp: Int = 0
+        let token = "0"
+        let userId = kUser_ID
+        let RSA = "0"
+        
+        let header = "\(timeStamp)" + token + userId + RSA
+        
+        
         // Add Headers
-        manager.session.configuration.HTTPAdditionalHeaders = ["HttpQuery":"0&0&100000001872&0"]
+        manager.session.configuration.HTTPAdditionalHeaders = [kHttp_Header_Query:header]
+    //    manager.session.configuration.HTTPAdditionalHeaders = ["HttpQuery":"0&0&100000001872&0"]
         
         let paras: [String: AnyObject]? = [
             "data":parameters!,

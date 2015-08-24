@@ -38,6 +38,7 @@
 #import "AIMessage.h"
 #import "AIMessageWrapper.h"
 #import "AINetEngine.h"
+#import "AIServerConfig.h"
 
 // MARK: JSON
 #import "JSONModel.h"
@@ -49,6 +50,7 @@
 // MARK: Model
 #import "AITipModel.h"
 #import "AIServiceCommentModel.h"
+#import "AIServiceCatalogModel.h"
 
 // MARK: AICardView
 #import "AICardView.h"
