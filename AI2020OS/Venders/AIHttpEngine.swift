@@ -89,8 +89,17 @@ struct AIHttpEngine{
         // Create manager
         var manager = Manager.sharedInstance
         
+        let timeStamp: Int = 0
+        let token = "0"
+        let userId = kUser_ID
+        let RSA = "0"
+        
+        let header = "\(timeStamp)" + token + userId + RSA
+        
+        
         // Add Headers
-        manager.session.configuration.HTTPAdditionalHeaders = ["HttpQuery":"0&0&100000001872&0"]
+        manager.session.configuration.HTTPAdditionalHeaders = [kHttp_Header_Query:header]
+    //    manager.session.configuration.HTTPAdditionalHeaders = ["HttpQuery":"0&0&100000001872&0"]
         
         let paras: [String: AnyObject]? = [
             "data":parameters!,
