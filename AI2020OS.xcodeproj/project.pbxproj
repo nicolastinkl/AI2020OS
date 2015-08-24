@@ -47,6 +47,7 @@
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
 		817E15F61B7C8DB800C298BE /* www in Resources */ = {isa = PBXBuildFile; fileRef = 817E15F51B7C8DB800C298BE /* www */; };
 		817E15FE1B7C91E000C298BE /* AIWebPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E15FD1B7C91E000C298BE /* AIWebPlugin.m */; };
+		818B5C551B8ACB1C00B22F1F /* AIServerUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B5C541B8ACB1C00B22F1F /* AIServerUploadViewController.m */; };
 		8198ABA31B8183B30047E740 /* AIMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198AB9D1B8183B30047E740 /* AIMessage.m */; };
 		8198ABA41B8183B30047E740 /* AIMessageWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198AB9F1B8183B30047E740 /* AIMessageWrapper.m */; };
 		8198ABA51B8183B30047E740 /* AINetEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABA11B8183B30047E740 /* AINetEngine.m */; };
@@ -475,6 +476,8 @@
 		817E15F51B7C8DB800C298BE /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		817E15FC1B7C91E000C298BE /* AIWebPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIWebPlugin.h; path = AI2020OS/Web/Plugin/AIWebPlugin.h; sourceTree = SOURCE_ROOT; };
 		817E15FD1B7C91E000C298BE /* AIWebPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIWebPlugin.m; path = AI2020OS/Web/Plugin/AIWebPlugin.m; sourceTree = SOURCE_ROOT; };
+		818B5C531B8ACB1C00B22F1F /* AIServerUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIServerUploadViewController.h; sourceTree = "<group>"; };
+		818B5C541B8ACB1C00B22F1F /* AIServerUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIServerUploadViewController.m; sourceTree = "<group>"; };
 		8198AB9C1B8183B30047E740 /* AIMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMessage.h; sourceTree = "<group>"; };
 		8198AB9D1B8183B30047E740 /* AIMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMessage.m; sourceTree = "<group>"; };
 		8198AB9E1B8183B30047E740 /* AIMessageWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMessageWrapper.h; sourceTree = "<group>"; };
@@ -1010,6 +1013,7 @@
 		817E15CE1B7C8A2700C298BE /* Web */ = {
 			isa = PBXGroup;
 			children = (
+				818B5C521B8ACABF00B22F1F /* WebViews */,
 				814B2BC91B81C9EA003A10A5 /* Camera */,
 				817E15F71B7C8EB500C298BE /* Plugins */,
 				817E15F51B7C8DB800C298BE /* www */,
@@ -1068,6 +1072,15 @@
 				817E15FD1B7C91E000C298BE /* AIWebPlugin.m */,
 			);
 			path = Plugins;
+			sourceTree = "<group>";
+		};
+		818B5C521B8ACABF00B22F1F /* WebViews */ = {
+			isa = PBXGroup;
+			children = (
+				818B5C531B8ACB1C00B22F1F /* AIServerUploadViewController.h */,
+				818B5C541B8ACB1C00B22F1F /* AIServerUploadViewController.m */,
+			);
+			path = WebViews;
 			sourceTree = "<group>";
 		};
 		8198AB9B1B8183B30047E740 /* Network */ = {
@@ -2412,6 +2425,7 @@
 				123A45F61B831B27008B9CF6 /* AICustomerOrderDetailViewController.swift in Sources */,
 				8198ABCF1B81840E0047E740 /* AFSecurityPolicy.m in Sources */,
 				939E663C1B280E8900FD5FBA /* AIWebViewController.swift in Sources */,
+				818B5C551B8ACB1C00B22F1F /* AIServerUploadViewController.m in Sources */,
 				84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */,
 				93FF74621B0ECEA000FD97C1 /* CVCalendarDayView.swift in Sources */,
 				93FF746E1B0ECEA000FD97C1 /* CVCalendarViewDelegate.swift in Sources */,
