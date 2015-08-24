@@ -13,6 +13,18 @@
 @interface AIMessageWrapper : NSObject
 
 
+
+
++ (NSMutableDictionary *)baseBodyWithData:(NSDictionary *)data;
+
+
++ (NSMutableDictionary *)baseBodyWithData:(NSDictionary *)data desc:(NSDictionary *)desc;
+
++ (NSMutableDictionary *)baseData;
+
++ (NSMutableDictionary *)baseDesc;
+
+
 /*说明:获取服务列表
  */
 + (AIMessage *)getServiceListWithTopicID:(NSString *)topicID dataMode:(NSString *)dataMode;

@@ -120,6 +120,7 @@
     
     [self addSubview:self.tableView];
     
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0);
     if([self.delegate respondsToSelector:@selector(detailsPage:tableViewDidLoad:)])
     {
         [self.delegate detailsPage:self tableViewDidLoad:self.tableView];

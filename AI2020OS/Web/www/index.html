@@ -1,119 +1,25 @@
 <!DOCTYPE html>
 <html>
-<!--
-#
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-# 
-# http://www.apache.org/licenses/LICENSE-2.0
-# 
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-#  KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
-#
--->
   <head>
-  <title></title>
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
-	<meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
 
-
-	<!-- iPad/iPhone specific css below, add after your main css >
-	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
-	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
-	-->
-	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
-	<script type="text/javascript" charset="utf-8" src="/js/cordova.js"></script>
-    <script type="text/javascript">
-
-
-	// If you want to prevent dragging, uncomment this section
-	/*
-	function preventBehavior(e) 
-	{ 
-      e.preventDefault(); 
-    };
-	document.addEventListener("touchmove", preventBehavior, false);
-	*/
-	
-	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
-	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
-	for more details -jm */
-	/*
-	function handleOpenURL(url)
-	{
-		// TODO: do something with the url passed in.
-	}
-	*/
-	
-	function onBodyLoad()
-	{		
-		document.addEventListener("deviceready", onDeviceReady, false);
-	}
-	
-	/* When this function is called, Cordova has been initialized and is ready to roll */
-	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
-	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
-	for more details -jm */
-	function onDeviceReady()
-	{
-    // Used by unit tests to tell when the page is loaded.
-    window.pageIsLoaded = true;
-		// do your thing!
-		console.log("Cordova is working")
-	}
-    
-    
-    
-    {
-        "messageList"：[{  // 消息列表
-            "type":"2",  // 消息类型，区分系统=1、客户=2、卖家=3、好友=4
-            "id":"XCJ12354820", // 唯一标识一条消息，可作为查询的标识
-            "title":"退款成功",
-            "icon":"http://...", // 图片地址
-            "service":"(上门美甲服务)",
-            "time":"12:03",
-            "message":"交易金额:200元,退款金额:200元",
-            "action":[{ // 操作功能区,理论上不能有重复的类型
-                "title":"查看欠款",
-                "type":"2"  // action类型:0-无操作、1-查看订单、2-查看欠款,通过type来定义客户端的操作
-                },
-                {
-                "title":"查看订单",
-                "id":"sad2132131d",// 订单号或其他标识，用作查询的依据
-                "type":"1"
-            }],
-        }]，
-    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </script>
   </head>
-  <body onload="onBodyLoad()">
-	<h1>Hey, it's Cordova!</h1>
-	<ol>
-		<li>Check your console log for any white-list rejection errors.</li>
-		<li>Add your allowed <strong>hosts</strong> in config.xml as access tags and set the origin attribute. (wildcards OK, don't enter the URL scheme)</li>
-	</ol>
-    <div>
-        <button title="123" onclick="alert("123213");">
-        </div>
+  <body>
+    
+     测试app
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript"> 
+        $(function(){ 
+            $.ajax({
+              type:"get",
+              url: 'http://115.29.164.124/test/t',
+              success: function(data){ 
+                 alert(data);
+              }
+            });
+        })
+    </script>
   </body>
 </html>

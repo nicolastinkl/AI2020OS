@@ -49,9 +49,7 @@ class AISelfViewController: UITableViewController {
         let paras = ["user_id":"\(selfUserInfoModel?.id ?? 0)"]
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryUserInfoServices, parameters: paras) {  [weak self] (response, error) -> () in
             
-        }
-        
-        
+        } 
     }
     
     @IBAction func targetToOrderViewControllerAction(sender: AnyObject) {
@@ -59,6 +57,7 @@ class AISelfViewController: UITableViewController {
          self.navigationController?.pushViewController(viewController, animated: true)
     }
     
+    /*
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         let viewTableHead: UIView = self.tableview.tableHeaderView!
         let yOffset:CGFloat   = scrollView.contentOffset.y;
@@ -68,7 +67,7 @@ class AISelfViewController: UITableViewController {
             f.size.height =  -yOffset
             viewTableHead.frame = f
         }
-    }
+    }*/
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

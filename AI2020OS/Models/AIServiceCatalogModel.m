@@ -32,7 +32,7 @@
     message.url = @"http://198.168.1.9/server";
     
     [[AINetEngine defaultEngine] postMessage:message success:^(NSDictionary *response) {
-        AIServiceCatalogModel *model = [[AIServiceCatalogModel alloc] initWithDictionary:response error:nil];
+        //AIServiceCatalogModel *model = [[AIServiceCatalogModel alloc] initWithDictionary:response error:nil];
         
     } fail:^(AINetError error, NSString *errorDes) {
         
