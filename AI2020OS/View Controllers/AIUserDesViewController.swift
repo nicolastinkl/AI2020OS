@@ -20,6 +20,7 @@ class AIUserDesViewController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
     
+    @IBOutlet weak var buttonAvator: AsyncImageView!
      var avatorURL:String?
     
     override func viewDidLoad() {
@@ -29,6 +30,9 @@ class AIUserDesViewController: UIViewController {
         
         let handImageView = self.tableview.tableHeaderView?.viewWithTag(2) as AsyncImageView
         handImageView.setURL(self.avatorURL?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
+       
+        buttonAvator.setURL(self.avatorURL?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
+        buttonAvator.maskWithEllipse()
         
         self.tableview.reloadData()
         
@@ -64,15 +68,10 @@ extension AIUserDesViewController: UIScrollViewDelegate {
         
         if scrollOffset < 0 || scrollOffset >= 88{
             self.titleEffectView.alpha = 1
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                self.titleImage.alpha = 1
-            })
+            self.titleImage.alpha = 1
         }else{
             self.titleEffectView.alpha = 0
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                self.titleImage.alpha = 0
-                
-            })
+            self.titleImage.alpha = 0
         }
     }
     

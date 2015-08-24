@@ -25,7 +25,6 @@ class AISearchHeaderCell: AISearchTagCell {
         set(newText) {
             label.text = "  " + newText
         }
-        
     }
 
     required init(coder aDecoder: NSCoder) {
