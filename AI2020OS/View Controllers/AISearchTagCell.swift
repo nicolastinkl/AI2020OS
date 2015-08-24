@@ -1,5 +1,5 @@
 //
-//  SearchTagCell.swift
+//  AISearchTagCell.swift
 //  AI2020OS
 //
 //  Created by admin on 15/5/26.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchTagCell: UICollectionViewCell {
+class AISearchTagCell: UICollectionViewCell {
     var label: UILabel!
     var text: String! {
         get {

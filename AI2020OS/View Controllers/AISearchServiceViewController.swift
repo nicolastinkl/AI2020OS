@@ -89,9 +89,9 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
         let flow = layout as UICollectionViewFlowLayout
         flow.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
         
-        collectionView.registerClass(SearchTagCell.self,
+        collectionView.registerClass(AISearchTagCell.self,
             forCellWithReuseIdentifier: "CONTENT")
-        collectionView.registerClass(SearchHeaderCell.self,
+        collectionView.registerClass(AISearchHeaderCell.self,
             forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
             withReuseIdentifier: "HEADER")
         
@@ -148,7 +148,7 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CONTENT", forIndexPath: indexPath) as SearchTagCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CONTENT", forIndexPath: indexPath) as AISearchTagCell
         
         cell.maxWidth = collectionView.bounds.size.width
         
@@ -176,7 +176,7 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
             let cell =
             collectionView.dequeueReusableSupplementaryViewOfKind(
                 kind, withReuseIdentifier: "HEADER",
-                forIndexPath: indexPath) as SearchHeaderCell
+                forIndexPath: indexPath) as AISearchHeaderCell
             cell.maxWidth = collectionView.bounds.size.width
             
             if indexPath.section == SECTION_HOT_SERVICES {
@@ -207,7 +207,7 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
                 tagName = records[indexPath.item].name
             }
             
-            let size = SearchTagCell.sizeForContentString(tagName,
+            let size = AISearchTagCell.sizeForContentString(tagName,
                 forMaxWidth: collectionView.bounds.size.width / 2)
             return size
     }

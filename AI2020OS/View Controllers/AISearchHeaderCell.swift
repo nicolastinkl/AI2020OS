@@ -1,5 +1,5 @@
 //
-//  SearchHeaderCell.swift
+//  AISearchHeaderCell.swift
 //  AI2020OS
 //
 //  Created by admin on 15/5/26.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchHeaderCell: SearchTagCell {
+class AISearchHeaderCell: AISearchTagCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
