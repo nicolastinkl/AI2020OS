@@ -57,6 +57,10 @@ struct AIHttpEngine{
         case SubmitOrder
         // 查询时间轴
         case QueryTimeLineServices
+        // 查询个人信息
+        case QueryUserInfoServices
+        
+        /// 返回具体URL
         var description: String {
             switch self {
             case .GetServiceDetail: return "/sboss/getServiceDetail"
@@ -75,7 +79,7 @@ struct AIHttpEngine{
             case .QueryTimeLineServices: return "/sboss/queryNodesFromTimeLine"
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
-                
+            case .QueryUserInfoServices : return "getUserInfo"
             }
         }
     }
