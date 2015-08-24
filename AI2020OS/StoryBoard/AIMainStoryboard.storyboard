@@ -597,12 +597,36 @@
                         <animations/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Puy-Vg-Mpb" kind="relationship" relationship="rootViewController" id="3jy-Uj-5Qq"/>
+                        <segue destination="kxI-LP-zjN" kind="relationship" relationship="rootViewController" id="oF3-Y2-Yla"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yka-Hh-Le5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-321" y="999"/>
+        </scene>
+        <!--Collect Root Controller-->
+        <scene sceneID="Ryl-Rb-zCQ">
+            <objects>
+                <viewController storyboardIdentifier="AICollectRootController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kxI-LP-zjN" customClass="AICollectRootController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OD3-P4-Rtb"/>
+                        <viewControllerLayoutGuide type="bottom" id="RhO-Ti-Lax"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FpZ-wY-N3v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nOm-hJ-aSg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="waJ-Hh-qDJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bo-Ak-mJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="361" y="1004"/>
         </scene>
         <!--Connect View Controller-->
         <scene sceneID="v8n-kn-mVq">
