@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
               clientKey: AIApplication.AVOSCLOUDKEY)
 
         // DEBUG
-//        AVAnalytics.setCrashReportEnabled(true)
+        AVAnalytics.setCrashReportEnabled(true)
 //        AVAnalytics.setAnalyticsEnabled(true)
 //        AVOSCloud.setVerbosePolicy(kAVVerboseShow)
 //        AVLogger.addLoggerDomain(AVLoggerDomainIM)
