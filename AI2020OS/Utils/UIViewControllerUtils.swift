@@ -84,7 +84,8 @@ extension UIViewController {
     // 显示搜索主界面
     func showSearchMainViewController() {
         
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISearchServiceCollectionViewController) as SearchServiceViewController
+        //let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISearchServiceCollectionViewController) as AISearchServiceViewController
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
         viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
         self.showDetailViewController(viewController, sender: self)

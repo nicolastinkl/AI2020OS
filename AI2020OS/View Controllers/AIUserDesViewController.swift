@@ -41,6 +41,43 @@ class AIUserDesViewController: UIViewController {
     
 }
 
+extension AIUserDesViewController: UIScrollViewDelegate {
+
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let scrollOffset = self.tableview.contentOffset.y
+        
+        /*
+        if scrollOffset < 0 {
+            let imageScalingFactor: CGFloat = 64.0
+            let comte = 0-(scrollOffset/imageScalingFactor)
+            println("comte: \(comte)")
+            self.titleImage.alpha = CGFloat(comte)
+            self.titleEffectView.alpha = CGFloat(comte)
+        }
+        
+       
+        if scrollOffset >= 88 {
+            let imageScalingFactor: CGFloat = 88.0
+            let comte =  (scrollOffset/imageScalingFactor)
+            println("comte: \(comte)")
+        }*/
+        
+        if scrollOffset < 0 || scrollOffset >= 88{
+            self.titleEffectView.alpha = 1
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.titleImage.alpha = 1
+            })
+        }else{
+            self.titleEffectView.alpha = 0
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.titleImage.alpha = 0
+                
+            })
+        }
+    }
+    
+}
+
 extension AIUserDesViewController: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

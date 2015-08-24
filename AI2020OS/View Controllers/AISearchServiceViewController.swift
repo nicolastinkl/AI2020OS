@@ -1,5 +1,5 @@
 //
-//  SearchServiceViewControllerCollectionViewController.swift
+//  AISearchServiceViewControllerCollectionViewController.swift
 //  AI2020OS
 //
 //  Created by liliang on 15/5/25.
@@ -8,12 +8,9 @@
 
 import UIKit 
 
-
-
-class SearchServiceViewController: UIViewController, UITextFieldDelegate {
+class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
     
     private var historyRecorder: SearchRecorder?
     private var searchEngine: SearchEngine?
@@ -27,17 +24,14 @@ class SearchServiceViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if navigationController != nil {
-//            let titleView = NSBundle.mainBundle().loadNibNamed("AISearchBar", owner: self, options: nil).last as AISearchBarView
-//            titleView.inputTextField.delegate = self
-//            navigationItem.titleView = titleView
-//        }
-        
         initCollectionView()
         
         var engine = HttpSearchEngine()
         historyRecorder = MockSearchEngine()
         searchEngine = engine
+        
+        
+        AIApplication.hideMessageUnreadView()
         
         recordList = historyRecorder?.getSearchHistoryItems()
     }
@@ -104,7 +98,7 @@ class SearchServiceViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func showAllServices(sender: UIButton) {
-        println("showAllServices")
+  
         let (list, error) = searchEngine!.queryHotSearchedServices()
         if error == nil {
             catalogList = list
@@ -113,14 +107,14 @@ class SearchServiceViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func myFavorites(sender: AnyObject) {
-        println("myFavorites")
+        
     }
     
     
 
 }
 
-extension SearchServiceViewController: UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     // MARK: UICollectionViewDataSource
     
@@ -190,7 +184,6 @@ extension SearchServiceViewController: UICollectionViewDelegate, UIScrollViewDel
             } else if indexPath.section == SECTION_HISTORY {
                 cell.text = "搜索历史"
             }
-            
             
             return cell
         }
