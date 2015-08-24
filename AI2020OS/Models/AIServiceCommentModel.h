@@ -23,8 +23,7 @@
 
 @end
 
-@implementation AIServiceCommentListModel
-@end
+
 
 // 服务评价数据模型
 @interface AIServiceComment : JSONModel
@@ -43,8 +42,7 @@
 
 @end
 
-@implementation AIServiceComment
-@end
+
 
 // 评论标签数据模型
 @interface AICommentTag : JSONModel
@@ -53,8 +51,7 @@
 
 @end
 
-@implementation AICommentTag
-@end
+
 
 
 

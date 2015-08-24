@@ -105,11 +105,7 @@ class SearchServiceViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func showAllServices(sender: UIButton) {
         println("showAllServices")
-        let (list, error) = searchEngine!.queryHotSearchedServices()
-        if error == nil {
-            catalogList = list
-            collectionView.reloadData()            
-        }
+        searchEngine?.queryHotSearchedServices(self.loadTableViewData)
     }
 
     @IBAction func myFavorites(sender: AnyObject) {
