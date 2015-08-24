@@ -133,8 +133,6 @@
 		9301B07C1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B07B1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift */; };
 		93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93049D031B04A3270051467A /* AIHomeAvatorViewCell.xib */; };
 		93049D061B04A3420051467A /* AIHomeAvatorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93049D051B04A3420051467A /* AIHomeAvatorViewCell.swift */; };
-		931718811B159C3600EC9C14 /* AIOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931718801B159C3600EC9C14 /* AIOrderDetailViewController.swift */; };
-		931718831B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */; };
 		931718851B15A35400EC9C14 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931718841B15A35400EC9C14 /* MapKit.framework */; };
 		93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93266FAA1AEF80FB00DD0021 /* AIFavoritesViewController.swift */; };
 		93266FB21AEF81E100DD0021 /* AIFavoritsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93266FB11AEF81E100DD0021 /* AIFavoritsCommand.swift */; };
@@ -277,7 +275,7 @@
 		93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF23101B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift */; };
 		93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFC0761AD6551200B82CC9 /* RAReorderableLayout.swift */; };
 		93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFC0781AD6580400B82CC9 /* AIKinectButton.swift */; };
-		93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */; };
+		93D806D01B1C6D7900B13FFF /* AISearchTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16D1B1494D000EA78BC /* AISearchTagCell.swift */; };
 		93D80A421ACA7149004BC7C0 /* CoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D80A411ACA7149004BC7C0 /* CoreTextView.swift */; };
 		93D80A441ACA71DA004BC7C0 /* AILocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D80A431ACA71DA004BC7C0 /* AILocalStore.swift */; };
 		93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB59891AE62EAD00D1E39C /* AIMaterialDButton.swift */; };
@@ -324,8 +322,6 @@
 		93FF747C1B0F0CA800FD97C1 /* AIServerScopeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93FF747B1B0F0CA800FD97C1 /* AIServerScopeView.xib */; };
 		93FF747E1B0F171700FD97C1 /* AIComponentChoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FF747D1B0F171700FD97C1 /* AIComponentChoseViewController.swift */; };
 		BC4B1B3E329348200D9BF382 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9118F5AD06B215C4AAA1AD0 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		F2AF4C531B19B6DE007E9493 /* AIOrderDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AF4C521B19B6DE007E9493 /* AIOrderDetailService.swift */; };
-		F2DACC2B1B197A7500233EFD /* AIOrderDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DACC2A1B197A7500233EFD /* AIOrderDetailModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -598,8 +594,6 @@
 		9301B07B1B09998A00C1EE79 /* AILoginViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewControllerDelegate.swift; sourceTree = "<group>"; };
 		93049D031B04A3270051467A /* AIHomeAvatorViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeAvatorViewCell.xib; sourceTree = "<group>"; };
 		93049D051B04A3420051467A /* AIHomeAvatorViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeAvatorViewCell.swift; sourceTree = "<group>"; };
-		931718801B159C3600EC9C14 /* AIOrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderDetailViewController.swift; sourceTree = "<group>"; };
-		931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIOrderDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		931718841B15A35400EC9C14 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		93266FAA1AEF80FB00DD0021 /* AIFavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoritesViewController.swift; sourceTree = "<group>"; };
 		93266FB11AEF81E100DD0021 /* AIFavoritsCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoritsCommand.swift; sourceTree = "<group>"; };
@@ -809,8 +803,6 @@
 		93FF747D1B0F171700FD97C1 /* AIComponentChoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIComponentChoseViewController.swift; sourceTree = "<group>"; };
 		B9118F5AD06B215C4AAA1AD0 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C757FF35A2EBAB4FD999BDCE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		F2AF4C521B19B6DE007E9493 /* AIOrderDetailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderDetailService.swift; sourceTree = "<group>"; };
-		F2DACC2A1B197A7500233EFD /* AIOrderDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1253,9 +1245,9 @@
 			isa = PBXGroup;
 			children = (
 				84CB36821B16E88200D66BBD /* view */,
-				8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */,
-				84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */,
-				84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */,
+				8415F4E21B135688003160B4 /* AISearchServiceViewController.swift */,
+				84CDC16D1B1494D000EA78BC /* AISearchTagCell.swift */,
+				84CDC16F1B14952500EA78BC /* AISearchHeaderCell.swift */,
 				84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */,
 			);
 			name = Search;
@@ -1480,7 +1472,6 @@
 				84CC00001B107F430073B24A /* ServiceModel.swift */,
 				84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */,
 				84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */,
-				F2DACC2A1B197A7500233EFD /* AIOrderDetailModel.swift */,
 				84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */,
 				939E66391B27EAE900FD5FBA /* AIFavoriteContentModel.swift */,
 				84D393E51B2A88800045EE3A /* AIFavoritesServicesModel.swift */,
@@ -1507,7 +1498,6 @@
 				93D80A431ACA71DA004BC7C0 /* AILocalStore.swift */,
 				935A25761AE79AF10089B240 /* AIServicesRequester.swift */,
 				9301B0751B09979500C1EE79 /* AILoginService.swift */,
-				F2AF4C521B19B6DE007E9493 /* AIOrderDetailService.swift */,
 				84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */,
 				84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */,
 			);
@@ -1839,7 +1829,6 @@
 				93FF74741B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard */,
 				93E4D5AA1B14A5F700992CA3 /* AISettingsStoryboard.storyboard */,
 				93E4D5AC1B14AA5900992CA3 /* AIOrderStoryboard.storyboard */,
-				931718821B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard */,
 				938A39931B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard */,
 				938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */,
 				84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */,
@@ -1909,7 +1898,6 @@
 			children = (
 				12B65F781B7B3986008C05FC /* cells */,
 				93E4D5AF1B14AA7800992CA3 /* AIOrderListViewController.swift */,
-				931718801B159C3600EC9C14 /* AIOrderDetailViewController.swift */,
 				12E926071B7C76570053D2E0 /* AICustomerOrderListViewController.swift */,
 				84D1B6DD1B7C33690094D553 /* AIOrderSubmitViewController.swift */,
 				12E926091B81D6470053D2E0 /* AIProviderOrderListViewController.swift */,
@@ -2216,7 +2204,6 @@
 				93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */,
 				840FDAB41B85AF9500CE3DF9 /* airplane@2x.png in Resources */,
 				938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */,
-				931718831B159C6600EC9C14 /* AIOrderDetailStoryboard.storyboard in Resources */,
 				93FF74751B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard in Resources */,
 				93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */,
 				840FDAAB1B857D9800CE3DF9 /* AIOrderModifyView.xib in Resources */,
@@ -2372,7 +2359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */,
+				93D806D01B1C6D7900B13FFF /* AISearchTagCell.swift in Sources */,
 				814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */,
 				84ACACAF1B870763000258F9 /* AIServiceCountView.swift in Sources */,
 				840FDAC61B85AFDF00CE3DF9 /* RegexKitLite.m in Sources */,
@@ -2451,7 +2438,6 @@
 				93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */,
 				93FF746C1B0ECEA000FD97C1 /* CVCalendarViewAppearance.swift in Sources */,
 				12E616041B28105B0032DACE /* RRTagCollectionViewCell.swift in Sources */,
-				F2AF4C531B19B6DE007E9493 /* AIOrderDetailService.swift in Sources */,
 				935F38701ACD27DF004BE0E7 /* Movie.swift in Sources */,
 				84DE7DB31B79ED51007E8F7F /* AIRoundImageView.swift in Sources */,
 				937C77641B1E98AB006FF589 /* AIConnectViewController.swift in Sources */,
@@ -2526,7 +2512,6 @@
 				12B65F7B1B7B39C4008C05FC /* CustomerOrderTableViewCell.swift in Sources */,
 				93FF74711B0ECEA000FD97C1 /* CVCalendarWeekView.swift in Sources */,
 				935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */,
-				F2DACC2B1B197A7500233EFD /* AIOrderDetailModel.swift in Sources */,
 				84D393E61B2A88800045EE3A /* AIFavoritesServicesModel.swift in Sources */,
 				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
 				12E9260A1B81D6470053D2E0 /* AIProviderOrderListViewController.swift in Sources */,
@@ -2593,7 +2578,6 @@
 				8198ABDA1B81840E0047E740 /* JSONValueTransformer.m in Sources */,
 				849EC6C71B310D3100930697 /* AISearchBarView.swift in Sources */,
 				8198ABD21B81840E0047E740 /* AFURLResponseSerialization.m in Sources */,
-				931718811B159C3600EC9C14 /* AIOrderDetailViewController.swift in Sources */,
 				8198ABD41B81840E0047E740 /* JSONModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
