@@ -156,7 +156,7 @@ class HttpSearchEngine : MockSearchEngine {
         isLoading = true
         
         var responseError:Error?
-        AIHttpEngine.postWithParameters(AIHttpEngine.ResourcePath.QueryHotSearch, parameters: nil) {  [weak self] (response, error) -> () in
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryHotSearch, parameters: nil) {  [weak self] (response, error) -> () in
             responseError = error
             if let strongSelf = self{
                 strongSelf.isLoading = false
@@ -240,8 +240,22 @@ class HttpSearchEngine : MockSearchEngine {
     override func queryHotSearchedServices(successRes: (responseData: [AIServiceCatalogModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         var message = AIMessage()
-        message.url = AIHttpEngine.ResourcePath.QueryHotSearch.description
+        message.url = "http://171.221.254.231:8282/sboss/queryHotSearch"
     
+//        let body = ["data":["order_role":"1","order_state":"11"],"desc":["data_mode":"0","digest":""]]
+        var body = NSMutableDictionary()
+        let data = NSDictionary()
+        body.setObject(data, forKey: "data")
+        let desc = AIBodyDescModel()
+        desc.data_mode = MODE_PLAIN_TEXT
+        
+        body.setObject(desc.toDictionary(), forKey: "desc")
+        
+        
+    
+        
+        message.body = NSMutableDictionary(dictionary: body)
+        
         
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
