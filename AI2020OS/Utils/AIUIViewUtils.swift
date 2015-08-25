@@ -339,4 +339,69 @@ extension UIView {
     }
     
     
+    ///  部分圆角处理
+    
+    /**
+    On Top
+    */
+    func setCornerOnTop(){
+        let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: (UIRectCorner.TopLeft | UIRectCorner.TopRight), cornerRadii: CGSizeMake(8.0, 8.0))
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = self.bounds
+        maskLayer.path = maskPath.CGPath
+        self.layer.mask = maskLayer
+        
+    }
+    
+    /**
+    On Buttom
+    */
+    func setCornerOnBottom(){
+        let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: (UIRectCorner.BottomLeft | UIRectCorner.BottomRight), cornerRadii: CGSizeMake(8.0, 8.0))
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = self.bounds
+        maskLayer.path = maskPath.CGPath
+        self.layer.mask = maskLayer
+    }
+    
+    /**
+    On All
+    */
+    func setCornerOnAll(){
+        let maskPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: 8)
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = self.bounds
+        maskLayer.path = maskPath.CGPath
+        self.layer.mask = maskLayer
+    }
+    
+    /**
+    On None
+    */
+    func setCornerOnNone(){
+        self.layer.mask = nil
+    }
+    
+    
+}
+
+
+extension UITableViewCell{
+    private struct AssociatedKeysFOR {
+        static var AIAssemblyIDKey = "AIAssemblyIDKey_UITableViewCell"
+    }
+    
+    public var cellValue: String? {
+        set{
+            if let newValue = newValue {
+                objc_setAssociatedObject(self, &AssociatedKeysFOR.AIAssemblyIDKey, newValue  as NSString?, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            }
+            
+        }
+        get{
+            return objc_getAssociatedObject(self, &AssociatedKeysFOR.AIAssemblyIDKey) as? String
+        }
+    }
 }

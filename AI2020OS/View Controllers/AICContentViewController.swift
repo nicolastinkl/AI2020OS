@@ -69,7 +69,7 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
             item.favoriteTags = ["流行","美女","帅哥"]
             item.favoriteCurrentTag = "音乐"
             item.favoriteAvator = "http://mvavatar1.meitudata.com/545e65ff5ea4c884.jpg"
-            item.isFavorite = 0
+            item.isFavorite = AIFavoriteStatu.Unfavorite
             item.favoriteType = FavoriteTypeEnum.music.value()
             item.favoriteFromWhereURL = "http://www.meipai.com/media/343568815"
             item.isAttached  = false
@@ -110,7 +110,7 @@ class AICContentViewController: UITableViewController,AIConnectViewDelegate {
             item.favoriteTags = ["流行","美食"]
             item.favoriteCurrentTag = "音乐"
             item.favoriteAvator = "http://mvavatar1.meitudata.com/54108b74bb0a7773.jpg"
-            item.isFavorite = 0
+            item.isFavorite = AIFavoriteStatu.Unfavorite
             item.favoriteType = FavoriteTypeEnum.music.value()
             item.favoriteFromWhereURL = "http://www.meipai.com/media/343568815"
             item.isAttached  = false
@@ -367,10 +367,10 @@ extension AICContentViewController: AICContentViewCellListDelegate{
     func listTableViewCell(cell: AICContentViewControllerCell, likeButtonPressed sender: AnyObject) {
         if let model = cell.currentModel {
             
-            if model.isFavorite == 0{
-                model.isFavorite = 1
+            if model.isFavorite == AIFavoriteStatu.Unfavorite{
+                model.isFavorite = AIFavoriteStatu.Indifferent
             }else{
-                model.isFavorite = 0
+                model.isFavorite = AIFavoriteStatu.Unfavorite
             }
             cell.refereshLikeButton()
         }
@@ -491,7 +491,7 @@ class AICContentViewControllerCell: MGSwipeTableCell{
     }
     
     func refereshLikeButton(){
-        if currentModel!.isFavorite == 0{
+        if currentModel!.isFavorite == AIFavoriteStatu.Unfavorite{
             like.setImage(UIImage(named: "pictureHeartLike_0"), forState: UIControlState.Normal)
         }else{
             like.setImage(UIImage(named: "pictureHeartLike_1"), forState: UIControlState.Normal)

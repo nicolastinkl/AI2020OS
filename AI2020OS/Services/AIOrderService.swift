@@ -87,6 +87,32 @@ class AIOrderRequester {
             return completion(success: response != nil)
         }
     }
+     //订购方法
+    func submitOrder(serviceId : Int,completion : SubmitOrderCompletion){
+        if isLoading {
+            return
+        }
+        isLoading = true
+        
+        let paras = [
+            "data":[
+                "service_id": serviceId,
+                "service_exectime":"123456",
+                "service_param_list":[]
+            ],
+            "desc":[
+                "data_mode": 0,
+                "digest": ""
+            ]
+        ]
+        
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.SubmitOrder, parameters: paras) {  [weak self] (response, error) -> () in
+            if let strongSelf = self{
+                strongSelf.isLoading = false
+            }
+            return completion(success: response != nil)
+        }
+    }
     
     func queryOrderDetail(orderId : String , completion : OrderDetailRequesterCompletion){
         let requestMessage = AIOrderMessageWrapper.getOrderDetail(orderId)

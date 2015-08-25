@@ -45,6 +45,7 @@ struct AIApplication{
             static let AICustomerOrderDetailStoryboard = "AICustomerOrderDetailViewController"
             static let AICommentStoryboard          = "AICommentStoryboard"
             static let AIUserDesStoryboard          = "AIUserDesStoryboard"
+            static let UICollectMoreStoryboard      = "UICollectMoreStoryboard"
         }
         
         // MARK: View
@@ -95,6 +96,14 @@ struct AIApplication{
             
             static let AIHomeDesChildViewCell   = "AIHomeDesChildViewCell"
             static let AIHomeCommentViewCell    = "AIHomeCommentViewCell"
+
+            // MARK: Detail
+            static let AISDDateCell         = "AISDDateCell"
+            static let AISDSubDetailCell    = "AISDSubDetailCell"
+            static let AISDFightCell        = "AISDFightCell"
+            static let AISDParamsCell       = "AISDParamsCell"
+          
+
         }
         
         struct ViewIdentifiers {
@@ -111,6 +120,8 @@ struct AIApplication{
             static let AIServerAddressView  = "AIServerAddressView"
             static let AITableViewInsetMakeView =   "AITableViewInsetMakeView"
             static let AITabelViewMenuView  = "AITabelViewMenuView"
+            static let AICalendarViewController =   "AICalendarViewController"
+            static let AIScanViewController = "AIScanViewController"
 
         }
     }
@@ -122,8 +133,11 @@ struct AIApplication{
         static let UIAIASINFOLoginNotification          = "UIAIASINFOLoginNotification"
         static let UIAIASINFOLogOutNotification         = "UIAIASINFOLogOutNotification"
         
+        static let UIAIASINFOOpenAddViewNotification         = "UIAIASINFOOpenAddViewNotification"
+        static let UIAIASINFOOpenRemoveViewNotification         = "UIAIASINFOOpenRemoveViewNotification"
+        static let UIAIASINFOChangeDateViewNotification         = "UIAIASINFOChangeDateViewNotification"
         // FIXME: 视频拍摄完成文件地址
-        static let NSNotirydidFinishMergingVideosToOutPutFileAtURL  = "NSNotirydidFinishMergingVideosToOutPutFileAtURL"
+        static let NSNotirydidFinishMergingVideosToOutPutFileAtURL  = "NSNotirydidFinishMergingVideosToOutPutFileAtURL"        
     }
     
     // MARK: System theme's color

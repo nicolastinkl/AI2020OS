@@ -83,6 +83,44 @@
 		840FDACA1B85B01B00CE3DF9 /* AITools.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAC91B85B01B00CE3DF9 /* AITools.m */; };
 		84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */; };
 		8415F4E31B135688003160B4 /* AISearchServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F4E21B135688003160B4 /* AISearchServiceViewController.swift */; };
+		845DC1961B8C01B40044AE86 /* AISwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1921B8C01B40044AE86 /* AISwipeView.swift */; };
+		845DC1971B8C01B40044AE86 /* AISwipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1931B8C01B40044AE86 /* AISwipeView.xib */; };
+		845DC19F1B8C03260044AE86 /* AISwipeViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC19E1B8C03260044AE86 /* AISwipeViewUtil.swift */; };
+		845DC1CD1B8C03650044AE86 /* DSLCalendarDayCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1A21B8C03650044AE86 /* DSLCalendarDayCalloutView.m */; };
+		845DC1CE1B8C03650044AE86 /* DSLCalendarDayCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1A31B8C03650044AE86 /* DSLCalendarDayCalloutView.xib */; };
+		845DC1CF1B8C03650044AE86 /* DSLCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1A51B8C03650044AE86 /* DSLCalendarDayView.m */; };
+		845DC1D01B8C03650044AE86 /* DSLCalendarMonthSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1A71B8C03650044AE86 /* DSLCalendarMonthSelectorView.m */; };
+		845DC1D11B8C03650044AE86 /* DSLCalendarMonthSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1A81B8C03650044AE86 /* DSLCalendarMonthSelectorView.xib */; };
+		845DC1D21B8C03650044AE86 /* DSLCalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1AA1B8C03650044AE86 /* DSLCalendarMonthView.m */; };
+		845DC1D31B8C03650044AE86 /* DSLCalendarRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1AC1B8C03650044AE86 /* DSLCalendarRange.m */; };
+		845DC1D41B8C03650044AE86 /* DSLCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1AE1B8C03650044AE86 /* DSLCalendarView.m */; };
+		845DC1D51B8C03650044AE86 /* arraw_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1B01B8C03650044AE86 /* arraw_left.png */; };
+		845DC1D61B8C03650044AE86 /* arraw_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1B11B8C03650044AE86 /* arraw_right.png */; };
+		845DC1D71B8C03650044AE86 /* DSLCalendar-nextMonth.png in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1B21B8C03650044AE86 /* DSLCalendar-nextMonth.png */; };
+		845DC1D81B8C03650044AE86 /* DSLCalendar-nextMonth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1B31B8C03650044AE86 /* DSLCalendar-nextMonth@2x.png */; };
+		845DC1D91B8C03650044AE86 /* DSLCalendar-previousMonth.png in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1B41B8C03650044AE86 /* DSLCalendar-previousMonth.png */; };
+		845DC1DA1B8C03650044AE86 /* DSLCalendar-previousMonth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1B51B8C03650044AE86 /* DSLCalendar-previousMonth@2x.png */; };
+		845DC1DB1B8C03650044AE86 /* DSLCalendarDayCallout.png in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1B61B8C03650044AE86 /* DSLCalendarDayCallout.png */; };
+		845DC1DC1B8C03650044AE86 /* DSLCalendarDayCallout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1B71B8C03650044AE86 /* DSLCalendarDayCallout@2x.png */; };
+		845DC1DD1B8C03650044AE86 /* picker_selection.png in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1B81B8C03650044AE86 /* picker_selection.png */; };
+		845DC1DE1B8C03650044AE86 /* NSDate+DSLCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1BA1B8C03650044AE86 /* NSDate+DSLCalendarView.m */; };
+		845DC1DF1B8C03650044AE86 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1BD1B8C03650044AE86 /* iCarousel.m */; };
+		845DC1E01B8C03650044AE86 /* AIOpeningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1C01B8C03650044AE86 /* AIOpeningView.m */; };
+		845DC1E11B8C03650044AE86 /* AIViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1C21B8C03650044AE86 /* AIViews.m */; };
+		845DC1E21B8C03650044AE86 /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1C41B8C03650044AE86 /* BubbleView.m */; };
+		845DC1E31B8C03650044AE86 /* CurveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1C61B8C03650044AE86 /* CurveModel.m */; };
+		845DC1E41B8C03650044AE86 /* CurveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1C81B8C03650044AE86 /* CurveView.m */; };
+		845DC1E51B8C03650044AE86 /* UPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1CA1B8C03650044AE86 /* UPLabel.m */; };
+		845DC1E61B8C03650044AE86 /* JTSScrollIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1CC1B8C03650044AE86 /* JTSScrollIndicator.m */; };
+		845DC1E81B8C03A20044AE86 /* UITransViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1E71B8C03A20044AE86 /* UITransViewControllerExtention.swift */; };
+		845DC1EA1B8C03FB0044AE86 /* AITransformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1E91B8C03FB0044AE86 /* AITransformManager.swift */; };
+		845DC1EC1B8C043F0044AE86 /* AIScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1EB1B8C043F0044AE86 /* AIScanViewController.swift */; };
+		845DC1EE1B8C04D10044AE86 /* UICellMultiStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1ED1B8C04D10044AE86 /* UICellMultiStyle.swift */; };
+		845DC1F11B8C04FF0044AE86 /* SwipeableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1F01B8C04FF0044AE86 /* SwipeableCell.m */; };
+		845DC1F51B8C058C0044AE86 /* AOTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1F41B8C058C0044AE86 /* AOTag.m */; };
+		845DC1FA1B8C059F0044AE86 /* GBSlideOutToUnlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1F71B8C059F0044AE86 /* GBSlideOutToUnlockView.m */; };
+		845DC1FB1B8C059F0044AE86 /* GDWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1F81B8C059F0044AE86 /* GDWebViewController.swift */; };
+		845DC1FC1B8C059F0044AE86 /* GDWebViewNavigationToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1F91B8C059F0044AE86 /* GDWebViewNavigationToolbar.swift */; };
 		84951FB61B1312E500179483 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB41B1312E500179483 /* SearchEngine.swift */; };
 		84951FB71B1312E500179483 /* SearchEngineImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84951FB51B1312E500179483 /* SearchEngineImp.swift */; };
 		849EC6C31B31062E00930697 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849EC6C21B31062E00930697 /* AISearchBar.xib */; };
@@ -93,6 +131,21 @@
 		84ACACB11B870775000258F9 /* AIServiceCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ACACB01B870775000258F9 /* AIServiceCountView.xib */; };
 		84ACACB41B871305000258F9 /* AIServiceCommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACACB21B871305000258F9 /* AIServiceCommentManager.swift */; };
 		84ACACB51B871305000258F9 /* AIServiceCommentManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACACB31B871305000258F9 /* AIServiceCommentManagerImp.swift */; };
+		84AE09191B8C060D00AAC721 /* AIMenuActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE09171B8C060D00AAC721 /* AIMenuActionView.swift */; };
+		84AE091A1B8C060D00AAC721 /* AIMenuActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AE09181B8C060D00AAC721 /* AIMenuActionView.xib */; };
+		84AE09231B8C066400AAC721 /* AIContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE091B1B8C066400AAC721 /* AIContentView.swift */; };
+		84AE09241B8C066400AAC721 /* AIContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AE091C1B8C066400AAC721 /* AIContentView.xib */; };
+		84AE09251B8C066400AAC721 /* AIMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE091D1B8C066400AAC721 /* AIMediaView.swift */; };
+		84AE09261B8C066400AAC721 /* AIMediaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AE091E1B8C066400AAC721 /* AIMediaView.xib */; };
+		84AE09271B8C066400AAC721 /* AIMenuTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE091F1B8C066400AAC721 /* AIMenuTopView.swift */; };
+		84AE09281B8C066400AAC721 /* AIMenuTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AE09201B8C066400AAC721 /* AIMenuTopView.xib */; };
+		84AE09291B8C066400AAC721 /* AITopInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE09211B8C066400AAC721 /* AITopInfoView.swift */; };
+		84AE092A1B8C066400AAC721 /* AITopInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AE09221B8C066400AAC721 /* AITopInfoView.xib */; };
+		84AE092D1B8C089C00AAC721 /* TableViewCellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE092C1B8C089C00AAC721 /* TableViewCellBackgroundView.m */; };
+		84AE09301B8C08DD00AAC721 /* AIServiceSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE092E1B8C08DD00AAC721 /* AIServiceSearchView.swift */; };
+		84AE09311B8C08DD00AAC721 /* AIServiceSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AE092F1B8C08DD00AAC721 /* AIServiceSearchView.xib */; };
+		84AE09331B8C0A4F00AAC721 /* AIServerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE09321B8C0A4F00AAC721 /* AIServerDetailViewController.swift */; };
+		84AE09351B8C10F200AAC721 /* AIEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE09341B8C10F200AAC721 /* AIEffectView.swift */; };
 		84CA2EFC1B81883000FCB971 /* AITimeLineServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */; };
 		84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */; };
 		84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */; };
@@ -110,8 +163,11 @@
 		84D1B6DE1B7C33690094D553 /* AIOrderSubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1B6DD1B7C33690094D553 /* AIOrderSubmitViewController.swift */; };
 		84D1B6E01B7C49660094D553 /* AITimeLineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1B6DF1B7C49660094D553 /* AITimeLineModel.swift */; };
 		84D332431B8B0D0D00BB1318 /* AIUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D332421B8B0D0D00BB1318 /* AIUserModel.swift */; };
+		84D332491B8B4F7300BB1318 /* AICollectRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D332481B8B4F7300BB1318 /* AICollectRootController.swift */; };
 		84D393E61B2A88800045EE3A /* AIFavoritesServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D393E51B2A88800045EE3A /* AIFavoritesServicesModel.swift */; };
 		84D5D2C81B1C636D001E9F37 /* AICatalogServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */; };
+		84D83D3B1B8BFEE00076943D /* UICollectMoreStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D83D3A1B8BFEE00076943D /* UICollectMoreStoryboard.storyboard */; };
+		84D83D3D1B8C00E20076943D /* UITransViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D83D3C1B8C00E20076943D /* UITransViewController.swift */; };
 		84D9B81D1B7C2CA8005331B5 /* AISingleCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D9B81C1B7C2CA8005331B5 /* AISingleCommentView.xib */; };
 		84D9B81F1B7C320B005331B5 /* AISingleCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B81E1B7C320B005331B5 /* AISingleCommentViewController.swift */; };
 		84D9B8211B7C353C005331B5 /* AISingleCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B8201B7C353C005331B5 /* AISingleCommentView.swift */; };
@@ -210,9 +266,6 @@
 		937301071ACBEA5A00CA17BC /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 937301061ACBEA5A00CA17BC /* UINavigationBar+Awesome.m */; };
 		9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373010A1ACBEAE300CA17BC /* UIColorUtils.swift */; };
 		9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373010C1ACBEB0B00CA17BC /* UIViewControllerUtils.swift */; };
-		93735D8E1B1D976C00D52431 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93735D8D1B1D976C00D52431 /* ShareViewController.swift */; };
-		93735D931B1D976C00D52431 /* SBOSS.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 93735D891B1D976C00D52431 /* SBOSS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		93735D991B1D9A4000D52431 /* AIShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93735D981B1D9A4000D52431 /* AIShareViewController.swift */; };
 		937C77641B1E98AB006FF589 /* AIConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C77631B1E98AB006FF589 /* AIConnectViewController.swift */; };
 		937C77661B1E9B71006FF589 /* AICContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C77651B1E9B71006FF589 /* AICContentViewController.swift */; };
 		937C77681B1E9BBB006FF589 /* AICServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C77671B1E9BBB006FF589 /* AICServiceViewController.swift */; };
@@ -245,7 +298,6 @@
 		938A3AFE1B257FC200E3A5BF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938A3AFD1B257FC200E3A5BF /* MediaPlayer.framework */; };
 		938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938A3AFF1B25825800E3A5BF /* AIVideoStoryboard.storyboard */; };
 		9394D2281B133F0C00EE578E /* AIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394D2271B133F0C00EE578E /* AIModels.swift */; };
-		939DDF281B2ADC1600F02745 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 939DDF271B2ADC1600F02745 /* MainInterface.storyboard */; };
 		939E663A1B27EAE900FD5FBA /* AIFavoriteContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E66391B27EAE900FD5FBA /* AIFavoriteContentModel.swift */; };
 		939E663C1B280E8900FD5FBA /* AIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E663B1B280E8900FD5FBA /* AIWebViewController.swift */; };
 		939E66421B291F4100FD5FBA /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E663E1B291F4100FD5FBA /* KSToken.swift */; };
@@ -328,13 +380,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		84AF1AF41B872EE700A561D7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 933ED3DC1AC8F90A00E4AADB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 93735D881B1D976C00D52431;
-			remoteInfo = SBOSS;
-		};
 		933ED3FC1AC8F90A00E4AADB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 933ED3DC1AC8F90A00E4AADB /* Project object */;
@@ -372,7 +417,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				93735D931B1D976C00D52431 /* SBOSS.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +588,62 @@
 		840FDAC91B85B01B00CE3DF9 /* AITools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITools.m; sourceTree = "<group>"; };
 		84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogModel.swift; sourceTree = "<group>"; };
 		8415F4E21B135688003160B4 /* AISearchServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchServiceViewController.swift; sourceTree = "<group>"; };
+		845DC1921B8C01B40044AE86 /* AISwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwipeView.swift; sourceTree = "<group>"; };
+		845DC1931B8C01B40044AE86 /* AISwipeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISwipeView.xib; sourceTree = "<group>"; };
+		845DC19E1B8C03260044AE86 /* AISwipeViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwipeViewUtil.swift; sourceTree = "<group>"; };
+		845DC1A11B8C03650044AE86 /* DSLCalendarDayCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLCalendarDayCalloutView.h; sourceTree = "<group>"; };
+		845DC1A21B8C03650044AE86 /* DSLCalendarDayCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLCalendarDayCalloutView.m; sourceTree = "<group>"; };
+		845DC1A31B8C03650044AE86 /* DSLCalendarDayCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSLCalendarDayCalloutView.xib; sourceTree = "<group>"; };
+		845DC1A41B8C03650044AE86 /* DSLCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLCalendarDayView.h; sourceTree = "<group>"; };
+		845DC1A51B8C03650044AE86 /* DSLCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLCalendarDayView.m; sourceTree = "<group>"; };
+		845DC1A61B8C03650044AE86 /* DSLCalendarMonthSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLCalendarMonthSelectorView.h; sourceTree = "<group>"; };
+		845DC1A71B8C03650044AE86 /* DSLCalendarMonthSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLCalendarMonthSelectorView.m; sourceTree = "<group>"; };
+		845DC1A81B8C03650044AE86 /* DSLCalendarMonthSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSLCalendarMonthSelectorView.xib; sourceTree = "<group>"; };
+		845DC1A91B8C03650044AE86 /* DSLCalendarMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLCalendarMonthView.h; sourceTree = "<group>"; };
+		845DC1AA1B8C03650044AE86 /* DSLCalendarMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLCalendarMonthView.m; sourceTree = "<group>"; };
+		845DC1AB1B8C03650044AE86 /* DSLCalendarRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLCalendarRange.h; sourceTree = "<group>"; };
+		845DC1AC1B8C03650044AE86 /* DSLCalendarRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLCalendarRange.m; sourceTree = "<group>"; };
+		845DC1AD1B8C03650044AE86 /* DSLCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLCalendarView.h; sourceTree = "<group>"; };
+		845DC1AE1B8C03650044AE86 /* DSLCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLCalendarView.m; sourceTree = "<group>"; };
+		845DC1B01B8C03650044AE86 /* arraw_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arraw_left.png; sourceTree = "<group>"; };
+		845DC1B11B8C03650044AE86 /* arraw_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arraw_right.png; sourceTree = "<group>"; };
+		845DC1B21B8C03650044AE86 /* DSLCalendar-nextMonth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DSLCalendar-nextMonth.png"; sourceTree = "<group>"; };
+		845DC1B31B8C03650044AE86 /* DSLCalendar-nextMonth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DSLCalendar-nextMonth@2x.png"; sourceTree = "<group>"; };
+		845DC1B41B8C03650044AE86 /* DSLCalendar-previousMonth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DSLCalendar-previousMonth.png"; sourceTree = "<group>"; };
+		845DC1B51B8C03650044AE86 /* DSLCalendar-previousMonth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DSLCalendar-previousMonth@2x.png"; sourceTree = "<group>"; };
+		845DC1B61B8C03650044AE86 /* DSLCalendarDayCallout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DSLCalendarDayCallout.png; sourceTree = "<group>"; };
+		845DC1B71B8C03650044AE86 /* DSLCalendarDayCallout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DSLCalendarDayCallout@2x.png"; sourceTree = "<group>"; };
+		845DC1B81B8C03650044AE86 /* picker_selection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picker_selection.png; sourceTree = "<group>"; };
+		845DC1B91B8C03650044AE86 /* NSDate+DSLCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DSLCalendarView.h"; sourceTree = "<group>"; };
+		845DC1BA1B8C03650044AE86 /* NSDate+DSLCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DSLCalendarView.m"; sourceTree = "<group>"; };
+		845DC1BC1B8C03650044AE86 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		845DC1BD1B8C03650044AE86 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		845DC1BF1B8C03650044AE86 /* AIOpeningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOpeningView.h; sourceTree = "<group>"; };
+		845DC1C01B8C03650044AE86 /* AIOpeningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIOpeningView.m; sourceTree = "<group>"; };
+		845DC1C11B8C03650044AE86 /* AIViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIViews.h; sourceTree = "<group>"; };
+		845DC1C21B8C03650044AE86 /* AIViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIViews.m; sourceTree = "<group>"; };
+		845DC1C31B8C03650044AE86 /* BubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleView.h; sourceTree = "<group>"; };
+		845DC1C41B8C03650044AE86 /* BubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleView.m; sourceTree = "<group>"; };
+		845DC1C51B8C03650044AE86 /* CurveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurveModel.h; sourceTree = "<group>"; };
+		845DC1C61B8C03650044AE86 /* CurveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurveModel.m; sourceTree = "<group>"; };
+		845DC1C71B8C03650044AE86 /* CurveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurveView.h; sourceTree = "<group>"; };
+		845DC1C81B8C03650044AE86 /* CurveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurveView.m; sourceTree = "<group>"; };
+		845DC1C91B8C03650044AE86 /* UPLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPLabel.h; sourceTree = "<group>"; };
+		845DC1CA1B8C03650044AE86 /* UPLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPLabel.m; sourceTree = "<group>"; };
+		845DC1CB1B8C03650044AE86 /* JTSScrollIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSScrollIndicator.h; sourceTree = "<group>"; };
+		845DC1CC1B8C03650044AE86 /* JTSScrollIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSScrollIndicator.m; sourceTree = "<group>"; };
+		845DC1E71B8C03A20044AE86 /* UITransViewControllerExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITransViewControllerExtention.swift; sourceTree = "<group>"; };
+		845DC1E91B8C03FB0044AE86 /* AITransformManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITransformManager.swift; sourceTree = "<group>"; };
+		845DC1EB1B8C043F0044AE86 /* AIScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIScanViewController.swift; sourceTree = "<group>"; };
+		845DC1ED1B8C04D10044AE86 /* UICellMultiStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICellMultiStyle.swift; sourceTree = "<group>"; };
+		845DC1EF1B8C04FF0044AE86 /* SwipeableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeableCell.h; sourceTree = "<group>"; };
+		845DC1F01B8C04FF0044AE86 /* SwipeableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeableCell.m; sourceTree = "<group>"; };
+		845DC1F31B8C058C0044AE86 /* AOTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOTag.h; sourceTree = "<group>"; };
+		845DC1F41B8C058C0044AE86 /* AOTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOTag.m; sourceTree = "<group>"; };
+		845DC1F61B8C059F0044AE86 /* GBSlideOutToUnlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBSlideOutToUnlockView.h; sourceTree = "<group>"; };
+		845DC1F71B8C059F0044AE86 /* GBSlideOutToUnlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBSlideOutToUnlockView.m; sourceTree = "<group>"; };
+		845DC1F81B8C059F0044AE86 /* GDWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GDWebViewController.swift; sourceTree = "<group>"; };
+		845DC1F91B8C059F0044AE86 /* GDWebViewNavigationToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GDWebViewNavigationToolbar.swift; sourceTree = "<group>"; };
 		84951FB41B1312E500179483 /* SearchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngine.swift; sourceTree = "<group>"; };
 		84951FB51B1312E500179483 /* SearchEngineImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngineImp.swift; sourceTree = "<group>"; };
 		849EC6C21B31062E00930697 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
@@ -554,6 +654,22 @@
 		84ACACB01B870775000258F9 /* AIServiceCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIServiceCountView.xib; sourceTree = "<group>"; };
 		84ACACB21B871305000258F9 /* AIServiceCommentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentManager.swift; sourceTree = "<group>"; };
 		84ACACB31B871305000258F9 /* AIServiceCommentManagerImp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCommentManagerImp.swift; sourceTree = "<group>"; };
+		84AE09171B8C060D00AAC721 /* AIMenuActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMenuActionView.swift; sourceTree = "<group>"; };
+		84AE09181B8C060D00AAC721 /* AIMenuActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIMenuActionView.xib; sourceTree = "<group>"; };
+		84AE091B1B8C066400AAC721 /* AIContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIContentView.swift; sourceTree = "<group>"; };
+		84AE091C1B8C066400AAC721 /* AIContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIContentView.xib; sourceTree = "<group>"; };
+		84AE091D1B8C066400AAC721 /* AIMediaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMediaView.swift; sourceTree = "<group>"; };
+		84AE091E1B8C066400AAC721 /* AIMediaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIMediaView.xib; sourceTree = "<group>"; };
+		84AE091F1B8C066400AAC721 /* AIMenuTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMenuTopView.swift; sourceTree = "<group>"; };
+		84AE09201B8C066400AAC721 /* AIMenuTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIMenuTopView.xib; sourceTree = "<group>"; };
+		84AE09211B8C066400AAC721 /* AITopInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITopInfoView.swift; sourceTree = "<group>"; };
+		84AE09221B8C066400AAC721 /* AITopInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITopInfoView.xib; sourceTree = "<group>"; };
+		84AE092B1B8C089C00AAC721 /* TableViewCellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCellBackgroundView.h; sourceTree = "<group>"; };
+		84AE092C1B8C089C00AAC721 /* TableViewCellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCellBackgroundView.m; sourceTree = "<group>"; };
+		84AE092E1B8C08DD00AAC721 /* AIServiceSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceSearchView.swift; sourceTree = "<group>"; };
+		84AE092F1B8C08DD00AAC721 /* AIServiceSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIServiceSearchView.xib; sourceTree = "<group>"; };
+		84AE09321B8C0A4F00AAC721 /* AIServerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServerDetailViewController.swift; sourceTree = "<group>"; };
+		84AE09341B8C10F200AAC721 /* AIEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIEffectView.swift; sourceTree = "<group>"; };
 		84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimeLineServices.swift; sourceTree = "<group>"; };
 		84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogViewController.swift; sourceTree = "<group>"; };
 		84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICatalogTableCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -573,8 +689,11 @@
 		84D1B6DD1B7C33690094D553 /* AIOrderSubmitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderSubmitViewController.swift; sourceTree = "<group>"; };
 		84D1B6DF1B7C49660094D553 /* AITimeLineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimeLineModel.swift; sourceTree = "<group>"; };
 		84D332421B8B0D0D00BB1318 /* AIUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUserModel.swift; sourceTree = "<group>"; };
+		84D332481B8B4F7300BB1318 /* AICollectRootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICollectRootController.swift; sourceTree = "<group>"; };
 		84D393E51B2A88800045EE3A /* AIFavoritesServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavoritesServicesModel.swift; sourceTree = "<group>"; };
 		84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICatalogServicesModel.swift; sourceTree = "<group>"; };
+		84D83D3A1B8BFEE00076943D /* UICollectMoreStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UICollectMoreStoryboard.storyboard; sourceTree = "<group>"; };
+		84D83D3C1B8C00E20076943D /* UITransViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITransViewController.swift; sourceTree = "<group>"; };
 		84D9B81C1B7C2CA8005331B5 /* AISingleCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISingleCommentView.xib; sourceTree = "<group>"; };
 		84D9B81E1B7C320B005331B5 /* AISingleCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleCommentViewController.swift; sourceTree = "<group>"; };
 		84D9B8201B7C353C005331B5 /* AISingleCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleCommentView.swift; sourceTree = "<group>"; };
@@ -694,7 +813,6 @@
 		937301061ACBEA5A00CA17BC /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Awesome.m"; path = "../Libs/UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		9373010A1ACBEAE300CA17BC /* UIColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtils.swift; sourceTree = "<group>"; };
 		9373010C1ACBEB0B00CA17BC /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
-		93735D891B1D976C00D52431 /* SBOSS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SBOSS.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		93735D8C1B1D976C00D52431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93735D8D1B1D976C00D52431 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		93735D981B1D9A4000D52431 /* AIShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIShareViewController.swift; sourceTree = "<group>"; };
@@ -847,13 +965,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		933ED3F81AC8F90A00E4AADB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		93735D861B1D976C00D52431 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1214,6 +1325,106 @@
 			path = CoreText;
 			sourceTree = "<group>";
 		};
+		845DC1911B8C01A30044AE86 /* AICollectView */ = {
+			isa = PBXGroup;
+			children = (
+				845DC19E1B8C03260044AE86 /* AISwipeViewUtil.swift */,
+				845DC1921B8C01B40044AE86 /* AISwipeView.swift */,
+				845DC1931B8C01B40044AE86 /* AISwipeView.xib */,
+				84AE092E1B8C08DD00AAC721 /* AIServiceSearchView.swift */,
+				84AE092F1B8C08DD00AAC721 /* AIServiceSearchView.xib */,
+			);
+			name = AICollectView;
+			sourceTree = "<group>";
+		};
+		845DC1A01B8C03650044AE86 /* DSLCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				845DC1A11B8C03650044AE86 /* DSLCalendarDayCalloutView.h */,
+				845DC1A21B8C03650044AE86 /* DSLCalendarDayCalloutView.m */,
+				845DC1A31B8C03650044AE86 /* DSLCalendarDayCalloutView.xib */,
+				845DC1A41B8C03650044AE86 /* DSLCalendarDayView.h */,
+				845DC1A51B8C03650044AE86 /* DSLCalendarDayView.m */,
+				845DC1A61B8C03650044AE86 /* DSLCalendarMonthSelectorView.h */,
+				845DC1A71B8C03650044AE86 /* DSLCalendarMonthSelectorView.m */,
+				845DC1A81B8C03650044AE86 /* DSLCalendarMonthSelectorView.xib */,
+				845DC1A91B8C03650044AE86 /* DSLCalendarMonthView.h */,
+				845DC1AA1B8C03650044AE86 /* DSLCalendarMonthView.m */,
+				845DC1AB1B8C03650044AE86 /* DSLCalendarRange.h */,
+				845DC1AC1B8C03650044AE86 /* DSLCalendarRange.m */,
+				845DC1AD1B8C03650044AE86 /* DSLCalendarView.h */,
+				845DC1AE1B8C03650044AE86 /* DSLCalendarView.m */,
+				845DC1AF1B8C03650044AE86 /* Images */,
+				845DC1B91B8C03650044AE86 /* NSDate+DSLCalendarView.h */,
+				845DC1BA1B8C03650044AE86 /* NSDate+DSLCalendarView.m */,
+			);
+			path = DSLCalendarView;
+			sourceTree = "<group>";
+		};
+		845DC1AF1B8C03650044AE86 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				845DC1B01B8C03650044AE86 /* arraw_left.png */,
+				845DC1B11B8C03650044AE86 /* arraw_right.png */,
+				845DC1B21B8C03650044AE86 /* DSLCalendar-nextMonth.png */,
+				845DC1B31B8C03650044AE86 /* DSLCalendar-nextMonth@2x.png */,
+				845DC1B41B8C03650044AE86 /* DSLCalendar-previousMonth.png */,
+				845DC1B51B8C03650044AE86 /* DSLCalendar-previousMonth@2x.png */,
+				845DC1B61B8C03650044AE86 /* DSLCalendarDayCallout.png */,
+				845DC1B71B8C03650044AE86 /* DSLCalendarDayCallout@2x.png */,
+				845DC1B81B8C03650044AE86 /* picker_selection.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		845DC1BB1B8C03650044AE86 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				845DC1BC1B8C03650044AE86 /* iCarousel.h */,
+				845DC1BD1B8C03650044AE86 /* iCarousel.m */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
+		845DC1BE1B8C03650044AE86 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				845DC1BF1B8C03650044AE86 /* AIOpeningView.h */,
+				845DC1C01B8C03650044AE86 /* AIOpeningView.m */,
+				845DC1C11B8C03650044AE86 /* AIViews.h */,
+				845DC1C21B8C03650044AE86 /* AIViews.m */,
+				845DC1C31B8C03650044AE86 /* BubbleView.h */,
+				845DC1C41B8C03650044AE86 /* BubbleView.m */,
+				845DC1C51B8C03650044AE86 /* CurveModel.h */,
+				845DC1C61B8C03650044AE86 /* CurveModel.m */,
+				845DC1C71B8C03650044AE86 /* CurveView.h */,
+				845DC1C81B8C03650044AE86 /* CurveView.m */,
+				845DC1C91B8C03650044AE86 /* UPLabel.h */,
+				845DC1CA1B8C03650044AE86 /* UPLabel.m */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		845DC1F21B8C05020044AE86 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				84AE091B1B8C066400AAC721 /* AIContentView.swift */,
+				84AE091C1B8C066400AAC721 /* AIContentView.xib */,
+				84AE091D1B8C066400AAC721 /* AIMediaView.swift */,
+				84AE091E1B8C066400AAC721 /* AIMediaView.xib */,
+				84AE091F1B8C066400AAC721 /* AIMenuTopView.swift */,
+				84AE09201B8C066400AAC721 /* AIMenuTopView.xib */,
+				84AE09211B8C066400AAC721 /* AITopInfoView.swift */,
+				84AE09221B8C066400AAC721 /* AITopInfoView.xib */,
+				84AE09171B8C060D00AAC721 /* AIMenuActionView.swift */,
+				84AE09181B8C060D00AAC721 /* AIMenuActionView.xib */,
+				845DC1EF1B8C04FF0044AE86 /* SwipeableCell.h */,
+				845DC1F01B8C04FF0044AE86 /* SwipeableCell.m */,
+				845DC1ED1B8C04D10044AE86 /* UICellMultiStyle.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		84951FB31B13117300179483 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1271,6 +1482,19 @@
 				84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		84D332451B8B4A7100BB1318 /* CollectView */ = {
+			isa = PBXGroup;
+			children = (
+				845DC1F21B8C05020044AE86 /* Cell */,
+				84D83D3C1B8C00E20076943D /* UITransViewController.swift */,
+				845DC1E71B8C03A20044AE86 /* UITransViewControllerExtention.swift */,
+				84D332481B8B4F7300BB1318 /* AICollectRootController.swift */,
+				845DC1EB1B8C043F0044AE86 /* AIScanViewController.swift */,
+				84AE09321B8C0A4F00AAC721 /* AIServerDetailViewController.swift */,
+			);
+			path = CollectView;
 			sourceTree = "<group>";
 		};
 		84D9B81A1B7C2C31005331B5 /* Comment */ = {
@@ -1421,7 +1645,6 @@
 			children = (
 				933ED3E41AC8F90A00E4AADB /* AI2020OS.app */,
 				933ED3FB1AC8F90A00E4AADB /* AI2020OSTests.xctest */,
-				93735D891B1D976C00D52431 /* SBOSS.appex */,
 				938A3AAE1B25735B00E3A5BF /* AIVideoCore.framework */,
 				938A3AB81B25735B00E3A5BF /* AIVideoCoreTests.xctest */,
 			);
@@ -1523,8 +1746,11 @@
 				9301B0751B09979500C1EE79 /* AILoginService.swift */,
 				84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */,
 				84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */,
+
 				818B5C6C1B8C4D1400B22F1F /* AIServiceManageViewController.h */,
 				818B5C6D1B8C4D1400B22F1F /* AIServiceManageViewController.m */,
+
+				845DC1E91B8C03FB0044AE86 /* AITransformManager.swift */,
 			);
 			name = Services;
 			path = AI2020OS/Services;
@@ -1533,6 +1759,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84D332451B8B4A7100BB1318 /* CollectView */,
 				84A72C611B85DED600B503A3 /* UserDesView */,
 				814B2BD71B8204CF003A10A5 /* Message */,
 				8119B3001B7D855500625FB4 /* Web */,
@@ -1562,6 +1789,7 @@
 		933ED4141AC921BD00E4AADB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				845DC1911B8C01A30044AE86 /* AICollectView */,
 				849EC6C11B31060E00930697 /* Search */,
 				939E663D1B291F4100FD5FBA /* KSTokenView */,
 				938A39841B2001AE00E3A5BF /* Menu */,
@@ -1578,6 +1806,20 @@
 				938A39901B2153DA00E3A5BF /* DLHamburguerViewController.swift */,
 				84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */,
 				84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */,
+				845DC1F31B8C058C0044AE86 /* AOTag.h */,
+				845DC1F41B8C058C0044AE86 /* AOTag.m */,
+				84AE09341B8C10F200AAC721 /* AIEffectView.swift */,
+				845DC1A01B8C03650044AE86 /* DSLCalendarView */,
+				845DC1BB1B8C03650044AE86 /* iCarousel */,
+				845DC1BE1B8C03650044AE86 /* Info */,
+				845DC1CB1B8C03650044AE86 /* JTSScrollIndicator.h */,
+				845DC1CC1B8C03650044AE86 /* JTSScrollIndicator.m */,
+				845DC1F61B8C059F0044AE86 /* GBSlideOutToUnlockView.h */,
+				845DC1F71B8C059F0044AE86 /* GBSlideOutToUnlockView.m */,
+				845DC1F81B8C059F0044AE86 /* GDWebViewController.swift */,
+				845DC1F91B8C059F0044AE86 /* GDWebViewNavigationToolbar.swift */,
+				84AE092B1B8C089C00AAC721 /* TableViewCellBackgroundView.h */,
+				84AE092C1B8C089C00AAC721 /* TableViewCellBackgroundView.m */,
 			);
 			name = Views;
 			path = AI2020OS/Views;
@@ -1859,6 +2101,7 @@
 				84DBFF651B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard */,
 				84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */,
 				84A72C641B85E15800B503A3 /* AIUserDesStoryboard.storyboard */,
+				84D83D3A1B8BFEE00076943D /* UICollectMoreStoryboard.storyboard */,
 			);
 			name = StoryBoard;
 			path = AI2020OS/StoryBoard;
@@ -2065,7 +2308,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				84AF1AF51B872EE700A561D7 /* PBXTargetDependency */,
 				938A3AC41B25735B00E3A5BF /* PBXTargetDependency */,
 			);
 			name = AI2020OS;
@@ -2090,23 +2332,6 @@
 			productName = AI2020OSTests;
 			productReference = 933ED3FB1AC8F90A00E4AADB /* AI2020OSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		93735D881B1D976C00D52431 /* SBOSS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 93735D941B1D976C00D52431 /* Build configuration list for PBXNativeTarget "SBOSS" */;
-			buildPhases = (
-				93735D851B1D976C00D52431 /* Sources */,
-				93735D861B1D976C00D52431 /* Frameworks */,
-				93735D871B1D976C00D52431 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SBOSS;
-			productName = SBOSS;
-			productReference = 93735D891B1D976C00D52431 /* SBOSS.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 		938A3AAD1B25735B00E3A5BF /* AIVideoCore */ = {
 			isa = PBXNativeTarget;
@@ -2174,14 +2399,6 @@
 						DevelopmentTeam = T2362RFKT6;
 						TestTargetID = 933ED3E31AC8F90A00E4AADB;
 					};
-					93735D881B1D976C00D52431 = {
-						CreatedOnToolsVersion = 6.1;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
-							};
-						};
-					};
 					938A3AAD1B25735B00E3A5BF = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -2207,7 +2424,6 @@
 			targets = (
 				933ED3E31AC8F90A00E4AADB /* AI2020OS */,
 				933ED3FA1AC8F90A00E4AADB /* AI2020OSTests */,
-				93735D881B1D976C00D52431 /* SBOSS */,
 				938A3AAD1B25735B00E3A5BF /* AIVideoCore */,
 				938A3AB71B25735B00E3A5BF /* AIVideoCoreTests */,
 			);
@@ -2220,28 +2436,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				12B65F7C1B7B39C4008C05FC /* CustomerOrderTableViewCell.xib in Resources */,
+				84AE09281B8C066400AAC721 /* AIMenuTopView.xib in Resources */,
+				84AE09261B8C066400AAC721 /* AIMediaView.xib in Resources */,
 				9349871C1B0DBDE2003086D1 /* AIErrorRetryView.xib in Resources */,
 				93A705961B12D0EF00E8193C /* AIServerAddressView.xib in Resources */,
+				845DC1D11B8C03650044AE86 /* DSLCalendarMonthSelectorView.xib in Resources */,
 				84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */,
 				93E4D5AD1B14AA5900992CA3 /* AIOrderStoryboard.storyboard in Resources */,
+				845DC1DD1B8C03650044AE86 /* picker_selection.png in Resources */,
 				84CDC8EA1B84867C002A29EE /* AIHomeCommentViewCell.xib in Resources */,
+				845DC1DC1B8C03650044AE86 /* DSLCalendarDayCallout@2x.png in Resources */,
 				938A39941B253FB300E3A5BF /* AIConnectMeunStoryboard.storyboard in Resources */,
 				93049D041B04A3270051467A /* AIHomeAvatorViewCell.xib in Resources */,
 				840FDAB41B85AF9500CE3DF9 /* airplane@2x.png in Resources */,
 				938A3B001B25825800E3A5BF /* AIVideoStoryboard.storyboard in Resources */,
 				93FF74751B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard in Resources */,
 				93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */,
+				84D83D3B1B8BFEE00076943D /* UICollectMoreStoryboard.storyboard in Resources */,
+				845DC1D71B8C03650044AE86 /* DSLCalendar-nextMonth.png in Resources */,
 				840FDAAB1B857D9800CE3DF9 /* AIOrderModifyView.xib in Resources */,
 				93BD09061B05F2D000C8B96B /* AIOrderBuyView.xib in Resources */,
+				84AE091A1B8C060D00AAC721 /* AIMenuActionView.xib in Resources */,
+				845DC1CE1B8C03650044AE86 /* DSLCalendarDayCalloutView.xib in Resources */,
 				84A72C651B85E15800B503A3 /* AIUserDesStoryboard.storyboard in Resources */,
 				84CDC8E61B84222B002A29EE /* AIHomeDesChildViewCell.xib in Resources */,
 				938A39881B2001DF00E3A5BF /* AITabelViewMenuView.xib in Resources */,
 				84CB36861B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib in Resources */,
+				845DC1971B8C01B40044AE86 /* AISwipeView.xib in Resources */,
 				93DE16AF1B05E26E0056A1E3 /* AIHomeSDDesViewCell.xib in Resources */,
 				84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
 				84ACACB11B870775000258F9 /* AIServiceCountView.xib in Resources */,
 				1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */,
+				845DC1D81B8C03650044AE86 /* DSLCalendar-nextMonth@2x.png in Resources */,
 				84DBFF661B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard in Resources */,
 				93BD09081B06F97B00C8B96B /* AIMenuStoryboard.storyboard in Resources */,
 				849EC6C31B31062E00930697 /* AISearchBar.xib in Resources */,
@@ -2249,6 +2476,7 @@
 				93E4D5AB1B14A5F700992CA3 /* AISettingsStoryboard.storyboard in Resources */,
 				93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */,
 				84CB36921B17433D00D66BBD /* AIProviderAvatarView.xib in Resources */,
+				84AE092A1B8C066400AAC721 /* AITopInfoView.xib in Resources */,
 				1284ABC51B2036B500636F35 /* SectionHeaderView.xib in Resources */,
 				934987141B0DA850003086D1 /* AIHomeViewStyleTitleView.xib in Resources */,
 				938A398E1B20255E00E3A5BF /* AITabelViewMenuViewCell.xib in Resources */,
@@ -2258,16 +2486,23 @@
 				93659F661B1EF21A0065E661 /* AITableViewInsetMakeView.xib in Resources */,
 				817E15F61B7C8DB800C298BE /* www in Resources */,
 				9349870E1B0DA348003086D1 /* AIHomeViewStyleMultiepleView.xib in Resources */,
+				845DC1D61B8C03650044AE86 /* arraw_right.png in Resources */,
+				845DC1D91B8C03650044AE86 /* DSLCalendar-previousMonth.png in Resources */,
 				93FF747C1B0F0CA800FD97C1 /* AIServerScopeView.xib in Resources */,
 				933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */,
 				84DE7DAF1B79E623007E8F7F /* AICommentStoryboard.storyboard in Resources */,
 				934987051B0B3074003086D1 /* AITIMELINESDTITLEView.xib in Resources */,
 				84D9B81D1B7C2CA8005331B5 /* AISingleCommentView.xib in Resources */,
+				84AE09241B8C066400AAC721 /* AIContentView.xib in Resources */,
 				936D62471AD4D44A00609FCD /* AILoadingStoryboard.storyboard in Resources */,
 				93692C9D1ACAB94700D66211 /* AILoginStoryboard.storyboard in Resources */,
 				93CF230F1B05CF960082AC73 /* AIHomeSDDefaultViewCell.xib in Resources */,
+				845DC1DA1B8C03650044AE86 /* DSLCalendar-previousMonth@2x.png in Resources */,
+				845DC1DB1B8C03650044AE86 /* DSLCalendarDayCallout.png in Resources */,
 				1284ABCA1B2036F500636F35 /* AITagFilterStoryboard.storyboard in Resources */,
 				93A705981B12D19900E8193C /* ProvincesAndCities.plist in Resources */,
+				845DC1D51B8C03650044AE86 /* arraw_left.png in Resources */,
+				84AE09311B8C08DD00AAC721 /* AIServiceSearchView.xib in Resources */,
 				817E15D31B7C8A2700C298BE /* config.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2277,14 +2512,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1239DBB71B204F48002F6A4F /* TagFilterData.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		93735D871B1D976C00D52431 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				939DDF281B2ADC1600F02745 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2384,10 +2611,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845DC1CD1B8C03650044AE86 /* DSLCalendarDayCalloutView.m in Sources */,
 				84E052F61B8B3BE7009F88C5 /* AIBodyDescModel.m in Sources */,
 				93D806D01B1C6D7900B13FFF /* AISearchTagCell.swift in Sources */,
 				814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */,
 				84ACACAF1B870763000258F9 /* AIServiceCountView.swift in Sources */,
+				84D83D3D1B8C00E20076943D /* UITransViewController.swift in Sources */,
 				840FDAC61B85AFDF00CE3DF9 /* RegexKitLite.m in Sources */,
 				936DAC1D1ADCF4170025483B /* AIRecognizerFactory.m in Sources */,
 				814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */,
@@ -2399,6 +2628,8 @@
 				935A25771AE79AF10089B240 /* AIServicesRequester.swift in Sources */,
 				84DBEFB11B871DA100DBCA5A /* AICompondCommentViewController.swift in Sources */,
 				84E052F31B8AB422009F88C5 /* AIServiceCatalogModel.m in Sources */,
+				845DC1D01B8C03650044AE86 /* DSLCalendarMonthSelectorView.m in Sources */,
+				845DC1CF1B8C03650044AE86 /* DSLCalendarDayView.m in Sources */,
 				93FF74721B0ECEA000FD97C1 /* CVCircleView.swift in Sources */,
 				84CB36811B16BB5600D66BBD /* AIServiceCatalogViewController.swift in Sources */,
 				934987091B0C75E9003086D1 /* AIMessageUnReadView.swift in Sources */,
@@ -2419,6 +2650,7 @@
 				84DD649D1B831EA7009BDB2A /* AITipModel.m in Sources */,
 				93FF74691B0ECEA000FD97C1 /* CVCalendarView.swift in Sources */,
 				84D9B81F1B7C320B005331B5 /* AISingleCommentViewController.swift in Sources */,
+				84AE09271B8C066400AAC721 /* AIMenuTopView.swift in Sources */,
 				9337FF611AD4097A0046F8DC /* AIUINavigationController.m in Sources */,
 				9394D2281B133F0C00EE578E /* AIModels.swift in Sources */,
 				9370552F1AEF916900CEE9A5 /* AIFavoritsTableViewController.swift in Sources */,
@@ -2426,8 +2658,10 @@
 				9349870C1B0D8DEE003086D1 /* AIHomeStyleMananger.swift in Sources */,
 				93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */,
 				812388BE1B8428BC00CEA574 /* WMFooldView.m in Sources */,
+				84AE092D1B8C089C00AAC721 /* TableViewCellBackgroundView.m in Sources */,
 				93F66DE71B1976AC00AEA92A /* AIChatNewSprintViewController.swift in Sources */,
 				814B2BD61B8204C2003A10A5 /* AIMessageViewController.m in Sources */,
+				84AE09231B8C066400AAC721 /* AIContentView.swift in Sources */,
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
 				8198ABD81B81840E0047E740 /* JSONModelError.m in Sources */,
 				937C77681B1E9BBB006FF589 /* AICServiceViewController.swift in Sources */,
@@ -2438,8 +2672,10 @@
 				84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */,
 				93FF74621B0ECEA000FD97C1 /* CVCalendarDayView.swift in Sources */,
 				93FF746E1B0ECEA000FD97C1 /* CVCalendarViewDelegate.swift in Sources */,
+				845DC1961B8C01B40044AE86 /* AISwipeView.swift in Sources */,
 				93AC3FD41ACA40C8000024A4 /* AITimelineViewController.swift in Sources */,
 				840FDAC31B85AFDF00CE3DF9 /* MarkupParser.m in Sources */,
+				845DC1DF1B8C03650044AE86 /* iCarousel.m in Sources */,
 				1205C0DD1B20574F003E27C4 /* ENSideMenu.swift in Sources */,
 				936D62531AD5144100609FCD /* KMDetailsPageView.m in Sources */,
 				8198ABD51B81840E0047E740 /* JSONModelArray.m in Sources */,
@@ -2456,21 +2692,28 @@
 				93FF74731B0ECEA000FD97C1 /* CVDate.swift in Sources */,
 				8198ABCB1B81840E0047E740 /* AFHTTPRequestOperation.m in Sources */,
 				934FE7D51B1C6BB300B745D4 /* AIIMRoom.swift in Sources */,
+				84AE09331B8C0A4F00AAC721 /* AIServerDetailViewController.swift in Sources */,
 				93FF74661B0ECEA000FD97C1 /* CVCalendarMonthContentView.swift in Sources */,
+				845DC19F1B8C03260044AE86 /* AISwipeViewUtil.swift in Sources */,
 				93659F5F1B1EDA100065E661 /* MGSwipeTableCell.m in Sources */,
 				1205C0DE1B20574F003E27C4 /* ENSideMenuNavigationController.swift in Sources */,
 				93FF74781B0ECF3800FD97C1 /* AICalendarViewController.swift in Sources */,
 				817E15FE1B7C91E000C298BE /* AIWebPlugin.m in Sources */,
 				93BD090B1B06FBBF00C8B96B /* AIMenuViewController.swift in Sources */,
+				84AE09301B8C08DD00AAC721 /* AIServiceSearchView.swift in Sources */,
+				845DC1D31B8C03650044AE86 /* DSLCalendarRange.m in Sources */,
 				93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */,
 				93FF746C1B0ECEA000FD97C1 /* CVCalendarViewAppearance.swift in Sources */,
 				12E616041B28105B0032DACE /* RRTagCollectionViewCell.swift in Sources */,
+				84D332491B8B4F7300BB1318 /* AICollectRootController.swift in Sources */,
+				845DC1FC1B8C059F0044AE86 /* GDWebViewNavigationToolbar.swift in Sources */,
 				935F38701ACD27DF004BE0E7 /* Movie.swift in Sources */,
 				84DE7DB31B79ED51007E8F7F /* AIRoundImageView.swift in Sources */,
 				937C77641B1E98AB006FF589 /* AIConnectViewController.swift in Sources */,
 				8198ABCC1B81840E0047E740 /* AFHTTPRequestOperationManager.m in Sources */,
 				939E663A1B27EAE900FD5FBA /* AIFavoriteContentModel.swift in Sources */,
 				93FF74671B0ECEA000FD97C1 /* CVCalendarMonthView.swift in Sources */,
+				845DC1EC1B8C043F0044AE86 /* AIScanViewController.swift in Sources */,
 				84CB368A1B1717CA00D66BBD /* AICatalogTableCellTableViewCell.swift in Sources */,
 				84DD649B1B82D128009BDB2A /* AIImageViewUtils.swift in Sources */,
 				93F6E14A1ADBC56E00CE4062 /* AISearchNaviViewController.swift in Sources */,
@@ -2485,23 +2728,29 @@
 				84951FB61B1312E500179483 /* SearchEngine.swift in Sources */,
 				812388D61B85CD1200CEA574 /* AIMessageTableController.m in Sources */,
 				934986FF1B0B1727003086D1 /* AITIMELINESDTimesViewCell.swift in Sources */,
+				84AE09251B8C066400AAC721 /* AIMediaView.swift in Sources */,
 				8198ABCE1B81840E0047E740 /* AFNetworkReachabilityManager.m in Sources */,
+				845DC1F11B8C04FF0044AE86 /* SwipeableCell.m in Sources */,
 				93FF74681B0ECEA000FD97C1 /* CVCalendarRenderer.swift in Sources */,
 				93A7058E1B12CAD800E8193C /* AIServerTimeView.swift in Sources */,
 				93FA15451AE66F95006BA310 /* WeatherModel.swift in Sources */,
 				93FF74611B0ECEA000FD97C1 /* CVCalendarContentViewController.swift in Sources */,
 				84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */,
 				93E8266A1AD78246006B3BA1 /* AIAssignUtils.swift in Sources */,
+				845DC1E01B8C03650044AE86 /* AIOpeningView.m in Sources */,
 				93F66DE41B196F5500AEA92A /* AITMSGSDContentViewCell.swift in Sources */,
+				845DC1DE1B8C03650044AE86 /* NSDate+DSLCalendarView.m in Sources */,
 				9373010D1ACBEB0B00CA17BC /* UIViewControllerUtils.swift in Sources */,
 				939E66421B291F4100FD5FBA /* KSToken.swift in Sources */,
 				840FDAC71B85AFDF00CE3DF9 /* SCGIFImageView.m in Sources */,
+				845DC1FA1B8C059F0044AE86 /* GBSlideOutToUnlockView.m in Sources */,
 				8198ABD11B81840E0047E740 /* AFURLRequestSerialization.m in Sources */,
 				8198ABA41B8183B30047E740 /* AIMessageWrapper.m in Sources */,
 				84CDC8E81B848650002A29EE /* AIHomeCommentViewCell.swift in Sources */,
 				939F4BD51AD6648000CE530C /* AIAudioViewController.swift in Sources */,
 				818B5C6E1B8C4D1400B22F1F /* AIServiceManageViewController.m in Sources */,
 				93AC3FD01ACA402A000024A4 /* AIHomeViewController.swift in Sources */,
+				845DC1E61B8C03650044AE86 /* JTSScrollIndicator.m in Sources */,
 				8198ABD31B81840E0047E740 /* AFURLSessionManager.m in Sources */,
 				937C77661B1E9B71006FF589 /* AICContentViewController.swift in Sources */,
 				93A705941B12D0E600E8193C /* AIServerAddressView.swift in Sources */,
@@ -2509,6 +2758,7 @@
 				84A72C631B85DEEA00B503A3 /* AIUserDesViewController.swift in Sources */,
 				84CDC8E41B842070002A29EE /* AIHomeDesChildViewCell.swift in Sources */,
 				84ACACB41B871305000258F9 /* AIServiceCommentManager.swift in Sources */,
+				845DC1EA1B8C03FB0044AE86 /* AITransformManager.swift in Sources */,
 				93E4D5B31B15681600992CA3 /* AIGitHub.swift in Sources */,
 				84DBFF681B26E68200F7FED6 /* AIServiceTagFilterViewController.swift in Sources */,
 				93FF74701B0ECEA000FD97C1 /* CVCalendarWeekContentView.swift in Sources */,
@@ -2516,12 +2766,17 @@
 				934987181B0DA9B4003086D1 /* AIHomeViewStyleTitleAndContentView.swift in Sources */,
 				840FDAB21B85AF9500CE3DF9 /* AICardCell.m in Sources */,
 				938A398C1B20255300E3A5BF /* AITabelViewMenuViewCell.swift in Sources */,
+				845DC1E21B8C03650044AE86 /* BubbleView.m in Sources */,
 				93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */,
 				84D9B8211B7C353C005331B5 /* AISingleCommentView.swift in Sources */,
 				93FF74641B0ECEA000FD97C1 /* CVCalendarManager.swift in Sources */,
+				845DC1E51B8C03650044AE86 /* UPLabel.m in Sources */,
 				12A20DA91B1719D0003E412A /* AIOrderModel.swift in Sources */,
 				93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */,
 				814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */,
+				845DC1F51B8C058C0044AE86 /* AOTag.m in Sources */,
+				845DC1FB1B8C059F0044AE86 /* GDWebViewController.swift in Sources */,
+				845DC1E81B8C03A20044AE86 /* UITransViewControllerExtention.swift in Sources */,
 				93F66DE91B19D7B800AEA92A /* NSObjcetUtils.swift in Sources */,
 				9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */,
 				93692C971ACAA52A00D66211 /* Async.swift in Sources */,
@@ -2542,9 +2797,12 @@
 				935F386E1ACD266F004BE0E7 /* AIHttpEngine.swift in Sources */,
 				84D393E61B2A88800045EE3A /* AIFavoritesServicesModel.swift in Sources */,
 				93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */,
+				845DC1D21B8C03650044AE86 /* DSLCalendarMonthView.m in Sources */,
+				845DC1E11B8C03650044AE86 /* AIViews.m in Sources */,
 				12E9260A1B81D6470053D2E0 /* AIProviderOrderListViewController.swift in Sources */,
 				12A20DAB1B1719F3003E412A /* AIOrderService.swift in Sources */,
 				814B2BD21B81C9EB003A10A5 /* CDVJpegHeaderWriter.m in Sources */,
+				84AE09191B8C060D00AAC721 /* AIMenuActionView.swift in Sources */,
 				12E616011B27DE8A0032DACE /* AITagEditViewController.swift in Sources */,
 				936DAC1A1ADCF2D20025483B /* AIISRViewController.m in Sources */,
 				93DE16AD1B05E2530056A1E3 /* AIHomeSDDesViewCell.swift in Sources */,
@@ -2567,9 +2825,11 @@
 				812388C01B8428BC00CEA574 /* WMMenuView.m in Sources */,
 				936D62491AD4D54100609FCD /* AINetworkLoadingViewController.swift in Sources */,
 				84CDC1701B14952500EA78BC /* AISearchHeaderCell.swift in Sources */,
+				845DC1E41B8C03650044AE86 /* CurveView.m in Sources */,
 				8198ABD91B81840E0047E740 /* JSONKeyMapper.m in Sources */,
 				934987031B0B305A003086D1 /* AITIMELINESDTITLEView.swift in Sources */,
 				939E66451B291F4100FD5FBA /* KSUtils.swift in Sources */,
+				84AE09291B8C066400AAC721 /* AITopInfoView.swift in Sources */,
 				8198ABD71B81840E0047E740 /* JSONModelClassProperty.m in Sources */,
 				93AC3FD61ACA40ED000024A4 /* AISelfViewController.swift in Sources */,
 				84DE14FB1B85641E001BB5BD /* AIServiceCommentModel.m in Sources */,
@@ -2582,13 +2842,16 @@
 				939E66471B293F7900FD5FBA /* AILoginWithSMSViewController.swift in Sources */,
 				93BD09041B05F2BC00C8B96B /* AIOrderBuyView.swift in Sources */,
 				93AC3FBA1AC95E6D000024A4 /* AIMainTabBarController.swift in Sources */,
+				845DC1EE1B8C04D10044AE86 /* UICellMultiStyle.swift in Sources */,
 				840FDAC41B85AFDF00CE3DF9 /* NSAttributedString+Attributes.m in Sources */,
 				93FF746A1B0ECEA000FD97C1 /* CVCalendarViewAnimator.swift in Sources */,
 				9337FF5C1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift in Sources */,
+				845DC1D41B8C03650044AE86 /* DSLCalendarView.m in Sources */,
 				812388BF1B8428BC00CEA574 /* WMMenuItem.m in Sources */,
 				93AC3FD21ACA40A9000024A4 /* AISearchViewController.swift in Sources */,
 				8198ABD61B81840E0047E740 /* NSArray+JSONModel.m in Sources */,
 				934987121B0DA828003086D1 /* AIHomeViewStyleTitleView.swift in Sources */,
+				84AE09351B8C10F200AAC721 /* AIEffectView.swift in Sources */,
 				8119B3031B7D858000625FB4 /* AIWebViewController.m in Sources */,
 				93E4D5B01B14AA7800992CA3 /* AIOrderListViewController.swift in Sources */,
 				8198ABD01B81840E0047E740 /* AFURLConnectionOperation.m in Sources */,
@@ -2598,6 +2861,7 @@
 				9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */,
 				93659F611B1EEFB40065E661 /* AIExtensionAICContentAndService.swift in Sources */,
 				934987101B0DA354003086D1 /* AIHomeViewStyleMultiepleView.swift in Sources */,
+				845DC1E31B8C03650044AE86 /* CurveModel.m in Sources */,
 				84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */,
 				9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */,
 				933ED3EA1AC8F90A00E4AADB /* AppDelegate.swift in Sources */,
@@ -2615,15 +2879,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				933ED4021AC8F90A00E4AADB /* AI2020OSTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		93735D851B1D976C00D52431 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				93735D991B1D9A4000D52431 /* AIShareViewController.swift in Sources */,
-				93735D8E1B1D976C00D52431 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2650,11 +2905,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		84AF1AF51B872EE700A561D7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 93735D881B1D976C00D52431 /* SBOSS */;
-			targetProxy = 84AF1AF41B872EE700A561D7 /* PBXContainerItemProxy */;
-		};
 		933ED3FD1AC8F90A00E4AADB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 933ED3E31AC8F90A00E4AADB /* AI2020OS */;
@@ -2759,19 +3009,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AI2020OS.app/AI2020OS";
-			};
-			name = InHouse;
-		};
-		123A45FC1B8709D3008B9CF6 /* InHouse */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = SBOSS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
 			};
 			name = InHouse;
 		};
@@ -2991,36 +3228,6 @@
 			};
 			name = Release;
 		};
-		93735D951B1D976C00D52431 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SBOSS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		93735D961B1D976C00D52431 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = SBOSS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		938A3AC81B25735C00E3A5BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3130,16 +3337,6 @@
 				933ED4091AC8F90A00E4AADB /* Debug */,
 				933ED40A1AC8F90A00E4AADB /* Release */,
 				123A45FB1B8709D3008B9CF6 /* InHouse */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		93735D941B1D976C00D52431 /* Build configuration list for PBXNativeTarget "SBOSS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				93735D951B1D976C00D52431 /* Debug */,
-				93735D961B1D976C00D52431 /* Release */,
-				123A45FC1B8709D3008B9CF6 /* InHouse */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

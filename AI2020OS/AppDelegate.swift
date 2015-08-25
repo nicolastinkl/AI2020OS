@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
 
-        UIApplication.sharedApplication().cancelAllLocalNotifications()
+        //UIApplication.sharedApplication().applicationIconBadgeNumber
         
         //Hook Viewdidview and ViewDidDisappear.
         
@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             localNotify.alertBody = "收藏夹有新动态"
             localNotify.timeZone = NSTimeZone.defaultTimeZone()
             //localNotify.repeatInterval = NSCalendarUnit.CalendarCalendarUnit
-            localNotify.applicationIconBadgeNumber = 1
+            localNotify.applicationIconBadgeNumber = 0
             localNotify.userInfo = ["key":"name"]
             localNotify.fireDate = NSDate(timeIntervalSinceNow: 5)
             UIApplication.sharedApplication().scheduleLocalNotification(localNotify)
