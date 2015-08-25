@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, AINetError) {
     AINetErrorCancelled,                      // 网络请求取消
 };
 
-typedef void(^net_success_block)(NSDictionary *response);
+typedef void(^net_success_block)(id responseObject);
 typedef void(^net_fail_block)(AINetError error, NSString *errorDes);
 
 

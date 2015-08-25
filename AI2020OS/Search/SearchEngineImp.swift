@@ -245,8 +245,8 @@ class HttpSearchEngine : MockSearchEngine {
         
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-            
-            var model: AIQueryHotSearchResponse = AIQueryHotSearchResponse(dictionary: response, error: nil)
+            var dic = response as NSDictionary
+            var model: AIQueryHotSearchResponse = AIQueryHotSearchResponse(dictionary: dic, error: nil)
             successRes(responseData: model.catalog_list as AnyObject as [AIServiceCatalogModel])
             }) { (error:AINetError, errorDes:String!) -> Void in
                 

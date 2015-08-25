@@ -187,12 +187,12 @@
     }
     
     NSDictionary *des = [response objectForKey:kKeyForDesc];
-    NSDictionary *responseData = [response objectForKey:kKeyForData];
+    id returnResponseObject = [response objectForKey:kKeyForData];
     
     NSNumber *resultCode = [des objectForKey:kKeyForResultCode];
     
     if ([resultCode isEqualToNumber:[NSNumber numberWithInteger:kSuccessCode]] && success) {
-        success(responseData);
+        success(returnResponseObject);
     }
     else
     {
