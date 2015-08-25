@@ -1469,6 +1469,7 @@ extension UITransViewController: ActionCellDelegate {
             switch actionType {
             case ActionType.Browse:
                 let webView =  self.storyboard?.instantiateViewControllerWithIdentifier("AIWebViewController") as AIWebViewController
+                webView.hidesBottomBarWhenPushed = true
                 //webView.currentUrl = NSURL(string: "\(model.favoriteFromWhereURL)")
                 
                 break

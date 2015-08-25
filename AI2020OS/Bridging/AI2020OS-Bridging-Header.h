@@ -57,12 +57,17 @@
 #import "AICardView.h"
 #import "SwipeableCell.h"
 
+
+// MARK: AIServiceManageViewController
+#import "AIServiceManageViewController.h"
+
 // 自定义滑块
 #import "JTSScrollIndicator.h"
 
 // iCarousel
 #import "iCarousel.h"
 #import "CurveView.h"
+
 
 //GBSlideOutToUnlockView
 #import "GBSlideOutToUnlockView.h"

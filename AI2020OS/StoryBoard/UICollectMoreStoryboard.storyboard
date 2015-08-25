@@ -1132,7 +1132,7 @@
         <!--Web View Controller-->
         <scene sceneID="Lew-Po-jfP">
             <objects>
-                <viewController storyboardIdentifier="AIWebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gOy-VM-Qer" customClass="AIWebViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AIWebViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gOy-VM-Qer" customClass="AIWebViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y4t-JH-At9"/>
                         <viewControllerLayoutGuide type="bottom" id="b95-gG-3tg"/>
@@ -1247,7 +1247,7 @@
         <!--Scan View Controller-->
         <scene sceneID="Pg2-yb-57S">
             <objects>
-                <viewController storyboardIdentifier="AIScanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y7p-w8-psc" customClass="AIScanViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AIScanViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y7p-w8-psc" customClass="AIScanViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B6r-OG-2hb"/>
                         <viewControllerLayoutGuide type="bottom" id="gGi-Sp-z1W"/>
@@ -1804,7 +1804,7 @@
                                 </constraints>
                             </scrollView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="142" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0KU-RH-3xG">
-                                <rect key="frame" x="0.0" y="144" width="600" height="386"/>
+                                <rect key="frame" x="0.0" y="144" width="600" height="401"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AISDDateCell" rowHeight="300" id="GnP-2U-tvC" customClass="AISDDateCell" customModule="AI2020OS" customModuleProvider="target">
@@ -2170,10 +2170,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j96-im-k9b">
-                                <rect key="frame" x="0.0" y="530" width="600" height="70"/>
+                                <rect key="frame" x="0.0" y="545" width="600" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te1-Jv-DSr">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="21"/>
                                         <state key="normal" title="立即购买" backgroundImage="sd_footer_bg">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2186,7 +2186,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="te1-Jv-DSr" secondAttribute="trailing" id="Mjk-NV-1fY"/>
-                                    <constraint firstAttribute="height" constant="70" id="PxD-UO-Vsu"/>
+                                    <constraint firstAttribute="height" constant="55" id="PxD-UO-Vsu"/>
                                     <constraint firstAttribute="bottom" secondItem="te1-Jv-DSr" secondAttribute="bottom" id="XZa-0g-qjo"/>
                                     <constraint firstItem="te1-Jv-DSr" firstAttribute="leading" secondItem="j96-im-k9b" secondAttribute="leading" id="dFc-Xm-s1Y"/>
                                     <constraint firstItem="te1-Jv-DSr" firstAttribute="top" secondItem="j96-im-k9b" secondAttribute="top" id="yLN-wt-wqD"/>
