@@ -1132,7 +1132,7 @@
         <!--Web View Controller-->
         <scene sceneID="Lew-Po-jfP">
             <objects>
-                <viewController storyboardIdentifier="AIWebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gOy-VM-Qer" customClass="AIWebViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AIWebViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gOy-VM-Qer" customClass="AIWebViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y4t-JH-At9"/>
                         <viewControllerLayoutGuide type="bottom" id="b95-gG-3tg"/>
@@ -1247,7 +1247,7 @@
         <!--Scan View Controller-->
         <scene sceneID="Pg2-yb-57S">
             <objects>
-                <viewController storyboardIdentifier="AIScanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y7p-w8-psc" customClass="AIScanViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AIScanViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y7p-w8-psc" customClass="AIScanViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B6r-OG-2hb"/>
                         <viewControllerLayoutGuide type="bottom" id="gGi-Sp-z1W"/>
