@@ -81,7 +81,7 @@
 {
     // 设置头部
     [self addHeaders:message.header];
-
+    NSLog(@"---%@\n---%@\n", message.body, message.header);
     __weak typeof(self) weakSelf = self;
     NSURLSessionDataTask *curTask = [_sessionManager POST:message.url parameters:message.body success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf parseSuccessResponseWithTask:task

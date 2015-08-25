@@ -10,7 +10,12 @@ import UIKit
 
 class AICustomerOrderDetailViewController: UIViewController {
 
+    // MARK: - IBOutlets
     @IBOutlet weak var timeLineView: UIView!
+    
+    var orderId:String!
+    
+    // MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +25,8 @@ class AICustomerOrderDetailViewController: UIViewController {
         
         self.title = "订单详情"
         
-        // Do any additional setup after loading the view.
+        orderId = "100000013149"
+        retryNetworkingAction()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -32,6 +38,21 @@ class AICustomerOrderDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - utils
+    func retryNetworkingAction(){
+        self.view.hideProgressViewLoading()
+        self.view.showProgressViewLoading()
+        //后台请求数据
+        Async.background(){
+            // Do any additional setup after loading the view, typically from a nib.
+            AIOrderRequester().queryOrderDetail(self.orderId, completion: {
+                (data:OrderDetailModel,error:Error?) ->() in
+                self.view.hideProgressViewLoading()
+                println("order_detail_data : \(data)")
+            })
+        }
     }
     
     func leftAction()

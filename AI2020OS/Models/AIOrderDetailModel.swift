@@ -10,42 +10,20 @@ import Foundation
 import JSONJoy
 
 // 订单详情数据模型
-struct OrderDetailModel : JSONJoy {
-    var orderNum : Int?
-    var orderState : Int?
-    var orderStateName : String?
-    var orderTime : String?
-    var serviceName : String?
-    var servicePrice : String?
-    var providerId : Int?
-    var providerName : String?
-    
-    init(){
-    
-    }
+class OrderDetailModel : JSONModel {
+    var order_id : Int?
+    var order_number : Int?
+    var order_state : Int?
+    var order_state_name : String?
+    var order_create_time : String?
+    var service_id : Int?
+    var service_name : String?
+    var provider_id : Int?
+    var service_type : Int?
+    var provider_portrait_url : String?
+    var service_time_duration : String?
+    var order_price : String?
     var params: Array<ServiceParam>?
-    
-    
-    init(_ decoder: JSONDecoder) {
-        orderNum = decoder["order_number"].integer
-        orderTime = decoder["order_time"].string
-        orderState = decoder["order_state"].integer
-        orderStateName = decoder["order_state_name"].string
-        serviceName = decoder["service_name"].string
-        servicePrice = decoder["service_price"].string
-        providerId = decoder["provider_id"].integer
-        providerName = decoder["provider_name"].string
-        
-        if let sparam = decoder["service_param_list"].array {
-            params = Array<ServiceParam>()
-            for serviceParam in sparam {
-                params?.append(ServiceParam(serviceParam))
-            }
-        }
-    }
-    
-    
-    
 }
 
 // 服务参数数据模型

@@ -18,7 +18,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     private let SECTION_HOT_SERVICES = 0
     private let SECTION_HISTORY = 1
     
-    private var catalogList: [AICatalogItemModel]?
+    private var catalogList: [AIServiceCatalogModel]?
     private var recordList: [SearchHistoryRecord]?
     
     override func viewDidLoad() {
@@ -40,7 +40,6 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     func loadTableViewData(result: (model: [AICatalogItemModel], err: Error?)) {
         
         if result.err == nil {
-            catalogList = result.model
             collectionView.reloadData()
         }
         
@@ -48,10 +47,11 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
 
-        Async.background { () -> Void in
-            self.searchEngine?.queryHotSearchedServices(self.loadTableViewData)
-            return
-        }
+        searchEngine?.queryHotSearchedServices(queryHotSuccess, fail: queryHotFail)
+//        Async.background { () -> Void in
+//            self.searchEngine?.queryHotSearchedServices(self.loadTableViewData)
+//            return
+//        }
         
     }
 
@@ -106,7 +106,13 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    private func queryHotSuccess(responseData: [AIServiceCatalogModel]) {
+        collectionView.reloadData()
+    }
     
+    private func queryHotFail(errType: AINetError, errDes: String) {
+        
+    }
 
 }
 

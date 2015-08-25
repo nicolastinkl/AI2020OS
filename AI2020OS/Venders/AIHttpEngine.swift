@@ -24,6 +24,7 @@ struct Error {
 struct AIHttpEngine{
     
     private static let baseURL = "http://171.221.254.231:8282"
+  //  private static let baseURL = "http://10.5.1.249:8282"
     private static let clientID = "750ab22aac78be1c0a1a6d"
     private static let clientSecret = "53e3822c41c5bf26d0ef982693f215c72d87da"
 
@@ -94,20 +95,29 @@ struct AIHttpEngine{
         let userId = kUser_ID
         let RSA = "0"
         
-        let header = "\(timeStamp)" + token + userId + RSA
+        let header = "\(timeStamp)&\(token)&\(userId)&\(RSA)"
         
         
         // Add Headers
         manager.session.configuration.HTTPAdditionalHeaders = [kHttp_Header_Query:header]
     //    manager.session.configuration.HTTPAdditionalHeaders = ["HttpQuery":"0&0&100000001872&0"]
         
-        let paras: [String: AnyObject]? = [
-            "data":parameters!,
-            "desc":[
-                "data_mode": 0,
-                "digest": ""
-            ]
-        ]
+        var paras = [String: AnyObject]()
+        if parameters != nil {
+            paras["data"] = parameters!
+        } else {
+            paras["data"] = "{}"
+        }
+        
+        paras["desc"] = ["data_mode": 0,
+            "digest": ""]
+//        let paras: [String: AnyObject]? = [
+//            "data":parameters!,
+//            "desc":[
+//                "data_mode": 0,
+//                "digest": ""
+//            ]
+//        ]
         
         println("url: \(self.baseURL+path.description)      ------------   parameters:\(paras)")
 
