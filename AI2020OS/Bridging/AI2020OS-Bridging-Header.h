@@ -51,6 +51,7 @@
 #import "AITipModel.h"
 #import "AIServiceCommentModel.h"
 #import "AIServiceCatalogModel.h"
+#import "AIBodyDescModel.h"
 
 // MARK: AICardView
 #import "AICardView.h"

@@ -39,6 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //处理讯飞语音初始化
         AIAppInit().xfINIT()
         
+        initNetEngine()
+        
         //  Ask for permission to show badges.
         let types: UIUserNotificationType = UIUserNotificationType.Sound | UIUserNotificationType.Badge | UIUserNotificationType.Alert
         let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
@@ -153,7 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userId = kUser_ID
         let RSA = "0"
         
-        let headerContent = "\(timeStamp)" + token + userId + RSA
+        let headerContent = "\(timeStamp)&" + token+"&" + userId+"&" + RSA
         
         let header = [kHttp_Header_Query: headerContent]
         AINetEngine.defaultEngine().configureCommonHeaders(header)

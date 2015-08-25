@@ -126,6 +126,7 @@
 		84DFAD1F1B7D8D580091B156 /* AISelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */; };
 		84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E052231B3006EF00B0299F /* AILaunchScreen.xib */; };
 		84E052F31B8AB422009F88C5 /* AIServiceCatalogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E052F21B8AB422009F88C5 /* AIServiceCatalogModel.m */; };
+		84E052F61B8B3BE7009F88C5 /* AIBodyDescModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E052F51B8B3BE7009F88C5 /* AIBodyDescModel.m */; };
 		84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */; };
 		9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0751B09979500C1EE79 /* AILoginService.swift */; };
 		9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9301B0791B0998C700C1EE79 /* AILoginViewController.swift */; };
@@ -276,7 +277,7 @@
 		93CF23111B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF23101B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift */; };
 		93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFC0761AD6551200B82CC9 /* RAReorderableLayout.swift */; };
 		93CFC0791AD6580400B82CC9 /* AIKinectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFC0781AD6580400B82CC9 /* AIKinectButton.swift */; };
-		93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */; };
+		93D806D01B1C6D7900B13FFF /* AISearchTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC16D1B1494D000EA78BC /* AISearchTagCell.swift */; };
 		93D80A421ACA7149004BC7C0 /* CoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D80A411ACA7149004BC7C0 /* CoreTextView.swift */; };
 		93D80A441ACA71DA004BC7C0 /* AILocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D80A431ACA71DA004BC7C0 /* AILocalStore.swift */; };
 		93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB59891AE62EAD00D1E39C /* AIMaterialDButton.swift */; };
@@ -590,6 +591,9 @@
 		84E052231B3006EF00B0299F /* AILaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AILaunchScreen.xib; sourceTree = "<group>"; };
 		84E052F11B8AB422009F88C5 /* AIServiceCatalogModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIServiceCatalogModel.h; sourceTree = "<group>"; };
 		84E052F21B8AB422009F88C5 /* AIServiceCatalogModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIServiceCatalogModel.m; sourceTree = "<group>"; };
+		84E052F41B8B3BE7009F88C5 /* AIBodyDescModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBodyDescModel.h; sourceTree = "<group>"; };
+		84E052F51B8B3BE7009F88C5 /* AIBodyDescModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBodyDescModel.m; sourceTree = "<group>"; };
+		84E052F71B8B42A4009F88C5 /* PlaygroundTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PlaygroundTest.playground; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
 		9301B0751B09979500C1EE79 /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
 		9301B0791B0998C700C1EE79 /* AILoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewController.swift; sourceTree = "<group>"; };
@@ -1251,9 +1255,9 @@
 			isa = PBXGroup;
 			children = (
 				84CB36821B16E88200D66BBD /* view */,
-				8415F4E21B135688003160B4 /* SearchServiceCollectionViewController.swift */,
-				84CDC16D1B1494D000EA78BC /* SearchTagCell.swift */,
-				84CDC16F1B14952500EA78BC /* SearchHeaderCell.swift */,
+				8415F4E21B135688003160B4 /* AISearchServiceViewController.swift */,
+				84CDC16D1B1494D000EA78BC /* AISearchTagCell.swift */,
+				84CDC16F1B14952500EA78BC /* AISearchHeaderCell.swift */,
 				84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */,
 			);
 			name = Search;
@@ -1440,6 +1444,7 @@
 				933ED4011AC8F90A00E4AADB /* AI2020OSTests.swift */,
 				933ED3FF1AC8F90A00E4AADB /* Supporting Files */,
 				93CE6E051B148EAE000CFB4E /* MyPlaygroundTEST.playground */,
+				84E052F71B8B42A4009F88C5 /* PlaygroundTest.playground */,
 			);
 			path = AI2020OSTests;
 			sourceTree = "<group>";
@@ -1490,6 +1495,8 @@
 				84DE14FA1B85641E001BB5BD /* AIServiceCommentModel.m */,
 				84E052F11B8AB422009F88C5 /* AIServiceCatalogModel.h */,
 				84E052F21B8AB422009F88C5 /* AIServiceCatalogModel.m */,
+				84E052F41B8B3BE7009F88C5 /* AIBodyDescModel.h */,
+				84E052F51B8B3BE7009F88C5 /* AIBodyDescModel.m */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -2369,7 +2376,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D806D01B1C6D7900B13FFF /* SearchTagCell.swift in Sources */,
+				84E052F61B8B3BE7009F88C5 /* AIBodyDescModel.m in Sources */,
+				93D806D01B1C6D7900B13FFF /* AISearchTagCell.swift in Sources */,
 				814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */,
 				84ACACAF1B870763000258F9 /* AIServiceCountView.swift in Sources */,
 				840FDAC61B85AFDF00CE3DF9 /* RegexKitLite.m in Sources */,
