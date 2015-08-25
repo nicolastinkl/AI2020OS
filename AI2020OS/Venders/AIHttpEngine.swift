@@ -11,6 +11,11 @@ import Alamofire
 import JSONJoy
 
 struct Error {
+    
+    enum ResultCode: Int {
+        case fail = 0, success
+    }
+    
     let message : String
     let code : Int
 }
