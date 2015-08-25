@@ -39,7 +39,7 @@
         <!--Trans View Controller-->
         <scene sceneID="Gye-EX-kfQ">
             <objects>
-                <viewController storyboardIdentifier="UITransViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gQm-QN-pQz" customClass="UITransViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UITransViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gQm-QN-pQz" customClass="UITransViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iYK-Oh-MXu"/>
                         <viewControllerLayoutGuide type="bottom" id="fpB-7M-DNB"/>

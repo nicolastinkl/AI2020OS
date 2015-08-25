@@ -119,7 +119,7 @@ class AIOrderRequester {
         var orderDetailModel : OrderDetailModel?
         AINetEngine.defaultEngine().postMessage(requestMessage, success:
             { (response) -> Void in
-                orderDetailModel =  OrderDetailModel(dictionary: response, error: nil)
+                orderDetailModel =  OrderDetailModel(data: response as NSData, error: nil)
                 completion(data: orderDetailModel!, error: nil)
             }, fail: { (error:AINetError, errorDes:String!) -> Void in
                 

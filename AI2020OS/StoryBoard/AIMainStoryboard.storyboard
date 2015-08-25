@@ -608,7 +608,7 @@
         <!--Collect Root Controller-->
         <scene sceneID="Ryl-Rb-zCQ">
             <objects>
-                <viewController storyboardIdentifier="AICollectRootController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kxI-LP-zjN" customClass="AICollectRootController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AICollectRootController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kxI-LP-zjN" customClass="AICollectRootController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OD3-P4-Rtb"/>
                         <viewControllerLayoutGuide type="bottom" id="RhO-Ti-Lax"/>
@@ -617,7 +617,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOm-hJ-aSg">
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nOm-hJ-aSg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </containerView>
                         </subviews>
@@ -636,7 +636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bo-Ak-mJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="1004"/>
+            <point key="canvasLocation" x="376" y="1233"/>
         </scene>
         <!--Connect View Controller-->
         <scene sceneID="v8n-kn-mVq">
