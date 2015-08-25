@@ -14,6 +14,45 @@
 @implementation AIMessageWrapper
 
 
+#pragma mark - 设置基础报文格式
+
++ (NSMutableDictionary *)baseBodyWithData:(NSDictionary *)data
+{
+    NSMutableDictionary *body = [[NSMutableDictionary alloc] init];
+    
+    [body setObject:data?:@{} forKey:@"data"];
+    
+    [body setObject:@{@"data_mode":@"0",@"digest":@""} forKey:@"desc"];
+    
+    
+    return body;
+}
+
+
++ (NSMutableDictionary *)baseBodyWithData:(NSDictionary *)data desc:(NSDictionary *)desc
+{
+    NSMutableDictionary *body = [[NSMutableDictionary alloc] init];
+    
+    [body setObject:data?:@{} forKey:@"data"];
+    
+    [body setObject:desc?:@{} forKey:@"desc"];
+    
+    
+    return body;
+}
+
++ (NSMutableDictionary *)baseData
+{
+    return [[NSMutableDictionary alloc] init];
+}
+
++ (NSMutableDictionary *)baseDesc
+{
+    return [[NSMutableDictionary alloc] init];
+}
+
+
+
 #pragma mark - 获取服务列表
 
 + (AIMessage *)getServiceListWithTopicID:(NSString *)topicID dataMode:(NSString *)dataMode

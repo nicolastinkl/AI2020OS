@@ -608,7 +608,7 @@
         <!--Collect Root Controller-->
         <scene sceneID="Ryl-Rb-zCQ">
             <objects>
-                <viewController storyboardIdentifier="AICollectRootController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kxI-LP-zjN" customClass="AICollectRootController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AICollectRootController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kxI-LP-zjN" customClass="AICollectRootController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OD3-P4-Rtb"/>
                         <viewControllerLayoutGuide type="bottom" id="RhO-Ti-Lax"/>

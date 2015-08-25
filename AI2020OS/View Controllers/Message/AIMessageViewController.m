@@ -9,6 +9,7 @@
 #import "AIMessageViewController.h"
 #import "WMPageController.h"
 #import "AIMessageTableController.h"
+#import "AIWebViewController.h"
 
 //#define kBlueColor [UIColor colorWithRed:0x00 green:0xCE blue:0xC0 alpha:1]
 #define kBlueColor [UIColor colorWithRed:(0x20/0xFF) green:(0xb5/0xFF) blue:(0x6f/0xFF) alpha:1]
@@ -71,7 +72,10 @@
 
 - (void)showUser
 {
-    
+    AIWebViewController *webViewController = [[AIWebViewController alloc] init];
+    webViewController.startPage = @"index.html";
+    webViewController.wwwFolderName = @"www";
+    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 - (void)resetNavigationBar

@@ -9,6 +9,23 @@
 import Foundation
 import JSONJoy
 
+class AIOrderMessageWrapper : AIMessageWrapper{
+    class func getOrderDetail(orderId : String) -> AIMessage{
+        var message : AIMessage = AIMessage()
+        
+        let body = [
+            "data":["order_id":orderId],
+            "detail":[
+                "data_mode":"0",
+                "digest":""
+            ]]
+        
+        message.body = NSMutableDictionary(dictionary:body)
+        message.url = AIHttpEngine.ResourcePath.GetOrderDetail.description
+        return message
+    }
+}
+
 //订单列表model
 struct AIOrderListModel : JSONJoy {
     var orderArray: Array<AIOrderListItemModel>?
@@ -68,6 +85,35 @@ struct AIOrderListItemModel : JSONJoy{
     }
 }
 
+// 订单详情数据模型
+class OrderDetailModel : JSONModel {
+    var order_id : Int?
+    var order_number : Int?
+    var order_state : Int?
+    var order_state_name : String?
+    var order_create_time : String?
+    var service_id : Int?
+    var service_name : String?
+    var provider_id : Int?
+    var service_type : Int?
+    var provider_portrait_url : String?
+    var service_time_duration : String?
+    var order_price : String?
+    var params: Array<ServiceParam>?
+}
+
+// 服务参数数据模型
+struct ServiceParam {
+    var paramKey : Int?
+    var paramValue : String?
+    var paramName : String?
+    
+    init(){
+        
+    }
+}
+
+
 struct ButtonModel{
     var title = ""
     var action:Selector = ""
@@ -87,3 +133,4 @@ struct StatusButtonModel {
         self.amount = amount
     }
 }
+
