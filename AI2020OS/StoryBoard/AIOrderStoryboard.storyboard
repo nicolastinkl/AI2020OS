@@ -441,6 +441,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="orderCreateTime" destination="0uD-FW-wdB" id="pBP-TF-UV1"/>
+                        <outlet property="orderName" destination="Kn6-o4-aFD" id="a0M-Va-rSd"/>
+                        <outlet property="orderNumber" destination="dXE-Hp-UPb" id="0gg-c2-PLr"/>
+                        <outlet property="serviceAddr" destination="zTC-3B-iuB" id="Wnc-qn-rgd"/>
+                        <outlet property="serviceDesc" destination="qL0-UM-V9j" id="UPW-w1-fED"/>
+                        <outlet property="serviceName" destination="ukv-tL-N5H" id="VUm-fP-c2b"/>
+                        <outlet property="servicePrice" destination="vMj-uj-UVT" id="2k3-Q1-ZHN"/>
+                        <outlet property="serviceThumbnailUrl" destination="CSl-J7-n5N" id="L3y-NW-9Jy"/>
+                        <outlet property="serviceTimeDuration" destination="ElB-TR-wZg" id="sfy-ZN-7f7"/>
                         <outlet property="timeLineView" destination="ugB-mm-dwZ" id="m4Y-eb-hUb"/>
                     </connections>
                 </viewController>

@@ -12,6 +12,18 @@ class AICustomerOrderDetailViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var timeLineView: UIView!
+
+    @IBOutlet weak var serviceAddr: UILabel!
+    @IBOutlet weak var serviceTimeDuration: UILabel!
+    @IBOutlet weak var orderName: UILabel!
+    
+    @IBOutlet weak var orderNumber: UILabel!
+    @IBOutlet weak var orderCreateTime: UILabel!
+    @IBOutlet weak var serviceName: UILabel!
+    @IBOutlet weak var serviceDesc: UILabel!
+    @IBOutlet weak var serviceThumbnailUrl: UIImageView!
+    
+    @IBOutlet weak var servicePrice: UILabel!
     
     var orderId:String!
     

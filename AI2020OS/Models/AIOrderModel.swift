@@ -15,13 +15,13 @@ class AIOrderMessageWrapper : AIMessageWrapper{
         
         let body = [
             "data":["order_id":orderId],
-            "detail":[
+            "desc":[
                 "data_mode":"0",
                 "digest":""
             ]]
         
         message.body = NSMutableDictionary(dictionary:body)
-        message.url = AIHttpEngine.ResourcePath.GetOrderDetail.description
+        message.url = AIHttpEngine.baseURL + AIHttpEngine.ResourcePath.GetOrderDetail.description
         return message
     }
 }
