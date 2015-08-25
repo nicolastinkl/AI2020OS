@@ -85,22 +85,7 @@ struct AIOrderListItemModel : JSONJoy{
     }
 }
 
-// 订单详情数据模型
-class OrderDetailModel : JSONModel {
-    var order_id : Int?
-    var order_number : Int?
-    var order_state : Int?
-    var order_state_name : String?
-    var order_create_time : String?
-    var service_id : Int?
-    var service_name : String?
-    var provider_id : Int?
-    var service_type : Int?
-    var provider_portrait_url : String?
-    var service_time_duration : String?
-    var order_price : String?
-    var params: Array<ServiceParam>?
-}
+
 
 // 服务参数数据模型
 struct ServiceParam {

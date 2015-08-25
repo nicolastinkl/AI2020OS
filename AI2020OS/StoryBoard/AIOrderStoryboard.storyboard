@@ -314,7 +314,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample1" translatesAutoresizingMaskIntoConstraints="NO" id="CSl-J7-n5N">
+                                    <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample1" translatesAutoresizingMaskIntoConstraints="NO" id="CSl-J7-n5N" customClass="AIImageView" customModule="AI2020OS" customModuleProvider="target">
                                         <rect key="frame" x="8" y="25" width="65" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="EIk-yf-EF0"/>
@@ -446,9 +446,9 @@
                         <outlet property="orderNumber" destination="dXE-Hp-UPb" id="0gg-c2-PLr"/>
                         <outlet property="serviceAddr" destination="zTC-3B-iuB" id="Wnc-qn-rgd"/>
                         <outlet property="serviceDesc" destination="qL0-UM-V9j" id="UPW-w1-fED"/>
+                        <outlet property="serviceIntroImage" destination="CSl-J7-n5N" id="nAa-O9-1jY"/>
                         <outlet property="serviceName" destination="ukv-tL-N5H" id="VUm-fP-c2b"/>
                         <outlet property="servicePrice" destination="vMj-uj-UVT" id="2k3-Q1-ZHN"/>
-                        <outlet property="serviceThumbnailUrl" destination="CSl-J7-n5N" id="L3y-NW-9Jy"/>
                         <outlet property="serviceTimeDuration" destination="ElB-TR-wZg" id="sfy-ZN-7f7"/>
                         <outlet property="timeLineView" destination="ugB-mm-dwZ" id="m4Y-eb-hUb"/>
                     </connections>

@@ -69,3 +69,5 @@
 
 #import "AOTag.h"
 #import "TableViewCellBackgroundView.h"
+
+#import "AIOrderModel.h"
