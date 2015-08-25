@@ -589,8 +589,9 @@
         <!--收藏夹-->
         <scene sceneID="vXD-85-gBA">
             <objects>
-                <navigationController id="lnR-KP-hAe" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="lnR-KP-hAe" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="收藏夹" image="home_favorite_normal" id="Jm4-XV-0uO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fmq-B9-UwZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -616,13 +617,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nOm-hJ-aSg">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOm-hJ-aSg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RhO-Ti-Lax" firstAttribute="top" secondItem="nOm-hJ-aSg" secondAttribute="bottom" constant="-49" id="5wi-K5-eF0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nOm-hJ-aSg" secondAttribute="trailing" constant="-16" id="BYD-Cf-fBB"/>
+                            <constraint firstItem="nOm-hJ-aSg" firstAttribute="leading" secondItem="FpZ-wY-N3v" secondAttribute="leadingMargin" constant="-16" id="HBw-er-Rzj"/>
+                            <constraint firstItem="nOm-hJ-aSg" firstAttribute="top" secondItem="OD3-P4-Rtb" secondAttribute="bottom" constant="-64" id="LmZ-RI-vjV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="waJ-Hh-qDJ"/>
+                    <connections>
+                        <outlet property="containView" destination="nOm-hJ-aSg" id="swd-Ta-0si"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bo-Ak-mJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -640,25 +650,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQ5-Lk-Tt0">
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LQ5-Lk-Tt0">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <animations/>
                             </containerView>
-                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yS-Ni-BNQ">
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yS-Ni-BNQ">
                                 <rect key="frame" x="0.0" y="106" width="600" height="445"/>
                                 <animations/>
                                 <connections>
                                     <segue destination="Kjj-tE-KxG" kind="embed" id="xB6-bI-cxj"/>
                                 </connections>
                             </containerView>
-                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UaA-6H-my7">
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UaA-6H-my7">
                                 <rect key="frame" x="0.0" y="106" width="600" height="445"/>
                                 <animations/>
                                 <connections>
                                     <segue destination="KBK-kl-tcX" kind="embed" id="3Pk-Js-NzF"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyi-WZ-3RP">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyi-WZ-3RP">
                                 <rect key="frame" x="0.0" y="64" width="600" height="42"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_page_weather_bg_02" translatesAutoresizingMaskIntoConstraints="NO" id="csC-ss-cIx">
@@ -2942,6 +2952,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3by-Dk-Oe4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2137" y="429"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mEe-3u-Eq3">
+            <objects>
+                <viewController id="GAq-0g-oxT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w19-e1-pm6"/>
+                        <viewControllerLayoutGuide type="bottom" id="PSg-yL-OcO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qar-wk-PUy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Azi-T3-ETc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
