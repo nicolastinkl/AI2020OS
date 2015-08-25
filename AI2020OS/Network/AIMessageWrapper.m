@@ -9,9 +9,34 @@
 #import "AIMessageWrapper.h"
 #import "AIMessage.h"
 #import "AIServerConfig.h"
+#import "JSONModel.h"
 
 
 @implementation AIMessageWrapper
+
+
+#pragma mark - 解析model数组
+
++ (NSArray *)jsonModelsFromArray:(NSArray *)array withModelClass:(Class)modelClass
+{
+    NSMutableArray *modelArray = [[NSMutableArray alloc] init];
+    
+    BOOL isJsonModelClass = [modelClass isSubclassOfClass:[JSONModel class]];
+    
+    if (isJsonModelClass == NO) {
+        return nil;
+    }
+    
+    for (id obj in array) {
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dic = (NSDictionary *)obj;
+            JSONModel *model = [[modelClass alloc] initWithDictionary:dic error:nil];
+            [modelArray addObject:model];
+        }
+    }
+    
+    return [NSArray arrayWithArray:modelArray];
+}
 
 
 #pragma mark - 设置基础报文格式

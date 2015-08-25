@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-
 @class AIMessage;
 @interface AIMessageWrapper : NSObject
 
+/*说明:获取服务列表
+ */
+
++ (NSArray *)jsonModelsFromArray:(NSArray *)array withModelClass:(Class)modelClass;
 
 
-
+/*说明:处理消息体
+ */
 + (NSMutableDictionary *)baseBodyWithData:(NSDictionary *)data;
 
 
