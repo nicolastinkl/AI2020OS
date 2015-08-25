@@ -33,7 +33,8 @@ class AIServerScopeView: UIView {
     var tagMargin: CGFloat = 10
     var leftMargin: CGFloat = 14
     
-    typealias SelectedHandler = ()->(String)
+    typealias SelectedHandler = (ServerScopeModel)->()
+    var currentModel:ServerScopeModel?
     
     func initWithViewsArray(array: [ServerScopeModel], parentView: UIView){
         scopeArray = array
@@ -61,15 +62,21 @@ class AIServerScopeView: UIView {
     }
     
     func disSelected(buttonS: UIButton?){
-
+        
     }
     
     func selected(buttonS: UIButton?) {
-
+        if let bTitle = buttonS?.titleLabel?.text {
+            
+        }
+        
     }
     
     func didSelectedItem(selectedItem:SelectedHandler){
-        
+        if let model = currentModel {
+            selectedItem(model)
+        }
+
     }
     
     // 重新加载数据

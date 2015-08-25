@@ -145,27 +145,12 @@ class AIComponentChoseViewController: UIViewController {
         // Step 1: 处理选择参数
         // Step 2: 处理参数拼接
         
-        if let serverid = self.title?.toInt() {
-            if serverid > 0 {
-                self.view.showLoading()
-                let paramsPams = NSMutableArray(objects: ["paramsDate":"23564561356"],["paramsPrice":"452.0"])
-                
-                Async.userInitiated {
-                    AIOrderRequester().submitOrder(serverid, serviceParams: paramsPams, completion: { (success) -> Void in
-                        self.view.hideLoading()
-                        
-                        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as UIViewController
-                        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-                        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-                        self.presentViewController(viewController, animated: true, completion: nil)
-                        
-                    })
-                }
-            }else{
-                SCLAlertView().showError("提交失败", subTitle: "参数有误", closeButtonTitle: "关闭", duration: 2)
-            }
-            
-        }
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as AIOrderSubmitViewController
+        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        viewController.serviceId = self.serviceId
+        self.presentViewController(viewController, animated: true, completion: nil)
+         
         
     }
     
