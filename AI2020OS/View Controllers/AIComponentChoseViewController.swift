@@ -89,7 +89,7 @@ class AIComponentChoseViewController: UIViewController {
                     scopeView.initWithViewsArray(scopeArray, parentView: self.view)
                     self.contentScrollView.addSubview(scopeView)
                     scopeView.setTop(cellHeigh)
-                    scopeView.setLeft(10)
+                    scopeView.setLeft(10) 
                     cellHeigh += scopeView.height + margeheight
                     break
                 case 8: //多项多选

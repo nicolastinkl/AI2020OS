@@ -105,10 +105,14 @@
                             <rect key="frame" x="180" y="0.0" width="240" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcj-11-6FW">
-                                    <rect key="frame" x="-55" y="0.0" width="295" height="36"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcj-11-6FW">
+                                    <rect key="frame" x="-7" y="0.0" width="220" height="36"/>
                                     <animations/>
-                                    <state key="normal" backgroundImage="Home_search_bg">
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="36" id="g4E-N3-Ed0"/>
+                                        <constraint firstAttribute="width" constant="220" id="o3w-xC-0uU"/>
+                                    </constraints>
+                                    <state key="normal" image="Home_search_bg">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -118,6 +122,16 @@
                             </subviews>
                             <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="jcj-11-6FW" firstAttribute="leading" secondItem="GAv-AA-djc" secondAttribute="leading" constant="-7" id="2cr-B7-q0t"/>
+                                <constraint firstAttribute="centerY" secondItem="jcj-11-6FW" secondAttribute="centerY" constant="4" id="XLj-Oa-zbv"/>
+                                <constraint firstAttribute="trailing" secondItem="jcj-11-6FW" secondAttribute="trailing" constant="15" id="dnB-os-fQ0"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="dnB-os-fQ0"/>
+                                </mask>
+                            </variation>
                         </view>
                     </navigationItem>
                     <connections>
@@ -320,13 +334,23 @@
                                         <constraint firstAttribute="bottom" secondItem="XDy-SE-4x6" secondAttribute="bottom" id="Ra2-vG-5Jw"/>
                                         <constraint firstItem="XDy-SE-4x6" firstAttribute="top" secondItem="4Qn-GO-e8F" secondAttribute="top" constant="114" id="cGI-hG-h6o"/>
                                     </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="6U4-nV-7iy" appends="YES" id="tJu-X6-EdG"/>
-                                    </connections>
                                 </view>
                                 <animations/>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mp9-Yp-ifb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="115"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="115" id="VZi-yH-nTs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="6U4-nV-7iy" appends="YES" id="31c-ai-IJM"/>
+                                </connections>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -334,6 +358,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="jay-fq-fKN" secondAttribute="trailing" constant="-16" id="1dR-2U-2lp"/>
                             <constraint firstItem="KYX-as-2v3" firstAttribute="top" secondItem="jay-fq-fKN" secondAttribute="bottom" id="2Xr-gk-FgL"/>
                             <constraint firstItem="jay-fq-fKN" firstAttribute="top" secondItem="gF3-jg-2PV" secondAttribute="bottom" constant="-20" id="3vu-Bg-Vmh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mp9-Yp-ifb" secondAttribute="trailing" constant="-16" id="8I3-dh-4YC"/>
+                            <constraint firstItem="mp9-Yp-ifb" firstAttribute="top" secondItem="gF3-jg-2PV" secondAttribute="bottom" constant="-20" id="Lml-ey-meG"/>
+                            <constraint firstItem="mp9-Yp-ifb" firstAttribute="leading" secondItem="MQC-jP-TEK" secondAttribute="leadingMargin" constant="-16" id="SUT-VC-to2"/>
                             <constraint firstItem="jay-fq-fKN" firstAttribute="leading" secondItem="MQC-jP-TEK" secondAttribute="leadingMargin" constant="-16" id="ywt-NH-NFK"/>
                         </constraints>
                     </view>
@@ -2934,9 +2961,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-8Q-ycI">
-                                    <rect key="frame" x="-55" y="1" width="295" height="36"/>
+                                    <rect key="frame" x="0.0" y="1" width="201" height="36"/>
                                     <animations/>
-                                    <state key="normal" backgroundImage="Home_search_bg">
+                                    <state key="normal" image="Home_search_bg">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
@@ -2974,7 +3001,7 @@
     <resources>
         <image name="Home_discover_01" width="345" height="115"/>
         <image name="Home_page_weather_bg_02" width="750" height="84"/>
-        <image name="Home_search_bg" width="295" height="36"/>
+        <image name="Home_search_bg" width="201" height="36"/>
         <image name="Placeholder" width="550" height="250"/>
         <image name="Tabbar_background" width="10" height="49"/>
         <image name="ad_closebutton_background" width="34" height="34"/>

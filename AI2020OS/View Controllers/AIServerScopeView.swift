@@ -160,7 +160,7 @@ class AIServerScopeView: UIView {
                 size = buttonSize!
             }
             
-            if (x + size.width + tagMargin) > parentView.width {
+            if (x + size.width + tagMargin) > (parentView.width - 50) {
                 n = 0
                 x = leftMargin
                 y += size.height + tagMargin
