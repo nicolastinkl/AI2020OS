@@ -94,7 +94,7 @@ struct AIHttpEngine{
         let userId = kUser_ID
         let RSA = "0"
         
-        let header = "\(timeStamp)" + token + userId + RSA
+        let header = "\(timeStamp)&\(token)&\(userId)&\(RSA)"
         
         
         // Add Headers
