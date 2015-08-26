@@ -13,7 +13,7 @@ class AISearchHeaderCell: AISearchTagCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         //label.backgroundColor = UIColor(rgba: "#eeeeef")
-        label.textColor = UIColor(rgba: "#c4c3c2")
+        label.textColor = UIColor(rgba: "#6B6B6B")
         label.setWidth(600)
         label.textAlignment = .Left
     }
