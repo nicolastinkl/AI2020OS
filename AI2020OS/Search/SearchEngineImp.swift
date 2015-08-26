@@ -21,8 +21,8 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         initServiceData()
     }
     
-    func searchServiceByText(serviceName: String) -> [ServiceModel] {
-        return [ServiceModel]()
+    func searchServicesAndCatalogs(keyword: String, successRes: (responseData: AISearchServicesAndCatalogsResultModel) -> Void, fail: (errType: AINetError, errDes: String)) {
+        
     }
     
     func queryHotSearchedServices(completion: (([AICatalogItemModel], Error?)) -> Void) {
@@ -164,10 +164,6 @@ class HttpSearchEngine : MockSearchEngine {
     
     override init() {
         
-    }
-    
-    override func searchServiceByText(serviceName: String) -> [ServiceModel] {
-        return [ServiceModel]()
     }
    
     override func queryHotSearchedServices(completion: (([AICatalogItemModel], Error?)) -> Void) {

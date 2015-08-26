@@ -253,9 +253,9 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
         let records = historyRecorder!.getSearchHistoryItems()
         
         if indexPath.section == SECTION_HOT_SERVICES {
-            //     tagName = services[indexPath.item].name
+            searchByText(catalogList![indexPath.item].catalog_name)
         } else if indexPath.section == SECTION_HISTORY {
-             searchByText(records[indexPath.item].name)
+            searchByText(recordList![indexPath.item].name)
         }
     }
     
