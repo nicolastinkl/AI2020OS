@@ -95,12 +95,24 @@ struct AIHttpEngine{
         // Create manager
         var manager = Manager.sharedInstance
         
-        let timeStamp: Int = 0
-        let token = "0"
+        let timeStamp: Int = Int(NSDate().timeIntervalSince1970)
+        let token = "YXNkZmFzZGZhc2RmYXNkZmFzZGY="
         let userId = kUser_ID
-        let RSA = "0"
+        let RSA = "YXNkZmFzZGZhc2RmYXNkZmFzZGY="
         
         let header = "\(timeStamp)&\(token)&\(userId)&\(RSA)"
+        
+        
+        // UTF 8 str from original
+        // NSData! type returned (optional)
+        let utf8str = header.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        // Base64 encode UTF 8 string
+        // fromRaw(0) is equivalent to objc 'base64EncodedStringWithOptions:0'
+        // Notice the unwrapping given the NSData! optional
+        // NSString! returned (optional)
+        let base64Encoded = utf8str?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+//        println("Encoded:  \(base64Encoded)")
         
         
         // Add Headers

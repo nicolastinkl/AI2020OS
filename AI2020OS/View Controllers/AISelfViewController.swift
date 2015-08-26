@@ -43,8 +43,7 @@ class AISelfViewController: UITableViewController {
         headerImg?.maskWithEllipse()
         username?.text = selfUserInfoModel?.name ?? ""
         
-        self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
-        
+        self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);        
         
         let paras = ["user_id":"\(selfUserInfoModel?.id ?? 0)"]
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryUserInfoServices, parameters: paras) {  [weak self] (response, error) -> () in

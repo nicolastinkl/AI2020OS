@@ -22,6 +22,8 @@ class AIComponentChoseViewController: UIViewController {
     
     var serviceId:String?
     
+    private var selectedParams:NSMutableDictionary =  NSMutableDictionary()
+    
     // MARK: life cycle
     
     override func viewDidLoad() {
@@ -53,13 +55,21 @@ class AIComponentChoseViewController: UIViewController {
                     self.contentScrollView.addSubview(timePickerView)
                     timePickerView.setTop(cellHeigh)
                     cellHeigh += timePickerView.height + 50
+                    timePickerView.viewChangeClosure({ (number) -> () in
+                        let key = model.param_key ?? ""
+                        self.selectedParams.setValue(number, forKey: key)
+                    })
+                    
                     break
                 case 2: //选择数量
                     var selectNumebrView = AIServiceCountView.currentView()
                     self.contentScrollView.addSubview(selectNumebrView)
                     selectNumebrView.setTop(cellHeigh)
                     cellHeigh += selectNumebrView.height
-                    
+                    selectNumebrView.viewChangeClosure({ (number) -> () in
+                        let key = model.param_key ?? ""
+                        self.selectedParams.setValue(number, forKey: key)
+                    })
                     break
                 case 3: //double
                     
@@ -72,6 +82,7 @@ class AIComponentChoseViewController: UIViewController {
                     self.contentScrollView.addSubview(addressPickerView)
                     addressPickerView.setTop(cellHeigh)
                     cellHeigh += addressPickerView.height
+                    
                     break
                 case 6: //子服务
                     
@@ -91,6 +102,16 @@ class AIComponentChoseViewController: UIViewController {
                     scopeView.setTop(cellHeigh)
                     scopeView.setLeft(10) 
                     cellHeigh += scopeView.height + margeheight
+                    
+                    scopeView.didSelectedItem({ ( index ) -> () in
+                        let modelTwo = scopeArray[index] as ServerScopeModel
+                        
+                        let key = model.param_key ?? ""
+                        
+                        self.selectedParams.setValue(modelTwo.content, forKey: key)
+                        
+                    })
+                    
                     break
                 case 8: //多项多选
                     
@@ -144,6 +165,7 @@ class AIComponentChoseViewController: UIViewController {
         
         // Step 1: 处理选择参数
         // Step 2: 处理参数拼接
+        let sParams = self.selectedParams
         
         let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as AIOrderSubmitViewController
         viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve

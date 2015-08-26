@@ -33,8 +33,11 @@ class AIServerScopeView: UIView {
     var tagMargin: CGFloat = 10
     var leftMargin: CGFloat = 14
     
-    typealias SelectedHandler = (ServerScopeModel)->()
+    typealias SelectedHandler = (Int)->()
     var currentModel:ServerScopeModel?
+    var currentTag:Int = 0
+    
+    var myClosure:SelectedHandler?
     
     func initWithViewsArray(array: [ServerScopeModel], parentView: UIView){
         scopeArray = array
@@ -65,18 +68,22 @@ class AIServerScopeView: UIView {
         
     }
     
+    
     func selected(buttonS: UIButton?) {
         if let bTitle = buttonS?.titleLabel?.text {
+            var tag =  buttonS?.tag
+            currentTag = tag!-10
+            if let closure = myClosure {
+                closure(currentTag)
+            }
             
         }
         
     }
     
     func didSelectedItem(selectedItem:SelectedHandler){
-        if let model = currentModel {
-            selectedItem(model)
-        }
-
+        
+        myClosure = selectedItem
     }
     
     // 重新加载数据
@@ -181,6 +188,7 @@ class AIServerScopeView: UIView {
             
             uiControl.setSize(size)
             uiControl.setOrigin(CGPointMake(x, y))
+            uiControl.tag = index + 10
             addSubview(uiControl)
             x = x + size.width
         }

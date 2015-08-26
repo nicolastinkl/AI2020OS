@@ -85,7 +85,11 @@ class AIHomeViewController: UITableViewController {
                     self.serviceTopicList = data
                     self.tableView.reloadData()
                     self.view.hideErrorView()
-                }else{
+                }else if data.count == 0{
+                    self.serviceTopicList = []
+                    self.tableView.reloadData()
+                    self.view.showErrorView("没有数据")
+                }else {
                     self.view.showErrorView()
                 }
             })
