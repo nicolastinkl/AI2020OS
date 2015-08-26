@@ -19,7 +19,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     
     // MARK: variables
     
-    private var orderList = Array<AIOrderListItemModel>()
+    
     
     // MARK: life cycle
     override func viewWillAppear(animated: Bool) {
@@ -80,14 +80,20 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单
     //orderState: 待处理 进行中 待完成 已完成
-    func buildDynaOperButton(orderState : String,orderType : String,buttonView:UIView){
-        switch orderState{
-        case "11":
-            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView)
-        case "已完成":
-            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:")], buttonView: buttonView)
+    func buildDynaOperButton(orderState : String,orderType : String,buttonView:UIView,indexNumber : Int){
+        
+        let stateEnum = OrderStatus(rawValue: NSString(string: orderState).integerValue)
+        switch stateEnum! {
+        case .Init:
+            addOperButton([ButtonModel(title: "申请变更",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+        case .Executing:
+            addOperButton([ButtonModel(title: "申请变更",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+        case .WaidForComment:
+            addOperButton([ButtonModel(title: "评论",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+        case .WaitForPay:
+            addOperButton([ButtonModel(title: "支付",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
         default :
-            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView)
+            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             return
             
         }
@@ -96,11 +102,15 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     
     
     func buildDynaStatusButton(){
-        let buttonArray = [StatusButtonModel(title: "全部", amount: 7),StatusButtonModel(title: "待执行", amount: 4),StatusButtonModel(title: "待付款", amount: 0),StatusButtonModel(title: "待评价", amount: 3)]
+        let buttonArray = [StatusButtonModel(title: "全部", amount: 7),StatusButtonModel(title: "待执行", amount: 4),StatusButtonModel(title: "待付款", amount: 0),StatusButtonModel(title: "待评价", amount: 3),StatusButtonModel(title: "已完成", amount: 3)]
         addStatusButton(buttonArray, scrollView: scrollView)
     }
     
-    
+    override func filterOrderAction(target:UIButton){
+        super.filterOrderAction(target)
+        
+        
+    }
 }
 
 //MARK: - extension UITableView
@@ -139,7 +149,7 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
             orderStateLabel.text = orderListModel.order_state_name
         }
         if let buttonView = cell.viewWithTag(180) {
-            buildDynaOperButton(orderListModel.order_state_name!, orderType: "", buttonView: buttonView)
+            buildDynaOperButton(orderListModel.order_state_name!, orderType: "", buttonView: buttonView,indexNumber : indexPath.row)
         }
         if let customerIconImg = cell.viewWithTag(140) as? AIImageView{
             customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url! ?? ""), placeholderImage: UIImage(named: "Placeholder"))

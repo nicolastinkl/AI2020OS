@@ -114,7 +114,7 @@ class AIOrderRequester {
         }
     }
     
-    func queryOrderDetail(orderId : String , completion : OrderDetailRequesterCompletion){
+    func queryOrderDetail(orderId : Int , completion : OrderDetailRequesterCompletion){
         let requestMessage = AIOrderMessageWrapper.getOrderDetail(orderId)
         var orderDetailModel : OrderDetailModel!
         AINetEngine.defaultEngine().postMessage(requestMessage, success:
@@ -127,5 +127,20 @@ class AIOrderRequester {
                 
                 completion(data: OrderDetailModel(), error: Error(message: errorDes, code: error.rawValue))
         })
+    }
+    
+    func updateOrderStatus(orderId : Int,orderStatus : Int,completion : (resultCode : Int) -> Void) {
+        let requestMessage = AIOrderMessageWrapper.updateOrderStatus(orderId, orderStatus: orderStatus)
+        AINetEngine.defaultEngine().postMessage(requestMessage, success:
+            { (response) -> Void in
+//                let result : NSDictionary = response as NSDictionary
+//                let resultCode : Int = result.objectForKey("resultCode") as Int
+                completion(resultCode: 1)
+                
+            }, fail: { (error:AINetError, errorDes:String!) -> Void in
+                
+                completion(resultCode: 0)
+        })
+
     }
 }

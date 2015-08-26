@@ -70,8 +70,10 @@ class AIOrderListViewController:UIViewController{
 
 class AIBaseOrderListViewController : UIViewController{
     
+    var orderList = Array<AIOrderListItemModel>()
+    
     // MARK: - operButtonActions
-    func addOperButton(buttonArray:[ButtonModel],buttonView:UIView){
+    func addOperButton(buttonArray:[ButtonModel],buttonView:UIView,indexNumber : Int){
         buttonView.subviews.filter{
             let value:UIButton = $0 as UIButton
             value.removeFromSuperview()
@@ -80,12 +82,16 @@ class AIBaseOrderListViewController : UIViewController{
         
         var x:CGFloat = 0
         for buttonModel in buttonArray{
-            var button = UIButton(frame: CGRectMake(x, 0, 40, 20))
+            
+            let contentRect = caculateContentSize(buttonModel.title, fontSize: 14)
+            var button = UIButton(frame: CGRectMake(x, 0, contentRect.size.width, 20))
             button.setTitle(buttonModel.title, forState: UIControlState.Normal)
             //扩展的直接读取rgba颜色的方法
             button.setTitleColor(UIColor(rgba: "#30D7CE"), forState: UIControlState.Normal)
             button.backgroundColor = UIColor.clearColor()
             button.titleLabel?.font = UIFont.boldSystemFontOfSize(14)
+            //use to mark cell row number
+            button.tag = indexNumber
             buttonView.addSubview(button)
             
             button.addTarget(self, action: buttonModel.action, forControlEvents: UIControlEvents.TouchUpInside)
@@ -107,7 +113,12 @@ class AIBaseOrderListViewController : UIViewController{
     }
     
     func excuteOrder(target:UIButton){
-        SCLAlertView().showInfo("提示", subTitle: "开始处理订单", closeButtonTitle: "关闭", duration: 3)
+        let buttonIndex = target.tag
+        let orderNumber = findOrderNumberByIndexNumber(buttonIndex)
+        AIOrderRequester().updateOrderStatus(orderNumber, orderStatus: OrderStatus.Executing.rawValue, completion: { (resultCode) -> Void in
+                self.updateOrderStatusCompletion(resultCode, comments: "开始执行订单")
+            }
+        )
     }
     
     // MARK: - statusButtons
@@ -158,6 +169,28 @@ class AIBaseOrderListViewController : UIViewController{
         }
         target.selected = true
         //temp content
-
+        
     }
+    
+    func updateOrderStatusCompletion(resultCode:Int,comments:String){
+        if resultCode == 1{
+             SCLAlertView().showInfo("提示", subTitle: comments + "成功", closeButtonTitle: "关闭", duration: 3)
+        }
+        else{
+            SCLAlertView().showError("错误", subTitle: comments + "失败", closeButtonTitle: "关闭", duration: 3)
+        }
+    }
+    
+    func caculateContentSize(content:String,fontSize:CGFloat) -> CGRect{
+        let size = CGSizeMake(150,100)
+        let s:NSString = "\(content)"
+        let contentSize = s.boundingRectWithSize(size, options: NSStringDrawingOptions.UsesLineFragmentOrigin , attributes: [NSFontAttributeName:UIFont.systemFontOfSize(fontSize)], context: nil)
+        return contentSize
+    }
+    
+    private func findOrderNumberByIndexNumber(indexNumber : Int) -> Int {
+        return orderList[indexNumber].order_number!
+    }
+    
+    
 }
