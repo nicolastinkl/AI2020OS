@@ -24,5 +24,6 @@ protocol SearchEngine {
 protocol SearchRecorder {
     func recordSearch(historyRecord: SearchHistoryRecord)
     func getSearchHistoryItems() -> [SearchHistoryRecord]
+    func clearHistory()
 }
 

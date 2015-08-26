@@ -45,6 +45,10 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         return recordList
     }
     
+    func clearHistory() {
+        recordList.removeAll(keepCapacity: false)
+    }
+    
     func getFavorServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
         var list = [AIServiceTopicModel]()
         var service = AIServiceTopicModel()
@@ -243,13 +247,14 @@ class HttpSearchEngine : MockSearchEngine {
         message.url = "http://171.221.254.231:8282/sboss/queryHotSearch"
     
 //        let body = ["data":["order_role":"1","order_state":"11"],"desc":["data_mode":"0","digest":""]]
-        var body = NSMutableDictionary()
-        let data = NSDictionary()
-        body.setObject(data, forKey: "data")
-        let desc = AIBodyDescModel()
-        desc.data_mode = MODE_PLAIN_TEXT
-        
-        body.setObject(desc.toDictionary(), forKey: "desc")
+        let body = ["data":NSDictionary(),"desc":["data_mode":"0","digest":""]]
+//        var body = NSMutableDictionary()
+//        let data = NSDictionary()
+//        body.setObject(data, forKey: "data")
+//        let desc = AIBodyDescModel()
+//        desc.data_mode = MODE_PLAIN_TEXT
+//        
+//        body.setObject(desc.toDictionary(), forKey: "desc")
         
         
     

@@ -6,11 +6,13 @@
 //  Copyright (c) 2015年 ___ASIAINFO___. All rights reserved.
 //
 
-import UIKit 
+import UIKit
+import SCLAlertView
 
 class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchTextField: UITextField!
     
     private var historyRecorder: SearchRecorder?
     private var searchEngine: SearchEngine?
@@ -27,7 +29,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
         initCollectionView()
         
         var engine = HttpSearchEngine()
-        historyRecorder = MockSearchEngine()
+        historyRecorder = engine
         searchEngine = engine
         
         
@@ -46,6 +48,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
+        view.showProgressViewLoading()
 
         searchEngine?.queryHotSearchedServices(queryHotSuccess, fail: queryHotFail)
 //        Async.background { () -> Void in
@@ -62,11 +65,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Call back
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        let record: SearchHistoryRecord = SearchHistoryRecord(searchName: textField.text)
-        historyRecorder?.recordSearch(record)
-        recordList?.append(record)
-        collectionView.reloadData()
-        //     searchEngine!.queryHotSearchedServices()
+        search()
         return true
     }
     
@@ -95,6 +94,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
             forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
             withReuseIdentifier: "HEADER")
         
+        
     }
     
     @IBAction func showAllServices(sender: UIButton) {
@@ -102,16 +102,46 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
         searchEngine?.queryHotSearchedServices(self.loadTableViewData)
     }
 
+    @IBAction func searchButtonAction(sender: AnyObject) {
+        search()
+    }
+    
     @IBAction func myFavorites(sender: AnyObject) {
         
     }
     
     private func queryHotSuccess(responseData: [AIServiceCatalogModel]) {
+        self.catalogList = responseData
         collectionView.reloadData()
+        view.hideProgressViewLoading()
     }
     
     private func queryHotFail(errType: AINetError, errDes: String) {
+        view.hideProgressViewLoading()
+        SCLAlertView().showError("获取数据失败", subTitle: errDes,  duration: 2)
+    }
+    
+    private func search() {
+        let text = searchTextField.text.trim()
         
+        if text.isEmpty {
+            SCLAlertView().showError("搜索内容不能为空", subTitle: "错误",  duration: 2)
+        } else {
+            searchByText(text)
+        }
+    }
+    
+    private func searchByText(text: String) {
+        let record: SearchHistoryRecord = SearchHistoryRecord(searchName: text)
+        historyRecorder?.recordSearch(record)
+        recordList?.append(record)
+        collectionView.reloadData()
+    }
+    
+    func deleteHistory() {
+        recordList?.removeAll(keepCapacity: false)
+        historyRecorder?.clearHistory()
+        collectionView.reloadData()
     }
 
 }
@@ -175,19 +205,20 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
         if (kind == UICollectionElementKindSectionHeader) {
-            let cell =
-            collectionView.dequeueReusableSupplementaryViewOfKind(
-                kind, withReuseIdentifier: "HEADER",
-                forIndexPath: indexPath) as AISearchHeaderCell
-            cell.maxWidth = collectionView.bounds.size.width
+            
+            let cell = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Head", forIndexPath: indexPath) as AIHistorySearchHeaderCell
             
             if indexPath.section == SECTION_HOT_SERVICES {
-                cell.text = "热门服务"
+                cell.title.text = "热门服务"
+                cell.deleteButton.hidden = true
             } else if indexPath.section == SECTION_HISTORY {
-                cell.text = "搜索历史"
+                cell.title.text = "搜索历史"
+                cell.deleteButton.addTarget(self, action: "deleteHistory", forControlEvents: UIControlEvents.TouchUpInside)
+                cell.deleteButton.hidden = false
             }
             
             return cell
+            
         }
         abort()
     }
@@ -224,7 +255,7 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
         if indexPath.section == SECTION_HOT_SERVICES {
             //     tagName = services[indexPath.item].name
         } else if indexPath.section == SECTION_HISTORY {
-            //       tagName = records[indexPath.item].name
+             searchByText(records[indexPath.item].name)
         }
     }
     
