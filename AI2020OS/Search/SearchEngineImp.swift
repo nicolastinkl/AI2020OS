@@ -104,7 +104,27 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
     }
     
     func queryHotSearchedServices(successRes: (responseData: [AIServiceCatalogModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        var list = [AIServiceCatalogModel]()
+        var m = AIServiceCatalogModel()
+        m.catalog_name = "美容"
+        list.append(m)
         
+        m = AIServiceCatalogModel()
+        m.catalog_name = "理财"
+        list.append(m)
+        
+        m = AIServiceCatalogModel()
+        m.catalog_name = "租房"
+        list.append(m)
+        
+        m = AIServiceCatalogModel()
+        m.catalog_name = "服饰搭配"
+        list.append(m)
+        
+        m = AIServiceCatalogModel()
+        m.catalog_name = "保洁"
+        list.append(m)
+        successRes(responseData: list)
     }
     
     private func initServiceData() {
