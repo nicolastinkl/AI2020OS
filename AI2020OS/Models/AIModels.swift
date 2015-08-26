@@ -28,7 +28,7 @@ struct AIServiceTopicListModel: JSONJoy  {
     var service_array: Array<AIServiceTopicModel>?
     
     init(_ decoder: JSONDecoder) {
-        result_type = decoder["result_type"].integer
+        result_type = decoder["page_num"].integer
         if let addrs = decoder["service_list"].array {
             service_array = Array<AIServiceTopicModel>()
             for addrDecoder in addrs {
@@ -60,7 +60,7 @@ class AIServiceTopicModel: JSONJoy  {
     }
     
     required init(_ decoder: JSONDecoder) {
-        service_id = decoder["service_id"].integer
+        service_id = decoder["service_id"].string?.toInt() ?? 0
         service_name = decoder["service_name"].string
         service_price = decoder["service_price"].string
         service_intro = decoder["service_intro"].string

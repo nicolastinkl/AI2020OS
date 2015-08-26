@@ -37,6 +37,11 @@ class AISelfViewController: UITableViewController {
                 let userModel =  AIUserInfoModel(JSONDecoder(re))
                 if let strongSelf = self{
                     strongSelf.selfUserInfoModel = userModel
+                    strongSelf.refereshUserData()
+                }
+            }else{
+                if let strongSelf = self{
+                    strongSelf.refereshUserData()
                 }
             }
         }

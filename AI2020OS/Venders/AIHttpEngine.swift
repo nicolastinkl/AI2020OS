@@ -65,7 +65,10 @@ struct AIHttpEngine{
         case QueryTimeLineServices
         // 查询个人信息
         case QueryUserInfoServices
+        // 根据手机号查询用户信息
         case QuerUserInfoByMobileNumber
+        //  添加收藏
+        case addServiceToFavorite
         
         /// 返回具体URL
         var description: String {
@@ -86,8 +89,9 @@ struct AIHttpEngine{
             case .QueryTimeLineServices: return "/sboss/queryNodesFromTimeLine"
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
-            case .QueryUserInfoServices : return "getUserInfo"
-            case .QuerUserInfoByMobileNumber : return "getUserInfoByMobileNumber"
+            case .QueryUserInfoServices : return "/sboss/getUserInfo"
+            case .QuerUserInfoByMobileNumber : return "/sboss/getUserInfoByMobileNumber"
+            case .addServiceToFavorite : return "/sboss/addServiceToFavorite"
             }
         }
     }
