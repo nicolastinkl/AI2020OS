@@ -107,7 +107,7 @@ class AIBaseOrderListViewController : UIViewController{
     }
     
     func commentsOrder(target:UIButton){
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AICommentStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AICommentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISingleCommentViewController) as UIViewController
         self.navigationController?.pushViewController(viewController, animated: true)
 
     }

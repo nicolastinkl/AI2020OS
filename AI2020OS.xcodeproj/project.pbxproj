@@ -1759,10 +1759,8 @@
 				9301B0751B09979500C1EE79 /* AILoginService.swift */,
 				84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */,
 				84CA2EFB1B81883000FCB971 /* AITimeLineServices.swift */,
-
 				818B5C6C1B8C4D1400B22F1F /* AIServiceManageViewController.h */,
 				818B5C6D1B8C4D1400B22F1F /* AIServiceManageViewController.m */,
-
 				845DC1E91B8C03FB0044AE86 /* AITransformManager.swift */,
 			);
 			name = Services;
