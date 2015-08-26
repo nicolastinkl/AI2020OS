@@ -28,7 +28,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
         
         initCollectionView()
         
-        var engine = HttpSearchEngine()
+        var engine = MockSearchEngine()
         historyRecorder = engine
         searchEngine = engine
         

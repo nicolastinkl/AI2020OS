@@ -87,7 +87,7 @@ extension UIViewController {
         //let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISearchServiceCollectionViewController) as AISearchServiceViewController
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
         viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        viewController.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
         self.showDetailViewController(viewController, sender: self)
         
     }
