@@ -287,15 +287,14 @@ extension AIServerDetailViewController:UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        if  //Day
+
         if indexPath.row == 0 {
-            let menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICalendarViewController) as AICalendarViewController
+            let menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICalendarNewViewController) as AICalendarNewViewController
             menuViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             menuViewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
             self.showDetailViewController(menuViewController, sender: self)
         }
-        
-        
+         
     }
     
 }

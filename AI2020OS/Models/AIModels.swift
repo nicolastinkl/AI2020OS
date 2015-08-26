@@ -20,7 +20,6 @@ struct AIServiceTopicResult: JSONJoy  {
             }
         }
     }
-    
 }
 
 // MARK: 首页服务列表

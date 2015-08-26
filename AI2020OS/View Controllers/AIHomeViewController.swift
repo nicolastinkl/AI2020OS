@@ -104,9 +104,9 @@ class AIHomeViewController: UITableViewController {
                     let headerview = self.tableview.tableHeaderView as UIView?
                     // referesh UI
                     let weatherLabel =  headerview?.getViewByTag(1) as UILabel?
-                    let weak = self.weatherValue?.week as String? ?? ""
+                    let city = self.weatherValue?.city as String? ?? ""
                     let weather1 = self.weatherValue?.weather1 as String? ?? ""
-                    weatherLabel?.text = "现在是\(weak),天气\(weather1)"
+                    weatherLabel?.text = "\(city),天气\(weather1)"
                 }
             })
         }
@@ -138,6 +138,13 @@ class AIHomeViewController: UITableViewController {
     
     @IBAction func searchServices(sender: AnyObject) {
         showSearchMainViewController()
+
+       /*
+        let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
+        controller.server_id = "201507201404"
+        showViewController(controller, sender: self)
+        */
+        
         
 //        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISearchServiceCollectionViewController) as AISearchServiceViewController
 //        

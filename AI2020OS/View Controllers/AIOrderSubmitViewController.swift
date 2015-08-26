@@ -18,17 +18,12 @@ class AIOrderSubmitViewController: UIViewController {
 
     var serviceId:String?
     
-    var datasource:NSMutableArray = {
-        let array = NSArray(objects: ["地陪":"6天"],["接送机":"AUV SUVV"],["单飞":"国航CA2333"],["民宿":"精品两局，住4人"],["境外旅游险":"平安保险"],["漫游套餐":"100分钟 100MB流量"])
-       
-        return NSMutableArray(array: array)
-        }()
+    var selectedParams:NSMutableDictionary?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let titleLabel =  self.tableview.tableHeaderView?.viewWithTag(1) as UILabel
-        
         
         let color = UIColor(rgba: "#a7a7a7").CGColor
         let lineLayer =  CALayer()
@@ -69,10 +64,16 @@ class AIOrderSubmitViewController: UIViewController {
 extension AIOrderSubmitViewController:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let data = datasource[indexPath.row] as [String:String]
+        let key =  selectedParams?.allKeys[indexPath.row] as String
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("orderSumbitCell") as UITableViewCell
-        cell.textLabel.text = data.keys.first
-        cell.detailTextLabel?.text = data.values.first
+        cell.textLabel.text = key
+        if let value: AnyObject = selectedParams?.valueForKey(key) {
+            cell.detailTextLabel?.text = "\(value)"
+        }else{
+            cell.detailTextLabel?.text = ""
+        }
+        
         return cell
         
     }
@@ -82,7 +83,10 @@ extension AIOrderSubmitViewController:UITableViewDataSource,UITableViewDelegate{
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datasource.count
+        if let par = selectedParams {
+            return par.allKeys.count
+        }
+        return 0
     }
     
 }

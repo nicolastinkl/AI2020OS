@@ -194,7 +194,7 @@ struct AIHttpEngine{
     }    
     
     static func weatherForLocation(response: (WeatherModel) -> ()) {
-        Alamofire.request(.GET, "http://www.weather.com.cn/adat/sk/101010100.html")
+        Alamofire.request(.GET, "http://www.weather.com.cn/adat/sk/101270101.html")
             .responseJSON { (_,_,JSON,_) in
                 if let reponsess: AnyObject = JSON{
                     var httpreponse = WeatherModel(JSON as NSDictionary)

@@ -171,6 +171,7 @@ class AIComponentChoseViewController: UIViewController {
         viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
         viewController.serviceId = self.serviceId
+        viewController.selectedParams = sParams
         self.presentViewController(viewController, animated: true, completion: nil)
          
         

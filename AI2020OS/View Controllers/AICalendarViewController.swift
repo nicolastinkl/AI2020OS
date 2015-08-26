@@ -35,7 +35,7 @@ class AICalendarViewController: UIViewController,CVCalendarViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.monthLabel.text = CVDate(date: NSDate()).description()
+        self.monthLabel.text = CVDate(date: NSDate()).description()
         
         selected(self.startDateButton)
         disSelected(self.endDateButton)

@@ -2270,10 +2270,10 @@
             </objects>
             <point key="canvasLocation" x="2436" y="591"/>
         </scene>
-        <!--Calendar View Controller-->
+        <!--Calendar New View Controller-->
         <scene sceneID="Ai2-Ti-OyT">
             <objects>
-                <viewController storyboardIdentifier="AICalendarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ooO-ao-jsr" customClass="AICalendarViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AICalendarNewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ooO-ao-jsr" customClass="AICalendarNewViewController" customModule="AI2020OS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3uD-nU-4Mk"/>
                         <viewControllerLayoutGuide type="bottom" id="FEC-zj-3g0"/>
