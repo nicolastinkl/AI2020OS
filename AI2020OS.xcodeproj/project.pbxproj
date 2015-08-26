@@ -172,6 +172,9 @@
 		84D9B81D1B7C2CA8005331B5 /* AISingleCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D9B81C1B7C2CA8005331B5 /* AISingleCommentView.xib */; };
 		84D9B81F1B7C320B005331B5 /* AISingleCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B81E1B7C320B005331B5 /* AISingleCommentViewController.swift */; };
 		84D9B8211B7C353C005331B5 /* AISingleCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B8201B7C353C005331B5 /* AISingleCommentView.swift */; };
+		84D9DFE51B8C5AF700D358C2 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DFE41B8C5AF700D358C2 /* StringUtils.swift */; };
+		84D9DFE81B8C60A200D358C2 /* AIHistorySearchHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DFE61B8C60A200D358C2 /* AIHistorySearchHeaderCell.swift */; };
+		84D9DFE91B8C60A200D358C2 /* AIHistorySearchHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D9DFE71B8C60A200D358C2 /* AIHistorySearchHeaderCell.xib */; };
 		84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */; };
 		84DBEFB11B871DA100DBCA5A /* AICompondCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBEFB01B871DA100DBCA5A /* AICompondCommentViewController.swift */; };
 		84DBFF641B26D71F00F7FED6 /* AIFavorServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */; };
@@ -700,6 +703,9 @@
 		84D9B81C1B7C2CA8005331B5 /* AISingleCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISingleCommentView.xib; sourceTree = "<group>"; };
 		84D9B81E1B7C320B005331B5 /* AISingleCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleCommentViewController.swift; sourceTree = "<group>"; };
 		84D9B8201B7C353C005331B5 /* AISingleCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleCommentView.swift; sourceTree = "<group>"; };
+		84D9DFE41B8C5AF700D358C2 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		84D9DFE61B8C60A200D358C2 /* AIHistorySearchHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHistorySearchHeaderCell.swift; sourceTree = "<group>"; };
+		84D9DFE71B8C60A200D358C2 /* AIHistorySearchHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHistorySearchHeaderCell.xib; sourceTree = "<group>"; };
 		84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryRecord.swift; sourceTree = "<group>"; };
 		84DBEFB01B871DA100DBCA5A /* AICompondCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICompondCommentViewController.swift; sourceTree = "<group>"; };
 		84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavorServicesManager.swift; sourceTree = "<group>"; };
@@ -1462,6 +1468,8 @@
 				84CB36841B16E95300D66BBD /* AICatalogTableCellTableViewCell.xib */,
 				84CB368F1B17431700D66BBD /* AIProviderAvatarView.swift */,
 				84CB36911B17433D00D66BBD /* AIProviderAvatarView.xib */,
+				84D9DFE61B8C60A200D358C2 /* AIHistorySearchHeaderCell.swift */,
+				84D9DFE71B8C60A200D358C2 /* AIHistorySearchHeaderCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1848,6 +1856,7 @@
 				84DD649A1B82D128009BDB2A /* AIImageViewUtils.swift */,
 				840FDAC81B85B01B00CE3DF9 /* AITools.h */,
 				840FDAC91B85B01B00CE3DF9 /* AITools.m */,
+				84D9DFE41B8C5AF700D358C2 /* StringUtils.swift */,
 			);
 			name = Utils;
 			path = AI2020OS/Utils;
@@ -2479,6 +2488,7 @@
 				849EC6C31B31062E00930697 /* AISearchBar.xib in Resources */,
 				934987071B0C75E0003086D1 /* AIMessageUnReadView.xib in Resources */,
 				93E4D5AB1B14A5F700992CA3 /* AISettingsStoryboard.storyboard in Resources */,
+				84D9DFE91B8C60A200D358C2 /* AIHistorySearchHeaderCell.xib in Resources */,
 				93A705921B12CAF000E8193C /* AIServerTimeView.xib in Resources */,
 				84CB36921B17433D00D66BBD /* AIProviderAvatarView.xib in Resources */,
 				84AE092A1B8C066400AAC721 /* AITopInfoView.xib in Resources */,
@@ -2696,6 +2706,7 @@
 				93AC3FCE1AC960BA000024A4 /* AIDiscoveryViewController.swift in Sources */,
 				93FF74731B0ECEA000FD97C1 /* CVDate.swift in Sources */,
 				8198ABCB1B81840E0047E740 /* AFHTTPRequestOperation.m in Sources */,
+				84D9DFE51B8C5AF700D358C2 /* StringUtils.swift in Sources */,
 				934FE7D51B1C6BB300B745D4 /* AIIMRoom.swift in Sources */,
 				84AE09331B8C0A4F00AAC721 /* AIServerDetailViewController.swift in Sources */,
 				93FF74661B0ECEA000FD97C1 /* CVCalendarMonthContentView.swift in Sources */,
@@ -2866,6 +2877,7 @@
 				93659F5E1B1EDA100065E661 /* MGSwipeButton.m in Sources */,
 				9301B0761B09979500C1EE79 /* AILoginService.swift in Sources */,
 				93659F611B1EEFB40065E661 /* AIExtensionAICContentAndService.swift in Sources */,
+				84D9DFE81B8C60A200D358C2 /* AIHistorySearchHeaderCell.swift in Sources */,
 				934987101B0DA354003086D1 /* AIHomeViewStyleMultiepleView.swift in Sources */,
 				845DC1E31B8C03650044AE86 /* CurveModel.m in Sources */,
 				84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */,
