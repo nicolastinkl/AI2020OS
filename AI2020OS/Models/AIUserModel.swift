@@ -40,18 +40,20 @@ class AIUserInfoModel: JSONJoy {
     var email: String?
     var phone: String?
     var wx_openid: String?
-
+    var imageurl: String?
+    
     init() {
         
     }
 
     required init(_ decoder: JSONDecoder) {
         
-        user_id = decoder["title"].integer
+        user_id = decoder["user_id"].integer
         user_name = decoder["user_name"].string
         email = decoder["email"].string
         phone = decoder["phone"].string
         wx_openid = decoder["wx_openid"].string
+        imageurl = decoder["imageurl"].string
     }
     
 }

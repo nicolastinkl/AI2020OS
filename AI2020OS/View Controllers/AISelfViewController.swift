@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import  JSONJoy
 
 class AISelfViewController: UITableViewController {
     
@@ -18,7 +19,7 @@ class AISelfViewController: UITableViewController {
     
     private let kImageOriginHight:CGFloat = 240.0
     
-    private var selfUserInfoModel:AIUserModel?
+    private var selfUserInfoModel:AIUserInfoModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +27,24 @@ class AISelfViewController: UITableViewController {
         self.title = "我的"
         
         // Do any additional setup after loading the view, typically from a nib.
-        selfUserInfoModel = AIUserModel()
-        selfUserInfoModel?.id = 100000001869
-        selfUserInfoModel?.name = "洛奇"
-        selfUserInfoModel?.openid = "oX0sls9Yn1tKWPL91W7Kx_nQktGM"
-        selfUserInfoModel?.mobilenumber = "13067575126"
+        selfUserInfoModel = AIUserInfoModel()
+        
+        self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);        
+        
+        let paras = ["phone": AVUser.currentUser().mobilePhoneNumber]
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QuerUserInfoByMobileNumber, parameters: paras) {  [weak self] (response, error) -> () in
+            if let re: AnyObject = response {
+                let userModel =  AIUserInfoModel(JSONDecoder(re))
+                if let strongSelf = self{
+                    strongSelf.selfUserInfoModel = userModel
+                }
+            }
+        }
+        
         selfUserInfoModel?.imageurl = "http://fd.topitme.com/d/8b/d4/1187454768482d48bdo.jpg"
-        
-        
+    }
+    
+    func refereshUserData(){
         let headerview = self.tableview.tableHeaderView as UIView?
         let headerImg =  headerview?.viewWithTag(2) as AIImageView?
         let bgImg =  headerview?.viewWithTag(3) as AIImageView?
@@ -41,14 +52,7 @@ class AISelfViewController: UITableViewController {
         bgImg?.setURL(selfUserInfoModel?.imageurl?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
         headerImg?.setURL(selfUserInfoModel?.imageurl?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
         headerImg?.maskWithEllipse()
-        username?.text = selfUserInfoModel?.name ?? ""
-        
-        self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);        
-        
-        let paras = ["user_id":"\(selfUserInfoModel?.id ?? 0)"]
-        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryUserInfoServices, parameters: paras) {  [weak self] (response, error) -> () in
-            
-        } 
+        username?.text = selfUserInfoModel?.user_name ?? ""
     }
     
     @IBAction func targetToOrderViewControllerAction(sender: AnyObject) {

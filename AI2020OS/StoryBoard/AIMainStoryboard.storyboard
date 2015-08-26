@@ -2877,7 +2877,7 @@
                             </tableViewSection>
                             <tableViewSection id="9hm-NI-iqu">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="vMO-OU-gWw" rowHeight="87" style="IBUITableViewCellStyleDefault" id="Bqf-1r-ThF">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="vMO-OU-gWw" rowHeight="60" style="IBUITableViewCellStyleDefault" id="Bqf-1r-ThF">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bqf-1r-ThF" id="f60-BS-hH3">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -2894,7 +2894,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Ixz-Jf-dJ7" rowHeight="87" style="IBUITableViewCellStyleDefault" id="MzF-U9-39W">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Ixz-Jf-dJ7" rowHeight="60" style="IBUITableViewCellStyleDefault" id="MzF-U9-39W">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MzF-U9-39W" id="rUv-Dw-SHF">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -2911,7 +2911,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="4Wx-iu-eBm" rowHeight="87" style="IBUITableViewCellStyleDefault" id="99X-Ki-OHQ">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="4Wx-iu-eBm" rowHeight="60" style="IBUITableViewCellStyleDefault" id="99X-Ki-OHQ">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="99X-Ki-OHQ" id="P5X-uF-dyM">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -2928,7 +2928,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Ys6-lw-51O" rowHeight="87" style="IBUITableViewCellStyleDefault" id="Jt2-WD-L6R">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Ys6-lw-51O" rowHeight="60" style="IBUITableViewCellStyleDefault" id="Jt2-WD-L6R">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jt2-WD-L6R" id="kYD-YB-3lW">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -2945,7 +2945,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="j9C-bF-FyZ" rowHeight="87" style="IBUITableViewCellStyleDefault" id="Ayr-k9-iwF">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="j9C-bF-FyZ" rowHeight="60" style="IBUITableViewCellStyleDefault" id="Ayr-k9-iwF">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ayr-k9-iwF" id="IHX-QH-bW0">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -2962,7 +2962,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="aX5-qa-yJE" rowHeight="87" style="IBUITableViewCellStyleDefault" id="iyR-Qb-pWB">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="aX5-qa-yJE" rowHeight="60" style="IBUITableViewCellStyleDefault" id="iyR-Qb-pWB">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iyR-Qb-pWB" id="lWf-xg-rAs">
                                             <autoresizingMask key="autoresizingMask"/>
