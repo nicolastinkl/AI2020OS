@@ -34,18 +34,20 @@ class AIOrderSubmitViewController: UIViewController {
     }
     
     @IBAction func buyAction(sender: AnyObject) {
-        if self.serviceId?.toInt() > 0 {
-            self.view.showLoading()
-            let paramsPams = NSMutableArray(objects: ["paramsDate":"23564561356"],["paramsPrice":"452.0"])
-            
-            Async.userInitiated {
-                AIOrderRequester().submitOrder(self.serviceId?.toInt() ?? 0, serviceParams: paramsPams, completion: { (success) -> Void in
-                    self.view.hideLoading()
-                    
-                    
-                    
-                })
+        let detailModel = AIServiceDetailParamsModel()
+        
+        let paramsPams = selectedParams?.allValues
+        
+        if let par = paramsPams{
+            if self.serviceId?.toInt() > 0 {
+                self.view.showLoading()
+                Async.userInitiated {
+                    AIOrderRequester().submitOrder(self.serviceId?.toInt() ?? 0, serviceParams: NSMutableArray(array: par), completion: { (success) -> Void in
+                        self.view.hideLoading()
+                    })
+                }
             }
+            
         }else{
             SCLAlertView().showError("提交失败", subTitle: "参数有误", closeButtonTitle: "关闭", duration: 2)
         }
@@ -57,15 +59,16 @@ class AIOrderSubmitViewController: UIViewController {
     
 }
 
-
 extension AIOrderSubmitViewController:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let key =  selectedParams?.allKeys[indexPath.row] as String
         
+        let valueDic =  selectedParams?.allValues[indexPath.row] as [String:AnyObject]
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("orderSumbitCell") as UITableViewCell
         cell.textLabel.text = key
-        if let value: AnyObject = selectedParams?.valueForKey(key) {
+        if let value: AnyObject = valueDic["param_value"] {
             cell.detailTextLabel?.text = "\(value)"
         }else{
             cell.detailTextLabel?.text = ""

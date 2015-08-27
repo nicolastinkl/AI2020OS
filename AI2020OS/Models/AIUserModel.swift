@@ -53,7 +53,7 @@ class AIUserInfoModel: JSONJoy {
         email = decoder["email"].string
         phone = decoder["phone"].string
         wx_openid = decoder["wx_openid"].string
-        imageurl = decoder["imageurl"].string
+        imageurl = decoder["imageurl"].string ?? "http://weico.u.qiniudn.com/32a477dffd877aa097d1d108efe42ca8_2834027910889238568_1414566053_356086_1012x1800?imageView2/1/w/640/h/320"
     }
     
 }
