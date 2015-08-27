@@ -81,9 +81,9 @@ typedef NS_ENUM(NSInteger, CellStatus) {
 
 - (UIColor *)colorWithR:(CGFloat)r g:(CGFloat)g b:(CGFloat)b
 {
-    CGFloat sr = r/255;
-    CGFloat sg = g/255;
-    CGFloat sb = b/255;
+    CGFloat sr = r/0xFF;
+    CGFloat sg = g/0xFF;
+    CGFloat sb = b/0xFF;
     UIColor *color = [UIColor colorWithRed:sr green:sg blue:sb alpha:1];
     return color;
 }
@@ -115,7 +115,7 @@ typedef NS_ENUM(NSInteger, CellStatus) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(x, 0, size.width+2, kDetailFont);
         [button setTitle:title forState:UIControlStateNormal];
-        UIColor *titleColor = [self colorWithR:34 g:154 b:107];//[UIColor colorWithPatternImage:[UIImage imageNamed:@"bubble_bg"]];
+        UIColor *titleColor = [self colorWithR:0x00 g:0xce b:0xc3];
         [button setTitleColor:titleColor forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:kDetailFont];
         

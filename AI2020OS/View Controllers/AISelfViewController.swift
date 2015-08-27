@@ -90,5 +90,19 @@ class AISelfViewController: UITableViewController {
     }
     
     
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if (indexPath.row == 0)
+        {
+            var serviceManageViewController:AIServiceManageViewController = AIServiceManageViewController()
+            serviceManageViewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(serviceManageViewController, animated: true)
+        }
+        
+        
+    }
+    
 }
 

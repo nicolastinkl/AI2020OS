@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+	<title>服务分类</title>
+	<link rel="stylesheet" href="style/css/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="style/css/global.css">
+    <link rel="stylesheet" href="style/css/base.css">
+    <link rel="stylesheet" href="style/css/app.css">
+</head>
+<body>
+	
+    <div id="container">
+        <div class="wrapper">
+
+            <div class="mui-topbar mui-topbar-prev aui-top">
+                <a href="##" class="arrow-left pos-l"><img src="images/icon/icon_arrow_left.png" width="24px" height="20px" alt=""></a><h2 class="aui-center">服务分类</h2>
+            </div>
+
+            <div class="mod-category aui-relat">
+                <div class="hd">
+                    <ul class="cat-box">
+                        <li class="curr"><a href="javascript:;" data-id=""><div class="cat-item"><span>热门推荐</span></div></a></li>
+                        <li><a href="javascript:;" data-id=""><div class="cat-item"><span>生活家居</span></div></a></li>
+                        <li><a href="javascript:;" data-id=""><div class="cat-item"><span>车品旅行</span></div></a></li>
+                        <li><a href="javascript:;" data-id=""><div class="cat-item"><span>运动户外</span></div></a></li>
+                        <li><a href="javascript:;" data-id=""><div class="cat-item"><span>生活服务</span></div></a></li>
+                        <li><a href="javascript:;" data-id=""><div class="cat-item"><span>美容护理</span></div></a></li>
+                        <li><a href="javascript:;" data-id=""><div class="cat-item"><span>按摩保健</span></div></a></li>
+                        <li><a href="javascript:;" data-id=""><div class="cat-item"><span>其他</span></div></a></li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <div id="J_SubSort">
+						<ul class="list">
+                            <li><a href="#" class="slink"><i class="icon-angle-right"></i>美甲服务</a></li>
+                            <li><a href="#" class="slink"><i class="icon-angle-right"></i>保洁钟点工</a></li>
+                            <li><a href="#" class="slink"><i class="icon-angle-right"></i>保姆</a></li>
+                            <li><a href="#" class="slink"><i class="icon-angle-right"></i>宠物美容</a></li>	
+                            <li><a href="#" class="slink"><i class="icon-angle-right"></i>表白送花</a></li>	
+                            <li><a href="#" class="slink"><i class="icon-angle-right"></i>宝宝起名</a></li>	
+                            <li><a href="#" class="slink"><i class="icon-angle-right"></i>健身私教</a></li>	
+                            <li><a href="#" class="slink"><i class="icon-angle-right"></i>私人律师</a></li>	
+						</ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+
+     <script id="catelog_list" type="text/x-dot-template">
+            <ul class="list">
+                {{ for (var i = 0;i < it.data.length; i++) { }}    
+                 <li><a href="/service/getServiceDetail/{{=it.data[i].service_id}}" class="slink">{{=it.data[i].service_name}}<i class="icon-angle-right"></i></a></li>
+                {{  } }}
+            </ul>
+      </script>  
+
+
+    <script type="text/javascript" src="vendors/jquery/jquery.js"></script>
+    <script type="text/javascript" src="vendors/doT/doT.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            count = 0;
+            var loading = '<div class="loading"><i class="icon-loading"></i></div>',
+                tc = '<div class="nodata">没有查找到数据！</div>';
+            function initial(id,handle) {
+                var sid = id;
+                 $.ajax({
+                    url: 'http://localhost:3000/service/getCatelogItem/'+sid,
+                    cache: false,
+                    timeout: 5000,
+                    success: function(data){
+                        handle(data);
+                    },
+                    error: function(xhr, status, error){
+                        alert('error ' + status + " " + error);  
+                    }
+                });
+            }
+            $('.cat-box').delegate('a', 'click', function(event) {
+                var index = $(this).parents('li').index(),sid = $(this).data('id');
+                if(index == count){
+                    return;
+                }
+                var catelog = $('#J_SubSort'),
+                    liArr =  $('.cat-box').find('li');
+                    catelog_list = doT.template($('#catelog_list').html());
+                    catelog.html(loading);
+                    liArr.removeClass('curr');
+                    liArr.eq(index).addClass('curr');
+                    
+                    initial(sid,function(output){
+                        var out = output;
+                        count = index;
+                        if(out.data.length>0){
+                            count = sid;
+                            setTimeout(function(){
+                                catelog.html(catelog_list(out));
+                            },500)
+                        }else{
+                             setTimeout(function(){
+                                catelog.html(tc);
+                             },500)    
+                        }
+                    })
+                
+            });
+        })
+    </script>
+
+
+</body>
+</html>

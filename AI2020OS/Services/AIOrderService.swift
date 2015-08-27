@@ -116,11 +116,13 @@ class AIOrderRequester {
     
     func queryOrderDetail(orderId : String , completion : OrderDetailRequesterCompletion){
         let requestMessage = AIOrderMessageWrapper.getOrderDetail(orderId)
-        var orderDetailModel : OrderDetailModel?
+        var orderDetailModel : OrderDetailModel!
         AINetEngine.defaultEngine().postMessage(requestMessage, success:
             { (response) -> Void in
-                //orderDetailModel =  OrderDetailModel(dictionary: response, error: nil)
-                completion(data: orderDetailModel!, error: nil)
+                let responseArray : NSArray = AIMessageWrapper.jsonModelsFromArray(response as NSArray, withModelClass: OrderDetailModel.self)
+                orderDetailModel = responseArray.firstObject as? OrderDetailModel
+                completion(data: orderDetailModel, error: nil)
+
             }, fail: { (error:AINetError, errorDes:String!) -> Void in
                 
                 completion(data: OrderDetailModel(), error: Error(message: errorDes, code: error.rawValue))
