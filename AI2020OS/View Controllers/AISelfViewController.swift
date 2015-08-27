@@ -61,12 +61,18 @@ class AISelfViewController: UITableViewController {
         headerImg?.maskWithEllipse()
         username?.text = selfUserInfoModel?.user_name ?? ""
     }
-    
+    //jump to ProviderOrder
     @IBAction func targetToOrderViewControllerAction(sender: AnyObject) {
-         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
+         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateInitialViewController() as AIOrderListViewController
+        viewController.initOrderRole = viewController.ORDER_ROLE_PROVIDER
          self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
+    //jump to CustomerOrder
+    @IBAction func targetToCustomerOrderViewControllerAction(sender: UITapGestureRecognizer) {
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateInitialViewController() as AIOrderListViewController
+        viewController.initOrderRole = viewController.ORDER_ROLE_CUSTOMER
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
     /*
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         let viewTableHead: UIView = self.tableview.tableHeaderView!
@@ -97,7 +103,7 @@ class AISelfViewController: UITableViewController {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        if (indexPath.row == 0)
+        if (indexPath.row == 0 && indexPath.section == 1)
         {
             var serviceManageViewController:AIServiceManageViewController = AIServiceManageViewController()
             serviceManageViewController.hidesBottomBarWhenPushed = true
