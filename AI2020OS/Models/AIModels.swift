@@ -60,7 +60,7 @@ class AIServiceTopicModel: JSONJoy  {
     }
     
     required init(_ decoder: JSONDecoder) {
-        service_id = decoder["service_id"].string?.toInt() ?? 201507271358
+        service_id = decoder["service_id"].string?.toInt()
         service_name = decoder["service_name"].string
         service_price = decoder["service_price"].string
         service_intro = decoder["service_intro"].string
@@ -106,9 +106,9 @@ struct AIServiceDetailModel: JSONJoy  {
     
     init(_ decoder: JSONDecoder) {
         service_id = decoder["service_id"].integer
-        service_name = decoder["service_name"].string
-        service_price = decoder["service_price"].string
-        service_intro = decoder["service_intro"].string
+        service_name = decoder["name"].string
+        service_price = decoder["price"].string
+        service_intro = decoder["description"].string
         provider_id = decoder["provider_id"].string
         provider_name = decoder["provider_name"].string
         service_rating = decoder["service_rating"].string
@@ -118,7 +118,6 @@ struct AIServiceDetailModel: JSONJoy  {
         service_guarantee = decoder["service_guarantee"].string
         service_restraint = decoder["service_restraint"].string
         service_process = decoder["service_process"].string
-        
         if let addrs = decoder["service_param_list"].array {
             service_param_list = Array<AIServiceDetailParamsModel>()
             for addrDecoder in addrs {
