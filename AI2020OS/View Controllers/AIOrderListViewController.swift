@@ -16,6 +16,7 @@ class AIOrderListViewController:UIViewController{
     // MARK: - Local var
     let ORDER_ROLE_CUSTOMER = "Customer"
     let ORDER_ROLE_PROVIDER = "Provider"
+    var initOrderRole : String = "Customer"
 
     // MARK: - IBOutlets
     @IBOutlet weak var customerOrderView: UIView!
@@ -47,7 +48,7 @@ class AIOrderListViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        toggleOrderList(ORDER_ROLE_CUSTOMER)
+        toggleOrderList(initOrderRole)
     }
     
     // MARK: - utils
