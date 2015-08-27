@@ -12,7 +12,18 @@
 
 @interface AISearchServicesAndCatalogsResultModel : JSONModel
 
-@property (strong,nonatomic) NSMutableArray<AIServiceCatalogModel, ConvertOnDemand>* catalog_list;
-@property (strong,nonatomic) NSMutableArray<AIServiceModel, ConvertOnDemand>* service_list;
+@property (strong,nonatomic) NSArray<AIServiceCatalogModel, ConvertOnDemand>* catalog_list;
+@property (strong,nonatomic) NSArray<AIServiceModel, ConvertOnDemand>* service_list;
 
+@property (strong,nonatomic) NSArray<Optional>* catalogArray;
+@property (strong,nonatomic) NSArray<Optional>* serviceArray;
+
+- (void) createModelList;
+@end
+
+@interface AIQueryHotSearchResponse : JSONModel
+
+@property (strong,nonatomic) NSArray<AIServiceCatalogModel, ConvertOnDemand>* catalog_list;
+
+- (NSArray*) createCatalogList;
 @end

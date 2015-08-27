@@ -65,6 +65,8 @@ struct AIHttpEngine{
         case QueryTimeLineServices
         // 查询个人信息
         case QueryUserInfoServices
+        // 按关键词查询服务和服务类
+        case QueryServicesAndCatalogs
         
         /// 返回具体URL
         var description: String {
@@ -86,8 +88,13 @@ struct AIHttpEngine{
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
             case .QueryUserInfoServices : return "getUserInfo"
+            case .QueryServicesAndCatalogs : return "/sboss/queryServicesAndCatalogs"
             }
         }
+    }
+    
+    static func getUrl(path: ResourcePath) -> String {
+        return baseURL + path.description
     }
     
     static func postRequestWithParameters(path:ResourcePath,parameters: [String: AnyObject]? = nil,response: (response:AnyObject?,error:Error?) -> ()) {

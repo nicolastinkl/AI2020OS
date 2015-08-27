@@ -13,6 +13,8 @@
 
 
 
+
+
 - (void)test
 {
     
@@ -46,7 +48,5 @@
 
 @end
 
-@implementation AIQueryHotSearchResponse
-@end
 
 

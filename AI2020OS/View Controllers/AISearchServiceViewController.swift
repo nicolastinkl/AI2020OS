@@ -28,7 +28,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
         
         initCollectionView()
         
-        var engine = MockSearchEngine()
+        var engine = HttpSearchEngine()
         historyRecorder = engine
         searchEngine = engine
         
@@ -98,8 +98,8 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func showAllServices(sender: UIButton) {
-        println("showAllServices")
-        searchEngine?.queryHotSearchedServices(self.loadTableViewData)
+        //searchEngine?.queryHotSearchedServices(self.loadTableViewData)
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func searchButtonAction(sender: AnyObject) {
@@ -136,6 +136,21 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
         historyRecorder?.recordSearch(record)
         recordList?.append(record)
         collectionView.reloadData()
+        
+        view.showProgressViewLoading()
+        searchEngine?.searchServicesAndCatalogs("t", pageNum: 1, pageSize: 10, successRes: queryServicesAndCatalogsSuccess, fail: queryHotFail)
+    }
+    
+    private func queryServicesAndCatalogsSuccess(responseData: AISearchServicesAndCatalogsResultModel) {
+        view.hideProgressViewLoading()
+        
+        if responseData.catalogArray != nil || responseData.serviceArray != nil {
+            let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISimpleServiceTableViewController) as AISimpleServiceTableViewController
+            
+            viewController.data = responseData
+            
+            presentViewController(viewController, animated: true, completion: nil)
+        }
     }
     
     func deleteHistory() {

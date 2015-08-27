@@ -21,8 +21,19 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         initServiceData()
     }
     
-    func searchServicesAndCatalogs(keyword: String, successRes: (responseData: AISearchServicesAndCatalogsResultModel) -> Void, fail: (errType: AINetError, errDes: String)) {
+    func searchServicesAndCatalogs(keyword: String, pageNum: Int, pageSize: Int, successRes: (responseData: AISearchServicesAndCatalogsResultModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
+        var model = AISearchServicesAndCatalogsResultModel()
+        model.catalogArray = [AIServiceCatalogModel]()
+        model.serviceArray = [AIServiceModel]()
+        
+        var s = AIServiceModel()
+        s.service_name = "小王美甲"
+        s.service_intro_url = "http://www.czgu.com/uploads/allimg/140904/0644594560-0.jpg"
+        
+        model.serviceArray.append(s)
+        
+        successRes(responseData: model)
     }
     
     func queryHotSearchedServices(completion: (([AICatalogItemModel], Error?)) -> Void) {
@@ -281,18 +292,41 @@ class HttpSearchEngine : MockSearchEngine {
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             var dic = response as NSDictionary
+            
             var model: AIQueryHotSearchResponse = AIQueryHotSearchResponse(dictionary: dic, error: nil)
-            successRes(responseData: model.catalog_list as AnyObject as [AIServiceCatalogModel])
+            
+            var modelList : NSArray = model.createCatalogList()
+            
+            let ml = modelList as [AIServiceCatalogModel]
+        
+            
+            successRes(responseData: ml)
             }) { (error:AINetError, errorDes:String!) -> Void in
                 
                 fail(errType: error, errDes: errorDes)
         }
         
-//        AINetEngine.defaultEngine().postMessage(message, success:( { (response:NSDictionary) -> Void in
-//            
-//            }) { (err: AINetError, errDesc: String!) -> Void in
-//            
-//        }
+    }
+    
+    override func searchServicesAndCatalogs(keyword: String, pageNum: Int, pageSize: Int, successRes: (responseData: AISearchServicesAndCatalogsResultModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        var message = AIMessage()
+        message.url = AIHttpEngine.getUrl(AIHttpEngine.ResourcePath.QueryServicesAndCatalogs)
+        
+        let body = ["data":["keyword":keyword, "page_num":pageNum, "page_size":pageSize],"desc":["data_mode":"0","digest":""]]
+        message.body = NSMutableDictionary(dictionary: body)
+
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            var dic = response as NSDictionary
+            var model: AISearchServicesAndCatalogsResultModel = AISearchServicesAndCatalogsResultModel(dictionary: dic, error: nil)
+            model.createModelList()
+            
+            successRes(responseData: model)
+            }) { (error: AINetError, errorDes: String!) -> Void in
+                
+                
+                fail(errType: error, errDes: errorDes)
+        }
     }
     
 }

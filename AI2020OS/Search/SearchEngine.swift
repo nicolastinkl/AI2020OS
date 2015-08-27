@@ -13,7 +13,7 @@ import Foundation
 
 
 protocol SearchEngine {
-    func searchServicesAndCatalogs(keyword: String, successRes: (responseData: AISearchServicesAndCatalogsResultModel) -> Void, fail: (errType: AINetError, errDes: String))
+    func searchServicesAndCatalogs(keyword: String, pageNum: Int, pageSize: Int, successRes: (responseData: AISearchServicesAndCatalogsResultModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func queryHotSearchedServices(completion: (([AICatalogItemModel], Error?)) -> Void)
     func getAllServiceCatalog(completion: (([AICatalogItemModel], Error?)) -> Void)
     func queryServices(catalogId: Int, pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void)

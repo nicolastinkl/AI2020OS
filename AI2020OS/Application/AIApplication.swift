@@ -61,6 +61,7 @@ struct AIApplication{
             static let AIOrderSubmitViewController  = "AIOrderSubmitViewController"
             static let AISingleCommentViewController = "AISingleCommentViewController"
             static let AIUserDesViewController      = "AIUserDesViewController"
+            static let AISimpleServiceTableViewController = "AISimpleServiceTableViewController"
             
         }
         
