@@ -111,7 +111,12 @@ class AIBaseOrderListViewController : UIViewController{
     }
     
     func commentsOrder(target:UIButton){
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AICommentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISingleCommentViewController) as UIViewController
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AICommentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISingleCommentViewController) as AISingleCommentViewController
+        let buttonIndex = target.associatedName?.toInt() ?? 0
+        let orderNumber = findOrderNumberByIndexNumber(buttonIndex)
+        let serviceId = findOServiceIdByIndexNumber(buttonIndex)
+        viewController.inputOrderId = orderNumber
+        viewController.inputServiceId = serviceId
         self.navigationController?.pushViewController(viewController, animated: true)
 
     }
