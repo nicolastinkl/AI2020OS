@@ -56,39 +56,36 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     
     // MARK: - utils
     func retryNetworkingAction(){
-        self.view.hideProgressViewLoading()
-        self.view.showProgressViewLoading()
+        tableView.hideProgressViewLoading()
+        tableView.showProgressViewLoading()
         //后台请求数据
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
             AIOrderRequester().queryOrderList(page: 1, orderRole: 1, orderState: self.orderStatus, completion: { (data) -> () in
                 self.orderList = data
                 self.tableView.reloadData()
-                self.view.hideErrorView()
-                self.view.hideProgressViewLoading()
+                self.tableView.hideErrorView()
+                self.tableView.hideProgressViewLoading()
             })
         }
     }
-    
-    
     
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单
     //orderState: 待处理 进行中 待完成 已完成
     func buildDynaOperButton(orderState : String,orderType : String,buttonView:UIView,indexNumber : Int){
-        
         let stateEnum = OrderStatus(rawValue: NSString(string: orderState).integerValue)
         switch stateEnum! {
         case .Init:
-            addOperButton([ButtonModel(title: "申请变更",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "申请变更",action:"changeOrder:")], buttonView: buttonView,indexNumber : indexNumber)
         case .Executing:
-            addOperButton([ButtonModel(title: "申请变更",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "申请变更",action:"changeOrder:")], buttonView: buttonView,indexNumber : indexNumber)
         case .WaidForComment:
-            addOperButton([ButtonModel(title: "评论",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "评 论",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
         case .WaitForPay:
-            addOperButton([ButtonModel(title: "支付",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "支 付",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
         default :
-            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "评 价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             return
             
         }
@@ -97,7 +94,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     func buildDynaStatusButton(){
         let buttonArray = [StatusButtonModel(title: "全部", amount: 7,status:0),
             StatusButtonModel(title: "待执行", amount: 4,status:OrderStatus.Init.rawValue),
-            StatusButtonModel(title: "待付款", amount: 0,status:OrderStatus.WaitForPay.rawValue),
+            StatusButtonModel(title: "执行中", amount: 0,status:OrderStatus.Executing.rawValue),
             StatusButtonModel(title: "待评价", amount: 3,status:OrderStatus.WaidForComment.rawValue),
             StatusButtonModel(title: "已完成", amount: 3,status:OrderStatus.Finished.rawValue)]
         addStatusButton(buttonArray, scrollView: scrollView)
@@ -151,7 +148,7 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
             buildDynaOperButton(orderListModel.order_state_name!, orderType: "", buttonView: buttonView,indexNumber : indexPath.row)
         }
         if let customerIconImg = cell.viewWithTag(140) as? AIImageView{
-            customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url! ?? ""), placeholderImage: UIImage(named: "Placeholder"))
+            customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url! ?? "http://img1.gtimg.com/kid/pics/hv1/47/231/1905/123931577.jpg"), placeholderImage: UIImage(named: "Placeholder"))
         }
         return cell
     }
@@ -160,8 +157,10 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateViewControllerWithIdentifier("AICustomerOrderDetailViewController") as UIViewController
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateViewControllerWithIdentifier("AICustomerOrderDetailViewController") as AICustomerOrderDetailViewController
 //        self.navigationController?.pushViewController(viewController, animated: true)
+        viewController.orderId = findOrderNumberByIndexNumber(indexPath.row)
+        viewController.serviceId = findOServiceIdByIndexNumber(indexPath.row)
         showViewController(viewController, sender: self)
     }
 }

@@ -216,7 +216,8 @@ extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
                     
                     let model:AIServiceTopicModel = array[index]
                     var selected: AIHomeCellViewStyle = .ViewStyleTitle
-                    switch index{
+                    let type = moive.result_type ?? 0
+                    switch type{
                     case 0:
                         (cacheView as AIHomeViewStyleTitleView).fillDataWithModel(model)
                         break
@@ -259,8 +260,6 @@ class AIHomeViewCell : UITableViewCell{
             return
         }
 
-        println("count: \(count)   NSIndexPath: \(indexPath.row)")
-
         //200215958514
         for xOffset in 0...(count-1){
             let index:Int = xOffset
@@ -272,7 +271,8 @@ class AIHomeViewCell : UITableViewCell{
             }else{
                 
                 var selected: AIHomeCellViewStyle = .ViewStyleTitle
-                switch xOffset{
+                let type = model.result_type ?? 0
+                switch type{
                 case 0:
                     selected = AIHomeCellViewStyle.ViewStyleTitle
                     break

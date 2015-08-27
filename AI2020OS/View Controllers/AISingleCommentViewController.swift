@@ -11,6 +11,8 @@ import UIKit
 
 class AISingleCommentViewController : UIViewController {
     
+    var inputServiceId: Int!
+    var inputOrderId: Int!
     var commentView: AISingleCommentView!
     var commentManager: AIServiceCommentManager!
     

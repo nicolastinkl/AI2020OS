@@ -111,16 +111,34 @@ class AIBaseOrderListViewController : UIViewController{
     }
     
     func commentsOrder(target:UIButton){
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AICommentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISingleCommentViewController) as UIViewController
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AICommentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISingleCommentViewController) as AISingleCommentViewController
+        let buttonIndex = target.associatedName?.toInt() ?? 0
+        let orderNumber = findOrderNumberByIndexNumber(buttonIndex)
+        let serviceId = findOServiceIdByIndexNumber(buttonIndex)
+        viewController.inputOrderId = orderNumber
+        viewController.inputServiceId = serviceId
         self.navigationController?.pushViewController(viewController, animated: true)
 
     }
     
     func excuteOrder(target:UIButton){
-        let buttonIndex = target.tag
+        let buttonIndex = target.associatedName?.toInt() ?? 0
         let orderNumber = findOrderNumberByIndexNumber(buttonIndex)
         AIOrderRequester().updateOrderStatus(orderNumber, orderStatus: OrderStatus.Executing.rawValue, completion: { (resultCode) -> Void in
                 self.updateOrderStatusCompletion(resultCode, comments: "开始执行订单")
+            }
+        )
+    }
+    
+    func changeOrder(target:UIButton){
+        SCLAlertView().showInfo("提示", subTitle: "申请修改订单！", closeButtonTitle: "关闭", duration: 3)
+    }
+    
+    func finishOrder(target:UIButton){
+        let buttonIndex = target.associatedName?.toInt() ?? 0
+        let orderNumber = findOrderNumberByIndexNumber(buttonIndex)
+        AIOrderRequester().updateOrderStatus(orderNumber, orderStatus: OrderStatus.WaidForComment.rawValue, completion: { (resultCode) -> Void in
+            self.updateOrderStatusCompletion(resultCode, comments: "订单结束")
             }
         )
     }
@@ -139,10 +157,17 @@ class AIBaseOrderListViewController : UIViewController{
         var x1:CGFloat = 0
         var x2:CGFloat = statusButtonWidth
         
+        var isFirst = true
+        
         for buttonModel in buttonArray{
             var button = UIButton(frame: CGRectMake(x1, 0, statusButtonWidth, 25))
             //button.tag = buttonModel.status
             button.associatedName = "\(buttonModel.status)"
+            //给第一个默认选中
+            if isFirst {
+                button.selected = true
+                isFirst = false
+            }
             button.setTitle(buttonModel.title, forState: UIControlState.Normal)
             //扩展的直接读取rgba颜色的方法
             button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
@@ -193,9 +218,11 @@ class AIBaseOrderListViewController : UIViewController{
         return contentSize
     }
     
-    private func findOrderNumberByIndexNumber(indexNumber : Int) -> Int {
+    func findOrderNumberByIndexNumber(indexNumber : Int) -> Int {
         return orderList[indexNumber].order_number!
     }
     
-    
+    func findOServiceIdByIndexNumber(indexNumber : Int) -> Int {
+        return orderList[indexNumber].service_id!
+    }
 }
