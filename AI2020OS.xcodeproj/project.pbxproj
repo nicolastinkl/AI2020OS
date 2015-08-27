@@ -159,6 +159,7 @@
 		84CDC8E61B84222B002A29EE /* AIHomeDesChildViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CDC8E51B84222B002A29EE /* AIHomeDesChildViewCell.xib */; };
 		84CDC8E81B848650002A29EE /* AIHomeCommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC8E71B848650002A29EE /* AIHomeCommentViewCell.swift */; };
 		84CDC8EA1B84867C002A29EE /* AIHomeCommentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CDC8E91B84867C002A29EE /* AIHomeCommentViewCell.xib */; };
+		84CEDF881B8DC14700EE5499 /* AICalendarNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEDF871B8DC14700EE5499 /* AICalendarNewViewController.swift */; };
 		84CF6A821B17F9A3001C4E72 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */; };
 		84D142621B2EA04A00662291 /* AITagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D142611B2EA04A00662291 /* AITagModel.swift */; };
 		84D1B6DE1B7C33690094D553 /* AIOrderSubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1B6DD1B7C33690094D553 /* AIOrderSubmitViewController.swift */; };
@@ -689,6 +690,7 @@
 		84CDC8E51B84222B002A29EE /* AIHomeDesChildViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeDesChildViewCell.xib; sourceTree = "<group>"; };
 		84CDC8E71B848650002A29EE /* AIHomeCommentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeCommentViewCell.swift; sourceTree = "<group>"; };
 		84CDC8E91B84867C002A29EE /* AIHomeCommentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeCommentViewCell.xib; sourceTree = "<group>"; };
+		84CEDF871B8DC14700EE5499 /* AICalendarNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICalendarNewViewController.swift; sourceTree = "<group>"; };
 		84CF6A801B17F9A3001C4E72 /* CWStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
 		84CF6A811B17F9A3001C4E72 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
 		84D142611B2EA04A00662291 /* AITagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITagModel.swift; sourceTree = "<group>"; };
@@ -1504,6 +1506,7 @@
 				84D332481B8B4F7300BB1318 /* AICollectRootController.swift */,
 				845DC1EB1B8C043F0044AE86 /* AIScanViewController.swift */,
 				84AE09321B8C0A4F00AAC721 /* AIServerDetailViewController.swift */,
+				84CEDF871B8DC14700EE5499 /* AICalendarNewViewController.swift */,
 			);
 			path = CollectView;
 			sourceTree = "<group>";
@@ -2851,6 +2854,7 @@
 				93CED3DF1AD530C000761B4D /* AIUIViewUtils.swift in Sources */,
 				933668861AD671A4007556D7 /* AITransitionManager.swift in Sources */,
 				840FDAC51B85AFDF00CE3DF9 /* OHAttributedLabel.m in Sources */,
+				84CEDF881B8DC14700EE5499 /* AICalendarNewViewController.swift in Sources */,
 				84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */,
 				84D332431B8B0D0D00BB1318 /* AIUserModel.swift in Sources */,
 				9349871A1B0DBDC7003086D1 /* AIErrorRetryView.swift in Sources */,

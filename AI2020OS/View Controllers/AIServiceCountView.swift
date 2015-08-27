@@ -13,13 +13,23 @@ class AIServiceCountView : UIView {
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var silderView: UISlider!
     
+    typealias viewChangeCloseure = (Int)->()
+    var myClosure:viewChangeCloseure?
+    
     @IBAction func viewChange(sender: AnyObject) {
         valueLabel.text = "\(Int(self.silderView.value))"
+        if let closure = myClosure {
+            closure(Int(self.silderView.value))
+        }
+    }
+    
+    func viewChangeClosure(changeClosure:viewChangeCloseure){
+        
+        myClosure = changeClosure
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     class func currentView() -> AIServiceCountView {

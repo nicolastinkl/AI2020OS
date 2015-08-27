@@ -67,6 +67,10 @@ struct AIHttpEngine{
         case QueryUserInfoServices
         // 更新订单状态
         case UpdateOrderStatus
+        // 根据手机号查询用户信息
+        case QuerUserInfoByMobileNumber
+        //  添加收藏
+        case addServiceToFavorite
         
         /// 返回具体URL
         var description: String {
@@ -89,6 +93,9 @@ struct AIHttpEngine{
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
             case .QueryUserInfoServices : return "getUserInfo"
             case .UpdateOrderStatus : return "/sboss/updateOrderStatus"
+            case .QueryUserInfoServices : return "/sboss/getUserInfo"
+            case .QuerUserInfoByMobileNumber : return "/sboss/getUserInfoByMobileNumber"
+            case .addServiceToFavorite : return "/sboss/addServiceToFavorite"
             }
         }
     }
@@ -98,12 +105,24 @@ struct AIHttpEngine{
         // Create manager
         var manager = Manager.sharedInstance
         
-        let timeStamp: Int = 0
-        let token = "0"
+        let timeStamp: Int = Int(NSDate().timeIntervalSince1970)
+        let token = "YXNkZmFzZGZhc2RmYXNkZmFzZGY="
         let userId = kUser_ID
-        let RSA = "0"
+        let RSA = "YXNkZmFzZGZhc2RmYXNkZmFzZGY="
         
         let header = "\(timeStamp)&\(token)&\(userId)&\(RSA)"
+        
+        
+        // UTF 8 str from original
+        // NSData! type returned (optional)
+        let utf8str = header.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        // Base64 encode UTF 8 string
+        // fromRaw(0) is equivalent to objc 'base64EncodedStringWithOptions:0'
+        // Notice the unwrapping given the NSData! optional
+        // NSString! returned (optional)
+        let base64Encoded = utf8str?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+//        println("Encoded:  \(base64Encoded)")
         
         
         // Add Headers
@@ -185,7 +204,7 @@ struct AIHttpEngine{
     }    
     
     static func weatherForLocation(response: (WeatherModel) -> ()) {
-        Alamofire.request(.GET, "http://www.weather.com.cn/adat/sk/101010100.html")
+        Alamofire.request(.GET, "http://www.weather.com.cn/adat/sk/101270101.html")
             .responseJSON { (_,_,JSON,_) in
                 if let reponsess: AnyObject = JSON{
                     var httpreponse = WeatherModel(JSON as NSDictionary)

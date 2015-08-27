@@ -195,7 +195,10 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         }
     }
     func likeAction(sender: AnyObject){
-        
+        let sID = self.server_id ?? ""
+        AIMockFavorServicesManager().addServiceToFavorite(sID, completion: { (success) -> Void in
+            
+        })
     }
     
     func webChatAction(){
