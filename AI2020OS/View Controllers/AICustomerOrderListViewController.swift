@@ -87,7 +87,8 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         default :
             addOperButton([ButtonModel(title: "评 价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             return
-        
+            
+        }
     }
     
     func buildDynaStatusButton(){
