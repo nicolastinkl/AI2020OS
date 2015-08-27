@@ -96,6 +96,8 @@ class AILoginViewController: UIViewController {
                 if let u = user{
                     // dissmiss viewController
                     AILocalStore.setAccessToken(self.phoneTextFlied.text)
+                    
+                    NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
                     self.dismissViewControllerAnimated(true, completion: { () -> Void in
                         
                     })

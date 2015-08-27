@@ -45,6 +45,10 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         return recordList
     }
     
+    func clearHistory() {
+        recordList.removeAll(keepCapacity: false)
+    }
+    
     func getFavorServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void) {
         var list = [AIServiceTopicModel]()
         var service = AIServiceTopicModel()
@@ -100,7 +104,27 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
     }
     
     func queryHotSearchedServices(successRes: (responseData: [AIServiceCatalogModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        var list = [AIServiceCatalogModel]()
+        var m = AIServiceCatalogModel()
+        m.catalog_name = "美容"
+        list.append(m)
         
+        m = AIServiceCatalogModel()
+        m.catalog_name = "理财"
+        list.append(m)
+        
+        m = AIServiceCatalogModel()
+        m.catalog_name = "租房"
+        list.append(m)
+        
+        m = AIServiceCatalogModel()
+        m.catalog_name = "服饰搭配"
+        list.append(m)
+        
+        m = AIServiceCatalogModel()
+        m.catalog_name = "保洁"
+        list.append(m)
+        successRes(responseData: list)
     }
     
     private func initServiceData() {
@@ -243,13 +267,14 @@ class HttpSearchEngine : MockSearchEngine {
         message.url = "http://171.221.254.231:8282/sboss/queryHotSearch"
     
 //        let body = ["data":["order_role":"1","order_state":"11"],"desc":["data_mode":"0","digest":""]]
-        var body = NSMutableDictionary()
-        let data = NSDictionary()
-        body.setObject(data, forKey: "data")
-        let desc = AIBodyDescModel()
-        desc.data_mode = MODE_PLAIN_TEXT
-        
-        body.setObject(desc.toDictionary(), forKey: "desc")
+        let body = ["data":NSDictionary(),"desc":["data_mode":"0","digest":""]]
+//        var body = NSMutableDictionary()
+//        let data = NSDictionary()
+//        body.setObject(data, forKey: "data")
+//        let desc = AIBodyDescModel()
+//        desc.data_mode = MODE_PLAIN_TEXT
+//        
+//        body.setObject(desc.toDictionary(), forKey: "desc")
         
         
     

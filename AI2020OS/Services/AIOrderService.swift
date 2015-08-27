@@ -18,7 +18,7 @@ class AIOrderRequester {
     private var isLoading : Bool = false
     
     //查询订单列表 
-    func queryOrderList(page :Int=1,completion:OrderListRequesterCompletion){
+    func queryOrderList(page :Int=1,orderRole : Int,orderState : Int,completion:OrderListRequesterCompletion){
         
         if isLoading {
             return
@@ -27,8 +27,8 @@ class AIOrderRequester {
         
         let paras = [
             "page_num": "1",
-            "order_role": "1",
-            "order_state": "11"
+            "order_role": "\(orderRole)",
+            "order_state": "\(orderState)"
         ]
         
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetOrderList, parameters: paras) {  [weak self] (response, error) -> () in
@@ -114,16 +114,33 @@ class AIOrderRequester {
         }
     }
     
-    func queryOrderDetail(orderId : String , completion : OrderDetailRequesterCompletion){
+    func queryOrderDetail(orderId : Int , completion : OrderDetailRequesterCompletion){
         let requestMessage = AIOrderMessageWrapper.getOrderDetail(orderId)
-        var orderDetailModel : OrderDetailModel?
+        var orderDetailModel : OrderDetailModel!
         AINetEngine.defaultEngine().postMessage(requestMessage, success:
             { (response) -> Void in
-                orderDetailModel =  OrderDetailModel(dictionary: response as NSDictionary, error: nil)
-                completion(data: orderDetailModel!, error: nil)
+                let responseArray : NSArray = AIMessageWrapper.jsonModelsFromArray(response as NSArray, withModelClass: OrderDetailModel.self)
+                orderDetailModel = responseArray.firstObject as? OrderDetailModel
+                completion(data: orderDetailModel, error: nil)
+
             }, fail: { (error:AINetError, errorDes:String!) -> Void in
                 
                 completion(data: OrderDetailModel(), error: Error(message: errorDes, code: error.rawValue))
         })
+    }
+    
+    func updateOrderStatus(orderId : Int,orderStatus : Int,completion : (resultCode : Int) -> Void) {
+        let requestMessage = AIOrderMessageWrapper.updateOrderStatus(orderId, orderStatus: orderStatus)
+        AINetEngine.defaultEngine().postMessage(requestMessage, success:
+            { (response) -> Void in
+//                let result : NSDictionary = response as NSDictionary
+//                let resultCode : Int = result.objectForKey("resultCode") as Int
+                completion(resultCode: 1)
+                
+            }, fail: { (error:AINetError, errorDes:String!) -> Void in
+                
+                completion(resultCode: 0)
+        })
+
     }
 }

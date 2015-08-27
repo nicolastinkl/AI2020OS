@@ -136,6 +136,7 @@ class AILoginWithSMSViewController: UIViewController {
                 self.view.hideLoading()
                 if avuser != nil {
                     AILocalStore.setAccessToken(self.phoneTextField.text)
+                    NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }else{
                     SCLAlertView().showError("提示", subTitle: "验证码获取失败", closeButtonTitle: "关闭", duration: 2)

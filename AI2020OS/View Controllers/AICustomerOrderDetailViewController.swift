@@ -21,11 +21,11 @@ class AICustomerOrderDetailViewController: UIViewController {
     @IBOutlet weak var orderCreateTime: UILabel!
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var serviceDesc: UILabel!
-    @IBOutlet weak var serviceThumbnailUrl: UIImageView!
     
+    @IBOutlet weak var serviceIntroImage: AIImageView!
     @IBOutlet weak var servicePrice: UILabel!
     
-    var orderId:String!
+    var orderId:Int!
     
     // MARK: life cycle
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class AICustomerOrderDetailViewController: UIViewController {
         
         self.title = "订单详情"
         
-        orderId = "100000013149"
+        orderId = 100000013149
         retryNetworkingAction()
     }
     
@@ -53,6 +53,10 @@ class AICustomerOrderDetailViewController: UIViewController {
     }
     
     // MARK: - utils
+    func retryRequest() {
+        retryNetworkingAction()
+    }
+    
     func retryNetworkingAction(){
         self.view.hideProgressViewLoading()
         self.view.showProgressViewLoading()
@@ -62,8 +66,17 @@ class AICustomerOrderDetailViewController: UIViewController {
             AIOrderRequester().queryOrderDetail(self.orderId, completion: {
                 (data:OrderDetailModel,error:Error?) ->() in
                 self.view.hideProgressViewLoading()
-                println("order_detail_data : \(data)")
+                self.bindOrderData(data)
             })
+        }
+        
+        Async.background(){
+            let servicesRequester = AIServicesRequester()
+            servicesRequester.loadServiceDetail(201507201604, service_type: 0, completion:
+                { (data) -> () in
+                    self.bindServiceData(data)
+                }
+            )
         }
     }
     
@@ -72,7 +85,18 @@ class AICustomerOrderDetailViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
 
-    func buildTimeLineView(){
-        
+    //bind service data to view
+    func bindOrderData(orderDetailModel : OrderDetailModel){
+        orderNumber.text = orderDetailModel.order_number
+        orderName.text = orderDetailModel.service_name + orderDetailModel.order_price
+        orderCreateTime.text = orderDetailModel.order_create_time
+        serviceTimeDuration.text = orderDetailModel.service_time_duration
+    }
+    
+    func bindServiceData(serviceDetailModel : AIServiceDetailModel){
+        serviceIntroImage.setURL(NSURL(string: serviceDetailModel.service_intro_url! ?? ""), placeholderImage: UIImage(named: "Placeholder"))
+        servicePrice.text = serviceDetailModel.service_price
+        serviceName.text = serviceDetailModel.service_name
+        serviceDesc.text = serviceDetailModel.service_intro
     }
 }

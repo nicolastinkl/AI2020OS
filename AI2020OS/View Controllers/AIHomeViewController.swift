@@ -34,10 +34,8 @@ class AIHomeViewController: UITableViewController {
         
         self.title = "首页"
         
-        retryNetworkingAction()
-        
         if let token = AILocalStore.accessToken() {
-            //AIApplication.showMessageUnreadView()
+            retryNetworkingAction()
             
             /*
             AIIMCenter().openWithClientId(AVUser.currentUser().objectId, callbackBlock: { (success, error) -> Void in
@@ -52,7 +50,30 @@ class AIHomeViewController: UITableViewController {
             self.loginAction = LoginAction(viewController: self, completion: nil)
         }
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loginSuccess", name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logoutSuccess", name: AIApplication.Notification.UIAIASINFOLogOutNotification, object: nil)
+        
+    }
+    
+    /**
+    登录成功
+    */
+    func loginSuccess(){
+        retryNetworkingAction()
+    }
+    
+    /**
+    登录失败
+    */
+    func logoutSuccess(){
+        self.serviceTopicList = []
+        self.tableView.reloadData()
+        AILocalStore.logout()
+        self.tabBarController?.selectedIndex = 0
+        self.loginAction = LoginAction(viewController: self, completion: nil)
+        
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -85,7 +106,11 @@ class AIHomeViewController: UITableViewController {
                     self.serviceTopicList = data
                     self.tableView.reloadData()
                     self.view.hideErrorView()
-                }else{
+                }else if data.count == 0{
+                    self.serviceTopicList = []
+                    self.tableView.reloadData()
+                    self.view.showErrorView("没有数据")
+                }else {
                     self.view.showErrorView()
                 }
             })
@@ -100,9 +125,9 @@ class AIHomeViewController: UITableViewController {
                     let headerview = self.tableview.tableHeaderView as UIView?
                     // referesh UI
                     let weatherLabel =  headerview?.getViewByTag(1) as UILabel?
-                    let weak = self.weatherValue?.week as String? ?? ""
+                    let city = self.weatherValue?.city as String? ?? ""
                     let weather1 = self.weatherValue?.weather1 as String? ?? ""
-                    weatherLabel?.text = "现在是\(weak),天气\(weather1)"
+                    weatherLabel?.text = "\(city),天气\(weather1)"
                 }
             })
         }
@@ -134,6 +159,13 @@ class AIHomeViewController: UITableViewController {
     
     @IBAction func searchServices(sender: AnyObject) {
         showSearchMainViewController()
+
+       /*
+        let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
+        controller.server_id = "201507201404"
+        showViewController(controller, sender: self)
+        */
+        
         
 //        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISearchServiceCollectionViewController) as AISearchServiceViewController
 //        

@@ -29,13 +29,14 @@ class AIServicesRequester {
         
         isLoading = true
         
-        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetServicesTopic, parameters: ["page_num":"1","page_size":"10","topic_id":"1"]) {  [weak self] (response, error) -> () in
+        let params = ["page_size":"10","catalog_id": "1600","page_no": "1","user_id": "10000384"]
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetServicesTopic, parameters: params) {  [weak self] (response, error) -> () in
             if let strongSelf = self{
                 strongSelf.isLoading = false                
             }
             if let responseJSON: AnyObject = response{
-                let service =  AIServiceTopicResult(JSONDecoder(responseJSON))
-                completion(data: service.service_array!)
+                let service =  AIServiceTopicListModel(JSONDecoder(responseJSON))
+                completion(data: [service] )
             }else{
                 completion(data: [])
             }

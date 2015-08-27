@@ -166,7 +166,19 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         
         completion((tagList, nil))
     }
+ 
     
+    func addServiceToFavorite(serviceId:String,completion: ((Bool) -> Void)){
+        let params = ["service_id":serviceId]
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryCollectedServices, parameters: params) {  [weak self] (response, error) -> () in
+            if let re: AnyObject = response {
+                completion(true)
+            }else{
+                completion(false)
+            }
+            
+        }
+    }
 }
 
 class AIHttpFavorServicesManager : AIMockFavorServicesManager {

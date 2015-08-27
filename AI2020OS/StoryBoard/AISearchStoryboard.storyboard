@@ -213,7 +213,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_icon_search_normal" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-6z-Z1J" userLabel="SearchBk">
                                             <rect key="frame" x="10" y="30" width="580" height="36"/>
                                             <animations/>
-                                            <rect key="contentStretch" x="0.79999999999999982" y="0.0" width="0.0" height="0.0"/>
+                                            <rect key="contentStretch" x="0.44999999999999962" y="0.29999999999999999" width="0.0" height="0.34999999999999998"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="X2A-qR-6eT"/>
                                             </constraints>
@@ -296,16 +296,57 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </collectionViewCell>
                                             </cells>
-                                            <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="head" id="z4D-O2-qEt">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                                            <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Head" id="z4D-O2-qEt" customClass="AIHistorySearchHeaderCell" customModule="AI2020OS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2i-EF-0SG" userLabel="deleteButton">
+                                                        <rect key="frame" x="558" y="7" width="28" height="22"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="28" id="pPB-v0-1M9"/>
+                                                            <constraint firstAttribute="height" constant="22" id="x7u-Ek-dTR"/>
+                                                        </constraints>
+                                                        <state key="normal" image="history_search_del">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜索历史" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9d-td-C93" userLabel="title">
+                                                        <rect key="frame" x="8" y="8" width="85" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="85" id="jy6-bv-xiy"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.41960784313725491" green="0.41960784313725491" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="X9d-td-C93" firstAttribute="leading" secondItem="z4D-O2-qEt" secondAttribute="leadingMargin" id="F8X-B3-exR"/>
+                                                    <constraint firstAttribute="trailingMargin" secondItem="l2i-EF-0SG" secondAttribute="trailing" constant="6" id="OxO-49-tal"/>
+                                                    <constraint firstAttribute="centerY" secondItem="X9d-td-C93" secondAttribute="centerY" constant="-1" id="dnJ-BR-Utj"/>
+                                                    <constraint firstAttribute="centerY" secondItem="l2i-EF-0SG" secondAttribute="centerY" constant="-0.5" id="yGE-2K-rbm"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="deleteButton" destination="l2i-EF-0SG" id="SW1-U7-Upw"/>
+                                                    <outlet property="title" destination="X9d-td-C93" id="lqh-1c-ep0"/>
+                                                </connections>
                                             </collectionReusableView>
                                         </collectionView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T37-6L-aVM" userLabel="SearchButton">
+                                            <rect key="frame" x="25" y="37" width="16" height="22"/>
+                                            <state key="normal" image="icon_search">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="searchButtonAction:" destination="v38-6T-zKl" eventType="touchUpInside" id="LXV-BK-pGy"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <animations/>
                                     <constraints>
+                                        <constraint firstItem="rjk-6z-Z1J" firstAttribute="height" secondItem="aWW-VR-QCV" secondAttribute="height" id="06u-UL-r75"/>
                                         <constraint firstItem="aWW-VR-QCV" firstAttribute="top" secondItem="rjk-6z-Z1J" secondAttribute="top" id="0kd-Sn-tRT"/>
                                         <constraint firstItem="aWW-VR-QCV" firstAttribute="leading" secondItem="yMm-k2-dzv" secondAttribute="trailing" constant="12" id="34f-3V-Xre"/>
                                         <constraint firstAttribute="bottom" secondItem="nDV-tH-ESN" secondAttribute="bottom" constant="11" id="3Dh-5b-wAi"/>
@@ -314,6 +355,7 @@
                                         <constraint firstItem="yfL-1o-0nV" firstAttribute="height" secondItem="nDV-tH-ESN" secondAttribute="height" id="AeN-hv-3zs"/>
                                         <constraint firstAttribute="bottom" secondItem="ISu-Id-1V0" secondAttribute="bottom" constant="69" id="Cg0-pb-ouh"/>
                                         <constraint firstItem="aWW-VR-QCV" firstAttribute="height" secondItem="rjk-6z-Z1J" secondAttribute="height" id="Dyu-Er-pqo"/>
+                                        <constraint firstItem="yMm-k2-dzv" firstAttribute="leading" secondItem="T37-6L-aVM" secondAttribute="trailing" constant="8" id="Ewp-c8-6ou"/>
                                         <constraint firstItem="rjk-6z-Z1J" firstAttribute="leading" secondItem="6iV-nU-eFu" secondAttribute="leading" constant="10" id="Gez-kO-WvP"/>
                                         <constraint firstItem="yMm-k2-dzv" firstAttribute="height" secondItem="rjk-6z-Z1J" secondAttribute="height" id="QHk-ac-UgJ"/>
                                         <constraint firstItem="ISu-Id-1V0" firstAttribute="top" secondItem="rjk-6z-Z1J" secondAttribute="bottom" constant="8" id="VGq-p9-SXE"/>
@@ -328,6 +370,7 @@
                                         <constraint firstItem="yMm-k2-dzv" firstAttribute="top" secondItem="rjk-6z-Z1J" secondAttribute="top" id="tpE-Ou-yAe"/>
                                         <constraint firstItem="aWW-VR-QCV" firstAttribute="centerY" secondItem="yMm-k2-dzv" secondAttribute="centerY" id="vVx-le-jXC"/>
                                         <constraint firstItem="yfL-1o-0nV" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6iV-nU-eFu" secondAttribute="leading" constant="20" id="wfj-Fz-WrI"/>
+                                        <constraint firstItem="T37-6L-aVM" firstAttribute="centerY" secondItem="rjk-6z-Z1J" secondAttribute="centerY" constant="-0.5" id="ywv-9z-at1"/>
                                         <constraint firstItem="nDV-tH-ESN" firstAttribute="leading" secondItem="yfL-1o-0nV" secondAttribute="trailing" id="zB0-fZ-LZD"/>
                                         <constraint firstItem="yfL-1o-0nV" firstAttribute="top" secondItem="ISu-Id-1V0" secondAttribute="bottom" constant="19" id="zbb-Ye-ARX"/>
                                         <constraint firstItem="ISu-Id-1V0" firstAttribute="leading" secondItem="6iV-nU-eFu" secondAttribute="leading" id="zwy-BA-WrA"/>
@@ -352,6 +395,7 @@
                     <navigationItem key="navigationItem" id="FQr-ce-rYd"/>
                     <connections>
                         <outlet property="collectionView" destination="ISu-Id-1V0" id="6LQ-1C-Fmh"/>
+                        <outlet property="searchTextField" destination="yMm-k2-dzv" id="v4U-Qv-1Sp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a94-ar-vQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -501,10 +545,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="history_search_del" width="21" height="21"/>
+        <image name="icon_search" width="16" height="16"/>
         <image name="navigationbar_back" width="30" height="30"/>
         <image name="search_ico_favorites" width="15" height="15"/>
         <image name="search_ico_more" width="15" height="15"/>
         <image name="search_icon_mike_normal" width="13" height="20"/>
-        <image name="search_icon_search_normal" width="64" height="36"/>
+        <image name="search_icon_search_normal" width="11" height="12"/>
     </resources>
 </document>
