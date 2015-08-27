@@ -26,6 +26,7 @@ class AICustomerOrderDetailViewController: UIViewController {
     @IBOutlet weak var servicePrice: UILabel!
     
     var orderId:Int!
+    var serviceId:Int!
     
     // MARK: life cycle
     override func viewDidLoad() {
@@ -36,8 +37,7 @@ class AICustomerOrderDetailViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = backItem
         
         self.title = "订单详情"
-        
-        orderId = 100000013149
+        // request networking.
         retryNetworkingAction()
     }
     
@@ -45,6 +45,11 @@ class AICustomerOrderDetailViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.interactivePopGestureRecognizer.delegate = nil
         super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,7 +77,7 @@ class AICustomerOrderDetailViewController: UIViewController {
         
         Async.background(){
             let servicesRequester = AIServicesRequester()
-            servicesRequester.loadServiceDetail(201507201604, service_type: 0, completion:
+            servicesRequester.loadServiceDetail(self.serviceId, service_type: 0, completion:
                 { (data) -> () in
                     self.bindServiceData(data)
                 }
