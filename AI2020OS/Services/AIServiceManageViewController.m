@@ -146,7 +146,7 @@
 - (void)addService
 {
     AIWebViewController *webViewController = [[AIWebViewController alloc] init];
-    webViewController.startPage = @"serviceCatelog.html";
+    webViewController.startPage = @"index.html";
     webViewController.wwwFolderName = @"www";
     webViewController.shouldHideNavigationBar = YES;
     [self.navigationController pushViewController:webViewController animated:YES];
