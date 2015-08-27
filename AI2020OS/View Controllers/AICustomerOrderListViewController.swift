@@ -70,13 +70,10 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         }
     }
     
-    
-    
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单
     //orderState: 待处理 进行中 待完成 已完成
     func buildDynaOperButton(orderState : String,orderType : String,buttonView:UIView,indexNumber : Int){
-        
         let stateEnum = OrderStatus(rawValue: NSString(string: orderState).integerValue)
         switch stateEnum! {
         case .Init:
@@ -90,8 +87,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         default :
             addOperButton([ButtonModel(title: "评 价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             return
-            
-        }
+        
     }
     
     func buildDynaStatusButton(){

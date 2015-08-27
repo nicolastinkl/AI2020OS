@@ -43,7 +43,6 @@
 // MARK: JSON
 #import "JSONModel.h"
 
-
 // MARK: MessageCenter
 #import "AIMessageViewController.h"
 
@@ -52,11 +51,12 @@
 #import "AIServiceCommentModel.h"
 #import "AIServiceCatalogModel.h"
 #import "AIBodyDescModel.h"
+#import "AIServiceModel.h"
+#import "AISearchModel.h"
 
 // MARK: AICardView
 #import "AICardView.h"
 #import "SwipeableCell.h"
-
 
 // MARK: AIServiceManageViewController
 #import "AIServiceManageViewController.h"

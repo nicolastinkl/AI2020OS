@@ -42,6 +42,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="showHome:" destination="NbP-zF-heK" eventType="touchUpInside" id="kUK-PE-fvz"/>
+                                                        <segue destination="No4-Qe-HBg" kind="unwind" unwindAction="unwindToViewController:" id="fX0-M5-p00"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="首页" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3R-fQ-mcq">
@@ -67,6 +68,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="showMessage:" destination="NbP-zF-heK" eventType="touchUpInside" id="kFU-fE-gZR"/>
+                                                        <segue destination="No4-Qe-HBg" kind="unwind" unwindAction="unwindToViewController:" id="yag-aX-qYE"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="消息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdK-Om-hHN">
@@ -92,6 +94,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="showSettings:" destination="NbP-zF-heK" eventType="touchUpInside" id="Zxo-GG-lEG"/>
+                                                        <segue destination="No4-Qe-HBg" kind="unwind" unwindAction="unwindToViewController:" id="gn4-wz-WgN"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gp6-br-bvV">
