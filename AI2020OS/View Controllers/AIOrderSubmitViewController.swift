@@ -34,23 +34,20 @@ class AIOrderSubmitViewController: UIViewController {
     }
     
     @IBAction func buyAction(sender: AnyObject) {
-        if let serverid = self.title?.toInt() {
-            if serverid > 0 {
-                self.view.showLoading()
-                let paramsPams = NSMutableArray(objects: ["paramsDate":"23564561356"],["paramsPrice":"452.0"])
-                
-                Async.userInitiated {
-                    AIOrderRequester().submitOrder(serverid, serviceParams: paramsPams, completion: { (success) -> Void in
-                        self.view.hideLoading()
-                        
-                        
-                        
-                    })
-                }
-            }else{
-                SCLAlertView().showError("提交失败", subTitle: "参数有误", closeButtonTitle: "关闭", duration: 2)
-            }
+        if self.serviceId?.toInt() > 0 {
+            self.view.showLoading()
+            let paramsPams = NSMutableArray(objects: ["paramsDate":"23564561356"],["paramsPrice":"452.0"])
             
+            Async.userInitiated {
+                AIOrderRequester().submitOrder(self.serviceId?.toInt() ?? 0, serviceParams: paramsPams, completion: { (success) -> Void in
+                    self.view.hideLoading()
+                    
+                    
+                    
+                })
+            }
+        }else{
+            SCLAlertView().showError("提交失败", subTitle: "参数有误", closeButtonTitle: "关闭", duration: 2)
         }
     }
     
