@@ -65,6 +65,8 @@ struct AIHttpEngine{
         case QueryTimeLineServices
         // 查询个人信息
         case QueryUserInfoServices
+        // 更新订单状态
+        case UpdateOrderStatus
         // 根据手机号查询用户信息
         case QuerUserInfoByMobileNumber
         //  添加收藏
@@ -89,6 +91,8 @@ struct AIHttpEngine{
             case .QueryTimeLineServices: return "/sboss/queryNodesFromTimeLine"
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
+            case .QueryUserInfoServices : return "getUserInfo"
+            case .UpdateOrderStatus : return "/sboss/updateOrderStatus"
             case .QueryUserInfoServices : return "/sboss/getUserInfo"
             case .QuerUserInfoByMobileNumber : return "/sboss/getUserInfoByMobileNumber"
             case .addServiceToFavorite : return "/sboss/addServiceToFavorite"

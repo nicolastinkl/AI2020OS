@@ -70,8 +70,12 @@ class AIOrderListViewController:UIViewController{
 
 class AIBaseOrderListViewController : UIViewController{
     
+    var orderList = Array<AIOrderListItemModel>()
+    //默认查询
+    var orderStatus : Int = 0
+    
     // MARK: - operButtonActions
-    func addOperButton(buttonArray:[ButtonModel],buttonView:UIView){
+    func addOperButton(buttonArray:[ButtonModel],buttonView:UIView,indexNumber : Int){
         buttonView.subviews.filter{
             let value:UIButton = $0 as UIButton
             value.removeFromSuperview()
@@ -80,13 +84,19 @@ class AIBaseOrderListViewController : UIViewController{
         
         var x:CGFloat = 0
         for buttonModel in buttonArray{
-            var button = UIButton(frame: CGRectMake(x, 0, 40, 20))
+            
+            let contentRect = caculateContentSize(buttonModel.title, fontSize: 14)
+            var button = UIButton(frame: CGRectMake(x, 0, contentRect.size.width, 20))
             button.setTitle(buttonModel.title, forState: UIControlState.Normal)
             //扩展的直接读取rgba颜色的方法
             button.setTitleColor(UIColor(rgba: "#30D7CE"), forState: UIControlState.Normal)
             button.backgroundColor = UIColor.clearColor()
             button.titleLabel?.font = UIFont.boldSystemFontOfSize(14)
+            //use to mark cell row number
+            //button.tag = indexNumber
+            button.associatedName = "\(indexNumber)"
             buttonView.addSubview(button)
+            
             
             button.addTarget(self, action: buttonModel.action, forControlEvents: UIControlEvents.TouchUpInside)
             x = x + 40
@@ -107,7 +117,12 @@ class AIBaseOrderListViewController : UIViewController{
     }
     
     func excuteOrder(target:UIButton){
-        SCLAlertView().showInfo("提示", subTitle: "开始处理订单", closeButtonTitle: "关闭", duration: 3)
+        let buttonIndex = target.tag
+        let orderNumber = findOrderNumberByIndexNumber(buttonIndex)
+        AIOrderRequester().updateOrderStatus(orderNumber, orderStatus: OrderStatus.Executing.rawValue, completion: { (resultCode) -> Void in
+                self.updateOrderStatusCompletion(resultCode, comments: "开始执行订单")
+            }
+        )
     }
     
     // MARK: - statusButtons
@@ -125,8 +140,9 @@ class AIBaseOrderListViewController : UIViewController{
         var x2:CGFloat = statusButtonWidth
         
         for buttonModel in buttonArray{
-            var button = UIButton(frame: CGRectMake(x1, 0, statusButtonWidth, 33))
-            
+            var button = UIButton(frame: CGRectMake(x1, 0, statusButtonWidth, 25))
+            //button.tag = buttonModel.status
+            button.associatedName = "\(buttonModel.status)"
             button.setTitle(buttonModel.title, forState: UIControlState.Normal)
             //扩展的直接读取rgba颜色的方法
             button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
@@ -139,7 +155,7 @@ class AIBaseOrderListViewController : UIViewController{
             scrollView.addSubview(button)
             x1 = x1 + statusButtonWidth + statusLabelWidth + buttonPadding
             
-            var label = UILabel(frame: CGRectMake(x2, 0, statusLabelWidth, 33))
+            var label = UILabel(frame: CGRectMake(x2, 0, statusLabelWidth, 25))
             label.font = UIFont.systemFontOfSize(16)
             label.textColor = UIColor(rgba: "#30D7CE")
             label.text = "\(buttonModel.amount)"
@@ -158,6 +174,28 @@ class AIBaseOrderListViewController : UIViewController{
         }
         target.selected = true
         //temp content
-
+        
     }
+    
+    func updateOrderStatusCompletion(resultCode:Int,comments:String){
+        if resultCode == 1{
+             SCLAlertView().showInfo("提示", subTitle: comments + "成功", closeButtonTitle: "关闭", duration: 3)
+        }
+        else{
+            SCLAlertView().showError("错误", subTitle: comments + "失败", closeButtonTitle: "关闭", duration: 3)
+        }
+    }
+    
+    func caculateContentSize(content:String,fontSize:CGFloat) -> CGRect{
+        let size = CGSizeMake(150,100)
+        let s:NSString = "\(content)"
+        let contentSize = s.boundingRectWithSize(size, options: NSStringDrawingOptions.UsesLineFragmentOrigin , attributes: [NSFontAttributeName:UIFont.systemFontOfSize(fontSize)], context: nil)
+        return contentSize
+    }
+    
+    private func findOrderNumberByIndexNumber(indexNumber : Int) -> Int {
+        return orderList[indexNumber].order_number!
+    }
+    
+    
 }

@@ -156,9 +156,9 @@ struct AIApplication{
     }
     
     struct AIViewTags {
-        static let loadingProcessTag        = 101
-        static let errorviewTag             = 102
-        static let AIMessageUnReadViewTag   = 103
+        static let loadingProcessTag        = 1101
+        static let errorviewTag             = 1102
+        static let AIMessageUnReadViewTag   = 1103
     }
     
     // MARK: IM ObjectIDS

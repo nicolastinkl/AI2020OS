@@ -9,8 +9,9 @@
 import Foundation
 import JSONJoy
 
+// MARK: - model wrapper
 class AIOrderMessageWrapper : AIMessageWrapper{
-    class func getOrderDetail(orderId : String) -> AIMessage{
+    class func getOrderDetail(orderId : Int) -> AIMessage{
         var message : AIMessage = AIMessage()
         
         let body = [
@@ -24,8 +25,25 @@ class AIOrderMessageWrapper : AIMessageWrapper{
         message.url = AIHttpEngine.baseURL + AIHttpEngine.ResourcePath.GetOrderDetail.description
         return message
     }
+    
+    class func updateOrderStatus(orderId:Int,orderStatus:Int) -> AIMessage{
+        var message : AIMessage = AIMessage()
+        
+        let body = [
+            "data":["order_number":orderId,"status":orderStatus],
+            "desc":[
+                "data_mode":"0",
+                "digest":""
+        ]]
+        
+        message.body = NSMutableDictionary(dictionary:body)
+        message.url = AIHttpEngine.baseURL + AIHttpEngine.ResourcePath.UpdateOrderStatus.description
+        return message
+
+    }
 }
 
+// MARK: - models
 //订单列表model
 struct AIOrderListModel : JSONJoy {
     var orderArray: Array<AIOrderListItemModel>?
@@ -112,10 +130,20 @@ struct ButtonModel{
 struct StatusButtonModel {
     var title = ""
     var amount = 0
+    var status:Int!
     
-    init(title:String,amount:Int){
+    init(title:String,amount:Int,status:Int){
         self.title = title
         self.amount = amount
+        self.status = status
     }
 }
 
+// MARK: - enums
+enum OrderStatus:Int{
+    case Init = 11,
+    Executing = 100,
+    WaitForPay = 101,
+    WaidForComment = 102,
+    Finished = 14
+}

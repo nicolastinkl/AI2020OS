@@ -25,7 +25,7 @@ class AICustomerOrderDetailViewController: UIViewController {
     @IBOutlet weak var serviceIntroImage: AIImageView!
     @IBOutlet weak var servicePrice: UILabel!
     
-    var orderId:String!
+    var orderId:Int!
     
     // MARK: life cycle
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class AICustomerOrderDetailViewController: UIViewController {
         
         self.title = "订单详情"
         
-        orderId = "100000013149"
+        orderId = 100000013149
         retryNetworkingAction()
     }
     
