@@ -40,12 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AIAppInit().xfINIT()
         
         initNetEngine()
-        
-        //  Ask for permission to show badges.
-        let types: UIUserNotificationType = UIUserNotificationType.Sound | UIUserNotificationType.Badge | UIUserNotificationType.Alert
-        let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
-    
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
 
         //UIApplication.sharedApplication().applicationIconBadgeNumber
         
@@ -59,6 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     
+        self.configureRemoteNotification(application)
+        // config weibo
+        WeiboSDK.enableDebugMode(true);
+        WeiboSDK.registerApp("2045436852");
+        
         return true
     }
     
@@ -161,5 +160,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AINetEngine.defaultEngine().configureCommonHeaders(header)
     }
     
+    func configureRemoteNotification(application: UIApplication) {
+
+
+    var settings : UIUserNotificationSettings = UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, categories: nil)
+
+    application.registerUserNotificationSettings(settings)
+    application.registerForRemoteNotifications();
+    AVPush.setProductionMode(true)
+        
+        
+        
+    }
+    
+    
+    // remote notification
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        println(error)
+    }
+    
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+        application.applicationIconBadgeNumber = 0
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        
+        var currentInstallation : AVInstallation = AVInstallation.currentInstallation()
+        currentInstallation.setDeviceTokenFromData(deviceToken)
+        currentInstallation.saveInBackground()
+  
+    }
+    
+    //
+    func didReceiveWeiboResponse(response: WBBaseResponse!) {
+        
+        if response.isKindOfClass(WBSendMessageToWeiboResponse.self)
+        {
+            
+            var success:Bool = response.statusCode == WeiboSDKResponseStatusCode.Success
+            
+            var title:NSString = success ? "微博分享成功" : "微博分享失败"
+            
+            var alert:UIAlertView = UIAlertView(title: title, message: nil, delegate: nil, cancelButtonTitle: "确定");
+            alert.show()
+            
+            var sendMessageToWeiboResponse:WBSendMessageToWeiboResponse = response as WBSendMessageToWeiboResponse;
+            var accessToken:NSString = sendMessageToWeiboResponse.authResponse.accessToken
+            
+            if accessToken.length > 0 {
+                AIWeiboData.instance().wbtoken = accessToken
+            }
+            var userID:NSString = sendMessageToWeiboResponse.authResponse.userID
+            if userID.length > 0 {
+                AIWeiboData.instance().wbCurrentUserID = userID;
+            }
+            
+        }
+        
+        
+    }
+    
+    func didReceiveWeiboRequest(request: WBBaseRequest!) {
+        
+    }
 }
 
