@@ -187,6 +187,7 @@
 		84DE7DAF1B79E623007E8F7F /* AICommentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */; };
 		84DE7DB31B79ED51007E8F7F /* AIRoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */; };
 		84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */; };
+		84DF7EC81B8EA2610093C499 /* AISettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF7EC71B8EA2610093C499 /* AISettingsViewController.swift */; };
 		84DFAD1F1B7D8D580091B156 /* AISelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */; };
 		84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E052231B3006EF00B0299F /* AILaunchScreen.xib */; };
 		84E052F31B8AB422009F88C5 /* AIServiceCatalogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E052F21B8AB422009F88C5 /* AIServiceCatalogModel.m */; };
@@ -721,6 +722,7 @@
 		84DE7DAE1B79E623007E8F7F /* AICommentStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AICommentStoryboard.storyboard; sourceTree = "<group>"; };
 		84DE7DB21B79ED51007E8F7F /* AIRoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRoundImageView.swift; sourceTree = "<group>"; };
 		84DF3BE21B7DCEEB00E55DD7 /* AICommentTagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentTagViewCell.swift; sourceTree = "<group>"; };
+		84DF7EC71B8EA2610093C499 /* AISettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISettingsViewController.swift; sourceTree = "<group>"; };
 		84DFAD1E1B7D8D580091B156 /* AISelectableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectableButton.swift; sourceTree = "<group>"; };
 		84E052231B3006EF00B0299F /* AILaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AILaunchScreen.xib; sourceTree = "<group>"; };
 		84E052F11B8AB422009F88C5 /* AIServiceCatalogModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIServiceCatalogModel.h; sourceTree = "<group>"; };
@@ -1531,6 +1533,14 @@
 			name = view;
 			sourceTree = "<group>";
 		};
+		84DF7EC61B8EA2540093C499 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				84DF7EC71B8EA2610093C499 /* AISettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		84E052221B3006C000B0299F /* Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1773,6 +1783,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84DF7EC61B8EA2540093C499 /* Settings */,
 				84D332451B8B4A7100BB1318 /* CollectView */,
 				84A72C611B85DED600B503A3 /* UserDesView */,
 				814B2BD71B8204CF003A10A5 /* Message */,
@@ -2864,6 +2875,7 @@
 				845DC1EE1B8C04D10044AE86 /* UICellMultiStyle.swift in Sources */,
 				840FDAC41B85AFDF00CE3DF9 /* NSAttributedString+Attributes.m in Sources */,
 				93FF746A1B0ECEA000FD97C1 /* CVCalendarViewAnimator.swift in Sources */,
+				84DF7EC81B8EA2610093C499 /* AISettingsViewController.swift in Sources */,
 				9337FF5C1AD3DA140046F8DC /* AIServiceDetailsViewCotnroller.swift in Sources */,
 				845DC1D41B8C03650044AE86 /* DSLCalendarView.m in Sources */,
 				812388BF1B8428BC00CEA574 /* WMMenuItem.m in Sources */,

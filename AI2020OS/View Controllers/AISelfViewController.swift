@@ -30,18 +30,20 @@ class AISelfViewController: UITableViewController {
         selfUserInfoModel = AIUserInfoModel()
         
         self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);        
-        
-        let paras = ["phone": AVUser.currentUser().mobilePhoneNumber]
-        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QuerUserInfoByMobileNumber, parameters: paras) {  [weak self] (response, error) -> () in
-            if let re: AnyObject = response {
-                let userModel =  AIUserInfoModel(JSONDecoder(re))
-                if let strongSelf = self{
-                    strongSelf.selfUserInfoModel = userModel
-                    strongSelf.refereshUserData()
-                }
-            }else{
-                if let strongSelf = self{
-                    strongSelf.refereshUserData()
+        if AVUser.currentUser().mobilePhoneNumber != nil {
+            
+            let paras = ["phone": AVUser.currentUser().mobilePhoneNumber]
+            AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QuerUserInfoByMobileNumber, parameters: paras) {  [weak self] (response, error) -> () in
+                if let re: AnyObject = response {
+                    let userModel =  AIUserInfoModel(JSONDecoder(re))
+                    if let strongSelf = self{
+                        strongSelf.selfUserInfoModel = userModel
+                        strongSelf.refereshUserData()
+                    }
+                }else{
+                    if let strongSelf = self{
+                        strongSelf.refereshUserData()
+                    }
                 }
             }
         }
@@ -92,6 +94,7 @@ class AISelfViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if (indexPath.row == 0)
@@ -99,6 +102,8 @@ class AISelfViewController: UITableViewController {
             var serviceManageViewController:AIServiceManageViewController = AIServiceManageViewController()
             serviceManageViewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(serviceManageViewController, animated: true)
+           
+           
         }
         
         

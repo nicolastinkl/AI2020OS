@@ -34,10 +34,8 @@ class AIHomeViewController: UITableViewController {
         
         self.title = "首页"
         
-        retryNetworkingAction()
-        
         if let token = AILocalStore.accessToken() {
-            //AIApplication.showMessageUnreadView()
+            retryNetworkingAction()
             
             /*
             AIIMCenter().openWithClientId(AVUser.currentUser().objectId, callbackBlock: { (success, error) -> Void in
@@ -52,7 +50,30 @@ class AIHomeViewController: UITableViewController {
             self.loginAction = LoginAction(viewController: self, completion: nil)
         }
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loginSuccess", name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logoutSuccess", name: AIApplication.Notification.UIAIASINFOLogOutNotification, object: nil)
+        
+    }
+    
+    /**
+    登录成功
+    */
+    func loginSuccess(){
+        retryNetworkingAction()
+    }
+    
+    /**
+    登录失败
+    */
+    func logoutSuccess(){
+        self.serviceTopicList = []
+        self.tableView.reloadData()
+        AILocalStore.logout()
+        self.tabBarController?.selectedIndex = 0
+        self.loginAction = LoginAction(viewController: self, completion: nil)
+        
+
     }
     
     override func viewWillAppear(animated: Bool) {
