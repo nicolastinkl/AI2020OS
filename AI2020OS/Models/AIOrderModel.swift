@@ -130,10 +130,12 @@ struct ButtonModel{
 struct StatusButtonModel {
     var title = ""
     var amount = 0
+    var status:Int!
     
-    init(title:String,amount:Int){
+    init(title:String,amount:Int,status:Int){
         self.title = title
         self.amount = amount
+        self.status = status
     }
 }
 

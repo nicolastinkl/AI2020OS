@@ -15,7 +15,7 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
 
-
+    // MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Init buttons.
@@ -30,7 +30,7 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         tableView.dataSource = self
     }
     
-    // MARK: life cycle
+    
     override func viewWillAppear(animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
         navigationController?.interactivePopGestureRecognizer.delegate = nil
@@ -43,6 +43,13 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //println("contentOffset:\(scrollView.contentOffset)")
+        scrollView.contentOffset = CGPointMake(0, 0)
+        
+    }
+    
     // MARK: - utils
     func retryNetworkingAction(){
         self.view.hideProgressViewLoading()
@@ -50,7 +57,7 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         //后台请求数据
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
-            AIOrderRequester().queryOrderList(page: 1, completion: { (data) -> () in
+            AIOrderRequester().queryOrderList(page: 1,orderRole: 1, orderState: self.orderStatus, completion: { (data) -> () in
                 self.view.hideProgressViewLoading()
                 if data.count > 0{
                     self.orderList = data
@@ -84,7 +91,8 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
     
     
     func buildDynaStatusButton(){
-        let buttonArray = [StatusButtonModel(title: "全部", amount: 9),StatusButtonModel(title: "待处理", amount: 4),StatusButtonModel(title: "待付款", amount: 0),StatusButtonModel(title: "待评价", amount: 2),StatusButtonModel(title: "已完成", amount: 3)]
+        let buttonArray = [StatusButtonModel(title: "全部", amount: 9,status:OrderStatus.WaitForPay.rawValue),
+            StatusButtonModel(title: "待处理", amount: 4,status:OrderStatus.WaitForPay.rawValue),StatusButtonModel(title: "待付款", amount: 0,status:OrderStatus.WaitForPay.rawValue),StatusButtonModel(title: "待评价", amount: 2,status:OrderStatus.WaitForPay.rawValue),StatusButtonModel(title: "已完成", amount: 3,status:OrderStatus.WaitForPay.rawValue)]
         addStatusButton(buttonArray, scrollView: scrollView)
     }
 

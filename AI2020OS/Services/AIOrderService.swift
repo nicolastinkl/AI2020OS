@@ -18,7 +18,7 @@ class AIOrderRequester {
     private var isLoading : Bool = false
     
     //查询订单列表 
-    func queryOrderList(page :Int=1,completion:OrderListRequesterCompletion){
+    func queryOrderList(page :Int=1,orderRole : Int,orderState : Int,completion:OrderListRequesterCompletion){
         
         if isLoading {
             return
@@ -27,8 +27,8 @@ class AIOrderRequester {
         
         let paras = [
             "page_num": "1",
-            "order_role": "1",
-            "order_state": "11"
+            "order_role": "\(orderRole)",
+            "order_state": "\(orderState)"
         ]
         
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetOrderList, parameters: paras) {  [weak self] (response, error) -> () in

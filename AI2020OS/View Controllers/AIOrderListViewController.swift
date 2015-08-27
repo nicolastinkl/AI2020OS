@@ -71,6 +71,8 @@ class AIOrderListViewController:UIViewController{
 class AIBaseOrderListViewController : UIViewController{
     
     var orderList = Array<AIOrderListItemModel>()
+    //默认查询
+    var orderStatus : Int = 0
     
     // MARK: - operButtonActions
     func addOperButton(buttonArray:[ButtonModel],buttonView:UIView,indexNumber : Int){
@@ -91,8 +93,10 @@ class AIBaseOrderListViewController : UIViewController{
             button.backgroundColor = UIColor.clearColor()
             button.titleLabel?.font = UIFont.boldSystemFontOfSize(14)
             //use to mark cell row number
-            button.tag = indexNumber
+            //button.tag = indexNumber
+            button.associatedName = "\(indexNumber)"
             buttonView.addSubview(button)
+            
             
             button.addTarget(self, action: buttonModel.action, forControlEvents: UIControlEvents.TouchUpInside)
             x = x + 40
@@ -136,8 +140,9 @@ class AIBaseOrderListViewController : UIViewController{
         var x2:CGFloat = statusButtonWidth
         
         for buttonModel in buttonArray{
-            var button = UIButton(frame: CGRectMake(x1, 0, statusButtonWidth, 33))
-            
+            var button = UIButton(frame: CGRectMake(x1, 0, statusButtonWidth, 25))
+            //button.tag = buttonModel.status
+            button.associatedName = "\(buttonModel.status)"
             button.setTitle(buttonModel.title, forState: UIControlState.Normal)
             //扩展的直接读取rgba颜色的方法
             button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
@@ -150,7 +155,7 @@ class AIBaseOrderListViewController : UIViewController{
             scrollView.addSubview(button)
             x1 = x1 + statusButtonWidth + statusLabelWidth + buttonPadding
             
-            var label = UILabel(frame: CGRectMake(x2, 0, statusLabelWidth, 33))
+            var label = UILabel(frame: CGRectMake(x2, 0, statusLabelWidth, 25))
             label.font = UIFont.systemFontOfSize(16)
             label.textColor = UIColor(rgba: "#30D7CE")
             label.text = "\(buttonModel.amount)"
