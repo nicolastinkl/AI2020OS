@@ -22,7 +22,7 @@ class AIComponentChoseViewController: UIViewController {
     
     var serviceId:String?
     
-    private var selectedParams:NSMutableDictionary =  NSMutableDictionary()
+    private var selectedParams:NSMutableDictionary = NSMutableDictionary()
     
     // MARK: life cycle
     
@@ -57,7 +57,9 @@ class AIComponentChoseViewController: UIViewController {
                     cellHeigh += timePickerView.height + 50
                     timePickerView.viewChangeClosure({ (number) -> () in
                         let key = model.param_key ?? ""
-                        self.selectedParams.setValue(number, forKey: key)
+                        let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":number]
+                        self.selectedParams.setValue(params, forKey: key)
+                        
                     })
                     
                     break
@@ -68,7 +70,8 @@ class AIComponentChoseViewController: UIViewController {
                     cellHeigh += selectNumebrView.height
                     selectNumebrView.viewChangeClosure({ (number) -> () in
                         let key = model.param_key ?? ""
-                        self.selectedParams.setValue(number, forKey: key)
+                        let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":number]
+                        self.selectedParams.setValue(params, forKey: key)
                     })
                     break
                 case 3: //double
@@ -108,7 +111,10 @@ class AIComponentChoseViewController: UIViewController {
                         
                         let key = model.param_key ?? ""
                         
-                        self.selectedParams.setValue(modelTwo.content, forKey: key)
+                        let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":modelTwo.content ?? ""]
+                        self.selectedParams.setValue(params, forKey: key)
+                        
+//                        self.selectedParams.setValue(modelTwo.content, forKey: key)
                         
                     })
                     

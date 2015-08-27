@@ -158,13 +158,16 @@ struct AIServiceDetailParamsModel: JSONJoy  {
     */
     var param_type: Int?
     var param_key: String?
+    var param_key_id: Int?
     var param_value: Array<AIServiceDetailParamsDetailModel>?
+    
     init(){
         
     }
     init(_ decoder: JSONDecoder) {
         
         param_type = decoder["param_type"].integer
+        param_key_id = decoder["param_key_id"].integer
         param_key = decoder["param_key"].string
         
         if let addrs = decoder["param_value"].array {
