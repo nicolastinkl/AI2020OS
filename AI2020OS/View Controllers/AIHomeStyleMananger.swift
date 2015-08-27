@@ -63,8 +63,8 @@ extension AIHomeViewStyleMultiepleView{
         self.title.text = model.service_name
         self.contentImage.setURL(model.service_intro_url?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
         self.price.text = model.service_price
-        self.nick.text = model.service_intro
-        self.avator.setImageURL(model.service_intro_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"), forState: UIControlState.Normal)
+        self.nick.text = model.provider_name
+        self.avator.setImageURL(model.provider_portrait_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"), forState: UIControlState.Normal)
         
         let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: Selector("targetImageClickAction"))
         self.contentImage.addGestureRecognizer(gestureRecognizer)

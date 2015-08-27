@@ -70,28 +70,29 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         }
     }
     
-    
-    
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单
     //orderState: 待处理 进行中 待完成 已完成
     func buildDynaOperButton(orderState : String,orderType : String,buttonView:UIView,indexNumber : Int){
         
-        let stateEnum = OrderStatus(rawValue: NSString(string: orderState).integerValue)
-        switch stateEnum! {
-        case .Init:
-            addOperButton([ButtonModel(title: "申请变更",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
-        case .Executing:
-            addOperButton([ButtonModel(title: "申请变更",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
-        case .WaidForComment:
-            addOperButton([ButtonModel(title: "评论",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
-        case .WaitForPay:
-            addOperButton([ButtonModel(title: "支付",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
-        default :
-            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
-            return
-            
+        let stateEnums = OrderStatus(rawValue:orderState.toInt() ?? 0)
+        if let stateEnum = stateEnums {
+            switch stateEnum {
+            case .Init:
+                addOperButton([ButtonModel(title: "申请变更",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            case .Executing:
+                addOperButton([ButtonModel(title: "申请变更",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            case .WaidForComment:
+                addOperButton([ButtonModel(title: "评论",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            case .WaitForPay:
+                addOperButton([ButtonModel(title: "支付",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            default :
+                addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+                return
+                
+            }
         }
+        
     }
     
     func buildDynaStatusButton(){

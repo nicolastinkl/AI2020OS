@@ -252,10 +252,6 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <state key="normal" title="全部服务" image="search_ico_more"/>
-                                            <connections>
-                                                <action selector="showAllServices:" destination="v38-6T-zKl" eventType="touchUpInside" id="vjH-Ie-Ced"/>
-                                                <segue destination="k6R-cE-Sw3" kind="show" identifier="shoeWholeService" id="eOP-6e-E4c"/>
-                                            </connections>
                                         </button>
                                         <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDV-tH-ESN" userLabel="PlaceHolder">
                                             <rect key="frame" x="295" y="550" width="10" height="39"/>

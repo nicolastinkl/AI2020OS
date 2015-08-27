@@ -719,7 +719,6 @@
 		84E052F21B8AB422009F88C5 /* AIServiceCatalogModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIServiceCatalogModel.m; sourceTree = "<group>"; };
 		84E052F41B8B3BE7009F88C5 /* AIBodyDescModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBodyDescModel.h; sourceTree = "<group>"; };
 		84E052F51B8B3BE7009F88C5 /* AIBodyDescModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBodyDescModel.m; sourceTree = "<group>"; };
-		84E052F71B8B42A4009F88C5 /* PlaygroundTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PlaygroundTest.playground; sourceTree = "<group>"; };
 		84E3AF0A1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AISearchStoryboard.storyboard; sourceTree = "<group>"; };
 		9301B0751B09979500C1EE79 /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
 		9301B0791B0998C700C1EE79 /* AILoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewController.swift; sourceTree = "<group>"; };
@@ -879,7 +878,6 @@
 		93BD09071B06F97B00C8B96B /* AIMenuStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIMenuStoryboard.storyboard; sourceTree = "<group>"; };
 		93BD090A1B06FBBF00C8B96B /* AIMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMenuViewController.swift; sourceTree = "<group>"; };
 		93CB34611AE5F26100D49FB2 /* AIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImage.swift; sourceTree = "<group>"; };
-		93CE6E051B148EAE000CFB4E /* MyPlaygroundTEST.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlaygroundTEST.playground; sourceTree = "<group>"; };
 		93CED3DE1AD530C000761B4D /* AIUIViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUIViewUtils.swift; sourceTree = "<group>"; };
 		93CF230E1B05CF960082AC73 /* AIHomeSDDefaultViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeSDDefaultViewCell.xib; sourceTree = "<group>"; };
 		93CF23101B05CF9F0082AC73 /* AIHomeSDDefaultViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHomeSDDefaultViewCell.swift; sourceTree = "<group>"; };
@@ -1701,8 +1699,6 @@
 			children = (
 				933ED4011AC8F90A00E4AADB /* AI2020OSTests.swift */,
 				933ED3FF1AC8F90A00E4AADB /* Supporting Files */,
-				93CE6E051B148EAE000CFB4E /* MyPlaygroundTEST.playground */,
-				84E052F71B8B42A4009F88C5 /* PlaygroundTest.playground */,
 			);
 			path = AI2020OSTests;
 			sourceTree = "<group>";
