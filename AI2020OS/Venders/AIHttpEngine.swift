@@ -71,6 +71,8 @@ struct AIHttpEngine{
         case QuerUserInfoByMobileNumber
         //  添加收藏
         case addServiceToFavorite
+        // 按关键词查询服务和服务类
+        case QueryServicesAndCatalogs
         
         /// 返回具体URL
         var description: String {
@@ -96,8 +98,13 @@ struct AIHttpEngine{
             case .QueryUserInfoServices : return "/sboss/getUserInfo"
             case .QuerUserInfoByMobileNumber : return "/sboss/getUserInfoByMobileNumber"
             case .addServiceToFavorite : return "/sboss/addServiceToFavorite"
+            case .QueryServicesAndCatalogs : return "/sboss/queryServicesAndCatalogs"
             }
         }
+    }
+    
+    static func getUrl(path: ResourcePath) -> String {
+        return baseURL + path.description
     }
     
     static func postRequestWithParameters(path:ResourcePath,parameters: [String: AnyObject]? = nil,response: (response:AnyObject?,error:Error?) -> ()) {

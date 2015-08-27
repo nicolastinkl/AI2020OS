@@ -14,8 +14,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2hm-ie-f1r">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hm-ie-f1r">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="139"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成交时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbP-cb-tli">
                                 <rect key="frame" x="18" y="5" width="60" height="15"/>
@@ -27,8 +27,8 @@
                                 <color key="textColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="120" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="249" misplaced="YES" text="带你深度畅游SANTORINI" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eV-fN-9LV" userLabel="serviceNameLabel">
-                                <rect key="frame" x="18" y="15" width="193" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="120" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="带你深度畅游SANTORINI" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eV-fN-9LV" userLabel="serviceNameLabel">
+                                <rect key="frame" x="18" y="15" width="193" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="uS8-Pg-vMX"/>
                                 </constraints>
@@ -55,8 +55,8 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="150" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="7200元" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6R-r7-BXb" userLabel="servicePrice">
-                                <rect key="frame" x="58" y="99" width="77" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="150" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7200元" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6R-r7-BXb" userLabel="servicePrice">
+                                <rect key="frame" x="58" y="98" width="77" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="77" id="0I7-ks-9DY"/>
                                     <constraint firstAttribute="height" constant="22" id="GEs-GA-XbM"/>
@@ -65,8 +65,8 @@
                                 <color key="textColor" red="0.98039215690000003" green="0.58823529409999997" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="130" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3月17日－3月22日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjB-kr-pgE" userLabel="serviceTime">
-                                <rect key="frame" x="18" y="64" width="235" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="130" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3月17日－3月22日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjB-kr-pgE" userLabel="serviceTime">
+                                <rect key="frame" x="18" y="63" width="235" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="235" id="NbJ-4x-Cbp"/>
                                     <constraint firstAttribute="height" constant="21" id="nhI-g4-7LL"/>
@@ -75,8 +75,8 @@
                                 <color key="textColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view tag="180" contentMode="bottomRight" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drg-s0-O7n" userLabel="operButtonsView">
-                                <rect key="frame" x="495" y="100" width="100" height="25"/>
+                            <view tag="180" contentMode="bottomRight" translatesAutoresizingMaskIntoConstraints="NO" id="drg-s0-O7n" userLabel="operButtonsView">
+                                <rect key="frame" x="500" y="99" width="100" height="25"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="GA1-vQ-U2k"/>
@@ -89,15 +89,15 @@
                                 <color key="textColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" tag="140" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ico_user" translatesAutoresizingMaskIntoConstraints="NO" id="Ewh-CI-n9z" userLabel="CustomerHeadIcon" customClass="AIImageView" customModule="AI2020OS" customModuleProvider="target">
-                                <rect key="frame" x="18" y="95" width="30" height="30"/>
+                            <imageView userInteractionEnabled="NO" tag="140" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_user" translatesAutoresizingMaskIntoConstraints="NO" id="Ewh-CI-n9z" userLabel="CustomerHeadIcon" customClass="AIImageView" customModule="AI2020OS" customModuleProvider="target">
+                                <rect key="frame" x="18" y="94" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eT7-xJ-f0N"/>
                                     <constraint firstAttribute="width" constant="30" id="jEj-dK-boB"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89p-59-7Hf">
-                                <rect key="frame" x="218" y="32" width="50" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89p-59-7Hf">
+                                <rect key="frame" x="219" y="32" width="50" height="20"/>
                                 <color key="backgroundColor" red="0.10980392160000001" green="0.77647058820000003" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="CJt-4i-OfV"/>
@@ -134,7 +134,7 @@
                             <constraint firstAttribute="bottom" secondItem="Ewh-CI-n9z" secondAttribute="bottom" constant="15" id="PGr-G7-hFv"/>
                             <constraint firstItem="wbP-cb-tli" firstAttribute="leading" secondItem="2hm-ie-f1r" secondAttribute="leading" constant="18" id="Xtc-0O-bcj"/>
                             <constraint firstItem="F78-kV-s7Z" firstAttribute="leading" secondItem="wbP-cb-tli" secondAttribute="trailing" constant="-6" id="bjt-r5-upU"/>
-                            <constraint firstAttribute="trailing" secondItem="drg-s0-O7n" secondAttribute="trailing" constant="5" id="dUF-A3-LY5"/>
+                            <constraint firstAttribute="trailing" secondItem="drg-s0-O7n" secondAttribute="trailing" id="dUF-A3-LY5"/>
                             <constraint firstItem="gjB-kr-pgE" firstAttribute="top" secondItem="7eV-fN-9LV" secondAttribute="bottom" constant="-5" id="diu-eD-87R"/>
                             <constraint firstItem="89p-59-7Hf" firstAttribute="centerY" secondItem="7eV-fN-9LV" secondAttribute="centerY" id="f4E-G8-N00"/>
                             <constraint firstItem="gjB-kr-pgE" firstAttribute="leading" secondItem="2hm-ie-f1r" secondAttribute="leading" constant="18" id="mMJ-AJ-yW9"/>

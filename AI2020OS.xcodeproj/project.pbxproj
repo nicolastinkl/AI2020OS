@@ -177,12 +177,16 @@
 		84D5D2C81B1C636D001E9F37 /* AICatalogServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */; };
 		84D83D3B1B8BFEE00076943D /* UICollectMoreStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D83D3A1B8BFEE00076943D /* UICollectMoreStoryboard.storyboard */; };
 		84D83D3D1B8C00E20076943D /* UITransViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D83D3C1B8C00E20076943D /* UITransViewController.swift */; };
+		84D903041B8EC63A0089F7E1 /* AISimpleServiceItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D903031B8EC63A0089F7E1 /* AISimpleServiceItemCell.swift */; };
+		84D903061B8EC91F0089F7E1 /* AISimpleServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D903051B8EC91F0089F7E1 /* AISimpleServiceTableViewController.swift */; };
 		84D9B81D1B7C2CA8005331B5 /* AISingleCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D9B81C1B7C2CA8005331B5 /* AISingleCommentView.xib */; };
 		84D9B81F1B7C320B005331B5 /* AISingleCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B81E1B7C320B005331B5 /* AISingleCommentViewController.swift */; };
 		84D9B8211B7C353C005331B5 /* AISingleCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B8201B7C353C005331B5 /* AISingleCommentView.swift */; };
 		84D9DFE51B8C5AF700D358C2 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DFE41B8C5AF700D358C2 /* StringUtils.swift */; };
 		84D9DFE81B8C60A200D358C2 /* AIHistorySearchHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DFE61B8C60A200D358C2 /* AIHistorySearchHeaderCell.swift */; };
 		84D9DFE91B8C60A200D358C2 /* AIHistorySearchHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D9DFE71B8C60A200D358C2 /* AIHistorySearchHeaderCell.xib */; };
+		84DA3B421B8D649800EF61AC /* AIServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA3B411B8D649800EF61AC /* AIServiceModel.m */; };
+		84DA3B451B8D661F00EF61AC /* AISearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA3B441B8D661F00EF61AC /* AISearchModel.m */; };
 		84DB09D71B12AF5400C45CB5 /* SearchHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */; };
 		84DBEFB11B871DA100DBCA5A /* AICompondCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBEFB01B871DA100DBCA5A /* AICompondCommentViewController.swift */; };
 		84DBFF641B26D71F00F7FED6 /* AIFavorServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */; };
@@ -693,12 +697,18 @@
 		84D5D2C71B1C636D001E9F37 /* AICatalogServicesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICatalogServicesModel.swift; sourceTree = "<group>"; };
 		84D83D3A1B8BFEE00076943D /* UICollectMoreStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UICollectMoreStoryboard.storyboard; sourceTree = "<group>"; };
 		84D83D3C1B8C00E20076943D /* UITransViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITransViewController.swift; sourceTree = "<group>"; };
+		84D903031B8EC63A0089F7E1 /* AISimpleServiceItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISimpleServiceItemCell.swift; sourceTree = "<group>"; };
+		84D903051B8EC91F0089F7E1 /* AISimpleServiceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISimpleServiceTableViewController.swift; sourceTree = "<group>"; };
 		84D9B81C1B7C2CA8005331B5 /* AISingleCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISingleCommentView.xib; sourceTree = "<group>"; };
 		84D9B81E1B7C320B005331B5 /* AISingleCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleCommentViewController.swift; sourceTree = "<group>"; };
 		84D9B8201B7C353C005331B5 /* AISingleCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleCommentView.swift; sourceTree = "<group>"; };
 		84D9DFE41B8C5AF700D358C2 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		84D9DFE61B8C60A200D358C2 /* AIHistorySearchHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIHistorySearchHeaderCell.swift; sourceTree = "<group>"; };
 		84D9DFE71B8C60A200D358C2 /* AIHistorySearchHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHistorySearchHeaderCell.xib; sourceTree = "<group>"; };
+		84DA3B401B8D649800EF61AC /* AIServiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIServiceModel.h; sourceTree = "<group>"; };
+		84DA3B411B8D649800EF61AC /* AIServiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIServiceModel.m; sourceTree = "<group>"; };
+		84DA3B431B8D661F00EF61AC /* AISearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISearchModel.h; sourceTree = "<group>"; };
+		84DA3B441B8D661F00EF61AC /* AISearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISearchModel.m; sourceTree = "<group>"; };
 		84DB09D61B12AF5400C45CB5 /* SearchHistoryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryRecord.swift; sourceTree = "<group>"; };
 		84DBEFB01B871DA100DBCA5A /* AICompondCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICompondCommentViewController.swift; sourceTree = "<group>"; };
 		84DBFF631B26D71F00F7FED6 /* AIFavorServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFavorServicesManager.swift; sourceTree = "<group>"; };
@@ -1473,6 +1483,7 @@
 				84CB36911B17433D00D66BBD /* AIProviderAvatarView.xib */,
 				84D9DFE61B8C60A200D358C2 /* AIHistorySearchHeaderCell.swift */,
 				84D9DFE71B8C60A200D358C2 /* AIHistorySearchHeaderCell.xib */,
+				84D903031B8EC63A0089F7E1 /* AISimpleServiceItemCell.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1494,6 +1505,7 @@
 				84CDC16D1B1494D000EA78BC /* AISearchTagCell.swift */,
 				84CDC16F1B14952500EA78BC /* AISearchHeaderCell.swift */,
 				84CB36801B16BB5600D66BBD /* AIServiceCatalogViewController.swift */,
+				84D903051B8EC91F0089F7E1 /* AISimpleServiceTableViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1753,6 +1765,10 @@
 				84E052F51B8B3BE7009F88C5 /* AIBodyDescModel.m */,
 				127009951B8C67460047B055 /* AIOrderModel.h */,
 				127009961B8C67460047B055 /* AIOrderModel.m */,
+				84DA3B401B8D649800EF61AC /* AIServiceModel.h */,
+				84DA3B411B8D649800EF61AC /* AIServiceModel.m */,
+				84DA3B431B8D661F00EF61AC /* AISearchModel.h */,
+				84DA3B441B8D661F00EF61AC /* AISearchModel.m */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -2681,6 +2697,7 @@
 				84AE09301B8C08DD00AAC721 /* AIServiceSearchView.swift in Sources */,
 				845DC1D31B8C03650044AE86 /* DSLCalendarRange.m in Sources */,
 				93266FAB1AEF80FB00DD0021 /* AIFavoritesViewController.swift in Sources */,
+				84D903041B8EC63A0089F7E1 /* AISimpleServiceItemCell.swift in Sources */,
 				93FF746C1B0ECEA000FD97C1 /* CVCalendarViewAppearance.swift in Sources */,
 				12E616041B28105B0032DACE /* RRTagCollectionViewCell.swift in Sources */,
 				84D332491B8B4F7300BB1318 /* AICollectRootController.swift in Sources */,
@@ -2813,6 +2830,7 @@
 				84AE09291B8C066400AAC721 /* AITopInfoView.swift in Sources */,
 				8198ABD71B81840E0047E740 /* JSONModelClassProperty.m in Sources */,
 				93AC3FD61ACA40ED000024A4 /* AISelfViewController.swift in Sources */,
+				84DA3B421B8D649800EF61AC /* AIServiceModel.m in Sources */,
 				84DE14FB1B85641E001BB5BD /* AIServiceCommentModel.m in Sources */,
 				93CED3DF1AD530C000761B4D /* AIUIViewUtils.swift in Sources */,
 				933668861AD671A4007556D7 /* AITransitionManager.swift in Sources */,
@@ -2840,6 +2858,7 @@
 				8119B3031B7D858000625FB4 /* AIWebViewController.m in Sources */,
 				93E4D5B01B14AA7800992CA3 /* AIOrderListViewController.swift in Sources */,
 				8198ABD01B81840E0047E740 /* AFURLConnectionOperation.m in Sources */,
+				84DA3B451B8D661F00EF61AC /* AISearchModel.m in Sources */,
 				812388C11B8428BC00CEA574 /* WMProgressView.m in Sources */,
 				81A06C831B8EC1A500AFB066 /* MBProgressHUD.m in Sources */,
 				84D1B6E01B7C49660094D553 /* AITimeLineModel.swift in Sources */,
@@ -2853,6 +2872,7 @@
 				9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */,
 				933ED3EA1AC8F90A00E4AADB /* AppDelegate.swift in Sources */,
 				84ACACB51B871305000258F9 /* AIServiceCommentManagerImp.swift in Sources */,
+				84D903061B8EC91F0089F7E1 /* AISimpleServiceTableViewController.swift in Sources */,
 				1284ABC41B2036B500636F35 /* SectionHeaderView.swift in Sources */,
 				8198ABDA1B81840E0047E740 /* JSONValueTransformer.m in Sources */,
 				849EC6C71B310D3100930697 /* AISearchBarView.swift in Sources */,
