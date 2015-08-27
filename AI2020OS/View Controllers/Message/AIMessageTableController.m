@@ -9,6 +9,7 @@
 #import "AIMessageTableController.h"
 #import "CBStoreHouseRefreshControl.h"
 #import "AIMessageCell.h"
+#import "AIShareViewController.h"
 
 @interface AIMessageTableController ()
 
@@ -31,7 +32,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.showsVerticalScrollIndicator = NO;
     [self makeData];
-    self.storeHouseRefreshControl = [CBStoreHouseRefreshControl attachToScrollView:self.tableView target:self refreshAction:@selector(refreshTriggered:) plist:@"storehouse" color:[UIColor blackColor] lineWidth:1.5 dropHeight:80 scale:1 horizontalRandomness:150 reverseLoadingAnimation:YES internalAnimationFactor:0.5];
+    //self.storeHouseRefreshControl = [CBStoreHouseRefreshControl attachToScrollView:self.tableView target:self refreshAction:@selector(refreshTriggered:) plist:@"storehouse" color:[UIColor blackColor] lineWidth:1.5 dropHeight:80 scale:1 horizontalRandomness:150 reverseLoadingAnimation:YES internalAnimationFactor:0.5];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,6 +65,7 @@
     
 }
 
+/*
 #pragma mark - Notifying refresh control of scrolling
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -88,6 +90,14 @@
     [self.storeHouseRefreshControl finishingLoading];
 }
 
+*/
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    AIShareViewController *shareVC = [AIShareViewController shareWithText:@"分享是一种快乐~"];
+//    [self presentViewController:shareVC animated:YES completion:nil];
+}
 
 
 #pragma mark - Table view data source

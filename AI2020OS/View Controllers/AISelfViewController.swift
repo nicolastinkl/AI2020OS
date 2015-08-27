@@ -48,7 +48,6 @@ class AISelfViewController: UITableViewController {
             }
         }
         
-        selfUserInfoModel?.imageurl = "http://fd.topitme.com/d/8b/d4/1187454768482d48bdo.jpg"
     }
     
     func refereshUserData(){

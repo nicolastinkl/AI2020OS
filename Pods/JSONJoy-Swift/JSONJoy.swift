@@ -110,6 +110,7 @@ public class JSONDecoder {
             value = rawObject
         }
     }
+    
     //Array access support
     public subscript(index: Int) -> JSONDecoder {
         get {
@@ -121,6 +122,7 @@ public class JSONDecoder {
             return JSONDecoder(createError("index: \(index) is greater than array or this is not an Array type."))
         }
     }
+    
     //Dictionary access support
     public subscript(key: String) -> JSONDecoder {
         get {

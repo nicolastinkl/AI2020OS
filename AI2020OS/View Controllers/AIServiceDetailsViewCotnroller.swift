@@ -195,10 +195,19 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         }
     }
     func likeAction(sender: AnyObject){
+        self.view.showLoading()
+        let button = sender as UIButton
         let sID = self.server_id ?? ""
-        AIMockFavorServicesManager().addServiceToFavorite(sID, completion: { (success) -> Void in
-            
-        })
+        Async.background(){
+            AIMockFavorServicesManager().addServiceToFavorite(sID, completion: { (success) -> Void in
+                self.view.hideLoading()
+                if success {
+                    button.setImage(UIImage(named: "ico_collect_selected"), forState: UIControlState.Normal)
+                }
+                
+            })
+        }
+       
     }
     
     func webChatAction(){
@@ -296,7 +305,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
                 return heightLines
             }
         }
-        return 0
+        return 80
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -389,6 +398,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         }
         
         let number = tableCount-indexPath.section
+        
         avCell?.label_Content.text = "没有数据"
         if  number == 3{
             avCell?.label_title.text = "服务流程"
