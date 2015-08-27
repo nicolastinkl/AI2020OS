@@ -10,4 +10,6 @@ import Foundation
 
 protocol AIServiceCommentManager {
     func getCommentTags(serviceId: Int, success: (responseData: AIServiceCommentListModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    
+    func submitComments(serviceId: Int, comments: [AICommentTag], success: () -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }

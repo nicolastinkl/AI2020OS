@@ -43,5 +43,18 @@ class AIServiceCommentMockManager :AIServiceCommentManager {
         comment.comment_tags!.addObject(tag)
 
         success(responseData: list)
+
+    }
+    
+    func submitComments(serviceId: Int, comments: [AICommentTag], success: () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        success()
+    }
+}
+
+class AIHttpServiceCommentManager: AIServiceCommentMockManager {
+    override func submitComments(serviceId: Int, comments: [AICommentTag], success: () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        success()
+        
+        var url: String = ""
     }
 }

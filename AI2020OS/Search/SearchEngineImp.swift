@@ -114,26 +114,26 @@ class MockSearchEngine : SearchEngine, SearchRecorder {
         completion((list, nil))
     }
     
-    func queryHotSearchedServices(successRes: (responseData: [AIServiceCatalogModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-        var list = [AIServiceCatalogModel]()
-        var m = AIServiceCatalogModel()
-        m.catalog_name = "美容"
+    func queryHotSearchedServices(successRes: (responseData: [AISearchResultItem]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        var list = [AISearchResultItem]()
+        var m = AISearchResultItem()
+        m.name = "美容"
         list.append(m)
         
-        m = AIServiceCatalogModel()
-        m.catalog_name = "理财"
+        m = AISearchResultItem()
+        m.name = "理财"
         list.append(m)
         
-        m = AIServiceCatalogModel()
-        m.catalog_name = "租房"
+        m = AISearchResultItem()
+        m.name = "租房"
         list.append(m)
         
-        m = AIServiceCatalogModel()
-        m.catalog_name = "服饰搭配"
+        m = AISearchResultItem()
+        m.name = "服饰搭配"
         list.append(m)
         
-        m = AIServiceCatalogModel()
-        m.catalog_name = "保洁"
+        m = AISearchResultItem()
+        m.name = "保洁"
         list.append(m)
         successRes(responseData: list)
     }
@@ -268,7 +268,7 @@ class HttpSearchEngine : MockSearchEngine {
         completion((list, nil))
     }
     
-    override func queryHotSearchedServices(successRes: (responseData: [AIServiceCatalogModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    override func queryHotSearchedServices(successRes: (responseData: [AISearchResultItem]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         var message = AIMessage()
         message.url = "http://171.221.254.231:8282/sboss/queryHotSearch"
@@ -295,9 +295,9 @@ class HttpSearchEngine : MockSearchEngine {
             
             var model: AIQueryHotSearchResponse = AIQueryHotSearchResponse(dictionary: dic, error: nil)
             
-            var modelList : NSArray = model.createCatalogList()
+            var modelList : NSArray = model.createSearchList()
             
-            let ml = modelList as [AIServiceCatalogModel]
+            let ml = modelList as [AISearchResultItem]
         
             
             successRes(responseData: ml)
