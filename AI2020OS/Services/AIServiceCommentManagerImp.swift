@@ -47,14 +47,13 @@ class AIServiceCommentMockManager :AIServiceCommentManager {
 
     }
     
-    func submitComments(serviceId: Int, tags: [AICommentTag]?, commentText: String, success: () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func submitComments(serviceId: Int, tags: [AICommentTag]?, commentText: String, rate: String?, success: () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         success()
     }
 }
 
 class AIHttpServiceCommentManager: AIServiceCommentMockManager {
-    override func submitComments(serviceId: Int, tags: [AICommentTag]?, commentText: String, success: () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-        success()
+    override func submitComments(serviceId: Int, tags: [AICommentTag]?, commentText: String, rate: String?, success: () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 
 /*Offering,
 Product
@@ -71,9 +70,16 @@ Product
         
         let targetObjectType = "Product"
         
-//        var url: String = "http://171.221.254.231:9000/c=addComments&WEB_HUB_PARAMS={%22data%22:{%22commentParameter%22:{%22targetObjectType%22:%22\(targetObjectType)%22,%22objectId%22:\(serviceId),%22comments%22:[{%22partyRoleId%22:\(kUser_ID),%22contextComment%22:{%22context%22:%22\(commentText)%22}}]}},%22header%22:{%22Content-Type%22:%22application/json%22}}"
-        
+      /*
         var url: String = "http://171.221.254.231:9000/c=addComments&WEB_HUB_PARAMS=%7B%22data%22:%7B%22commentParameter%22:%7B%22targetObjectType%22:%22\(targetObjectType)%22,%22objectId%22:\(serviceId),%22comments%22:[%7B%22partyRoleId%22:\(kUser_ID),%22contextComment%22:%7B%22context%22:%22\(commentText)%22%7D%7D]%7D%7D,%22header%22:%7B%22Content-Type%22:%22application/json%22%7D%7D"
+*/
+        var varRate = "1.0"
+        
+        if rate != nil {
+            varRate = rate!
+        }
+        
+        var url: String = "http://171.221.254.231:9000/c=addComments&WEB_HUB_PARAMS=%7B%22data%22:%7B%22commentParameter%22:%7B%22targetObjectType%22:%22\(targetObjectType)%22,%22objectId%22:\(serviceId),%22comments%22:[%7B%22partyRoleId%22:\(kUser_ID),%22grades%22:[%7B%22gradeValue%22:%22\(varRate)%22%7D],%22contextComment%22:%7B%22context%22:%22\(commentText)%22%7D%7D]%7D%7D,%22header%22:%7B%22Content-Type%22:%22application/json%22%7D%7D"
 
         Alamofire.request(.GET, NSURL(string: url)!, parameters:nil)
             .responseJSON { (_request, _response, JSON, error) in
@@ -102,6 +108,8 @@ Product
                                 
                                 fail(errType: AINetError.Format, errDes: errString)
                             }
+                        } else {
+                            fail(errType: AINetError.Format, errDes: "")
                         }
                     } else {
                         fail(errType: AINetError.Format, errDes: "")
