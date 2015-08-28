@@ -8,12 +8,17 @@
 
 #import "AIServiceManageViewController.h"
 #import "AIWebViewController.h"
+#import "AINetEngine.h"
+#import "AIMessageWrapper.h"
+#import "AIServiceListModel.h"
 
 #define kButtonHeight 44
 
 @interface AIServiceManageViewController ()
 
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *serviceList;
 
 @end
 
@@ -30,7 +35,7 @@
     
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    [self fetchServiceList];
     [self resetNavigationBar];
     [self makeTableView];
     [self makeAddButton];
@@ -71,6 +76,50 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void)fetchServiceList
+{
+    NSArray *localData = @[@{@"service_id":@"1231244354666",
+                             @"service_name":@"美甲服务",
+                             @"service_intro":@"18:00 - 22:00 提供服务",
+                             @"service_intro_url":@"https://tse1-mm.cn.bing.net/th?id=JN.ZRGgDZPBbLrhvVdQ9Mzj8A&w=125&h=105&c=7&rs=1&qlt=90&pid=3.1&rm=2%22,%22offeringCode%22:11450,%22offeringId%22:201506010104,%22offeringName%22:%22Two"
+                             },
+                           @{@"service_id":@"1231244354888",
+                             @"service_name":@"地陪服务",
+                             @"service_intro":@"仅限周末",
+                             @"service_intro_url":@"https://tse1-mm.cn.bing.net/th?id=JN.ZRGgDZPBbLrhvVdQ9Mzj8A&w=125&h=105&c=7&rs=1&qlt=90&pid=3.1&rm=2%22,%22offeringCode%22:11450,%22offeringId%22:201506010104,%22offeringName%22:%22Two"
+                             }
+                           ];
+    
+    NSArray *models = [AIServiceListModel modelsFromArray:localData];
+    self.serviceList = [NSMutableArray arrayWithArray:models];
+    //self.serviceList = [[NSMutableArray alloc] initWithArray:localData];
+    
+    
+    /*
+    NSMutableDictionary *data = [AIMessageWrapper baseData];
+    NSMutableDictionary *body = [AIMessageWrapper baseBodyWithData:data];
+    
+    AIMessage *message = [AIMessage message];
+    message.body = body;
+    message.url = @"";
+    
+    
+    [[AINetEngine defaultEngine] postMessage:message success:^(id responseObject) {
+        
+        NSArray *array = (NSArray *)responseObject;
+        
+        NSArray *models = [AIServiceListModel modelsFromArray:array];
+        self.serviceList = [NSMutableArray arrayWithArray:models];
+        [self.tableView reloadData];
+        
+        
+    } fail:^(AINetError error, NSString *errorDes) {
+        
+    }];
+    */
+}
+
 
 
 #pragma mark - make table
@@ -146,8 +195,7 @@
 - (void)addService
 {
     AIWebViewController *webViewController = [[AIWebViewController alloc] init];
-    webViewController.startPage = @"index.html";
-    webViewController.wwwFolderName = @"www";
+    webViewController.startPage = @"http://115.29.164.124/serviceRelease/index.html";
     webViewController.shouldHideNavigationBar = YES;
     [self.navigationController pushViewController:webViewController animated:YES];
 }
@@ -164,7 +212,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 20;
+    return self.serviceList.count;
 }
 
 
@@ -185,10 +233,12 @@
         
     }
     
-    BOOL isOdd = indexPath.row%2 == 0;
     
-    cell.textLabel.text = isOdd?@"美甲服务":@"地陪服务";
-    cell.detailTextLabel.text = isOdd?@"18:00 - 22:00 提供服务":@"仅限周末";
+    BOOL isOdd = indexPath.row%2 == 0;
+
+    AIServiceListModel *model = [self.serviceList objectAtIndex:indexPath.row];
+    cell.textLabel.text = model.service_name;
+    cell.detailTextLabel.text = model.service_intro;
     cell.imageView.image = [UIImage imageNamed:isOdd?@"CardIndicator13":@"CardIndicator14"];
     
     
