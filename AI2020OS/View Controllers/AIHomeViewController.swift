@@ -34,7 +34,7 @@ class AIHomeViewController: UITableViewController {
         
         self.title = "首页"
         
-        if let token = AILocalStore.accessToken() {
+        if let token = AILocalStore.uidToken() {
             retryNetworkingAction()
             
             /*
