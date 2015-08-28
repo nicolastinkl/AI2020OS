@@ -73,6 +73,7 @@ class AIServicesRequester {
             if let re: AnyObject = response {
                 let userModel =  AIUserInfoModel(JSONDecoder(re))
                 AILocalStore.setUIDToken(userModel.user_id ?? 0)
+                AILocalStore.setCachaUserInfo(userModel)
                 completion(true)
             }else{
                 completion(false)

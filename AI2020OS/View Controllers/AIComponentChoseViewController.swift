@@ -62,7 +62,7 @@ class AIComponentChoseViewController: UIViewController {
                 //参数类型, 1-时间，2-int（选择商品数量），3-double, 4-bool(开关)，5-地址 ,6-子服务 , 7-多项单选, 8-多项多选
                 
                 if let type = model.param_type {
-                    println(type)
+                    
                     switch type {
                     case 1: //时间
                         
