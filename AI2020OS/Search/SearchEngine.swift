@@ -18,7 +18,7 @@ protocol SearchEngine {
     func getAllServiceCatalog(completion: (([AICatalogItemModel], Error?)) -> Void)
     func queryServices(catalogId: Int, pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void)
     func getFavorServices(pageNum: Int, pageSize: Int, completion: (([AIServiceTopicModel], Error?)) -> Void)
-    func queryHotSearchedServices(successRes: (responseData: [AIServiceCatalogModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func queryHotSearchedServices(successRes: (responseData: [AISearchResultItem]) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
 protocol SearchRecorder {

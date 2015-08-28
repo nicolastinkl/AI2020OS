@@ -8,11 +8,13 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class AISingleCommentViewController : UIViewController {
     
     var inputServiceId: Int!
     var inputOrderId: Int!
+    var commentOrder: AIOrderListItemModel!
     var commentView: AISingleCommentView!
     var commentManager: AIServiceCommentManager!
     
@@ -31,6 +33,16 @@ class AISingleCommentViewController : UIViewController {
  
         self.view.addSubview(commentView)
         commentView.delegate = self
+    }
+    
+    @IBAction func submitAction(sender: AnyObject) {
+        view.showProgressViewLoading()
+        commentManager.submitComments(commentOrder.service_id!, tags: nil, commentText: "sss", success: submitSuccess, fail: loadFail)
+    }
+    
+    @IBAction func share(sender: AnyObject) {
+        let shareVC = AIShareViewController.shareWithText(commentView.textField.text)
+        presentViewController(shareVC, animated: true, completion: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -57,8 +69,16 @@ class AISingleCommentViewController : UIViewController {
         commentView.tipsData = tips
         
         
-        commentManager = AIServiceCommentMockManager()
+        commentManager = AIHttpServiceCommentManager()
         commentManager.getCommentTags(1234, success: loadSeccess, fail: loadFail)
+        
+        if commentOrder.provider_portrait_url != nil {
+            commentView.avatar.setURL(NSURL(string: commentOrder.provider_portrait_url!), placeholderImage:UIImage(named: "Placeholder"))
+        }
+        
+        if commentOrder.service_name != nil {
+            commentView.title.text = commentOrder.service_name!
+        }
 
     }
     
@@ -68,8 +88,23 @@ class AISingleCommentViewController : UIViewController {
         }
     }
     
-    private func loadFail(errType: AINetError, errDes: String) {
+    private func submitSuccess() {
+        view.hideProgressViewLoading()
+        SCLAlertView().showSuccess("提交成功", subTitle: "成功", closeButtonTitle: nil, duration: 2)
         
+        AIOrderRequester().updateOrderStatus(commentOrder.order_id!, orderStatus: OrderStatus.Executing.rawValue, completion: { (resultCode) -> Void in
+            
+            }
+        )
+        
+        navigationController?.popViewControllerAnimated(true)
+    //    self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    private func loadFail(errType: AINetError, errDes: String) {
+        view.hideProgressViewLoading()
+        SCLAlertView().showError("提交失败", subTitle: errDes,  duration: 2)
+
     }
 }
 

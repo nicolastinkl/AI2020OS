@@ -118,6 +118,7 @@ class AIBaseOrderListViewController : UIViewController{
         let serviceId = findOServiceIdByIndexNumber(buttonIndex)
         viewController.inputOrderId = orderNumber
         viewController.inputServiceId = serviceId
+        viewController.commentOrder = orderList[buttonIndex]
         self.navigationController?.pushViewController(viewController, animated: true)
 
     }
