@@ -221,7 +221,28 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         
         
         var webViewController : AICDWebViewController = AICDWebViewController()
-        webViewController.startPage = "http://115.29.164.124/whiteboard/apploadboard/910000011/910000013/25042644"
+        
+        var localUID : String = ""
+        var providerID : String = ""
+        var serviceID : String = ""
+        
+        if let uid = AILocalStore.uidToken() {
+            localUID = uid.toString()
+        }
+        
+        if let pid = self.movieDetailsResponse?.provider_id {
+            providerID = pid
+        }
+        
+        
+        if let sid = self.movieDetailsResponse?.service_id {
+            serviceID = sid.toString()
+        }
+        
+        var url : String = "http://115.29.164.124/whiteboard/apploadboard/"+localUID+"/"+providerID+"/"+serviceID
+        
+        webViewController.startPage = url
+   
         
         self.navigationController?.pushViewController(webViewController, animated: true)
 
