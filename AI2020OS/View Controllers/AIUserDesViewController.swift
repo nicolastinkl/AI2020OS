@@ -21,13 +21,14 @@ class AIUserDesViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     
     @IBOutlet weak var buttonAvator: AsyncImageView!
-     var avatorURL:String?
+    var avatorURL:String?
+    var username:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleImage.setURL(self.avatorURL?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
-        
+        titleLabel.text = username ?? ""
         let handImageView = self.tableview.tableHeaderView?.viewWithTag(2) as AsyncImageView
         handImageView.setURL(self.avatorURL?.toURL(), placeholderImage: UIImage(named: "Placeholder"))
        

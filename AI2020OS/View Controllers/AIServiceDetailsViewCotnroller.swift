@@ -457,8 +457,9 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         if indexPath.section == 0 {
             let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIUserDesStoryboard, bundle: nil).instantiateInitialViewController() as AIUserDesViewController
             viewController.avatorURL = self.movieDetailsResponse?.provider_portrait_url ?? ""
+            viewController.username = self.movieDetailsResponse?.provider_name ?? ""
             self.showViewController(viewController, sender: self)
-            viewController.titleLabel.text = self.movieDetailsResponse?.provider_name ?? ""
+
         }
         
         if indexPath.section == 2 {
