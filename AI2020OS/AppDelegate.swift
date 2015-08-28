@@ -202,6 +202,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Create empty photo object
         
+        
         var userInfoDic : Dictionary<String, AnyObject> = userInfo as Dictionary<String, AnyObject>
         handleRemoteNotification(userInfoDic);
         
@@ -213,14 +214,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         if notification.isEmpty {return}
         
-        var charURL : String = notification[kAPNS_ChatURL] as  String!
-        if !charURL.isEmpty {
-            // handle notification
-            var webViewController : AICDWebViewController = AICDWebViewController()
-            webViewController.startPage = charURL
-            
-            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(webViewController, animated: false, completion: nil)
+        
+        
+        let alertController = UIAlertController(title: "消息", message: notification["aps"] as? String, preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "不看了", style: .Cancel) { (action) in
+            // ...
         }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "现在去看", style: .Default) { (action) in
+            var charURL : String = notification[kAPNS_ChatURL] as  String!
+            if !charURL.isEmpty {
+                // handle notification
+                var webViewController : AICDWebViewController = AICDWebViewController()
+                webViewController.startPage = charURL
+                
+                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(webViewController, animated: false, completion: nil)
+            }
+        }
+        alertController.addAction(OKAction)
+        
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alertController, animated: true) {
+            // ...
+        }
+        
+        
+        
+        
      
     }
     
