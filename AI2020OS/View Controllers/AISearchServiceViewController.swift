@@ -138,7 +138,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
         collectionView.reloadData()
         
         view.showProgressViewLoading()
-        searchEngine?.searchServicesAndCatalogs("t", pageNum: 1, pageSize: 10, successRes: queryServicesAndCatalogsSuccess, fail: queryHotFail)
+        searchEngine?.searchServicesAndCatalogs(text, pageNum: 1, pageSize: 10, successRes: queryServicesAndCatalogsSuccess, fail: queryHotFail)
     }
     
     private func queryServicesAndCatalogsSuccess(responseData: AISearchServicesAndCatalogsResultModel) {
@@ -150,6 +150,8 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
             viewController.data = responseData
             
             presentViewController(viewController, animated: true, completion: nil)
+        } else {
+            SCLAlertView().showError("没有搜索到数据", subTitle: "无数据",  duration: 2)
         }
     }
     

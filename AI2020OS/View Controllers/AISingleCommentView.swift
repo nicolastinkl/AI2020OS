@@ -16,6 +16,7 @@ class AISingleCommentView: UIView {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tipsCollectionView: UICollectionView!
     @IBOutlet weak var tipsLabel: UILabel!
+    @IBOutlet weak var title: UILabel!
     
     var scopeView: AIServerScopeView!
     var delegate: CommentViewDelegate?
@@ -25,7 +26,7 @@ class AISingleCommentView: UIView {
             
             if commentData != nil {
                 if commentData!.provider_portrait_url != nil {
-                    avatar.setURL(NSURL(string: commentData!.provider_portrait_url!), placeholderImage:UIImage(named: "Placeholder"))
+//                    avatar.setURL(NSURL(string: commentData!.provider_portrait_url!), placeholderImage:UIImage(named: "Placeholder"))
 //                    AIImageViewUtils.loadImageFromUrl(avatar, url: commentData!.provider_portrait_url!, placeholderImage: UIImage(named: "Placeholder")!)
                 }
                 
