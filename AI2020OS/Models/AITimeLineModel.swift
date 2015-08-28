@@ -38,9 +38,9 @@ class AITimeLineModel: JSONJoy {
     }
     
     required init(_ decoder: JSONDecoder) {
-        currentTimeStamp = decoder["timeStamp"].double
-        title = decoder["offerName"].string
-        content = decoder["stepDesc"].string
+        currentTimeStamp = decoder["current_time_stamp"].double
+        title = decoder["title"].string
+        content = decoder["desc"].string
         type = 0
         expend = 0
         expendData = NSArray()

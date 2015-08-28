@@ -92,7 +92,7 @@ class AITimelineViewController: UITableViewController {
         self.view.showProgressViewLoading()
         
         Async.utility {
-            AITimeLineServices().queryAllTimeData("1", completion: { (data: [AITimeLineModel]) -> () in
+            AITimeLineServices().queryAllTimeData("1",orderId : "", completion: { (data: [AITimeLineModel]) -> () in
                 self.view.hideProgressViewLoading()
                 if data.count > 0  {
                     self.dataTimeLineArray = NSMutableArray(array: data)

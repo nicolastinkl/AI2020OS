@@ -52,6 +52,18 @@ extension String{
     
 }
 
+extension Double{
+    func dateStringFromTimestamp()->String
+    {
+        var ts = self
+        var  formatter = NSDateFormatter ()
+        formatter.dateFormat = "yyyy年MM月dd日 HH:MM:ss"
+        var date = NSDate(timeIntervalSince1970 : ts)
+        return  formatter.stringFromDate(date)
+        
+    }
+}
+
 extension Int{
 //    func string -> String{
 //        let returnString:String = "\(self)"

@@ -11,7 +11,8 @@ import UIKit
 class AICustomerOrderDetailViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var timeLineView: UIView!
+
+    @IBOutlet weak var timeLineView: SubTimelineView!
 
     @IBOutlet weak var serviceAddr: UILabel!
     @IBOutlet weak var serviceTimeDuration: UILabel!
@@ -39,6 +40,9 @@ class AICustomerOrderDetailViewController: UIViewController {
         self.title = "订单详情"
         // request networking.
         retryNetworkingAction()
+        // request timeline data
+        timeLineView.orderId = "\(orderId)"
+        timeLineView.retryNetworkingAction()
     }
     
     override func viewWillAppear(animated: Bool) {
