@@ -61,6 +61,8 @@ class AIHomeViewController: UITableViewController {
     */
     func loginSuccess(){
         retryNetworkingAction()
+        loginAPNS()
+        configNetEngine();
     }
     
     /**
@@ -72,10 +74,43 @@ class AIHomeViewController: UITableViewController {
         AILocalStore.logout()
         self.tabBarController?.selectedIndex = 0
         self.loginAction = LoginAction(viewController: self, completion: nil)
-        
-
+        logoutAPNS()
+        configNetEngine();
     }
     
+    /**
+    APNS控制
+    */
+    func loginAPNS(){
+        // save user
+        var currentInstallation : AVInstallation = AVInstallation.currentInstallation()
+        currentInstallation.setObject(AILocalStore.uidToken()?, forKey: KAPNS_Owner)
+        currentInstallation.saveInBackground()
+    }
+    
+    func logoutAPNS(){
+        // remove user
+        var currentInstallation : AVInstallation = AVInstallation.currentInstallation()
+        currentInstallation.removeObjectForKey(KAPNS_Owner)
+        currentInstallation.saveInBackground()
+    }
+    
+    
+    /**
+    header
+    */
+    private func configNetEngine() {
+        let timeStamp: Int = 0
+        let token = "0"
+        let RSA = "0"
+        
+        let headerContent = "\(timeStamp)&" + token+"&" + "\(AILocalStore.uidToken())&" + RSA
+        
+        let header = [kHttp_Header_Query: headerContent]
+        AINetEngine.defaultEngine().configureCommonHeaders(header)
+    }
+    
+    ///////////////////////////////////////////////////////
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
