@@ -130,6 +130,10 @@ extension AISimpleServiceTableViewController: UITableViewDelegate, UITableViewDa
                 cell.icon.setURL(NSURL(string: service.service_intro_url), placeholderImage:UIImage(named: "Placeholder"))
             }
             
+            if service.service_price != nil {
+                cell.price.text = service.service_price
+            }
+            
         default:
             cell.title.text = "null"
         }
