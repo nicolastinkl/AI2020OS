@@ -283,7 +283,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         case 1:
             return 72
         case 2:
-            return 60
+            return 0//60
         case 3:
             if let str = self.movieDetailsResponse?.service_intro{
                 
@@ -299,7 +299,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             }
             return 0
         case 5:
-            return 142
+            return 0.1 //142
         default:
             break
         }
@@ -357,7 +357,8 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.addBottomBorderLine()
             return avCell!
         case 2: //选择时间
-            
+            return UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "AIHomeSDParamesViewCell") as  UITableViewCell
+            /*
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
             if  avCell == nil {
                 avCell = AIHomeSDParamesViewCell().currentViewCell()
@@ -366,7 +367,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.detailTextLabel?.text = ""
             avCell?.addBottomBorderLine()
             return avCell!
-        
+        */
         case 3: //服务详情
             
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDesViewCell) as? AIHomeSDDesViewCell
@@ -396,13 +397,14 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             return avCell!
             
         case 5: //最新评论
+            return UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "AIHomeCommentViewCell") as  UITableViewCell
+//            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeCommentViewCell) as? AIHomeCommentViewCell
+//            if  avCell == nil {
+//                avCell = AIHomeCommentViewCell().currentViewCell()
+//            }
+//            avCell?.delegate = self
+//            return avCell!
             
-            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeCommentViewCell) as? AIHomeCommentViewCell
-            if  avCell == nil {
-                avCell = AIHomeCommentViewCell().currentViewCell()
-            }
-            avCell?.delegate = self
-            return avCell!
         default:
             
             break
@@ -456,7 +458,9 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         if indexPath.section == 0 {
             let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIUserDesStoryboard, bundle: nil).instantiateInitialViewController() as AIUserDesViewController
             viewController.avatorURL = self.movieDetailsResponse?.provider_portrait_url ?? ""
+            viewController.username = self.movieDetailsResponse?.provider_name ?? ""
             self.showViewController(viewController, sender: self)
+
         }
         
         if indexPath.section == 2 {

@@ -33,8 +33,9 @@ class AIComponentChoseViewController: UIViewController {
         var cellHeigh:CGFloat = 0
         
         if let modelArray = self.movieDetailsResponse?.service_param_list {
-            for model in modelArray{                
+            for newmodel in modelArray{
                 // MARK TITLE
+                var model = newmodel
                 cellHeigh += margeheight
                 var title = UILabel()
                 title.text = model.param_key ?? ""
@@ -47,10 +48,21 @@ class AIComponentChoseViewController: UIViewController {
                 
                 cellHeigh += title.height   // Set Height...
                 
+                model.param_type = 7
+                
+                if NSString(string: model.param_key ?? "").containsString("时间") {
+                    model.param_type = 1
+                }
+                
+                if NSString(string: model.param_key ?? "").containsString("地址") {
+                    model.param_type = 5
+                }
+                
                 // MARK CONTENT
                 //参数类型, 1-时间，2-int（选择商品数量），3-double, 4-bool(开关)，5-地址 ,6-子服务 , 7-多项单选, 8-多项多选
                 
                 if let type = model.param_type {
+                    
                     switch type {
                     case 1: //时间
                         
@@ -60,7 +72,7 @@ class AIComponentChoseViewController: UIViewController {
                         cellHeigh += timePickerView.height + 50
                         timePickerView.viewChangeClosure({ (number) -> () in
                             let key = model.param_key ?? ""
-                            let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":number]
+                            let params = ["param_key":model.param_key_id ?? 0,"param_value":number,"formattime":true,"param_value_id":0]
                             self.selectedParams.setValue(params, forKey: key)
                             
                         })
@@ -73,7 +85,7 @@ class AIComponentChoseViewController: UIViewController {
                         cellHeigh += selectNumebrView.height
                         selectNumebrView.viewChangeClosure({ (number) -> () in
                             let key = model.param_key ?? ""
-                            let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":number]
+                            let params = ["param_key":model.param_key_id ?? 0,"param_value":number,"param_value_id":0]
                             self.selectedParams.setValue(params, forKey: key)
                         })
                         break
@@ -84,11 +96,18 @@ class AIComponentChoseViewController: UIViewController {
                         
                         break
                     case 5: //地址
-                        var addressPickerView = AIServerAddressView.currentView()
+                        
+                        var addressPickerView = AIServerInputView.currentView()
                         self.contentScrollView.addSubview(addressPickerView)
                         addressPickerView.setTop(cellHeigh)
                         cellHeigh += addressPickerView.height
-                        
+                        addressPickerView.viewChangeClosure({ (text) -> () in
+                            
+                            let key = model.param_key ?? ""
+                            let params = ["param_key":model.param_key_id ?? 0,"param_value":text,"param_value_id":0]
+                            self.selectedParams.setValue(params, forKey: key)
+                            
+                        })
                         break
                     case 6: //子服务
                         
@@ -114,7 +133,7 @@ class AIComponentChoseViewController: UIViewController {
                             
                             let key = model.param_key ?? ""
                             
-                            let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":modelTwo.content ?? "","param_value_id":modelTwo.id ?? "","param_value_type":"1"]
+                            let params = ["param_key":model.param_key_id ?? 0,"param_value":modelTwo.content ?? "","param_value_id":modelTwo.id?.toInt() ?? 0,"param_value_type":"1"]
                             self.selectedParams.setValue(params, forKey: key)
                             
                             // self.selectedParams.setValue(modelTwo.content, forKey: key)
