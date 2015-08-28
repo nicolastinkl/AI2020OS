@@ -46,7 +46,6 @@
 		814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BDC1B820529003A10A5 /* AIMessageCell.m */; };
 		817E15D31B7C8A2700C298BE /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 817E15CF1B7C8A2700C298BE /* config.xml */; };
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
-		817E15F61B7C8DB800C298BE /* www in Resources */ = {isa = PBXBuildFile; fileRef = 817E15F51B7C8DB800C298BE /* www */; };
 		817E15FE1B7C91E000C298BE /* AIWebPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E15FD1B7C91E000C298BE /* AIWebPlugin.m */; };
 		818B5C551B8ACB1C00B22F1F /* AIServerUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B5C541B8ACB1C00B22F1F /* AIServerUploadViewController.m */; };
 		818B5C6E1B8C4D1400B22F1F /* AIServiceManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B5C6D1B8C4D1400B22F1F /* AIServiceManageViewController.m */; };
@@ -76,6 +75,18 @@
 		81A06C841B8EC1A500AFB066 /* ProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A06C7A1B8EC1A500AFB066 /* ProgressBar.m */; };
 		81A06C851B8EC1A500AFB066 /* SBCaptureToolKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A06C7D1B8EC1A500AFB066 /* SBCaptureToolKit.m */; };
 		81A06C861B8EC1A500AFB066 /* SBVideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A06C7F1B8EC1A500AFB066 /* SBVideoRecorder.m */; };
+		81A06CA01B8F2EFA00AFB066 /* AIShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A06C991B8F2EFA00AFB066 /* AIShareViewController.m */; };
+		81A06CA11B8F2EFA00AFB066 /* AIWeiboData.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A06C9B1B8F2EFA00AFB066 /* AIWeiboData.m */; };
+		81A06CA21B8F2EFA00AFB066 /* sdk_weibo_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 81A06C9C1B8F2EFA00AFB066 /* sdk_weibo_logo.png */; };
+		81A06CA31B8F2EFA00AFB066 /* sdk_weibo_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81A06C9D1B8F2EFA00AFB066 /* sdk_weibo_logo@2x.png */; };
+		81A06CA41B8F2EFA00AFB066 /* sdk_weibo_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81A06C9E1B8F2EFA00AFB066 /* sdk_weibo_logo@3x.png */; };
+		81A06CA51B8F2EFA00AFB066 /* weibo_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 81A06C9F1B8F2EFA00AFB066 /* weibo_logo.png */; };
+		81A06CB31B8F2F2100AFB066 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A06CA71B8F2F2100AFB066 /* libWeiboSDK.a */; };
+		81A06CB41B8F2F2200AFB066 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 81A06CB01B8F2F2100AFB066 /* WeiboSDK.bundle */; };
+		81A06CB61B8F2F3B00AFB066 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A06CB51B8F2F3B00AFB066 /* Security.framework */; };
+		81A06CB81B8F2F4300AFB066 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A06CB71B8F2F4300AFB066 /* ImageIO.framework */; };
+		81A06CBA1B8F312800AFB066 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A06CB91B8F312800AFB066 /* libsqlite3.dylib */; };
+		81A06CBD1B8FF24F00AFB066 /* AIServiceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A06CBC1B8FF24F00AFB066 /* AIServiceListModel.m */; };
 		81CF5F7C1B86BA2500FBF6BA /* storehouse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81CF5F7B1B86BA2500FBF6BA /* storehouse.plist */; };
 		840FDAA91B857D8100CE3DF9 /* AIOrderModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAA81B857D8100CE3DF9 /* AIOrderModifyView.swift */; };
 		840FDAAB1B857D9800CE3DF9 /* AIOrderModifyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840FDAAA1B857D9800CE3DF9 /* AIOrderModifyView.xib */; };
@@ -505,7 +516,6 @@
 		817E15F01B7C8AB000C298BE /* NSMutableArray+QueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+QueueAdditions.h"; sourceTree = "<group>"; };
 		817E15F11B7C8AB000C298BE /* UIDevice+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extensions.h"; sourceTree = "<group>"; };
 		817E15F21B7C8AB000C298BE /* libCordova.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCordova.a; sourceTree = "<group>"; };
-		817E15F51B7C8DB800C298BE /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		817E15FC1B7C91E000C298BE /* AIWebPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIWebPlugin.h; path = AI2020OS/Web/Plugin/AIWebPlugin.h; sourceTree = SOURCE_ROOT; };
 		817E15FD1B7C91E000C298BE /* AIWebPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIWebPlugin.m; path = AI2020OS/Web/Plugin/AIWebPlugin.m; sourceTree = SOURCE_ROOT; };
 		818B5C531B8ACB1C00B22F1F /* AIServerUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIServerUploadViewController.h; sourceTree = "<group>"; };
@@ -566,6 +576,31 @@
 		81A06C7D1B8EC1A500AFB066 /* SBCaptureToolKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCaptureToolKit.m; sourceTree = "<group>"; };
 		81A06C7E1B8EC1A500AFB066 /* SBVideoRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBVideoRecorder.h; sourceTree = "<group>"; };
 		81A06C7F1B8EC1A500AFB066 /* SBVideoRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBVideoRecorder.m; sourceTree = "<group>"; };
+		81A06C981B8F2EFA00AFB066 /* AIShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIShareViewController.h; sourceTree = "<group>"; };
+		81A06C991B8F2EFA00AFB066 /* AIShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIShareViewController.m; sourceTree = "<group>"; };
+		81A06C9A1B8F2EFA00AFB066 /* AIWeiboData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWeiboData.h; sourceTree = "<group>"; };
+		81A06C9B1B8F2EFA00AFB066 /* AIWeiboData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWeiboData.m; sourceTree = "<group>"; };
+		81A06C9C1B8F2EFA00AFB066 /* sdk_weibo_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sdk_weibo_logo.png; sourceTree = "<group>"; };
+		81A06C9D1B8F2EFA00AFB066 /* sdk_weibo_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sdk_weibo_logo@2x.png"; sourceTree = "<group>"; };
+		81A06C9E1B8F2EFA00AFB066 /* sdk_weibo_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sdk_weibo_logo@3x.png"; sourceTree = "<group>"; };
+		81A06C9F1B8F2EFA00AFB066 /* weibo_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weibo_logo.png; sourceTree = "<group>"; };
+		81A06CA71B8F2F2100AFB066 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
+		81A06CA81B8F2F2100AFB066 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
+		81A06CA91B8F2F2100AFB066 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
+		81A06CAA1B8F2F2100AFB066 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
+		81A06CAB1B8F2F2100AFB066 /* WBHttpRequest+WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboUser.h"; sourceTree = "<group>"; };
+		81A06CAC1B8F2F2100AFB066 /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
+		81A06CAD1B8F2F2100AFB066 /* WBSDKBasicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKBasicButton.h; sourceTree = "<group>"; };
+		81A06CAE1B8F2F2100AFB066 /* WBSDKCommentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKCommentButton.h; sourceTree = "<group>"; };
+		81A06CAF1B8F2F2100AFB066 /* WBSDKRelationshipButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKRelationshipButton.h; sourceTree = "<group>"; };
+		81A06CB01B8F2F2100AFB066 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
+		81A06CB11B8F2F2100AFB066 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
+		81A06CB21B8F2F2100AFB066 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		81A06CB51B8F2F3B00AFB066 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		81A06CB71B8F2F4300AFB066 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		81A06CB91B8F312800AFB066 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		81A06CBB1B8FF24F00AFB066 /* AIServiceListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIServiceListModel.h; sourceTree = "<group>"; };
+		81A06CBC1B8FF24F00AFB066 /* AIServiceListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIServiceListModel.m; sourceTree = "<group>"; };
 		81CF5F7B1B86BA2500FBF6BA /* storehouse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = storehouse.plist; sourceTree = "<group>"; };
 		840FDAA81B857D8100CE3DF9 /* AIOrderModifyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderModifyView.swift; sourceTree = "<group>"; };
 		840FDAAA1B857D9800CE3DF9 /* AIOrderModifyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIOrderModifyView.xib; sourceTree = "<group>"; };
@@ -948,10 +983,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A06CBA1B8F312800AFB066 /* libsqlite3.dylib in Frameworks */,
+				81A06CB81B8F2F4300AFB066 /* ImageIO.framework in Frameworks */,
+				81A06CB61B8F2F3B00AFB066 /* Security.framework in Frameworks */,
 				933ED4261AC9279900E4AADB /* MobileCoreServices.framework in Frameworks */,
 				933668981AD67979007556D7 /* CoreGraphics.framework in Frameworks */,
 				933ED42C1AC927C600E4AADB /* CoreLocation.framework in Frameworks */,
 				8119B2FF1B7D835200625FB4 /* AssetsLibrary.framework in Frameworks */,
+				81A06CB31B8F2F2100AFB066 /* libWeiboSDK.a in Frameworks */,
 				938A3AFE1B257FC200E3A5BF /* MediaPlayer.framework in Frameworks */,
 				9336689A1AD67994007556D7 /* AddressBook.framework in Frameworks */,
 				817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */,
@@ -1132,7 +1171,6 @@
 				818B5C521B8ACABF00B22F1F /* WebViews */,
 				814B2BC91B81C9EA003A10A5 /* Camera */,
 				817E15F71B7C8EB500C298BE /* Plugins */,
-				817E15F51B7C8DB800C298BE /* www */,
 				817E15CF1B7C8A2700C298BE /* config.xml */,
 			);
 			name = Web;
@@ -1296,6 +1334,40 @@
 				81A06C7F1B8EC1A500AFB066 /* SBVideoRecorder.m */,
 			);
 			path = AIVideoCore;
+			sourceTree = "<group>";
+		};
+		81A06C971B8F2EFA00AFB066 /* WeiboShare */ = {
+			isa = PBXGroup;
+			children = (
+				81A06C981B8F2EFA00AFB066 /* AIShareViewController.h */,
+				81A06C991B8F2EFA00AFB066 /* AIShareViewController.m */,
+				81A06C9A1B8F2EFA00AFB066 /* AIWeiboData.h */,
+				81A06C9B1B8F2EFA00AFB066 /* AIWeiboData.m */,
+				81A06C9C1B8F2EFA00AFB066 /* sdk_weibo_logo.png */,
+				81A06C9D1B8F2EFA00AFB066 /* sdk_weibo_logo@2x.png */,
+				81A06C9E1B8F2EFA00AFB066 /* sdk_weibo_logo@3x.png */,
+				81A06C9F1B8F2EFA00AFB066 /* weibo_logo.png */,
+			);
+			path = WeiboShare;
+			sourceTree = "<group>";
+		};
+		81A06CA61B8F2F2100AFB066 /* libWeiboSDK */ = {
+			isa = PBXGroup;
+			children = (
+				81A06CA71B8F2F2100AFB066 /* libWeiboSDK.a */,
+				81A06CA81B8F2F2100AFB066 /* WBHttpRequest+WeiboGame.h */,
+				81A06CA91B8F2F2100AFB066 /* WBHttpRequest+WeiboShare.h */,
+				81A06CAA1B8F2F2100AFB066 /* WBHttpRequest+WeiboToken.h */,
+				81A06CAB1B8F2F2100AFB066 /* WBHttpRequest+WeiboUser.h */,
+				81A06CAC1B8F2F2100AFB066 /* WBHttpRequest.h */,
+				81A06CAD1B8F2F2100AFB066 /* WBSDKBasicButton.h */,
+				81A06CAE1B8F2F2100AFB066 /* WBSDKCommentButton.h */,
+				81A06CAF1B8F2F2100AFB066 /* WBSDKRelationshipButton.h */,
+				81A06CB01B8F2F2100AFB066 /* WeiboSDK.bundle */,
+				81A06CB11B8F2F2100AFB066 /* WeiboSDK.h */,
+				81A06CB21B8F2F2100AFB066 /* WeiboUser.h */,
+			);
+			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
 		81CF5F7A1B86BA2500FBF6BA /* BundleRes */ = {
@@ -1769,6 +1841,8 @@
 				84DA3B411B8D649800EF61AC /* AIServiceModel.m */,
 				84DA3B431B8D661F00EF61AC /* AISearchModel.h */,
 				84DA3B441B8D661F00EF61AC /* AISearchModel.m */,
+				81A06CBB1B8FF24F00AFB066 /* AIServiceListModel.h */,
+				81A06CBC1B8FF24F00AFB066 /* AIServiceListModel.m */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -1796,6 +1870,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				81A06C971B8F2EFA00AFB066 /* WeiboShare */,
 				84DF7EC61B8EA2540093C499 /* Settings */,
 				84D332451B8B4A7100BB1318 /* CollectView */,
 				84A72C611B85DED600B503A3 /* UserDesView */,
@@ -1890,6 +1965,7 @@
 		933ED4181AC9221100E4AADB /* Venders */ = {
 			isa = PBXGroup;
 			children = (
+				81A06CA61B8F2F2100AFB066 /* libWeiboSDK */,
 				812388CD1B85CCB900CEA574 /* CBStoreHouseRefreshControl */,
 				812388B11B8428BC00CEA574 /* WMPageController */,
 				8198ABA61B81840E0047E740 /* AFNetworking */,
@@ -1903,6 +1979,9 @@
 		933ED42F1AC9282A00E4AADB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81A06CB91B8F312800AFB066 /* libsqlite3.dylib */,
+				81A06CB71B8F2F4300AFB066 /* ImageIO.framework */,
+				81A06CB51B8F2F3B00AFB066 /* Security.framework */,
 				8119B2FE1B7D835200625FB4 /* AssetsLibrary.framework */,
 				938A3AFD1B257FC200E3A5BF /* MediaPlayer.framework */,
 				931718841B15A35400EC9C14 /* MapKit.framework */,
@@ -2440,6 +2519,7 @@
 				93A705961B12D0EF00E8193C /* AIServerAddressView.xib in Resources */,
 				845DC1D11B8C03650044AE86 /* DSLCalendarMonthSelectorView.xib in Resources */,
 				84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */,
+				81A06CA51B8F2EFA00AFB066 /* weibo_logo.png in Resources */,
 				93E4D5AD1B14AA5900992CA3 /* AIOrderStoryboard.storyboard in Resources */,
 				845DC1DD1B8C03650044AE86 /* picker_selection.png in Resources */,
 				84CDC8EA1B84867C002A29EE /* AIHomeCommentViewCell.xib in Resources */,
@@ -2451,6 +2531,7 @@
 				93FF74751B0ECF0100FD97C1 /* AIComponentStoryboard.storyboard in Resources */,
 				93DE16B11B05E7B30056A1E3 /* AIHomeSDParamesViewCell.xib in Resources */,
 				84D83D3B1B8BFEE00076943D /* UICollectMoreStoryboard.storyboard in Resources */,
+				81A06CA41B8F2EFA00AFB066 /* sdk_weibo_logo@3x.png in Resources */,
 				845DC1D71B8C03650044AE86 /* DSLCalendar-nextMonth.png in Resources */,
 				840FDAAB1B857D9800CE3DF9 /* AIOrderModifyView.xib in Resources */,
 				81A06C811B8EC1A500AFB066 /* AIVideoRecorderViewController.xib in Resources */,
@@ -2466,6 +2547,7 @@
 				84E3AF0B1B0DF73A0019D1B4 /* AISearchStoryboard.storyboard in Resources */,
 				93AC3FB81AC95E03000024A4 /* AIMainStoryboard.storyboard in Resources */,
 				84ACACB11B870775000258F9 /* AIServiceCountView.xib in Resources */,
+				81A06CA31B8F2EFA00AFB066 /* sdk_weibo_logo@2x.png in Resources */,
 				1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */,
 				845DC1D81B8C03650044AE86 /* DSLCalendar-nextMonth@2x.png in Resources */,
 				84DBFF661B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard in Resources */,
@@ -2484,13 +2566,13 @@
 				9349871E1B0E04C6003086D1 /* AIMesageCenterStoryboard.storyboard in Resources */,
 				81CF5F7C1B86BA2500FBF6BA /* storehouse.plist in Resources */,
 				93659F661B1EF21A0065E661 /* AITableViewInsetMakeView.xib in Resources */,
-				817E15F61B7C8DB800C298BE /* www in Resources */,
 				9349870E1B0DA348003086D1 /* AIHomeViewStyleMultiepleView.xib in Resources */,
 				845DC1D61B8C03650044AE86 /* arraw_right.png in Resources */,
 				845DC1D91B8C03650044AE86 /* DSLCalendar-previousMonth.png in Resources */,
 				93FF747C1B0F0CA800FD97C1 /* AIServerScopeView.xib in Resources */,
 				81A06C821B8EC1A500AFB066 /* Info.plist in Resources */,
 				933ED3F31AC8F90A00E4AADB /* Images.xcassets in Resources */,
+				81A06CA21B8F2EFA00AFB066 /* sdk_weibo_logo.png in Resources */,
 				84DE7DAF1B79E623007E8F7F /* AICommentStoryboard.storyboard in Resources */,
 				934987051B0B3074003086D1 /* AITIMELINESDTITLEView.xib in Resources */,
 				84D9B81D1B7C2CA8005331B5 /* AISingleCommentView.xib in Resources */,
@@ -2503,6 +2585,7 @@
 				1284ABCA1B2036F500636F35 /* AITagFilterStoryboard.storyboard in Resources */,
 				93A705981B12D19900E8193C /* ProvincesAndCities.plist in Resources */,
 				845DC1D51B8C03650044AE86 /* arraw_left.png in Resources */,
+				81A06CB41B8F2F2200AFB066 /* WeiboSDK.bundle in Resources */,
 				84AE09311B8C08DD00AAC721 /* AIServiceSearchView.xib in Resources */,
 				817E15D31B7C8A2700C298BE /* config.xml in Resources */,
 			);
@@ -2611,6 +2694,7 @@
 				84ACACAF1B870763000258F9 /* AIServiceCountView.swift in Sources */,
 				84D83D3D1B8C00E20076943D /* UITransViewController.swift in Sources */,
 				840FDAC61B85AFDF00CE3DF9 /* RegexKitLite.m in Sources */,
+				81A06CA01B8F2EFA00AFB066 /* AIShareViewController.m in Sources */,
 				936DAC1D1ADCF4170025483B /* AIRecognizerFactory.m in Sources */,
 				814B2BD11B81C9EB003A10A5 /* CDVCamera.m in Sources */,
 				812388C21B8428BC00CEA574 /* WMPageController.m in Sources */,
@@ -2653,12 +2737,14 @@
 				812388BE1B8428BC00CEA574 /* WMFooldView.m in Sources */,
 				84AE092D1B8C089C00AAC721 /* TableViewCellBackgroundView.m in Sources */,
 				93F66DE71B1976AC00AEA92A /* AIChatNewSprintViewController.swift in Sources */,
+				81A06CA11B8F2EFA00AFB066 /* AIWeiboData.m in Sources */,
 				814B2BD61B8204C2003A10A5 /* AIMessageViewController.m in Sources */,
 				84AE09231B8C066400AAC721 /* AIContentView.swift in Sources */,
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
 				8198ABD81B81840E0047E740 /* JSONModelError.m in Sources */,
 				937C77681B1E9BBB006FF589 /* AICServiceViewController.swift in Sources */,
 				123A45F61B831B27008B9CF6 /* AICustomerOrderDetailViewController.swift in Sources */,
+				81A06CBD1B8FF24F00AFB066 /* AIServiceListModel.m in Sources */,
 				8198ABCF1B81840E0047E740 /* AFSecurityPolicy.m in Sources */,
 				939E663C1B280E8900FD5FBA /* AIWebViewController.swift in Sources */,
 				818B5C551B8ACB1C00B22F1F /* AIServerUploadViewController.m in Sources */,
@@ -2971,6 +3057,34 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AI2020OS/Libs/sunflower",
 					"$(PROJECT_DIR)/AI2020OS/Libs/Cordova",
+					"$(PROJECT_DIR)/AI2020OS/Venders/libWeiboSDK",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AwesomeCache\"",
+					"-framework",
+					"\"Cartography\"",
+					"-framework",
+					"\"CryptoSwift\"",
+					"-framework",
+					"\"JSONJoy\"",
+					"-framework",
+					"\"JSQNotificationObserverKit\"",
+					"-framework",
+					"\"SCLAlertView\"",
+					"-framework",
+					"\"Spring\"",
+					"-framework",
+					"\"SwiftLog\"",
+					"-framework",
+					"\"SwiftyUserDefaults\"",
+					"-framework",
+					"\"Toucan\"",
+					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3114,6 +3228,34 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AI2020OS/Libs/sunflower",
 					"$(PROJECT_DIR)/AI2020OS/Libs/Cordova",
+					"$(PROJECT_DIR)/AI2020OS/Venders/libWeiboSDK",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AwesomeCache\"",
+					"-framework",
+					"\"Cartography\"",
+					"-framework",
+					"\"CryptoSwift\"",
+					"-framework",
+					"\"JSONJoy\"",
+					"-framework",
+					"\"JSQNotificationObserverKit\"",
+					"-framework",
+					"\"SCLAlertView\"",
+					"-framework",
+					"\"Spring\"",
+					"-framework",
+					"\"SwiftLog\"",
+					"-framework",
+					"\"SwiftyUserDefaults\"",
+					"-framework",
+					"\"Toucan\"",
+					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3144,6 +3286,34 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AI2020OS/Libs/sunflower",
 					"$(PROJECT_DIR)/AI2020OS/Libs/Cordova",
+					"$(PROJECT_DIR)/AI2020OS/Venders/libWeiboSDK",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AwesomeCache\"",
+					"-framework",
+					"\"Cartography\"",
+					"-framework",
+					"\"CryptoSwift\"",
+					"-framework",
+					"\"JSONJoy\"",
+					"-framework",
+					"\"JSQNotificationObserverKit\"",
+					"-framework",
+					"\"SCLAlertView\"",
+					"-framework",
+					"\"Spring\"",
+					"-framework",
+					"\"SwiftLog\"",
+					"-framework",
+					"\"SwiftyUserDefaults\"",
+					"-framework",
+					"\"Toucan\"",
+					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";

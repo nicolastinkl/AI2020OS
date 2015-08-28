@@ -52,29 +52,30 @@ extension AIHomeViewStyleTitleAndContentView{
     func targetImageClickAction(){
         AIApplication().SendAction("targetForServicesAction:", ownerName: self.contentImage)
     }
+    
 }
 
 extension AIHomeViewStyleMultiepleView{
+    
     func fillDataWithModel(model:AIServiceTopicModel){
-        let idmov:Int? = model.service_id
-        let movieid:String = String(idmov!)
-        self.contentImage.assemblyID = movieid
         
-        self.title.text = model.service_name
-        self.contentImage.setURL(model.service_intro_url?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
-        self.price.text = model.service_price
-        self.nick.text = model.provider_name
-        self.avator.setImageURL(model.provider_portrait_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"), forState: UIControlState.Normal)
-        
-        let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: Selector("targetImageClickAction"))
-        self.contentImage.addGestureRecognizer(gestureRecognizer)
+        if let idmov = model.service_id {
+            self.contentImage.assemblyID = "\(idmov)"
+            self.title.text = model.service_name
+            self.contentImage.setURL(model.service_intro_url?.toURL(), placeholderImage:UIImage(named: "Placeholder"))
+            self.price.text = model.service_price
+            self.nick.text = model.provider_name
+            self.avator.setImageURL(model.provider_portrait_url?.toURL(), placeholderImage: UIImage(named: "Placeholder"), forState: UIControlState.Normal)
+            
+            let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: Selector("targetImageClickAction"))
+            self.contentImage.addGestureRecognizer(gestureRecognizer)
+        }
     }
     
     func targetImageClickAction(){
         AIApplication().SendAction("targetForServicesAction:", ownerName: self.contentImage)
     }
 }
-
 
 class AIHomeStyleMananger: NSObject {
     

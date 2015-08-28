@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nom-2e-QSc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nom-2e-QSc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -2593,9 +2593,10 @@
                                                                         <constraint firstAttribute="width" constant="18" id="CPe-xQ-KdS"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="进行中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEE-8d-hAL">
+                                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="进行中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEE-8d-hAL">
                                                                     <rect key="frame" x="217" y="33" width="78" height="26"/>
                                                                     <animations/>
+                                                                    <gestureRecognizers/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="78" id="jed-Kc-Anv"/>
                                                                         <constraint firstAttribute="height" constant="26" id="mQg-RV-rxC"/>
@@ -2603,6 +2604,9 @@
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
+                                                                    <connections>
+                                                                        <outletCollection property="gestureRecognizers" destination="8GB-9o-dxY" appends="YES" id="k5D-IY-q8d"/>
+                                                                    </connections>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="买家订单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAb-S5-TJh">
                                                                     <rect key="frame" x="217" y="66" width="84" height="26"/>
@@ -3007,9 +3011,14 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                 </imageView>
-                <tapGestureRecognizer id="vAq-JW-eUK">
+                <tapGestureRecognizer id="vAq-JW-eUK" userLabel="卖家订单tap">
                     <connections>
                         <action selector="targetToOrderViewControllerAction:" destination="tNT-Re-7VD" id="9lb-Fd-wkn"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="8GB-9o-dxY" userLabel="买家订单tap">
+                    <connections>
+                        <action selector="targetToCustomerOrderViewControllerAction:" destination="tNT-Re-7VD" id="ZUO-nz-BCf"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

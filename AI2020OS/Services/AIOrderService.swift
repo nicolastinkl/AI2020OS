@@ -67,16 +67,16 @@ class AIOrderRequester {
         }
     }
     
-
- //订购方法
+    //订购方法
     func submitOrder(serviceId : Int,serviceParams: NSMutableArray,completion : SubmitOrderCompletion){
         if isLoading {
             return
         }
         isLoading = true
-        
+
+        let timeStamp: Int = Int(NSDate().timeIntervalSince1970)
         let paras = ["service_id": serviceId,
-            "service_exectime":"123456",
+            "service_exectime":timeStamp,
             "service_param_list":serviceParams
         ]
         
@@ -87,7 +87,8 @@ class AIOrderRequester {
             return completion(success: response != nil)
         }
     }
-     //订购方法
+    
+    //订购方法
     func submitOrder(serviceId : Int,completion : SubmitOrderCompletion){
         if isLoading {
             return

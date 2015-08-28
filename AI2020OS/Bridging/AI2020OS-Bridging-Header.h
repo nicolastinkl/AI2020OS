@@ -78,3 +78,11 @@
 #import "DSLCalendarView.h"
 
 #import "AIOrderModel.h"
+
+// 微博分享
+#import "AIShareViewController.h"
+#import "AIWeiboData.h"
+#import "WeiboSDK.h"
+
+
+

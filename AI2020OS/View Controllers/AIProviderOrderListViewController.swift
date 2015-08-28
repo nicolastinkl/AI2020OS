@@ -22,8 +22,6 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         buildDynaStatusButton()
         self.scrollView.contentSize = CGSizeMake(450, 0)
         
-        // request networking.
-        retryNetworkingAction()
         //registerNib
         tableView.registerNib(UINib(nibName:"CustomerOrderTableViewCell",bundle:NSBundle.mainBundle()), forCellReuseIdentifier: "CustomerOrderCell")
         tableView.delegate = self
@@ -36,6 +34,12 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         navigationController?.interactivePopGestureRecognizer.delegate = nil
         super.viewWillAppear(animated)
         scrollView.contentOffset = CGPointMake(0, 0)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        // request networking.
+        retryNetworkingAction()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,8 +56,8 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
     
     // MARK: - utils
     func retryNetworkingAction(){
-        self.view.hideProgressViewLoading()
-        self.view.showProgressViewLoading()
+        tableView.hideProgressViewLoading()
+        tableView.showProgressViewLoading()
         //后台请求数据
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
@@ -62,27 +66,28 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
                 if data.count > 0{
                     self.orderList = data
                     self.tableView.reloadData()
-                    self.view.hideErrorView()
+                    self.tableView.hideErrorView()
                 }else{
-                    self.view.showErrorView()
+                    self.tableView.showErrorView()
                 }
             })
         }
     }
     
-    
-    
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单
     //orderState: 待处理 进行中 待完成 已完成
     func buildDynaOperButton(orderState : String,orderType : String,buttonView:UIView , indexNumber : Int){
-        switch orderState{
-        case "11":
-            addOperButton([ButtonModel(title: "派单",action:"assignOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
-        case "已完成":
-            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+        let stateEnum = OrderStatus(rawValue: NSString(string: orderState).integerValue)
+        switch stateEnum! {
+        case .Init:
+            addOperButton([ButtonModel(title: "派 单",action:"assignOrder:"),ButtonModel(title: "处 理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+        case .Executing:
+            addOperButton([ButtonModel(title: "完 成",action:"finishOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+        case .WaidForComment:
+            addOperButton([ButtonModel(title: "评 价",action:"commentsOrder:")], buttonView: buttonView, indexNumber : indexNumber)
         default :
-            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "评 价",action:"commentsOrder:"),ButtonModel(title: "处 理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
             return
             
         }
@@ -91,12 +96,21 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
     
     
     func buildDynaStatusButton(){
-        let buttonArray = [StatusButtonModel(title: "全部", amount: 9,status:OrderStatus.WaitForPay.rawValue),
-            StatusButtonModel(title: "待处理", amount: 4,status:OrderStatus.WaitForPay.rawValue),StatusButtonModel(title: "待付款", amount: 0,status:OrderStatus.WaitForPay.rawValue),StatusButtonModel(title: "待评价", amount: 2,status:OrderStatus.WaitForPay.rawValue),StatusButtonModel(title: "已完成", amount: 3,status:OrderStatus.WaitForPay.rawValue)]
+        let buttonArray = [StatusButtonModel(title: "全部", amount: 9,status:0),
+            StatusButtonModel(title: "待处理", amount: 4,status:OrderStatus.Init.rawValue),
+            StatusButtonModel(title: "处理中", amount: 0,status:OrderStatus.Executing.rawValue),
+            StatusButtonModel(title: "待评价", amount: 2,status:OrderStatus.WaidForComment.rawValue),
+            StatusButtonModel(title: "已完成", amount: 3,status:OrderStatus.Finished.rawValue)]
         addStatusButton(buttonArray, scrollView: scrollView)
     }
 
-
+    override func filterOrderAction(target:UIButton){
+        super.filterOrderAction(target)
+        //refresh data
+        self.orderStatus = target.associatedName?.toInt() ?? 0
+        
+        retryNetworkingAction()
+    }
 
 }
 
@@ -139,7 +153,7 @@ extension AIProviderOrderListViewController:UITableViewDelegate,UITableViewDataS
             buildDynaOperButton(orderListModel.order_state_name!, orderType: "", buttonView: buttonView,indexNumber : indexPath.row)
         }
         if let customerIconImg = cell.viewWithTag(140) as? AIImageView{
-            customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url! ?? ""), placeholderImage: UIImage(named: "Placeholder"))
+            customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url! ?? "http://img1.gtimg.com/kid/pics/hv1/47/231/1905/123931577.jpg"), placeholderImage: UIImage(named: "Placeholder"))
         }
         cell.clipsToBounds = true
         return cell
@@ -149,9 +163,10 @@ extension AIProviderOrderListViewController:UITableViewDelegate,UITableViewDataS
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //AIOrderDetailStoryboard
-        //        println("执行跳转逻辑")
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderDetailStoryboard, bundle: nil).instantiateInitialViewController() as UIViewController
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateViewControllerWithIdentifier("AICustomerOrderDetailViewController") as AICustomerOrderDetailViewController
+        //        self.navigationController?.pushViewController(viewController, animated: true)
+        viewController.orderId = findOrderNumberByIndexNumber(indexPath.row)
+        viewController.serviceId = findOServiceIdByIndexNumber(indexPath.row)
+        showViewController(viewController, sender: self)
     }
 }
