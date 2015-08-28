@@ -138,4 +138,14 @@ extension AISimpleServiceTableViewController: UITableViewDelegate, UITableViewDa
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1 {
+            let service: AIServiceModel = data.serviceArray[indexPath.row] as AIServiceModel
+            
+            let controller:AIServiceDetailsViewCotnroller = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIMainStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
+            controller.server_id = "\(service.service_id)"
+            showViewController(controller, sender: self)
+        }
+    }
 }
