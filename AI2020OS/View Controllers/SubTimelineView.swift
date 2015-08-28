@@ -103,6 +103,7 @@ class SubTimelineView: UIView {
                 }else if data.count == 0{
                     self.showErrorView("没有数据,使用fakeData")
                     self.fakeModelData()
+                    self.buildViewContent()
                 }
                 
             })
