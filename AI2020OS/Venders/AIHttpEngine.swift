@@ -113,12 +113,12 @@ struct AIHttpEngine{
         var manager = Manager.sharedInstance
         
         let timeStamp: Int = Int(NSDate().timeIntervalSince1970)
-        let token = "YXNkZmFzZGZhc2RmYXNkZmFzZGY="
-        let userId = AILocalStore.uidToken() ?? 0
-        let RSA = "YXNkZmFzZGZhc2RmYXNkZmFzZGY="
+        let token = "0"
+        var userId = AILocalStore.uidToken() ?? 0
+        
+        let RSA = "0"
         
         let header = "\(timeStamp)&\(token)&\(userId)&\(RSA)"
-        
         
         // UTF 8 str from original
         // NSData! type returned (optional)

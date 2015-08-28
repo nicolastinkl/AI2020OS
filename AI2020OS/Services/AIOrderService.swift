@@ -77,6 +77,7 @@ class AIOrderRequester {
         let timeStamp: Int = Int(NSDate().timeIntervalSince1970)
         let paras = ["service_id": serviceId,
             "service_exectime":timeStamp,
+            "order_role":1,
             "service_param_list":serviceParams
         ]
         

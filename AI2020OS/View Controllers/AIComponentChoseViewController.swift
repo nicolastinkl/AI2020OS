@@ -72,7 +72,7 @@ class AIComponentChoseViewController: UIViewController {
                         cellHeigh += timePickerView.height + 50
                         timePickerView.viewChangeClosure({ (number) -> () in
                             let key = model.param_key ?? ""
-                            let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":number,"formattime":true]
+                            let params = ["param_key":model.param_key_id ?? 0,"param_value":number,"formattime":true,"param_value_id":0]
                             self.selectedParams.setValue(params, forKey: key)
                             
                         })
@@ -85,7 +85,7 @@ class AIComponentChoseViewController: UIViewController {
                         cellHeigh += selectNumebrView.height
                         selectNumebrView.viewChangeClosure({ (number) -> () in
                             let key = model.param_key ?? ""
-                            let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":number]
+                            let params = ["param_key":model.param_key_id ?? 0,"param_value":number,"param_value_id":0]
                             self.selectedParams.setValue(params, forKey: key)
                         })
                         break
@@ -104,7 +104,7 @@ class AIComponentChoseViewController: UIViewController {
                         addressPickerView.viewChangeClosure({ (text) -> () in
                             
                             let key = model.param_key ?? ""
-                            let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":text]
+                            let params = ["param_key":model.param_key_id ?? 0,"param_value":text,"param_value_id":0]
                             self.selectedParams.setValue(params, forKey: key)
                             
                         })
@@ -133,7 +133,7 @@ class AIComponentChoseViewController: UIViewController {
                             
                             let key = model.param_key ?? ""
                             
-                            let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":modelTwo.content ?? "","param_value_id":modelTwo.id ?? "","param_value_type":"1"]
+                            let params = ["param_key":model.param_key_id ?? 0,"param_value":modelTwo.content ?? "","param_value_id":modelTwo.id?.toInt() ?? 0,"param_value_type":"1"]
                             self.selectedParams.setValue(params, forKey: key)
                             
                             // self.selectedParams.setValue(modelTwo.content, forKey: key)
