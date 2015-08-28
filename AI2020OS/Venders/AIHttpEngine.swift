@@ -114,7 +114,7 @@ struct AIHttpEngine{
         
         let timeStamp: Int = Int(NSDate().timeIntervalSince1970)
         let token = "YXNkZmFzZGZhc2RmYXNkZmFzZGY="
-        let userId = kUser_ID
+        let userId = AILocalStore.uidToken() ?? 0
         let RSA = "YXNkZmFzZGZhc2RmYXNkZmFzZGY="
         
         let header = "\(timeStamp)&\(token)&\(userId)&\(RSA)"

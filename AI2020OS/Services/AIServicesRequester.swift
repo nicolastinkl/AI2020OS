@@ -64,6 +64,21 @@ class AIServicesRequester {
                 completion(data: AIServiceDetailModel())
             }
         }
-        
     }
+    
+    // 登录后首次缓存用户信息ID
+    func cachaUserInfo(phone:String, completion:(Bool) ->()){
+        let paras = ["phone": phone]
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QuerUserInfoByMobileNumber, parameters: paras) {  [weak self] (response, error) -> () in
+            if let re: AnyObject = response {
+                let userModel =  AIUserInfoModel(JSONDecoder(re))
+                AILocalStore.setUIDToken(userModel.user_id ?? 0)
+                completion(true)
+            }else{
+                completion(false)
+            }
+        }
+    }
+    
+    
 }

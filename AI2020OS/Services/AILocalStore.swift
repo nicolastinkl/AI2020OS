@@ -19,7 +19,7 @@ struct AILocalStore {
     private static let repliedStoriesKey = "repliedStoriesKey"
     private static let upvotedCommentsKey = "upvotedCommentsKey"
     private static let accessTokenKey = "accessTokenKey"
-    
+    private static let accessUserIDKey = "accessUserIDKey"
     private static let accessMenuTag = "menuTag"
     
     private static let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -83,6 +83,7 @@ struct AILocalStore {
     
     private static func deleteAccessToken() {
         userDefaults.removeObjectForKey(accessTokenKey)
+        userDefaults.removeObjectForKey(accessUserIDKey)
         userDefaults.synchronize()
     }
     
@@ -95,6 +96,16 @@ struct AILocalStore {
     static func accessToken() -> String? {
         return userDefaults.stringForKey(accessTokenKey)
     }
+    
+    static func setUIDToken(token: Int) {
+        userDefaults.setObject(token, forKey: accessUserIDKey)
+        userDefaults.synchronize()
+    }
+    
+    static func uidToken() -> Int? {
+        return userDefaults.integerForKey(accessUserIDKey)
+    }
+    
     
     static func logout() {
         self.deleteAccessToken()
