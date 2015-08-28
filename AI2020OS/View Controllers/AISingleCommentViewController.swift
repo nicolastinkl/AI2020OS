@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class AISingleCommentViewController : UIViewController {
     
@@ -31,6 +32,11 @@ class AISingleCommentViewController : UIViewController {
  
         self.view.addSubview(commentView)
         commentView.delegate = self
+    }
+    
+    @IBAction func submitAction(sender: AnyObject) {
+        view.showProgressViewLoading()
+        commentManager.submitComments(inputServiceId, tags: nil, commentText: "sss", success: submitSuccess, fail: loadFail)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -57,7 +63,7 @@ class AISingleCommentViewController : UIViewController {
         commentView.tipsData = tips
         
         
-        commentManager = AIServiceCommentMockManager()
+        commentManager = AIHttpServiceCommentManager()
         commentManager.getCommentTags(1234, success: loadSeccess, fail: loadFail)
 
     }
@@ -68,8 +74,16 @@ class AISingleCommentViewController : UIViewController {
         }
     }
     
+    private func submitSuccess() {
+        view.hideProgressViewLoading()
+        SCLAlertView().showSuccess("提交成功", subTitle: "成功", closeButtonTitle: nil, duration: 2)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     private func loadFail(errType: AINetError, errDes: String) {
-        
+        view.hideProgressViewLoading()
+        SCLAlertView().showError("提交失败", subTitle: errDes,  duration: 2)
+
     }
 }
 

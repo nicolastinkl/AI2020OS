@@ -47,7 +47,11 @@
 // 评论标签数据模型
 @interface AICommentTag : JSONModel
 
-@property (strong,nonatomic) NSString* content;
+@property (strong,nonatomic) NSString<Optional>* content;
+@property (strong,nonatomic) NSString<Optional>* tagsId;
+@property (strong,nonatomic) NSString<Optional>* tag;
+@property (strong,nonatomic) NSString<Optional>* usedFrequency;
+@property (strong,nonatomic) NSString<Optional>* isUserDefined;
 
 @end
 
