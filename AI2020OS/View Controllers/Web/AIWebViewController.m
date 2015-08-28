@@ -7,8 +7,9 @@
 //
 
 #import "AIWebViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
 
-@implementation AIWebViewController
+@implementation AICDWebViewController
 
 
 - (void)viewDidLoad
@@ -27,7 +28,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    self.webView.delegate = self;
     self.navigationController.navigationBarHidden = self.shouldHideNavigationBar;;
 }
 
@@ -55,5 +56,63 @@
     }
 }
 */
+
+- (void)parsePushNotification:(NSString *)notification
+{
+    NSArray *array = [notification componentsSeparatedByString:@"&"];
+    
+    NSString *myName = [array objectAtIndex:0];
+    NSString *providerID = [array objectAtIndex:1];
+    NSString *url = [array objectAtIndex:2];
+    
+    
+    NSString *message = [NSString stringWithFormat:@"%@ 给你发送了一条消息，请注意查收~", myName?:@""];
+    // Create our Installation query
+    AVQuery *pushQuery = [AVInstallation query];
+    [pushQuery whereKey:@"owner" equalTo:providerID];
+    
+    // Send push notification to query
+    AVPush *push = [[AVPush alloc] init];
+    [push setQuery:pushQuery]; // Set our Installation query
+    [push setMessage:message];
+    [push sendPushInBackground];
+    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:url, @"chatURL",nil];
+    [push setData:data];
+    [push sendPushInBackground];
+    
+    
+}
+
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    BOOL ret = NO;
+    if ([request.URL.scheme hasPrefix:@"PushNotification"]) {
+        [self parsePushNotification:request.URL.absoluteString];
+    }
+    else
+    {
+        ret = [super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+    }
+
+    return ret;
+}
+
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    NSLog(@"%@", error);
+}
+
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    NSLog(@"webViewDidStartLoad");
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSLog(@"webViewDidFinishLoad");
+}
+
 
 @end

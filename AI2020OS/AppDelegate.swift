@@ -177,6 +177,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     AVPush.setProductionMode(true)
     application.applicationIconBadgeNumber = 0
         
+    // save user
+    var currentInstallation : AVInstallation = AVInstallation.currentInstallation()
+    currentInstallation.setObject(kUser_ID, forKey: "owner")
+    currentInstallation.saveInBackground()
         
     }
     

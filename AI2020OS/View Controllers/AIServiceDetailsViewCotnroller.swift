@@ -211,7 +211,16 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     }
     
     func webChatAction(){
-        showViewController(AIWebViewController(url: NSURL(string:  "http://192.168.1.89/AIBoard/AIBoard.html")!), sender: self)
+        
+        
+        var webViewController : AICDWebViewController = AICDWebViewController()
+        webViewController.startPage = "http://115.29.164.124/whiteboard/apploadboard/910000011/910000013/25042644"
+        
+        self.navigationController?.pushViewController(webViewController, animated: true)
+
+        
+        
+//        showViewController(AIWebViewController(url: NSURL(string:  "http://115.29.164.124/whiteboard/apploadboard/910000011/910000013/25042644")!), sender: self)
     }
     
     func buyAction(){
