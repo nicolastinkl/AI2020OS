@@ -18,4 +18,7 @@
 #define kKey_DataModel                @"data_mode"
 
 #define kHttp_Header_Query            @"HttpQuery"
-#define kUser_ID                      @"100000001872"
+#define kUser_ID                      @"910000013"
+
+#define KAPNS_Owner                   @"owner"
+#define kAPNS_ChatURL                 @"chatURL"

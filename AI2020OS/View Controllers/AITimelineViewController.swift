@@ -59,8 +59,8 @@ class AITimelineViewController: UITableViewController {
         model4.content = "中国航空 CA2393 | 330"
         model4.currentTimeStamp = 1439550715
         
-        dataTimeLineArray = NSMutableArray(array:  [model,model1,model2,model3,model4])
-        
+        //dataTimeLineArray = NSMutableArray(array:  [model,model1,model2,model3,model4])
+        dataTimeLineArray = NSMutableArray()
         
         var label = UILabel()
         label.tag = 2
@@ -80,8 +80,8 @@ class AITimelineViewController: UITableViewController {
         let timer =  NSTimer(timeInterval: 60, target: self, selector: "refereshCurrentTime", userInfo: nil, repeats: true)
         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
 
-//        dataTimeLineArray = NSMutableArray()
-//        retryNetworkingAction()
+        
+        retryNetworkingAction()
         
     }
     
@@ -92,7 +92,7 @@ class AITimelineViewController: UITableViewController {
         self.view.showProgressViewLoading()
         
         Async.utility {
-            AITimeLineServices().queryAllTimeData("1",orderId : "", completion: { (data: [AITimeLineModel]) -> () in
+            AITimeLineServices().queryAllTimeData("1",orderId : "1", completion: { (data: [AITimeLineModel]) -> () in
                 self.view.hideProgressViewLoading()
                 if data.count > 0  {
                     self.dataTimeLineArray = NSMutableArray(array: data)
@@ -138,7 +138,7 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
         
         let currnetDicValue = dataTimeLineArray[section] as AITimeLineModel
         
-        let timeSpan = currnetDicValue.currentTimeStamp!
+        let timeSpan = currnetDicValue.currentTimeStamp ?? 0
         
         if timeSpan > NSDate().timeIntervalSince1970 {
             return 60
@@ -179,7 +179,7 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let currnetDicValue = dataTimeLineArray[indexPath.section] as AITimeLineModel
 
-        let date = NSDate(timeIntervalSince1970: currnetDicValue.currentTimeStamp!)
+        let date = NSDate(timeIntervalSince1970: currnetDicValue.currentTimeStamp ?? 0)
         
         switch indexPath.row{
 

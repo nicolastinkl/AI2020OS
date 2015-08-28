@@ -54,8 +54,8 @@ extension Double{
 }
 
 extension Int{
-//    func string -> String{
-//        let returnString:String = "\(self)"
-//        return returnString
-//    }
+    func toString() -> String{
+        let returnString:String = "\(self)"
+        return returnString
+    }
 }
