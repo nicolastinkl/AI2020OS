@@ -33,11 +33,21 @@ class AISingleCommentViewController : UIViewController {
  
         self.view.addSubview(commentView)
         commentView.delegate = self
+        
+    //    initTestData()
+    }
+    
+    private func initTestData() {
+        inputServiceId = 1440135524953
+        inputOrderId = 1440135524953
+        commentOrder = AIOrderListItemModel()
+        commentOrder.service_id = inputServiceId
+        commentOrder.order_id = inputOrderId
     }
     
     @IBAction func submitAction(sender: AnyObject) {
         view.showProgressViewLoading()
-        commentManager.submitComments(commentOrder.service_id!, tags: nil, commentText: "sss", success: submitSuccess, fail: loadFail)
+        commentManager.submitComments(commentOrder.service_id!, tags: nil, commentText: "sss", rate: "\(commentView.starRateView.scorePercent)",  success: submitSuccess, fail: loadFail)
     }
     
     @IBAction func share(sender: AnyObject) {
