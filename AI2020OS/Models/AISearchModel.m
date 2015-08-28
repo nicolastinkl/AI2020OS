@@ -67,5 +67,29 @@
     return list;
     
 }
+
+- (NSArray*) createSearchList
+{
+    NSMutableArray *list = nil;
+    
+    if (self.search_list != nil && self.search_list.count > 0) {
+        list = [[NSMutableArray alloc] init];
+        
+        for (NSInteger i = 0; i < self.search_list.count; i++) {
+            
+            AISearchResultItem *model = self.search_list[i];
+            
+            [list addObject:model];
+        }
+    }
+    
+    return list;
+}
+
+@end
+
+@implementation AISearchResultItem
+
+
 @end
 

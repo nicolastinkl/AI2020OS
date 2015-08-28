@@ -83,7 +83,7 @@ class AIBaseOrderListViewController : UIViewController{
             return true
         }
         
-        var x:CGFloat = 0
+        var x:CGFloat = 20
         for buttonModel in buttonArray{
             
             let contentRect = caculateContentSize(buttonModel.title, fontSize: 14)
@@ -118,6 +118,7 @@ class AIBaseOrderListViewController : UIViewController{
         let serviceId = findOServiceIdByIndexNumber(buttonIndex)
         viewController.inputOrderId = orderNumber
         viewController.inputServiceId = serviceId
+        viewController.commentOrder = orderList[buttonIndex]
         self.navigationController?.pushViewController(viewController, animated: true)
 
     }
@@ -142,6 +143,15 @@ class AIBaseOrderListViewController : UIViewController{
             self.updateOrderStatusCompletion(resultCode, comments: "订单结束")
             }
         )
+    }
+    
+    func shareOrder(target:UIButton){
+        let buttonIndex = target.associatedName?.toInt() ?? 0
+        let serviceName = orderList[buttonIndex].service_name ?? ""
+        //AIShareViewController *shareVC = [AIShareViewController shareWithText:@"分享是一种快乐~"];  [self presentViewController:shareVC animated:YES completion:nil];
+        let shareText = "我刚刚使用了\(serviceName),非常不错，大家都来试试呀～"
+        let shareViewController = AIShareViewController.shareWithText(shareText)
+        self.presentViewController(shareViewController, animated: true, completion: nil)
     }
     
     // MARK: - statusButtons

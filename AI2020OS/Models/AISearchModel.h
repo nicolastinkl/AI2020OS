@@ -10,6 +10,10 @@
 #import "AIServiceCatalogModel.h"
 #import "AIServiceModel.h"
 
+@protocol AISearchResultItem
+
+@end
+
 @interface AISearchServicesAndCatalogsResultModel : JSONModel
 
 @property (strong,nonatomic) NSArray<AIServiceCatalogModel, ConvertOnDemand>* catalog_list;
@@ -23,7 +27,15 @@
 
 @interface AIQueryHotSearchResponse : JSONModel
 
-@property (strong,nonatomic) NSArray<AIServiceCatalogModel, ConvertOnDemand>* catalog_list;
+@property (strong,nonatomic) NSArray<AIServiceCatalogModel, ConvertOnDemand, Optional>* catalog_list;
+@property (strong,nonatomic) NSArray<AISearchResultItem, ConvertOnDemand, Optional>* search_list;
 
 - (NSArray*) createCatalogList;
+- (NSArray*) createSearchList;
+@end
+
+
+
+@interface AISearchResultItem : JSONModel
+@property (strong,nonatomic) NSString<Optional>* name;
 @end

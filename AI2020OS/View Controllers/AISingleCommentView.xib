@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AITableViewInsetMakeView" translatesAutoresizingMaskIntoConstraints="NO" id="FQ5-dK-a0f" customClass="AIRoundImageView" customModule="AI2020OS" customModuleProvider="target">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample1" translatesAutoresizingMaskIntoConstraints="NO" id="FQ5-dK-a0f" customClass="AIRoundImageView" customModule="AI2020OS" customModuleProvider="target">
                     <rect key="frame" x="260" y="20" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="CRv-wK-hXL"/>
@@ -19,7 +19,7 @@
                         <constraint firstAttribute="width" secondItem="FQ5-dK-a0f" secondAttribute="height" multiplier="1:1" id="hBz-VV-2eL"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mess 的家庭保洁服务已结束请评价该服务" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRL-yh-6m3">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRL-yh-6m3">
                     <rect key="frame" x="40" y="106" width="520" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="6mB-yf-AKe"/>
@@ -177,11 +177,12 @@
                 <outlet property="textField" destination="AnF-bt-d4B" id="ciW-I1-1E6"/>
                 <outlet property="tipsCollectionView" destination="a5B-pl-dPp" id="YOW-t2-jcJ"/>
                 <outlet property="tipsLabel" destination="ZJ5-Hy-EC6" id="807-hh-LWB"/>
+                <outlet property="title" destination="NRL-yh-6m3" id="5Jb-Q1-eFG"/>
             </connections>
             <point key="canvasLocation" x="373" y="373"/>
         </view>
     </objects>
     <resources>
-        <image name="AITableViewInsetMakeView" width="1080" height="1920"/>
+        <image name="Sample1" width="504" height="429"/>
     </resources>
 </document>

@@ -20,7 +20,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     private let SECTION_HOT_SERVICES = 0
     private let SECTION_HISTORY = 1
     
-    private var catalogList: [AIServiceCatalogModel]?
+    private var searchHotList: [AISearchResultItem]?
     private var recordList: [SearchHistoryRecord]?
     
     override func viewDidLoad() {
@@ -110,8 +110,8 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    private func queryHotSuccess(responseData: [AIServiceCatalogModel]) {
-        self.catalogList = responseData
+    private func queryHotSuccess(responseData: [AISearchResultItem]) {
+        self.searchHotList = responseData
         collectionView.reloadData()
         view.hideProgressViewLoading()
     }
@@ -138,7 +138,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
         collectionView.reloadData()
         
         view.showProgressViewLoading()
-        searchEngine?.searchServicesAndCatalogs("t", pageNum: 1, pageSize: 10, successRes: queryServicesAndCatalogsSuccess, fail: queryHotFail)
+        searchEngine?.searchServicesAndCatalogs(text, pageNum: 1, pageSize: 10, successRes: queryServicesAndCatalogsSuccess, fail: queryHotFail)
     }
     
     private func queryServicesAndCatalogsSuccess(responseData: AISearchServicesAndCatalogsResultModel) {
@@ -150,6 +150,8 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
             viewController.data = responseData
             
             presentViewController(viewController, animated: true, completion: nil)
+        } else {
+            SCLAlertView().showError("没有搜索到数据", subTitle: "无数据",  duration: 2)
         }
     }
     
@@ -175,8 +177,8 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
         
         switch section {
         case SECTION_HOT_SERVICES:
-            if catalogList != nil {
-                itemNum = catalogList!.count
+            if searchHotList != nil {
+                itemNum = searchHotList!.count
             }
         case SECTION_HISTORY:
             if recordList != nil {
@@ -203,8 +205,8 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
         var tagName = ""
         
         if indexPath.section == SECTION_HOT_SERVICES {
-            if catalogList != nil {
-                tagName = catalogList![indexPath.item].catalog_name!
+            if searchHotList != nil {
+                tagName = searchHotList![indexPath.item].name!
             }
         } else if indexPath.section == SECTION_HISTORY {
             if recordList != nil {
@@ -247,8 +249,8 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
             var tagName = ""
             
             if indexPath.section == SECTION_HOT_SERVICES {
-                if catalogList != nil {
-                    tagName = catalogList![indexPath.item].catalog_name!
+                if searchHotList != nil {
+                    tagName = searchHotList![indexPath.item].name!
                 }
                 
             } else if indexPath.section == SECTION_HISTORY {
@@ -268,7 +270,7 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
         let records = historyRecorder!.getSearchHistoryItems()
         
         if indexPath.section == SECTION_HOT_SERVICES {
-            searchByText(catalogList![indexPath.item].catalog_name)
+            searchByText(searchHotList![indexPath.item].name)
         } else if indexPath.section == SECTION_HISTORY {
             searchByText(recordList![indexPath.item].name)
         }

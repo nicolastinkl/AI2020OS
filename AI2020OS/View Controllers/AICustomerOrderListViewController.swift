@@ -81,11 +81,13 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         case .Executing:
             addOperButton([ButtonModel(title: "申请变更",action:"changeOrder:")], buttonView: buttonView,indexNumber : indexNumber)
         case .WaidForComment:
-            addOperButton([ButtonModel(title: "评 论",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "分享",action:"shareOrder:")], buttonView: buttonView,indexNumber : indexNumber)
         case .WaitForPay:
-            addOperButton([ButtonModel(title: "支 付",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "支付",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+        case .Finished:
+            addOperButton([ButtonModel(title: "分享",action:"shareOrder:")], buttonView: buttonView,indexNumber : indexNumber)
         default :
-            addOperButton([ButtonModel(title: "评 价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             return
             
         }

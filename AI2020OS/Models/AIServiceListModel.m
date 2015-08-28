@@ -8,6 +8,19 @@
 
 #import "AIServiceListModel.h"
 
+
+
+@implementation AIServiceIntroModel
+
+
+
+@end
+
+
+
+
+
+
 @implementation AIServiceListModel
 
 + (NSArray *)modelsFromArray:(NSArray *)array
@@ -18,7 +31,7 @@
         models = [[NSMutableArray alloc] init];
         
         for (NSDictionary *dic in array) {
-            AIServiceListModel *model = [[AIServiceListModel alloc] initWithDictionary:dic error:nil];
+            AIServiceIntroModel *model = [[AIServiceIntroModel alloc] initWithDictionary:dic error:nil];
             
             [models addObject:model];
         }

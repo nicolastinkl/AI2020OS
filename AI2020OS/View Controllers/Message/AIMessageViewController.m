@@ -72,7 +72,7 @@
 
 - (void)showUser
 {
-    AIWebViewController *webViewController = [[AIWebViewController alloc] init];
+    AICDWebViewController *webViewController = [[AICDWebViewController alloc] init];
     webViewController.startPage = @"index.html";
     webViewController.wwwFolderName = @"www";
     [self.navigationController pushViewController:webViewController animated:YES];
