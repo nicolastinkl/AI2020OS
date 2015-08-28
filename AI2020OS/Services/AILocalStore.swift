@@ -106,17 +106,11 @@ struct AILocalStore {
     }
     
     static func setUIDToken(token: Int) {
-        userDefaults.setObject(token, forKey: accessUserIDKey)
+        userDefaults.setInteger(token, forKey: accessUserIDKey)
         userDefaults.synchronize()
     }
     
     static func uidToken() -> Int? {
-        
-        if userDefaults.integerForKey(accessUserIDKey) == 0
-        {
-            return 0
-        }
-        
         return userDefaults.integerForKey(accessUserIDKey)
     }
     
