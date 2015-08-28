@@ -147,7 +147,7 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
             orderStateLabel.text = orderListModel.order_state_name
         }
         if let buttonView = cell.viewWithTag(180) {
-            buildDynaOperButton(orderListModel.order_state_name!, orderType: "", buttonView: buttonView,indexNumber : indexPath.row)
+            buildDynaOperButton("\(orderListModel.order_state!)", orderType: "", buttonView: buttonView,indexNumber : indexPath.row)
         }
         if let customerIconImg = cell.viewWithTag(140) as? AIImageView{
             customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url! ?? "http://img1.gtimg.com/kid/pics/hv1/47/231/1905/123931577.jpg"), placeholderImage: UIImage(named: "Placeholder"))
