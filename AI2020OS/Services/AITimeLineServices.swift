@@ -26,6 +26,7 @@ class AITimeLineServices {
                 strongSelf.isLoading = false
             }
             if let responseJSON: AnyObject = response{
+                 
                 if let addrs = JSONDecoder(responseJSON).array {
                 var catalogArray = Array<AITimeLineModel>()
                 for subDecoder in addrs {
