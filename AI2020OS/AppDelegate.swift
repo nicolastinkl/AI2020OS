@@ -175,7 +175,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     application.registerUserNotificationSettings(settings)
     application.registerForRemoteNotifications();
     AVPush.setProductionMode(true)
-        
+    application.applicationIconBadgeNumber = 0
         
         
     }
