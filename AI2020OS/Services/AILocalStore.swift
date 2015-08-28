@@ -111,6 +111,12 @@ struct AILocalStore {
     }
     
     static func uidToken() -> Int? {
+        
+        if userDefaults.integerForKey(accessUserIDKey) == 0
+        {
+            return 0
+        }
+        
         return userDefaults.integerForKey(accessUserIDKey)
     }
     

@@ -171,7 +171,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let token = "0"
         let RSA = "0"
         
-        let headerContent = "\(timeStamp)&" + token+"&" + "\(AILocalStore.uidToken())&" + RSA
+        let headerContent = "\(timeStamp)&" + token+"&" + "\(AILocalStore.uidToken() ?? 0)&" + RSA
         
         let header = [kHttp_Header_Query: headerContent]
         AINetEngine.defaultEngine().configureCommonHeaders(header)
@@ -218,7 +218,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let alertController = UIAlertController(title: "消息", message: notification["aps"] as? String, preferredStyle: .Alert)
         
-        let cancelAction = UIAlertAction(title: "不看了", style: .Cancel) { (action) in
+        let cancelAction = UIAlertAction(title: "不管了", style: .Cancel) { (action) in
             // ...
         }
         alertController.addAction(cancelAction)
