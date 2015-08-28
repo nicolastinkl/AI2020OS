@@ -81,13 +81,13 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         let stateEnum = OrderStatus(rawValue: NSString(string: orderState).integerValue)
         switch stateEnum! {
         case .Init:
-            addOperButton([ButtonModel(title: "派 单",action:"assignOrder:"),ButtonModel(title: "处 理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "派单",action:"assignOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
         case .Executing:
-            addOperButton([ButtonModel(title: "完 成",action:"finishOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "完成",action:"finishOrder:")], buttonView: buttonView, indexNumber : indexNumber)
         case .WaidForComment:
-            addOperButton([ButtonModel(title: "评 价",action:"commentsOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:")], buttonView: buttonView, indexNumber : indexNumber)
         default :
-            addOperButton([ButtonModel(title: "评 价",action:"commentsOrder:"),ButtonModel(title: "处 理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
             return
             
         }
