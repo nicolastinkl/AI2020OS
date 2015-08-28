@@ -110,10 +110,10 @@ struct AIServiceDetailModel: JSONJoy  {
         service_price = decoder["price"].string
         service_intro = decoder["description"].string
         provider_id = decoder["provider_id"].string
-        provider_name = decoder["name"].string
+        provider_name = decoder["provider_name"].string
         service_rating = decoder["service_rating"].string
-        provider_portrait_url =  decoder["portrait_url"].string
-        service_intro_url =  decoder["intro_url"].string
+        provider_portrait_url =  decoder["provider_portrait_url"].string
+        service_intro_url =  decoder["service_intro_url"].string
         service_provider = decoder["service_provider"].string
         service_guarantee = decoder["guarantee"].string
         service_restraint = decoder["service_restraint"].string

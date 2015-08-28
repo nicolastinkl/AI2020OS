@@ -36,6 +36,8 @@ class AIUserModel: JSONJoy {
 ///  用户详细信息
 class AIUserInfoModel: JSONJoy {
     var user_id: Int?
+    var customer_id: Int?
+    var provider_id: Int?
     var user_name: String?
     var email: String?
     var phone: String?
@@ -49,6 +51,9 @@ class AIUserInfoModel: JSONJoy {
     required init(_ decoder: JSONDecoder) {
         
         user_id = decoder["user_id"].integer
+        customer_id = decoder["customer_id"].integer
+        provider_id = decoder["provider_id"].integer
+        
         user_name = decoder["user_name"].string
         email = decoder["email"].string
         phone = decoder["phone"].string

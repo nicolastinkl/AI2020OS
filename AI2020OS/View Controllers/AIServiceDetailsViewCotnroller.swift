@@ -283,7 +283,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
         case 1:
             return 72
         case 2:
-            return 60
+            return 0//60
         case 3:
             if let str = self.movieDetailsResponse?.service_intro{
                 
@@ -357,7 +357,8 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.addBottomBorderLine()
             return avCell!
         case 2: //选择时间
-            
+            return UITableViewCell()
+            /*
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
             if  avCell == nil {
                 avCell = AIHomeSDParamesViewCell().currentViewCell()
@@ -366,7 +367,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.detailTextLabel?.text = ""
             avCell?.addBottomBorderLine()
             return avCell!
-        
+        */
         case 3: //服务详情
             
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDDesViewCell) as? AIHomeSDDesViewCell
@@ -457,6 +458,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIUserDesStoryboard, bundle: nil).instantiateInitialViewController() as AIUserDesViewController
             viewController.avatorURL = self.movieDetailsResponse?.provider_portrait_url ?? ""
             self.showViewController(viewController, sender: self)
+            viewController.titleLabel.text = self.movieDetailsResponse?.provider_name ?? ""
         }
         
         if indexPath.section == 2 {
