@@ -90,9 +90,9 @@ class AISingleCommentViewController : UIViewController {
     
     private func submitSuccess() {
         view.hideProgressViewLoading()
-        SCLAlertView().showSuccess("提交成功", subTitle: "成功", closeButtonTitle: nil, duration: 2)
+   //     SCLAlertView().showSuccess("提交成功", subTitle: "成功", closeButtonTitle: nil, duration: 2)
         
-        AIOrderRequester().updateOrderStatus(commentOrder.order_id!, orderStatus: OrderStatus.Executing.rawValue, completion: { (resultCode) -> Void in
+        AIOrderRequester().updateOrderStatus(commentOrder.order_id!, orderStatus: OrderStatus.Finished.rawValue, completion: { (resultCode) -> Void in
             
             }
         )
