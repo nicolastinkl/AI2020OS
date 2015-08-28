@@ -68,7 +68,7 @@ class AIServiceTopicModel: JSONJoy  {
         provider_name = decoder["name"].string
         service_rating = decoder["service_rating"].string
         provider_portrait_url = decoder["portrait_url"].string
-        service_intro_url = decoder["intro_url"].string
+        service_intro_url = decoder["service_intro_url"].string
         service_thumbnail_url = decoder["intro_url"].string
         if let tagsArray = decoder["service_tags"].array {
             for dec in tagsArray {
@@ -107,16 +107,17 @@ struct AIServiceDetailModel: JSONJoy  {
     init(_ decoder: JSONDecoder) {
         service_id = decoder["service_id"].integer
         service_name = decoder["service_name"].string
-        service_price = decoder["price"].string
-        service_intro = decoder["description"].string
+        service_price = decoder["service_price"].string
+        service_intro = decoder["service_intro"].string
         provider_id = decoder["provider_id"].string
-        provider_name = decoder["name"].string
+        provider_name = decoder["provider_name"].string
         service_rating = decoder["service_rating"].string
-        provider_portrait_url =  decoder["portrait_url"].string
-        service_intro_url =  decoder["intro_url"].string
+        provider_portrait_url =  decoder["provider_portrait_url"].string
+        service_intro_url =  decoder["service_intro_url"].string
         service_provider = decoder["service_provider"].string
-        service_guarantee = decoder["guarantee"].string
+        service_guarantee = decoder["service_guarantee"].string
         service_restraint = decoder["service_restraint"].string
+        
         service_process = decoder["service_process"].string
         if let addrs = decoder["service_param_list"].array {
             service_param_list = Array<AIServiceDetailParamsModel>()
@@ -124,7 +125,18 @@ struct AIServiceDetailModel: JSONJoy  {
                 service_param_list?.append(AIServiceDetailParamsModel(addrDecoder))
             }
         }
-         
+
+        //test
+        
+        if service_id == 25042743 {
+            service_guarantee = "本店美甲均提供30天质保，30天内因非人为原因出现掉色和掉甲问题，本店免费提供修复服务。"
+            service_restraint = "为保证美甲效果，美甲前1天手指请勿接触刺激性物品。"
+            service_process = "修剪->打磨->抛光->软化->上色->封层"
+        }else{            
+            service_guarantee = "在严格执行学习计划的前提下，学习效果未达标者，可免费再学。"
+            service_restraint = "未保证教学效果，选择高一级课程的客户需要通过前一级课程测试后才能开始学习。"
+            service_process = "复习->新课介绍->课文通读->词汇讲解->语法讲解->句式练习->短文练习->课程总结->后续课程预习"
+        }
         
     }
 }
@@ -163,6 +175,7 @@ struct AIServiceDetailParamsModel: JSONJoy  {
     init(){
         
     }
+    
     init(_ decoder: JSONDecoder) {
         
         param_type = decoder["param_type"].integer ?? 7

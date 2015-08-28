@@ -32,20 +32,27 @@ class AISelfViewController: UITableViewController {
         self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);        
         if AVUser.currentUser().mobilePhoneNumber != nil {
             
-            let paras = ["phone": AVUser.currentUser().mobilePhoneNumber]
-            AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QuerUserInfoByMobileNumber, parameters: paras) {  [weak self] (response, error) -> () in
-                if let re: AnyObject = response {
-                    let userModel =  AIUserInfoModel(JSONDecoder(re))
-                    if let strongSelf = self{
-                        strongSelf.selfUserInfoModel = userModel
-                        strongSelf.refereshUserData()
-                    }
-                }else{
-                    if let strongSelf = self{
-                        strongSelf.refereshUserData()
+            if let model = AILocalStore.getUserInfoCache() {
+                selfUserInfoModel  = model
+                self.refereshUserData()
+            }else{
+                let paras = ["phone": AVUser.currentUser().mobilePhoneNumber]
+                AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QuerUserInfoByMobileNumber, parameters: paras) {  [weak self] (response, error) -> () in
+                    if let re: AnyObject = response {
+                        let userModel =  AIUserInfoModel(JSONDecoder(re))
+                        if let strongSelf = self{
+                            strongSelf.selfUserInfoModel = userModel
+                            AILocalStore.setCachaUserInfo(userModel)
+                            strongSelf.refereshUserData()
+                        }
+                    }else{
+                        if let strongSelf = self{
+                            strongSelf.refereshUserData()
+                        }
                     }
                 }
             }
+            
         }
         
     }

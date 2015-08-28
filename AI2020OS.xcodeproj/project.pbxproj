@@ -106,6 +106,8 @@
 		844803781B9045600068A886 /* AICommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844803771B90455F0068A886 /* AICommendModel.swift */; };
 		8448037A1B9057C80068A886 /* AIBuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844803791B9057C80068A886 /* AIBuildView.swift */; };
 		8448037D1B9057EF0068A886 /* AIBuildView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8448037C1B9057EF0068A886 /* AIBuildView.xib */; };
+		8448037F1B908A050068A886 /* AIServerInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8448037E1B908A050068A886 /* AIServerInputView.xib */; };
+		844803811B908A0E0068A886 /* AIServerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844803801B908A0E0068A886 /* AIServerInputView.swift */; };
 		845DC1961B8C01B40044AE86 /* AISwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1921B8C01B40044AE86 /* AISwipeView.swift */; };
 		845DC1971B8C01B40044AE86 /* AISwipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1931B8C01B40044AE86 /* AISwipeView.xib */; };
 		845DC19F1B8C03260044AE86 /* AISwipeViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC19E1B8C03260044AE86 /* AISwipeViewUtil.swift */; };
@@ -633,6 +635,8 @@
 		844803771B90455F0068A886 /* AICommendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommendModel.swift; sourceTree = "<group>"; };
 		844803791B9057C80068A886 /* AIBuildView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBuildView.swift; sourceTree = "<group>"; };
 		8448037C1B9057EF0068A886 /* AIBuildView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIBuildView.xib; sourceTree = "<group>"; };
+		8448037E1B908A050068A886 /* AIServerInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIServerInputView.xib; sourceTree = "<group>"; };
+		844803801B908A0E0068A886 /* AIServerInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServerInputView.swift; sourceTree = "<group>"; };
 		845DC1921B8C01B40044AE86 /* AISwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwipeView.swift; sourceTree = "<group>"; };
 		845DC1931B8C01B40044AE86 /* AISwipeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISwipeView.xib; sourceTree = "<group>"; };
 		845DC19E1B8C03260044AE86 /* AISwipeViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwipeViewUtil.swift; sourceTree = "<group>"; };
@@ -2395,6 +2399,8 @@
 				93A705971B12D19900E8193C /* ProvincesAndCities.plist */,
 				84ACACAE1B870763000258F9 /* AIServiceCountView.swift */,
 				84ACACB01B870775000258F9 /* AIServiceCountView.xib */,
+				8448037E1B908A050068A886 /* AIServerInputView.xib */,
+				844803801B908A0E0068A886 /* AIServerInputView.swift */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -2572,6 +2578,7 @@
 				1239DBB91B2052A8002F6A4F /* TagFilterData.plist in Resources */,
 				845DC1D81B8C03650044AE86 /* DSLCalendar-nextMonth@2x.png in Resources */,
 				84DBFF661B26E62000F7FED6 /* AIServiceFilterStoryboard.storyboard in Resources */,
+				8448037F1B908A050068A886 /* AIServerInputView.xib in Resources */,
 				93BD09081B06F97B00C8B96B /* AIMenuStoryboard.storyboard in Resources */,
 				849EC6C31B31062E00930697 /* AISearchBar.xib in Resources */,
 				934987071B0C75E0003086D1 /* AIMessageUnReadView.xib in Resources */,
@@ -2876,6 +2883,7 @@
 				93FF74641B0ECEA000FD97C1 /* CVCalendarManager.swift in Sources */,
 				845DC1E51B8C03650044AE86 /* UPLabel.m in Sources */,
 				844803761B903CA80068A886 /* AICommentQueryService.swift in Sources */,
+				844803811B908A0E0068A886 /* AIServerInputView.swift in Sources */,
 				12A20DA91B1719D0003E412A /* AIOrderModel.swift in Sources */,
 				93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */,
 				814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */,

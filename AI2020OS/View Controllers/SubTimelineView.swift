@@ -36,7 +36,9 @@ class SubTimelineView: UIView {
     let CELL_HEIGHT : CGFloat = 60
     
     private var scrollView:UIScrollView!
-    var timelineDatas:[SubTimelineLabelModel]?
+    var timelineDatas:[SubTimelineLabelModel]!
+    var orderId : String!
+    var partyRoleId : Int!
     
     override init(){
         super.init()
@@ -60,16 +62,64 @@ class SubTimelineView: UIView {
         scrollView = UIScrollView()
         scrollView.frame = self.bounds
         self.addSubview(scrollView)
-        fakeModelData()
-        buildViewContent()
+        //fakeModelData()
+        //buildViewContent()
     }
     
     func fakeModelData(){
         timelineDatas = [SubTimelineLabelModel(position: 1, currentTime: "13:50", label: "到达别人家",status : 3),SubTimelineLabelModel(position: 2, currentTime: "12:30", label: "已出发",status: 2),SubTimelineLabelModel(position: 2, currentTime: "12:00", label: "等待出发",status: 1),SubTimelineLabelModel(position: 2, currentTime: "11:30", label: "准备指甲油准备指甲油准备指甲油",status: 1),SubTimelineLabelModel(position: 2, currentTime: "11:00", label: "清洁用具清洁用具清洁用具",status:1),SubTimelineLabelModel(position: 3, currentTime: "10:30", label: "准备用具准备用具准备用具",status:1)]
     }
     
+    func retryNetworkingAction(){
+        Async.utility {
+            AITimeLineServices().queryAllTimeData("",orderId : self.orderId, completion: { (data: [AITimeLineModel]) -> () in
+                self.hideProgressViewLoading()
+                if data.count > 0  {
+                    //trans from AITimeLineModel to SubTimelineLabelModel
+                    self.timelineDatas.removeAll(keepCapacity: true)
+                    //build date
+                    for var index = 0; index < data.count; ++index {
+                        let aiTimeLineModel = data[index]
+                        let currentTimeStamp = aiTimeLineModel.currentTimeStamp ?? 0
+                        let currentTime = currentTimeStamp.dateStringFromTimestamp()
+                        let title = aiTimeLineModel.title ?? ""
+                        let status = self.compareDateFromNow(currentTimeStamp)
+                        var position:SubTimelinePosition!
+                        if index == 0 {
+                            
+                            position = SubTimelinePosition.Top
+                        }
+                        else if index == data.count - 1{
+                            position = SubTimelinePosition.Bottom
+                        }
+                        else {
+                            position = SubTimelinePosition.Middle
+                        }
+                         self.timelineDatas.append(SubTimelineLabelModel(position: position.rawValue, currentTime: currentTime, label: title, status: position.rawValue))
+                        //build content
+                        self.buildViewContent()
+                    }
+                    self.hideErrorView()
+                }else if data.count == 0{
+                    self.showErrorView("没有数据,使用fakeData")
+                    self.fakeModelData()
+                }
+                
+            })
+        }
+
+    }
+    
     func buildViewContent(){
         var i:CGFloat = 0
+        
+        //clear all data
+        scrollView.subviews.filter{
+            let value:UIView = $0 as UIView
+            value.removeFromSuperview()
+            return true
+        }
+
         for timelineData in timelineDatas!{
             let y = i * CELL_HEIGHT
             let cellFrame = CGRectMake(0, y, self.bounds.size.width, CELL_HEIGHT)
@@ -81,6 +131,19 @@ class SubTimelineView: UIView {
         scrollView.contentSize = CGSizeMake(self.bounds.size.width, i * CELL_HEIGHT)
     }
 
+    func compareDateFromNow(destDate : Double) -> SubTimelineStatus{
+        let nowDate = NSDate()
+        let nowTimeStamp = nowDate.timeIntervalSince1970
+        if nowTimeStamp > destDate {
+            return SubTimelineStatus.Past
+        }
+        else if nowTimeStamp == destDate{
+            return SubTimelineStatus.Now
+        }
+        else{
+            return SubTimelineStatus.Future
+        }
+    }
     
 }
 
