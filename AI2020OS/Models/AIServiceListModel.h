@@ -8,8 +8,9 @@
 
 #import "JSONModel.h"
 
-@interface AIServiceListModel : JSONModel
+@protocol AIServiceIntroModel @end
 
+@interface AIServiceIntroModel : JSONModel
 
 @property (nonatomic, strong) NSString *service_id;
 
@@ -18,6 +19,14 @@
 @property (nonatomic, strong) NSString *service_intro;
 
 @property (nonatomic, strong) NSString *service_name;
+
+@end
+
+
+@interface AIServiceListModel : JSONModel
+
+
+@property (nonatomic, strong) NSArray<AIServiceIntroModel, ConvertOnDemand> *service_list;
 
 
 + (NSArray *)modelsFromArray:(NSArray *)array;

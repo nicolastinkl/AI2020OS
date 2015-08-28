@@ -93,27 +93,36 @@ class AILoginViewController: UIViewController {
             
             AVUser.logInWithMobilePhoneNumberInBackground(self.phoneTextFlied.text, password: self.passwordTextFlied.text) { (user, error) -> Void in
                 self.view.hideLoading()
+                func loginFaile(){
+                    SCLAlertView().showError("提示", subTitle: "登录失败", closeButtonTitle: "关闭", duration: 2)
+                    
+                }
                 if let u = user{
                     // dissmiss viewController
                     AILocalStore.setAccessToken(self.phoneTextFlied.text)
                     
-                    NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
-                    self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                        
+                    
+                    AIServicesRequester().cachaUserInfo(self.phoneTextFlied.text, completion: { (success) -> () in
+                        if success {
+                            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
+                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                                
+                            })
+                        }else{
+                            loginFaile()
+                        }
                     })
                 }else{
-                    // Get started
-                    SCLAlertView().showError("提示", subTitle: "登录失败", closeButtonTitle: "关闭", duration: 2)
+                    loginFaile()
                     
                 }
             }
         }else{
              SCLAlertView().showError("提示", subTitle: "手机号或密码不能为空", closeButtonTitle: "关闭", duration: 2)
         }
-        
-        
-        
-    }    
+         
+    }
+    
 }
 
 // MARK: function extension

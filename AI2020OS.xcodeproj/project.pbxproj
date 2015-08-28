@@ -102,6 +102,10 @@
 		840FDACA1B85B01B00CE3DF9 /* AITools.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAC91B85B01B00CE3DF9 /* AITools.m */; };
 		84114C711B184D2100828BE4 /* AIServiceCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */; };
 		8415F4E31B135688003160B4 /* AISearchServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F4E21B135688003160B4 /* AISearchServiceViewController.swift */; };
+		844803761B903CA80068A886 /* AICommentQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844803751B903CA80068A886 /* AICommentQueryService.swift */; };
+		844803781B9045600068A886 /* AICommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844803771B90455F0068A886 /* AICommendModel.swift */; };
+		8448037A1B9057C80068A886 /* AIBuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844803791B9057C80068A886 /* AIBuildView.swift */; };
+		8448037D1B9057EF0068A886 /* AIBuildView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8448037C1B9057EF0068A886 /* AIBuildView.xib */; };
 		845DC1961B8C01B40044AE86 /* AISwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC1921B8C01B40044AE86 /* AISwipeView.swift */; };
 		845DC1971B8C01B40044AE86 /* AISwipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845DC1931B8C01B40044AE86 /* AISwipeView.xib */; };
 		845DC19F1B8C03260044AE86 /* AISwipeViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DC19E1B8C03260044AE86 /* AISwipeViewUtil.swift */; };
@@ -625,6 +629,10 @@
 		840FDAC91B85B01B00CE3DF9 /* AITools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITools.m; sourceTree = "<group>"; };
 		84114C701B184D2100828BE4 /* AIServiceCatalogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceCatalogModel.swift; sourceTree = "<group>"; };
 		8415F4E21B135688003160B4 /* AISearchServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchServiceViewController.swift; sourceTree = "<group>"; };
+		844803751B903CA80068A886 /* AICommentQueryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentQueryService.swift; sourceTree = "<group>"; };
+		844803771B90455F0068A886 /* AICommendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommendModel.swift; sourceTree = "<group>"; };
+		844803791B9057C80068A886 /* AIBuildView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBuildView.swift; sourceTree = "<group>"; };
+		8448037C1B9057EF0068A886 /* AIBuildView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIBuildView.xib; sourceTree = "<group>"; };
 		845DC1921B8C01B40044AE86 /* AISwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwipeView.swift; sourceTree = "<group>"; };
 		845DC1931B8C01B40044AE86 /* AISwipeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISwipeView.xib; sourceTree = "<group>"; };
 		845DC19E1B8C03260044AE86 /* AISwipeViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwipeViewUtil.swift; sourceTree = "<group>"; };
@@ -1419,6 +1427,15 @@
 			path = CoreText;
 			sourceTree = "<group>";
 		};
+		8448037B1B9057E00068A886 /* BuildView */ = {
+			isa = PBXGroup;
+			children = (
+				844803791B9057C80068A886 /* AIBuildView.swift */,
+				8448037C1B9057EF0068A886 /* AIBuildView.xib */,
+			);
+			name = BuildView;
+			sourceTree = "<group>";
+		};
 		845DC1911B8C01A30044AE86 /* AICollectView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1843,6 +1860,7 @@
 				84DA3B441B8D661F00EF61AC /* AISearchModel.m */,
 				81A06CBB1B8FF24F00AFB066 /* AIServiceListModel.h */,
 				81A06CBC1B8FF24F00AFB066 /* AIServiceListModel.m */,
+				844803771B90455F0068A886 /* AICommendModel.swift */,
 			);
 			name = Models;
 			path = AI2020OS/Models;
@@ -1862,6 +1880,7 @@
 				818B5C6C1B8C4D1400B22F1F /* AIServiceManageViewController.h */,
 				818B5C6D1B8C4D1400B22F1F /* AIServiceManageViewController.m */,
 				845DC1E91B8C03FB0044AE86 /* AITransformManager.swift */,
+				844803751B903CA80068A886 /* AICommentQueryService.swift */,
 			);
 			name = Services;
 			path = AI2020OS/Services;
@@ -1902,6 +1921,7 @@
 		933ED4141AC921BD00E4AADB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8448037B1B9057E00068A886 /* BuildView */,
 				845DC1911B8C01A30044AE86 /* AICollectView */,
 				849EC6C11B31060E00930697 /* Search */,
 				939E663D1B291F4100FD5FBA /* KSTokenView */,
@@ -2519,6 +2539,7 @@
 				93A705961B12D0EF00E8193C /* AIServerAddressView.xib in Resources */,
 				845DC1D11B8C03650044AE86 /* DSLCalendarMonthSelectorView.xib in Resources */,
 				84E052241B3006EF00B0299F /* AILaunchScreen.xib in Resources */,
+				8448037D1B9057EF0068A886 /* AIBuildView.xib in Resources */,
 				81A06CA51B8F2EFA00AFB066 /* weibo_logo.png in Resources */,
 				93E4D5AD1B14AA5900992CA3 /* AIOrderStoryboard.storyboard in Resources */,
 				845DC1DD1B8C03650044AE86 /* picker_selection.png in Resources */,
@@ -2792,6 +2813,7 @@
 				84DE7DB31B79ED51007E8F7F /* AIRoundImageView.swift in Sources */,
 				937C77641B1E98AB006FF589 /* AIConnectViewController.swift in Sources */,
 				8198ABCC1B81840E0047E740 /* AFHTTPRequestOperationManager.m in Sources */,
+				8448037A1B9057C80068A886 /* AIBuildView.swift in Sources */,
 				939E663A1B27EAE900FD5FBA /* AIFavoriteContentModel.swift in Sources */,
 				93FF74671B0ECEA000FD97C1 /* CVCalendarMonthView.swift in Sources */,
 				845DC1EC1B8C043F0044AE86 /* AIScanViewController.swift in Sources */,
@@ -2853,6 +2875,7 @@
 				127009971B8C67460047B055 /* AIOrderModel.m in Sources */,
 				93FF74641B0ECEA000FD97C1 /* CVCalendarManager.swift in Sources */,
 				845DC1E51B8C03650044AE86 /* UPLabel.m in Sources */,
+				844803761B903CA80068A886 /* AICommentQueryService.swift in Sources */,
 				12A20DA91B1719D0003E412A /* AIOrderModel.swift in Sources */,
 				93CFC0771AD6551200B82CC9 /* RAReorderableLayout.swift in Sources */,
 				814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */,
@@ -2860,6 +2883,7 @@
 				845DC1FB1B8C059F0044AE86 /* GDWebViewController.swift in Sources */,
 				845DC1E81B8C03A20044AE86 /* UITransViewControllerExtention.swift in Sources */,
 				93F66DE91B19D7B800AEA92A /* NSObjcetUtils.swift in Sources */,
+				844803781B9045600068A886 /* AICommendModel.swift in Sources */,
 				9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */,
 				93692C971ACAA52A00D66211 /* Async.swift in Sources */,
 				123A45F81B847988008B9CF6 /* SubTimelineView.swift in Sources */,

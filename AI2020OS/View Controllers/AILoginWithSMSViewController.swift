@@ -122,8 +122,7 @@ class AILoginWithSMSViewController: UIViewController {
             
         }
         
-    }
-    
+    }    
     
     @IBAction func loginAction(sender: AnyObject) {
         if self.phoneTextField.text.length > 0 && self.verfyTextField.text.length > 0  {
@@ -134,10 +133,28 @@ class AILoginWithSMSViewController: UIViewController {
             self.verfyTextField.resignFirstResponder()
             AVUser.logInWithMobilePhoneNumberInBackground(self.phoneTextField.text, smsCode:  self.verfyTextField.text, block: { (avuser, error) -> Void in
                 self.view.hideLoading()
+
+                func loginFaile(){
+                    SCLAlertView().showError("提示", subTitle: "登录失败", closeButtonTitle: "关闭", duration: 2)
+                    
+                }
+
                 if avuser != nil {
                     AILocalStore.setAccessToken(self.phoneTextField.text)
-                    NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                    
+                    AIServicesRequester().cachaUserInfo(self.phoneTextField.text, completion: { (success) -> () in
+                        if success {
+                            
+                            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                            
+                        }else{
+                            loginFaile()
+                        }
+                    })
+                    
+                    
                 }else{
                     SCLAlertView().showError("提示", subTitle: "验证码获取失败", closeButtonTitle: "关闭", duration: 2)
                 }

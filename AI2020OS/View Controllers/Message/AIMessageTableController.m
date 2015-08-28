@@ -11,6 +11,8 @@
 #import "AIMessageCell.h"
 #import "AIShareViewController.h"
 
+#import "AIWebViewController.h"
+
 @interface AIMessageTableController ()
 
 @property (nonatomic, strong) CBStoreHouseRefreshControl *storeHouseRefreshControl;
@@ -97,6 +99,14 @@
 {
 //    AIShareViewController *shareVC = [AIShareViewController shareWithText:@"分享是一种快乐~"];
 //    [self presentViewController:shareVC animated:YES completion:nil];
+    
+    
+    AICDWebViewController *webVC = [[AICDWebViewController alloc] init];
+    webVC.startPage = @"http://115.29.164.124/whiteboard/apploadboard/910000011/910000013/25042644";
+    
+
+    [self.navigationController pushViewController:webVC animated:YES];
+    
 }
 
 
@@ -125,7 +135,7 @@
     }
     
     // Configure the cell...
-    cell.imageView.image = [UIImage imageNamed:@"touch_focus_not"];
+    cell.imageView.image = [UIImage imageNamed:@"ServiceInform_icon"];
     cell.detailTextLabel.text = [message objectForKey:@"message"];
     cell.textLabelStartString = [message objectForKey:@"title"];
     cell.textLabelEndString = [message objectForKey:@"service"];

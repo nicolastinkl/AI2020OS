@@ -117,6 +117,13 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     func requestMovieDetails()
     {
         let id = self.server_id!.toInt()
+        if let sid = id {
+            
+            Async.userInitiated { () -> Void in
+                AICommentQueryService().queryServiceList(sid)
+            }
+        }
+        
         AIServicesRequester().loadServiceDetail(id, service_type: 0) { [weak self](data) -> () in
             if let strongSelf = self{
                 strongSelf.movieDetailsResponse = data
@@ -165,7 +172,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
                 detailParams3.param_type = 2
                 detailParams3.param_key = "选择数量"
                 
-                strongSelf.movieDetailsResponse?.service_param_list = [detailParams,detailParams1,detailParams2,detailParams3]
+                //strongSelf.movieDetailsResponse?.service_param_list = [detailParams,detailParams1,detailParams2,detailParams3]
                 
                 // --------------------
                 strongSelf.detailsPageView.reloadData()
@@ -211,7 +218,16 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     }
     
     func webChatAction(){
-        showViewController(AIWebViewController(url: NSURL(string:  "http://192.168.1.89/AIBoard/AIBoard.html")!), sender: self)
+        
+        
+        var webViewController : AICDWebViewController = AICDWebViewController()
+        webViewController.startPage = "http://115.29.164.124/whiteboard/apploadboard/910000011/910000013/25042644"
+        
+        self.navigationController?.pushViewController(webViewController, animated: true)
+
+        
+        
+//        showViewController(AIWebViewController(url: NSURL(string:  "http://115.29.164.124/whiteboard/apploadboard/910000011/910000013/25042644")!), sender: self)
     }
     
     func buyAction(){

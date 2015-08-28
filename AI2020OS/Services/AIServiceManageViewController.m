@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, strong) NSMutableArray *serviceList;
+@property (nonatomic, strong) NSArray<AIServiceIntroModel, ConvertOnDemand> *serviceList;
 
 @end
 
@@ -79,6 +79,7 @@
 
 - (void)fetchServiceList
 {
+    /*
     NSArray *localData = @[@{@"service_id":@"1231244354666",
                              @"service_name":@"美甲服务",
                              @"service_intro":@"18:00 - 22:00 提供服务",
@@ -93,31 +94,32 @@
     
     NSArray *models = [AIServiceListModel modelsFromArray:localData];
     self.serviceList = [NSMutableArray arrayWithArray:models];
-    //self.serviceList = [[NSMutableArray alloc] initWithArray:localData];
+    */
     
     
-    /*
     NSMutableDictionary *data = [AIMessageWrapper baseData];
+    [data setObject:@"910000007" forKey:@"provider_id"];
     NSMutableDictionary *body = [AIMessageWrapper baseBodyWithData:data];
     
     AIMessage *message = [AIMessage message];
     message.body = body;
-    message.url = @"";
+    message.url = @"http://171.221.254.231:8282/sboss/queryOfferProvider";
     
     
     [[AINetEngine defaultEngine] postMessage:message success:^(id responseObject) {
         
-        NSArray *array = (NSArray *)responseObject;
+        NSDictionary *dic = (NSDictionary *)responseObject;
         
-        NSArray *models = [AIServiceListModel modelsFromArray:array];
-        self.serviceList = [NSMutableArray arrayWithArray:models];
+        AIServiceListModel *model = [[AIServiceListModel alloc] initWithDictionary:dic error:nil];
+        
+        self.serviceList = model.service_list;
         [self.tableView reloadData];
         
         
     } fail:^(AINetError error, NSString *errorDes) {
-        
+        NSLog(@"error:%@", errorDes);
     }];
-    */
+    
 }
 
 
@@ -194,7 +196,7 @@
 
 - (void)addService
 {
-    AIWebViewController *webViewController = [[AIWebViewController alloc] init];
+    AICDWebViewController *webViewController = [[AICDWebViewController alloc] init];
     webViewController.startPage = @"http://115.29.164.124/serviceRelease/index.html";
     webViewController.shouldHideNavigationBar = YES;
     [self.navigationController pushViewController:webViewController animated:YES];
@@ -236,7 +238,7 @@
     
     BOOL isOdd = indexPath.row%2 == 0;
 
-    AIServiceListModel *model = [self.serviceList objectAtIndex:indexPath.row];
+    AIServiceIntroModel *model = [self.serviceList objectAtIndex:indexPath.row];
     cell.textLabel.text = model.service_name;
     cell.detailTextLabel.text = model.service_intro;
     cell.imageView.image = [UIImage imageNamed:isOdd?@"CardIndicator13":@"CardIndicator14"];

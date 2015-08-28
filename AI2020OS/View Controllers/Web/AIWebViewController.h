@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CDVViewController.h"
 
-@interface AIWebViewController : CDVViewController<UIGestureRecognizerDelegate>
+@interface AICDWebViewController : CDVViewController<UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) BOOL shouldHideNavigationBar;
 

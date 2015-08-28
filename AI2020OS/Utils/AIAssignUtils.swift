@@ -37,19 +37,20 @@ extension String{
         var rect = text.boundingRectWithSize(size, options:.UsesLineFragmentOrigin, attributes: attributes, context:nil)
         return rect.size.height
     }
+     
     
-    
-    
-    func dateStringFromTimestamp(timeStamp:NSString)->String
+}
+
+extension Double{
+    func dateStringFromTimestamp()->String
     {
-        var ts = timeStamp.doubleValue
+        var ts = self
         var  formatter = NSDateFormatter ()
         formatter.dateFormat = "yyyy年MM月dd日 HH:MM:ss"
         var date = NSDate(timeIntervalSince1970 : ts)
         return  formatter.stringFromDate(date)
         
     }
-    
 }
 
 extension Double{
