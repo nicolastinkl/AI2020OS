@@ -149,7 +149,6 @@ class AIHomeViewController: UITableViewController {
         }*/
     }
 
-    
     func targetForServicesAction(sender:AnyObject){
         let imageview = sender as AIImageView
         let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
@@ -158,13 +157,13 @@ class AIHomeViewController: UITableViewController {
     }
     
     @IBAction func searchServices(sender: AnyObject) {
-        showSearchMainViewController()
+        //showSearchMainViewController()
 
-       /*
+       
         let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
-        controller.server_id = "201507201404"
+        controller.server_id = "25042712"
         showViewController(controller, sender: self)
-        */
+
         
         
 //        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISearchServiceCollectionViewController) as AISearchServiceViewController

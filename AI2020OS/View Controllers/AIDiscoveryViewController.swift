@@ -31,11 +31,9 @@ class AIDiscoveryViewController: UIViewController , RAReorderableLayoutDelegate,
 //        self.imagesForSection0.append(UIImage(named: "Home_discover_01")!)
 //        
 //        self.imagesForSection1.append(UIImage(named: "Home_discover_02")!)
-//        self.imagesForSection1.append(UIImage(named: "Home_discover_03")!)
-//        
-//        self.imagesForSection2.append(UIImage(named: "Home_discover_04")!)
-//        self.imagesForSection2.append(UIImage(named: "Home_discover_05")!)
-//        self.imagesForSection2.append(UIImage(named: "Home_discover_06")!)
+//        self.imagesForSection1.append(UIImage(named: "Home_discover_03")!) 
+        
+        self.view.showBuildingView("敬请期待")
         
         
     }

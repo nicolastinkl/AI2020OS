@@ -16,7 +16,7 @@ class AIOrderSubmitViewController: UIViewController {
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
 
-    var serviceId:String?
+    var serviceId:Int?
     
     var selectedParams:NSMutableDictionary?
     
@@ -37,16 +37,15 @@ class AIOrderSubmitViewController: UIViewController {
         let detailModel = AIServiceDetailParamsModel()
         
         let paramsPams = selectedParams?.allValues
-        
-        if let par = paramsPams{
-            if self.serviceId?.toInt() > 0 {
+        if paramsPams?.count > 0{
+            
                 self.view.showLoading()
                 Async.userInitiated {
-                    AIOrderRequester().submitOrder(self.serviceId?.toInt() ?? 0, serviceParams: NSMutableArray(array: par), completion: { (success) -> Void in
+                    AIOrderRequester().submitOrder(self.serviceId  ?? 0, serviceParams: NSMutableArray(array: paramsPams!), completion: { (success) -> Void in
                         self.view.hideLoading()
+                        SCLAlertView().showSuccess("提交成功", subTitle: "提示", closeButtonTitle: "关闭", duration: 2)
                     })
                 }
-            }
             
         }else{
             SCLAlertView().showError("提交失败", subTitle: "参数有误", closeButtonTitle: "关闭", duration: 2)

@@ -165,7 +165,7 @@ struct AIServiceDetailParamsModel: JSONJoy  {
     }
     init(_ decoder: JSONDecoder) {
         
-        param_type = decoder["param_type"].integer
+        param_type = decoder["param_type"].integer ?? 7
         param_key_id = decoder["param_key_id"].integer
         param_key = decoder["param_key"].string
         

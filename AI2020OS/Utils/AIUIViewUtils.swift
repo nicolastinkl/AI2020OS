@@ -241,6 +241,31 @@ extension UIView {
         })
         
     }
+    
+    
+    /**
+    现实正在建设中
+    
+    :param: content building
+    */
+    public func showBuildingView(content: String){
+        if let loadingXibView = self.viewWithTag(AIApplication.AIViewTags.AIBuildingView) {
+            // If loading view is already found in current view hierachy, do nothing
+            return
+        }
+        
+        let errorview = AIBuildView.currentView()
+        errorview.contentTitle.text = content
+        errorview.tag = AIApplication.AIViewTags.AIBuildingView
+        errorview.center = self.center
+        self.addSubview(errorview)
+        
+        errorview.alpha = 0
+        spring(0.7, {
+            errorview.alpha = 1
+        })
+        
+    }
 
     
     

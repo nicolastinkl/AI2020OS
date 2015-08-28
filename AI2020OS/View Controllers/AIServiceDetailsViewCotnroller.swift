@@ -117,6 +117,13 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     func requestMovieDetails()
     {
         let id = self.server_id!.toInt()
+        if let sid = id {
+            
+            Async.userInitiated { () -> Void in
+                AICommentQueryService().queryServiceList(sid)
+            }
+        }
+        
         AIServicesRequester().loadServiceDetail(id, service_type: 0) { [weak self](data) -> () in
             if let strongSelf = self{
                 strongSelf.movieDetailsResponse = data
@@ -165,7 +172,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
                 detailParams3.param_type = 2
                 detailParams3.param_key = "选择数量"
                 
-                strongSelf.movieDetailsResponse?.service_param_list = [detailParams,detailParams1,detailParams2,detailParams3]
+                //strongSelf.movieDetailsResponse?.service_param_list = [detailParams,detailParams1,detailParams2,detailParams3]
                 
                 // --------------------
                 strongSelf.detailsPageView.reloadData()

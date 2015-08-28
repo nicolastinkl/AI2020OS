@@ -124,6 +124,7 @@ struct AIApplication{
             static let AITabelViewMenuView  = "AITabelViewMenuView"
             static let AICalendarViewController =   "AICalendarViewController"
             static let AIScanViewController = "AIScanViewController"
+            static let AIBuildView          = "AIBuildView"
 
         }
     }
@@ -160,6 +161,7 @@ struct AIApplication{
         static let loadingProcessTag        = 1101
         static let errorviewTag             = 1102
         static let AIMessageUnReadViewTag   = 1103
+        static let AIBuildingView           = 1104
     }
     
     // MARK: IM ObjectIDS

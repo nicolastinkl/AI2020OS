@@ -125,7 +125,7 @@
     }
     
     // Configure the cell...
-    cell.imageView.image = [UIImage imageNamed:@"touch_focus_not"];
+    cell.imageView.image = [UIImage imageNamed:@"ServiceInform_icon"];
     cell.detailTextLabel.text = [message objectForKey:@"message"];
     cell.textLabelStartString = [message objectForKey:@"title"];
     cell.textLabelEndString = [message objectForKey:@"service"];

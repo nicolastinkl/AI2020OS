@@ -23,6 +23,7 @@ class AIComponentChoseViewController: UIViewController {
     var serviceId:String?
     
     private var selectedParams:NSMutableDictionary = NSMutableDictionary()
+ 
     
     // MARK: life cycle
     
@@ -48,82 +49,86 @@ class AIComponentChoseViewController: UIViewController {
                 
                 // MARK CONTENT
                 //参数类型, 1-时间，2-int（选择商品数量），3-double, 4-bool(开关)，5-地址 ,6-子服务 , 7-多项单选, 8-多项多选
-                switch model.param_type! {
-                case 1: //时间
-                    
-                    var timePickerView = AIServerTimeView.currentView()
-                    self.contentScrollView.addSubview(timePickerView)
-                    timePickerView.setTop(cellHeigh)
-                    cellHeigh += timePickerView.height + 50
-                    timePickerView.viewChangeClosure({ (number) -> () in
-                        let key = model.param_key ?? ""
-                        let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":number]
-                        self.selectedParams.setValue(params, forKey: key)
+                
+                if let type = model.param_type {
+                    switch type {
+                    case 1: //时间
                         
-                    })
-                    
-                    break
-                case 2: //选择数量
-                    var selectNumebrView = AIServiceCountView.currentView()
-                    self.contentScrollView.addSubview(selectNumebrView)
-                    selectNumebrView.setTop(cellHeigh)
-                    cellHeigh += selectNumebrView.height
-                    selectNumebrView.viewChangeClosure({ (number) -> () in
-                        let key = model.param_key ?? ""
-                        let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":number]
-                        self.selectedParams.setValue(params, forKey: key)
-                    })
-                    break
-                case 3: //double
-                    
-                    break
-                case 4: //开关
-                    
-                    break
-                case 5: //地址
-                    var addressPickerView = AIServerAddressView.currentView()
-                    self.contentScrollView.addSubview(addressPickerView)
-                    addressPickerView.setTop(cellHeigh)
-                    cellHeigh += addressPickerView.height
-                    
-                    break
-                case 6: //子服务
-                    
-                    break
-                case 7: //多项单选
-                    let scopeView =  AIServerScopeView.currentView()
-                    
-                    var scopeArray:Array<ServerScopeModel> = []
-                    
-                    if let chmodel =  model.param_value {
-                        for ch in chmodel {
-                            scopeArray.append(ServerScopeModel(outId: "\(ch.id ?? 0)", outContent: "\(ch.title!)"))
+                        var timePickerView = AIServerTimeView.currentView()
+                        self.contentScrollView.addSubview(timePickerView)
+                        timePickerView.setTop(cellHeigh)
+                        cellHeigh += timePickerView.height + 50
+                        timePickerView.viewChangeClosure({ (number) -> () in
+                            let key = model.param_key ?? ""
+                            let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":number]
+                            self.selectedParams.setValue(params, forKey: key)
+                            
+                        })
+                        
+                        break
+                    case 2: //选择数量
+                        var selectNumebrView = AIServiceCountView.currentView()
+                        self.contentScrollView.addSubview(selectNumebrView)
+                        selectNumebrView.setTop(cellHeigh)
+                        cellHeigh += selectNumebrView.height
+                        selectNumebrView.viewChangeClosure({ (number) -> () in
+                            let key = model.param_key ?? ""
+                            let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":number]
+                            self.selectedParams.setValue(params, forKey: key)
+                        })
+                        break
+                    case 3: //double
+                        
+                        break
+                    case 4: //开关
+                        
+                        break
+                    case 5: //地址
+                        var addressPickerView = AIServerAddressView.currentView()
+                        self.contentScrollView.addSubview(addressPickerView)
+                        addressPickerView.setTop(cellHeigh)
+                        cellHeigh += addressPickerView.height
+                        
+                        break
+                    case 6: //子服务
+                        
+                        break
+                    case 7: //多项单选
+                        let scopeView =  AIServerScopeView.currentView()
+                        
+                        var scopeArray:Array<ServerScopeModel> = []
+                        
+                        if let chmodel =  model.param_value {
+                            for ch in chmodel {
+                                scopeArray.append(ServerScopeModel(outId: "\(ch.id ?? 0)", outContent: "\(ch.title!)"))
+                            }
                         }
+                        scopeView.initWithViewsArray(scopeArray, parentView: self.view)
+                        self.contentScrollView.addSubview(scopeView)
+                        scopeView.setTop(cellHeigh)
+                        scopeView.setLeft(10)
+                        cellHeigh += scopeView.height + margeheight
+                        
+                        scopeView.didSelectedItem({ ( index ) -> () in
+                            let modelTwo = scopeArray[index] as ServerScopeModel
+                            
+                            let key = model.param_key ?? ""
+                            
+                            let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":modelTwo.content ?? "","param_value_id":modelTwo.id ?? "","param_value_type":"1"]
+                            self.selectedParams.setValue(params, forKey: key)
+                            
+                            // self.selectedParams.setValue(modelTwo.content, forKey: key)
+                            
+                        })
+                        
+                        break
+                    case 8: //多项多选
+                        
+                        break
+                    default:
+                        break
                     }
-                    scopeView.initWithViewsArray(scopeArray, parentView: self.view)
-                    self.contentScrollView.addSubview(scopeView)
-                    scopeView.setTop(cellHeigh)
-                    scopeView.setLeft(10) 
-                    cellHeigh += scopeView.height + margeheight
-                    
-                    scopeView.didSelectedItem({ ( index ) -> () in
-                        let modelTwo = scopeArray[index] as ServerScopeModel
-                        
-                        let key = model.param_key ?? ""
-                        
-                        let params = ["param_key_id":model.param_key_id ?? 0,"param_key":key,"param_value":modelTwo.content ?? ""]
-                        self.selectedParams.setValue(params, forKey: key)
-                        
-//                        self.selectedParams.setValue(modelTwo.content, forKey: key)
-                        
-                    })
-                    
-                    break
-                case 8: //多项多选
-                    
-                    break
-                default:
-                    break
+
                 }
                 
                 // MARK LINE
@@ -176,9 +181,11 @@ class AIComponentChoseViewController: UIViewController {
         let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as AIOrderSubmitViewController
         viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-        viewController.serviceId = self.serviceId
+        viewController.serviceId = self.movieDetailsResponse?.service_id ?? 0
         viewController.selectedParams = sParams
         self.presentViewController(viewController, animated: true, completion: nil)
+        
+        viewController.label_title.text = self.movieDetailsResponse?.service_name ?? ""
          
         
     }
