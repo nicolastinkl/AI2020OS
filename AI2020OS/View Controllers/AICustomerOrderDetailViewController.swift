@@ -99,7 +99,7 @@ class AICustomerOrderDetailViewController: UIViewController {
     }
     
     func bindServiceData(serviceDetailModel : AIServiceDetailModel){
-        serviceIntroImage.setURL(NSURL(string: serviceDetailModel.service_intro_url! ?? ""), placeholderImage: UIImage(named: "Placeholder"))
+        serviceIntroImage.setURL(NSURL(string: serviceDetailModel.service_intro_url ?? ""), placeholderImage: UIImage(named: "Placeholder"))
         servicePrice.text = serviceDetailModel.service_price
         serviceName.text = serviceDetailModel.service_name
         serviceDesc.text = serviceDetailModel.service_intro

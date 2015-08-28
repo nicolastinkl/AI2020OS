@@ -60,16 +60,16 @@ class AIServiceTopicModel: JSONJoy  {
     }
     
     required init(_ decoder: JSONDecoder) {
-        service_id = decoder["service_id"].string?.toInt()
+        service_id = decoder["service_id"].integer
         service_name = decoder["service_name"].string
-        service_price = decoder["service_price"].string
-        service_intro = decoder["service_intro"].string
+        service_price = decoder["price"].string
+        service_intro = decoder["description"].string
         provider_id = decoder["provider_id"].string
-        provider_name = decoder["provider_name"].string
+        provider_name = decoder["name"].string
         service_rating = decoder["service_rating"].string
-        provider_portrait_url = decoder["provider_portrait_url"].string
-        service_intro_url = decoder["service_intro_url"].string
-        service_thumbnail_url = decoder["service_thumbnail_url"].string
+        provider_portrait_url = decoder["portrait_url"].string
+        service_intro_url = decoder["intro_url"].string
+        service_thumbnail_url = decoder["intro_url"].string
         if let tagsArray = decoder["service_tags"].array {
             for dec in tagsArray {
                 if let tag = dec["tag_name"].string {
@@ -106,16 +106,16 @@ struct AIServiceDetailModel: JSONJoy  {
     
     init(_ decoder: JSONDecoder) {
         service_id = decoder["service_id"].integer
-        service_name = decoder["name"].string
+        service_name = decoder["service_name"].string
         service_price = decoder["price"].string
         service_intro = decoder["description"].string
         provider_id = decoder["provider_id"].string
-        provider_name = decoder["provider_name"].string
+        provider_name = decoder["name"].string
         service_rating = decoder["service_rating"].string
-        provider_portrait_url =  decoder["provider_portrait_url"].string
-        service_intro_url =  decoder["service_intro_url"].string
+        provider_portrait_url =  decoder["portrait_url"].string
+        service_intro_url =  decoder["intro_url"].string
         service_provider = decoder["service_provider"].string
-        service_guarantee = decoder["service_guarantee"].string
+        service_guarantee = decoder["guarantee"].string
         service_restraint = decoder["service_restraint"].string
         service_process = decoder["service_process"].string
         if let addrs = decoder["service_param_list"].array {
