@@ -68,7 +68,14 @@ extension AIOrderSubmitViewController:UITableViewDataSource,UITableViewDelegate{
         let cell = tableView.dequeueReusableCellWithIdentifier("orderSumbitCell") as UITableViewCell
         cell.textLabel.text = key
         if let value: AnyObject = valueDic["param_value"] {
-            cell.detailTextLabel?.text = "\(value)"
+            
+            if let timeSpan: AnyObject = valueDic["formattime"] {
+                let timeS = value as? Double
+                cell.detailTextLabel?.text = timeS?.dateStringFromTimestamp()
+            }else{
+                cell.detailTextLabel?.text = "\(value)"
+            }
+            
         }else{
             cell.detailTextLabel?.text = ""
         }

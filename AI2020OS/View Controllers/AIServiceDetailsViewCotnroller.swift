@@ -397,13 +397,14 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             return avCell!
             
         case 5: //最新评论
-            
+            //return UITableViewCell()
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeCommentViewCell) as? AIHomeCommentViewCell
             if  avCell == nil {
                 avCell = AIHomeCommentViewCell().currentViewCell()
             }
             avCell?.delegate = self
             return avCell!
+            
         default:
             
             break
