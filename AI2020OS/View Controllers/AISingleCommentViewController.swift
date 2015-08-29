@@ -34,7 +34,7 @@ class AISingleCommentViewController : UIViewController {
         self.view.addSubview(commentView)
         commentView.delegate = self
         
-    //    initTestData()
+     //   initTestData()
     }
     
     private func initTestData() {
@@ -47,7 +47,7 @@ class AISingleCommentViewController : UIViewController {
     
     @IBAction func submitAction(sender: AnyObject) {
         view.showProgressViewLoading()
-        commentManager.submitComments(commentOrder.service_id!, tags: nil, commentText: "sss", rate: "\(commentView.starRateView.scorePercent)",  success: submitSuccess, fail: loadFail)
+        commentManager.submitComments(commentOrder.service_id!, tags: nil, commentText: commentView.textField.text, rate: "\(commentView.starRateView.scorePercent)",  success: submitSuccess, fail: loadFail)
     }
     
     @IBAction func share(sender: AnyObject) {
