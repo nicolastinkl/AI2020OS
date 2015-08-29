@@ -84,7 +84,7 @@ class AIHomeViewController: UITableViewController {
     func loginAPNS(){
         // save user
         var currentInstallation : AVInstallation = AVInstallation.currentInstallation()
-        currentInstallation.setObject(AILocalStore.uidToken()?, forKey: KAPNS_Owner)
+        currentInstallation.setObject(AILocalStore.uidToken()?.toString(), forKey: KAPNS_Owner)
         currentInstallation.saveInBackground()
     }
     

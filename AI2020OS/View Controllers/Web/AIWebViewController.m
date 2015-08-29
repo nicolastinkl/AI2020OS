@@ -22,6 +22,13 @@
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     __weak typeof (self) weakSelf = self;
     self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
+    
+    if (self.shouldShowDismissButton) {
+        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(dismissSelf)];
+        self.navigationItem.leftBarButtonItem = button;
+    }
+    
+    
 }
 
 
@@ -56,6 +63,12 @@
     }
 }
 */
+
+- (void)dismissSelf
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (void)parsePushNotification:(NSString *)notification
 {
