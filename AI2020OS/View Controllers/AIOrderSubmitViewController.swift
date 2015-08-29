@@ -49,7 +49,7 @@ class AIOrderSubmitViewController: UIViewController {
                 }
             
         }else{
-            SCLAlertView().showError("提交失败", subTitle: "参数有误", closeButtonTitle: "关闭", duration: 2)
+            UIAlertView(title: "提示", message: "购买失败", delegate: nil, cancelButtonTitle: "关闭").show()
         }
     }
     
