@@ -25,15 +25,41 @@ struct AITimeLineModelResult: JSONJoy  {
 
 
 class AITimeLineModel: JSONJoy {
-    var  Id: Int?
-    var currentTimeStamp: Double?
+    
+    var order_id:Int?
+    var expend:Int?
+    var service_name: String?
+    var order_create_time: String?
+     var expendData:Array<AIOrderTaskListModel>?
+    
+    init() {
+        
+    }
+    
+    required init(_ decoder: JSONDecoder) {
+        
+        expend = 0
+        service_name = decoder["service_name"].string
+        order_id = decoder["order_id"].integer
+        order_create_time = decoder["order_create_time"].string
+        if let addrs = decoder["order_task_list"].array {
+            expendData = Array<AIOrderTaskListModel>()
+            for addrDecoder in addrs {
+                expendData?.append(AIOrderTaskListModel(addrDecoder))
+            }
+        }
+        
+    }
+    
+}
+
+class AIOrderTaskListModel : JSONJoy {
     var title: String?
     var content: String?
     var type: Int?
-    var expend:Int?
-    var expendData:NSArray?
     var role:Int?
-    
+    var currentTimeStamp: Double?
+    var expand_type_id:Int?
     init() {
         
     }
@@ -43,10 +69,8 @@ class AITimeLineModel: JSONJoy {
         title = decoder["title"].string
         content = decoder["desc"].string
         type = 0
-        expend = 0
         role = decoder["role"].integer
-        Id = decoder["expand_type_id"].integer
-        expendData = NSArray()
+        expand_type_id = decoder["expand_type_id"].integer
+        
     }
-    
 }

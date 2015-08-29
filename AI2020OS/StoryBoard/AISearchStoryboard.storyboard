@@ -384,12 +384,16 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="A6h-Vg-y7j" firstAttribute="top" secondItem="IEc-v9-PQM" secondAttribute="bottom" constant="-20" id="PUX-Qe-Y8d"/>
                             <constraint firstItem="qmQ-7K-ha3" firstAttribute="top" secondItem="A6h-Vg-y7j" secondAttribute="bottom" id="PVe-Ha-GR9"/>
                             <constraint firstItem="A6h-Vg-y7j" firstAttribute="leading" secondItem="qwx-9b-kbO" secondAttribute="leadingMargin" constant="-16" id="Scj-UO-tVm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="A6h-Vg-y7j" secondAttribute="trailing" constant="-16" id="fYx-jc-rH9"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="uQy-Mw-DSw" appends="YES" id="OTE-FP-K8E"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="FQr-ce-rYd"/>
                     <connections>
@@ -398,6 +402,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a94-ar-vQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uQy-Mw-DSw">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="v38-6T-zKl" id="HEs-OV-mOT"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1145" y="420"/>
         </scene>

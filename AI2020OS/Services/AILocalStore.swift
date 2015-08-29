@@ -116,7 +116,7 @@ struct AILocalStore {
     
     static func setCachaUserInfo(model: AIUserInfoModel){
         
-        userDefaults.setObject(model.user_id ?? 0, forKey: accessUserIDKey)
+        userDefaults.setInteger(model.user_id ?? 0, forKey: accessUserIDKey)
         userDefaults.setObject(model.user_name ?? "", forKey: accessUserIDKey1)
         userDefaults.setObject(model.email ?? "", forKey: accessUserIDKey2)
         userDefaults.setObject(model.phone ?? "", forKey: accessUserIDKey3)

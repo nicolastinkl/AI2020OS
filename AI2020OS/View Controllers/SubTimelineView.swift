@@ -80,10 +80,11 @@ class SubTimelineView: UIView {
                     //build date
                     for var index = 0; index < data.count; ++index {
                         let aiTimeLineModel = data[index]
-                        let currentTimeStamp = aiTimeLineModel.currentTimeStamp ?? 0
-                        let currentTime = currentTimeStamp.dateStringFromTimestamp()
-                        let title = aiTimeLineModel.title ?? ""
-                        let status = self.compareDateFromNow(currentTimeStamp)
+                        let currentTimeStamp = aiTimeLineModel.order_create_time?.toInt() ?? 0
+                        let curTime = Double(currentTimeStamp) ?? 0.0
+                        let currentTime = curTime.dateStringFromTimestamp()
+                        let title = ""//aiTimeLineModel.title ?? ""
+                        let status = self.compareDateFromNow(curTime)
                         var position:SubTimelinePosition!
                         if index == 0 {
                             
