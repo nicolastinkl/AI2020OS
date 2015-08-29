@@ -63,10 +63,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         WeiboSDK.enableDebugMode(true);
         WeiboSDK.registerApp("2045436852");
         
-        if launchOptions?.isEmpty == false {
-            pushNotificationHandler.handlePushNotification(launchOptions)
+        // handle remote notifications
+        if let notificationPayload = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? [NSObject: AnyObject] {
+            if notificationPayload.isEmpty == false {
+                pushNotificationHandler.handlePushNotification(notificationPayload)
+            }
         }
-        
+
         return true
     }
     
@@ -201,9 +204,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         application.applicationIconBadgeNumber = 0
         
-        if application.applicationState == UIApplicationState.Active &&
-            userInfo.isEmpty == false
-        {
+        if userInfo.isEmpty == false {
             pushNotificationHandler.handlePushNotification(userInfo)
         }
     }
