@@ -145,19 +145,24 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let currnetDicValue = dataTimeLineArray[indexPath.section] as AITimeLineModel
         let timeValue = currnetDicValue.order_create_time?.toInt() ?? 0
-        let date = NSDate(timeIntervalSince1970: 0)
         
         
         switch indexPath.row{
-
         case 0:
             //placeholder cell
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITIMELINESDTimesViewCell) as? AITIMELINESDTimesViewCell
             //月份
             var  formatter = NSDateFormatter ()
             formatter.dateFormat = "MM-dd"
-            avCell?.monthLabel?.text = formatter.stringFromDate(date)
             
+            let model = currnetDicValue.expendData?.first as AIOrderTaskListModel?
+            if let m = model {
+                let date = (m.currentTimeStamp ?? 0.0)+Double(timeValue)
+                let dateString = NSDate(timeIntervalSince1970: date)
+                avCell?.monthLabel?.text = formatter.stringFromDate(dateString)
+            }else{
+                 avCell?.monthLabel?.text = ""
+            }
             return avCell!
         case 1:
             //placeholder cell
@@ -166,14 +171,18 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
             
             var  formatter = NSDateFormatter ()
             formatter.dateFormat = "HH:MM"
-            avCell?.timeLabel?.text = formatter.stringFromDate(date)
+            
             let model = currnetDicValue.expendData?.first as AIOrderTaskListModel?
             if let m = model {
                 avCell?.titleLabel?.text = m.title ?? ""
                 avCell?.contentLabel?.text = m.content ?? ""
+                let date = (m.currentTimeStamp ?? 0.0)+Double(timeValue)
+                let dateString = NSDate(timeIntervalSince1970: date)
+                avCell?.timeLabel?.text = formatter.stringFromDate(dateString)
             }else{
                 avCell?.titleLabel?.text = currnetDicValue.service_name ?? ""
                 avCell?.contentLabel?.text = ""
+                avCell?.timeLabel?.text = ""
             }
             
             
