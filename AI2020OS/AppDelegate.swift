@@ -19,7 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var rootNavigationController:UINavigationController?
     
+    var remoteNotification : [NSObject: AnyObject]?
+    
     var backgroudtask: UIBackgroundTaskIdentifier = 0
+    
+    
+    var pushNotificationHandler : AIPushNotificationHandler = AIPushNotificationHandler()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -58,16 +63,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         WeiboSDK.enableDebugMode(true);
         WeiboSDK.registerApp("2045436852");
         
-        if launchOptions != nil
-        {
-            var launchDic : Dictionary<String, AnyObject> = launchOptions as Dictionary<String, AnyObject>
-            var notificationPayload : Dictionary<String, AnyObject> = launchDic[UIApplicationLaunchOptionsRemoteNotificationKey] as Dictionary<String, AnyObject>
-            handleRemoteNotification(notificationPayload)
+        if launchOptions?.isEmpty == false {
+            pushNotificationHandler.handlePushNotification(launchOptions)
         }
-        
-        
-        
-        
         
         return true
     }
@@ -117,11 +115,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        application.applicationIconBadgeNumber = 0
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         // endBackgroudUpdateTask()
+        //application.applicationIconBadgeNumber = 0
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -197,52 +197,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         application.applicationIconBadgeNumber = 0
         
-        // Create empty photo object
-        
-        
-        var userInfoDic : Dictionary<String, AnyObject> = userInfo as Dictionary<String, AnyObject>
-        handleRemoteNotification(userInfoDic);
-        
-        
-    }
-    
-    
-    func handleRemoteNotification(notification: Dictionary<String, AnyObject>){
-       
-        if notification.isEmpty {return}
-        
-        
-        
-        let alertController = UIAlertController(title: "消息", message: notification["aps"] as? String, preferredStyle: .Alert)
-        
-        let cancelAction = UIAlertAction(title: "不管了", style: .Cancel) { (action) in
-            // ...
+        if application.applicationState == UIApplicationState.Active &&
+            userInfo.isEmpty == false
+        {
+            pushNotificationHandler.handlePushNotification(userInfo)
         }
-        alertController.addAction(cancelAction)
-        
-        let OKAction = UIAlertAction(title: "现在去看", style: .Default) { (action) in
-            var charURL : String = notification[kAPNS_ChatURL] as  String!
-            if !charURL.isEmpty {
-                // handle notification
-                var webViewController : AICDWebViewController = AICDWebViewController()
-                webViewController.startPage = charURL
-                
-                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(webViewController, animated: false, completion: nil)
-            }
-        }
-        alertController.addAction(OKAction)
-        
-        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alertController, animated: true) {
-            // ...
-        }
-        
-        
-        
-        
-     
     }
     
     

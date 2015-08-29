@@ -53,8 +53,7 @@
     // Send push notification to query
     AVPush *push = [[AVPush alloc] init];
     [push setQuery:pushQuery]; // Set our Installation query
-    [push setMessage:message];
-    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:url, kAPNS_ChatURL,nil];
+    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:url, kAPNS_ChatURL, message, kAPNS_Alert,nil];
     [push setData:data];
     [push sendPushInBackground];
     

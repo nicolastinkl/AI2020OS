@@ -13,4 +13,6 @@
 
 @property (nonatomic, assign) BOOL shouldHideNavigationBar;
 
+@property (nonatomic, assign) BOOL shouldShowDismissButton;
+
 @end
