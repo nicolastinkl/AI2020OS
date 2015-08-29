@@ -188,6 +188,12 @@
         fail(AINetErrorFormat, @"报文格式错误");
     }
     
+#ifdef DEBUG
+    
+    NSLog(@"\n======HTTPResponse======\n%@\n============\n", response);
+    
+#endif
+    
     NSDictionary *des = [response objectForKey:kKeyForDesc];
     id returnResponseObject = [response objectForKey:kKeyForData];
     

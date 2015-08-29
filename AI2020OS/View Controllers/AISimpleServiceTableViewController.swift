@@ -121,10 +121,12 @@ extension AISimpleServiceTableViewController: UITableViewDelegate, UITableViewDa
             let catalog: AIServiceCatalogModel = data.catalogArray[indexPath.row] as AIServiceCatalogModel
             //    cell.title.text = "\(catalog.catalog_id)"
             cell.title.text = catalog.catalog_name
+            cell.type.text = "目录"
             
         case 1:
             let service: AIServiceModel = data.serviceArray[indexPath.row] as AIServiceModel
             cell.title.text = service.service_name
+            cell.type.text = ""
             
             if service.service_intro_url != nil {
                 cell.icon.setURL(NSURL(string: service.service_intro_url), placeholderImage:UIImage(named: "Placeholder"))

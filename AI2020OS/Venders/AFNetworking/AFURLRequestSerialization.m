@@ -335,7 +335,7 @@ forHTTPHeaderField:(NSString *)field
         body = [[NSString alloc] initWithData:mutableRequest.HTTPBody encoding:NSUTF8StringEncoding];
     }
     
-    NSLog(@"\n=========HTTPHeader=========\n%@\n==========HTTPBody========\n%@\n==================\n%@\n==================\n", mutableRequest.allHTTPHeaderFields ?: @" NO HEADER !!", body, mutableRequest.URL.absoluteString);
+    NSLog(@"\n=========HTTPHeader=========\n%@\n==========HTTPBody========\n%@\n=========HTTPURL=========\n%@\n==================\n", mutableRequest.allHTTPHeaderFields ?: @" NO HEADER !!", body, mutableRequest.URL.absoluteString);
     
 #endif
     
