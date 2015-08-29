@@ -49,6 +49,7 @@
 		817E15FE1B7C91E000C298BE /* AIWebPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E15FD1B7C91E000C298BE /* AIWebPlugin.m */; };
 		818B5C551B8ACB1C00B22F1F /* AIServerUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B5C541B8ACB1C00B22F1F /* AIServerUploadViewController.m */; };
 		818B5C6E1B8C4D1400B22F1F /* AIServiceManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B5C6D1B8C4D1400B22F1F /* AIServiceManageViewController.m */; };
+		819603271B9151D40008C3C9 /* AIPushNotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 819603261B9151D40008C3C9 /* AIPushNotificationHandler.m */; };
 		8198ABA31B8183B30047E740 /* AIMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198AB9D1B8183B30047E740 /* AIMessage.m */; };
 		8198ABA41B8183B30047E740 /* AIMessageWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198AB9F1B8183B30047E740 /* AIMessageWrapper.m */; };
 		8198ABA51B8183B30047E740 /* AINetEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198ABA11B8183B30047E740 /* AINetEngine.m */; };
@@ -528,6 +529,8 @@
 		818B5C541B8ACB1C00B22F1F /* AIServerUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIServerUploadViewController.m; sourceTree = "<group>"; };
 		818B5C6C1B8C4D1400B22F1F /* AIServiceManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIServiceManageViewController.h; sourceTree = "<group>"; };
 		818B5C6D1B8C4D1400B22F1F /* AIServiceManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIServiceManageViewController.m; sourceTree = "<group>"; };
+		819603251B9151D40008C3C9 /* AIPushNotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPushNotificationHandler.h; sourceTree = "<group>"; };
+		819603261B9151D40008C3C9 /* AIPushNotificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPushNotificationHandler.m; sourceTree = "<group>"; };
 		8198AB9C1B8183B30047E740 /* AIMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMessage.h; sourceTree = "<group>"; };
 		8198AB9D1B8183B30047E740 /* AIMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMessage.m; sourceTree = "<group>"; };
 		8198AB9E1B8183B30047E740 /* AIMessageWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMessageWrapper.h; sourceTree = "<group>"; };
@@ -1786,6 +1789,8 @@
 				933ED3E91AC8F90A00E4AADB /* AppDelegate.swift */,
 				933ED3F21AC8F90A00E4AADB /* Images.xcassets */,
 				933ED3E71AC8F90A00E4AADB /* Supporting Files */,
+				819603251B9151D40008C3C9 /* AIPushNotificationHandler.h */,
+				819603261B9151D40008C3C9 /* AIPushNotificationHandler.m */,
 			);
 			path = AI2020OS;
 			sourceTree = "<group>";
@@ -2752,6 +2757,7 @@
 				934987011B0B1750003086D1 /* AITIMELINESDContentViewCell.swift in Sources */,
 				9301B07A1B0998C700C1EE79 /* AILoginViewController.swift in Sources */,
 				938A39911B2153DA00E3A5BF /* DLHamburguerContainerViewController.swift in Sources */,
+				819603271B9151D40008C3C9 /* AIPushNotificationHandler.m in Sources */,
 				84DD649D1B831EA7009BDB2A /* AITipModel.m in Sources */,
 				93FF74691B0ECEA000FD97C1 /* CVCalendarView.swift in Sources */,
 				84D9B81F1B7C320B005331B5 /* AISingleCommentViewController.swift in Sources */,

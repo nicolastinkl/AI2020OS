@@ -36,7 +36,7 @@ class SubTimelineView: UIView {
     let CELL_HEIGHT : CGFloat = 60
     
     private var scrollView:UIScrollView!
-    var timelineDatas:[SubTimelineLabelModel]!
+    var timelineDatas:[SubTimelineLabelModel] = []
     var orderId : String!
     var partyRoleId : Int!
     
@@ -62,8 +62,8 @@ class SubTimelineView: UIView {
         scrollView = UIScrollView()
         scrollView.frame = self.bounds
         self.addSubview(scrollView)
-        //fakeModelData()
-        //buildViewContent()
+        fakeModelData()
+        buildViewContent()
     }
     
     func fakeModelData(){
@@ -122,7 +122,7 @@ class SubTimelineView: UIView {
             return true
         }
 
-        for timelineData in timelineDatas!{
+        for timelineData in timelineDatas{
             let y = i * CELL_HEIGHT
             let cellFrame = CGRectMake(0, y, self.bounds.size.width, CELL_HEIGHT)
             var cell = SubTimelineCellView(frame: cellFrame)

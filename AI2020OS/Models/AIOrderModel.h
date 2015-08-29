@@ -10,18 +10,18 @@
 
 @interface OrderDetailModel : JSONModel
 
-@property (nonatomic, strong) NSString *order_create_time;
-@property (nonatomic, strong) NSString *order_id;
-@property (nonatomic, strong) NSString *order_number;
-@property (nonatomic, strong) NSString *order_price;
+@property (nonatomic, strong) NSString<Optional> *order_create_time;
+@property (nonatomic, strong) NSString<Optional> *order_id;
+@property (nonatomic, strong) NSString<Optional> *order_number;
+@property (nonatomic, strong) NSString<Optional> *order_price;
 @property (nonatomic, assign) NSInteger order_state;
-@property (nonatomic, strong) NSString *order_state_name;
-@property (nonatomic, strong) NSString *provider_id;
-@property (nonatomic, strong) NSString *provider_portrait_url;
-@property (nonatomic, strong) NSString *service_id;
-@property (nonatomic, strong) NSString *service_name;
-@property (nonatomic, strong) NSString *service_time_duration;
-@property (nonatomic, strong) NSString *service_type;
+@property (nonatomic, strong) NSString<Optional> *order_state_name;
+@property (nonatomic, strong) NSString<Optional> *provider_id;
+@property (nonatomic, strong) NSString<Optional> *provider_portrait_url;
+@property (nonatomic, strong) NSString<Optional> *service_id;
+@property (nonatomic, strong) NSString<Optional> *service_name;
+@property (nonatomic, strong) NSString<Optional> *service_time_duration;
+@property (nonatomic, strong) NSString<Optional> *service_type;
 
 
 
