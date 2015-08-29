@@ -109,6 +109,9 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     @IBAction func myFavorites(sender: AnyObject) {
         
     }
+    @IBAction func dismissKeyboard(sender: AnyObject) {
+        searchTextField.resignFirstResponder()
+    }
     
     private func queryHotSuccess(responseData: [AISearchResultItem]) {
         self.searchHotList = responseData

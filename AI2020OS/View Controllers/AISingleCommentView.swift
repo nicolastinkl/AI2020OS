@@ -232,6 +232,9 @@ extension AISingleCommentView: AIServerScopeViewDataSource {
         cellView.titleLabel?.font = UIFont.boldSystemFontOfSize(18)
         return cellView
     }
+    @IBAction func dismissKeyboard(sender: AnyObject) {
+        textField.resignFirstResponder()
+    }
 }
 
 extension AISingleCommentView: CWStarRateViewDelegate {

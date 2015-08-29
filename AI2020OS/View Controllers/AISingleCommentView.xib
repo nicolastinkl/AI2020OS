@@ -128,6 +128,7 @@
                 </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="rAw-CN-Pdj" firstAttribute="top" secondItem="B6S-ls-yA2" secondAttribute="bottom" constant="8" id="0OM-nT-7Iy"/>
                 <constraint firstItem="B6S-ls-yA2" firstAttribute="leading" secondItem="a5B-pl-dPp" secondAttribute="leading" id="2JX-N7-Ffe"/>
@@ -178,9 +179,15 @@
                 <outlet property="tipsCollectionView" destination="a5B-pl-dPp" id="YOW-t2-jcJ"/>
                 <outlet property="tipsLabel" destination="ZJ5-Hy-EC6" id="807-hh-LWB"/>
                 <outlet property="title" destination="NRL-yh-6m3" id="5Jb-Q1-eFG"/>
+                <outletCollection property="gestureRecognizers" destination="R0A-Bp-yqM" appends="YES" id="OJL-xj-i2s"/>
             </connections>
             <point key="canvasLocation" x="373" y="373"/>
         </view>
+        <tapGestureRecognizer id="R0A-Bp-yqM">
+            <connections>
+                <action selector="dismissKeyboard:" destination="iN0-l3-epB" id="h9H-Xw-fk1"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="Sample1" width="504" height="429"/>
