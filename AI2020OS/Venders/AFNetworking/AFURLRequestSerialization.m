@@ -325,9 +325,21 @@ forHTTPHeaderField:(NSString *)field
             [mutableRequest setValue:[self valueForKeyPath:keyPath] forKey:keyPath];
         }
     }
-
     mutableRequest = [[self requestBySerializingRequest:mutableRequest withParameters:parameters error:error] mutableCopy];
 
+#ifdef DEBUG
+    
+    NSString *body = @"NO BODY !!";
+    
+    if (mutableRequest.HTTPBody) {
+        body = [[NSString alloc] initWithData:mutableRequest.HTTPBody encoding:NSUTF8StringEncoding];
+    }
+    
+    NSLog(@"\n=========HTTPHeader=========\n%@\n==========HTTPBody========\n%@\n==================\n", mutableRequest.allHTTPHeaderFields ?: @" NO HEADER !!", body);
+    
+#endif
+    
+    
 	return mutableRequest;
 }
 
