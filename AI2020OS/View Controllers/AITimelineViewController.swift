@@ -26,40 +26,6 @@ class AITimelineViewController: UITableViewController {
         
         self.title = "时间线"
         
-        var model =  AITimeLineModel()
-        model.title = "瑞士凯斯瑜伽课"
-        model.content = "Jeeny老师|印度特色课"
-        model.currentTimeStamp = 1429426741
-        
-        var model1 =  AITimeLineModel()
-        model1.title = "厨师培训课"
-        model1.content = "Jeeny老师|印度特色课"
-        model1.currentTimeStamp = 1438433741
-        
-        var model2 =  AITimeLineModel()
-        model2.title = "雅典瑜伽课"
-        model2.content = "Jeeny老师|印度特色课"
-        model2.currentTimeStamp = 1439134741
-        model2.type  = 1
-        
-        var model3 =  AITimeLineModel()
-        model3.title = "教画画"
-        model3.content = "Jeeny老师|印度特色课"
-        model3.currentTimeStamp = 1439235741
-        model3.type  = 2
-        model3.expendData = NSArray(objects:
-            ["HyperText":"DUO国际机场","IndicatorImage":"","IndicatorColor":"008AFF"],
-            ["HyperText":"DUO国际机场","IndicatorImage":"","IndicatorColor":"008AFF"],
-            ["HyperText":"DUO国际机场","IndicatorImage":"","IndicatorColor":"008AFF"],
-            ["HyperText":"DUO国际机场","IndicatorImage":"","IndicatorColor":"008AFF"],
-            ["HyperText":"DUO国际机场","IndicatorImage":"","IndicatorColor":"008AFF"])
-        
-        var model4 =  AITimeLineModel()
-        model4.title = "圣托尼亚航班"
-        model4.content = "中国航空 CA2393 | 330"
-        model4.currentTimeStamp = 1439550715
-        
-        //dataTimeLineArray = NSMutableArray(array:  [model,model1,model2,model3,model4])
         dataTimeLineArray = NSMutableArray()
         
         var label = UILabel()
@@ -138,9 +104,9 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
         
         let currnetDicValue = dataTimeLineArray[section] as AITimeLineModel
         
-        let timeSpan = currnetDicValue.currentTimeStamp ?? 0
+        let timeSpan = currnetDicValue.order_create_time?.toInt() ?? 0
         
-        if timeSpan > NSDate().timeIntervalSince1970 {
+        if Double(timeSpan) > NSDate().timeIntervalSince1970 {
             return 60
         }
         return 0
@@ -178,8 +144,9 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let currnetDicValue = dataTimeLineArray[indexPath.section] as AITimeLineModel
-
-        let date = NSDate(timeIntervalSince1970: currnetDicValue.currentTimeStamp ?? 0)
+        let timeValue = currnetDicValue.order_create_time?.toInt() ?? 0
+        let date = NSDate(timeIntervalSince1970: 0)
+        
         
         switch indexPath.row{
 
@@ -200,8 +167,15 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
             var  formatter = NSDateFormatter ()
             formatter.dateFormat = "HH:MM"
             avCell?.timeLabel?.text = formatter.stringFromDate(date)
-            avCell?.titleLabel?.text = currnetDicValue.title
-            avCell?.contentLabel?.text = currnetDicValue.content
+            let model = currnetDicValue.expendData?.first as AIOrderTaskListModel?
+            if let m = model {
+                avCell?.titleLabel?.text = m.title ?? ""
+                avCell?.contentLabel?.text = m.content ?? ""
+            }else{
+                avCell?.titleLabel?.text = currnetDicValue.service_name ?? ""
+                avCell?.contentLabel?.text = ""
+            }
+            
             
             for cView in avCell?.contentFillView.subviews as [UIView] {
                 cView.removeFromSuperview()

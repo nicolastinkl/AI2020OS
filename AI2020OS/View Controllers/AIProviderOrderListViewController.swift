@@ -137,7 +137,8 @@ extension AIProviderOrderListViewController:UITableViewDelegate,UITableViewDataS
             orderNameLabel.text = orderListModel.service_name
         }
         if let serviceDateLabel = cell.viewWithTag(130) as? UILabel {
-            serviceDateLabel.text = orderListModel.service_time_duration == "" ? "8月1日－8月20日" : orderListModel.service_time_duration
+            var service_time_duration = orderListModel.service_time_duration ?? "8月1日－8月20日"            
+            serviceDateLabel.text = service_time_duration.imestampStringToDateString()
         }
         if let orderPriceLabel = cell.viewWithTag(150) as? UILabel {
             orderPriceLabel.text = (orderListModel.order_price == "" ? "100" : orderListModel.order_price)

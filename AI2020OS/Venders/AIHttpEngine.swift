@@ -73,6 +73,8 @@ struct AIHttpEngine{
         case addServiceToFavorite
         // 按关键词查询服务和服务类
         case QueryServicesAndCatalogs
+        // 按订单状态查询订单数量
+        case QueryOrderNumber
         
         /// 返回具体URL
         var description: String {
@@ -99,6 +101,7 @@ struct AIHttpEngine{
             case .QuerUserInfoByMobileNumber : return "/sboss/getUserInfoByMobileNumber"
             case .addServiceToFavorite : return "/sboss/addServiceToFavorite"
             case .QueryServicesAndCatalogs : return "/sboss/queryServicesAndCatalogs"
+            case .QueryOrderNumber : return "/sboss/queryOrderNumber"
             }
         }
     }

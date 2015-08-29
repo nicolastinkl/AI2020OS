@@ -38,7 +38,15 @@ extension String{
         return rect.size.height
     }
      
-    
+    //TODO 以后还需判断是不是数字类型 add by liux
+    func imestampStringToDateString() -> String{
+        var strTime = self
+        let doubleTime = (strTime as NSString).doubleValue
+        let date = NSDate(timeIntervalSince1970: doubleTime)
+        var dateFormatter2 = NSDateFormatter()
+        dateFormatter2.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter2.stringFromDate(date)
+    }
 }
 
 extension Double{
