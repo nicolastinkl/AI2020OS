@@ -103,17 +103,23 @@ class AICustomerOrderDetailViewController: UIViewController {
 
     //bind service data to view
     func bindOrderData(orderDetailModel : OrderDetailModel){
-        orderNumber.text = orderDetailModel.order_number
-        orderName.text = orderDetailModel.service_name + orderDetailModel.order_price
-        orderCreateTime.text = orderDetailModel.order_create_time
-        serviceTimeDuration.text = orderDetailModel.service_time_duration
+        let serviceNameValue = orderDetailModel.service_name ?? "no name"
+        let orderPriceValue = orderDetailModel.order_price ?? "0"
+        let orderCreateTimeValue = orderDetailModel.order_create_time ?? "2015-1-1"
+        var serviceTimeDurationValue = orderDetailModel.service_time_duration ?? "0"
+        serviceTimeDurationValue = serviceTimeDurationValue.imestampStringToDateString()
+        
+        orderNumber.text = orderDetailModel.order_number ?? "0"
+        orderName.text = "\(serviceNameValue) \(orderPriceValue)"
+        orderCreateTime.text = orderCreateTimeValue
+        serviceTimeDuration.text = serviceTimeDurationValue
     }
     
     func bindServiceData(serviceDetailModel : AIServiceDetailModel){
         serviceIntroImage.setURL(NSURL(string: serviceDetailModel.service_intro_url ?? ""), placeholderImage: UIImage(named: "Placeholder"))
-        servicePrice.text = serviceDetailModel.service_price
-        serviceName.text = serviceDetailModel.service_name
-        serviceDesc.text = serviceDetailModel.service_intro
+        servicePrice.text = serviceDetailModel.service_price ?? "0"
+        serviceName.text = serviceDetailModel.service_name ?? "no name"
+        serviceDesc.text = serviceDetailModel.service_intro ?? ""
     }
 }
 

@@ -28,20 +28,20 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        // request networking.
-        retryNetworkingAction()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Init buttons.
-        buildDynaStatusButton()
+       
         self.scrollView.contentSize = CGSizeMake(450, 0)
         
         //registerNib        
-        tableView.registerNib(UINib(nibName:"CustomerOrderTableViewCell",bundle:NSBundle.mainBundle()), forCellReuseIdentifier: "CustomerOrderCell") 
+        tableView.registerNib(UINib(nibName:"CustomerOrderTableViewCell",bundle:NSBundle.mainBundle()), forCellReuseIdentifier: "CustomerOrderCell")
         
+        // request networking.
+        retryNetworkingAction()
     }
     
     override func viewDidLayoutSubviews() {
@@ -56,18 +56,8 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     
     // MARK: - utils
     func retryNetworkingAction(){
-        tableView.hideProgressViewLoading()
-        tableView.showProgressViewLoading()
-        //后台请求数据
-        Async.background(){
-            // Do any additional setup after loading the view, typically from a nib.
-            AIOrderRequester().queryOrderList(page: 1, orderRole: 1, orderState: self.orderStatus, completion: { (data) -> () in
-                self.orderList = data
-                self.tableView.reloadData()
-                self.tableView.hideErrorView()
-                self.tableView.hideProgressViewLoading()
-            })
-        }
+        requestOrderNumber()
+        requestOrderList()
     }
     
     //不同状态的订单动态创建按钮
@@ -95,12 +85,27 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         }
     }
     
-    func buildDynaStatusButton(){
-        let buttonArray = [StatusButtonModel(title: "全部", amount: 7,status:0),
-            StatusButtonModel(title: "待执行", amount: 4,status:OrderStatus.Init.rawValue),
-            StatusButtonModel(title: "执行中", amount: 0,status:OrderStatus.Executing.rawValue),
-            StatusButtonModel(title: "待评价", amount: 3,status:OrderStatus.WaidForComment.rawValue),
-            StatusButtonModel(title: "已完成", amount: 3,status:OrderStatus.Finished.rawValue)]
+    func buildDynaStatusButton(orderNumberList : [OrderNumberModel]){
+        
+        var orderNumberDictinary = Dictionary<Int,Int>()
+        
+        //buildOrderNumberData
+        for orderNumberModel in orderNumberList{
+            orderNumberDictinary[orderNumberModel.order_state] = orderNumberModel.order_number
+        }
+        
+        func getAmountByStatus(status : Int) -> Int{
+            if let orderNumber = orderNumberDictinary[status] {
+                return orderNumber
+            }
+            return 0
+        }
+        
+        let buttonArray = [StatusButtonModel(title: "全部", amount: getAmountByStatus(0),status:0),
+            StatusButtonModel(title: "待执行", amount: getAmountByStatus(OrderStatus.Init.rawValue),status:OrderStatus.Init.rawValue),
+            StatusButtonModel(title: "执行中", amount: getAmountByStatus(OrderStatus.Executing.rawValue),status:OrderStatus.Executing.rawValue),
+            StatusButtonModel(title: "待评价", amount: getAmountByStatus(OrderStatus.WaidForComment.rawValue),status:OrderStatus.WaidForComment.rawValue),
+            StatusButtonModel(title: "已完成", amount: getAmountByStatus(OrderStatus.Finished.rawValue),status:OrderStatus.Finished.rawValue)]
         addStatusButton(buttonArray, scrollView: scrollView)
     }
     
@@ -110,6 +115,36 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         self.orderStatus = target.associatedName?.toInt() ?? 0
 
         retryNetworkingAction()
+    }
+    
+    func requestOrderNumber(){
+        scrollView.hideProgressViewLoading()
+        scrollView.showProgressViewLoading()
+        //后台请求数据
+        Async.background(){
+            // Do any additional setup after loading the view, typically from a nib.
+            AIOrderRequester().queryOrderNumber(1, orderStatus: self.orderStatus, completion: {
+                (data,error) ->() in
+                // Init buttons.
+                self.buildDynaStatusButton(data)
+            })
+        }
+    }
+    
+    func requestOrderList(){
+        tableView.hideProgressViewLoading()
+        tableView.showProgressViewLoading()
+        //后台请求数据
+        Async.background(){
+            // Do any additional setup after loading the view, typically from a nib.
+            AIOrderRequester().queryOrderList(page: 1, orderRole: 1, orderState: self.orderStatus, completion: { (data) -> () in
+                self.orderList = data
+                self.tableView.reloadData()
+                self.tableView.hideErrorView()
+                self.tableView.hideProgressViewLoading()
+            })
+        }
+
     }
 }
 
@@ -140,7 +175,9 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
             orderNameLabel.text = orderListModel.service_name
         }
         if let serviceDateLabel = cell.viewWithTag(130) as? UILabel {
-            serviceDateLabel.text = orderListModel.service_time_duration == "" ? "8月1日－8月20日" : orderListModel.service_time_duration
+            var service_time_duration = orderListModel.service_time_duration ?? "8月1日－8月20日"
+            
+            serviceDateLabel.text = service_time_duration.imestampStringToDateString()
         }
         if let orderPriceLabel = cell.viewWithTag(150) as? UILabel {
             orderPriceLabel.text = (orderListModel.order_price == "" ? "100" : orderListModel.order_price)
@@ -167,4 +204,6 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
         viewController.serviceId = findOServiceIdByIndexNumber(indexPath.row)
         showViewController(viewController, sender: self)
     }
+    
+    
 }
