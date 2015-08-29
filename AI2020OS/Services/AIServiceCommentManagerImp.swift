@@ -32,11 +32,11 @@ class AIServiceCommentMockManager :AIServiceCommentManager {
         comment.comment_tags!.addObject(tag)
         
         tag = AICommentTag()
-        tag.content = "工具专业"
+        tag.content = "给力"
         comment.comment_tags!.addObject(tag)
         
         tag = AICommentTag()
-        tag.content = "打扫得干净"
+        tag.content = "不好说"
         comment.comment_tags!.addObject(tag)
         
         tag = AICommentTag()
