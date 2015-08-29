@@ -34,6 +34,10 @@
 
 - (void)backAction:(CDVInvokedUrlCommand*)command
 {
+    UINavigationController *nav = (UINavigationController *)[[NSUserDefaults standardUserDefaults] objectForKey:kServiceManageVC];
+    [nav popViewControllerAnimated:YES];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kServiceManageVC];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
 }
 
@@ -58,6 +62,17 @@
     [push sendPushInBackground];
     
     
+}
+
+
+- (void)uploadShelf:(CDVInvokedUrlCommand*)command
+{
+    NSInteger aad = [[NSUserDefaults standardUserDefaults] integerForKey:@"accessUserIDKey"];
+    NSString *uid = [NSString stringWithFormat:@"%ld", aad];
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:uid];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 

@@ -116,7 +116,7 @@ class AIHomeViewController: UITableViewController {
         let token = "0"
         let RSA = "0"
         
-        let headerContent = "\(timeStamp)&" + token+"&" + "\(AILocalStore.uidToken())&" + RSA
+        let headerContent = "\(timeStamp)&" + token+"&" + "\(AILocalStore.uidToken() ?? 0)&" + RSA
         
         let header = [kHttp_Header_Query: headerContent]
         AINetEngine.defaultEngine().configureCommonHeaders(header)

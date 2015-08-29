@@ -20,4 +20,7 @@
 
 - (void)pushNotification:(CDVInvokedUrlCommand*)command;
 
+
+- (void)uploadShelf:(CDVInvokedUrlCommand*)command;
+
 @end

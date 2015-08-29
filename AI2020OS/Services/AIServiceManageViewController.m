@@ -11,6 +11,7 @@
 #import "AINetEngine.h"
 #import "AIMessageWrapper.h"
 #import "AIServiceListModel.h"
+#import "AIServerConfig.h"
 
 #define kButtonHeight 44
 
@@ -33,7 +34,9 @@
     self.title = @"我的货架";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     
-
+    [[NSUserDefaults standardUserDefaults] setObject:self.navigationController forKey:kServiceManageVC];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self fetchServiceList];
     [self resetNavigationBar];
