@@ -163,7 +163,7 @@ class AIBaseOrderListViewController : UIViewController{
         }
         let statusButtonWidth:CGFloat = 50
         let buttonPadding:CGFloat = 20
-        let statusLabelWidth:CGFloat = 10
+        let statusLabelWidth:CGFloat = 20
         
         var x1:CGFloat = 0
         var x2:CGFloat = statusButtonWidth
