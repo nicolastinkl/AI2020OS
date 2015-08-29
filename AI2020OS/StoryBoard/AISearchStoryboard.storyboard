@@ -605,7 +605,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="126元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZd-6B-Tiz" userLabel="price">
-                                                    <rect key="frame" x="82" y="34" width="500" height="21"/>
+                                                    <rect key="frame" x="82" y="35" width="401" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Tvv-6a-Rh3"/>
                                                     </constraints>
@@ -613,22 +613,35 @@
                                                     <color key="textColor" red="1" green="0.56362536618538317" blue="0.24433019865468064" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7z-qZ-MTd" userLabel="目录">
+                                                    <rect key="frame" x="545" y="35" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Q91-Ny-NYG"/>
+                                                        <constraint firstAttribute="width" constant="42" id="ovv-YH-9j6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="s7z-qZ-MTd" firstAttribute="top" secondItem="tZd-6B-Tiz" secondAttribute="top" id="CXC-uE-Bp1"/>
                                                 <constraint firstItem="QRR-2x-O0e" firstAttribute="leading" secondItem="Zdz-sx-vQe" secondAttribute="trailing" constant="14" id="DBJ-OV-KKx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="s7z-qZ-MTd" secondAttribute="trailing" constant="5" id="J8p-p3-dTz"/>
                                                 <constraint firstAttribute="centerY" secondItem="Zdz-sx-vQe" secondAttribute="centerY" constant="-1.5" id="KRd-Iq-ueH"/>
                                                 <constraint firstItem="QRR-2x-O0e" firstAttribute="top" secondItem="Zdz-sx-vQe" secondAttribute="top" constant="4" id="MoG-Kz-P9G"/>
                                                 <constraint firstItem="QRR-2x-O0e" firstAttribute="leading" secondItem="tZd-6B-Tiz" secondAttribute="leading" id="Utk-Ic-QQg"/>
                                                 <constraint firstItem="Zdz-sx-vQe" firstAttribute="leading" secondItem="wIa-Xc-iIu" secondAttribute="leadingMargin" id="WW0-8H-h59"/>
-                                                <constraint firstItem="QRR-2x-O0e" firstAttribute="width" secondItem="tZd-6B-Tiz" secondAttribute="width" id="fz4-uK-svB"/>
+                                                <constraint firstItem="QRR-2x-O0e" firstAttribute="width" secondItem="tZd-6B-Tiz" secondAttribute="width" constant="99" id="fz4-uK-svB"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="QRR-2x-O0e" secondAttribute="trailing" constant="10" id="j8Y-So-S2O"/>
-                                                <constraint firstItem="tZd-6B-Tiz" firstAttribute="top" secondItem="QRR-2x-O0e" secondAttribute="bottom" constant="-1" id="l4T-oU-VQj"/>
+                                                <constraint firstItem="tZd-6B-Tiz" firstAttribute="top" secondItem="QRR-2x-O0e" secondAttribute="bottom" id="l4T-oU-VQj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="icon" destination="Zdz-sx-vQe" id="mk2-Ep-kB5"/>
                                             <outlet property="price" destination="tZd-6B-Tiz" id="sWn-bl-IdP"/>
                                             <outlet property="title" destination="QRR-2x-O0e" id="oRd-jc-Uiy"/>
+                                            <outlet property="type" destination="s7z-qZ-MTd" id="GyZ-T0-zJB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -664,7 +677,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maC-Gp-szP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2604" y="364"/>
+            <point key="canvasLocation" x="2604" y="363"/>
         </scene>
     </scenes>
     <resources>
