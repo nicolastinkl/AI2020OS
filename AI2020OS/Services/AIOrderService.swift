@@ -12,6 +12,7 @@ import JSONJoy
 class AIOrderRequester {
     typealias OrderListRequesterCompletion = (data:[AIOrderListItemModel]) ->()
     typealias OrderDetailRequesterCompletion = (data:OrderDetailModel,error:Error?) ->()
+    typealias OrderNumberRequesterCompletion = (data:[OrderNumberModel],error:Error?) ->()
     
     typealias SubmitOrderCompletion = (success:Bool) -> Void
     
@@ -135,8 +136,6 @@ class AIOrderRequester {
         let requestMessage = AIOrderMessageWrapper.updateOrderStatus(orderId, orderStatus: orderStatus)
         AINetEngine.defaultEngine().postMessage(requestMessage, success:
             { (response) -> Void in
-//                let result : NSDictionary = response as NSDictionary
-//                let resultCode : Int = result.objectForKey("resultCode") as Int
                 completion(resultCode: 1)
                 
             }, fail: { (error:AINetError, errorDes:String!) -> Void in
@@ -144,5 +143,20 @@ class AIOrderRequester {
                 completion(resultCode: 0)
         })
 
+    }
+    
+    func queryOrderNumber(orderRole : Int, orderStatus : Int , completion : OrderNumberRequesterCompletion){
+        let requestMessage = AIOrderMessageWrapper.getOrderNumber(orderStatus, orderRole: orderRole)
+        var orderNumberModel : OrderNumberModel!
+        AINetEngine.defaultEngine().postMessage(requestMessage, success:
+            { (response) -> Void in
+                let responseArray : NSArray = AIMessageWrapper.jsonModelsFromArray(response as NSArray, withModelClass: OrderNumberModel.self)
+                let orderNumberList = responseArray as [OrderNumberModel]
+                completion(data: orderNumberList, error: nil)
+                
+            }, fail: { (error:AINetError, errorDes:String!) -> Void in
+                
+                completion(data: [], error: Error(message: errorDes, code: error.rawValue))
+        })
     }
 }

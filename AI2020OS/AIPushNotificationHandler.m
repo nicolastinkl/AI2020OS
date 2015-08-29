@@ -26,7 +26,7 @@
 
 - (void)handleNotification
 {
-    NSString *message = self.notification[kAPNS_Alert]?:@"你收到一条新的消息，是否立即去查看？";
+    NSString *message = self.notification[kAPNS_Message]?:@"你收到一条新的消息，是否立即去查看？";
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"消息" message:message delegate:self cancelButtonTitle:@"不管了" otherButtonTitles:@"去看看", nil];
     [alertView show];
 }

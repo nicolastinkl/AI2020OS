@@ -41,6 +41,22 @@ class AIOrderMessageWrapper : AIMessageWrapper{
         return message
 
     }
+    
+    class func getOrderNumber(orderState : Int,orderRole : Int)
+       -> AIMessage{
+            var message : AIMessage = AIMessage()
+            
+            let body = [
+                "data":["order_state":orderState,"order_role":orderRole],
+                "desc":[
+                    "data_mode":"0",
+                    "digest":""
+            ]]
+            
+            message.body = NSMutableDictionary(dictionary:body)
+            message.url = AIHttpEngine.baseURL + AIHttpEngine.ResourcePath.QueryOrderNumber.description
+            return message
+    }
 }
 
 // MARK: - models
@@ -146,4 +162,8 @@ enum OrderStatus:Int{
     WaitForPay = 101,
     WaidForComment = 102,
     Finished = 14
+}
+
+enum OrderRole : Int{
+    case Customer = 1,Provider
 }

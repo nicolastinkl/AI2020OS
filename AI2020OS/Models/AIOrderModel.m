@@ -11,3 +11,7 @@
 @implementation OrderDetailModel
 
 @end
+
+@implementation OrderNumberModel
+
+@end

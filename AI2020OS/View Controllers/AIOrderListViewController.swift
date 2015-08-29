@@ -236,4 +236,5 @@ class AIBaseOrderListViewController : UIViewController{
     func findOServiceIdByIndexNumber(indexNumber : Int) -> Int {
         return orderList[indexNumber].service_id!
     }
+    
 }
