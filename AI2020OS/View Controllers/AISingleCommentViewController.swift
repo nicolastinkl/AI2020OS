@@ -34,7 +34,7 @@ class AISingleCommentViewController : UIViewController {
         self.view.addSubview(commentView)
         commentView.delegate = self
         
-        initTestData()
+     //   initTestData()
     }
     
     private func initTestData() {
