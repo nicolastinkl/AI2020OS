@@ -43,7 +43,8 @@ class AIOrderSubmitViewController: UIViewController {
                 Async.userInitiated {
                     AIOrderRequester().submitOrder(self.serviceId  ?? 0, serviceParams: NSMutableArray(array: paramsPams!), completion: { (success) -> Void in
                         self.view.hideLoading()
-                        SCLAlertView().showSuccess("提交成功", subTitle: "提示", closeButtonTitle: "关闭", duration: 2)
+                        UIAlertView(title: "提示", message: "购买成功", delegate: nil, cancelButtonTitle: "关闭").show()
+                        //SCLAlertView().showSuccess("提交成功", subTitle: "提示", closeButtonTitle: "关闭", duration: 2)
                     })
                 }
             

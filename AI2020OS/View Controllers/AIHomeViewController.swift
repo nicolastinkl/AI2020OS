@@ -26,13 +26,19 @@ class AIHomeViewController: UITableViewController {
     private var weatherValue:WeatherModel?
 
     private var loginAction : LoginAction?
-
+    
+    private var storeHouseRefreshControl:CBStoreHouseRefreshControl?
+    
     // MARK: View LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "首页"
+        self.title = "首页" 
+
+        //storeHouseRefreshControl = CBStoreHouseRefreshControl.attachToScrollView(self.tableview, target: self, refreshAction: "refreshAction", plist: "storehouse")
+        storeHouseRefreshControl = CBStoreHouseRefreshControl.attachToScrollView(self.tableview, target: self, refreshAction: "refreshAction", plist: "storehouse", color: UIColor(hex: AIApplication.AIColor.MainSystemBlueColor), lineWidth: 2, dropHeight: 80, scale: 1, horizontalRandomness: 150, reverseLoadingAnimation: false, internalAnimationFactor: 0.7)
+        
         
         if  AILocalStore.uidToken() != 0 {
             retryNetworkingAction()
@@ -54,6 +60,12 @@ class AIHomeViewController: UITableViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "logoutSuccess", name: AIApplication.Notification.UIAIASINFOLogOutNotification, object: nil)
         
+    }
+    
+    func refreshAction(){
+        self.serviceTopicList = []
+        self.tableView.reloadData()
+        retryNetworkingAction()
     }
     
     /**
@@ -137,6 +149,7 @@ class AIHomeViewController: UITableViewController {
             // Do any additional setup after loading the view, typically from a nib.
             AIServicesRequester().load(page: 1, completion: { (data) -> () in
                 self.view.hideProgressViewLoading()
+                self.storeHouseRefreshControl?.finishingLoading()
                 if data.count > 0{
                     self.serviceTopicList = data
                     self.tableView.reloadData()
@@ -278,6 +291,19 @@ extension AIHomeViewController : UITableViewDataSource,UITableViewDelegate{
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 292
     }
+    
+    
+    //MARK:ScrollDelegate pragma mark - Notifying refresh control of scrolling
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.storeHouseRefreshControl?.scrollViewDidScroll()
+    }
+    
+    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.storeHouseRefreshControl?.scrollViewDidEndDragging()
+    }
+    
+    
     
 }
 

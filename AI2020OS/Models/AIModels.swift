@@ -127,8 +127,8 @@ struct AIServiceDetailModel: JSONJoy  {
         }
 
         //test
-        
-        if service_id == 25042743 {
+        let string = NSString(string: service_name ?? "")
+        if string.containsString("美甲") {
             service_guarantee = "本店美甲均提供30天质保，30天内因非人为原因出现掉色和掉甲问题，本店免费提供修复服务。"
             service_restraint = "为保证美甲效果，美甲前1天手指请勿接触刺激性物品。"
             service_process = "修剪->打磨->抛光->软化->上色->封层"

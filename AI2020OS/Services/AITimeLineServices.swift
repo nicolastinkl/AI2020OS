@@ -29,9 +29,9 @@ class AITimeLineServices {
                  
                 if let addrs = JSONDecoder(responseJSON).array {
                 var catalogArray = Array<AITimeLineModel>()
-                for subDecoder in addrs {
-                    catalogArray.append(AITimeLineModel(subDecoder))
-                }
+                    for subDecoder in addrs {
+                        catalogArray.append(AITimeLineModel(subDecoder))
+                    }
                     completion(data: catalogArray)
                 }
             }else{
