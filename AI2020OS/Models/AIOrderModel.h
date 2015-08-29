@@ -30,6 +30,6 @@
 @interface OrderNumberModel : JSONModel
 
 @property (nonatomic, assign) NSInteger order_state;
-@property (nonatomic, assign) NSInteger order_number;
+@property (nonatomic, assign) NSInteger order_num;
 
 @end

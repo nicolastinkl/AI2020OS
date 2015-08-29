@@ -88,10 +88,11 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     func buildDynaStatusButton(orderNumberList : [OrderNumberModel]){
         
         var orderNumberDictinary = Dictionary<Int,Int>()
-        
+        var totalNumber : Int = 0
         //buildOrderNumberData
         for orderNumberModel in orderNumberList{
-            orderNumberDictinary[orderNumberModel.order_state] = orderNumberModel.order_number
+            orderNumberDictinary[orderNumberModel.order_state] = orderNumberModel.order_num
+            totalNumber += orderNumberModel.order_num
         }
         
         func getAmountByStatus(status : Int) -> Int{
@@ -101,7 +102,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
             return 0
         }
         
-        let buttonArray = [StatusButtonModel(title: "全部", amount: getAmountByStatus(0),status:0),
+        let buttonArray = [StatusButtonModel(title: "全部", amount: totalNumber,status:0),
             StatusButtonModel(title: "待执行", amount: getAmountByStatus(OrderStatus.Init.rawValue),status:OrderStatus.Init.rawValue),
             StatusButtonModel(title: "执行中", amount: getAmountByStatus(OrderStatus.Executing.rawValue),status:OrderStatus.Executing.rawValue),
             StatusButtonModel(title: "待评价", amount: getAmountByStatus(OrderStatus.WaidForComment.rawValue),status:OrderStatus.WaidForComment.rawValue),
@@ -114,7 +115,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         //refresh data
         self.orderStatus = target.associatedName?.toInt() ?? 0
 
-        retryNetworkingAction()
+        requestOrderList()
     }
     
     func requestOrderNumber(){
@@ -127,6 +128,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
                 (data,error) ->() in
                 // Init buttons.
                 self.buildDynaStatusButton(data)
+                self.scrollView.hideProgressViewLoading()
             })
         }
     }

@@ -18,8 +18,6 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
     // MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Init buttons.
-        buildDynaStatusButton()
         self.scrollView.contentSize = CGSizeMake(450, 0)
         
         //registerNib
@@ -54,8 +52,12 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         
     }
     
-    // MARK: - utils
     func retryNetworkingAction(){
+        requestOrderNumber()
+        requestOrderList()
+    }
+    // MARK: - utils
+    func requestOrderList(){
         tableView.hideProgressViewLoading()
         tableView.showProgressViewLoading()
         //后台请求数据
@@ -70,6 +72,20 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         }
     }
     
+    func requestOrderNumber(){
+        scrollView.hideProgressViewLoading()
+        scrollView.showProgressViewLoading()
+        //后台请求数据
+        Async.background(){
+            // Do any additional setup after loading the view, typically from a nib.
+            AIOrderRequester().queryOrderNumber(2, orderStatus: self.orderStatus, completion: {
+                (data,error) ->() in
+                // Init buttons.
+                self.buildDynaStatusButton(data)
+                self.scrollView.hideProgressViewLoading()
+            })
+        }
+    }
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单
     //orderState: 待处理 进行中 待完成 已完成
@@ -91,12 +107,28 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
     
     
     
-    func buildDynaStatusButton(){
-        let buttonArray = [StatusButtonModel(title: "全部", amount: 9,status:0),
-            StatusButtonModel(title: "待处理", amount: 4,status:OrderStatus.Init.rawValue),
-            StatusButtonModel(title: "处理中", amount: 0,status:OrderStatus.Executing.rawValue),
-            StatusButtonModel(title: "待评价", amount: 2,status:OrderStatus.WaidForComment.rawValue),
-            StatusButtonModel(title: "已完成", amount: 3,status:OrderStatus.Finished.rawValue)]
+    func buildDynaStatusButton(orderNumberList : [OrderNumberModel]){
+        
+        var orderNumberDictinary = Dictionary<Int,Int>()
+        var totalNumber : Int = 0
+        //buildOrderNumberData
+        for orderNumberModel in orderNumberList{
+            orderNumberDictinary[orderNumberModel.order_state] = orderNumberModel.order_num
+            totalNumber += orderNumberModel.order_num
+        }
+        
+        func getAmountByStatus(status : Int) -> Int{
+            if let orderNumber = orderNumberDictinary[status] {
+                return orderNumber
+            }
+            return 0
+        }
+        
+        let buttonArray = [StatusButtonModel(title: "全部", amount: totalNumber,status:0),
+            StatusButtonModel(title: "待执行", amount: getAmountByStatus(OrderStatus.Init.rawValue),status:OrderStatus.Init.rawValue),
+            StatusButtonModel(title: "处理中", amount: getAmountByStatus(OrderStatus.Executing.rawValue),status:OrderStatus.Executing.rawValue),
+            StatusButtonModel(title: "待评价", amount: getAmountByStatus(OrderStatus.WaidForComment.rawValue),status:OrderStatus.WaidForComment.rawValue),
+            StatusButtonModel(title: "已完成", amount: getAmountByStatus(OrderStatus.Finished.rawValue),status:OrderStatus.Finished.rawValue)]
         addStatusButton(buttonArray, scrollView: scrollView)
     }
 
@@ -105,7 +137,7 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         //refresh data
         self.orderStatus = target.associatedName?.toInt() ?? 0
         
-        retryNetworkingAction()
+        requestOrderList()
     }
 
 }
