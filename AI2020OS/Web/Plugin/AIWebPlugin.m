@@ -8,6 +8,7 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 #import "AIWebPlugin.h"
+#import "AIServerConfig.h"
 
 @implementation AIWebPlugin
 
@@ -47,14 +48,13 @@
     NSString *message = [NSString stringWithFormat:@"%@ 给你发送了一条消息，请注意查收~", userName?:@""];
     // Create our Installation query
     AVQuery *pushQuery = [AVInstallation query];
-    [pushQuery whereKey:@"owner" equalTo:providerID];
+    [pushQuery whereKey:KAPNS_Owner equalTo:providerID];
     
     // Send push notification to query
     AVPush *push = [[AVPush alloc] init];
     [push setQuery:pushQuery]; // Set our Installation query
     [push setMessage:message];
-    [push sendPushInBackground];
-    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:url, @"chatURL",nil];
+    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:url, kAPNS_ChatURL,nil];
     [push setData:data];
     [push sendPushInBackground];
     

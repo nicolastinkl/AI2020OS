@@ -64,7 +64,7 @@ class AIHttpServiceCommentManager: AIServiceCommentMockManager {
             varRate = rate!
         }
         
-        var url: String = "http://171.221.254.231:9000/c=addComments&WEB_HUB_PARAMS=%7B%22data%22:%7B%22commentParameter%22:%7B%22targetObjectType%22:%22\(targetObjectType)%22,%22objectId%22:\(serviceId),%22comments%22:[%7B%22partyRoleId%22:\(kUser_ID),%22grades%22:[%7B%22gradeValue%22:%22\(varRate)%22%7D],%22contextComment%22:%7B%22context%22:%22\(commentText)%22%7D%7D]%7D%7D,%22header%22:%7B%22Content-Type%22:%22application/json%22%7D%7D"
+        var url: String = "http://171.221.254.231:9000/c=addComments&WEB_HUB_PARAMS=%7B%22data%22:%7B%22commentParameter%22:%7B%22targetObjectType%22:%22\(targetObjectType)%22,%22objectId%22:\(serviceId),%22comments%22:[%7B%22partyRoleId%22:\(AILocalStore.accessToken()),%22grades%22:[%7B%22gradeValue%22:%22\(varRate)%22%7D],%22contextComment%22:%7B%22context%22:%22\(commentText)%22%7D%7D]%7D%7D,%22header%22:%7B%22Content-Type%22:%22application/json%22%7D%7D"
 
         Alamofire.request(.GET, NSURL(string: url)!, parameters:nil)
             .responseJSON { (_request, _response, JSON, error) in

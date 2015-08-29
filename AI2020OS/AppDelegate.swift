@@ -58,6 +58,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         WeiboSDK.enableDebugMode(true);
         WeiboSDK.registerApp("2045436852");
         
+        if launchOptions != nil
+        {
+            var launchDic : Dictionary<String, AnyObject> = launchOptions as Dictionary<String, AnyObject>
+            var notificationPayload : Dictionary<String, AnyObject> = launchDic[UIApplicationLaunchOptionsRemoteNotificationKey] as Dictionary<String, AnyObject>
+            handleRemoteNotification(notificationPayload)
+        }
+        
+        
+        
+        
+        
         return true
     }
     
@@ -158,10 +169,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func initNetEngine() {
         let timeStamp: Int = 0
         let token = "0"
-        let userId = kUser_ID
         let RSA = "0"
         
-        let headerContent = "\(timeStamp)&" + token+"&" + userId+"&" + RSA
+        let headerContent = "\(timeStamp)&" + token+"&" + "\(AILocalStore.uidToken() ?? 0)&" + RSA
         
         let header = [kHttp_Header_Query: headerContent]
         AINetEngine.defaultEngine().configureCommonHeaders(header)
@@ -177,11 +187,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     AVPush.setProductionMode(true)
     application.applicationIconBadgeNumber = 0
         
-    // save user
-    var currentInstallation : AVInstallation = AVInstallation.currentInstallation()
-    currentInstallation.setObject(kUser_ID, forKey: "owner")
-    currentInstallation.saveInBackground()
-        
     }
     
     
@@ -192,10 +197,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         application.applicationIconBadgeNumber = 0
+        
+        // Create empty photo object
+        
+        
+        var userInfoDic : Dictionary<String, AnyObject> = userInfo as Dictionary<String, AnyObject>
+        handleRemoteNotification(userInfoDic);
+        
+        
     }
+    
+    
+    func handleRemoteNotification(notification: Dictionary<String, AnyObject>){
+       
+        if notification.isEmpty {return}
+        
+        
+        
+        let alertController = UIAlertController(title: "消息", message: notification["aps"] as? String, preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "不管了", style: .Cancel) { (action) in
+            // ...
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "现在去看", style: .Default) { (action) in
+            var charURL : String = notification[kAPNS_ChatURL] as  String!
+            if !charURL.isEmpty {
+                // handle notification
+                var webViewController : AICDWebViewController = AICDWebViewController()
+                webViewController.startPage = charURL
+                
+                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(webViewController, animated: false, completion: nil)
+            }
+        }
+        alertController.addAction(OKAction)
+        
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alertController, animated: true) {
+            // ...
+        }
+        
+        
+        
+        
+     
+    }
+    
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         
@@ -205,37 +254,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
     }
     
-    //
-    func didReceiveWeiboResponse(response: WBBaseResponse!) {
-        
-        if response.isKindOfClass(WBSendMessageToWeiboResponse.self)
-        {
-            
-            var success:Bool = response.statusCode == WeiboSDKResponseStatusCode.Success
-            
-            var title:NSString = success ? "微博分享成功" : "微博分享失败"
-            
-            var alert:UIAlertView = UIAlertView(title: title, message: nil, delegate: nil, cancelButtonTitle: "确定");
-            alert.show()
-            
-            var sendMessageToWeiboResponse:WBSendMessageToWeiboResponse = response as WBSendMessageToWeiboResponse;
-            var accessToken:NSString = sendMessageToWeiboResponse.authResponse.accessToken
-            
-            if accessToken.length > 0 {
-                AIWeiboData.instance().wbtoken = accessToken
-            }
-            var userID:NSString = sendMessageToWeiboResponse.authResponse.userID
-            if userID.length > 0 {
-                AIWeiboData.instance().wbCurrentUserID = userID;
-            }
-            
-        }
-        
-        
-    }
-    
-    func didReceiveWeiboRequest(request: WBBaseRequest!) {
-        
-    }
 }
 

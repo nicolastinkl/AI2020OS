@@ -32,6 +32,7 @@ class AITimeLineModel: JSONJoy {
     var type: Int?
     var expend:Int?
     var expendData:NSArray?
+    var role:Int?
     
     init() {
         
@@ -43,6 +44,8 @@ class AITimeLineModel: JSONJoy {
         content = decoder["desc"].string
         type = 0
         expend = 0
+        role = decoder["role"].integer
+        Id = decoder["expand_type_id"].integer
         expendData = NSArray()
     }
     

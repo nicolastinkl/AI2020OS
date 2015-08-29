@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class AICustomerOrderDetailViewController: UIViewController {
 
@@ -41,8 +42,8 @@ class AICustomerOrderDetailViewController: UIViewController {
         // request networking.
         retryNetworkingAction()
         // request timeline data
-        timeLineView.orderId = "\(orderId)"
-        timeLineView.retryNetworkingAction()
+        //timeLineView.orderId = "\(orderId)"
+        //timeLineView.retryNetworkingAction()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -81,11 +82,17 @@ class AICustomerOrderDetailViewController: UIViewController {
         
         Async.background(){
             let servicesRequester = AIServicesRequester()
-            servicesRequester.loadServiceDetail(self.serviceId, service_type: 0, completion:
-                { (data) -> () in
-                    self.bindServiceData(data)
+            AIServicesRequester().loadServiceDetail(self.serviceId, service_type: 0) { [weak self](data) -> () in
+                if let strongSelf = self{
+                    strongSelf.bindServiceData(data)
                 }
-            )
+            }
+            
+//            servicesRequester.loadServiceDetail(self.serviceId, service_type: 0, completion:
+//                { (data) -> () in
+//                    self.bindServiceData(data)
+//                }
+//            )
         }
     }
     
@@ -107,5 +114,24 @@ class AICustomerOrderDetailViewController: UIViewController {
         servicePrice.text = serviceDetailModel.service_price
         serviceName.text = serviceDetailModel.service_name
         serviceDesc.text = serviceDetailModel.service_intro
+    }
+}
+
+ // MARK: - operator buttons view
+class AICustomerOrderDetailOperViewController : UIViewController{
+    
+    @IBAction func changeOrderAction(sender: UIButton) {
+        SCLAlertView().showInfo("提示", subTitle: "申请修改订单", closeButtonTitle: "关闭", duration: 3)
+    }
+    @IBAction func commentOrderAction(sender: UIButton) {
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AICommentStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISingleCommentViewController) as AISingleCommentViewController
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func payOrderAction(sender: UIButton) {
+        SCLAlertView().showInfo("提示", subTitle: "支付消息", closeButtonTitle: "关闭", duration: 3)
+    }
+    @IBAction func openIMAction(sender: UIButton) {
+        SCLAlertView().showInfo("提示", subTitle: "打开电子白板", closeButtonTitle: "关闭", duration: 3)
     }
 }

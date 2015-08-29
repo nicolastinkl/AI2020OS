@@ -221,7 +221,28 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         
         
         var webViewController : AICDWebViewController = AICDWebViewController()
-        webViewController.startPage = "http://115.29.164.124/whiteboard/apploadboard/910000011/910000013/25042644"
+        
+        var localUID : String = ""
+        var providerID : String = ""
+        var serviceID : String = ""
+        
+        if let uid = AILocalStore.uidToken() {
+            localUID = uid.toString()
+        }
+        
+        if let pid = self.movieDetailsResponse?.provider_id {
+            providerID = pid
+        }
+        
+        
+        if let sid = self.movieDetailsResponse?.service_id {
+            serviceID = sid.toString()
+        }
+        
+        var url : String = "http://115.29.164.124/whiteboard/apploadboard/"+localUID+"/"+providerID+"/"+serviceID
+        
+        webViewController.startPage = url
+   
         
         self.navigationController?.pushViewController(webViewController, animated: true)
 
@@ -299,7 +320,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             }
             return 0
         case 5:
-            return 142
+            return 0.1 //142
         default:
             break
         }
@@ -357,7 +378,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             avCell?.addBottomBorderLine()
             return avCell!
         case 2: //选择时间
-            return UITableViewCell()
+            return UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "AIHomeSDParamesViewCell") as  UITableViewCell
             /*
             var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeSDParamesViewCell) as? AIHomeSDParamesViewCell
             if  avCell == nil {
@@ -397,13 +418,13 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
             return avCell!
             
         case 5: //最新评论
-            //return UITableViewCell()
-            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeCommentViewCell) as? AIHomeCommentViewCell
-            if  avCell == nil {
-                avCell = AIHomeCommentViewCell().currentViewCell()
-            }
-            avCell?.delegate = self
-            return avCell!
+            return UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "AIHomeCommentViewCell") as  UITableViewCell
+//            var avCell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AIHomeCommentViewCell) as? AIHomeCommentViewCell
+//            if  avCell == nil {
+//                avCell = AIHomeCommentViewCell().currentViewCell()
+//            }
+//            avCell?.delegate = self
+//            return avCell!
             
         default:
             

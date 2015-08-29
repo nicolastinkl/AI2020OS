@@ -61,15 +61,11 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         //后台请求数据
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
-            AIOrderRequester().queryOrderList(page: 1,orderRole: 1, orderState: self.orderStatus, completion: { (data) -> () in
-                self.view.hideProgressViewLoading()
-                if data.count > 0{
-                    self.orderList = data
-                    self.tableView.reloadData()
-                    self.tableView.hideErrorView()
-                }else{
-                    self.tableView.showErrorView()
-                }
+            AIOrderRequester().queryOrderList(page: 1,orderRole: 2, orderState: self.orderStatus, completion: { (data) -> () in
+                self.orderList = data
+                self.tableView.reloadData()
+                self.tableView.hideErrorView()
+                self.tableView.hideProgressViewLoading()
             })
         }
     }
@@ -150,7 +146,7 @@ extension AIProviderOrderListViewController:UITableViewDelegate,UITableViewDataS
             orderStateLabel.text = orderListModel.order_state_name
         }
         if let buttonView = cell.viewWithTag(180) {
-            buildDynaOperButton(orderListModel.order_state_name!, orderType: "", buttonView: buttonView,indexNumber : indexPath.row)
+            buildDynaOperButton("\(orderListModel.order_state!)", orderType: "", buttonView: buttonView,indexNumber : indexPath.row)
         }
         if let customerIconImg = cell.viewWithTag(140) as? AIImageView{
             customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url! ?? "http://img1.gtimg.com/kid/pics/hv1/47/231/1905/123931577.jpg"), placeholderImage: UIImage(named: "Placeholder"))
