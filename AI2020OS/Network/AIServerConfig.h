@@ -23,3 +23,4 @@
 #define KAPNS_Owner                   @"owner"
 #define kAPNS_ChatURL                 @"chatURL"
 #define kAPNS_Alert                   @"alert"
+#define kAPNS_Message                 @"message"
