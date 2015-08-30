@@ -12,6 +12,7 @@
 #import "AIMessageWrapper.h"
 #import "AIServiceListModel.h"
 #import "AIServerConfig.h"
+#import "AIOGlobalStorage.h"
 
 #define kButtonHeight 44
 
@@ -33,9 +34,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"我的货架";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    
-    [[NSUserDefaults standardUserDefaults] setObject:self.navigationController forKey:kServiceManageVC];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self fetchServiceList];
@@ -77,6 +75,7 @@
 
 - (void)backAction
 {
+    [AIOGlobalStorage defaultStorage].shelfNavigationController = nil;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -199,6 +198,9 @@
 
 - (void)addService
 {
+    
+    [AIOGlobalStorage defaultStorage].shelfNavigationController = self.navigationController;
+    
     AICDWebViewController *webViewController = [[AICDWebViewController alloc] init];
     webViewController.startPage = @"http://115.29.164.124/serviceRelease/index.html";
     webViewController.shouldHideNavigationBar = YES;

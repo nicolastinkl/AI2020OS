@@ -15,7 +15,7 @@
 - (void)openPage:(CDVInvokedUrlCommand*)command;
 
 
-- (void)backAction:(CDVInvokedUrlCommand*)command;
+- (void)shelfBackAction:(CDVInvokedUrlCommand*)command;
 
 
 - (void)pushNotification:(CDVInvokedUrlCommand*)command;

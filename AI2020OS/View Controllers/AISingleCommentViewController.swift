@@ -14,7 +14,7 @@ class AISingleCommentViewController : UIViewController {
     
     var inputServiceId: Int!
     var inputOrderId: Int!
-    var commentOrder: AIOrderListItemModel!
+    var commentOrder: AIOrderListItemModel! = AIOrderListItemModel() // 这个对象未初始化为nil，下面直接使用crash，所以这里先初始化，亮哥看下why nil
     var commentView: AISingleCommentView!
     var commentManager: AIServiceCommentManager!
     
@@ -34,7 +34,7 @@ class AISingleCommentViewController : UIViewController {
         self.view.addSubview(commentView)
         commentView.delegate = self
         
-     //   initTestData()
+        initTestData() // 这里先打开，否则crash
     }
     
     private func initTestData() {

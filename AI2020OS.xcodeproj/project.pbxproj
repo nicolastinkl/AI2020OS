@@ -88,6 +88,7 @@
 		81A06CB81B8F2F4300AFB066 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A06CB71B8F2F4300AFB066 /* ImageIO.framework */; };
 		81A06CBA1B8F312800AFB066 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A06CB91B8F312800AFB066 /* libsqlite3.dylib */; };
 		81A06CBD1B8FF24F00AFB066 /* AIServiceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A06CBC1B8FF24F00AFB066 /* AIServiceListModel.m */; };
+		81C935F41B92B1FD0039433E /* AIOGlobalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C935F31B92B1FD0039433E /* AIOGlobalStorage.m */; };
 		81CF5F7C1B86BA2500FBF6BA /* storehouse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81CF5F7B1B86BA2500FBF6BA /* storehouse.plist */; };
 		840FDAA91B857D8100CE3DF9 /* AIOrderModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840FDAA81B857D8100CE3DF9 /* AIOrderModifyView.swift */; };
 		840FDAAB1B857D9800CE3DF9 /* AIOrderModifyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840FDAAA1B857D9800CE3DF9 /* AIOrderModifyView.xib */; };
@@ -610,6 +611,8 @@
 		81A06CB91B8F312800AFB066 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		81A06CBB1B8FF24F00AFB066 /* AIServiceListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIServiceListModel.h; sourceTree = "<group>"; };
 		81A06CBC1B8FF24F00AFB066 /* AIServiceListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIServiceListModel.m; sourceTree = "<group>"; };
+		81C935F21B92B1FD0039433E /* AIOGlobalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOGlobalStorage.h; sourceTree = "<group>"; };
+		81C935F31B92B1FD0039433E /* AIOGlobalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIOGlobalStorage.m; sourceTree = "<group>"; };
 		81CF5F7B1B86BA2500FBF6BA /* storehouse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = storehouse.plist; sourceTree = "<group>"; };
 		840FDAA81B857D8100CE3DF9 /* AIOrderModifyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderModifyView.swift; sourceTree = "<group>"; };
 		840FDAAA1B857D9800CE3DF9 /* AIOrderModifyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIOrderModifyView.xib; sourceTree = "<group>"; };
@@ -2304,6 +2307,8 @@
 				9337FF5F1AD4097A0046F8DC /* AIUINavigationController.h */,
 				9337FF601AD4097A0046F8DC /* AIUINavigationController.m */,
 				93DB59891AE62EAD00D1E39C /* AIMaterialDButton.swift */,
+				81C935F21B92B1FD0039433E /* AIOGlobalStorage.h */,
+				81C935F31B92B1FD0039433E /* AIOGlobalStorage.m */,
 			);
 			name = AIControls;
 			sourceTree = "<group>";
@@ -2901,6 +2906,7 @@
 				9337FF5A1AD3B9990046F8DC /* AIImageView.swift in Sources */,
 				93692C971ACAA52A00D66211 /* Async.swift in Sources */,
 				123A45F81B847988008B9CF6 /* SubTimelineView.swift in Sources */,
+				81C935F41B92B1FD0039433E /* AIOGlobalStorage.m in Sources */,
 				8415F4E31B135688003160B4 /* AISearchServiceViewController.swift in Sources */,
 				93CB34621AE5F26100D49FB2 /* AIImage.swift in Sources */,
 				936DAC201ADCF8510025483B /* SCSiriWaveformView.m in Sources */,

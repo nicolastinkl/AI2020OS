@@ -9,6 +9,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "AIWebPlugin.h"
 #import "AIServerConfig.h"
+#import "AIOGlobalStorage.h"
 
 @implementation AIWebPlugin
 
@@ -32,13 +33,9 @@
 
 
 
-- (void)backAction:(CDVInvokedUrlCommand*)command
+- (void)shelfBackAction:(CDVInvokedUrlCommand*)command
 {
-    UINavigationController *nav = (UINavigationController *)[[NSUserDefaults standardUserDefaults] objectForKey:kServiceManageVC];
-    [nav popViewControllerAnimated:YES];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kServiceManageVC];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
+    [[AIOGlobalStorage defaultStorage].shelfNavigationController popViewControllerAnimated:YES];
 }
 
 
