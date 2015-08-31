@@ -12,14 +12,21 @@ import SCLAlertView
 
 class AIOrderSubmitViewController: UIViewController {
     
+    //MARK: Variables
     @IBOutlet weak var label_title: UILabel!
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
 
+    //MARK: Variables
     var serviceId:Int?
+    
+    var isSubmitSuccess = false
     
     var selectedParams:NSMutableDictionary?
     
+    var titleString:String?
+    
+    //MARK: life cricly
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,10 +37,14 @@ class AIOrderSubmitViewController: UIViewController {
         lineLayer.backgroundColor = color
         lineLayer.frame = CGRectMake(0, titleLabel.height+8, titleLabel.width, 0.5)
         titleLabel.layer.addSublayer(lineLayer)
-        
+        if let ti = titleString {
+            label_title.text =  ti
+        }
+
     }
     
     @IBAction func buyAction(sender: AnyObject) {
+        
         let detailModel = AIServiceDetailParamsModel()
         
         let paramsPams = selectedParams?.allValues
@@ -44,6 +55,7 @@ class AIOrderSubmitViewController: UIViewController {
                     AIOrderRequester().submitOrder(self.serviceId  ?? 0, serviceParams: NSMutableArray(array: paramsPams!), completion: { (success) -> Void in
                         self.view.hideLoading()
                         if success {
+                            self.isSubmitSuccess = true
                             UIAlertView(title: "提示", message: "购买成功", delegate: self, cancelButtonTitle: "关闭").show()
                         }else{
                             UIAlertView(title: "提示", message: "购买失败", delegate: nil, cancelButtonTitle: "关闭").show()
@@ -60,15 +72,23 @@ class AIOrderSubmitViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    
+    func dismissPopToRoot(){
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
 }
 
 extension AIOrderSubmitViewController:UIAlertViewDelegate{
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 0{
             //cancel
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.NSPOPAIOrderSubmitViewController, object: nil)
+            self.dismissViewControllerAnimated(false, completion: nil)
         }
+        
+        self.isSubmitSuccess = false
     }
+    
 }
 
 extension AIOrderSubmitViewController:UITableViewDataSource,UITableViewDelegate{

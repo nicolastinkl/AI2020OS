@@ -14,11 +14,18 @@
 @property (nonatomic, strong) NSDictionary *notification;
 
 
++ (void)pushRemoteNotification:(NSDictionary *)notification;
+
+
 - (id)initWithNotification:(NSDictionary *)notification;
 
 
 - (void)startHandleNotification;
 
 - (void)handlePushNotification:(NSDictionary *)notification;
+
+
+
+
 
 @end

@@ -14,6 +14,8 @@
 @interface AICDWebViewController ()
 {
     GMDCircleLoader *_loader;
+    
+    BOOL _isFirstLoaded;
 }
 
 @end
@@ -26,6 +28,7 @@
     self = [super init];
     if (self) {
         self.shouldShowLoading = YES;
+        _isFirstLoaded = YES;
     }
     
     return self;
@@ -38,10 +41,17 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.webView.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBarHidden = self.shouldHideNavigationBar;
-    
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     
-    
+    if (self.shouldHideNavigationBar) {
+        CGFloat barHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+        
+        CGRect webFrame = self.webView.frame;
+        webFrame.origin.y = barHeight;
+        webFrame.size.height -= barHeight;
+        self.webView.frame = webFrame;
+    }
+
     __weak typeof (self) weakSelf = self;
     self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
     
@@ -123,8 +133,9 @@
 {
     BOOL ret = [super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
     
-    if (self.shouldShowLoading && ret) {
+    if (self.shouldShowLoading && ret && _isFirstLoaded) {
         [self showLoadingMessage:@"正在加载..."];
+        _isFirstLoaded = NO;
     }
 
     return ret;
@@ -134,6 +145,12 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     NSLog(@"%@", error);
+    
+    if (self.shouldShowLoading) {
+        [self dismissLoading];
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

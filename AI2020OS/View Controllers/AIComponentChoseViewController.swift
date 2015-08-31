@@ -160,6 +160,7 @@ class AIComponentChoseViewController: UIViewController {
                 self.contentScrollView.addSubview(line2)
                 cellHeigh += line2.height
             }
+           
         }
         
         self.contentScrollView.contentSize = CGSizeMake(self.view.width, cellHeigh + 100)
@@ -188,7 +189,18 @@ class AIComponentChoseViewController: UIViewController {
         button.setHeight(50)
         button.setTitle("提交订单", forState: UIControlState.Normal)
         button.addTarget(self, action: "submitOrder", forControlEvents: UIControlEvents.TouchUpInside)
+     
+        //NOTIFY
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "closeSelfAction", name: AIApplication.Notification.NSPOPAIOrderSubmitViewController, object: nil)
         
+    }
+    
+    func closeSelfAction(){
+        
+    }
+    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: AIApplication.Notification.NSPOPAIOrderSubmitViewController, object: nil)
     }
     
     func submitOrder(){
@@ -196,7 +208,7 @@ class AIComponentChoseViewController: UIViewController {
         // Step 1: 处理选择参数
         // Step 2: 处理参数拼接
         let sParams = self.selectedParams
-        
+       
         if self.movieDetailsResponse?.service_param_list?.count == sParams.allKeys.count && sParams.allKeys.count  > 0 {
             
             let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as AIOrderSubmitViewController
@@ -204,14 +216,20 @@ class AIComponentChoseViewController: UIViewController {
             viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
             viewController.serviceId = self.movieDetailsResponse?.service_id ?? 0
             viewController.selectedParams = sParams
+            viewController.titleString = self.movieDetailsResponse?.service_name ?? ""
             self.presentViewController(viewController, animated: true, completion: nil)
-            
-            viewController.label_title.text = self.movieDetailsResponse?.service_name ?? ""
-            
         }else{
+            UIAlertView(title: "提示", message: "请选择完参数再次提交订单", delegate: nil, cancelButtonTitle: "关闭").show()
             
-            SCLAlertView().showWarning("提示", subTitle: "参数没选完就提交订单，你在逗我吗?", closeButtonTitle: "关闭", duration: 4)
             
+        }
+
+        
+        // Step 3: 发送通知
+        
+        if let pid = movieDetailsResponse?.provider_id {
+            var notification = [kAPNS_Alert : "您有一个新的订单,请查收!", kAPNS_ProviderID : pid];
+            AIPushNotificationHandler.pushRemoteNotification(notification)
         }
         
     }

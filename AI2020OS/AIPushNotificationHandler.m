@@ -10,8 +10,40 @@
 #import "AIServerConfig.h"
 #import "AIWebViewController.h"
 #import <UIKit/UIKit.h>
+#import <AVOSCloud/AVOSCloud.h>
+
+@interface AIPushNotificationHandler ()
+
+@property (nonatomic, strong) UIAlertView *alertView;
+
+@end
 
 @implementation AIPushNotificationHandler
+
+
++ (void)pushRemoteNotification:(NSDictionary *)notification
+{
+    NSString *pid = [notification objectForKey:kAPNS_ProviderID];
+    
+    if (pid == nil || pid.length == 0) {
+        return;
+    }
+    
+    
+    // Create our Installation query
+    AVQuery *pushQuery = [AVInstallation query];
+    [pushQuery whereKey:KAPNS_Owner equalTo:pid];
+    
+    // Send push notification to query
+    AVPush *push = [[AVPush alloc] init];
+    
+    // Set our Installation query
+    [push setQuery:pushQuery];
+    [push setData:notification];
+    [push sendPushInBackground];
+}
+
+
 
 
 - (id)initWithNotification:(NSDictionary *)notification
@@ -26,9 +58,25 @@
 
 - (void)handleNotification
 {
-    NSString *message = self.notification[kAPNS_Message]?:@"你收到一条新的消息，是否立即去查看？";
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"消息" message:message delegate:self cancelButtonTitle:@"不管了" otherButtonTitles:@"去看看", nil];
-    [alertView show];
+    // 不重复弹窗
+    if (self.alertView) {
+        return;
+    }
+    
+    // 不重复present
+    if ([UIApplication sharedApplication].keyWindow.rootViewController.presentedViewController) {
+        return;
+    }
+    
+    NSString *chatURL = self.notification[kAPNS_ChatURL];
+    
+    if (chatURL) {
+        NSString *message = self.notification[kAPNS_Message]?:@"你收到一条新的消息，是否立即去查看？";
+        self.alertView = [[UIAlertView alloc] initWithTitle:@"消息" message:message delegate:self cancelButtonTitle:@"不管了" otherButtonTitles:@"去看看", nil];
+        [self.alertView show];
+    }
+    
+    
 }
 
 - (void)startHandleNotification
@@ -66,6 +114,8 @@
             [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:NO completion:nil];
         }
     }
+    
+    self.alertView = nil;
 }
 
 

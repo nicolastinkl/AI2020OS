@@ -28,7 +28,9 @@ class AISingleCommentViewController : UIViewController {
         let btnFrame = confirmBtn.frame
         let backBtnFrame = backBtn.frame
         
-        var commentFrame = CGRect(x: 0, y: backBtn.bottom + 10, width: windowFrame.width, height: windowFrame.height - btnFrame.height)
+        let margin: CGFloat = 10
+        
+        var commentFrame = CGRect(x: 0, y: backBtn.bottom + margin, width: windowFrame.width, height: confirmBtn.top - backBtn.bottom - margin)
         
         commentView = AISingleCommentView.instance(self)
         commentView.frame = commentFrame
@@ -93,7 +95,7 @@ class AISingleCommentViewController : UIViewController {
         }
         
         if commentOrder != nil {
-            if commentOrder!.provider_portrait_url != nil {
+            if commentOrder!.provider_portrait_url != nil && commentOrder!.provider_portrait_url! != "" {
                 commentView.avatar.setURL(NSURL(string: commentOrder!.provider_portrait_url!), placeholderImage:UIImage(named: "Placeholder"))
             }
             
@@ -114,14 +116,19 @@ class AISingleCommentViewController : UIViewController {
     
     private func submitSuccess() {
         view.hideProgressViewLoading()
-   //     SCLAlertView().showSuccess("提交成功", subTitle: "成功", closeButtonTitle: nil, duration: 2)
         
-        AIOrderRequester().updateOrderStatus(commentOrder!.order_id!, orderStatus: OrderStatus.Finished.rawValue, completion: { (resultCode) -> Void in
-            
+        
+        AIOrderRequester().updateOrderStatus(commentOrder!.order_id!, orderStatus: OrderStatus.Commented.rawValue, completion: { (resultCode) -> Void in
+                if resultCode == AIApplication.AINetData.RESULT_OK {
+                    SCLAlertView().showSuccess("提交成功", subTitle: "成功", closeButtonTitle: nil, duration: 2)
+                    self.navigationController?.popViewControllerAnimated(true)
+                } else {
+                    SCLAlertView().showWarning("提交失败", subTitle: "失败", closeButtonTitle: nil, duration: 2)
+                }  
             }
         )
         
-        navigationController?.popViewControllerAnimated(true)
+        
     //    self.dismissViewControllerAnimated(true, completion: nil)
     }
     

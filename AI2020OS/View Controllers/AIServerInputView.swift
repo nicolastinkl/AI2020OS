@@ -39,4 +39,10 @@ extension AIServerInputView:UITextFieldDelegate {
         }
         return true
     }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if let closure = myClosure {
+            closure(textField.text)
+        }
+    }
 }

@@ -140,7 +140,9 @@ struct AIApplication{
         static let UIAIASINFOOpenRemoveViewNotification         = "UIAIASINFOOpenRemoveViewNotification"
         static let UIAIASINFOChangeDateViewNotification         = "UIAIASINFOChangeDateViewNotification"
         // FIXME: 视频拍摄完成文件地址
-        static let NSNotirydidFinishMergingVideosToOutPutFileAtURL  = "NSNotirydidFinishMergingVideosToOutPutFileAtURL"        
+        static let NSNotirydidFinishMergingVideosToOutPutFileAtURL  = "NSNotirydidFinishMergingVideosToOutPutFileAtURL"
+        
+        static let NSPOPAIOrderSubmitViewController = "NSPOPAIOrderSubmitViewController"
     }
     
     // MARK: System theme's color
@@ -170,7 +172,12 @@ struct AIApplication{
         static let AIFUWUTUIJISNID = "556c0acce4b0941996254a49"     //服务推荐
         static let AITUIKUAN = "556c0b8fe4b0941996254f8f"           //退款通知
         static let AIXITONG = "556c0c06e4b0941996255223"            //系统通知
-    }    
+    }
+    
+    struct AINetData {
+        static let RESULT_OK = 1
+        static let RESULT_FAIL = 0
+    }
     
     // MARK: The Application preferorm
     internal func SendAction(functionName:String,ownerName:AnyObject){

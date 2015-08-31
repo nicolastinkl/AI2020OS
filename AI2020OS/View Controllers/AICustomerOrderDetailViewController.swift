@@ -41,8 +41,8 @@ class AICustomerOrderDetailViewController: UIViewController {
         // request networking.
         retryNetworkingAction()
         // request timeline data
-        //timeLineView.orderId = "\(orderId)"
-        //timeLineView.retryNetworkingAction()
+        timeLineView.orderId = "\(orderId)"
+        timeLineView.retryNetworkingAction()
     }
     
     override func viewWillAppear(animated: Bool) {
