@@ -44,6 +44,7 @@ class AIOrderSubmitViewController: UIViewController {
     }
     
     @IBAction func buyAction(sender: AnyObject) {
+        
         let detailModel = AIServiceDetailParamsModel()
         
         let paramsPams = selectedParams?.allValues
@@ -71,24 +72,23 @@ class AIOrderSubmitViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    
+    func dismissPopToRoot(){
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
 }
 
 extension AIOrderSubmitViewController:UIAlertViewDelegate{
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 0{
             //cancel
-            if self.isSubmitSuccess {
-                self.navigationController?.popToRootViewControllerAnimated(true)
-            }
-            else {
-                
-            }
-            // close all the viewcontroller to root Viewcontroller
-            //self.dismissPopToRoot()
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.NSPOPAIOrderSubmitViewController, object: nil)
+            self.dismissViewControllerAnimated(false, completion: nil)
         }
         
         self.isSubmitSuccess = false
     }
+    
 }
 
 extension AIOrderSubmitViewController:UITableViewDataSource,UITableViewDelegate{

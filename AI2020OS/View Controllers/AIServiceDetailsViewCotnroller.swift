@@ -75,7 +75,19 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         requestMovieDetails()
         
         self.navigationBarView.animate()
+        
+        //NOTIFY
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "closeSelfAction", name: AIApplication.Notification.NSPOPAIOrderSubmitViewController, object: nil)
     }
+    
+    func closeSelfAction(){
+        //self.navigationController?.popViewControllerAnimated(false)
+    }
+    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: AIApplication.Notification.NSPOPAIOrderSubmitViewController, object: nil)
+    }
+    
     
     func registerCells(){
         
