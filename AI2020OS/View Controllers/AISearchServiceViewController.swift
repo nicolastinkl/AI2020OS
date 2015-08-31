@@ -128,8 +128,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     
     private func queryHotFail(errType: AINetError, errDes: String) {
         view.hideProgressViewLoading()
-        
-        self.collectionView.showErrorView()
+        UIAlertView(title: "提示", message: "热门服务查询失败", delegate: nil, cancelButtonTitle: "关闭").show()
     }
     
     private func search() {
@@ -163,7 +162,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
             self.showViewController(viewController, sender: self)
             //presentViewController(viewController, animated: true, completion: nil)
         } else {
-            self.collectionView.showErrorView()
+            UIAlertView(title: "提示", message: "服务查询失败", delegate: nil, cancelButtonTitle: "关闭").show()
         }
     }
     
