@@ -28,3 +28,6 @@
 
 
 #define kServiceManageVC              @"ServiceManageVC"
+
+
+#define kServiceIDKey                 @"ServiceIDKey"

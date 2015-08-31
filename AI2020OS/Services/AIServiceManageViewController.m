@@ -288,6 +288,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    AIServiceIntroModel *model = [self.serviceList objectAtIndex:indexPath.row];
+    
+    if (model.service_id) {
+        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"AIMainStoryboard" bundle:nil];
+        UIViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"AIServiceDetailsViewCotnroller"];
+        [[NSUserDefaults standardUserDefaults] setObject:model.service_id forKey:kServiceIDKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
 }
 
 // Override to support editing the table view.
