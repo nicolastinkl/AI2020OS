@@ -89,7 +89,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
             case .Commented:
                 addOperButton([ButtonModel(title: "分享",action:"shareOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             default :
-                addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+//                addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
                 return
                 
             }
@@ -138,15 +138,15 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
             // Do any additional setup after loading the view, typically from a nib.
             AIOrderRequester().queryOrderNumber(1, orderStatus: 0, completion: {
                 (data,error) ->() in
+                self.tableView.hideProgressViewLoading()
                 if data.count > 0 {
                     // Init buttons.
                     self.buildDynaStatusButton(data)
+                    self.tableView.hideErrorView()
                     self.requestOrderList()
                 }else if data.count == 0{
-                    self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView("没有数据")
                 }else{
-                    self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView()
                 }
                 
@@ -167,15 +167,13 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
                 if data.count > 0 {
                     self.orderList = data
                     self.tableView.reloadData()
-                    
+                    self.tableView.hideErrorView()
                 }else if data.count == 0{
                     self.orderList.removeAll(keepCapacity: true)
                     self.tableView.reloadData()
-                    self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView("没有数据")
                 }else{
                     self.tableView.showErrorView()
-                    self.tableView.hideProgressViewLoading()
                 }
             })
         }

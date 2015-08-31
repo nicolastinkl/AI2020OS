@@ -82,18 +82,15 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
                 if data.count > 0 {
                     self.orderList = data
                     self.tableView.reloadData()
-                    
+                    self.tableView.hideErrorView()
                 }else if data.count == 0{
-                    self.tableView.hideProgressViewLoading()
-                    self.tableView.showErrorView("没有数据")
                     self.orderList.removeAll(keepCapacity: true)
                     self.tableView.reloadData()
-
+                    self.tableView.showErrorView("没有数据")
                 }else{
-                    self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView()
-                    
                 }
+
                 
                 
             })
@@ -107,16 +104,15 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
             AIOrderRequester().queryOrderNumber(2, orderStatus: 0, completion: {
                 (data,error) ->() in
                 
+                self.tableView.hideProgressViewLoading()
                 if data.count > 0 {
                     // Init buttons.
                     self.buildDynaStatusButton(data)
+                    self.tableView.hideErrorView()
                     self.requestOrderList()
                 }else if data.count == 0{
-                    self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView("没有数据")
-                    
                 }else{
-                    self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView()
                 }
                 
@@ -135,7 +131,7 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
             case .Executing:
                 addOperButton([ButtonModel(title: "完成",action:"finishOrder:")], buttonView: buttonView, indexNumber : indexNumber)
             default :
-                addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+//                addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
                 return
                 
             }
