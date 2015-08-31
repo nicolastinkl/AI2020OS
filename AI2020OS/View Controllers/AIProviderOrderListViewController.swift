@@ -14,6 +14,9 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: variables
+    private var storeHouseRefreshControl:CBStoreHouseRefreshControl?
 
     // MARK: life cycle
     override func viewDidLoad() {
@@ -24,6 +27,9 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         tableView.registerNib(UINib(nibName:"CustomerOrderTableViewCell",bundle:NSBundle.mainBundle()), forCellReuseIdentifier: "CustomerOrderCell")
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //refresh control
+        storeHouseRefreshControl = CBStoreHouseRefreshControl.attachToScrollView(self.tableView, target: self, refreshAction: "requestOrderList", plist: "storehouse", color: UIColor(hex: AIApplication.AIColor.MainSystemBlueColor), lineWidth: 2, dropHeight: 80, scale: 1, horizontalRandomness: 150, reverseLoadingAnimation: false, internalAnimationFactor: 0.7)
     }
     
     
@@ -64,6 +70,7 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
             AIOrderRequester().queryOrderList(page: 1,orderRole: 2, orderState: self.orderStatus, completion: { (data) -> () in
+                self.storeHouseRefreshControl?.finishingLoading()
                 self.orderList = data
                 self.tableView.reloadData()
                 self.tableView.hideErrorView()
@@ -197,5 +204,15 @@ extension AIProviderOrderListViewController:UITableViewDelegate,UITableViewDataS
         viewController.orderId = findOrderNumberByIndexNumber(indexPath.row)
         viewController.serviceId = findOServiceIdByIndexNumber(indexPath.row)
         showViewController(viewController, sender: self)
+    }
+    
+    //MARK:ScrollDelegate pragma mark - Notifying refresh control of scrolling
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.storeHouseRefreshControl?.scrollViewDidScroll()
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.storeHouseRefreshControl?.scrollViewDidEndDragging()
     }
 }

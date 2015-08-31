@@ -136,7 +136,7 @@ NSString *const yKey = @"y";
 
 - (void)scrollViewDidScroll
 {
-    if (self.originalTopContentInset == 0) self.originalTopContentInset = self.scrollView.contentInset.top;
+    //if (self.originalTopContentInset == 0) self.originalTopContentInset = self.scrollView.contentInset.top;
     self.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, self.realContentOffsetY*krelativeHeightFactor);
     if (self.state == CBStoreHouseRefreshControlStateIdle)
         [self updateBarItemsWithProgress:self.animationProgress];
@@ -149,7 +149,10 @@ NSString *const yKey = @"y";
         if (self.animationProgress == 1) self.state = CBStoreHouseRefreshControlStateRefreshing;
         
         if (self.state == CBStoreHouseRefreshControlStateRefreshing) {
-            
+            if (self.originalTopContentInset == 0)
+            {
+                self.originalTopContentInset = self.scrollView.contentInset.top;
+            }
             UIEdgeInsets newInsets = self.scrollView.contentInset;
             newInsets.top = self.originalTopContentInset + self.dropHeight;
             CGPoint contentOffset = self.scrollView.contentOffset;

@@ -55,17 +55,32 @@
                                     <action selector="share:" destination="dXc-Cl-nFd" eventType="touchUpInside" id="byb-da-7KI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7L-cR-FGk" userLabel="BackButton">
+                                <rect key="frame" x="0.0" y="20" width="52" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="3dP-aD-Vc8"/>
+                                    <constraint firstAttribute="width" constant="52" id="chm-9D-mah"/>
+                                </constraints>
+                                <state key="normal" image="ico_back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="dXc-Cl-nFd" eventType="touchUpInside" id="jS6-YL-xVM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hKf-cT-iO9" firstAttribute="top" secondItem="iEW-EP-8P8" secondAttribute="bottom" constant="-28" id="6c6-SX-okj"/>
                             <constraint firstAttribute="centerX" secondItem="hKf-cT-iO9" secondAttribute="centerX" id="LbI-RY-JCA"/>
                             <constraint firstItem="iEW-EP-8P8" firstAttribute="width" secondItem="8nb-Pa-53J" secondAttribute="width" id="Pay-2h-bhS"/>
+                            <constraint firstItem="M7L-cR-FGk" firstAttribute="top" secondItem="3au-p2-gn8" secondAttribute="bottom" id="RiF-JX-BOT"/>
                             <constraint firstItem="iEW-EP-8P8" firstAttribute="trailing" secondItem="z6D-Ra-c9o" secondAttribute="trailingMargin" constant="16" id="TGB-Gc-1M1"/>
                             <constraint firstItem="hKf-cT-iO9" firstAttribute="leading" secondItem="8nb-Pa-53J" secondAttribute="trailing" id="Tve-hn-kfe"/>
                             <constraint firstItem="0Ky-vd-wBw" firstAttribute="top" secondItem="hKf-cT-iO9" secondAttribute="bottom" constant="8" id="Wn7-RL-Nxb"/>
                             <constraint firstItem="0Ky-vd-wBw" firstAttribute="top" secondItem="8nb-Pa-53J" secondAttribute="bottom" id="ZD9-bm-XLn"/>
                             <constraint firstItem="iEW-EP-8P8" firstAttribute="top" secondItem="8nb-Pa-53J" secondAttribute="top" id="a4Q-pP-0GF"/>
+                            <constraint firstItem="M7L-cR-FGk" firstAttribute="leading" secondItem="z6D-Ra-c9o" secondAttribute="leadingMargin" constant="-16" id="bkH-nD-7vs"/>
                             <constraint firstAttribute="centerX" secondItem="8nb-Pa-53J" secondAttribute="centerX" constant="143.5" id="d5w-Y4-9z2"/>
                             <constraint firstItem="8nb-Pa-53J" firstAttribute="leading" secondItem="z6D-Ra-c9o" secondAttribute="leadingMargin" constant="-16" id="ewu-tc-bEm"/>
                             <constraint firstItem="iEW-EP-8P8" firstAttribute="height" secondItem="8nb-Pa-53J" secondAttribute="height" id="pxX-t6-JBx"/>
@@ -77,6 +92,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backBtn" destination="M7L-cR-FGk" id="fyY-K2-jRX"/>
                         <outlet property="confirmBtn" destination="8nb-Pa-53J" id="IlK-qU-7bQ"/>
                     </connections>
                 </viewController>
@@ -146,4 +162,7 @@
             <point key="canvasLocation" x="1860" y="394"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ico_back" width="26" height="22"/>
+    </resources>
 </document>

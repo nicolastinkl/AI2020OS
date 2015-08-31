@@ -159,7 +159,7 @@ class AILoginWithSMSViewController: UIViewController {
                     
                     
                 }else{
-                    SCLAlertView().showError("提示", subTitle: "验证码获取失败", closeButtonTitle: "关闭", duration: 2)
+                    SCLAlertView().showError("提示", subTitle: "登录失败", closeButtonTitle: "关闭", duration: 2)
                 }
             })
             
