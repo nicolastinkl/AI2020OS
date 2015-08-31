@@ -116,22 +116,24 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
             })
         }
     }
+    
     //不同状态的订单动态创建按钮
     //orderType:买家订单 卖家订单
     //orderState: 待处理 进行中 待完成 已完成
-    func buildDynaOperButton(orderState : String,orderType : String,buttonView:UIView , indexNumber : Int){
-        let stateEnum = OrderStatus(rawValue: NSString(string: orderState).integerValue)
-        switch stateEnum! {
-        case .Init:
-            addOperButton([ButtonModel(title: "派单",action:"assignOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
-        case .Executing:
-            addOperButton([ButtonModel(title: "完成",action:"finishOrder:")], buttonView: buttonView, indexNumber : indexNumber)
-        case .WaidForComment:
-            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:")], buttonView: buttonView, indexNumber : indexNumber)
-        default :
-            addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
-            return
-            
+    func buildDynaOperButton(orderState : Int,orderType : String,buttonView:UIView , indexNumber : Int){
+        if let stateEnum = OrderStatus(rawValue: orderState) {
+            switch stateEnum {
+            case .Init:
+                addOperButton([ButtonModel(title: "派单",action:"assignOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+            case .Executing:
+                addOperButton([ButtonModel(title: "完成",action:"finishOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+            case .WaidForComment:
+                addOperButton([ButtonModel(title: "评价",action:"commentsOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+            default :
+                addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
+                return
+                
+            }
         }
     }
     
@@ -209,7 +211,7 @@ extension AIProviderOrderListViewController:UITableViewDelegate,UITableViewDataS
             orderStateLabel.text = orderListModel.order_state_name
         }
         if let buttonView = cell.viewWithTag(180) {
-            buildDynaOperButton("\(orderListModel.order_state!)", orderType: "", buttonView: buttonView,indexNumber : indexPath.row)
+            buildDynaOperButton(orderListModel.order_state ?? 0, orderType: "", buttonView: buttonView,indexNumber : indexPath.row)
         }
         if let customerIconImg = cell.viewWithTag(140) as? AIImageView{
             customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url! ?? "http://img1.gtimg.com/kid/pics/hv1/47/231/1905/123931577.jpg"), placeholderImage: UIImage(named: "Placeholder"))

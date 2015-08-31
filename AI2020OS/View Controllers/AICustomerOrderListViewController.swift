@@ -41,8 +41,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         let lineLayer =  CALayer()
         lineLayer.backgroundColor = color
         lineLayer.frame = CGRectMake(0, self.scrollView.height-1, self.scrollView.width, 1)
-        self.scrollView.layer.addSublayer(lineLayer)
-        
+        self.scrollView.layer.addSublayer(lineLayer)        
         
         //registerNib        
         tableView.registerNib(UINib(nibName:"CustomerOrderTableViewCell",bundle:NSBundle.mainBundle()), forCellReuseIdentifier: "CustomerOrderCell")
