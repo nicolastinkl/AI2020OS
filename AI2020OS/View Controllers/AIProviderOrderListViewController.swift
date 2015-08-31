@@ -225,6 +225,8 @@ extension AIProviderOrderListViewController:UITableViewDelegate,UITableViewDataS
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateViewControllerWithIdentifier("AICustomerOrderDetailViewController") as AICustomerOrderDetailViewController
         //        self.navigationController?.pushViewController(viewController, animated: true)
         viewController.orderId = findOrderNumberByIndexNumber(indexPath.row)

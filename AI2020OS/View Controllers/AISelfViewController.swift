@@ -31,6 +31,12 @@ class AISelfViewController: UITableViewController {
         
         self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
         
+       
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         if let model = AILocalStore.getUserInfoCache() {
             selfUserInfoModel  = model
             self.refereshUserData()

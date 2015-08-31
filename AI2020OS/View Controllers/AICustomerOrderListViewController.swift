@@ -223,13 +223,16 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
         cell.addBottomBorderLine()
         return cell
     }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 140
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateViewControllerWithIdentifier("AICustomerOrderDetailViewController") as AICustomerOrderDetailViewController
-//        self.navigationController?.pushViewController(viewController, animated: true)
         viewController.orderId = findOrderNumberByIndexNumber(indexPath.row)
         viewController.serviceId = findOServiceIdByIndexNumber(indexPath.row)
         showViewController(viewController, sender: self)
