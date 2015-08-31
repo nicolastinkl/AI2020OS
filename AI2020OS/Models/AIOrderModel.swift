@@ -167,3 +167,9 @@ enum OrderStatus:Int{
 enum OrderRole : Int{
     case Customer = 1,Provider
 }
+
+//服务参数的固定charTypeId
+enum CharTypeId : Int{
+    case ServiceTimeCharTypeId = 25042660,
+    ServiceAddressCharTypeId = 12
+}
