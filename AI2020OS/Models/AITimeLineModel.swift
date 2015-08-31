@@ -29,8 +29,8 @@ class AITimeLineModel: JSONJoy {
     var order_id:Int?
     var expend:Int?
     var service_name: String?
-    var order_create_time: String?
-     var expendData:Array<AIOrderTaskListModel>?
+    var order_create_time: Int?
+    var expendData:Array<AIOrderTaskListModel>?
     
     init() {
         
@@ -41,7 +41,7 @@ class AITimeLineModel: JSONJoy {
         expend = 0
         service_name = decoder["service_name"].string
         order_id = decoder["order_number"].integer
-        order_create_time = decoder["order_create_time"].string
+        order_create_time = decoder["order_create_time"].integer
         if let addrs = decoder["order_task_list"].array {
             expendData = Array<AIOrderTaskListModel>()
             for addrDecoder in addrs {
@@ -61,15 +61,28 @@ class AIOrderTaskListModel : JSONJoy {
     // 对某一类型的角色显示 1:消费者 2:提供者 3:两者都显示
     var role:Int?
     // 服务步骤开始时间戳
-    var currentTimeStamp: Double?
+    var currentTimeStamp: Int?
     // 展开子页面类型id
     var expand_type_id:Int?
+    
+    var position:Int!
+    var currentTime:String!
+    var status:Int!
+    
     init() {
         
     }
     
+    convenience init(position: Int, currentTime: String, label: String,status: Int) {
+        self.init()
+        self.position = position
+        self.currentTime = currentTime
+        self.title = label
+        self.status = status
+    }
+    
     required init(_ decoder: JSONDecoder) {
-        currentTimeStamp = decoder["current_time_stamp"].double
+        currentTimeStamp = decoder["current_time_stamp"].integer
         title = decoder["title"].string
         content = decoder["desc"].string
         type = 0
