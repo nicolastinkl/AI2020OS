@@ -68,9 +68,15 @@
         return;
     }
     
-    NSString *message = self.notification[kAPNS_Message]?:@"你收到一条新的消息，是否立即去查看？";
-    self.alertView = [[UIAlertView alloc] initWithTitle:@"消息" message:message delegate:self cancelButtonTitle:@"不管了" otherButtonTitles:@"去看看", nil];
-    [self.alertView show];
+    NSString *chatURL = self.notification[kAPNS_ChatURL];
+    
+    if (chatURL) {
+        NSString *message = self.notification[kAPNS_Message]?:@"你收到一条新的消息，是否立即去查看？";
+        self.alertView = [[UIAlertView alloc] initWithTitle:@"消息" message:message delegate:self cancelButtonTitle:@"不管了" otherButtonTitles:@"去看看", nil];
+        [self.alertView show];
+    }
+    
+    
 }
 
 - (void)startHandleNotification
