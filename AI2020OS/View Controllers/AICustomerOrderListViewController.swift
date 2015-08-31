@@ -17,7 +17,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: variables
-    
+    private var storeHouseRefreshControl:CBStoreHouseRefreshControl?
     
     // MARK: life cycle
     override func viewWillAppear(animated: Bool) {
@@ -42,6 +42,10 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         
         // request networking.
         retryNetworkingAction()
+        
+        //refresh control
+        storeHouseRefreshControl = CBStoreHouseRefreshControl.attachToScrollView(self.tableView, target: self, refreshAction: "requestOrderList", plist: "storehouse", color: UIColor(hex: AIApplication.AIColor.MainSystemBlueColor), lineWidth: 2, dropHeight: 80, scale: 1, horizontalRandomness: 150, reverseLoadingAnimation: false, internalAnimationFactor: 0.7)
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -140,6 +144,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
             AIOrderRequester().queryOrderList(page: 1, orderRole: 1, orderState: self.orderStatus, completion: { (data) -> () in
+                self.storeHouseRefreshControl?.finishingLoading()
                 self.orderList = data
                 self.tableView.reloadData()
                 self.tableView.hideErrorView()
@@ -207,5 +212,14 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
         showViewController(viewController, sender: self)
     }
     
+    //MARK:ScrollDelegate pragma mark - Notifying refresh control of scrolling
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.storeHouseRefreshControl?.scrollViewDidScroll()
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.storeHouseRefreshControl?.scrollViewDidEndDragging()
+    }
     
 }
