@@ -23,6 +23,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     private var searchHotList: [AISearchResultItem]?
     private var recordList: [SearchHistoryRecord]?
     
+    private var preSearchText:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -127,14 +128,15 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     
     private func queryHotFail(errType: AINetError, errDes: String) {
         view.hideProgressViewLoading()
-        SCLAlertView().showError("获取数据失败", subTitle: errDes,  duration: 2)
+        
+        self.collectionView.showErrorView()
     }
     
     private func search() {
         let text = searchTextField.text.trim()
         
         if text.isEmpty {
-            SCLAlertView().showError("搜索内容不能为空", subTitle: "错误",  duration: 2)
+            UIAlertView(title: "提示", message: "搜索内容不能为空", delegate: nil, cancelButtonTitle: "关闭").show()
         } else {
             searchByText(text)
         }
@@ -161,8 +163,13 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
             self.showViewController(viewController, sender: self)
             //presentViewController(viewController, animated: true, completion: nil)
         } else {
-            SCLAlertView().showError("没有搜索到数据", subTitle: "无数据",  duration: 2)
+            self.collectionView.showErrorView()
         }
+    }
+    
+    func retryNetworkingAction(){
+        
+        searchByText(preSearchText)
     }
     
     func deleteHistory() {
@@ -281,8 +288,10 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
         let records = historyRecorder!.getSearchHistoryItems()
         
         if indexPath.section == SECTION_HOT_SERVICES {
+            preSearchText = searchHotList![indexPath.item].name
             searchByText(searchHotList![indexPath.item].name)
         } else if indexPath.section == SECTION_HISTORY {
+            preSearchText = recordList![indexPath.item].name
             searchByText(recordList![indexPath.item].name)
         }
     }

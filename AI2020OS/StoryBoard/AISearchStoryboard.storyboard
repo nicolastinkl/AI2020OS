@@ -581,7 +581,7 @@
                                             <segue destination="dZi-MF-jjc" kind="unwind" unwindAction="unwindToViewController:" id="SQE-cW-7qu"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-d5-hpH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-d5-hpH">
                                         <rect key="frame" x="150" y="24" width="300" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="D1E-ae-jCi"/>
