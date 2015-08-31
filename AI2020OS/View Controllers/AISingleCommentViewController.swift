@@ -114,14 +114,19 @@ class AISingleCommentViewController : UIViewController {
     
     private func submitSuccess() {
         view.hideProgressViewLoading()
-   //     SCLAlertView().showSuccess("提交成功", subTitle: "成功", closeButtonTitle: nil, duration: 2)
         
-        AIOrderRequester().updateOrderStatus(commentOrder!.order_id!, orderStatus: OrderStatus.Finished.rawValue, completion: { (resultCode) -> Void in
-            
+        
+        AIOrderRequester().updateOrderStatus(commentOrder!.order_id!, orderStatus: OrderStatus.Commented.rawValue, completion: { (resultCode) -> Void in
+                if resultCode == AIApplication.AINetData.RESULT_OK {
+                    SCLAlertView().showSuccess("提交成功", subTitle: "成功", closeButtonTitle: nil, duration: 2)
+                    self.navigationController?.popViewControllerAnimated(true)
+                } else {
+                    SCLAlertView().showWarning("提交失败", subTitle: "失败", closeButtonTitle: nil, duration: 2)
+                }  
             }
         )
         
-        navigationController?.popViewControllerAnimated(true)
+        
     //    self.dismissViewControllerAnimated(true, completion: nil)
     }
     
