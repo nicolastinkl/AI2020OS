@@ -123,7 +123,7 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
     func buildDynaOperButton(orderState : Int,orderType : String,buttonView:UIView , indexNumber : Int){
         if let stateEnum = OrderStatus(rawValue: orderState) {
             switch stateEnum {
-            case .Init:
+            case .WaitForExe:
                 addOperButton([ButtonModel(title: "派单",action:"assignOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView, indexNumber : indexNumber)
             case .Executing:
                 addOperButton([ButtonModel(title: "完成",action:"finishOrder:")], buttonView: buttonView, indexNumber : indexNumber)
