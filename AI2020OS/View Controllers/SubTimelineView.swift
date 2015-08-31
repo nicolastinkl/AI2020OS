@@ -84,7 +84,7 @@ class SubTimelineView: UIView {
                         for var index = 0; index < array.count; ++index {
                             let task = array[index]
                             let currentTimeStamp = task.currentTimeStamp ?? 0
-                            let curTime = Double(currentTimeStamp) ?? 0.0
+                            let curTime = (Double(currentTimeStamp) ?? 0.0) + Double(noteModel.order_create_time ?? 0.0)
                             let currentTime = curTime.dateStringFromTimestamp()
                             let title = task.title ?? ""
                             let status = self.compareDateFromNow(curTime)
@@ -186,7 +186,7 @@ class SubTimelineCellView : UIView{
     let POINT_LABEL_PADDING:CGFloat = 5
     let TIME_LABEL_X:CGFloat = 50
     let TIME_LABEL_RELATED_Y:CGFloat = 10
-    let TIME_LABEL_SIZE:CGSize = CGSizeMake(40, 15)
+    let TIME_LABEL_SIZE:CGSize = CGSizeMake(140, 15)
     //TODO size need caculate
     let INFO_LABEL_SIZE:CGSize = CGSizeMake(300, 20)
     let INFO_LABEL_RELATED_Y:CGFloat = 25

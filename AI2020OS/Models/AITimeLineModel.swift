@@ -41,7 +41,7 @@ class AITimeLineModel: JSONJoy {
         expend = 0
         service_name = decoder["service_name"].string
         order_id = decoder["order_number"].integer
-        order_create_time = decoder["order_create_time"].integer
+        order_create_time = decoder["order_create_time"].string?.toInt()
         if let addrs = decoder["order_task_list"].array {
             expendData = Array<AIOrderTaskListModel>()
             for addrDecoder in addrs {
