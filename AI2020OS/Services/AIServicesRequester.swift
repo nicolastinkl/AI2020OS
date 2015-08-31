@@ -29,7 +29,7 @@ class AIServicesRequester {
         
         isLoading = true
         
-        let params = ["page_size":"10","page_num": "1"]
+        let params = ["page_size":"100","page_num": "1"]
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetServicesTopic, parameters: params) {  [weak self] (response, error) -> () in
             if let strongSelf = self{
                 strongSelf.isLoading = false                
