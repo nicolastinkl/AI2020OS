@@ -17,6 +17,9 @@
 #define kButtonHeight 44
 
 @interface AIServiceManageViewController ()
+{
+    NSString *_errorMessage;
+}
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -81,26 +84,21 @@
 
 - (void)fetchServiceList
 {
-    /*
-    NSArray *localData = @[@{@"service_id":@"1231244354666",
-                             @"service_name":@"美甲服务",
-                             @"service_intro":@"18:00 - 22:00 提供服务",
-                             @"service_intro_url":@"https://tse1-mm.cn.bing.net/th?id=JN.ZRGgDZPBbLrhvVdQ9Mzj8A&w=125&h=105&c=7&rs=1&qlt=90&pid=3.1&rm=2%22,%22offeringCode%22:11450,%22offeringId%22:201506010104,%22offeringName%22:%22Two"
-                             },
-                           @{@"service_id":@"1231244354888",
-                             @"service_name":@"地陪服务",
-                             @"service_intro":@"仅限周末",
-                             @"service_intro_url":@"https://tse1-mm.cn.bing.net/th?id=JN.ZRGgDZPBbLrhvVdQ9Mzj8A&w=125&h=105&c=7&rs=1&qlt=90&pid=3.1&rm=2%22,%22offeringCode%22:11450,%22offeringId%22:201506010104,%22offeringName%22:%22Two"
-                             }
-                           ];
-    
-    NSArray *models = [AIServiceListModel modelsFromArray:localData];
-    self.serviceList = [NSMutableArray arrayWithArray:models];
-    */
+    NSInteger aad = [[NSUserDefaults standardUserDefaults] integerForKey:@"accessUserIDKey"];
+    NSString *uid = nil;
+    if (aad == 0) {
+        _errorMessage = @"未查到卖家信息";
+        [self.tableView reloadData];
+        return;
+    }
+    else
+    {
+        uid = [NSString stringWithFormat:@"%ld", aad];
+    }
     
     
     NSMutableDictionary *data = [AIMessageWrapper baseData];
-    [data setObject:@"910000007" forKey:@"provider_id"];
+    [data setObject:uid forKey:@"provider_id"];
     NSMutableDictionary *body = [AIMessageWrapper baseBodyWithData:data];
     
     AIMessage *message = [AIMessage message];
@@ -109,17 +107,24 @@
     
     
     [[AINetEngine defaultEngine] postMessage:message success:^(id responseObject) {
-        
+        _errorMessage = nil;
         NSDictionary *dic = (NSDictionary *)responseObject;
         
         AIServiceListModel *model = [[AIServiceListModel alloc] initWithDictionary:dic error:nil];
         
-        self.serviceList = model.service_list;
-        [self.tableView reloadData];
+        if (model.service_list.count == 0) {
+            _errorMessage = @"没有上架服务";
+        }
+        else
+        {
+            self.serviceList = model.service_list;
+        }
         
+        [self.tableView reloadData];
         
     } fail:^(AINetError error, NSString *errorDes) {
         NSLog(@"error:%@", errorDes);
+        _errorMessage = @"获取服务失败";
     }];
     
 }
@@ -219,7 +224,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return self.serviceList.count;
+    return _errorMessage ? 1 : self.serviceList.count;
 }
 
 
@@ -240,13 +245,21 @@
         
     }
     
+    if (_errorMessage) {
+        cell.textLabel.text = _errorMessage;
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    else
+    {
+        BOOL isOdd = indexPath.row%2 == 0;
+        
+        AIServiceIntroModel *model = [self.serviceList objectAtIndex:indexPath.row];
+        cell.textLabel.text = model.service_name;
+        cell.detailTextLabel.text = model.service_intro;
+        cell.imageView.image = [UIImage imageNamed:isOdd?@"CardIndicator13":@"CardIndicator14"];
+    }
     
-    BOOL isOdd = indexPath.row%2 == 0;
-
-    AIServiceIntroModel *model = [self.serviceList objectAtIndex:indexPath.row];
-    cell.textLabel.text = model.service_name;
-    cell.detailTextLabel.text = model.service_intro;
-    cell.imageView.image = [UIImage imageNamed:isOdd?@"CardIndicator13":@"CardIndicator14"];
+    
     
     
     
@@ -271,6 +284,11 @@
 }
 
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
