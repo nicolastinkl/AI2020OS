@@ -95,7 +95,7 @@ struct AIHttpEngine{
             case .QueryTimeLineServices: return "/sboss/queryNodesFromTimeLine"
             case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
             case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
-            case .QueryUserInfoServices : return "getUserInfo"
+            case .QueryUserInfoServices : return "/sboss/getUserInfo"
             case .UpdateOrderStatus : return "/sboss/updateOrderStatus"
             case .QueryUserInfoServices : return "/sboss/getUserInfo"
             case .QuerUserInfoByMobileNumber : return "/sboss/getUserInfoByMobileNumber"

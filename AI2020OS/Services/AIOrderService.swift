@@ -13,6 +13,7 @@ class AIOrderRequester {
     typealias OrderListRequesterCompletion = (data:[AIOrderListItemModel]) ->()
     typealias OrderDetailRequesterCompletion = (data:OrderDetailModel,error:Error?) ->()
     typealias OrderNumberRequesterCompletion = (data:[OrderNumberModel],error:Error?) ->()
+    typealias FindUserInfoCompletion = (data:AIUserInfoModel) ->()
     
     typealias SubmitOrderCompletion = (success:Bool) -> Void
     
@@ -168,5 +169,31 @@ class AIOrderRequester {
                 
                 completion(data: [], error: Error(message: errorDes, code: error.rawValue))
         })
+    }
+
+    func findUserInfo(userId : Int,completion : FindUserInfoCompletion){
+        if isLoading {
+            return
+        }
+        isLoading = true
+        
+        let paras = [
+            "user_id": "\(userId)"
+        ]
+        
+        AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryUserInfoServices, parameters: paras) {  [weak self] (response, error) -> () in
+            if let re: AnyObject = response {
+                let userModel =  AIUserInfoModel(JSONDecoder(re))
+                if let strongSelf = self{
+                    strongSelf.isLoading = false                    
+                }
+                completion(data: userModel)
+            }else{
+                if let strongSelf = self{
+                    completion(data: AIUserInfoModel())
+                }
+            }
+        }
+
     }
 }

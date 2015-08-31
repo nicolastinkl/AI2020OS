@@ -79,6 +79,12 @@ class AIBaseOrderListViewController : UIViewController{
     var orderList = Array<AIOrderListItemModel>()
     //默认查询
     var orderStatus : Int = 0
+    //是否是过滤订单状态，如果是就不要重构按钮，只刷新数据
+    var isFilterStatus = false
+    
+    func retryNetworkingAction(){
+
+    }
     
     // MARK: - operButtonActions
     func addOperButton(buttonArray:[ButtonModel],buttonView:UIView,indexNumber : Int){
@@ -183,16 +189,16 @@ class AIBaseOrderListViewController : UIViewController{
         var x1:CGFloat = 0
         var x2:CGFloat = statusButtonWidth
         
-        var isFirst = true
+        //var isFirst = true
         
         for buttonModel in buttonArray{
             var button = UIButton(frame: CGRectMake(x1, 0, statusButtonWidth, 25))
             //button.tag = buttonModel.status
             button.associatedName = "\(buttonModel.status)"
-            //给第一个默认选中
-            if isFirst {
+            //根据全局状态决定当前选中了哪个
+            if buttonModel.status == self.orderStatus {
                 button.selected = true
-                isFirst = false
+                //isFirst = false
             }
             button.setTitle(buttonModel.title, forState: UIControlState.Normal)
             //扩展的直接读取rgba颜色的方法
@@ -232,6 +238,7 @@ class AIBaseOrderListViewController : UIViewController{
     func updateOrderStatusCompletion(resultCode:Int,comments:String){
         if resultCode == 1{
              SCLAlertView().showInfo("提示", subTitle: comments + "成功", closeButtonTitle: "关闭", duration: 3)
+            retryNetworkingAction()
         }
         else{
             SCLAlertView().showError("错误", subTitle: comments + "失败", closeButtonTitle: "关闭", duration: 3)
@@ -251,6 +258,19 @@ class AIBaseOrderListViewController : UIViewController{
     
     func findOServiceIdByIndexNumber(indexNumber : Int) -> Int {
         return orderList[indexNumber].service_id!
+    }
+    
+    func requestUserInfo(userId : Int,cell : CustomerOrderTableViewCell) {
+        AIOrderRequester().findUserInfo(userId, completion: {(data) -> () in
+            let userName = data.user_name ?? ""
+            let userImageUrl = data.imageurl ?? "http://img1.gtimg.com/kid/pics/hv1/47/231/1905/123931577.jpg"
+            if let userNameLabel = cell.viewWithTag(160) as? UILabel { //3
+                userNameLabel.text = userName
+            }
+            if let customerIconImg = cell.viewWithTag(140) as? AIImageView{
+                customerIconImg.setURL(NSURL(string: userImageUrl), placeholderImage: UIImage(named: "Placeholder"))
+            }
+        })
     }
     
 }
