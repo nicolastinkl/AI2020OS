@@ -40,7 +40,7 @@ class AITimeLineModel: JSONJoy {
         
         expend = 0
         service_name = decoder["service_name"].string
-        order_id = decoder["order_id"].integer
+        order_id = decoder["order_number"].integer
         order_create_time = decoder["order_create_time"].string
         if let addrs = decoder["order_task_list"].array {
             expendData = Array<AIOrderTaskListModel>()
@@ -55,10 +55,14 @@ class AITimeLineModel: JSONJoy {
 
 class AIOrderTaskListModel : JSONJoy {
     var title: String?
+    // 节点描述
     var content: String?
     var type: Int?
+    // 对某一类型的角色显示 1:消费者 2:提供者 3:两者都显示
     var role:Int?
+    // 服务步骤开始时间戳
     var currentTimeStamp: Double?
+    // 展开子页面类型id
     var expand_type_id:Int?
     init() {
         
@@ -72,5 +76,11 @@ class AIOrderTaskListModel : JSONJoy {
         role = decoder["role"].integer
         expand_type_id = decoder["expand_type_id"].integer
         
+    }
+    
+    struct TaskType {
+        static let ROLE_CUSTOMER = 1
+        static let ROLE_PROVIDER = 2
+        static let ROLE_BOTH = 3
     }
 }
