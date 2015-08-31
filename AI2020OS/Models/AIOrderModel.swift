@@ -157,11 +157,12 @@ struct StatusButtonModel {
 
 // MARK: - enums
 enum OrderStatus:Int{
-    case Init = 11,
+    case WaitForExe = 101,
     Executing = 100,
-    WaitForPay = 101,
-    WaidForComment = 102,
-    Finished = 14
+    WaitForPay = 11,
+    Commented = 102,
+    Finished = 14,
+    Default = 0
 }
 
 enum OrderRole : Int{

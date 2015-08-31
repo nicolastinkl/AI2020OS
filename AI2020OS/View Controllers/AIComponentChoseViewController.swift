@@ -206,14 +206,31 @@ class AIComponentChoseViewController: UIViewController {
         
         viewController.label_title.text = self.movieDetailsResponse?.service_name ?? ""
          
+        
+        if self.movieDetailsResponse?.service_param_list?.count == sParams.allKeys.count && sParams.allKeys.count  > 0 {
+            
+            let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as AIOrderSubmitViewController
+            viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+            viewController.serviceId = self.movieDetailsResponse?.service_id ?? 0
+            viewController.selectedParams = sParams
+            self.presentViewController(viewController, animated: true, completion: nil)
+            
+            viewController.label_title.text = self.movieDetailsResponse?.service_name ?? ""
+            
+        }else{
+            
+            SCLAlertView().showWarning("提示", subTitle: "参数没选完就提交订单，你在逗我吗?", closeButtonTitle: "关闭", duration: 4)
+            
+        }
+
+        
         // Step 3: 发送通知
         
         if let pid = movieDetailsResponse?.provider_id {
             var notification = [kAPNS_Alert : "您有一个新的订单,请查收!", kAPNS_ProviderID : pid];
             AIPushNotificationHandler.pushRemoteNotification(notification)
         }
-        
-        
         
     }
     

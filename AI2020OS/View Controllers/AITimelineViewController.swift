@@ -144,9 +144,8 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let currnetDicValue = dataTimeLineArray[indexPath.section] as AITimeLineModel
+        let time:Double =   NSDate().timeIntervalSince1970
         let timeValue = currnetDicValue.order_create_time?.toInt() ?? 0
-        
-        
         switch indexPath.row{
         case 0:
             //placeholder cell
@@ -157,7 +156,7 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
             
             let model = currnetDicValue.expendData?.first as AIOrderTaskListModel?
             if let m = model {
-                let date = (m.currentTimeStamp ?? 0.0)+Double(timeValue)
+                let date = (m.currentTimeStamp ?? time)+Double(timeValue)
                 let dateString = NSDate(timeIntervalSince1970: date)
                 avCell?.monthLabel?.text = formatter.stringFromDate(dateString)
             }else{
@@ -176,7 +175,7 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
             if let m = model {
                 avCell?.titleLabel?.text = m.title ?? ""
                 avCell?.contentLabel?.text = m.content ?? ""
-                let date = (m.currentTimeStamp ?? 0.0)+Double(timeValue)
+                let date = (m.currentTimeStamp ?? time)+Double(timeValue)
                 let dateString = NSDate(timeIntervalSince1970: date)
                 avCell?.timeLabel?.text = formatter.stringFromDate(dateString)
             }else{

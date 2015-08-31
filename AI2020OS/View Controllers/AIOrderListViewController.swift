@@ -36,8 +36,7 @@ class AIOrderListViewController:UIViewController{
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.title = " "
-    }
-    
+    }    
     
     // MARK: - life cycle
     override func viewWillAppear(animated: Bool) {
@@ -45,6 +44,11 @@ class AIOrderListViewController:UIViewController{
         navigationController?.interactivePopGestureRecognizer.delegate = nil
         super.viewWillAppear(animated)
     }
+    
+    @IBAction func showMoreAction(target:UIButton){
+        showMenuViewController()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +73,7 @@ class AIOrderListViewController:UIViewController{
 
 }
 
+// MARK: Super View Controller
 class AIBaseOrderListViewController : UIViewController{
     
     var orderList = Array<AIOrderListItemModel>()
@@ -132,6 +137,16 @@ class AIBaseOrderListViewController : UIViewController{
         )
     }
     
+    func payOrder(target:UIButton){
+        let buttonIndex = target.associatedName?.toInt() ?? 0
+        let orderNumber = findOrderNumberByIndexNumber(buttonIndex)
+        AIOrderRequester().updateOrderStatus(orderNumber, orderStatus: OrderStatus.WaitForExe.rawValue, completion: { (resultCode) -> Void in
+            self.updateOrderStatusCompletion(resultCode, comments: "付款")
+            }
+        )
+
+    }
+    
     func changeOrder(target:UIButton){
         SCLAlertView().showInfo("提示", subTitle: "申请修改订单！", closeButtonTitle: "关闭", duration: 3)
     }
@@ -139,8 +154,8 @@ class AIBaseOrderListViewController : UIViewController{
     func finishOrder(target:UIButton){
         let buttonIndex = target.associatedName?.toInt() ?? 0
         let orderNumber = findOrderNumberByIndexNumber(buttonIndex)
-        AIOrderRequester().updateOrderStatus(orderNumber, orderStatus: OrderStatus.WaidForComment.rawValue, completion: { (resultCode) -> Void in
-            self.updateOrderStatusCompletion(resultCode, comments: "订单结束")
+        AIOrderRequester().updateOrderStatus(orderNumber, orderStatus: OrderStatus.Finished.rawValue, completion: { (resultCode) -> Void in
+            self.updateOrderStatusCompletion(resultCode, comments: "完成服务")
             }
         )
     }
@@ -181,7 +196,7 @@ class AIBaseOrderListViewController : UIViewController{
             }
             button.setTitle(buttonModel.title, forState: UIControlState.Normal)
             //扩展的直接读取rgba颜色的方法
-            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor(hex: AIApplication.AIColor.MainSystemBlackColor), forState: UIControlState.Normal)
             button.setTitleColor(UIColor(rgba: "#30D7CE"), forState: UIControlState.Selected)
             button.backgroundColor = UIColor.clearColor()
             button.titleLabel?.font = UIFont.systemFontOfSize(16)
@@ -193,7 +208,7 @@ class AIBaseOrderListViewController : UIViewController{
             
             var label = UILabel(frame: CGRectMake(x2, 0, statusLabelWidth, 25))
             label.font = UIFont.systemFontOfSize(16)
-            label.textColor = UIColor(rgba: "#30D7CE")
+            label.textColor = UIColor(hex: AIApplication.AIColor.MainSystemBlackColor)//UIColor(rgba: "#30D7CE")
             label.text = "\(buttonModel.amount)"
             scrollView.addSubview(label)
             x2 = x1 + statusButtonWidth
@@ -201,6 +216,7 @@ class AIBaseOrderListViewController : UIViewController{
         }
     }
     
+   
     func filterOrderAction(target:UIButton){
         target.superview!.subviews.filter{
             if let value:UIButton = $0 as? UIButton {

@@ -63,7 +63,7 @@ class AIServiceTopicModel: JSONJoy  {
         service_id = decoder["service_id"].integer
         service_name = decoder["service_name"].string
         service_price = decoder["price"].string
-        service_intro = decoder["description"].string
+        service_intro = decoder["service_intro"].string
         provider_id = decoder["provider_id"].integer?.toString()
         provider_name = decoder["provider_name"].string
         service_rating = decoder["service_rating"].string

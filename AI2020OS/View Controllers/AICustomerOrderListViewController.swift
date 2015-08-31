@@ -37,6 +37,12 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
        
         self.scrollView.contentSize = CGSizeMake(450, 0)
         
+        let color = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
+        let lineLayer =  CALayer()
+        lineLayer.backgroundColor = color
+        lineLayer.frame = CGRectMake(0, self.scrollView.height-1, self.scrollView.width, 1)
+        self.scrollView.layer.addSublayer(lineLayer)        
+        
         //registerNib        
         tableView.registerNib(UINib(nibName:"CustomerOrderTableViewCell",bundle:NSBundle.mainBundle()), forCellReuseIdentifier: "CustomerOrderCell")
         
@@ -60,8 +66,8 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     
     // MARK: - utils
     func retryNetworkingAction(){
-        requestOrderNumber()
-        requestOrderList()
+        tableView.showProgressViewLoading()
+        requestOrderNumber() 
     }
     
     //不同状态的订单动态创建按钮
@@ -71,15 +77,15 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         if let stateEnum = OrderStatus(rawValue: orderState) {
             
             switch stateEnum {
-            case .Init:
-                addOperButton([ButtonModel(title: "申请变更",action:"changeOrder:")], buttonView: buttonView,indexNumber : indexNumber)
-            case .Executing:
-                addOperButton([ButtonModel(title: "申请变更",action:"changeOrder:")], buttonView: buttonView,indexNumber : indexNumber)
-            case .WaidForComment:
-                addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "分享",action:"shareOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             case .WaitForPay:
-                addOperButton([ButtonModel(title: "支付",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+                addOperButton([ButtonModel(title: "付款",action:"payOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            case .Executing:
+                addOperButton([ButtonModel(title: "完成",action:"finishOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             case .Finished:
+                addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "分享",action:"shareOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            case .WaitForExe:
+                addOperButton([ButtonModel(title: "申请变更",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            case .Commented:
                 addOperButton([ButtonModel(title: "分享",action:"shareOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             default :
                 addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
@@ -107,10 +113,12 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         }
         
         let buttonArray = [StatusButtonModel(title: "全部", amount: totalNumber,status:0),
-            StatusButtonModel(title: "待执行", amount: getAmountByStatus(OrderStatus.Init.rawValue),status:OrderStatus.Init.rawValue),
+            StatusButtonModel(title: "待付款", amount: getAmountByStatus(OrderStatus.WaitForPay.rawValue),status:OrderStatus.WaitForPay.rawValue),
+            StatusButtonModel(title: "待执行", amount: getAmountByStatus(OrderStatus.WaitForExe.rawValue),status:OrderStatus.WaitForExe.rawValue),
             StatusButtonModel(title: "执行中", amount: getAmountByStatus(OrderStatus.Executing.rawValue),status:OrderStatus.Executing.rawValue),
-            StatusButtonModel(title: "待评价", amount: getAmountByStatus(OrderStatus.WaidForComment.rawValue),status:OrderStatus.WaidForComment.rawValue),
-            StatusButtonModel(title: "已完成", amount: getAmountByStatus(OrderStatus.Finished.rawValue),status:OrderStatus.Finished.rawValue)]
+            StatusButtonModel(title: "已完成", amount: getAmountByStatus(OrderStatus.Finished.rawValue),status:OrderStatus.Finished.rawValue),
+            StatusButtonModel(title: "已评价", amount: getAmountByStatus(OrderStatus.Commented.rawValue),status:OrderStatus.Commented.rawValue)
+            ]
         addStatusButton(buttonArray, scrollView: scrollView)
     }
     
@@ -123,32 +131,48 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     }
     
     func requestOrderNumber(){
-        scrollView.hideProgressViewLoading()
-        scrollView.showProgressViewLoading()
+        
         //后台请求数据
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
             AIOrderRequester().queryOrderNumber(1, orderStatus: self.orderStatus, completion: {
                 (data,error) ->() in
-                // Init buttons.
-                self.buildDynaStatusButton(data)
-                self.scrollView.hideProgressViewLoading()
+                if data.count > 0 {
+                    // Init buttons.
+                    self.buildDynaStatusButton(data)
+                    self.requestOrderList()
+                }else if data.count == 0{
+                    self.tableView.hideProgressViewLoading()
+                    self.tableView.showErrorView("没有数据")
+                }else{
+                    self.tableView.hideProgressViewLoading()
+                    self.tableView.showErrorView()
+                }
+                
             })
         }
     }
     
     func requestOrderList(){
-        tableView.hideProgressViewLoading()
-        tableView.showProgressViewLoading()
         //后台请求数据
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
             AIOrderRequester().queryOrderList(page: 1, orderRole: 1, orderState: self.orderStatus, completion: { (data) -> () in
+                
                 self.storeHouseRefreshControl?.finishingLoading()
-                self.orderList = data
-                self.tableView.reloadData()
-                self.tableView.hideErrorView()
+                
                 self.tableView.hideProgressViewLoading()
+                
+                if data.count > 0 {
+                    self.orderList = data
+                    self.tableView.reloadData()
+                    
+                }else if data.count == 0{
+                    self.tableView.hideProgressViewLoading()
+                    self.tableView.showErrorView("没有数据")
+                }else{
+                    self.tableView.showErrorView()
+                }
             })
         }
 
@@ -198,15 +222,19 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
         if let customerIconImg = cell.viewWithTag(140) as? AIImageView{
             customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url ?? "http://img1.gtimg.com/kid/pics/hv1/47/231/1905/123931577.jpg"), placeholderImage: UIImage(named: "Placeholder"))
         }
+        cell.addBottomBorderLine()
         return cell
     }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 140
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIOrderStoryboard, bundle: nil).instantiateViewControllerWithIdentifier("AICustomerOrderDetailViewController") as AICustomerOrderDetailViewController
-//        self.navigationController?.pushViewController(viewController, animated: true)
         viewController.orderId = findOrderNumberByIndexNumber(indexPath.row)
         viewController.serviceId = findOServiceIdByIndexNumber(indexPath.row)
         showViewController(viewController, sender: self)
