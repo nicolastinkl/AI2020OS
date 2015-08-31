@@ -64,6 +64,15 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         self.detailsPageView.tableViewDataSource = self
         self.detailsPageView.tableViewDelegate = self
         
+        if let aaa = self.server_id {
+            
+        }
+        else
+        {
+            self.server_id = NSUserDefaults.standardUserDefaults().objectForKey(kServiceIDKey) as? String
+        }
+    
+        
         // Fix: scrollview.
         //self.detailsPageView.tableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0)
         
