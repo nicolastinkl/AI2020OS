@@ -132,15 +132,13 @@ struct AIServiceDetailModel: JSONJoy  {
             service_guarantee = "本店美甲均提供30天质保，30天内因非人为原因出现掉色和掉甲问题，本店免费提供修复服务。"
             service_restraint = "为保证美甲效果，美甲前1天手指请勿接触刺激性物品。"
             service_process = "修剪->打磨->抛光->软化->上色->封层"
-        }else if string.containsString("培训") {
+        }else if string.containsString("英语") {
             service_guarantee = "在严格执行学习计划的前提下，学习效果未达标者，可免费再学。"
             service_restraint = "未保证教学效果，选择高一级课程的客户需要通过前一级课程测试后才能开始学习。"
             service_process = "复习->新课介绍->课文通读->词汇讲解->语法讲解->句式练习->短文练习->课程总结->后续课程预习"
         }
-        
     }
 }
-
 
 struct AIServiceDetailParamsDetailModel: JSONJoy  {
     
