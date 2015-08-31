@@ -134,8 +134,11 @@ class AILoginWithSMSViewController: UIViewController {
             AVUser.logInWithMobilePhoneNumberInBackground(self.phoneTextField.text, smsCode:  self.verfyTextField.text, block: { (avuser, error) -> Void in
                 self.view.hideLoading()
 
-                func loginFaile(){
-                    SCLAlertView().showError("提示", subTitle: "登录失败", closeButtonTitle: "关闭", duration: 2)
+                func loginFaile(errorDes:NSError){
+                    if let dicError = errorDes.userInfo {
+                        let err = dicError["error"] as String?
+                        SCLAlertView().showError("登录失败", subTitle: err ?? "", closeButtonTitle: "关闭", duration: 5)
+                    }
                     
                 }
 
@@ -150,7 +153,7 @@ class AILoginWithSMSViewController: UIViewController {
                             self.dismissViewControllerAnimated(true, completion: nil)
                             
                         }else{
-                            loginFaile()
+                            loginFaile(error)
                         }
                     })
                     
