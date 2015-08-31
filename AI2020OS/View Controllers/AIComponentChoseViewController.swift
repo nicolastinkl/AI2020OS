@@ -202,9 +202,10 @@ class AIComponentChoseViewController: UIViewController {
         viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
         viewController.serviceId = self.movieDetailsResponse?.service_id ?? 0
         viewController.selectedParams = sParams
+        viewController.titleString = self.movieDetailsResponse?.service_name ?? ""        
         self.presentViewController(viewController, animated: true, completion: nil)
         
-        viewController.label_title.text = self.movieDetailsResponse?.service_name ?? ""
+
          
         
         if self.movieDetailsResponse?.service_param_list?.count == sParams.allKeys.count && sParams.allKeys.count  > 0 {
@@ -214,13 +215,14 @@ class AIComponentChoseViewController: UIViewController {
             viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
             viewController.serviceId = self.movieDetailsResponse?.service_id ?? 0
             viewController.selectedParams = sParams
+            viewController.titleString = self.movieDetailsResponse?.service_name ?? ""            
             self.presentViewController(viewController, animated: true, completion: nil)
             
-            viewController.label_title.text = self.movieDetailsResponse?.service_name ?? ""
+
             
         }else{
+            UIAlertView(title: "提示", message: "请选择完参数再次提交订单", delegate: nil, cancelButtonTitle: "关闭").show()
             
-            SCLAlertView().showWarning("提示", subTitle: "参数没选完就提交订单，你在逗我吗?", closeButtonTitle: "关闭", duration: 4)
             
         }
 

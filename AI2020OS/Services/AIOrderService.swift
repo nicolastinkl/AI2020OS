@@ -88,11 +88,11 @@ class AIOrderRequester {
             }
             
             if let res = response as NSDictionary? {
-            
-                if let number = res.valueForKey("result_code")?.integerValue {
-                    if number == 1 {
-                        return completion(success: true)
-                    }
+                    if let number = res.valueForKey("result_code")?.integerValue {
+                        if number == 1 {
+                            return completion(success: true)
+                        }
+                    
                 }
             }
             

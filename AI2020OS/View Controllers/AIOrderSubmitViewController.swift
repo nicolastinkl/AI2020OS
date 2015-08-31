@@ -12,16 +12,21 @@ import SCLAlertView
 
 class AIOrderSubmitViewController: UIViewController {
     
+    //MARK: Variables
     @IBOutlet weak var label_title: UILabel!
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
 
+    //MARK: Variables
     var serviceId:Int?
     
     var isSubmitSuccess = false
     
     var selectedParams:NSMutableDictionary?
     
+    var titleString:String?
+    
+    //MARK: life cricly
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +37,10 @@ class AIOrderSubmitViewController: UIViewController {
         lineLayer.backgroundColor = color
         lineLayer.frame = CGRectMake(0, titleLabel.height+8, titleLabel.width, 0.5)
         titleLabel.layer.addSublayer(lineLayer)
-        
+        if let ti = titleString {
+            label_title.text =  ti
+        }
+
     }
     
     @IBAction func buyAction(sender: AnyObject) {
@@ -49,7 +57,6 @@ class AIOrderSubmitViewController: UIViewController {
                             self.isSubmitSuccess = true
                             UIAlertView(title: "提示", message: "购买成功", delegate: self, cancelButtonTitle: "关闭").show()
                         }else{
-                            self.isSubmitSuccess = false
                             UIAlertView(title: "提示", message: "购买失败", delegate: nil, cancelButtonTitle: "关闭").show()
                         }
                     })
@@ -76,8 +83,11 @@ extension AIOrderSubmitViewController:UIAlertViewDelegate{
             else {
                 
             }
-            
+            // close all the viewcontroller to root Viewcontroller
+            //self.dismissPopToRoot()
         }
+        
+        self.isSubmitSuccess = false
     }
 }
 
