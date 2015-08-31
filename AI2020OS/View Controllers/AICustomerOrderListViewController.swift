@@ -77,15 +77,15 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         if let stateEnum = OrderStatus(rawValue: orderState) {
             
             switch stateEnum {
-            case .Init:
-                addOperButton([ButtonModel(title: "申请变更",action:"changeOrder:")], buttonView: buttonView,indexNumber : indexNumber)
-            case .Executing:
-                addOperButton([ButtonModel(title: "申请变更",action:"changeOrder:")], buttonView: buttonView,indexNumber : indexNumber)
-            case .WaidForComment:
-                addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "分享",action:"shareOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             case .WaitForPay:
-                addOperButton([ButtonModel(title: "支付",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+                addOperButton([ButtonModel(title: "付款",action:"payOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            case .Executing:
+                addOperButton([ButtonModel(title: "完成",action:"finishOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             case .Finished:
+                addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "分享",action:"shareOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            case .WaitForExe:
+                addOperButton([ButtonModel(title: "申请变更",action:"commentsOrder:")], buttonView: buttonView,indexNumber : indexNumber)
+            case .Commented:
                 addOperButton([ButtonModel(title: "分享",action:"shareOrder:")], buttonView: buttonView,indexNumber : indexNumber)
             default :
                 addOperButton([ButtonModel(title: "评价",action:"commentsOrder:"),ButtonModel(title: "处理",action:"excuteOrder:")], buttonView: buttonView,indexNumber : indexNumber)
@@ -113,10 +113,12 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         }
         
         let buttonArray = [StatusButtonModel(title: "全部", amount: totalNumber,status:0),
-            StatusButtonModel(title: "待执行", amount: getAmountByStatus(OrderStatus.Init.rawValue),status:OrderStatus.Init.rawValue),
+            StatusButtonModel(title: "待付款", amount: getAmountByStatus(OrderStatus.WaitForPay.rawValue),status:OrderStatus.WaitForPay.rawValue),
+            StatusButtonModel(title: "待执行", amount: getAmountByStatus(OrderStatus.WaitForExe.rawValue),status:OrderStatus.WaitForExe.rawValue),
             StatusButtonModel(title: "执行中", amount: getAmountByStatus(OrderStatus.Executing.rawValue),status:OrderStatus.Executing.rawValue),
-            StatusButtonModel(title: "待评价", amount: getAmountByStatus(OrderStatus.WaidForComment.rawValue),status:OrderStatus.WaidForComment.rawValue),
-            StatusButtonModel(title: "已完成", amount: getAmountByStatus(OrderStatus.Finished.rawValue),status:OrderStatus.Finished.rawValue)]
+            StatusButtonModel(title: "已完成", amount: getAmountByStatus(OrderStatus.Finished.rawValue),status:OrderStatus.Finished.rawValue),
+            StatusButtonModel(title: "已评价", amount: getAmountByStatus(OrderStatus.Commented.rawValue),status:OrderStatus.Commented.rawValue)
+            ]
         addStatusButton(buttonArray, scrollView: scrollView)
     }
     

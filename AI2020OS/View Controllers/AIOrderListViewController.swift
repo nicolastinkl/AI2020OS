@@ -137,6 +137,16 @@ class AIBaseOrderListViewController : UIViewController{
         )
     }
     
+    func payOrder(target:UIButton){
+        let buttonIndex = target.associatedName?.toInt() ?? 0
+        let orderNumber = findOrderNumberByIndexNumber(buttonIndex)
+        AIOrderRequester().updateOrderStatus(orderNumber, orderStatus: OrderStatus.WaitForExe.rawValue, completion: { (resultCode) -> Void in
+            self.updateOrderStatusCompletion(resultCode, comments: "付款")
+            }
+        )
+
+    }
+    
     func changeOrder(target:UIButton){
         SCLAlertView().showInfo("提示", subTitle: "申请修改订单！", closeButtonTitle: "关闭", duration: 3)
     }
@@ -144,8 +154,8 @@ class AIBaseOrderListViewController : UIViewController{
     func finishOrder(target:UIButton){
         let buttonIndex = target.associatedName?.toInt() ?? 0
         let orderNumber = findOrderNumberByIndexNumber(buttonIndex)
-        AIOrderRequester().updateOrderStatus(orderNumber, orderStatus: OrderStatus.WaidForComment.rawValue, completion: { (resultCode) -> Void in
-            self.updateOrderStatusCompletion(resultCode, comments: "订单结束")
+        AIOrderRequester().updateOrderStatus(orderNumber, orderStatus: OrderStatus.Finished.rawValue, completion: { (resultCode) -> Void in
+            self.updateOrderStatusCompletion(resultCode, comments: "完成服务")
             }
         )
     }

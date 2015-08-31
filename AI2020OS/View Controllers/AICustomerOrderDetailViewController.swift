@@ -127,7 +127,7 @@ class AICustomerOrderDetailViewController: UIViewController {
         let charList = orderDetailModel.char_list as NSArray ?? NSArray()
         for var i=0 ;i < charList.count ; ++i {
             let selectedParam = charList.objectAtIndex(i) as OrderSelectedParamModel
-            paramString += "\(selectedParam.param_key) : \(selectedParam.param_value)  "            
+            paramString += "\(selectedParam.param_key):\(selectedParam.param_value)    "            
         }
         
         return paramString
