@@ -145,7 +145,7 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let currnetDicValue = dataTimeLineArray[indexPath.section] as AITimeLineModel
         let time:Double =   NSDate().timeIntervalSince1970
-        let timeValue = currnetDicValue.order_create_time?.toInt() ?? 0
+        let timeValue = currnetDicValue.order_create_time?.toInt() ?? Int(time)
         switch indexPath.row{
         case 0:
             //placeholder cell

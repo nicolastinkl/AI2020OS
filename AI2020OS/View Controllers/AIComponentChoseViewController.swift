@@ -209,8 +209,8 @@ class AIComponentChoseViewController: UIViewController {
             viewController.label_title.text = self.movieDetailsResponse?.service_name ?? ""
             
         }else{
+            UIAlertView(title: "提示", message: "请选择完参数再次提交订单", delegate: nil, cancelButtonTitle: "关闭").show()
             
-            SCLAlertView().showWarning("提示", subTitle: "参数没选完就提交订单，你在逗我吗?", closeButtonTitle: "关闭", duration: 4)
             
         }
         
