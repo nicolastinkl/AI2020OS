@@ -64,7 +64,7 @@ static NSString* toBase64(NSData* data) {
     CDVPictureOptions* pictureOptions = [[CDVPictureOptions alloc] init];
 
     pictureOptions.quality = [command argumentAtIndex:0 withDefault:@(50)];
-    pictureOptions.destinationType = [[command argumentAtIndex:1 withDefault:@(DestinationTypeDataUrl)] unsignedIntegerValue];
+    pictureOptions.destinationType = [[command argumentAtIndex:1 withDefault:@(DestinationTypeFileUri)] unsignedIntegerValue];
     pictureOptions.sourceType = [[command argumentAtIndex:2 withDefault:@(UIImagePickerControllerSourceTypeCamera)] unsignedIntegerValue];
     
     NSNumber* targetWidth = [command argumentAtIndex:3 withDefault:nil];
