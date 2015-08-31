@@ -10,19 +10,19 @@ import UIKit
 
 let CELL_HEIGHT : CGFloat = 60
 
-struct SubTimelineLabelModel {
-    var position:Int!
-    var currentTime:String!
-    var label:String!
-    var status:Int!
-    
-    init(position:Int,currentTime:String,label:String,status:Int){
-        self.position = position
-        self.currentTime = currentTime
-        self.label = label
-        self.status = status
-    }
-}
+//struct SubTimelineLabelModel {
+//    var position:Int!
+//    var currentTime:String!
+//    var title:String!
+//    var status:Int!
+//    
+//    init(position:Int,currentTime:String,label:String,status:Int){
+//        self.position = position
+//        self.currentTime = currentTime
+//        self.title = label
+//        self.status = status
+//    }
+//}
 
 enum SubTimelinePosition : Int{
     case Top = 1,Middle,Bottom
@@ -36,7 +36,7 @@ class SubTimelineView: UIView {
     let CELL_HEIGHT : CGFloat = 60
     
     private var scrollView:UIScrollView!
-    var timelineDatas:[SubTimelineLabelModel] = []
+    var timelineDatas:[AIOrderTaskListModel] = []
     var orderId : String!
     var partyRoleId : Int!
     
@@ -62,12 +62,12 @@ class SubTimelineView: UIView {
         scrollView = UIScrollView()
         scrollView.frame = self.bounds
         self.addSubview(scrollView)
-        fakeModelData()
-        buildViewContent()
+    //    fakeModelData()
+    //    buildViewContent()
     }
     
     func fakeModelData(){
-        timelineDatas = [SubTimelineLabelModel(position: 1, currentTime: "13:50", label: "到达别人家",status : 3),SubTimelineLabelModel(position: 2, currentTime: "12:30", label: "已出发",status: 2),SubTimelineLabelModel(position: 2, currentTime: "12:00", label: "等待出发",status: 1),SubTimelineLabelModel(position: 2, currentTime: "11:30", label: "准备指甲油准备指甲油准备指甲油",status: 1),SubTimelineLabelModel(position: 2, currentTime: "11:00", label: "清洁用具清洁用具清洁用具",status:1),SubTimelineLabelModel(position: 3, currentTime: "10:30", label: "准备用具准备用具准备用具",status:1)]
+        timelineDatas = [AIOrderTaskListModel(position: 1, currentTime: "13:50", label: "到达别人家", status : 3),AIOrderTaskListModel(position: 2, currentTime: "12:30", label: "已出发",status: 2),AIOrderTaskListModel(position: 2, currentTime: "12:00", label: "等待出发",status: 1),AIOrderTaskListModel(position: 2, currentTime: "11:30", label: "准备指甲油准备指甲油准备指甲油",status: 1),AIOrderTaskListModel(position: 2, currentTime: "11:00", label: "清洁用具清洁用具清洁用具",status:1),AIOrderTaskListModel(position: 3, currentTime: "10:30", label: "准备用具准备用具准备用具",status:1)]
     }
     
     func retryNetworkingAction(){
@@ -77,29 +77,59 @@ class SubTimelineView: UIView {
                 if data.count > 0  {
                     //trans from AITimeLineModel to SubTimelineLabelModel
                     self.timelineDatas.removeAll(keepCapacity: true)
-                    //build date
-                    for var index = 0; index < data.count; ++index {
-                        let aiTimeLineModel = data[index]
-                        let currentTimeStamp = aiTimeLineModel.order_create_time?.toInt() ?? 0
-                        let curTime = Double(currentTimeStamp) ?? 0.0
-                        let currentTime = curTime.dateStringFromTimestamp()
-                        let title = ""//aiTimeLineModel.title ?? ""
-                        let status = self.compareDateFromNow(curTime)
-                        var position:SubTimelinePosition!
-                        if index == 0 {
+                    
+                    let noteModel = data[0]
+                    
+                    if let array = noteModel.expendData? {
+                        for var index = 0; index < array.count; ++index {
+                            let task = array[index]
+                            let currentTimeStamp = task.currentTimeStamp ?? 0
+                            let curTime = Double(currentTimeStamp) ?? 0.0
+                            let currentTime = curTime.dateStringFromTimestamp()
+                            let title = task.title ?? ""
+                            let status = self.compareDateFromNow(curTime)
                             
-                            position = SubTimelinePosition.Top
+                            var position:SubTimelinePosition!
+                            if index == 0 {
+                                position = SubTimelinePosition.Top
+                            }
+                            else if index == data.count - 1{
+                                position = SubTimelinePosition.Bottom
+                            }
+                            else {
+                                position = SubTimelinePosition.Middle
+                            }
+                            
+                            self.timelineDatas.append(AIOrderTaskListModel(position: position.rawValue, currentTime: currentTime, label: title, status: position.rawValue))
+
                         }
-                        else if index == data.count - 1{
-                            position = SubTimelinePosition.Bottom
-                        }
-                        else {
-                            position = SubTimelinePosition.Middle
-                        }
-                         self.timelineDatas.append(SubTimelineLabelModel(position: position.rawValue, currentTime: currentTime, label: title, status: position.rawValue))
-                        //build content
+                        
                         self.buildViewContent()
                     }
+                    
+                    //build date
+//                    for var index = 0; index < data.count; ++index {
+//                        let aiTimeLineModel = data[index]
+//                        let currentTimeStamp = aiTimeLineModel.order_create_time ?? 0
+//                        let curTime = Double(currentTimeStamp) ?? 0.0
+//                        let currentTime = curTime.dateStringFromTimestamp()
+//                        let title = ""//aiTimeLineModel.title ?? ""
+//                        let status = self.compareDateFromNow(curTime)
+//                        var position:SubTimelinePosition!
+//                        if index == 0 {
+//                            
+//                            position = SubTimelinePosition.Top
+//                        }
+//                        else if index == data.count - 1{
+//                            position = SubTimelinePosition.Bottom
+//                        }
+//                        else {
+//                            position = SubTimelinePosition.Middle
+//                        }
+//                         self.timelineDatas.append(AIOrderTaskListModel(position: position.rawValue, currentTime: currentTime, label: title, status: position.rawValue))
+//                        //build content
+//                        self.buildViewContent()
+//                    }
                     self.hideErrorView()
                 }else if data.count == 0{
                     self.showErrorView("没有数据,使用fakeData")
@@ -177,7 +207,7 @@ class SubTimelineCellView : UIView{
     }
     
     //重新分三段构造左边的竖线
-    func buildLineImage(subTimelineModel:SubTimelineLabelModel){
+    func buildLineImage(subTimelineModel: AIOrderTaskListModel) {
         // connection_line
         let lineImage = UIImage(named: "Tabbar_background")
         let status = SubTimelineStatus(rawValue: subTimelineModel.status)
@@ -234,7 +264,7 @@ class SubTimelineCellView : UIView{
         buildCycleView()
     }
 
-    func buildCell(subTimelineModel:SubTimelineLabelModel){
+    func buildCell(subTimelineModel: AIOrderTaskListModel){
         
         var timeLabel = UILabel(frame: CGRectMake(TIME_LABEL_X,  TIME_LABEL_RELATED_Y, TIME_LABEL_SIZE.width, TIME_LABEL_SIZE.height))
         timeLabel.text = subTimelineModel.currentTime
@@ -242,7 +272,7 @@ class SubTimelineCellView : UIView{
         timeLabel.font = UIFont.systemFontOfSize(10)
         
         var infoLabel = UILabel(frame: CGRectMake(TIME_LABEL_X,  INFO_LABEL_RELATED_Y, INFO_LABEL_SIZE.width, INFO_LABEL_SIZE.height))
-        infoLabel.text = subTimelineModel.label
+        infoLabel.text = subTimelineModel.title
         infoLabel.font = UIFont.systemFontOfSize(13)
         
         switch subTimelineModel.status{

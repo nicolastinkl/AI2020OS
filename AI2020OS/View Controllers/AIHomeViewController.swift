@@ -36,8 +36,8 @@ class AIHomeViewController: UITableViewController {
         
         self.title = "首页" 
 
-        //storeHouseRefreshControl = CBStoreHouseRefreshControl.attachToScrollView(self.tableview, target: self, refreshAction: "refreshAction", plist: "storehouse")
-        storeHouseRefreshControl = CBStoreHouseRefreshControl.attachToScrollView(self.tableview, target: self, refreshAction: "refreshAction", plist: "storehouse", color: UIColor(hex: AIApplication.AIColor.MainSystemBlueColor), lineWidth: 2, dropHeight: 80, scale: 1, horizontalRandomness: 150, reverseLoadingAnimation: false, internalAnimationFactor: 0.7)
+
+//        storeHouseRefreshControl = CBStoreHouseRefreshControl.attachToScrollView(self.tableview, target: self, refreshAction: "refreshAction", plist: "storehouse", color: UIColor(hex: AIApplication.AIColor.MainSystemBlueColor), lineWidth: 2, dropHeight: 80, scale: 1, horizontalRandomness: 150, reverseLoadingAnimation: false, internalAnimationFactor: 0.7)
         
         
         if  AILocalStore.uidToken() != 0 {

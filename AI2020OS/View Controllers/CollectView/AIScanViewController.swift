@@ -337,6 +337,13 @@ class AIScanViewController: UIViewController {
         serviceSearchView.setInitViewAttr()
     }
     
+    
+    @IBAction func popToRootView(sender: AnyObject){
+        self.tabBarController?.selectedIndex = 0
+
+        self.navigationController?.popViewControllerAnimated(false)
+    }    
+    
     @IBAction func refereshAction(sender: AnyObject) {
         
         removeModel()

@@ -160,6 +160,7 @@ class AIComponentChoseViewController: UIViewController {
                 self.contentScrollView.addSubview(line2)
                 cellHeigh += line2.height
             }
+           
         }
         
         self.contentScrollView.contentSize = CGSizeMake(self.view.width, cellHeigh + 100)
@@ -188,7 +189,18 @@ class AIComponentChoseViewController: UIViewController {
         button.setHeight(50)
         button.setTitle("提交订单", forState: UIControlState.Normal)
         button.addTarget(self, action: "submitOrder", forControlEvents: UIControlEvents.TouchUpInside)
+     
+        //NOTIFY
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "closeSelfAction", name: AIApplication.Notification.NSPOPAIOrderSubmitViewController, object: nil)
         
+    }
+    
+    func closeSelfAction(){
+        
+    }
+    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: AIApplication.Notification.NSPOPAIOrderSubmitViewController, object: nil)
     }
     
     func submitOrder(){
@@ -196,18 +208,7 @@ class AIComponentChoseViewController: UIViewController {
         // Step 1: 处理选择参数
         // Step 2: 处理参数拼接
         let sParams = self.selectedParams
-        
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as AIOrderSubmitViewController
-        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-        viewController.serviceId = self.movieDetailsResponse?.service_id ?? 0
-        viewController.selectedParams = sParams
-        viewController.titleString = self.movieDetailsResponse?.service_name ?? ""        
-        self.presentViewController(viewController, animated: true, completion: nil)
-        
-
-         
-        
+       
         if self.movieDetailsResponse?.service_param_list?.count == sParams.allKeys.count && sParams.allKeys.count  > 0 {
             
             let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as AIOrderSubmitViewController
@@ -215,11 +216,8 @@ class AIComponentChoseViewController: UIViewController {
             viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
             viewController.serviceId = self.movieDetailsResponse?.service_id ?? 0
             viewController.selectedParams = sParams
-            viewController.titleString = self.movieDetailsResponse?.service_name ?? ""            
+            viewController.titleString = self.movieDetailsResponse?.service_name ?? ""
             self.presentViewController(viewController, animated: true, completion: nil)
-            
-
-            
         }else{
             UIAlertView(title: "提示", message: "请选择完参数再次提交订单", delegate: nil, cancelButtonTitle: "关闭").show()
             

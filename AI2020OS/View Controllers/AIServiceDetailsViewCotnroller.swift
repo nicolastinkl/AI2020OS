@@ -75,7 +75,19 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         requestMovieDetails()
         
         self.navigationBarView.animate()
+        
+        //NOTIFY
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "closeSelfAction", name: AIApplication.Notification.NSPOPAIOrderSubmitViewController, object: nil)
     }
+    
+    func closeSelfAction(){
+        //self.navigationController?.popViewControllerAnimated(false)
+    }
+    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: AIApplication.Notification.NSPOPAIOrderSubmitViewController, object: nil)
+    }
+    
     
     func registerCells(){
         
@@ -111,7 +123,9 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
     //retry
     func retryRequest() {
-        requestMovieDetails() 
+        requestMovieDetails()
+        
+        
     }
     
     func requestMovieDetails()
@@ -126,53 +140,7 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
         
         AIServicesRequester().loadServiceDetail(id, service_type: 0) { [weak self](data) -> () in
             if let strongSelf = self{
-                strongSelf.movieDetailsResponse = data
-                
-                // TEST
-                var detailParams = AIServiceDetailParamsModel()
-                detailParams.param_type = 7
-                detailParams.param_key = "选择课程"
-
-                var params1 = AIServiceDetailParamsDetailModel()
-                params1.id = 1
-                params1.title = "语音课程1小时"
-
-                var params2 = AIServiceDetailParamsDetailModel()
-                params2.id = 2
-                params2.title = "Wetalk课程1小时"
-
-                var params3 = AIServiceDetailParamsDetailModel()
-                params3.id = 3
-                params3.title = "VIP课程1小时"
-                
-                detailParams.param_value = [params1,params2,params3] // fill
-                
-                // --------------------
-                var detailParams1 = AIServiceDetailParamsModel()
-                detailParams1.param_type = 7
-                detailParams1.param_key = "选择老师"
-                
-                var params5 = AIServiceDetailParamsDetailModel()
-                params5.id = 5
-                params5.title = "Tony"
-                
-                var params4 = AIServiceDetailParamsDetailModel()
-                params4.id = 4
-                params4.title = "Echoooo"
-                
-                detailParams1.param_value = [params5,params4] // fill
-                
-                // --------------------
-                var detailParams2 = AIServiceDetailParamsModel()
-                detailParams2.param_type = 1
-                detailParams2.param_key = "选择时间"
-                
-                
-                var detailParams3 = AIServiceDetailParamsModel()
-                detailParams3.param_type = 2
-                detailParams3.param_key = "选择数量"
-                
-                //strongSelf.movieDetailsResponse?.service_param_list = [detailParams,detailParams1,detailParams2,detailParams3]
+                strongSelf.movieDetailsResponse = data               
                 
                 // --------------------
                 strongSelf.detailsPageView.reloadData()
@@ -184,7 +152,8 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     }
     
     func fillViews(){
-        view.hideProgressViewLoading()
+        
+        self.view.hideProgressViewLoading()
         self.detailsPageView.navBarView = self.navigationBarView
         //self.detailsPageView.tableView.tableFooterView = AIOrderBuyView.currentView()
         self.titleLabel.text = self.movieDetailsResponse?.service_name
@@ -470,7 +439,7 @@ extension AIServiceDetailsViewCotnroller : UITableViewDelegate,UITableViewDataSo
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section > (tableCount-5) {
-            cell.addBottomBorderLine()
+            //cell.addBottomBorderLine()
         }
     }
     
