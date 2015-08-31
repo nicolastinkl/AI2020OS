@@ -196,7 +196,16 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
                     
                     if currnetDicValue.expendData?.count > 0 {
                         let width: CGFloat = avCell?.contentFillView.width ?? 0
-                        let cardView = AICardView(frame: CGRectMake(0, 0, width, 0), cards: currnetDicValue.expendData )
+                        
+                        var expendArray = NSMutableArray()
+                        for model in currnetDicValue.expendData! {
+                            let newData:AIOrderTaskListModel = model
+                            
+                            expendArray.addObject(["HyperText":newData.title ?? "","HyperKeys":newData.title ?? "","IndicatorColor":"","IndicatorImage":""])
+                            
+                        }
+                        
+                        let cardView = AICardView(frame: CGRectMake(0, 0, width, 0), cards: expendArray )
                         
                         avCell?.contentFillView.addSubview(cardView)
                     }

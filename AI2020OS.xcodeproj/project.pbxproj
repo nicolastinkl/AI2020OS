@@ -46,6 +46,7 @@
 		814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BDC1B820529003A10A5 /* AIMessageCell.m */; };
 		816372551B9430E800E86E0D /* WKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 816372541B9430E800E86E0D /* WKBaseViewController.m */; };
 		8163725C1B94327A00E86E0D /* GMDCircleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8163725B1B94327A00E86E0D /* GMDCircleLoader.m */; };
+		816372611B94A26100E86E0D /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 816372601B94A26100E86E0D /* UIImageView+AFNetworking.m */; };
 		817E15D31B7C8A2700C298BE /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 817E15CF1B7C8A2700C298BE /* config.xml */; };
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
 		817E15FE1B7C91E000C298BE /* AIWebPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E15FD1B7C91E000C298BE /* AIWebPlugin.m */; };
@@ -504,6 +505,9 @@
 		816372581B9431A700E86E0D /* WKMacroUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMacroUtils.h; sourceTree = "<group>"; };
 		8163725A1B94327A00E86E0D /* GMDCircleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDCircleLoader.h; sourceTree = "<group>"; };
 		8163725B1B94327A00E86E0D /* GMDCircleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDCircleLoader.m; sourceTree = "<group>"; };
+		8163725E1B94A26100E86E0D /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AFNetworking.h"; sourceTree = "<group>"; };
+		8163725F1B94A26100E86E0D /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		816372601B94A26100E86E0D /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		817E15CF1B7C8A2700C298BE /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		817E15D81B7C8AB000C298BE /* CDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
 		817E15D91B7C8AB000C298BE /* CDVAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVAvailability.h; sourceTree = "<group>"; };
@@ -1219,6 +1223,16 @@
 			path = GMDCircleLoader;
 			sourceTree = "<group>";
 		};
+		8163725D1B94A26100E86E0D /* UI-AF */ = {
+			isa = PBXGroup;
+			children = (
+				8163725E1B94A26100E86E0D /* UIImage+AFNetworking.h */,
+				8163725F1B94A26100E86E0D /* UIImageView+AFNetworking.h */,
+				816372601B94A26100E86E0D /* UIImageView+AFNetworking.m */,
+			);
+			path = "UI-AF";
+			sourceTree = "<group>";
+		};
 		817E15CE1B7C8A2700C298BE /* Web */ = {
 			isa = PBXGroup;
 			children = (
@@ -1309,6 +1323,7 @@
 		8198ABA61B81840E0047E740 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				8163725D1B94A26100E86E0D /* UI-AF */,
 				8198ABA71B81840E0047E740 /* AFHTTPRequestOperation.h */,
 				8198ABA81B81840E0047E740 /* AFHTTPRequestOperation.m */,
 				8198ABA91B81840E0047E740 /* AFHTTPRequestOperationManager.h */,
@@ -2817,6 +2832,7 @@
 				93F66DE71B1976AC00AEA92A /* AIChatNewSprintViewController.swift in Sources */,
 				81A06CA11B8F2EFA00AFB066 /* AIWeiboData.m in Sources */,
 				814B2BD61B8204C2003A10A5 /* AIMessageViewController.m in Sources */,
+				816372611B94A26100E86E0D /* UIImageView+AFNetworking.m in Sources */,
 				84AE09231B8C066400AAC721 /* AIContentView.swift in Sources */,
 				93DB598A1AE62EAD00D1E39C /* AIMaterialDButton.swift in Sources */,
 				8198ABD81B81840E0047E740 /* JSONModelError.m in Sources */,
