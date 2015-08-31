@@ -23,6 +23,12 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         super.viewDidLoad()
         self.scrollView.contentSize = CGSizeMake(450, 0)
         
+        let color = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
+        let lineLayer =  CALayer()
+        lineLayer.backgroundColor = color
+        lineLayer.frame = CGRectMake(0, self.scrollView.height-1, self.scrollView.width, 1)
+        self.scrollView.layer.addSublayer(lineLayer)
+        
         //registerNib
         tableView.registerNib(UINib(nibName:"CustomerOrderTableViewCell",bundle:NSBundle.mainBundle()), forCellReuseIdentifier: "CustomerOrderCell")
         tableView.delegate = self
@@ -59,37 +65,54 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
     }
     
     func retryNetworkingAction(){
-        requestOrderNumber()
-        requestOrderList()
+        tableView.showProgressViewLoading()
+        requestOrderNumber() 
     }
     // MARK: - utils
     func requestOrderList(){
-        tableView.hideProgressViewLoading()
-        tableView.showProgressViewLoading()
         //后台请求数据
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
             AIOrderRequester().queryOrderList(page: 1,orderRole: 2, orderState: self.orderStatus, completion: { (data) -> () in
                 self.storeHouseRefreshControl?.finishingLoading()
-                self.orderList = data
-                self.tableView.reloadData()
-                self.tableView.hideErrorView()
+                
                 self.tableView.hideProgressViewLoading()
+                
+                if data.count > 0 {
+                    self.orderList = data
+                    self.tableView.reloadData()
+                    
+                }else if data.count == 0{
+                    self.tableView.hideProgressViewLoading()
+                    self.tableView.showErrorView("没有数据")
+                }else{
+                    self.tableView.showErrorView()
+                }
+                
+                
             })
         }
     }
     
     func requestOrderNumber(){
-        scrollView.hideProgressViewLoading()
-        scrollView.showProgressViewLoading()
         //后台请求数据
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
             AIOrderRequester().queryOrderNumber(2, orderStatus: self.orderStatus, completion: {
                 (data,error) ->() in
-                // Init buttons.
-                self.buildDynaStatusButton(data)
-                self.scrollView.hideProgressViewLoading()
+                
+                if data.count > 0 {
+                    // Init buttons.
+                    self.buildDynaStatusButton(data)
+                    self.requestOrderList()
+                }else if data.count == 0{
+                    self.tableView.hideProgressViewLoading()
+                    self.tableView.showErrorView("没有数据")
+                }else{
+                    self.tableView.hideProgressViewLoading()
+                    self.tableView.showErrorView()
+                }
+                
             })
         }
     }
@@ -192,6 +215,7 @@ extension AIProviderOrderListViewController:UITableViewDelegate,UITableViewDataS
             customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url! ?? "http://img1.gtimg.com/kid/pics/hv1/47/231/1905/123931577.jpg"), placeholderImage: UIImage(named: "Placeholder"))
         }
         cell.clipsToBounds = true
+        cell.addBottomBorderLine()
         return cell
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
