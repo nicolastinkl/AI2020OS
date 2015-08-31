@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import Spring
 
 class AISimpleServiceTableViewController: UIViewController {
+    @IBOutlet weak var titleView: SpringView!
     
+    @IBOutlet weak var titleContent: UILabel!
+
     var data: AISearchServicesAndCatalogsResultModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        titleView.addBottomTitleBorderLine()
+        
+        self.titleContent.text = "搜索结果"
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -31,7 +39,6 @@ class AISimpleServiceTableViewController: UIViewController {
     @IBAction func back(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
 
     /*
     // Override to support conditional editing of the table view.
@@ -119,25 +126,24 @@ extension AISimpleServiceTableViewController: UITableViewDelegate, UITableViewDa
         switch indexPath.section {
         case 0:
             let catalog: AIServiceCatalogModel = data.catalogArray[indexPath.row] as AIServiceCatalogModel
-            //    cell.title.text = "\(catalog.catalog_id)"
-            cell.title.text = catalog.catalog_name
-            cell.type.text = "目录"
-            
+            cell.titleFolder.text = catalog.catalog_name ?? ""
+            cell.title.text = ""
+            cell.price.text = ""
+            cell.type.text = "服务   目录"
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            break
         case 1:
             let service: AIServiceModel = data.serviceArray[indexPath.row] as AIServiceModel
             cell.title.text = service.service_name
-            cell.type.text = ""
+            cell.titleFolder.text = ""
+            cell.type.text = "服务"
+            //cell.icon.setURL(NSURL(string: service.service_intro_url ?? ""), placeholderImage:UIImage(named: "Placeholder"))
             
-            if service.service_intro_url != nil {
-                cell.icon.setURL(NSURL(string: service.service_intro_url), placeholderImage:UIImage(named: "Placeholder"))
-            }
-            
-            if service.service_price != nil {
-                cell.price.text = service.service_price
-            }
-            
+            cell.price.text = service.service_price ?? ""
+            cell.accessoryType = UITableViewCellAccessoryType.None
+            break
         default:
-            cell.title.text = "null"
+            break
         }
         
         // Configure the cell...
@@ -146,12 +152,16 @@ extension AISimpleServiceTableViewController: UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         if indexPath.section == 1 {
             let service: AIServiceModel = data.serviceArray[indexPath.row] as AIServiceModel
             
             let controller:AIServiceDetailsViewCotnroller = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIMainStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
             controller.server_id = "\(service.service_id)"
             showViewController(controller, sender: self)
+        }else{
+             UIAlertView(title: "提示", message: "暂时不支持服务目录查看", delegate: nil, cancelButtonTitle: "关闭").show()
         }
     }
 }

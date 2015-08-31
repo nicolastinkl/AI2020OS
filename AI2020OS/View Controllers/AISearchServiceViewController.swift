@@ -155,10 +155,11 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
         
         if responseData.catalogArray != nil || responseData.serviceArray != nil {
             let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AISearchStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AISimpleServiceTableViewController) as AISimpleServiceTableViewController
-            
             viewController.data = responseData
-            
-            presentViewController(viewController, animated: true, completion: nil)
+            viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+            self.showViewController(viewController, sender: self)
+            //presentViewController(viewController, animated: true, completion: nil)
         } else {
             SCLAlertView().showError("没有搜索到数据", subTitle: "无数据",  duration: 2)
         }
@@ -242,6 +243,7 @@ extension AISearchServiceViewController: UICollectionViewDelegate, UIScrollViewD
                 cell.deleteButton.addTarget(self, action: "deleteHistory", forControlEvents: UIControlEvents.TouchUpInside)
                 cell.deleteButton.hidden = false
             }
+            cell.backgroundColor = UIColor(rgba: "#f2f2f1")
             
             return cell
             
