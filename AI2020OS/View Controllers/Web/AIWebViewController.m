@@ -14,6 +14,8 @@
 @interface AICDWebViewController ()
 {
     GMDCircleLoader *_loader;
+    
+    BOOL _isFirstLoaded;
 }
 
 @end
@@ -26,6 +28,7 @@
     self = [super init];
     if (self) {
         self.shouldShowLoading = YES;
+        _isFirstLoaded = YES;
     }
     
     return self;
@@ -130,8 +133,9 @@
 {
     BOOL ret = [super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
     
-    if (self.shouldShowLoading && ret) {
+    if (self.shouldShowLoading && ret && _isFirstLoaded) {
         [self showLoadingMessage:@"正在加载..."];
+        _isFirstLoaded = NO;
     }
 
     return ret;

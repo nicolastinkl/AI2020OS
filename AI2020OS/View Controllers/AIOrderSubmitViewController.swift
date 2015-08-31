@@ -18,6 +18,8 @@ class AIOrderSubmitViewController: UIViewController {
 
     var serviceId:Int?
     
+    var isSubmitSuccess = false
+    
     var selectedParams:NSMutableDictionary?
     
     override func viewDidLoad() {
@@ -44,8 +46,10 @@ class AIOrderSubmitViewController: UIViewController {
                     AIOrderRequester().submitOrder(self.serviceId  ?? 0, serviceParams: NSMutableArray(array: paramsPams!), completion: { (success) -> Void in
                         self.view.hideLoading()
                         if success {
+                            self.isSubmitSuccess = true
                             UIAlertView(title: "提示", message: "购买成功", delegate: self, cancelButtonTitle: "关闭").show()
                         }else{
+                            self.isSubmitSuccess = false
                             UIAlertView(title: "提示", message: "购买失败", delegate: nil, cancelButtonTitle: "关闭").show()
                         }
                     })
@@ -66,7 +70,13 @@ extension AIOrderSubmitViewController:UIAlertViewDelegate{
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 0{
             //cancel
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            if self.isSubmitSuccess {
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            }
+            else {
+                
+            }
+            
         }
     }
 }
