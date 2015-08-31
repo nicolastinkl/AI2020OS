@@ -84,7 +84,7 @@ class SubTimelineView: UIView {
                         for var index = 0; index < array.count; ++index {
                             let task = array[index]
                             let currentTimeStamp = task.currentTimeStamp ?? 0
-                            let curTime = (Double(currentTimeStamp) ?? 0.0) + Double(noteModel.order_create_time ?? 0.0)
+                            let curTime = (Double(currentTimeStamp) ?? 0.0) + Double(noteModel.order_create_time ?? 0.0)/1000
                             let currentTime = curTime.dateStringFromTimestamp()
                             let title = task.title ?? ""
                             let status = self.compareDateFromNow(curTime)
@@ -93,14 +93,14 @@ class SubTimelineView: UIView {
                             if index == 0 {
                                 position = SubTimelinePosition.Top
                             }
-                            else if index == data.count - 1{
+                            else if index == array.count - 1{
                                 position = SubTimelinePosition.Bottom
                             }
                             else {
                                 position = SubTimelinePosition.Middle
                             }
                             
-                            self.timelineDatas.append(AIOrderTaskListModel(position: position.rawValue, currentTime: currentTime, label: title, status: position.rawValue))
+                            self.timelineDatas.append(AIOrderTaskListModel(position: position.rawValue, currentTime: currentTime, label: title, status: status.rawValue))
 
                         }
                         
