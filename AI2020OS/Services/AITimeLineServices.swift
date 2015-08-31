@@ -19,7 +19,7 @@ class AITimeLineServices {
     typealias TimelineRequesterCompletion = (data:[AITimeLineModel]) ->()
     
     func queryAllTimeData(customerId: String,orderId : String, completion: TimelineRequesterCompletion){
-        let paras = ["customer_id":customerId,"order_number":orderId]
+        let paras = ["":""]//["customer_id":customerId,"order_number":orderId]
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryTimeLineServices, parameters: paras) {  [weak self] (response, error) -> () in
             
             if let strongSelf = self{
