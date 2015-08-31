@@ -38,10 +38,17 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.webView.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBarHidden = self.shouldHideNavigationBar;
-    
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     
-    
+    if (self.shouldHideNavigationBar) {
+        CGFloat barHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+        
+        CGRect webFrame = self.webView.frame;
+        webFrame.origin.y = barHeight;
+        webFrame.size.height -= barHeight;
+        self.webView.frame = webFrame;
+    }
+
     __weak typeof (self) weakSelf = self;
     self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
     
@@ -134,6 +141,12 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     NSLog(@"%@", error);
+    
+    if (self.shouldShowLoading) {
+        [self dismissLoading];
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

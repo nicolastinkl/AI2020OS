@@ -206,6 +206,14 @@ class AIComponentChoseViewController: UIViewController {
         
         viewController.label_title.text = self.movieDetailsResponse?.service_name ?? ""
          
+        // Step 3: 发送通知
+        
+        if let pid = movieDetailsResponse?.provider_id {
+            var notification = [kAPNS_Alert : "您有一个新的订单,请查收!", kAPNS_ProviderID : pid];
+            AIPushNotificationHandler.pushRemoteNotification(notification)
+        }
+        
+        
         
     }
     

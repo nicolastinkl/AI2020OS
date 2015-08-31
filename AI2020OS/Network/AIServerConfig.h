@@ -24,6 +24,7 @@
 #define kAPNS_ChatURL                 @"chatURL"
 #define kAPNS_Alert                   @"alert"
 #define kAPNS_Message                 @"message"
+#define kAPNS_ProviderID              @"provider_id"
 
 
 #define kServiceManageVC              @"ServiceManageVC"
