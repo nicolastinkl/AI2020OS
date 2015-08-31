@@ -14,19 +14,21 @@ class AISingleCommentViewController : UIViewController {
     
     var inputServiceId: Int!
     var inputOrderId: Int!
-    var commentOrder: AIOrderListItemModel! = AIOrderListItemModel() // 这个对象未初始化为nil，下面直接使用crash，所以这里先初始化，亮哥看下why nil
+    var commentOrder: AIOrderListItemModel?
     var commentView: AISingleCommentView!
     var commentManager: AIServiceCommentManager!
     
     @IBOutlet weak var confirmBtn: UIButton!
+    @IBOutlet weak var backBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let windowFrame = view.frame
         let btnFrame = confirmBtn.frame
+        let backBtnFrame = backBtn.frame
         
-        var commentFrame = CGRect(x: 0, y: 0, width: windowFrame.width, height: windowFrame.height - btnFrame.height)
+        var commentFrame = CGRect(x: 0, y: backBtn.bottom + 10, width: windowFrame.width, height: windowFrame.height - btnFrame.height)
         
         commentView = AISingleCommentView.instance(self)
         commentView.frame = commentFrame
@@ -34,20 +36,23 @@ class AISingleCommentViewController : UIViewController {
         self.view.addSubview(commentView)
         commentView.delegate = self
         
-        initTestData() // 这里先打开，否则crash
+        //initTestData() // 这里先打开，否则crash
     }
     
     private func initTestData() {
         inputServiceId = 1440135524953
         inputOrderId = 1440135524953
         commentOrder = AIOrderListItemModel()
-        commentOrder.service_id = inputServiceId
-        commentOrder.order_id = inputOrderId
+        commentOrder?.service_id = inputServiceId
+        commentOrder?.order_id = inputOrderId
+    }
+    @IBAction func back(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func submitAction(sender: AnyObject) {
         view.showProgressViewLoading()
-        commentManager.submitComments(commentOrder.service_id!, tags: nil, commentText: commentView.textField.text, rate: "\(commentView.starRateView.scorePercent)",  success: submitSuccess, fail: loadFail)
+        commentManager.submitComments(commentOrder!.service_id!, tags: nil, commentText: commentView.textField.text, rate: "\(commentView.starRateView.scorePercent)",  success: submitSuccess, fail: loadFail)
     }
     
     @IBAction func share(sender: AnyObject) {
@@ -82,13 +87,22 @@ class AISingleCommentViewController : UIViewController {
         commentManager = AIHttpServiceCommentManager()
         commentManager.getCommentTags(1234, success: loadSeccess, fail: loadFail)
         
-        if commentOrder.provider_portrait_url != nil {
-            commentView.avatar.setURL(NSURL(string: commentOrder.provider_portrait_url!), placeholderImage:UIImage(named: "Placeholder"))
+        if commentOrder == nil {
+            initTestData()
+            SCLAlertView().showError("订单数据为空", subTitle: "错误",  duration: 2)
         }
         
-        if commentOrder.service_name != nil {
-            commentView.title.text = commentOrder.service_name!
+        if commentOrder != nil {
+            if commentOrder!.provider_portrait_url != nil {
+                commentView.avatar.setURL(NSURL(string: commentOrder!.provider_portrait_url!), placeholderImage:UIImage(named: "Placeholder"))
+            }
+            
+            if commentOrder!.service_name != nil {
+                commentView.title.text = commentOrder!.service_name!
+            }
         }
+        
+        
 
     }
     
@@ -102,7 +116,7 @@ class AISingleCommentViewController : UIViewController {
         view.hideProgressViewLoading()
    //     SCLAlertView().showSuccess("提交成功", subTitle: "成功", closeButtonTitle: nil, duration: 2)
         
-        AIOrderRequester().updateOrderStatus(commentOrder.order_id!, orderStatus: OrderStatus.Finished.rawValue, completion: { (resultCode) -> Void in
+        AIOrderRequester().updateOrderStatus(commentOrder!.order_id!, orderStatus: OrderStatus.Finished.rawValue, completion: { (resultCode) -> Void in
             
             }
         )
