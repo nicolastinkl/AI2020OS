@@ -90,7 +90,9 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
                     self.tableView.reloadData()
 
                 }else{
+                    self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView()
+                    
                 }
                 
                 

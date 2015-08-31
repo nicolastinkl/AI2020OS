@@ -175,6 +175,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
                     self.tableView.showErrorView("没有数据")
                 }else{
                     self.tableView.showErrorView()
+                    self.tableView.hideProgressViewLoading()
                 }
             })
         }
