@@ -66,6 +66,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Call back
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        searchTextField.resignFirstResponder()
         search()
         return true
     }
@@ -162,7 +163,7 @@ class AISearchServiceViewController: UIViewController, UITextFieldDelegate {
             self.showViewController(viewController, sender: self)
             //presentViewController(viewController, animated: true, completion: nil)
         } else {
-            UIAlertView(title: "提示", message: "服务查询失败", delegate: nil, cancelButtonTitle: "关闭").show()
+            UIAlertView(title: "提示", message: "没有相关数据", delegate: nil, cancelButtonTitle: "关闭").show()
         }
     }
     
