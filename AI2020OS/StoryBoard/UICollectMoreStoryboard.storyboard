@@ -1313,7 +1313,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="gMp-mY-f82" kind="show" identifier="SeeDetails" id="6Kg-6t-Y7C"/>
+                                    <action selector="popToRootView:" destination="Y7p-w8-psc" eventType="touchUpInside" id="wcB-Au-ego"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgc-Ig-vJW">

@@ -123,7 +123,9 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     
     //retry
     func retryRequest() {
-        requestMovieDetails() 
+        requestMovieDetails()
+        
+        
     }
     
     func requestMovieDetails()
@@ -150,10 +152,8 @@ class AIServiceDetailsViewCotnroller: UIViewController,AINetworkLoadingViewDeleg
     }
     
     func fillViews(){
-        Async.userInteractive(after: 1) { () -> Void in
-            self.view.hideProgressViewLoading()
-        }
         
+        self.view.hideProgressViewLoading()
         self.detailsPageView.navBarView = self.navigationBarView
         //self.detailsPageView.tableView.tableFooterView = AIOrderBuyView.currentView()
         self.titleLabel.text = self.movieDetailsResponse?.service_name
