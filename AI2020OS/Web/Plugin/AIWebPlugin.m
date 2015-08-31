@@ -36,6 +36,7 @@
 - (void)shelfBackAction:(CDVInvokedUrlCommand*)command
 {
     [[AIOGlobalStorage defaultStorage].shelfNavigationController popViewControllerAnimated:YES];
+    [AIOGlobalStorage defaultStorage].shelfNavigationController = nil;
 }
 
 
@@ -64,10 +65,17 @@
 
 - (void)uploadShelf:(CDVInvokedUrlCommand*)command
 {
+    CDVPluginResult* pluginResult = nil;
     NSInteger aad = [[NSUserDefaults standardUserDefaults] integerForKey:@"accessUserIDKey"];
-    NSString *uid = [NSString stringWithFormat:@"%ld", aad];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:uid];
+    if (aad == 0) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"参数获取失败!"];
+    }
+    else
+    {
+        NSString *uid = [NSString stringWithFormat:@"%ld", aad];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:uid];
+    }
     
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }

@@ -197,6 +197,17 @@ class AIComponentChoseViewController: UIViewController {
         // Step 2: 处理参数拼接
         let sParams = self.selectedParams
         
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as AIOrderSubmitViewController
+        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        viewController.serviceId = self.movieDetailsResponse?.service_id ?? 0
+        viewController.selectedParams = sParams
+        viewController.titleString = self.movieDetailsResponse?.service_name ?? ""        
+        self.presentViewController(viewController, animated: true, completion: nil)
+        
+
+         
+        
         if self.movieDetailsResponse?.service_param_list?.count == sParams.allKeys.count && sParams.allKeys.count  > 0 {
             
             let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIOrderSubmitViewController) as AIOrderSubmitViewController
@@ -212,6 +223,14 @@ class AIComponentChoseViewController: UIViewController {
             UIAlertView(title: "提示", message: "请选择完参数再次提交订单", delegate: nil, cancelButtonTitle: "关闭").show()
             
             
+        }
+
+        
+        // Step 3: 发送通知
+        
+        if let pid = movieDetailsResponse?.provider_id {
+            var notification = [kAPNS_Alert : "您有一个新的订单,请查收!", kAPNS_ProviderID : pid];
+            AIPushNotificationHandler.pushRemoteNotification(notification)
         }
         
     }

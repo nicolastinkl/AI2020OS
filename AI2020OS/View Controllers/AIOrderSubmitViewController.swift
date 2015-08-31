@@ -19,6 +19,7 @@ class AIOrderSubmitViewController: UIViewController {
     var serviceId:Int?
     
     var selectedParams:NSMutableDictionary?
+    var titleString:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,10 @@ class AIOrderSubmitViewController: UIViewController {
         lineLayer.backgroundColor = color
         lineLayer.frame = CGRectMake(0, titleLabel.height+8, titleLabel.width, 0.5)
         titleLabel.layer.addSublayer(lineLayer)
-        
+        if let ti = titleString {
+            label_title.text =  ti
+        }
+
     }
     
     @IBAction func buyAction(sender: AnyObject) {
