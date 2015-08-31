@@ -15,3 +15,8 @@
 @implementation OrderNumberModel
 
 @end
+
+@implementation OrderSelectedParamModel
+
+
+@end

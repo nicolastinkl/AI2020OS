@@ -18,12 +18,11 @@ class AICustomerOrderDetailViewController: UIViewController {
     @IBOutlet weak var serviceAddr: UILabel!
     @IBOutlet weak var serviceTimeDuration: UILabel!
     @IBOutlet weak var orderName: UILabel!
-    
     @IBOutlet weak var orderNumber: UILabel!
     @IBOutlet weak var orderCreateTime: UILabel!
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var serviceDesc: UILabel!
-    
+    @IBOutlet weak var otherParams: UILabel!
     @IBOutlet weak var serviceIntroImage: AIImageView!
     @IBOutlet weak var servicePrice: UILabel!
     
@@ -113,6 +112,7 @@ class AICustomerOrderDetailViewController: UIViewController {
         orderName.text = "\(serviceNameValue) \(orderPriceValue)"
         orderCreateTime.text = orderCreateTimeValue
         serviceTimeDuration.text = serviceTimeDurationValue
+        otherParams.text = buildOrderOtherParamData(orderDetailModel)
     }
     
     func bindServiceData(serviceDetailModel : AIServiceDetailModel){
@@ -120,6 +120,17 @@ class AICustomerOrderDetailViewController: UIViewController {
         servicePrice.text = serviceDetailModel.service_price ?? "0"
         serviceName.text = serviceDetailModel.service_name ?? "no name"
         serviceDesc.text = serviceDetailModel.service_intro ?? ""
+    }
+    
+    func buildOrderOtherParamData(orderDetailModel : OrderDetailModel) -> String{
+        var paramString = ""
+        let charList = orderDetailModel.char_list as NSArray ?? NSArray()
+        for var i=0 ;i < charList.count ; ++i {
+            let selectedParam = charList.objectAtIndex(i) as OrderSelectedParamModel
+            paramString += "\(selectedParam.param_key) : \(selectedParam.param_value)  "            
+        }
+        
+        return paramString
     }
 }
 

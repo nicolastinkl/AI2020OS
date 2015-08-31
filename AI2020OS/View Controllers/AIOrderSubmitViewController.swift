@@ -43,8 +43,11 @@ class AIOrderSubmitViewController: UIViewController {
                 Async.userInitiated {
                     AIOrderRequester().submitOrder(self.serviceId  ?? 0, serviceParams: NSMutableArray(array: paramsPams!), completion: { (success) -> Void in
                         self.view.hideLoading()
-                        UIAlertView(title: "提示", message: "购买成功", delegate: nil, cancelButtonTitle: "关闭").show()
-                        //SCLAlertView().showSuccess("提交成功", subTitle: "提示", closeButtonTitle: "关闭", duration: 2)
+                        if success {
+                            UIAlertView(title: "提示", message: "购买成功", delegate: self, cancelButtonTitle: "关闭").show()
+                        }else{
+                            UIAlertView(title: "提示", message: "购买失败", delegate: nil, cancelButtonTitle: "关闭").show()
+                        }
                     })
                 }
             
@@ -57,6 +60,15 @@ class AIOrderSubmitViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+}
+
+extension AIOrderSubmitViewController:UIAlertViewDelegate{
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 0{
+            //cancel
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+    }
 }
 
 extension AIOrderSubmitViewController:UITableViewDataSource,UITableViewDelegate{

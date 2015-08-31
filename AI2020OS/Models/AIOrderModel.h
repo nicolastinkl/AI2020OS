@@ -8,6 +8,19 @@
 
 #import "JSONModel.h"
 
+
+@protocol OrderSelectedParamModel
+@end
+
+@interface OrderSelectedParamModel : JSONModel
+
+@property (nonatomic, strong) NSString<Optional> *param_key;
+@property (nonatomic, assign) NSInteger param_id;
+@property (nonatomic, strong) NSString<Optional> *param_value;
+
+@end
+
+
 @interface OrderDetailModel : JSONModel
 
 @property (nonatomic, strong) NSString<Optional> *order_create_time;
@@ -22,7 +35,7 @@
 @property (nonatomic, strong) NSString<Optional> *service_name;
 @property (nonatomic, strong) NSString<Optional> *service_time_duration;
 @property (nonatomic, strong) NSString<Optional> *service_type;
-
+@property (nonatomic, strong) NSArray<OrderSelectedParamModel, Optional> *char_list;
 
 
 @end
@@ -33,3 +46,4 @@
 @property (nonatomic, assign) NSInteger order_num;
 
 @end
+

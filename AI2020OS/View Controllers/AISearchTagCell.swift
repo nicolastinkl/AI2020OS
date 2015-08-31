@@ -32,7 +32,7 @@ class AISearchTagCell: UICollectionViewCell {
         super.init(frame: frame)
         label = UILabel(frame: self.contentView.bounds)
         label.opaque = false
-        label.textColor = UIColor.blackColor()
+        label.textColor = UIColor(hex: "26262a")
         label.textAlignment = .Center
         label.font = self.dynamicType.defaultFont()
         contentView.addSubview(label)
