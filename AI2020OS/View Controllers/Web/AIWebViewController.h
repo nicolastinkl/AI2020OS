@@ -15,4 +15,6 @@
 
 @property (nonatomic, assign) BOOL shouldShowDismissButton;
 
+@property (nonatomic, assign) BOOL shouldShowLoading;
+
 @end

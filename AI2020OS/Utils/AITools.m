@@ -99,4 +99,19 @@
     view.frame = frame;
 }
 
+
+#pragma mark - 将view从superView上移除
++ (void)removeView:(UIView *)view
+{
+    [view removeFromSuperview];
+    view = nil;
+}
+
+
+#pragma mark - 判断字符串是否为空字符串
++ (BOOL)isNilOrEmptyString:(NSString *)string
+{
+    return string.length == 0 || string == nil;
+}
+
 @end

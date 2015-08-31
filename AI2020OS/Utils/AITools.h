@@ -27,4 +27,13 @@
 
 + (void)resetOriginalX:(CGFloat)x forView:(UIView *)view;
 
+
+/*说明：将view从superView上移除
+ */
++ (void)removeView:(UIView *)view;
+
+/*说明：判断字符串是否为空字符串
+ */
++ (BOOL)isNilOrEmptyString:(NSString *)string;
+
 @end

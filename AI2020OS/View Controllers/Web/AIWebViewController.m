@@ -8,18 +8,40 @@
 
 #import "AIWebViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "GMDCircleLoader.h"
+#import "WKMacroUtils.h"
+
+@interface AICDWebViewController ()
+{
+    GMDCircleLoader *_loader;
+}
+
+@end
 
 @implementation AICDWebViewController
 
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.shouldShowLoading = YES;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.webView.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBarHidden = self.shouldHideNavigationBar;
     
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    
+    
     __weak typeof (self) weakSelf = self;
     self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
     
@@ -28,7 +50,7 @@
         self.navigationItem.leftBarButtonItem = button;
     }
     
-    
+
 }
 
 
@@ -99,13 +121,10 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    BOOL ret = NO;
-    if ([request.URL.scheme hasPrefix:@"PushNotification"]) {
-        [self parsePushNotification:request.URL.absoluteString];
-    }
-    else
-    {
-        ret = [super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+    BOOL ret = [super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+    
+    if (self.shouldShowLoading && ret) {
+        [self showLoadingMessage:@"正在加载..."];
     }
 
     return ret;
@@ -125,7 +144,29 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     NSLog(@"webViewDidFinishLoad");
+    
+    
+    [super webViewDidFinishLoad:webView];
+    
+    if (self.shouldShowLoading) {
+        [self dismissLoading];
+    }
 }
 
+
+
+#pragma mark - Member Method
+
+- (void)showLoadingMessage:(NSString *)message
+{
+    [self dismissLoading];
+    _loader = [GMDCircleLoader setOnView:self.tabBarController.view withTitle:message animated:YES];
+}
+
+- (void)dismissLoading
+{
+    [_loader stop];
+    UtilRemoveView(_loader);
+}
 
 @end

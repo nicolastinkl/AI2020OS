@@ -44,6 +44,8 @@
 		814B2BD61B8204C2003A10A5 /* AIMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD51B8204C2003A10A5 /* AIMessageViewController.m */; };
 		814B2BDA1B8204F2003A10A5 /* AIMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BD91B8204F2003A10A5 /* AIMessageModel.m */; };
 		814B2BDD1B820529003A10A5 /* AIMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B2BDC1B820529003A10A5 /* AIMessageCell.m */; };
+		816372551B9430E800E86E0D /* WKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 816372541B9430E800E86E0D /* WKBaseViewController.m */; };
+		8163725C1B94327A00E86E0D /* GMDCircleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8163725B1B94327A00E86E0D /* GMDCircleLoader.m */; };
 		817E15D31B7C8A2700C298BE /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 817E15CF1B7C8A2700C298BE /* config.xml */; };
 		817E15F31B7C8AB000C298BE /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E15F21B7C8AB000C298BE /* libCordova.a */; };
 		817E15FE1B7C91E000C298BE /* AIWebPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E15FD1B7C91E000C298BE /* AIWebPlugin.m */; };
@@ -496,6 +498,12 @@
 		814B2BD91B8204F2003A10A5 /* AIMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageModel.m; path = Message/AIMessageModel.m; sourceTree = "<group>"; };
 		814B2BDB1B820529003A10A5 /* AIMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMessageCell.h; path = Message/AIMessageCell.h; sourceTree = "<group>"; };
 		814B2BDC1B820529003A10A5 /* AIMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMessageCell.m; path = Message/AIMessageCell.m; sourceTree = "<group>"; };
+		816372531B9430E800E86E0D /* WKBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKBaseViewController.h; path = OCBase/WKBaseViewController.h; sourceTree = "<group>"; };
+		816372541B9430E800E86E0D /* WKBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKBaseViewController.m; path = OCBase/WKBaseViewController.m; sourceTree = "<group>"; };
+		816372571B9431A700E86E0D /* WKMacroConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMacroConstants.h; sourceTree = "<group>"; };
+		816372581B9431A700E86E0D /* WKMacroUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMacroUtils.h; sourceTree = "<group>"; };
+		8163725A1B94327A00E86E0D /* GMDCircleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMDCircleLoader.h; sourceTree = "<group>"; };
+		8163725B1B94327A00E86E0D /* GMDCircleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMDCircleLoader.m; sourceTree = "<group>"; };
 		817E15CF1B7C8A2700C298BE /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		817E15D81B7C8AB000C298BE /* CDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
 		817E15D91B7C8AB000C298BE /* CDVAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVAvailability.h; sourceTree = "<group>"; };
@@ -1183,6 +1191,34 @@
 			name = Message;
 			sourceTree = "<group>";
 		};
+		816372521B942F9000E86E0D /* OCBase */ = {
+			isa = PBXGroup;
+			children = (
+				816372531B9430E800E86E0D /* WKBaseViewController.h */,
+				816372541B9430E800E86E0D /* WKBaseViewController.m */,
+			);
+			name = OCBase;
+			sourceTree = "<group>";
+		};
+		816372561B9431A700E86E0D /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				816372571B9431A700E86E0D /* WKMacroConstants.h */,
+				816372581B9431A700E86E0D /* WKMacroUtils.h */,
+			);
+			name = Const;
+			path = AI2020OS/Const;
+			sourceTree = "<group>";
+		};
+		816372591B94327A00E86E0D /* GMDCircleLoader */ = {
+			isa = PBXGroup;
+			children = (
+				8163725A1B94327A00E86E0D /* GMDCircleLoader.h */,
+				8163725B1B94327A00E86E0D /* GMDCircleLoader.m */,
+			);
+			path = GMDCircleLoader;
+			sourceTree = "<group>";
+		};
 		817E15CE1B7C8A2700C298BE /* Web */ = {
 			isa = PBXGroup;
 			children = (
@@ -1746,6 +1782,7 @@
 		933ED3DB1AC8F90A00E4AADB = {
 			isa = PBXGroup;
 			children = (
+				816372561B9431A700E86E0D /* Const */,
 				81A06C711B8EC1A500AFB066 /* AIVideoCore */,
 				81CF5F7A1B86BA2500FBF6BA /* BundleRes */,
 				8198AB9B1B8183B30047E740 /* Network */,
@@ -1901,6 +1938,7 @@
 		933ED4111AC921BD00E4AADB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				816372521B942F9000E86E0D /* OCBase */,
 				81A06C971B8F2EFA00AFB066 /* WeiboShare */,
 				84DF7EC61B8EA2540093C499 /* Settings */,
 				84D332451B8B4A7100BB1318 /* CollectView */,
@@ -1997,6 +2035,7 @@
 		933ED4181AC9221100E4AADB /* Venders */ = {
 			isa = PBXGroup;
 			children = (
+				816372591B94327A00E86E0D /* GMDCircleLoader */,
 				81A06CA61B8F2F2100AFB066 /* libWeiboSDK */,
 				812388CD1B85CCB900CEA574 /* CBStoreHouseRefreshControl */,
 				812388B11B8428BC00CEA574 /* WMPageController */,
@@ -2886,6 +2925,7 @@
 				84DBFF641B26D71F00F7FED6 /* AIFavorServicesManager.swift in Sources */,
 				934987181B0DA9B4003086D1 /* AIHomeViewStyleTitleAndContentView.swift in Sources */,
 				840FDAB21B85AF9500CE3DF9 /* AICardCell.m in Sources */,
+				816372551B9430E800E86E0D /* WKBaseViewController.m in Sources */,
 				938A398C1B20255300E3A5BF /* AITabelViewMenuViewCell.swift in Sources */,
 				845DC1E21B8C03650044AE86 /* BubbleView.m in Sources */,
 				93F6E14D1ADBC67300CE4062 /* AISearchMenuTableViewController.swift in Sources */,
@@ -2999,6 +3039,7 @@
 				934987101B0DA354003086D1 /* AIHomeViewStyleMultiepleView.swift in Sources */,
 				845DC1E31B8C03650044AE86 /* CurveModel.m in Sources */,
 				84DF3BE31B7DCEEB00E55DD7 /* AICommentTagViewCell.swift in Sources */,
+				8163725C1B94327A00E86E0D /* GMDCircleLoader.m in Sources */,
 				9373010B1ACBEAE300CA17BC /* UIColorUtils.swift in Sources */,
 				933ED3EA1AC8F90A00E4AADB /* AppDelegate.swift in Sources */,
 				84ACACB51B871305000258F9 /* AIServiceCommentManagerImp.swift in Sources */,
