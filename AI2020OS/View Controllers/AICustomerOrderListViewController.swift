@@ -35,7 +35,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         super.viewDidLoad()
         
        
-        self.scrollView.contentSize = CGSizeMake(450, 0)
+        self.scrollView.contentSize = CGSizeMake(650, 0)
         
         let color = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
         let lineLayer =  CALayer()
@@ -65,7 +65,8 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
     }
     
     // MARK: - utils
-    func retryNetworkingAction(){
+    override func retryNetworkingAction(){
+        super.retryNetworkingAction()
         tableView.showProgressViewLoading()
         requestOrderNumber() 
     }
@@ -127,7 +128,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         //refresh data
         self.orderStatus = target.associatedName?.toInt() ?? 0
 
-        requestOrderList()
+        retryNetworkingAction()
     }
     
     func requestOrderNumber(){
@@ -135,7 +136,7 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
         //后台请求数据
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
-            AIOrderRequester().queryOrderNumber(1, orderStatus: self.orderStatus, completion: {
+            AIOrderRequester().queryOrderNumber(1, orderStatus: 0, completion: {
                 (data,error) ->() in
                 if data.count > 0 {
                     // Init buttons.
@@ -168,15 +169,20 @@ class AICustomerOrderListViewController: AIBaseOrderListViewController {
                     self.tableView.reloadData()
                     
                 }else if data.count == 0{
+                    self.orderList.removeAll(keepCapacity: true)
+                    self.tableView.reloadData()
                     self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView("没有数据")
                 }else{
                     self.tableView.showErrorView()
+                    self.tableView.hideProgressViewLoading()
                 }
             })
         }
 
     }
+    
+    
 }
 
 //MARK: - extension UITableView
@@ -219,9 +225,9 @@ extension AICustomerOrderListViewController:UITableViewDelegate,UITableViewDataS
         if let buttonView = cell.viewWithTag(180) {
             buildDynaOperButton(orderListModel.order_state ?? 0, orderType: "", buttonView: buttonView,indexNumber : indexPath.row)
         }
-        if let customerIconImg = cell.viewWithTag(140) as? AIImageView{
-            customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url ?? "http://img1.gtimg.com/kid/pics/hv1/47/231/1905/123931577.jpg"), placeholderImage: UIImage(named: "Placeholder"))
-        }
+        //request userName and userIcon
+        requestUserInfo(orderListModel.provider_id ?? 0,cell: cell)
+        
         cell.addBottomBorderLine()
         return cell
     }

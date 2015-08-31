@@ -98,6 +98,11 @@ struct AIOrderListItemModel : JSONJoy{
     var provider_portrait_url : String?
     var service_time_duration : String?
     var order_price : String?
+    var customer_id : Int?
+    
+    var provider_name : String?
+    var customer_portrait_url : String?
+    var customer_name : String?
     
     init(){
     
@@ -116,6 +121,7 @@ struct AIOrderListItemModel : JSONJoy{
         provider_portrait_url = decoder["provider_portrait_url"].string
         service_time_duration = decoder["service_time_duration"].string
         order_price = decoder["order_price"].string
+        customer_id = decoder["customer_id"].integer
     }
 }
 

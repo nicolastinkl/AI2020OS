@@ -21,7 +21,7 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
     // MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.scrollView.contentSize = CGSizeMake(450, 0)
+        self.scrollView.contentSize = CGSizeMake(650, 0)
         
         let color = UIColor(rgba: AIApplication.AIColor.MainSystemBlueColor).CGColor
         let lineLayer =  CALayer()
@@ -64,7 +64,8 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         
     }
     
-    func retryNetworkingAction(){
+    override func retryNetworkingAction(){
+        super.retryNetworkingAction()
         tableView.showProgressViewLoading()
         requestOrderNumber() 
     }
@@ -85,8 +86,13 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
                 }else if data.count == 0{
                     self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView("没有数据")
+                    self.orderList.removeAll(keepCapacity: true)
+                    self.tableView.reloadData()
+
                 }else{
+                    self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView()
+                    
                 }
                 
                 
@@ -98,7 +104,7 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         //后台请求数据
         Async.background(){
             // Do any additional setup after loading the view, typically from a nib.
-            AIOrderRequester().queryOrderNumber(2, orderStatus: self.orderStatus, completion: {
+            AIOrderRequester().queryOrderNumber(2, orderStatus: 0, completion: {
                 (data,error) ->() in
                 
                 if data.count > 0 {
@@ -108,6 +114,7 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
                 }else if data.count == 0{
                     self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView("没有数据")
+                    
                 }else{
                     self.tableView.hideProgressViewLoading()
                     self.tableView.showErrorView()
@@ -168,7 +175,7 @@ class AIProviderOrderListViewController: AIBaseOrderListViewController {
         //refresh data
         self.orderStatus = target.associatedName?.toInt() ?? 0
         
-        requestOrderList()
+        retryNetworkingAction()
     }
 
 }
@@ -212,10 +219,9 @@ extension AIProviderOrderListViewController:UITableViewDelegate,UITableViewDataS
         if let buttonView = cell.viewWithTag(180) {
             buildDynaOperButton(orderListModel.order_state ?? 0, orderType: "", buttonView: buttonView,indexNumber : indexPath.row)
         }
-        if let customerIconImg = cell.viewWithTag(140) as? AIImageView{
-            customerIconImg.setURL(NSURL(string: orderListModel.provider_portrait_url! ?? "http://img1.gtimg.com/kid/pics/hv1/47/231/1905/123931577.jpg"), placeholderImage: UIImage(named: "Placeholder"))
-        }
-        cell.clipsToBounds = true
+        //request userName and userIcon
+        requestUserInfo(orderListModel.customer_id ?? 0,cell: cell)
+        //cell.clipsToBounds = true
         cell.addBottomBorderLine()
         return cell
     }
