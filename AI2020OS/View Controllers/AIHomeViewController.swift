@@ -197,6 +197,11 @@ class AIHomeViewController: UITableViewController {
         }*/
     }
 
+    /**
+    服务详情跳转查看
+    
+    :param: sender button self
+    */
     func targetForServicesAction(sender:AnyObject){
         let imageview = sender as AIImageView
         let controller:AIServiceDetailsViewCotnroller = self.storyboard?.instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewIdentifiers.AIServiceDetailsViewCotnroller) as AIServiceDetailsViewCotnroller
