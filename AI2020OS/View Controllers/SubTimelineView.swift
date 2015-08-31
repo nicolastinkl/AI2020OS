@@ -84,8 +84,8 @@ class SubTimelineView: UIView {
                         for var index = 0; index < array.count; ++index {
                             let task = array[index]
                             let currentTimeStamp = task.currentTimeStamp ?? 0
-                            let curTime = (Double(currentTimeStamp) ?? 0.0) + Double(noteModel.order_create_time ?? 0.0)/1000
-                            let currentTime = curTime.dateStringFromTimestamp()
+                            let curTime = (Double(currentTimeStamp) ?? 0.0)/1000 + Double(noteModel.order_create_time ?? 0.0)
+                            let currentTime = "\(curTime)".timestampStringToDateString()
                             let title = task.title ?? ""
                             let status = self.compareDateFromNow(curTime)
                             

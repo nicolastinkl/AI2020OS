@@ -106,7 +106,7 @@ class AICustomerOrderDetailViewController: UIViewController {
         let orderPriceValue = orderDetailModel.order_price ?? "0"
         let orderCreateTimeValue = orderDetailModel.order_create_time ?? "2015-1-1"
         var serviceTimeDurationValue = orderDetailModel.service_time_duration ?? "0"
-        serviceTimeDurationValue = serviceTimeDurationValue.imestampStringToDateString()
+        serviceTimeDurationValue = serviceTimeDurationValue.timestampStringToDateString()
         
         orderNumber.text = orderDetailModel.order_number ?? "0"
         orderName.text = "\(serviceNameValue) \(orderPriceValue)"

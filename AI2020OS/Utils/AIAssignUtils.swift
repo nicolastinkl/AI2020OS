@@ -39,7 +39,7 @@ extension String{
     }
      
     //TODO 以后还需判断是不是数字类型 add by liux
-    func imestampStringToDateString() -> String{
+    func timestampStringToDateString() -> String{
         var strTime = self
         let doubleTime = (strTime as NSString).doubleValue
         let date = NSDate(timeIntervalSince1970: doubleTime)
