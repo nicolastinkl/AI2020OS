@@ -12,15 +12,19 @@ import SCLAlertView
 
 class AIOrderSubmitViewController: UIViewController {
     
+    //MARK: Variables
     @IBOutlet weak var label_title: UILabel!
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
 
+    //MARK: Variables
     var serviceId:Int?
     
     var selectedParams:NSMutableDictionary?
+    
     var titleString:String?
     
+    //MARK: life cricly
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,8 +73,8 @@ class AIOrderSubmitViewController: UIViewController {
 extension AIOrderSubmitViewController:UIAlertViewDelegate{
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 0{
-            //cancel
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            // close all the viewcontroller to root Viewcontroller
+            //self.dismissPopToRoot()
         }
     }
 }
