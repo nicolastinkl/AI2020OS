@@ -171,7 +171,7 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
             var  formatter = NSDateFormatter ()
             formatter.dateFormat = "HH:MM"
             
-            let model = currnetDicValue.expendData?.first as AIOrderTaskListModel?
+            /*let model = currnetDicValue.expendData?.first as AIOrderTaskListModel?
             if let m = model {
                 avCell?.titleLabel?.text = m.title ?? ""
                 avCell?.contentLabel?.text = m.content ?? ""
@@ -182,8 +182,11 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
                 avCell?.titleLabel?.text = currnetDicValue.service_name ?? ""
                 avCell?.contentLabel?.text = ""
                 avCell?.timeLabel?.text = ""
-            }
+            }*/
             
+            avCell?.titleLabel?.text = currnetDicValue.service_name ?? ""
+            avCell?.contentLabel?.text = ""
+            avCell?.timeLabel?.text = formatter.stringFromDate(NSDate(timeIntervalSince1970: 0))
             
             for cView in avCell?.contentFillView.subviews as [UIView] {
                 cView.removeFromSuperview()
@@ -215,7 +218,6 @@ extension AITimelineViewController: UITableViewDataSource,UITableViewDelegate{
                     
                 }
             }
-            
             
             return avCell!
             
