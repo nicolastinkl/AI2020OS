@@ -93,13 +93,11 @@ class AILoginViewController: UIViewController {
             
             AVUser.logInWithMobilePhoneNumberInBackground(self.phoneTextFlied.text, password: self.passwordTextFlied.text) { (user, error) -> Void in
                 self.view.hideLoading()
-                func loginFaile(errorDes:NSError){
-//                    let err = errorDes.description
+                func loginFaile(errorDes:NSError){ 
                     if let dicError = errorDes.userInfo {
                         let err = dicError["error"] as String?
                         SCLAlertView().showError("登录失败", subTitle: err ?? "", closeButtonTitle: "关闭", duration: 5)
                     }
-                    
                     
                 }
                 if let u = user{
