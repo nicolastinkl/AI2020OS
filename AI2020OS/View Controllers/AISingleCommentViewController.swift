@@ -28,7 +28,9 @@ class AISingleCommentViewController : UIViewController {
         let btnFrame = confirmBtn.frame
         let backBtnFrame = backBtn.frame
         
-        var commentFrame = CGRect(x: 0, y: backBtn.bottom + 10, width: windowFrame.width, height: windowFrame.height - btnFrame.height)
+        let margin: CGFloat = 10
+        
+        var commentFrame = CGRect(x: 0, y: backBtn.bottom + margin, width: windowFrame.width, height: confirmBtn.top - backBtn.bottom - margin)
         
         commentView = AISingleCommentView.instance(self)
         commentView.frame = commentFrame
@@ -93,7 +95,7 @@ class AISingleCommentViewController : UIViewController {
         }
         
         if commentOrder != nil {
-            if commentOrder!.provider_portrait_url != nil {
+            if commentOrder!.provider_portrait_url != nil && commentOrder!.provider_portrait_url! != "" {
                 commentView.avatar.setURL(NSURL(string: commentOrder!.provider_portrait_url!), placeholderImage:UIImage(named: "Placeholder"))
             }
             
