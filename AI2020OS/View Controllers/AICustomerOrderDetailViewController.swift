@@ -124,10 +124,12 @@ class AICustomerOrderDetailViewController: UIViewController {
     
     func buildOrderOtherParamData(orderDetailModel : OrderDetailModel) -> String{
         var paramString = ""
-        let charList = orderDetailModel.char_list as NSArray ?? NSArray()
-        for var i=0 ;i < charList.count ; ++i {
-            let selectedParam = charList.objectAtIndex(i) as OrderSelectedParamModel
-            paramString += "\(selectedParam.param_key):\(selectedParam.param_value)    "            
+        if orderDetailModel.char_list != nil {
+            let charList = orderDetailModel.char_list as NSArray ?? NSArray()
+            for var i=0 ;i < charList.count ; ++i {
+                let selectedParam = charList.objectAtIndex(i) as OrderSelectedParamModel
+                paramString += "\(selectedParam.param_key):\(selectedParam.param_value)    "
+            }
         }
         
         return paramString
