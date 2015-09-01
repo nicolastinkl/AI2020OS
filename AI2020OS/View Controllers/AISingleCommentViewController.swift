@@ -17,6 +17,7 @@ class AISingleCommentViewController : UIViewController {
     var commentOrder: AIOrderListItemModel?
     var commentView: AISingleCommentView!
     var commentManager: AIServiceCommentManager!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var confirmBtn: UIButton!
     @IBOutlet weak var backBtn: UIButton!
@@ -30,13 +31,16 @@ class AISingleCommentViewController : UIViewController {
         
         let margin: CGFloat = 10
         
-        var commentFrame = CGRect(x: 0, y: backBtn.bottom + margin, width: windowFrame.width, height: confirmBtn.top - backBtn.bottom - margin)
+//        var commentFrame = CGRect(x: 0, y: backBtn.bottom + margin, width: windowFrame.width, height: confirmBtn.top - backBtn.bottom - margin)
         
         commentView = AISingleCommentView.instance(self)
-        commentView.frame = commentFrame
+    //    commentView.frame = commentFrame
  
-        self.view.addSubview(commentView)
+     //   self.view.addSubview(commentView)
+        scrollView.addSubview(commentView)
         commentView.delegate = self
+        
+        scrollView.contentSize =  CGSizeMake(self.view.width, commentView.height + 100)
         
         //initTestData() // 这里先打开，否则crash
     }
