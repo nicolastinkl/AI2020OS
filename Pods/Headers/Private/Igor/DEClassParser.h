@@ -1,0 +1,1 @@
+../../../Igor/igor/parser/DEClassParser.h

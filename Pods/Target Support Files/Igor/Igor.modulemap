@@ -1,0 +1,6 @@
+framework module Igor {
+  umbrella header "Igor-umbrella.h"
+
+  export *
+  module * { export * }
+}
