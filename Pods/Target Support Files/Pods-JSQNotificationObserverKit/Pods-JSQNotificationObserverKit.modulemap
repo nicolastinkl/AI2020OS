@@ -1,6 +1,0 @@
-framework module JSQNotificationObserverKit {
-  umbrella header "Pods-JSQNotificationObserverKit-umbrella.h"
-
-  export *
-  module * { export * }
-}
