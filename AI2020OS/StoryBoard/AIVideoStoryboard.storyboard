@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dK0-Mv-52H">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Video Recorder View Controller-->
+        <scene sceneID="vjn-vP-aQE">
+            <objects>
+                <viewController storyboardIdentifier="AIVideoRecorderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dK0-Mv-52H" customClass="AIVideoRecorderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rCo-Wf-JPd"/>
+                        <viewControllerLayoutGuide type="bottom" id="obm-9u-iYx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZlR-yY-fcm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgE-6Y-yah">
+                                <rect key="frame" x="0.0" y="20" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mgE-6Y-yah" firstAttribute="leading" secondItem="ZlR-yY-fcm" secondAttribute="leadingMargin" constant="-16" id="6KL-Jj-pYJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mgE-6Y-yah" secondAttribute="trailing" constant="-16" id="6a5-Vd-thN"/>
+                            <constraint firstItem="obm-9u-iYx" firstAttribute="top" secondItem="mgE-6Y-yah" secondAttribute="bottom" constant="-20" id="gzM-dN-28x"/>
+                            <constraint firstItem="mgE-6Y-yah" firstAttribute="top" secondItem="rCo-Wf-JPd" secondAttribute="bottom" id="x2n-eJ-muP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fJI-WY-sYJ"/>
+                    <connections>
+                        <outlet property="preview" destination="mgE-6Y-yah" id="3PH-9w-59z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1y2-Fz-WbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="654" y="376"/>
+        </scene>
+    </scenes>
+</document>

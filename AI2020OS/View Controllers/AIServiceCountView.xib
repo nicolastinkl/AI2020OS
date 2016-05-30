@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIServiceCountView" customModule="AI2020OS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="97"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="BAS-qt-t75">
+                    <rect key="frame" x="38" y="44" width="524" height="31"/>
+                    <color key="minimumTrackTintColor" red="0.01176470588" green="0.78039215689999997" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="viewChange:" destination="iN0-l3-epB" eventType="valueChanged" id="5JF-X3-eVV"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0I-tq-9hS">
+                    <rect key="frame" x="233" y="8" width="135" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="Y6X-CZ-giq"/>
+                        <constraint firstAttribute="width" constant="135" id="tLe-Sl-zAz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" red="0.01176470588" green="0.78039215689999997" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="BAS-qt-t75" secondAttribute="trailing" constant="40" id="1k0-uG-bzs"/>
+                <constraint firstAttribute="centerY" secondItem="x0I-tq-9hS" secondAttribute="centerY" id="D85-Sn-KPs"/>
+                <constraint firstItem="BAS-qt-t75" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="RrY-i1-wUR"/>
+                <constraint firstAttribute="centerY" secondItem="BAS-qt-t75" secondAttribute="centerY" constant="-10" id="Smz-FI-kAI"/>
+                <constraint firstItem="BAS-qt-t75" firstAttribute="top" secondItem="x0I-tq-9hS" secondAttribute="bottom" constant="3" id="bjs-gR-U7O"/>
+                <constraint firstAttribute="centerX" secondItem="x0I-tq-9hS" secondAttribute="centerX" id="fY8-vc-yZx"/>
+                <constraint firstAttribute="centerX" secondItem="x0I-tq-9hS" secondAttribute="centerX" id="lQ2-dq-Yb8"/>
+                <constraint firstItem="x0I-tq-9hS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="v2O-h9-g5z"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Smz-FI-kAI"/>
+                    <exclude reference="D85-Sn-KPs"/>
+                    <exclude reference="lQ2-dq-Yb8"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="silderView" destination="BAS-qt-t75" id="xat-3E-iSd"/>
+                <outlet property="valueLabel" destination="x0I-tq-9hS" id="f9y-4L-Z8Q"/>
+            </connections>
+            <point key="canvasLocation" x="629" y="395.5"/>
+        </view>
+    </objects>
+</document>

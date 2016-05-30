@@ -1,0 +1,300 @@
+//
+//  ViewController.swift
+//  表格动画手势示例
+//
+//  Created by Semper Idem on 14-10-22.
+//  Copyright (c) 2014年 星夜暮晨. All rights reserved.
+//
+
+import UIKit
+import MessageUI
+
+//传值用的delegate
+@objc protocol AIFilterViewDelegate{
+    func passChoosedValue(value:String)
+}
+
+class AITagFilterViewController: UIViewController,SectionHeaderViewDelegate,UITableViewDataSource,UITableViewDelegate{
+    // MARK: swift source
+    let SectionHeaderViewIdentifier = "SectionHeaderViewIdentifier"
+    var plays:NSArray!
+    var sectionInfoArray:NSMutableArray!
+    var pinchedIndexPath:NSIndexPath!
+    var opensectionindex:Int!
+    var initialPinchHeight:CGFloat!
+    
+    var playe:NSMutableArray?
+    //筛选值的delegate变量，初始化这个controller的时候要传进来
+    var delegate:AIFilterViewDelegate?
+    //筛选值
+    var searchContent = ""
+    
+    // MARK: variables
+    @IBOutlet weak var contentSearchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    var sectionHeaderView:SectionHeaderView!
+    
+    //当缩放手势同时改变了所有单元格高度时使用uniformRowHeight
+    var uniformRowHeight: Int!
+    
+    let DefaultRowHeight = 48
+    let HeaderHeight = 48
+    let QuoteCellIdentifier = "tagFilterTableCell"
+    
+    // MARK: life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        // 为表视图添加缩放手势识别
+//        var pinchRecognizer = UIPinchGestureRecognizer(target: self, action:"handlePinch:")
+//        self.tableView.addGestureRecognizer(pinchRecognizer)
+        
+        // 设置Header的高度
+        self.tableView.sectionHeaderHeight = CGFloat(HeaderHeight)
+        
+        // 分节信息数组在viewWillUnload方法中将被销毁，因此在这里设置Header的默认高度是可行的。如果您想要保留分节信息等内容，可以在指定初始化器当中设置初始值。
+        
+        self.uniformRowHeight = DefaultRowHeight
+        self.opensectionindex = NSNotFound
+        
+        let sectionHeaderNib: UINib = UINib(nibName: "SectionHeaderView", bundle: nil)
+
+        self.tableView.registerNib(sectionHeaderNib, forHeaderFooterViewReuseIdentifier: SectionHeaderViewIdentifier)
+
+        plays = played()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 检查分节信息数组是否已被创建，如果其已创建，则再检查节的数量是否仍然匹配当前节的数量。通常情况下，您需要保持分节信息与单元格、分节格同步u过您要允许在表视图中编辑信息，您需要在编辑操作中适当更新分节信息。
+        
+        if self.sectionInfoArray == nil || self.sectionInfoArray.count != self.numberOfSectionsInTableView(self.tableView) {
+            
+            //对于每个场次来说，需要为每个单元格设立一个一致的、包含默认高度的SectionInfo对象。
+            var infoArray = NSMutableArray()
+            
+            for play in self.plays {
+                var dic = (play as Play).quotations
+                var sectionInfo = SectionInfo()
+                sectionInfo.play = play as Play
+                sectionInfo.open = false
+                
+                var defaultRowHeight = DefaultRowHeight
+                var countOfQuotations = sectionInfo.play.quotations.count
+                for (var i = 0; i < countOfQuotations; i++) {
+                    sectionInfo.insertObject(defaultRowHeight, inRowHeightsAtIndex: i)
+                }
+                
+                infoArray.addObject(sectionInfo)
+            }
+            
+            self.sectionInfoArray  = infoArray
+        }
+        
+        
+    }
+    
+    // MARK: TableView dataSource delegate
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // 这个方法返回 tableview 有多少个section
+        return self.plays.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // 这个方法返回对应的section有多少个元素，也就是多少行
+        var sectionInfo: SectionInfo = self.sectionInfoArray[section] as SectionInfo
+        var numStoriesInSection = sectionInfo.play.quotations.count
+        var sectionOpen = sectionInfo.open!
+        
+        return sectionOpen ? numStoriesInSection : 0
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // 返回指定的row 的cell。这个地方是比较关键的地方，一般在这个地方来定制各种个性化的 cell元素。这里只是使用最简单最基本的cell 类型。其中有一个主标题 cell.textLabel 还有一个副标题cell.detailTextLabel,  还有一个 image在最前头 叫cell.imageView.  还可以设置右边的图标，通过cell.accessoryType 可以设置是饱满的向右的蓝色箭头，还是单薄的向右箭头，还是勾勾标记。
+        
+        
+        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
+        
+        var play:Play = (self.sectionInfoArray[indexPath.section] as SectionInfo).play
+        let quotation = play.quotations[indexPath.row] as NSDictionary
+        cell.textLabel.text = quotation["tagName"] as? String
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // 返回指定的 section header 的view，如果没有，这个函数可以不返回view
+        var sectionHeaderView: SectionHeaderView = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier(SectionHeaderViewIdentifier) as SectionHeaderView
+        var sectionInfo: SectionInfo = self.sectionInfoArray[section] as SectionInfo
+        sectionInfo.headerView = sectionHeaderView
+        
+        sectionHeaderView.titleLabel.text = sectionInfo.play.name
+        sectionHeaderView.section = section
+        sectionHeaderView.delegate = self
+        
+        return sectionHeaderView
+    }
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        // 这个方法返回指定的 row 的高度
+        var sectionInfo: SectionInfo = self.sectionInfoArray[indexPath.section] as SectionInfo
+
+        return CGFloat(sectionInfo.objectInRowHeightsAtIndex(indexPath.row) as NSNumber)
+        //又或者，返回单元格的行高
+    }
+    
+    //点击事件
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        var play:Play = (self.sectionInfoArray[indexPath.section] as SectionInfo).play
+        let quotation = play.quotations[indexPath.row] as NSDictionary
+        var userInfo:Dictionary<String,String!> = ["tagName":quotation["tagName"] as? String,"filterType":play.filterType]
+        //发送消息通知
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("filterFlagChoose", object: nil, userInfo:  userInfo)
+        
+        self.findHamburguerViewController()?.hideMenuViewControllerWithCompletion({ (Void) -> Void in
+            self.delegate?.passChoosedValue(userInfo["tagName"]!)
+            return
+        })
+        
+        
+//        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(QuoteCellIdentifier) as UITableViewCell
+//        let selValue = cell.detailTextLabel?.text
+        
+        //self.delegate?.passChoosedValue(selValue!)
+    }
+    
+    // _________________________________________________________________________
+    // SectionHeaderViewDelegate
+    
+    func sectionHeaderView(sectionHeaderView: SectionHeaderView, sectionOpened: Int) {
+
+        var sectionInfo: SectionInfo = self.sectionInfoArray[sectionOpened] as SectionInfo
+        
+        sectionInfo.open = true
+        
+        //创建一个包含单元格索引路径的数组来实现插入单元格的操作：这些路径对应当前节的每个单元格
+        
+        var countOfRowsToInsert = sectionInfo.play.quotations.count
+        var indexPathsToInsert = NSMutableArray()
+        
+        for (var i = 0; i < countOfRowsToInsert; i++) {
+            indexPathsToInsert.addObject(NSIndexPath(forRow: i, inSection: sectionOpened))
+        }
+        
+        // 创建一个包含单元格索引路径的数组来实现删除单元格的操作：这些路径对应之前打开的节的单元格
+        
+        var indexPathsToDelete = NSMutableArray()
+        
+        var previousOpenSectionIndex = self.opensectionindex
+        if previousOpenSectionIndex != NSNotFound {
+            
+            var previousOpenSection: SectionInfo = self.sectionInfoArray[previousOpenSectionIndex] as SectionInfo
+            previousOpenSection.open = false
+            previousOpenSection.headerView.toggleOpenWithUserAction(false)
+            var countOfRowsToDelete = previousOpenSection.play.quotations.count
+            for (var i = 0; i < countOfRowsToDelete; i++) {
+                indexPathsToDelete.addObject(NSIndexPath(forRow: i, inSection: previousOpenSectionIndex))
+            }
+        }
+
+        // 设计动画，以便让表格的打开和关闭拥有一个流畅（很屌）的效果
+        var insertAnimation: UITableViewRowAnimation
+        var deleteAnimation: UITableViewRowAnimation
+        if previousOpenSectionIndex == NSNotFound || sectionOpened < previousOpenSectionIndex {
+            insertAnimation = UITableViewRowAnimation.Top
+            deleteAnimation = UITableViewRowAnimation.Bottom
+        }else{
+            insertAnimation = UITableViewRowAnimation.Bottom
+            deleteAnimation = UITableViewRowAnimation.Top
+        }
+        
+        // 应用单元格的更新
+        self.tableView.beginUpdates()
+        self.tableView.deleteRowsAtIndexPaths(indexPathsToDelete as [AnyObject], withRowAnimation: deleteAnimation)
+        self.tableView.insertRowsAtIndexPaths(indexPathsToInsert as [AnyObject], withRowAnimation: insertAnimation)
+        
+        self.opensectionindex = sectionOpened
+
+        self.tableView.endUpdates()
+    }
+    
+    func sectionHeaderView(sectionHeaderView: SectionHeaderView, sectionClosed: Int) {
+        
+        // 在表格关闭的时候，创建一个包含单元格索引路径的数组，接下来从表格中删除这些行
+        var sectionInfo: SectionInfo = self.sectionInfoArray[sectionClosed] as SectionInfo
+        
+        sectionInfo.open = false
+        var countOfRowsToDelete = self.tableView.numberOfRowsInSection(sectionClosed)
+        
+        if countOfRowsToDelete > 0 {
+            var indexPathsToDelete = NSMutableArray()
+            for (var i = 0; i < countOfRowsToDelete; i++) {
+                indexPathsToDelete.addObject(NSIndexPath(forRow: i, inSection: sectionClosed))
+            }
+            self.tableView.deleteRowsAtIndexPaths(indexPathsToDelete as [AnyObject], withRowAnimation: UITableViewRowAnimation.Top)
+        }
+        self.opensectionindex = NSNotFound
+    }
+    
+    func played() -> NSArray {
+        
+        if playe == nil {
+            var url = NSBundle.mainBundle().URLForResource("TagFilterData", withExtension: "plist")
+            var playDictionariesArray = NSArray(contentsOfURL: url!)
+            playe = NSMutableArray(capacity: playDictionariesArray!.count)
+            
+            for playDictionary in playDictionariesArray! {
+                
+                var play: Play! = Play()
+                play.name = playDictionary["playName"] as String
+                play.filterType = playDictionary["filterType"] as String
+                var quotationDictionaries:NSArray = playDictionary["quotations"] as NSArray
+                var quotations = NSMutableArray(capacity: quotationDictionaries.count)
+                
+                for quotationDictionary in quotationDictionaries {
+                    
+                    var quotationDic:NSDictionary = quotationDictionary as NSDictionary
+                    quotations.addObject(quotationDic)
+                }
+                play.quotations = quotations
+                playe!.addObject(play)
+            }
+        }
+        
+        return playe!
+    }
+}
+
+// MARK: extension UISearchBarDelegate
+extension AITagFilterViewController:UISearchBarDelegate{
+    
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        searchContent = searchText
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if (searchContent != ""){
+            var userInfo:Dictionary<String,String!> = ["tagName":searchContent,"filterType":"search"]
+            NSNotificationCenter.defaultCenter().postNotificationName("filterFlagChoose", object: nil, userInfo:  userInfo)
+        }
+        
+        self.findHamburguerViewController()?.hideMenuViewControllerWithCompletion(nil)
+    }
+}
+
