@@ -624,11 +624,13 @@ internal class AIServiceContentViewController: UIViewController {
         
         //test data
         
+        
         let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIServiceRouteViewController) as! AIServiceRouteViewController
         vc.addressArray = AIModelTest.testRouteArrayModel()
         let navigation = UINavigationController(rootViewController: vc)
         self.presentViewController(navigation, animated: true, completion: nil)
         vc.showMenuTitleViewController(navigation,title: "Select")
+        
     }
     
     /**

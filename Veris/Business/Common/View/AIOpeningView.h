@@ -24,8 +24,11 @@
 @property (nonatomic, weak) UIView *centerTappedView;
 
 @property (nonatomic, weak) UIView *leftDirectionView;
+
 @property (nonatomic, weak) UIView *upDirectionView;
+
 @property (nonatomic, weak) UIView *rightDirectionView;
+
 @property (nonatomic, weak) UIView *downDirectionView;
 
 + (instancetype)instance;

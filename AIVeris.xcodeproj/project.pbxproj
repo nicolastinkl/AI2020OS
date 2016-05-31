@@ -450,10 +450,10 @@
 		8175A7CD1CFD2710006F2C8F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7361CFD2710006F2C8F /* AFURLResponseSerialization.m */; };
 		8175A7CE1CFD2710006F2C8F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7381CFD2710006F2C8F /* AFURLSessionManager.m */; };
 		8175A7CF1CFD2710006F2C8F /* CustomMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A73B1CFD2710006F2C8F /* CustomMethod.m */; };
-		8175A7D01CFD2710006F2C8F /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A73D1CFD2710006F2C8F /* MarkupParser.m */; };
+		8175A7D01CFD2710006F2C8F /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A73D1CFD2710006F2C8F /* MarkupParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8175A7D11CFD2710006F2C8F /* NSAttributedString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A73F1CFD2710006F2C8F /* NSAttributedString+Attributes.m */; };
 		8175A7D21CFD2710006F2C8F /* OHAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7411CFD2710006F2C8F /* OHAttributedLabel.m */; };
-		8175A7D31CFD2710006F2C8F /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7431CFD2710006F2C8F /* RegexKitLite.m */; };
+		8175A7D31CFD2710006F2C8F /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7431CFD2710006F2C8F /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8175A7D41CFD2710006F2C8F /* SCGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7451CFD2710006F2C8F /* SCGIFImageView.m */; };
 		8175A7D51CFD2710006F2C8F /* DDHTimerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7481CFD2710006F2C8F /* DDHTimerControl.m */; };
 		8175A7D61CFD2710006F2C8F /* IGViewQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A74C1CFD2710006F2C8F /* IGViewQuery.m */; };
@@ -513,6 +513,7 @@
 		844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA221CE1DA6800C58B1C /* CoreVideo.framework */; };
 		844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA241CE1DA7300C58B1C /* GLKit.framework */; };
 		844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA261CE1DA8B00C58B1C /* libc++.tbd */; };
+		933763021CFD7040006B997D /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
 		93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */; };
 		93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB31B9D7E9C00CD1FEB /* MobileCoreServices.framework */; };
@@ -1286,6 +1287,7 @@
 		844AFA261CE1DA8B00C58B1C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		933763011CFD7040006B997D /* AIModelSerice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModelSerice.swift; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		93B25AAB1B9D7C6800CD1FEB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -1847,6 +1849,7 @@
 			children = (
 				81433A2F1CFBE5A700347C29 /* AIBuyerParamsDelegate.h */,
 				81433A301CFBE5A700347C29 /* AIDeleteActionDelegate.swift */,
+				933763011CFD7040006B997D /* AIModelSerice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3346,6 +3349,7 @@
 				81433E8C1CFBE5A700347C29 /* FLEXImageExplorerViewController.m in Sources */,
 				81433E191CFBE5A700347C29 /* GIBadgeView.m in Sources */,
 				81433CE41CFBE5A700347C29 /* AIOrderPreModel.m in Sources */,
+				933763021CFD7040006B997D /* AIModelSerice.swift in Sources */,
 				81433E891CFBE5A700347C29 /* FLEXDefaultsExplorerViewController.m in Sources */,
 				81433E691CFBE5A700347C29 /* FLEXWindow.m in Sources */,
 				81433E8E1CFBE5A700347C29 /* FLEXObjectExplorerFactory.m in Sources */,
