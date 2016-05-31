@@ -221,11 +221,9 @@
 		81433E001CFBE5A700347C29 /* AirTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AB41CFBE5A700347C29 /* AirTicketView.swift */; };
 		81433E011CFBE5A700347C29 /* AirTicketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AB51CFBE5A700347C29 /* AirTicketView.xib */; };
 		81433E021CFBE5A700347C29 /* GBSlideOutToUnlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AB71CFBE5A700347C29 /* GBSlideOutToUnlockView.m */; };
-		81433E041CFBE5A700347C29 /* AIViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433ABE1CFBE5A700347C29 /* AIViews.m */; };
 		81433E051CFBE5A700347C29 /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AC01CFBE5A700347C29 /* BubbleView.m */; };
 		81433E061CFBE5A700347C29 /* CurveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AC21CFBE5A700347C29 /* CurveModel.m */; };
 		81433E071CFBE5A700347C29 /* CurveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AC41CFBE5A700347C29 /* CurveView.m */; };
-		81433E081CFBE5A700347C29 /* UPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AC61CFBE5A700347C29 /* UPLabel.m */; };
 		81433E091CFBE5A700347C29 /* AIBueryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AC81CFBE5A700347C29 /* AIBueryDetailCell.swift */; };
 		81433E0A1CFBE5A700347C29 /* AIBueryDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AC91CFBE5A700347C29 /* AIBueryDetailCell.xib */; };
 		81433E0B1CFBE5A700347C29 /* JTSScrollIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433ACB1CFBE5A700347C29 /* JTSScrollIndicator.m */; };
@@ -505,6 +503,8 @@
 		81A0458F1C11675500296E56 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A0458E1C11675500296E56 /* CoreAudio.framework */; };
 		81BB86701CFD77AB00899B58 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BB86641CFD77AB00899B58 /* libWeiboSDK.a */; };
 		81BB86711CFD77AB00899B58 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 81BB866D1CFD77AB00899B58 /* WeiboSDK.bundle */; };
+		81BB86721CFD808D00899B58 /* AVOSCloud.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81433B361CFBE5A700347C29 /* AVOSCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		81BB86731CFD808D00899B58 /* AVOSCloudCrashReporting.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81433B371CFBE5A700347C29 /* AVOSCloudCrashReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */; };
 		844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */; };
 		844AFA211CE1DA5900C58B1C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA201CE1DA5900C58B1C /* CoreMedia.framework */; };
@@ -543,6 +543,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				81BB86721CFD808D00899B58 /* AVOSCloud.framework in CopyFiles */,
+				81BB86731CFD808D00899B58 /* AVOSCloudCrashReporting.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,16 +806,12 @@
 		81433AB51CFBE5A700347C29 /* AirTicketView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirTicketView.xib; sourceTree = "<group>"; };
 		81433AB61CFBE5A700347C29 /* GBSlideOutToUnlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBSlideOutToUnlockView.h; sourceTree = "<group>"; };
 		81433AB71CFBE5A700347C29 /* GBSlideOutToUnlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBSlideOutToUnlockView.m; sourceTree = "<group>"; };
-		81433ABD1CFBE5A700347C29 /* AIViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIViews.h; sourceTree = "<group>"; };
-		81433ABE1CFBE5A700347C29 /* AIViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIViews.m; sourceTree = "<group>"; };
 		81433ABF1CFBE5A700347C29 /* BubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleView.h; sourceTree = "<group>"; };
 		81433AC01CFBE5A700347C29 /* BubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleView.m; sourceTree = "<group>"; };
 		81433AC11CFBE5A700347C29 /* CurveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurveModel.h; sourceTree = "<group>"; };
 		81433AC21CFBE5A700347C29 /* CurveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurveModel.m; sourceTree = "<group>"; };
 		81433AC31CFBE5A700347C29 /* CurveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurveView.h; sourceTree = "<group>"; };
 		81433AC41CFBE5A700347C29 /* CurveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurveView.m; sourceTree = "<group>"; };
-		81433AC51CFBE5A700347C29 /* UPLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPLabel.h; sourceTree = "<group>"; };
-		81433AC61CFBE5A700347C29 /* UPLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPLabel.m; sourceTree = "<group>"; };
 		81433AC81CFBE5A700347C29 /* AIBueryDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBueryDetailCell.swift; sourceTree = "<group>"; };
 		81433AC91CFBE5A700347C29 /* AIBueryDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIBueryDetailCell.xib; sourceTree = "<group>"; };
 		81433ACA1CFBE5A700347C29 /* JTSScrollIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSScrollIndicator.h; sourceTree = "<group>"; };
@@ -1987,16 +1985,12 @@
 		81433ABA1CFBE5A700347C29 /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				81433ABD1CFBE5A700347C29 /* AIViews.h */,
-				81433ABE1CFBE5A700347C29 /* AIViews.m */,
 				81433ABF1CFBE5A700347C29 /* BubbleView.h */,
 				81433AC01CFBE5A700347C29 /* BubbleView.m */,
 				81433AC11CFBE5A700347C29 /* CurveModel.h */,
 				81433AC21CFBE5A700347C29 /* CurveModel.m */,
 				81433AC31CFBE5A700347C29 /* CurveView.h */,
 				81433AC41CFBE5A700347C29 /* CurveView.m */,
-				81433AC51CFBE5A700347C29 /* UPLabel.h */,
-				81433AC61CFBE5A700347C29 /* UPLabel.m */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -3374,7 +3368,6 @@
 				81433E351CFBE5A700347C29 /* AITimePickerViewController.swift in Sources */,
 				81433E641CFBE5A700347C29 /* FLEXPropertyEditorViewController.m in Sources */,
 				81433E131CFBE5A700347C29 /* OrderAndBuyerInfoView.swift in Sources */,
-				81433E081CFBE5A700347C29 /* UPLabel.m in Sources */,
 				81433D631CFBE5A700347C29 /* AIStartEndTimeView.swift in Sources */,
 				81433E431CFBE5A700347C29 /* JSSAlertView-Extension.swift in Sources */,
 				81433D3F1CFBE5A700347C29 /* AIDetailTopMenuView.swift in Sources */,
@@ -3596,7 +3589,6 @@
 				81433E441CFBE5A700347C29 /* JSSAlertView.swift in Sources */,
 				81433E461CFBE5A700347C29 /* UIImage+Effect.m in Sources */,
 				81433D841CFBE5A700347C29 /* AIPopHoldView.swift in Sources */,
-				81433E041CFBE5A700347C29 /* AIViews.m in Sources */,
 				8175A8021CFD2710006F2C8F /* UIImage+WebP.m in Sources */,
 				8175A7CF1CFD2710006F2C8F /* CustomMethod.m in Sources */,
 				81433E3E1CFBE5A700347C29 /* AIButtonUtils.swift in Sources */,
@@ -3856,7 +3848,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/Frameworks";
-				INFOPLIST_FILE = "AIVeris/Veris/Support Files/Info.plist";
+				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
@@ -3897,7 +3889,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/Frameworks";
-				INFOPLIST_FILE = "AIVeris/Veris/Support Files/Info.plist";
+				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
