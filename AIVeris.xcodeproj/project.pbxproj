@@ -74,7 +74,6 @@
 		81433D161CFBE5A700347C29 /* AICardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339911CFBE5A600347C29 /* AICardCell.m */; };
 		81433D171CFBE5A700347C29 /* AICardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339931CFBE5A600347C29 /* AICardView.m */; };
 		81433D181CFBE5A700347C29 /* airplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 814339941CFBE5A600347C29 /* airplane@2x.png */; };
-		81433D1A1CFBE5A700347C29 /* AIMusicTherapyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339991CFBE5A600347C29 /* AIMusicTherapyView.m */; };
 		81433D1B1CFBE5A700347C29 /* AIParamedicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143399B1CFBE5A600347C29 /* AIParamedicView.m */; };
 		81433D1C1CFBE5A700347C29 /* AccommodationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143399D1CFBE5A600347C29 /* AccommodationService.swift */; };
 		81433D1D1CFBE5A700347C29 /* AIIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143399E1CFBE5A600347C29 /* AIIconTextView.swift */; };
@@ -641,8 +640,6 @@
 		814339931CFBE5A600347C29 /* AICardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICardView.m; sourceTree = "<group>"; };
 		814339941CFBE5A600347C29 /* airplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplane@2x.png"; sourceTree = "<group>"; };
 		814339961CFBE5A600347C29 /* AIBuyerParamsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBuyerParamsDelegate.h; sourceTree = "<group>"; };
-		814339981CFBE5A600347C29 /* AIMusicTherapyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMusicTherapyView.h; sourceTree = "<group>"; };
-		814339991CFBE5A600347C29 /* AIMusicTherapyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMusicTherapyView.m; sourceTree = "<group>"; };
 		8143399A1CFBE5A600347C29 /* AIParamedicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIParamedicView.h; sourceTree = "<group>"; };
 		8143399B1CFBE5A600347C29 /* AIParamedicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIParamedicView.m; sourceTree = "<group>"; };
 		8143399D1CFBE5A600347C29 /* AccommodationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccommodationService.swift; sourceTree = "<group>"; };
@@ -1631,8 +1628,6 @@
 			isa = PBXGroup;
 			children = (
 				814339961CFBE5A600347C29 /* AIBuyerParamsDelegate.h */,
-				814339981CFBE5A600347C29 /* AIMusicTherapyView.h */,
-				814339991CFBE5A600347C29 /* AIMusicTherapyView.m */,
 				8143399A1CFBE5A600347C29 /* AIParamedicView.h */,
 				8143399B1CFBE5A600347C29 /* AIParamedicView.m */,
 				8143399C1CFBE5A600347C29 /* CellDIYView */,
@@ -3563,7 +3558,6 @@
 				81433EB31CFBE5A700347C29 /* Player.swift in Sources */,
 				81433E7B1CFBE5A700347C29 /* FLEXWebViewController.m in Sources */,
 				81433CFB1CFBE5A700347C29 /* AITagsView.swift in Sources */,
-				81433D1A1CFBE5A700347C29 /* AIMusicTherapyView.m in Sources */,
 				81433D501CFBE5A700347C29 /* AIConfirmOrderCellView.swift in Sources */,
 				81433E701CFBE5A700347C29 /* FLEXTableListViewController.m in Sources */,
 				81433D081CFBE5A700347C29 /* AISchemeDataObtainer.swift in Sources */,
