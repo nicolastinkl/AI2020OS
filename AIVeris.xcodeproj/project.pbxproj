@@ -449,7 +449,7 @@
 		8175A7CF1CFD2710006F2C8F /* CustomMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A73B1CFD2710006F2C8F /* CustomMethod.m */; };
 		8175A7D01CFD2710006F2C8F /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A73D1CFD2710006F2C8F /* MarkupParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8175A7D11CFD2710006F2C8F /* NSAttributedString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A73F1CFD2710006F2C8F /* NSAttributedString+Attributes.m */; };
-		8175A7D21CFD2710006F2C8F /* OHAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7411CFD2710006F2C8F /* OHAttributedLabel.m */; };
+		8175A7D21CFD2710006F2C8F /* OHAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7411CFD2710006F2C8F /* OHAttributedLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8175A7D31CFD2710006F2C8F /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7431CFD2710006F2C8F /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8175A7D41CFD2710006F2C8F /* SCGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7451CFD2710006F2C8F /* SCGIFImageView.m */; };
 		8175A7D51CFD2710006F2C8F /* DDHTimerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7481CFD2710006F2C8F /* DDHTimerControl.m */; };
