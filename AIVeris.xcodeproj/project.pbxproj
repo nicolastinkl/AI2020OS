@@ -149,7 +149,6 @@
 		81433D621CFBE5A700347C29 /* AIShoppingListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339E51CFBE5A700347C29 /* AIShoppingListViewCell.xib */; };
 		81433D631CFBE5A700347C29 /* AIStartEndTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339E61CFBE5A700347C29 /* AIStartEndTimeView.swift */; };
 		81433D641CFBE5A700347C29 /* AIStartEndTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339E71CFBE5A700347C29 /* AIStartEndTimeView.xib */; };
-		81433D6F1CFBE5A700347C29 /* ProposalServiceDetailBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339F51CFBE5A700347C29 /* ProposalServiceDetailBaseView.m */; };
 		81433D711CFBE5A700347C29 /* AICommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339F91CFBE5A700347C29 /* AICommentCell.m */; };
 		81433D721CFBE5A700347C29 /* AIDetailText.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339FB1CFBE5A700347C29 /* AIDetailText.m */; };
 		81433D731CFBE5A700347C29 /* AIHorizontalBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339FD1CFBE5A700347C29 /* AIHorizontalBarChart.m */; };
@@ -224,7 +223,6 @@
 		81433E001CFBE5A700347C29 /* AirTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AB41CFBE5A700347C29 /* AirTicketView.swift */; };
 		81433E011CFBE5A700347C29 /* AirTicketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AB51CFBE5A700347C29 /* AirTicketView.xib */; };
 		81433E021CFBE5A700347C29 /* GBSlideOutToUnlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AB71CFBE5A700347C29 /* GBSlideOutToUnlockView.m */; };
-		81433E031CFBE5A700347C29 /* AIOpeningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433ABC1CFBE5A700347C29 /* AIOpeningView.m */; };
 		81433E041CFBE5A700347C29 /* AIViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433ABE1CFBE5A700347C29 /* AIViews.m */; };
 		81433E051CFBE5A700347C29 /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AC01CFBE5A700347C29 /* BubbleView.m */; };
 		81433E061CFBE5A700347C29 /* CurveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AC21CFBE5A700347C29 /* CurveModel.m */; };
@@ -720,8 +718,6 @@
 		814339E51CFBE5A700347C29 /* AIShoppingListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIShoppingListViewCell.xib; sourceTree = "<group>"; };
 		814339E61CFBE5A700347C29 /* AIStartEndTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIStartEndTimeView.swift; sourceTree = "<group>"; };
 		814339E71CFBE5A700347C29 /* AIStartEndTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIStartEndTimeView.xib; sourceTree = "<group>"; };
-		814339F41CFBE5A700347C29 /* ProposalServiceDetailBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProposalServiceDetailBaseView.h; sourceTree = "<group>"; };
-		814339F51CFBE5A700347C29 /* ProposalServiceDetailBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProposalServiceDetailBaseView.m; sourceTree = "<group>"; };
 		814339F81CFBE5A700347C29 /* AICommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICommentCell.h; sourceTree = "<group>"; };
 		814339F91CFBE5A700347C29 /* AICommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICommentCell.m; sourceTree = "<group>"; };
 		814339FA1CFBE5A700347C29 /* AIDetailText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDetailText.h; sourceTree = "<group>"; };
@@ -812,8 +808,6 @@
 		81433AB51CFBE5A700347C29 /* AirTicketView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirTicketView.xib; sourceTree = "<group>"; };
 		81433AB61CFBE5A700347C29 /* GBSlideOutToUnlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBSlideOutToUnlockView.h; sourceTree = "<group>"; };
 		81433AB71CFBE5A700347C29 /* GBSlideOutToUnlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBSlideOutToUnlockView.m; sourceTree = "<group>"; };
-		81433ABB1CFBE5A700347C29 /* AIOpeningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOpeningView.h; sourceTree = "<group>"; };
-		81433ABC1CFBE5A700347C29 /* AIOpeningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIOpeningView.m; sourceTree = "<group>"; };
 		81433ABD1CFBE5A700347C29 /* AIViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIViews.h; sourceTree = "<group>"; };
 		81433ABE1CFBE5A700347C29 /* AIViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIViews.m; sourceTree = "<group>"; };
 		81433ABF1CFBE5A700347C29 /* BubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleView.h; sourceTree = "<group>"; };
@@ -1644,8 +1638,6 @@
 				8143399C1CFBE5A600347C29 /* CellDIYView */,
 				814339B61CFBE5A700347C29 /* CellSubView */,
 				814339D01CFBE5A700347C29 /* ChildCart */,
-				814339F41CFBE5A700347C29 /* ProposalServiceDetailBaseView.h */,
-				814339F51CFBE5A700347C29 /* ProposalServiceDetailBaseView.m */,
 			);
 			path = BuyerDetail;
 			sourceTree = "<group>";
@@ -1990,8 +1982,6 @@
 		81433ABA1CFBE5A700347C29 /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				81433ABB1CFBE5A700347C29 /* AIOpeningView.h */,
-				81433ABC1CFBE5A700347C29 /* AIOpeningView.m */,
 				81433ABD1CFBE5A700347C29 /* AIViews.h */,
 				81433ABE1CFBE5A700347C29 /* AIViews.m */,
 				81433ABF1CFBE5A700347C29 /* BubbleView.h */,
@@ -3287,7 +3277,6 @@
 				81433E7F1CFBE5A700347C29 /* FLEXNetworkHistoryTableViewController.m in Sources */,
 				81433E341CFBE5A700347C29 /* AITimelineFilterViewController.swift in Sources */,
 				81433D0C1CFBE5A700347C29 /* ProposalService.swift in Sources */,
-				81433E031CFBE5A700347C29 /* AIOpeningView.m in Sources */,
 				81433CF31CFBE5A700347C29 /* AIRequirmentModel.swift in Sources */,
 				81433D4C1CFBE5A700347C29 /* UICustomsTags.swift in Sources */,
 				81433D751CFBE5A700347C29 /* AIPriceView.swift in Sources */,
@@ -3504,7 +3493,6 @@
 				81433E511CFBE5A700347C29 /* BuildInCameraUtils.swift in Sources */,
 				81433E591CFBE5A700347C29 /* FLEXArgumentInputStringView.m in Sources */,
 				81433EAD1CFBE5A700347C29 /* KGNAutoLayout.swift in Sources */,
-				81433D6F1CFBE5A700347C29 /* ProposalServiceDetailBaseView.m in Sources */,
 				81433E9C1CFBE5A700347C29 /* FLEXImagePreviewViewController.m in Sources */,
 				81433CFD1CFBE5A700347C29 /* AIViews.m in Sources */,
 				81433D7B1CFBE5A700347C29 /* AIStarRate.m in Sources */,
