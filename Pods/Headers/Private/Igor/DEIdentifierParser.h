@@ -1,1 +1,0 @@
-../../../Igor/igor/parser/DEIdentifierParser.h
