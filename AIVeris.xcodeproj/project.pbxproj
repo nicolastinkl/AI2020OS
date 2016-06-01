@@ -512,6 +512,9 @@
 		9351F7C31CFE84CB000C019F /* libicucore.A.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C21CFE84CB000C019F /* libicucore.A.tbd */; };
 		9351F7C51CFE84D3000C019F /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C41CFE84D3000C019F /* libz.1.tbd */; };
 		9351F7C71CFE8819000C019F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C61CFE8819000C019F /* libsqlite3.0.tbd */; };
+		9351F7CD1CFECBCD000C019F /* AIWishVowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351F7CC1CFECBCC000C019F /* AIWishVowViewController.swift */; };
+		9351F7CF1CFED3EB000C019F /* AIWishVowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9351F7CE1CFED3EB000C019F /* AIWishVowViewController.xib */; };
+		9351F7D11CFED43A000C019F /* AIWishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351F7D01CFED43A000C019F /* AIWishModel.swift */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
 		93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */; };
 		93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB31B9D7E9C00CD1FEB /* MobileCoreServices.framework */; };
@@ -1288,6 +1291,9 @@
 		9351F7C21CFE84CB000C019F /* libicucore.A.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.A.tbd; path = usr/lib/libicucore.A.tbd; sourceTree = SDKROOT; };
 		9351F7C41CFE84D3000C019F /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
 		9351F7C61CFE8819000C019F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		9351F7CC1CFECBCC000C019F /* AIWishVowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishVowViewController.swift; sourceTree = "<group>"; };
+		9351F7CE1CFED3EB000C019F /* AIWishVowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishVowViewController.xib; sourceTree = "<group>"; };
+		9351F7D01CFED43A000C019F /* AIWishModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishModel.swift; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		93B25AAB1B9D7C6800CD1FEB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -1415,6 +1421,7 @@
 		814339291CFBE5A600347C29 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				9351F7C81CFECB14000C019F /* Wish */,
 				8143392A1CFBE5A600347C29 /* Common */,
 				814339721CFBE5A600347C29 /* CustomerCenter */,
 				81433A291CFBE5A700347C29 /* Home */,
@@ -2986,6 +2993,40 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		9351F7C81CFECB14000C019F /* Wish */ = {
+			isa = PBXGroup;
+			children = (
+				9351F7C91CFECB14000C019F /* Model */,
+				9351F7CA1CFECB14000C019F /* View */,
+				9351F7CB1CFECB14000C019F /* ViewController */,
+			);
+			path = Wish;
+			sourceTree = "<group>";
+		};
+		9351F7C91CFECB14000C019F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9351F7D01CFED43A000C019F /* AIWishModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9351F7CA1CFECB14000C019F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9351F7CB1CFECB14000C019F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9351F7CC1CFECBCC000C019F /* AIWishVowViewController.swift */,
+				9351F7CE1CFED3EB000C019F /* AIWishVowViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		93D5A3401B709C1C00DDB158 = {
 			isa = PBXGroup;
 			children = (
@@ -3149,6 +3190,7 @@
 				81433D181CFBE5A700347C29 /* airplane@2x.png in Resources */,
 				81433D9A1CFBE5A700347C29 /* AIErrorRetryView.xib in Resources */,
 				81433EC31CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard in Resources */,
+				9351F7CF1CFED3EB000C019F /* AIWishVowViewController.xib in Resources */,
 				81433D211CFBE5A700347C29 /* BottomServiceContainer.xib in Resources */,
 				81433D481CFBE5A700347C29 /* AITextMessageView.xib in Resources */,
 				81433EC11CFBE5A700347C29 /* LaunchScreen.storyboard in Resources */,
@@ -3434,6 +3476,7 @@
 				81433CEC1CFBE5A700347C29 /* ServiceOrderDetailModel.m in Sources */,
 				81433D491CFBE5A700347C29 /* AIWishMessageView.swift in Sources */,
 				8175A7EB1CFD2710006F2C8F /* OAStackView.m in Sources */,
+				9351F7CD1CFECBCD000C019F /* AIWishVowViewController.swift in Sources */,
 				8175A7D71CFD2710006F2C8F /* IGViewWrapper.m in Sources */,
 				81433DA61CFBE5A700347C29 /* AITaskDataModel.swift in Sources */,
 				81433E7E1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m in Sources */,
@@ -3500,6 +3543,7 @@
 				81433CD61CFBE5A700347C29 /* AIFavoriteContentModel.swift in Sources */,
 				81433DFF1CFBE5A700347C29 /* AirTicketGroupView.swift in Sources */,
 				81433E911CFBE5A700347C29 /* FLEXViewControllerExplorerViewController.m in Sources */,
+				9351F7D11CFED43A000C019F /* AIWishModel.swift in Sources */,
 				81433E391CFBE5A700347C29 /* DependOnNodePickerViewController.swift in Sources */,
 				81433E511CFBE5A700347C29 /* BuildInCameraUtils.swift in Sources */,
 				81433E591CFBE5A700347C29 /* FLEXArgumentInputStringView.m in Sources */,

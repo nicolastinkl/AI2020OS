@@ -33,9 +33,6 @@ struct AIApplication{
         static let IS_IPHONE6PLUS = UIScreen.mainScreen().bounds.size.width > 375
     }
     
-    
-    
-    
     // MARK JSON RESPONSE
     
     struct JSONREPONSE {
