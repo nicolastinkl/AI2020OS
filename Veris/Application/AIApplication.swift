@@ -272,10 +272,9 @@ struct AIApplication{
         let newMethod = class_getInstanceMethod(clzz, newSelector)
         method_exchangeImplementations(oldMethod, newMethod)
     }
-
-    
+     
     /**
-     根据不同环境获取服务器Api地址.    
+     根据不同环境获取服务器Api地址.
      */
     internal enum AIApplicationServerURL: CustomStringConvertible {
         

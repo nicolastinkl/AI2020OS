@@ -515,6 +515,8 @@
 		9351F7CD1CFECBCD000C019F /* AIWishVowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351F7CC1CFECBCC000C019F /* AIWishVowViewController.swift */; };
 		9351F7CF1CFED3EB000C019F /* AIWishVowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9351F7CE1CFED3EB000C019F /* AIWishVowViewController.xib */; };
 		9351F7D11CFED43A000C019F /* AIWishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351F7D01CFED43A000C019F /* AIWishModel.swift */; };
+		9351F7DA1CFEDFA2000C019F /* AISuperiorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351F7D71CFEDFA2000C019F /* AISuperiorityViewController.swift */; };
+		9351F7DB1CFEDFA2000C019F /* AISuperiorityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9351F7D81CFEDFA2000C019F /* AISuperiorityViewController.xib */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
 		93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */; };
 		93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB31B9D7E9C00CD1FEB /* MobileCoreServices.framework */; };
@@ -1294,6 +1296,8 @@
 		9351F7CC1CFECBCC000C019F /* AIWishVowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishVowViewController.swift; sourceTree = "<group>"; };
 		9351F7CE1CFED3EB000C019F /* AIWishVowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishVowViewController.xib; sourceTree = "<group>"; };
 		9351F7D01CFED43A000C019F /* AIWishModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishModel.swift; sourceTree = "<group>"; };
+		9351F7D71CFEDFA2000C019F /* AISuperiorityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityViewController.swift; sourceTree = "<group>"; };
+		9351F7D81CFEDFA2000C019F /* AISuperiorityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityViewController.xib; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		93B25AAB1B9D7C6800CD1FEB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -1421,6 +1425,7 @@
 		814339291CFBE5A600347C29 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				9351F7D21CFEDFA2000C019F /* Superiority */,
 				9351F7C81CFECB14000C019F /* Wish */,
 				8143392A1CFBE5A600347C29 /* Common */,
 				814339721CFBE5A600347C29 /* CustomerCenter */,
@@ -3027,6 +3032,39 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		9351F7D21CFEDFA2000C019F /* Superiority */ = {
+			isa = PBXGroup;
+			children = (
+				9351F7D31CFEDFA2000C019F /* Model */,
+				9351F7D51CFEDFA2000C019F /* View */,
+				9351F7D61CFEDFA2000C019F /* ViewController */,
+			);
+			path = Superiority;
+			sourceTree = "<group>";
+		};
+		9351F7D31CFEDFA2000C019F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9351F7D51CFEDFA2000C019F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9351F7D61CFEDFA2000C019F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9351F7D71CFEDFA2000C019F /* AISuperiorityViewController.swift */,
+				9351F7D81CFEDFA2000C019F /* AISuperiorityViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		93D5A3401B709C1C00DDB158 = {
 			isa = PBXGroup;
 			children = (
@@ -3166,6 +3204,7 @@
 				81433EB81CFBE5A700347C29 /* MyriadPro-Black.otf in Resources */,
 				81433EBA1CFBE5A700347C29 /* MyriadPro-Cond.otf in Resources */,
 				81433DA51CFBE5A700347C29 /* AIServiceSearchView.xib in Resources */,
+				9351F7DB1CFEDFA2000C019F /* AISuperiorityViewController.xib in Resources */,
 				81433D361CFBE5A700347C29 /* AIAudioInputView.xib in Resources */,
 				81433EC41CFBE5A700347C29 /* loading.gif in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
@@ -3600,6 +3639,7 @@
 				81433D371CFBE5A700347C29 /* AIAudioMessageView.swift in Sources */,
 				8175A7E61CFD2710006F2C8F /* UIView+MJExtension.m in Sources */,
 				81433E651CFBE5A700347C29 /* FLEXExplorerToolbar.m in Sources */,
+				9351F7DA1CFEDFA2000C019F /* AISuperiorityViewController.swift in Sources */,
 				81433EA41CFBE5A700347C29 /* AIMessageWrapper.m in Sources */,
 				81433DF61CFBE5A700347C29 /* AIEventTimerView.swift in Sources */,
 				81433E6B1CFBE5A700347C29 /* FLEXMultiColumnTableView.m in Sources */,
