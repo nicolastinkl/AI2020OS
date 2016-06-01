@@ -1,0 +1,53 @@
+PODS:
+  - AIAlertView (1.0.8)
+  - Alamofire (3.1.5)
+  - Cartography (0.6.0)
+  - Igor (0.5.0)
+  - SnapKit (0.18.0)
+  - Spring (1.0.3)
+  - SwiftyJSON (2.3.2)
+  - YYImage (1.0.2):
+    - YYImage/Core (= 1.0.2)
+  - YYImage/Core (1.0.2)
+
+DEPENDENCIES:
+  - AIAlertView (from `https://github.com/asiainfomobile/AIAlertView.git`)
+  - Alamofire (~> 3.1.4)
+  - Cartography (~> 0.6.0)
+  - Igor (~> 0.5.0)
+  - SnapKit (~> 0.18.0)
+  - Spring (from `https://github.com/asiainfomobile/Spring.git`, branch `swift2`)
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - YYImage (~> 1.0.1)
+
+EXTERNAL SOURCES:
+  AIAlertView:
+    :git: https://github.com/asiainfomobile/AIAlertView.git
+  Spring:
+    :branch: swift2
+    :git: https://github.com/asiainfomobile/Spring.git
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  AIAlertView:
+    :commit: 2de5b00cba21ea82c3c5af5fcde0a21fce5d82d3
+    :git: https://github.com/asiainfomobile/AIAlertView.git
+  Spring:
+    :commit: 2e1d44fbd7b50298abfc2ff881f60268ac806757
+    :git: https://github.com/asiainfomobile/Spring.git
+  SwiftyJSON:
+    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+SPEC CHECKSUMS:
+  AIAlertView: 9d17a80a22042548ee7888d7e645c84ccbfb1d53
+  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
+  Igor: 7661f105cbcc67579c5ebe1ca9ca83972d18bd20
+  SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  YYImage: 2cc79ed49b9549b71c6715cefe7b0f5ab3d33abf
+
+COCOAPODS: 0.39.0
