@@ -1524,14 +1524,14 @@
 		8143395E1CFBE5A600347C29 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8143395F1CFBE5A600347C29 /* AIOpeningView.h */,
-				814339601CFBE5A600347C29 /* AIOpeningView.m */,
 				814339611CFBE5A600347C29 /* AIScrollLabel */,
 				814339641CFBE5A600347C29 /* AITagView */,
 				8143396D1CFBE5A600347C29 /* AIViews.h */,
 				8143396E1CFBE5A600347C29 /* AIViews.m */,
 				8143396F1CFBE5A600347C29 /* UPLabel.h */,
 				814339701CFBE5A600347C29 /* UPLabel.m */,
+				8143395F1CFBE5A600347C29 /* AIOpeningView.h */,
+				814339601CFBE5A600347C29 /* AIOpeningView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3722,6 +3722,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "AsiaInfo2020.Veris-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6787037c-59be-42d8-9699-c8eb0bd80e7e";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Veris.app/Veris";
 			};
@@ -3736,6 +3737,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "AsiaInfo2020.Veris-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6787037c-59be-42d8-9699-c8eb0bd80e7e";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Veris.app/Veris";
 			};
 			name = Release;

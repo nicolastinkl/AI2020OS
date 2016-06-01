@@ -703,12 +703,6 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       
-        if indexPath.row == 0 {
-//            UIApplication.sharedApplication().openURL(NSURL(string: "hospital://asiainfo.com/open/123123")!)
-            
-             //Card.sharedInstance.showInView(self.view, serviceId: "2")
-            
-        }else{
             if (self.openCell == false) || (self.openCell == true  && selectCount == 1){
                 selectCount = 0
                 var serviceList: NSArray?
@@ -731,8 +725,6 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
 
                 
             }
-
-        }
         
         
         selectCount  = selectCount + 1

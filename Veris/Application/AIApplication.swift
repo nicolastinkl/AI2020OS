@@ -19,9 +19,9 @@ import UIKit
 struct AIApplication{
     
     // MARK: LEANCLOUD APPKEY
-    internal static let AVOSCLOUDID  = "xkz4nhs9rmvw3awnolcu3effmdkvynztt1umggatbrx72krk"
+    internal static let AVOSCLOUDID  = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
     
-    internal static let AVOSCLOUDKEY = "qqcxwtjlx3ctw32buizjkaw5elwf0s41u4xf8ct7glbox171"
+    internal static let AVOSCLOUDKEY = "LGwq0DTaJb8D59IV3kK18wmh"
     
     internal static let KURL_ReleaseURL =  "http://171.221.254.231:3000"  //正式地址
     internal static let KURL_DebugURL   =  "http://171.221.254.231:3000"  //测试地址
