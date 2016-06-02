@@ -519,7 +519,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     
 
     func startSearch() {
-        showTransitionStyleCrossDissolveView(AICustomSearchViewController())
+        showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController())
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
