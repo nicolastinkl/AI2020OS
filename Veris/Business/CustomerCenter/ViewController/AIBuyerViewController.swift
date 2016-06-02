@@ -89,10 +89,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.headerBeginRefreshing()
         
     }
-    
-    func searchClick(){
-        showTransitionStyleCrossDissolveView(AISuperiorityViewController.initFromNib())
-    }
+
     
     // MARK: - 构造列表区域
     func makeTableView () {
@@ -236,7 +233,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         bgImageView.frame = self.view.frame
         self.view.addSubview(bgImageView)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadDataAfterUserChanged", name: kShouldUpdataUserDataNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.reloadDataAfterUserChanged), name: kShouldUpdataUserDataNotification, object: nil)
     }
     
     func handleUserChangeEvent () {
@@ -485,18 +482,18 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         searchButton.frame = CGRectMake(0, 0, buttonWidth, barHeight)
         searchButton.setImage(UIImage(named: "Buyer_Search"), forState: UIControlState.Normal)
         searchButton.imageEdgeInsets = UIEdgeInsetsMake(top, top, top, buttonWidth - imageSize - top)
-        searchButton.addTarget(self, action: "searchClick", forControlEvents: .TouchUpInside)
+        searchButton.addTarget(self, action: #selector(startSearch), forControlEvents: .TouchUpInside)
         topBar?.addSubview(searchButton)
         
         // make logo
-        
+
         let logo = UIImage(named: "Buyer_Logo")
         let logoSie = AITools.imageDisplaySizeFrom1080DesignSize((logo?.size)!).width
         let logoButton = UIButton(type: .Custom)
         logoButton.frame = CGRectMake(0, 0, logoSie, logoSie)
         logoButton.setImage(logo, forState: UIControlState.Normal)
         logoButton.center = CGPointMake(screenWidth / 2, barHeight / 2 + 5)
-        logoButton.addTarget(self, action: "backToFirstPage", forControlEvents: .TouchUpInside)
+        logoButton.addTarget(self, action: #selector(AIBuyerViewController.backToFirstPage), forControlEvents: .TouchUpInside)
         
         topBar?.addSubview(logoButton)
         
@@ -507,7 +504,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         moreButton.frame = CGRectMake(screenWidth - 80, 0, buttonWidth, barHeight)
         moreButton.setImage(UIImage(named: "Buyer_More"), forState: UIControlState.Normal)
         moreButton.imageEdgeInsets = UIEdgeInsetsMake(top, buttonWidth - imageSize - top, top, top)
-        moreButton.addTarget(self, action: "moreButtonAction", forControlEvents: .TouchUpInside)
+        moreButton.addTarget(self, action: #selector(AIBuyerViewController.moreButtonAction), forControlEvents: .TouchUpInside)
         topBar?.addSubview(moreButton)
     }
     
@@ -521,6 +518,9 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
 
+    func startSearch() {
+        showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController())
+    }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if  dataSource[indexPath.row].isExpanded {
