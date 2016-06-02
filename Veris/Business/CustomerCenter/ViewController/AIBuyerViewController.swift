@@ -91,7 +91,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func searchClick(){
-        showTransitionStyleCrossDissolveView(AIWishVowViewController.initFromNib())
+        showTransitionStyleCrossDissolveView(AISuperiorityViewController.initFromNib())
     }
     
     // MARK: - 构造列表区域

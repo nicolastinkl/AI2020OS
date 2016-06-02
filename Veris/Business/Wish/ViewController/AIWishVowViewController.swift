@@ -34,17 +34,15 @@ class AIWishVowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        //private s = AIWishVowViewController.initFromNib()
         
-        if let navi = AINavigationBar.initFromNib() {
+        if let navi = AINavigationBar.initFromNib() as? AINavigationBar{
             view.addSubview(navi)
-            
+            navi.holderViewController = self
             constrain(navi, block: { (layout) in
                 layout.left == layout.superview!.left
                 layout.top == layout.superview!.top
                 layout.right == layout.superview!.right
-                layout.height == 44.0 + 20
+                layout.height == 44.0 + 10.0
             })
             
         }

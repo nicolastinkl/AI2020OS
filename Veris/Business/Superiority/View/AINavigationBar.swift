@@ -27,6 +27,7 @@ import Foundation
 
 class AINavigationBar: UIView {
     
+    var holderViewController: UIViewController?
     
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var backButton: UIButton!
@@ -46,6 +47,7 @@ class AINavigationBar: UIView {
     }
     
     func closeViewController(){
+        holderViewController?.dismissViewControllerAnimated(true, completion: nil)
         //AIApplication().SendAction("closeViewController", ownerName: self)
     }
     

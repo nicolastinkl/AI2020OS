@@ -23,14 +23,33 @@
 // THE SOFTWARE.
 
 import Foundation
+import UIKit
+import Spring
+import Cartography
+import AIAlertView
+import SnapKit
 
 /// 许愿视图
 class AISuperiorityViewController: UIViewController {
     
+    @IBOutlet weak var scrollview: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        //private s = AIWishVowViewController.initFromNib()
+        if let navi = AINavigationBar.initFromNib() as? AINavigationBar{
+            view.addSubview(navi)
+            navi.holderViewController = self
+            constrain(navi, block: { (layout) in
+                layout.left == layout.superview!.left
+                layout.top == layout.superview!.top
+                layout.right == layout.superview!.right
+                layout.height == 44.0 + 10.0
+            })
+            
+            navi.titleLabel.text = "孕检无忧"
+            
+        }
     }
     
     

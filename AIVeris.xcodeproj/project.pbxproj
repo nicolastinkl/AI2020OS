@@ -511,6 +511,7 @@
 		933763021CFD7040006B997D /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
 		933BC8111CFFD7E3005E1789 /* AINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8101CFFD7E3005E1789 /* AINavigationBar.swift */; };
 		933BC8131CFFD82C005E1789 /* AINavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8121CFFD82C005E1789 /* AINavigationBar.xib */; };
+		933BC8151D0006BF005E1789 /* AISuperiorityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8141D0006BF005E1789 /* AISuperiorityViewController.xib */; };
 		9351F7C31CFE84CB000C019F /* libicucore.A.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C21CFE84CB000C019F /* libicucore.A.tbd */; };
 		9351F7C51CFE84D3000C019F /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C41CFE84D3000C019F /* libz.1.tbd */; };
 		9351F7C71CFE8819000C019F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C61CFE8819000C019F /* libsqlite3.0.tbd */; };
@@ -518,7 +519,6 @@
 		9351F7CF1CFED3EB000C019F /* AIWishVowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9351F7CE1CFED3EB000C019F /* AIWishVowViewController.xib */; };
 		9351F7D11CFED43A000C019F /* AIWishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351F7D01CFED43A000C019F /* AIWishModel.swift */; };
 		9351F7DA1CFEDFA2000C019F /* AISuperiorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351F7D71CFEDFA2000C019F /* AISuperiorityViewController.swift */; };
-		9351F7DB1CFEDFA2000C019F /* AISuperiorityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9351F7D81CFEDFA2000C019F /* AISuperiorityViewController.xib */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
 		93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */; };
 		93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB31B9D7E9C00CD1FEB /* MobileCoreServices.framework */; };
@@ -1294,6 +1294,7 @@
 		933763011CFD7040006B997D /* AIModelSerice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModelSerice.swift; sourceTree = "<group>"; };
 		933BC8101CFFD7E3005E1789 /* AINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AINavigationBar.swift; sourceTree = "<group>"; };
 		933BC8121CFFD82C005E1789 /* AINavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AINavigationBar.xib; sourceTree = "<group>"; };
+		933BC8141D0006BF005E1789 /* AISuperiorityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityViewController.xib; sourceTree = "<group>"; };
 		9351F7C21CFE84CB000C019F /* libicucore.A.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.A.tbd; path = usr/lib/libicucore.A.tbd; sourceTree = SDKROOT; };
 		9351F7C41CFE84D3000C019F /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
 		9351F7C61CFE8819000C019F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -1301,7 +1302,6 @@
 		9351F7CE1CFED3EB000C019F /* AIWishVowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishVowViewController.xib; sourceTree = "<group>"; };
 		9351F7D01CFED43A000C019F /* AIWishModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishModel.swift; sourceTree = "<group>"; };
 		9351F7D71CFEDFA2000C019F /* AISuperiorityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityViewController.swift; sourceTree = "<group>"; };
-		9351F7D81CFEDFA2000C019F /* AISuperiorityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityViewController.xib; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		93B25AAB1B9D7C6800CD1FEB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -3066,7 +3066,7 @@
 			isa = PBXGroup;
 			children = (
 				9351F7D71CFEDFA2000C019F /* AISuperiorityViewController.swift */,
-				9351F7D81CFEDFA2000C019F /* AISuperiorityViewController.xib */,
+				933BC8141D0006BF005E1789 /* AISuperiorityViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3210,10 +3210,10 @@
 				81433EB81CFBE5A700347C29 /* MyriadPro-Black.otf in Resources */,
 				81433EBA1CFBE5A700347C29 /* MyriadPro-Cond.otf in Resources */,
 				81433DA51CFBE5A700347C29 /* AIServiceSearchView.xib in Resources */,
-				9351F7DB1CFEDFA2000C019F /* AISuperiorityViewController.xib in Resources */,
 				81433D361CFBE5A700347C29 /* AIAudioInputView.xib in Resources */,
 				81433EC41CFBE5A700347C29 /* loading.gif in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
+				933BC8151D0006BF005E1789 /* AISuperiorityViewController.xib in Resources */,
 				81433DA91CFBE5A700347C29 /* AITaskTimeLineView.xib in Resources */,
 				81433EC21CFBE5A700347C29 /* UIBuyerStoryboard.storyboard in Resources */,
 				81433DF31CFBE5A700347C29 /* ContentsCellView.xib in Resources */,
