@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AINavigationBar" customModule="Veris" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Nf-cD-H5k">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkW-mh-N3X">
+                    <rect key="frame" x="0.0" y="5" width="45" height="33"/>
+                    <state key="normal" image="backIcon"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZP-g5-iYW">
+                    <rect key="frame" x="107" y="6" width="387" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="yVg-6q-2nG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpV-BP-Pz3">
+                    <rect key="frame" x="560" y="6" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="8TN-OH-St9"/>
+                        <constraint firstAttribute="width" constant="32" id="Mca-pj-yBH"/>
+                    </constraints>
+                    <state key="normal" image="viocephonebutton">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hL-hQ-oxr">
+                    <rect key="frame" x="512" y="6" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="9TB-Cr-Ydi"/>
+                        <constraint firstAttribute="width" constant="32" id="ZhO-gm-9jE"/>
+                    </constraints>
+                    <state key="normal" image="serviceDetailInfo">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="infoButton"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="xkW-mh-N3X" firstAttribute="bottom" secondItem="5hL-hQ-oxr" secondAttribute="bottom" id="2c3-ny-AU5"/>
+                <constraint firstItem="RpV-BP-Pz3" firstAttribute="leading" secondItem="5hL-hQ-oxr" secondAttribute="trailing" constant="16" id="4wz-dy-f2j"/>
+                <constraint firstItem="1Nf-cD-H5k" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6db-OI-Gov"/>
+                <constraint firstItem="1Nf-cD-H5k" firstAttribute="centerX" secondItem="JZP-g5-iYW" secondAttribute="centerX" id="AVb-lC-zwJ"/>
+                <constraint firstItem="JZP-g5-iYW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Bv6-VK-69g"/>
+                <constraint firstItem="5hL-hQ-oxr" firstAttribute="leading" secondItem="JZP-g5-iYW" secondAttribute="trailing" constant="18" id="Co7-CW-3KN"/>
+                <constraint firstAttribute="trailing" secondItem="1Nf-cD-H5k" secondAttribute="trailing" id="Eo8-eb-dRB"/>
+                <constraint firstItem="xkW-mh-N3X" firstAttribute="leading" secondItem="1Nf-cD-H5k" secondAttribute="leading" id="Fdc-Ke-JYN"/>
+                <constraint firstAttribute="bottom" secondItem="1Nf-cD-H5k" secondAttribute="bottom" constant="-45" id="IFK-Mm-pPE"/>
+                <constraint firstItem="JZP-g5-iYW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="McO-0e-M37"/>
+                <constraint firstItem="xkW-mh-N3X" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Owm-5O-sil"/>
+                <constraint firstItem="JZP-g5-iYW" firstAttribute="leading" secondItem="xkW-mh-N3X" secondAttribute="trailing" constant="62" id="RG4-7V-DdE"/>
+                <constraint firstItem="5hL-hQ-oxr" firstAttribute="top" secondItem="RpV-BP-Pz3" secondAttribute="top" id="XsB-uD-V0j"/>
+                <constraint firstItem="1Nf-cD-H5k" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gd8-yF-TmG"/>
+                <constraint firstAttribute="bottom" secondItem="1Nf-cD-H5k" secondAttribute="bottom" id="goG-0a-O4i"/>
+                <constraint firstItem="RpV-BP-Pz3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hBq-hw-7sU"/>
+                <constraint firstAttribute="trailing" secondItem="RpV-BP-Pz3" secondAttribute="trailing" constant="8" id="mvS-tH-pY0"/>
+                <constraint firstItem="1Nf-cD-H5k" firstAttribute="top" secondItem="xkW-mh-N3X" secondAttribute="bottom" constant="7" id="p66-F4-g80"/>
+                <constraint firstItem="xkW-mh-N3X" firstAttribute="centerY" secondItem="5hL-hQ-oxr" secondAttribute="centerY" id="uzV-9m-n3d"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="AVb-lC-zwJ"/>
+                    <exclude reference="IFK-Mm-pPE"/>
+                    <exclude reference="p66-F4-g80"/>
+                    <exclude reference="Fdc-Ke-JYN"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="backButton" destination="xkW-mh-N3X" id="zTS-4m-zjO"/>
+                <outlet property="bgView" destination="1Nf-cD-H5k" id="cIe-gl-90I"/>
+                <outlet property="commentButton" destination="5hL-hQ-oxr" id="W18-PT-UGc"/>
+                <outlet property="titleLabel" destination="JZP-g5-iYW" id="iht-4f-1hf"/>
+                <outlet property="videoButton" destination="RpV-BP-Pz3" id="n2T-uY-nkh"/>
+            </connections>
+            <point key="canvasLocation" x="143" y="335"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backIcon" width="13" height="22"/>
+        <image name="serviceDetailInfo" width="36" height="36"/>
+        <image name="viocephonebutton" width="36" height="36"/>
+    </resources>
+</document>

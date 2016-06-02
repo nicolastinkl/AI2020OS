@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 
 @UIApplicationMain
@@ -29,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configAVOSCloud()
         AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         AVAnalytics.setChannel("App Store")
+        
+        IQKeyboardManager.sharedManager().enable = true
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert,.Badge,.Sound], categories: nil))
         application.registerForRemoteNotifications()
@@ -61,7 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
 
     }
-    
     
     /**
      config lean Cloud.
@@ -206,7 +208,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func showRootViewControllerReal() {
         //创建Root
-        self.window = UIWindow()
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let root = AIRootViewController()
         //创建导航控制器
         let nav = UINavigationController(rootViewController:root)

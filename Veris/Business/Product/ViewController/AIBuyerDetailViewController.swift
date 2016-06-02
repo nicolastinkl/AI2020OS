@@ -702,30 +702,28 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      
-            if (self.openCell == false) || (self.openCell == true  && selectCount == 1){
-                selectCount = 0
-                var serviceList: NSArray?
-                
-                if (tableView == deletedTableView) {
-                    //需求说已删除的服务 不支持点击事件
-                    return
-                    //            serviceList = deleted_service_list
-                } else {
-                    serviceList = current_service_list
-                }
-                
-                
-                let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIPageBueryViewController) as! AIPageBueryViewController
-                viewController.delegate = self
-                viewController.proposalId = dataSource.proposal_id
-                viewController.bubbleModelArray = serviceList as? [AIProposalServiceModel]
-                viewController.selectCurrentIndex = indexPath.row
-                self.showViewController(viewController, sender: self)
-
-                
-            }
         
+        if (self.openCell == false) || (self.openCell == true  && selectCount == 1){
+            selectCount = 0
+            var serviceList: NSArray?
+            
+            if (tableView == deletedTableView) {
+                //需求说已删除的服务 不支持点击事件
+                return
+                //            serviceList = deleted_service_list
+            } else {
+                serviceList = current_service_list
+            }
+            
+            let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIPageBueryViewController) as! AIPageBueryViewController
+            viewController.delegate = self
+            viewController.proposalId = dataSource.proposal_id
+            viewController.bubbleModelArray = serviceList as? [AIProposalServiceModel]
+            viewController.selectCurrentIndex = indexPath.row
+            self.showViewController(viewController, sender: self)
+            
+            
+        }
         
         selectCount  = selectCount + 1
     }

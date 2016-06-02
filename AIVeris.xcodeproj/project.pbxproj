@@ -431,6 +431,9 @@
 		8175A7C01CFD2710006F2C8F /* RAReorderableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A71C1CFD2710006F2C8F /* RAReorderableLayout.swift */; };
 		8175A7C11CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A71E1CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m */; };
 		8175A7C21CFD2710006F2C8F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */; };
+		8175A7C31CFD2710006F2C8F /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7221CFD2710006F2C8F /* libicucore.A.dylib */; };
+		8175A7C41CFD2710006F2C8F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7231CFD2710006F2C8F /* libsqlite3.dylib */; };
+		8175A7C51CFD2710006F2C8F /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7241CFD2710006F2C8F /* libz.1.dylib */; };
 		8175A7C61CFD2710006F2C8F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7271CFD2710006F2C8F /* AFHTTPRequestOperation.m */; };
 		8175A7C71CFD2710006F2C8F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7291CFD2710006F2C8F /* AFHTTPRequestOperationManager.m */; };
 		8175A7C81CFD2710006F2C8F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A72B1CFD2710006F2C8F /* AFHTTPSessionManager.m */; };
@@ -502,21 +505,25 @@
 		81BB86711CFD77AB00899B58 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 81BB866D1CFD77AB00899B58 /* WeiboSDK.bundle */; };
 		81BB86721CFD808D00899B58 /* AVOSCloud.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81433B361CFBE5A700347C29 /* AVOSCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		81BB86731CFD808D00899B58 /* AVOSCloudCrashReporting.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81433B371CFBE5A700347C29 /* AVOSCloudCrashReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		81BB86771CFE894200899B58 /* AICustomSearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */; };
+		81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */; };
 		81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */; };
 		844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */; };
 		844AFA211CE1DA5900C58B1C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA201CE1DA5900C58B1C /* CoreMedia.framework */; };
 		844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA221CE1DA6800C58B1C /* CoreVideo.framework */; };
 		844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA241CE1DA7300C58B1C /* GLKit.framework */; };
 		844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA261CE1DA8B00C58B1C /* libc++.tbd */; };
+		84AC3E3C1D00293900D30F1E /* ServiceCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC3E3A1D00293900D30F1E /* ServiceCommentViewController.swift */; };
+		84AC3E3D1D00293900D30F1E /* ServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AC3E3B1D00293900D30F1E /* ServiceCommentViewController.xib */; };
 		933763021CFD7040006B997D /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
-		9351F7C31CFE84CB000C019F /* libicucore.A.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C21CFE84CB000C019F /* libicucore.A.tbd */; };
-		9351F7C51CFE84D3000C019F /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C41CFE84D3000C019F /* libz.1.tbd */; };
-		9351F7C71CFE8819000C019F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C61CFE8819000C019F /* libsqlite3.0.tbd */; };
-		9351F7CD1CFECBCD000C019F /* AIWishVowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351F7CC1CFECBCC000C019F /* AIWishVowViewController.swift */; };
-		9351F7CF1CFED3EB000C019F /* AIWishVowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9351F7CE1CFED3EB000C019F /* AIWishVowViewController.xib */; };
-		9351F7D11CFED43A000C019F /* AIWishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351F7D01CFED43A000C019F /* AIWishModel.swift */; };
-		9351F7DA1CFEDFA2000C019F /* AISuperiorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351F7D71CFEDFA2000C019F /* AISuperiorityViewController.swift */; };
-		9351F7DB1CFEDFA2000C019F /* AISuperiorityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9351F7D81CFEDFA2000C019F /* AISuperiorityViewController.xib */; };
+		933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */; };
+		933BC83D1D002434005E1789 /* AINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8311D002434005E1789 /* AINavigationBar.swift */; };
+		933BC83E1D002434005E1789 /* AINavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8321D002434005E1789 /* AINavigationBar.xib */; };
+		933BC83F1D002434005E1789 /* AISuperiorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8341D002434005E1789 /* AISuperiorityViewController.swift */; };
+		933BC8401D002434005E1789 /* AISuperiorityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8351D002434005E1789 /* AISuperiorityViewController.xib */; };
+		933BC8411D002434005E1789 /* AIWishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8381D002434005E1789 /* AIWishModel.swift */; };
+		933BC8421D002434005E1789 /* AIWishVowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC83B1D002434005E1789 /* AIWishVowViewController.swift */; };
+		933BC8431D002434005E1789 /* AIWishVowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC83C1D002434005E1789 /* AIWishVowViewController.xib */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
 		93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */; };
 		93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB31B9D7E9C00CD1FEB /* MobileCoreServices.framework */; };
@@ -530,16 +537,6 @@
 		93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F381B9C2825007BF506 /* SystemConfiguration.framework */; };
 		DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		8423E56F1BB4E4EE006DC73B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93D5A3411B709C1C00DDB158 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 93D5A3481B709C1C00DDB158;
-			remoteInfo = AIVeris;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9324A4721CCF58DF00A0A397 /* CopyFiles */ = {
@@ -1136,6 +1133,9 @@
 		8175A71E1CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewWaterfallLayout.m; sourceTree = "<group>"; };
 		8175A71F1CFD2710006F2C8F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		8175A7221CFD2710006F2C8F /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libicucore.A.dylib; sourceTree = "<group>"; };
+		8175A7231CFD2710006F2C8F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
+		8175A7241CFD2710006F2C8F /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libz.1.dylib; sourceTree = "<group>"; };
 		8175A7261CFD2710006F2C8F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		8175A7271CFD2710006F2C8F /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		8175A7281CFD2710006F2C8F /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -1280,24 +1280,27 @@
 		81BB866D1CFD77AB00899B58 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		81BB866E1CFD77AB00899B58 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		81BB866F1CFD77AB00899B58 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AICustomSearchHomeViewController.swift; path = CustomSearch/ViewController/AICustomSearchHomeViewController.swift; sourceTree = "<group>"; };
+		81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AISearchHistoryLabels.swift; path = CustomSearch/View/AISearchHistoryLabels.swift; sourceTree = "<group>"; };
 		81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		8423E56A1BB4E4EE006DC73B /* Veris Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Veris Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		844AFA201CE1DA5900C58B1C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		844AFA221CE1DA6800C58B1C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		844AFA241CE1DA7300C58B1C /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		844AFA261CE1DA8B00C58B1C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		84AC3E3A1D00293900D30F1E /* ServiceCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentViewController.swift; sourceTree = "<group>"; };
+		84AC3E3B1D00293900D30F1E /* ServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentViewController.xib; sourceTree = "<group>"; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		933763011CFD7040006B997D /* AIModelSerice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModelSerice.swift; sourceTree = "<group>"; };
-		9351F7C21CFE84CB000C019F /* libicucore.A.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.A.tbd; path = usr/lib/libicucore.A.tbd; sourceTree = SDKROOT; };
-		9351F7C41CFE84D3000C019F /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
-		9351F7C61CFE8819000C019F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		9351F7CC1CFECBCC000C019F /* AIWishVowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishVowViewController.swift; sourceTree = "<group>"; };
-		9351F7CE1CFED3EB000C019F /* AIWishVowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishVowViewController.xib; sourceTree = "<group>"; };
-		9351F7D01CFED43A000C019F /* AIWishModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishModel.swift; sourceTree = "<group>"; };
-		9351F7D71CFEDFA2000C019F /* AISuperiorityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityViewController.swift; sourceTree = "<group>"; };
-		9351F7D81CFEDFA2000C019F /* AISuperiorityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityViewController.xib; sourceTree = "<group>"; };
+		933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AICustomSearchHomeViewController.xib; path = CustomSearch/ViewController/AICustomSearchHomeViewController.xib; sourceTree = "<group>"; };
+		933BC8311D002434005E1789 /* AINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AINavigationBar.swift; sourceTree = "<group>"; };
+		933BC8321D002434005E1789 /* AINavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AINavigationBar.xib; sourceTree = "<group>"; };
+		933BC8341D002434005E1789 /* AISuperiorityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityViewController.swift; sourceTree = "<group>"; };
+		933BC8351D002434005E1789 /* AISuperiorityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityViewController.xib; sourceTree = "<group>"; };
+		933BC8381D002434005E1789 /* AIWishModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishModel.swift; sourceTree = "<group>"; };
+		933BC83B1D002434005E1789 /* AIWishVowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishVowViewController.swift; sourceTree = "<group>"; };
+		933BC83C1D002434005E1789 /* AIWishVowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishVowViewController.xib; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		93B25AAB1B9D7C6800CD1FEB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -1318,21 +1321,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8423E5671BB4E4EE006DC73B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		93D5A3461B709C1C00DDB158 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9351F7C71CFE8819000C019F /* libsqlite3.0.tbd in Frameworks */,
-				9351F7C51CFE84D3000C019F /* libz.1.tbd in Frameworks */,
-				9351F7C31CFE84CB000C019F /* libicucore.A.tbd in Frameworks */,
 				81433E501CFBE5A700347C29 /* AVOSCloudCrashReporting.framework in Frameworks */,
+				8175A7C41CFD2710006F2C8F /* libsqlite3.dylib in Frameworks */,
 				844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */,
 				844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */,
 				844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */,
@@ -1340,6 +1334,7 @@
 				844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */,
 				81A0458F1C11675500296E56 /* CoreAudio.framework in Frameworks */,
 				937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */,
+				8175A7C31CFD2710006F2C8F /* libicucore.A.dylib in Frameworks */,
 				81BB86701CFD77AB00899B58 /* libWeiboSDK.a in Frameworks */,
 				93B523921BB8F0F400DFB1C9 /* CoreMotion.framework in Frameworks */,
 				81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */,
@@ -1353,6 +1348,7 @@
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
+				8175A7C51CFD2710006F2C8F /* libz.1.dylib in Frameworks */,
 				DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1363,9 +1359,6 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9351F7C61CFE8819000C019F /* libsqlite3.0.tbd */,
-				9351F7C41CFE84D3000C019F /* libz.1.tbd */,
-				9351F7C21CFE84CB000C019F /* libicucore.A.tbd */,
 				844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */,
 				844AFA261CE1DA8B00C58B1C /* libc++.tbd */,
 				844AFA241CE1DA7300C58B1C /* GLKit.framework */,
@@ -1425,8 +1418,12 @@
 		814339291CFBE5A600347C29 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				84AC3E361D0025BB00D30F1E /* Comment */,
 				9351F7D21CFEDFA2000C019F /* Superiority */,
 				9351F7C81CFECB14000C019F /* Wish */,
+				933BC82E1D002434005E1789 /* Superiority */,
+				933BC8361D002434005E1789 /* Wish */,
+				81BB86741CFE818900899B58 /* CustomSearch */,
 				8143392A1CFBE5A600347C29 /* Common */,
 				814339721CFBE5A600347C29 /* CustomerCenter */,
 				81433A291CFBE5A700347C29 /* Home */,
@@ -1536,14 +1533,14 @@
 		8143395E1CFBE5A600347C29 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8143395F1CFBE5A600347C29 /* AIOpeningView.h */,
+				814339601CFBE5A600347C29 /* AIOpeningView.m */,
 				814339611CFBE5A600347C29 /* AIScrollLabel */,
 				814339641CFBE5A600347C29 /* AITagView */,
 				8143396D1CFBE5A600347C29 /* AIViews.h */,
 				8143396E1CFBE5A600347C29 /* AIViews.m */,
 				8143396F1CFBE5A600347C29 /* UPLabel.h */,
 				814339701CFBE5A600347C29 /* UPLabel.m */,
-				8143395F1CFBE5A600347C29 /* AIOpeningView.h */,
-				814339601CFBE5A600347C29 /* AIOpeningView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2687,6 +2684,7 @@
 			children = (
 				81BB86631CFD77AB00899B58 /* libWeiboSDK */,
 				8175A7131CFD2710006F2C8F /* 3rdClass */,
+				8175A7211CFD2710006F2C8F /* 3rdLib */,
 				8175A7251CFD2710006F2C8F /* AFNetworking */,
 				8175A7391CFD2710006F2C8F /* CoreText */,
 				8175A7461CFD2710006F2C8F /* DDHTimerControl */,
@@ -2725,6 +2723,16 @@
 				8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */,
 			);
 			path = 3rdClass;
+			sourceTree = "<group>";
+		};
+		8175A7211CFD2710006F2C8F /* 3rdLib */ = {
+			isa = PBXGroup;
+			children = (
+				8175A7221CFD2710006F2C8F /* libicucore.A.dylib */,
+				8175A7231CFD2710006F2C8F /* libsqlite3.dylib */,
+				8175A7241CFD2710006F2C8F /* libz.1.dylib */,
+			);
+			path = 3rdLib;
 			sourceTree = "<group>";
 		};
 		8175A7251CFD2710006F2C8F /* AFNetworking */ = {
@@ -2998,69 +3006,130 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
-		9351F7C81CFECB14000C019F /* Wish */ = {
+		84AC3E361D0025BB00D30F1E /* Comment */ = {
 			isa = PBXGroup;
 			children = (
-				9351F7C91CFECB14000C019F /* Model */,
-				9351F7CA1CFECB14000C019F /* View */,
-				9351F7CB1CFECB14000C019F /* ViewController */,
+				84AC3E371D0025BB00D30F1E /* Model */,
+				84AC3E381D0025BB00D30F1E /* View */,
+				84AC3E391D0025BB00D30F1E /* ViewController */,
 			);
-			path = Wish;
+			path = Comment;
 			sourceTree = "<group>";
 		};
-		9351F7C91CFECB14000C019F /* Model */ = {
+		84AC3E371D0025BB00D30F1E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9351F7D01CFED43A000C019F /* AIWishModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9351F7CA1CFECB14000C019F /* View */ = {
+		84AC3E381D0025BB00D30F1E /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		9351F7CB1CFECB14000C019F /* ViewController */ = {
+		84AC3E391D0025BB00D30F1E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9351F7CC1CFECBCC000C019F /* AIWishVowViewController.swift */,
-				9351F7CE1CFED3EB000C019F /* AIWishVowViewController.xib */,
+				84AC3E3A1D00293900D30F1E /* ServiceCommentViewController.swift */,
+				84AC3E3B1D00293900D30F1E /* ServiceCommentViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		9351F7D21CFEDFA2000C019F /* Superiority */ = {
+		9351F7C81CFECB14000C019F /* Wish */ = {
 			isa = PBXGroup;
 			children = (
-				9351F7D31CFEDFA2000C019F /* Model */,
-				9351F7D51CFEDFA2000C019F /* View */,
-				9351F7D61CFEDFA2000C019F /* ViewController */,
+				81BB86781CFEB7C500899B58 /* View */,
+				81BB86751CFE81A900899B58 /* ViewController */,
+			);
+			name = CustomSearch;
+			sourceTree = "<group>";
+		};
+		81BB86751CFE81A900899B58 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */,
+				933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		81BB86781CFEB7C500899B58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		933BC82E1D002434005E1789 /* Superiority */ = {
+			isa = PBXGroup;
+			children = (
+				933BC82F1D002434005E1789 /* Model */,
+				933BC8301D002434005E1789 /* View */,
+				933BC8331D002434005E1789 /* ViewController */,
 			);
 			path = Superiority;
 			sourceTree = "<group>";
 		};
-		9351F7D31CFEDFA2000C019F /* Model */ = {
+		933BC82F1D002434005E1789 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9351F7D51CFEDFA2000C019F /* View */ = {
+		933BC8301D002434005E1789 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				933BC8311D002434005E1789 /* AINavigationBar.swift */,
+				933BC8321D002434005E1789 /* AINavigationBar.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		933BC8331D002434005E1789 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				933BC8341D002434005E1789 /* AISuperiorityViewController.swift */,
+				933BC8351D002434005E1789 /* AISuperiorityViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		933BC8361D002434005E1789 /* Wish */ = {
+			isa = PBXGroup;
+			children = (
+				933BC8371D002434005E1789 /* Model */,
+				933BC8391D002434005E1789 /* View */,
+				933BC83A1D002434005E1789 /* ViewController */,
+			);
+			path = Wish;
+			sourceTree = "<group>";
+		};
+		933BC8371D002434005E1789 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				933BC8381D002434005E1789 /* AIWishModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		933BC8391D002434005E1789 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		9351F7D61CFEDFA2000C019F /* ViewController */ = {
+		933BC83A1D002434005E1789 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9351F7D71CFEDFA2000C019F /* AISuperiorityViewController.swift */,
-				9351F7D81CFEDFA2000C019F /* AISuperiorityViewController.xib */,
+				933BC83B1D002434005E1789 /* AIWishVowViewController.swift */,
+				933BC83C1D002434005E1789 /* AIWishVowViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3079,7 +3148,6 @@
 			isa = PBXGroup;
 			children = (
 				93D5A3491B709C1C00DDB158 /* Veris.app */,
-				8423E56A1BB4E4EE006DC73B /* Veris Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3096,24 +3164,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8423E5691BB4E4EE006DC73B /* Veris Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8423E5711BB4E4EE006DC73B /* Build configuration list for PBXNativeTarget "Veris Tests" */;
-			buildPhases = (
-				8423E5661BB4E4EE006DC73B /* Sources */,
-				8423E5671BB4E4EE006DC73B /* Frameworks */,
-				8423E5681BB4E4EE006DC73B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8423E5701BB4E4EE006DC73B /* PBXTargetDependency */,
-			);
-			name = "Veris Tests";
-			productName = "Veris Tests";
-			productReference = 8423E56A1BB4E4EE006DC73B /* Veris Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		93D5A3481B709C1C00DDB158 /* AIVeris */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93D5A3711B709C1D00DDB158 /* Build configuration list for PBXNativeTarget "AIVeris" */;
@@ -3150,10 +3200,6 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "___ASIAINFO___";
 				TargetAttributes = {
-					8423E5691BB4E4EE006DC73B = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 93D5A3481B709C1C00DDB158;
-					};
 					93D5A3481B709C1C00DDB158 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = T2362RFKT6;
@@ -3179,19 +3225,11 @@
 			projectRoot = "";
 			targets = (
 				93D5A3481B709C1C00DDB158 /* AIVeris */,
-				8423E5691BB4E4EE006DC73B /* Veris Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8423E5681BB4E4EE006DC73B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		93D5A3471B709C1C00DDB158 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3199,14 +3237,15 @@
 				81433D311CFBE5A700347C29 /* SimpleServiceViewContainer.xib in Resources */,
 				81433D3E1CFBE5A700347C29 /* AICustomView.xib in Resources */,
 				81433D321CFBE5A700347C29 /* TopServiceContainer.xib in Resources */,
+				933BC83E1D002434005E1789 /* AINavigationBar.xib in Resources */,
 				81433E1F1CFBE5A700347C29 /* SwitchServiceView.xib in Resources */,
 				81433D971CFBE5A700347C29 /* AIAssignServiceView.xib in Resources */,
 				81433EB81CFBE5A700347C29 /* MyriadPro-Black.otf in Resources */,
 				81433EBA1CFBE5A700347C29 /* MyriadPro-Cond.otf in Resources */,
 				81433DA51CFBE5A700347C29 /* AIServiceSearchView.xib in Resources */,
-				9351F7DB1CFEDFA2000C019F /* AISuperiorityViewController.xib in Resources */,
 				81433D361CFBE5A700347C29 /* AIAudioInputView.xib in Resources */,
 				81433EC41CFBE5A700347C29 /* loading.gif in Resources */,
+				933BC8401D002434005E1789 /* AISuperiorityViewController.xib in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
 				81433DA91CFBE5A700347C29 /* AITaskTimeLineView.xib in Resources */,
 				81433EC21CFBE5A700347C29 /* UIBuyerStoryboard.storyboard in Resources */,
@@ -3229,7 +3268,6 @@
 				81433D181CFBE5A700347C29 /* airplane@2x.png in Resources */,
 				81433D9A1CFBE5A700347C29 /* AIErrorRetryView.xib in Resources */,
 				81433EC31CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard in Resources */,
-				9351F7CF1CFED3EB000C019F /* AIWishVowViewController.xib in Resources */,
 				81433D211CFBE5A700347C29 /* BottomServiceContainer.xib in Resources */,
 				81433D481CFBE5A700347C29 /* AITextMessageView.xib in Resources */,
 				81433EC11CFBE5A700347C29 /* LaunchScreen.storyboard in Resources */,
@@ -3241,11 +3279,14 @@
 				81433E381CFBE5A700347C29 /* BuyerRequirmentMessageViewController.xib in Resources */,
 				81433DF71CFBE5A700347C29 /* AIEventTimerView.xib in Resources */,
 				81433DB31CFBE5A700347C29 /* BuyerMessageCell.xib in Resources */,
+				933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */,
 				81433D251CFBE5A700347C29 /* MiddleServiceContainer.xib in Resources */,
 				81433E0F1CFBE5A700347C29 /* IconLabel.xib in Resources */,
 				81433D4F1CFBE5A700347C29 /* AIAddressRouteView.xib in Resources */,
 				81433D3C1CFBE5A700347C29 /* AICustomAudioNotesView.xib in Resources */,
+				933BC8431D002434005E1789 /* AIWishVowViewController.xib in Resources */,
 				81433D2F1CFBE5A700347C29 /* ServiceSettingView.xib in Resources */,
+				84AC3E3D1D00293900D30F1E /* ServiceCommentViewController.xib in Resources */,
 				81433DFE1CFBE5A700347C29 /* DependOnNodeCell.xib in Resources */,
 				81433DF91CFBE5A700347C29 /* AISinglePickerView.xib in Resources */,
 				81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */,
@@ -3345,13 +3386,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8423E5661BB4E4EE006DC73B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		93D5A3451B709C1C00DDB158 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3415,11 +3449,13 @@
 				81433E5C1CFBE5A700347C29 /* FLEXArgumentInputTextView.m in Sources */,
 				8175A7EE1CFD2710006F2C8F /* OAStackViewDistributionStrategy.m in Sources */,
 				81433CEF1CFBE5A700347C29 /* AIBaseModel.swift in Sources */,
+				81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */,
 				81433EA11CFBE5A700347C29 /* UIView+MaterialDesign.m in Sources */,
 				81433D351CFBE5A700347C29 /* AIAudioInputView.swift in Sources */,
 				81433CD21CFBE5A700347C29 /* AIBuyServiceModel.swift in Sources */,
 				81433EA71CFBE5A700347C29 /* AIKinectButton.swift in Sources */,
 				81433E791CFBE5A700347C29 /* FLEXLibrariesTableViewController.m in Sources */,
+				84AC3E3C1D00293900D30F1E /* ServiceCommentViewController.swift in Sources */,
 				8175A7C91CFD2710006F2C8F /* AFNetworkReachabilityManager.m in Sources */,
 				81433EA61CFBE5A700347C29 /* AIAssignUtils.swift in Sources */,
 				8175A7FC1CFD2710006F2C8F /* SDWebImageDownloaderOperation.m in Sources */,
@@ -3469,6 +3505,7 @@
 				81433DA11CFBE5A700347C29 /* AIRACContentCell.swift in Sources */,
 				81433E3C1CFBE5A700347C29 /* AIFakeUser.m in Sources */,
 				8175A7C81CFD2710006F2C8F /* AFHTTPSessionManager.m in Sources */,
+				933BC83D1D002434005E1789 /* AINavigationBar.swift in Sources */,
 				81433CD81CFBE5A700347C29 /* AIModels.swift in Sources */,
 				81433D071CFBE5A700347C29 /* AIRemoteRequestQueue.swift in Sources */,
 				81433D951CFBE5A700347C29 /* AIDeleteActionDelegate.swift in Sources */,
@@ -3505,6 +3542,7 @@
 				81433D3B1CFBE5A700347C29 /* AICustomAudioNotesView.swift in Sources */,
 				8175A7ED1CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.m in Sources */,
 				81433D221CFBE5A700347C29 /* BottomServiceContainerView.swift in Sources */,
+				933BC8411D002434005E1789 /* AIWishModel.swift in Sources */,
 				8175A8071CFD2710006F2C8F /* YYWeakProxy.m in Sources */,
 				81433D9C1CFBE5A700347C29 /* AIMusicTherapyView.m in Sources */,
 				8175A7DB1CFD2710006F2C8F /* JSONModelClassProperty.m in Sources */,
@@ -3515,7 +3553,6 @@
 				81433CEC1CFBE5A700347C29 /* ServiceOrderDetailModel.m in Sources */,
 				81433D491CFBE5A700347C29 /* AIWishMessageView.swift in Sources */,
 				8175A7EB1CFD2710006F2C8F /* OAStackView.m in Sources */,
-				9351F7CD1CFECBCD000C019F /* AIWishVowViewController.swift in Sources */,
 				8175A7D71CFD2710006F2C8F /* IGViewWrapper.m in Sources */,
 				81433DA61CFBE5A700347C29 /* AITaskDataModel.swift in Sources */,
 				81433E7E1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m in Sources */,
@@ -3582,7 +3619,6 @@
 				81433CD61CFBE5A700347C29 /* AIFavoriteContentModel.swift in Sources */,
 				81433DFF1CFBE5A700347C29 /* AirTicketGroupView.swift in Sources */,
 				81433E911CFBE5A700347C29 /* FLEXViewControllerExplorerViewController.m in Sources */,
-				9351F7D11CFED43A000C019F /* AIWishModel.swift in Sources */,
 				81433E391CFBE5A700347C29 /* DependOnNodePickerViewController.swift in Sources */,
 				81433E511CFBE5A700347C29 /* BuildInCameraUtils.swift in Sources */,
 				81433E591CFBE5A700347C29 /* FLEXArgumentInputStringView.m in Sources */,
@@ -3617,6 +3653,7 @@
 				81433D591CFBE5A700347C29 /* AINumberCountControl.swift in Sources */,
 				81433CE81CFBE5A700347C29 /* AIServiceSubmitModel.m in Sources */,
 				8175A7E01CFD2710006F2C8F /* MJRefreshBaseView.m in Sources */,
+				81BB86771CFE894200899B58 /* AICustomSearchHomeViewController.swift in Sources */,
 				81433CF71CFBE5A700347C29 /* AIBaseTagsView.m in Sources */,
 				8175A7CE1CFD2710006F2C8F /* AFURLSessionManager.m in Sources */,
 				8175A7BC1CFD2710006F2C8F /* Async.swift in Sources */,
@@ -3639,13 +3676,14 @@
 				81433D371CFBE5A700347C29 /* AIAudioMessageView.swift in Sources */,
 				8175A7E61CFD2710006F2C8F /* UIView+MJExtension.m in Sources */,
 				81433E651CFBE5A700347C29 /* FLEXExplorerToolbar.m in Sources */,
-				9351F7DA1CFEDFA2000C019F /* AISuperiorityViewController.swift in Sources */,
+				933BC83F1D002434005E1789 /* AISuperiorityViewController.swift in Sources */,
 				81433EA41CFBE5A700347C29 /* AIMessageWrapper.m in Sources */,
 				81433DF61CFBE5A700347C29 /* AIEventTimerView.swift in Sources */,
 				81433E6B1CFBE5A700347C29 /* FLEXMultiColumnTableView.m in Sources */,
 				81433E151CFBE5A700347C29 /* PKYStepper.m in Sources */,
 				81433E771CFBE5A700347C29 /* FLEXGlobalsTableViewController.m in Sources */,
 				81433D001CFBE5A700347C29 /* AILocalStore.swift in Sources */,
+				933BC8421D002434005E1789 /* AIWishVowViewController.swift in Sources */,
 				81433E241CFBE5A700347C29 /* AIAssignmentContentViewController.swift in Sources */,
 				81433D5E1CFBE5A700347C29 /* AIServiceRouteViewController.swift in Sources */,
 				81433CFF1CFBE5A700347C29 /* AIFavorServicesManager.swift in Sources */,
@@ -3776,14 +3814,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		8423E5701BB4E4EE006DC73B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 93D5A3481B709C1C00DDB158 /* AIVeris */;
-			targetProxy = 8423E56F1BB4E4EE006DC73B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		81433C1D1CFBE5A700347C29 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -3797,35 +3827,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8423E5721BB4E4EE006DC73B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = "Veris Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "AsiaInfo2020.Veris-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6787037c-59be-42d8-9699-c8eb0bd80e7e";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Veris.app/Veris";
-			};
-			name = Debug;
-		};
-		8423E5731BB4E4EE006DC73B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = "Veris Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "AsiaInfo2020.Veris-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6787037c-59be-42d8-9699-c8eb0bd80e7e";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Veris.app/Veris";
-			};
-			name = Release;
-		};
 		93D5A36F1B709C1D00DDB158 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3998,15 +3999,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8423E5711BB4E4EE006DC73B /* Build configuration list for PBXNativeTarget "Veris Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8423E5721BB4E4EE006DC73B /* Debug */,
-				8423E5731BB4E4EE006DC73B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		93D5A3441B709C1C00DDB158 /* Build configuration list for PBXProject "AIVeris" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
