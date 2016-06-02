@@ -516,10 +516,9 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     func moreButtonAction() {
         self.makeBubbleView()
     }
-    
 
     func startSearch() {
-        showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController())
+        showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController.initFromNib())
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

@@ -514,6 +514,14 @@
 		844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA241CE1DA7300C58B1C /* GLKit.framework */; };
 		844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA261CE1DA8B00C58B1C /* libc++.tbd */; };
 		933763021CFD7040006B997D /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
+		933BC8251D001E6F005E1789 /* AINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8191D001E6F005E1789 /* AINavigationBar.swift */; };
+		933BC8261D001E6F005E1789 /* AINavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC81A1D001E6F005E1789 /* AINavigationBar.xib */; };
+		933BC8271D001E6F005E1789 /* AISuperiorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC81C1D001E6F005E1789 /* AISuperiorityViewController.swift */; };
+		933BC8281D001E6F005E1789 /* AISuperiorityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC81D1D001E6F005E1789 /* AISuperiorityViewController.xib */; };
+		933BC8291D001E6F005E1789 /* AIWishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8201D001E6F005E1789 /* AIWishModel.swift */; };
+		933BC82A1D001E6F005E1789 /* AIWishVowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8231D001E6F005E1789 /* AIWishVowViewController.swift */; };
+		933BC82B1D001E6F005E1789 /* AIWishVowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8241D001E6F005E1789 /* AIWishVowViewController.xib */; };
+		933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
 		93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */; };
 		93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB31B9D7E9C00CD1FEB /* MobileCoreServices.framework */; };
@@ -1281,6 +1289,14 @@
 		844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		933763011CFD7040006B997D /* AIModelSerice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModelSerice.swift; sourceTree = "<group>"; };
+		933BC8191D001E6F005E1789 /* AINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AINavigationBar.swift; sourceTree = "<group>"; };
+		933BC81A1D001E6F005E1789 /* AINavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AINavigationBar.xib; sourceTree = "<group>"; };
+		933BC81C1D001E6F005E1789 /* AISuperiorityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityViewController.swift; sourceTree = "<group>"; };
+		933BC81D1D001E6F005E1789 /* AISuperiorityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityViewController.xib; sourceTree = "<group>"; };
+		933BC8201D001E6F005E1789 /* AIWishModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishModel.swift; sourceTree = "<group>"; };
+		933BC8231D001E6F005E1789 /* AIWishVowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishVowViewController.swift; sourceTree = "<group>"; };
+		933BC8241D001E6F005E1789 /* AIWishVowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishVowViewController.xib; sourceTree = "<group>"; };
+		933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AICustomSearchHomeViewController.xib; path = CustomSearch/ViewController/AICustomSearchHomeViewController.xib; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		93B25AAB1B9D7C6800CD1FEB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -1398,6 +1414,8 @@
 		814339291CFBE5A600347C29 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				933BC8161D001E6F005E1789 /* Superiority */,
+				933BC81E1D001E6F005E1789 /* Wish */,
 				81BB86741CFE818900899B58 /* CustomSearch */,
 				8143392A1CFBE5A600347C29 /* Common */,
 				814339721CFBE5A600347C29 /* CustomerCenter */,
@@ -2994,6 +3012,7 @@
 			isa = PBXGroup;
 			children = (
 				81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */,
+				933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -3004,6 +3023,77 @@
 				81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		933BC8161D001E6F005E1789 /* Superiority */ = {
+			isa = PBXGroup;
+			children = (
+				933BC8171D001E6F005E1789 /* Model */,
+				933BC8181D001E6F005E1789 /* View */,
+				933BC81B1D001E6F005E1789 /* ViewController */,
+			);
+			name = Superiority;
+			path = "../../../../../../GoogleDrive/Document/project-xcode/AI2020OS/AIVerisAppStore/Veris/Business/Superiority";
+			sourceTree = "<group>";
+		};
+		933BC8171D001E6F005E1789 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		933BC8181D001E6F005E1789 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				933BC8191D001E6F005E1789 /* AINavigationBar.swift */,
+				933BC81A1D001E6F005E1789 /* AINavigationBar.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		933BC81B1D001E6F005E1789 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				933BC81C1D001E6F005E1789 /* AISuperiorityViewController.swift */,
+				933BC81D1D001E6F005E1789 /* AISuperiorityViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		933BC81E1D001E6F005E1789 /* Wish */ = {
+			isa = PBXGroup;
+			children = (
+				933BC81F1D001E6F005E1789 /* Model */,
+				933BC8211D001E6F005E1789 /* View */,
+				933BC8221D001E6F005E1789 /* ViewController */,
+			);
+			name = Wish;
+			path = "../../../../../../GoogleDrive/Document/project-xcode/AI2020OS/AIVerisAppStore/Veris/Business/Wish";
+			sourceTree = "<group>";
+		};
+		933BC81F1D001E6F005E1789 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				933BC8201D001E6F005E1789 /* AIWishModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		933BC8211D001E6F005E1789 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		933BC8221D001E6F005E1789 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				933BC8231D001E6F005E1789 /* AIWishVowViewController.swift */,
+				933BC8241D001E6F005E1789 /* AIWishVowViewController.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		93D5A3401B709C1C00DDB158 = {
@@ -3114,6 +3204,7 @@
 				81433EB81CFBE5A700347C29 /* MyriadPro-Black.otf in Resources */,
 				81433EBA1CFBE5A700347C29 /* MyriadPro-Cond.otf in Resources */,
 				81433DA51CFBE5A700347C29 /* AIServiceSearchView.xib in Resources */,
+				933BC8281D001E6F005E1789 /* AISuperiorityViewController.xib in Resources */,
 				81433D361CFBE5A700347C29 /* AIAudioInputView.xib in Resources */,
 				81433EC41CFBE5A700347C29 /* loading.gif in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
@@ -3149,6 +3240,7 @@
 				81433E381CFBE5A700347C29 /* BuyerRequirmentMessageViewController.xib in Resources */,
 				81433DF71CFBE5A700347C29 /* AIEventTimerView.xib in Resources */,
 				81433DB31CFBE5A700347C29 /* BuyerMessageCell.xib in Resources */,
+				933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */,
 				81433D251CFBE5A700347C29 /* MiddleServiceContainer.xib in Resources */,
 				81433E0F1CFBE5A700347C29 /* IconLabel.xib in Resources */,
 				81433D4F1CFBE5A700347C29 /* AIAddressRouteView.xib in Resources */,
@@ -3164,6 +3256,7 @@
 				81433E111CFBE5A700347C29 /* SeparatorLineLabel.xib in Resources */,
 				81433D381CFBE5A700347C29 /* AIAudioMessageView.xib in Resources */,
 				81433EBB1CFBE5A700347C29 /* MyriadPro-Light.otf in Resources */,
+				933BC82B1D001E6F005E1789 /* AIWishVowViewController.xib in Resources */,
 				81433EBD1CFBE5A700347C29 /* MyriadPro-LightSemiExt.otf in Resources */,
 				81433E311CFBE5A700347C29 /* AITaskInputViewController.xib in Resources */,
 				81433D621CFBE5A700347C29 /* AIShoppingListViewCell.xib in Resources */,
@@ -3184,6 +3277,7 @@
 				81433D5A1CFBE5A700347C29 /* AINumberCountControl.xib in Resources */,
 				81433EC51CFBE5A700347C29 /* start.mp4 in Resources */,
 				81433D201CFBE5A700347C29 /* AITitleAndIconTextView.xib in Resources */,
+				933BC8261D001E6F005E1789 /* AINavigationBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3371,6 +3465,7 @@
 				81433DA11CFBE5A700347C29 /* AIRACContentCell.swift in Sources */,
 				81433E3C1CFBE5A700347C29 /* AIFakeUser.m in Sources */,
 				8175A7C81CFD2710006F2C8F /* AFHTTPSessionManager.m in Sources */,
+				933BC8251D001E6F005E1789 /* AINavigationBar.swift in Sources */,
 				81433CD81CFBE5A700347C29 /* AIModels.swift in Sources */,
 				81433D071CFBE5A700347C29 /* AIRemoteRequestQueue.swift in Sources */,
 				81433D951CFBE5A700347C29 /* AIDeleteActionDelegate.swift in Sources */,
@@ -3407,6 +3502,7 @@
 				81433D3B1CFBE5A700347C29 /* AICustomAudioNotesView.swift in Sources */,
 				8175A7ED1CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.m in Sources */,
 				81433D221CFBE5A700347C29 /* BottomServiceContainerView.swift in Sources */,
+				933BC8291D001E6F005E1789 /* AIWishModel.swift in Sources */,
 				8175A8071CFD2710006F2C8F /* YYWeakProxy.m in Sources */,
 				81433D9C1CFBE5A700347C29 /* AIMusicTherapyView.m in Sources */,
 				8175A7DB1CFD2710006F2C8F /* JSONModelClassProperty.m in Sources */,
@@ -3540,12 +3636,14 @@
 				81433D371CFBE5A700347C29 /* AIAudioMessageView.swift in Sources */,
 				8175A7E61CFD2710006F2C8F /* UIView+MJExtension.m in Sources */,
 				81433E651CFBE5A700347C29 /* FLEXExplorerToolbar.m in Sources */,
+				933BC8271D001E6F005E1789 /* AISuperiorityViewController.swift in Sources */,
 				81433EA41CFBE5A700347C29 /* AIMessageWrapper.m in Sources */,
 				81433DF61CFBE5A700347C29 /* AIEventTimerView.swift in Sources */,
 				81433E6B1CFBE5A700347C29 /* FLEXMultiColumnTableView.m in Sources */,
 				81433E151CFBE5A700347C29 /* PKYStepper.m in Sources */,
 				81433E771CFBE5A700347C29 /* FLEXGlobalsTableViewController.m in Sources */,
 				81433D001CFBE5A700347C29 /* AILocalStore.swift in Sources */,
+				933BC82A1D001E6F005E1789 /* AIWishVowViewController.swift in Sources */,
 				81433E241CFBE5A700347C29 /* AIAssignmentContentViewController.swift in Sources */,
 				81433D5E1CFBE5A700347C29 /* AIServiceRouteViewController.swift in Sources */,
 				81433CFF1CFBE5A700347C29 /* AIFavorServicesManager.swift in Sources */,
