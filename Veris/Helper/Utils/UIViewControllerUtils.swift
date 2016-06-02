@@ -111,4 +111,16 @@ extension UIViewController {
 //        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
 //        self.showDetailViewController(viewController, sender: self)
 	}
+    
+    /**
+      显示模糊视图
+     */
+    func showTransitionStyleCrossDissolveView(vc: UIViewController){
+        let menuViewController = vc
+        menuViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        menuViewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        showViewController(menuViewController, sender: self)
+    }
+
+    
 }

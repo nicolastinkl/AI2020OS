@@ -472,7 +472,7 @@
         <image name="AIROAddTag" width="21" height="21"/>
         <image name="AIROAddTask" width="21" height="21"/>
         <image name="AIRequirebg1" width="621" height="1104"/>
-        <image name="AIRequirebg2" width="581" height="1075"/>
+        <image name="AIRequirebg2" width="500" height="925"/>
         <image name="AIRequirebgback" width="32" height="32"/>
         <image name="imLink" width="53" height="34"/>
         <image name="imcollable_selected" width="53" height="34"/>
