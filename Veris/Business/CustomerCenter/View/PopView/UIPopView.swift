@@ -75,7 +75,7 @@ import Spring
                 imageView.frame = CGRectMake(position.x, position.y, 29/2.5, 29/2.5)
                 self.addSubview(imageView)
                 firstImageView = imageView
-                i++
+                i += 1
             }
         }
     }

@@ -75,8 +75,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         
         selfViewPoint = self.view.center
 
-        
-        
         self.makeBaseProperties()
 
         self.makeTableView()
@@ -84,14 +82,14 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         self.makeTopBar()
         
         // Add Pull To Referesh..
-
         setupLanguageNotification()
+        
         setupUIWithCurrentLanguage()
         
         self.tableView.headerBeginRefreshing()
         
-        
     }
+
     
     // MARK: - 构造列表区域
     func makeTableView () {
@@ -521,7 +519,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     
 
     func startSearch() {
-
+        showTransitionStyleCrossDissolveView(AICustomSearchViewController())
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

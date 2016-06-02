@@ -48,7 +48,7 @@ class AIVerticalScrollView: UIScrollView {
         //TODO 这里还要等市场部输出图
         checkAllView.image = checkAllIcon
         //增加全选事件
-        let tapGuesture = UITapGestureRecognizer(target: self, action: "checkAllAction:")
+        let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(AIVerticalScrollView.checkAllAction(_:)))
         checkAllView.userInteractionEnabled = true
         checkAllView.addGestureRecognizer(tapGuesture)
         self.addSubview(checkAllView)

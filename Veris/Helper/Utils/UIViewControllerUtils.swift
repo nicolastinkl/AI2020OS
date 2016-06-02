@@ -17,7 +17,7 @@ import UIKit
 extension UIViewController {
 	
 	class func initFromNib() -> Self {
-		let name = NSStringFromClass(classForCoder()).componentsSeparatedByString(".").last
+		let name = NSStringFromClass(classForCoder()).componentsSeparatedByString(".").last                
 		return self.init(nibName: name, bundle: nil)
 	}
 	
@@ -111,4 +111,17 @@ extension UIViewController {
 //        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
 //        self.showDetailViewController(viewController, sender: self)
 	}
+    
+    /**
+      显示模糊视图
+     */
+    func showTransitionStyleCrossDissolveView(vc: UIViewController){
+        let menuViewController = vc
+        menuViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        menuViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+//        showViewController(menuViewController, sender: self)
+        presentViewController(menuViewController, animated: true, completion: nil)
+    }
+
+    
 }
