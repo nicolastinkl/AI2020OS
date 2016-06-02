@@ -509,6 +509,8 @@
 		844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA241CE1DA7300C58B1C /* GLKit.framework */; };
 		844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA261CE1DA8B00C58B1C /* libc++.tbd */; };
 		933763021CFD7040006B997D /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
+		933BC8111CFFD7E3005E1789 /* AINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8101CFFD7E3005E1789 /* AINavigationBar.swift */; };
+		933BC8131CFFD82C005E1789 /* AINavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8121CFFD82C005E1789 /* AINavigationBar.xib */; };
 		9351F7C31CFE84CB000C019F /* libicucore.A.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C21CFE84CB000C019F /* libicucore.A.tbd */; };
 		9351F7C51CFE84D3000C019F /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C41CFE84D3000C019F /* libz.1.tbd */; };
 		9351F7C71CFE8819000C019F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C61CFE8819000C019F /* libsqlite3.0.tbd */; };
@@ -1290,6 +1292,8 @@
 		844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		933763011CFD7040006B997D /* AIModelSerice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModelSerice.swift; sourceTree = "<group>"; };
+		933BC8101CFFD7E3005E1789 /* AINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AINavigationBar.swift; sourceTree = "<group>"; };
+		933BC8121CFFD82C005E1789 /* AINavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AINavigationBar.xib; sourceTree = "<group>"; };
 		9351F7C21CFE84CB000C019F /* libicucore.A.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.A.tbd; path = usr/lib/libicucore.A.tbd; sourceTree = SDKROOT; };
 		9351F7C41CFE84D3000C019F /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
 		9351F7C61CFE8819000C019F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -3052,6 +3056,8 @@
 		9351F7D51CFEDFA2000C019F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				933BC8101CFFD7E3005E1789 /* AINavigationBar.swift */,
+				933BC8121CFFD82C005E1789 /* AINavigationBar.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3266,6 +3272,7 @@
 				81433D4D1CFBE5A700347C29 /* UICustomsTags.xib in Resources */,
 				81433CFC1CFBE5A700347C29 /* multiLabels.json in Resources */,
 				81433EC81CFBE5A700347C29 /* Info.plist in Resources */,
+				933BC8131CFFD82C005E1789 /* AINavigationBar.xib in Resources */,
 				81433EC71CFBE5A700347C29 /* Localizable.strings in Resources */,
 				81433EC91CFBE5A700347C29 /* Veris.entitlements in Resources */,
 				81433D531CFBE5A700347C29 /* AIDepartReahCityView.xib in Resources */,
@@ -3483,6 +3490,7 @@
 				81433D731CFBE5A700347C29 /* AIHorizontalBarChart.m in Sources */,
 				81433E7A1CFBE5A700347C29 /* FLEXLiveObjectsTableViewController.m in Sources */,
 				81433E051CFBE5A700347C29 /* BubbleView.m in Sources */,
+				933BC8111CFFD7E3005E1789 /* AINavigationBar.swift in Sources */,
 				8175A7E71CFD2710006F2C8F /* _OALayoutGuide.m in Sources */,
 				81433D2D1CFBE5A700347C29 /* ServiceDetailView.swift in Sources */,
 				81433D471CFBE5A700347C29 /* AITextMessageView.swift in Sources */,

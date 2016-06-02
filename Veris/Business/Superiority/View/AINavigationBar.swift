@@ -1,5 +1,5 @@
 //
-//  AIWishVowViewController.swift
+//  AINavigationBar.swift
 //  AIVeris
 //
 // Copyright (c) 2016 ___ASIAINFO___
@@ -23,32 +23,30 @@
 // THE SOFTWARE.
 
 import Foundation
-import UIKit
-import Spring
-import Cartography
-import AIAlertView
-import SnapKit
 
-/// 许愿视图
-class AIWishVowViewController: UIViewController {
+
+class AINavigationBar: UIView {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
     
-        //private s = AIWishVowViewController.initFromNib()
+    @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var videoButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
         
-        if let navi = AINavigationBar.initFromNib() {
-            view.addSubview(navi)
-            
-            constrain(navi, block: { (layout) in
-                layout.left == layout.superview!.left
-                layout.top == layout.superview!.top
-                layout.right == layout.superview!.right
-                layout.height == 44.0 + 20
-            })
-            
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        Async.main(after: 0.1) { 
+            self.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
         }
         
-    }    
+        
+        backButton.addTarget(self, action: #selector(AINavigationBar.closeViewController), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    func closeViewController(){
+        //AIApplication().SendAction("closeViewController", ownerName: self)
+    }
     
 }

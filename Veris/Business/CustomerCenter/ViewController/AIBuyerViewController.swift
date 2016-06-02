@@ -75,8 +75,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         
         selfViewPoint = self.view.center
 
-        
-        
         self.makeBaseProperties()
 
         self.makeTableView()
@@ -84,13 +82,16 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         self.makeTopBar()
         
         // Add Pull To Referesh..
-
         setupLanguageNotification()
+        
         setupUIWithCurrentLanguage()
         
         self.tableView.headerBeginRefreshing()
         
-        
+    }
+    
+    func searchClick(){
+        showTransitionStyleCrossDissolveView(AIWishVowViewController.initFromNib())
     }
     
     // MARK: - 构造列表区域
@@ -105,8 +106,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func setupLanguageNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "setupUIWithCurrentLanguage", name: LCLLanguageChangeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshAfterNewOrder", name: AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.setupUIWithCurrentLanguage), name: LCLLanguageChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
     }
     
     func refreshAfterNewOrder () {
@@ -484,7 +485,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         searchButton.frame = CGRectMake(0, 0, buttonWidth, barHeight)
         searchButton.setImage(UIImage(named: "Buyer_Search"), forState: UIControlState.Normal)
         searchButton.imageEdgeInsets = UIEdgeInsetsMake(top, top, top, buttonWidth - imageSize - top)
-        searchButton.addTarget(self, action: nil, forControlEvents: .TouchUpInside)
+        searchButton.addTarget(self, action: "searchClick", forControlEvents: .TouchUpInside)
         topBar?.addSubview(searchButton)
         
         // make logo
