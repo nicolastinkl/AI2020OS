@@ -36,7 +36,7 @@ class AISuperiorityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         if let navi = AINavigationBar.initFromNib() as? AINavigationBar{
             view.addSubview(navi)
             navi.holderViewController = self
