@@ -34,9 +34,18 @@ class AISuperiorityViewController: UIViewController {
     
     @IBOutlet weak var scrollview: UIScrollView!
     
+    private var preCacheView: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initLayoutViews()
+        
+    }
+    
+    func initLayoutViews(){
+        
+        /// Title.
         if let navi = AINavigationBar.initFromNib() as? AINavigationBar{
             view.addSubview(navi)
             navi.holderViewController = self
@@ -50,7 +59,19 @@ class AISuperiorityViewController: UIViewController {
             navi.titleLabel.text = "孕检无忧"
             
         }
+        
+        
     }
+    
+    func addNewSubView(cview: UIView,preView: UIView,color: UIColor = UIColor.clearColor(),space: CGFloat = 0){
+        scrollview.addSubview(cview)
+        cview.setWidth(self.view.width)
+        cview.setTop(preView.top + preView.height+space)
+        cview.backgroundColor = color
+        scrollview.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
+        preCacheView = cview
+    }
+    
     
     
 }
