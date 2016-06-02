@@ -65,7 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
     
-    
     /**
      config lean Cloud.
      */
@@ -209,7 +208,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func showRootViewControllerReal() {
         //创建Root
-        self.window = UIWindow()
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let root = AIRootViewController()
         //创建导航控制器
         let nav = UINavigationController(rootViewController:root)
