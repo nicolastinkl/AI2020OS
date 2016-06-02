@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 
 @UIApplicationMain
@@ -29,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configAVOSCloud()
         AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         AVAnalytics.setChannel("App Store")
+        
+        IQKeyboardManager.sharedManager().enable = true
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert,.Badge,.Sound], categories: nil))
         application.registerForRemoteNotifications()

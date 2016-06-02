@@ -508,6 +508,8 @@
 		844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA221CE1DA6800C58B1C /* CoreVideo.framework */; };
 		844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA241CE1DA7300C58B1C /* GLKit.framework */; };
 		844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA261CE1DA8B00C58B1C /* libc++.tbd */; };
+		84AC3E3C1D00293900D30F1E /* ServiceCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC3E3A1D00293900D30F1E /* ServiceCommentViewController.swift */; };
+		84AC3E3D1D00293900D30F1E /* ServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AC3E3B1D00293900D30F1E /* ServiceCommentViewController.xib */; };
 		933763021CFD7040006B997D /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
 		9351F7C31CFE84CB000C019F /* libicucore.A.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C21CFE84CB000C019F /* libicucore.A.tbd */; };
 		9351F7C51CFE84D3000C019F /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9351F7C41CFE84D3000C019F /* libz.1.tbd */; };
@@ -1288,6 +1290,8 @@
 		844AFA241CE1DA7300C58B1C /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		844AFA261CE1DA8B00C58B1C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		84AC3E3A1D00293900D30F1E /* ServiceCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentViewController.swift; sourceTree = "<group>"; };
+		84AC3E3B1D00293900D30F1E /* ServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentViewController.xib; sourceTree = "<group>"; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		933763011CFD7040006B997D /* AIModelSerice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModelSerice.swift; sourceTree = "<group>"; };
 		9351F7C21CFE84CB000C019F /* libicucore.A.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.A.tbd; path = usr/lib/libicucore.A.tbd; sourceTree = SDKROOT; };
@@ -1425,6 +1429,7 @@
 		814339291CFBE5A600347C29 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				84AC3E361D0025BB00D30F1E /* Comment */,
 				9351F7D21CFEDFA2000C019F /* Superiority */,
 				9351F7C81CFECB14000C019F /* Wish */,
 				8143392A1CFBE5A600347C29 /* Common */,
@@ -2998,6 +3003,39 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		84AC3E361D0025BB00D30F1E /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				84AC3E371D0025BB00D30F1E /* Model */,
+				84AC3E381D0025BB00D30F1E /* View */,
+				84AC3E391D0025BB00D30F1E /* ViewController */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		84AC3E371D0025BB00D30F1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84AC3E381D0025BB00D30F1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84AC3E391D0025BB00D30F1E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84AC3E3A1D00293900D30F1E /* ServiceCommentViewController.swift */,
+				84AC3E3B1D00293900D30F1E /* ServiceCommentViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		9351F7C81CFECB14000C019F /* Wish */ = {
 			isa = PBXGroup;
 			children = (
@@ -3246,6 +3284,7 @@
 				81433D4F1CFBE5A700347C29 /* AIAddressRouteView.xib in Resources */,
 				81433D3C1CFBE5A700347C29 /* AICustomAudioNotesView.xib in Resources */,
 				81433D2F1CFBE5A700347C29 /* ServiceSettingView.xib in Resources */,
+				84AC3E3D1D00293900D30F1E /* ServiceCommentViewController.xib in Resources */,
 				81433DFE1CFBE5A700347C29 /* DependOnNodeCell.xib in Resources */,
 				81433DF91CFBE5A700347C29 /* AISinglePickerView.xib in Resources */,
 				81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */,
@@ -3420,6 +3459,7 @@
 				81433CD21CFBE5A700347C29 /* AIBuyServiceModel.swift in Sources */,
 				81433EA71CFBE5A700347C29 /* AIKinectButton.swift in Sources */,
 				81433E791CFBE5A700347C29 /* FLEXLibrariesTableViewController.m in Sources */,
+				84AC3E3C1D00293900D30F1E /* ServiceCommentViewController.swift in Sources */,
 				8175A7C91CFD2710006F2C8F /* AFNetworkReachabilityManager.m in Sources */,
 				81433EA61CFBE5A700347C29 /* AIAssignUtils.swift in Sources */,
 				8175A7FC1CFD2710006F2C8F /* SDWebImageDownloaderOperation.m in Sources */,
