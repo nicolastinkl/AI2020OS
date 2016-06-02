@@ -9,6 +9,14 @@
 import Foundation
 import Spring
 
+/// 自定义Label 处理左右间距问题
+public class AILabel: DesignableLabel {
+    override public func drawTextInRect(rect: CGRect) {
+        let insets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
+        super.drawTextInRect(UIEdgeInsetsInsetRect(rect, insets))
+    }
+}
+
 /*!
 *  @author tinkl, 15-04-07 15:04:21
 *
@@ -94,5 +102,8 @@ public class AIImageView: UIImageView {
     }
     
 }
+
+
+
 
 

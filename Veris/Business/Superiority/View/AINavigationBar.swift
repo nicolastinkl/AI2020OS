@@ -37,13 +37,15 @@ class AINavigationBar: UIView {
         
     override func awakeFromNib() {
         super.awakeFromNib()
+        backButton.addTarget(self, action: #selector(AINavigationBar.closeViewController), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    
+    func showNavigationLine(){
         
-        Async.main(after: 0.1) { 
+        Async.main(after: 0.1) {
             self.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
         }
-        
-        
-        backButton.addTarget(self, action: #selector(AINavigationBar.closeViewController), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     func closeViewController(){
