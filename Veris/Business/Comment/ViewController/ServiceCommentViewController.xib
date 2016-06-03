@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceCommentViewController" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="starsContainerView" destination="hdF-td-dBp" id="2cP-2K-Hig"/>
+                <outlet property="starsDes" destination="peW-ep-hT9" id="YSn-uf-OBk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,15 +30,23 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPH-kJ-Kct" customClass="CommentDistrictView" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="185" width="600" height="415"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="IPH-kJ-Kct" firstAttribute="top" secondItem="peW-ep-hT9" secondAttribute="bottom" constant="36" id="IQj-w6-1I0"/>
                 <constraint firstItem="hdF-td-dBp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="72" id="NAz-BU-oEy"/>
+                <constraint firstAttribute="bottom" secondItem="IPH-kJ-Kct" secondAttribute="bottom" id="Oen-rg-NLk"/>
                 <constraint firstItem="peW-ep-hT9" firstAttribute="width" relation="lessThanOrEqual" secondItem="hdF-td-dBp" secondAttribute="width" id="VJr-Pm-SzA"/>
                 <constraint firstItem="peW-ep-hT9" firstAttribute="top" secondItem="hdF-td-dBp" secondAttribute="bottom" constant="16" id="ZmY-eo-xOo"/>
                 <constraint firstItem="hdF-td-dBp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eGi-rS-jaW"/>
                 <constraint firstItem="hdF-td-dBp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="mAV-A9-B9C"/>
                 <constraint firstItem="peW-ep-hT9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="maL-zC-cX6"/>
+                <constraint firstItem="IPH-kJ-Kct" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="sWM-n6-SuM"/>
+                <constraint firstItem="IPH-kJ-Kct" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ur9-NO-bkj"/>
             </constraints>
         </view>
     </objects>

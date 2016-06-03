@@ -513,6 +513,12 @@
 		844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA221CE1DA6800C58B1C /* CoreVideo.framework */; };
 		844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA241CE1DA7300C58B1C /* GLKit.framework */; };
 		844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA261CE1DA8B00C58B1C /* libc++.tbd */; };
+		8457004D1D012D7D00512597 /* CommentDistrictView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8457004C1D012D7D00512597 /* CommentDistrictView.xib */; };
+		8457004F1D012DA800512597 /* CommentDistrictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457004E1D012DA800512597 /* CommentDistrictView.swift */; };
+		845700521D015E7600512597 /* CompondServiceCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845700501D015E7600512597 /* CompondServiceCommentViewController.swift */; };
+		845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700511D015E7600512597 /* CompondServiceCommentViewController.xib */; };
+		845700581D015FD600512597 /* ServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */; };
+		845700591D015FD600512597 /* ServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */; };
 		933763021CFD7040006B997D /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
 		933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */; };
 		933BC83D1D002434005E1789 /* AINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8311D002434005E1789 /* AINavigationBar.swift */; };
@@ -1291,6 +1297,12 @@
 		844AFA241CE1DA7300C58B1C /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		844AFA261CE1DA8B00C58B1C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		8457004C1D012D7D00512597 /* CommentDistrictView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentDistrictView.xib; sourceTree = "<group>"; };
+		8457004E1D012DA800512597 /* CommentDistrictView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentDistrictView.swift; sourceTree = "<group>"; };
+		845700501D015E7600512597 /* CompondServiceCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompondServiceCommentViewController.swift; sourceTree = "<group>"; };
+		845700511D015E7600512597 /* CompondServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompondServiceCommentViewController.xib; sourceTree = "<group>"; };
+		845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
+		845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		933763011CFD7040006B997D /* AIModelSerice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModelSerice.swift; sourceTree = "<group>"; };
 		933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AICustomSearchHomeViewController.xib; path = CustomSearch/ViewController/AICustomSearchHomeViewController.xib; sourceTree = "<group>"; };
@@ -3035,6 +3047,17 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		8457004B1D012D3500512597 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8457004C1D012D7D00512597 /* CommentDistrictView.xib */,
+				8457004E1D012DA800512597 /* CommentDistrictView.swift */,
+				845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */,
+				845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		933BC82E1D002434005E1789 /* Superiority */ = {
 			isa = PBXGroup;
 			children = (
@@ -3140,6 +3163,7 @@
 		93C61FBF1D01196F0063C2BF /* Comment */ = {
 			isa = PBXGroup;
 			children = (
+				8457004B1D012D3500512597 /* View */,
 				93C61FC01D01196F0063C2BF /* ViewController */,
 			);
 			path = Comment;
@@ -3150,6 +3174,8 @@
 			children = (
 				93C61FC11D01196F0063C2BF /* ServiceCommentViewController.swift */,
 				93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */,
+				845700501D015E7600512597 /* CompondServiceCommentViewController.swift */,
+				845700511D015E7600512597 /* CompondServiceCommentViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3277,7 +3303,9 @@
 				81433EBC1CFBE5A700347C29 /* MyriadPro-LightSemiCn.otf in Resources */,
 				81433E0A1CFBE5A700347C29 /* AIBueryDetailCell.xib in Resources */,
 				81433E011CFBE5A700347C29 /* AirTicketView.xib in Resources */,
+				8457004D1D012D7D00512597 /* CommentDistrictView.xib in Resources */,
 				81433D511CFBE5A700347C29 /* AIConfirmOrderCellView.xib in Resources */,
+				845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */,
 				81433D571CFBE5A700347C29 /* AILocationSelectHeadView.xib in Resources */,
 				81433D441CFBE5A700347C29 /* AINavigationBarView.xib in Resources */,
 				81433D401CFBE5A700347C29 /* AIDetailTopMenuView.xib in Resources */,
@@ -3331,6 +3359,7 @@
 				81433EC91CFBE5A700347C29 /* Veris.entitlements in Resources */,
 				81433D531CFBE5A700347C29 /* AIDepartReahCityView.xib in Resources */,
 				81433D5D1CFBE5A700347C29 /* AIServiceRouteView.xib in Resources */,
+				845700591D015FD600512597 /* ServiceCommentTableViewCell.xib in Resources */,
 				81433D7F1CFBE5A700347C29 /* AIFoldedCellView.xib in Resources */,
 				81433E711CFBE5A700347C29 /* LICENSE in Resources */,
 				81433DF51CFBE5A700347C29 /* AIDatePickerView.xib in Resources */,
@@ -3520,6 +3549,7 @@
 				81433E2F1CFBE5A700347C29 /* AITaskEditViewController.swift in Sources */,
 				81433E5D1CFBE5A700347C29 /* FLEXArgumentInputView.m in Sources */,
 				81433E181CFBE5A700347C29 /* ProposalServiceDetailBaseView.m in Sources */,
+				845700521D015E7600512597 /* CompondServiceCommentViewController.swift in Sources */,
 				81433E951CFBE5A700347C29 /* FLEXKeyboardShortcutManager.m in Sources */,
 				81433E201CFBE5A700347C29 /* UIBezierPageView.swift in Sources */,
 				81433E8B1CFBE5A700347C29 /* FLEXGlobalsTableViewControllerEntry.m in Sources */,
@@ -3557,6 +3587,7 @@
 				81433E4C1CFBE5A700347C29 /* UIImageUtils.swift in Sources */,
 				81433E5B1CFBE5A700347C29 /* FLEXArgumentInputSwitchView.m in Sources */,
 				81433E481CFBE5A700347C29 /* UIView+Toast.m in Sources */,
+				845700581D015FD600512597 /* ServiceCommentTableViewCell.swift in Sources */,
 				81433DA41CFBE5A700347C29 /* AIServiceSearchView.swift in Sources */,
 				81433E6A1CFBE5A700347C29 /* FLEXDatabaseManager.m in Sources */,
 				81433D0A1CFBE5A700347C29 /* AITransformManager.swift in Sources */,
@@ -3621,6 +3652,7 @@
 				81433DFB1CFBE5A700347C29 /* CustomPickerColumnView.swift in Sources */,
 				81433D111CFBE5A700347C29 /* AIOrderCellEShopSubView.swift in Sources */,
 				81433E571CFBE5A700347C29 /* FLEXArgumentInputNotSupportedView.m in Sources */,
+				8457004F1D012DA800512597 /* CommentDistrictView.swift in Sources */,
 				81433D5C1CFBE5A700347C29 /* AIServiceRouteView.swift in Sources */,
 				81433D1D1CFBE5A700347C29 /* AIIconTextView.swift in Sources */,
 				81433DA01CFBE5A700347C29 /* AIRACClosureTableViewDataSource.swift in Sources */,
