@@ -18,6 +18,9 @@
 @property (nonatomic, strong) UIView *foregroundStarView;
 @property (nonatomic, strong) UIView *backgroundStarView;
 
+@property (nonatomic, strong) NSString *foregroundStarImage;
+@property (nonatomic, strong) NSString *backgroundStarImage;
+
 @property (nonatomic, assign) NSInteger numberOfStars;
 
 @end
@@ -32,11 +35,17 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     return [self initWithFrame:frame numberOfStars:DEFALUT_STAR_NUMBER];
+    self.foregroundStarImage = FOREGROUND_STAR_IMAGE_NAME;
+    self.backgroundStarImage = BACKGROUND_STAR_IMAGE_NAME;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
         _numberOfStars = DEFALUT_STAR_NUMBER;
+        
+        self.foregroundStarImage = FOREGROUND_STAR_IMAGE_NAME;
+        self.backgroundStarImage = BACKGROUND_STAR_IMAGE_NAME;
+        
         [self buildDataAndUI];
     }
     return self;
@@ -53,7 +62,16 @@
 - (instancetype)initWithFrameAndImage:(CGRect)frame numberOfStars:(NSInteger)numberOfStars foreground:(NSString *)foregroundImageName background:(NSString *)backgroundImageName {
     if (self = [super initWithFrame:frame]) {
         _numberOfStars = numberOfStars;
-        [self buildDataAndUIByForegroundImage:foregroundImageName background:backgroundImageName];
+        
+        if (foregroundImageName) {
+            self.foregroundStarImage = foregroundImageName;
+        }
+        
+        if (backgroundImageName) {
+            self.backgroundStarImage = backgroundImageName;
+        }
+        
+        [self buildDataAndUI];
     }
     return self;
 }
@@ -61,23 +79,19 @@
 #pragma mark - Private Methods
 
 - (void)buildDataAndUI {
-    [self buildDataAndUIByForegroundImage:FOREGROUND_STAR_IMAGE_NAME background:BACKGROUND_STAR_IMAGE_NAME];
-}
-
-- (void)buildDataAndUIByForegroundImage:(NSString *)foregroundImageName background:(NSString *)backgroundImageName {
     _scorePercent = 1;
     _hasAnimation = YES;
     _allowIncompleteStar = YES;
     
-    self.foregroundStarView = [self createStarViewWithImage:foregroundImageName];
-    self.backgroundStarView = [self createStarViewWithImage:backgroundImageName];
+    self.foregroundStarView = [self createStarViewWithImage:self.foregroundStarImage];
+    self.backgroundStarView = [self createStarViewWithImage:self.backgroundStarImage];
     
     [self addSubview:self.backgroundStarView];
     [self addSubview:self.foregroundStarView];
     
-    //    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTapRateView:)];
-    //    tapGesture.numberOfTapsRequired = 1;
-    //    [self addGestureRecognizer:tapGesture];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTapRateView:)];
+    tapGesture.numberOfTapsRequired = 1;
+    [self addGestureRecognizer:tapGesture];
 }
 
 - (void)userTapRateView:(UITapGestureRecognizer *)gesture {
@@ -85,7 +99,7 @@
     CGFloat offset = tapPoint.x;
     CGFloat realStarScore = offset / (self.bounds.size.width / self.numberOfStars);
     CGFloat starScore = self.allowIncompleteStar ? realStarScore : ceilf(realStarScore);
-    self.scorePercent = starScore / self.numberOfStars;
+    [self setScorePercent:starScore / self.numberOfStars];
 }
 
 - (UIView *)createStarViewWithImage:(NSString *)imageName {
@@ -104,12 +118,15 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    
     __weak CWStarRateView *weakSelf = self;
     CGFloat animationTimeInterval = self.hasAnimation ? ANIMATION_TIME_INTERVAL : 0;
     [UIView animateWithDuration:animationTimeInterval animations:^{
        weakSelf.foregroundStarView.frame = CGRectMake(0, 0, weakSelf.bounds.size.width * weakSelf.scorePercent, weakSelf.bounds.size.height);
     }];
 }
+
+
 
 #pragma mark - Get and Set Methods
 
