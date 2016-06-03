@@ -513,8 +513,6 @@
 		844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA221CE1DA6800C58B1C /* CoreVideo.framework */; };
 		844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA241CE1DA7300C58B1C /* GLKit.framework */; };
 		844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA261CE1DA8B00C58B1C /* libc++.tbd */; };
-		84AC3E3C1D00293900D30F1E /* ServiceCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC3E3A1D00293900D30F1E /* ServiceCommentViewController.swift */; };
-		84AC3E3D1D00293900D30F1E /* ServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AC3E3B1D00293900D30F1E /* ServiceCommentViewController.xib */; };
 		933763021CFD7040006B997D /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
 		933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */; };
 		933BC83D1D002434005E1789 /* AINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8311D002434005E1789 /* AINavigationBar.swift */; };
@@ -537,6 +535,8 @@
 		93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F321B9C27B1007BF506 /* CoreText.framework */; };
 		93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F361B9C2813007BF506 /* QuartzCore.framework */; };
 		93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F381B9C2825007BF506 /* SystemConfiguration.framework */; };
+		93C61FC31D01196F0063C2BF /* ServiceCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C61FC11D01196F0063C2BF /* ServiceCommentViewController.swift */; };
+		93C61FC41D01196F0063C2BF /* ServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */; };
 		DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */; };
 /* End PBXBuildFile section */
 
@@ -1291,8 +1291,6 @@
 		844AFA241CE1DA7300C58B1C /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		844AFA261CE1DA8B00C58B1C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
-		84AC3E3A1D00293900D30F1E /* ServiceCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentViewController.swift; sourceTree = "<group>"; };
-		84AC3E3B1D00293900D30F1E /* ServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentViewController.xib; sourceTree = "<group>"; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		933763011CFD7040006B997D /* AIModelSerice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModelSerice.swift; sourceTree = "<group>"; };
 		933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AICustomSearchHomeViewController.xib; path = CustomSearch/ViewController/AICustomSearchHomeViewController.xib; sourceTree = "<group>"; };
@@ -1320,6 +1318,8 @@
 		93C33F341B9C27BA007BF506 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		93C33F361B9C2813007BF506 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		93C33F381B9C2825007BF506 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		93C61FC11D01196F0063C2BF /* ServiceCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentViewController.swift; sourceTree = "<group>"; };
+		93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentViewController.xib; sourceTree = "<group>"; };
 		93D5A3491B709C1C00DDB158 /* Veris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F968A668E0CC6829EA8B698F /* Pods-AIVeris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1422,11 +1422,11 @@
 		814339291CFBE5A600347C29 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				93C61FBF1D01196F0063C2BF /* Comment */,
 				933BC8441D00252D005E1789 /* ProudctInfo */,
-				84AC3E361D0025BB00D30F1E /* Comment */,
-				9351F7C81CFECB14000C019F /* CustomSearch */,
 				933BC82E1D002434005E1789 /* Superiority */,
 				933BC8361D002434005E1789 /* Wish */,
+				81BB86741CFE818900899B58 /* CustomSearch */,
 				8143392A1CFBE5A600347C29 /* Common */,
 				814339721CFBE5A600347C29 /* CustomerCenter */,
 				81433A291CFBE5A700347C29 /* Home */,
@@ -3009,13 +3009,22 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		81BB86741CFE818900899B58 /* CustomSearch */ = {
+			isa = PBXGroup;
+			children = (
+				81BB86781CFEB7C500899B58 /* View */,
+				81BB86751CFE81A900899B58 /* ViewController */,
+			);
+			name = CustomSearch;
+			sourceTree = "<group>";
+		};
 		81BB86751CFE81A900899B58 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */,
 				933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */,
 			);
-			path = ViewController;
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		81BB86781CFEB7C500899B58 /* View */ = {
@@ -3023,40 +3032,7 @@
 			children = (
 				81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84AC3E361D0025BB00D30F1E /* Comment */ = {
-			isa = PBXGroup;
-			children = (
-				84AC3E371D0025BB00D30F1E /* Model */,
-				84AC3E381D0025BB00D30F1E /* View */,
-				84AC3E391D0025BB00D30F1E /* ViewController */,
-			);
-			path = Comment;
-			sourceTree = "<group>";
-		};
-		84AC3E371D0025BB00D30F1E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84AC3E381D0025BB00D30F1E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84AC3E391D0025BB00D30F1E /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				84AC3E3A1D00293900D30F1E /* ServiceCommentViewController.swift */,
-				84AC3E3B1D00293900D30F1E /* ServiceCommentViewController.xib */,
-			);
-			path = ViewController;
+			name = View;
 			sourceTree = "<group>";
 		};
 		933BC82E1D002434005E1789 /* Superiority */ = {
@@ -3159,13 +3135,23 @@
 				933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */,
 			);
 			path = ViewController;
-		9351F7C81CFECB14000C019F /* CustomSearch */ = {
+			sourceTree = "<group>";
+		};
+		93C61FBF1D01196F0063C2BF /* Comment */ = {
 			isa = PBXGroup;
 			children = (
-				81BB86781CFEB7C500899B58 /* View */,
-				81BB86751CFE81A900899B58 /* ViewController */,
+				93C61FC01D01196F0063C2BF /* ViewController */,
 			);
-			path = CustomSearch;
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		93C61FC01D01196F0063C2BF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				93C61FC11D01196F0063C2BF /* ServiceCommentViewController.swift */,
+				93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		93D5A3401B709C1C00DDB158 = {
@@ -3321,7 +3307,6 @@
 				81433D3C1CFBE5A700347C29 /* AICustomAudioNotesView.xib in Resources */,
 				933BC8431D002434005E1789 /* AIWishVowViewController.xib in Resources */,
 				81433D2F1CFBE5A700347C29 /* ServiceSettingView.xib in Resources */,
-				84AC3E3D1D00293900D30F1E /* ServiceCommentViewController.xib in Resources */,
 				81433DFE1CFBE5A700347C29 /* DependOnNodeCell.xib in Resources */,
 				81433DF91CFBE5A700347C29 /* AISinglePickerView.xib in Resources */,
 				81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */,
@@ -3349,6 +3334,7 @@
 				81433D7F1CFBE5A700347C29 /* AIFoldedCellView.xib in Resources */,
 				81433E711CFBE5A700347C29 /* LICENSE in Resources */,
 				81433DF51CFBE5A700347C29 /* AIDatePickerView.xib in Resources */,
+				93C61FC41D01196F0063C2BF /* ServiceCommentViewController.xib in Resources */,
 				81433D5A1CFBE5A700347C29 /* AINumberCountControl.xib in Resources */,
 				81433EC51CFBE5A700347C29 /* start.mp4 in Resources */,
 				81433D201CFBE5A700347C29 /* AITitleAndIconTextView.xib in Resources */,
@@ -3429,6 +3415,7 @@
 				81433E9F1CFBE5A700347C29 /* UILabel+Localize.swift in Sources */,
 				81433CDF1CFBE5A700347C29 /* AIServiceDetailTool.swift in Sources */,
 				81433E271CFBE5A700347C29 /* AIConfirmOrderViewController.swift in Sources */,
+				93C61FC31D01196F0063C2BF /* ServiceCommentViewController.swift in Sources */,
 				81433EB61CFBE5A700347C29 /* UIColorUtils.swift in Sources */,
 				81433E2E1CFBE5A700347C29 /* AIServiceContentViewController.swift in Sources */,
 				81433E3D1CFBE5A700347C29 /* AIFakeLoginView.m in Sources */,
@@ -3490,7 +3477,6 @@
 				81433CD21CFBE5A700347C29 /* AIBuyServiceModel.swift in Sources */,
 				81433EA71CFBE5A700347C29 /* AIKinectButton.swift in Sources */,
 				81433E791CFBE5A700347C29 /* FLEXLibrariesTableViewController.m in Sources */,
-				84AC3E3C1D00293900D30F1E /* ServiceCommentViewController.swift in Sources */,
 				8175A7C91CFD2710006F2C8F /* AFNetworkReachabilityManager.m in Sources */,
 				81433EA61CFBE5A700347C29 /* AIAssignUtils.swift in Sources */,
 				8175A7FC1CFD2710006F2C8F /* SDWebImageDownloaderOperation.m in Sources */,
