@@ -13,7 +13,23 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Nf-cD-H5k">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <subviews>
+                        <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvs-55-dU6">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FCM-Fo-3Sb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                            <blurEffect style="dark"/>
+                        </visualEffectView>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Gvs-55-dU6" secondAttribute="trailing" id="C7d-Kr-cqK"/>
+                        <constraint firstItem="Gvs-55-dU6" firstAttribute="top" secondItem="1Nf-cD-H5k" secondAttribute="top" id="JlG-Rm-rTw"/>
+                        <constraint firstAttribute="bottom" secondItem="Gvs-55-dU6" secondAttribute="bottom" id="NEW-Wy-SHq"/>
+                        <constraint firstItem="Gvs-55-dU6" firstAttribute="leading" secondItem="1Nf-cD-H5k" secondAttribute="leading" id="PiQ-XV-3hf"/>
+                    </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkW-mh-N3X">
                     <rect key="frame" x="0.0" y="5" width="45" height="33"/>
@@ -91,7 +107,7 @@
                 <outlet property="titleLabel" destination="JZP-g5-iYW" id="iht-4f-1hf"/>
                 <outlet property="videoButton" destination="RpV-BP-Pz3" id="n2T-uY-nkh"/>
             </connections>
-            <point key="canvasLocation" x="143" y="335"/>
+            <point key="canvasLocation" x="347" y="318"/>
         </view>
     </objects>
     <resources>

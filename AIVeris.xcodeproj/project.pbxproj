@@ -525,6 +525,8 @@
 		933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */; };
 		933BC84B1D00252D005E1789 /* AIProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
+		93A9DA571D0131C000F16610 /* AICommentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9DA561D0131C000F16610 /* AICommentInfoView.swift */; };
+		93A9DA591D0131D900F16610 /* AICommentInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A9DA581D0131D900F16610 /* AICommentInfoView.xib */; };
 		93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */; };
 		93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB31B9D7E9C00CD1FEB /* MobileCoreServices.framework */; };
 		93B25AB61B9D7EA900CD1FEB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB51B9D7EA900CD1FEB /* Security.framework */; };
@@ -1304,6 +1306,8 @@
 		933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductInfoViewController.swift; sourceTree = "<group>"; };
 		933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductInfoViewController.xib; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		93A9DA561D0131C000F16610 /* AICommentInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoView.swift; sourceTree = "<group>"; };
+		93A9DA581D0131D900F16610 /* AICommentInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICommentInfoView.xib; sourceTree = "<group>"; };
 		93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		93B25AAB1B9D7C6800CD1FEB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		93B25AB31B9D7E9C00CD1FEB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -3124,6 +3128,8 @@
 		933BC8461D00252D005E1789 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				93A9DA561D0131C000F16610 /* AICommentInfoView.swift */,
+				93A9DA581D0131D900F16610 /* AICommentInfoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3330,6 +3336,7 @@
 				81433EC71CFBE5A700347C29 /* Localizable.strings in Resources */,
 				81433EC91CFBE5A700347C29 /* Veris.entitlements in Resources */,
 				81433D531CFBE5A700347C29 /* AIDepartReahCityView.xib in Resources */,
+				93A9DA591D0131D900F16610 /* AICommentInfoView.xib in Resources */,
 				81433D5D1CFBE5A700347C29 /* AIServiceRouteView.xib in Resources */,
 				81433D7F1CFBE5A700347C29 /* AIFoldedCellView.xib in Resources */,
 				81433E711CFBE5A700347C29 /* LICENSE in Resources */,
@@ -3442,6 +3449,7 @@
 				81433E101CFBE5A700347C29 /* SeparatorLineLabel.swift in Sources */,
 				81433E6E1CFBE5A700347C29 /* FLEXTableContentViewController.m in Sources */,
 				81433E001CFBE5A700347C29 /* AirTicketView.swift in Sources */,
+				93A9DA571D0131C000F16610 /* AICommentInfoView.swift in Sources */,
 				81433E321CFBE5A700347C29 /* AITaskNoteEditViewController.swift in Sources */,
 				81433DA21CFBE5A700347C29 /* AIRequireProtocol.swift in Sources */,
 				81433E841CFBE5A700347C29 /* FLEXNetworkTransactionTableViewCell.m in Sources */,
