@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceCommentViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="starsContainerView" destination="hdF-td-dBp" id="2cP-2K-Hig"/>
+                <outlet property="starsDes" destination="peW-ep-hT9" id="YSn-uf-OBk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +16,38 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdF-td-dBp" userLabel="Stars">
+                    <rect key="frame" x="72" y="71" width="457" height="41"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="sht-q5-CyF"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peW-ep-hT9" userLabel="StarsDes">
+                    <rect key="frame" x="279" y="128" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPH-kJ-Kct" customClass="CommentDistrictView" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="185" width="600" height="415"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="IPH-kJ-Kct" firstAttribute="top" secondItem="peW-ep-hT9" secondAttribute="bottom" constant="36" id="IQj-w6-1I0"/>
+                <constraint firstItem="hdF-td-dBp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="72" id="NAz-BU-oEy"/>
+                <constraint firstAttribute="bottom" secondItem="IPH-kJ-Kct" secondAttribute="bottom" id="Oen-rg-NLk"/>
+                <constraint firstItem="peW-ep-hT9" firstAttribute="width" relation="lessThanOrEqual" secondItem="hdF-td-dBp" secondAttribute="width" id="VJr-Pm-SzA"/>
+                <constraint firstItem="peW-ep-hT9" firstAttribute="top" secondItem="hdF-td-dBp" secondAttribute="bottom" constant="16" id="ZmY-eo-xOo"/>
+                <constraint firstItem="hdF-td-dBp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eGi-rS-jaW"/>
+                <constraint firstItem="hdF-td-dBp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="mAV-A9-B9C"/>
+                <constraint firstItem="peW-ep-hT9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="maL-zC-cX6"/>
+                <constraint firstItem="IPH-kJ-Kct" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="sWM-n6-SuM"/>
+                <constraint firstItem="IPH-kJ-Kct" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ur9-NO-bkj"/>
+            </constraints>
         </view>
     </objects>
 </document>
