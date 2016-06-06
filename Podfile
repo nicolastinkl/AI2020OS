@@ -33,8 +33,6 @@ pod 'YYImage', '~> 1.0.1'
 
 # iOS Debug
 
-pod 'Igor', '~> 0.5.0'
-
 pod 'IQKeyboardManagerSwift'
 
 end
