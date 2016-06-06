@@ -2,7 +2,6 @@ PODS:
   - AIAlertView (1.0.8)
   - Alamofire (3.1.5)
   - Cartography (0.6.0)
-  - Igor (0.5.0)
   - IQKeyboardManagerSwift (4.0.3)
   - SnapKit (0.18.0)
   - Spring (1.0.3)
@@ -15,7 +14,6 @@ DEPENDENCIES:
   - AIAlertView (from `https://github.com/asiainfomobile/AIAlertView.git`)
   - Alamofire (~> 3.1.4)
   - Cartography (~> 0.6.0)
-  - Igor (~> 0.5.0)
   - IQKeyboardManagerSwift
   - SnapKit (~> 0.18.0)
   - Spring (from `https://github.com/asiainfomobile/Spring.git`, branch `swift2`)
@@ -46,7 +44,6 @@ SPEC CHECKSUMS:
   AIAlertView: 9d17a80a22042548ee7888d7e645c84ccbfb1d53
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
-  Igor: 7661f105cbcc67579c5ebe1ca9ca83972d18bd20
   IQKeyboardManagerSwift: b6883b720b0e76473692fdc80828442566e1075f
   SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
