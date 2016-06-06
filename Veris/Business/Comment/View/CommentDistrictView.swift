@@ -9,6 +9,8 @@
 import UIKit
 
 class CommentDistrictView: UIView {
+    
+    var delegate: CommentDistrictDelegate?
 
     @IBOutlet weak var serviceImage: UIImageView!
     @IBOutlet weak var photoImage: UIImageView!
@@ -20,8 +22,15 @@ class CommentDistrictView: UIView {
         
         initSelfFromXib()
         
+        let cameraSelector =
+            #selector(CommentDistrictView.cameraAction(_:))
+        let cameraTap = UITapGestureRecognizer(target: self, action: cameraSelector)
+        photoImage.addGestureRecognizer(cameraTap)
     }
-
+    
+    func cameraAction(sender : UIGestureRecognizer) {
+        delegate?.pohotImageButtonClicked(photoImage)
+    }
 }
 
 extension CommentDistrictView: UITextViewDelegate {
@@ -35,4 +44,8 @@ extension CommentDistrictView: UITextViewDelegate {
             placeHolderText.hidden = false
         }
     }
+}
+
+protocol CommentDistrictDelegate {
+    func pohotImageButtonClicked(button: UIImageView)
 }
