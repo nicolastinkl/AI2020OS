@@ -383,7 +383,6 @@
 		81433EA51CFBE5A700347C29 /* AINetEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BED1CFBE5A700347C29 /* AINetEngine.m */; };
 		81433EA61CFBE5A700347C29 /* AIAssignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BF01CFBE5A700347C29 /* AIAssignUtils.swift */; };
 		81433EA71CFBE5A700347C29 /* AIKinectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BF11CFBE5A700347C29 /* AIKinectButton.swift */; };
-		81433EA81CFBE5A700347C29 /* AILocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BF21CFBE5A700347C29 /* AILocalizationManager.swift */; };
 		81433EA91CFBE5A700347C29 /* AISuperSwipeableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BF51CFBE5A700347C29 /* AISuperSwipeableCell.m */; };
 		81433EAA1CFBE5A700347C29 /* AISwiftLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BF61CFBE5A700347C29 /* AISwiftLogger.swift */; };
 		81433EAB1CFBE5A700347C29 /* AITools.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BF81CFBE5A700347C29 /* AITools.m */; };
@@ -540,7 +539,7 @@
 		93C61FC31D01196F0063C2BF /* ServiceCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C61FC11D01196F0063C2BF /* ServiceCommentViewController.swift */; };
 		93C61FC41D01196F0063C2BF /* ServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */; };
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
-		93F3FFEE1D06C0EB000283DA /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 93F3FFED1D06C0EB000283DA /* README.md */; };
+		93F3FFEE1D06C0EB000283DA /* README.txt in Sources */ = {isa = PBXBuildFile; fileRef = 93F3FFED1D06C0EB000283DA /* README.txt */; };
 		DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */; };
 /* End PBXBuildFile section */
 
@@ -909,7 +908,7 @@
 		81433B341CFBE5A700347C29 /* UIViewController+AIPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AIPopup.swift"; sourceTree = "<group>"; };
 		81433B361CFBE5A700347C29 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
 		81433B371CFBE5A700347C29 /* AVOSCloudCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloudCrashReporting.framework; sourceTree = "<group>"; };
-		81433B3A1CFBE5A700347C29 /* BuildInCameraUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildInCameraUtils.swift; sourceTree = "<group>"; };
+		81433B3A1CFBE5A700347C29 /* BuildInCameraUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuildInCameraUtils.swift; path = ../Camera/BuildInCameraUtils.swift; sourceTree = "<group>"; };
 		81433B3E1CFBE5A700347C29 /* FLEXArgumentInputColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputColorView.h; sourceTree = "<group>"; };
 		81433B3F1CFBE5A700347C29 /* FLEXArgumentInputColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXArgumentInputColorView.m; sourceTree = "<group>"; };
 		81433B401CFBE5A700347C29 /* FLEXArgumentInputDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArgumentInputDateView.h; sourceTree = "<group>"; };
@@ -1075,31 +1074,30 @@
 		81433BEC1CFBE5A700347C29 /* AINetEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AINetEngine.h; sourceTree = "<group>"; };
 		81433BED1CFBE5A700347C29 /* AINetEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AINetEngine.m; sourceTree = "<group>"; };
 		81433BEE1CFBE5A700347C29 /* AIServerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIServerConfig.h; sourceTree = "<group>"; };
-		81433BF01CFBE5A700347C29 /* AIAssignUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssignUtils.swift; sourceTree = "<group>"; };
-		81433BF11CFBE5A700347C29 /* AIKinectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIKinectButton.swift; sourceTree = "<group>"; };
-		81433BF21CFBE5A700347C29 /* AILocalizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILocalizationManager.swift; sourceTree = "<group>"; };
+		81433BF01CFBE5A700347C29 /* AIAssignUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIAssignUtils.swift; path = Utils/AIAssignUtils.swift; sourceTree = "<group>"; };
+		81433BF11CFBE5A700347C29 /* AIKinectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIKinectButton.swift; path = Utils/AIKinectButton.swift; sourceTree = "<group>"; };
 		81433BF31CFBE5A700347C29 /* AINotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AINotifications.h; sourceTree = "<group>"; };
-		81433BF41CFBE5A700347C29 /* AISuperSwipeableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISuperSwipeableCell.h; sourceTree = "<group>"; };
-		81433BF51CFBE5A700347C29 /* AISuperSwipeableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISuperSwipeableCell.m; sourceTree = "<group>"; };
+		81433BF41CFBE5A700347C29 /* AISuperSwipeableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AISuperSwipeableCell.h; path = Utils/AISuperSwipeableCell.h; sourceTree = "<group>"; };
+		81433BF51CFBE5A700347C29 /* AISuperSwipeableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AISuperSwipeableCell.m; path = Utils/AISuperSwipeableCell.m; sourceTree = "<group>"; };
 		81433BF61CFBE5A700347C29 /* AISwiftLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwiftLogger.swift; sourceTree = "<group>"; };
 		81433BF71CFBE5A700347C29 /* AITools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITools.h; sourceTree = "<group>"; };
 		81433BF81CFBE5A700347C29 /* AITools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITools.m; sourceTree = "<group>"; };
-		81433BF91CFBE5A700347C29 /* KBHTextFieldStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBHTextFieldStepper.swift; sourceTree = "<group>"; };
-		81433BFA1CFBE5A700347C29 /* KGNAutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayout.swift; sourceTree = "<group>"; };
-		81433BFB1CFBE5A700347C29 /* KMActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMActivityIndicator.h; sourceTree = "<group>"; };
-		81433BFC1CFBE5A700347C29 /* KMActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMActivityIndicator.m; sourceTree = "<group>"; };
-		81433BFD1CFBE5A700347C29 /* KMDetailsPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDetailsPageView.h; sourceTree = "<group>"; };
-		81433BFE1CFBE5A700347C29 /* KMDetailsPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDetailsPageView.m; sourceTree = "<group>"; };
-		81433BFF1CFBE5A700347C29 /* KMPlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMPlaceholderTextView.swift; sourceTree = "<group>"; };
-		81433C001CFBE5A700347C29 /* NSObjcetUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjcetUtils.swift; sourceTree = "<group>"; };
+		81433BF91CFBE5A700347C29 /* KBHTextFieldStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KBHTextFieldStepper.swift; path = Utils/KBHTextFieldStepper.swift; sourceTree = "<group>"; };
+		81433BFA1CFBE5A700347C29 /* KGNAutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KGNAutoLayout.swift; path = Utils/KGNAutoLayout.swift; sourceTree = "<group>"; };
+		81433BFB1CFBE5A700347C29 /* KMActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMActivityIndicator.h; path = Utils/KMActivityIndicator.h; sourceTree = "<group>"; };
+		81433BFC1CFBE5A700347C29 /* KMActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMActivityIndicator.m; path = Utils/KMActivityIndicator.m; sourceTree = "<group>"; };
+		81433BFD1CFBE5A700347C29 /* KMDetailsPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMDetailsPageView.h; path = Utils/KMDetailsPageView.h; sourceTree = "<group>"; };
+		81433BFE1CFBE5A700347C29 /* KMDetailsPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KMDetailsPageView.m; path = Utils/KMDetailsPageView.m; sourceTree = "<group>"; };
+		81433BFF1CFBE5A700347C29 /* KMPlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KMPlaceholderTextView.swift; path = Utils/KMPlaceholderTextView.swift; sourceTree = "<group>"; };
+		81433C001CFBE5A700347C29 /* NSObjcetUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSObjcetUtils.swift; path = Utils/NSObjcetUtils.swift; sourceTree = "<group>"; };
 		81433C011CFBE5A700347C29 /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		81433C021CFBE5A700347C29 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		81433C031CFBE5A700347C29 /* SwipeableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeableCell.h; sourceTree = "<group>"; };
-		81433C041CFBE5A700347C29 /* SwipeableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeableCell.m; sourceTree = "<group>"; };
-		81433C051CFBE5A700347C29 /* TableViewCellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCellBackgroundView.h; sourceTree = "<group>"; };
-		81433C061CFBE5A700347C29 /* TableViewCellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCellBackgroundView.m; sourceTree = "<group>"; };
-		81433C071CFBE5A700347C29 /* UIColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtils.swift; sourceTree = "<group>"; };
-		81433C081CFBE5A700347C29 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
+		81433C031CFBE5A700347C29 /* SwipeableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeableCell.h; path = Utils/SwipeableCell.h; sourceTree = "<group>"; };
+		81433C041CFBE5A700347C29 /* SwipeableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeableCell.m; path = Utils/SwipeableCell.m; sourceTree = "<group>"; };
+		81433C051CFBE5A700347C29 /* TableViewCellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewCellBackgroundView.h; path = Utils/TableViewCellBackgroundView.h; sourceTree = "<group>"; };
+		81433C061CFBE5A700347C29 /* TableViewCellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewCellBackgroundView.m; path = Utils/TableViewCellBackgroundView.m; sourceTree = "<group>"; };
+		81433C071CFBE5A700347C29 /* UIColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorUtils.swift; path = Utils/UIColorUtils.swift; sourceTree = "<group>"; };
+		81433C081CFBE5A700347C29 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerUtils.swift; path = Utils/UIViewControllerUtils.swift; sourceTree = "<group>"; };
 		81433C0B1CFBE5A700347C29 /* MyriadPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Black.otf"; sourceTree = "<group>"; };
 		81433C0C1CFBE5A700347C29 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
 		81433C0D1CFBE5A700347C29 /* MyriadPro-Cond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Cond.otf"; sourceTree = "<group>"; };
@@ -1135,8 +1133,8 @@
 		8175A71C1CFD2710006F2C8F /* RAReorderableLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAReorderableLayout.swift; path = ../Vendors/3rdClass/RAReorderableLayout.swift; sourceTree = "<group>"; };
 		8175A71D1CFD2710006F2C8F /* UICollectionViewWaterfallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICollectionViewWaterfallLayout.h; path = ../Vendors/3rdClass/UICollectionViewWaterfallLayout.h; sourceTree = "<group>"; };
 		8175A71E1CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICollectionViewWaterfallLayout.m; path = ../Vendors/3rdClass/UICollectionViewWaterfallLayout.m; sourceTree = "<group>"; };
-		8175A71F1CFD2710006F2C8F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+Awesome.h"; path = "../Vendors/3rdClass/UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
-		8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Awesome.m"; path = "../Vendors/3rdClass/UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		8175A71F1CFD2710006F2C8F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+Awesome.h"; path = "../../Vendors/3rdClass/UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
+		8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Awesome.m"; path = "../../Vendors/3rdClass/UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		8175A7221CFD2710006F2C8F /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libicucore.A.dylib; sourceTree = "<group>"; };
 		8175A7231CFD2710006F2C8F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
 		8175A7241CFD2710006F2C8F /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libz.1.dylib; sourceTree = "<group>"; };
@@ -1324,7 +1322,7 @@
 		93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentViewController.xib; sourceTree = "<group>"; };
 		93D5A3491B709C1C00DDB158 /* Veris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
-		93F3FFED1D06C0EB000283DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		93F3FFED1D06C0EB000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		F968A668E0CC6829EA8B698F /* Pods-AIVeris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2241,6 +2239,8 @@
 				81433C261CFBE5A700347C29 /* UIColor+TDAdditions.m */,
 				81433C271CFBE5A700347C29 /* UIImage+TDAdditions.h */,
 				81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */,
+				8175A71F1CFD2710006F2C8F /* UINavigationBar+Awesome.h */,
+				8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */,
 			);
 			path = "Objective-C";
 			sourceTree = "<group>";
@@ -2276,25 +2276,17 @@
 		81433B381CFBE5A700347C29 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				93F3FFEF1D06C455000283DA /* Extension */,
 				81433B1B1CFBE5A700347C29 /* Category */,
 				93F3FFEC1D06C00D000283DA /* JSONParser */,
 				93F3FFEA1D06BF9F000283DA /* Debug_Tools */,
-				93F3FFE91D06BF43000283DA /* UI_Logic */,
+				93F3FFE91D06BF43000283DA /* UIView_Logic */,
 				81433BDD1CFBE5A700347C29 /* Localize_Swift */,
 				81433BE61CFBE5A700347C29 /* Network_Service */,
-				81433BEF1CFBE5A700347C29 /* Utils */,
+				81433BEF1CFBE5A700347C29 /* GeneralUtils */,
 			);
 			name = Helper;
 			path = Veris/Helper;
-			sourceTree = "<group>";
-		};
-		81433B391CFBE5A700347C29 /* Camera */ = {
-			isa = PBXGroup;
-			children = (
-				81433B3A1CFBE5A700347C29 /* BuildInCameraUtils.swift */,
-			);
-			name = Camera;
-			path = ../Camera;
 			sourceTree = "<group>";
 		};
 		81433B3B1CFBE5A700347C29 /* Flex */ = {
@@ -2579,37 +2571,19 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		81433BEF1CFBE5A700347C29 /* Utils */ = {
+		81433BEF1CFBE5A700347C29 /* GeneralUtils */ = {
 			isa = PBXGroup;
 			children = (
-				81433B391CFBE5A700347C29 /* Camera */,
-				81433BF01CFBE5A700347C29 /* AIAssignUtils.swift */,
-				81433BF11CFBE5A700347C29 /* AIKinectButton.swift */,
-				81433BF21CFBE5A700347C29 /* AILocalizationManager.swift */,
 				81433BF31CFBE5A700347C29 /* AINotifications.h */,
-				81433BF41CFBE5A700347C29 /* AISuperSwipeableCell.h */,
-				81433BF51CFBE5A700347C29 /* AISuperSwipeableCell.m */,
+				81433B3A1CFBE5A700347C29 /* BuildInCameraUtils.swift */,
 				81433BF61CFBE5A700347C29 /* AISwiftLogger.swift */,
 				81433BF71CFBE5A700347C29 /* AITools.h */,
 				81433BF81CFBE5A700347C29 /* AITools.m */,
-				81433BF91CFBE5A700347C29 /* KBHTextFieldStepper.swift */,
-				81433BFA1CFBE5A700347C29 /* KGNAutoLayout.swift */,
-				81433BFB1CFBE5A700347C29 /* KMActivityIndicator.h */,
-				81433BFC1CFBE5A700347C29 /* KMActivityIndicator.m */,
-				81433BFD1CFBE5A700347C29 /* KMDetailsPageView.h */,
-				81433BFE1CFBE5A700347C29 /* KMDetailsPageView.m */,
-				81433BFF1CFBE5A700347C29 /* KMPlaceholderTextView.swift */,
-				81433C001CFBE5A700347C29 /* NSObjcetUtils.swift */,
 				81433C011CFBE5A700347C29 /* NullSafe.m */,
 				81433C021CFBE5A700347C29 /* Player.swift */,
-				81433C031CFBE5A700347C29 /* SwipeableCell.h */,
-				81433C041CFBE5A700347C29 /* SwipeableCell.m */,
-				81433C051CFBE5A700347C29 /* TableViewCellBackgroundView.h */,
-				81433C061CFBE5A700347C29 /* TableViewCellBackgroundView.m */,
-				81433C071CFBE5A700347C29 /* UIColorUtils.swift */,
-				81433C081CFBE5A700347C29 /* UIViewControllerUtils.swift */,
 				8175A7181CFD2710006F2C8F /* Async.swift */,
 			);
+			name = GeneralUtils;
 			path = Utils;
 			sourceTree = "<group>";
 		};
@@ -2697,7 +2671,7 @@
 				8175A7221CFD2710006F2C8F /* libicucore.A.dylib */,
 				8175A7231CFD2710006F2C8F /* libsqlite3.dylib */,
 				8175A7241CFD2710006F2C8F /* libz.1.dylib */,
-				93F3FFED1D06C0EB000283DA /* README.md */,
+				93F3FFED1D06C0EB000283DA /* README.txt */,
 			);
 			name = 3rdLibrary;
 			path = Veris/Vendors/3rdLib;
@@ -2758,18 +2732,6 @@
 			);
 			name = DDHTimerControl;
 			path = ../DDHTimerControl;
-			sourceTree = "<group>";
-		};
-		8175A74A1CFD2710006F2C8F /* IGViewQuery */ = {
-			isa = PBXGroup;
-			children = (
-				8175A74B1CFD2710006F2C8F /* IGViewQuery.h */,
-				8175A74C1CFD2710006F2C8F /* IGViewQuery.m */,
-				8175A74D1CFD2710006F2C8F /* IGViewWrapper.h */,
-				8175A74E1CFD2710006F2C8F /* IGViewWrapper.m */,
-			);
-			name = IGViewQuery;
-			path = ../IGViewQuery;
 			sourceTree = "<group>";
 		};
 		8175A74F1CFD2710006F2C8F /* JSONModel */ = {
@@ -3134,20 +3096,31 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		93F3FFE91D06BF43000283DA /* UI_Logic */ = {
+		93F3FFE91D06BF43000283DA /* UIView_Logic */ = {
 			isa = PBXGroup;
 			children = (
+				81433BE31CFBE5A700347C29 /* MaterialDesign */,
 				8175A7141CFD2710006F2C8F /* AIImageView.swift */,
+				81433BF91CFBE5A700347C29 /* KBHTextFieldStepper.swift */,
+				81433BF41CFBE5A700347C29 /* AISuperSwipeableCell.h */,
+				81433BF51CFBE5A700347C29 /* AISuperSwipeableCell.m */,
+				81433BFB1CFBE5A700347C29 /* KMActivityIndicator.h */,
+				81433BFC1CFBE5A700347C29 /* KMActivityIndicator.m */,
+				81433BFD1CFBE5A700347C29 /* KMDetailsPageView.h */,
+				81433BFE1CFBE5A700347C29 /* KMDetailsPageView.m */,
+				81433BFF1CFBE5A700347C29 /* KMPlaceholderTextView.swift */,
+				81433C031CFBE5A700347C29 /* SwipeableCell.h */,
+				81433C041CFBE5A700347C29 /* SwipeableCell.m */,
+				81433C051CFBE5A700347C29 /* TableViewCellBackgroundView.h */,
+				81433C061CFBE5A700347C29 /* TableViewCellBackgroundView.m */,
 				8175A7161CFD2710006F2C8F /* AIUINavigationController.h */,
 				8175A7171CFD2710006F2C8F /* AIUINavigationController.m */,
 				8175A71D1CFD2710006F2C8F /* UICollectionViewWaterfallLayout.h */,
 				8175A71E1CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m */,
-				8175A71F1CFD2710006F2C8F /* UINavigationBar+Awesome.h */,
-				8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */,
 				8175A71C1CFD2710006F2C8F /* RAReorderableLayout.swift */,
-				81433BE31CFBE5A700347C29 /* MaterialDesign */,
+				81433BF11CFBE5A700347C29 /* AIKinectButton.swift */,
 			);
-			name = UI_Logic;
+			name = UIView_Logic;
 			sourceTree = "<group>";
 		};
 		93F3FFEA1D06BF9F000283DA /* Debug_Tools */ = {
@@ -3165,6 +3138,18 @@
 				8175A71B1CFD2710006F2C8F /* JSONSerializer.swift */,
 			);
 			name = JSONParser;
+			sourceTree = "<group>";
+		};
+		93F3FFEF1D06C455000283DA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				81433BFA1CFBE5A700347C29 /* KGNAutoLayout.swift */,
+				81433BF01CFBE5A700347C29 /* AIAssignUtils.swift */,
+				81433C071CFBE5A700347C29 /* UIColorUtils.swift */,
+				81433C081CFBE5A700347C29 /* UIViewControllerUtils.swift */,
+				81433C001CFBE5A700347C29 /* NSObjcetUtils.swift */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 		DA9F72896661016CFF11C0E1 /* Pods */ = {
@@ -3446,7 +3431,7 @@
 				81433DA21CFBE5A700347C29 /* AIRequireProtocol.swift in Sources */,
 				81433E841CFBE5A700347C29 /* FLEXNetworkTransactionTableViewCell.m in Sources */,
 				81433E601CFBE5A700347C29 /* FLEXFieldEditorView.m in Sources */,
-				93F3FFEE1D06C0EB000283DA /* README.md in Sources */,
+				93F3FFEE1D06C0EB000283DA /* README.txt in Sources */,
 				81433D791CFBE5A700347C29 /* AIServiceParamView.swift in Sources */,
 				81433D891CFBE5A700347C29 /* ImageContent.swift in Sources */,
 				81433D611CFBE5A700347C29 /* AIShoppingListViewCell.swift in Sources */,
@@ -3632,7 +3617,6 @@
 				8175A7F91CFD2710006F2C8F /* SDWebImageCompat.m in Sources */,
 				8175A7D41CFD2710006F2C8F /* SCGIFImageView.m in Sources */,
 				81433E9E1CFBE5A700347C29 /* UIButton+Localize.swift in Sources */,
-				81433EA81CFBE5A700347C29 /* AILocalizationManager.swift in Sources */,
 				81433DB21CFBE5A700347C29 /* BuyerMessageCell.swift in Sources */,
 				81433CD91CFBE5A700347C29 /* AIOrderDetailModel.swift in Sources */,
 				81433D391CFBE5A700347C29 /* AIAudioRecordView.swift in Sources */,
