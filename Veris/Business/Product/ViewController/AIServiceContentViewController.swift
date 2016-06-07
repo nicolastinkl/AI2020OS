@@ -792,7 +792,7 @@ internal class AIServiceContentViewController: UIViewController {
     }
     
     private func addMusicView(preView: UIView?) -> UIView {
-        var preView = preView ?? galleryView
+        let preView = preView ?? galleryView
         let musicFrame = CGRectMake(0, preView.top + preView.height, CGRectGetWidth(scrollView.frame), 0)
         musicView = AIMusicTherapyView(frame: musicFrame, model: currentDatasource, shouldShowParams: serviceContentType != .None)
         addNewSubView(musicView!, preView: preView)
