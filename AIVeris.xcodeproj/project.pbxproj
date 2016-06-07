@@ -448,8 +448,6 @@
 		8175A7D31CFD2710006F2C8F /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7431CFD2710006F2C8F /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8175A7D41CFD2710006F2C8F /* SCGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7451CFD2710006F2C8F /* SCGIFImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8175A7D51CFD2710006F2C8F /* DDHTimerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7481CFD2710006F2C8F /* DDHTimerControl.m */; };
-		8175A7D61CFD2710006F2C8F /* IGViewQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A74C1CFD2710006F2C8F /* IGViewQuery.m */; };
-		8175A7D71CFD2710006F2C8F /* IGViewWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A74E1CFD2710006F2C8F /* IGViewWrapper.m */; };
 		8175A7D81CFD2710006F2C8F /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7511CFD2710006F2C8F /* JSONModel.m */; };
 		8175A7D91CFD2710006F2C8F /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7531CFD2710006F2C8F /* JSONModelArray.m */; };
 		8175A7DA1CFD2710006F2C8F /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7561CFD2710006F2C8F /* NSArray+JSONModel.m */; };
@@ -1175,10 +1173,6 @@
 		8175A7451CFD2710006F2C8F /* SCGIFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGIFImageView.m; sourceTree = "<group>"; };
 		8175A7471CFD2710006F2C8F /* DDHTimerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHTimerControl.h; sourceTree = "<group>"; };
 		8175A7481CFD2710006F2C8F /* DDHTimerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHTimerControl.m; sourceTree = "<group>"; };
-		8175A74B1CFD2710006F2C8F /* IGViewQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGViewQuery.h; sourceTree = "<group>"; };
-		8175A74C1CFD2710006F2C8F /* IGViewQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGViewQuery.m; sourceTree = "<group>"; };
-		8175A74D1CFD2710006F2C8F /* IGViewWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGViewWrapper.h; sourceTree = "<group>"; };
-		8175A74E1CFD2710006F2C8F /* IGViewWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGViewWrapper.m; sourceTree = "<group>"; };
 		8175A7501CFD2710006F2C8F /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
 		8175A7511CFD2710006F2C8F /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
 		8175A7521CFD2710006F2C8F /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelArray.h; sourceTree = "<group>"; };
@@ -2691,7 +2685,6 @@
 			children = (
 				81433B351CFBE5A700347C29 /* Frameworks */,
 				8175A7461CFD2710006F2C8F /* DDHTimerControl */,
-				8175A74A1CFD2710006F2C8F /* IGViewQuery */,
 				8175A7851CFD2710006F2C8F /* OBShapedButton */,
 				8175A78E1CFD2710006F2C8F /* RRTagController */,
 				8175A7611CFD2710006F2C8F /* MJRefresh */,
@@ -3555,7 +3548,6 @@
 				81433D471CFBE5A700347C29 /* AITextMessageView.swift in Sources */,
 				8175A7D31CFD2710006F2C8F /* RegexKitLite.m in Sources */,
 				81433D7D1CFBE5A700347C29 /* AIBuyerTableCellView.swift in Sources */,
-				8175A7D61CFD2710006F2C8F /* IGViewQuery.m in Sources */,
 				81433D561CFBE5A700347C29 /* AILocationSelectHeadView.swift in Sources */,
 				81433E531CFBE5A700347C29 /* FLEXArgumentInputDateView.m in Sources */,
 				8175A8041CFD2710006F2C8F /* UIImageView+WebCache.m in Sources */,
@@ -3583,7 +3575,6 @@
 				81433CEC1CFBE5A700347C29 /* ServiceOrderDetailModel.m in Sources */,
 				81433D491CFBE5A700347C29 /* AIWishMessageView.swift in Sources */,
 				8175A7EB1CFD2710006F2C8F /* OAStackView.m in Sources */,
-				8175A7D71CFD2710006F2C8F /* IGViewWrapper.m in Sources */,
 				81433DA61CFBE5A700347C29 /* AITaskDataModel.swift in Sources */,
 				81433E7E1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m in Sources */,
 				8175A7D21CFD2710006F2C8F /* OHAttributedLabel.m in Sources */,
