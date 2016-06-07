@@ -540,6 +540,9 @@
 		93C61FC41D01196F0063C2BF /* ServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */; };
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93F3FFEE1D06C0EB000283DA /* README.txt in Sources */ = {isa = PBXBuildFile; fileRef = 93F3FFED1D06C0EB000283DA /* README.txt */; };
+		93F3FFF21D06C5C0000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF11D06C5C0000283DA /* README.txt */; };
+		93F3FFF41D06C5E4000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF31D06C5E4000283DA /* README.txt */; };
+		93F3FFF61D06C613000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF51D06C613000283DA /* README.txt */; };
 		DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */; };
 /* End PBXBuildFile section */
 
@@ -1323,6 +1326,9 @@
 		93D5A3491B709C1C00DDB158 /* Veris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
 		93F3FFED1D06C0EB000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		93F3FFF11D06C5C0000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		93F3FFF31D06C5E4000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		93F3FFF51D06C613000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		F968A668E0CC6829EA8B698F /* Pods-AIVeris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1413,6 +1419,7 @@
 				814339261CFBE5A600347C29 /* AIApplication.swift */,
 				814339271CFBE5A600347C29 /* AIVeris-Bridging-Header.h */,
 				814339281CFBE5A600347C29 /* AppDelegate.swift */,
+				93F3FFF51D06C613000283DA /* README.txt */,
 			);
 			name = Application;
 			path = Veris/Application;
@@ -1432,6 +1439,7 @@
 				81433A2D1CFBE5A700347C29 /* Product */,
 				81433B0C1CFBE5A700347C29 /* Share */,
 				81433B131CFBE5A700347C29 /* UserManager */,
+				93F3FFF31D06C5E4000283DA /* README.txt */,
 			);
 			name = Business;
 			path = Veris/Business;
@@ -2284,6 +2292,7 @@
 				81433BDD1CFBE5A700347C29 /* Localize_Swift */,
 				81433BE61CFBE5A700347C29 /* Network_Service */,
 				81433BEF1CFBE5A700347C29 /* GeneralUtils */,
+				93F3FFF11D06C5C0000283DA /* README.txt */,
 			);
 			name = Helper;
 			path = Veris/Helper;
@@ -3284,6 +3293,7 @@
 				81433DB31CFBE5A700347C29 /* BuyerMessageCell.xib in Resources */,
 				933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */,
 				81433D251CFBE5A700347C29 /* MiddleServiceContainer.xib in Resources */,
+				93F3FFF41D06C5E4000283DA /* README.txt in Resources */,
 				81433E0F1CFBE5A700347C29 /* IconLabel.xib in Resources */,
 				81433D4F1CFBE5A700347C29 /* AIAddressRouteView.xib in Resources */,
 				81433D3C1CFBE5A700347C29 /* AICustomAudioNotesView.xib in Resources */,
@@ -3301,6 +3311,7 @@
 				81433EBB1CFBE5A700347C29 /* MyriadPro-Light.otf in Resources */,
 				81433EBD1CFBE5A700347C29 /* MyriadPro-LightSemiExt.otf in Resources */,
 				81433E311CFBE5A700347C29 /* AITaskInputViewController.xib in Resources */,
+				93F3FFF61D06C613000283DA /* README.txt in Resources */,
 				81433D621CFBE5A700347C29 /* AIShoppingListViewCell.xib in Resources */,
 				81433D641CFBE5A700347C29 /* AIStartEndTimeView.xib in Resources */,
 				81433EC61CFBE5A700347C29 /* Assets.xcassets in Resources */,
@@ -3312,6 +3323,7 @@
 				81433EC71CFBE5A700347C29 /* Localizable.strings in Resources */,
 				81433EC91CFBE5A700347C29 /* Veris.entitlements in Resources */,
 				81433D531CFBE5A700347C29 /* AIDepartReahCityView.xib in Resources */,
+				93F3FFF21D06C5C0000283DA /* README.txt in Resources */,
 				93A9DA591D0131D900F16610 /* AICommentInfoView.xib in Resources */,
 				81433D5D1CFBE5A700347C29 /* AIServiceRouteView.xib in Resources */,
 				845700591D015FD600512597 /* ServiceCommentTableViewCell.xib in Resources */,
