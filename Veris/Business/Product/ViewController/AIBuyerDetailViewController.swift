@@ -273,18 +273,17 @@ class AIBuyerDetailViewController : UIViewController {
         addTapActionForView(buyerBottom)
     }
     
-    
     @IBAction func infoButtonPressed(sender: AnyObject) {
 
     }
-    
     
     /**
      Video Button Click
      */
     @IBAction func startVideoAction(sender: AnyObject) {
-
+       
     }
+    
     // MARK: 提交订单
     func addTapActionForView(view: UIView) {
         let width :CGFloat = 100

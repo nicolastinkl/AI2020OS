@@ -49,7 +49,8 @@ class AICommentInfoView: UIView {
             imageview.setURL(NSURL(string: "http://ww2.sinaimg.cn/bmiddle/9fe1d9e1gw1f4ht3tkwp8j20ss0hsgpa.jpg"), placeholderImage: smallPlace())
         }
         
-        if let starRateView = CWStarRateView(frame: CGRectMake(0, 5, 60, 11), numberOfStars: 5){
+        if let starRateView = CWStarRateView(frameAndImage: CGRectMake(0, 5, 60, 11), numberOfStars: 5, foreground: "star_rating_results_highlight", background: "star_rating_results_normal" ){
+            starRateView.userInteractionEnabled = false
             let score: CGFloat = 5
             starRateView.scorePercent = score / 10
             commentControls.addSubview(starRateView)

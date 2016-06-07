@@ -39,8 +39,16 @@ class AISuperiorityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MARK: Init
         initLayoutViews()
         
+        // MARK: Layout
+        initDataWithModel()
+        
+    }
+    
+    func initDataWithModel(){
+    
     }
     
     func initLayoutViews(){
@@ -59,7 +67,6 @@ class AISuperiorityViewController: UIViewController {
             navi.titleLabel.text = "孕检无忧"
             
         }
-        
         
     }
     

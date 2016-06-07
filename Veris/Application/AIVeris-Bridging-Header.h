@@ -101,8 +101,6 @@
 
 #import "AIServiceDetailUIModel.h"
 
-#import "YYFPSLabel.h"
-
 #import "AIProposalServiceParser.h"
 
 #import "AIDetailText.h"

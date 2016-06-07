@@ -42,7 +42,9 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="sa5-eq-ktE"/>
                     </constraints>
-                    <string key="text">1.配置管理平台接口联调  1.服上架2.查询行业列表  3.根据行业列表查询服务基本参数配置2.SBOSS管理平台界面协助开发下周</string>
+                    <string key="text">1.配置管理平台接口联调  1.服上架2.查询行业列表  3.根据行业列表查询服务基本参数配置
+2.SBOSS管理平台界面协助开发
+下周</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
