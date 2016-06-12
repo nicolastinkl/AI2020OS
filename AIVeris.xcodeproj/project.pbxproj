@@ -528,6 +528,8 @@
 		93B25AB61B9D7EA900CD1FEB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB51B9D7EA900CD1FEB /* Security.framework */; };
 		93B25AB81B9D7EB500CD1FEB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB71B9D7EB500CD1FEB /* CoreTelephony.framework */; };
 		93B523921BB8F0F400DFB1C9 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B523911BB8F0F400DFB1C9 /* CoreMotion.framework */; };
+		93BEFFDB1D0D472700832799 /* AISuperiorityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BEFFDA1D0D472700832799 /* AISuperiorityCellView.swift */; };
+		93BEFFDD1D0D474B00832799 /* AISuperiorityCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BEFFDC1D0D474B00832799 /* AISuperiorityCellView.xib */; };
 		93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F2E1B9C25EC007BF506 /* UIKit.framework */; };
 		93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F301B9C25F8007BF506 /* Foundation.framework */; };
 		93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F321B9C27B1007BF506 /* CoreText.framework */; };
@@ -1301,6 +1303,8 @@
 		93B25AB71B9D7EB500CD1FEB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		93B5238F1BB8F0EA00DFB1C9 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		93B523911BB8F0F400DFB1C9 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		93BEFFDA1D0D472700832799 /* AISuperiorityCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityCellView.swift; sourceTree = "<group>"; };
+		93BEFFDC1D0D474B00832799 /* AISuperiorityCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityCellView.xib; sourceTree = "<group>"; };
 		93C33F2C1B9C256F007BF506 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		93C33F2E1B9C25EC007BF506 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		93C33F301B9C25F8007BF506 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -2938,6 +2942,8 @@
 			children = (
 				933BC8311D002434005E1789 /* AINavigationBar.swift */,
 				933BC8321D002434005E1789 /* AINavigationBar.xib */,
+				93BEFFDA1D0D472700832799 /* AISuperiorityCellView.swift */,
+				93BEFFDC1D0D474B00832799 /* AISuperiorityCellView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3269,6 +3275,7 @@
 				81433E381CFBE5A700347C29 /* BuyerRequirmentMessageViewController.xib in Resources */,
 				81433DF71CFBE5A700347C29 /* AIEventTimerView.xib in Resources */,
 				81433DB31CFBE5A700347C29 /* BuyerMessageCell.xib in Resources */,
+				93BEFFDD1D0D474B00832799 /* AISuperiorityCellView.xib in Resources */,
 				933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */,
 				81433D251CFBE5A700347C29 /* MiddleServiceContainer.xib in Resources */,
 				93F3FFF41D06C5E4000283DA /* README.txt in Resources */,
@@ -3713,6 +3720,7 @@
 				81433EAF1CFBE5A700347C29 /* KMDetailsPageView.m in Sources */,
 				81433D761CFBE5A700347C29 /* AIServiceCoverage.m in Sources */,
 				81433E7D1CFBE5A700347C29 /* FLEXSystemLogTableViewCell.m in Sources */,
+				93BEFFDB1D0D472700832799 /* AISuperiorityCellView.swift in Sources */,
 				8175A7E41CFD2710006F2C8F /* UIScrollView+MJExtension.m in Sources */,
 				8175A7F21CFD2710006F2C8F /* UIImage+ColorAtPixel.m in Sources */,
 				81433E551CFBE5A700347C29 /* FLEXArgumentInputFontView.m in Sources */,
@@ -3922,6 +3930,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj *.txt";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks";
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3962,6 +3971,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj *.txt";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks";
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

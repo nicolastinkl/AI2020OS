@@ -107,7 +107,7 @@
                 <outlet property="titleLabel" destination="JZP-g5-iYW" id="iht-4f-1hf"/>
                 <outlet property="videoButton" destination="RpV-BP-Pz3" id="n2T-uY-nkh"/>
             </connections>
-            <point key="canvasLocation" x="347" y="318"/>
+            <point key="canvasLocation" x="90" y="295"/>
         </view>
     </objects>
     <resources>
