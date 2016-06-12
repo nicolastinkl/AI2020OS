@@ -20,6 +20,8 @@
 @property (nonatomic, strong) UIViewController *leftDirectionViewController;
 @property (nonatomic, strong) UIViewController *rightDirectionViewController;
 
+@property (nonatomic, strong) LoginAction *loginAction;
+
 @end
 
 @implementation AIRootViewController
@@ -34,6 +36,8 @@
     [self makeChildViewControllers];
     [self startOpenningAnimation];
  
+    
+    [self handleLoginAction];
 }
 
 -(BOOL)prefersStatusBarHidden{
@@ -101,5 +105,9 @@
     
 }
 
+- (void)handleLoginAction
+{
+    self.loginAction = [[LoginAction alloc] initWithViewController:self completion:nil];
+}
 
 @end
