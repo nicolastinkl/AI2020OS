@@ -414,7 +414,6 @@
 		81433EC51CFBE5A700347C29 /* start.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 81433C1A1CFBE5A700347C29 /* start.mp4 */; };
 		81433EC61CFBE5A700347C29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81433C1C1CFBE5A700347C29 /* Assets.xcassets */; };
 		81433EC71CFBE5A700347C29 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 81433C1D1CFBE5A700347C29 /* Localizable.strings */; };
-		81433EC81CFBE5A700347C29 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81433C1F1CFBE5A700347C29 /* Info.plist */; };
 		81433EC91CFBE5A700347C29 /* Veris.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 81433C201CFBE5A700347C29 /* Veris.entitlements */; };
 		81433ECA1CFBE5A700347C29 /* TDImageColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C241CFBE5A700347C29 /* TDImageColors.m */; };
 		81433ECB1CFBE5A700347C29 /* UIColor+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C261CFBE5A700347C29 /* UIColor+TDAdditions.m */; };
@@ -3186,7 +3185,7 @@
 				);
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "___ASIAINFO___";
 				TargetAttributes = {
 					93D5A3481B709C1C00DDB158 = {
@@ -3299,7 +3298,6 @@
 				81433D4D1CFBE5A700347C29 /* UICustomsTags.xib in Resources */,
 				FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */,
 				81433CFC1CFBE5A700347C29 /* multiLabels.json in Resources */,
-				81433EC81CFBE5A700347C29 /* Info.plist in Resources */,
 				81433EC71CFBE5A700347C29 /* Localizable.strings in Resources */,
 				81433EC91CFBE5A700347C29 /* Veris.entitlements in Resources */,
 				81433D531CFBE5A700347C29 /* AIDepartReahCityView.xib in Resources */,
