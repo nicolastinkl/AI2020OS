@@ -9,7 +9,6 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -75,11 +74,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AVOSCloud.setApplicationId(AIApplication.AVOSCLOUDID,
                                    clientKey: AIApplication.AVOSCLOUDKEY)
         
-        
         AVOSCloud.registerForRemoteNotification()
         
         AVAnalytics.setAnalyticsEnabled(true)
-        
         
     }
     
