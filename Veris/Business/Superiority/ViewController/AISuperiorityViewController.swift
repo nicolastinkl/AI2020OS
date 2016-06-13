@@ -100,6 +100,7 @@ class AISuperiorityViewController: UIViewController {
         addNewSubView(priceLabel, preView: preCellView!)
         priceLabel.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
         
+        // Add Service List Icon , So at top and at down.
         
     }
     
