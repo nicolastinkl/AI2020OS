@@ -16,6 +16,11 @@ class ServiceCommentViewController: UIViewController {
     @IBOutlet weak var starsDes: UILabel!
     @IBOutlet weak var commentDistrict: CommentDistrictView!
     
+    class func loadFromXib() -> ServiceCommentViewController {
+        let vc = ServiceCommentViewController(nibName: "ServiceCommentViewController", bundle: nil)
+        return vc
+    }
+    
     var starRateView: CWStarRateView!
     override func viewDidLoad() {
         super.viewDidLoad()
