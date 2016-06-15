@@ -62,11 +62,6 @@
 
     //Chaged UserID.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataAfterUserChanged) name:kShouldUpdataUserDataNotification object:nil];
-#if DEBUG
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewTapped)];
-//    tap.numberOfTapsRequired = 2;
-//    [self.tableView addGestureRecognizer:tap];
-#endif
 }
 
 - (void)viewTapped {
@@ -118,16 +113,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-   #pragma mark - Navigation
-
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-   }
- */
-
 - (void)preProcess {
     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 
@@ -150,8 +135,6 @@
     AIMessage *message = [AIMessage message];
 
     message.url = @"http://ip:portget/sbss/ServiceCalendarMgr";
-    //[message.body setObject:[NSNumber numberWithInteger:userID] forKey:@"user_id"];//order_role
-    //[message.body setObject:[NSNumber numberWithInteger:role] forKey:@"order_role"];
 
     return message;
 }
@@ -349,7 +332,6 @@
 
 
     [self.view addSubview:self.tableView];
-    //[self makeMaskForTable];
 }
 
 // test
