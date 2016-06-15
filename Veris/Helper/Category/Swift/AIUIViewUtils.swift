@@ -139,6 +139,7 @@ extension UIView {
      Cell下线满格处理
      */
     func addBottomWholeSSBorderLine(colors: String) {
+        // = AIApplication.AIColor.AIVIEWLINEColor
         let color = UIColor(hexString: colors, alpha: 0.5)
         let lineLayer = CALayer()
         lineLayer.backgroundColor = color.CGColor

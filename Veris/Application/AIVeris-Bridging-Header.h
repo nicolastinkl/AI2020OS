@@ -11,12 +11,9 @@
 #import "UINavigationBar+Awesome.h"
 #import "AIUINavigationController.h"
 
-// MARK: diy view
-//#import "AIISRViewController.h"
-
 // MARK: 自定义视图
 #import "UIView+MaterialDesign.h"
-//#import "CWStarRateView.h"
+#import "CWStarRateView.h"
 
 #import "TableViewCellBackgroundView.h"
 #import "UIImage+Effect.h"
@@ -101,8 +98,6 @@
 
 #import "AIServiceDetailUIModel.h"
 
-#import "YYFPSLabel.h"
-
 #import "AIProposalServiceParser.h"
 
 #import "AIDetailText.h"
@@ -124,10 +119,9 @@
 #import "MDCFocalPointView.h"
 #import "MDCSpotlightView.h"
 
-//#import "PMCustomKeyboard.h"
-
 // YYImage
 #import <YYImage/YYImage.h>
+
 #import "YYImage/YYAnimatedImageView.h"
 
 //DDHTimerControl

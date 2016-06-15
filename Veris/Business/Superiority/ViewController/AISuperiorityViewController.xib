@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AISuperiorityViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="scrollview" destination="iH5-o7-Ffp" id="F3g-BP-SrD"/>
                 <outlet property="view" destination="kgd-tX-Y0E" id="8IO-Dh-mWN"/>
             </connections>
         </placeholder>
@@ -21,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
-                    <blurEffect style="dark"/>
+                    <blurEffect style="light"/>
                 </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcb-5F-OXg">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>

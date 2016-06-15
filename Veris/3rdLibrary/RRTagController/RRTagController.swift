@@ -17,8 +17,7 @@ let colorTextSelectedTag = UIColor.whiteColor()
 class RRTagController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	var tags: Array<RequirementTag> = []
-	
-    
+	    
 	private var _totalTagsSelected = 0
 	private var heightKeyboard: CGFloat = 0
 	
