@@ -7,6 +7,7 @@
 //
 
 #import "AIRootViewController.h"
+#import "AISellerViewController.h"
 #import "Veris-Swift.h"
 
 @interface AIRootViewController ()
@@ -56,6 +57,12 @@
     [self.upDirectionViewController didMoveToParentViewController:self];
 
 
+    // down
+    AISellerViewController *sellerViewController = [[AISellerViewController alloc] init];
+    [self addChildViewController:sellerViewController];
+    self.downDirectionViewController = sellerViewController;
+    [sellerViewController didMoveToParentViewController:self];
+    
     // default
     [self.view addSubview:self.upDirectionViewController.view];
     _currentViewController = self.upDirectionViewController;
@@ -77,6 +84,14 @@
         }
             break;
         case 2: // 2:down
+        {
+            if (_currentViewController == self.downDirectionViewController) {
+                return;
+            }
+            [self transitionFromViewController:_currentViewController toViewController:self.downDirectionViewController duration:0 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:^(BOOL finished) {
+                _currentViewController = self.downDirectionViewController;
+            }];
+        }
             break;
         case 3: // 3:left
             break;
