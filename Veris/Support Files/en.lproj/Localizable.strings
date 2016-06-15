@@ -173,8 +173,13 @@
 "AIServerDetailViewController.success" = "submit success";
 
 
+/*
+ * ./Veris/Business/Comment/View/CommentDistrictView.xib
+ */
 
+"CommentDistrictView.sendPhotos" = "Send Photos";
 
+"CommentDistrictView.inputHint" = "Please write down the feelings of the service to others, there is a great help to others.";
 
 
 

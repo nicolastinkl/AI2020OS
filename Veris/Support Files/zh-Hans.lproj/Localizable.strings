@@ -171,6 +171,14 @@
 "AIServerDetailViewController.error" = "订单提交失败";
 
 
+/*
+ * ./Veris/Business/Comment/View/CommentDistrictView.xib
+ */
+
+"CommentDistrictView.sendPhotos" = "发送照片";
+"CommentDistrictView.inputHint" = "写下购买体会或使用过程中带来的帮助可以为其他小伙伴提供参考~";
+
+
 
 
 
