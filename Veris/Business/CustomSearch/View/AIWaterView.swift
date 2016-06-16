@@ -35,7 +35,6 @@ class AIWaterView: DesignableView {
         let startAngle: CGFloat = 0
         // 中心点
         let point: CGPoint = CGPointMake(40, 40)
-        // 中心店我手动写的,你看看怎么弄合适 自己在搞一下
         // 结束角
         let endAngle: CGFloat = CGFloat(2*M_PI)
         let path: UIBezierPath = UIBezierPath(arcCenter: point, radius: rabius, startAngle: startAngle, endAngle: endAngle, clockwise: true)

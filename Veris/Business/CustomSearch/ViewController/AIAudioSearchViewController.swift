@@ -51,7 +51,7 @@ class AIAudioSearchViewController: UIViewController {
         
         refershTitle(audioStatus.Listening)
         
-        timer = NSTimer(timeInterval: 0.8, target: self, selector: #selector(AIAudioSearchViewController.repeatTimes), userInfo: nil, repeats: true)
+        timer = NSTimer(timeInterval: 1, target: self, selector: #selector(AIAudioSearchViewController.repeatTimes), userInfo: nil, repeats: true)
         NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSDefaultRunLoopMode)
         
         
@@ -75,9 +75,9 @@ class AIAudioSearchViewController: UIViewController {
             waterView.setLeft(self.view.width / 2 - waterView.width / 2)
             waterView.setTop(self.audioButton.center.y - self.audioButton.width/2)
             
-            UIView.animateWithDuration(3, animations: {
+            UIView.animateWithDuration(2, animations: {
                 
-                waterView.transform = CGAffineTransformScale(waterView.transform, 6, 6)
+                waterView.transform = CGAffineTransformScale(waterView.transform, 5, 5)
                 waterView.alpha = 0
                 
             }) { (complate) in
@@ -140,6 +140,11 @@ class AIAudioSearchViewController: UIViewController {
      */
     func cancelAudioRecognizer(){
         islistening = false
+        view.subviews.forEach { (sview) in
+            if sview is AIWaterView {
+                sview.removeFromSuperview()
+            }
+        }
         iFlySpeechRecognizer?.cancel()
     }
     
@@ -160,6 +165,7 @@ class AIAudioSearchViewController: UIViewController {
     }
     
     @IBAction func closeViewController(){
+        cancelAudioRecognizer()
         timer?.invalidate()
         timer = nil
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -223,7 +229,8 @@ extension AIAudioSearchViewController: IFlySpeechRecognizerDelegate {
     func onError(errorCode: IFlySpeechError!) {
         if errorCode.errorCode == 0 {
             //success
-            
+            cancelAudioRecognizer()
+            playEndSearchSound()
         }else{
             //error
             self.alertContentLabel.text = errorCode.errorDesc
