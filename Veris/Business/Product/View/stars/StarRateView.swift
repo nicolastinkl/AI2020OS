@@ -25,6 +25,12 @@ class StarRateView: UIView {
     @IBInspectable var backgroundStarImage: String = "Gray_Star"
     @IBInspectable var numberOfStars: Int = 5
     
+    override var frame: CGRect {
+        didSet {
+            oldFrame = frame
+        }
+    }
+    
     convenience override init(frame: CGRect) {
         self.init(frame: frame, numberOfStars: 5)
     }
@@ -83,6 +89,11 @@ class StarRateView: UIView {
         }
     }
     
+    override func updateConstraints() {
+        super.updateConstraints()
+        relayoutStars()
+    }
+    
     private func buildDataAndUI() {
         foregroundStarView = createStarContainer()
         backgroundStarView = createStarContainer()
@@ -122,6 +133,13 @@ class StarRateView: UIView {
     }
     
     func relayoutStars() {
+        guard let _ = foregroundStars else {
+            return
+        }
+        
+        foregroundStarView.frame = bounds
+        backgroundStarView.frame = bounds
+        
         for i in 0 ..< numberOfStars {
             let foregroundStar = foregroundStars[i]
             let backgroundStar = backgroundStars[i]

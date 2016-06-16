@@ -25,8 +25,8 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5n-Qs-AxA" userLabel="Stars">
-                        <rect key="frame" x="198" y="15" width="100" height="15"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5n-Qs-AxA" userLabel="Stars" customClass="StarRateView" customModule="Veris" customModuleProvider="target">
+                        <rect key="frame" x="198" y="21" width="100" height="15"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="ACG-qh-E77"/>
@@ -34,7 +34,7 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="scorePercent">
-                                <real key="value" value="0.0"/>
+                                <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -63,7 +63,7 @@
                     <constraint firstItem="q5n-Qs-AxA" firstAttribute="leading" secondItem="gSL-h2-ZvC" secondAttribute="trailing" constant="10" id="LQ8-lj-qrd"/>
                     <constraint firstAttribute="leadingMargin" secondItem="oUy-xX-H03" secondAttribute="leading" id="Lax-Bk-xzc"/>
                     <constraint firstItem="oUy-xX-H03" firstAttribute="centerY" secondItem="gSL-h2-ZvC" secondAttribute="centerY" id="RLQ-ed-Xym"/>
-                    <constraint firstItem="q5n-Qs-AxA" firstAttribute="centerY" secondItem="gSL-h2-ZvC" secondAttribute="centerY" constant="-6" id="XqR-Nk-wwo"/>
+                    <constraint firstItem="q5n-Qs-AxA" firstAttribute="centerY" secondItem="gSL-h2-ZvC" secondAttribute="centerY" id="XqR-Nk-wwo"/>
                     <constraint firstAttribute="trailingMargin" secondItem="q5n-Qs-AxA" secondAttribute="trailing" constant="14" id="c0G-au-eZs"/>
                     <constraint firstAttribute="topMargin" secondItem="gSL-h2-ZvC" secondAttribute="top" constant="-10" id="cLL-zq-rHX"/>
                     <constraint firstItem="ubc-pS-yOj" firstAttribute="top" secondItem="gSL-h2-ZvC" secondAttribute="bottom" constant="14" id="nqS-mp-BTA"/>
@@ -85,7 +85,7 @@
                 <outlet property="serviceIcon" destination="oUy-xX-H03" id="qFw-XP-oLD"/>
                 <outlet property="starContainerHeightConstraint" destination="ACG-qh-E77" id="3zJ-lK-BjD"/>
                 <outlet property="starContainerWidthConstraint" destination="ncu-xv-68o" id="0X1-uz-68N"/>
-                <outlet property="starsContainerView" destination="q5n-Qs-AxA" id="gOX-sU-dQt"/>
+                <outlet property="starRateView" destination="q5n-Qs-AxA" id="wD5-c3-f6U"/>
             </connections>
         </tableViewCell>
     </objects>

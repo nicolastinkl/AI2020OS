@@ -11,12 +11,11 @@ import UIKit
 class ServiceCommentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var serviceIcon: UIImageView!
-    @IBOutlet weak var starsContainerView: UIView!
     
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var starContainerWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var starContainerHeightConstraint: NSLayoutConstraint!
-    var starRateView: StarRateView!
+    @IBOutlet weak var starRateView: StarRateView!
     
     private var originIconHeight: CGFloat!
     private var originStarContainerHeight: CGFloat!
@@ -42,23 +41,26 @@ class ServiceCommentTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        if starRateView == nil {
-            starRateView = StarRateView(frame: starsContainerView.frame)
-
-            starRateView.userInteractionEnabled = true
-            self.contentView.addSubview(starRateView)
-            
-            starRateView.snp_makeConstraints { (make) in
-                make.edges.equalTo(starsContainerView)
-            }
-        } else {
-            starRateView.frame = starsContainerView.frame
-            starRateView.layoutIfNeeded()
-     //       starRateView.relayoutStars()
-        }
+//        if starRateView == nil {
+//            starRateView = StarRateView(frame: starsContainerView.frame)
+//
+//            starRateView.userInteractionEnabled = true
+//            self.contentView.addSubview(starRateView)
+//            
+//            starRateView.snp_makeConstraints { (make) in
+//                make.edges.equalTo(starsContainerView)
+//            }
+//        } else {
+//            starRateView.frame = starsContainerView.frame
+//            starRateView.layoutIfNeeded()
+//     //       starRateView.relayoutStars()
+//        }
         
+        starRateView.layoutIfNeeded()
         serviceIcon.layer.cornerRadius = serviceIcon.height / 2
     }
+    
+    
     
     func setToHeadComment() {
         
@@ -67,6 +69,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
         starContainerHeightConstraint.constant = originStarContainerHeight + 10
         starContainerWidthConstraint.constant = originStarContainerWidth + 30
         
+        starRateView.setNeedsUpdateConstraints()
         contentView.layoutIfNeeded()
  
     }
@@ -77,6 +80,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
         starContainerHeightConstraint.constant = originStarContainerHeight
         starContainerWidthConstraint.constant = originStarContainerWidth
         
+        starRateView.setNeedsLayout()
         contentView.layoutIfNeeded()
     }
     
