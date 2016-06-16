@@ -10,16 +10,23 @@ import UIKit
 
 class ServiceCommentTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imageButton: UIImageView!
+    @IBOutlet weak var placeHolderText: UILabel!
     @IBOutlet weak var serviceIcon: UIImageView!
+    @IBOutlet weak var inputComment: UITextView!
     
+    @IBOutlet weak var hintHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var starContainerWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var starContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var starRateView: StarRateView!
+    @IBOutlet weak var commentServicesHint: UILabel!
+    @IBOutlet weak var bottomSererator: UIImageView!
     
     private var originIconHeight: CGFloat!
     private var originStarContainerHeight: CGFloat!
     private var originStarContainerWidth: CGFloat!
+    private var originHintHeight: CGFloat!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +39,14 @@ class ServiceCommentTableViewCell: UITableViewCell {
         originIconHeight = heightConstraint.constant
         originStarContainerHeight = starContainerHeightConstraint.constant
         originStarContainerWidth = starContainerWidthConstraint.constant
+        originHintHeight = hintHeightConstraint.constant
+        
+        let imageSelector =
+            #selector(ServiceCommentTableViewCell.imageButtonAction(_:))
+        let imageTap = UITapGestureRecognizer(target: self, action: imageSelector)
+        imageButton.addGestureRecognizer(imageTap)
+        
+        inputComment.delegate = self
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -41,26 +56,13 @@ class ServiceCommentTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-//        if starRateView == nil {
-//            starRateView = StarRateView(frame: starsContainerView.frame)
-//
-//            starRateView.userInteractionEnabled = true
-//            self.contentView.addSubview(starRateView)
-//            
-//            starRateView.snp_makeConstraints { (make) in
-//                make.edges.equalTo(starsContainerView)
-//            }
-//        } else {
-//            starRateView.frame = starsContainerView.frame
-//            starRateView.layoutIfNeeded()
-//     //       starRateView.relayoutStars()
-//        }
-        
-        starRateView.layoutIfNeeded()
+   //     starRateView.layoutIfNeeded()
         serviceIcon.layer.cornerRadius = serviceIcon.height / 2
     }
     
-    
+    func imageButtonAction(sender : UIGestureRecognizer) {
+    //    delegate?.pohotImageButtonClicked(photoImage)
+    }
     
     func setToHeadComment() {
         
@@ -69,6 +71,11 @@ class ServiceCommentTableViewCell: UITableViewCell {
         starContainerHeightConstraint.constant = originStarContainerHeight + 10
         starContainerWidthConstraint.constant = originStarContainerWidth + 30
         
+        bottomSererator.hidden = false
+        commentServicesHint.hidden = false
+        hintHeightConstraint.constant = originHintHeight
+        
+        commentServicesHint.setNeedsUpdateConstraints()
         starRateView.setNeedsUpdateConstraints()
         contentView.layoutIfNeeded()
  
@@ -80,8 +87,25 @@ class ServiceCommentTableViewCell: UITableViewCell {
         starContainerHeightConstraint.constant = originStarContainerHeight
         starContainerWidthConstraint.constant = originStarContainerWidth
         
+        bottomSererator.hidden = true
+        commentServicesHint.hidden = true
+        hintHeightConstraint.constant = 0
+        
+        commentServicesHint.setNeedsUpdateConstraints()
         starRateView.setNeedsLayout()
         contentView.layoutIfNeeded()
     }
+}
+
+extension ServiceCommentTableViewCell: UITextViewDelegate {
     
+    func textViewDidBeginEditing(textView: UITextView) {
+        placeHolderText.hidden = true
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            placeHolderText.hidden = false
+        }
+    }
 }
