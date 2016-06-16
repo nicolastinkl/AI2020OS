@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */; };
+		12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */; };
+		12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */; };
+		12D7649B1D0D469A002B001B /* AIRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764961D0D469A002B001B /* AIRegistViewController.swift */; };
+		12D7649C1D0D469A002B001B /* AIValidateRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */; };
+		12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764981D0D469A002B001B /* AISelectRegionViewController.swift */; };
+		12D7649E1D0D469A002B001B /* AILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764991D0D469A002B001B /* AILoginViewController.swift */; };
+		12D7649F1D0D469A002B001B /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7649A1D0D469A002B001B /* AILoginService.swift */; };
+		12D764A11D0D46AA002B001B /* AILoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D764A01D0D46AA002B001B /* AILoginStoryboard.storyboard */; };
 		81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
 		81433CD11CFBE5A700347C29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339281CFBE5A600347C29 /* AppDelegate.swift */; };
 		81433CD21CFBE5A700347C29 /* AIBuyServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143392C1CFBE5A600347C29 /* AIBuyServiceModel.swift */; };
@@ -518,6 +527,7 @@
 		9304551C1D125312007AFC0C /* AIWaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304551B1D125312007AFC0C /* AIWaterView.swift */; };
 		930455211D128E48007AFC0C /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9304551E1D128E48007AFC0C /* IATConfig.m */; };
 		930455221D128E48007AFC0C /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 930455201D128E48007AFC0C /* ISRDataHelper.m */; };
+		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
 		933763021CFD7040006B997D /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
 		933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */; };
 		933BC83D1D002434005E1789 /* AINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8311D002434005E1789 /* AINavigationBar.swift */; };
@@ -556,6 +566,15 @@
 		DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */; };
 		FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
+		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
+		FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB01810F1D0D650E00213DF8 /* AISearchBar.xib */; };
+		FBAE7FC41D115188002FF522 /* EvernoteTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */; };
+		FBAE7FD51D115428002FF522 /* AIOrderTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC91D115428002FF522 /* AIOrderTableModel.m */; };
+		FBAE7FD61D115428002FF522 /* AISellerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FCB1D115428002FF522 /* AISellerCell.m */; };
+		FBAE7FD71D115428002FF522 /* AISellerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FCD1D115428002FF522 /* AISellerModel.m */; };
+		FBAE7FD81D115428002FF522 /* AISellerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FCF1D115428002FF522 /* AISellerViewController.m */; };
+		FBAE7FD91D115428002FF522 /* AISellingProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD11D115428002FF522 /* AISellingProgressBar.m */; };
+		FBAE7FDA1D115428002FF522 /* AISellserAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -574,6 +593,15 @@
 
 /* Begin PBXFileReference section */
 		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
+		12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChangePasswordViewController.swift; sourceTree = "<group>"; };
+		12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginUtil.swift; sourceTree = "<group>"; };
+		12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginCommonView.swift; sourceTree = "<group>"; };
+		12D764961D0D469A002B001B /* AIRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRegistViewController.swift; sourceTree = "<group>"; };
+		12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIValidateRegistViewController.swift; sourceTree = "<group>"; };
+		12D764981D0D469A002B001B /* AISelectRegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectRegionViewController.swift; sourceTree = "<group>"; };
+		12D764991D0D469A002B001B /* AILoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewController.swift; sourceTree = "<group>"; };
+		12D7649A1D0D469A002B001B /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
+		12D764A01D0D46AA002B001B /* AILoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AILoginStoryboard.storyboard; sourceTree = "<group>"; };
 		503E6327D0C6936333F981D4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		814339261CFBE5A600347C29 /* AIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIApplication.swift; sourceTree = "<group>"; };
 		814339271CFBE5A600347C29 /* AIVeris-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AIVeris-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1292,6 +1320,7 @@
 		845700511D015E7600512597 /* CompondServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompondServiceCommentViewController.xib; sourceTree = "<group>"; };
 		845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
+		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioSearchViewController.swift; sourceTree = "<group>"; };
 		9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAudioSearchViewController.xib; sourceTree = "<group>"; };
@@ -1359,6 +1388,21 @@
 		FB0181081D0D125400213DF8 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		FB0181091D0D125400213DF8 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		FB01810A1D0D125400213DF8 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		FB01810D1D0D650100213DF8 /* AISearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBar.swift; sourceTree = "<group>"; };
+		FB01810F1D0D650E00213DF8 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
+		FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvernoteTransition.swift; sourceTree = "<group>"; };
+		FBAE7FC81D115428002FF522 /* AIOrderTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOrderTableModel.h; sourceTree = "<group>"; };
+		FBAE7FC91D115428002FF522 /* AIOrderTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIOrderTableModel.m; sourceTree = "<group>"; };
+		FBAE7FCA1D115428002FF522 /* AISellerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellerCell.h; sourceTree = "<group>"; };
+		FBAE7FCB1D115428002FF522 /* AISellerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerCell.m; sourceTree = "<group>"; };
+		FBAE7FCC1D115428002FF522 /* AISellerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellerModel.h; sourceTree = "<group>"; };
+		FBAE7FCD1D115428002FF522 /* AISellerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerModel.m; sourceTree = "<group>"; };
+		FBAE7FCE1D115428002FF522 /* AISellerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellerViewController.h; sourceTree = "<group>"; };
+		FBAE7FCF1D115428002FF522 /* AISellerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerViewController.m; sourceTree = "<group>"; };
+		FBAE7FD01D115428002FF522 /* AISellingProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellingProgressBar.h; sourceTree = "<group>"; };
+		FBAE7FD11D115428002FF522 /* AISellingProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellingProgressBar.m; sourceTree = "<group>"; };
+		FBAE7FD21D115428002FF522 /* AISellserAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellserAnimationView.h; sourceTree = "<group>"; };
+		FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellserAnimationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1400,6 +1444,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12D764931D0D40AE002B001B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				12D764941D0D40AE002B001B /* View */,
+				12D764951D0D40AE002B001B /* ViewController */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		12D764941D0D40AE002B001B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		12D764951D0D40AE002B001B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				12D764961D0D469A002B001B /* AIRegistViewController.swift */,
+				12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */,
+				12D764981D0D469A002B001B /* AISelectRegionViewController.swift */,
+				12D764991D0D469A002B001B /* AILoginViewController.swift */,
+				12D7649A1D0D469A002B001B /* AILoginService.swift */,
+				12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */,
+				12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1462,6 +1537,8 @@
 		814339291CFBE5A600347C29 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				12D764931D0D40AE002B001B /* Login */,
+				FBAE7FC51D115428002FF522 /* Seller */,
 				93C61FBF1D01196F0063C2BF /* Comment */,
 				8143392A1CFBE5A600347C29 /* Common */,
 				81BB86741CFE818900899B58 /* CustomSearch */,
@@ -2118,6 +2195,7 @@
 			children = (
 				81433AE41CFBE5A700347C29 /* CWStarRateView.h */,
 				81433AE51CFBE5A700347C29 /* CWStarRateView.m */,
+				84E51EF91D1242930026AF22 /* StarRateView.swift */,
 			);
 			path = stars;
 			sourceTree = "<group>";
@@ -2655,6 +2733,7 @@
 		81433C141CFBE5A700347C29 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				12D764A01D0D46AA002B001B /* AILoginStoryboard.storyboard */,
 				81433C151CFBE5A700347C29 /* LaunchScreen.storyboard */,
 				81433C161CFBE5A700347C29 /* UIBuyerStoryboard.storyboard */,
 				81433C171CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard */,
@@ -2694,6 +2773,7 @@
 			isa = PBXGroup;
 			children = (
 				930455121D124E71007AFC0C /* XunfeiLib */,
+				FBAE7FC21D115188002FF522 /* LSYEvernote */,
 				FB0180FE1D0D125400213DF8 /* libWeiboSDK */,
 				8175A7251CFD2710006F2C8F /* AFNetworking */,
 				8175A7391CFD2710006F2C8F /* CoreText */,
@@ -3003,6 +3083,8 @@
 				933BC8321D002434005E1789 /* AINavigationBar.xib */,
 				93BEFFDA1D0D472700832799 /* AISuperiorityCellView.swift */,
 				93BEFFDC1D0D474B00832799 /* AISuperiorityCellView.xib */,
+				FB01810D1D0D650100213DF8 /* AISearchBar.swift */,
+				FB01810F1D0D650E00213DF8 /* AISearchBar.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3223,6 +3305,33 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		FBAE7FC21D115188002FF522 /* LSYEvernote */ = {
+			isa = PBXGroup;
+			children = (
+				FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */,
+			);
+			path = LSYEvernote;
+			sourceTree = "<group>";
+		};
+		FBAE7FC51D115428002FF522 /* Seller */ = {
+			isa = PBXGroup;
+			children = (
+				FBAE7FC81D115428002FF522 /* AIOrderTableModel.h */,
+				FBAE7FC91D115428002FF522 /* AIOrderTableModel.m */,
+				FBAE7FCA1D115428002FF522 /* AISellerCell.h */,
+				FBAE7FCB1D115428002FF522 /* AISellerCell.m */,
+				FBAE7FCC1D115428002FF522 /* AISellerModel.h */,
+				FBAE7FCD1D115428002FF522 /* AISellerModel.m */,
+				FBAE7FCE1D115428002FF522 /* AISellerViewController.h */,
+				FBAE7FCF1D115428002FF522 /* AISellerViewController.m */,
+				FBAE7FD01D115428002FF522 /* AISellingProgressBar.h */,
+				FBAE7FD11D115428002FF522 /* AISellingProgressBar.m */,
+				FBAE7FD21D115428002FF522 /* AISellserAnimationView.h */,
+				FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */,
+			);
+			path = Seller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3315,6 +3424,7 @@
 				81433EC21CFBE5A700347C29 /* UIBuyerStoryboard.storyboard in Resources */,
 				81433DF31CFBE5A700347C29 /* ContentsCellView.xib in Resources */,
 				81433EBE1CFBE5A700347C29 /* MyriadPro-SemiboldSemiCn.otf in Resources */,
+				FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */,
 				81433D241CFBE5A700347C29 /* FlightServiceView.xib in Resources */,
 				81433EB91CFBE5A700347C29 /* MyriadPro-Bold.otf in Resources */,
 				81433D291CFBE5A700347C29 /* ServiceCardDetailIcon.xib in Resources */,
@@ -3366,6 +3476,7 @@
 				81433D381CFBE5A700347C29 /* AIAudioMessageView.xib in Resources */,
 				81433EBB1CFBE5A700347C29 /* MyriadPro-Light.otf in Resources */,
 				81433EBD1CFBE5A700347C29 /* MyriadPro-LightSemiExt.otf in Resources */,
+				12D764A11D0D46AA002B001B /* AILoginStoryboard.storyboard in Resources */,
 				81433E311CFBE5A700347C29 /* AITaskInputViewController.xib in Resources */,
 				93F3FFF61D06C613000283DA /* README.txt in Resources */,
 				81433D621CFBE5A700347C29 /* AIShoppingListViewCell.xib in Resources */,
@@ -3467,6 +3578,7 @@
 				81433E9F1CFBE5A700347C29 /* UILabel+Localize.swift in Sources */,
 				81433CDF1CFBE5A700347C29 /* AIServiceDetailTool.swift in Sources */,
 				81433E271CFBE5A700347C29 /* AIConfirmOrderViewController.swift in Sources */,
+				FBAE7FD71D115428002FF522 /* AISellerModel.m in Sources */,
 				93C61FC31D01196F0063C2BF /* ServiceCommentViewController.swift in Sources */,
 				81433EB61CFBE5A700347C29 /* UIColorUtils.swift in Sources */,
 				81433E2E1CFBE5A700347C29 /* AIServiceContentViewController.swift in Sources */,
@@ -3521,6 +3633,7 @@
 				8175A7BA1CFD2710006F2C8F /* AISwiftyJSON.swift in Sources */,
 				81433EB01CFBE5A700347C29 /* KMPlaceholderTextView.swift in Sources */,
 				8175A7F61CFD2710006F2C8F /* MKAnnotationView+WebCache.m in Sources */,
+				12D7649B1D0D469A002B001B /* AIRegistViewController.swift in Sources */,
 				81433EA01CFBE5A700347C29 /* UITextField+Localize.swift in Sources */,
 				81433E5C1CFBE5A700347C29 /* FLEXArgumentInputTextView.m in Sources */,
 				8175A7EE1CFD2710006F2C8F /* OAStackViewDistributionStrategy.m in Sources */,
@@ -3618,6 +3731,8 @@
 				81433D3B1CFBE5A700347C29 /* AICustomAudioNotesView.swift in Sources */,
 				8175A7ED1CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.m in Sources */,
 				81433D221CFBE5A700347C29 /* BottomServiceContainerView.swift in Sources */,
+				FBAE7FD61D115428002FF522 /* AISellerCell.m in Sources */,
+				FBAE7FD81D115428002FF522 /* AISellerViewController.m in Sources */,
 				933BC8411D002434005E1789 /* AIWishModel.swift in Sources */,
 				81433D9C1CFBE5A700347C29 /* AIMusicTherapyView.m in Sources */,
 				8175A7DB1CFD2710006F2C8F /* JSONModelClassProperty.m in Sources */,
@@ -3633,6 +3748,7 @@
 				81433E7E1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m in Sources */,
 				8175A7D21CFD2710006F2C8F /* OHAttributedLabel.m in Sources */,
 				8175A7EC1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m in Sources */,
+				FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */,
 				81433E5E1CFBE5A700347C29 /* FLEXArgumentInputViewFactory.m in Sources */,
 				81433E5F1CFBE5A700347C29 /* FLEXDefaultEditorViewController.m in Sources */,
 				8175A7F01CFD2710006F2C8F /* OBShapedButton.m in Sources */,
@@ -3642,6 +3758,7 @@
 				81433D421CFBE5A700347C29 /* AIGalleryView.swift in Sources */,
 				81433CDD1CFBE5A700347C29 /* AIServiceSchemeModel.swift in Sources */,
 				81433E741CFBE5A700347C29 /* FLEXFileBrowserFileOperationController.m in Sources */,
+				12D7649F1D0D469A002B001B /* AILoginService.swift in Sources */,
 				81433E1D1CFBE5A700347C29 /* SwitchExampleViewController.swift in Sources */,
 				81433E681CFBE5A700347C29 /* FLEXToolbarItem.m in Sources */,
 				8175A7FF1CFD2710006F2C8F /* UIButton+WebCache.m in Sources */,
@@ -3659,6 +3776,7 @@
 				9304550C1D12447E007AFC0C /* AIAudioSearchViewController.swift in Sources */,
 				8175A7CC1CFD2710006F2C8F /* AFURLRequestSerialization.m in Sources */,
 				81433CE21CFBE5A700347C29 /* AIExecuteServiceModel.m in Sources */,
+				12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */,
 				81433D581CFBE5A700347C29 /* AILocationSelectViewController.swift in Sources */,
 				81433E931CFBE5A700347C29 /* FLEXHeapEnumerator.m in Sources */,
 				8175A7F31CFD2710006F2C8F /* RRFlowLayout.swift in Sources */,
@@ -3671,6 +3789,7 @@
 				8175A7CA1CFD2710006F2C8F /* AFSecurityPolicy.m in Sources */,
 				8175A7E11CFD2710006F2C8F /* MJRefreshConst.m in Sources */,
 				81433CF11CFBE5A700347C29 /* AIRequirementHandler.swift in Sources */,
+				12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */,
 				81433E2A1CFBE5A700347C29 /* AIRequireContentViewController.swift in Sources */,
 				81433D161CFBE5A700347C29 /* AICardCell.m in Sources */,
 				81433E0B1CFBE5A700347C29 /* JTSScrollIndicator.m in Sources */,
@@ -3693,6 +3812,7 @@
 				81433D391CFBE5A700347C29 /* AIAudioRecordView.swift in Sources */,
 				81433E761CFBE5A700347C29 /* FLEXFileBrowserTableViewController.m in Sources */,
 				81433ECB1CFBE5A700347C29 /* UIColor+TDAdditions.m in Sources */,
+				FBAE7FD51D115428002FF522 /* AIOrderTableModel.m in Sources */,
 				81433CD61CFBE5A700347C29 /* AIFavoriteContentModel.swift in Sources */,
 				81433DFF1CFBE5A700347C29 /* AirTicketGroupView.swift in Sources */,
 				81433E911CFBE5A700347C29 /* FLEXViewControllerExplorerViewController.m in Sources */,
@@ -3747,6 +3867,7 @@
 				81433E331CFBE5A700347C29 /* AITaskTagViewController.swift in Sources */,
 				8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */,
 				81433DF81CFBE5A700347C29 /* AISinglePickerView.swift in Sources */,
+				12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */,
 				81433E731CFBE5A700347C29 /* FLEXCookiesTableViewController.m in Sources */,
 				81433EAE1CFBE5A700347C29 /* KMActivityIndicator.m in Sources */,
 				8175A7CD1CFD2710006F2C8F /* AFURLResponseSerialization.m in Sources */,
@@ -3793,6 +3914,7 @@
 				81433CFE1CFBE5A700347C29 /* UPLabel.m in Sources */,
 				81433E4A1CFBE5A700347C29 /* UP_NSString+Size.m in Sources */,
 				81433EAF1CFBE5A700347C29 /* KMDetailsPageView.m in Sources */,
+				12D7649C1D0D469A002B001B /* AIValidateRegistViewController.swift in Sources */,
 				81433D761CFBE5A700347C29 /* AIServiceCoverage.m in Sources */,
 				81433E7D1CFBE5A700347C29 /* FLEXSystemLogTableViewCell.m in Sources */,
 				93BEFFDB1D0D472700832799 /* AISuperiorityCellView.swift in Sources */,
@@ -3800,11 +3922,13 @@
 				8175A7F21CFD2710006F2C8F /* UIImage+ColorAtPixel.m in Sources */,
 				81433E551CFBE5A700347C29 /* FLEXArgumentInputFontView.m in Sources */,
 				81433E021CFBE5A700347C29 /* GBSlideOutToUnlockView.m in Sources */,
+				FBAE7FD91D115428002FF522 /* AISellingProgressBar.m in Sources */,
 				81433E261CFBE5A700347C29 /* AICollContentViewController.swift in Sources */,
 				81433EA51CFBE5A700347C29 /* AINetEngine.m in Sources */,
 				81433D861CFBE5A700347C29 /* MDCSpotlightView.m in Sources */,
 				8175A7F51CFD2710006F2C8F /* RRTagController.swift in Sources */,
 				81433E9A1CFBE5A700347C29 /* FLEXHierarchyTableViewCell.m in Sources */,
+				84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */,
 				81433E6C1CFBE5A700347C29 /* FLEXTableColumnHeader.m in Sources */,
 				81433D961CFBE5A700347C29 /* AIAssignServiceView.swift in Sources */,
 				81433E821CFBE5A700347C29 /* FLEXNetworkTransaction.m in Sources */,
@@ -3837,8 +3961,10 @@
 				81433D271CFBE5A700347C29 /* ServiceCardDetailFlag.swift in Sources */,
 				81433CF61CFBE5A700347C29 /* AIScrollLabel.m in Sources */,
 				81433EAA1CFBE5A700347C29 /* AISwiftLogger.swift in Sources */,
+				FBAE7FDA1D115428002FF522 /* AISellserAnimationView.m in Sources */,
 				81433D261CFBE5A700347C29 /* MiddleServiceContainerView.swift in Sources */,
 				81433DF41CFBE5A700347C29 /* AIDatePickerView.swift in Sources */,
+				12D7649E1D0D469A002B001B /* AILoginViewController.swift in Sources */,
 				81433CDA1CFBE5A700347C29 /* AIOrderModel.swift in Sources */,
 				81433EB41CFBE5A700347C29 /* SwipeableCell.m in Sources */,
 				81433D8C1CFBE5A700347C29 /* ViewConstants.swift in Sources */,
@@ -3849,6 +3975,7 @@
 				81433D7E1CFBE5A700347C29 /* AIFoldedCellView.swift in Sources */,
 				8175A7DD1CFD2710006F2C8F /* JSONKeyMapper.m in Sources */,
 				81433CD11CFBE5A700347C29 /* AppDelegate.swift in Sources */,
+				FBAE7FC41D115188002FF522 /* EvernoteTransition.swift in Sources */,
 				81433DAD1CFBE5A700347C29 /* AOTag.m in Sources */,
 				81433DA71CFBE5A700347C29 /* AITaskNavigationBar.swift in Sources */,
 				81433E881CFBE5A700347C29 /* FLEXClassExplorerViewController.m in Sources */,
@@ -3862,6 +3989,7 @@
 				81433CDC1CFBE5A700347C29 /* AIServiceCatalogModel.swift in Sources */,
 				81433E6D1CFBE5A700347C29 /* FLEXTableContentCell.m in Sources */,
 				81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */,
+				12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */,
 				81433EB51CFBE5A700347C29 /* TableViewCellBackgroundView.m in Sources */,
 				81433D091CFBE5A700347C29 /* AIServicesRequester.swift in Sources */,
 				81433E8D1CFBE5A700347C29 /* FLEXLayerExplorerViewController.m in Sources */,

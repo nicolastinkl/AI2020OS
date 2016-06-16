@@ -7,6 +7,7 @@
 //
 
 #import "AIRootViewController.h"
+#import "AISellerViewController.h"
 #import "Veris-Swift.h"
 
 @interface AIRootViewController ()
@@ -19,6 +20,8 @@
 @property (nonatomic, strong) UIViewController *downDirectionViewController;
 @property (nonatomic, strong) UIViewController *leftDirectionViewController;
 @property (nonatomic, strong) UIViewController *rightDirectionViewController;
+
+@property (nonatomic, strong) LoginAction *loginAction;
 
 @end
 
@@ -34,6 +37,8 @@
     [self makeChildViewControllers];
     [self startOpenningAnimation];
  
+    
+    [self handleLoginAction];
 }
 
 -(BOOL)prefersStatusBarHidden{
@@ -56,6 +61,12 @@
     [self.upDirectionViewController didMoveToParentViewController:self];
 
 
+    // down
+    AISellerViewController *sellerViewController = [[AISellerViewController alloc] init];
+    [self addChildViewController:sellerViewController];
+    self.downDirectionViewController = sellerViewController;
+    [sellerViewController didMoveToParentViewController:self];
+    
     // default
     [self.view addSubview:self.upDirectionViewController.view];
     _currentViewController = self.upDirectionViewController;
@@ -77,6 +88,14 @@
         }
             break;
         case 2: // 2:down
+        {
+            if (_currentViewController == self.downDirectionViewController) {
+                return;
+            }
+            [self transitionFromViewController:_currentViewController toViewController:self.downDirectionViewController duration:0 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:^(BOOL finished) {
+                _currentViewController = self.downDirectionViewController;
+            }];
+        }
             break;
         case 3: // 3:left
             break;
@@ -101,5 +120,9 @@
     
 }
 
+- (void)handleLoginAction
+{
+    self.loginAction = [[LoginAction alloc] initWithViewController:self completion:nil];
+}
 
 @end

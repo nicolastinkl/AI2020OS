@@ -11,11 +11,14 @@ import UIKit
 class CompondServiceCommentViewController: UIViewController {
     
     @IBOutlet weak var serviceTableView: UITableView!
+    
+    class func loadFromXib() -> CompondServiceCommentViewController {
+        let vc = CompondServiceCommentViewController(nibName: "CompondServiceCommentViewController", bundle: nil)
+        return vc
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        serviceTableView.estimatedRowHeight = 200.0
         
         serviceTableView.registerNib(UINib(nibName: "ServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceCommentTableViewCell")
     }
@@ -29,12 +32,19 @@ class CompondServiceCommentViewController: UIViewController {
 
 extension CompondServiceCommentViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3;
+        return 30;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ServiceCommentTableViewCell") as!ServiceCommentTableViewCell
+        
+        
+        if indexPath.row == 0 {
+            cell.setToHeadComment()
+        } else {
+            cell.setToSubComment()
+        }
         
         return cell
     }
