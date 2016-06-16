@@ -557,13 +557,12 @@
 		93A0ABD01D12AAB600562090 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0ABB51D12AAB600562090 /* SBJsonWriter.m */; };
 		93A0ABD11D12AAB600562090 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A0ABB61D12AAB600562090 /* libcrypto.a */; };
 		93A0ABD21D12AAB600562090 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A0ABB71D12AAB600562090 /* libssl.a */; };
-		93A0ABD31D12AAB600562090 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0ABBD1D12AAB600562090 /* CommonUtil.m */; };
-		93A0ABD61D12AAB600562090 /* WXPayClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0ABC51D12AAB600562090 /* WXPayClient.m */; };
 		93A0ABDE1D12AD6200562090 /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0ABD91D12AD6200562090 /* JSONAPI.m */; };
 		93A0ABDF1D12AD6200562090 /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0ABDB1D12AD6200562090 /* JSONHTTPClient.m */; };
 		93A0ABE01D12AD6200562090 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0ABDD1D12AD6200562090 /* JSONModel+networking.m */; };
-		93A0ABE61D12BFCA00562090 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A0ABE21D12BFCA00562090 /* libWeChatSDK.a */; };
-		93A0ABE71D12BFCA00562090 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93A0ABE31D12BFCA00562090 /* readme.txt */; };
+		93A0ABF51D12C43400562090 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A0ABF01D12C43400562090 /* libWeChatSDK.a */; };
+		93A0ABF61D12C43400562090 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93A0ABF11D12C43400562090 /* read_me.txt */; };
+		93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A0ABF71D12C4BD00562090 /* libz.tbd */; };
 		93A9DA571D0131C000F16610 /* AICommentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9DA561D0131C000F16610 /* AICommentInfoView.swift */; };
 		93A9DA591D0131D900F16610 /* AICommentInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A9DA581D0131D900F16610 /* AICommentInfoView.xib */; };
 		93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */; };
@@ -1399,21 +1398,18 @@
 		93A0ABB71D12AAB600562090 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		93A0ABB91D12AAB600562090 /* DataSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSigner.h; sourceTree = "<group>"; };
 		93A0ABBA1D12AAB600562090 /* DataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataVerifier.h; sourceTree = "<group>"; };
-		93A0ABBC1D12AAB600562090 /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = "<group>"; };
-		93A0ABBD1D12AAB600562090 /* CommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtil.m; sourceTree = "<group>"; };
-		93A0ABBE1D12AAB600562090 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
-		93A0ABC41D12AAB600562090 /* WXPayClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXPayClient.h; sourceTree = "<group>"; };
-		93A0ABC51D12AAB600562090 /* WXPayClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXPayClient.m; sourceTree = "<group>"; };
 		93A0ABD81D12AD6200562090 /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
 		93A0ABD91D12AD6200562090 /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
 		93A0ABDA1D12AD6200562090 /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
 		93A0ABDB1D12AD6200562090 /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
 		93A0ABDC1D12AD6200562090 /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
 		93A0ABDD1D12AD6200562090 /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
-		93A0ABE21D12BFCA00562090 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		93A0ABE31D12BFCA00562090 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
-		93A0ABE41D12BFCA00562090 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		93A0ABE51D12BFCA00562090 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		93A0ABF01D12C43400562090 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		93A0ABF11D12C43400562090 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
+		93A0ABF21D12C43400562090 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		93A0ABF31D12C43400562090 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		93A0ABF41D12C43400562090 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		93A0ABF71D12C4BD00562090 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		93A9DA561D0131C000F16610 /* AICommentInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoView.swift; sourceTree = "<group>"; };
 		93A9DA581D0131D900F16610 /* AICommentInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICommentInfoView.xib; sourceTree = "<group>"; };
 		93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -1475,12 +1471,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
 				93A0ABD21D12AAB600562090 /* libssl.a in Frameworks */,
 				93A0ABC81D12AAB600562090 /* AlipayRsaLib.a in Frameworks */,
 				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
 				81433E501CFBE5A700347C29 /* AVOSCloudCrashReporting.framework in Frameworks */,
-				93A0ABE61D12BFCA00562090 /* libWeChatSDK.a in Frameworks */,
 				8175A7C41CFD2710006F2C8F /* libsqlite3.dylib in Frameworks */,
 				844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */,
 				93A0ABD11D12AAB600562090 /* libcrypto.a in Frameworks */,
@@ -1493,6 +1489,7 @@
 				8175A7C31CFD2710006F2C8F /* libicucore.A.dylib in Frameworks */,
 				FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */,
 				93B523921BB8F0F400DFB1C9 /* CoreMotion.framework in Frameworks */,
+				93A0ABF51D12C43400562090 /* libWeChatSDK.a in Frameworks */,
 				930455181D124EF5007AFC0C /* libSunFlower.a in Frameworks */,
 				930455141D124E71007AFC0C /* iflyMSC.framework in Frameworks */,
 				81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */,
@@ -1548,6 +1545,7 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93A0ABF71D12C4BD00562090 /* libz.tbd */,
 				930455191D124F8A007AFC0C /* AddressBook.framework */,
 				844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */,
 				844AFA261CE1DA8B00C58B1C /* libc++.tbd */,
@@ -3344,12 +3342,7 @@
 		93A0ABBB1D12AAB600562090 /* weichatpay */ = {
 			isa = PBXGroup;
 			children = (
-				93A0ABE11D12BFC900562090 /* WeChatSDK_1.4.1 */,
-				93A0ABBC1D12AAB600562090 /* CommonUtil.h */,
-				93A0ABBD1D12AAB600562090 /* CommonUtil.m */,
-				93A0ABBE1D12AAB600562090 /* Constant.h */,
-				93A0ABC41D12AAB600562090 /* WXPayClient.h */,
-				93A0ABC51D12AAB600562090 /* WXPayClient.m */,
+				93A0ABEF1D12C43400562090 /* SDK1.6.2 */,
 			);
 			path = weichatpay;
 			sourceTree = "<group>";
@@ -3367,15 +3360,16 @@
 			path = JSONModelNetworking;
 			sourceTree = "<group>";
 		};
-		93A0ABE11D12BFC900562090 /* WeChatSDK_1.4.1 */ = {
+		93A0ABEF1D12C43400562090 /* SDK1.6.2 */ = {
 			isa = PBXGroup;
 			children = (
-				93A0ABE21D12BFCA00562090 /* libWeChatSDK.a */,
-				93A0ABE31D12BFCA00562090 /* readme.txt */,
-				93A0ABE41D12BFCA00562090 /* WXApi.h */,
-				93A0ABE51D12BFCA00562090 /* WXApiObject.h */,
+				93A0ABF01D12C43400562090 /* libWeChatSDK.a */,
+				93A0ABF11D12C43400562090 /* read_me.txt */,
+				93A0ABF21D12C43400562090 /* WechatAuthSDK.h */,
+				93A0ABF31D12C43400562090 /* WXApi.h */,
+				93A0ABF41D12C43400562090 /* WXApiObject.h */,
 			);
-			path = WeChatSDK_1.4.1;
+			path = SDK1.6.2;
 			sourceTree = "<group>";
 		};
 		93C61FBF1D01196F0063C2BF /* Comment */ = {
@@ -3622,7 +3616,6 @@
 				933BC8401D002434005E1789 /* AISuperiorityViewController.xib in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
 				81433DA91CFBE5A700347C29 /* AITaskTimeLineView.xib in Resources */,
-				93A0ABE71D12BFCA00562090 /* readme.txt in Resources */,
 				93A0AB911D129FEB00562090 /* va_start.wav in Resources */,
 				81433EC21CFBE5A700347C29 /* UIBuyerStoryboard.storyboard in Resources */,
 				81433DF31CFBE5A700347C29 /* ContentsCellView.xib in Resources */,
@@ -3661,6 +3654,7 @@
 				81433E381CFBE5A700347C29 /* BuyerRequirmentMessageViewController.xib in Resources */,
 				81433DF71CFBE5A700347C29 /* AIEventTimerView.xib in Resources */,
 				81433DB31CFBE5A700347C29 /* BuyerMessageCell.xib in Resources */,
+				93A0ABF61D12C43400562090 /* read_me.txt in Resources */,
 				93BEFFDD1D0D474B00832799 /* AISuperiorityCellView.xib in Resources */,
 				933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */,
 				81433D251CFBE5A700347C29 /* MiddleServiceContainer.xib in Resources */,
@@ -3973,7 +3967,6 @@
 				12D7649F1D0D469A002B001B /* AILoginService.swift in Sources */,
 				81433E1D1CFBE5A700347C29 /* SwitchExampleViewController.swift in Sources */,
 				81433E681CFBE5A700347C29 /* FLEXToolbarItem.m in Sources */,
-				93A0ABD31D12AAB600562090 /* CommonUtil.m in Sources */,
 				8175A7FF1CFD2710006F2C8F /* UIButton+WebCache.m in Sources */,
 				81433CE91CFBE5A700347C29 /* ProposalEnum.swift in Sources */,
 				81433D331CFBE5A700347C29 /* TopServiceContainerView.swift in Sources */,
@@ -4205,7 +4198,6 @@
 				81433CDC1CFBE5A700347C29 /* AIServiceCatalogModel.swift in Sources */,
 				81433E6D1CFBE5A700347C29 /* FLEXTableContentCell.m in Sources */,
 				81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */,
-				93A0ABD61D12AAB600562090 /* WXPayClient.m in Sources */,
 				12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */,
 				81433EB51CFBE5A700347C29 /* TableViewCellBackgroundView.m in Sources */,
 				81433D091CFBE5A700347C29 /* AIServicesRequester.swift in Sources */,
@@ -4367,7 +4359,7 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib/sunflower",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay/SDK",
-					"$(PROJECT_DIR)/Veris/3rdLibrary/weichatpay/WeChatSDK_1.4.1",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/weichatpay/SDK1.6.2",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -4415,7 +4407,7 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib/sunflower",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay/SDK",
-					"$(PROJECT_DIR)/Veris/3rdLibrary/weichatpay/WeChatSDK_1.4.1",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/weichatpay/SDK1.6.2",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

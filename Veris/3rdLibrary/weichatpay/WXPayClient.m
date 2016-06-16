@@ -336,7 +336,7 @@ NSString *expiresInKey = @"expires_in";
                 request.sign = [weakSelf genSign:params];
                 
                 // 在支付之前，如果应用没有注册到微信，应该先调用 [WXApi registerApp:appId] 将应用注册到微信
-                [WXApi safeSendReq:request];
+                [WXApi sendReq:request];
             } else {
                 [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
             }
