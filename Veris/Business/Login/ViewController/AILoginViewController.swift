@@ -22,18 +22,44 @@ class AILoginViewController: UIViewController {
     @IBOutlet weak var logoImageCenterXConstraint: NSLayoutConstraint!
 
     
+    // MARK: -IBActions
     @IBAction func loginAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    @IBAction func forgotPasswordAction(sender: UIButton) {
+        
+        let validateVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIRegistViewController)
+        //设置类型为忘记密码
+        AILoginPublicValue.loginType = AILoginUtil.LoginType.ForgotPassword
+        self.navigationController?.pushViewController(validateVC, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-       
+        AILoginPublicValue.loginType = AILoginUtil.LoginType.Login
         setupViews()
         setupNavigationBar()
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == AIApplication.MainStoryboard.StoryboardSegues.RegisterSegue{
+            AILoginPublicValue.loginType = AILoginUtil.LoginType.Register
+        }
+    }
+
     
     func setupNavigationBar(){
         let navigationBar = self.navigationController!.navigationBar
@@ -53,23 +79,17 @@ class AILoginViewController: UIViewController {
         passwordTextField.returnKeyType = UIReturnKeyType.Go
         
         passwordTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        
+        loginButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
+        loginButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
+        loginButton.enabled = false
     }
     
     func passwordInputAction(target : UITextField){
-        if target.text?.length >= 6{
-            loginButton.backgroundColor = UIColor.brownColor()
-        }
+        loginButton.enabled = (target.text?.length >= 6)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        view.endEditing(true)
-    }
-}
 
 extension AILoginViewController : UITextFieldDelegate{
     func textFieldShouldReturn(textField: UITextField) -> Bool{

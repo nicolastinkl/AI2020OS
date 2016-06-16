@@ -87,6 +87,10 @@ struct AIApplication{
             static let TaskDetailViewController = "TaskDetailViewController"
             static let TaskResultCommitViewController = "TaskResultCommitViewController"
             static let AILocationSearchViewController = "AILocationSearchViewController"
+            //add by liux at 20160615
+            static let AIValidateRegistViewController = "AIValidateRegistViewController"
+            static let AIRegistViewController = "AIRegistViewController"
+            static let AIChangePasswordViewController = "AIChangePasswordViewController"
         }
         
         /*!
@@ -148,6 +152,17 @@ struct AIApplication{
             static let AIScanViewController = "AIScanViewController"
             
             
+        }
+        
+        /*!
+         *  @author wantsor, 16-06-13 15:09:44
+         *
+         *  DIY Segue
+         */
+        struct StoryboardSegues {
+            static let SelectRegionSegue = "SelectRegionSegue"
+            static let ValidateRegisterSegue = "ValidateRegisterSegue"
+            static let RegisterSegue = "RegisterSegue"
         }
     }
     

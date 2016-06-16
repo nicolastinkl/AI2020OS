@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AISelectRegionViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+class AISelectRegionViewController: UIViewController, UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate {
 
     var delegate : AISelectRegionViewControllerDelegate?
     var model : [RegionModel]?
@@ -32,7 +32,9 @@ class AISelectRegionViewController: UIViewController, UITableViewDelegate,UITabl
         tableView.delegate = self
         tableView.dataSource = self
         
-        self.navigationItem.title = "Select Country"
+        self.setupLoginNavigationBar("Select Country")
+        //修复navigationController侧滑关闭失效的问题
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     func loadData(){

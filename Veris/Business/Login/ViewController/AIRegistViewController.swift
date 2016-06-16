@@ -9,7 +9,7 @@
 import UIKit
 import Spring
 
-class AIRegistViewController: UIViewController {
+class AIRegistViewController: UIViewController,UIGestureRecognizerDelegate {
 
     
     @IBOutlet weak var regionSelectContainerView: UIView!
@@ -21,31 +21,47 @@ class AIRegistViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setupNavigationBar()
         setupViews()
+        self.navigationController?.navigationBarHidden = false
+        handleLoginType()
+        //修复navigationController侧滑关闭失效的问题
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let selectRegionVC = segue.destinationViewController as? AISelectRegionViewController{
-            selectRegionVC.delegate = self
+        if segue.identifier == AIApplication.MainStoryboard.StoryboardSegues.SelectRegionSegue{
+            if let selectRegionVC = segue.destinationViewController as? AISelectRegionViewController{
+                selectRegionVC.delegate = self
+            }
+        }
+        else if segue.identifier == AIApplication.MainStoryboard.StoryboardSegues.ValidateRegisterSegue{
+            if let _ = segue.destinationViewController as? AIValidateRegistViewController{
+                AILoginPublicValue.phoneNumber = phoneNumberTextField.text
+                phoneNumberTextField.resignFirstResponder()
+            }
+            
         }
     }
 
-    @IBAction func selectRegionAction(sender: UIButton) {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        return true
     }
     
-    @IBAction func nextStepAction(sender: AnyObject) {
+    func handleLoginType(){
+        if AILoginPublicValue.loginType == AILoginUtil.LoginType.ForgotPassword{
+            self.setupLoginNavigationBar("Forgot Password")
+        }
+        else{
+            self.setupLoginNavigationBar("Register")
+        }
     }
 
-    func setupNavigationBar(){
-        self.navigationController?.navigationBarHidden = false
-        self.navigationItem.title = "Register"
-    }
 
     func setupViews(){
         phoneNumberTextField.leftViewMode = UITextFieldViewMode.Always
@@ -55,9 +71,17 @@ class AIRegistViewController: UIViewController {
         leftView.textAlignment = NSTextAlignment.Center
         leftView.textColor = UIColor.whiteColor()
         phoneNumberTextField.leftView = leftView
+        phoneNumberTextField.addTarget(self, action: #selector(AIRegistViewController.phoneNumberInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        
+        nextStepButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
+        nextStepButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
+        nextStepButton.enabled = false
     }
     
-    
+    //TODO: 这里要根据规则判断，调用判断方法
+    func phoneNumberInputAction(target : UITextField){
+        nextStepButton.enabled = (AILoginUtil.validatePhoneNumber(target.text!))
+    }
 }
 
 extension AIRegistViewController : AISelectRegionViewControllerDelegate{

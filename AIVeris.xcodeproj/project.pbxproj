@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */; };
+		12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */; };
+		12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */; };
 		12D7649B1D0D469A002B001B /* AIRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764961D0D469A002B001B /* AIRegistViewController.swift */; };
 		12D7649C1D0D469A002B001B /* AIValidateRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */; };
 		12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764981D0D469A002B001B /* AISelectRegionViewController.swift */; };
@@ -569,6 +572,9 @@
 
 /* Begin PBXFileReference section */
 		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
+		12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChangePasswordViewController.swift; sourceTree = "<group>"; };
+		12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginUtil.swift; sourceTree = "<group>"; };
+		12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginCommonView.swift; sourceTree = "<group>"; };
 		12D764961D0D469A002B001B /* AIRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRegistViewController.swift; sourceTree = "<group>"; };
 		12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIValidateRegistViewController.swift; sourceTree = "<group>"; };
 		12D764981D0D469A002B001B /* AISelectRegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectRegionViewController.swift; sourceTree = "<group>"; };
@@ -1395,6 +1401,7 @@
 		12D764941D0D40AE002B001B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1407,6 +1414,8 @@
 				12D764981D0D469A002B001B /* AISelectRegionViewController.swift */,
 				12D764991D0D469A002B001B /* AILoginViewController.swift */,
 				12D7649A1D0D469A002B001B /* AILoginService.swift */,
+				12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */,
+				12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3630,6 +3639,7 @@
 				8175A7DA1CFD2710006F2C8F /* NSArray+JSONModel.m in Sources */,
 				8175A7CC1CFD2710006F2C8F /* AFURLRequestSerialization.m in Sources */,
 				81433CE21CFBE5A700347C29 /* AIExecuteServiceModel.m in Sources */,
+				12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */,
 				81433D581CFBE5A700347C29 /* AILocationSelectViewController.swift in Sources */,
 				81433E931CFBE5A700347C29 /* FLEXHeapEnumerator.m in Sources */,
 				8175A7F31CFD2710006F2C8F /* RRFlowLayout.swift in Sources */,
@@ -3718,6 +3728,7 @@
 				81433E331CFBE5A700347C29 /* AITaskTagViewController.swift in Sources */,
 				8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */,
 				81433DF81CFBE5A700347C29 /* AISinglePickerView.swift in Sources */,
+				12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */,
 				81433E731CFBE5A700347C29 /* FLEXCookiesTableViewController.m in Sources */,
 				81433EAE1CFBE5A700347C29 /* KMActivityIndicator.m in Sources */,
 				8175A7CD1CFD2710006F2C8F /* AFURLResponseSerialization.m in Sources */,
@@ -3834,6 +3845,7 @@
 				81433CDC1CFBE5A700347C29 /* AIServiceCatalogModel.swift in Sources */,
 				81433E6D1CFBE5A700347C29 /* FLEXTableContentCell.m in Sources */,
 				81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */,
+				12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */,
 				81433EB51CFBE5A700347C29 /* TableViewCellBackgroundView.m in Sources */,
 				81433D091CFBE5A700347C29 /* AIServicesRequester.swift in Sources */,
 				81433E8D1CFBE5A700347C29 /* FLEXLayerExplorerViewController.m in Sources */,
