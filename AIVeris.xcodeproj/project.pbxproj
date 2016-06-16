@@ -509,6 +509,15 @@
 		845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700511D015E7600512597 /* CompondServiceCommentViewController.xib */; };
 		845700581D015FD600512597 /* ServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */; };
 		845700591D015FD600512597 /* ServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */; };
+		9304550C1D12447E007AFC0C /* AIAudioSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */; };
+		9304550E1D1246F9007AFC0C /* AIAudioSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */; };
+		930455111D124DE5007AFC0C /* AIAppInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 930455101D124DE5007AFC0C /* AIAppInit.m */; };
+		930455141D124E71007AFC0C /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930455131D124E71007AFC0C /* iflyMSC.framework */; };
+		930455181D124EF5007AFC0C /* libSunFlower.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 930455171D124EF5007AFC0C /* libSunFlower.a */; };
+		9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930455191D124F8A007AFC0C /* AddressBook.framework */; };
+		9304551C1D125312007AFC0C /* AIWaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304551B1D125312007AFC0C /* AIWaterView.swift */; };
+		930455211D128E48007AFC0C /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9304551E1D128E48007AFC0C /* IATConfig.m */; };
+		930455221D128E48007AFC0C /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 930455201D128E48007AFC0C /* ISRDataHelper.m */; };
 		933763021CFD7040006B997D /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
 		933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */; };
 		933BC83D1D002434005E1789 /* AINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8311D002434005E1789 /* AINavigationBar.swift */; };
@@ -521,6 +530,8 @@
 		933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */; };
 		933BC84B1D00252D005E1789 /* AIProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
+		93A0AB911D129FEB00562090 /* va_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93A0AB8F1D129FEB00562090 /* va_start.wav */; };
+		93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93A0AB901D129FEB00562090 /* voicesearch.mp3 */; };
 		93A9DA571D0131C000F16610 /* AICommentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9DA561D0131C000F16610 /* AICommentInfoView.swift */; };
 		93A9DA591D0131D900F16610 /* AICommentInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A9DA581D0131D900F16610 /* AICommentInfoView.xib */; };
 		93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */; };
@@ -1282,6 +1293,19 @@
 		845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioSearchViewController.swift; sourceTree = "<group>"; };
+		9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAudioSearchViewController.xib; sourceTree = "<group>"; };
+		9304550F1D124DE5007AFC0C /* AIAppInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAppInit.h; sourceTree = "<group>"; };
+		930455101D124DE5007AFC0C /* AIAppInit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAppInit.m; sourceTree = "<group>"; };
+		930455131D124E71007AFC0C /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		930455161D124EF5007AFC0C /* IFlyFlowerCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFlyFlowerCollector.h; sourceTree = "<group>"; };
+		930455171D124EF5007AFC0C /* libSunFlower.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSunFlower.a; sourceTree = "<group>"; };
+		930455191D124F8A007AFC0C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		9304551B1D125312007AFC0C /* AIWaterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWaterView.swift; sourceTree = "<group>"; };
+		9304551D1D128E48007AFC0C /* IATConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IATConfig.h; sourceTree = "<group>"; };
+		9304551E1D128E48007AFC0C /* IATConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATConfig.m; sourceTree = "<group>"; };
+		9304551F1D128E48007AFC0C /* ISRDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRDataHelper.h; sourceTree = "<group>"; };
+		930455201D128E48007AFC0C /* ISRDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRDataHelper.m; sourceTree = "<group>"; };
 		933763011CFD7040006B997D /* AIModelSerice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModelSerice.swift; sourceTree = "<group>"; };
 		933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomSearchHomeViewController.xib; sourceTree = "<group>"; };
 		933BC8311D002434005E1789 /* AINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AINavigationBar.swift; sourceTree = "<group>"; };
@@ -1294,6 +1318,8 @@
 		933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductInfoViewController.swift; sourceTree = "<group>"; };
 		933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductInfoViewController.xib; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		93A0AB8F1D129FEB00562090 /* va_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = va_start.wav; sourceTree = "<group>"; };
+		93A0AB901D129FEB00562090 /* voicesearch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voicesearch.mp3; sourceTree = "<group>"; };
 		93A9DA561D0131C000F16610 /* AICommentInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoView.swift; sourceTree = "<group>"; };
 		93A9DA581D0131D900F16610 /* AICommentInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICommentInfoView.xib; sourceTree = "<group>"; };
 		93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -1340,6 +1366,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
 				81433E501CFBE5A700347C29 /* AVOSCloudCrashReporting.framework in Frameworks */,
 				8175A7C41CFD2710006F2C8F /* libsqlite3.dylib in Frameworks */,
 				844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */,
@@ -1352,6 +1379,8 @@
 				8175A7C31CFD2710006F2C8F /* libicucore.A.dylib in Frameworks */,
 				FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */,
 				93B523921BB8F0F400DFB1C9 /* CoreMotion.framework in Frameworks */,
+				930455181D124EF5007AFC0C /* libSunFlower.a in Frameworks */,
+				930455141D124E71007AFC0C /* iflyMSC.framework in Frameworks */,
 				81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */,
 				93B25AB81B9D7EB500CD1FEB /* CoreTelephony.framework in Frameworks */,
 				93B25AB61B9D7EA900CD1FEB /* Security.framework in Frameworks */,
@@ -1374,6 +1403,7 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				930455191D124F8A007AFC0C /* AddressBook.framework */,
 				844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */,
 				844AFA261CE1DA8B00C58B1C /* libc++.tbd */,
 				844AFA241CE1DA7300C58B1C /* GLKit.framework */,
@@ -1422,6 +1452,8 @@
 				814339261CFBE5A600347C29 /* AIApplication.swift */,
 				814339271CFBE5A600347C29 /* AIVeris-Bridging-Header.h */,
 				814339281CFBE5A600347C29 /* AppDelegate.swift */,
+				9304550F1D124DE5007AFC0C /* AIAppInit.h */,
+				930455101D124DE5007AFC0C /* AIAppInit.m */,
 				93F3FFF51D06C613000283DA /* README.txt */,
 			);
 			path = Application;
@@ -2595,6 +2627,7 @@
 		81433C091CFBE5A700347C29 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93A0AB8E1D129FE100562090 /* Audio */,
 				81433C0A1CFBE5A700347C29 /* Fonts */,
 				81433F1E1CFBE80700347C29 /* Image */,
 				81433C141CFBE5A700347C29 /* Storyboard */,
@@ -2660,6 +2693,7 @@
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				930455121D124E71007AFC0C /* XunfeiLib */,
 				FB0180FE1D0D125400213DF8 /* libWeiboSDK */,
 				8175A7251CFD2710006F2C8F /* AFNetworking */,
 				8175A7391CFD2710006F2C8F /* CoreText */,
@@ -2896,6 +2930,8 @@
 			children = (
 				81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */,
 				933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */,
+				9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */,
+				9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2904,6 +2940,7 @@
 			isa = PBXGroup;
 			children = (
 				81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */,
+				9304551B1D125312007AFC0C /* AIWaterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2917,6 +2954,28 @@
 				845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		930455121D124E71007AFC0C /* XunfeiLib */ = {
+			isa = PBXGroup;
+			children = (
+				9304551D1D128E48007AFC0C /* IATConfig.h */,
+				9304551E1D128E48007AFC0C /* IATConfig.m */,
+				9304551F1D128E48007AFC0C /* ISRDataHelper.h */,
+				930455201D128E48007AFC0C /* ISRDataHelper.m */,
+				930455151D124EF5007AFC0C /* sunflower */,
+				930455131D124E71007AFC0C /* iflyMSC.framework */,
+			);
+			path = XunfeiLib;
+			sourceTree = "<group>";
+		};
+		930455151D124EF5007AFC0C /* sunflower */ = {
+			isa = PBXGroup;
+			children = (
+				930455161D124EF5007AFC0C /* IFlyFlowerCollector.h */,
+				930455171D124EF5007AFC0C /* libSunFlower.a */,
+			);
+			path = sunflower;
 			sourceTree = "<group>";
 		};
 		933BC82E1D002434005E1789 /* Superiority */ = {
@@ -3024,6 +3083,15 @@
 				933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		93A0AB8E1D129FE100562090 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				93A0AB8F1D129FEB00562090 /* va_start.wav */,
+				93A0AB901D129FEB00562090 /* voicesearch.mp3 */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 		93C61FBF1D01196F0063C2BF /* Comment */ = {
@@ -3229,6 +3297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81433D311CFBE5A700347C29 /* SimpleServiceViewContainer.xib in Resources */,
+				9304550E1D1246F9007AFC0C /* AIAudioSearchViewController.xib in Resources */,
 				81433D3E1CFBE5A700347C29 /* AICustomView.xib in Resources */,
 				81433D321CFBE5A700347C29 /* TopServiceContainer.xib in Resources */,
 				933BC83E1D002434005E1789 /* AINavigationBar.xib in Resources */,
@@ -3242,6 +3311,7 @@
 				933BC8401D002434005E1789 /* AISuperiorityViewController.xib in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
 				81433DA91CFBE5A700347C29 /* AITaskTimeLineView.xib in Resources */,
+				93A0AB911D129FEB00562090 /* va_start.wav in Resources */,
 				81433EC21CFBE5A700347C29 /* UIBuyerStoryboard.storyboard in Resources */,
 				81433DF31CFBE5A700347C29 /* ContentsCellView.xib in Resources */,
 				81433EBE1CFBE5A700347C29 /* MyriadPro-SemiboldSemiCn.otf in Resources */,
@@ -3261,6 +3331,7 @@
 				81433D461CFBE5A700347C29 /* AIProviderView.xib in Resources */,
 				81433EC01CFBE5A700347C29 /* MyriadProRegular.ttf in Resources */,
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
+				93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */,
 				81433D181CFBE5A700347C29 /* airplane@2x.png in Resources */,
 				81433D9A1CFBE5A700347C29 /* AIErrorRetryView.xib in Resources */,
 				81433EC31CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard in Resources */,
@@ -3554,6 +3625,7 @@
 				81433D9E1CFBE5A700347C29 /* AIPopupChooseBaseView.swift in Sources */,
 				81433D991CFBE5A700347C29 /* AIErrorRetryView.swift in Sources */,
 				8175A7C11CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m in Sources */,
+				930455211D128E48007AFC0C /* IATConfig.m in Sources */,
 				81433CEC1CFBE5A700347C29 /* ServiceOrderDetailModel.m in Sources */,
 				81433D491CFBE5A700347C29 /* AIWishMessageView.swift in Sources */,
 				8175A7EB1CFD2710006F2C8F /* OAStackView.m in Sources */,
@@ -3577,12 +3649,14 @@
 				81433D331CFBE5A700347C29 /* TopServiceContainerView.swift in Sources */,
 				81433E251CFBE5A700347C29 /* AIBuyerDetailViewController.swift in Sources */,
 				81433CE71CFBE5A700347C29 /* AIServiceDetailUIModel.m in Sources */,
+				930455111D124DE5007AFC0C /* AIAppInit.m in Sources */,
 				81433D711CFBE5A700347C29 /* AICommentCell.m in Sources */,
 				8175A7BF1CFD2710006F2C8F /* JSONSerializer.swift in Sources */,
 				81433D031CFBE5A700347C29 /* AIOrderMangerProtocol.swift in Sources */,
 				81433E2B1CFBE5A700347C29 /* AIRequirementMenuViewController.swift in Sources */,
 				8175A7D91CFD2710006F2C8F /* JSONModelArray.m in Sources */,
 				8175A7DA1CFD2710006F2C8F /* NSArray+JSONModel.m in Sources */,
+				9304550C1D12447E007AFC0C /* AIAudioSearchViewController.swift in Sources */,
 				8175A7CC1CFD2710006F2C8F /* AFURLRequestSerialization.m in Sources */,
 				81433CE21CFBE5A700347C29 /* AIExecuteServiceModel.m in Sources */,
 				81433D581CFBE5A700347C29 /* AILocationSelectViewController.swift in Sources */,
@@ -3666,6 +3740,7 @@
 				8175A8031CFD2710006F2C8F /* UIImageView+HighlightedWebCache.m in Sources */,
 				81433EA21CFBE5A700347C29 /* AIHttpEngine.swift in Sources */,
 				81433CD51CFBE5A700347C29 /* AICustomerModels.swift in Sources */,
+				9304551C1D125312007AFC0C /* AIWaterView.swift in Sources */,
 				81433DAC1CFBE5A700347C29 /* AIVerticalScrollView.swift in Sources */,
 				81433E991CFBE5A700347C29 /* FLEXUtility.m in Sources */,
 				81433E9B1CFBE5A700347C29 /* FLEXHierarchyTableViewController.m in Sources */,
@@ -3751,6 +3826,7 @@
 				81433E7C1CFBE5A700347C29 /* FLEXSystemLogMessage.m in Sources */,
 				81433E621CFBE5A700347C29 /* FLEXIvarEditorViewController.m in Sources */,
 				81433E521CFBE5A700347C29 /* FLEXArgumentInputColorView.m in Sources */,
+				930455221D128E48007AFC0C /* ISRDataHelper.m in Sources */,
 				81433D771CFBE5A700347C29 /* AIServiceLabel.m in Sources */,
 				81433CF91CFBE5A700347C29 /* AITagDescView.swift in Sources */,
 				81433E661CFBE5A700347C29 /* FLEXExplorerViewController.m in Sources */,
@@ -3931,13 +4007,17 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj *.txt";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
+				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/libWeiboSDK",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib/sunflower",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -3972,13 +4052,17 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj *.txt";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
+				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/libWeiboSDK",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib/sunflower",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

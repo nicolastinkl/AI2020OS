@@ -400,31 +400,35 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             detailViewController.view.alpha = 0
             let detailScale : CGFloat = bubble.radius * 2 / CGRectGetWidth(self.view.frame)
             
+            // Start CABasicAnimation.
+            
+            // Get the animation curve and duration
+            let animationCurve: UIViewAnimationCurve = UIViewAnimationCurve.EaseIn
+            let animationDuration: NSTimeInterval = 0.4
+            // Animate view size synchronously with the appearance of the keyboard.
+            UIView.beginAnimations(nil, context: nil)
+            UIView.setAnimationDuration(animationDuration)
+            UIView.setAnimationCurve(animationCurve)
+            UIView.setAnimationBeginsFromCurrentState(true)
+            self.view.transform =  CGAffineTransformMakeScale(self.curBubbleScale!, self.curBubbleScale!)
+            self.view.center = self.curBubbleCenter!
+            UIView.commitAnimations()
+            
             // self.presentViewController在真机iPhone5上会crash...
             self.presentViewController(detailViewController, animated: false) { () -> Void in
                 
                 detailViewController.view.alpha = 1
                 detailViewController.view.transform =  CGAffineTransformMakeScale(detailScale, detailScale)
                 detailViewController.view.center = realPoint
-                // 开始动画
                 
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    
-                    detailViewController.view.transform =  CGAffineTransformMakeScale(1, 1)
+                // 开始动画
+                SpringAnimation.springEaseIn(0.3, animations: {
+                    detailViewController.view.transform = CGAffineTransformMakeScale(1, 1)
                     detailViewController.view.center = self.originalViewCenter!
-                    
-                    self.view.transform =  CGAffineTransformMakeScale(self.curBubbleScale!, self.curBubbleScale!)
-                    self.view.center = self.curBubbleCenter!
-                    }, completion: { (complate) -> Void in
-                        
-                        SpringAnimation.springEaseIn(0.2, animations: { () -> Void in
-                            self.view.transform =  CGAffineTransformMakeScale(1, 1)
-                            self.view.center = self.originalViewCenter!
-                        })
-                        
-                        self.view.userInteractionEnabled = true
+                    self.view.userInteractionEnabled = true
                 })
             }
+            
         }// end
         
     }  
@@ -563,6 +567,21 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
+                            forRowAtIndexPath indexPath: NSIndexPath) {
+        //animate(cell)
+    }
+    
+    // placeholder for things to come -- only fades in for now
+    func animate(cell:UITableViewCell) {
+        let view = cell.contentView
+        view.layer.opacity = 0.1
+        UIView.animateWithDuration(0.4) {
+            view.layer.opacity = 1
+        }
+    }
+    
     
     private func cellNeedRebuild(cell: AITableFoldedCellHolder) -> Bool {
         var needRebuild = false
