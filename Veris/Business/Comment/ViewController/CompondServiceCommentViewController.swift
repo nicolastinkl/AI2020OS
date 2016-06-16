@@ -50,6 +50,10 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 200
+        if indexPath.row == 0 {
+            return 250
+        } else {
+            return 200
+        }
     }
 }
