@@ -64,7 +64,7 @@ class AISuperiorityViewController: UIViewController {
         imageView.borderColor = UIColor(hex: AIApplication.AIColor.AIVIEWLINEColor)
         addNewSubView(imageView, preView: UIView(), color: UIColor.clearColor(), space: 30)
         imageView.setWidth(100)
-        imageView.setImageWithURL(NSURL(string: "http://img04.tooopen.com/images/20131025/sy_44028468847.jpg")!, placeholderImage: smallPlace())
+        imageView.sd_setImageWithURL(NSURL(string: "http://img04.tooopen.com/images/20131025/sy_44028468847.jpg")!, placeholderImage: smallPlace())
         
         // Top Title.
         let titleLabel = DesignableLabel()
@@ -100,6 +100,7 @@ class AISuperiorityViewController: UIViewController {
         addNewSubView(priceLabel, preView: preCellView!)
         priceLabel.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
         
+        // Add Service List Icon , So at top and at down.
         
     }
     

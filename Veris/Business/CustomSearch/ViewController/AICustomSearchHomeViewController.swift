@@ -48,7 +48,6 @@ class AICustomSearchHomeViewController: UIViewController {
             wishProxy.left == wishProxy.superview!.left + 10
             wishProxy.right == wishProxy.superview!.right + 10
             wishProxy.bottom == wishProxy.superview!.bottom - 5
-            
         }
         wishButton.addTarget(self, action: #selector(makeAWishAction), forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -57,7 +56,7 @@ class AICustomSearchHomeViewController: UIViewController {
     //MARK: Action
     
     func makeAWishAction(){
-        showTransitionStyleCrossDissolveView(AISuperiorityViewController.initFromNib())
+        showTransitionStyleCrossDissolveView(AIProductInfoViewController.initFromNib())
     }
     
     /**
