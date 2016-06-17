@@ -29,7 +29,7 @@ class CommentDistrictView: UIView {
     }
     
     func cameraAction(sender : UIGestureRecognizer) {
-        delegate?.pohotImageButtonClicked(photoImage)
+        delegate?.pohotImageButtonClicked(photoImage, buttonParent: self)
     }
 }
 
@@ -44,8 +44,4 @@ extension CommentDistrictView: UITextViewDelegate {
             placeHolderText.hidden = false
         }
     }
-}
-
-protocol CommentDistrictDelegate {
-    func pohotImageButtonClicked(button: UIImageView)
 }
