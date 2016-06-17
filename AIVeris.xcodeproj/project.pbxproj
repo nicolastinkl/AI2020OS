@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
+		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
 		12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */; };
 		12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */; };
 		12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */; };
@@ -518,6 +520,9 @@
 		845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700511D015E7600512597 /* CompondServiceCommentViewController.xib */; };
 		845700581D015FD600512597 /* ServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */; };
 		845700591D015FD600512597 /* ServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */; };
+		846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */; };
+		846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */; };
+		846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
 		9304550C1D12447E007AFC0C /* AIAudioSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */; };
 		9304550E1D1246F9007AFC0C /* AIAudioSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */; };
@@ -616,6 +621,8 @@
 
 /* Begin PBXFileReference section */
 		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
+		126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteViewController.swift; sourceTree = "<group>"; };
+		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
 		12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChangePasswordViewController.swift; sourceTree = "<group>"; };
 		12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginUtil.swift; sourceTree = "<group>"; };
 		12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginCommonView.swift; sourceTree = "<group>"; };
@@ -1343,6 +1350,9 @@
 		845700511D015E7600512597 /* CompondServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompondServiceCommentViewController.xib; sourceTree = "<group>"; };
 		845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
+		846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
+		846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentHelp.swift; sourceTree = "<group>"; };
+		846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsCommentViewController.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioSearchViewController.swift; sourceTree = "<group>"; };
@@ -1515,6 +1525,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		126F82111D12983E009B1C6D /* ServiceExecute */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServiceExecute;
+			sourceTree = "<group>";
+		};
 		12D764931D0D40AE002B001B /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1802,6 +1819,7 @@
 		814339821CFBE5A600347C29 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				126F82111D12983E009B1C6D /* ServiceExecute */,
 				8143398A1CFBE5A600347C29 /* Bubble */,
 				814339951CFBE5A600347C29 /* BuyerDetail */,
 				814339F71CFBE5A700347C29 /* BuyerViews */,
@@ -2015,6 +2033,7 @@
 			children = (
 				81433A241CFBE5A700347C29 /* AIBuyerViewController.swift */,
 				81433A281CFBE5A700347C29 /* ReadmeViewController.swift */,
+				126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2810,6 +2829,7 @@
 				81433C151CFBE5A700347C29 /* LaunchScreen.storyboard */,
 				81433C161CFBE5A700347C29 /* UIBuyerStoryboard.storyboard */,
 				81433C171CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard */,
+				126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -3105,6 +3125,7 @@
 		8457004B1D012D3500512597 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */,
 				8457004E1D012DA800512597 /* CommentDistrictView.swift */,
 				8457004C1D012D7D00512597 /* CommentDistrictView.xib */,
 				845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */,
@@ -3393,6 +3414,8 @@
 				845700511D015E7600512597 /* CompondServiceCommentViewController.xib */,
 				93C61FC11D01196F0063C2BF /* ServiceCommentViewController.swift */,
 				93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */,
+				846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */,
+				846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3621,6 +3644,7 @@
 				81433EC41CFBE5A700347C29 /* loading.gif in Resources */,
 				933BC8401D002434005E1789 /* AISuperiorityViewController.xib in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
+				126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */,
 				81433DA91CFBE5A700347C29 /* AITaskTimeLineView.xib in Resources */,
 				93A0AB911D129FEB00562090 /* va_start.wav in Resources */,
 				81433EC21CFBE5A700347C29 /* UIBuyerStoryboard.storyboard in Resources */,
@@ -3647,6 +3671,7 @@
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
 				93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */,
 				81433D181CFBE5A700347C29 /* airplane@2x.png in Resources */,
+				846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */,
 				81433D9A1CFBE5A700347C29 /* AIErrorRetryView.xib in Resources */,
 				81433EC31CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard in Resources */,
 				81433D211CFBE5A700347C29 /* BottomServiceContainer.xib in Resources */,
@@ -4123,7 +4148,9 @@
 				81433E3E1CFBE5A700347C29 /* AIButtonUtils.swift in Sources */,
 				81433E831CFBE5A700347C29 /* FLEXNetworkTransactionDetailTableViewController.m in Sources */,
 				8175A7F71CFD2710006F2C8F /* NSData+ImageContentType.m in Sources */,
+				846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */,
 				81433E061CFBE5A700347C29 /* CurveModel.m in Sources */,
+				846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */,
 				81433D521CFBE5A700347C29 /* AIDepartReahCityView.swift in Sources */,
 				8175A8051CFD2710006F2C8F /* UIView+WebCacheOperation.m in Sources */,
 				81433D2A1CFBE5A700347C29 /* ServiceCardDetailShopping.swift in Sources */,
@@ -4177,6 +4204,7 @@
 				81433E631CFBE5A700347C29 /* FLEXMethodCallingViewController.m in Sources */,
 				81433D271CFBE5A700347C29 /* ServiceCardDetailFlag.swift in Sources */,
 				81433CF61CFBE5A700347C29 /* AIScrollLabel.m in Sources */,
+				126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */,
 				81433EAA1CFBE5A700347C29 /* AISwiftLogger.swift in Sources */,
 				FBAE7FDA1D115428002FF522 /* AISellserAnimationView.m in Sources */,
 				81433D261CFBE5A700347C29 /* MiddleServiceContainerView.swift in Sources */,
