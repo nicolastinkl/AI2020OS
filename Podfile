@@ -35,4 +35,6 @@ pod 'YYImage', '~> 1.0.1'
 
 pod 'IQKeyboardManagerSwift'
 
+pod 'SVProgressHUD', '~> 1.0'
+
 end

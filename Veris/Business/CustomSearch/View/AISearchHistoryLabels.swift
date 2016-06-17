@@ -114,7 +114,11 @@ class AISearchHistoryLabels: UIView {
             let tap = UITapGestureRecognizer(target: self, action: #selector(AISearchHistoryLabels.labelTapped(_:)))
             label.addGestureRecognizer(tap)
 			addSubview(label)
-			
+            label.layer.borderColor = UIColor.whiteColor().CGColor
+            label.layer.borderWidth = 0.5
+            label.layer.masksToBounds = true
+            label.layer.cornerRadius = 10
+            label.textAlignment  = .Center
 			x = CGRectGetMaxX(label.frame) + labelMargin
 			
 			containLabels.append(labelText)

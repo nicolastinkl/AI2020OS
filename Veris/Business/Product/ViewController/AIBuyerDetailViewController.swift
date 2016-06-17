@@ -160,9 +160,7 @@ class AIBuyerDetailViewController : UIViewController {
         audioAssistantModel = model
         
         switch model {
-        case .Receiver: // 协助者
-            
-            
+        case .Receiver: // 协助者 
             break
         case .Sender:  // 申请者
             break
