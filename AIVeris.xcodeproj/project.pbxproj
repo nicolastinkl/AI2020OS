@@ -584,6 +584,8 @@
 		93F3FFF21D06C5C0000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF11D06C5C0000283DA /* README.txt */; };
 		93F3FFF41D06C5E4000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF31D06C5E4000283DA /* README.txt */; };
 		93F3FFF61D06C613000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF51D06C613000283DA /* README.txt */; };
+		93FD2FDD1D13DA7E00B88355 /* AISearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */; };
+		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
 		DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */; };
 		FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
@@ -1436,6 +1438,8 @@
 		93F3FFF11D06C5C0000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		93F3FFF31D06C5E4000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		93F3FFF51D06C613000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchResultModel.swift; sourceTree = "<group>"; };
+		93FD2FDE1D13E7A400B88355 /* searchJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchJson.json; sourceTree = "<group>"; };
 		F968A668E0CC6829EA8B698F /* Pods-AIVeris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.debug.xcconfig"; sourceTree = "<group>"; };
 		FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		FB0181001D0D125400213DF8 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
@@ -3073,6 +3077,7 @@
 				93EC4A691D05564E007F599E /* Model */,
 				81BB86781CFEB7C500899B58 /* View */,
 				81BB86751CFE81A900899B58 /* ViewController */,
+				93FD2FDE1D13E7A400B88355 /* searchJson.json */,
 			);
 			path = CustomSearch;
 			sourceTree = "<group>";
@@ -3413,6 +3418,7 @@
 		93EC4A691D05564E007F599E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3651,6 +3657,7 @@
 				81433D1E1CFBE5A700347C29 /* AIIconTextView.xib in Resources */,
 				81433D601CFBE5A700347C29 /* AIShoppingListView.xib in Resources */,
 				8175A7DF1CFD2710006F2C8F /* MJRefresh.bundle in Resources */,
+				93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */,
 				81433E381CFBE5A700347C29 /* BuyerRequirmentMessageViewController.xib in Resources */,
 				81433DF71CFBE5A700347C29 /* AIEventTimerView.xib in Resources */,
 				81433DB31CFBE5A700347C29 /* BuyerMessageCell.xib in Resources */,
@@ -3838,6 +3845,7 @@
 				12D7649B1D0D469A002B001B /* AIRegistViewController.swift in Sources */,
 				81433EA01CFBE5A700347C29 /* UITextField+Localize.swift in Sources */,
 				81433E5C1CFBE5A700347C29 /* FLEXArgumentInputTextView.m in Sources */,
+				93FD2FDD1D13DA7E00B88355 /* AISearchResultModel.swift in Sources */,
 				8175A7EE1CFD2710006F2C8F /* OAStackViewDistributionStrategy.m in Sources */,
 				81433CEF1CFBE5A700347C29 /* AIBaseModel.swift in Sources */,
 				81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */,

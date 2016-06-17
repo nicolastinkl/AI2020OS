@@ -56,7 +56,7 @@ class AICustomSearchHomeViewController: UIViewController {
     //MARK: Action
     
     func makeAWishAction(){
-        showTransitionStyleCrossDissolveView(AIAudioSearchViewController.initFromNib())
+        showTransitionStyleCrossDissolveView(AIProductInfoViewController.initFromNib())
     }
     
     /**
@@ -65,7 +65,7 @@ class AICustomSearchHomeViewController: UIViewController {
     func initLayoutViews(){
         
         /// Title.
-        if let navi = AINavigationBar.initFromNib() as? AINavigationBar{
+        if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
             view.addSubview(navi)
             navi.holderViewController = self
             constrain(navi, block: { (layout) in
