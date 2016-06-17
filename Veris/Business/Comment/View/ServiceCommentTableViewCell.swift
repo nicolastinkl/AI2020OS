@@ -28,6 +28,8 @@ class ServiceCommentTableViewCell: UITableViewCell {
 //    private var originStarContainerWidth: CGFloat!
 //    private var originHintHeight: CGFloat!
     
+    var delegate: CommentDistrictDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -48,20 +50,13 @@ class ServiceCommentTableViewCell: UITableViewCell {
         
         inputComment.delegate = self
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     override func layoutSubviews() {
-   //     starRateView.layoutIfNeeded()
         serviceIcon.layer.cornerRadius = serviceIcon.height / 2
     }
     
     func imageButtonAction(sender : UIGestureRecognizer) {
-    //    delegate?.pohotImageButtonClicked(photoImage)
+        delegate?.pohotImageButtonClicked(imageButton, buttonParent: self)
     }
     
 //    func setToHeadComment() {
