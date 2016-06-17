@@ -53,6 +53,19 @@ class AICustomSearchHomeViewController: UIViewController {
 		// Make Title View
 		initLayoutViews()
 		
+		
+	}
+	
+	// MARK: Action
+	
+	func makeAWishAction() {
+		showTransitionStyleCrossDissolveView(AIProductInfoViewController.initFromNib())
+	}
+	
+	/**
+	 init with navigation bar.
+	 */
+	func initLayoutViews() {
 		// Make Test Data View
 		recentlySearchTag = AISearchHistoryLabels(frame: CGRectMake(10, 60, 300, 200), title: "You recently searched", labels: ["Pregnat", "Travel", "Europe", "Outdoors"])
         recentlySearchTag.delegate = self
@@ -77,66 +90,15 @@ class AICustomSearchHomeViewController: UIViewController {
 			wishProxy.bottom == wishProxy.superview!.bottom - 5
 		}
 		wishButton.addTarget(self, action: #selector(makeAWishAction), forControlEvents: UIControlEvents.TouchUpInside)
-		
 	}
-	
-	// MARK: Action
-	
-	func makeAWishAction() {
-		showTransitionStyleCrossDissolveView(AIProductInfoViewController.initFromNib())
-	}
-	
-	/**
-	 init with navigation bar.
-	 */
-	func initLayoutViews() {
-		
-		/// Title.
-		if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
-			view.addSubview(navi)
-			navi.holderViewController = self
-			constrain(navi, block: { (layout) in
-				layout.left == layout.superview!.left
-				layout.top == layout.superview!.top
-				layout.right == layout.superview!.right
-				layout.height == 44.0 + 10.0
-			})
-			
-			navi.titleLabel.text = ""
-			
-		}
-		
-	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
+
 	// MARK: Keyboard Notification
-	
 	func addKeyboardNotifications() {
 		
 	}
-	
-	// MARK: SearchBar
-	func addSearchBar() {
-		
-        /// Title.
-        if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
-            view.addSubview(navi)
-            navi.holderViewController = self
-            constrain(navi, block: { (layout) in
-                layout.left == layout.superview!.left
-                layout.top == layout.superview!.top
-                layout.right == layout.superview!.right
-                layout.height == 44.0 + 10.0
-            })
-            
-            navi.titleLabel.text = ""
-            
-        }
-        
+    
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
 }

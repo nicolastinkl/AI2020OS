@@ -38,16 +38,17 @@ class AILoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        #if DEBUG
-//            let tap = UITapGestureRecognizer(target: self, action: "dismiss")
-//            
-//        #endif
 
         // Do any additional setup after loading the view.
         AILoginPublicValue.loginType = AILoginUtil.LoginType.Login
         setupViews()
         setupNavigationBar()
+        
+        #if !DEBUG
+            userIdTextField.text = "213231231321"
+            passwordTextField.text = "1233123213"
+            loginButton.enabled = true
+        #endif
     }
     
     override func didReceiveMemoryWarning() {
