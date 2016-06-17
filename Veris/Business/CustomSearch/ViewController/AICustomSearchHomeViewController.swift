@@ -31,9 +31,20 @@ class AICustomSearchHomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// Do any additional setup after loading the view.
-		addKeyboardNotifications()
-		
+		// Make Title View
+		initLayoutViews()
+	}
+	
+	// MARK: Action
+	
+	func makeAWishAction() {
+		showTransitionStyleCrossDissolveView(AIProductInfoViewController.initFromNib())
+	}
+	
+	/**
+	 init with navigation bar.
+	 */
+	func initLayoutViews() {
 		// Make Test Data View
 		recentlySearchTag = AISearchHistoryLabels(frame: CGRectMake(10, 60, 300, 200), title: "You recently searched", labels: ["Pregnat", "Travel", "Europe", "Outdoors"])
         recentlySearchTag.delegate = self
@@ -45,49 +56,26 @@ class AICustomSearchHomeViewController: UIViewController {
         
 		
 		// Make Wish Button
-		makeButton()
+		let wishButton = UIButton(type: UIButtonType.Custom)
+		wishButton.setTitle("Make a wish", forState: UIControlState.Normal)
+		view.addSubview(wishButton)
+		wishButton.backgroundColor = UIColor.clearColor()
+		wishButton.titleLabel?.font = UIFont.systemFontOfSize(14)
+		wishButton.titleLabel?.textColor = UIColor.whiteColor()
+		constrain(wishButton) { (wishProxy) in
+			wishProxy.height == 30
+			wishProxy.left == wishProxy.superview!.left + 10
+			wishProxy.right == wishProxy.superview!.right + 10
+			wishProxy.bottom == wishProxy.superview!.bottom - 5
+		}
+		wishButton.addTarget(self, action: #selector(makeAWishAction), forControlEvents: UIControlEvents.TouchUpInside)
 		
 	}
 	
-    
-    
-    //MARK: Method Init
-    func makeButton(){
-        let wishButton = UIButton(type: UIButtonType.Custom)
-        wishButton.setTitle("Make a wish", forState: UIControlState.Normal)
-        view.addSubview(wishButton)
-        wishButton.backgroundColor = UIColor.clearColor()
-        wishButton.titleLabel?.font = UIFont.systemFontOfSize(14)
-        wishButton.titleLabel?.textColor = UIColor.whiteColor()
-        constrain(wishButton) { (wishProxy) in
-            wishProxy.height == 30
-            wishProxy.left == wishProxy.superview!.left + 10
-            wishProxy.right == wishProxy.superview!.right + 10
-            wishProxy.bottom == wishProxy.superview!.bottom - 5
-        }
-        wishButton.addTarget(self, action: #selector(makeAWishAction), forControlEvents: UIControlEvents.TouchUpInside)
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
-	// MARK: Action
-	
-	func makeAWishAction() {
-		showTransitionStyleCrossDissolveView(AIProductInfoViewController.initFromNib())
-	}
-	
-	 
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
-	// MARK: Keyboard Notification
-	
-	func addKeyboardNotifications() {
-		
-	}
-	  
-    
+
     func searching(){
         if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
             let data: NSData? = NSData(contentsOfFile: path)
