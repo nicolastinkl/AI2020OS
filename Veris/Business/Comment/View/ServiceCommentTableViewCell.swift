@@ -15,18 +15,18 @@ class ServiceCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var serviceIcon: UIImageView!
     @IBOutlet weak var inputComment: UITextView!
     
-    @IBOutlet weak var hintHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var starContainerWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var starContainerHeightConstraint: NSLayoutConstraint!
+ //   @IBOutlet weak var hintHeightConstraint: NSLayoutConstraint!
+ //   @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+ //   @IBOutlet weak var starContainerWidthConstraint: NSLayoutConstraint!
+ //   @IBOutlet weak var starContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var starRateView: StarRateView!
     @IBOutlet weak var commentServicesHint: UILabel!
-    @IBOutlet weak var bottomSererator: UIImageView!
+//    @IBOutlet weak var bottomSererator: UIImageView!
     
-    private var originIconHeight: CGFloat!
-    private var originStarContainerHeight: CGFloat!
-    private var originStarContainerWidth: CGFloat!
-    private var originHintHeight: CGFloat!
+//    private var originIconHeight: CGFloat!
+//    private var originStarContainerHeight: CGFloat!
+//    private var originStarContainerWidth: CGFloat!
+//    private var originHintHeight: CGFloat!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,10 +36,10 @@ class ServiceCommentTableViewCell: UITableViewCell {
         
         serviceIcon.image = UIImage(named: "testHolder1")
         
-        originIconHeight = heightConstraint.constant
-        originStarContainerHeight = starContainerHeightConstraint.constant
-        originStarContainerWidth = starContainerWidthConstraint.constant
-        originHintHeight = hintHeightConstraint.constant
+//        originIconHeight = heightConstraint.constant
+//        originStarContainerHeight = starContainerHeightConstraint.constant
+//        originStarContainerWidth = starContainerWidthConstraint.constant
+//        originHintHeight = hintHeightConstraint.constant
         
         let imageSelector =
             #selector(ServiceCommentTableViewCell.imageButtonAction(_:))
@@ -64,37 +64,37 @@ class ServiceCommentTableViewCell: UITableViewCell {
     //    delegate?.pohotImageButtonClicked(photoImage)
     }
     
-    func setToHeadComment() {
-        
-        heightConstraint.constant = originIconHeight + 10
-        
-        starContainerHeightConstraint.constant = originStarContainerHeight + 10
-        starContainerWidthConstraint.constant = originStarContainerWidth + 30
-        
-        bottomSererator.hidden = false
-        commentServicesHint.hidden = false
-        hintHeightConstraint.constant = originHintHeight
-        
-        commentServicesHint.setNeedsUpdateConstraints()
-        starRateView.setNeedsUpdateConstraints()
-        contentView.layoutIfNeeded()
- 
-    }
-    
-    func setToSubComment() {
-        heightConstraint.constant = originIconHeight
-        
-        starContainerHeightConstraint.constant = originStarContainerHeight
-        starContainerWidthConstraint.constant = originStarContainerWidth
-        
-        bottomSererator.hidden = true
-        commentServicesHint.hidden = true
-        hintHeightConstraint.constant = 0
-        
-        commentServicesHint.setNeedsUpdateConstraints()
-        starRateView.setNeedsLayout()
-        contentView.layoutIfNeeded()
-    }
+//    func setToHeadComment() {
+//        
+//        heightConstraint.constant = originIconHeight + 10
+//        
+//        starContainerHeightConstraint.constant = originStarContainerHeight + 10
+//        starContainerWidthConstraint.constant = originStarContainerWidth + 30
+//        
+//        bottomSererator.hidden = false
+//        commentServicesHint.hidden = false
+//        hintHeightConstraint.constant = originHintHeight
+//        
+//        commentServicesHint.setNeedsUpdateConstraints()
+//        starRateView.setNeedsUpdateConstraints()
+//        contentView.layoutIfNeeded()
+// 
+//    }
+//    
+//    func setToSubComment() {
+//        heightConstraint.constant = originIconHeight
+//        
+//        starContainerHeightConstraint.constant = originStarContainerHeight
+//        starContainerWidthConstraint.constant = originStarContainerWidth
+//        
+//        bottomSererator.hidden = true
+//        commentServicesHint.hidden = true
+//        hintHeightConstraint.constant = 0
+//        
+//        commentServicesHint.setNeedsUpdateConstraints()
+//        starRateView.setNeedsLayout()
+//        contentView.layoutIfNeeded()
+//    }
 }
 
 extension ServiceCommentTableViewCell: UITextViewDelegate {

@@ -20,7 +20,8 @@ class CompondServiceCommentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        serviceTableView.registerNib(UINib(nibName: "ServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceCommentTableViewCell")
+        serviceTableView.registerNib(UINib(nibName: "ServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "SubServiceCell")
+        serviceTableView.registerNib(UINib(nibName: "TopServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "TopServiceCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,13 +38,13 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ServiceCommentTableViewCell") as!ServiceCommentTableViewCell
+        var cell: ServiceCommentTableViewCell!
         
         
         if indexPath.row == 0 {
-            cell.setToHeadComment()
+            cell = tableView.dequeueReusableCellWithIdentifier("TopServiceCell") as!ServiceCommentTableViewCell
         } else {
-            cell.setToSubComment()
+            cell = tableView.dequeueReusableCellWithIdentifier("SubServiceCell") as!ServiceCommentTableViewCell
         }
         
         return cell
