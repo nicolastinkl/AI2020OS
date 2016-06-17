@@ -404,7 +404,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             
             // Get the animation curve and duration
             let animationCurve: UIViewAnimationCurve = UIViewAnimationCurve.EaseIn
-            let animationDuration: NSTimeInterval = 0.4
+            let animationDuration: NSTimeInterval = 0.5
             // Animate view size synchronously with the appearance of the keyboard.
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationDuration(animationDuration)
@@ -417,14 +417,15 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             // self.presentViewController在真机iPhone5上会crash...
             self.presentViewController(detailViewController, animated: false) { () -> Void in
                 
-                detailViewController.view.alpha = 1
-                detailViewController.view.transform =  CGAffineTransformMakeScale(detailScale, detailScale)
-                detailViewController.view.center = realPoint
+                
+//                detailViewController.view.transform =  CGAffineTransformMakeScale(detailScale, detailScale)
+//                detailViewController.view.center = realPoint
                 
                 // 开始动画
                 SpringAnimation.springEaseIn(0.3, animations: {
-                    detailViewController.view.transform = CGAffineTransformMakeScale(1, 1)
-                    detailViewController.view.center = self.originalViewCenter!
+                    detailViewController.view.alpha = 1
+//                    detailViewController.view.transform = CGAffineTransformMakeScale(1, 1)
+//                    detailViewController.view.center = self.originalViewCenter!
                     self.view.userInteractionEnabled = true
                 })
             }
