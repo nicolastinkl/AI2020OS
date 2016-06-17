@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
+		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
 		12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */; };
 		12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */; };
 		12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */; };
@@ -581,6 +583,8 @@
 
 /* Begin PBXFileReference section */
 		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
+		126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteViewController.swift; sourceTree = "<group>"; };
+		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
 		12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChangePasswordViewController.swift; sourceTree = "<group>"; };
 		12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginUtil.swift; sourceTree = "<group>"; };
 		12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginCommonView.swift; sourceTree = "<group>"; };
@@ -1413,6 +1417,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		126F82111D12983E009B1C6D /* ServiceExecute */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServiceExecute;
+			sourceTree = "<group>";
+		};
 		12D764931D0D40AE002B001B /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1695,6 +1706,7 @@
 		814339821CFBE5A600347C29 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				126F82111D12983E009B1C6D /* ServiceExecute */,
 				8143398A1CFBE5A600347C29 /* Bubble */,
 				814339951CFBE5A600347C29 /* BuyerDetail */,
 				814339F71CFBE5A700347C29 /* BuyerViews */,
@@ -1908,6 +1920,7 @@
 			children = (
 				81433A241CFBE5A700347C29 /* AIBuyerViewController.swift */,
 				81433A281CFBE5A700347C29 /* ReadmeViewController.swift */,
+				126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2701,6 +2714,7 @@
 				81433C151CFBE5A700347C29 /* LaunchScreen.storyboard */,
 				81433C161CFBE5A700347C29 /* UIBuyerStoryboard.storyboard */,
 				81433C171CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard */,
+				126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -3347,6 +3361,7 @@
 				81433EC41CFBE5A700347C29 /* loading.gif in Resources */,
 				933BC8401D002434005E1789 /* AISuperiorityViewController.xib in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
+				126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */,
 				81433DA91CFBE5A700347C29 /* AITaskTimeLineView.xib in Resources */,
 				81433EC21CFBE5A700347C29 /* UIBuyerStoryboard.storyboard in Resources */,
 				81433DF31CFBE5A700347C29 /* ContentsCellView.xib in Resources */,
@@ -3880,6 +3895,7 @@
 				81433E631CFBE5A700347C29 /* FLEXMethodCallingViewController.m in Sources */,
 				81433D271CFBE5A700347C29 /* ServiceCardDetailFlag.swift in Sources */,
 				81433CF61CFBE5A700347C29 /* AIScrollLabel.m in Sources */,
+				126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */,
 				81433EAA1CFBE5A700347C29 /* AISwiftLogger.swift in Sources */,
 				FBAE7FDA1D115428002FF522 /* AISellserAnimationView.m in Sources */,
 				81433D261CFBE5A700347C29 /* MiddleServiceContainerView.swift in Sources */,
