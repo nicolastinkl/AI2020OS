@@ -123,6 +123,7 @@ extension AICustomSearchHomeViewController: UITextViewDelegate {
 
 extension AICustomSearchHomeViewController: AISearchHistoryLabelsDelegate {
     func searchHistoryLabels(searchHistoryLabel: AISearchHistoryLabels, clickedText: String) {
+		print(#function + " called")
         print(clickedText)
     }
 }
