@@ -547,6 +547,9 @@
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
 		FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB01810F1D0D650E00213DF8 /* AISearchBar.xib */; };
+		FB4DC8B01D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DC8AF1D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift */; };
+		FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */; };
+		FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */; };
 		FBAE7FC41D115188002FF522 /* EvernoteTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */; };
 		FBAE7FD51D115428002FF522 /* AIOrderTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC91D115428002FF522 /* AIOrderTableModel.m */; };
 		FBAE7FD61D115428002FF522 /* AISellerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FCB1D115428002FF522 /* AISellerCell.m */; };
@@ -1344,6 +1347,10 @@
 		FB01810A1D0D125400213DF8 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
 		FB01810D1D0D650100213DF8 /* AISearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBar.swift; sourceTree = "<group>"; };
 		FB01810F1D0D650E00213DF8 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
+		FB4DC8AF1D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchRecentlyLogoView.swift; sourceTree = "<group>"; };
+		FB6600F81D123C01004667E2 /* AISellerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellerCollectionViewCell.h; sourceTree = "<group>"; };
+		FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerCollectionViewCell.m; sourceTree = "<group>"; };
+		FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvernoteTransition.swift; sourceTree = "<group>"; };
 		FBAE7FC81D115428002FF522 /* AIOrderTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOrderTableModel.h; sourceTree = "<group>"; };
 		FBAE7FC91D115428002FF522 /* AIOrderTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIOrderTableModel.m; sourceTree = "<group>"; };
@@ -2922,6 +2929,7 @@
 			children = (
 				81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */,
 				933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */,
+				FB4DC8AF1D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3186,6 +3194,7 @@
 		FBAE7FC21D115188002FF522 /* LSYEvernote */ = {
 			isa = PBXGroup;
 			children = (
+				FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */,
 				FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */,
 			);
 			path = LSYEvernote;
@@ -3198,6 +3207,8 @@
 				FBAE7FC91D115428002FF522 /* AIOrderTableModel.m */,
 				FBAE7FCA1D115428002FF522 /* AISellerCell.h */,
 				FBAE7FCB1D115428002FF522 /* AISellerCell.m */,
+				FB6600F81D123C01004667E2 /* AISellerCollectionViewCell.h */,
+				FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */,
 				FBAE7FCC1D115428002FF522 /* AISellerModel.h */,
 				FBAE7FCD1D115428002FF522 /* AISellerModel.m */,
 				FBAE7FCE1D115428002FF522 /* AISellerViewController.h */,
@@ -3792,6 +3803,7 @@
 				81433D861CFBE5A700347C29 /* MDCSpotlightView.m in Sources */,
 				8175A7F51CFD2710006F2C8F /* RRTagController.swift in Sources */,
 				81433E9A1CFBE5A700347C29 /* FLEXHierarchyTableViewCell.m in Sources */,
+				FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */,
 				81433E6C1CFBE5A700347C29 /* FLEXTableColumnHeader.m in Sources */,
 				81433D961CFBE5A700347C29 /* AIAssignServiceView.swift in Sources */,
 				81433E821CFBE5A700347C29 /* FLEXNetworkTransaction.m in Sources */,
@@ -3818,6 +3830,7 @@
 				81433E661CFBE5A700347C29 /* FLEXExplorerViewController.m in Sources */,
 				81433EAB1CFBE5A700347C29 /* AITools.m in Sources */,
 				81433E921CFBE5A700347C29 /* FLEXViewExplorerViewController.m in Sources */,
+				FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */,
 				81433D9B1CFBE5A700347C29 /* AILimitListView.swift in Sources */,
 				81433E631CFBE5A700347C29 /* FLEXMethodCallingViewController.m in Sources */,
 				81433D271CFBE5A700347C29 /* ServiceCardDetailFlag.swift in Sources */,
@@ -3876,6 +3889,7 @@
 				81433D821CFBE5A700347C29 /* AIOrderDescView.swift in Sources */,
 				81433D341CFBE5A700347C29 /* TransportService.swift in Sources */,
 				81433D8A1CFBE5A700347C29 /* ProposalExpandedView.swift in Sources */,
+				FB4DC8B01D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

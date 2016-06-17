@@ -127,6 +127,6 @@
 //DDHTimerControl
 #import "DDHTimerControl.h"
 
-
+#import "AISellerCollectionViewCell.h"
 
 
