@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AISellerViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface AISellerViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 

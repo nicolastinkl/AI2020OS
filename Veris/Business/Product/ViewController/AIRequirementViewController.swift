@@ -11,6 +11,11 @@ import Foundation
 import Spring
 import AIAlertView
 
+
+@objc public protocol AIRequirementViewControllerDelegate: NSObjectProtocol {
+    func didClickGoBack()
+}
+
 /// application public AIRequirementViewPublicValue value.
 class AIRequirementViewPublicValue{
     
@@ -37,6 +42,8 @@ class AIRequirementViewPublicValue{
 internal class AIRequirementViewController : UIViewController {
 
     // MARK: -> Internal class
+    
+    weak var delegate: AIRequirementViewControllerDelegate!
     
     var orderPreModel : AIOrderPreModel?
     
@@ -212,8 +219,6 @@ internal class AIRequirementViewController : UIViewController {
     
     /**
      切换参数
-     
-     - parameter type: <#type description#>
      */
     func withSwitchProfessionVC(type: Int){
         
@@ -373,7 +378,13 @@ internal class AIRequirementViewController : UIViewController {
             tabRequireViewC.removeAllObserver()
         }
         
-        self.navigationController?.popViewControllerAnimated(true)
+        if let navigationController = self.navigationController {
+            navigationController.popViewControllerAnimated(true)
+        } else {
+            
+            delegate?.didClickGoBack()
+//            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
 }

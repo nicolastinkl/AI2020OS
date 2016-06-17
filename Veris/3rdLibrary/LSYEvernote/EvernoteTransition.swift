@@ -8,18 +8,18 @@
 
 import UIKit
 
-class EvernoteTransition: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
+class EvernoteTransition: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, AIRequirementViewControllerDelegate {
 	
 	internal var isPresent = true
-	var selectCell: UICollectionViewCell = UICollectionViewCell()
-	var visibleCells = [UICollectionViewCell]()
+	var selectCell: AISellerCollectionViewCell = AISellerCollectionViewCell()
+	var visibleCells = [AISellerCollectionViewCell]()
 	var originFrame: CGRect = CGRectZero
 	var finalFrame: CGRect = CGRectZero
 	var panViewController = UIViewController()
 	var listViewController = UIViewController()
 	var interactionController = UIPercentDrivenInteractiveTransition()
 	
-	func EvernoteTransitionWith(selectCell selectCell: UICollectionViewCell, visibleCells: [UICollectionViewCell], originFrame: CGRect, finalFrame: CGRect, panViewController: UIViewController, listViewController: UIViewController) {
+	func EvernoteTransitionWith(selectCell selectCell: AISellerCollectionViewCell, visibleCells: [AISellerCollectionViewCell], originFrame: CGRect, finalFrame: CGRect, panViewController: UIViewController, listViewController: UIViewController) {
 		self.selectCell = selectCell
 		self.visibleCells = visibleCells
 		self.originFrame = originFrame
@@ -64,6 +64,7 @@ class EvernoteTransition: NSObject, UIViewControllerAnimatedTransitioning, UIVie
 					visibleCell.transform = self.isPresent ? CGAffineTransformMakeScale(0.8, 1.0) : CGAffineTransformIdentity
 				}
 			}
+            self.selectCell.subviewAlpha = self.isPresent ? 1.0 : 0.0
 //			self.selectCell.backButton.alpha = self.isPresent ? 1.0 : 0.0
 //			self.selectCell.titleLine.alpha = self.isPresent ? 1.0 : 0.0
 //			self.selectCell.textView.alpha = self.isPresent ? 1.0 : 0.0
@@ -79,7 +80,6 @@ class EvernoteTransition: NSObject, UIViewControllerAnimatedTransitioning, UIVie
 	// UIViewControllerTransitioningDelegate
 	func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		isPresent = true
-//		selectCell.textView.scrollEnabled = false
 		return self
 	}
 	
@@ -115,15 +115,19 @@ class EvernoteTransition: NSObject, UIViewControllerAnimatedTransitioning, UIVie
 	}
 	
 	// NoteViewControllerDelegate
-//	func didClickGoBack() {
-//		panViewController.dismissViewControllerAnimated(true, completion: { () -> Void in
-//		})
-//		finishInteractive()
-//	}
 	
 	func finishInteractive() {
 		interactionController.finishInteractiveTransition()
 //		selectCell.textView.scrollEnabled = true
 	}
 	
+}
+
+
+extension EvernoteTransition {
+	func didClickGoBack() {
+		panViewController.dismissViewControllerAnimated(true, completion: { () -> Void in
+		})
+		finishInteractive()
+	}
 }
