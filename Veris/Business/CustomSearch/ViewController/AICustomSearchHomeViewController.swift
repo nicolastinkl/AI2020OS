@@ -16,7 +16,6 @@ import SnapKit
 
 class AICustomSearchHomeViewController: UIViewController {
 
-
     //MARK: Private
  
     var searchBar : UISearchBar?
@@ -30,13 +29,21 @@ class AICustomSearchHomeViewController: UIViewController {
         addKeyboardNotifications()
 
         // Make Title View
-        initLayoutViews()
+        //initLayoutViews()
         
         // Make Test Data View
-        let labels = AISearchHistoryLabels(frame: CGRectMake(10, 60, 300, 200), title: "测试数据", labels: ["我爱你","爱你","我爱死你啦！","我是真的真的很爱你！","滚蛋！","滚犊子！","滚一边去吧！","拜拜！"])
-        view.addSubview(labels)
+        Async.main(after: 0.2) { 
+            
+            let labels = AISearchHistoryLabels(frame: CGRectMake(10, 60, self.view.width, 200), title: "测试数据", labels: ["我爱你","爱你","我爱死你啦！","我是真的真的很爱你！","滚蛋！","滚犊子！","滚一边去吧！","拜拜！"])
+            self.view.addSubview(labels)
+        }
 
         // Make Wish Button
+        makeButton()
+        
+    }
+    
+    func makeButton(){
         let wishButton = UIButton(type: UIButtonType.Custom)
         wishButton.setTitle("Make a wish", forState: UIControlState.Normal)
         view.addSubview(wishButton)
@@ -50,7 +57,6 @@ class AICustomSearchHomeViewController: UIViewController {
             wishProxy.bottom == wishProxy.superview!.bottom - 5
         }
         wishButton.addTarget(self, action: #selector(makeAWishAction), forControlEvents: UIControlEvents.TouchUpInside)
-        
     }
     
     //MARK: Action

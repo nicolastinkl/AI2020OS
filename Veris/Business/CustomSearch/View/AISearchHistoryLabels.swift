@@ -93,7 +93,7 @@ class AISearchHistoryLabels: UIView {
             }
 
             var labelText = historyLabel
-            let size = labelText.sizeWithFont(UIFont.systemFontOfSize(titleFontSize), forWidth: maxWidth)
+            var size = labelText.sizeWithFont(UIFont.systemFontOfSize(titleFontSize), forWidth: maxWidth)
 
             if (x + labelMargin + size.width) > maxWidth {
                 let shortLabel = findSuitableLabel(maxWidth - x - labelMargin)
@@ -108,10 +108,15 @@ class AISearchHistoryLabels: UIView {
 
             }
 
-
+            size.height = size.height + 6
             let label = AIViews.wrapLabelWithFrame(CGRectMake(x, y, size.width, size.height), text: labelText, fontSize: labelFontSize, color: UIColor.whiteColor())
             addSubview(label)
-
+            label.layer.borderColor = UIColor.whiteColor().CGColor
+            label.layer.borderWidth = 0.5
+            label.layer.masksToBounds = true
+            label.layer.cornerRadius = 10
+            label.textAlignment  = .Center
+            
             x = CGRectGetMaxX(label.frame) + labelMargin
             
             containLabels.append(labelText)
