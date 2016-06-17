@@ -24,36 +24,13 @@ class AICustomSearchHomeViewController: UIViewController {
 
     //MARK: Private
  
-
-    //MARK: Method Init
-    func makeButton(){
-        let wishButton = UIButton(type: UIButtonType.Custom)
-        wishButton.setTitle("Make a wish", forState: UIControlState.Normal)
-        view.addSubview(wishButton)
-        wishButton.backgroundColor = UIColor.clearColor()
-        wishButton.titleLabel?.font = UIFont.systemFontOfSize(14)
-        wishButton.titleLabel?.textColor = UIColor.whiteColor()
-        constrain(wishButton) { (wishProxy) in
-            wishProxy.height == 30
-            wishProxy.left == wishProxy.superview!.left + 10
-            wishProxy.right == wishProxy.superview!.right + 10
-            wishProxy.bottom == wishProxy.superview!.bottom - 5
-        }
-        wishButton.addTarget(self, action: #selector(makeAWishAction), forControlEvents: UIControlEvents.TouchUpInside)
-    }
-    
 	// MARK: Method Init
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// Do any additional setup after loading the view.
-		addKeyboardNotifications()
-		
 		// Make Title View
 		initLayoutViews()
-		
-		
 	}
 	
 	// MARK: Action
@@ -90,34 +67,41 @@ class AICustomSearchHomeViewController: UIViewController {
 			wishProxy.bottom == wishProxy.superview!.bottom - 5
 		}
 		wishButton.addTarget(self, action: #selector(makeAWishAction), forControlEvents: UIControlEvents.TouchUpInside)
-	}
-
-	// MARK: Keyboard Notification
-	func addKeyboardNotifications() {
 		
 	}
-    
+	
     @IBAction func backButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    func searching(){
+        if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
+            let data: NSData? = NSData(contentsOfFile: path)
+            if let dataJSON = data {
+                do {
+                    let model = try AISearchResultModel(data: dataJSON)
+                    print(model.results)
+                } catch {
+                    print("AIOrderPreListModel JSON Parse err.")
+                    
+                }
+            }
+        }
+    }
 }
-
-extension AICustomSearchHomeViewController: UITextViewDelegate {
-	func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-		return true
-	}
-	
-	func textViewDidEndEditing(textView: UITextView) {
-		
-	}
-	
-	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-		return true
-	}
-	
-}
-
+ 
+extension AICustomSearchHomeViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        searching()
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+ }
+    
 extension AICustomSearchHomeViewController: AISearchHistoryLabelsDelegate {
     func searchHistoryLabels(searchHistoryLabel: AISearchHistoryLabels, clickedText: String) {
 		print(#function + " called")

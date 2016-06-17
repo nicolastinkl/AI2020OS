@@ -29,11 +29,11 @@ public class AISearchResultModel: JSONModel {
     //返回搜索关键字
     public var searchkeyname: NSString = ""
     //过滤条件数据
-    public var searchFilter: [AISearchFilterModel] = []
+    public var searchFilter: Array<NSDictionary>?
     //结果数据集
-    public var results: [AISearchResultItemModel] = []
+    public var results: Array<NSDictionary>?
     //推荐数据集
-    public var results_proposal_list: [AIBuyerBubbleModel] = []
+    public var results_proposal_list: Array<NSDictionary>?
     
 }
 
