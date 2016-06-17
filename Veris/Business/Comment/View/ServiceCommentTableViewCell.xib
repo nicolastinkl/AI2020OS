@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -16,44 +17,103 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="孕检无忧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSL-h2-ZvC" userLabel="ServiceName">
-                        <rect key="frame" x="15" y="8" width="140" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="48" y="18" width="140" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="UqZ-tX-6bN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5n-Qs-AxA" userLabel="Stars">
-                        <rect key="frame" x="165" y="8" width="133" height="21"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5n-Qs-AxA" userLabel="Stars" customClass="StarRateView" customModule="Veris" customModuleProvider="target">
+                        <rect key="frame" x="198" y="21" width="100" height="15"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="ACG-qh-E77"/>
-                            <constraint firstAttribute="width" constant="133" id="ncu-xv-68o"/>
+                            <constraint firstAttribute="height" constant="15" id="ACG-qh-E77"/>
+                            <constraint firstAttribute="width" constant="100" id="ncu-xv-68o"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="scorePercent">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubc-pS-yOj" userLabel="Seperator">
-                        <rect key="frame" x="8" y="37" width="304" height="1"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oUy-xX-H03" userLabel="ServiceIcon">
+                        <rect key="frame" x="8" y="14" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="pwv-MJ-jgN"/>
+                            <constraint firstAttribute="height" constant="30" id="7Jh-8u-1lm"/>
+                            <constraint firstAttribute="width" secondItem="oUy-xX-H03" secondAttribute="height" multiplier="1:1" id="96M-8g-ryG"/>
+                            <constraint firstAttribute="width" constant="40" id="In8-eF-1fb"/>
                         </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dT1-mc-0ic" userLabel="CommentDistrict" customClass="CommentDistrictView" customModule="Veris" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="46" width="320" height="153"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="In8-eF-1fb"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PKE-zF-7t2" userLabel="InputComment">
+                        <rect key="frame" x="8" y="52" width="304" height="93"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uly-uk-QfV" userLabel="SeperatorTop">
+                        <rect key="frame" x="8" y="47" width="304" height="1"/>
+                        <color key="backgroundColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="hGS-fr-nmN"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CommentDistrictView.inputHint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCM-Vr-ZB2" userLabel="Place Holder Text">
+                        <rect key="frame" x="8" y="56" width="304" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="CommentDistrictView.inputHint"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GsB-aE-nrk" userLabel="ImageFile">
+                        <rect key="frame" x="8" y="153" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="GsB-aE-nrk" secondAttribute="height" multiplier="1:1" id="fZJ-v3-Zhn"/>
+                            <constraint firstAttribute="height" constant="30" id="i2U-hu-oqm"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="GsB-aE-nrk" firstAttribute="leading" secondItem="oUy-xX-H03" secondAttribute="leading" id="1XO-t0-b86"/>
+                    <constraint firstItem="PKE-zF-7t2" firstAttribute="top" secondItem="uly-uk-QfV" secondAttribute="bottom" constant="4" id="FyT-0p-1zE"/>
                     <constraint firstItem="q5n-Qs-AxA" firstAttribute="leading" secondItem="gSL-h2-ZvC" secondAttribute="trailing" constant="10" id="LQ8-lj-qrd"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="oUy-xX-H03" secondAttribute="leading" id="Lax-Bk-xzc"/>
+                    <constraint firstItem="oUy-xX-H03" firstAttribute="centerY" secondItem="gSL-h2-ZvC" secondAttribute="centerY" id="RLQ-ed-Xym"/>
+                    <constraint firstItem="uly-uk-QfV" firstAttribute="top" secondItem="oUy-xX-H03" secondAttribute="bottom" constant="3" id="VMk-HE-gr4"/>
                     <constraint firstItem="q5n-Qs-AxA" firstAttribute="centerY" secondItem="gSL-h2-ZvC" secondAttribute="centerY" id="XqR-Nk-wwo"/>
                     <constraint firstAttribute="trailingMargin" secondItem="q5n-Qs-AxA" secondAttribute="trailing" constant="14" id="c0G-au-eZs"/>
-                    <constraint firstAttribute="topMargin" secondItem="gSL-h2-ZvC" secondAttribute="top" id="cLL-zq-rHX"/>
-                    <constraint firstItem="ubc-pS-yOj" firstAttribute="top" secondItem="gSL-h2-ZvC" secondAttribute="bottom" constant="8" id="nqS-mp-BTA"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="ubc-pS-yOj" secondAttribute="leading" id="rEj-Dx-2mt"/>
-                    <constraint firstItem="gSL-h2-ZvC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="t76-Px-5Gb"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ubc-pS-yOj" secondAttribute="trailing" id="tTy-rQ-Ax2"/>
+                    <constraint firstAttribute="topMargin" secondItem="gSL-h2-ZvC" secondAttribute="top" constant="-10" id="cLL-zq-rHX"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="GsB-aE-nrk" secondAttribute="bottom" constant="8" id="cMs-ih-KJD"/>
+                    <constraint firstItem="PKE-zF-7t2" firstAttribute="leading" secondItem="oUy-xX-H03" secondAttribute="leading" id="gvp-Rh-r3M"/>
+                    <constraint firstItem="GsB-aE-nrk" firstAttribute="top" secondItem="PKE-zF-7t2" secondAttribute="bottom" constant="8" id="hpn-Vv-hhj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="uly-uk-QfV" secondAttribute="trailing" id="lsS-BT-8Vk"/>
+                    <constraint firstItem="PKE-zF-7t2" firstAttribute="width" secondItem="uly-uk-QfV" secondAttribute="width" id="nNT-bH-ca3"/>
+                    <constraint firstItem="gSL-h2-ZvC" firstAttribute="leading" secondItem="oUy-xX-H03" secondAttribute="trailing" constant="10" id="r9Y-rR-gIX"/>
+                    <constraint firstAttribute="topMargin" secondItem="oUy-xX-H03" secondAttribute="top" id="sgP-0d-zO3"/>
+                    <constraint firstItem="gSL-h2-ZvC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="50" id="t76-Px-5Gb"/>
+                    <constraint firstItem="uly-uk-QfV" firstAttribute="leading" secondItem="oUy-xX-H03" secondAttribute="leading" id="wMP-wz-D2o"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="sgP-0d-zO3"/>
+                        <exclude reference="t76-Px-5Gb"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="starsContainerView" destination="q5n-Qs-AxA" id="gOX-sU-dQt"/>
+                <outlet property="imageButton" destination="GsB-aE-nrk" id="I2x-HV-g7S"/>
+                <outlet property="inputComment" destination="PKE-zF-7t2" id="0Wy-Fr-pH3"/>
+                <outlet property="placeHolderText" destination="PCM-Vr-ZB2" id="YU4-oH-b8A"/>
+                <outlet property="serviceIcon" destination="oUy-xX-H03" id="qFw-XP-oLD"/>
+                <outlet property="starRateView" destination="q5n-Qs-AxA" id="wD5-c3-f6U"/>
             </connections>
         </tableViewCell>
     </objects>

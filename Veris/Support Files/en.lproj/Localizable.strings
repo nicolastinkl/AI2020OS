@@ -181,5 +181,9 @@
 
 "CommentDistrictView.inputHint" = "Please write down the feelings of the service to others, there is a great help to others.";
 
+/*
+ * ./Veris/Business/Comment/View/ServiceCommentTableViewCell.xib
+ */
 
+"ServiceCommentTableViewCell.commentService" = "请对我们的具体服务项目也谈谈体会吧";
 

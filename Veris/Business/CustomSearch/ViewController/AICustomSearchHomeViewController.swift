@@ -56,7 +56,7 @@ class AICustomSearchHomeViewController: UIViewController {
     //MARK: Action
     
     func makeAWishAction(){
-        showTransitionStyleCrossDissolveView(AIProductInfoViewController.initFromNib())
+        showTransitionStyleCrossDissolveView(AIAudioSearchViewController.initFromNib())
     }
     
     /**

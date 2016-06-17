@@ -32,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.sharedManager().enable = true
         
+        //处理讯飞语音初始化
+        AIAppInit().initWithXUNFEI()
+        
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert,.Badge,.Sound], categories: nil))
         application.registerForRemoteNotifications()
         

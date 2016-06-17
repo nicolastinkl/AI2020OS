@@ -11,13 +11,17 @@ import UIKit
 class CompondServiceCommentViewController: UIViewController {
     
     @IBOutlet weak var serviceTableView: UITableView!
+    
+    class func loadFromXib() -> CompondServiceCommentViewController {
+        let vc = CompondServiceCommentViewController(nibName: "CompondServiceCommentViewController", bundle: nil)
+        return vc
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        serviceTableView.estimatedRowHeight = 200.0
         
-        serviceTableView.registerNib(UINib(nibName: "ServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceCommentTableViewCell")
+        serviceTableView.registerNib(UINib(nibName: "ServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "SubServiceCell")
+        serviceTableView.registerNib(UINib(nibName: "TopServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "TopServiceCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,17 +33,28 @@ class CompondServiceCommentViewController: UIViewController {
 
 extension CompondServiceCommentViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3;
+        return 30;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ServiceCommentTableViewCell") as!ServiceCommentTableViewCell
+        var cell: ServiceCommentTableViewCell!
+        
+        
+        if indexPath.row == 0 {
+            cell = tableView.dequeueReusableCellWithIdentifier("TopServiceCell") as!ServiceCommentTableViewCell
+        } else {
+            cell = tableView.dequeueReusableCellWithIdentifier("SubServiceCell") as!ServiceCommentTableViewCell
+        }
         
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 200
+        if indexPath.row == 0 {
+            return 250
+        } else {
+            return 200
+        }
     }
 }
