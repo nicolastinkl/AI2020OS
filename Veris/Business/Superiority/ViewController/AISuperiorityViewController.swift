@@ -37,6 +37,12 @@ class AISuperiorityViewController: UIViewController {
     
     private var preCacheView: UIView?
     
+    var serviceModel: AISearchResultItemModel? {
+        didSet{
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
