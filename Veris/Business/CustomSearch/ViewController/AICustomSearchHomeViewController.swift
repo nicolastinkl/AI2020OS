@@ -21,8 +21,10 @@ class AICustomSearchHomeViewController: UIViewController {
 	var searchBar: UISearchBar?
     var recentlySearchTag: AISearchHistoryLabels!
     var everyOneSearchTag: AISearchHistoryLabels!
-
+    
     //MARK: Private
+    
+    private var dataSource: [AISearchResultItemModel]?
  
 	// MARK: Method Init
 	
@@ -92,7 +94,8 @@ class AICustomSearchHomeViewController: UIViewController {
             if let dataJSON = data {
                 do {
                     let model = try AISearchResultModel(data: dataJSON)
-                    print(model.results)
+//                    dataSource = model.results as? [AISearchResultItemModel]
+                    
                 } catch {
                     print("AIOrderPreListModel JSON Parse err.")
                     
