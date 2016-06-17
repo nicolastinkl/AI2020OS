@@ -93,37 +93,43 @@ class AICustomSearchHomeViewController: UIViewController {
     }
     
 
-
     //MARK: Keyboard Notification
 
     func addKeyboardNotifications() {
 
     }
 
-
     //MARK: SearchBar
     func addSearchBar() {
 
+    }
+    
+    func searching(){
+        if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
+            let data: NSData? = NSData(contentsOfFile: path)
+            if let dataJSON = data {
+                do {
+                    let model = try AISearchResultModel(data: dataJSON)
+                    print(model.results)
+                } catch {
+                    print("AIOrderPreListModel JSON Parse err.")
+                    
+                }
+            }
+        }
     }
 
 }
 
 
-
-
-
-extension AICustomSearchHomeViewController : UITextViewDelegate {
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        return true
-    }
-
-
-    func textViewDidEndEditing(textView: UITextView) {
+extension AICustomSearchHomeViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-    }
-
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        searching()
+        textField.resignFirstResponder()
+        
         return true
     }
-
+    
 }
