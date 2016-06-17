@@ -94,7 +94,7 @@ class AISearchHistoryLabels: UIView {
 			}
 			
 			var labelText = historyLabel
-			let size = labelText.sizeWithFont(UIFont.systemFontOfSize(titleFontSize), forWidth: maxWidth)
+			var size = labelText.sizeWithFont(UIFont.systemFontOfSize(titleFontSize), forWidth: maxWidth)
 			
 			if (x + labelMargin + size.width) > maxWidth {
 				let shortLabel = findSuitableLabel(maxWidth - x - labelMargin)
@@ -108,7 +108,7 @@ class AISearchHistoryLabels: UIView {
 				}
 				
 			}
-			
+			size.height = size.height + 6
 			let label = AIViews.wrapLabelWithFrame(CGRectMake(x, y, size.width, size.height), text: labelText, fontSize: labelFontSize, color: UIColor.whiteColor())
             label.userInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(AISearchHistoryLabels.labelTapped(_:)))
