@@ -48,7 +48,8 @@ class PurchasedServiceView: UIView, Measureable {
 
                 if model.arrange_script_info != nil {
                     title.text = model.arrange_script_info.info_title
-                    if (model.arrange_script_info.info_desc == nil || model.arrange_script_info.info_desc == "") {
+                    if model.arrange_script_info.info_desc == nil
+                        || model.arrange_script_info.info_desc == "" {
 
                         hideDescriptionLabel()
                     } else {
@@ -247,7 +248,7 @@ class PurchasedServiceView: UIView, Measureable {
                 checkOrderAndChangeState()
             }
 
-            if (contentView.hidden) {
+            if contentView.hidden {
                 adjustFrameToExpand()
             } else {
                 adjustFrameToCollapse()

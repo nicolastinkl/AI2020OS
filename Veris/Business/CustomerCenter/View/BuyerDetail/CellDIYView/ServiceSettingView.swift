@@ -16,17 +16,18 @@ class ServiceSettingView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var messageViewHeight: NSLayoutConstraint!
 
-    private static let HORIZAN_SPACE: CGFloat = 8
-    private static let MESSAGE_HEIGHT_ONE_LINE: CGFloat = 24
-    private static let TAG_HEIGHT: CGFloat = 28
-    private static let BOTTOM_PADDING: CGFloat = 12
-    private static let COLLECTION_WIDTH: CGFloat = 303
+    private static let HorizanSpace: CGFloat = 8
+    private static let MessageHeightOneLine: CGFloat = 24
+    private static let TagHeight: CGFloat = 28
+    private static let BottomPadding: CGFloat = 12
+    private static let CollectionWidth: CGFloat = 303
 
     var model: AIProposalHopeModel!
 
     override func awakeFromNib() {
 
-        message.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(31))
+        message.font = AITools.myriadLightSemiCondensedWithSize(
+            AITools.displaySizeFrom1080DesignSize(31))
 
         setCollectionView()
 
@@ -43,28 +44,26 @@ class ServiceSettingView: UIView {
     func loadData(model data: AIProposalHopeModel) {
         self.model = data
 
-        var count = 0
-        if data.label_list != nil {
-            count = data.label_list.count
-        }
-
         var hopeCount = 0
         if data.hope_list != nil {
             hopeCount = data.hope_list.count
         }
 
         if hopeCount > 0 {
-            let hopeModel = data.hope_list.first as! AIProposalHopeAudioTextModel
-            message.text = hopeModel.text ?? ""
-            messageIcon.hidden = false
-            adjustTwoLineMessageSize()
+            if let hopeModel = data.hope_list.first as? AIProposalHopeAudioTextModel {
+                message.text = hopeModel.text ?? ""
+                messageIcon.hidden = false
+                adjustTwoLineMessageSize()
+            }
         } else {
             messageIcon.hidden = true
             messageViewHeight.constant = 0
 
         }
 
-        frame.size.height = messageViewHeight.constant + ServiceSettingView.TAG_HEIGHT * CGFloat(estimateRowCount()) + ServiceSettingView.BOTTOM_PADDING
+        frame.size.height = messageViewHeight.constant
+            + ServiceSettingView.TagHeight * CGFloat(estimateRowCount())
+            + ServiceSettingView.BottomPadding
 
         collectionView.reloadData()
     }
@@ -82,10 +81,12 @@ class ServiceSettingView: UIView {
     private func setCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.collectionViewLayout = FixedSpaceFlowLayout(space: ServiceSettingView.HORIZAN_SPACE)
+        collectionView.collectionViewLayout =
+            FixedSpaceFlowLayout(space: ServiceSettingView.HorizanSpace)
         let layout = collectionView.collectionViewLayout
-        let flow = layout as! UICollectionViewFlowLayout
-        flow.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        if let flow = layout as? UICollectionViewFlowLayout {
+            flow.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
 
         collectionView.registerClass(AIMsgTagCell.self,
             forCellWithReuseIdentifier: "CONTENT")
@@ -95,7 +96,7 @@ class ServiceSettingView: UIView {
         var rowCount = 0
         var length: CGFloat = 0
 
-        let rowWidth = ServiceSettingView.COLLECTION_WIDTH
+        let rowWidth = ServiceSettingView.CollectionWidth
 
         if model.label_list != nil && model.label_list.count > 0 {
             rowCount = 1
@@ -104,20 +105,24 @@ class ServiceSettingView: UIView {
         }
 
         for item in model.label_list {
-            let tag = item as! AIProposalNotesModel
+
+            guard let tag = item as? AIProposalNotesModel else {
+                continue
+            }
             let size = AIMsgTagCell.sizeForContentString(tag.name, forMaxWidth: 1000)
-            length += (size.width + ServiceSettingView.HORIZAN_SPACE)
+            length += (size.width + ServiceSettingView.HorizanSpace)
 
-            if (length > rowWidth) {
-                rowCount++
+            if length > rowWidth {
+                rowCount += 1
 
-                // last word should be arranged in next row, so new row length equal last word's width
+                // last word should be arranged in next row,
+                // so new row length equal last word's width
                 length = size.width
             }
         }
 
 //        if model.label_list.count != 0 {
-//            rowCount = Int(length / ServiceSettingView.COLLECTION_WIDTH) + 1
+//            rowCount = Int(length / ServiceSettingView.CollectionWidth) + 1
 //        }
 
         //print("estimateRowCount:\(rowCount)")
@@ -125,13 +130,16 @@ class ServiceSettingView: UIView {
     }
 }
 
-extension ServiceSettingView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ServiceSettingView: UICollectionViewDelegate,
+    UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
 
 
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         if model != nil && model.label_list != nil {
             return  model.label_list.count
         } else {
@@ -139,15 +147,20 @@ extension ServiceSettingView: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView,
+                        cellForItemAtIndexPath indexPath: NSIndexPath)
+        -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CONTENT", forIndexPath: indexPath) as! AIMsgTagCell
+        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            "CONTENT", forIndexPath: indexPath) as? AIMsgTagCell else {
+            return UICollectionViewCell()
+        }
 
         cell.maxWidth = collectionView.bounds.size.width
 
-        let tag = model.label_list[indexPath.item] as! AIProposalNotesModel
-
-        cell.text = tag.name
+        if let tag = model.label_list[indexPath.item] as? AIProposalNotesModel {
+            cell.text = tag.name
+        }
 
         return cell
     }
@@ -158,15 +171,19 @@ extension ServiceSettingView: UICollectionViewDelegate, UICollectionViewDataSour
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
             indexPath.row
 
-            let tag = model.label_list[indexPath.item] as! AIProposalNotesModel
+        guard let tag = model.label_list[indexPath.item] as? AIProposalNotesModel else {
+            return CGSize.zero
+        }
 
-            let size = AIMsgTagCell.sizeForContentString(tag.name,
+        let size = AIMsgTagCell.sizeForContentString(tag.name,
                 forMaxWidth: collectionView.bounds.size.width / 2)
 
-            return size
+        return size
     }
 
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                               insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(0, 0, 0, 0)
     }
 
@@ -185,19 +202,23 @@ class FixedSpaceFlowLayout: UICollectionViewFlowLayout {
         super.init(coder: aDecoder)
     }
 
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override func layoutAttributesForElementsInRect(rect: CGRect)
+        -> [UICollectionViewLayoutAttributes]? {
         let attributes = super.layoutAttributesForElementsInRect(rect)
 
         if let atts = attributes {
-            for(var i = 1; i < atts.count; ++i) {
+            for i in 1 ..< atts.count {
                 let currentLayoutAttributes = atts[i]
                 let prevLayoutAttributes = atts[i - 1]
 
                 let preRightX = CGRectGetMaxX(prevLayoutAttributes.frame)
 
-                let currentPossibleRightXPosition = preRightX + horizanSpace + currentLayoutAttributes.frame.size.width
+                let currentPossibleRightXPosition =
+                    preRightX + horizanSpace + currentLayoutAttributes.frame.size.width
 
-                if(currentPossibleRightXPosition < self.collectionViewContentSize().width && currentLayoutAttributes.frame.origin.y == prevLayoutAttributes.frame.origin.y) {
+                if currentPossibleRightXPosition < self.collectionViewContentSize().width
+                    && currentLayoutAttributes.frame.origin.y
+                    == prevLayoutAttributes.frame.origin.y {
                     currentLayoutAttributes.frame.origin.x = preRightX + horizanSpace
                 }
             }
@@ -208,7 +229,8 @@ class FixedSpaceFlowLayout: UICollectionViewFlowLayout {
 }
 
 class AIMsgTagCell: UICollectionViewCell {
-    static var defaultFont = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(31))
+    static var defaultFont = AITools.myriadLightSemiCondensedWithSize(
+        AITools.displaySizeFrom1080DesignSize(31))
     var label: UILabel!
     var text: String! {
         get {
@@ -249,9 +271,9 @@ class AIMsgTagCell: UICollectionViewCell {
         super.init(coder: aDecoder)!
     }
 
-    static func sizeForContentString(s: String,
+    static func sizeForContentString(contentStr: String,
         forMaxWidth maxWidth: CGFloat) -> CGSize {
-            let maxSize = CGSizeMake(maxWidth, 1000)
+            let maxSize = CGSize(width: maxWidth, height: 1000)
             let opts = NSStringDrawingOptions.UsesLineFragmentOrigin
 
             let style = NSMutableParagraphStyle()
@@ -259,11 +281,14 @@ class AIMsgTagCell: UICollectionViewCell {
             let attributes = [ NSFontAttributeName: AIMsgTagCell.defaultFont,
                 NSParagraphStyleAttributeName: style]
 
-            let string = s as NSString
+            let string = contentStr as NSString
             let rect = string.boundingRectWithSize(maxSize, options: opts,
                 attributes: attributes, context: nil)
 
-            let realRect = CGRect(x: rect.origin.x, y: rect.origin.y, width: rect.width + 15, height: rect.height + 9)
+            let realRect = CGRect(x: rect.origin.x,
+                                  y: rect.origin.y,
+                                  width: rect.width + 15,
+                                  height: rect.height + 9)
 
             return realRect.size
     }

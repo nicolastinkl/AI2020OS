@@ -26,7 +26,7 @@ class AIIconTextView: UIView {
     }
 
     static func createInstance() -> AIIconTextView {
-        return NSBundle.mainBundle().loadNibNamed("AIIconTextView", owner: self, options: nil).first  as! AIIconTextView
+        return NSBundle.mainBundle().loadNibNamed("AIIconTextView", owner: self, options: nil).first as! AIIconTextView
     }
 
     func loadData(json jonsStr: String) {
@@ -54,7 +54,9 @@ class AIIconTextView: UIView {
         var preLabel = firstText
 
         for index in 0 ..< paramList.count {
-            let model = paramList[index] as! ServiceCellStadandParamModel
+            guard let model = paramList[index] as? ServiceCellStadandParamModel else {
+                continue
+            }
 
             if index == 0 {
                 preIcon.asyncLoadImage(model.param_icon)

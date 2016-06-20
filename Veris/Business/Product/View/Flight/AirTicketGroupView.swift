@@ -35,26 +35,17 @@ class AirTicketGroupView: UIView {
 
     private var ticketCount: Int = 0
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
-
-
-
-
     func setTicketsData(tickets: [Service]) {
         ticketCount = tickets.count
 
         var preTicket: AirTicketView?
         var totalPrice: Float = 0
 
-        for var index = 0; index < tickets.count; ++index {
+        for index in 0 ..< tickets.count {
             let nib = NSBundle.mainBundle().loadNibNamed("AirTicketView", owner: self, options: nil)
-            let ticket: AirTicketView = nib.first as! AirTicketView
+            guard let ticket: AirTicketView = nib.first as? AirTicketView else {
+                continue
+            }
 
             ticket.setTicketData(tickets[index])
             self.addSubview(ticket)
@@ -65,7 +56,7 @@ class AirTicketGroupView: UIView {
                     ticketView.top == ticketView.superview!.top
                     ticketView.right == ticketView.superview!.right
                 }
-            } else if (preTicket != nil) {
+            } else if preTicket != nil {
                 constrain(preTicket!, ticket) { preTicket, ticket in
                     ticket.top == preTicket.top + AirTicketView.TICKET_HEAD_HEIGHT
                     ticket.left == preTicket.superview!.left

@@ -1,0 +1,15 @@
+disabled_rules: # rule identifiers to exclude from running
+  - type_name
+  - force_cast
+  - variable_name
+  - line_length
+  - function_parameter_count
+  - function_body_length
+  - type_body_length
+  - file_length
+  - cyclomatic_complexity
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+
+

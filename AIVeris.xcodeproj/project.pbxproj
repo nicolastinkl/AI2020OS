@@ -526,6 +526,8 @@
 		846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */; };
 		846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
+		84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */; };
+		84F2E5BA1D17D02E009E0C72 /* SubServiceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */; };
 		9304550C1D12447E007AFC0C /* AIAudioSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */; };
 		9304550E1D1246F9007AFC0C /* AIAudioSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */; };
 		930455111D124DE5007AFC0C /* AIAppInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 930455101D124DE5007AFC0C /* AIAppInit.m */; };
@@ -721,8 +723,8 @@
 		8143397E1CFBE5A600347C29 /* AIServicesRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServicesRequester.swift; sourceTree = "<group>"; };
 		8143397F1CFBE5A600347C29 /* AITransformManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITransformManager.swift; sourceTree = "<group>"; };
 		814339811CFBE5A600347C29 /* ProposalService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalService.swift; sourceTree = "<group>"; };
-		814339871CFBE5A600347C29 /* AIOrderCellEShopSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderCellEShopSubView.swift; sourceTree = "<group>"; };
-		814339881CFBE5A600347C29 /* AIOrderCellEShopSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIOrderCellEShopSubView.xib; sourceTree = "<group>"; };
+		814339871CFBE5A600347C29 /* AIOrderCellEShopSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIOrderCellEShopSubView.swift; path = ../AIOrderCellEShopSubView.swift; sourceTree = "<group>"; };
+		814339881CFBE5A600347C29 /* AIOrderCellEShopSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AIOrderCellEShopSubView.xib; path = ../AIOrderCellEShopSubView.xib; sourceTree = "<group>"; };
 		8143398B1CFBE5A600347C29 /* AIBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBubble.h; sourceTree = "<group>"; };
 		8143398C1CFBE5A600347C29 /* AIBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBubble.m; sourceTree = "<group>"; };
 		8143398D1CFBE5A600347C29 /* AIBubblesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBubblesView.h; sourceTree = "<group>"; };
@@ -832,7 +834,7 @@
 		81433A0E1CFBE5A700347C29 /* AIFoldedCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFoldedCellView.swift; sourceTree = "<group>"; };
 		81433A0F1CFBE5A700347C29 /* AIFoldedCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFoldedCellView.xib; sourceTree = "<group>"; };
 		81433A121CFBE5A700347C29 /* AIOrderDescView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIOrderDescView.swift; sourceTree = "<group>"; };
-		81433A131CFBE5A700347C29 /* ExpandContentViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandContentViewFactory.swift; sourceTree = "<group>"; };
+		81433A131CFBE5A700347C29 /* ExpandContentViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpandContentViewFactory.swift; path = ../ExpandContentViewFactory.swift; sourceTree = "<group>"; };
 		81433A151CFBE5A700347C29 /* AIPopHoldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIPopHoldView.swift; sourceTree = "<group>"; };
 		81433A161CFBE5A700347C29 /* MDCFocalPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCFocalPointView.h; sourceTree = "<group>"; };
 		81433A171CFBE5A700347C29 /* MDCFocalPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCFocalPointView.m; sourceTree = "<group>"; };
@@ -1365,6 +1367,8 @@
 		846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentHelp.swift; sourceTree = "<group>"; };
 		846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsCommentViewController.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
+		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
+		84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubServiceCardView.swift; sourceTree = "<group>"; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioSearchViewController.swift; sourceTree = "<group>"; };
 		9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAudioSearchViewController.xib; sourceTree = "<group>"; };
@@ -1847,9 +1851,6 @@
 				81433A141CFBE5A700347C29 /* PopView */,
 				81433A1C1CFBE5A700347C29 /* PurchasedService */,
 				8143398F1CFBE5A600347C29 /* buyerCard */,
-				814339871CFBE5A600347C29 /* AIOrderCellEShopSubView.swift */,
-				814339881CFBE5A600347C29 /* AIOrderCellEShopSubView.xib */,
-				81433A131CFBE5A700347C29 /* ExpandContentViewFactory.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2039,11 +2040,16 @@
 		81433A1C1CFBE5A700347C29 /* PurchasedService */ = {
 			isa = PBXGroup;
 			children = (
+				814339871CFBE5A600347C29 /* AIOrderCellEShopSubView.swift */,
+				814339881CFBE5A600347C29 /* AIOrderCellEShopSubView.xib */,
+				81433A131CFBE5A700347C29 /* ExpandContentViewFactory.swift */,
 				81433A1D1CFBE5A700347C29 /* ImageContent.swift */,
 				81433A1E1CFBE5A700347C29 /* ProposalExpandedView.swift */,
 				81433A1F1CFBE5A700347C29 /* PurchasedServiceView.swift */,
 				81433A201CFBE5A700347C29 /* ViewConstants.swift */,
 				81433A211CFBE5A700347C29 /* ViewProtocal.swift */,
+				84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */,
+				84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */,
 			);
 			path = PurchasedService;
 			sourceTree = "<group>";
@@ -3609,6 +3615,7 @@
 				13C65FA095CF27FFCE912A4D /* 📦 Embed Pods Frameworks */,
 				254E65C76A45CA1D5C7DBA22 /* 📦 Copy Pods Resources */,
 				98EE3358B27A194FE68FA1A9 /* Embed Pods Frameworks */,
+				FB9DEBB51D17CBDC00B3595D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -3710,6 +3717,7 @@
 				93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */,
 				81433D181CFBE5A700347C29 /* airplane@2x.png in Resources */,
 				846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */,
+				84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */,
 				81433D9A1CFBE5A700347C29 /* AIErrorRetryView.xib in Resources */,
 				81433EC31CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard in Resources */,
 				81433D211CFBE5A700347C29 /* BottomServiceContainer.xib in Resources */,
@@ -3836,6 +3844,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FB9DEBB51D17CBDC00B3595D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -4027,6 +4048,7 @@
 				81433E7E1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m in Sources */,
 				8175A7D21CFD2710006F2C8F /* OHAttributedLabel.m in Sources */,
 				8175A7EC1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m in Sources */,
+				84F2E5BA1D17D02E009E0C72 /* SubServiceCardView.swift in Sources */,
 				FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */,
 				81433E5E1CFBE5A700347C29 /* FLEXArgumentInputViewFactory.m in Sources */,
 				81433E5F1CFBE5A700347C29 /* FLEXDefaultEditorViewController.m in Sources */,
