@@ -22,7 +22,7 @@
                             <constraint firstAttribute="height" constant="21" id="UqZ-tX-6bN"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5n-Qs-AxA" userLabel="Stars" customClass="StarRateView" customModule="Veris" customModuleProvider="target">
@@ -70,7 +70,7 @@
                             <constraint firstAttribute="height" constant="21" id="8Zt-df-qEL"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="ServiceCommentTableViewCell.commentService"/>
@@ -85,7 +85,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="CommentDistrictView.inputHint"/>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GsB-aE-nrk" userLabel="ImageFile">
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GsB-aE-nrk" userLabel="ImageFile">
                         <rect key="frame" x="8" y="130" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="GsB-aE-nrk" secondAttribute="height" multiplier="1:1" id="fZJ-v3-Zhn"/>

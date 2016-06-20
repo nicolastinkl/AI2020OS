@@ -127,8 +127,9 @@
 //DDHTimerControl
 #import "DDHTimerControl.h"
 
+#import "AISellerCollectionViewCell.h"
+
 #import "AIAppInit.h"
 #import "iflyMSC/iflyMSC.h"
 #import "IATConfig.h"
 #import "ISRDataHelper.h"
-

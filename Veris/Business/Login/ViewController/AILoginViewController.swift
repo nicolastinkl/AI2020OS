@@ -43,6 +43,12 @@ class AILoginViewController: UIViewController {
         AILoginPublicValue.loginType = AILoginUtil.LoginType.Login
         setupViews()
         setupNavigationBar()
+        
+        #if !DEBUG
+            userIdTextField.text = "213231231321"
+            passwordTextField.text = "1233123213"
+            loginButton.enabled = true
+        #endif
     }
     
     override func didReceiveMemoryWarning() {
