@@ -139,7 +139,7 @@ extension AICustomSearchHomeViewController: UITableViewDelegate,UITableViewDataS
         let model: AISearchResultItemModel = dataSource[indexPath.row]        
         let cell = AICustomSearchHomeCell.initFromNib() as? AICustomSearchHomeCell
         cell?.initData(model)
-        cell?.contentView.backgroundColor = UIColor.clearColor()
+        cell?.backgroundColor = UIColor.clearColor()
         return cell!
     }
     

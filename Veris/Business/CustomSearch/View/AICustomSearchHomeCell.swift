@@ -40,6 +40,10 @@ class AICustomSearchHomeCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        desLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
+        
+        priceLabel.font = UIFont.systemFontOfSize(16)
+        priceLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
     }
     
     func initData(model: AISearchResultItemModel) {

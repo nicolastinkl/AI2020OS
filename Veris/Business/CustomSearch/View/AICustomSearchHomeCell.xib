@@ -91,7 +91,7 @@
                 <outlet property="nameTwiceLabel" destination="HdM-jQ-i0D" id="dqR-oe-Ed6"/>
                 <outlet property="priceLabel" destination="7od-1C-z3w" id="eMB-pQ-3f6"/>
             </connections>
-            <point key="canvasLocation" x="196" y="321"/>
+            <point key="canvasLocation" x="-89" y="427"/>
         </view>
     </objects>
 </document>

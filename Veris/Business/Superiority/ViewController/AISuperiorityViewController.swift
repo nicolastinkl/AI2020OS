@@ -81,6 +81,7 @@ class AISuperiorityViewController: UIViewController {
         titleLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
         titleLabel.setHeight(50)
         titleLabel.setLeft(10)
+        titleLabel.setWidth(self.view.width)
         addNewSubView(titleLabel, preView: imageView)
         titleLabel.text = "听说你还为孕检超碎了心？"
         
