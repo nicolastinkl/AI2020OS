@@ -7,8 +7,6 @@
 //
 
 import UIKit
-
-import UIKit
 import Spring
 import Cartography
 import AIAlertView
