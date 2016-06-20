@@ -180,7 +180,6 @@ internal class AICustomAudioNotesView: UIView, AVAudioRecorderDelegate {
         self.delegateAudio?.endRecording(model)
     }
 
-    
 
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         let data = NSData(contentsOfFile: currentAutioUrl)

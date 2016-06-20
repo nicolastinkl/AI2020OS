@@ -20,7 +20,9 @@ class AIServiceDetailTool: NSObject {
         var result: AIProposalServiceParamRelationModel?
 
         for item in relations {
-            let relation = item as! AIProposalServiceParamRelationModel
+            guard let relation = item as? AIProposalServiceParamRelationModel else {
+                continue
+            }
 
             if selectedParamValue.sid == relation.param.param_value_key {
                 result = relation

@@ -52,7 +52,7 @@ extension BuyerRequirmentMessageViewController: UITableViewDataSource, UITableVi
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as!BuyerMessageCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! BuyerMessageCell
 
         return cell
     }

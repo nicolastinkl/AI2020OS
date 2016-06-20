@@ -121,7 +121,7 @@ class JumpNumberLabel: UILabel {
     func decideNextStep(timer: NSTimer) {
         currentNumber += step
 
-        if (currentNumberIsBeyondRange()) {
+        if currentNumberIsBeyondRange() {
             stopChange()
         } else {
             continueChange()
@@ -131,7 +131,7 @@ class JumpNumberLabel: UILabel {
     }
 
     private func currentNumberIsBeyondRange() -> Bool {
-        if (step > 0) {
+        if step > 0 {
             return currentNumber > destinationFloat
         } else {
             return currentNumber < destinationFloat

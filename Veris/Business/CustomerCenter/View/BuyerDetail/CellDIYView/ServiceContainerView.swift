@@ -82,44 +82,7 @@ class ServiceContainerView: UIView {
 
     //加载数据
     func loadData(dataModel: AIProposalServiceModel) {
-        /*
-        self.dataModel = dataModel
-
-        logo.asyncLoadImage(dataModel.service_thumbnail_icon ?? "")
-        grade.asyncLoadImage(dataModel.service_rating_icon ?? "")
-
-        if dataModel.service_price != nil {
-            price.text = dataModel.service_price.original ?? "ServiceContainerView.dollarZero".localized
-        }else{
-            price.text = "ServiceContainerView.dollarZero".localized
-        }
-        name.text = dataModel.service_desc ?? ""
-
-        if dataModel.service_param != nil {
-
-            if let key = dataModel.service_param.param_key {
-                let viewTemplate = ProposalServiceViewTemplate(rawValue: Int(key)!)
-                if let paramValueString = dataModel.service_param.param_value{
-                    let jsonData = paramValueString.dataUsingEncoding(NSUTF8StringEncoding)
-                    //获取到参数的dictionary
-                    let paramDictionary = try? NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-
-                    if let serviceView = createServiceView(viewTemplate!,paramDictionary : paramDictionary!) {
-                        frame.size.height = detail.frame.origin.y + serviceView.frame.height
-                        detail.addSubview(serviceView)
-
-                        constrain(detail, serviceView) {detail, serviceView in
-                            serviceView.left == detail.left
-                            serviceView.top == detail.top
-                            serviceView.bottom == detail.bottom
-                            serviceView.right == detail.right
-                        }
-                    }
-                }
-            }
-        }
-*/
-
+        
     }
 
 

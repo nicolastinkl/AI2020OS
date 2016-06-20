@@ -62,7 +62,9 @@ class ProposalExpandedView: UIView, Measureable, DimentionChangable {
 
     private func appendServiceOrdersView() {
         for serviceModel in proposalModel!.order_list {
-            let serviceOrder = serviceModel as! ServiceOrderModel
+            guard let serviceOrder = serviceModel as? ServiceOrderModel else {
+                continue
+            }
 
             if orderIsCompletedAndChecked(serviceOrder) {
                 continue
@@ -134,7 +136,12 @@ class ProposalExpandedView: UIView, Measureable, DimentionChangable {
         }
 
 
-        title = UILabel(frame: CGRect(x: PurchasedViewDimention.PROPOSAL_PADDING_LEFT, y: PurchasedViewDimention.PROPOSAL_TITLE_MARGIN_TOP, width: 200, height: PurchasedViewDimention.PROPOSAL_TITLE_HEIGHT))
+        title = UILabel(frame: CGRect(
+            x: PurchasedViewDimention.PROPOSAL_PADDING_LEFT,
+            y: PurchasedViewDimention.PROPOSAL_TITLE_MARGIN_TOP,
+            width: 200,
+            height: PurchasedViewDimention.PROPOSAL_TITLE_HEIGHT))
+        
         title.font = PurchasedViewFont.TITLE
         title.textColor = PurchasedViewColor.TITLE
 //        title.text = "ProposalExpandedView.shop"
