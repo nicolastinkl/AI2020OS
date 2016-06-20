@@ -32,9 +32,16 @@ import SnapKit
 /// 服务优势介绍视图
 class AISuperiorityViewController: UIViewController {
     
+    
     @IBOutlet weak var scrollview: UIScrollView!
     
     private var preCacheView: UIView?
+    
+    var serviceModel: AISearchResultItemModel? {
+        didSet{
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +81,7 @@ class AISuperiorityViewController: UIViewController {
         titleLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
         titleLabel.setHeight(50)
         titleLabel.setLeft(10)
+        titleLabel.setWidth(self.view.width)
         addNewSubView(titleLabel, preView: imageView)
         titleLabel.text = "听说你还为孕检超碎了心？"
         

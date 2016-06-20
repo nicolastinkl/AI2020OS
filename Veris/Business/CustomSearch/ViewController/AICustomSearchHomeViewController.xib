@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AICustomSearchHomeViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="holdView" destination="ZmO-Bo-P57" id="w7M-vp-euA"/>
+                <outlet property="tableView" destination="x0X-vW-wdc" id="AnB-hf-7fp"/>
                 <outlet property="view" destination="kgd-tX-Y0E" id="8IO-Dh-mWN"/>
             </connections>
         </placeholder>
@@ -130,13 +132,39 @@
                                 <constraint firstItem="zD7-9t-ur3" firstAttribute="leading" secondItem="6tC-Zl-1mK" secondAttribute="leading" id="xq9-wb-GQ0"/>
                             </constraints>
                         </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x0X-vW-wdc">
+                            <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="SUP-sj-Txb"/>
+                                <outlet property="delegate" destination="-1" id="fzh-mp-Xjg"/>
+                            </connections>
+                        </tableView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZmO-Bo-P57">
+                            <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="6tC-Zl-1mK" secondAttribute="trailing" id="Bbt-FI-hVY"/>
+                        <constraint firstAttribute="trailing" secondItem="x0X-vW-wdc" secondAttribute="trailing" id="H4K-O5-zcx"/>
+                        <constraint firstItem="x0X-vW-wdc" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" id="IEz-7f-ofv"/>
+                        <constraint firstAttribute="bottom" secondItem="ZmO-Bo-P57" secondAttribute="bottom" id="daQ-ws-ddP"/>
+                        <constraint firstItem="ZmO-Bo-P57" firstAttribute="top" secondItem="6tC-Zl-1mK" secondAttribute="bottom" id="jfS-Kh-YP1"/>
                         <constraint firstItem="6tC-Zl-1mK" firstAttribute="top" secondItem="gcb-5F-OXg" secondAttribute="top" id="qg0-VS-9jS"/>
+                        <constraint firstItem="x0X-vW-wdc" firstAttribute="top" secondItem="6tC-Zl-1mK" secondAttribute="bottom" id="rHR-Yw-J5A"/>
+                        <constraint firstItem="ZmO-Bo-P57" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" id="rf5-ML-Vqb"/>
                         <constraint firstItem="6tC-Zl-1mK" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" id="sSB-au-jIe"/>
+                        <constraint firstAttribute="bottom" secondItem="x0X-vW-wdc" secondAttribute="bottom" id="vou-8q-BHt"/>
+                        <constraint firstAttribute="trailing" secondItem="ZmO-Bo-P57" secondAttribute="trailing" id="xaq-d0-U7r"/>
+                        <constraint firstItem="ZmO-Bo-P57" firstAttribute="top" secondItem="6tC-Zl-1mK" secondAttribute="top" id="zVs-7f-KFh"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="zVs-7f-KFh"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -150,7 +178,7 @@
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="ecc-f6-tlq"/>
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="uh5-Iw-2bm"/>
             </constraints>
-            <point key="canvasLocation" x="-103" y="226"/>
+            <point key="canvasLocation" x="-241" y="124"/>
         </view>
     </objects>
     <resources>

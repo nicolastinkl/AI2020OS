@@ -19,8 +19,12 @@ class AICustomSearchHomeViewController: UIViewController {
 	var searchBar: UISearchBar?
     var recentlySearchTag: AISearchHistoryLabels!
     var everyOneSearchTag: AISearchHistoryLabels!
-
+    
+    @IBOutlet weak var holdView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     //MARK: Private
+    
+    private var dataSource: [AISearchResultItemModel] = Array<AISearchResultItemModel>()
  
 	// MARK: Method Init
 	
@@ -44,11 +48,11 @@ class AICustomSearchHomeViewController: UIViewController {
 		// Make Test Data View
 		recentlySearchTag = AISearchHistoryLabels(frame: CGRectMake(10, 60, 300, 200), title: "You recently searched", labels: ["Pregnat", "Travel", "Europe", "Outdoors"])
         recentlySearchTag.delegate = self
-		view.addSubview(recentlySearchTag)
+		holdView.addSubview(recentlySearchTag)
 		everyOneSearchTag = AISearchHistoryLabels(frame: CGRectMake(10, 60, 300, 200), title: "Everyone is searching", labels: ["Ordering", "Baby Carriage", "Children's clothing"])
         everyOneSearchTag.delegate = self
         everyOneSearchTag.setY(recentlySearchTag.bottom + 30)
-        view.addSubview(everyOneSearchTag)
+        holdView.addSubview(everyOneSearchTag)
         
 		
 		// Make Wish Button
@@ -78,7 +82,18 @@ class AICustomSearchHomeViewController: UIViewController {
             if let dataJSON = data {
                 do {
                     let model = try AISearchResultModel(data: dataJSON)
-                    print(model.results)
+                    
+//                  model.results = model.results.map({ AISearchResultItemModel(dictionary: $0)})
+                    do {
+                        try model.results?.forEach({ (item) in
+                            let resultItem = try AISearchResultItemModel(dictionary: item as [NSObject : AnyObject])
+                            dataSource.append(resultItem)
+                        })
+                    }catch{}
+                    
+                    if dataSource.count > 0 {
+                        tableView.reloadData()
+                    }
                 } catch {
                     print("AIOrderPreListModel JSON Parse err.")
                     
@@ -88,11 +103,12 @@ class AICustomSearchHomeViewController: UIViewController {
     }
 }
  
-extension AICustomSearchHomeViewController : UITextFieldDelegate {
+extension AICustomSearchHomeViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         searching()
+        holdView.hidden = true
         textField.resignFirstResponder()
         
         return true
@@ -106,3 +122,36 @@ extension AICustomSearchHomeViewController: AISearchHistoryLabelsDelegate {
         print(clickedText)
     }
 }
+
+extension AICustomSearchHomeViewController: UITableViewDelegate,UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let model: AISearchResultItemModel = dataSource[indexPath.row]
+        let vc = AISuperiorityViewController.initFromNib()
+        vc.serviceModel = model
+        showTransitionStyleCrossDissolveView(vc)
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let model: AISearchResultItemModel = dataSource[indexPath.row]        
+        let cell = AICustomSearchHomeCell.initFromNib() as? AICustomSearchHomeCell
+        cell?.initData(model)
+        cell?.backgroundColor = UIColor.clearColor()
+        return cell!
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 110.0
+    }
+}
+
