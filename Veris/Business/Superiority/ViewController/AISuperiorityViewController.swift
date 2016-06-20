@@ -44,6 +44,8 @@ class AISuperiorityViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
         
         // MARK: Init
@@ -53,7 +55,7 @@ class AISuperiorityViewController: UIViewController {
         initDataWithModel()
         
         // MARK: Loading Data Views
-        Async.main(after: 0.1) { 
+        Async.main(after: 0.15) {
             self.initDatawithViews()
         }
         
@@ -79,7 +81,7 @@ class AISuperiorityViewController: UIViewController {
         titleLabel.numberOfLines = 2
         titleLabel.lineBreakMode = .ByCharWrapping
         titleLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
-        titleLabel.setHeight(50)
+        titleLabel.setHeight(80)
         titleLabel.setLeft(10)
         titleLabel.setWidth(self.view.width)
         addNewSubView(titleLabel, preView: imageView)
@@ -110,6 +112,36 @@ class AISuperiorityViewController: UIViewController {
         
         // Add Service List Icon , So at top and at down.
         
+        
+        let serverIcons = UIView()
+        serverIcons.setHeight(300)
+        var height: CGFloat = 0
+        var preView:UIView?
+        for i in 0...4 {
+            if let iconText = AISuperiorityIconTextView.initFromNib() {
+                let offSet: CGFloat = 50.0 + CGFloat(arc4random() % 20)
+                iconText.setTop(height)
+                serverIcons.addSubview(iconText)
+                height = offSet + iconText.top
+                if i % 2 != 0 {
+                    iconText.setLeft(100 + CGFloat(arc4random() % 20))
+                }
+                
+                if let pre = preView {
+//                    let imageview = drawAtLineWithPoint(pre.frame.origin, endPoint: iconText.frame.origin)
+//                    serverIcons.addSubview(imageview)
+                    
+                }
+                
+                preView = iconText
+                
+            }
+        }
+        
+        
+        addNewSubView(serverIcons, preView: priceLabel)
+        
+        
     }
     
     func initDataWithModel(){
@@ -131,7 +163,7 @@ class AISuperiorityViewController: UIViewController {
             
             navi.titleLabel.text = "孕检无忧"
             
-            Async.main(after: 0.1, block: { 
+            Async.main(after: 0.15, block: {
                 navi.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
             })
         }

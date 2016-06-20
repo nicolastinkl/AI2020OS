@@ -577,6 +577,8 @@
 		93B523921BB8F0F400DFB1C9 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B523911BB8F0F400DFB1C9 /* CoreMotion.framework */; };
 		93BEFFDB1D0D472700832799 /* AISuperiorityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BEFFDA1D0D472700832799 /* AISuperiorityCellView.swift */; };
 		93BEFFDD1D0D474B00832799 /* AISuperiorityCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BEFFDC1D0D474B00832799 /* AISuperiorityCellView.xib */; };
+		93C289C41D178A1A003F0473 /* AISuperiorityIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C289C31D178A1A003F0473 /* AISuperiorityIconTextView.swift */; };
+		93C289C61D178A27003F0473 /* AISuperiorityIconTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C289C51D178A27003F0473 /* AISuperiorityIconTextView.xib */; };
 		93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F2E1B9C25EC007BF506 /* UIKit.framework */; };
 		93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F301B9C25F8007BF506 /* Foundation.framework */; };
 		93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F321B9C27B1007BF506 /* CoreText.framework */; };
@@ -1438,6 +1440,8 @@
 		93B523911BB8F0F400DFB1C9 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		93BEFFDA1D0D472700832799 /* AISuperiorityCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityCellView.swift; sourceTree = "<group>"; };
 		93BEFFDC1D0D474B00832799 /* AISuperiorityCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityCellView.xib; sourceTree = "<group>"; };
+		93C289C31D178A1A003F0473 /* AISuperiorityIconTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityIconTextView.swift; sourceTree = "<group>"; };
+		93C289C51D178A27003F0473 /* AISuperiorityIconTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityIconTextView.xib; sourceTree = "<group>"; };
 		93C33F2C1B9C256F007BF506 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		93C33F2E1B9C25EC007BF506 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		93C33F301B9C25F8007BF506 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -3197,6 +3201,8 @@
 				93BEFFDC1D0D474B00832799 /* AISuperiorityCellView.xib */,
 				FB01810D1D0D650100213DF8 /* AISearchBar.swift */,
 				FB01810F1D0D650E00213DF8 /* AISearchBar.xib */,
+				93C289C31D178A1A003F0473 /* AISuperiorityIconTextView.swift */,
+				93C289C51D178A27003F0473 /* AISuperiorityIconTextView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3719,6 +3725,7 @@
 				81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */,
 				81433D121CFBE5A700347C29 /* AIOrderCellEShopSubView.xib in Resources */,
 				81433D881CFBE5A700347C29 /* UIPopView.xib in Resources */,
+				93C289C61D178A27003F0473 /* AISuperiorityIconTextView.xib in Resources */,
 				81433D3A1CFBE5A700347C29 /* AIAudioRecordView.xib in Resources */,
 				81433E141CFBE5A700347C29 /* OrderAndBuyerInfoView.xib in Resources */,
 				81433E111CFBE5A700347C29 /* SeparatorLineLabel.xib in Resources */,
@@ -4201,6 +4208,7 @@
 				81433CDB1CFBE5A700347C29 /* AIRACModel.swift in Sources */,
 				81433E8A1CFBE5A700347C29 /* FLEXDictionaryExplorerViewController.m in Sources */,
 				93A0ABDF1D12AD6200562090 /* JSONHTTPClient.m in Sources */,
+				93C289C41D178A1A003F0473 /* AISuperiorityIconTextView.swift in Sources */,
 				81433D151CFBE5A700347C29 /* AIBubblesView.m in Sources */,
 				8175A7F81CFD2710006F2C8F /* SDImageCache.m in Sources */,
 				81433D2E1CFBE5A700347C29 /* ServiceSettingView.swift in Sources */,
