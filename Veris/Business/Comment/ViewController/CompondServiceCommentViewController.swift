@@ -14,6 +14,8 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private var currentOperateCell = -1
     
     @IBOutlet weak var serviceTableView: UITableView!
+    @IBOutlet weak var checkbox: CheckboxButton!
+    @IBOutlet weak var submit: UIButton!
     
     class func loadFromXib() -> CompondServiceCommentViewController {
         let vc = CompondServiceCommentViewController(nibName: "CompondServiceCommentViewController", bundle: nil)
@@ -22,6 +24,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkbox.layer.cornerRadius = 4
+        submit.layer.cornerRadius = submit.height / 2
         
         comments = [CommentTestModel]()
         

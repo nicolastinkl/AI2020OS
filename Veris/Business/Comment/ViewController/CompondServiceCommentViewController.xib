@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompondServiceCommentViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="checkbox" destination="MtS-bA-Bby" id="FQb-yy-0PH"/>
                 <outlet property="serviceTableView" destination="65X-Wc-aJO" id="Wkg-HY-hxx"/>
+                <outlet property="submit" destination="akx-Da-VWD" id="yzx-oy-fR8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,21 +19,71 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="65X-Wc-aJO">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="514"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="gHq-lp-2np"/>
                         <outlet property="delegate" destination="-1" id="OL6-Ud-hUE"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akx-Da-VWD" userLabel="Submit">
+                    <rect key="frame" x="257" y="543" width="86" height="38"/>
+                    <color key="backgroundColor" red="0.058823529409999999" green="0.52549019610000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ailButtonNormalTitle" value="CompondServiceCommentViewController.submit"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtS-bA-Bby" customClass="CheckboxButton" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="16" y="518" width="20" height="20"/>
+                    <color key="backgroundColor" red="0.90980392160000001" green="0.96078431369999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="MUi-NB-jSt"/>
+                        <constraint firstAttribute="height" constant="20" id="aHN-Li-iMe"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
+                            <color key="value" red="0.1304118521" green="0.21717120579999999" blue="0.541311553" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckr-Qo-fjw" userLabel="Anonymous">
+                    <rect key="frame" x="41" y="518" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="CompondServiceCommentViewController.anonymous"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="65X-Wc-aJO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6H0-if-eyH"/>
+                <constraint firstItem="ckr-Qo-fjw" firstAttribute="leading" secondItem="MtS-bA-Bby" secondAttribute="trailing" constant="5" id="7bO-Uu-eVs"/>
                 <constraint firstItem="65X-Wc-aJO" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="84B-Ph-TPv"/>
+                <constraint firstItem="ckr-Qo-fjw" firstAttribute="top" secondItem="MtS-bA-Bby" secondAttribute="bottom" constant="-20" id="9Gw-2d-Znd"/>
+                <constraint firstItem="ckr-Qo-fjw" firstAttribute="centerY" secondItem="MtS-bA-Bby" secondAttribute="centerY" id="Gr0-bp-zDx"/>
                 <constraint firstItem="65X-Wc-aJO" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="ISP-OH-FrL"/>
+                <constraint firstAttribute="bottom" secondItem="akx-Da-VWD" secondAttribute="bottom" constant="19" id="Ryu-Az-KhP"/>
+                <constraint firstItem="MtS-bA-Bby" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="X0c-9B-vaJ"/>
+                <constraint firstItem="akx-Da-VWD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="agl-PJ-nhm"/>
+                <constraint firstItem="akx-Da-VWD" firstAttribute="top" secondItem="65X-Wc-aJO" secondAttribute="bottom" constant="29" id="sUI-9F-ep4"/>
+                <constraint firstItem="akx-Da-VWD" firstAttribute="top" secondItem="MtS-bA-Bby" secondAttribute="bottom" constant="5" id="uH6-fN-mfb"/>
                 <constraint firstItem="65X-Wc-aJO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wOA-dY-7mj"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="ISP-OH-FrL"/>
+                    <exclude reference="9Gw-2d-Znd"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>
