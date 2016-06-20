@@ -14,7 +14,7 @@ run_swiftlint() {
     local filename="${1}"
     if [[ "${filename##*.}" == "swift" ]]; then
         ${SWIFT_LINT} autocorrect --path "${filename}"
-        ${SWIFT_LINT} lint --path "${filename}"
+        # ${SWIFT_LINT} lint --path "${filename}"
     fi
 }
 
