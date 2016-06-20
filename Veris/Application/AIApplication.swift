@@ -19,7 +19,7 @@ import UIKit
 struct AIApplication {
 
     // MARK: LEANCLOUD APPKEY
-    internal static let AVOSCLOUDID  = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
+          internal static let AVOSCLOUDID  = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
 
     internal static let AVOSCLOUDKEY = "LGwq0DTaJb8D59IV3kK18wmh"
 
