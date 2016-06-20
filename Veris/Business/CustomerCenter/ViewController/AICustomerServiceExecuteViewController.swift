@@ -58,8 +58,30 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
   // MARK: -
   
   // MARK: -> Interface Builder properties
+    
+    @IBOutlet weak var buttonAll: UIButton!
+    @IBOutlet weak var buttonMessage: UIButton!
+    @IBOutlet weak var buttonNeedReply: UIButton!
+    @IBOutlet weak var serviceIconContainerView: UIView!
+    @IBOutlet weak var timelineContainerView: UIView!
+    @IBOutlet weak var orderInfoView: UIView!
+    
+    
   
   // MARK: -> Interface Builder actions
+    
+    
+    @IBAction func timelineFilterButtonAction(sender: UIButton) {
+        
+    }
+    
+    @IBAction func contactAction(sender: UIButton) {
+    }
+
+    
+    @IBAction func filterPopAction(sender: UIButton) {
+        
+    }
   
   // MARK: -> Class override UIViewController
   
