@@ -35,6 +35,7 @@ class AISuperiorityViewController: UIViewController {
 
     @IBOutlet weak var scrollview: UIScrollView!
 
+    @IBOutlet weak var roundView: UIView!
     private var preCacheView: UIView?
 
     var serviceModel: AISearchResultItemModel? {
@@ -44,21 +45,28 @@ class AISuperiorityViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-
-
         super.viewDidLoad()
-
         // MARK: Init
-        initLayoutViews()
+        self.initLayoutViews()
 
-        // MARK: Layout
-        initDataWithModel()
-
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         // MARK: Loading Data Views
         Async.main(after: 0.15) {
+             
+            // MARK: Layout
+            self.initDataWithModel()
+
+            
             self.initDatawithViews()
         }
-
+    }
+    
+    
+    @IBAction func targetServiceDetail(any: AnyObject) {
+        showTransitionStyleCrossDissolveView(AIProductInfoViewController.initFromNib())
     }
 
     func initDatawithViews() {
@@ -83,7 +91,7 @@ class AISuperiorityViewController: UIViewController {
         titleLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
         titleLabel.setHeight(80)
         titleLabel.setLeft(10)
-        titleLabel.setWidth(self.view.width)
+        titleLabel.setWidth(UIScreen.mainScreen().bounds.width)
         addNewSubView(titleLabel, preView: imageView)
         titleLabel.text = "听说你还为孕检超碎了心？"
 
@@ -114,33 +122,46 @@ class AISuperiorityViewController: UIViewController {
 
 
         let serverIcons = UIView()
-        serverIcons.setHeight(300)
+        serverIcons.setHeight(350)
         var height: CGFloat = 0
         var preView: UIView?
+        var leftOffset : CGFloat = 0
         for i in 0...4 {
             if let iconText = AISuperiorityIconTextView.initFromNib() {
                 let offSet: CGFloat = 50.0 + CGFloat(arc4random() % 20)
                 iconText.setTop(height)
-                serverIcons.addSubview(iconText)
                 height = offSet + iconText.top
                 if i % 2 != 0 {
-                    iconText.setLeft(100 + CGFloat(arc4random() % 20))
+                    
+                    iconText.setLeft(self.view.width / 3 + CGFloat(arc4random() % 50) + leftOffset)
+                }else{
+                    iconText.setLeft(leftOffset)
                 }
-
+                serverIcons.addSubview(iconText)
+                
                 if let pre = preView {
-//                    let imageview = drawAtLineWithPoint(pre.frame.origin, endPoint: iconText.frame.origin)
-//                    serverIcons.addSubview(imageview)
-
+                    let cureModel = CurveModel()
+                    cureModel.startX = pre.frame.origin.x + 20
+                    cureModel.startY = pre.frame.origin.y + 20
+                    cureModel.endX = iconText.frame.origin.x + 20
+                    cureModel.endY = iconText.frame.origin.y + 20
+                    cureModel.strokeWidth = 1
+                    cureModel.strokeColor = UIColor(hexString: "#FFFFFF", alpha: 0.3)
+                    
+                    addCurveLineWithModel(cureModel, sview: serverIcons)
+                    
+                    
                 }
 
                 preView = iconText
-
+                leftOffset += 10
             }
         }
 
 
         addNewSubView(serverIcons, preView: priceLabel)
 
+//        addCureLineView()
 
     }
 
@@ -160,53 +181,66 @@ class AISuperiorityViewController: UIViewController {
                 layout.right == layout.superview!.right
                 layout.height == 44.0 + 10.0
             })
-
+            
+            navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+            navi.setRightIcon2Action(UIImage(named: "AINavigationBar_send")!)
             navi.titleLabel.text = "孕检无忧"
 
-            Async.main(after: 0.15, block: {
-                navi.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
-            })
         }
-
     }
 
     func addNewSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
+        cview.alpha = 0
         scrollview.addSubview(cview)
         cview.setWidth(self.view.width)
         cview.setTop(preView.top + preView.height+space)
         cview.backgroundColor = color
         scrollview.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
         preCacheView = cview
+        
+        SpringAnimation.springEaseIn(0.2) { 
+            cview.alpha = 1
+        }
+        
+        
     }
-
-    /**
-     通过两点之间画线。
-
-     - parameter startPoint: startPoint
-     - parameter endPoint:   endPoint
-     */
-    func drawAtLineWithPoint(startPoint: CGPoint, endPoint: CGPoint) -> UIImageView {
-
-        let imageView: UIImageView = UIImageView(frame: self.view.frame)
-
-        UIGraphicsBeginImageContext(imageView.frame.size)
-        imageView.image!.drawInRect(CGRectMake(0, 0, imageView.frame.size.width, imageView.frame.size.height))
-        CGContextSetLineCap(UIGraphicsGetCurrentContext(), CGLineCap.Round)
-        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 15.0)
-        //线宽
-        CGContextSetAllowsAntialiasing(UIGraphicsGetCurrentContext(), true)
-        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 1.0, 0.0, 0.0, 1.0)
-        //颜色
-        CGContextBeginPath(UIGraphicsGetCurrentContext())
-        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 100, 100)
-        //起点坐标
-        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 200, 100)
-        //终点坐标
-        CGContextStrokePath(UIGraphicsGetCurrentContext())
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return imageView
-
+    
+    func addCureLineView(){
+        let rightOffset = self.roundView.right
+        let center: CGPoint = CGPointMake(self.roundView.width/2, self.roundView.height)
+        let startPoint: CGPoint = CGPointMake(0,0)
+        let endPoint: CGPoint = CGPointMake(rightOffset,0)
+        let control1: CGPoint = center
+        let path: UIBezierPath = UIBezierPath()
+        path.moveToPoint(startPoint)
+//        path.addLineToPoint(endPoint)
+        path.addCurveToPoint(endPoint, controlPoint1: control1, controlPoint2: control1)
+        let pathLayer: CAShapeLayer = CAShapeLayer()
+        pathLayer.frame = self.roundView.bounds
+        pathLayer.path = path.CGPath
+        pathLayer.strokeColor = UIColor(hexString: "#FFFFFF", alpha: 0.3).CGColor
+        pathLayer.fillColor = nil
+        pathLayer.lineWidth = 1
+        pathLayer.lineJoin = kCALineJoinRound
+        self.roundView.layer.addSublayer(pathLayer)
+        
+    }
+    
+    func addCurveLineWithModel(model: CurveModel,sview: UIView) -> CAShapeLayer {
+        let startPoint: CGPoint = CGPointMake(model.startX, model.startY)
+        let endPoint: CGPoint = CGPointMake(model.endX, model.endY)
+        let path: UIBezierPath = UIBezierPath()
+        path.moveToPoint(startPoint)
+        path.addLineToPoint(endPoint)
+        let pathLayer: CAShapeLayer = CAShapeLayer()
+        pathLayer.frame = sview.bounds
+        pathLayer.path = path.CGPath
+        pathLayer.strokeColor = model.strokeColor.CGColor
+        pathLayer.fillColor = nil
+        pathLayer.lineWidth = model.strokeWidth
+        pathLayer.lineJoin = kCALineJoinRound
+        sview.layer.insertSublayer(pathLayer, atIndex: 0)
+        return pathLayer
     }
 
 }

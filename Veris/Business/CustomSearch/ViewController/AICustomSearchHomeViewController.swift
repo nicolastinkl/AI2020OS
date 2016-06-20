@@ -126,6 +126,7 @@ extension AICustomSearchHomeViewController: AISearchHistoryLabelsDelegate {
 extension AICustomSearchHomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let model: AISearchResultItemModel = dataSource[indexPath.row]
         let vc = AISuperiorityViewController.initFromNib()
         vc.serviceModel = model

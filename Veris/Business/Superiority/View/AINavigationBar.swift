@@ -40,6 +40,13 @@ class AINavigationBar: UIView {
         backButton.addTarget(self, action: #selector(AINavigationBar.closeViewController), forControlEvents: UIControlEvents.TouchUpInside)
     }
 
+    func setRightIcon1Action(icon: UIImage){
+        commentButton.setImage(icon, forState: UIControlState.Normal)
+    }
+    
+    func setRightIcon2Action(icon: UIImage){
+        videoButton.setImage(icon, forState: UIControlState.Normal)
+    }
 
     func showNavigationLine() {
 
