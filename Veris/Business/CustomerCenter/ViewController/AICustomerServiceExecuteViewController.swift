@@ -27,36 +27,6 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
   
   // MARK: -> Public protocol <#protocol name#>
   
-  // MARK: -
-  // MARK: Internal access
-  // MARK: -
-  
-  // MARK: -> Internal properties
-  
-  // MARK: -> Internal class methods
-  
-  // MARK: -> Internal init methods
-  
-  // MARK: -> Internal methods
-  
-  // MARK: -> Internal protocol <#protocol name#>
-  
-  // MARK: -
-  // MARK: Private access
-  // MARK: -
-  
-  // MARK: -> Private properties
-  
-  // MARK: -> Private class methods
-  
-  // MARK: -> Private init methods
-  
-  // MARK: -> Private methods
-  
-  // MARK: -
-  // MARK: Interface
-  // MARK: -
-  
   // MARK: -> Interface Builder properties
     
     @IBOutlet weak var buttonAll: UIButton!

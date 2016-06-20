@@ -16,32 +16,32 @@ import UIKit
 *  AI2020OS Application Paramters
 */
 
-struct AIApplication{
-    
+struct AIApplication {
+
     // MARK: LEANCLOUD APPKEY
     internal static let AVOSCLOUDID  = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
-    
+
     internal static let AVOSCLOUDKEY = "LGwq0DTaJb8D59IV3kK18wmh"
-    
+
     internal static let KURL_ReleaseURL =  "http://171.221.254.231:3000"  //正式地址
     internal static let KURL_DebugURL   =  "http://171.221.254.231:3000"  //测试地址
-    
+
     // MARK: XUNFEI APPID
     internal static let XUNFEIAPPID  = "551ba83b"
-    
+
     struct IPHONEOS {
         static let IS_IPHONE6PLUS = UIScreen.mainScreen().bounds.size.width > 375
     }
-    
+
     // MARK JSON RESPONSE
-    
+
     struct JSONREPONSE {
         internal static let unassignedNum   =  "unassignedNum"  //未读执行条数
     }
-    
+
     // MARK: All the ViewController Identifiers
     struct MainStoryboard {
-        
+
         struct MainStoryboardIdentifiers {
             static let AIMainStoryboard             = "AIMainStoryboard"
             static let AILoginStoryboard            = "AILoginStoryboard"
@@ -61,9 +61,10 @@ struct AIApplication{
             static let UIRrequirementStoryboard     = "UIRrequirementStoryboard"
             static let AIAlertStoryboard            = "AIAlertStoryboard"
             static let TaskExecuteStoryboard        = "TaskExecuteStoryboard"
-            
+            static let AIServiceExecuteStoryboard   = "AIServiceExecuteStoryboard"
+
         }
-        
+
         // MARK: View
         struct ViewControllerIdentifiers {
             static let listViewController           = "listViewController"
@@ -91,15 +92,16 @@ struct AIApplication{
             static let AIValidateRegistViewController = "AIValidateRegistViewController"
             static let AIRegistViewController = "AIRegistViewController"
             static let AIChangePasswordViewController = "AIChangePasswordViewController"
+            static let AICustomerServiceExecuteViewController = "AICustomerServiceExecuteViewController"
         }
-        
+
         /*!
         *  @author tinkl, 15-09-09 15:09:38
         *
         *  Cell ID
         */
         struct CellIdentifiers {
-            
+
             // MARK: HOME
             static let AIUIMainTopCell              = "UIMainTopCell"
             static let AIUIMainMediaCell            = "UIMainMediaCell"
@@ -107,7 +109,7 @@ struct AIApplication{
             static let AIUIMainActionCell           = "UIMainActionCell"
             static let AIUIMainSpaceHloderCell      = "UIMainSpaceHloderCell"
             static let AIUISigntureTagsCell         = "UISigntureTagsCell"
-            
+
             // MARK: Detail
             static let AISDDateCell                 = "AISDDateCell"
             static let AICoverFlowCell              = "AICoverFlowCell"
@@ -117,18 +119,18 @@ struct AIApplication{
             static let AITableCellHolder            = "AITableCellHolder"
             static let AITableCellHolderParms       = "AITableCellHolderParms"
             static let AITableCellHolderParmsModel  = "AITableCellHolderParmsModel"
-            
+
             // MARK: TIME LINE
             static let AITIMELINESDTimesViewCell    = "AITIMELINESDTimesViewCell"
             static let AITIMELINESDContentViewCell  = "AITIMELINESDContentViewCell"
-            
+
             // MARK: BUYER
             static let AITableFoldedCellHolder = "AITableFoldedCellHolder"
             static let AITableExpandedCellHolder = "AITableExpandedCellHolder"
-            
-            
+
+
         }
-        
+
         /*!
         *  @author tinkl, 15-09-09 15:09:44
         *
@@ -150,10 +152,10 @@ struct AIApplication{
             static let AITabelViewMenuView  = "AITabelViewMenuView"
             static let AICalendarViewController =   "AICalendarViewController"
             static let AIScanViewController = "AIScanViewController"
-            
-            
+
+
         }
-        
+
         /*!
          *  @author wantsor, 16-06-13 15:09:44
          *
@@ -165,14 +167,14 @@ struct AIApplication{
             static let RegisterSegue = "RegisterSegue"
         }
     }
-    
+
     // MARK: Notification with IM or System Push.
-    struct Notification{
+    struct Notification {
         static let UIAIASINFOWillShowBarNotification    = "UIAIASINFOWillShowBarNotification"
         static let UIAIASINFOWillhiddenBarNotification  = "UIAIASINFOWillhiddenBarNotification"
         static let UIAIASINFOLoginNotification          = "UIAIASINFOLoginNotification"
         static let UIAIASINFOLogOutNotification         = "UIAIASINFOLogOutNotification"
-        
+
         static let UIAIASINFOOpenAddViewNotification         = "UIAIASINFOOpenAddViewNotification"
         static let UIAIASINFOOpenRemoveViewNotification         = "UIAIASINFOOpenRemoveViewNotification"
         static let UIAIASINFOChangeDateViewNotification         = "UIAIASINFOChangeDateViewNotification"
@@ -182,7 +184,7 @@ struct AIApplication{
         //一键清除订单
         static let UIAIASINFORecoverOrdersNotification = "UIAIASINFORecoverOrdersNotification"
 
-        
+
         static let AIDatePickerViewNotificationName  = "AIDatePickerViewNotificationName"
         static let AISinglePickerViewNotificationName  = "AISinglePickerViewNotificationName"
         static let AIAIRequirementViewControllerNotificationName    = "AIAIRequirementViewControllerNotificationName"
@@ -191,24 +193,24 @@ struct AIApplication{
         static let AIAIRequirementNotifyClearNumberCellNotificationName    = "AIAIRequirementNotifyClearNumberCellNotificationName"
         static let AIAIRequirementNotifynotifyGenerateModelNotificationName    = "AIAIRequirementNotifynotifyGenerateModelNotificationName"
         static let AIRequireContentViewControllerCellWrappNotificationName    = "AIRequireContentViewControllerCellWrappNotificationName"
-        
+
         static let AIRequirementViewShowAssignToastNotificationName    = "AIRequirementViewShowAssignToastNotificationName"
-        
-        
+
+
         //服务执行页选择一个服务实例的通知 add by liux at 20160330
         static let AIRequirementSelectServiceInstNotificationName = "AIRequirementSelectServiceInstNotificationName"
-        
+
         //关闭弹出框UI的通知
         static let AIRequirementClosePopupNotificationName = "AIRequirementClosePopupNotificationName"
-        
+
         //更新查询需求分析数据的通知
         static let AIRequirementReloadDataNotificationName = "AIRequirementReloadDataNotificationName"
-        
+
         // 远程协助状态更新
         static let AIRemoteAssistantConnectionStatusChangeNotificationName = "AIRemoteAssistantConnectionStatusChangeNotificationName"
         static let AIRemoteAssistantManagerMessageReceivedNotificaitonName = "AIRemoteAssistantManagerMessageReceivedNotificaitonName"
     }
-    
+
     // MARK: System theme's color
     struct AIColor {
         static let MainTextColor     = "#FFFFFF"
@@ -216,31 +218,31 @@ struct AIApplication{
         static let MainTabBarBgColor = "#00cec0"
         static let MainYellowBgColor = "#f0ff00"
         static let MainGreenBgColor  = "#5fc30d"
-        
+
         static let AIVIEWLINEColor   = "#E4E3E4"
-        
+
         static let MainSystemBlueColor   = "#625885"//"#00CEC3"
         static let MainSystemBlackColor  = "#848484"
         static let MainSystemGreenColor  = "#00cec0"
-        
+
         static let MainSystemLineColor  = "#F1F1F1"
     }
-    
+
     struct AIViewTags {
         static let loadingProcessTag        = 101
         static let errorviewTag             = 102
         static let AIMessageUnReadViewTag   = 103
     }
-    
+
     struct AIStarViewFrame {
-        static let width:CGFloat            = 60.0
-        static let height:CGFloat           = 9.0
+        static let width: CGFloat            = 60.0
+        static let height: CGFloat           = 9.0
     }
-    
+
     struct AIImagePlaceHolder {
         static let AIDefaultPlaceHolder = "http://tinkl.qiniudn.com/tinklUpload_scrollball_5.png"
     }
-    
+
     // MARK: IM ObjectIDS
     struct AIIMOBJECTS {
         static let AIYUJINGID = "556c0a2ae4b09419962544b7"          //预警通知
@@ -248,51 +250,51 @@ struct AIApplication{
         static let AITUIKUAN = "556c0b8fe4b0941996254f8f"           //退款通知
         static let AIXITONG = "556c0c06e4b0941996255223"            //系统通知
     }
-    
+
     // MARK: The Application preferorm
-    internal func SendAction(functionName:String,ownerName:AnyObject){
+    internal func SendAction(functionName: String, ownerName: AnyObject) {
         /*!
         *   how to use it ?
         SendAction("minimizeView:", ownerName: self)
         */
         UIApplication.sharedApplication().sendAction(Selector(functionName), to: nil, from: ownerName, forEvent: nil)
     }
-    
+
     /*!
     Application hook viewdidload
     */
-    static func hookViewDidLoad(){
+    static func hookViewDidLoad() {
         swizzlingMethod(UIViewController.self,
             oldSelector: #selector(UIViewController.viewDidLoad),
             newSelector: Selector("viewDidLoadForChangeTitleColor"))
     }
-    
+
     /*!
     Application hookViewDesLoad
     */
-    static func hookViewWillAppear(){
+    static func hookViewWillAppear() {
         swizzlingMethod(UIViewController.self,
             oldSelector: #selector(UIViewController.viewDidAppear(_:)),
             newSelector: Selector("viewWillAppearForShowBottomBar:"))
     }
-    
-    static func hookViewWillDisappear(){
+
+    static func hookViewWillDisappear() {
         swizzlingMethod(UIViewController.self,
             oldSelector: #selector(UIViewController.viewWillDisappear(_:)),
             newSelector: Selector("viewWillDisappearForHiddenBottomBar:"))
     }
-    
+
     static func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {
         let oldMethod = class_getInstanceMethod(clzz, oldSelector)
         let newMethod = class_getInstanceMethod(clzz, newSelector)
         method_exchangeImplementations(oldMethod, newMethod)
     }
-     
+
     /**
      根据不同环境获取服务器Api地址.
      */
     internal enum AIApplicationServerURL: CustomStringConvertible {
-        
+
         // 获取服务方案
         case getServiceScheme
         // 添加服务Note (文本和语音)
@@ -328,65 +330,65 @@ struct AIApplication{
         case submitOrderByService
         // 查询价格
         case findServicePrice
-        
+
         // 查询需求管理初始化信息
         case queryBusinessInfo
-        
+
         // 原始需求列表
         case queryOriginalRequirements
-        
+
         // 直接保存为待分配状态
         case saveAsTask
-        
+
         // 查询待分配标签列表接口
         case queryUnassignedRequirements
-        
+
         // 转化为标签
         case saveTagsAsTask
-        
+
         // 转化为备注
         case addNewTag
-        
+
         // 保存新增备注
         case addNewNote
-        
+
         //MARK: 增加新的任务节点
         case addNewTask
-        
+
         //MARK: 设置权限
         case setServiceProviderRights
-        
+
         //MARK: 派单
         case assginTask
-        
+
         //MARK: 查询子服务默认标签列表
         case queryServiceDefaultTags
-        
+
         //MARK: 将需求共享给其它子服务
         case distributeRequirement
-        
+
         //MARK: 查询所有的任务节点
         case queryTaskList
-        
+
         //MARK: 提交抢单
         case grabOrder
-        
+
         //MARK: 查询待抢任务信息
         case queryGrabOrderDetail
-        
+
         //MARK: 初始化任务实例
         case initTask
-        
+
         // 一键恢复订单
         var description: String {
-            
+
             let serverStatus = NSUserDefaults.standardUserDefaults().integerForKey(kDefault_ServerURLStatus)
-            if serverStatus == 0{
+            if serverStatus == 0 {
                    // debug
-            }else if serverStatus == 1{
+            } else if serverStatus == 1 {
                 // release
             }
-            
+
             switch self {
             case .getServiceScheme: return AIApplication.KURL_ReleaseURL+"/getServiceScheme"
             case .addWishListNote: return AIApplication.KURL_ReleaseURL+"/addWishListNote"
@@ -406,7 +408,7 @@ struct AIApplication{
             case .submitOrderByService:   return AIApplication.KURL_ReleaseURL + "/submitOrderByService"
             case .findServiceDetailNew: return AIApplication.KURL_ReleaseURL+"/findServiceDetailNew"
             case .findServicePrice: return AIApplication.KURL_ReleaseURL + "/findServicePrice"
-              
+
             // 原始需求列表
             case .queryBusinessInfo: return AIApplication.KURL_ReleaseURL + "/queryCustomerInfoSubserverList"
             case .queryOriginalRequirements: return AIApplication.KURL_ReleaseURL + "/queryOriginalRequirements"
@@ -429,7 +431,7 @@ struct AIApplication{
             }
         }
     }
-    
+
 }
 
 /*
@@ -441,5 +443,3 @@ class AIWrapper<T> {
         wrappedValue = theValue
     }
 }
-
-
