@@ -177,7 +177,7 @@ class AIRequirementHandler: NSObject {
     */
 
 
-    func saveAsTask(service_id: String, providerID: String, customID: String, orderID: String, requirementID: String?, requirementType: String?, toType: String, requirementList: NSArray, success : (unassignedNum: NSNumber)-> Void, fail : (errType: AINetError, errDes: String) -> Void) {
+    func saveAsTask(service_id: String, providerID: String, customID: String, orderID: String, requirementID: String?, requirementType: String?, toType: String, requirementList: NSArray, success : (unassignedNum: NSNumber) -> (), fail : (errType: AINetError, errDes: String) -> ()) {
 
         let message = AIMessage()
         let body: NSDictionary = ["data" : ["service_id":service_id, "comp_user_id" : providerID, "customer_id" : customID, "order_id" : orderID, "requirement_type" : getReType(requirementType), "requirement_id" : requirementID ?? "0", "analysis_type" : getReType(toType), "analysis_ids" : requirementList], "desc":["data_mode" : "0", "digest" : ""]]

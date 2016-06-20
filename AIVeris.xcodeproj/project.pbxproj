@@ -3609,6 +3609,7 @@
 				13C65FA095CF27FFCE912A4D /* 📦 Embed Pods Frameworks */,
 				254E65C76A45CA1D5C7DBA22 /* 📦 Copy Pods Resources */,
 				98EE3358B27A194FE68FA1A9 /* Embed Pods Frameworks */,
+				FB9DEBB51D17CBDC00B3595D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -3836,6 +3837,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FB9DEBB51D17CBDC00B3595D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
