@@ -21,6 +21,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     var serviceInstsView : AIVerticalScrollView!
     var models : [IconServiceIntModel]?
     var orderInfoContentView : OrderAndBuyerInfoView?
+    var orderInfoModel : BuyerOrderModel?
   
   // MARK: -> Public class methods
   
@@ -37,23 +38,28 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
             make.edges.equalTo(orderInfoView)
         }
         
-        buildServiceInstsView()
+        orderInfoModel = BuyerOrderModel()
+        orderInfoModel?.avatarUrl = "http://171.221.254.231:3000/upload/shoppingcart/Hm7ulONUnenmN.png"
+        orderInfoModel?.buyerName = "Alma Lee"
+        orderInfoModel?.completion = 0.75
+        orderInfoModel?.price = "340"
+        orderInfoModel?.serviceName = "Ground Transportation"
+        orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png"
+        orderInfoContentView?.model = orderInfoModel
     }
     
     func buildServiceInstsView(){
         
         models = [IconServiceIntModel(serviceInstId: 1, serviceIcon: "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png", serviceInstStatus: ServiceInstStatus.Assigned, executeProgress: 1),IconServiceIntModel(serviceInstId: 1, serviceIcon: "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png", serviceInstStatus: ServiceInstStatus.Assigned, executeProgress: 1),IconServiceIntModel(serviceInstId: 1, serviceIcon: "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png", serviceInstStatus: ServiceInstStatus.Assigned, executeProgress: 1)]
         if let models = models {
-            serviceInstsView = AIVerticalScrollView()
+
+            let frame = serviceIconContainerView.bounds
+            
+            serviceInstsView = AIVerticalScrollView(frame: frame)
             serviceInstsView.userInteractionEnabled = true
             serviceInstsView.myDelegate = self
             serviceInstsView.showsVerticalScrollIndicator = false
-            //选择服务执行的时候才展现
-            serviceInstsView.hidden = true
             serviceIconContainerView.addSubview(serviceInstsView)
-            serviceInstsView?.snp_makeConstraints { (make) -> Void in
-                make.edges.equalTo(serviceIconContainerView)
-            }
             serviceInstsView.loadData(models)
         }
         
@@ -85,6 +91,12 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     @IBAction func filterPopAction(sender: UIButton) {
         
     }
+    
+
+    @IBAction func navigationBackAction(sender: AnyObject) {
+        self.dismissPopupViewController(true, completion: nil)
+    }
+    
   
   // MARK: -> Class override UIViewController
   
@@ -98,6 +110,14 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if serviceInstsView == nil{
+            buildServiceInstsView()
+        }
+        
+    }
   
   // MARK: -> Protocol <#protocol name#>
   

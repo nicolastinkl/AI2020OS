@@ -137,6 +137,13 @@
                                 <rect key="frame" x="59" y="125" width="541" height="475"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2y-cA-ey8" userLabel="navigationBackButton">
+                                <rect key="frame" x="20" y="566" width="14" height="24"/>
+                                <state key="normal" image="navigationBack"/>
+                                <connections>
+                                    <action selector="navigationBackAction:" destination="F3I-Ml-dl5" eventType="touchUpInside" id="tni-H4-60Q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -147,6 +154,7 @@
                             <constraint firstItem="fsV-pz-viS" firstAttribute="top" secondItem="PZK-ad-1Rb" secondAttribute="top" id="CLS-P5-4L8"/>
                             <constraint firstItem="RDI-8J-sfR" firstAttribute="top" secondItem="z99-gQ-Dzd" secondAttribute="bottom" id="Hup-Dd-BEY"/>
                             <constraint firstItem="v6u-Te-fw1" firstAttribute="leading" secondItem="cl0-YO-yz4" secondAttribute="leadingMargin" constant="-20" id="JBd-SC-tbN"/>
+                            <constraint firstItem="o2y-cA-ey8" firstAttribute="leading" secondItem="cl0-YO-yz4" secondAttribute="leading" constant="20" id="LwE-hw-bQH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PZK-ad-1Rb" secondAttribute="trailing" constant="1" id="RsM-zq-af7"/>
                             <constraint firstItem="hse-3n-rZq" firstAttribute="top" secondItem="a5z-dK-rg7" secondAttribute="bottom" id="V6w-Kw-fId"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aEU-mK-ZMo" secondAttribute="trailing" constant="-20" id="bkd-En-pyp"/>
@@ -154,6 +162,7 @@
                             <constraint firstItem="z99-gQ-Dzd" firstAttribute="leading" secondItem="cl0-YO-yz4" secondAttribute="leading" id="cXi-jH-gjT"/>
                             <constraint firstItem="RDI-8J-sfR" firstAttribute="top" secondItem="aEU-mK-ZMo" secondAttribute="bottom" id="dDp-zN-p6m"/>
                             <constraint firstItem="PZK-ad-1Rb" firstAttribute="leading" secondItem="fsV-pz-viS" secondAttribute="trailing" constant="18" id="fmB-FO-2lQ"/>
+                            <constraint firstItem="RDI-8J-sfR" firstAttribute="top" secondItem="o2y-cA-ey8" secondAttribute="bottom" constant="10" id="gTh-wD-l87"/>
                             <constraint firstItem="v6u-Te-fw1" firstAttribute="top" secondItem="a5z-dK-rg7" secondAttribute="bottom" constant="59" id="hNu-Gv-745"/>
                             <constraint firstItem="aEU-mK-ZMo" firstAttribute="leading" secondItem="v6u-Te-fw1" secondAttribute="trailing" id="piJ-MD-FKS"/>
                             <constraint firstItem="z99-gQ-Dzd" firstAttribute="top" secondItem="a5z-dK-rg7" secondAttribute="bottom" id="qQn-mn-NyR"/>
@@ -178,6 +187,7 @@
         <image name="imLink" width="53" height="34"/>
         <image name="imcollable_selected" width="53" height="34"/>
         <image name="imexe" width="53" height="34"/>
+        <image name="navigationBack" width="14" height="24"/>
         <image name="setting-contact" width="44" height="36"/>
         <image name="setting-filter" width="44" height="36"/>
     </resources>

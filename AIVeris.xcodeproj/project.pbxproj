@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
 		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
-		126F82271D17839C009B1C6D /* AITimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82261D17839C009B1C6D /* AITimelineTableViewCell.swift */; };
+		12933BD41D17E71B008A1693 /* AITimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */; };
+		12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */; };
 		12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */; };
 		12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */; };
 		12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */; };
@@ -632,7 +633,8 @@
 		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
 		126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteViewController.swift; sourceTree = "<group>"; };
 		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
-		126F82261D17839C009B1C6D /* AITimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTableViewCell.swift; sourceTree = "<group>"; };
+		12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTableViewCell.swift; sourceTree = "<group>"; };
+		12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTableViewCell.xib; sourceTree = "<group>"; };
 		12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChangePasswordViewController.swift; sourceTree = "<group>"; };
 		12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginUtil.swift; sourceTree = "<group>"; };
 		12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginCommonView.swift; sourceTree = "<group>"; };
@@ -1547,7 +1549,8 @@
 		126F82111D12983E009B1C6D /* ServiceExecute */ = {
 			isa = PBXGroup;
 			children = (
-				126F82261D17839C009B1C6D /* AITimelineTableViewCell.swift */,
+				12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */,
+				12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */,
 			);
 			path = ServiceExecute;
 			sourceTree = "<group>";
@@ -3705,6 +3708,7 @@
 				81433D401CFBE5A700347C29 /* AIDetailTopMenuView.xib in Resources */,
 				81433D551CFBE5A700347C29 /* AIEventCapacityView.xib in Resources */,
 				81433D461CFBE5A700347C29 /* AIProviderView.xib in Resources */,
+				12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */,
 				81433EC01CFBE5A700347C29 /* MyriadProRegular.ttf in Resources */,
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
 				93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */,
@@ -3871,7 +3875,6 @@
 				81433DFA1CFBE5A700347C29 /* AISingleSelectView.swift in Sources */,
 				81433D301CFBE5A700347C29 /* SimpleServiceViewContainer.swift in Sources */,
 				81433D5F1CFBE5A700347C29 /* AIShoppingListView.swift in Sources */,
-				126F82271D17839C009B1C6D /* AITimelineTableViewCell.swift in Sources */,
 				81433CEB1CFBE5A700347C29 /* ProposalProtocal.swift in Sources */,
 				81433D721CFBE5A700347C29 /* AIDetailText.m in Sources */,
 				81433DA81CFBE5A700347C29 /* AITaskTimeLineView.swift in Sources */,
@@ -4181,6 +4184,7 @@
 				81433D081CFBE5A700347C29 /* AISchemeDataObtainer.swift in Sources */,
 				81433E1E1CFBE5A700347C29 /* SwitchServiceView.swift in Sources */,
 				8175A7BB1CFD2710006F2C8F /* AIUINavigationController.m in Sources */,
+				12933BD41D17E71B008A1693 /* AITimelineTableViewCell.swift in Sources */,
 				81433E441CFBE5A700347C29 /* JSSAlertView.swift in Sources */,
 				81433E461CFBE5A700347C29 /* UIImage+Effect.m in Sources */,
 				81433D841CFBE5A700347C29 /* AIPopHoldView.swift in Sources */,
