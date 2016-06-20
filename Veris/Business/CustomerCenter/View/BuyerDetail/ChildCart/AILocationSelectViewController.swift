@@ -250,4 +250,3 @@ extension AILocationSelectViewController {
         //navigationController?.popToRootViewControllerAnimated(true)
     }
 }
-

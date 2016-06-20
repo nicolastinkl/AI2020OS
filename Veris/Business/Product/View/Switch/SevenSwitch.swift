@@ -268,7 +268,7 @@ import QuartzCore
         thumbView.layer.shadowColor = self.shadowColor.CGColor
         thumbView.layer.shadowRadius = 2.0
         thumbView.layer.shadowOpacity = 0.5
-        thumbView.layer.shadowOffset = CGSizeMake(0, 3)
+        thumbView.layer.shadowOffset = CGSize(width: 0, height: 3)
         thumbView.layer.shadowPath = UIBezierPath(roundedRect: thumbView.bounds, cornerRadius: thumbView.layer.cornerRadius).CGPath
         thumbView.layer.masksToBounds = false
         thumbView.userInteractionEnabled = false

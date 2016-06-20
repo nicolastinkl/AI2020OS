@@ -14,14 +14,18 @@ run_swiftlint() {
     local filename="${1}"
     if [[ "${filename##*.}" == "swift" ]]; then
         ${SWIFT_LINT} autocorrect --path "${filename}"
+
+        # check lint
         # ${SWIFT_LINT} lint --path "${filename}"
     fi
 }
 
 if [[ -e "${SWIFT_LINT}" ]]; then
     echo "SwiftLint version: $(${SWIFT_LINT} version)"
-    # Run for both staged and unstaged files
-    git diff --name-only | while read filename; do run_swiftlint "${filename}"; done
+    # Run for unstaged
+    # git diff --name-only | while read filename; do run_swiftlint "${filename}"; done
+
+    # Run for staged 
     git diff --cached --name-only | while read filename; do run_swiftlint "${filename}"; done
 else
     echo "${SWIFT_LINT} is not installed."
