@@ -72,7 +72,7 @@ class AIFolderCellView: UIView {
         if let delegate = delegate {
             delegate.statusButtonDidClick(proposalModel!)
         }
-//        let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
+
     }
 
     private func setDescContentView() {
