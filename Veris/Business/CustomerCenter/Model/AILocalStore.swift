@@ -19,23 +19,23 @@ struct AILocalStore {
     private static let repliedStoriesKey = "repliedStoriesKey"
     private static let upvotedCommentsKey = "upvotedCommentsKey"
     private static let accessTokenKey = "accessTokenKey"
-    
+
     private static let accessMenuTag = "menuTag"
-    
+
     private static let userDefaults = NSUserDefaults.standardUserDefaults()
 
     static func setIntroAsVisited() {
         userDefaults.setObject(true, forKey: "introKey")
     }
-    
+
     static func isIntroVisited() -> Bool {
         return userDefaults.boolForKey("introKey")
     }
-    
-    static func setAccessMenuTag(tag:Int){
+
+    static func setAccessMenuTag(tag: Int) {
         userDefaults.setObject(tag, forKey: accessMenuTag)
     }
-    
+
     static func setStoryAsReplied(storyId: Int) {
         appendId(storyId, toKey: repliedStoriesKey)
     }
@@ -104,7 +104,7 @@ struct AILocalStore {
 
     static private func arrayForKey(key: String, containsId id: Int) -> Bool {
         let elements = userDefaults.arrayForKey(key) as? [Int] ?? []
-        
+
         return elements.contains(id)
     }
 
@@ -127,8 +127,8 @@ struct AILocalStore {
             userDefaults.synchronize()
         }
     }
-    
-    static func  getAccessMenuTag() -> Int{
+
+    static func  getAccessMenuTag() -> Int {
         return userDefaults.integerForKey(accessMenuTag) ?? 0
     }
 }

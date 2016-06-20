@@ -16,65 +16,65 @@ class FlightServiceView: ServiceParamlView {
     @IBOutlet weak var from: UILabel!
     @IBOutlet weak var to: UILabel!
     @IBOutlet weak var arriveTime: UILabel!
-    
+
     static func createInstance() -> FlightServiceView {
         return NSBundle.mainBundle().loadNibNamed("FlightServiceView", owner: self, options: nil).first  as! FlightServiceView
     }
-    
+
     override func awakeFromNib() {
         frame.size.height = AITools.displaySizeFrom1080DesignSize(275)
-        
+
         takeOffTime.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(66))
         arriveTime.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(66))
-        
+
         from.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(56))
         to.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(56))
-        
+
         fromAirport.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(36))
         toAirport.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(36))
     }
-    
+
     override func loadData(paramData: NSDictionary) {
         super.loadData(paramData)
-        
+
         takeOffTime.text = getStringContent("departure_time")
         from.text = getStringContent("departure_place")
         fromAirport.text = getStringContent("departure_desc")
-        
+
         arriveTime.text = getStringContent("arrival_time")
         to.text = getStringContent("arrival_place")
         toAirport.text = getStringContent("arrival_desc")
     }
-    
+
     override func loadDataWithModelArray(models: ServiceCellProductParamModel!) {
-        
+
 //        takeOffTime.text = model.departure_time
 //        from.text = model.departure_place
 //        fromAirport.text = model.departure_desc
-//        
+//
 //        arriveTime.text = model.arrival_time
 //        to.text = model.arrival_place
 //        toAirport.text = model.arrival_desc
-        
-        
+
+
     }
-    
+
     override func loadData(json jonsStr: String) {
         let jsonData = jonsStr.dataUsingEncoding(NSUTF8StringEncoding)
         do {
             let model = try PlaneTicketModel(data: jsonData)
-            
+
             takeOffTime.text = model.departure_time
             from.text = model.departure_place
             fromAirport.text = model.departure_desc
-            
+
             arriveTime.text = model.arrival_time
             to.text = model.arrival_place
             toAirport.text = model.arrival_desc
         } catch {
-            
+
         }
-        
+
     }
 
 }

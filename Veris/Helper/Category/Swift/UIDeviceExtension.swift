@@ -42,7 +42,7 @@ public enum DeviceType {
 
     case IPadAir
     case IPadAir2
-    
+
     case IPadPro
 
     case Simulator

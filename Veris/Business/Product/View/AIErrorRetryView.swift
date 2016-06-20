@@ -15,14 +15,14 @@ class AIErrorRetryView: SpringView {
     @IBOutlet weak var retryButton: UIButton!
     /**
     Current View's Self Content Objective.
-    
+
     - returns: Self
     */
-    class func currentView()->AIErrorRetryView{
+    class func currentView()->AIErrorRetryView {
         let cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.ViewIdentifiers.AIErrorRetryView, owner: self, options: nil).first  as! AIErrorRetryView
         return cell
     }
-    
+
     //action's retryNetworkingAction
     @IBAction func retryAction(sender: AnyObject) {
         AIApplication().SendAction("retryNetworkingAction", ownerName: self)

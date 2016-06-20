@@ -30,7 +30,7 @@
 import Foundation
 
 
-/*        
+/*
     https://github.com/duemunk/Async
             how to use it?
 
@@ -41,7 +41,7 @@ Async.background {
 }.main {
     println("This is run on the main queue, after the previous block")
 }
-            
+
             Instead of the familiar syntax for GCD:
 
 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
@@ -57,8 +57,8 @@ dispatch_async(dispatch_get_main_queue(), {
 */
 // MARK: - HACK: For Swift 1.1
 extension qos_class_t {
-    
-    public var id:Int {
+
+    public var id: Int {
         return Int(rawValue)
     }
 }
@@ -67,9 +67,9 @@ extension qos_class_t {
 // MARK: - DSL for GCD queues
 
 private class GCD {
-	
+
 	/* dispatch_get_queue()
-     
+
     QOS_CLASS_USER_INTERACTIVE： user interactive等级表示任务需要被立即执行以提供好的用户体验。使用它来更新UI，响应事件以及需要低延时的小工作量任务。这个等级的工作总量应该保持较小规模。
     QOS_CLASS_USER_INITIATED：user initiated等级表示任务由UI发起并且可以异步执行。它应该用在用户需要即时的结果同时又要求可以继续交互的任务。
     QOS_CLASS_UTILITY：utility等级表示需要长时间运行的任务，常常伴随有用户可见的进度指示器。使用它来做计算，I/O，网络，持续的数据填充等任务。这个等级被设计成节能的。
@@ -98,9 +98,9 @@ private class GCD {
 // MARK: - Async – Struct
 
 public struct Async {
-    
+
     private let block: dispatch_block_t
-    
+
     private init(_ block: dispatch_block_t) {
         self.block = block
     }
@@ -111,7 +111,7 @@ public struct Async {
 
 extension Async {
 
-	
+
 	/* dispatch_async() */
 
 	private static func async(block: dispatch_block_t, inQueue queue: dispatch_queue_t) -> Async {
@@ -183,14 +183,14 @@ extension Async {
 
 
 	/* dispatch_async() */
-	
+
 	private func chain(block chainingBlock: dispatch_block_t, runInQueue queue: dispatch_queue_t) -> Async {
 		// See Async.async() for comments
 		let _chainingBlock = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, chainingBlock)
 		dispatch_block_notify(self.block, queue, _chainingBlock)
 		return Async(_chainingBlock)
 	}
-	
+
 	public func main(chainingBlock: dispatch_block_t) -> Async {
 		return chain(block: chainingBlock, runInQueue: GCD.mainQueue())
 	}
@@ -210,15 +210,15 @@ extension Async {
 		return chain(block: chainingBlock, runInQueue: queue)
 	}
 
-	
+
 	/* dispatch_after() */
 
 	private func after(seconds: Double, block chainingBlock: dispatch_block_t, runInQueue queue: dispatch_queue_t) -> Async {
-		
+
 		// Create a new block (Qos Class) from block to allow adding a notification to it later (see Async)
 		// Create block with the "inherit" type
 		let _chainingBlock = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, chainingBlock)
-		
+
 		// Wrap block to be called when previous block is finished
 		let chainingWrapperBlock: dispatch_block_t = {
 			// Calculate time from now
@@ -259,7 +259,7 @@ extension Async {
 	public func cancel() {
 		dispatch_block_cancel(block)
 	}
-	
+
 
 	/* wait */
 
@@ -279,14 +279,14 @@ extension Async {
 // MARK: - Apply
 
 public struct Apply {
-    
+
     // DSL for GCD dispatch_apply()
     //
-    // Apply runs a block multiple times, before returning. 
-    // If you want run the block asynchounusly from the current thread, 
-    // wrap it in an Async block, 
+    // Apply runs a block multiple times, before returning.
+    // If you want run the block asynchounusly from the current thread,
+    // wrap it in an Async block,
     // e.g. Async.main { Apply.background(3) { ... } }
-    
+
     public static func userInteractive(iterations: Int, block: (Int) -> ()) {
         dispatch_apply(iterations, GCD.userInteractiveQueue(), block)
     }

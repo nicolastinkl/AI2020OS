@@ -25,50 +25,50 @@
 import Foundation
 
 /// 购物列表视图
-class AIShoppingListView: UIView,UITableViewDataSource,UITableViewDelegate {
-    
+class AIShoppingListView: UIView, UITableViewDataSource, UITableViewDelegate {
+
     var dataSource: [AIShoppingModel]? {
-        didSet{
+        didSet {
             self.tableView.reloadData()
         }
     }
-    
+
     @IBOutlet weak var titleLabel: UILabel!
-    
+
     @IBOutlet weak var lineView: UIView!
-    
+
     @IBOutlet weak var tableView: UITableView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         lineView.addBottomWholeSSBorderLine("#6441D9")
         titleLabel.font = AITools.myriadSemiCondensedWithSize(22)
         titleLabel.text = "Shopping list"
         let cellNib = UINib(nibName: "AIShoppingListViewCell", bundle: nil)
         tableView.registerNib(cellNib, forCellReuseIdentifier: "cell")
-        
+
     }
-    
+
     /**
      *  TableView Delegate and DataSource
      */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource?.count ?? 0
     }
-    
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100
     }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {        
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! AIShoppingListViewCell
         let model = dataSource?[indexPath.row]
         if let model = model {
@@ -77,22 +77,22 @@ class AIShoppingListView: UIView,UITableViewDataSource,UITableViewDelegate {
         cell.backgroundColor = UIColor.clearColor()
         cell.addBottomWholeSSBorderLine("#6441D9")
         cell.selectionStyle = .None
-        
+
         cell.subviews.forEach { (sview) in
             let name = NSStringFromClass(sview.classForCoder)
             if name == "UITableViewCellContentView" {
-                sview.hidden = true            
+                sview.hidden = true
             }
-            
+
         }
-        
+
         return cell
     }
-    
+
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
+
     }
-    
+
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }

@@ -41,49 +41,48 @@ struct AIRemoteNotificationParameters {
  * 发送和接受远程推送通知
  *
  */
-@objc class AIRemoteNotificationHandler : NSObject {
+@objc class AIRemoteNotificationHandler: NSObject {
 
     //MARK: 单例方法
-    
+
     /**
      * 单例构造方法
      *
      */
-    
+
     class func defaultHandler () -> AIRemoteNotificationHandler {
-        struct AISingleton{
-            static var predicate : dispatch_once_t = 0
-            static var instance : AIRemoteNotificationHandler? = nil
+        struct AISingleton {
+            static var predicate: dispatch_once_t = 0
+            static var instance: AIRemoteNotificationHandler? = nil
         }
-        dispatch_once(&AISingleton.predicate,{
+        dispatch_once(&AISingleton.predicate, {
             AISingleton.instance = AIRemoteNotificationHandler()
-            }
-        )
+            })
         return AISingleton.instance!
     }
-    
-    
+
+
     private override init() {}
-    
-    
-    
-    
+
+
+
+
     //MARK: 发送抢单通知
-    
+
     /**
      * 发送抢单通知
      *
      */
-    func sendGrabOrderNotification(notification : [String : AnyObject]) -> Bool {
-        
+    func sendGrabOrderNotification(notification: [String : AnyObject]) -> Bool {
+
         guard notification.isEmpty != true else {
             return false
         }
-        
+
         // Create our Installation query
         let pushQuery = AVInstallation.query()
         pushQuery.whereKey(AIRemoteNotificationKeys.Channels, equalTo: AIRemoteNotificationParameters.ProviderChannel)
-        
+
         // Send push notification to query
         let push = AVPush()
         push.setQuery(pushQuery) // Set our Installation query
@@ -92,52 +91,52 @@ struct AIRemoteNotificationParameters {
 
         return true
     }
-    
-    
+
+
     //MARK: 发送语音协助通知
-    
+
     /**
      * 发送语音协助通知
      *
      *
      */
-    func sendAudioAssistantNotification(notification : [String : AnyObject], toUser : String) -> Bool {
-        
+    func sendAudioAssistantNotification(notification: [String : AnyObject], toUser: String) -> Bool {
+
         guard toUser.isEmpty != true else {
             return false
         }
-        
-        
+
+
         // Create our Installation query
         let pushQuery = AVInstallation.query()
         pushQuery.whereKey(AIRemoteNotificationParameters.ProviderIdentifier, equalTo: toUser)
-        
+
         // Send push notification to query
         let push = AVPush()
         push.setQuery(pushQuery) // Set our Installation query
         push.setData(notification)
         push.sendPushInBackground()
-        
+
         return true
 
     }
-    
-    
-    
-    func showBuyerDetailViewController(model : AIBuyerBubbleModel) {
+
+
+
+    func showBuyerDetailViewController(model: AIBuyerBubbleModel) {
         let topVC = topViewController()
-        
-        
+
+
         guard topVC.presentedViewController == nil else {
             return
         }
-        
 
-        
-        
-//        
+
+
+
+//
 //        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
-//        
+//
 //        let model = AIBuyerBubbleModel()
 //        model.proposal_id = proposalID
 //        model.proposal_name = proposalName
@@ -146,35 +145,35 @@ struct AIRemoteNotificationParameters {
 //        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
 //        viewController.isLaunchForAssistant = true
 //        viewController.roomNumber = String(format: "%d", roomNumber)
-//        
+//
 //        topVC.presentViewController(viewController, animated: true, completion: nil)
     }
-    
+
     //MARK: 设置推送可用
-    
+
     /**
      * 设置推送可用
      *
      *
      */
-    func addNotificationForUser(user : String) {
-        
+    func addNotificationForUser(user: String) {
+
         let installation = AVInstallation .currentInstallation()
         installation.setObject(user, forKey: AIRemoteNotificationParameters.ProviderIdentifier)
         installation.addUniqueObject(AIRemoteNotificationParameters.ProviderChannel, forKey: AIRemoteNotificationKeys.Channels)
         installation.saveInBackground()
     }
-    
-    
+
+
     //MARK: 取消推送功能
-    
+
     /**
      * 取消推送功能
      *
      *
      */
-    func removeNotificationForUser(user : String) {
-        
+    func removeNotificationForUser(user: String) {
+
         let installation = AVInstallation .currentInstallation()
         installation.removeObjectForKey(AIRemoteNotificationParameters.ProviderIdentifier)
         installation.removeObject(AIRemoteNotificationParameters.ProviderChannel, forKey: AIRemoteNotificationKeys.Channels)
@@ -186,10 +185,10 @@ struct AIRemoteNotificationParameters {
 func topViewController() -> UIViewController {
     let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController!
     var presentedVC = rootVC
-    
+
     while let vc = presentedVC?.presentedViewController {
         presentedVC = vc
     }
-    
+
     return presentedVC!
 }

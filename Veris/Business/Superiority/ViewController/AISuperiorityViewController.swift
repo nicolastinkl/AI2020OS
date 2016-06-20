@@ -31,38 +31,38 @@ import SnapKit
 
 /// 服务优势介绍视图
 class AISuperiorityViewController: UIViewController {
-    
-    
+
+
     @IBOutlet weak var scrollview: UIScrollView!
-    
+
     private var preCacheView: UIView?
-    
+
     var serviceModel: AISearchResultItemModel? {
-        didSet{
-            
+        didSet {
+
         }
     }
-    
+
     override func viewDidLoad() {
-        
-        
+
+
         super.viewDidLoad()
-        
+
         // MARK: Init
         initLayoutViews()
-        
+
         // MARK: Layout
         initDataWithModel()
-        
+
         // MARK: Loading Data Views
         Async.main(after: 0.15) {
             self.initDatawithViews()
         }
-        
+
     }
-    
-    func initDatawithViews(){
-        
+
+    func initDatawithViews() {
+
         // Top ImageView.
         let imageView = DesignableImageView()
         imageView.setHeight(100)
@@ -74,7 +74,7 @@ class AISuperiorityViewController: UIViewController {
         addNewSubView(imageView, preView: UIView(), color: UIColor.clearColor(), space: 30)
         imageView.setWidth(100)
         imageView.sd_setImageWithURL(NSURL(string: "http://img04.tooopen.com/images/20131025/sy_44028468847.jpg")!, placeholderImage: smallPlace())
-        
+
         // Top Title.
         let titleLabel = DesignableLabel()
         titleLabel.font = UIFont.systemFontOfSize(30)
@@ -86,21 +86,21 @@ class AISuperiorityViewController: UIViewController {
         titleLabel.setWidth(self.view.width)
         addNewSubView(titleLabel, preView: imageView)
         titleLabel.text = "听说你还为孕检超碎了心？"
-        
+
         // List Superiority Desciption.
         var preCellView: UIView?
         for index in 0...3 {
-            if let aisCell = AISuperiorityCellView.initFromNib() as? AISuperiorityCellView{
+            if let aisCell = AISuperiorityCellView.initFromNib() as? AISuperiorityCellView {
                 aisCell.labelDesciption.text = "一键启动符合服务"
                 if index > 0 {
                     addNewSubView(aisCell, preView: preCellView!)
-                }else{
+                } else {
                     addNewSubView(aisCell, preView: titleLabel)
                 }
                 preCellView = aisCell
             }
         }
-        
+
         // Price Label.
         let priceLabel = AILabel()
         priceLabel.text = "$ 184.0"
@@ -109,14 +109,14 @@ class AISuperiorityViewController: UIViewController {
         priceLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
         addNewSubView(priceLabel, preView: preCellView!)
         priceLabel.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
-        
+
         // Add Service List Icon , So at top and at down.
-        
-        
+
+
         let serverIcons = UIView()
         serverIcons.setHeight(300)
         var height: CGFloat = 0
-        var preView:UIView?
+        var preView: UIView?
         for i in 0...4 {
             if let iconText = AISuperiorityIconTextView.initFromNib() {
                 let offSet: CGFloat = 50.0 + CGFloat(arc4random() % 20)
@@ -126,32 +126,32 @@ class AISuperiorityViewController: UIViewController {
                 if i % 2 != 0 {
                     iconText.setLeft(100 + CGFloat(arc4random() % 20))
                 }
-                
+
                 if let pre = preView {
 //                    let imageview = drawAtLineWithPoint(pre.frame.origin, endPoint: iconText.frame.origin)
 //                    serverIcons.addSubview(imageview)
-                    
+
                 }
-                
+
                 preView = iconText
-                
+
             }
         }
-        
-        
+
+
         addNewSubView(serverIcons, preView: priceLabel)
-        
-        
+
+
     }
-    
-    func initDataWithModel(){
-        
+
+    func initDataWithModel() {
+
     }
-    
-    func initLayoutViews(){
-        
+
+    func initLayoutViews() {
+
         /// Title.
-        if let navi = AINavigationBar.initFromNib() as? AINavigationBar{
+        if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
             view.addSubview(navi)
             navi.holderViewController = self
             constrain(navi, block: { (layout) in
@@ -160,17 +160,17 @@ class AISuperiorityViewController: UIViewController {
                 layout.right == layout.superview!.right
                 layout.height == 44.0 + 10.0
             })
-            
+
             navi.titleLabel.text = "孕检无忧"
-            
+
             Async.main(after: 0.15, block: {
                 navi.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
             })
         }
-        
+
     }
-    
-    func addNewSubView(cview: UIView,preView: UIView,color: UIColor = UIColor.clearColor(),space: CGFloat = 0){
+
+    func addNewSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
         scrollview.addSubview(cview)
         cview.setWidth(self.view.width)
         cview.setTop(preView.top + preView.height+space)
@@ -178,17 +178,17 @@ class AISuperiorityViewController: UIViewController {
         scrollview.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
         preCacheView = cview
     }
-    
+
     /**
      通过两点之间画线。
-     
+
      - parameter startPoint: startPoint
      - parameter endPoint:   endPoint
      */
     func drawAtLineWithPoint(startPoint: CGPoint, endPoint: CGPoint) -> UIImageView {
-        
+
         let imageView: UIImageView = UIImageView(frame: self.view.frame)
-        
+
         UIGraphicsBeginImageContext(imageView.frame.size)
         imageView.image!.drawInRect(CGRectMake(0, 0, imageView.frame.size.width, imageView.frame.size.height))
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), CGLineCap.Round)
@@ -206,7 +206,7 @@ class AISuperiorityViewController: UIViewController {
         imageView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return imageView
-        
+
     }
-    
+
 }

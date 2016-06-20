@@ -27,41 +27,41 @@ import Spring
 
 /// Route 路线规划视图
 class AIServiceRouteView: UIView {
-    
-    private let tagMargin:CGFloat = 5
-    
+
+    private let tagMargin: CGFloat = 5
+
     @IBOutlet weak var tagView: UIView!
-    
+
     private let lineColor: String = "#D2D5E7"
-    
+
     var addressArray: [AIServiceRouteAddressModel]?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         self.userInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(AIServiceRouteView.selectCity))
         self.addGestureRecognizer(tap)
     }
-    
-    
-    func selectCity(){
+
+
+    func selectCity() {
         AIApplication().SendAction("selectCountryAction", ownerName: self)
     }
-    
-    func refereshCitys(){
+
+    func refereshCitys() {
         self.refereshCitysUI()
     }
-    
-    func refereshCitysUI(){
-        
-        
-        var x:CGFloat = tagMargin
-        var y:CGFloat = 0
+
+    func refereshCitysUI() {
+
+
+        var x: CGFloat = tagMargin
+        var y: CGFloat = 0
         var n = 0
         if let addressArray = addressArray {
             for address in addressArray {
-                
+
                 let city = address.sr_address_name
                 let label = DesignableLabel()
                 label.font = AITools.myriadLightSemiCondensedWithSize(14)
@@ -73,39 +73,38 @@ class AIServiceRouteView: UIView {
                 label.textAlignment = .Center
                 label.alpha = 0
                 tagView.addSubview(label)
-                
+
                 let ramdWidthOLD = 45 + city.length * 6
                 let sizenew = city.sizeWithFont(AITools.myriadLightSemiCondensedWithSize(35/2.5), forWidth: CGFloat(ramdWidthOLD))
                 let ramdWidth = sizenew.width  + 10
-                let ramdHeigth:CGFloat = 20
-                
+                let ramdHeigth: CGFloat = 20
+
                 if (x + CGFloat(ramdWidth) + tagMargin) > (tagView.width - tagMargin) {
                     n = 0
                     x = tagMargin
                     y += ramdHeigth + tagMargin
-                    
+
                 } else {
                     if n > 0 {
                         x = x + tagMargin
                     }
                 }
-                
+
                 label.setOrigin(CGPointMake(x, y))
-                
+
                 n = n + 1  //   Add 1
                 label.setSize(CGSize(width: CGFloat(ramdWidth), height: ramdHeigth))
-                
+
                 x = x + CGFloat(ramdWidth)
-                
-                SpringAnimation.springEaseIn(0.3, animations: { 
+
+                SpringAnimation.springEaseIn(0.3, animations: {
                     label.alpha = 1
                 })
             }
 
         }
-        
-    }
-    
-    
-}
 
+    }
+
+
+}

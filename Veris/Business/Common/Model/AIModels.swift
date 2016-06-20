@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct AIServiceTopicResult: JSONJoy  {
+struct AIServiceTopicResult: JSONJoy {
     var service_array: Array<AIServiceTopicListModel>?
     init(_ decoder: JSONDecoder) {
         if let addrs = decoder["results"].array {
@@ -19,13 +19,13 @@ struct AIServiceTopicResult: JSONJoy  {
             }
         }
     }
-    
+
 }
 
-struct AIServiceTopicListModel: JSONJoy  {
+struct AIServiceTopicListModel: JSONJoy {
     var result_type: Int?
     var service_array: Array<AIServiceTopicModel>?
-    
+
     init(_ decoder: JSONDecoder) {
         result_type = decoder["result_type"].integer
         if let addrs = decoder["result_items"].array {
@@ -37,7 +37,7 @@ struct AIServiceTopicListModel: JSONJoy  {
     }
 }
 
-class AIServiceTopicModel: JSONJoy  {
+class AIServiceTopicModel: JSONJoy {
 
     var service_id: Int?
     var service_name: String?
@@ -54,9 +54,9 @@ class AIServiceTopicModel: JSONJoy  {
     var isFavor = false
 
     init() {
-        
+
     }
-    
+
     required init(_ decoder: JSONDecoder) {
         service_id = decoder["service_id"].integer
         service_name = decoder["service_name"].string
@@ -80,8 +80,8 @@ class AIServiceTopicModel: JSONJoy  {
 
 
 
-struct AIServiceDetailModel: JSONJoy  {
-    
+struct AIServiceDetailModel: JSONJoy {
+
     var service_id: Int?
     var service_name: String?
     var service_price: String?
@@ -91,18 +91,18 @@ struct AIServiceDetailModel: JSONJoy  {
     var service_rating: String?
     var provider_portrait_url: String?
     var service_intro_url: String?
-    
+
     var service_provider: String?
     var service_guarantee: String?
     var service_process: String?
     var service_restraint: String?
     var service_param_list: Array<AIServiceDetailParamsModel>?
-    
-    init(){
-        
+
+    init() {
+
     }
 
-    
+
     init(_ decoder: JSONDecoder) {
         service_id = decoder["service_id"].integer
         service_name = decoder["service_name"].string
@@ -118,28 +118,28 @@ struct AIServiceDetailModel: JSONJoy  {
         service_guarantee = decoder["service_guarantee"].string
         service_restraint = decoder["service_restraint"].string
         service_process = decoder["service_process"].string
-        
+
         if let addrs = decoder["service_param_list"].array {
             service_param_list = Array<AIServiceDetailParamsModel>()
             for addrDecoder in addrs {
                 service_param_list?.append(AIServiceDetailParamsModel(addrDecoder))
             }
         }
-        
+
     }
 }
 
-struct AIServiceDetailParamsModel: JSONJoy  {
-    
+struct AIServiceDetailParamsModel: JSONJoy {
+
     var param_type: Int?
     var param_key: String?
     var param_value: Array<AIServiceDetailParamsDetailModel>?
-    
+
     init(_ decoder: JSONDecoder) {
-        
+
         param_type = decoder["param_type"].integer
         param_key = decoder["param_key"].string
-        
+
         if let addrs = decoder["param_value"].array {
             param_value = Array<AIServiceDetailParamsDetailModel>()
             for addrDecoder in addrs {
@@ -147,15 +147,15 @@ struct AIServiceDetailParamsModel: JSONJoy  {
             }
         }
     }
-    
-    struct AIServiceDetailParamsDetailModel: JSONJoy  {
+
+    struct AIServiceDetailParamsDetailModel: JSONJoy {
 
         var id: Int?
         var title: String?
         var content: String?
         var memo: String?
         var value: String?
-        
+
         init(_ decoder: JSONDecoder) {
             id = decoder["id"].integer
             title = decoder["title"].string
@@ -164,23 +164,19 @@ struct AIServiceDetailParamsModel: JSONJoy  {
             value = decoder["value"].string
         }
     }
-    
+
 }
 
 class AIResponseResult: JSONJoy {
     var code: Int?
     var msg: String?
-    
+
     init() {
-        
+
     }
-    
+
     required init(_ decoder: JSONDecoder) {
         code = decoder["result_code"].integer
         msg = decoder["result_msg"].string
     }
 }
-
-
-
-

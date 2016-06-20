@@ -28,7 +28,7 @@ import UIKit
 import Cartography
 
 protocol ServiceSwitchDelegate {
-    func switchStateChanged(isOn: Bool, operationService: Service,fromView: UIView?)
+    func switchStateChanged(isOn: Bool, operationService: Service, fromView: UIView?)
 }
 
 
@@ -50,19 +50,19 @@ class SwitchServiceView: UIView {
         // Drawing code
     }
     */
-    
+
     override func awakeFromNib() {
         switchController = SevenSwitch(frame: CGRectMake(0, switchHolder.top, switchHolder.width, switchHolder.height))
-        
+
         addSubview(switchController)
-        
+
         constrain(switchController, switchHolder) { switchView, holderView in
             switchView.top == holderView.top
             switchView.left == holderView.left
             switchView.width == holderView.width
             switchView.height == holderView.height
         }
-        
+
         switchController.addTarget(self, action: "switchChanged:", forControlEvents: UIControlEvents.ValueChanged)
         switchController.onLabel.text = "SwitchServiceView.on".localized
         switchController.onLabel.textColor = UIColor.whiteColor()
@@ -71,30 +71,30 @@ class SwitchServiceView: UIView {
         switchController.onTintColor = UIColor(red:0.33, green:0.28, blue:0.58, alpha:1)
         switchController.inactiveColor =  UIColor(red:0.78, green:0.78, blue:0.8, alpha:1)
         switchController.isRounded = false
-        
+
         // turn the switch on with animation
         switchController.setOn(false, animated: false)
-        
+
     }
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
 
             }
-    
+
     func switchChanged(sender: SevenSwitch) {
         if let ser = operationService {
-            switchDelegate?.switchStateChanged(sender.on, operationService: ser,fromView: self)
+            switchDelegate?.switchStateChanged(sender.on, operationService: ser, fromView: self)
         }
     }
-    
+
     static func createSwitchServiceView() -> SwitchServiceView {
-        
+
         let nib = NSBundle.mainBundle().loadNibNamed("SwitchServiceView", owner: self, options: nil)
-        
+
         return nib.first as! SwitchServiceView
     }
-    
+
     func setService(service: Service) {
         operationService = service
         serviceName.text = service.service_name ?? ""
@@ -102,6 +102,3 @@ class SwitchServiceView: UIView {
         price.text = service.service_price?.price_show ?? ""
     }
 }
-
-
-

@@ -10,20 +10,20 @@ import UIKit
 
 protocol AITaskNavigationBarDelegate: NSObjectProtocol {
 	var navigationBar: AITaskNavigationBar { get }
-	
+
 	func navigationBar(navigationBar: AITaskNavigationBar, cancelButtonPressed sender: UIButton)
 	func navigationBar(navigationBar: AITaskNavigationBar, saveButtonPressed sender: UIButton)
 }
 
 class AITaskNavigationBar: UIView {
-	
+
 	struct Constants {
 		static let margin: CGFloat = 40 / 3
 		static let saveButtonTop: CGFloat = 66 / 3
 		static let saveButtonHeight: CGFloat = 78 / 3
 		static let saveButtonWidth: CGFloat = 156 / 3
 	}
-	
+
 	weak var delegate: AITaskNavigationBarDelegate?
 	lazy var cancelButton: UIButton = { [unowned self] in
 		let cancelButton = UIButton()
@@ -31,7 +31,7 @@ class AITaskNavigationBar: UIView {
 		cancelButton.setTitle("cancel", forState: .Normal)
 		cancelButton.addTarget(self, action: #selector(AITaskNavigationBar.cancelButtonPressed(_:)), forControlEvents: .TouchUpInside)
 		cancelButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(20)
-		
+
 		self.addSubview(cancelButton)
 		cancelButton.snp_makeConstraints { (make) in
 			make.leading.equalTo(self).offset(Constants.margin)
@@ -39,7 +39,7 @@ class AITaskNavigationBar: UIView {
 		}
 		return cancelButton
 	}()
-	
+
 	lazy var saveButton: UIButton = { [unowned self] in
 		let saveButton = UIButton()
 		saveButton.setTitle("save", forState: .Normal)
@@ -48,7 +48,7 @@ class AITaskNavigationBar: UIView {
 		saveButton.backgroundColor = UIColor(red: 0.0588, green: 0.5255, blue: 0.9098, alpha: 1.0)
 		saveButton.layer.cornerRadius = 4
 		saveButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(20)
-		
+
 		self.addSubview(saveButton)
 		saveButton.snp_makeConstraints { (make) in
 			make.trailing.equalTo(self).offset(-Constants.margin)
@@ -58,7 +58,7 @@ class AITaskNavigationBar: UIView {
 		}
 		return saveButton
 	}()
-	
+
 	lazy var titleLabel: UILabel = { [unowned self] in
 		let result = UILabel()
 		result.textColor = UIColor.whiteColor()
@@ -69,25 +69,25 @@ class AITaskNavigationBar: UIView {
 		})
 		return result
 	}()
-	
+
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setup()
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	func setup() {
 		_ = saveButton
 		_ = cancelButton
 	}
-	
+
 	func cancelButtonPressed(sender: UIButton) {
 		delegate?.navigationBar(self, cancelButtonPressed: sender)
 	}
-	
+
 	func saveButtonPressed(sender: UIButton) {
 		delegate?.navigationBar(self, saveButtonPressed: sender)
 	}
@@ -109,7 +109,7 @@ extension AITaskNavigationBarDelegate where Self: UIViewController {
 			make.height.equalTo(64)
 			make.top.leading.trailing.equalTo(view)
 		}
-		
+
 		if let backgroundColor = backgroundColor {
 			// 有backgroundcolor 就添加一个层在 navigationbar 下面
 			let backgroundView = UIView()
@@ -121,11 +121,11 @@ extension AITaskNavigationBarDelegate where Self: UIViewController {
 			})
 		}
 	}
-	
+
 	var navigationBar: AITaskNavigationBar {
 		return view.viewWithTag(765) as! AITaskNavigationBar
 	}
-	
+
 	var saveButtonEnabled: Bool {
 		set {
 			navigationBar.saveButton.enabled = newValue

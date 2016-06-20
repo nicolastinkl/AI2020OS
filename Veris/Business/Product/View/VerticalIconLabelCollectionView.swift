@@ -11,49 +11,49 @@ import Cartography
 
 /// 这里是服务参数collection 的动态显示
 class VerticalIconLabelCollectionView: UIView {
-    
+
     private var horizanSpace: CGFloat = 0
-    
+
     var itemCountOfOneLine: Int = 3 {
-        
+
         didSet {
-            
+
             if itemCountOfOneLine != oldValue && itemCountOfOneLine > 0 {
-                
+
                 if itemCountOfOneLine > 1 {
                     horizanSpace = calculateHorizanSpace()
                 }
-                
+
                 collectionView.reloadData()
             }
         }
     }
-    
+
     var itemWidth: CGFloat = 88.0 {
-        
+
         didSet {
             if itemWidth != oldValue && itemWidth > 0 {
                 collectionView.reloadData()
             }
         }
     }
-    
+
     var itemHeight: CGFloat = 48.0 {
-        
+
         didSet {
             if itemHeight != oldValue && itemHeight > 0 {
                 collectionView.reloadData()
             }
         }
     }
-    
-    var modelDataSource:[ServiceCellStadandParamModel]?{
+
+    var modelDataSource: [ServiceCellStadandParamModel]? {
         didSet {
             collectionView.reloadData()
         }
     }
-    
-    var dataSource: [(image:UIImage, title:String)]?  = [
+
+    var dataSource: [(image: UIImage, title: String)]?  = [
         (image:UIImage(named: "icon_time_big")!, title:"2 session"),
         (image:UIImage(named: "icon_price_big")!, title:"1 package"),
         (image:UIImage(named: "icon_calenda_big")!, title:"&85.1 package")] {
@@ -63,20 +63,20 @@ class VerticalIconLabelCollectionView: UIView {
     }
 
     private var collectionView: UICollectionView!
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSelf()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initSelf()
     }
-    
+
     private func initSelf() {
         horizanSpace = calculateHorizanSpace()
-        
+
         collectionView = UICollectionView(frame: frame, collectionViewLayout: FixedSpaceFlowLayout(space: horizanSpace))
         collectionView.backgroundColor = UIColor.clearColor()
         collectionView.dataSource = self
@@ -85,17 +85,17 @@ class VerticalIconLabelCollectionView: UIView {
         let flowLayout = collectionView.collectionViewLayout
         let flow = flowLayout as! UICollectionViewFlowLayout
         flow.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        
+
         collectionView.registerClass(VerticalIconLabelCell.self,
             forCellWithReuseIdentifier: "cell")
-        
+
         addSubview(collectionView)
-        
+
         constrain(collectionView, self) {collectionView, parent in
             collectionView.edges == parent.edges
         }
     }
-    
+
     private func calculateHorizanSpace() -> CGFloat {
         if itemCountOfOneLine > 1 {
             return (width - itemWidth * CGFloat(itemCountOfOneLine))  / CGFloat(itemCountOfOneLine - 1)
@@ -110,58 +110,58 @@ extension VerticalIconLabelCollectionView: UICollectionViewDelegate, UICollectio
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
-    
-    
+
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return modelDataSource?.count ?? 0;
+        return modelDataSource?.count ?? 0
     }
-    
+
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
+
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! VerticalIconLabelCell
 
-        let model = modelDataSource![indexPath.item] 
-        
+        let model = modelDataSource![indexPath.item]
+
         cell.iconLabel.imageView.sd_setImageWithURL(NSURL(string: "\(model.param_icon)"), placeholderImage: smallPlace())
         cell.iconLabel.text = model.param_value
-        
+
         return cell
     }
-    
-    
+
+
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
             indexPath.row
-            
+
             let maxWidth = width
-            
+
             if itemWidth > 0 && itemCountOfOneLine > 0 {
                 var itemWidthTemp = itemWidth
-                
+
                 if (itemWidthTemp * CGFloat(itemCountOfOneLine) > maxWidth) {
                     itemWidthTemp = maxWidth / CGFloat(itemCountOfOneLine)
                 }
-                
+
                 return CGRectMake(0, 0, itemWidthTemp, itemHeight).size
             } else {
                 return CGRect.zero.size
             }
     }
-    
+
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(0, 0, 0, 0)
     }
-    
+
 }
 
 class VerticalIconLabelCell: UICollectionViewCell {
-    
+
     var iconLabel: VerticalIconLabel!
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         iconLabel = VerticalIconLabel(frame: self.contentView.bounds)
         contentView.addSubview(iconLabel)
     }
@@ -170,4 +170,3 @@ class VerticalIconLabelCell: UICollectionViewCell {
         super.init(coder: aDecoder)!
     }
 }
-

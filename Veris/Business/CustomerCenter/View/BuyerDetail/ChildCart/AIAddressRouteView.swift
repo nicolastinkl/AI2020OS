@@ -27,26 +27,26 @@ import Spring
 
 /// 横向滚动路径规划视图
 class AIAddressRouteView: UIView {
-    
+
     @IBOutlet weak var address: DesignableLabel!
-    
+
     @IBOutlet weak var line: UIView!
-    
+
     @IBOutlet weak var time: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         line.backgroundColor = UIColor(hexString: AIApplication.AIColor.MainSystemLineColor, alpha: 0.2)
     }
-    
-    func fillData(model: AIServiceRouteAddressModel){
+
+    func fillData(model: AIServiceRouteAddressModel) {
         address.hidden = false
         time.hidden = false
         address.text = model.sr_address_name
         time.text = "\(model.sr_address_hour) days"
     }
-    
-    func clearText(){
+
+    func clearText() {
         address.hidden = true
         time.hidden = true
         line.hidden = true

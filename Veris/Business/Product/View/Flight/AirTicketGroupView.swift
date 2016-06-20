@@ -32,7 +32,7 @@ import UIKit
 import Cartography
 
 class AirTicketGroupView: UIView {
-    
+
     private var ticketCount: Int = 0
 
     /*
@@ -42,23 +42,23 @@ class AirTicketGroupView: UIView {
         // Drawing code
     }
     */
-    
-    
 
-    
+
+
+
     func setTicketsData(tickets: [Service]) {
         ticketCount = tickets.count
-        
+
         var preTicket: AirTicketView?
         var totalPrice: Float = 0
-        
+
         for var index = 0; index < tickets.count; ++index {
             let nib = NSBundle.mainBundle().loadNibNamed("AirTicketView", owner: self, options: nil)
             let ticket: AirTicketView = nib.first as! AirTicketView
-            
+
             ticket.setTicketData(tickets[index])
             self.addSubview(ticket)
-            
+
             if index == 0 {
                 constrain(ticket) { ticketView in
                     ticketView.left == ticketView.superview!.left
@@ -72,18 +72,18 @@ class AirTicketGroupView: UIView {
                     ticket.right == preTicket.superview!.right
                 }
             }
-            
+
             totalPrice += Float(tickets[index].service_price?.price ?? 0)
-            
+
             if index == tickets.count - 1 {
                 ticket.priceAndPassengerType.text = "$ \(totalPrice)"
             }
-            
+
             preTicket = ticket
         }
-        
+
     }
-    
+
     func getViewHeight() -> CGFloat {
         switch ticketCount {
         case 0:

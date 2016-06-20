@@ -8,15 +8,15 @@
 
 import Foundation
 
-extension UIImage{
-    
+extension UIImage {
+
     /**
     根据图片主色调 加深颜色处理图片边框颜色
     */
     func pickImageDeepColor() -> UIColor! {
-        
+
         let selfColor = self.pickUpImageColor()
-        return selfColor;
+        return selfColor
         /**
         let cs = CGColorGetComponents(selfColor.CGColor)
         let red = CGFloat(cs[0])
@@ -25,17 +25,17 @@ extension UIImage{
         return UIColor(red: red+0.1, green: green, blue: blue, alpha: 1)
         */
     }
-    
+
     /**
     根据图片主色调 展示闪光效果
     */
     func pickImageEffectColor() -> UIColor! {
-        
+
         let selfColor = self.pickUpImageColor()
-        
+
         return selfColor.colorWithAlphaComponent(0.5)
     }
-    
+
     /**
     根据图片主色调 返回图片背景图
     */

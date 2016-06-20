@@ -11,24 +11,24 @@ import Foundation
 import Spring
 
 @objc public class UIPopView: UIView {
-    
+
     @IBOutlet weak var popTitle: UILabel!
-    @IBOutlet weak var popBackgroundView: AIImageView!    
+    @IBOutlet weak var popBackgroundView: AIImageView!
     @IBOutlet weak var popPrice: UILabel!
     @IBOutlet weak var popBuyNumber: UILabel!
-    
-    var firstImageView:AIImageView?
-    
+
+    var firstImageView: AIImageView?
+
     // MARK: currentView
-    class func currentView()->UIPopView{
+    class func currentView()->UIPopView {
         let selfView = NSBundle.mainBundle().loadNibNamed("UIPopView", owner: self, options: nil).first  as! UIPopView
         return selfView
     }
-    
+
     /**
     数据填充处理
     */
-    public func fillDataWithModel(model: AIBuyerBubbleModel) -> Void{
+    public func fillDataWithModel(model: AIBuyerBubbleModel) -> Void {
         //self.fill data
         popPrice.text = model.proposal_price ?? ""
         popPrice.textColor = UIColor(hex: "272727")
@@ -44,21 +44,21 @@ import Spring
             let newArray = NSMutableArray(array: strArray)
             newArray.removeObjectAtIndex(0)
             let content = newArray.componentsJoinedByString(" ")
-           
+
             popTitle.text = firstString + content
         }
         */
-        
+
         popTitle.text = model.proposal_name ?? ""
         let price =  model.proposal_price ?? ""
         if price.length > 9 {
             popPrice.font = AITools.myriadBoldWithSize(14)
-        }else{
+        } else {
             popPrice.font = AITools.myriadBoldWithSize(21+3)
         }
-        
+
         popBuyNumber.font = AITools.myriadLightSemiExtendedWithSize(15)
-        
+
         /// 添加logo小图标
         var i: Int = 0
         if let _ = model.service_list {
@@ -70,7 +70,7 @@ import Spring
                 let position = centerForIconAtIndex(i)
                 let imageView = AIImageView()
                 imageView.setURL(NSURL(string: "\(logoModel.service_thumbnail_icon)"), placeholderImage:UIColor(hex: "#4b4960").imageWithColor())
-                
+
                 //36^
                 imageView.frame = CGRectMake(position.x, position.y, 29/2.5, 29/2.5)
                 self.addSubview(imageView)
@@ -79,22 +79,22 @@ import Spring
             }
         }
     }
-    
-    let kAngleOffset:CGFloat = CGFloat(M_PI_2)/5.6 //5.2 //CGFloat(M_PI_2) / 4.5
-    let kSphereLength:CGFloat = 61
-    let kSphereDamping:Float = 0.7
-    let kSphereFixPosition:CGFloat = 7
-    
+
+    let kAngleOffset: CGFloat = CGFloat(M_PI_2)/5.6 //5.2 //CGFloat(M_PI_2) / 4.5
+    let kSphereLength: CGFloat = 61
+    let kSphereDamping: Float = 0.7
+    let kSphereFixPosition: CGFloat = 7
+
     // 图标 弧形排列
-    func centerForIconAtIndex(index:Int) -> CGPoint{
-        let firstAngle:CGFloat = CGFloat(M_PI)*0.48 + (CGFloat(M_PI_2) - kAngleOffset) - CGFloat(index) * kAngleOffset
+    func centerForIconAtIndex(index: Int) -> CGPoint {
+        let firstAngle: CGFloat = CGFloat(M_PI)*0.48 + (CGFloat(M_PI_2) - kAngleOffset) - CGFloat(index) * kAngleOffset
         //print(firstAngle)
         let startPoint = self.center
-        let x = startPoint.x + cos(firstAngle) * kSphereLength - kSphereFixPosition;
-        let y = startPoint.y + sin(firstAngle) * kSphereLength - kSphereFixPosition + 2;
-        let position = CGPointMake(x, y);
-        return position;
+        let x = startPoint.x + cos(firstAngle) * kSphereLength - kSphereFixPosition
+        let y = startPoint.y + sin(firstAngle) * kSphereLength - kSphereFixPosition + 2
+        let position = CGPointMake(x, y)
+        return position
     }
-    
-    
+
+
 }

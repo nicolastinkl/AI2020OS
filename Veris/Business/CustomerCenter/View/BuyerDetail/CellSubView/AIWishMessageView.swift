@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class AIWishMessageView : UIView {
-    
-    var noteID : NSInteger = 0
-    var wishID : NSInteger = 0
-    var noteContent : String = ""
-    var noteType : String = ""
-    
+class AIWishMessageView: UIView {
+
+    var noteID: NSInteger = 0
+    var wishID: NSInteger = 0
+    var noteContent: String = ""
+    var noteType: String = ""
+
 }

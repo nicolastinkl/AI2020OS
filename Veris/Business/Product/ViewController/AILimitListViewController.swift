@@ -9,21 +9,21 @@
 import UIKit
 
 class AILimitListViewController: UIViewController {
-    
-    var limitListView : AILimitListView!
-    var serviceInstModel : AssignServiceInstModel?
-    var popupDelegate : AIPopupChooseViewDelegate?
+
+    var limitListView: AILimitListView!
+    var serviceInstModel: AssignServiceInstModel?
+    var popupDelegate: AIPopupChooseViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         buildLimitListView()
-        if let serviceInstModel = serviceInstModel{
-            if let limitModelArray = serviceInstModel.limits{
+        if let serviceInstModel = serviceInstModel {
+            if let limitModelArray = serviceInstModel.limits {
                 limitListView.loadData(limitListModel: limitModelArray)
             }
-            
+
         }
     }
 
@@ -31,18 +31,17 @@ class AILimitListViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func loadData(serviceInstModel : AssignServiceInstModel){
+
+    func loadData(serviceInstModel: AssignServiceInstModel) {
         self.serviceInstModel = serviceInstModel
-        
+
     }
-    
-    func buildLimitListView(){
+
+    func buildLimitListView() {
         let limitFrame = CGRect(x: 0, y: 0, width: view.width, height: 0)
         limitListView = AILimitListView(frame: limitFrame)
         limitListView.delegate = popupDelegate
         view.addSubview(limitListView)
     }
-    
-}
 
+}

@@ -16,38 +16,38 @@ import SnapKit
 }
 
 class ServiceRestoreToolBar: UIView {
-	
+
 	var serviceModels: NSMutableArray?
-	
+
 	let LOGO_WIDTH: CGFloat = 19.0
 	let LOGO_SPACE: CGFloat = 20.0
-	
+
 	var logos = [UIImageView]()
 	var moreMenuIcon = UIImageView()
-	
+
 	weak var delegate: ServiceRestoreToolBarDelegate?
-	
+
 	var constraintGroups = [ConstraintGroup]()
-	
+
 	func bgTapped(sender: UITapGestureRecognizer) {
 		if let d = delegate {
 			d.serviceRestoreToolBarDidClickBlankArea!(self)
 		}
 	}
-	
+
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	func setup() {
 		let tap = UITapGestureRecognizer(target: self, action: "bgTapped:")
 		addGestureRecognizer(tap)
-		
+
 		let tap2 = UITapGestureRecognizer(target: self, action: "bgTapped:")
 		moreMenuIcon.image = UIImage(named: "restore_toolbar_more")
 		moreMenuIcon.userInteractionEnabled = true
@@ -57,7 +57,7 @@ class ServiceRestoreToolBar: UIView {
 		moreMenuIcon.clipsToBounds = true
 		addSubview(moreMenuIcon)
 	}
-	
+
 	func logoTapped(g: UITapGestureRecognizer) {
 		var index = 0
 		if let d = delegate {
@@ -69,7 +69,7 @@ class ServiceRestoreToolBar: UIView {
 			d.serviceRestoreToolBar!(self, didClickLogoAtIndex: index)
 		}
 	}
-	
+
 	override func updateConstraints() {
 		for (i, logo) in logos.enumerate() {
 			if i < 3 {
@@ -91,7 +91,7 @@ class ServiceRestoreToolBar: UIView {
 				})
 			}
 		}
-		
+
 		moreMenuIcon.snp_remakeConstraints { (make) -> Void in
 			make.trailing.equalTo(self).offset(-LOGO_SPACE)
 			make.width.equalTo(LOGO_WIDTH)
@@ -101,10 +101,10 @@ class ServiceRestoreToolBar: UIView {
 		let moreMenuIconVisible = logos.count > 5
 		moreMenuIcon.hidden = !moreMenuIconVisible
 		bringSubviewToFront(moreMenuIcon)
-		
+
 		super.updateConstraints()
 	}
-	
+
 	func appendLogoAtLast() {
 		if let model = serviceModels?.lastObject {
 			if let imageURL = model.service_thumbnail_icon {
@@ -123,11 +123,11 @@ class ServiceRestoreToolBar: UIView {
 		updateConstraintsIfNeeded()
 		layoutIfNeeded()
 	}
-	
+
 	func removeLogoAt(index: Int) {
 		let logo = logos[index]
 		logos.removeAtIndex(index)
-		
+
 		setNeedsUpdateConstraints()
 		updateConstraintsIfNeeded()
 		UIView.animateWithDuration(0.25, animations: { () -> Void in
@@ -137,7 +137,7 @@ class ServiceRestoreToolBar: UIView {
 			logo.removeFromSuperview()
 		}
 	}
-	
+
 	func removeAllLogos() {
 		logos.forEach { (logo) -> () in
 			logo.removeFromSuperview()

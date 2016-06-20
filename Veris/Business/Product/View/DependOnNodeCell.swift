@@ -9,7 +9,7 @@
 import UIKit
 
 class DependOnNodeCell: UITableViewCell {
-	
+
 	var date: NSDate? {
 		didSet {
 			let formatter = NSDateFormatter()
@@ -26,7 +26,7 @@ class DependOnNodeCell: UITableViewCell {
 			descLabel.text = desc
 		}
 	}
-	
+
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		selectionStyle = .None
@@ -36,7 +36,7 @@ class DependOnNodeCell: UITableViewCell {
 		separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         descLabel.font = AITools.myriadSemiCondensedWithSize(16)
 	}
-	
+
 	@IBOutlet weak var checkMarkImageView: UIImageView!
 	@IBOutlet weak var descLabel: UILabel!
 	@IBOutlet weak var dateLabel: CycleLabel!
@@ -49,17 +49,17 @@ class DependOnNodeCell: UITableViewCell {
 }
 
 class CycleLabel: UILabel {
-	
+
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setup()
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		setup()
 	}
-	
+
 	func setup() {
         font = AITools.myriadLightSemiCondensedWithSize(12)
 		cycleColor = UIColorFromHex(0x2a9fff)
@@ -67,7 +67,7 @@ class CycleLabel: UILabel {
 		textAlignment = .Center
 		textColor = UIColorFromHex(0x2a9fff)
 	}
-	
+
 	var cycleColor: UIColor? {
 		didSet {
 			if let cycleColor = cycleColor {
@@ -75,7 +75,7 @@ class CycleLabel: UILabel {
 			}
 		}
 	}
-	
+
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		layer.cornerRadius = width / 2

@@ -28,28 +28,28 @@ import Cartography
 
 /// 输入时间和数字控件封装 Cell
 class AIEventCapacityView: UIView {
-    
+
     @IBOutlet weak var eTitle: UILabel!
-    
-    @IBOutlet weak var eControlView: UIView!    
-    
+
+    @IBOutlet weak var eControlView: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         if let sview = AINumberCountControl.initFromNib() {
             eControlView.addSubview(sview)
-            
+
             constrain(sview) { (layout) in
-                
+
                 layout.right == layout.superview!.right
                 layout.top == layout.superview!.top
                 layout.height == 30
                 layout.width == 160
             }
-            
+
         }
-        
+
     }
 
-    
+
 }

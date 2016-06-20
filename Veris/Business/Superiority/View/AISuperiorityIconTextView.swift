@@ -25,5 +25,5 @@
 import Foundation
 
 class AISuperiorityIconTextView: UIView {
-    
+
 }

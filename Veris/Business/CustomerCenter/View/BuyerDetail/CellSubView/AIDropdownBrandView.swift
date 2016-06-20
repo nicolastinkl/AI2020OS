@@ -19,10 +19,10 @@ class AIDropdownBrandView: UIView {
 			updateExpandedViewStatus()
 		}
 	}
-	var displayModel : AIServiceProviderViewModel?
+	var displayModel: AIServiceProviderViewModel?
 	var onDownButtonDidClick: ((AIDropdownBrandView) -> ())? = nil
 	var onSelectedIndexDidChanged: ((AIDropdownBrandView, Int) -> ())? = nil
-	
+
 	var expandedView: UIView!
 	var brands = [(title: String, image: String, id: Int)]()
 	var labels = [HalfRoundedCornerLabel]()
@@ -37,7 +37,7 @@ class AIDropdownBrandView: UIView {
 			updateLabelSelectStatus()
 		}
 	}
-	
+
 	struct Constants {
 		static let barHeight: CGFloat = AITools.displaySizeFrom1080DesignSize(88)
 		static let downButtonWidth: CGFloat = 44
@@ -45,14 +45,14 @@ class AIDropdownBrandView: UIView {
 		static let space: CGFloat = 20
 		static let lineViewHeight: CGFloat = 0.5
 		static let barViewBackgroundColor: UIColor = UIColor(red: 0.1176, green: 0.1059, blue: 0.2196, alpha: 1.0)
-		
+
 		struct IconLabel {
 			static let margin = AITools.displaySizeFrom1080DesignSize(40)
 			static let imageWidth = AITools.displaySizeFrom1080DesignSize(110)
 			static let hspace = AITools.displaySizeFrom1080DesignSize(110)
 			static let vspace = AITools.displaySizeFrom1080DesignSize(18)
 		}
-		
+
 		struct Label {
 			static let backgroundColor: UIColor = UIColor.clearColor()
 			static let highlightedBackgroundColor: UIColor = UIColor(red: 0.2941, green: 0.2863, blue: 0.3765, alpha: 1.0)
@@ -60,14 +60,14 @@ class AIDropdownBrandView: UIView {
 			static let highlightedTextColor: UIColor = UIColor.whiteColor()
 		}
 	}
-	
+
 	override func layoutSubviews() {
 		var size = barScrollView.contentSize
 		size.height = barScrollView.height
 		barScrollView.contentSize = size
 		super.layoutSubviews()
 	}
-	
+
 	init(brands: [(title: String, image: String, id: Int)], selectedIndex: Int, frame: CGRect) {
 		self.brands = brands
 		self.selectedIndex = selectedIndex
@@ -80,17 +80,17 @@ class AIDropdownBrandView: UIView {
 		updateLabelSelectStatus()
 		updateExpandedViewStatus()
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	func setupExpandedView() {
 		expandedView = UIView(frame: .zero)
 		addSubview(expandedView)
 		setupIconLabels()
 	}
-	
+
 	func setupIconLabels() {
 		for (i, brand) in brands.enumerate() {
 			let labelWidth = (width - Constants.IconLabel.margin * 2 - Constants.IconLabel.hspace * 3) / 4
@@ -105,16 +105,16 @@ class AIDropdownBrandView: UIView {
 				label.imageURL = brand.image
 			}
 			label.text = brand.title
-			
+
 			iconLabels.append(label)
 			let row = CGFloat(i / 4)
 			let column = CGFloat(i % 4)
 			label.frame = CGRectMake(Constants.IconLabel.margin + column * (labelWidth + Constants.IconLabel.hspace), Constants.IconLabel.vspace + row * (labelHeight + Constants.IconLabel.vspace), labelWidth, labelHeight)
-			
+
 			let tap = UITapGestureRecognizer(target: self, action: "tapped:")
 			label.addGestureRecognizer(tap)
 		}
-		
+
 		if let last = iconLabels.last {
 			expandedView.frame = CGRectMake(0, Constants.barHeight, width, CGRectGetMaxY(last.frame))
 		} else {
@@ -132,11 +132,11 @@ class AIDropdownBrandView: UIView {
 			make.height.equalTo(Constants.barHeight)
 		}
 	}
-	
+
 	func setupLabels() {
 		numberOfBrandsLabel = {
 			let result = UILabel(frame: .zero)
-			
+
 			result.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(41))
 			result.text = "\(brands.count) brands in total"
 			result.textColor = UIColor.whiteColor()
@@ -148,12 +148,12 @@ class AIDropdownBrandView: UIView {
 			result.frame = f
 			return result
 		}()
-		
+
 		barScrollView = UIScrollView(frame: .zero)
 		barScrollView.alwaysBounceVertical = false
 		barScrollView.showsHorizontalScrollIndicator = false
 		barScrollView.showsVerticalScrollIndicator = false
-		
+
 		barView.addSubview(barScrollView)
 		for (i, brand) in brands.enumerate() {
 			let label = HalfRoundedCornerLabel(text: brand.title, backgroundColor: Constants.Label.backgroundColor, highlightedBackgroundColor: Constants.Label.highlightedBackgroundColor, textColor: Constants.Label.textColor, highlightedTextColor: Constants.Label.highlightedTextColor)
@@ -168,7 +168,7 @@ class AIDropdownBrandView: UIView {
 			let tap = UITapGestureRecognizer(target: self, action: "tapped:")
 			label.addGestureRecognizer(tap)
 		}
-		
+
 		barScrollView.snp_makeConstraints { (make) -> Void in
 			make.top.equalTo(barView)
 			make.leading.equalTo(barView).offset(Constants.margin)
@@ -179,7 +179,7 @@ class AIDropdownBrandView: UIView {
 				make.trailing.equalTo(self)
 			}
 		}
-		
+
 		var previousView: UIView = barScrollView
 		for (i, label) in labels.enumerate() {
 			label.snp_makeConstraints(closure: { (make) -> Void in
@@ -201,7 +201,7 @@ class AIDropdownBrandView: UIView {
 			previousView = label
 		}
 	}
-	
+
 	func setupLineView() {
 		let line = UIView(frame: .zero)
 		line.backgroundColor = Constants.Label.highlightedBackgroundColor
@@ -212,23 +212,23 @@ class AIDropdownBrandView: UIView {
 			make.height.equalTo(Constants.lineViewHeight)
 		}
 	}
-	
+
 	func updateLabelSelectStatus() {
 		for (i, label) in labels.enumerate() {
 			label.highlighted = (i == selectedIndex)
 		}
-		
+
 		for (i, label) in iconLabels.enumerate() {
 			label.highlighted = (i == selectedIndex)
 		}
 	}
-	
+
 	func updateExpandedViewStatus() {
 		var f = frame
 		barScrollView.alpha = isExpanded ? 0 : 1.0
 		expandedView.alpha = isExpanded ? 1.0 : 0
 		numberOfBrandsLabel.alpha = isExpanded ? 1.0 : 0
-		
+
 		if isExpanded {
 			f.size.height = Constants.barHeight + expandedView.height
 		} else {
@@ -236,7 +236,7 @@ class AIDropdownBrandView: UIView {
 		}
 		frame = f
 	}
-	
+
 	func tapped(g: UITapGestureRecognizer) {
 		selectedIndex = g.view!.tag
 		updateLabelSelectStatus()
@@ -244,7 +244,7 @@ class AIDropdownBrandView: UIView {
 			c(self, selectedIndex)
 		}
 	}
-	
+
 	func setupDownButton() {
 		if brands.count < 5 {
 			return
@@ -259,7 +259,7 @@ class AIDropdownBrandView: UIView {
 			make.width.equalTo(Constants.downButtonWidth)
 		}
 	}
-	
+
 	func downButtonPressed(sender: UIButton) {
 		sender.selected = !sender.selected
 		if let block = onDownButtonDidClick {
@@ -274,7 +274,7 @@ class BrandIconLabel: VerticalIconLabel {
 			updateHighlighted()
 		}
 	}
-	
+
 	var colorfulImage: UIImage?
 	var grayImage: UIImage?
 	var imageURL: String? {
@@ -293,7 +293,7 @@ class BrandIconLabel: VerticalIconLabel {
 			}
 		}
 	}
-	
+
 	override var image: UIImage? {
 		set {
 			if let i = newValue {
@@ -307,25 +307,25 @@ class BrandIconLabel: VerticalIconLabel {
 			return colorfulImage
 		}
 	}
-	
+
 	func updateHighlighted() {
 		updateImage()
 		updateBorder()
 		updateAlpha()
 	}
-	
+
 	func updateAlpha() {
 		let a: CGFloat = highlighted ? 1 : 0.18
 		alpha = a
 	}
-	
+
 	func updateBorder() {
 		let borderWidth: CGFloat = highlighted ? 1 : 0
 		layer.borderColor = UIColor(red: 0.2275, green: 0.2157, blue: 0.349, alpha: 1.0).CGColor
 		layer.borderWidth = borderWidth
 		layer.cornerRadius = AITools.displaySizeFrom1080DesignSize(11)
 	}
-	
+
 	func updateImage() {
 		if highlighted {
 			self.imageView.image = colorfulImage
@@ -333,19 +333,19 @@ class BrandIconLabel: VerticalIconLabel {
 			self.imageView.image = grayImage
 		}
 	}
-	
+
 	private static func convertImageToGray(image: UIImage) -> UIImage {
 		// Create image rectangle with current image width/height
-		let beginImage = CIImage(CGImage: image.CGImage!);
-		
+		let beginImage = CIImage(CGImage: image.CGImage!)
+
 		let blackAndWhite = CIFilter(name: "CIColorControls", withInputParameters: [kCIInputImageKey: beginImage, "inputBrightness": 0.0, "inputContrast": 1.1, "inputSaturation": 0.0])?.outputImage
 		let output = CIFilter(name: "CIExposureAdjust", withInputParameters: [kCIInputImageKey: blackAndWhite!, "inputEV": 0.7])?.outputImage
-		
+
 		let context = CIContext(options: nil)
 		let cgiimage = context.createCGImage(output!, fromRect: (output?.extent)!)
 		let newImage = UIImage(CGImage: cgiimage, scale: 0, orientation: image.imageOrientation)
-		
-		return newImage;
+
+		return newImage
 	}
 }
 
@@ -358,24 +358,24 @@ class HalfRoundedCornerLabel: UILabel {
 			userInteractionEnabled = highlighted ? false : true
 		}
 	}
-	
+
 	struct Constants {
 		static let cornerRadii = CGSize(width: AITools.displaySizeFrom1080DesignSize(10), height: AITools.displaySizeFrom1080DesignSize(10))
 		static let margin = AITools.displaySizeFrom1080DesignSize(24)
 		static let font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(41))
 	}
-	
+
 	override var frame: CGRect {
 		didSet {
 			setupCorners()
 		}
 	}
-	
+
 	override func intrinsicContentSize() -> CGSize {
 		return CGSizeMake(super.intrinsicContentSize().width + Constants.margin * 2, super.intrinsicContentSize().height + 10)
 		// 10 is magic number hehe.
 	}
-	
+
 	init(text: String, backgroundColor: UIColor, highlightedBackgroundColor: UIColor, textColor: UIColor, highlightedTextColor: UIColor) {
 		self.highlightedBackgroundColor = highlightedBackgroundColor
 		self.normalBackgroundColor = backgroundColor
@@ -389,7 +389,7 @@ class HalfRoundedCornerLabel: UILabel {
 		self.frame = CGRectMake(0, 0, intrinsicContentSize().width, intrinsicContentSize().height)
 		self.setupCorners()
 	}
-	
+
 	func setupCorners() {
 		let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.TopLeft, .TopRight], cornerRadii: Constants.cornerRadii)
 		let maskLayer = CAShapeLayer()
@@ -397,7 +397,7 @@ class HalfRoundedCornerLabel: UILabel {
 		maskLayer.path = maskPath.CGPath
 		layer.mask = maskLayer
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

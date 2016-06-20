@@ -12,15 +12,15 @@ class IconLabel: UIView {
 
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var label: UILabel!
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initSelfFromXib()
-        
+
         label.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(48))
     }
-    
-    
+
+
     @IBInspectable var iconImage: UIImage? {
         set {
             icon.image = newValue
@@ -29,7 +29,7 @@ class IconLabel: UIView {
             return icon.image
         }
     }
-    
+
     @IBInspectable var labelContent: String? {
         set {
             label.text = newValue

@@ -14,7 +14,7 @@ protocol ProviderDataObtainer {
 
 class MockProviderDataObtainer: ProviderDataObtainer {
     func getOrders(success: (responseData: AIOrderPreListModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-        
+
         if let path = NSBundle.mainBundle().pathForResource("ProviderOrdersJsonTest", ofType: "json") {
             let data: NSData? = NSData(contentsOfFile: path)
             if let dataJSON = data {
@@ -32,15 +32,15 @@ class MockProviderDataObtainer: ProviderDataObtainer {
 
 class BDKProviderDataObtainer: MockProviderDataObtainer {
     override func getOrders(success: (responseData: AIOrderPreListModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-        
+
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.queryHotSearch.description
-        
-        let body = ["data":["order_role":9],"desc":["data_mode":"0","digest":""]]
+
+        let body = ["data":["order_role":9], "desc":["data_mode":"0", "digest":""]]
         message.body = NSMutableDictionary(dictionary: body)
-        
+
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-            
+
             do {
                 let dic = response as! [NSObject : AnyObject]
                 let model = try AIOrderPreListModel(dictionary: dic)
@@ -48,10 +48,10 @@ class BDKProviderDataObtainer: MockProviderDataObtainer {
             } catch {
                 fail(errType: AINetError.Format, errDes: "AIOrderPreListModel JSON Parse error.")
             }
-            
+
             }) { (error: AINetError, errorDes: String!) -> Void in
                 fail(errType: error, errDes: errorDes)
         }
- 
+
     }
 }

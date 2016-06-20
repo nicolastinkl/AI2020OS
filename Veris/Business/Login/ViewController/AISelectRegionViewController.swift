@@ -8,13 +8,13 @@
 
 import UIKit
 
-class AISelectRegionViewController: UIViewController, UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate {
+class AISelectRegionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
 
-    var delegate : AISelectRegionViewControllerDelegate?
-    var model : [RegionModel]?
-    
+    var delegate: AISelectRegionViewControllerDelegate?
+    var model: [RegionModel]?
+
     @IBOutlet weak var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,28 +27,28 @@ class AISelectRegionViewController: UIViewController, UITableViewDelegate,UITabl
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func setupViews(){
+
+    func setupViews() {
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         self.setupLoginNavigationBar("Select Country")
         //修复navigationController侧滑关闭失效的问题
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
-    
-    func loadData(){
-        let model = [RegionModel(countryNumber: "+86", regionName: "China"),RegionModel(countryNumber: "+33", regionName: "France"),
+
+    func loadData() {
+        let model = [RegionModel(countryNumber: "+86", regionName: "China"), RegionModel(countryNumber: "+33", regionName: "France"),
                      RegionModel(countryNumber: "+49", regionName: "Germany"),
                      RegionModel(countryNumber: "+61", regionName: "Australia"),
                      RegionModel(countryNumber: "+36", regionName: "Hungary"),
                      RegionModel(countryNumber: "+81", regionName: "Japan")]
         self.model = model
     }
-    
+
     //MARK: - tableViewDelegate
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let model = model{
+        if let model = model {
             return model.count
         }
         return 0
@@ -64,28 +64,28 @@ class AISelectRegionViewController: UIViewController, UITableViewDelegate,UITabl
         cell.detailTextLabel?.textColor = UIColor.whiteColor()
         return cell
     }
-    
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let cell = tableView.cellForRowAtIndexPath(indexPath){
-            if let delegate = delegate{
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            if let delegate = delegate {
                 delegate.didSelectRegion(cell.detailTextLabel!.text!, countryNumber: cell.textLabel!.text!)
             }
             self.navigationController?.popViewControllerAnimated(true)
         }
     }
-    
+
 }
 
 protocol AISelectRegionViewControllerDelegate {
-    
-    func didSelectRegion(regionName : String, countryNumber : String)
+
+    func didSelectRegion(regionName: String, countryNumber: String)
 }
 
 struct RegionModel {
-    var countryNumber : String
-    var regionName : String
-    
-    init(countryNumber : String, regionName : String){
+    var countryNumber: String
+    var regionName: String
+
+    init(countryNumber: String, regionName: String) {
         self.countryNumber = countryNumber
         self.regionName = regionName
     }

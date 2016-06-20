@@ -19,74 +19,74 @@ protocol AIBueryDetailCellDetegate: class {
 // MARK: -
 // MARK: AIBueryDetailCell
 // MARK: -
-internal class AIBueryDetailCell : AISuperSwipeableCell {//
- 
+internal class AIBueryDetailCell: AISuperSwipeableCell {//
+
     // MARK: -
     // MARK: Internal access (aka public for current module)
     // MARK: -
-    
+
     internal var cellHeight: CGFloat=0
-    
+
     // MARK: -> Internal enums
-    internal var isNormal:Bool = true  //true: 正常  false :移除状态
-    
-    internal var isCanSwipeDelate:Bool = true
-    
-    internal var currentIndexPath:NSIndexPath?
-    
+    internal var isNormal: Bool = true  //true: 正常  false :移除状态
+
+    internal var isCanSwipeDelate: Bool = true
+
+    internal var currentIndexPath: NSIndexPath?
+
     @IBOutlet weak var buttonView: SpringView!
-    
-    internal var recordPosition:CGPoint?
-    
-    var currentModel:AIProposalServiceModel?{
-        didSet{
+
+    internal var recordPosition: CGPoint?
+
+    var currentModel: AIProposalServiceModel? {
+        didSet {
             //TODO: Here is a holdPlace to show some value init.
-            
+
             guard let modelInit = self.currentModel else {
                 return
             }
-            
+
             let simpleServiceView = self.contentHoldView.subviews.last as? SimpleServiceViewContainer
             //Even if a delete property.
             if modelInit.service_del_flag == 1 {
                 // Set the content view to 'delete' MODE.
                 simpleServiceView?.displayDeleteMode = true
-            }else{
+            } else {
                 // Set the content view to 'normal' MODE.
                 simpleServiceView?.displayDeleteMode = false
-                
-            } 
-            
+
+            }
+
         }
     }
-    
-    internal weak var removeDelegate:AIBueryDetailCellDetegate?
-    
+
+    internal weak var removeDelegate: AIBueryDetailCellDetegate?
+
     // MARK: -> Internal structs
-    
+
     @IBOutlet weak var contentHoldView: UIView!
-    
-    
+
+
     @IBOutlet weak var contentMaskView: UILabel!
-    
+
     // MARK: -> Internal class
-    
-    override func awakeFromNib(){
+
+    override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    class func currentView()->AIBueryDetailCell{
-        
-        let selfview =  NSBundle.mainBundle().loadNibNamed("AIBueryDetailCell", owner: self, options: nil).first  as! AIBueryDetailCell 
-        
+
+    class func currentView()->AIBueryDetailCell {
+
+        let selfview =  NSBundle.mainBundle().loadNibNamed("AIBueryDetailCell", owner: self, options: nil).first  as! AIBueryDetailCell
+
         return selfview
     }
-    
+
     // MARK: -
     // MARK: Private access
     // MARK: -
-    
-    
+
+
     // MARK: -> Private methods
 
     ///Delete Action for delegate

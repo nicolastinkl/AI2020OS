@@ -27,52 +27,52 @@ import Spring
 
 /// 输入时间和数字控件封装单独视图
 class AINumberCountControl: UIView {
-    
+
     @IBOutlet weak var subtractButton: DesignableButton!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var addButton: DesignableButton!
     @IBOutlet weak var textInput: UITextField!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
 //        let keboard = PMCustomKeyboard()
 //        keboard.textView = textInput
-        
+
     }
-    
+
     @IBAction func subStractAction(sender: AnyObject) {
-        
+
         let text = textInput.text ?? ""
         var float = Int(text) ?? 0
         if float == 1 {
             return
         }
-        
+
         if float > 0 {
             float = float - 1
             textInput.text = "\(float)"
         }
-        
+
         if float == 1 {
             subtractButton.enabled = false
             subtractButton.backgroundColor = UIColor(hex: "#7E7DB6")
         }
-    }     
-    
+    }
+
     @IBAction func addAction(sender: AnyObject) {
         let text = textInput.text ?? ""
         var float = Int(text) ?? 0
         float = float + 1
         textInput.text = "\(float)"
-        
+
         if float > 1 {
             subtractButton.enabled = true
             subtractButton.backgroundColor = UIColor(hex: "#008BDF")
         }
     }
-    
-    
-     
-    
+
+
+
+
 }

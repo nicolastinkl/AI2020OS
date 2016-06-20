@@ -24,25 +24,25 @@ class DependOnNodePickerViewController: UIViewController {
 			updateServices()
 		}
 	}
-	
+
 	var allTasks: [TaskNode] {
 		// 取出所有选中的service 的tasks 组成一个数组
 		let result = services.filter { $0.selected }.flatMap { $0.tasks }.sort { $0.date < $1.date }
 		return result
 	}
-	
+
 	var selectedTask: TaskNode? {
 		didSet {
 			updateServices()
 			tableView?.reloadData()
 		}
 	}
-	
+
 	var serviceLogos = [CycleImageView]()
 	var logoContainerView: UIView!
 	var tableView: UITableView!
 	var gradientLayer: CAGradientLayer!
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupBackgroundImageView()
@@ -50,24 +50,24 @@ class DependOnNodePickerViewController: UIViewController {
 		setupTableView()
 		setupGradientLayer()
 		setupDetermineButton()
-	
+
     }
-	
+
 	func setupBackgroundImageView() {
 		let imageView = UIImageView(image: UIImage(named: "taskSelectBg"))
 		view.addSubview(imageView)
 		imageView.snp_makeConstraints { (make) in
 			make.edges.equalTo(view)
 		}
-	
+
     }
-	
+
 	override func viewWillAppear(animated: Bool) {
-        
+
 		super.viewWillAppear(animated)
 		setupSelectedService()
 	}
-	
+
 	func setupSelectedService() {
 		if let selectedTask = selectedTask {
 			for (i, service) in services.enumerate() {
@@ -84,36 +84,36 @@ class DependOnNodePickerViewController: UIViewController {
 				}
 			}
 		}
-	
+
     }
-    
-	
+
+
 	func setupIconsContainerView() {
-        
+
 		logoContainerView = UIView()
 		logoContainerView.backgroundColor = UIColor.clearColor()
 		view.addSubview(logoContainerView)
-		
+
 		constrain(view, logoContainerView) { (view, logoContainerView) -> () in
 			view.top == logoContainerView.top
 			view.leading == logoContainerView.leading
 			view.trailing == logoContainerView.trailing
 			logoContainerView.height == 218 / 3
 		}
-		
+
 		for i in 0 ... 7 {
 			let imageView = CycleImageView()
 			imageView.tag = i
 			imageView.userInteractionEnabled = true
 			imageView.cycleColor = UIColorFromHex(0x0f86e8)
 			logoContainerView.addSubview(imageView)
-			
+
 			serviceLogos.append(imageView)
 		}
-		
+
 		let margin = 51 / 3
 		var previousView: CycleImageView!
-		
+
 		for (i, imageView) in serviceLogos.enumerate() {
 			if i == 0 {
 				// first one
@@ -138,11 +138,11 @@ class DependOnNodePickerViewController: UIViewController {
 					make.size.equalTo(previousView)
 				})
 			}
-			
+
 			previousView = imageView
 		}
-        
-        
+
+
         // add bottom line
         let line = UIView()
         line.backgroundColor = Constants.separatorColor
@@ -151,9 +151,9 @@ class DependOnNodePickerViewController: UIViewController {
             make.bottom.leading.trailing.equalTo(logoContainerView)
             make.height.equalTo(1 / UIScreen.mainScreen().scale)
         }
-        
+
 	}
-	
+
 	func updateServices() {
 		// clear all image and gesture
 		serviceLogos.forEach { (imageView) -> () in
@@ -162,7 +162,7 @@ class DependOnNodePickerViewController: UIViewController {
 				imageView.removeGestureRecognizer(recognizer)
 			}
 		}
-		
+
 		// setup imageview with service
 		for (i, service) in services.enumerate() {
 			let imageView = serviceLogos[i]
@@ -171,11 +171,11 @@ class DependOnNodePickerViewController: UIViewController {
 			let tap = UITapGestureRecognizer(target: self, action: "logoTapped:")
 			imageView.addGestureRecognizer(tap)
 		}
-	
+
     }
-	
+
 	func setupTableView() {
-        
+
 		let tableViewContainer = UIView()
 		tableView = UITableView(frame: .zero, style: .Plain)
 		tableView.delegate = self
@@ -187,53 +187,53 @@ class DependOnNodePickerViewController: UIViewController {
 		tableView.registerNib(cellNib, forCellReuseIdentifier: "cell")
 		tableViewContainer.addSubview(tableView)
 		view.addSubview(tableViewContainer)
-		
+
 		tableView.tableFooterView = UIView() // remove empty cells
-		
+
 		constrain(view, tableViewContainer, logoContainerView) { (view, tableViewContainer, logoContainerView) -> () in
 			view.leading == tableViewContainer.leading
 			view.trailing == tableViewContainer.trailing
 			tableViewContainer.top == logoContainerView.bottom
 		}
-		
+
 		tableView.snp_makeConstraints { (make) in
 			make.edges.equalTo(tableViewContainer)
 		}
 	}
-	
+
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		gradientLayer.frame = tableView.superview!.bounds
 		let height = gradientLayer.frame.size.height
 		let halfCellHeight = Constants.cellHeight / 2
-		
+
 		let radio = 1 - halfCellHeight / height
-		
+
 		gradientLayer.locations = [
 			0.25,
 			0.75,
 			radio,
 			1.0
 		]
-	
+
     }
-	
+
 	func setupGradientLayer() {
 		// http://stackoverflow.com/questions/25355058/apply-vertical-alpha-gradient-to-uitableview
-		
+
 		gradientLayer = CAGradientLayer()
-		gradientLayer.frame = tableView.superview?.bounds ?? CGRectNull
-		
+		gradientLayer.frame = tableView.superview?.bounds ?? CGRect.null
+
 		gradientLayer.colors = [
 			UIColor.blackColor().CGColor,
 			UIColor.blackColor().CGColor,
 			UIColor.clearColor().CGColor,
 			UIColor.clearColor().CGColor
 		]
-		
+
 		tableView.superview?.layer.mask = gradientLayer
 	}
-	
+
 	func setupDetermineButton() {
 		let button = UIButton()
 		button.setTitle("Determine", forState: .Normal)
@@ -243,7 +243,7 @@ class DependOnNodePickerViewController: UIViewController {
 		button.layer.cornerRadius = 20
 		button.addTarget(self, action: "determineButtonPressed", forControlEvents: .TouchUpInside)
 		view.addSubview(button)
-		
+
 		button.snp_makeConstraints { (make) -> Void in
 			make.top.equalTo(tableView.snp_bottom).offset(8)
 			make.bottom.equalTo(view).offset(-54)
@@ -251,7 +251,7 @@ class DependOnNodePickerViewController: UIViewController {
 			make.centerX.equalTo(view)
 		}
 	}
-	
+
 	func determineButtonPressed() {
 		dismissPopupViewController(true) { () -> Void in
 			if let delegate = self.delegate {
@@ -259,7 +259,7 @@ class DependOnNodePickerViewController: UIViewController {
 			}
 		}
 	}
-	
+
 	func logoTapped(g: UITapGestureRecognizer) {
 		let logo = g.view as! CycleImageView
 		logo.selected = !logo.selected
@@ -281,7 +281,7 @@ extension DependOnNodePickerViewController: UITableViewDataSource {
             if let _ = selectedTask {
                 cell.selected = (task.id == selectedTask?.id && task.arrageID == selectedTask?.arrageID)
             }
-   
+
 			return cell
 		} else {
 			// never goes here
@@ -289,7 +289,7 @@ extension DependOnNodePickerViewController: UITableViewDataSource {
 			return cell
 		}
 	}
-	
+
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return allTasks.count
     }
@@ -297,11 +297,11 @@ extension DependOnNodePickerViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension DependOnNodePickerViewController: UITableViewDelegate {
-	
+
 	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 		return Constants.cellHeight
 	}
-	
+
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		let task = allTasks[indexPath.row]
 		selectedTask = task
@@ -319,13 +319,13 @@ class CycleImageView: UIImageView {
 		})
 		return result
 	}()
-	
+
 	var selected: Bool = false {
 		didSet {
 			layer.borderWidth = selected ? 10 / 3: 0
 		}
 	}
-	
+
 	var cycleColor: UIColor? {
 		didSet {
 			if let cycleColor = cycleColor {
@@ -333,11 +333,11 @@ class CycleImageView: UIImageView {
 			}
 		}
 	}
-	
+
 	override func asyncLoadImage(imgUrl: String) {
 		imageView.asyncLoadImage(imgUrl)
 	}
-	
+
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		layer.cornerRadius = width / 2

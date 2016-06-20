@@ -16,26 +16,26 @@ import UIKit
 extension UIColor {
     /*!
     how to use it??
-    
+
     var strokeColor = UIColor(rgba: "#ffcc00").CGColor // Solid color
-    
+
     var fillColor = UIColor(rgba: "#ffcc00dd").CGColor // Color with alpha
-    
+
     var backgroundColor = UIColor(rgba: "#FFF") // Supports shorthand 3 character representation
-    
+
     var menuTextColor = UIColor(rgba: "#013E") // Supports shorthand 4 character representation (with alpha)
-    
-    
+
+
     :param: rgba #ffcc00
-    
+
     :returns: UIColor object
     */
     convenience init(rgba: String) {
-        var red:   CGFloat = 0.0
+        var red: CGFloat = 0.0
         var green: CGFloat = 0.0
-        var blue:  CGFloat = 0.0
+        var blue: CGFloat = 0.0
         var alpha: CGFloat = 1.0
-        
+
         if rgba.hasPrefix("#") {
             let rgba = (rgba as NSString).substringFromIndex(1)
             let index   = rgba.startIndex//advance(rgba.startIndex, 1)
@@ -75,111 +75,111 @@ extension UIColor {
         }
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }
-    
+
     /*!
         处理导航栏黑线问题  透明投影问题
     */
-    func clearImage() -> UIImage{
-        
-        let rect:CGRect = CGRectMake(0, 0, 1, 1)
+    func clearImage() -> UIImage {
+
+        let rect: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
-        let context:CGContextRef = UIGraphicsGetCurrentContext()!
-        
+        let context: CGContextRef = UIGraphicsGetCurrentContext()!
+
         CGContextSetFillColorWithColor(context, self.CGColor)
         CGContextFillRect(context, rect)
-        
-        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+
         return image
-    }     
-    
+    }
+
     // theme Color
     class func applicationMainColor() -> UIColor {
         return UIColor(rgba: AIApplication.AIColor.MainTextColor)
-    }    
-    
+    }
+
     func imageWithColor() -> UIImage {
-        let rect:CGRect = CGRectMake(0, 0, 1, 1)
+        let rect: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
-        let context:CGContextRef = UIGraphicsGetCurrentContext()!
-        
+        let context: CGContextRef = UIGraphicsGetCurrentContext()!
+
         CGContextSetFillColorWithColor(context, self.CGColor)
         CGContextFillRect(context, rect)
-        
-        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+
         return image
     }
-    
-    
+
+
     ///通过渐变类型，颜色值返回渐变颜色 add by liux at 20160312
-    static func colorWithGradientStyle(gradientStyle : UIGradientStyle, frame : CGRect , colors : [UIColor]) -> UIColor{
-        
+    static func colorWithGradientStyle(gradientStyle: UIGradientStyle, frame: CGRect, colors: [UIColor]) -> UIColor {
+
         let backgroundGradientLayer = CAGradientLayer()
         backgroundGradientLayer.frame = frame
         let cgColors = NSMutableArray()
-        for uiColor in colors{
+        for uiColor in colors {
             cgColors.addObject(uiColor.CGColor)
         }
-        
-        switch gradientStyle{
+
+        switch gradientStyle {
         case UIGradientStyle.UIGradientStyleLeftToRight:
             //Set out gradient's colors
             backgroundGradientLayer.colors = cgColors as [AnyObject]
-            
+
             //Specify the direction our gradient will take
             backgroundGradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
             backgroundGradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-            
+
             //Convert our CALayer to a UIImage object
             UIGraphicsBeginImageContextWithOptions(backgroundGradientLayer.bounds.size, false, UIScreen.mainScreen().scale)
             backgroundGradientLayer.renderInContext(UIGraphicsGetCurrentContext()!)
             let backgroundColorImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            
+
             return UIColor(patternImage: backgroundColorImage)
             //TODO:还有两个实现没写完
         case UIGradientStyle.UIGradientStyleRadial:
             UIGraphicsBeginImageContextWithOptions(frame.size, false, UIScreen.mainScreen().scale)
             //Specific the spread of the gradient (For now this gradient only takes 2 locations)
-            let locations : [CGFloat] = [0.0,1.0]
-            
+            let locations: [CGFloat] = [0.0, 1.0]
+
             //Default to the RGB Colorspace
             let myColorspace = CGColorSpaceCreateDeviceRGB()
-            
+
             //Create our Gradient
             let myGradient = CGGradientCreateWithColors(myColorspace, cgColors, locations)
-            
+
             // Normalise the 0-1 ranged inputs to the width of the image
             let myCentrePoint = CGPoint(x: frame.size.width / 2, y: frame
                 .size.height / 2)
             let myRadius = min(frame.size.height, frame.size.width)
             CGContextDrawRadialGradient(UIGraphicsGetCurrentContext(), myGradient, myCentrePoint, 0, myCentrePoint, myRadius, CGGradientDrawingOptions.DrawsAfterEndLocation)
-            
+
             // Grab it as an Image
             let backgroundColorImage = UIGraphicsGetImageFromCurrentImageContext()
-            
+
             // Clean up
             UIGraphicsEndImageContext()
-            
+
             return UIColor(patternImage: backgroundColorImage)
-            
+
         case UIGradientStyle.UIGradientStyleTopToBottom:
-            
+
             //Convert our CALayer to a UIImage object
             UIGraphicsBeginImageContextWithOptions(backgroundGradientLayer.bounds.size, false, UIScreen.mainScreen().scale)
-            
+
             //Set out gradient's colors
             backgroundGradientLayer.colors = cgColors as [AnyObject]
-            
+
             //Specify the direction our gradient will take
             backgroundGradientLayer.startPoint = CGPoint(x: 1, y: 0)
             backgroundGradientLayer.endPoint = CGPoint(x: 1, y: 1)
-            
+
             //Set color split line.
-            backgroundGradientLayer.locations  = [(0.05), (0.16), (0.65),(0.81)]
+            backgroundGradientLayer.locations  = [(0.05), (0.16), (0.65), (0.81)]
             backgroundGradientLayer.position = CGPointMake(frame.size.width/2, frame.size.height/2)
 
             backgroundGradientLayer.renderInContext(UIGraphicsGetCurrentContext()!)
@@ -192,6 +192,6 @@ extension UIColor {
 
 }
 
-enum UIGradientStyle : Int{
-    case UIGradientStyleLeftToRight,UIGradientStyleRadial,UIGradientStyleTopToBottom
+enum UIGradientStyle: Int {
+    case UIGradientStyleLeftToRight, UIGradientStyleRadial, UIGradientStyleTopToBottom
 }

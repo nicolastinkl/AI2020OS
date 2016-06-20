@@ -9,16 +9,16 @@
 import UIKit
 
 class EvernoteTransition: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, AIRequirementViewControllerDelegate {
-	
+
 	internal var isPresent = true
 	var selectCell: AISellerCollectionViewCell = AISellerCollectionViewCell()
 	var visibleCells = [AISellerCollectionViewCell]()
-	var originFrame: CGRect = CGRectZero
-	var finalFrame: CGRect = CGRectZero
+	var originFrame: CGRect = CGRect.zero
+	var finalFrame: CGRect = CGRect.zero
 	var panViewController = UIViewController()
 	var listViewController = UIViewController()
 	var interactionController = UIPercentDrivenInteractiveTransition()
-	
+
 	func EvernoteTransitionWith(selectCell selectCell: AISellerCollectionViewCell, visibleCells: [AISellerCollectionViewCell], originFrame: CGRect, finalFrame: CGRect, panViewController: UIViewController, listViewController: UIViewController) {
 		self.selectCell = selectCell
 		self.visibleCells = visibleCells
@@ -30,12 +30,12 @@ class EvernoteTransition: NSObject, UIViewControllerAnimatedTransitioning, UIVie
 		pan.edges = UIRectEdge.Left
 		self.panViewController.view.addGestureRecognizer(pan)
 	}
-	
+
 	// UIViewControllerAnimatedTransitioning
 	func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
 		return 0.45
 	}
-	
+
 	func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
 		let nextVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
 		transitionContext.containerView()?.backgroundColor = UIColor(red: 56.0/255.0, green: 51/255.0, blue: 76/255.0, alpha: 1.0)
@@ -74,24 +74,24 @@ class EvernoteTransition: NSObject, UIViewControllerAnimatedTransitioning, UIVie
 			addView!.hidden = false
 			transitionContext.completeTransition(true)
 		}
-		
+
 	}
-	
+
 	// UIViewControllerTransitioningDelegate
 	func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		isPresent = true
 		return self
 	}
-	
+
 	func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		self.isPresent = false
 		return self
 	}
-	
+
 	func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
 		return interactionController
 	}
-	
+
 	func handlePanGesture(recognizer: UIScreenEdgePanGestureRecognizer) {
 		let view = panViewController.view
 		if recognizer.state == UIGestureRecognizerState.Began {
@@ -107,20 +107,20 @@ class EvernoteTransition: NSObject, UIViewControllerAnimatedTransitioning, UIVie
 			} else {
 				interactionController.cancelInteractiveTransition()
 				listViewController.presentViewController(panViewController, animated: false, completion: { () -> Void in
-					
+
 				})
 			}
 			interactionController = UIPercentDrivenInteractiveTransition()
 		}
 	}
-	
+
 	// NoteViewControllerDelegate
-	
+
 	func finishInteractive() {
 		interactionController.finishInteractiveTransition()
 //		selectCell.textView.scrollEnabled = true
 	}
-	
+
 }
 
 

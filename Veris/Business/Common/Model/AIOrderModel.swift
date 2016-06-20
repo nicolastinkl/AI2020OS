@@ -10,26 +10,26 @@ import Foundation
 import SwiftyJSON
 
 
-struct AIShoppingModel : JSONJoy {
-    
-    var shopping_id : Int?
-    var shopping_number : Int?
-    var shopping_state : Int?
-    var shopping_image_url : String?
-    var shopping_title : String?
-    var shopping_price : String?
-    
-    init(){
-        
+struct AIShoppingModel: JSONJoy {
+
+    var shopping_id: Int?
+    var shopping_number: Int?
+    var shopping_state: Int?
+    var shopping_image_url: String?
+    var shopping_title: String?
+    var shopping_price: String?
+
+    init() {
+
     }
-    
+
     init(_ decoder: JSONDecoder) {
-        
+
     }
-    
+
 }
 //订单列表model
-struct AIOrderListModel : JSONJoy {
+struct AIOrderListModel: JSONJoy {
     var orderArray: Array<AIOrderListItemModel>?
     init(_ decoder: JSONDecoder) {
         if let addrs = decoder.array {
@@ -42,7 +42,7 @@ struct AIOrderListModel : JSONJoy {
 }
 
 //订单列表项model
-struct AIOrderListItemModel : JSONJoy {
+struct AIOrderListItemModel: JSONJoy {
 //    "order_id": 1001,
 //    "order_number": "2015052811234",
 //    "order_state": 3,
@@ -54,23 +54,23 @@ struct AIOrderListItemModel : JSONJoy {
 //    “service_type”:1
 //    “provider_portrait_url”:http://xxxx/image
 //    “service_time_duration”:”3月１７日－３月２２日”
-    var order_id : Int?
-    var order_number : Int?
-    var order_state : Int?
-    var order_state_name : String?
-    var order_create_time : String?
-    var service_id : Int?
-    var service_name : String?
-    var provider_id : Int?
-    var service_type : Int?
-    var provider_portrait_url : String?
-    var service_time_duration : String?
-    var order_price : String?
-    
-    init(){
-    
+    var order_id: Int?
+    var order_number: Int?
+    var order_state: Int?
+    var order_state_name: String?
+    var order_create_time: String?
+    var service_id: Int?
+    var service_name: String?
+    var provider_id: Int?
+    var service_type: Int?
+    var provider_portrait_url: String?
+    var service_time_duration: String?
+    var order_price: String?
+
+    init() {
+
     }
-    
+
     init(_ decoder: JSONDecoder) {
         order_id = decoder["order_id"].integer
         order_number = decoder["order_number"].integer

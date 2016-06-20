@@ -97,7 +97,7 @@ extension UIView {
 
 }
 
-private struct ShakePosition  {
+private struct ShakePosition {
 
     let value: CGFloat
     let direction: ShakeDirection
@@ -126,5 +126,5 @@ private struct ShakePosition  {
     static var Bottom: ShakePosition {
         return ShakePosition(value: -1, direction: .Vertical)
     }
-    
+
 }

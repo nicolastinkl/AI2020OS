@@ -25,9 +25,9 @@
 import Foundation
 
 class AISuperiorityCellView: UIView {
-    
+
     @IBOutlet weak var labelDesciption: UILabel!
     @IBOutlet weak var bgImgView: UIImageView!
-    
-    
+
+
 }

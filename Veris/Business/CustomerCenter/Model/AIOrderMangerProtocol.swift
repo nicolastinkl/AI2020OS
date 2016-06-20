@@ -13,44 +13,44 @@ import Foundation
 // MARK: AIOrderMangerProtocol 订单管理Protocol
 // MARK: -
 internal protocol AIOrderMangerProtocol {
-  
+
   // MARK: -> Internal type alias
-  
+
   // MARK: -> Internal properties
-  
+
   // MARK: -> Internal class methods
-  
+
   // MARK: -> Internal init methods
-  
+
   // MARK: -> Internal methods
-  
+
   // MARK: -> Internal class override <#class name#>
-  
+
   // MARK: -> Internal protocol <#protocol name#>
-  
+
 
 //    var DefaultUserInfomation : String?
-    
-    
+
+
 }
 
 /*
 
 //基于UIViewController
 extension AIOrderMangerProtocol where Self : UIViewController {
-    
+
     // MARK: -> Internal methods
-    
+
     /**
     Swift right View‘s ViewController
-    
+
     - parameter type: 界面类型
     */
     func SwitchViewController(type : Int){
 
     }
-    
-    
+
+
 }
 
 class AIDDDViewController : UIViewController,AIOrderMangerProtocol {
@@ -62,11 +62,11 @@ class AIDDDViewController : UIViewController,AIOrderMangerProtocol {
 
 //基于UIView
 extension AIOrderMangerProtocol where Self : UIView {
-    
+
     // MARK: -> Internal methods
-    
+
     func presentError(errorOptions: NSError){
-        
+
     }
 }
 

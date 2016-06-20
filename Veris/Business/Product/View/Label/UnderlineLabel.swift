@@ -15,10 +15,10 @@ class UnderlineLabel: UILabel {
             if let str = text {
                 let att = NSMutableAttributedString(string: str)
                 let range = NSRange(location: 0, length: str.length)
-                att.addAttribute(NSUnderlineStyleAttributeName , value: NSNumber(integer: NSUnderlineStyle.StyleSingle.rawValue), range: range)
+                att.addAttribute(NSUnderlineStyleAttributeName, value: NSNumber(integer: NSUnderlineStyle.StyleSingle.rawValue), range: range)
                 attributedText = att
             }
-            
+
         }
     }
     /*

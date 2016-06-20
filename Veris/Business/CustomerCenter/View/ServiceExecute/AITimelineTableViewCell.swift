@@ -16,49 +16,49 @@ public class AITimelineTableViewCell: UITableViewCell {
   // MARK: -
   // MARK: Public access
   // MARK: -
-  
+
   // MARK: -> Public properties
-  
+
   // MARK: -> Public class methods
-  
+
   // MARK: -> Public init methods
-  
+
   // MARK: -> Public methods
-  
+
   // MARK: -> Public protocol <#protocol name#>
-  
+
   // MARK: -
   // MARK: Internal access
   // MARK: -
-  
+
   // MARK: -> Internal properties
-  
+
   // MARK: -> Internal class methods
-  
+
   // MARK: -> Internal init methods
-  
+
   // MARK: -> Internal methods
-  
+
   // MARK: -> Internal protocol <#protocol name#>
-  
+
   // MARK: -
   // MARK: Private access
   // MARK: -
-  
+
   // MARK: -> Private properties
-  
+
   // MARK: -> Private class methods
-  
+
   // MARK: -> Private init methods
-  
+
   // MARK: -> Private methods
 
   // MARK: -
   // MARK: Interface
   // MARK: -
-  
+
   // MARK: -> Class override UITableViewCell
-  
+
   // Only override drawRect: if you perform custom drawing.
 
 }

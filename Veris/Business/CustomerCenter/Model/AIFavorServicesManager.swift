@@ -19,11 +19,11 @@ protocol AIFavorServicesManager {
     func getServiceTags(completion: (([String], Error?)) -> Void)
 }
 
-class AIMockFavorServicesManager : AIFavorServicesManager {
-    
+class AIMockFavorServicesManager: AIFavorServicesManager {
+
     private var favorServices = [AIServiceTopicModel]()
     private var tags = NSMutableSet()
-    
+
     init() {
         var service = AIServiceTopicModel()
         service.service_name = "去上海出差"
@@ -34,10 +34,10 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         service.contents.append("宠物寄养")
         service.isFavor = true
         service.tags.append("工作")
-        
+
         favorServices.append(service)
         tags.addObject(service.tags[0])
-        
+
         service = AIServiceTopicModel()
         service.service_name = "做个柔软的胖子"
         service.service_thumbnail_url = "http://brand.gzmama.com/attachments/gzmama/2012/09/8111699_2012091611055819bgd.jpg"
@@ -47,7 +47,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         service.tags.append("健身")
         favorServices.append(service)
         tags.addObject(service.tags[0])
-        
+
         service = AIServiceTopicModel()
         service.service_name = "周末打羽毛球"
         service.service_thumbnail_url = "http://photocdn.sohu.com/20110809/Img315878985.jpg"
@@ -57,7 +57,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         service.tags.append("健身")
         favorServices.append(service)
         tags.addObject(service.tags[0])
-        
+
         service = AIServiceTopicModel()
         service.service_name = "家宴"
         service.service_thumbnail_url = "http://hunjia.shangdu.com/file/upload/201403/20/16-39-25-78-972.jpg"
@@ -67,7 +67,7 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         service.tags.append("生活")
         favorServices.append(service)
         tags.addObject(service.tags[0])
-        
+
         service = AIServiceTopicModel()
         service.service_name = "同学聚会"
         service.service_thumbnail_url = "http://photocdn.sohu.com/20150603/mp17561615_1433325849459_1.jpeg"
@@ -80,21 +80,21 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
         favorServices.append(service)
         tags.addObject(service.tags[0])
     }
-    
+
     func getFavoriteServices(pageNum: Int, pageSize: Int, tags: [AITagModel], completion: (([AIServiceTopicModel], Error?)) -> Void) {
-        
-        
+
+
         if tags.count == 0 {
             completion((favorServices, nil))
             return
         }
-        
+
         var tempList = [AIServiceTopicModel]()
-        
+
         for service in favorServices {
-            
+
             for tag in service.tags {
-                
+
                 func isInTags(srcTagName: String, desTags: [AITagModel]) -> Bool {
                     if desTags.count == 0 {
                         return false
@@ -104,29 +104,29 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
                                 return true
                             }
                         }
-                        
+
                         return false
                     }
                 }
-                
+
                 if isInTags(tag, desTags: tags) {
                     tempList.append(service)
                     break
                 }
             }
         }
-        
+
         completion((tempList, nil))
     }
-    
+
     func queryFavoriteServices(tags: [String], completion: (([AIServiceTopicModel], Error?)) -> Void) {
-        
+
         var tempList = [AIServiceTopicModel]()
-        
+
         for service in favorServices {
-                
+
             for tag in service.tags {
-                
+
                 func isInTags(srcTag: String, desTags: [String]) -> Bool {
                     if desTags.count == 0 {
                         return false
@@ -136,59 +136,59 @@ class AIMockFavorServicesManager : AIFavorServicesManager {
                                 return true
                             }
                         }
-                        
+
                         return false
                     }
                 }
-                
+
                 if isInTags(tag, desTags: tags) {
                     tempList.append(service)
                     break
                 }
             }
         }
-        
+
         completion((tempList, nil))
-        
+
     }
-    
+
     func changeFavoriteServiceState(isFavor: Bool, completion: (Error?) -> Void) {
-        
+
     }
-    
+
     func getServiceTags(completion: (([String], Error?)) -> Void) {
-        
+
         var tagList = [String]()
-        
+
         for obj in tags.allObjects {
             tagList.append(obj as! String)
         }
-        
+
         completion((tagList, nil))
     }
-    
+
 }
 
-class AIHttpFavorServicesManager : AIMockFavorServicesManager {
-    
-    var isLoading : Bool = false
-    
+class AIHttpFavorServicesManager: AIMockFavorServicesManager {
+
+    var isLoading: Bool = false
+
     override func getFavoriteServices(pageNum: Int, pageSize: Int, tags: [AITagModel], completion: (([AIServiceTopicModel], Error?)) -> Void) {
         if isLoading {
             return
         }
-        
+
         var listModel: AIFavoritesServicesResult?
-        var responseError:Error?
-        
+        var responseError: Error?
+
         isLoading = true
-        
+
         let arrayString: [String] = tags.map({
             obj in
             let item = obj as AITagModel
             return "\(item.toJson())"
         })
-        
+
         let paras = [
             "data":[
                 "page_no": pageNum,
@@ -200,20 +200,20 @@ class AIHttpFavorServicesManager : AIMockFavorServicesManager {
                 "digest": ""
             ]
         ]
-     
+
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryCollectedServices, parameters: paras) {  [weak self] (response, error) -> () in
             responseError = error
-            if let strongSelf = self{
+            if let strongSelf = self {
                 strongSelf.isLoading = false
             }
             if let responseJSON: AnyObject = response {
                 listModel =  AIFavoritesServicesResult(JSONDecoder(responseJSON))
             }
-            
+
             if listModel == nil {
                 listModel = AIFavoritesServicesResult()
             }
-            
+
             completion((listModel!.services, responseError))
         }
     }
@@ -223,25 +223,25 @@ class AIHttpFavorServicesManager : AIMockFavorServicesManager {
         if isLoading {
             return
         }
-        
+
         var listModel: AIFavoritesServiceTagsResult?
-        var responseError:Error?
-        
+        var responseError: Error?
+
         isLoading = true
-        
+
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.QueryServiceTags, parameters: ["":""]) {  [weak self] (response, error) -> () in
             responseError = error
-            if let strongSelf = self{
+            if let strongSelf = self {
                 strongSelf.isLoading = false
             }
             if let responseJSON: AnyObject = response {
                 listModel =  AIFavoritesServiceTagsResult(JSONDecoder(responseJSON))
             }
-            
+
             if listModel == nil {
                 listModel = AIFavoritesServiceTagsResult()
             }
-            
+
             completion((listModel!.tags, responseError))
         }
     }

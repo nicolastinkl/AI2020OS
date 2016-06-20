@@ -26,15 +26,15 @@ import Foundation
 import Spring
 
 class AIWaterView: DesignableView {
-    
-    
+
+
     override func drawRect(rect: CGRect) {
         // 半径
         let rabius: CGFloat = 30
         // 开始角
         let startAngle: CGFloat = 0
         // 中心点
-        let point: CGPoint = CGPointMake(40, 40)
+        let point: CGPoint = CGPoint(x: 40, y: 40)
         // 结束角
         let endAngle: CGFloat = CGFloat(2*M_PI)
         let path: UIBezierPath = UIBezierPath(arcCenter: point, radius: rabius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
@@ -42,8 +42,8 @@ class AIWaterView: DesignableView {
         layer.path = path.CGPath
         // 添加路径 下面三个同理
         layer.strokeColor = UIColor(hex: "2e2e6a").CGColor
-        layer.fillColor = UIColor(hexString: "2e2e6a",alpha: 0.6).CGColor
+        layer.fillColor = UIColor(hexString: "2e2e6a", alpha: 0.6).CGColor
         self.layer.addSublayer(layer)
     }
-    
+
 }

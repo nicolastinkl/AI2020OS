@@ -18,10 +18,10 @@
 import Foundation
 import UIKit
 
-protocol AIDeleteActionDelegate:class{
-    
-    func deleteAction(cell:UIView?)
-    
-    func retrySendRequestAction(cell:UIView?)
-    
+protocol AIDeleteActionDelegate:class {
+
+    func deleteAction(cell: UIView?)
+
+    func retrySendRequestAction(cell: UIView?)
+
 }

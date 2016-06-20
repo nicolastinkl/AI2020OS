@@ -31,45 +31,45 @@ import AIAlertView
 
 /// 路径规划界面 "Select"界面
 class AIServiceRouteViewController: UIViewController {
-     
+
     @IBOutlet weak var scrollView: UIScrollView!
-    
+
     private var preCacheView: UIView?
-    
+
     private var hasLoad: Bool = false
-    
+
     var addressArray: [AIServiceRouteAddressModel]?
-    
+
     private var buttonSelected: UIButton = {
-        
+
         let button = UIButton(type: .Custom)
         button.titleLabel?.textColor = UIColor.whiteColor()
         button.titleLabel?.font = AITools.myriadSemiCondensedWithSize(15)
         button.setHeight(50)
         button.addBottomWholeSSBorderLine()
-        
+
         return button
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.contentSize.height = 20
-        
+
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         initloadView()
     }
-    
-    func initloadView(){
+
+    func initloadView() {
         // Add Destination View and Departure View.
-        
+
         if hasLoad == false {
             hasLoad = true
-            
-            if let routeView = AIServiceRouteView.initFromNib() as? AIServiceRouteView{
+
+            if let routeView = AIServiceRouteView.initFromNib() as? AIServiceRouteView {
                 routeView.addressArray = self.addressArray
                 addNewSubView(routeView)
                 Async.main(after: 0.1, block: {
@@ -77,74 +77,74 @@ class AIServiceRouteViewController: UIViewController {
                     routeView.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
                 })
             }
-            
+
             if let sview = AIDepartReahCityView.initFromNib() as? AIDepartReahCityView {
                 addNewSubView(sview)
-                
+
                 Async.main(after: 0.1, block: {
                     sview.startCity.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
                     sview.endCity.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
 
                 })
             }
-            
-            if let sview = AIStartEndTimeView.initFromNib() as? AIStartEndTimeView{
+
+            if let sview = AIStartEndTimeView.initFromNib() as? AIStartEndTimeView {
                 addNewSubView(sview)
-                
+
                 Async.main(after: 0.1, block: {
                     sview.startCity.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
                     sview.endCity.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
-                    
+
                 })
-                
+
             }
-            
+
             if let sview = AIEventCapacityView.initFromNib() {
                 addNewSubView(sview)
                 sview.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
             }
         }
-        
+
     }
-    
-    
-    
-    func selectCountryAction(){
+
+
+
+    func selectCountryAction() {
         // Optional: To pick from custom countries list
-        
+
         let vc = AILocationSelectViewController { (name, code) in
             print(code)
         }
-        
-        vc.customCountriesCode = ["VEG", "WUS", "CAF", "AQ", "BAX","EG", "MUS", "AF", "AQ", "AX","EG", "US", "AF", "AF", "ADX","ECG", "UVS", "AGF", "AHQ", "AJX","EJG", "ULS", "APF", "AOQ", "AUX","EUG", "UYS", "ATF", "ARQ", "AEX"]
-        
+
+        vc.customCountriesCode = ["VEG", "WUS", "CAF", "AQ", "BAX", "EG", "MUS", "AF", "AQ", "AX", "EG", "US", "AF", "AF", "ADX", "ECG", "UVS", "AGF", "AHQ", "AJX", "EJG", "ULS", "APF", "AOQ", "AUX", "EUG", "UYS", "ATF", "ARQ", "AEX"]
+
         let navigation = UINavigationController(rootViewController: vc)
         self.presentViewController(navigation, animated: true, completion: nil)
-        vc.showMenuTitleViewController(navigation,title: "Location")
-        
-        vc.didSelectCountryClosure =  { (name, code) in
+        vc.showMenuTitleViewController(navigation, title: "Location")
+
+        vc.didSelectCountryClosure = { (name, code) in
             print(code)
         }
     }
-    
-    func addNewSubView(cview:UIView){
+
+    func addNewSubView(cview: UIView) {
         scrollView.addSubview(cview)
         cview.setWidth(self.view.width)
         cview.setTop(scrollView.contentSize.height)
         cview.backgroundColor = UIColor.clearColor()
         scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
         preCacheView = cview
-        
+
     }
-    
-    func finishExecEvent(){
-        
+
+    func finishExecEvent() {
+
         let vc = AIPathRouteViewController()
         let navigation = UINavigationController(rootViewController: vc)
         self.presentViewController(navigation, animated: true, completion: nil)
-        vc.showMenuTitleViewController(navigation,title: "Select")
-        
+        vc.showMenuTitleViewController(navigation, title: "Select")
+
     }
-    
-    
+
+
 }

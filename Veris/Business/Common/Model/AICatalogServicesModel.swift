@@ -12,11 +12,11 @@ import SwiftyJSON
 struct AICatalogServicesResult: JSONJoy {
     var services = [AIServiceTopicModel]()
     var page_num = 0
-    
+
     init() {
-        
+
     }
-    
+
     init(_ decoder: JSONDecoder) {
         if decoder["page_num"].integer != nil {
             page_num = decoder["page_num"].integer!
@@ -35,21 +35,21 @@ struct AICatalogServicesResult: JSONJoy {
 *
 *  服务Coverflow数据结构Model
 */
-struct AICustomerServiceCoverFlowModel : JSONJoy {
-    var service_id : Int?
-    var service_name : String?
-    var service_price : String?
-    var service_intro : String?
-    var provider_id : Int?
-    var provider_name : String?
-    var service_rating : Int?
-    var provider_icon : String?
-    var service_img : String?
-    
-    init(){
-        
+struct AICustomerServiceCoverFlowModel: JSONJoy {
+    var service_id: Int?
+    var service_name: String?
+    var service_price: String?
+    var service_intro: String?
+    var provider_id: Int?
+    var provider_name: String?
+    var service_rating: Int?
+    var provider_icon: String?
+    var service_img: String?
+
+    init() {
+
     }
-    
+
     init(_ decoder: JSONDecoder) {
         service_id = decoder["service_id"].integer
         service_name = decoder["service_name"].string

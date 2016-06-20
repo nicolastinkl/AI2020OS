@@ -9,7 +9,7 @@
 import UIKit
 
 class PriceAndStepperView: UIView {
-	
+
 	var stepper: KBHTextFieldStepper!
 	// 单价
 	var price: String? {
@@ -34,21 +34,21 @@ class PriceAndStepperView: UIView {
 	let minValue: Int
 	let maxValue: Int
 	let onValueChanged: (PriceAndStepperView) -> ()
-	
+
 	private var inputTextField: UITextField!
 	private var effectView: UIVisualEffectView!
-	
+
 	private struct CONSTANTS {
 		static let margin: CGFloat = AITools.displaySizeFrom1080DesignSize(35)
 		static let stepperWidth: CGFloat = 120.0
 		static let selectedLabelHeight: CGFloat = 20
 		static let selectedLabelY: CGFloat = 0
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	/**
 	 初始化方法
 
@@ -62,7 +62,7 @@ class PriceAndStepperView: UIView {
 	 - returns:
 	 */
 	init(frame: CGRect, price: String?, showStepper: Bool, defaultValue: Int = 0, minValue: Int = 0, maxValue: Int, onValueChanged: (PriceAndStepperView) -> ()) {
-		
+
 		self.showStepper = showStepper
 		self.defaultValue = defaultValue
 		self.minValue = minValue
@@ -70,33 +70,33 @@ class PriceAndStepperView: UIView {
 		self.onValueChanged = onValueChanged
 		super.init(frame: frame)
 		setup(price)
-		
+
 		var frame = self.frame
 		frame.size.height += CONSTANTS.selectedLabelHeight
 		self.frame = frame
 	}
-	
-    func setup(price:String?) {
+
+    func setup(price: String?) {
 		// setup bg
 		let bgImage = UIImage(named: "Wave_BG")
 		let bgImageView = UIImageView(image: bgImage)
 		addSubview(bgImageView)
 		bgImageView.frame = CGRectMake(0, CONSTANTS.selectedLabelHeight, frame.size.width, frame.size.height)
-		
+
 		// setup price label
 		let priceLabelFrame = CGRectMake(CONSTANTS.margin, CONSTANTS.selectedLabelHeight, CGRectGetWidth(frame) - CONSTANTS.stepperWidth - CONSTANTS.margin, CGRectGetHeight(frame))
 		priceLabel = AIViews.normalLabelWithFrame(priceLabelFrame, text: price, fontSize: AITools.displaySizeFrom1080DesignSize(63), color: AITools.colorWithR(0xf7, g: 0x9a, b: 0x00))
 		priceLabel.font = AITools.myriadBoldWithSize(AITools.displaySizeFrom1080DesignSize(63))
 		addSubview(priceLabel)
-		
+
 		if showStepper {
 			let stepperFrame = CGRectMake(CGRectGetWidth(frame) - CONSTANTS.stepperWidth - CONSTANTS.margin, CONSTANTS.selectedLabelHeight, CONSTANTS.stepperWidth, CGRectGetHeight(frame))
 			stepper = KBHTextFieldStepper(frame: stepperFrame)
 			stepper.tintColor = UIColor(red: 0.4745, green: 0.4627, blue: 0.5333, alpha: 1.0)
 			stepper.backgroundColor = UIColor.clearColor()
 			stepper.textField.textColor = UIColor.whiteColor()
-            stepper.textField.text = "\(defaultValue)"            
-            
+            stepper.textField.text = "\(defaultValue)"
+
 //			stepper.textField.delegate = self
             stepper.onValueChanged = { [weak self] sender in
                 self?.value = CGFloat(sender.value)
@@ -117,6 +117,6 @@ class PriceAndStepperView: UIView {
 			addSubview(selectedTitle)
 		}
 	}
-	
+
 
 }

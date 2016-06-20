@@ -14,27 +14,25 @@ protocol PriceAccount {
     func getTotalAmount() -> Float
 }
 
-class SimpleAccumulativeAccount : PriceAccount {
+class SimpleAccumulativeAccount: PriceAccount {
     private var totalPrice: Float = 0
     private var recordPriceItems: [Int: PriceItem] = [Int: PriceItem]()
-    
+
     func inToAccount(item: PriceItem) {
         if recordPriceItems[item.id] == nil {
             totalPrice += item.priceValue
             recordPriceItems[item.id] = item
         }
     }
-    
+
     func outOfAccount(item: PriceItem) {
         if recordPriceItems[item.id] != nil {
             totalPrice -= item.priceValue
             recordPriceItems[item.id] = nil
         }
     }
-    
+
     func getTotalAmount() -> Float {
         return totalPrice
     }
 }
-
-

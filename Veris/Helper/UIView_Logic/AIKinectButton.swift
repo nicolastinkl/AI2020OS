@@ -14,7 +14,7 @@ import UIKit
 *
 *  点击放大处理
 */
-class AIKinectButton:UIButton {
+class AIKinectButton: UIButton {
     var baseView: UIView!
     override var highlighted: Bool {
         didSet {
@@ -25,17 +25,17 @@ class AIKinectButton:UIButton {
                 }, completion: nil)
         }
     }
-    
+
    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         self.configure()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.cornerRadius = CGRectGetWidth(self.bounds) / 2;
+        self.layer.cornerRadius = CGRectGetWidth(self.bounds) / 2
     }
-    
+
     private func configure() {
         self.baseView = UIView(frame: self.bounds)
         self.layer.cornerRadius = CGRectGetWidth(self.bounds)

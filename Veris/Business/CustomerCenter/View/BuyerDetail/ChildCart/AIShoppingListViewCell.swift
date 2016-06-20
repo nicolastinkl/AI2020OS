@@ -28,7 +28,7 @@ import Spring
 
 
 class AIShoppingListViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var iconImageView: AIImageView!
 
     @IBOutlet weak var title: UILabel!
@@ -36,49 +36,43 @@ class AIShoppingListViewCell: UITableViewCell {
     @IBOutlet weak var price: UILabel!
 
     @IBOutlet weak var countView: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         title.font = AITools.myriadSemiCondensedWithSize(14)
         price.font = AITools.myriadBoldWithSize(16)
         price.textColor = UIColor(hex: "#CBAB00")
-        
+
         if let sview = AINumberCountControl.initFromNib() {
-            countView.addSubview(sview)            
+            countView.addSubview(sview)
             sview.backgroundColor = UIColor.clearColor()
-            
+
             constrain(sview) { (layout) in
-                
+
                 layout.right == layout.superview!.right
                 layout.top == layout.superview!.top
                 layout.height == 30
                 layout.width == 100
-                
+
             }
-            
+
         }
-        
+
     }
-    
-    func fillDataWithModel(model: AIShoppingModel){
+
+    func fillDataWithModel(model: AIShoppingModel) {
         let url = NSURL(string: model.shopping_image_url ?? "")!
         iconImageView.setURL(url, placeholderImage: smallPlace())
-        
+
         title.text = model.shopping_title ?? ""
         price.text = model.shopping_price ?? ""
-        
+
         if let sview = countView.subviews.first as? AINumberCountControl {
             sview.textInput.text = "\(model.shopping_number ?? 0)"
-        }        
-        
+        }
+
     }
-    
-    
+
+
 }
-
-
-
-
-
-

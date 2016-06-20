@@ -11,9 +11,9 @@ import UIKit
 class BuyerRequirmentMessageViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
+
     var buyerAndOrderModel: BuyerOrderModel?
-    
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nil)
     }
@@ -23,15 +23,15 @@ class BuyerRequirmentMessageViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let orderAndBuyerInfoView = OrderAndBuyerInfoView.createInstance()
         orderAndBuyerInfoView.model = buyerAndOrderModel
         topView.addSubview(orderAndBuyerInfoView)
-        
+
         orderAndBuyerInfoView.snp_makeConstraints { (orderView) -> Void in
             orderView.edges.equalTo(topView)
         }
-        
+
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
 
@@ -39,7 +39,7 @@ class BuyerRequirmentMessageViewController: UIViewController {
         tableView.registerNib(cellNib, forCellReuseIdentifier: "cell")
 
     }
-    
+
     @IBAction func backAction(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -47,13 +47,13 @@ class BuyerRequirmentMessageViewController: UIViewController {
 
 extension BuyerRequirmentMessageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2;
+        return 2
     }
-    
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as!BuyerMessageCell
-        
+
         return cell
     }
 }
