@@ -187,3 +187,16 @@
 
 "ServiceCommentTableViewCell.commentService" = "请对我们的具体服务项目也谈谈体会吧";
 
+
+/*
+ * ./Veris/Business/Comment/ViewController/CompondServiceCommentViewController.xib
+ */
+
+"CompondServiceCommentViewController.submit" = "发表评价";
+"CompondServiceCommentViewController.anonymous" = "Anonymous comment";
+
+
+
+"AbsCommentViewController.selectSrc" = "Select Source";
+"Camera" = "Camera";
+"Gallery" = "Gallery";
