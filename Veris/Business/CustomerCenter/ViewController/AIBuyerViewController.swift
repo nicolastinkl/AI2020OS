@@ -350,10 +350,10 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func convertPointToScaledPoint(point: CGPoint, scale: CGFloat, baseRect: CGRect) -> CGPoint {
         var scaledPoint: CGPoint = CGPoint.zero
-        let xOffset = baseRect.width * (scale - 1) / 2
-        let yOffset = baseRect.height * (scale - 1) / 2
+        let xOffset = CGRectGetWidth(baseRect) * (scale - 1) / 2
+        let yOffset = CGRectGetHeight(baseRect) * (scale - 1) / 2
 
-        scaledPoint = CGPointMake(baseRect.minX - xOffset + point.x * scale, baseRect.minY - yOffset + point.y * scale)
+        scaledPoint = CGPointMake(CGRectGetMinX(baseRect) - xOffset + point.x * scale, CGRectGetMinY(baseRect) - yOffset + point.y * scale)
 
         return scaledPoint
     }
@@ -767,3 +767,4 @@ extension AIBuyerViewController : AIFoldedCellViewDelegate {
         self.presentPopupViewController(serviceExecVC, animated: true)
     }
 }
+

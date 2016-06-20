@@ -23,45 +23,45 @@ public class AILabel: DesignableLabel {
 *  Loading image from url
 */
 public class AIImageView: UIImageView {
-    
+
     private struct AssociatedKeys {
         static var AIAssemblyIDKey = "AIAssemblyIDKey_UIImageView"
     }
 
     public var assemblyID: String? {
-        set{
+        set {
             if let newValue = newValue {
                 objc_setAssociatedObject(self, &AssociatedKeys.AIAssemblyIDKey, newValue  as NSString?, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
-            
+
         }
-        get{
+        get {
             return objc_getAssociatedObject(self, &AssociatedKeys.AIAssemblyIDKey) as? String
         }
     }
 
-    
-    public var placeholderImage : UIImage?
-    
-    public var url : NSURL? {
+
+    public var placeholderImage: UIImage?
+
+    public var url: NSURL? {
         didSet {
             self.image = placeholderImage
-            
+
             self.sd_setImageWithURL(url) { [weak self]  (imgContent, ErrorType, CacheType, CacheURL) -> Void in
                 if let strongSelf = self {
                     if strongSelf.url == CacheURL {
-                        strongSelf.alpha=0.2;
+                        strongSelf.alpha=0.2
                         strongSelf.image = imgContent
                         UIView.beginAnimations(nil, context: nil)
                         UIView.setAnimationDuration(0.5)
                         strongSelf.setNeedsDisplay()
-                        strongSelf.alpha = 1;
+                        strongSelf.alpha = 1
                         UIView.commitAnimations()
-                        
+
                     }
                 }
             }
-            
+
             /*
             if let urlString = url?.absoluteString {
                 ImageLoader.sharedLoader.imageForUrl(urlString) { [weak self] image, url in
@@ -76,7 +76,7 @@ public class AIImageView: UIImageView {
                                 strongSelf.alpha = 1;
                                 UIView.commitAnimations()
                                 //strongSelf.setNeedsDisplay()
-                                
+
                             }
                         })
                     }
@@ -84,26 +84,21 @@ public class AIImageView: UIImageView {
             }*/
         }
     }
-    
+
     public func setURL(url: NSURL?, placeholderImage: UIImage?) {
         self.placeholderImage = placeholderImage
         if url?.URLString.length > 10 {
             self.url = url
-        }else{
-            self.alpha=0.2;
+        } else {
+            self.alpha=0.2
             self.image = placeholderImage
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationDuration(0.5)
             self.setNeedsDisplay()
-            self.alpha = 1;
+            self.alpha = 1
             UIView.commitAnimations()
         }
-        
+
     }
-    
+
 }
-
-
-
-
-

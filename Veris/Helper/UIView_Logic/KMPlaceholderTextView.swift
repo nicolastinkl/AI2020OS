@@ -25,72 +25,72 @@ import UIKit
 
 @IBDesignable
 public class KMPlaceholderTextView: UITextView {
-    
+
     private struct Constants {
         static let defaultiOSPlaceholderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0980392, alpha: 0.22)
     }
     private let placeholderLabel: UILabel = UILabel()
-    
+
     private var placeholderLabelConstraints = [NSLayoutConstraint]()
-    
+
     @IBInspectable public var placeholder: String = "" {
         didSet {
             placeholderLabel.text = placeholder
         }
     }
-    
+
     @IBInspectable public var placeholderColor: UIColor = KMPlaceholderTextView.Constants.defaultiOSPlaceholderColor {
         didSet {
             placeholderLabel.textColor = placeholderColor
         }
     }
-    
+
     public var placeholderFont: UIFont! {
         didSet {
             placeholderLabel.font = placeholderFont
         }
     }
-    
+
     override public var textAlignment: NSTextAlignment {
         didSet {
             placeholderLabel.textAlignment = textAlignment
         }
     }
-    
+
     override public var text: String! {
         didSet {
             textDidChange()
         }
     }
-    
+
     override public var attributedText: NSAttributedString! {
         didSet {
             textDidChange()
         }
     }
-    
+
     override public var textContainerInset: UIEdgeInsets {
         didSet {
             updateConstraintsForPlaceholderLabel()
         }
     }
-    
+
     override public init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
         commonInit()
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
-    
+
     private func commonInit() {
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: "textDidChange",
             name: UITextViewTextDidChangeNotification,
             object: nil)
-        
+
         placeholderLabel.font = placeholderFont ?? font
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.textAlignment = textAlignment
@@ -101,7 +101,7 @@ public class KMPlaceholderTextView: UITextView {
         addSubview(placeholderLabel)
         updateConstraintsForPlaceholderLabel()
     }
-    
+
     private func updateConstraintsForPlaceholderLabel() {
         var newConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(\(textContainerInset.left + textContainer.lineFragmentPadding))-[placeholder]",
             options: [],
@@ -124,20 +124,20 @@ public class KMPlaceholderTextView: UITextView {
         addConstraints(newConstraints)
         placeholderLabelConstraints = newConstraints
     }
-    
+
     @objc private func textDidChange() {
         placeholderLabel.hidden = !text.isEmpty
     }
-    
+
     public override func layoutSubviews() {
         super.layoutSubviews()
         placeholderLabel.preferredMaxLayoutWidth = textContainer.size.width - textContainer.lineFragmentPadding * 2.0
     }
-    
+
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self,
             name: UITextViewTextDidChangeNotification,
             object: nil)
     }
-    
+
 }

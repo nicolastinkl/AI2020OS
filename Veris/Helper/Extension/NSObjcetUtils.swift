@@ -9,20 +9,20 @@
 import Foundation
 
 
-extension NSObject{
+extension NSObject {
     /*!
     the local coding scope.
     */
-    func localCode(closeure:()->()){
+    func localCode(closeure:()->()) {
         closeure()
     }
-    
-    func smallPlace() -> UIImage!{
+
+    func smallPlace() -> UIImage! {
         return UIImage(named: "defaultIcon")
     }
-    
-    func largePlace() -> UIImage!{
+
+    func largePlace() -> UIImage! {
         return smallPlace()
     }
-    
+
 }

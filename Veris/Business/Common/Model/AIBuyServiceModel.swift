@@ -11,15 +11,15 @@ import UIKit
 
 import SwiftyJSON
 
-struct AIBuyServiceModel : JSONJoy {
- 
+struct AIBuyServiceModel: JSONJoy {
+
     var new_proposal_flag: Int?
     var proposal_list: Array<AIPopPropsalModel>?
-    
+
     init(_ decoder: JSONDecoder) {
 
         new_proposal_flag = decoder["new_proposal_flag"].integer
-        
+
         if let addrs = decoder["proposal_list"].array {
             proposal_list = Array<AIPopPropsalModel>()
             for addrDecoder in addrs {
@@ -30,30 +30,30 @@ struct AIBuyServiceModel : JSONJoy {
 }
 
 // 气泡model
-struct AIPopPropsalModel : JSONJoy {
-    
+struct AIPopPropsalModel: JSONJoy {
+
     var proposal_id: Int?
     var proposal_id_new: Int?
     var service_id: Int?
     var order_times: Int?
-    
+
     var service_thumbnail_icon: String?
     var proposal_name: String?
     var proposal_price: String?
 
     var service_list: Array<AIPopServiceDetailModel>?
-    
+
     init(_ decoder: JSONDecoder) {
-        
+
         proposal_id = decoder["proposal_id"].integer
         proposal_id_new = decoder["proposal_id_new"].integer
         service_id = decoder["service_id"].integer
         order_times = decoder["order_times"].integer
-        
+
         service_thumbnail_icon = decoder["service_thumbnail_icon"].string ?? ""
         proposal_name = decoder["proposal_name"].string
         proposal_price = decoder["proposal_price"].string
-        
+
         if let addrs = decoder["service_list"].array {
             service_list = Array<AIPopServiceDetailModel>()
             for addrDecoder in addrs {
@@ -63,15 +63,15 @@ struct AIPopPropsalModel : JSONJoy {
     }
 }
 
-struct AIPopServiceDetailModel : JSONJoy {
+struct AIPopServiceDetailModel: JSONJoy {
     var service_id: Int?
     var service_thumbnail_icon: String?
-    
+
     init(_ decoder: JSONDecoder) {
-        
+
         service_id = decoder["service_id"].integer
         service_thumbnail_icon = decoder["service_thumbnail_icon"].string
-        
+
     }
 }
 
@@ -83,16 +83,16 @@ struct AIPopServiceDetailModel : JSONJoy {
  *
  *  @since <#version number#>
  */
-struct AIBuerSomeTagModel : JSONJoy {
-    var bsId : Int?
-    var unReadNumber : Int?
-    var tagName : String?
-    init(){
-    
+struct AIBuerSomeTagModel: JSONJoy {
+    var bsId: Int?
+    var unReadNumber: Int?
+    var tagName: String?
+    init() {
+
     }
-    
+
     init(_ decoder: JSONDecoder) {
-        
+
     }
 }
 /**

@@ -17,7 +17,7 @@ extension UITextField {
             text = newValue?.localized
         }
     }
-    
+
     var ailTextFieldPlaceholder: String? {
         get {
             return placeholder

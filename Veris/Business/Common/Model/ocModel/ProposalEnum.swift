@@ -14,7 +14,7 @@ enum ServiceOrderState: String {
 }
 
 
-enum ProposalServiceViewTemplate : Int {
+enum ProposalServiceViewTemplate: Int {
     // 机票
     case PlaneTicket = 1
     // 打车

@@ -9,6 +9,6 @@
 import Foundation
 
 class PriceItem {
-    var id : Int = 0
-    var priceValue : Float = 0.0
+    var id: Int = 0
+    var priceValue: Float = 0.0
 }

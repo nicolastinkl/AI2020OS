@@ -8,17 +8,17 @@
 
 import UIKit
 
-class AIChangePasswordViewController: UIViewController,UIGestureRecognizerDelegate {
+class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDelegate {
 
-    
+
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
-    var rightImageView : UIImageView!
-    
+    var rightImageView: UIImageView!
+
     //切换是否显示密码的图标
-    let showPasswordImageArray = [UIImage(named: "aa_speaker_off") , UIImage(named: "aa_speaker_on")]
+    let showPasswordImageArray = [UIImage(named: "aa_speaker_off"), UIImage(named: "aa_speaker_on")]
     var showPasswordText = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,17 +31,16 @@ class AIChangePasswordViewController: UIViewController,UIGestureRecognizerDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func handleLoginType(){
-        if AILoginPublicValue.loginType == AILoginUtil.LoginType.ForgotPassword{
+
+    func handleLoginType() {
+        if AILoginPublicValue.loginType == AILoginUtil.LoginType.ForgotPassword {
             self.setupLoginNavigationBar("Forgot Password")
-        }
-        else{
+        } else {
             self.setupLoginNavigationBar("Enter Password")
         }
     }
-    
-    func setupViews(){
+
+    func setupViews() {
         passwordTextField.secureTextEntry = true
         passwordTextField.returnKeyType = UIReturnKeyType.Go
         passwordTextField.layer.cornerRadius = 5
@@ -52,37 +51,37 @@ class AIChangePasswordViewController: UIViewController,UIGestureRecognizerDelega
         rightImageView.userInteractionEnabled = true
         passwordTextField.rightView = rightImageView
         passwordTextField.rightViewMode = UITextFieldViewMode.Always
-        
+
         passwordTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
-        
+
         let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(AIChangePasswordViewController.switchDisplayPasswordText(_:)))
         rightImageView.addGestureRecognizer(tapGuesture)
-        
+
         confirmButton.layer.cornerRadius = 5
         confirmButton.layer.masksToBounds = true
         confirmButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
         confirmButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
         confirmButton.enabled = false
-        
+
         //修复navigationController侧滑关闭失效的问题
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
-    
-    func switchDisplayPasswordText(sender : UITapGestureRecognizer){
+
+    func switchDisplayPasswordText(sender: UITapGestureRecognizer) {
         showPasswordText = !showPasswordText
         passwordTextField.secureTextEntry = !passwordTextField.secureTextEntry
         rightImageView.image = showPasswordText ? showPasswordImageArray[1] : showPasswordImageArray[0]
     }
-    
-    func passwordInputAction(target : UITextField){
+
+    func passwordInputAction(target: UITextField) {
         confirmButton.enabled = (target.text?.length >= 6)
     }
 
     @IBAction func confirmAction(sender: AnyObject) {
-        
+
     }
-    
-    
+
+
     /*
     // MARK: - Navigation
 

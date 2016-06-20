@@ -25,27 +25,27 @@
 import Foundation
 
 class AICustomSearchHomeCell: UITableViewCell {
-    
+
     @IBOutlet weak var imageview: AIImageView!
-    
+
     @IBOutlet weak var nameLabel: UILabel!
-    
+
     @IBOutlet weak var desLabel: UILabel!
-    
+
     @IBOutlet weak var nameTwiceLabel: UILabel!
-    
+
     @IBOutlet weak var priceLabel: UILabel!
-    
-    
+
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         desLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
-        
+
         priceLabel.font = UIFont.systemFontOfSize(16)
         priceLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
     }
-    
+
     func initData(model: AISearchResultItemModel) {
         imageview.setURL(NSURL(string: ""), placeholderImage: smallPlace())
         nameLabel.text = model.service_name as String

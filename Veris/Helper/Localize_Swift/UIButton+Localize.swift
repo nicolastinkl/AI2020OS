@@ -9,8 +9,8 @@
 import UIKit
 
 extension UIButton {
- 
-    var ailButtonNormalTitle: String?{
+
+    var ailButtonNormalTitle: String? {
         get {
             return titleForState(UIControlState.Normal)
         }
@@ -18,7 +18,7 @@ extension UIButton {
             setTitle(newValue?.localized, forState: UIControlState.Normal)
         }
     }
-    
+
     var ailButtonHighlightedTitle: String? {
         get {
             return titleForState(UIControlState.Highlighted)
@@ -26,7 +26,7 @@ extension UIButton {
         set {
             setTitle(newValue?.localized, forState: UIControlState.Highlighted)
         }
-        
+
     }
     var ailButtonDisabledTitle: String? {
         get {
@@ -52,7 +52,7 @@ extension UIButton {
             setTitle(newValue?.localized, forState: UIControlState.Application)
         }
     }
-    
+
     var ailButtonReservedTitle: String? {
         get {
             return titleForState(UIControlState.Reserved)

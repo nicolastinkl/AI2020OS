@@ -26,32 +26,32 @@ import Foundation
 
 
 class AISuperiorityModel: JSONJoy {
-    
+
     var serviceID: Int?
     var serviceName: String?
     var serviceURL: String?
     var serviceSTDescription: String?
     var serviceSuperiorityList: [String]?
     var servicePrice: String?
-    
+
     var serviceExecList: [AISuperiorityIconModel]?
-    
-    init(){}
-    
+
+    init() {}
+
     required init(_ decoder: JSONDecoder) {
-        
+
     }
-    
-    
+
+
     class AISuperiorityIconModel: JSONJoy {
-        
+
         var iconID: Int?
         var iconName: String?
         var iconURL: String?
-        
-        init(){}
+
+        init() {}
         required init(_ decoder: JSONDecoder) {
-            
+
         }
     }
 }

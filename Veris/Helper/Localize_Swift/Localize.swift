@@ -51,7 +51,7 @@ public extension NSString {
         }
         return self
     }
-    
+
     /**
      Swift 2 friendly localization syntax with format arguments, replaces String(format:NSLocalizedString)
      - Returns: The formatted localized string with arguments.
@@ -88,7 +88,7 @@ public extension String {
 // MARK: Language Setting Functions
 
 public class Localize: NSObject {
-    
+
     /**
      List available languages
      - Returns: Array of available languages.
@@ -96,7 +96,7 @@ public class Localize: NSObject {
     public class func availableLanguages() -> [String] {
         return NSBundle.mainBundle().localizations
     }
-    
+
     /**
      Current language
      - Returns: The current language. String.
@@ -107,20 +107,20 @@ public class Localize: NSObject {
         }
         return defaultLanguage()
     }
-    
+
     /**
      Change the current language
      - Parameter language: Desired language.
      */
     public class func setCurrentLanguage(language: String) {
         let selectedLanguage = availableLanguages().contains(language) ? language : defaultLanguage()
-        if (selectedLanguage != currentLanguage()){
+        if (selectedLanguage != currentLanguage()) {
             NSUserDefaults.standardUserDefaults().setObject(selectedLanguage, forKey: LCLCurrentLanguageKey)
             NSUserDefaults.standardUserDefaults().synchronize()
             NSNotificationCenter.defaultCenter().postNotificationName(LCLLanguageChangeNotification, object: nil)
         }
     }
-    
+
     /**
      Default language
      - Returns: The app's default language. String.
@@ -141,25 +141,24 @@ public class Localize: NSObject {
 //        }
 //        return defaultLanguage
     }
-    
+
     /**
      Resets the current language to the default
      */
     public class func resetCurrentLanguageToDefault() {
         setCurrentLanguage(self.defaultLanguage())
     }
-    
+
     /**
      Get the current language's display name for a language.
      - Parameter language: Desired language.
      - Returns: The localized string.
      */
     public class func displayNameForLanguage(language: String) -> String {
-        let locale : NSLocale = NSLocale(localeIdentifier: currentLanguage())
+        let locale: NSLocale = NSLocale(localeIdentifier: currentLanguage())
         if let displayName = locale.displayNameForKey(NSLocaleLanguageCode, value: language) {
             return displayName
         }
         return String()
     }
 }
-

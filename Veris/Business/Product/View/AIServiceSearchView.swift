@@ -9,24 +9,24 @@
 import UIKit
 import Spring
 
-protocol ServiceSearchViewDelegate : class{
-    func complateWithTextView(text:String?)
+protocol ServiceSearchViewDelegate : class {
+    func complateWithTextView(text: String?)
 }
 
-class AIServiceSearchView: UIView,UITextFieldDelegate {
+class AIServiceSearchView: UIView, UITextFieldDelegate {
 
-    let buttonMarginRight:CGFloat = 12
-    let buttonMarginTop:CGFloat = 10
-    let buttonHeight:CGFloat = 20
-    let resultViewPaddingTop:CGFloat = 15
-    let resultViewPaddingLeft:CGFloat = 12
-    
-    let searchResultViewHeight:CGFloat = 80
-    
+    let buttonMarginRight: CGFloat = 12
+    let buttonMarginTop: CGFloat = 10
+    let buttonHeight: CGFloat = 20
+    let resultViewPaddingTop: CGFloat = 15
+    let resultViewPaddingLeft: CGFloat = 12
+
+    let searchResultViewHeight: CGFloat = 80
+
     var isSearching = false
-    
+
     weak var searchDelegate: ServiceSearchViewDelegate?
-    
+
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -40,7 +40,7 @@ class AIServiceSearchView: UIView,UITextFieldDelegate {
     @IBOutlet weak var dotImage: UIImageView!
     @IBOutlet weak var lineLabel: UILabel!
     @IBOutlet weak var arrowTopImage: UIImageView!
-    
+
     @IBAction func closeSearchAction(sender: UIButton) {
         SpringAnimation.springWithCompletion(1, animations: { () -> Void in
             self.alpha = 0
@@ -50,7 +50,7 @@ class AIServiceSearchView: UIView,UITextFieldDelegate {
         }
         searchTextField.resignFirstResponder()
     }
-    
+
     // MARK: - textfield delegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         print(textField.text)
@@ -58,14 +58,14 @@ class AIServiceSearchView: UIView,UITextFieldDelegate {
         setSearchingViewAttr()
         return true
     }
-    
-    func textChangedAction(sender:UITextField){
+
+    func textChangedAction(sender: UITextField) {
         print("value changed ,text:\(sender.text)")
         buildSearchResult()
         setSearchingViewAttr()
     }
-    
-    
+
+
     func initDefaultViewAttr() {
         searchResultView.layer.cornerRadius = 10
         searchResultView.layer.masksToBounds = true
@@ -74,11 +74,11 @@ class AIServiceSearchView: UIView,UITextFieldDelegate {
         searchTextField.delegate = self
         searchTextField.addTarget(self, action: "textChangedAction:", forControlEvents: UIControlEvents.EditingChanged)
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: "submitSearchAction", name: uik, object: <#AnyObject?#>)
-        
+
        setInitViewAttr()
     }
-    
-    func setInitViewAttr(){
+
+    func setInitViewAttr() {
         //初始是隐藏搜索结果框的
         searchResultView.alpha = 0
         searchResultView.setHeight(0)
@@ -88,8 +88,8 @@ class AIServiceSearchView: UIView,UITextFieldDelegate {
         searchTextField.text = ""
         isSearching = false
     }
-    
-    func setSearchingViewAttr(){
+
+    func setSearchingViewAttr() {
         if !isSearching {
             SpringAnimation.spring(1, animations: {
                 self.searchResultView.alpha = 1
@@ -101,31 +101,31 @@ class AIServiceSearchView: UIView,UITextFieldDelegate {
             isSearching = true
         }
     }
-    
+
     // MARK: - view function
-    func buildSearchResult(){
+    func buildSearchResult() {
         //不用多语言
-        let serviceList = [["air","affects","alpha","animation"],["bounds","buildResultButton","button","buttonPointY","blue shit","backup"],["code","complete","currentView","customer","cutoff"]]
+        let serviceList = [["air", "affects", "alpha", "animation"], ["bounds", "buildResultButton", "button", "buttonPointY", "blue shit", "backup"], ["code", "complete", "currentView", "customer", "cutoff"]]
         clearSearchResult()
         var rect = CGRectMake(0, resultViewPaddingTop, 0, 0)
-        let randomInt:Int = Int(arc4random() % 3)
+        let randomInt: Int = Int(arc4random() % 3)
         for serviceName in serviceList[randomInt] {
-            let newButton = buildResultButton(serviceName,rect : rect)
+            let newButton = buildResultButton(serviceName, rect : rect)
             rect = newButton.frame
             self.searchResultView.addSubview(newButton)
         }
     }
-    
-    func clearSearchResult(){
+
+    func clearSearchResult() {
         //remove subview first
         for subView in searchResultView.subviews as [UIView] {
-            if subView.isMemberOfClass(UIButton){
+            if subView.isMemberOfClass(UIButton) {
                 subView.removeFromSuperview()
             }
         }
     }
-    
-    func buildResultButton(serviceName:String,rect:CGRect) -> UIButton{
+
+    func buildResultButton(serviceName: String, rect: CGRect) -> UIButton {
         let button = UIButton()
         let point = rect.origin
         let size = rect.size
@@ -137,9 +137,8 @@ class AIServiceSearchView: UIView,UITextFieldDelegate {
         let calPointX = point.x == 0 ? resultViewPaddingLeft : point.x + size.width + buttonMarginRight
         let buttonPointX = calPointX + newButtonWidth > resultViewWidth ? buttonMarginRight : calPointX
         let buttonPointY = calPointX + newButtonWidth > resultViewWidth ? point.y + buttonMarginTop + buttonHeight : point.y
-        
-        button.frame = CGRectMake(buttonPointX, buttonPointY
-            , newButtonWidth, buttonHeight)
+
+        button.frame = CGRectMake(buttonPointX, buttonPointY, newButtonWidth, buttonHeight)
         button.titleLabel?.font = font
         button.layer.cornerRadius = 6
         button.layer.masksToBounds = true
@@ -149,8 +148,8 @@ class AIServiceSearchView: UIView,UITextFieldDelegate {
         button.addTarget(self, action: "selectResultAction:", forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }
-    
-    func selectResultAction(sender:UIButton){
+
+    func selectResultAction(sender: UIButton) {
         SpringAnimation.springWithCompletion(1, animations: { () -> Void in
             self.alpha = 0
             self.setTop(UIScreen.mainScreen().bounds.height)
@@ -160,8 +159,8 @@ class AIServiceSearchView: UIView,UITextFieldDelegate {
         searchDelegate?.complateWithTextView(sender.titleLabel?.text)
         searchTextField.resignFirstResponder()
     }
-    
-    class func currentView()->AIServiceSearchView{
+
+    class func currentView()->AIServiceSearchView {
         let view = NSBundle.mainBundle().loadNibNamed("AIServiceSearchView", owner: self, options: nil).first as! AIServiceSearchView
         view.initDefaultViewAttr()
         return view

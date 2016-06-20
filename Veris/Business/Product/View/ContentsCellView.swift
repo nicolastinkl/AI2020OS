@@ -24,7 +24,7 @@ class ContentsCellView: UITableViewCell {
 
     @IBAction func onAction(sender: AnyObject) {
     }
-    
+
     @IBAction func expand(sender: AnyObject) {
         expandView.hidden = (expandView.hidden == true) ? false : true
     }

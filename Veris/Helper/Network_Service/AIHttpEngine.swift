@@ -11,13 +11,13 @@ import Alamofire
 import SwiftyJSON
 
 struct Error {
-    
+
     enum ResultCode: Int {
         case fail = 0, success
     }
-    
-    let message : String
-    let code : Int
+
+    let message: String
+    let code: Int
 
 }
 
@@ -26,8 +26,8 @@ struct Error {
  *
  *  AI2020OS 网络引擎
  */
-struct AIHttpEngine{
-    
+struct AIHttpEngine {
+
 
   //  private static let baseURL = "http://10.1.228.179:8282"
     private static let baseURL = "http://171.221.254.231:8282"
@@ -83,29 +83,29 @@ struct AIHttpEngine{
             }
         }
     }
-    
-    static func postRequestWithParameters(path:ResourcePath,parameters: [String: AnyObject]? = nil,response: (response:AnyObject?, error:Error?) -> ()) {
+
+    static func postRequestWithParameters(path: ResourcePath, parameters: [String: AnyObject]? = nil, response: (response: AnyObject?, error: Error?) -> ()) {
 
         print("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
-        
+
         let encoding = Alamofire.ParameterEncoding.JSON
-        
-        Alamofire.request(.POST,  self.baseURL+path.description, parameters: parameters, encoding: encoding, headers: ["HttpQuery":"0&0&100000001872&0"]).responseJSON { (JSON) -> Void in
-            
-            let jsonre:Response<AnyObject, NSError> = JSON
-            
+
+        Alamofire.request(.POST, self.baseURL+path.description, parameters: parameters, encoding: encoding, headers: ["HttpQuery":"0&0&100000001872&0"]).responseJSON { (JSON) -> Void in
+
+            let jsonre: Response<AnyObject, NSError> = JSON
+
             let JSONResult =  jsonre.result
             if JSONResult.isSuccess {
-                if let reponsess = JSONResult.value as? NSDictionary{
+                if let reponsess = JSONResult.value as? NSDictionary {
                     if let descValue = reponsess["desc"] as? NSDictionary {
                         let stas = descValue["result_code"]! as! Int
-                        
+
                         if stas == Error.ResultCode.success.rawValue {
-                            if let dataValue = reponsess["data"] as? NSDictionary{
+                            if let dataValue = reponsess["data"] as? NSDictionary {
                                 response(response: dataValue, error: nil)
                             }
-                            
-                            if let dataValue = reponsess["data"] as? NSArray{
+
+                            if let dataValue = reponsess["data"] as? NSArray {
                                 response(response: dataValue, error: nil)
                             }
                         } else {
@@ -114,21 +114,21 @@ struct AIHttpEngine{
                             } else {
                                 response(response: nil, error: Error(message: "", code: stas))
                             }
-                            
+
                         }
                     } else {
                         response(response: nil, error: Error(message: "Data format error", code: 0))
                     }
                 }
             }
-            
+
             if JSONResult.isFailure {
                 response(response: nil, error: Error(message: "\(JSONResult.value)", code: 0))
             }
         }
-        
+
     }
-    
+
     /*
     // add by liliang: for text
     static func postWithParameters(path:ResourcePath,parameters: [String: AnyObject]? = nil, responseHandler: (response:AnyObject?, error:Error?) -> ()) {
@@ -136,15 +136,15 @@ struct AIHttpEngine{
         let encoding = AINetworking.ParameterEncoding.JSON
         AINetworking.request(.POST, self.baseURL+path.description,parameters:parameters, encoding: encoding)
             .responseJSON { (_request, _response, JSON, error) in
-                
+
                 func fail(){
                     responseHandler(response: nil, error: Error(message: "Error", code: 0))
                 }
-                
+
                 var result = false
                 println("response: \(_response)")
                 println("JSON: \(JSON)")
-                
+
                 if let reponses = JSON as? NSDictionary {
                     if let dataValue = reponses["data"] as? NSDictionary{
                   //      println(dataValue)
@@ -152,18 +152,17 @@ struct AIHttpEngine{
                         responseHandler(response: dataValue, error: nil)
                     }
                 }
-                
+
                 if (error != nil) {
                     result = false
                 }
-                
+
                 if !result {
                     fail()
                 }
-                
+
         }
     }*/
-    
-    
+
+
 }
- 

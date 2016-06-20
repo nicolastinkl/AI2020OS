@@ -12,97 +12,97 @@ import Foundation
 // MARK: -
 // MARK: AIRequirementMenuViewController
 // MARK: -
-internal class AIRequirementMenuViewController : UIViewController  {
-    
+internal class AIRequirementMenuViewController: UIViewController {
+
     // MARK: -> Internal structs
-    
+
     // MARK: -> Internal class
-    
+
     // MARK: -> Internal type alias
-    
+
     // MARK: -> Internal static properties
-    
+
     var bussinessModel: AIBusinessInfoModel?
-    
+
     @IBOutlet weak var labelRequire: UILabel!
-    
+
     @IBOutlet weak var assignLabel: UILabel!
-    
+
     @IBOutlet weak var collLabel: UILabel!
-    
+
     // MARK: -> Internal properties
     @IBOutlet weak var rightOffset: NSLayoutConstraint!
-    
+
     @IBOutlet weak var requireButton: UIButton!
     @IBOutlet weak var collaborationButton: UIButton!
     @IBOutlet weak var assignButton: UIButton!
-    
-    var serviceInstsView : AIVerticalScrollView!
 
-    var models : [IconServiceIntModel]?
-    
+    var serviceInstsView: AIVerticalScrollView!
+
+    var models: [IconServiceIntModel]?
+
     let badge = GIBadgeView()
-    
+
     let scrollViewBottomPadding = AITools.displaySizeFrom1242DesignSize(165)
-    
+
     // MARK: -> Internal init methods
-    
+
     override func viewDidLoad() {
 
         super.viewDidLoad() // .if this will error.
-        
+
         // TODO: Init Veris Lable's Font and Size.
-        
-        func initFont(label : UILabel){
+
+        func initFont(label: UILabel) {
             label.font = AITools.myriadLightSemiCondensedWithSize(9)
             label.textColor = UIColor(hexString: "ffffff", alpha: 0.7)
         }
-        
+
         initFont(labelRequire)
         initFont(collLabel)
         initFont(assignLabel)
-        
+
         // Set Un Read's view
         // Create your badge and add it as a subview to whatever view you want to badgify.
-        
+
         //loadData()
-        
+
         assignButton.addSubview(badge)
         //collaborationButton.addSubview(badge)
         badge.badgeValue = 0
         badge.topOffset = 18
         badge.rightOffset = 9
         badge.font = AITools.myriadLightSemiExtendedWithSize(12)
-        
-        
+
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyOperateCell(_:)), name: AIApplication.Notification.AIAIRequirementNotifyOperateCellNotificationName, object: nil)
-        
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyClearNumber), name: AIApplication.Notification.AIAIRequirementNotifyClearNumberCellNotificationName, object: nil)
-       
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyGenerateModel(_:)), name: AIApplication.Notification.AIAIRequirementNotifynotifyGenerateModelNotificationName, object: nil)
-        
+
          NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyShowRequireMentVC(_:)), name: AIApplication.Notification.AIAIRequirementShowViewControllerNotificationName, object: nil)
-        
-        
+
+
         initLayout()
     }
-    
-    func initLayout(){
-        
+
+    func initLayout() {
+
     }
-    
-    
-    deinit{
+
+
+    deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-    
-    
-    func notifyShowRequireMentVC(notify: NSNotification){
+
+
+    func notifyShowRequireMentVC(notify: NSNotification) {
         selectButton(1)
     }
-    
-    func  notifyGenerateModel(notify: NSNotification){
-        
+
+    func  notifyGenerateModel(notify: NSNotification) {
+
         if let dic = notify.userInfo {
             if let cellModel = dic.values.first {
                 let wrapper = cellModel as? AIWrapper<AIBusinessInfoModel>
@@ -110,26 +110,26 @@ internal class AIRequirementMenuViewController : UIViewController  {
                 loadData()
             }
         }
-        
-    }    
-    
-    func  notifyOperateCell(notify: NSNotification){
+
+    }
+
+    func  notifyOperateCell(notify: NSNotification) {
         if let data = notify.userInfo {
-            if let _ = data[AIApplication.JSONREPONSE.unassignedNum]  as? Int{
+            if let _ = data[AIApplication.JSONREPONSE.unassignedNum]  as? Int {
                 var newN = badge.badgeValue
                 newN = newN + 1
                 badge.badgeValue = newN
-            }            
+            }
         }
     }
-    
-    func notifyClearNumber(){
-        
+
+    func notifyClearNumber() {
+
         badge.badgeValue = 0
     }
-    
-    func selectButton(tag : Int){
-        
+
+    func selectButton(tag: Int) {
+
         switch tag {
         case 1:
             requireButton.setImage(UIImage(named: "imcollable_selected"), forState: UIControlState.Normal)
@@ -139,7 +139,7 @@ internal class AIRequirementMenuViewController : UIViewController  {
                 serviceInstsView.hidden = true
             }
         case 2:
-            
+
             requireButton.setImage(UIImage(named: "imcollable"), forState: UIControlState.Normal)
             assignButton.setImage(UIImage(named: "imLink_selected"), forState: UIControlState.Normal)
             collaborationButton.setImage(UIImage(named: "imexe"), forState: UIControlState.Normal)
@@ -147,48 +147,48 @@ internal class AIRequirementMenuViewController : UIViewController  {
                 serviceInstsView.hidden = true
             }
         case 3:
-            
+
             requireButton.setImage(UIImage(named: "imcollable"), forState: UIControlState.Normal)
             assignButton.setImage(UIImage(named: "imLink"), forState: UIControlState.Normal)
             collaborationButton.setImage(UIImage(named: "imexe_selected"), forState: UIControlState.Normal)
-            
+
             if serviceInstsView != nil {
                 serviceInstsView.hidden = false
                 serviceInstsView.refreshProgress()
             }
-            
+
         default :
-            
+
             break
         }
-        
+
     }
-    
-    @IBAction func targetForRequirementAction(anyobj: AnyObject){
-        
+
+    @IBAction func targetForRequirementAction(anyobj: AnyObject) {
+
         let button = anyobj as! UIButton
-        
+
         selectButton(button.tag)
-        
+
         NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIAIRequirementViewControllerNotificationName, object: button.tag)
-        
+
         //withSwitchProfessionVC(button.tag)
     }
-    
-    @IBAction func targetForTableViewSelectAction(anyobj: AnyObject){
+
+    @IBAction func targetForTableViewSelectAction(anyobj: AnyObject) {
         //withSwitchProfessionVC(4)
     }
-    
+
 
 }
 
-extension AIRequirementMenuViewController : VerticalScrollViewDelegate{
-    func buildServiceInstsView(){
-        
+extension AIRequirementMenuViewController : VerticalScrollViewDelegate {
+    func buildServiceInstsView() {
+
         if let models = models {
             let scorllViewheight = self.view.height - collaborationButton.top  - collaborationButton.height - scrollViewBottomPadding - 10
             let frame = CGRect(x: 3, y: CGRectGetMaxY(collLabel.frame)-10, width: 65, height: scorllViewheight )
-            
+
             serviceInstsView = AIVerticalScrollView(frame: frame)
             serviceInstsView.userInteractionEnabled = true
             serviceInstsView.myDelegate = self
@@ -196,14 +196,14 @@ extension AIRequirementMenuViewController : VerticalScrollViewDelegate{
             //选择服务执行的时候才展现
             serviceInstsView.hidden = true
             view.addSubview(serviceInstsView)
-            
+
             serviceInstsView.loadData(models)
         }
-        
-        
+
+
     }
-    
-    func loadData(){
+
+    func loadData() {
         /*
         models = [IconServiceIntModel(serviceInstId: 0, serviceIcon: "http://171.221.254.231:3000/upload/proposal/YPIHMPynGR2xY.png", serviceInstStatus: ServiceInstStatus.Init, executeProgress: 0),
             IconServiceIntModel(serviceInstId: 1, serviceIcon: "http://171.221.254.231:3000/upload/proposal/EZwliZwHINGpm.png", serviceInstStatus: ServiceInstStatus.Init, executeProgress: 3),
@@ -215,26 +215,26 @@ extension AIRequirementMenuViewController : VerticalScrollViewDelegate{
             IconServiceIntModel(serviceInstId: 7, serviceIcon: "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png", serviceInstStatus: ServiceInstStatus.Init, executeProgress: 2),
             IconServiceIntModel(serviceInstId: 8, serviceIcon: "http://171.221.254.231:3000/upload/shoppingcart/3CHKvIhwNsH0T.png", serviceInstStatus: ServiceInstStatus.Init, executeProgress: 2)]
 
-        
+
         self.buildServiceInstsView()
         */
-        
-        
+
+
         self.models = bussinessModel?.serviceModels //AIRequirementViewPublicValue.bussinessModel
         self.buildServiceInstsView()
 
     }
-    
-    func viewCellDidSelect(verticalScrollView : AIVerticalScrollView , index : Int , cellView : UIView){
+
+    func viewCellDidSelect(verticalScrollView: AIVerticalScrollView, index: Int, cellView: UIView) {
         var serviceInstIds = Array<Int>()
-        
-        for selectModel in verticalScrollView.getSelectedModels(){
+
+        for selectModel in verticalScrollView.getSelectedModels() {
             serviceInstIds.append(selectModel.serviceInstId)
         }
-        
+
         //点击后发通知
         NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIRequirementSelectServiceInstNotificationName, object: serviceInstIds)
-        
+
     }
 
 }

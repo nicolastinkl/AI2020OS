@@ -9,7 +9,7 @@
 import UIKit
 
 class AirTicketView: UIView {
-    
+
     static let TICKET_HEAD_HEIGHT: CGFloat = 85
     static let TICKET_HEIGHT: CGFloat = 140
 
@@ -27,22 +27,22 @@ class AirTicketView: UIView {
         // Drawing code
     }
     */
-    
+
     /*
-    
+
     机票的航班名对应服务名service_name
-    
+
     机票的价格对应服务价格对象
-    
+
     机票起点
-    
+
     param_key:
     1: 出发地点
     2: 到达地点
     3：出发时间
     4：到达时间
     5：往返标志
-    
+
     "param_list":[
     {
     "param_type":5,
@@ -51,17 +51,17 @@ class AirTicketView: UIView {
     "param_name":"delivery_location",
     "param_value":"PEK"
     */
-    
+
     func setTicketData(ticket: Service) {
         flightNumber.text = ticket.service_name ?? ""
         priceAndPassengerType.text = ticket.service_price?.price_show ?? ""
-        
+
         if let ticketInfo = ticket.service_param_list {
             for var index = 0; index < ticketInfo.count; index++ {
                 let para = ticketInfo[index] as SchemeParamList
                 let value = para.param_value ?? ""
                 if let key = para.param_key {
-                    
+
                     switch key {
                     case 1:
                         startAirport.text = value
@@ -77,10 +77,10 @@ class AirTicketView: UIView {
                         continue
                     }
                 }
-                
+
             }
         }
-        
+
     }
 
 }

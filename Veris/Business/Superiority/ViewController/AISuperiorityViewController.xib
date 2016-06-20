@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AISuperiorityViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="roundView" destination="ohQ-4c-Sjf" id="IaZ-C4-oTE"/>
                 <outlet property="scrollview" destination="iH5-o7-Ffp" id="F3g-BP-SrD"/>
                 <outlet property="view" destination="kgd-tX-Y0E" id="8IO-Dh-mWN"/>
             </connections>
@@ -22,20 +23,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
-                    <blurEffect style="light"/>
+                    <blurEffect style="dark"/>
                 </visualEffectView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohQ-4c-Sjf">
+                    <rect key="frame" x="0.0" y="500" width="600" height="80"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="hUu-sT-Spv"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcb-5F-OXg">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uk4-p7-9sv">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="1kc-zI-aLa"/>
+                                <constraint firstAttribute="height" constant="54" id="1kc-zI-aLa"/>
                             </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iH5-o7-Ffp">
-                            <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                            <rect key="frame" x="0.0" y="54" width="600" height="546"/>
                         </scrollView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -49,19 +57,38 @@
                         <constraint firstAttribute="trailing" secondItem="Uk4-p7-9sv" secondAttribute="trailing" id="yxi-Jl-lxs"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7H-H6-6Ps">
+                    <rect key="frame" x="497" y="562" width="89" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="2F0-BX-QOh"/>
+                        <constraint firstAttribute="width" constant="89" id="LeI-VT-ddO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="查看详情 &gt;">
+                        <color key="titleColor" white="1" alpha="0.63929521276595747" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="targetServiceDetail:" destination="-1" eventType="touchUpInside" id="mXi-qx-z5t"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="x7H-H6-6Ps" secondAttribute="bottom" constant="8" id="069-0j-4Q5"/>
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="110-Ik-X1s"/>
+                <constraint firstAttribute="bottom" secondItem="ohQ-4c-Sjf" secondAttribute="bottom" constant="20" id="3AD-ed-3V6"/>
                 <constraint firstAttribute="bottom" secondItem="w0f-IX-8YH" secondAttribute="bottom" id="A1F-Sm-jJa"/>
                 <constraint firstAttribute="bottom" secondItem="gcb-5F-OXg" secondAttribute="bottom" id="BqG-uW-LHN"/>
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="OAc-YL-GSP"/>
                 <constraint firstAttribute="trailing" secondItem="gcb-5F-OXg" secondAttribute="trailing" id="PNh-to-nc6"/>
+                <constraint firstItem="ohQ-4c-Sjf" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="QZw-Hu-9K6"/>
+                <constraint firstAttribute="trailing" secondItem="x7H-H6-6Ps" secondAttribute="trailing" constant="14" id="X3B-Zx-W2V"/>
                 <constraint firstAttribute="trailing" secondItem="w0f-IX-8YH" secondAttribute="trailing" id="dLN-NA-D9B"/>
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="ecc-f6-tlq"/>
+                <constraint firstAttribute="trailing" secondItem="ohQ-4c-Sjf" secondAttribute="trailing" id="rIo-hx-PK9"/>
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="uh5-Iw-2bm"/>
             </constraints>
-            <point key="canvasLocation" x="-3" y="227"/>
+            <point key="canvasLocation" x="115" y="246"/>
         </view>
     </objects>
 </document>

@@ -31,11 +31,11 @@ import SnapKit
 
 /// 许愿视图
 class AIWishVowViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let navi = AINavigationBar.initFromNib() as? AINavigationBar{
+
+        if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
             view.addSubview(navi)
             navi.holderViewController = self
             constrain(navi, block: { (layout) in
@@ -44,9 +44,9 @@ class AIWishVowViewController: UIViewController {
                 layout.right == layout.superview!.right
                 layout.height == 44.0 + 10.0
             })
-            
+
         }
-        
-    }    
-    
+
+    }
+
 }

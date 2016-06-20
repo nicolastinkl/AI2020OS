@@ -9,14 +9,14 @@
 import Foundation
 import SwiftyJSON
 
-struct AICatalogListModel : JSONJoy {
+struct AICatalogListModel: JSONJoy {
     var catalogArray = Array<AICatalogItemModel>()
     init() {
 
     }
-    
+
     init(_ decoder: JSONDecoder) {
-        
+
         if let jsonArray = decoder["catalog_list"].array {
             catalogArray = Array<AICatalogItemModel>()
             for subDecoder in jsonArray {
@@ -26,18 +26,18 @@ struct AICatalogListModel : JSONJoy {
     }
 }
 
-struct AICatalogItemModel : JSONJoy {
+struct AICatalogItemModel: JSONJoy {
 
-    var catalog_id : Int?
-    var catalog_name : String?
+    var catalog_id: Int?
+    var catalog_name: String?
     var level: Int?
     var has_children: Bool?
     var parent_id: Int?
-    
-    init(){
-        
+
+    init() {
+
     }
-    
+
     init(_ decoder: JSONDecoder) {
         catalog_id = decoder["catalog_id"].integer
         catalog_name = decoder["catalog_name"].string

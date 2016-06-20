@@ -15,39 +15,39 @@ class AccommodationService: ServiceParamlView {
     private var dayCount: UILabel!
     private var additionDes: UILabel!
     private var model: HotelModel!
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     private func initSelf() {
         frame.size.height = AITools.displaySizeFrom1080DesignSize(210)
         addPeriod()
         addAdditionDescription()
     }
-    
-    override func loadData(paramData : NSDictionary) {
+
+    override func loadData(paramData: NSDictionary) {
         super.loadData(paramData)
         initSelf()
-        
+
         period.text = getStringContent("checkin_time") + " - " + getStringContent("checkout_time")
     //    additionDes.text = getStringContent("destination")
-        
+
     }
-    
+
     override func loadData(json jonsStr: String) {
         let jsonData = jonsStr.dataUsingEncoding(NSUTF8StringEncoding)
         do {
             model = try HotelModel(data: jsonData)
             initSelf()
         } catch {
-            
+
         }
-        
+
     }
 
     private func addPeriod() {
@@ -58,7 +58,7 @@ class AccommodationService: ServiceParamlView {
         period.textColor = UIColor.whiteColor()
         period.text = periodStr
         addSubview(period)
-        
+
         dayCount = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         dayCount.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(40))
         dayCount.textColor = UIColor.whiteColor()
@@ -70,32 +70,32 @@ class AccommodationService: ServiceParamlView {
             dayCount.height == AITools.displaySizeFrom1080DesignSize(40)
             dayCount.width >= 100
         }
-        
+
         dayCount.text = "(two days)"
     }
-    
+
     private func addAdditionDescription() {
-        
+
         additionDes = UILabel(frame: CGRect(x: 35, y: 0, width: 0, height: 0))
         additionDes.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(36))
         additionDes.textColor = UIColor.whiteColor()
         addSubview(additionDes)
-        
+
         constrain(additionDes, period) {additionDes, period in
             additionDes.left == period.left
             additionDes.top == period.bottom + AITools.displaySizeFrom1080DesignSize(10)
             additionDes.height >= 25
             additionDes.right == additionDes.superview!.right
         }
-        
+
         if model.facility_desc != nil {
             var desc: String = ""
-            
+
             for de in model.facility_desc {
                 let str = de.desc
                 desc.appendContentsOf(str + " ")
             }
-            
+
             additionDes.text = desc
         }
 

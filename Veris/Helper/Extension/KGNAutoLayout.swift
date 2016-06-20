@@ -172,7 +172,7 @@ extension UIView {
     
     - Returns: The `horizontal` and `vertical` constraint objects or `nil` if the constraint could not be made because the view does not have a super view.
     */
-    public func centerInSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (horizontal: NSLayoutConstraint?, vertical: NSLayoutConstraint?){
+    public func centerInSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (horizontal: NSLayoutConstraint?, vertical: NSLayoutConstraint?) {
         return (
             self.centerHorizontallyInSuperview(offset: offset, priority: priority),
             self.centerVerticallyInSuperview(offset: offset, priority: priority)
@@ -242,7 +242,7 @@ extension UIView {
                 }
 
                 let leftViews = Array(views[0...centerIndex-1])
-                if leftViews.count > 0{
+                if leftViews.count > 0 {
                     views[centerIndex].positionViewsToTheLeft(leftViews, offset: separation, priority: priority)
                 }
             }
@@ -277,7 +277,7 @@ extension UIView {
                     views[aboveIndex].positionViewsAbove(aboveViews, offset: separation, priority: priority)
                 }
             }
-        }else{ // ood
+        } else { // ood
             let centerIndex = views.count/2
             views[centerIndex].centerVerticallyInSuperview()
 
@@ -288,7 +288,7 @@ extension UIView {
                 }
 
                 let aboveViews = Array(views[0...centerIndex-1])
-                if aboveViews.count > 0{
+                if aboveViews.count > 0 {
                     views[centerIndex].positionViewsAbove(aboveViews, offset: separation, priority: priority)
                 }
             }
@@ -666,7 +666,7 @@ extension UIView {
 
     - Returns: The top and bottom constraint objects or `nil` if the constraint could not be made because the views do not share a common super view.
     */
-    public func fitBetween(topItem topItem: AnyObject, bottomItem: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint?, bottom: NSLayoutConstraint?){
+    public func fitBetween(topItem topItem: AnyObject, bottomItem: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint?, bottom: NSLayoutConstraint?) {
         return (
             self.positionBelowItem(topItem, offset: offset, priority: priority),
             self.positionAboveItem(bottomItem, offset: offset, priority: priority)
@@ -683,7 +683,7 @@ extension UIView {
 
      - Returns: The left and right constraint objects or `nil` if the constraint could not be made because the views do not share a common super view.
      */
-    public func fitBetween(leftItem leftItem: AnyObject, rightItem: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint?, right: NSLayoutConstraint?){
+    public func fitBetween(leftItem leftItem: AnyObject, rightItem: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint?, right: NSLayoutConstraint?) {
         return (
             self.positionToTheRightOfItem(leftItem, offset: offset, priority: priority),
             self.positionToTheLeftOfItem(rightItem, offset: offset, priority: priority)
@@ -709,7 +709,7 @@ extension UIView {
 
         var lastView: UIView!
         for view in views {
-            if lastView != nil{
+            if lastView != nil {
                 lastView.sizeWidthToWidthOfItem(view)
                 view.positionToTheRightOfItem(lastView, offset: separation, priority: priority)
             } else {
@@ -738,7 +738,7 @@ extension UIView {
 
         var lastView: UIView!
         for view in views {
-            if lastView != nil{
+            if lastView != nil {
                 lastView.sizeHeightToHeightOfItem(view)
                 view.positionBelowItem(lastView, offset: separation, priority: priority)
             } else {
@@ -768,7 +768,7 @@ extension UIView {
         if views.count > 1 {
             var lastView: UIView!
             for view in views {
-                if lastView != nil{
+                if lastView != nil {
                     view.positionToTheRightOfItem(lastView, offset: separation, priority: priority)
                 }
                 lastView = view
@@ -860,7 +860,7 @@ extension UIView {
             if !item.isKindOfClass(UIView) {
                 return self.superview
             }
-            
+
             return {
                 var startView: UIView! = self
                 var commonSuperview: UIView?
@@ -873,13 +873,13 @@ extension UIView {
                 return commonSuperview
             }()
         }()
-        
+
         assert(commonSuperview != nil, "Can't create constraints without a common super view")
         if commonSuperview == nil {
             return nil
         }
-        
+
         return commonSuperview!.constrainKGNAutolayout(self, attribute: attribute, relatedBy: relatedBy, toItem: item, attribute: itemAttribute, multiplier: multiplier, offset: offset, priority: priority)
     }
-    
+
 }

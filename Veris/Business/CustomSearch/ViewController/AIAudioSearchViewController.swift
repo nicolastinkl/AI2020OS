@@ -28,16 +28,16 @@ import Spring
 
 /// 语音识别界面
 class AIAudioSearchViewController: UIViewController {
- 
+
     @IBOutlet weak var audioButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var alertContentLabel: UILabel!
-    
+
     private var result: String = ""
     private var iFlySpeechRecognizer: IFlySpeechRecognizer?
     private var timer: NSTimer?
     private var islistening: Bool = false
-    
+
     enum audioStatus: StringLiteralType {
         case Loading
         case Listening
@@ -45,64 +45,64 @@ class AIAudioSearchViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         iFlySpeechRecognizer = AIAppInit().iFlySpeechRecognizerSharedInstance()
         self.alertContentLabel.font = AITools.myriadLightSemiExtendedWithSize(30)
-        
+
         refershTitle(audioStatus.Listening)
-        
+
         timer = NSTimer(timeInterval: 1, target: self, selector: #selector(AIAudioSearchViewController.repeatTimes), userInfo: nil, repeats: true)
         NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSDefaultRunLoopMode)
-        
-        
+
+
         self.startAudioRecognizer()
-        
+
     }
-    
-    func refershTitle(content: audioStatus){
+
+    func refershTitle(content: audioStatus) {
         self.alertContentLabel.text = content.rawValue
     }
-    
-    func repeatTimes(){
-        
+
+    func repeatTimes() {
+
         if islistening == true {
             let waterView = AIWaterView()
             waterView.backgroundColor = UIColor.clearColor()
             view.insertSubview(waterView, atIndex: 1)
-            
+
             waterView.setWidth(80)
             waterView.setHeight(80)
             waterView.setLeft(self.view.width / 2 - waterView.width / 2)
             waterView.setTop(self.audioButton.center.y - self.audioButton.width/2)
-            
+
             UIView.animateWithDuration(2, animations: {
-                
+
                 waterView.transform = CGAffineTransformScale(waterView.transform, 5, 5)
                 waterView.alpha = 0
-                
+
             }) { (complate) in
                 waterView.removeFromSuperview()
             }
         }
-        
-        
+
+
     }
-    
-    @IBAction func startButtonClick(Anyobj: AnyObject){
+
+    @IBAction func startButtonClick(Anyobj: AnyObject) {
         if islistening == true {
             // stop
             stopAudioRecognizer()
-            
-        }else{
+
+        } else {
             // start
             startAudioRecognizer()
         }
     }
-    
+
     /**
      开始启动语音识别
      */
-    func startAudioRecognizer(){
+    func startAudioRecognizer() {
         playStartSearchSound()
         islistening = true
         self.alertContentLabel.text = ""
@@ -118,27 +118,27 @@ class AIAudioSearchViewController: UIViewController {
             if iFlySpeechRecognizer.startListening() {
                 //success
                 debugPrint("startAudioRecognizer error")
-            }else{
+            } else {
                 //fail
                 self.alertContentLabel.text = "启动识别服务失败，请稍后重试"
             }
-            
-            
+
+
         }
     }
-    
+
     /**
      暂停语音识别
      */
-    func stopAudioRecognizer(){
+    func stopAudioRecognizer() {
         islistening = false
         iFlySpeechRecognizer?.stopListening()
     }
-    
+
     /**
      取消语音识别
      */
-    func cancelAudioRecognizer(){
+    func cancelAudioRecognizer() {
         islistening = false
         view.subviews.forEach { (sview) in
             if sview is AIWaterView {
@@ -147,56 +147,56 @@ class AIAudioSearchViewController: UIViewController {
         }
         iFlySpeechRecognizer?.cancel()
     }
-    
-    func playStartSearchSound(){
-        
+
+    func playStartSearchSound() {
+
         SoundPlayer().playSound("va_start.wav")
-        
+
     }
-    
-    func playEndSearchSound(){
+
+    func playEndSearchSound() {
         SoundPlayer().playSound("voicesearch.mp3")
     }
-    
-    func playAlertSound(){
+
+    func playAlertSound() {
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
-        
-        
+
+
     }
-    
-    @IBAction func closeViewController(){
+
+    @IBAction func closeViewController() {
         cancelAudioRecognizer()
         timer?.invalidate()
         timer = nil
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
 }
 
 extension AIAudioSearchViewController: IFlySpeechRecognizerDelegate {
-    
-    
+
+
     /**
      音量回调函数
      volume 0－30
      ****/
 
     func onVolumeChanged(volume: Int32) {
-        
+
     }
-    
+
     func onCancel() {
-        
+
     }
-    
+
     func onEndOfSpeech() {
-        
+
     }
-    
+
     func onBeginOfSpeech() {
-        
+
     }
-    
+
     /**
      无界面，听写结果回调
      results：听写结果
@@ -206,20 +206,20 @@ extension AIAudioSearchViewController: IFlySpeechRecognizerDelegate {
         if results != nil {
             let resultString = NSMutableString()
             if let dic = results.first as? [String: String] {
-                
-                for (key,_) in dic {
+
+                for (key, _) in dic {
                     resultString.appendString(key)
                 }
             }
-            
+
             self.result = "\(alertContentLabel.text ?? "")\(resultString)"
             let resultFromJson: String = ISRDataHelper.stringFromJson(resultString as String)
             self.alertContentLabel.text = "\(alertContentLabel.text ?? "")\(resultFromJson)"
         }
-        
-        
-    }    
-    
+
+
+    }
+
     /**
      听写结束回调（注：无论听写是否正确都会回调）
      error.errorCode =
@@ -231,19 +231,11 @@ extension AIAudioSearchViewController: IFlySpeechRecognizerDelegate {
             //success
             cancelAudioRecognizer()
             playEndSearchSound()
-        }else{
+        } else {
             //error
             self.alertContentLabel.text = errorCode.errorDesc
         }
     }
-    
-    
+
+
 }
-
-
-
-
-
-
-
-

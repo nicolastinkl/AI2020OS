@@ -14,8 +14,7 @@ protocol Measureable {
 }
 
 protocol DimentionChangable {
-    
-    
+
+
     func heightChanged(changedView: UIView, beforeHeight: CGFloat, afterHeight: CGFloat)
 }
-

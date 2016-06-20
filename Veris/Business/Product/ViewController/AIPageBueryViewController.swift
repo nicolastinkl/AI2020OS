@@ -11,26 +11,26 @@ import UIKit
 
 // MARK: 返回事件回调
 
-@objc protocol AIProposalDelegate : class{
-    
+@objc protocol AIProposalDelegate : class {
+
     optional func proposalContenDidChanged ()
-    
+
 }
 
 
 internal class AIPageBueryViewController: UIViewController {
-    
+
     // MARK: -> Internal properties
-    var bubbleModelArray : [AIProposalServiceModel]?
-    
-    var selectCurrentIndex:Int? = 0
+    var bubbleModelArray: [AIProposalServiceModel]?
+
+    var selectCurrentIndex: Int? = 0
     var proposalId: Int = 0
-    
-    
+
+
     weak var delegate: AIProposalDelegate?
-    
+
     // MARK: -> Internal static properties
-    
+
     // MARK: -> Internal class methods
 
     private lazy var pageControl: UIPageControl = {
@@ -41,8 +41,8 @@ internal class AIPageBueryViewController: UIViewController {
         pageControl.transform = CGAffineTransformMakeScale(0.8, 0.8)
         return pageControl
     }()
-    
-    lazy var pageScrollView:UIScrollView = {
+
+    lazy var pageScrollView: UIScrollView = {
         // Setup the paging scroll view
         let pageScrollView = UIScrollView()
         pageScrollView.backgroundColor = UIColor.clearColor()
@@ -50,32 +50,32 @@ internal class AIPageBueryViewController: UIViewController {
         pageScrollView.showsHorizontalScrollIndicator = false
         return pageScrollView
     }()
-    
-    
+
+
     // MARK: -> Internal init methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //初始化背景
         initBground()
-        
+
         //初始化组件
         initControls()
-        
+
         //处理数据
         initGetingData()
-        
+
         //处理默认选中
         initDefaultSelect()
     }
-    
-    func initDefaultSelect(){
+
+    func initDefaultSelect() {
         let index = (self.selectCurrentIndex ?? 0)
-        pageControl.currentPage  = index 
-        
+        pageControl.currentPage  = index
+
         pageScrollView.setContentOffset(CGPointMake(CGFloat(index) * self.view.width, 0), animated: false)
     }
-    
+
     // MARK: -> Internal methods
     func addSubViewController(viewController: UIViewController, toView: UIView? = nil, belowSubview: UIView? = nil) {
         self.addChildViewController(viewController)
@@ -91,20 +91,20 @@ internal class AIPageBueryViewController: UIViewController {
         viewController.didMoveToParentViewController(self)
         viewController.view.pinToEdgesOfSuperview()
     }
-    
+
     // MARK: -> Internal class
-    
-    func initBground(){
-        
-        self.view.backgroundColor = AITools.colorWithR(0x1e, g: 0x1b, b: 0x38);
-        
+
+    func initBground() {
+
+        self.view.backgroundColor = AITools.colorWithR(0x1e, g: 0x1b, b: 0x38)
+
 //        let bgImageView = UIImageView(image: UIImage(named: "Buyer_topBar_Bg"))
 //        bgImageView.frame = self.view.frame
 //        self.view.addSubview(bgImageView)
     }
-    
-    func initControls(){
-        
+
+    func initControls() {
+
         // init layout
         pageScrollView.delegate = self
         self.view.addSubview(pageScrollView)
@@ -112,13 +112,13 @@ internal class AIPageBueryViewController: UIViewController {
         self.view.addSubview(pageControl)
         pageControl.setTop(8)
         pageControl.setX((self.view.width - pageControl.width)/2)
-        
+
         // Add the album view controllers to the scroll view
         //var pageViews: [UIView] = []
-        var viewTag:Int = 0
-        
+        var viewTag: Int = 0
+
         let indexNcecssary = (self.selectCurrentIndex ?? 0)
-        
+
         for model in bubbleModelArray! {
             let pageView = UIView()
             pageView.tag = viewTag
@@ -128,100 +128,100 @@ internal class AIPageBueryViewController: UIViewController {
             //pageView.sizeWidthAndHeightToWidthAndHeightOfItem(pageScrollView)
             //pageViews.append(pageView)
             let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIServiceContentViewController) as! AIServiceContentViewController
-            
+
             viewController.contentDelegate = self
             if model.service_id == AIServiceDetailTool.MUSIC_SERVICE_ID.integerValue {
                 viewController.serviceContentType = AIServiceContentType.MusicTherapy
             } else {
                 viewController.serviceContentType = AIServiceContentType.Escort
             }
-            
+
             viewController.serviceContentModel = model
             viewController.propodalId = proposalId
             viewController.pageIndex = viewTag
             self.addSubViewController(viewController, toView: pageView)
-            
-            if (viewTag == indexNcecssary)  || ((viewTag + 1) == indexNcecssary) || ((viewTag - 1) == indexNcecssary){
+
+            if (viewTag == indexNcecssary)  || ((viewTag + 1) == indexNcecssary) || ((viewTag - 1) == indexNcecssary) {
                 viewController.loadDataNecessary()
             }
-            
+
             viewTag = viewTag + 1
         }
         pageScrollView.contentSize = CGSizeMake(self.view.width * CGFloat(viewTag), self.view.height)
     }
-    
-    deinit{
+
+    deinit {
         _ = pageScrollView.subviews.filter { (viewss) -> Bool in
             viewss.removeFromSuperview()
             return true
         }
     }
-    
+
     /**
      初始化数据
      */
-    func initGetingData(){
-        
+    func initGetingData() {
+
     }
-    
-    
+
+
 }
 
 
 // MARK: ContentViewDelegate
 
 extension AIPageBueryViewController : AIServiceContentDelegate {
-    
+
     func contentViewWillDismiss() {
 
         view.showLoading()
-        
+
         // handle parameter upload actio here
-        
+
         for vc in childViewControllers {
-            
+
             let contentVC = vc as! AIServiceContentViewController
-            
-            let data : NSMutableDictionary = NSMutableDictionary()
-            
-            if let params : [String : AnyObject] = contentVC.getAllParameters() {
-                
+
+            let data: NSMutableDictionary = NSMutableDictionary()
+
+            if let params: [String : AnyObject] = contentVC.getAllParameters() {
+
                 if params.keys.count > 0 {
                     data.addEntriesFromDictionary(params)
                     data.setObject(proposalId, forKey: "proposal_id")
                     data.setObject(0, forKey: "role_id")
-                    
+
                     let message = AIMessage()
-                    message.body.addEntriesFromDictionary(["desc":["data_mode":"0","digest":""],"data":data])
+                    message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""], "data":data])
                     message.url = AIApplication.AIApplicationServerURL.saveServiceParameters.description
-                    
+
                     AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-                        
-                        }, fail: { (ErrorType : AINetError, error : String!) -> Void in
-                            
+
+                        }, fail: { (ErrorType: AINetError, error: String!) -> Void in
+
                     })
                 }
-                
+
 
             }
-            
-            
+
+
         }
-        
+
         while (AINetEngine.defaultEngine().activitedTask.count > 0) {
             NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate.distantFuture())
         }
-        
+
         view.hideLoading()
         self.dismissViewControllerAnimated(true, completion: nil)
         // http request, get each model from submitDataDic, do upload
-        
+
         if let adelegate = self.delegate {
             adelegate.proposalContenDidChanged!()
         }
-   
+
     }
-    
+
     private func parseParam(paramProvider: AIBuyerParamsDelegate, submitDataDic: NSMutableDictionary) {
         if let params = paramProvider.getSelectedParams() {
             if params.count > 0 {
@@ -231,12 +231,12 @@ extension AIPageBueryViewController : AIServiceContentDelegate {
             }
         }
     }
-    
+
     private func addToSubmitData(paramModel: JSONModel, submitDataDic: NSMutableDictionary) {
         var serviceId: NSString?
         var roleId: NSString!
         var isProduct: Bool = false
-        
+
         if let productParam = paramModel as? AIProductParamItem {
             serviceId = productParam.service_id
             roleId = "0"
@@ -245,7 +245,7 @@ extension AIPageBueryViewController : AIServiceContentDelegate {
             serviceId = serviceParam.service_id
             roleId = serviceParam.role_id ?? "0"
         }
-        
+
         if let sId = serviceId {
             var submitModel: AIServiceSubmitModel!
             if submitDataDic.objectForKey(sId) == nil {
@@ -253,29 +253,29 @@ extension AIPageBueryViewController : AIServiceContentDelegate {
                 submitModel.service_id = Int(sId as String)!
                 submitModel.role_id = Int((roleId as String))!
                 submitModel.proposal_id = proposalId
-                let str : NSString = "100000002410"
+                let str: NSString = "100000002410"
                 submitModel.customer_id = str.integerValue
-                let userID : String = (NSUserDefaults.standardUserDefaults().objectForKey("Default_UserID") ?? "100000002410" ) as! String
+                let userID: String = (NSUserDefaults.standardUserDefaults().objectForKey("Default_UserID") ?? "100000002410" ) as! String
                 submitModel.customer_id = Int(userID)!
                 submitModel.save_data = AIServiceSaveDataModel()
-                
+
                 submitDataDic[sId] = submitModel
             } else {
                 submitModel = submitDataDic.objectForKey(sId) as! AIServiceSubmitModel
             }
-            
-            
+
+
             if isProduct {
                 if submitModel.save_data.product_list == nil {
                     submitModel.save_data.product_list = [AIProductParamItem]()
                 }
-                
+
                 submitModel.save_data.product_list.append(paramModel)
             } else {
                 if submitModel.save_data.service_param_list == nil {
                     submitModel.save_data.service_param_list = [AIServiceParamItem]()
                 }
-                
+
                 submitModel.save_data.service_param_list.append(paramModel)
             }
         }
@@ -288,22 +288,22 @@ extension AIPageBueryViewController:UIScrollViewDelegate {
 
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         for  vc in self.childViewControllers {
-            let contentVC : AIServiceContentViewController = vc as! AIServiceContentViewController
+            let contentVC: AIServiceContentViewController = vc as! AIServiceContentViewController
             contentVC.shouldHideKeyboard()
         }
     }
-    
-    
+
+
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        let index = fabs(scrollView.contentOffset.x) / scrollView.frame.size.width;
+        let index = fabs(scrollView.contentOffset.x) / scrollView.frame.size.width
         pageControl.currentPage = Int(index)
-        
+
         // notify to request data
-        
+
         var s = NSStringFromClass(AIServiceContentViewController)
         s = s+"\(Int(index))"
-        
+
         NSNotificationCenter.defaultCenter().postNotificationName(s, object: nil)
     }
-    
+
 }

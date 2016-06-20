@@ -9,32 +9,32 @@
 import UIKit
 
 class CommentDistrictView: UIView {
-    
+
     var delegate: CommentDistrictDelegate?
 
     @IBOutlet weak var serviceImage: UIImageView!
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var commentEditText: UITextView!
     @IBOutlet weak var placeHolderText: UILabel!
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+
         initSelfFromXib()
-        
+
         let cameraSelector =
             #selector(CommentDistrictView.cameraAction(_:))
         let cameraTap = UITapGestureRecognizer(target: self, action: cameraSelector)
         photoImage.addGestureRecognizer(cameraTap)
     }
-    
-    func cameraAction(sender : UIGestureRecognizer) {
+
+    func cameraAction(sender: UIGestureRecognizer) {
         delegate?.pohotImageButtonClicked(photoImage, buttonParent: self)
     }
 }
 
 extension CommentDistrictView: UITextViewDelegate {
-    
+
     func textViewDidBeginEditing(textView: UITextView) {
         placeHolderText.hidden = true
     }

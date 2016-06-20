@@ -13,24 +13,24 @@ import Foundation
 *
 *  提供登录服务
 */
-class LoginAction : NSObject, AILoginViewControllerDelegate {
-    
+class LoginAction: NSObject, AILoginViewControllerDelegate {
+
     typealias LoginHandler = ()->()
-    
-    private var loginHandler : LoginHandler?
-    
+
+    private var loginHandler: LoginHandler?
+
     init(viewController: UIViewController, completion: LoginHandler?) {
         super.init()
         loginHandler = completion
-        let storyBoard:UIStoryboard = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil)
+        let storyBoard: UIStoryboard = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil)
         let viewNavi = storyBoard.instantiateInitialViewController() as! UINavigationController
-        viewController.presentViewController(viewNavi, animated: false, completion: nil)        
+        viewController.presentViewController(viewNavi, animated: false, completion: nil)
     }
-    
+
     func didLogin(completion: LoginHandler) {
         loginHandler = completion
     }
-    
+
     func loginViewControllerDidLogin(controller: AILoginViewController) {
         loginHandler?()
         NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
@@ -39,8 +39,8 @@ class LoginAction : NSObject, AILoginViewControllerDelegate {
 
 // TODO: LogoutAction
 
-class LogoutAction : NSObject {
-    
+class LogoutAction: NSObject {
+
     override init() {
         super.init()
         AILocalStore.logout()
@@ -50,17 +50,17 @@ class LogoutAction : NSObject {
 
 // TODO: LoginStateHandler
 
-class LoginStateHandler : NSObject {
-    
+class LoginStateHandler: NSObject {
+
     typealias ChangeHandler = (LoginState)->()
-    
+
     enum LoginState {
         case LoggedIn, LoggedOut
     }
-    
-    private var changeHandler : ChangeHandler?
-    
-    init(handler : ChangeHandler) {
+
+    private var changeHandler: ChangeHandler?
+
+    init(handler: ChangeHandler) {
         super.init()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginStateHandler.loginNotification(_:)), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginStateHandler.logoutNotification(_:)), name: AIApplication.Notification.UIAIASINFOLogOutNotification, object: nil)
@@ -68,15 +68,15 @@ class LoginStateHandler : NSObject {
         let isLoggedIn = AILocalStore.accessToken() != nil
         handler(isLoggedIn ? .LoggedIn : .LoggedOut)
     }
-    
+
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-    
+
     func loginNotification(notification: NSNotification) {
         changeHandler?(.LoggedIn)
     }
-    
+
     func logoutNotification(notification: NSNotification) {
         changeHandler?(.LoggedOut)
     }

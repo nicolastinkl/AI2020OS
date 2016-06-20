@@ -11,7 +11,7 @@ import Foundation
 
 public class JSONDecoder {
     var value: AnyObject?
-    
+
     ///print the description of the JSONDecoder
     public var description: String {
         return self.print()
@@ -62,8 +62,8 @@ public class JSONDecoder {
         return value as? NSError
     }
     //get  the value if it is a dictionary
-    public var dictionary: Dictionary<String,JSONDecoder>? {
-        return value as? Dictionary<String,JSONDecoder>
+    public var dictionary: Dictionary<String, JSONDecoder>? {
+        return value as? Dictionary<String, JSONDecoder>
     }
     //get  the value if it is an array
     public var array: Array<JSONDecoder>? {
@@ -83,12 +83,12 @@ public class JSONDecoder {
         }
     }
     ///pull the raw values out of a dictionary.
-    public func getDictionary<T>(inout collect: Dictionary<String,T>?) {
-        if let dictionary = value as? Dictionary<String,JSONDecoder> {
+    public func getDictionary<T>(inout collect: Dictionary<String, T>?) {
+        if let dictionary = value as? Dictionary<String, JSONDecoder> {
             if collect == nil {
-                collect = Dictionary<String,T>()
+                collect = Dictionary<String, T>()
             }
-            for (key,decoder) in dictionary {
+            for (key, decoder) in dictionary {
                 if let obj = decoder.value as? T {
                     collect?[key] = obj
                 }
@@ -109,7 +109,7 @@ public class JSONDecoder {
             } catch {
                 return
             }
-            
+
         }
         if let array = rawObject as? NSArray {
             var collect = [JSONDecoder]()
@@ -118,15 +118,15 @@ public class JSONDecoder {
             }
             value = collect
         } else if let dict = rawObject as? NSDictionary {
-            var collect = Dictionary<String,JSONDecoder>()
-            
+            var collect = Dictionary<String, JSONDecoder>()
+
             for  key in dict.allKeys {
                 if let valueJson = dict.objectForKey(key) {
                     collect[key as! String] = JSONDecoder(valueJson)
                 }
             }
-            
-           
+
+
             /*for (key,val: AnyObject) in dict {
                 collect[key as! String] = JSONDecoder(val)
             }*/
@@ -160,9 +160,9 @@ public class JSONDecoder {
     }
     ///private method to create an error
     func createError(text: String) -> NSError {
-        return NSError(domain: "JSONJoy", code: 1002, userInfo: [NSLocalizedDescriptionKey: text]);
+        return NSError(domain: "JSONJoy", code: 1002, userInfo: [NSLocalizedDescriptionKey: text])
     }
-    
+
     ///print the decoder in a JSON format. Helpful for debugging.
     public func print() -> String {
         if let arr = self.array {

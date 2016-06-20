@@ -14,95 +14,95 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     //
-    var didFinishGetSellerData : Bool = false
-    var didFinishGetBuyerListData : Bool = false
-    var didFinishGetBuyerProposalData : Bool = false
-    
-    var sellerData : NSDictionary?
-    var buyerListData : ProposalOrderListModel?
-    var buyerProposalData : AIProposalPopListModel?
-    
-   
+    var didFinishGetSellerData: Bool = false
+    var didFinishGetBuyerListData: Bool = false
+    var didFinishGetBuyerProposalData: Bool = false
+
+    var sellerData: NSDictionary?
+    var buyerListData: ProposalOrderListModel?
+    var buyerProposalData: AIProposalPopListModel?
+
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+
         //AVOS
         configAVOSCloud()
         AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         AVAnalytics.setChannel("App Store")
-        
+
         IQKeyboardManager.sharedManager().enable = true
-        
+
         //处理讯飞语音初始化
         AIAppInit().initWithXUNFEI()
-        
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert,.Badge,.Sound], categories: nil))
+
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         application.registerForRemoteNotifications()
-        
+
         // Override point for customization after application launch.
         //self.window = AACustomWindow(frame: UIScreen.mainScreen().bounds)
         configDefaultUser()
         initNetEngine()
-        
+
         // 设置状态栏隐藏
         application.statusBarHidden = true
         application.setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
         // 设置状态栏高亮
         application.statusBarStyle = UIStatusBarStyle.LightContent
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
-         
-        
+
+
         // 检查录音权限
         AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
 
-            do{
+            do {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
                 try AVAudioSession.sharedInstance().setActive(true)
-            }catch{
+            } catch {
             }
-        }) 
+        })
 
         showRootViewControllerReal()
-        
+
         return true
 
     }
-    
+
     /**
      config lean Cloud.
      */
-    func configAVOSCloud(){
-        
+    func configAVOSCloud() {
+
         AVOSCloudCrashReporting.enable()
-        
+
         AVOSCloud.setApplicationId(AIApplication.AVOSCLOUDID,
                                    clientKey: AIApplication.AVOSCLOUDKEY)
-        
+
         AVOSCloud.registerForRemoteNotification()
-        
+
         AVAnalytics.setAnalyticsEnabled(true)
-        
+
     }
-    
+
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         logError("\(error.userInfo)")
     }
-    
+
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         logInfo("\(userInfo)")
-        
+
         AVAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
-        
+
     }
-    
+
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        
+
     }
-    
+
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-      
+
         AVOSCloud.handleRemoteNotificationsWithDeviceToken(deviceToken)
         logInfo("DeviceToken OK")
-        
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -129,83 +129,80 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.applicationIconBadgeNumber=0
         }
         application.cancelAllLocalNotifications()
-        
+
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
+
     func configDefaultUser () {
-    
-        
+
+
         var defaultUserID = "100000002410"
         var defaultUserType = "101"
-        
-        
-        if let userID : String = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as? String {
+
+
+        if let userID: String = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as? String {
             defaultUserID = userID
-            
+
             if let type = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserType) {
                 defaultUserType = type as! String
             }
             print("Default UserID is " + userID)
-        }
-        else {
+        } else {
             NSUserDefaults.standardUserDefaults().setObject(defaultUserID, forKey: kDefault_UserID)
             NSUserDefaults.standardUserDefaults().setObject(defaultUserType, forKey: kDefault_UserType)
             NSUserDefaults.standardUserDefaults().synchronize()
         }
-        
+
         // 配置语音协助定向推送
         if (defaultUserType == "100") {
             AIRemoteNotificationHandler.defaultHandler().addNotificationForUser(defaultUserID)
-        }
-        else
-        {
+        } else {
             AIRemoteNotificationHandler.defaultHandler().removeNotificationForUser(defaultUserID)
         }
     }
-    
+
     private func initNetEngine() {
         let timeStamp: Int = 0
         let token = "0"
         let RSA = "0"
-   
+
         let userID  = (NSUserDefaults.standardUserDefaults().objectForKey("Default_UserID") ?? "100000002410") as! String
 
         if userID == "100000002410" {
             NSUserDefaults.standardUserDefaults().setObject(userID, forKey: "Default_UserID")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
-        
-        let splitedarray = ["\(timeStamp)",token,userID,RSA] as [String]
-        
-        var headerContent : String = "";
-        
-        
+
+        let splitedarray = ["\(timeStamp)", token, userID, RSA] as [String]
+
+        var headerContent: String = ""
+
+
         for(var i = 0; i < splitedarray.count ; i += 1) {
             let str = splitedarray[i]
             headerContent += str
-            
+
             if i != 3 {
                 headerContent += "&"
             }
-            
+
         }
 
 
         let header = ["HttpQuery": headerContent]
         AINetEngine.defaultEngine().configureCommonHeaders(header)
     }
-    
+
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         let path = url.lastPathComponent
-        
+
         print(path)
         return true
     }
-    
+
     func showRootViewControllerReal() {
         //创建Root
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -216,42 +213,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
     }
-    
+
 
     func showRootViewController() {
-        
+
     }
-    
+
     func fetchBuyerData() {
         let bdk = BDKProposalService()
         // 列表数据
         bdk.getProposalList({ (responseData) -> Void in
             self.didFinishGetBuyerListData = true
             self.buyerListData = responseData
-            
+
             if (self.didFinishGetSellerData && self.didFinishGetBuyerProposalData) {
                 self.showRootViewController()
             }
-            
+
             }) { (errType, errDes) -> Void in
-                
+
                 self.didFinishGetBuyerListData = true
                 self.buyerListData = nil
                 if (self.didFinishGetSellerData && self.didFinishGetBuyerProposalData) {
                     self.showRootViewController()
                 }
         }
-        
+
         bdk.getPoposalBubbles({ (responseData) -> Void in
             self.didFinishGetBuyerProposalData = true
             self.buyerProposalData = responseData
-            
+
             if (self.didFinishGetSellerData && self.didFinishGetBuyerListData) {
                 self.showRootViewController()
             }
-            
+
             }) { (errType, errDes) -> Void in
-                
+
                 self.didFinishGetBuyerProposalData = true
                 self.buyerProposalData = nil
                 if (self.didFinishGetSellerData && self.didFinishGetBuyerListData) {
@@ -259,11 +256,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
         }
     }
-    
+
     func fetchSellerData () {
-        let dic = ["data": ["order_state": "0","order_role": "2"],
-            "desc": ["data_mode": "0","digest": ""]]
-        
+        let dic = ["data": ["order_state": "0", "order_role": "2"],
+            "desc": ["data_mode": "0", "digest": ""]]
+
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.querySellerOrderList.description
         message.body.addEntriesFromDictionary(dic)
@@ -274,7 +271,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if (self.didFinishGetBuyerListData && self.didFinishGetBuyerProposalData) {
                 self.showRootViewController()
             }
-            
+
             }) { (AINetError, String) -> Void in
                 self.didFinishGetSellerData = true
                 self.sellerData = nil
@@ -283,16 +280,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
         }
     }
-    
-    
+
+
     func fetchPreSellerAndBuyerData () {
-        
+
         // Get Seller
         fetchSellerData()
 
         // Get Buyer
         fetchBuyerData()
-        
+
     }
 }
-

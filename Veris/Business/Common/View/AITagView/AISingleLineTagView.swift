@@ -29,7 +29,7 @@ class AISingleLineTagView: AIBaseTagsView {
 		}
 		return nil
 	}
-	
+
 	func updateTagStatus() {
 		for label in tagViews {
 			if let l = label as? AITagLabel {
@@ -39,13 +39,13 @@ class AISingleLineTagView: AIBaseTagsView {
 			}
 		}
 	}
-	
+
 	override func addTagInView(tag: String!, index: Int) -> AITagLabel! {
 		let result = super.addTagInView(tag, index: index)
 		result.tagNode = tags[index]
 		return result
 	}
-	
+
 	init(tags: [Tagable], selectedTagId: Int? = nil, frame: CGRect) {
 		self.tags = tags
 		self.selectedTagId = selectedTagId
@@ -53,19 +53,19 @@ class AISingleLineTagView: AIBaseTagsView {
 			return t.title
 		}), frame: frame)
 	}
-	
+
 	override init(frame: CGRect) {
 		self.tags = [Tagable]()
 		super.init(frame: frame)
 	}
-	
+
 	override func labelDidTapped(g: UITapGestureRecognizer) {
 		super.labelDidTapped(g)
 		let label = g.view as! AITagLabel
 		let tag = tags[label.tag]
 		selectedTagId = tag.id
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

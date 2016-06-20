@@ -24,8 +24,8 @@ struct TaskNode: Equatable {
 	var date: NSDate
 	var desc: String
 	var id: String
-    var insID : String
-    var arrageID : String
+    var insID: String
+    var arrageID: String
 }
 
 struct DependOnService: Equatable {
@@ -43,7 +43,7 @@ struct RequirementTag: Equatable {
 }
 
 struct OriginalTagsModel {
-    var tagList : [RequirementTag]?
-    var requirementID : Int?
-    
+    var tagList: [RequirementTag]?
+    var requirementID: Int?
+
 }

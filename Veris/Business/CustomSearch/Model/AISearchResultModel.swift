@@ -34,19 +34,19 @@ public class AISearchResultModel: JSONModel {
     public var results: Array<NSDictionary>?
     //推荐数据集
     public var results_proposal_list: Array<NSDictionary>?
-    
+
 }
 
 /// 过滤条件
 public class AISearchFilterModel: JSONModel {
-    
+
     public var filterid: NSInteger = 0
     public var filtername: NSString = ""
 }
 
 /// 结果数据集
 public class AISearchResultItemModel: JSONModel {
-    
+
     public var service_id: NSInteger = 0
     public var service_name: NSString = ""
     public var service_price: NSString = ""
@@ -56,11 +56,9 @@ public class AISearchResultItemModel: JSONModel {
     public var service_comment_scroce: NSInteger = 0
     public var service_likes: NSInteger = 0
     public var service_browse: NSInteger = 0
-    
+
     public var service_introduction: NSString = ""
     public var service_superiority: [NSString] = []
     public var service_superiority_icon: [NSString] = []
-    
+
 }
-
-

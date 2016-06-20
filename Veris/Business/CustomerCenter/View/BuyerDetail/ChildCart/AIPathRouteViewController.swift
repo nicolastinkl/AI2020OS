@@ -26,51 +26,51 @@ import Foundation
 
 /// CanMoveRow Path Route 重新规划规划位置界面
 class AIPathRouteViewController: UIViewController {
-    
+
     private let tableview = UITableView()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+
         view.addSubview(tableview)
         tableview.frame = view.frame
-        
+
         tableview.delegate = self
         tableview.dataSource = self
         tableview.estimatedRowHeight = 50
         tableview.reloadData()
         tableview.editing = true
-        
+
         tableview.backgroundColor = UIColor.clearColor()
         tableview.separatorStyle = .None
-        
+
         let footView = UIButton(type: .Custom)
         tableview.tableFooterView = footView
         footView.frame = CGRectMake(0, 0, self.view.width, 50)
         footView.setTitle("+", forState: UIControlState.Normal)
         footView.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
-               
+
     }
-    
+
 }
 
-extension AIPathRouteViewController: UITableViewDataSource,UITableViewDelegate {
- 
+extension AIPathRouteViewController: UITableViewDataSource, UITableViewDelegate {
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 8
     }
-    
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+
         if let deCell = tableview.dequeueReusableCellWithIdentifier("row") {
-            
+
             return deCell
-        }else{
-            
+        } else {
+
             let cell = UITableViewCell(style: .Default, reuseIdentifier: "row")
             if let sview = AIEventCapacityView.initFromNib() as? AIEventCapacityView {
                 cell.addSubview(sview)
@@ -80,16 +80,16 @@ extension AIPathRouteViewController: UITableViewDataSource,UITableViewDelegate {
             }
             cell.backgroundColor = UIColor.clearColor()
             cell.selectionStyle = .None
-            
+
             return cell
         }
-        
+
     }
-    
+
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50
     }
-    
+
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let cell = tableview.cellForRowAtIndexPath(indexPath)
         cell?.subviews.forEach { (sview) in
@@ -97,20 +97,18 @@ extension AIPathRouteViewController: UITableViewDataSource,UITableViewDelegate {
             if name == "UITableViewCellEditControl" {
                 sview.hidden = true
             }
-            
+
         }
         return 50
     }
-    
+
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    
+
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        
+
     }
-    
-    
+
+
 }
-
-

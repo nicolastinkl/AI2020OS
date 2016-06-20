@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class AILimitListView: AIPopupChooseBaseView {
-    
-    var limitModels : [AILimitModel]?
-    
+
+    var limitModels: [AILimitModel]?
+
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,13 +21,13 @@ class AILimitListView: AIPopupChooseBaseView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     func loadData(limitListModel limitListModel: [AILimitModel]) {
         itemModels = [AIPopupChooseModel]()
-        for limitModel in limitListModel{
+        for limitModel in limitListModel {
             let itemModel = AIPopupChooseModel(itemId: limitModel.limitId, itemTitle: limitModel.limitName, itemIcon: limitModel.limitIcon, itemIconHighlight: limitModel.limitIconHighlight, isSelect: limitModel.hasLimit)
             itemModels?.append(itemModel)
         }
-        super.loadData(itemModels! , businessType: PopupBusinessType.LimitConfig)
+        super.loadData(itemModels!, businessType: PopupBusinessType.LimitConfig)
     }
 }

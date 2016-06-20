@@ -14,24 +14,24 @@ import UIKit
  *
  *  提供登录服务
  */
-class AIChangeStatusButton : UIButton{
-    
+class AIChangeStatusButton: UIButton {
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+
         setupLayout()
     }
-    
-    func setupLayout(){
+
+    func setupLayout() {
         //TODO 设置禁用和可用时的背景色
         self.setBackgroundImage(UIImage(), forState: UIControlState.Disabled)
         self.setBackgroundImage(UIImage(), forState: UIControlState.Normal)
     }
-    
+
 }
 
 extension UIViewController {
-    func setupLoginNavigationBar(title : String){
+    func setupLoginNavigationBar(title: String) {
         let NAVIGATION_TITLE = AITools.myriadSemiCondensedWithSize(60 / 3)
         let frame = CGRect(x: 0, y: 0, width: 100, height: 44)
         let titleLabel = UILabel(frame: frame)
@@ -45,8 +45,8 @@ extension UIViewController {
         leftButtonItem.tintColor = UIColor.lightGrayColor()
         self.navigationItem.leftBarButtonItem = leftButtonItem
     }
-    
-    func loginBackAction(button : UIBarButtonItem){
+
+    func loginBackAction(button: UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(true)
     }
 }

@@ -27,36 +27,36 @@ import Spring
 
 /// 搜索头部View定制
 class AILocationSelectHeadView: UIView {
-    
+
     @IBOutlet weak var nearView: UIView!
-    
+
     @IBOutlet weak var historyView: UIView!
     @IBOutlet weak var scrollview: UIScrollView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         for index in 0...2 {
             let imageView = DesignableImageView()
             let label = UILabel()
-            
+
             imageView.frame = CGRectMake(CGFloat((15 + 80) * index), 5, 65, 65)
             label.frame = CGRectMake(imageView.left, 70, 65, 20)
             scrollview.addSubview(imageView)
             scrollview.addSubview(label)
-            
+
             label.text = "Beijing"
             label.textColor = UIColor.whiteColor()
             label.font = AITools.myriadLightWithSize(14)
             label.textAlignment  = .Center
             imageView.image = UIImage(named: "icon-mia")
-        }        
+        }
     }
-    
-    
-    @IBAction func openSearchView(){
+
+
+    @IBAction func openSearchView() {
         AIApplication().SendAction("showSearchViewController", ownerName: self)
     }
-    
-    
+
+
 }

@@ -17,7 +17,7 @@ class AITagDescView: UIView {
 		result.numberOfLines = 0
 		return result
 	}()
-	
+
 	struct Constants {
 		static let margin: CGFloat = 8
 	}

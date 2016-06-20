@@ -11,34 +11,32 @@ import SwiftyJSON
 
 
 class AIOrderDetailRequester {
-    typealias OrderDetailRequesterCompletion = (data:OrderDetailModel,error:Error?) ->()
-    private var isLoading : Bool = false
-    
+    typealias OrderDetailRequesterCompletion = (data: OrderDetailModel, error: Error?) ->()
+    private var isLoading: Bool = false
+
     //查询订单详情
-    func queryOrderDetail(completion:OrderDetailRequesterCompletion){
-        
+    func queryOrderDetail(completion: OrderDetailRequesterCompletion) {
+
         if isLoading {
             return
         }
         isLoading = true
-        
+
         AIHttpEngine.postRequestWithParameters(AIHttpEngine.ResourcePath.GetOrderDetail,
             parameters: ["order_id":1]) {
             [weak self] (response, error) -> () in
-            if let strongSelf = self{
+            if let strongSelf = self {
                 strongSelf.isLoading = false
             }
-            
-            
-            if let responseJSON: AnyObject = response{
+
+
+            if let responseJSON: AnyObject = response {
                 let orderDetail =  OrderDetailModel(JSONDecoder(responseJSON))
                 completion(data: orderDetail, error: error)
             }
 
         }
     }
-    
-    
+
+
 }
-
-

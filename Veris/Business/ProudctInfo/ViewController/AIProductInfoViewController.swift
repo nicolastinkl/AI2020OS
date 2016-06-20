@@ -31,19 +31,19 @@ import SnapKit
 
 /// 商品详情视图
 class AIProductInfoViewController: UIViewController {
-    
-    
+
+
     private let defaultTableViewHeaderMargin: CGFloat = 300.0
     private let imageScalingFactor: CGFloat = 350.0
-    
+
     @IBOutlet weak var scrollview: UIScrollView!
-    
+
     private var preCacheView: UIView?
-    
+
     private var navi = AINavigationBar.initFromNib()
-    
+
     private let topImage = AIImageView()
-    
+
     /*private var titleLabel: AILabel = {
         let titleLabel = AILabel()
         titleLabel.text = ""
@@ -52,21 +52,21 @@ class AIProductInfoViewController: UIViewController {
         titleLabel.textColor = UIColor(hexString: "#FFFFFF")
         return titleLabel
     }()*/
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Add ContentOffSet Listen.
         configureObserver()
-        
+
         // Make AINavigationBar 'View.
         initLayoutViews()
-        
+
         // Make UIScrollView.
         Async.main(after: 0.1) {
             self.initScrollViewData()
         }
-                
+
     }
     /**
      observerValueForKeyPath.
@@ -74,33 +74,33 @@ class AIProductInfoViewController: UIViewController {
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "contentOffset" {
             scrollViewDidScrollWithOffset(scrollview.contentOffset.y)
-        }else {
+        } else {
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
         }
     }
-    
+
     private func configureObserver() {
         scrollview.addObserver(self, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.New, context: nil)
     }
-    
+
     /**
      处理大图放大缩小效果
      */
-    func  scrollViewDidScrollWithOffset(scrollOffset: CGFloat){
-        let scrollViewDragPoint: CGPoint = CGPointMake(0, 0)
+    func  scrollViewDidScrollWithOffset(scrollOffset: CGFloat) {
+        let scrollViewDragPoint: CGPoint = CGPoint(x: 0, y: 0)
         if scrollOffset < 0 {
             //topImage.transform = CGAffineTransformMakeScale(1 - (scrollOffset / self.imageScalingFactor), 1 - (scrollOffset / self.imageScalingFactor))
-        }else{
+        } else {
             //topImage.transform = CGAffineTransformMakeScale(1.0, 1.0)
         }
-        
+
         animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
-        
+
     }
-    
+
     // MAKE 处理Navigationbar 背景模糊虚化效果.
-    func animateImageView(scrollOffset: CGFloat, draggingPoint: CGPoint, alpha: CGFloat){
-        
+    func animateImageView(scrollOffset: CGFloat, draggingPoint: CGPoint, alpha: CGFloat) {
+
         animateNavigationBar(scrollOffset, draggingPoint: draggingPoint)
         if scrollOffset > draggingPoint.y && scrollOffset > defaultTableViewHeaderMargin {
             UIView.animateWithDuration(0.3, animations: {
@@ -108,7 +108,7 @@ class AIProductInfoViewController: UIViewController {
                     navi.bgView.subviews.first?.alpha = 1.0
                 }
             })
-        }else if scrollOffset <= defaultTableViewHeaderMargin{
+        } else if scrollOffset <= defaultTableViewHeaderMargin {
             UIView.animateWithDuration(0.3, animations: {
                 if let navi = self.navi as? AINavigationBar {
                     navi.bgView.subviews.first?.alpha = 0
@@ -116,17 +116,17 @@ class AIProductInfoViewController: UIViewController {
             })
         }
     }
-    
-    func animateNavigationBar(scrollOffset: CGFloat, draggingPoint: CGPoint){
-        
+
+    func animateNavigationBar(scrollOffset: CGFloat, draggingPoint: CGPoint) {
+
     }
-    
-    
+
+
     /**
      Init with TOP VIEW.
      */
-    func initLayoutViews(){
-        
+    func initLayoutViews() {
+
         /// Title.
         if let navi = navi as? AINavigationBar {
             view.addSubview(navi)
@@ -137,14 +137,14 @@ class AIProductInfoViewController: UIViewController {
                 layout.right == layout.superview!.right
                 layout.height == 44.0 + 10.0
             })
-            
+
             navi.titleLabel.text = ""
-            
-        }        
+
+        }
     }
-    
-    func initScrollViewData(){
-        
+
+    func initScrollViewData() {
+
         /**
          定制的TitleView
          */
@@ -152,43 +152,43 @@ class AIProductInfoViewController: UIViewController {
             let heightLabel: CGFloat = 30
             let tView = UIView()
             tView.frame = CGRectMake(0, 0, self.view.width, heightLabel)
-            
+
             let titleLabel = AILabel()
             titleLabel.text = title
             titleLabel.setHeight(heightLabel)
             titleLabel.font = UIFont.systemFontOfSize(15)
             titleLabel.textColor = UIColor(hexString: "#FFFFFF")
-            
+
             let desLabel = AILabel()
             desLabel.text = desctiption
             desLabel.setHeight(heightLabel)
             desLabel.font = UIFont.systemFontOfSize(12)
             desLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.4)
-            
+
             tView.addSubview(titleLabel)
             tView.addSubview(desLabel)
             titleLabel.frame = CGRectMake(0, 0, 80, heightLabel)
             desLabel.frame = CGRectMake(80, 0, 180, heightLabel)
-            
+
             let imageview = UIImageView()
             imageview.image = UIImage(named: "right_triangle")
             tView.addSubview(imageview)
             imageview.contentMode = UIViewContentMode.ScaleToFill
             imageview.frame = CGRectMake(view.width - 15, 10, 8, 12)
-            
+
             return tView
         }
-        
+
         // Setup 1 : Top UIImageView.
         topImage.setURL(NSURL(string: "https://www.cdc.gov/pregnancy/meds/images/woman-talking-to-dr-400px.jpg"), placeholderImage: smallPlace())
         topImage.setHeight(imageScalingFactor)
         topImage.contentMode = UIViewContentMode.ScaleAspectFill
-        addNewSubView(topImage, preView: UIView(frame: CGRectMake(0,0,0,0)))
-        
+        addNewSubView(topImage, preView: UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
+
         // Setup 2: title Info View.
         let titleLabel = getTitleLabelView("孕检无忧")
         addNewSubView(titleLabel, preView: topImage)
-        
+
         let desLabel = AILabel()
         desLabel.text = "最后还是要提一下，“过早的优化是万恶之源”，在需求未定，性能问题不明显时，没必要尝试做优化，而要尽量正确的实现功能。做性能优化时，也最好是走修改代码 -> Profile -> 修改代码这样一个流程，优先解决最值得优化的地方。"
         desLabel.setHeight(60)
@@ -197,7 +197,7 @@ class AIProductInfoViewController: UIViewController {
         desLabel.font = UIFont.systemFontOfSize(13)
         desLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
         addNewSubView(desLabel, preView: titleLabel)
-        
+
         let priceLabel = AILabel()
         priceLabel.text = "$ 184.0"
         priceLabel.setHeight(30)
@@ -205,10 +205,10 @@ class AIProductInfoViewController: UIViewController {
         priceLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
         addNewSubView(priceLabel, preView: desLabel)
         priceLabel.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
-        
+
         let tagsView = UIView()
         tagsView.setHeight(40)
-        
+
         for index in 0...2 {
             // add tag view.
             let tag = DesignableButton()
@@ -220,26 +220,26 @@ class AIProductInfoViewController: UIViewController {
             tag.titleLabel?.textColor = UIColor.whiteColor()
             tag.titleLabel?.font = UIFont.systemFontOfSize(13)
             tag.frame = CGRectMake(CGFloat(index) * (55 + 10), 10, 55, 20)
-            
+
             tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             tag.setTitleColor(AITools.colorWithR(253, g: 225, b: 50), forState: UIControlState.Highlighted)
-            
+
         }
         tagsView.setLeft(10)
         addNewSubView(tagsView, preView: priceLabel)
-        
+
         let lineView1 = addSplitView()
-        
+
         // Setup 3:
         let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
         addNewSubView(commond, preView: lineView1)
         commond.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
-        
+
         let commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
         addNewSubView(commentView!, preView: commond)
         commentView?.fillDataWithModel()
         let lineView2 = addSplitView()
-        
+
         // Setup 4:
         let pLabel = getTitleLabelView("为您推荐")
         addNewSubView(pLabel, preView: lineView2)
@@ -247,13 +247,13 @@ class AIProductInfoViewController: UIViewController {
         let hView4 = UIView()
         addNewSubView(hView4, preView: pLabel)
         hView4.setHeight(100)
-        
+
         let lineView3 = addSplitView()
-        
+
         // Setup 5:
         let pcLabel = getTitleLabelView("商品介绍")
         addNewSubView(pcLabel, preView: lineView3)
-        
+
         let bottomImage = AIImageView()
         bottomImage.setURL(NSURL(string:"http://ww1.sinaimg.cn/bmiddle/661433edjw1f44f65foq7j20ku4cge81.jpg"), placeholderImage: smallPlace())
         bottomImage.setHeight(1335.0)
@@ -261,14 +261,14 @@ class AIProductInfoViewController: UIViewController {
         bottomImage.contentMode = UIViewContentMode.ScaleAspectFill
         bottomImage.clipsToBounds = true
         addNewSubView(bottomImage, preView: pcLabel)
-        
-        
+
+
     }
-    
+
     /**
      copy from old View Controller.
      */
-    func addNewSubView(cview: UIView,preView: UIView,color: UIColor = UIColor.clearColor(),space: CGFloat = 0){
+    func addNewSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
         scrollview.addSubview(cview)
         cview.setWidth(self.view.width)
         cview.setTop(preView.top + preView.height+space)
@@ -276,7 +276,7 @@ class AIProductInfoViewController: UIViewController {
         scrollview.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
         preCacheView = cview
     }
-    
+
     // Make Add Split View.
     func addSplitView() -> UIView {
         let splitView = UIView()
@@ -291,10 +291,10 @@ class AIProductInfoViewController: UIViewController {
 
 
 extension AIProductInfoViewController: UIScrollViewDelegate {
-    
+
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
+
     }
-    
-    
+
+
 }

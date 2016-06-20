@@ -30,16 +30,16 @@ private let DeviceList = [
 ]
 
 public extension UIDevice {
-    
+
     static var modelName: String {
         var systemInfo = utsname()
         uname(&systemInfo)
-        
+
         let machine = systemInfo.machine
         let mirror = Mirror(reflecting: machine)
-        
+
         var identifier = ""
-        
+
         for child in mirror.children {
             if let value = child.value as? Int8 where value != 0 {
                 identifier.append(UnicodeScalar(UInt8(value)))
@@ -47,56 +47,56 @@ public extension UIDevice {
         }
         return DeviceList[identifier] ?? identifier
     }
-    
+
     static var isIphone4: Bool {
         return modelName == "iPhone 5" || modelName == "iPhone 5C" || modelName == "iPhone 5S" || UIDevice.isSimulatorIPhone4
     }
-    
+
     static var isIphone5: Bool {
         return modelName == "iPhone 4S" || modelName == "iPhone 4" || UIDevice.isSimulatorIPhone5
     }
-    
+
     static var isIphone6: Bool {
         return modelName == "iPhone 6" || UIDevice.isSimulatorIPhone6
     }
     static var isIphone6Plus: Bool {
         return modelName == "iPhone 6 Plus" || UIDevice.isSimulatorIPhone6Plus
     }
-    
+
     static var isIpad: Bool {
         if (UIDevice.currentDevice().model.rangeOfString("iPad") != nil) {
             return true
         }
         return false
     }
-    
+
     static var isIphone: Bool {
         return !self.isIpad
     }
-    
+
     /// Check if current device is iPhone4S (and earlier) relying on screen heigth
     static var isSimulatorIPhone4: Bool {
         return UIDevice.isSimulatorWithScreenHeigth(480)
     }
-    
+
     /// Check if current device is iPhone5 relying on screen heigth
     static var isSimulatorIPhone5: Bool {
         return UIDevice.isSimulatorWithScreenHeigth(568)
     }
-    
+
     /// Check if current device is iPhone6 relying on screen heigth
     static var isSimulatorIPhone6: Bool {
         return UIDevice.isSimulatorWithScreenHeigth(667)
     }
-    
+
     /// Check if current device is iPhone6 Plus relying on screen heigth
     static var isSimulatorIPhone6Plus: Bool {
         return UIDevice.isSimulatorWithScreenHeigth(736)
     }
-    
+
     private static func isSimulatorWithScreenHeigth(heigth: CGFloat) -> Bool {
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         return modelName == "Simulator" && screenSize.height == heigth
     }
-    
+
 }

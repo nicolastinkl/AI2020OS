@@ -9,13 +9,13 @@
 import Foundation
 import Cartography
 
-internal class AINavigationBarView : UIView{
-    
+internal class AINavigationBarView: UIView {
+
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var custView: UIView!
-    var naviDetailBar:AIDetailTopMenuView?
-    
-    class func currentView()->AINavigationBarView{
+    var naviDetailBar: AIDetailTopMenuView?
+
+    class func currentView()->AINavigationBarView {
         let selfView = NSBundle.mainBundle().loadNibNamed("AINavigationBarView", owner: self, options: nil).first  as! AINavigationBarView
         selfView.backButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60/PurchasedViewDimention.CONVERT_FACTOR)
 
@@ -24,7 +24,7 @@ internal class AINavigationBarView : UIView{
         customView.like.font = AITools.myriadSemiCondensedWithSize(31/PurchasedViewDimention.CONVERT_FACTOR)
         customView.share.font = AITools.myriadSemiCondensedWithSize(31/PurchasedViewDimention.CONVERT_FACTOR)
         customView.custom.font = AITools.myriadSemiCondensedWithSize(31/PurchasedViewDimention.CONVERT_FACTOR)
-        
+
         selfView.custView.addSubview(customView)
         constrain(customView) { (view1) -> () in
             view1.left == view1.superview!.left
@@ -32,9 +32,9 @@ internal class AINavigationBarView : UIView{
             view1.top == view1.superview!.top
             view1.bottom == view1.superview!.bottom
         }
-        
+
         return selfView
     }
-    
-    
+
+
 }

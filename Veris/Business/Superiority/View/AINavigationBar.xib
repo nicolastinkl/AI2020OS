@@ -32,8 +32,17 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkW-mh-N3X">
-                    <rect key="frame" x="0.0" y="5" width="45" height="33"/>
-                    <state key="normal" image="backIcon"/>
+                    <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="17N-c2-9Nd"/>
+                        <constraint firstAttribute="height" constant="45" id="iSL-Rf-Vpp"/>
+                    </constraints>
+                    <state key="normal" image="AINavigationBar_back"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="iSL-Rf-Vpp"/>
+                        </mask>
+                    </variation>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZP-g5-iYW">
                     <rect key="frame" x="107" y="6" width="387" height="33"/>
@@ -66,10 +75,16 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="infoButton"/>
                     </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="9TB-Cr-Ydi"/>
+                        </mask>
+                    </variation>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="xkW-mh-N3X" firstAttribute="centerY" secondItem="5hL-hQ-oxr" secondAttribute="centerY" id="2Mc-zI-LN6"/>
                 <constraint firstItem="xkW-mh-N3X" firstAttribute="bottom" secondItem="5hL-hQ-oxr" secondAttribute="bottom" id="2c3-ny-AU5"/>
                 <constraint firstItem="RpV-BP-Pz3" firstAttribute="leading" secondItem="5hL-hQ-oxr" secondAttribute="trailing" constant="16" id="4wz-dy-f2j"/>
                 <constraint firstItem="1Nf-cD-H5k" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6db-OI-Gov"/>
@@ -87,7 +102,9 @@
                 <constraint firstAttribute="bottom" secondItem="1Nf-cD-H5k" secondAttribute="bottom" id="goG-0a-O4i"/>
                 <constraint firstItem="RpV-BP-Pz3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hBq-hw-7sU"/>
                 <constraint firstAttribute="trailing" secondItem="RpV-BP-Pz3" secondAttribute="trailing" constant="8" id="mvS-tH-pY0"/>
+                <constraint firstItem="xkW-mh-N3X" firstAttribute="top" secondItem="1Nf-cD-H5k" secondAttribute="top" id="oSh-lj-LgZ"/>
                 <constraint firstItem="1Nf-cD-H5k" firstAttribute="top" secondItem="xkW-mh-N3X" secondAttribute="bottom" constant="7" id="p66-F4-g80"/>
+                <constraint firstItem="xkW-mh-N3X" firstAttribute="centerY" secondItem="JZP-g5-iYW" secondAttribute="centerY" id="q2O-e1-zHW"/>
                 <constraint firstItem="xkW-mh-N3X" firstAttribute="centerY" secondItem="5hL-hQ-oxr" secondAttribute="centerY" id="uzV-9m-n3d"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -97,7 +114,9 @@
                     <exclude reference="AVb-lC-zwJ"/>
                     <exclude reference="IFK-Mm-pPE"/>
                     <exclude reference="p66-F4-g80"/>
+                    <exclude reference="2c3-ny-AU5"/>
                     <exclude reference="Fdc-Ke-JYN"/>
+                    <exclude reference="uzV-9m-n3d"/>
                 </mask>
             </variation>
             <connections>
@@ -107,11 +126,11 @@
                 <outlet property="titleLabel" destination="JZP-g5-iYW" id="iht-4f-1hf"/>
                 <outlet property="videoButton" destination="RpV-BP-Pz3" id="n2T-uY-nkh"/>
             </connections>
-            <point key="canvasLocation" x="90" y="295"/>
+            <point key="canvasLocation" x="74" y="295"/>
         </view>
     </objects>
     <resources>
-        <image name="backIcon" width="13" height="22"/>
+        <image name="AINavigationBar_back" width="34" height="34"/>
         <image name="serviceDetailInfo" width="36" height="36"/>
         <image name="viocephonebutton" width="36" height="36"/>
     </resources>

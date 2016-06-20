@@ -15,15 +15,15 @@ import UIKit
 
 class AITaskInputViewController: UIViewController {
 	@IBOutlet weak var textField: KMPlaceholderTextView!
-	
+
 	weak var delegate: AITaskInputViewControllerDelegate?
-	
+
 	var text: String? {
 		didSet {
 			textField?.text = text
 		}
 	}
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		textField?.text = text
@@ -32,7 +32,7 @@ class AITaskInputViewController: UIViewController {
 		textField.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
 		textField.layer.cornerRadius = 6
 	}
-	
+
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		textField?.becomeFirstResponder()
@@ -58,14 +58,14 @@ extension AITaskInputViewController: UITextViewDelegate {
 			}
 			return false
 		}
-		return true;
+		return true
 	}
 	func textViewDidChange(textView: UITextView) {
-		
+
 		let viewHeightConstraint = view.constraints.filter { (c) -> Bool in
 			return c.firstAttribute == .Height
 		}.first
-		
+
 		if let viewHeightConstraint = viewHeightConstraint {
 			viewHeightConstraint.constant = textView.contentSize.height + 47 // magic number
 			view.setNeedsUpdateConstraints()

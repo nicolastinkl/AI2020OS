@@ -10,11 +10,11 @@ import UIKit
 import Cartography
 
 class AITaskEditViewController: UIViewController {
-	
+
 	var services: [DependOnService]?
-	
-    var serviceRoles : [AIServiceProvider]?
-    
+
+    var serviceRoles: [AIServiceProvider]?
+
 	var timeLineView: AITaskTimeLineView!
 	var dependOnTask: TaskNode? {
 		didSet {
@@ -24,7 +24,7 @@ class AITaskEditViewController: UIViewController {
 			} else {
 				string = nil
 			}
-			
+
 			timeLineView?.label1.text = string
 			timeLineView.setNeedsUpdateConstraints()
 			timeLineView.updateConstraintsIfNeeded()
@@ -58,17 +58,17 @@ class AITaskEditViewController: UIViewController {
 			}
 		}
 	}
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
         fetchServices()
 		setupNavigationAndBackgroundImage()
 		navigationBar.titleLabel.text = "Task"
 		saveButtonEnabled = false
-		
+
 		setupTimeLineView()
 	}
-	
+
 	func setupTimeLineView() {
 		timeLineView = UINib(nibName: "AITaskTimeLineView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! AITaskTimeLineView
 		view.addSubview(timeLineView)
@@ -76,7 +76,7 @@ class AITaskEditViewController: UIViewController {
 			make.leading.trailing.bottom.equalTo(view)
 			make.top.equalTo(navigationBar.snp_bottom)
 		}
-		
+
 		timeLineView.delegate = self
 	}
 }
@@ -85,47 +85,47 @@ extension AITaskEditViewController: AITaskNavigationBarDelegate {
 	func navigationBar(navigationBar: AITaskNavigationBar, cancelButtonPressed: UIButton) {
 		dismissViewControllerAnimated(true, completion: nil)
 	}
-	
+
 	func navigationBar(navigationBar: AITaskNavigationBar, saveButtonPressed: UIButton) {
 
         // save here
         view.showLoading()
         weak var wf = self
-        
+
         let cellWrapperModel = AIRequirementViewPublicValue.bussinessModel?.baseJsonValue
         let comp_user_id = (cellWrapperModel?.comp_user_id)!
-        let customer_id : String = (cellWrapperModel?.customer.customer_id.stringValue)! as String
+        let customer_id: String = (cellWrapperModel?.customer.customer_id.stringValue)! as String
         let order_id = (cellWrapperModel?.order_id)!
         let requirement_id = (AIRequirementViewPublicValue.cellContentTransferValue?.cellmodel?.childServices?.first?.requirement_id)
         let requirement_type = (AIRequirementViewPublicValue.cellContentTransferValue?.cellmodel?.category)
         let dateNum = NSNumber(double: dateNode!.date.timeIntervalSince1970)
-        let offset_time_int : Int = dateNum.integerValue
-        let offset_time : String = String(format: "%ld", arguments: [offset_time_int])
-        let node_id : String = (dependOnTask?.id)!
-        
-        
+        let offset_time_int: Int = dateNum.integerValue
+        let offset_time: String = String(format: "%ld", arguments: [offset_time_int])
+        let node_id: String = (dependOnTask?.id)!
+
+
         let service_id = AIRequirementViewPublicValue.cellContentTransferValue?.cellmodel?.childServices?.first?.service_id ?? (AIRequirementViewPublicValue.bussinessModel?.baseJsonValue!.comp_service_id)!
-        
-        AIRequirementHandler.defaultHandler().addNewTask(service_id,comp_user_id: comp_user_id, customer_id: customer_id, order_id: order_id, requirement_id:requirement_id, requirement_type: requirement_type, analysis_type: "TaskNode", task_desc: remark!, offset_time: offset_time, node_id: node_id, arrangement_id: (dependOnTask?.arrageID)!, success: { (unassignedNum) -> Void in
+
+        AIRequirementHandler.defaultHandler().addNewTask(service_id, comp_user_id: comp_user_id, customer_id: customer_id, order_id: order_id, requirement_id:requirement_id, requirement_type: requirement_type, analysis_type: "TaskNode", task_desc: remark!, offset_time: offset_time, node_id: node_id, arrangement_id: (dependOnTask?.arrageID)!, success: { (unassignedNum) -> Void in
             wf!.shouldDismissSelf(true)
-            
-            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIAIRequirementNotifyOperateCellNotificationName, object: nil,userInfo: [AIApplication.JSONREPONSE.unassignedNum:unassignedNum])
-            
-            
+
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIAIRequirementNotifyOperateCellNotificationName, object: nil, userInfo: [AIApplication.JSONREPONSE.unassignedNum:unassignedNum])
+
+
             }) { (errType, errDes) -> Void in
                 wf!.shouldDismissSelf(false)
         }
-        
+
 	}
-    
-    
-    func shouldDismissSelf (didSuccess : Bool) {
+
+
+    func shouldDismissSelf (didSuccess: Bool) {
         view.hideLoading()
-        
+
         if didSuccess {
             NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIRequireContentViewControllerCellWrappNotificationName, object: nil)
         }
-        
+
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
@@ -138,14 +138,14 @@ extension AITaskEditViewController: DependOnNodePickerViewControllerDelegate {
 
 // MARK: - AITaskTimeLineViewDelegate
 extension AITaskEditViewController: AITaskTimeLineViewDelegate {
-	
+
 	// 点击依赖节点logo
 	func taskTimeLineViewDidClickDependOnNodeLogo(taskTimeLineView: AITaskTimeLineView) {
 		let vc = DependOnNodePickerViewController()
 		if let dependOnTask = dependOnTask {
 			vc.selectedTask = dependOnTask
 		}
-		
+
 		var frame = vc.view.frame
 		frame.size.height = 500
 		vc.view.frame = frame
@@ -155,7 +155,7 @@ extension AITaskEditViewController: AITaskTimeLineViewDelegate {
 		}
 		presentPopupViewController(vc, animated: true)
 	}
-	
+
 //    点击时间picker logo
 	func taskTimeLineViewDidClickDatePickerLogo(taskTimeLineView: AITaskTimeLineView) {
 		let vc = AITimePickerViewController.initFromNib()
@@ -163,14 +163,14 @@ extension AITaskEditViewController: AITaskTimeLineViewDelegate {
 		if let dateNode = dateNode {
 			vc.date = dateNode.date
 		}
-		
+
 		vc.onDetermineButtonClick = { [weak self] date, dateDescription in
 //			print(self)
 			self?.dateNode = (date: date, dateDescription: dateDescription)
 		}
 		presentPopupViewController(vc, animated: true)
 	}
-	
+
 //    点击remark logo
 	func taskTimeLineViewDidClickRemarkLogo(taskTimeLineView: AITaskTimeLineView) {
 		let vc = AITaskInputViewController.initFromNib()
@@ -190,20 +190,20 @@ extension AITaskEditViewController: AITaskInputViewControllerDelegate {
 
 // MARK: - fake data
 extension AITaskEditViewController {
-	
+
 	static var fakeServiceResult: [DependOnService]?
-	
+
     func fetchServices() {
-		
+
         view.showLoading()
-        
+
         var services = [DependOnService]()
-        
+
         var postCount = 0
-        
+
         if let roles = serviceRoles {
             for i in 0 ... roles.count - 1 {
-                
+
                 let role = roles[i] as AIServiceProvider
                 print("insID" + "\(role.relservice_instance_id)")
                 AIRequirementHandler.defaultHandler().queryTaskList("\(role.relservice_instance_id)", serviceIcon: role.provider_portrait_url, success: { (task) -> Void in
@@ -214,15 +214,15 @@ extension AITaskEditViewController {
                 })
             }
         }
-        
+
         while (postCount != serviceRoles?.count) {
             NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate.distantFuture())
         }
-        
+
         self.services = services
         view.hideLoading()
 
 	}
-	
+
 
 }

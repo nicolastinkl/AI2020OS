@@ -26,32 +26,32 @@ import Foundation
 
 /// 确定订单确认视图Cell
 class AIConfirmOrderCellView: UIView {
-    
+
     @IBOutlet weak var imageview: UIImageView!
-    
+
     @IBOutlet weak var title: UILabel!
-    
+
     @IBOutlet weak var price: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+
         self.title.font = AITools.myriadLightSemiCondensedWithSize(48 / PurchasedViewDimention.CONVERT_FACTOR)
-        
+
         self.price.font = AITools.myriadLightSemiCondensedWithSize(56 / PurchasedViewDimention.CONVERT_FACTOR)
-        
+
         self.price.textColor = UIColor(hexString: "fee300", alpha: 1)
-        
+
     }
-    
-    func initData(model : AIProposalServiceModel){
-        
+
+    func initData(model: AIProposalServiceModel) {
+
         title.text = model.service_desc
-        
+
         price.text = "\(model.service_price.original)"
-        
+
         imageview.setImageWithURL(NSURL(string: "\(model.service_thumbnail_icon)"))
-        
+
     }
-    
+
 }

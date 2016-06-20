@@ -11,12 +11,10 @@ import Foundation
 import UIKit
 import Spring
 
-extension UIButton{
-    
-    func getTouchLocation() -> CGPoint{
-                
+extension UIButton {
+
+    func getTouchLocation() -> CGPoint {
+
         return CGPoint(x: 0, y: 0)
     }
 }
-
- 

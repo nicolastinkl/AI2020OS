@@ -13,9 +13,9 @@ class AIFavoritesServicesResult: JSONJoy {
     var services = [AIServiceTopicModel]()
 
     init() {
-        
+
     }
-    
+
     required init(_ decoder: JSONDecoder) {
         if let jsonArray = decoder["collected_services"].array {
             for subDecoder in jsonArray {
@@ -27,11 +27,11 @@ class AIFavoritesServicesResult: JSONJoy {
 
 class AIFavoritesServiceTagsResult: JSONJoy {
     var tags = [String]()
-    
+
     init() {
-        
+
     }
-    
+
     required init(_ decoder: JSONDecoder) {
         if let jsonArray = decoder["service_tags"].array {
             for subDecoder in jsonArray {

@@ -87,8 +87,7 @@ func logVerbose(logText: String = "",
 }
 
 func logInfo(logText: String = "", file: String = #file, line: UInt = #line, function: String = #function,
-    args: CVarArgType...)
-{
+    args: CVarArgType...) {
     if AILogLevel.Info.rawValue >= logLevel.rawValue {
         log(.Info, file: file, function: function, line: line, format: logText, args: getVaList(args))
     }
@@ -96,16 +95,14 @@ func logInfo(logText: String = "", file: String = #file, line: UInt = #line, fun
 
 func logDebug(logText: String = "",
     file: String = #file, line: UInt = #line, function: String = #function,
-    args: CVarArgType...)
-{
+    args: CVarArgType...) {
     if AILogLevel.Debug.rawValue >= logLevel.rawValue {
         log(.Debug, file: file, function: function, line: line, format: logText, args: getVaList(args))
     }
 }
 
 func logWarning(logText: String = "", file: String = #file, line: UInt = #line, function: String = #function,
-    args: CVarArgType...)
-{
+    args: CVarArgType...) {
     if AILogLevel.Warning.rawValue >= logLevel.rawValue {
         log(.Warning, file: file, function: function, line: line, format: logText, args: getVaList(args))
     }
@@ -115,8 +112,7 @@ func logError(logText: String = "",
     file: String = #file,
     line: UInt = #line,
     function: String = #function,
-    args: CVarArgType...)
-{
+    args: CVarArgType...) {
     if AILogLevel.Error.rawValue >= logLevel.rawValue {
         log(.Error, file: file, function: function, line: line, format: logText, args: getVaList(args))
     }
@@ -128,8 +124,7 @@ func logWithLevel(level: AILogLevel,
     file: String = #file,
     line: UInt = #line,
     function: String = #function,
-    args: CVarArgType...)
-{
+    args: CVarArgType...) {
     if level.rawValue >= logLevel.rawValue {
         log(level, file: file, function: function, line: line, format: logText, args: getVaList(args))
     }
@@ -149,7 +144,7 @@ private func log(level: AILogLevel, file: String = #file, function: String = #fu
 //    if !AILogShowFunctionName { function = "" }
     let message = NSString(format: format, arguments: args) as String
     let logText = "\(time)\(level)\(fileLine)\(function): \(message)"
-    
+
     dispatch_async(dispatch_get_main_queue(), { () -> Void in
         AILogFunc(format: logText)
     })
