@@ -13,7 +13,9 @@ SWIFT_LINT=/usr/local/bin/swiftlint
 run_swiftlint() {
     local filename="${1}"
     if [[ "${filename##*.}" == "swift" ]]; then
+      echo ${filename}
         ${SWIFT_LINT} autocorrect --path "${filename}"
+        git add -- "${filename}"
 
         # check lint
         # ${SWIFT_LINT} lint --path "${filename}"
