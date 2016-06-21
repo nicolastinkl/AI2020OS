@@ -305,7 +305,7 @@
     if ([self fontsWithLanguageEN]) {
         return [UIFont fontWithName:@"MyriadPro-Regular" size:size];
     }else{
-        return [UIFont fontWithName:@"HiraginoSansGBW3" size:size];
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
     }
 }
 
@@ -313,8 +313,8 @@
 {
     if ([self fontsWithLanguageEN]) {
         return [UIFont fontWithName:@"MyriadPro-Bold" size:size];
-    }else{
-        return [UIFont fontWithName:@"HiraginoSansGBW6" size:size];
+    }else{        
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
     }
 }
 
@@ -323,7 +323,7 @@
     if ([self fontsWithLanguageEN]) {
         return [UIFont fontWithName:@"MyriadPro-LightSemiCn" size:size];
     }else{
-        return [UIFont fontWithName:@"HiraginoSansGBW3" size:size];
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
     }
 }
 
@@ -332,7 +332,7 @@
     if ([self fontsWithLanguageEN]) {
         return [UIFont fontWithName:@"MyriadPro-LightSemiExt" size:size];
     }else{
-        return [UIFont fontWithName:@"HiraginoSansGBW3" size:size];
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
     }
 }
 
@@ -341,7 +341,7 @@
     if ([self fontsWithLanguageEN]) {
         return [UIFont fontWithName:@"MyriadPro-SemiCn" size:size];
     }else{
-        return [UIFont fontWithName:@"HiraginoSansGBW3" size:size];
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
     }
 }
 
@@ -350,7 +350,7 @@
     if ([self fontsWithLanguageEN]) {
         return [UIFont fontWithName:@"MyriadPro-Black" size:size];
     }else{
-        return [UIFont fontWithName:@"HiraginoSansGBW3" size:size];
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
     }
 }
 + (UIFont *) myriadLightWithSize:(CGFloat)size
@@ -358,7 +358,7 @@
     if ([self fontsWithLanguageEN]) {
         return [UIFont fontWithName:@"MyriadPro-Light" size:size];
     }else{
-        return [UIFont fontWithName:@"HiraginoSansGBW3" size:size];
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
     }
 }
 + (UIFont *) myriadSemiboldSemiCnWithSize:(CGFloat)size
@@ -366,7 +366,7 @@
     if ([self fontsWithLanguageEN]) {
         return [UIFont fontWithName:@"MyriadPro-SemiboldSemiCn" size:size];
     }else{
-        return [UIFont fontWithName:@"HiraginoSansGBW6" size:size];
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
     }
 }
 
