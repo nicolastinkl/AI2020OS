@@ -16,7 +16,11 @@ extension UIView {
 
         return NSBundle.mainBundle().loadNibNamed(name ?? "", owner: self, options: nil).first as? UIView
     }
-
+    
+    class func initFromNib(nibName: String) -> UIView? {
+        
+        return NSBundle.mainBundle().loadNibNamed(nibName, owner: self, options: nil).first as? UIView
+    }
 
 	// load xib file to init view, and let this custom view can be used in another xib view
 	func initSelfFromXib() {

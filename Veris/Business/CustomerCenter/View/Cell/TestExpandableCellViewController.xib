@@ -17,18 +17,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iOT-hw-ncn">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="518"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="6gS-ka-chA"/>
                         <outlet property="delegate" destination="-1" id="g1d-7x-5HV"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.062745098040000002" green="0.76078431369999999" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="iOT-hw-ncn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EEX-tD-ewv"/>
-                <constraint firstItem="iOT-hw-ncn" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="Vke-6a-uu7"/>
+                <constraint firstItem="iOT-hw-ncn" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" constant="-82" id="Vke-6a-uu7"/>
                 <constraint firstItem="iOT-hw-ncn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="g4o-KU-EGu"/>
                 <constraint firstItem="iOT-hw-ncn" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="vft-ag-DnL"/>
             </constraints>

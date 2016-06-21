@@ -21,7 +21,7 @@
                             <constraint firstAttribute="height" constant="116" id="sUq-TT-VVl"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICJ-hm-Kzu" userLabel="ExpandedView">
+                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICJ-hm-Kzu" userLabel="ExpandedView">
                         <rect key="frame" x="0.0" y="116" width="510" height="81"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -29,6 +29,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Ngk-au-Cyk" secondAttribute="trailing" identifier="topRight" id="6fj-kN-WjH"/>
                     <constraint firstItem="ICJ-hm-Kzu" firstAttribute="top" secondItem="Ngk-au-Cyk" secondAttribute="bottom" identifier="topbottom" id="7Me-G7-xgs"/>
@@ -39,6 +40,7 @@
                     <constraint firstItem="Ngk-au-Cyk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" identifier="topleft" id="cF2-Wq-J7g"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="expandedView" destination="ICJ-hm-Kzu" id="xT2-Qv-YMT"/>
                 <outlet property="expandedViewHeight" destination="VUf-0g-JhK" id="vtA-ce-6jo"/>

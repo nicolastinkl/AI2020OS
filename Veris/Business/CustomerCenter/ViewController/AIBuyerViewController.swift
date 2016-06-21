@@ -531,13 +531,13 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController.initFromNib())
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if  dataSource[indexPath.row].isExpanded {
-            return dataSource[indexPath.row].expandHeight!
-        } else {
-            return tableCellRowHeight
-        }
-    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if  dataSource[indexPath.row].isExpanded {
+//            return dataSource[indexPath.row].expandHeight!
+//        } else {
+//            return tableCellRowHeight
+//        }
+//    }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -552,6 +552,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("ExpandableTableViewCell") as! ExpandableTableViewCell
 
         cell.setFoldedView(AIFolderCellView.currentView())
+        cell.setBottomExpandedView(buildSuvServiceCard(dataSource[indexPath.row].model!))
 //        var cell: AITableFoldedCellHolder!
 //
 //        if let cacheCell: AITableFoldedCellHolder = tableViewCellCache[indexPath.row] as! AITableFoldedCellHolder? {
@@ -751,7 +752,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     private func buildSuvServiceCard(model: ProposalOrderModel) -> SubServiceCardView {
-        return SubServiceCardView.initFromNib() as! SubServiceCardView
+        return SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView
     }
 
 }

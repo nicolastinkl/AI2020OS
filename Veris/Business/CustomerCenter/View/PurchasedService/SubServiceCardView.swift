@@ -27,10 +27,15 @@ class SubServiceCardView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        initSelfFromXib()
+   //     initSelfFromXib()
         
+   //     initSubView()
+    }
+    
+    override func awakeFromNib() {
         initSubView()
     }
+    
     
     func urgeBtnTap(sender: UITapGestureRecognizer) {
 

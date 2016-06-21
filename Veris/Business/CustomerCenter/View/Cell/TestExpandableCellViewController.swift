@@ -42,7 +42,7 @@ class TestExpandableCellViewController: UIViewController, UITableViewDataSource,
         let cell = tableView.dequeueReusableCellWithIdentifier("ExpandableTableViewCell") as! ExpandableTableViewCell
         
         cell.setFoldedView(AIFolderCellView.currentView())
-
+        cell.setBottomExpandedView(SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView)
     
         return cell
     }
