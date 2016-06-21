@@ -94,7 +94,12 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: - 构造列表区域
     func makeTableView () {
 
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 20
+
         tableView.registerClass(AITableFoldedCellHolder.self, forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITableFoldedCellHolder)
+
+        tableView.registerNib(UINib(nibName: "ExpandableTableViewCell", bundle: nil), forCellReuseIdentifier: "ExpandableTableViewCell")
 
         self.view.addSubview(tableView)
 
@@ -544,26 +549,29 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        var cell: AITableFoldedCellHolder!
+        let cell = tableView.dequeueReusableCellWithIdentifier("ExpandableTableViewCell") as! ExpandableTableViewCell
 
-        if let cacheCell: AITableFoldedCellHolder = tableViewCellCache[indexPath.row] as! AITableFoldedCellHolder? {
-            cell = cacheCell
-        } else {
-            cell = buildTableViewCell(indexPath)
-
-            tableViewCellCache[indexPath.row] = cell
-        }
-
-        let folderCellView = cell.foldedView
-        let expandedCellView = cell.expanedView
-
-        if dataSource[indexPath.row].isExpanded {
-            folderCellView?.hidden = true
-            expandedCellView?.hidden = false
-        } else {
-            folderCellView?.hidden = false
-            expandedCellView?.hidden = true
-        }
+        cell.setFoldedView(AIFolderCellView.currentView())
+//        var cell: AITableFoldedCellHolder!
+//
+//        if let cacheCell: AITableFoldedCellHolder = tableViewCellCache[indexPath.row] as! AITableFoldedCellHolder? {
+//            cell = cacheCell
+//        } else {
+//            cell = buildTableViewCell(indexPath)
+//
+//            tableViewCellCache[indexPath.row] = cell
+//        }
+//
+//        let folderCellView = cell.foldedView
+//        let expandedCellView = cell.expanedView
+//
+//        if dataSource[indexPath.row].isExpanded {
+//            folderCellView?.hidden = true
+//            expandedCellView?.hidden = false
+//        } else {
+//            folderCellView?.hidden = false
+//            expandedCellView?.hidden = true
+//        }
 
 
         return cell
@@ -741,7 +749,9 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         return servicesViewContainer
     }
 
-
+    private func buildSuvServiceCard(model: ProposalOrderModel) -> SubServiceCardView {
+        return SubServiceCardView.initFromNib() as! SubServiceCardView
+    }
 
 }
 

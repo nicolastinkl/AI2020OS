@@ -447,6 +447,13 @@ extension UIView {
 //        self.insertSubview(imageView, atIndex: 0)
 
     }
+    
+    /**
+     圆形
+     */
+    func makeRound() {
+        layer.cornerRadius = height / 2
+    }
 
 }
 
