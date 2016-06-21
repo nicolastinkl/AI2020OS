@@ -600,6 +600,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = AITableFoldedCellHolder()
         cell.tag = indexPath.row
         let folderCellView = AIFolderCellView.currentView()
+        folderCellView.delegate = self
         folderCellView.loadData(proposalModel)
         folderCellView.frame = cell.contentView.bounds
         cell.foldedView = folderCellView
@@ -759,3 +760,11 @@ extension AIBuyerViewController : DimentionChangable, ProposalExpandedDelegate {
         rowSelectAction(indexPath)
     }
 }
+
+extension AIBuyerViewController : AIFoldedCellViewDelegate {
+    func statusButtonDidClick(proposalModel: ProposalOrderModel) {
+        let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
+        self.presentPopupViewController(serviceExecVC, animated: true)
+    }
+}
+

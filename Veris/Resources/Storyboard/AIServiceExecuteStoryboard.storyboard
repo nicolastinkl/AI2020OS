@@ -9,7 +9,7 @@
         <!--Customer Service Execute View Controller-->
         <scene sceneID="y4j-i9-dcQ">
             <objects>
-                <viewController id="F3I-Ml-dl5" customClass="AICustomerServiceExecuteViewController" customModule="Veris" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AICustomerServiceExecuteViewController" id="F3I-Ml-dl5" customClass="AICustomerServiceExecuteViewController" customModule="Veris" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a5z-dK-rg7"/>
                         <viewControllerLayoutGuide type="bottom" id="RDI-8J-sfR"/>
@@ -18,6 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z99-gQ-Dzd">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Hh1-pE-5Jg">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pDR-xQ-nqW">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="Tb2-0N-cX6">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6u-Te-fw1" userLabel="LeftMenuView">
                                 <rect key="frame" x="0.0" y="79" width="59" height="521"/>
                                 <subviews>
@@ -62,10 +82,10 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUz-qe-D0F">
                                         <rect key="frame" x="0.0" y="224" width="59" height="297"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.72786867618560791" green="0.064785227179527283" blue="0.95900779962539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="GUz-qe-D0F" firstAttribute="centerX" secondItem="v6u-Te-fw1" secondAttribute="centerX" id="7Ln-Jk-B5Q"/>
                                     <constraint firstItem="4dd-1H-Wvi" firstAttribute="top" secondItem="eBN-IE-dZf" secondAttribute="bottom" constant="7" id="BNM-Ix-K9p"/>
@@ -94,7 +114,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hse-3n-rZq" userLabel="OrderInfoView">
                                 <rect key="frame" x="0.0" y="20" width="600" height="59"/>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="oBa-Bl-rpF"/>
                                 </constraints>
@@ -115,8 +135,15 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEU-mK-ZMo" userLabel="TimeLineView">
                                 <rect key="frame" x="59" y="125" width="541" height="475"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2y-cA-ey8" userLabel="navigationBackButton">
+                                <rect key="frame" x="20" y="566" width="14" height="24"/>
+                                <state key="normal" image="navigationBack"/>
+                                <connections>
+                                    <action selector="navigationBackAction:" destination="F3I-Ml-dl5" eventType="touchUpInside" id="tni-H4-60Q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -125,14 +152,20 @@
                             <constraint firstItem="RDI-8J-sfR" firstAttribute="top" secondItem="v6u-Te-fw1" secondAttribute="bottom" id="BEw-hs-ZCj"/>
                             <constraint firstItem="aEU-mK-ZMo" firstAttribute="top" secondItem="fsV-pz-viS" secondAttribute="bottom" constant="5" id="BgQ-nQ-Ymx"/>
                             <constraint firstItem="fsV-pz-viS" firstAttribute="top" secondItem="PZK-ad-1Rb" secondAttribute="top" id="CLS-P5-4L8"/>
+                            <constraint firstItem="RDI-8J-sfR" firstAttribute="top" secondItem="z99-gQ-Dzd" secondAttribute="bottom" id="Hup-Dd-BEY"/>
                             <constraint firstItem="v6u-Te-fw1" firstAttribute="leading" secondItem="cl0-YO-yz4" secondAttribute="leadingMargin" constant="-20" id="JBd-SC-tbN"/>
+                            <constraint firstItem="o2y-cA-ey8" firstAttribute="leading" secondItem="cl0-YO-yz4" secondAttribute="leading" constant="20" id="LwE-hw-bQH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PZK-ad-1Rb" secondAttribute="trailing" constant="1" id="RsM-zq-af7"/>
                             <constraint firstItem="hse-3n-rZq" firstAttribute="top" secondItem="a5z-dK-rg7" secondAttribute="bottom" id="V6w-Kw-fId"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aEU-mK-ZMo" secondAttribute="trailing" constant="-20" id="bkd-En-pyp"/>
+                            <constraint firstAttribute="trailing" secondItem="z99-gQ-Dzd" secondAttribute="trailing" id="bxd-xJ-XSk"/>
+                            <constraint firstItem="z99-gQ-Dzd" firstAttribute="leading" secondItem="cl0-YO-yz4" secondAttribute="leading" id="cXi-jH-gjT"/>
                             <constraint firstItem="RDI-8J-sfR" firstAttribute="top" secondItem="aEU-mK-ZMo" secondAttribute="bottom" id="dDp-zN-p6m"/>
                             <constraint firstItem="PZK-ad-1Rb" firstAttribute="leading" secondItem="fsV-pz-viS" secondAttribute="trailing" constant="18" id="fmB-FO-2lQ"/>
+                            <constraint firstItem="RDI-8J-sfR" firstAttribute="top" secondItem="o2y-cA-ey8" secondAttribute="bottom" constant="10" id="gTh-wD-l87"/>
                             <constraint firstItem="v6u-Te-fw1" firstAttribute="top" secondItem="a5z-dK-rg7" secondAttribute="bottom" constant="59" id="hNu-Gv-745"/>
                             <constraint firstItem="aEU-mK-ZMo" firstAttribute="leading" secondItem="v6u-Te-fw1" secondAttribute="trailing" id="piJ-MD-FKS"/>
+                            <constraint firstItem="z99-gQ-Dzd" firstAttribute="top" secondItem="a5z-dK-rg7" secondAttribute="bottom" id="qQn-mn-NyR"/>
                             <constraint firstAttribute="trailing" secondItem="hse-3n-rZq" secondAttribute="trailing" id="tOn-6D-s6R"/>
                         </constraints>
                     </view>
@@ -154,6 +187,7 @@
         <image name="imLink" width="53" height="34"/>
         <image name="imcollable_selected" width="53" height="34"/>
         <image name="imexe" width="53" height="34"/>
+        <image name="navigationBack" width="14" height="24"/>
         <image name="setting-contact" width="44" height="36"/>
         <image name="setting-filter" width="44" height="36"/>
     </resources>
