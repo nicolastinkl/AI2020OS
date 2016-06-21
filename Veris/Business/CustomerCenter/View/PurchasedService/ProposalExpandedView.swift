@@ -115,7 +115,7 @@ class ProposalExpandedView: UIView, Measureable, DimentionChangable {
     private func addHeadView() {
         let headView = UIView(frame: CGRect(x: 0, y: 0, width: super.frame.width, height: PurchasedViewDimention.PROPOSAL_HEAD_HEIGHT))
         headView.userInteractionEnabled = true
-        headView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "headTap:"))
+        headView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ProposalExpandedView.headTap(_:))))
 
         statu = UILabel(frame: CGRect(x: 0, y: PurchasedViewDimention.PROPOSAL_STATU_MARGIN_TOP, width: 80, height: PurchasedViewDimention.PROPOSAL_STATU_HEIGHT))
 
@@ -214,7 +214,7 @@ class ProposalExpandedView: UIView, Measureable, DimentionChangable {
     private func recalculateFrame() {
         var height: CGFloat = initHeight
 
-        for var index = 0; index < serviceViews.count; index++ {
+        for index in 0 ..< serviceViews.count {
             height += serviceViews[index].frame.height
 
             if index > 0 {

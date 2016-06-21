@@ -16,12 +16,16 @@ extension UIView {
 
         return NSBundle.mainBundle().loadNibNamed(name ?? "", owner: self, options: nil).first as? UIView
     }
-
+    
+    class func initFromNib(nibName: String) -> UIView? {
+        
+        return NSBundle.mainBundle().loadNibNamed(nibName, owner: self, options: nil).first as? UIView
+    }
 
 	// load xib file to init view, and let this custom view can be used in another xib view
 	func initSelfFromXib() {
-		let storyboardName = NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!
-		let view = UINib.init(nibName: storyboardName, bundle: NSBundle.mainBundle()).instantiateWithOwner(self, options: nil).first as! UIView
+		let nibName = NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!
+		let view = UINib.init(nibName: nibName, bundle: NSBundle.mainBundle()).instantiateWithOwner(self, options: nil).first as! UIView
         insertSubview(view, atIndex: 0)
 		view.snp_makeConstraints { (make) in
 			make.edges.equalTo(self)

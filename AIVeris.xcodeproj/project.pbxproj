@@ -529,6 +529,10 @@
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
 		84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */; };
 		84F2E5BA1D17D02E009E0C72 /* SubServiceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */; };
+		84F2E5BD1D17F155009E0C72 /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5BB1D17F155009E0C72 /* ExpandableTableViewCell.swift */; };
+		84F2E5BE1D17F155009E0C72 /* ExpandableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2E5BC1D17F155009E0C72 /* ExpandableTableViewCell.xib */; };
+		84F2E5C11D181376009E0C72 /* TestExpandableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5BF1D181376009E0C72 /* TestExpandableCellViewController.swift */; };
+		84F2E5C21D181376009E0C72 /* TestExpandableCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2E5C01D181376009E0C72 /* TestExpandableCellViewController.xib */; };
 		9304550C1D12447E007AFC0C /* AIAudioSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */; };
 		9304550E1D1246F9007AFC0C /* AIAudioSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */; };
 		930455111D124DE5007AFC0C /* AIAppInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 930455101D124DE5007AFC0C /* AIAppInit.m */; };
@@ -1373,6 +1377,10 @@
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
 		84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubServiceCardView.swift; sourceTree = "<group>"; };
+		84F2E5BB1D17F155009E0C72 /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
+		84F2E5BC1D17F155009E0C72 /* ExpandableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandableTableViewCell.xib; sourceTree = "<group>"; };
+		84F2E5BF1D181376009E0C72 /* TestExpandableCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExpandableCellViewController.swift; sourceTree = "<group>"; };
+		84F2E5C01D181376009E0C72 /* TestExpandableCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestExpandableCellViewController.xib; sourceTree = "<group>"; };
 		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioSearchViewController.swift; sourceTree = "<group>"; };
 		9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAudioSearchViewController.xib; sourceTree = "<group>"; };
@@ -2026,6 +2034,10 @@
 				81433A0E1CFBE5A700347C29 /* AIFoldedCellView.swift */,
 				81433A0F1CFBE5A700347C29 /* AIFoldedCellView.xib */,
 				81433A121CFBE5A700347C29 /* AIOrderDescView.swift */,
+				84F2E5BB1D17F155009E0C72 /* ExpandableTableViewCell.swift */,
+				84F2E5BC1D17F155009E0C72 /* ExpandableTableViewCell.xib */,
+				84F2E5BF1D181376009E0C72 /* TestExpandableCellViewController.swift */,
+				84F2E5C01D181376009E0C72 /* TestExpandableCellViewController.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -3690,6 +3702,7 @@
 				933BC83E1D002434005E1789 /* AINavigationBar.xib in Resources */,
 				81433E1F1CFBE5A700347C29 /* SwitchServiceView.xib in Resources */,
 				81433D971CFBE5A700347C29 /* AIAssignServiceView.xib in Resources */,
+				84F2E5BE1D17F155009E0C72 /* ExpandableTableViewCell.xib in Resources */,
 				81433EB81CFBE5A700347C29 /* MyriadPro-Black.otf in Resources */,
 				81433EBA1CFBE5A700347C29 /* MyriadPro-Cond.otf in Resources */,
 				81433DA51CFBE5A700347C29 /* AIServiceSearchView.xib in Resources */,
@@ -3705,6 +3718,7 @@
 				930677431D18E34C0079805D /* HiraginoSansGBW6.otf in Resources */,
 				81433EBE1CFBE5A700347C29 /* MyriadPro-SemiboldSemiCn.otf in Resources */,
 				FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */,
+				84F2E5C21D181376009E0C72 /* TestExpandableCellViewController.xib in Resources */,
 				81433D241CFBE5A700347C29 /* FlightServiceView.xib in Resources */,
 				81433EB91CFBE5A700347C29 /* MyriadPro-Bold.otf in Resources */,
 				81433D291CFBE5A700347C29 /* ServiceCardDetailIcon.xib in Resources */,
@@ -3948,6 +3962,7 @@
 				81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */,
 				81433EA11CFBE5A700347C29 /* UIView+MaterialDesign.m in Sources */,
 				81433D351CFBE5A700347C29 /* AIAudioInputView.swift in Sources */,
+				84F2E5C11D181376009E0C72 /* TestExpandableCellViewController.swift in Sources */,
 				81433CD21CFBE5A700347C29 /* AIBuyServiceModel.swift in Sources */,
 				93A0ABCF1D12AAB600562090 /* SBJsonParser.m in Sources */,
 				93A0AB9B1D12AA1B00562090 /* AIPaymentViewController.swift in Sources */,
@@ -4060,6 +4075,7 @@
 				8175A7D21CFD2710006F2C8F /* OHAttributedLabel.m in Sources */,
 				8175A7EC1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m in Sources */,
 				84F2E5BA1D17D02E009E0C72 /* SubServiceCardView.swift in Sources */,
+				84F2E5BD1D17F155009E0C72 /* ExpandableTableViewCell.swift in Sources */,
 				FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */,
 				81433E5E1CFBE5A700347C29 /* FLEXArgumentInputViewFactory.m in Sources */,
 				81433E5F1CFBE5A700347C29 /* FLEXDefaultEditorViewController.m in Sources */,
