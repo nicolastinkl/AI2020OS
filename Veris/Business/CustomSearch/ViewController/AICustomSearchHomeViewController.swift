@@ -131,7 +131,6 @@ extension AICustomSearchHomeViewController: UITableViewDelegate, UITableViewData
         let vc = AISuperiorityViewController.initFromNib()
         vc.serviceModel = model
         showTransitionStyleCrossDissolveView(vc)
-
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

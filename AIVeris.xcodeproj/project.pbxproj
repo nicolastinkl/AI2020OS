@@ -538,6 +538,8 @@
 		9304551C1D125312007AFC0C /* AIWaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304551B1D125312007AFC0C /* AIWaterView.swift */; };
 		930455211D128E48007AFC0C /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9304551E1D128E48007AFC0C /* IATConfig.m */; };
 		930455221D128E48007AFC0C /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 930455201D128E48007AFC0C /* ISRDataHelper.m */; };
+		930677421D18E34C0079805D /* HiraginoSansGBW3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 930677401D18E34C0079805D /* HiraginoSansGBW3.otf */; };
+		930677431D18E34C0079805D /* HiraginoSansGBW6.otf in Resources */ = {isa = PBXBuildFile; fileRef = 930677411D18E34C0079805D /* HiraginoSansGBW6.otf */; };
 		933763021CFD7040006B997D /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
 		933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */; };
 		933BC83D1D002434005E1789 /* AINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8311D002434005E1789 /* AINavigationBar.swift */; };
@@ -1385,6 +1387,8 @@
 		9304551E1D128E48007AFC0C /* IATConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATConfig.m; sourceTree = "<group>"; };
 		9304551F1D128E48007AFC0C /* ISRDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRDataHelper.h; sourceTree = "<group>"; };
 		930455201D128E48007AFC0C /* ISRDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRDataHelper.m; sourceTree = "<group>"; };
+		930677401D18E34C0079805D /* HiraginoSansGBW3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HiraginoSansGBW3.otf; sourceTree = "<group>"; };
+		930677411D18E34C0079805D /* HiraginoSansGBW6.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HiraginoSansGBW6.otf; sourceTree = "<group>"; };
 		933763011CFD7040006B997D /* AIModelSerice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIModelSerice.swift; sourceTree = "<group>"; };
 		933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomSearchHomeViewController.xib; sourceTree = "<group>"; };
 		933BC8311D002434005E1789 /* AINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AINavigationBar.swift; sourceTree = "<group>"; };
@@ -2839,6 +2843,8 @@
 		81433C0A1CFBE5A700347C29 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				930677401D18E34C0079805D /* HiraginoSansGBW3.otf */,
+				930677411D18E34C0079805D /* HiraginoSansGBW6.otf */,
 				81433C0B1CFBE5A700347C29 /* MyriadPro-Black.otf */,
 				81433C0C1CFBE5A700347C29 /* MyriadPro-Bold.otf */,
 				81433C0D1CFBE5A700347C29 /* MyriadPro-Cond.otf */,
@@ -3696,6 +3702,7 @@
 				93A0AB911D129FEB00562090 /* va_start.wav in Resources */,
 				81433EC21CFBE5A700347C29 /* UIBuyerStoryboard.storyboard in Resources */,
 				81433DF31CFBE5A700347C29 /* ContentsCellView.xib in Resources */,
+				930677431D18E34C0079805D /* HiraginoSansGBW6.otf in Resources */,
 				81433EBE1CFBE5A700347C29 /* MyriadPro-SemiboldSemiCn.otf in Resources */,
 				FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */,
 				81433D241CFBE5A700347C29 /* FlightServiceView.xib in Resources */,
@@ -3775,6 +3782,7 @@
 				93F3FFF21D06C5C0000283DA /* README.txt in Resources */,
 				93A9DA591D0131D900F16610 /* AICommentInfoView.xib in Resources */,
 				81433D5D1CFBE5A700347C29 /* AIServiceRouteView.xib in Resources */,
+				930677421D18E34C0079805D /* HiraginoSansGBW3.otf in Resources */,
 				845700591D015FD600512597 /* ServiceCommentTableViewCell.xib in Resources */,
 				81433D7F1CFBE5A700347C29 /* AIFoldedCellView.xib in Resources */,
 				81433E711CFBE5A700347C29 /* LICENSE in Resources */,
