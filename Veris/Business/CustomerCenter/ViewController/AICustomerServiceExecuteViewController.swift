@@ -162,6 +162,6 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 120
+        return 180
     }
 }

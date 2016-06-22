@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="8:46" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICm-BR-fDN" userLabel="timeLabel">
-                        <rect key="frame" x="11" y="16" width="33" height="18"/>
+                        <rect key="frame" x="11" y="8" width="33" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -29,7 +28,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="Fln-wl-yBu" userLabel="dotView">
-                        <rect key="frame" x="48" y="21" width="8" height="8"/>
+                        <rect key="frame" x="48" y="13" width="8" height="8"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="8" id="Np7-Un-iTu"/>
@@ -37,17 +36,20 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="陪护人员需要您授权使用取号二维码，来完成排队工作" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-Ve-tDI" userLabel="timeContentLabel">
-                        <rect key="frame" x="61" y="16" width="270" height="36"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <rect key="frame" x="61" y="8" width="240" height="39"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="koE-U4-gTo"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4L-Iy-LDc" userLabel="imageContainerView">
-                        <rect key="frame" x="61" y="64" width="291" height="85"/>
+                        <rect key="frame" x="61" y="49" width="271" height="100"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7y-On-rvR" userLabel="buttonContainerView">
-                        <rect key="frame" x="61" y="160" width="291" height="30"/>
+                        <rect key="frame" x="61" y="160" width="271" height="30"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="RFC-2C-U58"/>
@@ -60,7 +62,7 @@
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="centerX" secondItem="Fln-wl-yBu" secondAttribute="centerX" id="717-ct-jbu"/>
                     <constraint firstItem="g4L-Iy-LDc" firstAttribute="top" secondItem="e7y-On-rvR" secondAttribute="bottom" constant="-105" id="Huz-9C-5nD"/>
                     <constraint firstItem="Fln-wl-yBu" firstAttribute="leading" secondItem="ICm-BR-fDN" secondAttribute="trailing" constant="4" id="IAF-gO-RIp"/>
-                    <constraint firstAttribute="trailing" secondItem="e7y-On-rvR" secondAttribute="trailing" id="ISi-ri-A7l"/>
+                    <constraint firstAttribute="trailing" secondItem="e7y-On-rvR" secondAttribute="trailing" constant="20" symbolic="YES" id="ISi-ri-A7l"/>
                     <constraint firstItem="Fln-wl-yBu" firstAttribute="centerY" secondItem="ICm-BR-fDN" secondAttribute="centerY" id="JGz-1Q-xFS"/>
                     <constraint firstItem="uwo-Ve-tDI" firstAttribute="top" secondItem="Fln-wl-yBu" secondAttribute="top" id="Joc-tn-NdA"/>
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="top" secondItem="Fln-wl-yBu" secondAttribute="bottom" id="P0k-j7-QcE"/>
@@ -71,13 +73,13 @@
                     <constraint firstItem="uwo-Ve-tDI" firstAttribute="leading" secondItem="Fln-wl-yBu" secondAttribute="trailing" constant="5" id="YUJ-xG-hda"/>
                     <constraint firstAttribute="bottom" secondItem="lje-Xb-cAI" secondAttribute="bottom" id="Znk-xj-ppo"/>
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="centerY" secondItem="Fln-wl-yBu" secondAttribute="centerY" id="aGU-Vh-2CA"/>
-                    <constraint firstAttribute="trailing" secondItem="g4L-Iy-LDc" secondAttribute="trailing" id="aRr-6L-lVn"/>
+                    <constraint firstAttribute="trailing" secondItem="g4L-Iy-LDc" secondAttribute="trailing" constant="20" symbolic="YES" id="aRr-6L-lVn"/>
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aik-ka-FKG"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uwo-Ve-tDI" secondAttribute="trailing" constant="20" symbolic="YES" id="b3g-YN-sXc"/>
                     <constraint firstItem="g4L-Iy-LDc" firstAttribute="width" secondItem="uwo-Ve-tDI" secondAttribute="width" id="fl4-DB-pbP"/>
                     <constraint firstItem="ICm-BR-fDN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="j7Y-aa-LxP"/>
-                    <constraint firstItem="g4L-Iy-LDc" firstAttribute="top" secondItem="uwo-Ve-tDI" secondAttribute="bottom" constant="12" id="q65-k0-D7V"/>
-                    <constraint firstItem="ICm-BR-fDN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="qgh-Nh-ZO7"/>
+                    <constraint firstItem="g4L-Iy-LDc" firstAttribute="top" secondItem="uwo-Ve-tDI" secondAttribute="bottom" constant="2" id="q65-k0-D7V"/>
+                    <constraint firstItem="ICm-BR-fDN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qgh-Nh-ZO7"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">

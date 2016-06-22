@@ -36,6 +36,8 @@ class AITimelineTableViewCell: UITableViewCell {
     func setupViews() {
         self.backgroundColor = UIColor.clearColor()
         timeLabel.textColor = CustomerCenterConstants.Colors.TimeLabelColor
+        timeLabel.font = CustomerCenterConstants.Fonts.TimeLabelNormal
+        timeContentLabel.font = CustomerCenterConstants.Fonts.TimelineButton
         dotView.backgroundColor = CustomerCenterConstants.Colors.TimelineDotColor
         dotView.layer.cornerRadius = dotView.bounds.width / 2
         dotView.layer.masksToBounds = true
@@ -81,13 +83,17 @@ class AITimelineTableViewCell: UITableViewCell {
             switch viewModel.layoutType! {
             case .ConfirmServiceComplete:
                 let confirmButton = UIButton()
-                confirmButton.setTitle("确认完成", forState: UIControlState.Normal)
+                confirmButton.setTitle(CustomerCenterConstants.textContent.confirmButton, forState: UIControlState.Normal)
+                confirmButton.titleLabel?.font = CustomerCenterConstants.Fonts.TimelineButton
                 confirmButton.backgroundColor = UIColor.blueColor()
                 confirmButton.layer.cornerRadius = 8
                 confirmButton.layer.masksToBounds = true
                 buttonContainerView.addSubview(confirmButton)
+                
+                let buttonWidth = CustomerCenterConstants.textContent.confirmButton.sizeWithFont(CustomerCenterConstants.Fonts.TimelineButton, forWidth: 500).width + 20
                 confirmButton.snp_makeConstraints(closure: { (make) in
-                    make.leading.centerY.equalTo(buttonContainerView)
+                    make.leading.top.bottom.equalTo(buttonContainerView)
+                    make.width.equalTo(buttonWidth)
                 })
             default:
                 break
