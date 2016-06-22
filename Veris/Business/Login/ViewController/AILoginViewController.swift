@@ -9,8 +9,8 @@
 import UIKit
 import Spring
 
-class AILoginViewController: UIViewController {
 
+class AILoginViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var logoImageView: UIImageView!
@@ -35,6 +35,8 @@ class AILoginViewController: UIViewController {
         AILoginPublicValue.loginType = AILoginUtil.LoginType.ForgotPassword
         self.navigationController?.pushViewController(validateVC, animated: true)
     }
+    
+     
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,8 +88,8 @@ class AILoginViewController: UIViewController {
 
         passwordTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
 
-        loginButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
-        loginButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
+//        loginButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
+//        loginButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
         loginButton.enabled = false
     }
 
