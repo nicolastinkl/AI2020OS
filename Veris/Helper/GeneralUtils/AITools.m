@@ -291,47 +291,93 @@
 
 #pragma mark - New Fonts
 
++ (BOOL) fontsWithLanguageEN {
+    NSString * language = [[NSUserDefaults standardUserDefaults] objectForKey:@"LCLCurrentLanguageKey"];
+    if (language != nil && [language isEqual: @"en"]) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
 + (UIFont *) myriadRegularWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"MyriadPro-Regular" size:size];
+    if ([self fontsWithLanguageEN]) {
+        return [UIFont fontWithName:@"MyriadPro-Regular" size:size];
+    }else{
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
+    }
 }
 
 + (UIFont *) myriadBoldWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"MyriadPro-Bold" size:size];
+    if ([self fontsWithLanguageEN]) {
+        return [UIFont fontWithName:@"MyriadPro-Bold" size:size];
+    }else{        
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
+    }
 }
 
 + (UIFont *) myriadLightSemiCondensedWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"MyriadPro-LightSemiCn" size:size];
+    if ([self fontsWithLanguageEN]) {
+        return [UIFont fontWithName:@"MyriadPro-LightSemiCn" size:size];
+    }else{
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
+    }
 }
 
 + (UIFont *) myriadLightSemiExtendedWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"MyriadPro-LightSemiExt" size:size];
+    if ([self fontsWithLanguageEN]) {
+        return [UIFont fontWithName:@"MyriadPro-LightSemiExt" size:size];
+    }else{
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
+    }
 }
 
 + (UIFont *) myriadSemiCondensedWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"MyriadPro-SemiCn" size:size];
+    if ([self fontsWithLanguageEN]) {
+        return [UIFont fontWithName:@"MyriadPro-SemiCn" size:size];
+    }else{
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
+    }
 }
 
 + (UIFont *) myriadBlackWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"MyriadPro-Black" size:size];
+    if ([self fontsWithLanguageEN]) {
+        return [UIFont fontWithName:@"MyriadPro-Black" size:size];
+    }else{
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
+    }
 }
 + (UIFont *) myriadLightWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"MyriadPro-Light" size:size];
+    if ([self fontsWithLanguageEN]) {
+        return [UIFont fontWithName:@"MyriadPro-Light" size:size];
+    }else{
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
+    }
 }
 + (UIFont *) myriadSemiboldSemiCnWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"MyriadPro-SemiboldSemiCn" size:size];
+    if ([self fontsWithLanguageEN]) {
+        return [UIFont fontWithName:@"MyriadPro-SemiboldSemiCn" size:size];
+    }else{
+        return [UIFont fontWithName:@"Hiragino Sans GB" size:size];
+    }
 }
+
 
 + (UIFont *) myriadCondWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"MyriadPro-Cond" size:size];
+    if ([self fontsWithLanguageEN]) {
+        return [UIFont fontWithName:@"MyriadPro-Cond" size:size];
+    }else{
+        return [UIFont fontWithName:@"HiraginoSansGBW6" size:size];
+    }
 }
 
 + (CGFloat)displaySizeFrom1080DesignSize:(CGFloat)size

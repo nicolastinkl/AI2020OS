@@ -163,8 +163,6 @@ internal class AIPageBueryViewController: UIViewController {
     func initGetingData() {
 
     }
-
-
 }
 
 
@@ -173,9 +171,9 @@ internal class AIPageBueryViewController: UIViewController {
 extension AIPageBueryViewController : AIServiceContentDelegate {
 
     func contentViewWillDismiss() {
-
+        //优化每次视图关闭时的操作逻辑，如果没有更改任何UI，可以不用每次关闭时处理网络请求。
         view.showLoading()
-
+        
         // handle parameter upload actio here
 
         for vc in childViewControllers {

@@ -94,7 +94,12 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: - 构造列表区域
     func makeTableView () {
 
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 20
+
         tableView.registerClass(AITableFoldedCellHolder.self, forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITableFoldedCellHolder)
+
+        tableView.registerNib(UINib(nibName: "ExpandableTableViewCell", bundle: nil), forCellReuseIdentifier: "ExpandableTableViewCell")
 
         self.view.addSubview(tableView)
 
@@ -526,13 +531,13 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController.initFromNib())
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if  dataSource[indexPath.row].isExpanded {
-            return dataSource[indexPath.row].expandHeight!
-        } else {
-            return tableCellRowHeight
-        }
-    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if  dataSource[indexPath.row].isExpanded {
+//            return dataSource[indexPath.row].expandHeight!
+//        } else {
+//            return tableCellRowHeight
+//        }
+//    }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -544,27 +549,38 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        var cell: AITableFoldedCellHolder!
+        let cell = tableView.dequeueReusableCellWithIdentifier("ExpandableTableViewCell") as! ExpandableTableViewCell
 
-        if let cacheCell: AITableFoldedCellHolder = tableViewCellCache[indexPath.row] as! AITableFoldedCellHolder? {
-            cell = cacheCell
-        } else {
-            cell = buildTableViewCell(indexPath)
-
-            tableViewCellCache[indexPath.row] = cell
+        if cell.topContentView == nil {
+            cell.setFoldedView(AIFolderCellView.currentView())
         }
-
-        let folderCellView = cell.foldedView
-        let expandedCellView = cell.expanedView
-
-        if dataSource[indexPath.row].isExpanded {
-            folderCellView?.hidden = true
-            expandedCellView?.hidden = false
-        } else {
-            folderCellView?.hidden = false
-            expandedCellView?.hidden = true
+        
+        if cell.expandedContentView == nil {
+            cell.setBottomExpandedView(buildSuvServiceCard(dataSource[indexPath.row].model!))
         }
-
+        
+//        var cell: AITableFoldedCellHolder!
+//
+//        if let cacheCell: AITableFoldedCellHolder = tableViewCellCache[indexPath.row] as! AITableFoldedCellHolder? {
+//            cell = cacheCell
+//        } else {
+//            cell = buildTableViewCell(indexPath)
+//
+//            tableViewCellCache[indexPath.row] = cell
+//        }
+//
+//        let folderCellView = cell.foldedView
+//        let expandedCellView = cell.expanedView
+//
+//        if dataSource[indexPath.row].isExpanded {
+//            folderCellView?.hidden = true
+//            expandedCellView?.hidden = false
+//        } else {
+//            folderCellView?.hidden = false
+//            expandedCellView?.hidden = true
+//        }
+        
+        cell.isExpanded = dataSource[indexPath.row].isExpanded
 
         return cell
     }
@@ -742,7 +758,9 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         return servicesViewContainer
     }
 
-
+    private func buildSuvServiceCard(model: ProposalOrderModel) -> SubServiceCardView {
+        return SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView
+    }
 
 }
 

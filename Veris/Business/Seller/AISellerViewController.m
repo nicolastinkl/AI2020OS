@@ -80,7 +80,7 @@
         collectionView.backgroundColor = [UIColor clearColor];
         collectionView.contentInset = UIEdgeInsetsMake(0, 0, kBarHeight, 0);
         [collectionView registerClass:[AISellerCollectionViewCell  class] forCellWithReuseIdentifier:@"cell"];
-//        [self addBackgroundViewForTable:collectionView];
+        [self addBackgroundViewForTable:collectionView];
 //        [self addTopAndBottomMaskForTable:collectionView];
         collectionView;
     });
@@ -340,7 +340,7 @@
     [table.tableFooterView addSubview:view];
 }
 
-- (void)addBackgroundViewForTable:(UITableView *)table {
+- (void)addBackgroundViewForTable:(UICollectionView *)table {
     UIImageView *backImageView = [[UIImageView alloc] initWithFrame:table.bounds];
 
     backImageView.image = [UIImage imageNamed:@"wholebackground"];
@@ -540,7 +540,7 @@
 
 //        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionViewCell
 //        let visibleCells = collectionView.visibleCells() as! [CollectionViewCell]
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    AISellerCollectionViewCell *cell = (AISellerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     NSArray *visibleCells = collectionView.visibleCells;
 
 //        let finalFrame = CGRectMake(10, collectionView.contentOffset.y + 10, screenWidth - 20, screenHeight - 40)

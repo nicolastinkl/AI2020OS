@@ -16,15 +16,6 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>weixin</string>
-    </array>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict>
 	<key>CFBundleShortVersionString</key>
 	<string>V0.20160601.001</string>
 	<key>CFBundleSignature</key>
@@ -42,6 +33,10 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>373</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -59,6 +54,8 @@
 		<string>MyriadPro-Cond.otf</string>
 		<string>MyriadPro-SemiboldSemiCn.otf</string>
 		<string>MyriadPro-Light.otf</string>
+		<string>HiraginoSansGBW3.otf</string>
+		<string>HiraginoSansGBW6.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
