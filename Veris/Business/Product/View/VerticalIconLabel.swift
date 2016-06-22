@@ -10,9 +10,20 @@ import UIKit
 import SnapKit
 
 class VerticalIconLabel: UIView {
-
-	static let DEFAULT_FRAME = CGRect(x: 0, y: 0, width: 100, height: 100)
-
+	
+	var imageSpaceToLabel: CGFloat = 4 {
+		didSet {
+			setNeedsLayout()
+			layoutIfNeeded()
+		}
+	}
+	
+	var textColor = UIColor.whiteColor() {
+		didSet {
+			label.textColor = textColor
+		}
+	}
+	
 	var image: UIImage? {
 		set {
 			self.imageView.image = newValue
@@ -21,7 +32,7 @@ class VerticalIconLabel: UIView {
 			return self.imageView.image
 		}
 	}
-
+	
 	var text: String? {
 		set {
 			self.label.text = newValue
@@ -38,38 +49,44 @@ class VerticalIconLabel: UIView {
 			layoutIfNeeded()
 		}
 	}
-	lazy var imageView: UIImageView = {
+	
+	lazy var imageView: UIImageView = { [unowned self] in
 		let result = UIImageView()
 		self.addSubview(result)
 		return result
 	}()
-
-	lazy var label: UILabel = {
+	
+	lazy var label: UILabel = { [unowned self] in
 		let result = UILabel()
 		result.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(42))
-		result.textColor = UIColor.whiteColor()
+		result.textColor = self.textColor
 		result.textAlignment = .Center
 		self.addSubview(result)
 		return result
 	}()
-
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 	}
-
+	
 	override var frame: CGRect {
 		didSet {
 			setNeedsLayout()
 			layoutIfNeeded()
 		}
 	}
-
+	
 	override func layoutSubviews() {
-		imageView.frame = CGRectMake(width / 2 - imageWidth / 2, 4, imageWidth, imageWidth)
 		label.sizeToFit()
-		label.frame = CGRectMake(0, CGRectGetMaxY(imageView.frame) + 4, width, label.height)
+        label.setHeight(label.height + 3) // label 字母被切掉了一部分
+		let imageViewX = width / 2 - imageWidth / 2
+		let imageViewY = height / 2 - imageWidth / 2 - imageSpaceToLabel / 2 - label.height / 2
+        let labelY = imageViewY + imageWidth + imageSpaceToLabel
+		
+		imageView.frame = CGRectMake(imageViewX, imageViewY, imageWidth, imageWidth)
+		label.frame = CGRectMake(0, labelY, width, label.height)
 	}
-
+	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

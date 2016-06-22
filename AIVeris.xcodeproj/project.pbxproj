@@ -612,6 +612,7 @@
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
 		FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB01810F1D0D650E00213DF8 /* AISearchBar.xib */; };
 		FB4DC8B01D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DC8AF1D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift */; };
+		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */; };
 		FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */; };
 		FBAE7FC41D115188002FF522 /* EvernoteTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */; };
@@ -1499,6 +1500,7 @@
 		FB01810D1D0D650100213DF8 /* AISearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBar.swift; sourceTree = "<group>"; };
 		FB01810F1D0D650E00213DF8 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
 		FB4DC8AF1D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchRecentlyLogoView.swift; sourceTree = "<group>"; };
+		FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryIconView.swift; sourceTree = "<group>"; };
 		FB6600F81D123C01004667E2 /* AISellerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellerCollectionViewCell.h; sourceTree = "<group>"; };
 		FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerCollectionViewCell.m; sourceTree = "<group>"; };
 		FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -3166,6 +3168,7 @@
 			isa = PBXGroup;
 			children = (
 				81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */,
+				FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */,
 				9304551B1D125312007AFC0C /* AIWaterView.swift */,
 				93C8C9A71D14034A00F1DFCF /* AICustomSearchHomeCell.swift */,
 				93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */,
@@ -4177,6 +4180,7 @@
 				81433CEA1CFBE5A700347C29 /* ProposalModel.m in Sources */,
 				93C8C9A81D14034A00F1DFCF /* AICustomSearchHomeCell.swift in Sources */,
 				81433D8B1CFBE5A700347C29 /* PurchasedServiceView.swift in Sources */,
+				FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */,
 				81433D3D1CFBE5A700347C29 /* AICustomView.swift in Sources */,
 				81433D591CFBE5A700347C29 /* AINumberCountControl.swift in Sources */,
 				81433CE81CFBE5A700347C29 /* AIServiceSubmitModel.m in Sources */,
