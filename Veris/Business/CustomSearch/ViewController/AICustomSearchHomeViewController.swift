@@ -11,6 +11,7 @@ import Spring
 import Cartography
 import AIAlertView
 import SnapKit
+import AsyncDisplayKit
 
 class AICustomSearchHomeViewController: UIViewController {
 
@@ -33,7 +34,8 @@ class AICustomSearchHomeViewController: UIViewController {
 
 		// Make Title View
 		initLayoutViews()
-	}
+        
+    }
 
 	// MARK: Action
 
@@ -53,7 +55,6 @@ class AICustomSearchHomeViewController: UIViewController {
         everyOneSearchTag.delegate = self
         everyOneSearchTag.setY(recentlySearchTag.bottom + 30)
         holdView.addSubview(everyOneSearchTag)
-
 
 		// Make Wish Button
 		let wishButton = UIButton(type: UIButtonType.Custom)
@@ -82,7 +83,6 @@ class AICustomSearchHomeViewController: UIViewController {
             if let dataJSON = data {
                 do {
                     let model = try AISearchResultModel(data: dataJSON)
-
 //                  model.results = model.results.map({ AISearchResultItemModel(dictionary: $0)})
                     do {
                         try model.results?.forEach({ (item) in
