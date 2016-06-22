@@ -11,6 +11,8 @@
 		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
 		12933BD41D17E71B008A1693 /* AITimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */; };
 		12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */; };
+		12933BD71D18D6C2008A1693 /* CustomerCenterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD61D18D6C2008A1693 /* CustomerCenterConstants.swift */; };
+		12933BD91D191CD4008A1693 /* AICustomerServiceExecuteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD81D191CD4008A1693 /* AICustomerServiceExecuteModel.swift */; };
 		12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */; };
 		12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */; };
 		12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */; };
@@ -637,6 +639,8 @@
 		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
 		12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTableViewCell.swift; sourceTree = "<group>"; };
 		12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTableViewCell.xib; sourceTree = "<group>"; };
+		12933BD61D18D6C2008A1693 /* CustomerCenterConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerCenterConstants.swift; sourceTree = "<group>"; };
+		12933BD81D191CD4008A1693 /* AICustomerServiceExecuteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteModel.swift; sourceTree = "<group>"; };
 		12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChangePasswordViewController.swift; sourceTree = "<group>"; };
 		12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginUtil.swift; sourceTree = "<group>"; };
 		12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginCommonView.swift; sourceTree = "<group>"; };
@@ -1819,6 +1823,7 @@
 				814339731CFBE5A600347C29 /* Model */,
 				814339821CFBE5A600347C29 /* View */,
 				81433A221CFBE5A700347C29 /* ViewController */,
+				12933BD61D18D6C2008A1693 /* CustomerCenterConstants.swift */,
 			);
 			path = CustomerCenter;
 			sourceTree = "<group>";
@@ -1839,6 +1844,7 @@
 				8143397E1CFBE5A600347C29 /* AIServicesRequester.swift */,
 				8143397F1CFBE5A600347C29 /* AITransformManager.swift */,
 				814339811CFBE5A600347C29 /* ProposalService.swift */,
+				12933BD81D191CD4008A1693 /* AICustomerServiceExecuteModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4092,6 +4098,7 @@
 				93A0ABE01D12AD6200562090 /* JSONModel+networking.m in Sources */,
 				8175A7EF1CFD2710006F2C8F /* OATransformLayer.m in Sources */,
 				8175A7CA1CFD2710006F2C8F /* AFSecurityPolicy.m in Sources */,
+				12933BD91D191CD4008A1693 /* AICustomerServiceExecuteModel.swift in Sources */,
 				8175A7E11CFD2710006F2C8F /* MJRefreshConst.m in Sources */,
 				81433CF11CFBE5A700347C29 /* AIRequirementHandler.swift in Sources */,
 				12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */,
@@ -4303,6 +4310,7 @@
 				81433CE61CFBE5A700347C29 /* AIProposalServiceParser.m in Sources */,
 				81433D8F1CFBE5A700347C29 /* AIBuyerViewController.swift in Sources */,
 				81433CDC1CFBE5A700347C29 /* AIServiceCatalogModel.swift in Sources */,
+				12933BD71D18D6C2008A1693 /* CustomerCenterConstants.swift in Sources */,
 				81433E6D1CFBE5A700347C29 /* FLEXTableContentCell.m in Sources */,
 				81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */,
 				12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */,

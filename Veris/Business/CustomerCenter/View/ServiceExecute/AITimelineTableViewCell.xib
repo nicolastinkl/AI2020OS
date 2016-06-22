@@ -3,39 +3,102 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="191" id="KGk-i7-Jjw" customClass="AITimelineTableViewCell" customModule="Veris" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AITimelineTableViewCell" rowHeight="191" id="KGk-i7-Jjw" customClass="AITimelineTableViewCell" customModule="Veris" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="352" height="191"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="352" height="190"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8:46" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICm-BR-fDN">
-                        <rect key="frame" x="21" y="16" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fln-wl-yBu">
-                        <rect key="frame" x="77" y="16" width="25" height="21"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lje-Xb-cAI">
-                        <rect key="frame" x="86" y="45" width="1" height="128"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="陪护人员需要您授权使用取号二维码，来完成排队工作" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-Ve-tDI">
-                        <rect key="frame" x="115" y="8" width="222" height="50"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="8:46" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICm-BR-fDN" userLabel="timeLabel">
+                        <rect key="frame" x="11" y="16" width="33" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lje-Xb-cAI" userLabel="lineView">
+                        <rect key="frame" x="52" y="0.0" width="1" height="190"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="HHo-EZ-re4"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="Fln-wl-yBu" userLabel="dotView">
+                        <rect key="frame" x="48" y="21" width="8" height="8"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="Np7-Un-iTu"/>
+                            <constraint firstAttribute="height" constant="8" id="nWB-8X-nh5"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="陪护人员需要您授权使用取号二维码，来完成排队工作" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-Ve-tDI" userLabel="timeContentLabel">
+                        <rect key="frame" x="61" y="16" width="270" height="36"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4L-Iy-LDc" userLabel="imageContainerView">
+                        <rect key="frame" x="61" y="64" width="291" height="85"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7y-On-rvR" userLabel="buttonContainerView">
+                        <rect key="frame" x="61" y="160" width="291" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="RFC-2C-U58"/>
+                        </constraints>
+                    </view>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="uwo-Ve-tDI" firstAttribute="top" secondItem="ICm-BR-fDN" secondAttribute="top" id="1SG-Qv-fOS"/>
+                    <constraint firstItem="e7y-On-rvR" firstAttribute="leading" secondItem="Fln-wl-yBu" secondAttribute="trailing" constant="5" id="1Zf-L2-0Ls"/>
+                    <constraint firstItem="lje-Xb-cAI" firstAttribute="centerX" secondItem="Fln-wl-yBu" secondAttribute="centerX" id="717-ct-jbu"/>
+                    <constraint firstItem="g4L-Iy-LDc" firstAttribute="top" secondItem="e7y-On-rvR" secondAttribute="bottom" constant="-105" id="Huz-9C-5nD"/>
+                    <constraint firstItem="Fln-wl-yBu" firstAttribute="leading" secondItem="ICm-BR-fDN" secondAttribute="trailing" constant="4" id="IAF-gO-RIp"/>
+                    <constraint firstAttribute="trailing" secondItem="e7y-On-rvR" secondAttribute="trailing" id="ISi-ri-A7l"/>
+                    <constraint firstItem="Fln-wl-yBu" firstAttribute="centerY" secondItem="ICm-BR-fDN" secondAttribute="centerY" id="JGz-1Q-xFS"/>
+                    <constraint firstItem="uwo-Ve-tDI" firstAttribute="top" secondItem="Fln-wl-yBu" secondAttribute="top" id="Joc-tn-NdA"/>
+                    <constraint firstItem="lje-Xb-cAI" firstAttribute="top" secondItem="Fln-wl-yBu" secondAttribute="bottom" id="P0k-j7-QcE"/>
+                    <constraint firstAttribute="bottom" secondItem="e7y-On-rvR" secondAttribute="bottom" id="PVv-i2-Py8"/>
+                    <constraint firstItem="e7y-On-rvR" firstAttribute="width" secondItem="uwo-Ve-tDI" secondAttribute="width" id="TcR-wV-nUo"/>
+                    <constraint firstItem="g4L-Iy-LDc" firstAttribute="width" secondItem="e7y-On-rvR" secondAttribute="width" id="Vgk-4q-qM8"/>
+                    <constraint firstItem="e7y-On-rvR" firstAttribute="top" secondItem="g4L-Iy-LDc" secondAttribute="bottom" constant="11" id="XqB-KM-wDb"/>
+                    <constraint firstItem="uwo-Ve-tDI" firstAttribute="leading" secondItem="Fln-wl-yBu" secondAttribute="trailing" constant="5" id="YUJ-xG-hda"/>
+                    <constraint firstAttribute="bottom" secondItem="lje-Xb-cAI" secondAttribute="bottom" id="Znk-xj-ppo"/>
+                    <constraint firstItem="lje-Xb-cAI" firstAttribute="centerY" secondItem="Fln-wl-yBu" secondAttribute="centerY" id="aGU-Vh-2CA"/>
+                    <constraint firstAttribute="trailing" secondItem="g4L-Iy-LDc" secondAttribute="trailing" id="aRr-6L-lVn"/>
+                    <constraint firstItem="lje-Xb-cAI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aik-ka-FKG"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uwo-Ve-tDI" secondAttribute="trailing" constant="20" symbolic="YES" id="b3g-YN-sXc"/>
+                    <constraint firstItem="g4L-Iy-LDc" firstAttribute="width" secondItem="uwo-Ve-tDI" secondAttribute="width" id="fl4-DB-pbP"/>
+                    <constraint firstItem="ICm-BR-fDN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="j7Y-aa-LxP"/>
+                    <constraint firstItem="g4L-Iy-LDc" firstAttribute="top" secondItem="uwo-Ve-tDI" secondAttribute="bottom" constant="12" id="q65-k0-D7V"/>
+                    <constraint firstItem="ICm-BR-fDN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="qgh-Nh-ZO7"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="P0k-j7-QcE"/>
+                        <exclude reference="aGU-Vh-2CA"/>
+                        <exclude reference="Joc-tn-NdA"/>
+                        <exclude reference="Huz-9C-5nD"/>
+                        <exclude reference="fl4-DB-pbP"/>
+                        <exclude reference="TcR-wV-nUo"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="buttonContainerView" destination="e7y-On-rvR" id="Hgl-nF-mfo"/>
+                <outlet property="dotView" destination="Fln-wl-yBu" id="dxZ-Ju-knb"/>
+                <outlet property="imageContainerView" destination="g4L-Iy-LDc" id="F6l-df-Bi5"/>
+                <outlet property="lineView" destination="lje-Xb-cAI" id="ORp-zh-1nb"/>
+                <outlet property="timeContentLabel" destination="uwo-Ve-tDI" id="Ru6-fF-Ckc"/>
+                <outlet property="timeLabel" destination="ICm-BR-fDN" id="fa8-5b-teT"/>
+            </connections>
             <point key="canvasLocation" x="232" y="227.5"/>
         </tableViewCell>
     </objects>
