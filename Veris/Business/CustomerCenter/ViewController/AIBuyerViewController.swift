@@ -551,8 +551,14 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         let cell = tableView.dequeueReusableCellWithIdentifier("ExpandableTableViewCell") as! ExpandableTableViewCell
 
-        cell.setFoldedView(AIFolderCellView.currentView())
-        cell.setBottomExpandedView(buildSuvServiceCard(dataSource[indexPath.row].model!))
+        if cell.topContentView == nil {
+            cell.setFoldedView(AIFolderCellView.currentView())
+        }
+        
+        if cell.expandedContentView == nil {
+            cell.setBottomExpandedView(buildSuvServiceCard(dataSource[indexPath.row].model!))
+        }
+        
 //        var cell: AITableFoldedCellHolder!
 //
 //        if let cacheCell: AITableFoldedCellHolder = tableViewCellCache[indexPath.row] as! AITableFoldedCellHolder? {
@@ -573,7 +579,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 //            folderCellView?.hidden = false
 //            expandedCellView?.hidden = true
 //        }
-
+        
+        cell.isExpanded = dataSource[indexPath.row].isExpanded
 
         return cell
     }
@@ -778,4 +785,3 @@ extension AIBuyerViewController : AIFoldedCellViewDelegate {
         self.presentPopupViewController(serviceExecVC, animated: true)
     }
 }
-

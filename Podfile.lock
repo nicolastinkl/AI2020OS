@@ -39,7 +39,7 @@ CHECKOUT OPTIONS:
     :commit: 2e1d44fbd7b50298abfc2ff881f60268ac806757
     :git: https://github.com/asiainfomobile/Spring.git
   SwiftyJSON:
-    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
+    :commit: 73670b94292b8d8496c398a973f56ac67789ba9f
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:

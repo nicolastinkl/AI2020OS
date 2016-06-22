@@ -15,46 +15,61 @@ class ExpandableTableViewCell: UITableViewCell {
     @IBOutlet weak var expandedViewHeight: NSLayoutConstraint!
     @IBOutlet weak var topViewHeight: NSLayoutConstraint!
     
-    private var expandedHeight: CGFloat?
+    var expandedContentView: UIView?
+    var topContentView: UIView?
     
     var isExpanded: Bool = false {
-        didSet {
-            if isExpanded {
-                if let height = expandedHeight {
-                    expandedViewHeight.constant = height
-                    expandedView.updateConstraints()
+        willSet {
+            if newValue == isExpanded {
+                return
+            }
+            if newValue {
+                if let ex = expandedContentView {
+                    expandedView.addSubview(ex)
+                    ex.snp_makeConstraints { (make) in
+                        make.edges.equalTo(expandedView)
+                    }
                 }
             } else {
-                expandedViewHeight.constant = 0
-                expandedView.updateConstraints()
+                expandedContentView?.removeFromSuperview()
             }
+
         }
+
+//        didSet {
+//            if oldValue == isExpanded {
+//                return
+//            }
+//            if isExpanded {
+//                if let ex = expandedContentView {
+//                    expandedViewHeight.active = false
+//                    expandedView.addSubview(ex)
+//                    ex.snp_makeConstraints { (make) in
+//                        make.edges.equalTo(expandedView)
+//                    }
+//                }
+//            } else {
+//                expandedViewHeight.active = true
+//                expandedContentView?.removeFromSuperview()
+//                expandedViewHeight.constant = 0
+//            }
+//            expandedView.updateConstraints()
+//            contentView.layoutIfNeeded()
+//        }
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        isExpanded = false
+//    }
 
     func setFoldedView(view: UIView) {
+        topContentView = view
         addAndSetViewHeight(view, containerView: topView, containerHeightConstraint:  topViewHeight)
     }
 
     func setBottomExpandedView(view: UIView) {
-        addAndSetViewHeight(view, containerView: expandedView, containerHeightConstraint: expandedViewHeight)
-        
-        if view.height > 0 {
-            expandedHeight = view.height
-        }
+        expandedContentView = view
+//        addAndSetViewHeight(view, containerView: expandedView, containerHeightConstraint:  expandedViewHeight)
     }
 
     private func addAndSetViewHeight(view: UIView, containerView: UIView, containerHeightConstraint: NSLayoutConstraint) {
