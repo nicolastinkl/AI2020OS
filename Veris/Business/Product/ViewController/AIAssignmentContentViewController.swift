@@ -39,7 +39,7 @@ class AIAssignmentContentViewController: UIViewController {
         view.insertSubview(focalPointView!, atIndex: 0)
         focalPointView!.alpha = kDefaultAlpha
 
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "TimerEvent", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(AIAssignmentContentViewController.TimerEvent), userInfo: nil, repeats: true)
 
         NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSDefaultRunLoopMode)
 

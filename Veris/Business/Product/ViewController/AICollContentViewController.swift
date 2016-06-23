@@ -104,7 +104,7 @@ class AICollContentViewController: UIViewController {
         launchButton.layer.cornerRadius = 5
         launchButton.layer.masksToBounds = true
         //绑定点击事件
-        launchButton.addTarget(self, action: "launchAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        launchButton.addTarget(self, action: #selector(AICollContentViewController.launchAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(launchButton)
     }
 
@@ -132,11 +132,11 @@ class AICollContentViewController: UIViewController {
     // MARK: - 事件处理
     private func handleNotification() {
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notifySwitchServiceInst:", name: AIApplication.Notification.AIRequirementSelectServiceInstNotificationName, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICollContentViewController.notifySwitchServiceInst(_:)), name: AIApplication.Notification.AIRequirementSelectServiceInstNotificationName, object: nil)
         //弹出框的关闭通知
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "closePopupWindow:", name: AIApplication.Notification.AIRequirementClosePopupNotificationName, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICollContentViewController.closePopupWindow(_:)), name: AIApplication.Notification.AIRequirementClosePopupNotificationName, object: nil)
         //数据加载完成通知， 如果有重新请求数据，就要刷新界面
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadAllData:", name: AIApplication.Notification.AIAIRequirementNotifynotifyGenerateModelNotificationName, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICollContentViewController.reloadAllData(_:)), name: AIApplication.Notification.AIAIRequirementNotifynotifyGenerateModelNotificationName, object: nil)
     }
 
     //TODO 手工remove通知，正常写法应该是怎么处理的？

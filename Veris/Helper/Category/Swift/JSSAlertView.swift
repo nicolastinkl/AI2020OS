@@ -285,7 +285,7 @@ class JSSAlertView: UIViewController {
         let buttonHighlightColor = UIImage.withColor(adjustBrightness(defaultButtonColor, amount: 1.1))
         dismissButton.setBackgroundImage(buttonColor, forState: .Normal)
         dismissButton.setBackgroundImage(buttonHighlightColor, forState: .Highlighted)
-        dismissButton.addTarget(self, action: "buttonTap", forControlEvents: .TouchUpInside)
+        dismissButton.addTarget(self, action: #selector(JSSAlertView.buttonTap), forControlEvents: .TouchUpInside)
         alertBackgroundView!.addSubview(dismissButton)
         // Button text
         self.buttonLabel = UILabel()

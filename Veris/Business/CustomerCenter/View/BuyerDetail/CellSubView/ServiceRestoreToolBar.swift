@@ -45,10 +45,10 @@ class ServiceRestoreToolBar: UIView {
 	}
 
 	func setup() {
-		let tap = UITapGestureRecognizer(target: self, action: "bgTapped:")
+		let tap = UITapGestureRecognizer(target: self, action: #selector(ServiceRestoreToolBar.bgTapped(_:)))
 		addGestureRecognizer(tap)
 
-		let tap2 = UITapGestureRecognizer(target: self, action: "bgTapped:")
+		let tap2 = UITapGestureRecognizer(target: self, action: #selector(ServiceRestoreToolBar.bgTapped(_:)))
 		moreMenuIcon.image = UIImage(named: "restore_toolbar_more")
 		moreMenuIcon.userInteractionEnabled = true
 		moreMenuIcon.addGestureRecognizer(tap2)
@@ -113,7 +113,7 @@ class ServiceRestoreToolBar: UIView {
 				logo.layer.cornerRadius = LOGO_WIDTH / 2
 				logo.clipsToBounds = true
 				logo.asyncLoadImage(imageURL)
-				let tap = UITapGestureRecognizer(target: self, action: "logoTapped:")
+				let tap = UITapGestureRecognizer(target: self, action: #selector(ServiceRestoreToolBar.logoTapped(_:)))
 				logo.addGestureRecognizer(tap)
 				logos.append(logo)
 				addSubview(logo)

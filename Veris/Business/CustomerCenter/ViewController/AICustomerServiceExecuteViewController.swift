@@ -80,11 +80,6 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         loadData()
     }
 
-    override internal func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -161,8 +156,8 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
         let timeLineItem = timelineModels[indexPath.row]
-        cell.loadData(timeLineItem)
         cell.delegate = self
+        cell.loadData(timeLineItem)
         return cell
     }
 

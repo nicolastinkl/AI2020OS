@@ -73,7 +73,7 @@ class AIServiceRouteViewController: UIViewController {
                 routeView.addressArray = self.addressArray
                 addNewSubView(routeView)
                 Async.main(after: 0.1, block: {
-                    (routeView as! AIServiceRouteView).refereshCitys()
+                    (routeView ).refereshCitys()
                     routeView.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
                 })
             }

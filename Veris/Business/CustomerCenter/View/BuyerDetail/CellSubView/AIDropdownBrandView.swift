@@ -111,7 +111,7 @@ class AIDropdownBrandView: UIView {
 			let column = CGFloat(i % 4)
 			label.frame = CGRectMake(Constants.IconLabel.margin + column * (labelWidth + Constants.IconLabel.hspace), Constants.IconLabel.vspace + row * (labelHeight + Constants.IconLabel.vspace), labelWidth, labelHeight)
 
-			let tap = UITapGestureRecognizer(target: self, action: "tapped:")
+			let tap = UITapGestureRecognizer(target: self, action: #selector(AIDropdownBrandView.tapped(_:)))
 			label.addGestureRecognizer(tap)
 		}
 
@@ -165,7 +165,7 @@ class AIDropdownBrandView: UIView {
 			label.userInteractionEnabled = true
 			barScrollView.addSubview(label)
 			labels.append(label)
-			let tap = UITapGestureRecognizer(target: self, action: "tapped:")
+			let tap = UITapGestureRecognizer(target: self, action: #selector(AIDropdownBrandView.tapped(_:)))
 			label.addGestureRecognizer(tap)
 		}
 
@@ -252,7 +252,7 @@ class AIDropdownBrandView: UIView {
 		downButton = UIButton(type: .Custom)
 		downButton.setImage(UIImage(named: "up_triangle"), forState: .Selected)
 		downButton.setImage(UIImage(named: "down_triangle"), forState: .Normal)
-		downButton.addTarget(self, action: "downButtonPressed:", forControlEvents: .TouchUpInside)
+		downButton.addTarget(self, action: #selector(AIDropdownBrandView.downButtonPressed(_:)), forControlEvents: .TouchUpInside)
 		barView.addSubview(downButton)
 		downButton.snp_makeConstraints { (make) -> Void in
 			make.top.trailing.bottom.equalTo(barView)

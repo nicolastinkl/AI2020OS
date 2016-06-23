@@ -56,13 +56,13 @@ class BuildInCameraUtils {
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         let assetsFetchResults = PHAsset.fetchAssetsWithOptions(options)
-         let count = assetsFetchResults.count
+         _ = assetsFetchResults.count
         return assetsFetchResults.firstObject as! PHAsset
     }
 
     class func getImageFromPHAsset(asset: PHAsset) {
         PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSize(width: 300, height: 300), contentMode: PHImageContentMode.Default, options: nil) { (image, info) -> Void in
-            if let isFullImageKey = info!["PHImageResultIsDegradedKey"] as? Int {
+            if (info!["PHImageResultIsDegradedKey"] as? Int) != nil {
                 let data = UIImagePNGRepresentation(image!)
                 let cfData = CFDataCreate(kCFAllocatorDefault, UnsafePointer<UInt8>(data!.bytes), data!.length)
                 let cgImageSource = CGImageSourceCreateWithData(cfData, nil)

@@ -81,7 +81,7 @@ class AIOrderCellEShopView: UIView {
                     subView.removeFromSuperview()
                 }
 
-                for var index = 0; index < models.item_list.count; index++ {
+                for index in 0 ..< models.item_list.count {
                     if let model = models.item_list[index] as? GoodsDetailItemModel {
                         let subView = AIOrderCellEShopSubView.currentView()
                         subView.frame = CGRectMake(0, SUB_VIEW_HEIGHT * CGFloat(index), self.frame.width, SUB_VIEW_HEIGHT)

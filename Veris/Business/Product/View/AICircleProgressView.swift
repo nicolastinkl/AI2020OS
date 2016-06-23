@@ -150,7 +150,7 @@ class AICircleProgressView: UIView {
     }
 
     func bindTapEvent() {
-        let tapGuesture = UITapGestureRecognizer(target: self, action: "selectAction:")
+        let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(AICircleProgressView.selectAction(_:)))
         self.addGestureRecognizer(tapGuesture)
     }
 

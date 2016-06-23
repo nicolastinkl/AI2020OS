@@ -106,7 +106,7 @@ class AIMockTransformManager: AITransformManager {
 
     func deleteContent(contentId: Int, completion: (Error?) -> Void) {
         var deleteIndex: Int?
-        for var i = 0; i < contentList.count; i++ {
+        for i in 0 ..< contentList.count {
             if contentList[i].id == contentId {
                 deleteIndex = i
                 break

@@ -57,7 +57,7 @@ class AirTicketView: UIView {
         priceAndPassengerType.text = ticket.service_price?.price_show ?? ""
 
         if let ticketInfo = ticket.service_param_list {
-            for var index = 0; index < ticketInfo.count; index++ {
+            for index in 0 ..< ticketInfo.count {
                 let para = ticketInfo[index] as SchemeParamList
                 let value = para.param_value ?? ""
                 if let key = para.param_key {

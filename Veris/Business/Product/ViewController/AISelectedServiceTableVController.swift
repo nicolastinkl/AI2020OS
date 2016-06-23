@@ -96,8 +96,8 @@ class AISelectedServiceTableVController: UIViewController {
             cancelButton.setHighlightedBackgroundImage()
             distriButton.setHighlightedBackgroundImage()
 
-            cancelButton.addTarget(self, action: "calcelAction:", forControlEvents: UIControlEvents.TouchUpInside)
-            distriButton.addTarget(self, action: "distriAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            cancelButton.addTarget(self, action: #selector(AISelectedServiceTableVController.calcelAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            distriButton.addTarget(self, action: #selector(AISelectedServiceTableVController.distriAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
 
             stable.dataSource = self.sourceDelegate
             stable.delegate = self.sourceDelegate

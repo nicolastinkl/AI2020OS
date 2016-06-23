@@ -39,8 +39,8 @@ class AIInputView: AIServiceParamBaseView {
         displayModel = model
 
         if let _ = model {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidHide:", name: UIKeyboardDidHideNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIInputView.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIInputView.keyboardDidHide(_:)), name: UIKeyboardDidHideNotification, object: nil)
             makeSubViews()
         }
     }
@@ -66,7 +66,7 @@ class AIInputView: AIServiceParamBaseView {
         textLabel.layer.masksToBounds = true
         textLabel.text = displayModel!.defaultText ?? ""
         textLabel.userInteractionEnabled = true
-        textLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "showKeyboard"))
+        textLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIInputView.showKeyboard)))
         textLabel.text = displayModel?.defaultText
         self.addSubview(textLabel)
         if let title = displayModel?.title {
@@ -126,7 +126,7 @@ class AIInputView: AIServiceParamBaseView {
         animation.removedOnCompletion = true
         blurView.layer.addAnimation(animation, forKey: "opacity")
 
-        blurView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "dismissMaskedView"))
+        blurView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIInputView.dismissMaskedView)))
         //
 
         maskedView?.addSubview(blurView)
