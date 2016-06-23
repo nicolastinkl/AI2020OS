@@ -124,7 +124,6 @@ class AITimelineTableViewCell: UITableViewCell {
         //通过在这里赋值形成一个强引用
         let cacheModel = viewModel!
         
-//        self.contentView.backgroundColor = UIColor.orangeColor()
         imageView.sd_setImageWithURL(NSURL(string: url ), placeholderImage: CustomerCenterConstants.defaultImages.timelineImage, options: SDWebImageOptions.RetryFailed) { (image, error, cacheType, url) in
             let height = self.getCompressedImageHeight(image)
             self.imageContainerViewHeight = height
@@ -135,7 +134,6 @@ class AITimelineTableViewCell: UITableViewCell {
                 if let delegate = self.delegate {
                     let height = self.getHeight()
                     self.viewModel?.cellHeight = height
-//                    self.contentView.backgroundColor = UIColor.redColor()
                     delegate.cellImageDidLoad(viewModel: cacheModel, cellHeight: height)
                 }
             }
@@ -146,7 +144,7 @@ class AITimelineTableViewCell: UITableViewCell {
     func loadData(viewModel: AITimelineViewModel) {
         self.viewModel = viewModel
 
-        timeLabel.text = viewModel.itemId
+        timeLabel.text = viewModel.timeModel?.time
         buildImageContainerView()
         buildButtonContainerView()
     }

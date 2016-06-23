@@ -51,9 +51,26 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
     // MARK: -> Interface Builder actions
 
-
+    //点击左边的切换时间线过滤规则按钮事件
     @IBAction func timelineFilterButtonAction(sender: UIButton) {
-
+        let tag = sender.tag
+        switch tag {
+        case 1:
+            buttonAll.selected = true
+            buttonMessage.selected = false
+            buttonNeedReply.selected = false
+        case 2:
+            buttonAll.selected = false
+            buttonMessage.selected = true
+            buttonNeedReply.selected = false
+        case 3:
+            buttonAll.selected = false
+            buttonMessage.selected = false
+            buttonNeedReply.selected = true
+        default:
+            break
+        }
+        filterTimeline()
     }
 
     @IBAction func contactAction(sender: UIButton) {
@@ -125,8 +142,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         if let models = models {
 
             let frame = serviceIconContainerView.bounds
-
-            serviceInstsView = AIVerticalScrollView(frame: frame)
+            serviceInstsView = AIVerticalScrollView(frame: frame, needCheckAll : false)
             serviceInstsView.userInteractionEnabled = true
             serviceInstsView.myDelegate = self
             serviceInstsView.showsVerticalScrollIndicator = false
@@ -139,6 +155,11 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         for i in 0...4 {
             timelineModels.append(AITimelineViewModel.createFakeData("\(i)"))
         }
+    }
+    
+    //TODO: 过滤时间线
+    func filterTimeline(){
+        
     }
 
     // MARK: -> Protocol <#protocol name#>
@@ -161,8 +182,8 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
         let timeLineItem = timelineModels[indexPath.row]
-        cell.loadData(timeLineItem)
         cell.delegate = self
+        cell.loadData(timeLineItem)
         return cell
     }
 

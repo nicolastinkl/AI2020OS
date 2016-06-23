@@ -26,5 +26,11 @@ struct CustomerCenterConstants {
     
     struct defaultImages {
         static let timelineImage = UIImage()
+        static let ServiceExecAllSelect = UIImage(named: "service_execute_all_select")
+        static let ServiceExecAllUnSelect = UIImage(named: "service_execute_all_unselect")
+        static let ServiceExecAlertSelect = UIImage(named: "service_execute_alert_select")
+        static let ServiceExecAlertUnSelect = UIImage(named: "service_execute_alert_unselect")
+        static let ServiceExecConfirmSelect = UIImage(named: "service_execute_confirm_select")
+        static let ServiceExecConfirmUnSelect = UIImage(named: "service_execute_confirm_unselect")
     }
 }

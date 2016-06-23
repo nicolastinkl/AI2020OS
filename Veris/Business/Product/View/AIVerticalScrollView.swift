@@ -20,6 +20,8 @@ class AIVerticalScrollView: UIScrollView {
     var isSelectAll = false
     let checkAllIcon = UIImage(named: "checkall")
     let unCheckAllIcon = UIImage(named: "checkall")
+    //是否需要全选按钮的开关
+    var needCheckAll: Bool = true
 
     //position
     let iconWidth: CGFloat = 86 / 3
@@ -28,6 +30,12 @@ class AIVerticalScrollView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
+    
+    //便利构造函数，加入是否需要全选按钮的控制
+    convenience init(frame: CGRect, needCheckAll: Bool) {
+        self.init(frame: frame)
+        self.needCheckAll = needCheckAll
+    }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,7 +43,9 @@ class AIVerticalScrollView: UIScrollView {
 
     func loadData(models: [IconServiceIntModel]) {
         self.models = models
-        buildCheckAllView()
+        if needCheckAll {
+            buildCheckAllView()
+        }        
         buildIconViews()
         configScrollView()
     }
@@ -81,7 +91,12 @@ class AIVerticalScrollView: UIScrollView {
         if let models = models {
             let iconX: CGFloat! = CGRectGetMidX(self.bounds) - iconWidth / 2
             for (index, model) in models.enumerate() {
-                let frame = CGRect(x: iconX, y:  (iconWidth + iconPaddingTop) * CGFloat(index+1) + iconPaddingTop, width: iconWidth, height: iconWidth)
+                
+                var frame = CGRect(x: iconX, y:  (iconWidth + iconPaddingTop) * CGFloat(index) + iconPaddingTop, width: iconWidth, height: iconWidth)
+                //有没有全选按钮占位不一样
+                if needCheckAll{
+                    frame.origin.y += iconWidth + iconPaddingTop
+                }
                 insertIconView(frame, model: model, tag: index)
             }
 
