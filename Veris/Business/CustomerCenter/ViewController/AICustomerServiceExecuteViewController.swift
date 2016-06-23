@@ -13,6 +13,7 @@ import UIKit
 // MARK: AICustomerServiceExecuteViewController
 // MARK: -
 internal class AICustomerServiceExecuteViewController: UIViewController {
+    
 
     // MARK: -
     // MARK: Public access
@@ -24,7 +25,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     var models: [IconServiceIntModel]?
     var orderInfoContentView: OrderAndBuyerInfoView?
     var orderInfoModel: BuyerOrderModel?
-    var timelineModels: [AITimelineViewModel]?
+    var timelineModels: [AITimelineViewModel] = []
     var cellHeightArray: Array<CGFloat>!
 
 
@@ -90,7 +91,6 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         if serviceInstsView == nil {
             buildServiceInstsView()
         }
-
     }
 
     // MARK: -> Public methods
@@ -136,7 +136,9 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     }
 
     func loadData() {
-        cellHeightArray = [0, 0, 0, 0, 0]
+        for i in 0...4 {
+            timelineModels.append(AITimelineViewModel.createFakeData("\(i)"))
+        }
     }
 
     // MARK: -> Protocol <#protocol name#>
@@ -153,35 +155,28 @@ extension AICustomerServiceExecuteViewController : OrderAndBuyerInfoViewDelegate
 extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableViewDataSource, AITimelineTableViewCellDelegate {
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
-        return 5
+        return timelineModels.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("cellForRowAtIndexPath: \(indexPath.row)")
         let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
-        cell.loadData(AITimelineViewModel.createFakeData("\(indexPath.row)"))
-        if cellHeightArray[indexPath.row] != 0 {
-            cell.needComputeHeight = false
-        } else {
-            cell.needComputeHeight = true
-        }
+        let timeLineItem = timelineModels[indexPath.row]
+        cell.loadData(timeLineItem)
         cell.delegate = self
         return cell
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        print("heightForRowAtIndexPath")
-        if cellHeightArray[indexPath.row] != 0 {
-            return cellHeightArray[indexPath.row]
+        let timeLineItem = timelineModels[indexPath.row]
+        if timeLineItem.cellHeight != 0 {
+            return timeLineItem.cellHeight
         }
-        return 180
+        return 44
     }
     
     func cellImageDidLoad(viewModel viewModel: AITimelineViewModel, cellHeight: CGFloat) {
         let indexPath = NSIndexPath(forRow: Int(viewModel.itemId!)!, inSection: 0)
         print("\(viewModel.itemId!) : \(indexPath.row)")
-        cellHeightArray[indexPath.row] = cellHeight
         //如果cell在visible状态，才reload，否则不reload
         if let visibleIndexPathArray = timelineTableView.indexPathsForVisibleRows?.filter({ (visibleIndexPath) -> Bool in
             return visibleIndexPath.row == indexPath.row
@@ -190,6 +185,5 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
                 timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
             }
         }
-
     }
 }
