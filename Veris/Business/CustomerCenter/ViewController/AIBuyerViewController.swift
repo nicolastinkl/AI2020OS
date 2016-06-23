@@ -789,4 +789,3 @@ extension AIBuyerViewController : AIFoldedCellViewDelegate {
         self.presentPopupViewController(serviceExecVC, animated: true)
     }
 }
-
