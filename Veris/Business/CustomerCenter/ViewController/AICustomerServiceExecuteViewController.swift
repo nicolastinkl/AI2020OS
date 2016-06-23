@@ -153,6 +153,7 @@ extension AICustomerServiceExecuteViewController : OrderAndBuyerInfoViewDelegate
 extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableViewDataSource, AITimelineTableViewCellDelegate {
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
         return 5
     }
 
@@ -176,12 +177,17 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     }
     
     func cellImageDidLoad(viewModel viewModel: AITimelineViewModel, cellHeight: CGFloat) {
-        
         let indexPath = NSIndexPath(forRow: Int(viewModel.itemId!)!, inSection: 0)
         print("\(viewModel.itemId!) : \(indexPath.row)")
         cellHeightArray[indexPath.row] = cellHeight
-        timelineTableView.beginUpdates()
-        timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-        timelineTableView.endUpdates()
+        //如果cell在visible状态，才reload，否则不reload
+        if let visibleIndexPathArray = timelineTableView.indexPathsForVisibleRows?.filter({ (visibleIndexPath) -> Bool in
+            return visibleIndexPath.row == indexPath.row
+        }){
+            if !visibleIndexPathArray.isEmpty{
+                timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+            }
+        }
+
     }
 }
