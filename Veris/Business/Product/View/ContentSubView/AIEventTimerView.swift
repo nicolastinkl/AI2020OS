@@ -21,7 +21,7 @@ public class AIEventTimerView: AIServiceParamBaseView {
 
     @IBAction func PickDateViewAction(sender: AnyObject) {
         NSNotificationCenter.defaultCenter().removeObserver(self)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pickView:", name: AIApplication.Notification.AIDatePickerViewNotificationName, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIEventTimerView.pickView(_:)), name: AIApplication.Notification.AIDatePickerViewNotificationName, object: nil)
         let pickView = AIDatePickerView.currentView()
         pickView.show()
     }

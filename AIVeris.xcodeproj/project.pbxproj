@@ -445,9 +445,9 @@
 		8175A7C31CFD2710006F2C8F /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7221CFD2710006F2C8F /* libicucore.A.dylib */; };
 		8175A7C41CFD2710006F2C8F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7231CFD2710006F2C8F /* libsqlite3.dylib */; };
 		8175A7C51CFD2710006F2C8F /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7241CFD2710006F2C8F /* libz.1.dylib */; };
-		8175A7C61CFD2710006F2C8F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7271CFD2710006F2C8F /* AFHTTPRequestOperation.m */; };
+		8175A7C61CFD2710006F2C8F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7271CFD2710006F2C8F /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8175A7C71CFD2710006F2C8F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7291CFD2710006F2C8F /* AFHTTPRequestOperationManager.m */; };
-		8175A7C81CFD2710006F2C8F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A72B1CFD2710006F2C8F /* AFHTTPSessionManager.m */; };
+		8175A7C81CFD2710006F2C8F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A72B1CFD2710006F2C8F /* AFHTTPSessionManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8175A7C91CFD2710006F2C8F /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A72E1CFD2710006F2C8F /* AFNetworkReachabilityManager.m */; };
 		8175A7CA1CFD2710006F2C8F /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7301CFD2710006F2C8F /* AFSecurityPolicy.m */; };
 		8175A7CB1CFD2710006F2C8F /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7321CFD2710006F2C8F /* AFURLConnectionOperation.m */; };

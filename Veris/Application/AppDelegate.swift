@@ -181,7 +181,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var headerContent: String = ""
 
 
-        for(var i = 0; i < splitedarray.count ; i += 1) {
+        for i in 0 ..< splitedarray.count {
             let str = splitedarray[i]
             headerContent += str
 

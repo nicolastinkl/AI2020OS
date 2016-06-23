@@ -99,7 +99,7 @@ internal class AICustomAudioNotesView: UIView, AVAudioRecorderDelegate {
                     self.recorder!.prepareToRecord()
                     self.recorder!.record()
 
-                    self.timer = NSTimer(timeInterval: 0.1, target: self, selector: "levelTimer:", userInfo: nil, repeats: true)
+                    self.timer = NSTimer(timeInterval: 0.1, target: self, selector: #selector(AICustomAudioNotesView.levelTimer(_:)), userInfo: nil, repeats: true)
                     NSRunLoop.currentRunLoop().addTimer(self.timer!, forMode: NSDefaultRunLoopMode)
                 })
             }

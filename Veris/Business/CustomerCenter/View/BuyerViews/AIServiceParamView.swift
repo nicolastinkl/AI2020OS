@@ -129,7 +129,7 @@ class AIServiceParamView: UIView {
 	// MARK: 解析数据模型
 	func parseModels(models: NSArray) {
 
-		for var i = 0; i < models.count; i++ {
+		for i in 0 ..< models.count {
 
 			let model: JSONModel = models.objectAtIndex(i) as! JSONModel
 			let type: Int = model.displayType as Int
@@ -226,7 +226,7 @@ class AIServiceParamView: UIView {
 		let tagsView: AITagsView = AITagsView(title: m.title, tags: m.labels as! [Tagable], frame: frame)
 		addSubview(tagsView)
 		tagsView.originalModel = m
-		tagsView.addTarget(self, action: "handleTagsViewChanged:", forControlEvents: .ValueChanged)
+		tagsView.addTarget(self, action: #selector(AIServiceParamView.handleTagsViewChanged(_:)), forControlEvents: .ValueChanged)
 		tagViewHeight = CGRectGetHeight(tagsView.frame)
 		originalY += tagViewHeight! + margin
 
@@ -294,7 +294,7 @@ class AIServiceParamView: UIView {
 
 		var brands : [(title: String, image: String, id: Int)] = []
 		var index: Int = 0
-		for var i: Int = 0; i < m.providers.count; i++ {
+		for i: Int in 0 ..< m.providers.count {
 			let provider: AIServiceProviderModel = m.providers[i] as! AIServiceProviderModel
 			if let name = provider.name {
 				brands.append((title: name, image: provider.icon, id: provider.identifier))
@@ -353,7 +353,7 @@ class AIServiceParamView: UIView {
 
 		// move
 
-		for var index: Int = anchor; index < displayViews.count; index++ {
+		for index in anchor ..< displayViews.count {
 			let sview: UIView = displayViews[index]
 			var frame = sview.frame
 			frame.origin.y += offset

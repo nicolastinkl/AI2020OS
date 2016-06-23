@@ -73,7 +73,7 @@ class ServiceCardDetailShopping: ServiceParamlView {
         buildShoppingListContainer()
         fixFrame()
 
-        for var i = 0 ; i < dataSource?.param_list.count ; i++ {
+        for var i = 0 ; i < dataSource?.param_list.count ; i += 1 {
             let paramModel = dataSource?.param_list[i] as! ServiceCellStadandParamModel
             if paramModel.param_key == "time" {
                 timeIconImageView.image = UIImage(named: "icon_time_big")
@@ -232,7 +232,7 @@ class ServiceCardDetailShopping: ServiceParamlView {
 
         shoppingViewContainer = UIView(frame: CGRect.zero)
         self.addSubview(shoppingViewContainer)
-        for var index = 0; index < dataSource?.item_list.count; index++ {
+        for var index = 0; index < dataSource?.item_list.count; index += 1 {
 
             let cellView = SCDShoppingListCellView(frame: CGRect.zero)
             let serviceItemModel = dataSource?.item_list[index] as! ServiceCellShoppingItemModel

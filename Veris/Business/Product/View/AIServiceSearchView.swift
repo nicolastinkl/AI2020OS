@@ -72,7 +72,7 @@ class AIServiceSearchView: UIView, UITextFieldDelegate {
         searchTextField.keyboardType = UIKeyboardType.Default
         searchTextField.returnKeyType = UIReturnKeyType.Search
         searchTextField.delegate = self
-        searchTextField.addTarget(self, action: "textChangedAction:", forControlEvents: UIControlEvents.EditingChanged)
+        searchTextField.addTarget(self, action: #selector(AIServiceSearchView.textChangedAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: "submitSearchAction", name: uik, object: <#AnyObject?#>)
 
        setInitViewAttr()
@@ -145,7 +145,7 @@ class AIServiceSearchView: UIView, UITextFieldDelegate {
         button.setTitle(serviceName, forState: UIControlState.Normal)
         button.setBackgroundImage(UIImage(named: "search_result_button_normal"), forState: UIControlState.Normal)
         button.setBackgroundImage(UIImage(named: "search_result_button_pressed"), forState: UIControlState.Highlighted)
-        button.addTarget(self, action: "selectResultAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(AIServiceSearchView.selectResultAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }
 

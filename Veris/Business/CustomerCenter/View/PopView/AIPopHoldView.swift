@@ -75,7 +75,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
         self.snaps = Array()
 
         // setup the items
-        for (var i = 0; i < self.count; i++) {
+        for (var i = 0; i < self.count; i += 1) {
             let item = UIPopView.currentView()
             //let model = self.images![i]
             //item.fillDataWithModel(model)
@@ -101,7 +101,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
 //            let tap = UITapGestureRecognizer(target: self, action:"tapped:")
 //            item.addGestureRecognizer(tap)
 
-            let pan = UIPanGestureRecognizer(target: self, action: "panned:")
+            let pan = UIPanGestureRecognizer(target: self, action: #selector(AIPopHoldView.panned(_:)))
             item.addGestureRecognizer(pan)
             self.items?.append(item)
         }
@@ -114,7 +114,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
         self.collision?.translatesReferenceBoundsIntoBoundary = true
         self.collision?.collisionDelegate = self
 
-        for (var i = 0; i < self.count; i++) {
+        for (var i = 0; i < self.count; i += 1) {
             let snap = UISnapBehavior(item: self.items![i], snapToPoint: self.center)
             snap.damping = CGFloat(kSphereDamping)
             self.snaps?.append(snap)
@@ -213,7 +213,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
 
     func indexOfItemInArray(dataArray: Array<UIPopView>, item: AnyObject) -> Int {
         var index = -1
-        for (var i = 0; i < dataArray.count; i++) {
+        for i in 0 ..< dataArray.count {
             if (dataArray[i] === item) {
                 index = i
                 break
@@ -225,14 +225,14 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
     func shrinkSubmenu() {
         self.animator?.removeBehavior(self.collision!)
 
-        for (var i = 0; i < self.count; i++) {
+        for (var i = 0; i < self.count; i += 1) {
            self.snapToStartWithIndex(i)
         }
         self.expanded = false
     }
 
     func expandSubmenu() {
-        for (var i = 0; i < self.count; i++) {
+        for (var i = 0; i < self.count; i += 1) {
            self.snapToPostionsWithIndex(i)
         }
         self.expanded = true
@@ -260,7 +260,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
     }
 
     func removeSnapBehaviors() {
-        for (var i = 0; i < self.snaps?.count; i++) {
+        for (var i = 0; i < self.snaps?.count; i += 1) {
             self.animator?.removeBehavior((self.snaps?[i])!)
         }
     }

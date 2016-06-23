@@ -58,7 +58,7 @@ class AIOrderDescView: UIView {
         let arrangeModel = serviceOrderModel.arrange_script_info
 
         if let keypoints = arrangeModel?.info_key_points as? [KeypointModel] {
-            for var index = keypoints.count - 1; index >= 0; --index {
+            for var index = keypoints.count - 1; index >= 0; index -= 1 {
                 let keypoint = keypoints[index]
 
                 preFrame = addKeyPoint(keypoint, preFrame: preFrame)

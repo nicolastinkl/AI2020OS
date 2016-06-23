@@ -82,7 +82,7 @@ class AIRequireContentViewController: UIViewController {
 
         // settings notify:
         if self.editModel == false {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "notifyOperateCell", name: AIApplication.Notification.AIRequireContentViewControllerCellWrappNotificationName, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequireContentViewController.notifyOperateCell), name: AIApplication.Notification.AIRequireContentViewControllerCellWrappNotificationName, object: nil)
         }
 
         // settings UI:
@@ -537,7 +537,7 @@ extension AIRequireContentViewController: UITableViewDelegate, UITableViewDataSo
                 make.left.equalTo(iconView).offset(index * 25)
                 make.width.height.equalTo(20)
             })
-            editButton.addTarget(cell, action: "AddExpendCell:", forControlEvents: UIControlEvents.TouchUpInside)
+            editButton.addTarget(cell, action: "addExpendCell:", forControlEvents: UIControlEvents.TouchUpInside)
         }
     }
 

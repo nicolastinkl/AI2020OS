@@ -48,7 +48,7 @@ class AIAudioMessageView: AIWishMessageView, AVAudioPlayerDelegate {
     class func currentView()->AIAudioMessageView {
         let selfView = NSBundle.mainBundle().loadNibNamed("AIAudioMessageView", owner: self, options: nil).first  as! AIAudioMessageView
         selfView.audioLength.font = AITools.myriadLightSemiCondensedWithSize(42/PurchasedViewDimention.CONVERT_FACTOR)
-        let longPressGes = UILongPressGestureRecognizer(target: selfView, action: "handleLongPress:")
+        let longPressGes = UILongPressGestureRecognizer(target: selfView, action: #selector(AIAudioMessageView.handleLongPress(_:)))
         longPressGes.minimumPressDuration = 0.3
         selfView.addGestureRecognizer(longPressGes)
 
@@ -85,9 +85,9 @@ class AIAudioMessageView: AIWishMessageView, AVAudioPlayerDelegate {
 
         meunController.setTargetRect(newBounds, inView: self)
 
-        let item = UIMenuItem(title: "Delete", action: "sendDeleteMenuItemPressed:")
+        let item = UIMenuItem(title: "Delete", action: #selector(AIAudioMessageView.sendDeleteMenuItemPressed(_:)))
         meunController.menuItems = [item]
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuWillShow:", name: UIMenuControllerWillShowMenuNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIAudioMessageView.menuWillShow(_:)), name: UIMenuControllerWillShowMenuNotification, object: nil)
         meunController.setMenuVisible(true, animated: true)
 
     }
@@ -95,7 +95,7 @@ class AIAudioMessageView: AIWishMessageView, AVAudioPlayerDelegate {
     func menuWillShow(notification: NSNotification) {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIMenuControllerWillShowMenuNotification, object: nil)
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuWillHide:", name: UIMenuControllerWillHideMenuNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIAudioMessageView.menuWillHide(_:)), name: UIMenuControllerWillHideMenuNotification, object: nil)
     }
 
     func menuWillHide(notification: NSNotification) {
