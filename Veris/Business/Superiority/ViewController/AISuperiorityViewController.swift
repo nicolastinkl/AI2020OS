@@ -211,8 +211,6 @@ class AISuperiorityViewController: UIViewController {
         SpringAnimation.springEaseIn(0.2) { 
             cview.alpha = 1
         }
-        
-        
     }
     
     func addCureLineView(){
