@@ -36,13 +36,14 @@ class AISuperiorityViewController: UIViewController {
     @IBOutlet weak var scrollview: UIScrollView!
 
     @IBOutlet weak var roundView: UIView!
+    
     private var preCacheView: UIView?
+    
+    private var naviBar: AINavigationBar?
+    
+    private var leftOffSet: CGFloat = 13
 
-    var serviceModel: AISearchResultItemModel? {
-        didSet {
-
-        }
-    }
+    var serviceModel: AISearchResultItemModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +59,9 @@ class AISuperiorityViewController: UIViewController {
              
             // MARK: Layout
             self.initDataWithModel()
-
             
             self.initDatawithViews()
+            
         }
     }
     
@@ -70,29 +71,29 @@ class AISuperiorityViewController: UIViewController {
     }
 
     func initDatawithViews() {
-
+        
         // Top ImageView.
         let imageView = DesignableImageView()
-        imageView.setHeight(100)
-        imageView.setLeft(10)
-        imageView.cornerRadius = 50
+        imageView.setHeight(136)
+        imageView.setLeft(leftOffSet)
+        imageView.cornerRadius = 68
         imageView.borderWidth = 0.5
         imageView.clipsToBounds = true
         imageView.borderColor = UIColor(hex: AIApplication.AIColor.AIVIEWLINEColor)
-        addNewSubView(imageView, preView: UIView(), color: UIColor.clearColor(), space: 30)
-        imageView.setWidth(100)
+        addNewSubView(imageView, preView: UIView(), color: UIColor.clearColor(), space: 42)
+        imageView.setWidth(136)
         imageView.sd_setImageWithURL(NSURL(string: "http://img04.tooopen.com/images/20131025/sy_44028468847.jpg")!, placeholderImage: smallPlace())
 
         // Top Title.
         let titleLabel = DesignableLabel()
-        titleLabel.font = UIFont.systemFontOfSize(30)
         titleLabel.numberOfLines = 2
         titleLabel.lineBreakMode = .ByCharWrapping
-        titleLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
+        titleLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.8)
+        titleLabel.font = AITools.myriadBoldWithSize(105/3)
         titleLabel.setHeight(80)
-        titleLabel.setLeft(10)
-        titleLabel.setWidth(UIScreen.mainScreen().bounds.width)
-        addNewSubView(titleLabel, preView: imageView)
+        titleLabel.setLeft(leftOffSet)
+        addNewSubView(titleLabel, preView: imageView ,color: UIColor.clearColor(), space: 17)
+        titleLabel.setWidth(UIScreen.mainScreen().bounds.width - 50)
         titleLabel.text = "听说你还为孕检超碎了心？"
 
         // List Superiority Desciption.
@@ -101,7 +102,7 @@ class AISuperiorityViewController: UIViewController {
             if let aisCell = AISuperiorityCellView.initFromNib() as? AISuperiorityCellView {
                 aisCell.labelDesciption.text = "一键启动符合服务"
                 if index > 0 {
-                    addNewSubView(aisCell, preView: preCellView!)
+                    addNewSubView(aisCell, preView: preCellView!,color: UIColor.clearColor(), space: 8)
                 } else {
                     addNewSubView(aisCell, preView: titleLabel)
                 }
@@ -113,14 +114,17 @@ class AISuperiorityViewController: UIViewController {
         let priceLabel = AILabel()
         priceLabel.text = "$ 184.0"
         priceLabel.setHeight(30)
-        priceLabel.font = UIFont.systemFontOfSize(16)
+        priceLabel.font = AITools.myriadBoldWithSize(60/3)
         priceLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
-        addNewSubView(priceLabel, preView: preCellView!)
-        priceLabel.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
+        addNewSubView(priceLabel, preView: preCellView!,color: UIColor.clearColor(), space: 8)
+//        priceLabel.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
 
+        let canvas = canvasLineView(frame: priceLabel.frame)
+        addNewSubView(canvas, preView: priceLabel, color: UIColor.clearColor(), space: 3)
+        
+ 
         // Add Service List Icon , So at top and at down.
-
-
+ 
         let serverIcons = UIView()
         serverIcons.setHeight(350)
         var height: CGFloat = 0
@@ -149,24 +153,21 @@ class AISuperiorityViewController: UIViewController {
                     cureModel.strokeColor = UIColor(hexString: "#FFFFFF", alpha: 0.3)
                     
                     addCurveLineWithModel(cureModel, sview: serverIcons)
-                    
-                    
                 }
-
                 preView = iconText
                 leftOffset += 10
             }
         }
 
 
-        addNewSubView(serverIcons, preView: priceLabel)
+        addNewSubView(serverIcons, preView: priceLabel, color: UIColor.clearColor(), space: 19)
 
 //        addCureLineView()
 
     }
 
     func initDataWithModel() {
-
+        
     }
 
     func initLayoutViews() {
@@ -185,7 +186,7 @@ class AISuperiorityViewController: UIViewController {
             navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
             navi.setRightIcon2Action(UIImage(named: "AINavigationBar_send")!)
             navi.titleLabel.text = "孕检无忧"
-
+            
         }
     }
 
@@ -243,4 +244,21 @@ class AISuperiorityViewController: UIViewController {
         return pathLayer
     }
 
+}
+
+class canvasLineView: UIView {
+    override func drawRect(rect: CGRect) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+        //// Bezier Drawing
+        let bezierPath = UIBezierPath()
+        bezierPath.moveToPoint(CGPoint(x: 0, y: 0))
+        bezierPath.addLineToPoint(CGPoint(x: rect.width, y: 0))
+        UIColor(hexString: "#FFFFFF" , alpha: 0.65) .setStroke()
+        bezierPath.lineWidth = 0.5
+        CGContextSaveGState(context)
+        CGContextSetLineDash(context, 0, [4, 4], 2)
+        bezierPath.stroke()
+        CGContextRestoreGState(context)
+    }
 }

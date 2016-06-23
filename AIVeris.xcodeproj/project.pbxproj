@@ -556,6 +556,7 @@
 		933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */; };
 		933BC84B1D00252D005E1789 /* AIProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
+		939310681D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939310671D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift */; };
 		93A0AB911D129FEB00562090 /* va_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93A0AB8F1D129FEB00562090 /* va_start.wav */; };
 		93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93A0AB901D129FEB00562090 /* voicesearch.mp3 */; };
 		93A0AB9B1D12AA1B00562090 /* AIPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0AB981D12AA1B00562090 /* AIPaymentViewController.swift */; };
@@ -1409,6 +1410,7 @@
 		933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductInfoViewController.swift; sourceTree = "<group>"; };
 		933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductInfoViewController.xib; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		939310671D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductInfoServcieInfoView.swift; sourceTree = "<group>"; };
 		93A0AB8F1D129FEB00562090 /* va_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = va_start.wav; sourceTree = "<group>"; };
 		93A0AB901D129FEB00562090 /* voicesearch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voicesearch.mp3; sourceTree = "<group>"; };
 		93A0AB981D12AA1B00562090 /* AIPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIPaymentViewController.swift; sourceTree = "<group>"; };
@@ -3313,6 +3315,7 @@
 			children = (
 				93A9DA561D0131C000F16610 /* AICommentInfoView.swift */,
 				93A9DA581D0131D900F16610 /* AICommentInfoView.xib */,
+				939310671D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4082,6 +4085,7 @@
 				8175A7F01CFD2710006F2C8F /* OBShapedButton.m in Sources */,
 				81433D051CFBE5A700347C29 /* AIProviderDataObtainer.swift in Sources */,
 				8175A7C21CFD2710006F2C8F /* UINavigationBar+Awesome.m in Sources */,
+				939310681D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift in Sources */,
 				81433D431CFBE5A700347C29 /* AINavigationBarView.swift in Sources */,
 				81433D421CFBE5A700347C29 /* AIGalleryView.swift in Sources */,
 				81433CDD1CFBE5A700347C29 /* AIServiceSchemeModel.swift in Sources */,
