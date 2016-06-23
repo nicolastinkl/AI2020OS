@@ -19,7 +19,7 @@ class AICircleProgressView: UIView {
     var progress: CGFloat?
     var delegate: CircleProgressViewDelegate?
 
-    let backLayerColor = UIColor(hex: "#0b038")
+    let backLayerColor = UIColor(hex: "#0b0c38")
 
     override init(frame: CGRect) {
         super.init(frame: frame)
