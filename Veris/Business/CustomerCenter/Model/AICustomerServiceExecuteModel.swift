@@ -9,13 +9,13 @@
 import Foundation
 
 class AITimelineViewModel: AIBaseViewModel {
-    var itemId : String?
+    var itemId: String?
     var layoutType: AITimelineLayoutTypeEnum?
     var timeModel: AIDateTimeViewModel?
     var desc: String?
     var contents: [AITimeContentViewModel]?
     
-    class func createFakeData(itemId : String) -> AITimelineViewModel {
+    class func createFakeData(itemId: String) -> AITimelineViewModel {
         let timelineViewModel = AITimelineViewModel()
         timelineViewModel.itemId = itemId
         timelineViewModel.layoutType = AITimelineLayoutTypeEnum.ConfirmServiceComplete

@@ -136,7 +136,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     }
 
     func loadData() {
-        cellHeightArray = [0, 0,0, 0,0]
+        cellHeightArray = [0, 0, 0, 0, 0]
     }
 
     // MARK: -> Protocol <#protocol name#>
@@ -163,6 +163,8 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         cell.loadData(AITimelineViewModel.createFakeData("\(indexPath.row)"))
         if cellHeightArray[indexPath.row] != 0 {
             cell.needComputeHeight = false
+        } else {
+            cell.needComputeHeight = true
         }
         cell.delegate = self
         return cell
@@ -183,8 +185,8 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         //如果cell在visible状态，才reload，否则不reload
         if let visibleIndexPathArray = timelineTableView.indexPathsForVisibleRows?.filter({ (visibleIndexPath) -> Bool in
             return visibleIndexPath.row == indexPath.row
-        }){
-            if !visibleIndexPathArray.isEmpty{
+        }) {
+            if !visibleIndexPathArray.isEmpty {
                 timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
             }
         }

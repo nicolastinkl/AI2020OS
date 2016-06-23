@@ -27,14 +27,7 @@ class AITimelineTableViewCell: UITableViewCell {
     // MARK: -> override methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         setupViews()
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     func setupViews() {
@@ -131,9 +124,9 @@ class AITimelineTableViewCell: UITableViewCell {
         //通过在这里赋值形成一个强引用
         let cacheModel = viewModel!
         
-        imageView.sd_setImageWithURL(NSURL(string: url ), placeholderImage: CustomerCenterConstants.defaultImages.timelineImage, options: SDWebImageOptions.RetryFailed){ (image, error, cacheType, url) in
+        imageView.sd_setImageWithURL(NSURL(string: url ), placeholderImage: CustomerCenterConstants.defaultImages.timelineImage, options: SDWebImageOptions.RetryFailed) { (image, error, cacheType, url) in
             let height = self.getCompressedImageHeight(image)
-            self.imageContainerViewHeight += height
+            self.imageContainerViewHeight = height
             imageView.snp_updateConstraints { (make) in
                 make.height.equalTo(height)
             }
