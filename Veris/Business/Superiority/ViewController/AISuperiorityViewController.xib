@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="roundView" destination="ohQ-4c-Sjf" id="IaZ-C4-oTE"/>
                 <outlet property="scrollview" destination="iH5-o7-Ffp" id="F3g-BP-SrD"/>
+                <outlet property="superView" destination="gcb-5F-OXg" id="mHQ-hh-43f"/>
                 <outlet property="view" destination="kgd-tX-Y0E" id="8IO-Dh-mWN"/>
             </connections>
         </placeholder>
@@ -25,6 +26,9 @@
                     </view>
                     <blurEffect style="dark"/>
                 </visualEffectView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Superiority_bg" translatesAutoresizingMaskIntoConstraints="NO" id="2aM-sA-BDw">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="577"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohQ-4c-Sjf">
                     <rect key="frame" x="0.0" y="500" width="600" height="80"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -58,14 +62,14 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7H-H6-6Ps">
-                    <rect key="frame" x="497" y="562" width="89" height="30"/>
+                    <rect key="frame" x="512" y="557" width="70" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="2F0-BX-QOh"/>
-                        <constraint firstAttribute="width" constant="89" id="LeI-VT-ddO"/>
+                        <constraint firstAttribute="width" constant="70" id="LeI-VT-ddO"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="查看详情 &gt;">
-                        <color key="titleColor" white="1" alpha="0.63929521276595747" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="targetServiceDetail:" destination="-1" eventType="touchUpInside" id="mXi-qx-z5t"/>
@@ -74,21 +78,28 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="x7H-H6-6Ps" secondAttribute="bottom" constant="8" id="069-0j-4Q5"/>
+                <constraint firstAttribute="bottom" secondItem="x7H-H6-6Ps" secondAttribute="bottom" constant="13" id="069-0j-4Q5"/>
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="110-Ik-X1s"/>
                 <constraint firstAttribute="bottom" secondItem="ohQ-4c-Sjf" secondAttribute="bottom" constant="20" id="3AD-ed-3V6"/>
+                <constraint firstItem="2aM-sA-BDw" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="6sd-Nd-LIj"/>
                 <constraint firstAttribute="bottom" secondItem="w0f-IX-8YH" secondAttribute="bottom" id="A1F-Sm-jJa"/>
                 <constraint firstAttribute="bottom" secondItem="gcb-5F-OXg" secondAttribute="bottom" id="BqG-uW-LHN"/>
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="OAc-YL-GSP"/>
                 <constraint firstAttribute="trailing" secondItem="gcb-5F-OXg" secondAttribute="trailing" id="PNh-to-nc6"/>
                 <constraint firstItem="ohQ-4c-Sjf" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="QZw-Hu-9K6"/>
-                <constraint firstAttribute="trailing" secondItem="x7H-H6-6Ps" secondAttribute="trailing" constant="14" id="X3B-Zx-W2V"/>
+                <constraint firstAttribute="trailing" secondItem="x7H-H6-6Ps" secondAttribute="trailing" constant="18" id="X3B-Zx-W2V"/>
+                <constraint firstItem="2aM-sA-BDw" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="aJ7-oj-kct"/>
                 <constraint firstAttribute="trailing" secondItem="w0f-IX-8YH" secondAttribute="trailing" id="dLN-NA-D9B"/>
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="ecc-f6-tlq"/>
+                <constraint firstAttribute="trailing" secondItem="2aM-sA-BDw" secondAttribute="trailing" id="hPd-Jd-Yx2"/>
                 <constraint firstAttribute="trailing" secondItem="ohQ-4c-Sjf" secondAttribute="trailing" id="rIo-hx-PK9"/>
+                <constraint firstAttribute="bottom" secondItem="2aM-sA-BDw" secondAttribute="bottom" constant="23" id="to7-qe-dlZ"/>
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="uh5-Iw-2bm"/>
             </constraints>
             <point key="canvasLocation" x="115" y="246"/>
         </view>
     </objects>
+    <resources>
+        <image name="AI_Superiority_bg" width="414" height="713"/>
+    </resources>
 </document>

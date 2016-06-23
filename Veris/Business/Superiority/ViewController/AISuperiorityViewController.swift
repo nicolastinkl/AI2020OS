@@ -37,6 +37,8 @@ class AISuperiorityViewController: UIViewController {
 
     @IBOutlet weak var roundView: UIView!
     
+    @IBOutlet weak var superView: UIView!
+    
     private var preCacheView: UIView?
     
     private var naviBar: AINavigationBar?
@@ -71,6 +73,13 @@ class AISuperiorityViewController: UIViewController {
     }
 
     func initDatawithViews() {
+        
+        // Make Mask with ScrollView.
+        
+        let shapLayer = CAShapeLayer()
+        shapLayer.contents = UIImage(named: "AI_Superiority_bg_mask")?.CGImage
+        shapLayer.frame = superView.frame
+        superView.layer.mask = shapLayer
         
         // Top ImageView.
         let imageView = DesignableImageView()

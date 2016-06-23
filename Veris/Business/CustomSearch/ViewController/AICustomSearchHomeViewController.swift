@@ -40,13 +40,15 @@ class AICustomSearchHomeViewController: UIViewController {
 	// MARK: Action
 	
 	func makeAWishAction() {
-		showTransitionStyleCrossDissolveView(AIWishVowViewController.initFromNib())
+		showTransitionStyleCrossDissolveView(AISuperiorityViewController.initFromNib())
 	}
 	
 	/**
 	 init with navigation bar.
 	 */
 	func initLayoutViews() {
+        
+        
 		// Make Test Data View
 		recentlySearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 20, width: screenWidth, height: 200), title: "You recently searched", labels: ["Pregnat", "Travel", "Europe", "Outdoors"])
 		recentlySearchTag.delegate = self
