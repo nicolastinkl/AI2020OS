@@ -14,6 +14,7 @@ class AITimelineViewModel: AIBaseViewModel {
     var timeModel: AIDateTimeViewModel?
     var desc: String?
     var contents: [AITimeContentViewModel]?
+    var cellHeight: CGFloat = 0
     
     class func createFakeData(itemId: String) -> AITimelineViewModel {
         let timelineViewModel = AITimelineViewModel()
