@@ -8,14 +8,16 @@
 
 import Foundation
 
-class AITimelineViewModel : AIBaseViewModel{
-    var layoutType : AITimelineLayoutTypeEnum?
-    var timeModel : AIDateTimeViewModel?
-    var desc : String?
-    var contents : [AITimeContentViewModel]?
+class AITimelineViewModel: AIBaseViewModel {
+    var itemId : String?
+    var layoutType: AITimelineLayoutTypeEnum?
+    var timeModel: AIDateTimeViewModel?
+    var desc: String?
+    var contents: [AITimeContentViewModel]?
     
-    class func createFakeData() -> AITimelineViewModel{
+    class func createFakeData(itemId : String) -> AITimelineViewModel {
         let timelineViewModel = AITimelineViewModel()
+        timelineViewModel.itemId = itemId
         timelineViewModel.layoutType = AITimelineLayoutTypeEnum.ConfirmServiceComplete
         timelineViewModel.desc = "陪护人员已完成挂号任务"
         let timeModel = AIDateTimeViewModel()
@@ -29,27 +31,27 @@ class AITimelineViewModel : AIBaseViewModel{
     }
 }
 
-class AIDateTimeViewModel : AIBaseViewModel{
-    var date : String?
-    var time : String?
-    var isNow : Bool = false
+class AIDateTimeViewModel: AIBaseViewModel {
+    var date: String?
+    var time: String?
+    var isNow: Bool = false
 }
 
-class AITimeContentViewModel : AIBaseViewModel{
-    var contentType : AITimelineContentTypeEnum?
-    var contentUrl : String?
+class AITimeContentViewModel: AIBaseViewModel {
+    var contentType: AITimelineContentTypeEnum?
+    var contentUrl: String?
     
-    init(contentType : AITimelineContentTypeEnum , contentUrl : String){
+    init(contentType: AITimelineContentTypeEnum, contentUrl: String) {
         self.contentType = contentType
         self.contentUrl = contentUrl
     }
 }
 
 // MARK: -> enums
-enum AITimelineLayoutTypeEnum : Int{
-    case Authoration = 1 , ConfirmServiceComplete , ConfirmOrderComplete
+enum AITimelineLayoutTypeEnum: Int {
+    case Normal = 1, Authoration, ConfirmServiceComplete, ConfirmOrderComplete
 }
 
-enum AITimelineContentTypeEnum : Int{
-    case Image = 1, Voice , LocationMap
+enum AITimelineContentTypeEnum: Int {
+    case Image = 1, Voice, LocationMap
 }

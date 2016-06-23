@@ -23,4 +23,8 @@ struct CustomerCenterConstants {
     struct textContent {
         static let confirmButton = "确认完成"
     }
+    
+    struct defaultImages{
+        static let timelineImage = UIImage()
+    }
 }
