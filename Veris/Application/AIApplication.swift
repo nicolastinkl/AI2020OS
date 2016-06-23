@@ -15,14 +15,11 @@ import UIKit
 *
 *  AI2020OS Application Paramters
 */
-
 struct AIApplication {
 
     // MARK: LEANCLOUD APPKEY
     internal static let AVOSCLOUDID  = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
-
     internal static let AVOSCLOUDKEY = "LGwq0DTaJb8D59IV3kK18wmh"
-
     internal static let KURL_ReleaseURL =  "http://171.221.254.231:3000"  //正式地址
     internal static let KURL_DebugURL   =  "http://171.221.254.231:3000"  //测试地址
 

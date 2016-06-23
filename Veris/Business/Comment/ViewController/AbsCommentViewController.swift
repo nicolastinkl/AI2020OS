@@ -61,7 +61,7 @@ extension AbsCommentViewController: UIImagePickerControllerDelegate {
             }
 
             if picker.sourceType == .Camera {
-                let imageMetadata = info[UIImagePickerControllerMediaMetadata] as! NSDictionary
+                _ = info[UIImagePickerControllerMediaMetadata] as! NSDictionary
                 print("")
             }
 

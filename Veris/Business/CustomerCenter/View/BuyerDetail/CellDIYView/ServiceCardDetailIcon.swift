@@ -80,7 +80,7 @@ class ServiceCardDetailIcon: ServiceParamlView {
         titleLabel.text = dataSource?.product_name
 
         var holdHeight: CGFloat = 0
-        for var i = 0 ; i < dataSource?.param_list.count ; i++ {
+        for var i = 0 ; i < dataSource?.param_list.count ; i += 1 {
             let paramModel = dataSource?.param_list[i] as! ServiceCellStadandParamModel
 
             if paramModel.param_key == "time" {

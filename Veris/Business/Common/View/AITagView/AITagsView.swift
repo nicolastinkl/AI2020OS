@@ -116,7 +116,7 @@ class AITagsView: AIServiceParamBaseView {
 	}
 
 	func setupNofitication() {
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "renderAllViews()", name: Constants.kNeedRerenderAllViews, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AITagsView.renderAllViews), name: Constants.kNeedRerenderAllViews, object: nil)
 	}
 
 	func renderAllViews() {
@@ -182,7 +182,7 @@ class AITagsView: AIServiceParamBaseView {
 			s.tagSelectedColor = Constants.Tag.highlightedBackgroundColor
 			s.setTagTextColor(Constants.Tag.textColor)
 
-			s.addTarget(self, action: "singleLineTagViewValueChanged:", forControlEvents: .ValueChanged)
+			s.addTarget(self, action: #selector(AITagsView.singleLineTagViewValueChanged(_:)), forControlEvents: .ValueChanged)
 			addSubview(s)
 			if let p = previousSingleLineTagView {
 				var f = s.frame
@@ -208,7 +208,7 @@ class AITagsView: AIServiceParamBaseView {
 				let tag = tags.filter({ (t) -> Bool in
 					return t.id == s.selectedTagId
 				}).first!
-				row++
+				row += 1
 				if let subtags = tag.subtags {
 					addSingleLineTagView(tags: subtags, parent: tag)
 				} else {

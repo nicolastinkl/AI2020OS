@@ -80,7 +80,7 @@ class OrderAndBuyerInfoView: UIView {
         progressBar.progressTintColors = barColors
 
 
-        buyerIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "buyerIconClicked:"))
+        buyerIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(OrderAndBuyerInfoView.buyerIconClicked(_:))))
     }
 
     func setProgress(progress: CGFloat) {

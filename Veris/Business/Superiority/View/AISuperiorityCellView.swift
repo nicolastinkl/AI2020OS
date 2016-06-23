@@ -29,5 +29,12 @@ class AISuperiorityCellView: UIView {
     @IBOutlet weak var labelDesciption: UILabel!
     @IBOutlet weak var bgImgView: UIImageView!
 
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        labelDesciption.font = AITools.myriadCondWithSize(60/3)
+        labelDesciption.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.65)
+    }
 
 }

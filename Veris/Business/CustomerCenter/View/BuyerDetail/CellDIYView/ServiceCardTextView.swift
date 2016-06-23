@@ -75,7 +75,7 @@ class ServiceCardTextView: ServiceParamlView {
         self.addSubview(flagContainer)
         var curFrame = CGRectMake(0, 0, 0, FLAG_LABEL_HEIGHT)
 
-        for var i = 0 ; i < dataSource?.param_list.count ; i++ {
+        for var i = 0 ; i < dataSource?.param_list.count ; i += 1 {
             let stadandParam = dataSource?.param_list[i] as! ServiceCellStadandParamModel
             let text = stadandParam.param_value
             curFrame = buildFlag(curFrame, text: text, number : i)

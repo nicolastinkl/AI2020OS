@@ -168,7 +168,7 @@ class DependOnNodePickerViewController: UIViewController {
 			let imageView = serviceLogos[i]
 			imageView.asyncLoadImage(service.icon)
 			imageView.selected = service.selected
-			let tap = UITapGestureRecognizer(target: self, action: "logoTapped:")
+			let tap = UITapGestureRecognizer(target: self, action: #selector(DependOnNodePickerViewController.logoTapped(_:)))
 			imageView.addGestureRecognizer(tap)
 		}
 

@@ -97,11 +97,6 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         loadData()
     }
 
-    override internal func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

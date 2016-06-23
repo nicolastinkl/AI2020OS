@@ -43,15 +43,10 @@ class AIProductInfoViewController: UIViewController {
     private var navi = AINavigationBar.initFromNib()
 
     private let topImage = AIImageView()
-
-    /*private var titleLabel: AILabel = {
-        let titleLabel = AILabel()
-        titleLabel.text = ""
-        titleLabel.setHeight(30)
-        titleLabel.font = UIFont.systemFontOfSize(15)
-        titleLabel.textColor = UIColor(hexString: "#FFFFFF")
-        return titleLabel
-    }()*/
+    
+    /**
+     Init
+     */
 
     override func viewDidLoad() {
         super.viewDidLoad()

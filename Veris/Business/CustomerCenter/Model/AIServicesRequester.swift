@@ -47,7 +47,7 @@ class AIServicesRequester {
             return
         }
 
-        ++page
+        page += 1
         load(page, completion: completion)
     }
 

@@ -176,7 +176,7 @@ extension UIViewController {
 				}
 			}
 
-			NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
+			NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIViewController.keyboardWillChangeFrame(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
 		}
 	}
 
@@ -264,7 +264,7 @@ extension UIViewController {
 		view.addSubview(fadeView)
 		objc_setAssociatedObject(self, &AssociatedKeys.blurViewKey, fadeView, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 
-		let tap = UITapGestureRecognizer(target: self, action: "blurViewDidTapped")
+		let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.blurViewDidTapped))
 		fadeView.addGestureRecognizer(tap)
 	}
 
@@ -425,7 +425,7 @@ public extension UIImage {
 				let matrixSize = floatingPointSaturationMatrix.count
 				var saturationMatrix = [Int16](count: matrixSize, repeatedValue: 0)
 
-				for var i: Int = 0; i < matrixSize; ++i {
+				for i: Int in 0 ..< matrixSize {
 					saturationMatrix[i] = Int16(round(floatingPointSaturationMatrix[i] * divisor))
 				}
 

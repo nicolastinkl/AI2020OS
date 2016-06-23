@@ -128,9 +128,9 @@ class AIPopupChooseBaseView: UIView {
     }
 
     private func bindEvents() {
-        let cancelTapGuesture = UITapGestureRecognizer(target: self, action: "cancelAction")
+        let cancelTapGuesture = UITapGestureRecognizer(target: self, action: #selector(AIPopupChooseBaseView.cancelAction))
         cancelButton.addGestureRecognizer(cancelTapGuesture)
-        let confirmGuesture = UITapGestureRecognizer(target: self, action: "confirmAction")
+        let confirmGuesture = UITapGestureRecognizer(target: self, action: #selector(AIPopupChooseBaseView.confirmAction))
         confirmButton.addGestureRecognizer(confirmGuesture)
     }
 
@@ -264,7 +264,7 @@ class AIPopupChooseCellView: UIView {
     }
 
     private func bindEvents() {
-        let tapGuesture = UITapGestureRecognizer(target: self, action: "tapAction:")
+        let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(AIPopupChooseCellView.tapAction(_:)))
         self.addGestureRecognizer(tapGuesture)
     }
 

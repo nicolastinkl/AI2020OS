@@ -65,7 +65,7 @@ class AISingleSelectView: UIView {
             button.cornerRadius = 2
             button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             self.addSubview(button)
-            button.addTarget(self, action: "singleAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            button.addTarget(self, action: #selector(AISingleSelectView.singleAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
 
             constrain(button, self, block: { (buttonLayoutProxy, SuperLayoutProxy) -> () in
                 buttonLayoutProxy.left == SuperLayoutProxy.left + 30
@@ -84,7 +84,7 @@ class AISingleSelectView: UIView {
     func singleAction(sender: AnyObject) {
 
         NSNotificationCenter.defaultCenter().removeObserver(self)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pickView:", name: AIApplication.Notification.AISinglePickerViewNotificationName, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AISingleSelectView.pickView(_:)), name: AIApplication.Notification.AISinglePickerViewNotificationName, object: nil)
         let pickView = AISinglePickerView.currentView()
         pickView.superViewID = (sender as! UIButton).associatedName ?? ""
         pickView.show()

@@ -122,8 +122,6 @@ extension UIView {
         self.layer.addSublayer(lineLayer)
     }
 
-
-
     /*!
     Cell下线满格处理
     */

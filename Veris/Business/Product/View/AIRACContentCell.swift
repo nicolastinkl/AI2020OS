@@ -31,7 +31,7 @@ class AIRACContentCell: SESlideTableViewCell {
 
     weak var aiDelegate: ExpendTableViewCellDelegate?
 
-    func AddExpendCell(any: AnyObject) {
+    func addExpendCell(any: AnyObject) {
 
         aiDelegate?.expendTableViewCell(self, expendButtonPressed: any)
     }

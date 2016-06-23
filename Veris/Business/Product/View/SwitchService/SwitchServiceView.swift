@@ -63,7 +63,7 @@ class SwitchServiceView: UIView {
             switchView.height == holderView.height
         }
 
-        switchController.addTarget(self, action: "switchChanged:", forControlEvents: UIControlEvents.ValueChanged)
+        switchController.addTarget(self, action: #selector(SwitchServiceView.switchChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         switchController.onLabel.text = "SwitchServiceView.on".localized
         switchController.onLabel.textColor = UIColor.whiteColor()
         switchController.offLabel.text = "SwitchServiceView.off".localized

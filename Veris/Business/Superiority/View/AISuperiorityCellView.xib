@@ -11,15 +11,26 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="28"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AIROAddTask" translatesAutoresizingMaskIntoConstraints="NO" id="Yek-nA-DRR">
-                    <rect key="frame" x="10" y="4" width="20" height="20"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yek-nA-DRR" customClass="DesignableImageView" customModule="Spring">
+                    <rect key="frame" x="13" y="4" width="16" height="16"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="83O-FJ-hoI"/>
-                        <constraint firstAttribute="width" constant="20" id="xb9-sm-8eY"/>
+                        <constraint firstAttribute="height" constant="16" id="83O-FJ-hoI"/>
+                        <constraint firstAttribute="width" constant="16" id="xb9-sm-8eY"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iR-f0-B7r">
-                    <rect key="frame" x="46" y="4" width="546" height="21"/>
+                    <rect key="frame" x="36" y="4" width="556" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="uJx-xO-diC"/>
                     </constraints>
@@ -30,21 +41,18 @@
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Yek-nA-DRR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="1TT-NG-9J3"/>
+                <constraint firstItem="Yek-nA-DRR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="1TT-NG-9J3"/>
                 <constraint firstAttribute="trailing" secondItem="8iR-f0-B7r" secondAttribute="trailing" constant="8" id="88J-VX-1QF"/>
                 <constraint firstItem="8iR-f0-B7r" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LUL-Rl-sNt"/>
-                <constraint firstItem="Yek-nA-DRR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="o8Z-OM-BRS"/>
-                <constraint firstItem="8iR-f0-B7r" firstAttribute="leading" secondItem="Yek-nA-DRR" secondAttribute="trailing" constant="16" id="qNe-LP-lyn"/>
+                <constraint firstItem="Yek-nA-DRR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-2" id="o8Z-OM-BRS"/>
+                <constraint firstItem="8iR-f0-B7r" firstAttribute="leading" secondItem="Yek-nA-DRR" secondAttribute="trailing" constant="7" id="qNe-LP-lyn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="bgImgView" destination="Yek-nA-DRR" id="eHi-Fd-tpQ"/>
                 <outlet property="labelDesciption" destination="8iR-f0-B7r" id="Bov-fd-gCZ"/>
             </connections>
-            <point key="canvasLocation" x="368" y="361"/>
+            <point key="canvasLocation" x="147" y="128"/>
         </view>
     </objects>
-    <resources>
-        <image name="AIROAddTask" width="21" height="21"/>
-    </resources>
 </document>
