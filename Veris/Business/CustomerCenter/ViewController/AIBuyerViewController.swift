@@ -552,7 +552,11 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("ExpandableTableViewCell") as! ExpandableTableViewCell
 
         if cell.topContentView == nil {
-            cell.setFoldedView(AIFolderCellView.currentView())
+            let proposalModel = dataSource[indexPath.row].model!
+            let folderCellView = AIFolderCellView.currentView()
+            folderCellView.loadData(proposalModel)
+            folderCellView.delegate = self
+            cell.setFoldedView(folderCellView)
         }
         
         if cell.expandedContentView == nil {
@@ -785,4 +789,3 @@ extension AIBuyerViewController : AIFoldedCellViewDelegate {
         self.presentPopupViewController(serviceExecVC, animated: true)
     }
 }
-

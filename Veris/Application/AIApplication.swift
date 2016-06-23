@@ -124,7 +124,9 @@ struct AIApplication {
             // MARK: BUYER
             static let AITableFoldedCellHolder = "AITableFoldedCellHolder"
             static let AITableExpandedCellHolder = "AITableExpandedCellHolder"
-
+            
+            // MARK: SERVICE EXECUTE
+            static let AITimelineTableViewCell = "AITimelineTableViewCell"
 
         }
 
