@@ -26,6 +26,10 @@ class CommentDistrictView: UIView {
             #selector(CommentDistrictView.cameraAction(_:))
         let cameraTap = UITapGestureRecognizer(target: self, action: cameraSelector)
         photoImage.addGestureRecognizer(cameraTap)
+        
+        serviceImage.layer.cornerRadius = serviceImage.width / 2
+        serviceImage.layer.borderWidth = 1
+        serviceImage.layer.borderColor = UIColor.whiteColor().CGColor
     }
 
     func cameraAction(sender: UIGestureRecognizer) {
