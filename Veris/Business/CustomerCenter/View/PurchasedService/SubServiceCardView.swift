@@ -45,6 +45,10 @@ class SubServiceCardView: UIView {
         
     }
     
+    func setContentView(view: UIView) {
+        
+    }
+    
     private func initSubView() {
         serviceIcon.makeRound()
         personIcon.makeRound()
