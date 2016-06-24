@@ -133,5 +133,9 @@
 #import "iflyMSC/iflyMSC.h"
 #import "IATConfig.h"
 #import "ISRDataHelper.h"
- 
+
+
+#import "WXPayClient.h"
+
+
 
