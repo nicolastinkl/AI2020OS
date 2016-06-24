@@ -305,6 +305,7 @@ NSString *expiresInKey = @"expires_in";
             [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
             return;
         } else {
+            [SVProgressHUD dismiss];
             NSLog(@"--- %@", dict);
 //            [weakSelf showAlertWithTitle:@"错误" msg:@"获取 AccessToken 失败"];
         }
