@@ -102,12 +102,12 @@ class AIPaymentViewController: UIViewController {
         if WXApi.isWXAppInstalled() {
             SVProgressHUD.showWithStatus("正在处理...", maskType: SVProgressHUDMaskType.Gradient)
             let model = MDPayTypeModel()
-            model.fee = 11.5
+            model.fee = 11
             model.for_id = "123"
             model.order_type  = 1
             model.pay_type = 1
             model.sign_str = ""
-            WXPayClient.shareInstance().payProduct(model, withNotify: "")
+            WXPayClient.shareInstance().payProduct(model, withNotify: AlipayNotifyURL)
             
         }else{
             SVProgressHUD.showErrorWithStatus("该设备未安装微信客户端")
