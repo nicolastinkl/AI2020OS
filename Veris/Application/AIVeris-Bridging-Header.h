@@ -136,6 +136,13 @@
 
 
 #import "WXPayClient.h"
+//Alipay
+#import <AlipaySDK/AlipaySDK.h>
+#import "RSADataSigner.h"
+
+//wechat
+#import "WXApi.h"
+#import "WXApiObject.h"
 
 
 

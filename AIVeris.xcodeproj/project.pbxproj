@@ -572,6 +572,8 @@
 		9392B5851D1CD9F10007F241 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5771D1CD9F10007F241 /* openssl_wrapper.m */; };
 		9392B5861D1CD9F10007F241 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5791D1CD9F10007F241 /* RSADataSigner.m */; };
 		9392B5871D1CD9F10007F241 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B57B1D1CD9F10007F241 /* RSADataVerifier.m */; };
+		9392B5891D1CE1B40007F241 /* AlipayOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5881D1CE1B40007F241 /* AlipayOrder.swift */; };
+		9392B58B1D1CE37A0007F241 /* AIAliPayOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392B58A1D1CE37A0007F241 /* AIAliPayOrder.swift */; };
 		939310681D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939310671D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift */; };
 		93A0AB911D129FEB00562090 /* va_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93A0AB8F1D129FEB00562090 /* va_start.wav */; };
 		93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93A0AB901D129FEB00562090 /* voicesearch.mp3 */; };
@@ -1517,6 +1519,8 @@
 		9392B5791D1CD9F10007F241 /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
 		9392B57A1D1CD9F10007F241 /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		9392B57B1D1CD9F10007F241 /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
+		9392B5881D1CE1B40007F241 /* AlipayOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlipayOrder.swift; sourceTree = "<group>"; };
+		9392B58A1D1CE37A0007F241 /* AIAliPayOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAliPayOrder.swift; sourceTree = "<group>"; };
 		939310671D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductInfoServcieInfoView.swift; sourceTree = "<group>"; };
 		93A0AB8F1D129FEB00562090 /* va_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = va_start.wav; sourceTree = "<group>"; };
 		93A0AB901D129FEB00562090 /* voicesearch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voicesearch.mp3; sourceTree = "<group>"; };
@@ -3567,6 +3571,8 @@
 		93A0AB941D12AA1B00562090 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9392B58A1D1CE37A0007F241 /* AIAliPayOrder.swift */,
+				9392B5881D1CE1B40007F241 /* AlipayOrder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4283,6 +4289,7 @@
 				8175A7E11CFD2710006F2C8F /* MJRefreshConst.m in Sources */,
 				81433CF11CFBE5A700347C29 /* AIRequirementHandler.swift in Sources */,
 				12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */,
+				9392B58B1D1CE37A0007F241 /* AIAliPayOrder.swift in Sources */,
 				81433E2A1CFBE5A700347C29 /* AIRequireContentViewController.swift in Sources */,
 				81433D161CFBE5A700347C29 /* AICardCell.m in Sources */,
 				81433E0B1CFBE5A700347C29 /* JTSScrollIndicator.m in Sources */,
@@ -4333,6 +4340,7 @@
 				81433CE31CFBE5A700347C29 /* AIOrderManagementModels.m in Sources */,
 				81433DFC1CFBE5A700347C29 /* CustomXibView.swift in Sources */,
 				81433E3F1CFBE5A700347C29 /* AIUIDevice.swift in Sources */,
+				9392B5891D1CE1B40007F241 /* AlipayOrder.swift in Sources */,
 				8175A7FB1CFD2710006F2C8F /* SDWebImageDownloader.m in Sources */,
 				8175A7CB1CFD2710006F2C8F /* AFURLConnectionOperation.m in Sources */,
 				81433E1B1CFBE5A700347C29 /* SESlideTableViewCell.m in Sources */,
