@@ -147,13 +147,14 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     }
 
     func loadData() {
+        timelineModels.removeAll()
         for i in 0...4 {
             timelineModels.append(AITimelineViewModel.createFakeData("\(i)"))
         }
     }
     
     //TODO: 过滤时间线
-    func filterTimeline(){
+    func filterTimeline() {
         
     }
 
@@ -176,6 +177,11 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
+        if let _ = cell.delegate {
+            print("this is a reuse cell, item_id : \(cell.viewModel!.itemId), indexPath : \(indexPath.row)")
+        } else {
+            print("this is a new cell")
+        }
         let timeLineItem = timelineModels[indexPath.row]
         cell.delegate = self
         cell.loadData(timeLineItem)
@@ -187,7 +193,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         if timeLineItem.cellHeight != 0 {
             return timeLineItem.cellHeight
         }
-        return 44
+        return 210
     }
     
     func cellImageDidLoad(viewModel viewModel: AITimelineViewModel, cellHeight: CGFloat) {
@@ -198,7 +204,12 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             return visibleIndexPath.row == indexPath.row
         }) {
             if !visibleIndexPathArray.isEmpty {
-                timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                //TODO: 因为第二次进入从缓存加载图片太快，cell的第一次load还没完成就触发reload，结果展现就错乱了
+                //暂时通过加延迟的方式解决
+                Async.main(after: 0.1, block: {
+                    self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                })
+                
             }
         }
     }
