@@ -26,7 +26,7 @@ class AITimelineViewModel: AIBaseViewModel {
         timeModel.time = "16:10"
         timelineViewModel.timeModel = timeModel
         
-        let contentViewModel = [AITimeContentViewModel(contentType: AITimelineContentTypeEnum.Image, contentUrl: "http://tinkl.qiniudn.com/tinklUpload_newimage/imageview-01.png")]
+        let contentViewModel = [AITimeContentViewModel(contentType: AITimelineContentTypeEnum.Image, contentUrl: "http://tinkl.qiniudn.com/tinklUpload_newimage/imageview-01.png") , AITimeContentViewModel(contentType: AITimelineContentTypeEnum.Voice, contentUrl: "https://dn-xkz4nhs9.qbox.me/jeltYtKqE6fVQIUSbz04SbB.aac")]
         timelineViewModel.contents = contentViewModel
         return timelineViewModel
     }
