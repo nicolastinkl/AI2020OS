@@ -55,7 +55,6 @@ class AIPayListInfoCellView: UITableViewCell {
         var topOffset: CGFloat = 0
         if let m = item.childList {
             for model in m {
-                
                 let name = UILabel()
                 name.text = model.servicename ?? ""
                 
