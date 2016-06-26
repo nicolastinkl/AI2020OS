@@ -255,6 +255,7 @@ class AISuperiorityViewController: UIViewController {
 
 class canvasLineView: UIView {
     override func drawRect(rect: CGRect) {
+        
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
         //// Bezier Drawing
@@ -267,5 +268,6 @@ class canvasLineView: UIView {
         CGContextSetLineDash(context, 0, [4, 4], 2)
         bezierPath.stroke()
         CGContextRestoreGState(context)
+        backgroundColor = UIColor.clearColor()        
     }
 }
