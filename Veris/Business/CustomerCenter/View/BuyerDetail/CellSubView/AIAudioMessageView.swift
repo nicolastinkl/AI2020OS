@@ -45,7 +45,7 @@ class AIAudioMessageView: AIWishMessageView, AVAudioPlayerDelegate {
     @IBOutlet weak var audioBgConstrain: NSLayoutConstraint!
     var messageCache: AIMessage?
 
-    class func currentView()->AIAudioMessageView {
+    class func currentView() -> AIAudioMessageView {
         let selfView = NSBundle.mainBundle().loadNibNamed("AIAudioMessageView", owner: self, options: nil).first  as! AIAudioMessageView
         selfView.audioLength.font = AITools.myriadLightSemiCondensedWithSize(42/PurchasedViewDimention.CONVERT_FACTOR)
         let longPressGes = UILongPressGestureRecognizer(target: selfView, action: #selector(AIAudioMessageView.handleLongPress(_:)))
@@ -123,7 +123,7 @@ class AIAudioMessageView: AIWishMessageView, AVAudioPlayerDelegate {
         return true
     }
 
-    override func becomeFirstResponder()->Bool {
+    override func becomeFirstResponder() -> Bool {
         return super.becomeFirstResponder()
     }
 

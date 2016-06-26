@@ -30,6 +30,8 @@ class AITimelineTableViewCell: UITableViewCell {
         setupViews()
     }
 
+    
+    // MARK: -> build and layout view methods
     func setupViews() {
         self.backgroundColor = UIColor.clearColor()
         timeLabel.textColor = CustomerCenterConstants.Colors.TimeLabelColor
@@ -38,6 +40,8 @@ class AITimelineTableViewCell: UITableViewCell {
         dotView.backgroundColor = CustomerCenterConstants.Colors.TimelineDotColor
         dotView.layer.cornerRadius = dotView.bounds.width / 2
         dotView.layer.masksToBounds = true
+        
+        self.selectionStyle = UITableViewCellSelectionStyle.None
     }
 
     func buildImageContainerView() {
@@ -83,8 +87,6 @@ class AITimelineTableViewCell: UITableViewCell {
         }
     }
     
-    
-
     func buildButtonContainerView() {
         
         if let viewModel = viewModel {
@@ -98,16 +100,19 @@ class AITimelineTableViewCell: UITableViewCell {
                 let confirmButton = UIButton()
                 confirmButton.setTitle(CustomerCenterConstants.textContent.confirmButton, forState: UIControlState.Normal)
                 confirmButton.titleLabel?.font = CustomerCenterConstants.Fonts.TimelineButton
-                confirmButton.backgroundColor = UIColor.blueColor()
-                confirmButton.layer.cornerRadius = 8
+                let backImage = UIColor(hex: "#0f86e8").imageWithColor()
+                confirmButton.setBackgroundImage(backImage, forState: UIControlState.Normal)
+                confirmButton.layer.cornerRadius = 13
                 confirmButton.layer.masksToBounds = true
                 buttonContainerView.addSubview(confirmButton)
+                confirmButton.addTarget(self, action: #selector(AITimelineTableViewCell.confirmServiceCompleteAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
                 
-                let buttonWidth = CustomerCenterConstants.textContent.confirmButton.sizeWithFont(CustomerCenterConstants.Fonts.TimelineButton, forWidth: 500).width + 20
+                let buttonWidth = CustomerCenterConstants.textContent.confirmButton.sizeWithFont(CustomerCenterConstants.Fonts.TimelineButton, forWidth: 500).width + 30
                 confirmButton.snp_makeConstraints(closure: { (make) in
                     make.leading.top.bottom.equalTo(buttonContainerView)
                     make.width.equalTo(buttonWidth)
                 })
+            case .Authoration: break
             default:
                 break
             }
@@ -182,6 +187,22 @@ class AITimelineTableViewCell: UITableViewCell {
         buildButtonContainerView()
     }
     
+    // MARK: -> events handle
+    func confirmServiceCompleteAction(sender: UIButton) {
+        if let delegate = delegate{
+            delegate.cellConfirmButtonDidClick(viewModel: viewModel!)
+        }
+    }
+    
+    func authorizeAction(sender: UIButton) {
+        
+    }
+    
+    func rejectAuthorizeAction(sender: UIButton) {
+        
+    }
+    
+    // MARK: -> util methods
     //通过图片的实际宽度和view宽度计算出来的压缩比例计算展现的高度
     func getCompressedImageHeight(image: UIImage) -> CGFloat {
         let compressedRate = cellWidth / image.size.width
@@ -214,4 +235,7 @@ class AITimelineTableViewCell: UITableViewCell {
 
 protocol AITimelineTableViewCellDelegate: NSObjectProtocol {
     func cellImageDidLoad(viewModel viewModel: AITimelineViewModel, cellHeight: CGFloat)
+    
+    func cellConfirmButtonDidClick(viewModel viewModel: AITimelineViewModel)
+    
 }
