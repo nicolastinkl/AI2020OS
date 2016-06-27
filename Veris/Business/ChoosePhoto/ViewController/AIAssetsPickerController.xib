@@ -110,6 +110,9 @@
                                     <real key="value" value="3"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="finishChooseAction:" destination="-1" eventType="touchUpInside" id="agP-MS-Gg8"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh9-lg-CpF">
                             <rect key="frame" x="331" y="13.5" width="150" height="25"/>
@@ -156,7 +159,7 @@
                 <constraint firstAttribute="trailing" secondItem="4d9-ei-cEO" secondAttribute="trailing" id="mKm-Uu-QI0"/>
                 <constraint firstAttribute="bottom" secondItem="CMX-aD-ubY" secondAttribute="bottom" id="rg0-3w-UKE"/>
             </constraints>
-            <point key="canvasLocation" x="332" y="418"/>
+            <point key="canvasLocation" x="162" y="480"/>
         </view>
     </objects>
     <resources>
