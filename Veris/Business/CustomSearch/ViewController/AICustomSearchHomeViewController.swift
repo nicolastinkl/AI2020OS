@@ -60,8 +60,7 @@ class AICustomSearchHomeViewController: UIViewController {
             })
             
         }
-    }
-    
+    }    
     
 	// MARK: Action
 	
