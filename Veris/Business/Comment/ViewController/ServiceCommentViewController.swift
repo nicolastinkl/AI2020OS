@@ -26,6 +26,7 @@ class ServiceCommentViewController: AbsCommentViewController {
         super.viewDidLoad()
 
         commentDistrict.delegate = self
+        starsDes.font = AITools.myriadLightWithSize(AITools.displaySizeFrom1242DesignSize(48))
     }
 
     override func imagePicked(image: UIImage) {

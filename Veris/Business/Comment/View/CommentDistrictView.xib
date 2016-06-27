@@ -26,7 +26,7 @@
                         <constraint firstAttribute="width" secondItem="KMd-Ln-ShW" secondAttribute="height" multiplier="1:1" id="sqw-Oz-9sm"/>
                     </constraints>
                 </imageView>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oCy-bW-g5d" userLabel="PhotoImage">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment_camera" translatesAutoresizingMaskIntoConstraints="NO" id="oCy-bW-g5d" userLabel="PhotoImage">
                     <rect key="frame" x="13" y="526" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="oCy-bW-g5d" secondAttribute="height" multiplier="1:1" id="XgW-ST-5TF"/>
@@ -44,7 +44,7 @@
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r4o-bT-Xg8" userLabel="CommentInput">
                     <rect key="frame" x="75" y="19" width="517" height="493"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -62,7 +62,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="oCy-bW-g5d" secondAttribute="bottom" constant="14" id="4Nh-MO-DYr"/>
                 <constraint firstItem="okQ-iw-WAT" firstAttribute="leading" secondItem="oCy-bW-g5d" secondAttribute="trailing" constant="12" id="5J9-bI-AUW"/>
@@ -80,4 +80,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="comment_camera" width="46" height="46"/>
+    </resources>
 </document>

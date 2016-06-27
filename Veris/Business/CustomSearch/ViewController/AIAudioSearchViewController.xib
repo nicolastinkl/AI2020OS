@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,11 +18,11 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_AudioSearch_bg" translatesAutoresizingMaskIntoConstraints="NO" id="JXx-Mb-iei">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_background" translatesAutoresizingMaskIntoConstraints="NO" id="JXx-Mb-iei">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gk-7P-ybN">
-                    <rect key="frame" x="257.5" y="430" width="85" height="85"/>
+                    <rect key="frame" x="258" y="430" width="85" height="85"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="85" id="5LA-2a-fQ6"/>
                         <constraint firstAttribute="width" constant="85" id="LXl-wk-BrP"/>
@@ -72,8 +72,8 @@
     </objects>
     <resources>
         <image name="AI_AudioSearch_audio" width="43" height="52"/>
-        <image name="AI_AudioSearch_bg" width="414" height="736"/>
         <image name="AI_AudioSearch_buttonbg" width="88" height="88"/>
         <image name="AI_AudioSearch_close" width="18" height="18"/>
+        <image name="search_background" width="540" height="960"/>
     </resources>
 </document>
