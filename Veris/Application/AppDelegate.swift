@@ -26,7 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     let WXPaySuccessNotification = "WeixinPaySuccessNotification"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
+//        let vc = AIProductQAViewController()
+//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        self.window?.rootViewController = vc
+//        self.window?.maeKeyAndVisible()
+//        return true
         //AVOS
         configAVOSCloud()
         AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
