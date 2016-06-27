@@ -608,6 +608,9 @@
 		93C61FC41D01196F0063C2BF /* ServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */; };
 		93C8C9A81D14034A00F1DFCF /* AICustomSearchHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8C9A71D14034A00F1DFCF /* AICustomSearchHomeCell.swift */; };
 		93C8C9AA1D14035B00F1DFCF /* AICustomSearchHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */; };
+		93E4C3FC1D20C2DC007EB116 /* CTAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E4C3F81D20C2DC007EB116 /* CTAssetsPickerController.m */; };
+		93E4C3FD1D20C2DC007EB116 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93E4C3F91D20C2DC007EB116 /* Images.xcassets */; };
+		93E4C3FE1D20C2DC007EB116 /* NSDate+TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E4C3FB1D20C2DC007EB116 /* NSDate+TimeInterval.m */; };
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93F3FFEE1D06C0EB000283DA /* README.txt in Sources */ = {isa = PBXBuildFile; fileRef = 93F3FFED1D06C0EB000283DA /* README.txt */; };
 		93F3FFF21D06C5C0000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF11D06C5C0000283DA /* README.txt */; };
@@ -1569,6 +1572,11 @@
 		93C8C9A71D14034A00F1DFCF /* AICustomSearchHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchHomeCell.swift; sourceTree = "<group>"; };
 		93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomSearchHomeCell.xib; sourceTree = "<group>"; };
 		93D5A3491B709C1C00DDB158 /* Veris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veris.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93E4C3F71D20C2DC007EB116 /* CTAssetsPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsPickerController.h; sourceTree = "<group>"; };
+		93E4C3F81D20C2DC007EB116 /* CTAssetsPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsPickerController.m; sourceTree = "<group>"; };
+		93E4C3F91D20C2DC007EB116 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		93E4C3FA1D20C2DC007EB116 /* NSDate+TimeInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInterval.h"; sourceTree = "<group>"; };
+		93E4C3FB1D20C2DC007EB116 /* NSDate+TimeInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeInterval.m"; sourceTree = "<group>"; };
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
 		93F3FFED1D06C0EB000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		93F3FFF11D06C5C0000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
@@ -1758,6 +1766,7 @@
 		814339291CFBE5A600347C29 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				93E4C3F31D20C2C8007EB116 /* ChoosePhoto */,
 				93A0AB931D12AA1B00562090 /* Payment */,
 				12D764931D0D40AE002B001B /* Login */,
 				FBAE7FC51D115428002FF522 /* Seller */,
@@ -3676,6 +3685,42 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		93E4C3F31D20C2C8007EB116 /* ChoosePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				93E4C3F41D20C2C8007EB116 /* Model */,
+				93E4C3F51D20C2C8007EB116 /* View */,
+				93E4C3F61D20C2C8007EB116 /* ViewController */,
+			);
+			path = ChoosePhoto;
+			sourceTree = "<group>";
+		};
+		93E4C3F41D20C2C8007EB116 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		93E4C3F51D20C2C8007EB116 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		93E4C3F61D20C2C8007EB116 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				93E4C3F71D20C2DC007EB116 /* CTAssetsPickerController.h */,
+				93E4C3F81D20C2DC007EB116 /* CTAssetsPickerController.m */,
+				93E4C3F91D20C2DC007EB116 /* Images.xcassets */,
+				93E4C3FA1D20C2DC007EB116 /* NSDate+TimeInterval.h */,
+				93E4C3FB1D20C2DC007EB116 /* NSDate+TimeInterval.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		93EC4A691D05564E007F599E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -3937,6 +3982,7 @@
 				93A0ABF61D12C43400562090 /* read_me.txt in Resources */,
 				93BEFFDD1D0D474B00832799 /* AISuperiorityCellView.xib in Resources */,
 				933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */,
+				93E4C3FD1D20C2DC007EB116 /* Images.xcassets in Resources */,
 				81433D251CFBE5A700347C29 /* MiddleServiceContainer.xib in Resources */,
 				93F3FFF41D06C5E4000283DA /* README.txt in Resources */,
 				81433E0F1CFBE5A700347C29 /* IconLabel.xib in Resources */,
@@ -4339,6 +4385,7 @@
 				81433E9D1CFBE5A700347C29 /* Localize.swift in Sources */,
 				8175A7D81CFD2710006F2C8F /* JSONModel.m in Sources */,
 				81433E981CFBE5A700347C29 /* FLEXRuntimeUtility.m in Sources */,
+				93E4C3FE1D20C2DC007EB116 /* NSDate+TimeInterval.m in Sources */,
 				81433E811CFBE5A700347C29 /* FLEXNetworkSettingsTableViewController.m in Sources */,
 				81433D281CFBE5A700347C29 /* ServiceCardDetailIcon.swift in Sources */,
 				81433E851CFBE5A700347C29 /* FLEXNetworkObserver.m in Sources */,
@@ -4359,6 +4406,7 @@
 				81433CEA1CFBE5A700347C29 /* ProposalModel.m in Sources */,
 				93C8C9A81D14034A00F1DFCF /* AICustomSearchHomeCell.swift in Sources */,
 				81433D8B1CFBE5A700347C29 /* PurchasedServiceView.swift in Sources */,
+				93E4C3FC1D20C2DC007EB116 /* CTAssetsPickerController.m in Sources */,
 				FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */,
 				81433D3D1CFBE5A700347C29 /* AICustomView.swift in Sources */,
 				81433D591CFBE5A700347C29 /* AINumberCountControl.swift in Sources */,
