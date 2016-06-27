@@ -111,27 +111,6 @@
 }
 
 
-- (UIImageView *)makeBubbleViewWithBubbleImageName:(NSString *)bubbleImageName
-                             bubbleTitle:(NSString *)bubbleTitle
-                                 atPoint:(CGPoint)point tag:(NSInteger)tag
-{
-    UIImageView *bubbleView = [self makeImageViewAtPoint:point imageName:bubbleImageName hlImageName:nil];
-    bubbleView.userInteractionEnabled = YES;
-    bubbleView.tag = tag;
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(action:)];
-    [bubbleView addGestureRecognizer:tapGesture];
-    //
-    CGFloat titleHeight = [AITools displaySizeFrom1080DesignSize:200];
-    
-    UPLabel *titleLabel = [AIViews normalLabelWithFrame:CGRectMake(0, 0, CGRectGetWidth(bubbleView.frame), titleHeight) text:bubbleTitle fontSize:[AITools displaySizeFrom1080DesignSize:68] color:[UIColor whiteColor]];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    [bubbleView addSubview:titleLabel];
-    
-    //
-    return bubbleView;
-    
-}
-
 #pragma mark - Main
 
 - (void)makeBackground
