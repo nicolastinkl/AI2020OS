@@ -313,11 +313,17 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         bubbles = AIBubblesView(frame: frame, models: NSMutableArray(array: self.dataSourcePop))
         bubbles.tag = bubblesTag
         bubbleViewContainer.addSubview(bubbles)
-     
-        bubbles.addGestureBubbleAction {  [weak self]   (bubbleModel, bubble) -> Void in
-            if let strongSelf = self {
-                strongSelf.showBuyerDetailWithBubble(bubble, model: bubbleModel)
+
+        weak var wf = self
+        bubbles.addGestureBubbleAction {(bubbleModel, bubble) -> Void in
+
+            if bubbleModel.bubbleType == 2 {
+                wf!.showAddNewBubble(bubble, model: bubbleModel)
+            } else {
+                wf!.showBuyerDetailWithBubble(bubble, model: bubbleModel)
             }
+
+
         }
 
         return bubbles
@@ -363,6 +369,13 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         return scaledPoint
     }
+
+    //MARK: Add New Bubble
+    func showAddNewBubble(bubble: AIBubble, model: AIBuyerBubbleModel) {
+        print("showAddNewBubble")
+    }
+
+
 
     func showBuyerDetailWithBubble(bubble: AIBubble, model: AIBuyerBubbleModel) {
 
