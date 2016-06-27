@@ -217,7 +217,10 @@ extension AIAudioSearchViewController: IFlySpeechRecognizerDelegate {
             self.alertContentLabel.text = "\(alertContentLabel.text ?? "")\(resultFromJson)"
         }
 
-
+        if isLast == true {
+            closeViewController()
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIListeningAudioTools, object: nil, userInfo: ["Results":self.alertContentLabel.text ?? ""])
+        }
     }
 
     /**

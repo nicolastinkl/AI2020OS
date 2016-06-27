@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AICustomSearchHomeViewController" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="holdView" destination="ZmO-Bo-P57" id="w7M-vp-euA"/>
+                <outlet property="searchText" destination="TLn-s0-RLL" id="DDb-i8-jV0"/>
                 <outlet property="tableView" destination="x0X-vW-wdc" id="AnB-hf-7fp"/>
                 <outlet property="view" destination="kgd-tX-Y0E" id="8IO-Dh-mWN"/>
             </connections>
