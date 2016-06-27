@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceCommentViewController" customModule="Veris" customModuleProvider="target">
@@ -19,37 +20,67 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_bg" translatesAutoresizingMaskIntoConstraints="NO" id="wh1-Nh-qGr" userLabel="background">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdF-td-dBp" userLabel="Stars" customClass="StarRateView" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="126" y="60" width="349" height="47"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="174" y="60" width="252" height="33"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="33" id="AQW-g9-WLg"/>
                         <constraint firstAttribute="width" secondItem="hdF-td-dBp" secondAttribute="height" multiplier="722:98" id="BrY-HU-3EV"/>
+                        <constraint firstAttribute="height" constant="47" id="JG6-jW-DU1"/>
+                        <constraint firstAttribute="width" secondItem="hdF-td-dBp" secondAttribute="height" multiplier="349:47" id="Oqn-79-B9R"/>
+                        <constraint firstAttribute="width" secondItem="hdF-td-dBp" secondAttribute="height" multiplier="360:47" id="ZTT-BB-TEJ"/>
+                        <constraint firstAttribute="width" constant="349" id="pJN-wa-dwX"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="BrY-HU-3EV"/>
+                            <exclude reference="JG6-jW-DU1"/>
+                            <exclude reference="Oqn-79-B9R"/>
+                            <exclude reference="pJN-wa-dwX"/>
+                        </mask>
+                    </variation>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peW-ep-hT9" userLabel="StarsDes">
-                    <rect key="frame" x="279" y="130" width="42" height="21"/>
+                    <rect key="frame" x="279" y="116" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.95294117647058818" green="0.75686274509803919" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPH-kJ-Kct" customClass="CommentDistrictView" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="207" width="600" height="393"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="193" width="600" height="407"/>
+                    <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="0.16" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="wh1-Nh-qGr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6FU-Gm-j1K"/>
                 <constraint firstItem="IPH-kJ-Kct" firstAttribute="top" secondItem="peW-ep-hT9" secondAttribute="bottom" constant="56" id="IQj-w6-1I0"/>
                 <constraint firstAttribute="bottom" secondItem="IPH-kJ-Kct" secondAttribute="bottom" id="Oen-rg-NLk"/>
                 <constraint firstItem="peW-ep-hT9" firstAttribute="width" relation="lessThanOrEqual" secondItem="hdF-td-dBp" secondAttribute="width" id="VJr-Pm-SzA"/>
                 <constraint firstItem="peW-ep-hT9" firstAttribute="top" secondItem="hdF-td-dBp" secondAttribute="bottom" constant="23" id="ZmY-eo-xOo"/>
                 <constraint firstItem="hdF-td-dBp" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="722:1242" id="aDS-8s-Upd"/>
                 <constraint firstItem="hdF-td-dBp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eGi-rS-jaW"/>
+                <constraint firstItem="hdF-td-dBp" firstAttribute="width" secondItem="wh1-Nh-qGr" secondAttribute="width" multiplier="0.6" id="ecO-qp-OMB"/>
+                <constraint firstItem="wh1-Nh-qGr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jCg-Iu-UPk"/>
                 <constraint firstItem="hdF-td-dBp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="mAV-A9-B9C"/>
                 <constraint firstItem="peW-ep-hT9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="maL-zC-cX6"/>
+                <constraint firstItem="wh1-Nh-qGr" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="q1x-yJ-Rsz"/>
                 <constraint firstItem="IPH-kJ-Kct" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="sWM-n6-SuM"/>
+                <constraint firstItem="wh1-Nh-qGr" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="tam-nd-egc"/>
                 <constraint firstItem="IPH-kJ-Kct" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ur9-NO-bkj"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="aDS-8s-Upd"/>
+                    <exclude reference="ecO-qp-OMB"/>
+                </mask>
+            </variation>
         </view>
     </objects>
+    <resources>
+        <image name="star_bg" width="414" height="736"/>
+    </resources>
 </document>

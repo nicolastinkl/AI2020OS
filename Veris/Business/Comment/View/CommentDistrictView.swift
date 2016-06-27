@@ -30,6 +30,8 @@ class CommentDistrictView: UIView {
         serviceImage.layer.cornerRadius = serviceImage.width / 2
         serviceImage.layer.borderWidth = 1
         serviceImage.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        placeHolderText.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
     }
 
     func cameraAction(sender: UIGestureRecognizer) {
