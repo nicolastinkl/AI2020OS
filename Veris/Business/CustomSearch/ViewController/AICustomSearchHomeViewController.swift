@@ -89,6 +89,12 @@ class AICustomSearchHomeViewController: UIViewController {
 	@IBAction func backButtonPressed(sender: AnyObject) {
 		dismissViewControllerAnimated(true, completion: nil)
 	}
+    @IBAction func searchButtonPressed(sender: AnyObject) {
+        let service = AIImageRecongizeService()
+        service.getImageInfo(UIImage(named: "search-icon1")!) { (result, error) in
+            print(result)
+        }
+    }
 	
 	func searching() {
 		if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {

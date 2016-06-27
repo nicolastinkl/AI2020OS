@@ -159,8 +159,8 @@ class JSSAlertView: UIViewController {
             }
         }
 
-
-
+        
+        
         hBorderView.frame = CGRectMake(0, yPos-0.5, alertWidth, 0.5)
         vBorderView.frame = CGRectMake(buttonWidth, yPos, 0.5, buttonHeight)
 

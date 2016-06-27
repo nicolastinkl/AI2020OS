@@ -373,7 +373,7 @@ class AIBuyerDetailViewController: UIViewController {
 
         let index = min(deleted_service_list.count - 1, 5)
         let toolbarFrameOnWindow = serviceRestoreToolbar.convertRect(serviceRestoreToolbar.bounds, toView: window)
-        //FIXME: Variable 'toFrameX' was written to, but never read
+        // FIXME: Variable 'toFrameX' was written to, but never read
         var toFrameX: CGFloat = 0
 
         if index < 3 {
@@ -602,7 +602,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var serviceList: NSArray?
 
-        if (tableView == deletedTableView) {
+        if tableView == deletedTableView {
             serviceList = deleted_service_list
         } else {
             serviceList = current_service_list
@@ -619,7 +619,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
 
         var serviceList: NSArray?
 
-        if (tableView == deletedTableView) {
+        if tableView == deletedTableView {
             serviceList = deleted_service_list_copy
         } else {
             serviceList = current_service_list

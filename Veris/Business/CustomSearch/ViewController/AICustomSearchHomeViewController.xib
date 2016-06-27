@@ -85,6 +85,9 @@
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="infoButton"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="searchButtonPressed:" destination="-1" eventType="touchUpInside" id="v71-jH-vxU"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJJ-Vz-uPj">
                                     <rect key="frame" x="47" y="10" width="26" height="24"/>
