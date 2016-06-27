@@ -17,6 +17,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	
 	// MARK: Private
 	
+    @IBOutlet weak var searchText: UITextField!
 	var searchBar: UISearchBar?
 	var recentlySearchTag: AISearchHistoryLabels!
 	var everyOneSearchTag: AISearchHistoryLabels!
@@ -24,7 +25,8 @@ class AICustomSearchHomeViewController: UIViewController {
 	
 	@IBOutlet weak var holdView: UIView!
 	@IBOutlet weak var tableView: UITableView!
-	// MARK: Private
+	
+    // MARK: Private
 	
 	private var dataSource: [AISearchResultItemModel] = Array<AISearchResultItemModel>()
 	
@@ -35,17 +37,45 @@ class AICustomSearchHomeViewController: UIViewController {
 		
 		// Make Title View
 		initLayoutViews()
+        
+        // Register Audio Tools Notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
+        
 	}
 	
+    /**
+     处理语音识别数据搜索
+     
+     */
+    func listeningAudioTools(notify: NSNotification) {
+        if let result = notify.userInfo {
+            let string = result["Results"] as? String
+            Async.main({ 
+                self.searchText.text = string ?? ""
+                
+                self.searching()
+                self.tableView.hidden = false
+                self.holdView.hidden = true
+                
+            })
+            
+        }
+    }    
+    
 	// MARK: Action
 	
 	func makeAWishAction() {
 		showTransitionStyleCrossDissolveView(AIPaymentViewController.initFromNib())
 	}
     
-	
-    @IBAction func choosePhotoAction(any: AnyObject) {
-        showTransitionStyleCrossDissolveView(AISuperiorityViewController.initFromNib())
+
+    @IBAction func choosePhotoAction(any: AnyObject){
+        
+        let vc = AIAssetsPickerController.initFromNib()
+        let navi = UINavigationController(rootViewController: vc)
+        navi.navigationBarHidden = true
+        self.presentViewController(navi, animated: true, completion: nil)
+        
     }
     
     @IBAction func showListAction(any: AnyObject) {

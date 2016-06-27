@@ -560,6 +560,9 @@
 		933BC8431D002434005E1789 /* AIWishVowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC83C1D002434005E1789 /* AIWishVowViewController.xib */; };
 		933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */; };
 		933BC84B1D00252D005E1789 /* AIProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */; };
+		935986FF1D20FB9D00BBED4E /* AIAssetsReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */; };
+		935987011D20FCB900BBED4E /* AIAssetsReviewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */; };
+		9378C3E51D2131E3004D42EA /* AIAssetsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
 		9392B5171D1CD63B0007F241 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5131D1CD63B0007F241 /* CommonUtil.m */; };
 		9392B5181D1CD63B0007F241 /* WXPayClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5161D1CD63B0007F241 /* WXPayClient.m */; };
@@ -609,9 +612,8 @@
 		93C61FC41D01196F0063C2BF /* ServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */; };
 		93C8C9A81D14034A00F1DFCF /* AICustomSearchHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8C9A71D14034A00F1DFCF /* AICustomSearchHomeCell.swift */; };
 		93C8C9AA1D14035B00F1DFCF /* AICustomSearchHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */; };
-		93E4C3FC1D20C2DC007EB116 /* CTAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E4C3F81D20C2DC007EB116 /* CTAssetsPickerController.m */; };
-		93E4C3FD1D20C2DC007EB116 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93E4C3F91D20C2DC007EB116 /* Images.xcassets */; };
-		93E4C3FE1D20C2DC007EB116 /* NSDate+TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E4C3FB1D20C2DC007EB116 /* NSDate+TimeInterval.m */; };
+		93E4C4001D20E40D007EB116 /* AIAssetsPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4C3FF1D20E40D007EB116 /* AIAssetsPickerController.swift */; };
+		93E4C4021D20E478007EB116 /* AIAssetsPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E4C4011D20E478007EB116 /* AIAssetsPickerController.xib */; };
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93F3FFEE1D06C0EB000283DA /* README.txt in Sources */ = {isa = PBXBuildFile; fileRef = 93F3FFED1D06C0EB000283DA /* README.txt */; };
 		93F3FFF21D06C5C0000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF11D06C5C0000283DA /* README.txt */; };
@@ -1429,6 +1431,9 @@
 		933BC83C1D002434005E1789 /* AIWishVowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishVowViewController.xib; sourceTree = "<group>"; };
 		933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductInfoViewController.swift; sourceTree = "<group>"; };
 		933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductInfoViewController.xib; sourceTree = "<group>"; };
+		935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsReviewsController.swift; sourceTree = "<group>"; };
+		935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsReviewsController.xib; sourceTree = "<group>"; };
+		9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsViewCell.swift; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9392B5121D1CD63B0007F241 /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = "<group>"; };
 		9392B5131D1CD63B0007F241 /* CommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtil.m; sourceTree = "<group>"; };
@@ -1576,11 +1581,8 @@
 		93C8C9A71D14034A00F1DFCF /* AICustomSearchHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchHomeCell.swift; sourceTree = "<group>"; };
 		93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomSearchHomeCell.xib; sourceTree = "<group>"; };
 		93D5A3491B709C1C00DDB158 /* Veris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veris.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		93E4C3F71D20C2DC007EB116 /* CTAssetsPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAssetsPickerController.h; sourceTree = "<group>"; };
-		93E4C3F81D20C2DC007EB116 /* CTAssetsPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAssetsPickerController.m; sourceTree = "<group>"; };
-		93E4C3F91D20C2DC007EB116 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		93E4C3FA1D20C2DC007EB116 /* NSDate+TimeInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInterval.h"; sourceTree = "<group>"; };
-		93E4C3FB1D20C2DC007EB116 /* NSDate+TimeInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeInterval.m"; sourceTree = "<group>"; };
+		93E4C3FF1D20E40D007EB116 /* AIAssetsPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsPickerController.swift; sourceTree = "<group>"; };
+		93E4C4011D20E478007EB116 /* AIAssetsPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsPickerController.xib; sourceTree = "<group>"; };
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
 		93F3FFED1D06C0EB000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		93F3FFF11D06C5C0000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
@@ -3713,6 +3715,7 @@
 		93E4C3F51D20C2C8007EB116 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3720,11 +3723,10 @@
 		93E4C3F61D20C2C8007EB116 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				93E4C3F71D20C2DC007EB116 /* CTAssetsPickerController.h */,
-				93E4C3F81D20C2DC007EB116 /* CTAssetsPickerController.m */,
-				93E4C3F91D20C2DC007EB116 /* Images.xcassets */,
-				93E4C3FA1D20C2DC007EB116 /* NSDate+TimeInterval.h */,
-				93E4C3FB1D20C2DC007EB116 /* NSDate+TimeInterval.m */,
+				93E4C3FF1D20E40D007EB116 /* AIAssetsPickerController.swift */,
+				93E4C4011D20E478007EB116 /* AIAssetsPickerController.xib */,
+				935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */,
+				935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3938,6 +3940,7 @@
 				81433EBA1CFBE5A700347C29 /* MyriadPro-Cond.otf in Resources */,
 				81433DA51CFBE5A700347C29 /* AIServiceSearchView.xib in Resources */,
 				81433D361CFBE5A700347C29 /* AIAudioInputView.xib in Resources */,
+				93E4C4021D20E478007EB116 /* AIAssetsPickerController.xib in Resources */,
 				81433EC41CFBE5A700347C29 /* loading.gif in Resources */,
 				933BC8401D002434005E1789 /* AISuperiorityViewController.xib in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
@@ -3991,7 +3994,6 @@
 				93A0ABF61D12C43400562090 /* read_me.txt in Resources */,
 				93BEFFDD1D0D474B00832799 /* AISuperiorityCellView.xib in Resources */,
 				933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */,
-				93E4C3FD1D20C2DC007EB116 /* Images.xcassets in Resources */,
 				81433D251CFBE5A700347C29 /* MiddleServiceContainer.xib in Resources */,
 				93F3FFF41D06C5E4000283DA /* README.txt in Resources */,
 				81433E0F1CFBE5A700347C29 /* IconLabel.xib in Resources */,
@@ -4008,6 +4010,7 @@
 				81433D3A1CFBE5A700347C29 /* AIAudioRecordView.xib in Resources */,
 				81433E141CFBE5A700347C29 /* OrderAndBuyerInfoView.xib in Resources */,
 				81433E111CFBE5A700347C29 /* SeparatorLineLabel.xib in Resources */,
+				935987011D20FCB900BBED4E /* AIAssetsReviewsController.xib in Resources */,
 				81433D381CFBE5A700347C29 /* AIAudioMessageView.xib in Resources */,
 				81433EBB1CFBE5A700347C29 /* MyriadPro-Light.otf in Resources */,
 				81433EBD1CFBE5A700347C29 /* MyriadPro-LightSemiExt.otf in Resources */,
@@ -4128,6 +4131,7 @@
 				81433E9F1CFBE5A700347C29 /* UILabel+Localize.swift in Sources */,
 				81433CDF1CFBE5A700347C29 /* AIServiceDetailTool.swift in Sources */,
 				81433E271CFBE5A700347C29 /* AIConfirmOrderViewController.swift in Sources */,
+				935986FF1D20FB9D00BBED4E /* AIAssetsReviewsController.swift in Sources */,
 				FBAE7FD71D115428002FF522 /* AISellerModel.m in Sources */,
 				93C61FC31D01196F0063C2BF /* ServiceCommentViewController.swift in Sources */,
 				81433EB61CFBE5A700347C29 /* UIColorUtils.swift in Sources */,
@@ -4171,6 +4175,7 @@
 				9392B5841D1CD9F10007F241 /* NSDataEx.m in Sources */,
 				81433D9F1CFBE5A700347C29 /* AIRACClosureTableViewCell.swift in Sources */,
 				81433CF41CFBE5A700347C29 /* BuyerOrderModel.swift in Sources */,
+				93E4C4001D20E40D007EB116 /* AIAssetsPickerController.swift in Sources */,
 				81433CF01CFBE5A700347C29 /* AIInterfaceTest.swift in Sources */,
 				81433E411CFBE5A700347C29 /* CATransform3D.swift in Sources */,
 				81433CF51CFBE5A700347C29 /* AIOpeningView.m in Sources */,
@@ -4286,6 +4291,7 @@
 				81433E481CFBE5A700347C29 /* UIView+Toast.m in Sources */,
 				845700581D015FD600512597 /* ServiceCommentTableViewCell.swift in Sources */,
 				81433DA41CFBE5A700347C29 /* AIServiceSearchView.swift in Sources */,
+				9378C3E51D2131E3004D42EA /* AIAssetsViewCell.swift in Sources */,
 				81433E6A1CFBE5A700347C29 /* FLEXDatabaseManager.m in Sources */,
 				81433D0A1CFBE5A700347C29 /* AITransformManager.swift in Sources */,
 				81433D3B1CFBE5A700347C29 /* AICustomAudioNotesView.swift in Sources */,
@@ -4396,7 +4402,6 @@
 				81433E9D1CFBE5A700347C29 /* Localize.swift in Sources */,
 				8175A7D81CFD2710006F2C8F /* JSONModel.m in Sources */,
 				81433E981CFBE5A700347C29 /* FLEXRuntimeUtility.m in Sources */,
-				93E4C3FE1D20C2DC007EB116 /* NSDate+TimeInterval.m in Sources */,
 				81433E811CFBE5A700347C29 /* FLEXNetworkSettingsTableViewController.m in Sources */,
 				81433D281CFBE5A700347C29 /* ServiceCardDetailIcon.swift in Sources */,
 				81433E851CFBE5A700347C29 /* FLEXNetworkObserver.m in Sources */,
@@ -4418,7 +4423,6 @@
 				81433CEA1CFBE5A700347C29 /* ProposalModel.m in Sources */,
 				93C8C9A81D14034A00F1DFCF /* AICustomSearchHomeCell.swift in Sources */,
 				81433D8B1CFBE5A700347C29 /* PurchasedServiceView.swift in Sources */,
-				93E4C3FC1D20C2DC007EB116 /* CTAssetsPickerController.m in Sources */,
 				FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */,
 				81433D3D1CFBE5A700347C29 /* AICustomView.swift in Sources */,
 				81433D591CFBE5A700347C29 /* AINumberCountControl.swift in Sources */,
