@@ -26,7 +26,7 @@
                         <constraint firstAttribute="width" secondItem="KMd-Ln-ShW" secondAttribute="height" multiplier="1:1" id="sqw-Oz-9sm"/>
                     </constraints>
                 </imageView>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oCy-bW-g5d" userLabel="PhotoImage">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment_camera" translatesAutoresizingMaskIntoConstraints="NO" id="oCy-bW-g5d" userLabel="PhotoImage">
                     <rect key="frame" x="13" y="526" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="oCy-bW-g5d" secondAttribute="height" multiplier="1:1" id="XgW-ST-5TF"/>
@@ -80,4 +80,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="comment_camera" width="46" height="46"/>
+    </resources>
 </document>

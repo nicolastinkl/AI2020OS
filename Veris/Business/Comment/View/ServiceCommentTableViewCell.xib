@@ -27,7 +27,7 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5n-Qs-AxA" userLabel="Stars" customClass="StarRateView" customModule="Veris" customModuleProvider="target">
                         <rect key="frame" x="198" y="25" width="100" height="15"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="ACG-qh-E77"/>
                             <constraint firstAttribute="width" constant="100" id="ncu-xv-68o"/>
@@ -36,6 +36,8 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="scorePercent">
                                 <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="string" keyPath="backgroundStarImage" value="Hollow_Star"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="foregroundStarImage" value="Comment_Star"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oUy-xX-H03" userLabel="ServiceIcon">
@@ -53,7 +55,7 @@
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PKE-zF-7t2" userLabel="InputComment">
                         <rect key="frame" x="22" y="80" width="290" height="82"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="82" id="xpA-r1-AyA"/>
                         </constraints>
@@ -84,6 +86,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="GsB-aE-nrk" firstAttribute="leading" secondItem="oUy-xX-H03" secondAttribute="leading" id="1XO-t0-b86"/>
                     <constraint firstItem="PCM-Vr-ZB2" firstAttribute="leading" secondItem="PKE-zF-7t2" secondAttribute="leading" id="EXj-ps-BGB"/>
@@ -105,6 +108,7 @@
                     <constraint firstItem="uly-uk-QfV" firstAttribute="leading" secondItem="oUy-xX-H03" secondAttribute="leading" id="wMP-wz-D2o"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="imageButton" destination="GsB-aE-nrk" id="I2x-HV-g7S"/>
                 <outlet property="inputComment" destination="PKE-zF-7t2" id="0Wy-Fr-pH3"/>
