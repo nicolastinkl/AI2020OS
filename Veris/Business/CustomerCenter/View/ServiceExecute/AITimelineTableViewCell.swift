@@ -189,7 +189,7 @@ class AITimelineTableViewCell: UITableViewCell {
     
     // MARK: -> events handle
     func confirmServiceCompleteAction(sender: UIButton) {
-        if let delegate = delegate{
+        if let delegate = delegate {
             delegate.cellConfirmButtonDidClick(viewModel: viewModel!)
         }
     }

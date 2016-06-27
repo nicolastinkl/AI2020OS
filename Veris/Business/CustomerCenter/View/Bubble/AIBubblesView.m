@@ -47,9 +47,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _bubbleModels = [models mutableCopy];
+        [self parseBubbleDatas:models];
         [self parserBubbleColors];
-        [self parseBubbleDatas];
         [self makeBubbles];
         
     }
@@ -57,7 +56,18 @@
     return self;
 }
 
-- (void) addGestureBubbleAction:(BubbleBlock) block{
+- (void)dealloc {
+
+    self.animator = nil;
+    self.hierarchyDic = nil;
+    self.bubbleModels = nil;
+    self.bubbleModels = nil;
+    self.bubbles = nil;
+    self.cacheBubble = nil;
+    self.selfBlock = nil;
+}
+
+- (void) addGestureBubbleAction:(BubbleBlock) block {
     self.selfBlock = block;
 }
 
@@ -83,8 +93,19 @@
 }
 
 
-- (void) parseBubbleDatas
+- (void) parseBubbleDatas:(NSArray *)models
 {
+    if (models) {
+        _bubbleModels = [models mutableCopy];
+
+    }else {
+        self.bubbleModels = [[NSMutableArray alloc] init];
+    }
+
+    AIBuyerBubbleModel* modelAdd = [[AIBuyerBubbleModel alloc] init];
+    modelAdd.bubbleType = 2;
+    [self.bubbleModels addObject:modelAdd];
+
     self.hierarchyDic = [[NSMutableDictionary alloc] init];
     self.bubbles = [[NSMutableArray alloc] init];
 }
@@ -562,6 +583,12 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
 
 }
 
+
+- (void)makeAddBubble {
+
+}
+
+
 - (void) makeBubbles
 {
     // 构造+气泡
@@ -576,30 +603,7 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
     [self.cacheBubble setValue:@1 forKey:big];
     [self.cacheBubble setValue:@(4) forKey:middle];
     [self.cacheBubble setValue:@(self.bubbleModels.count-5) forKey:small];
-    
-    // Add AddButton
-    /**
-     typeToNormal = 0,
-     typeToSignIcon = 1,//
-     typeToAdd = 2//
-     */
-    {
-        AIBuyerBubbleModel* modelAdd = [[AIBuyerBubbleModel alloc] init];
-        modelAdd.bubbleType = 2;
-        [self.bubbleModels addObject:modelAdd];
-    }
-    
-    //这里处理随机乱序
-    /*NSUInteger count = _bubbleModels.count;
-    
-    // 循环将倒数第n张牌中的随机一张放到整个扑克的最后
-    for(int n=count;n>=0;n--){
-        int rand = (int)(random()/(float)RAND_MAX*n);
-        NSNumber *pokeMoveToEnd = [_bubbleModels objectAtIndex:rand];
-        [_bubbleModels removeObjectAtIndex:rand];
-        [_bubbleModels addObject:pokeMoveToEnd];
-    }*/
-    
+
     __block int indexView = 0;
     __weak typeof(self) weakSelf = self;
     [_bubbleModels enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -607,25 +611,7 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
         NSUInteger i = idx;
         
         // 构造bubble
-        /*
-        NSNumber * numberBig = [weakSelf.cacheBubble valueForKey:big];
-        NSNumber * numberMiddle = [weakSelf.cacheBubble valueForKey:middle];
-        NSNumber * numberSmall= [weakSelf.cacheBubble valueForKey:small];
-        if (numberBig.intValue > 0) {
-            model.bubbleSize = [AIBubble bigBubbleRadius];
-            [weakSelf.cacheBubble setValue:@0 forKey:big];
-        }else  if (numberMiddle.intValue > 0) {
-            model.bubbleSize = [AIBubble midBubbleRadius];
-            int newValue = numberMiddle.intValue - 1;
-            [weakSelf.cacheBubble setValue:@(newValue) forKey:middle];
-        }else if (numberSmall.intValue > 0) {
-            model.bubbleSize = [AIBubble smaBubbleRadius];
-            int newValue = numberSmall.intValue - 1;
-            [weakSelf.cacheBubble setValue:@(newValue) forKey:small];
-        }else{
-            model.bubbleSize = [AIBubble smaBubbleRadius];
-        }*/
-        
+
         if (model.service_list.count >= 6){
             model.bubbleSize = [AIBubble bigBubbleRadius];
         }else if (model.service_list.count >= 3 && model.service_list.count <= 5){
@@ -634,12 +620,7 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
             model.bubbleSize = [AIBubble smaBubbleRadius];
         }
         
-        AIBubble *bubble;
-        
-        if (model.service_id > 0) {
-           
-            
-        }
+        AIBubble *bubble = nil;
         
         if (model.bubbleType == 2) {
             bubble = [[AIBubble alloc] initWithCenter:CGPointZero model:model type:typeToAdd Index:indexView];
@@ -658,19 +639,20 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
         
         NSMutableArray *rightPoints = [[NSMutableArray alloc] init];
         
-        BOOL shouldAddBubble = NO;
-        
-        if (i == 0) {
+        BOOL shouldAddBubble = YES;
+
+        if (i == 0 && self.bubbleModels.count == 1) {
+            center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) / 2);
+            NSValue *rightValue = [NSValue valueWithCGPoint:center];
+            [rightPoints addObject:rightValue];
+        }else if (i == 0) {
             // 第一个圆在中心区域随机取一点
-            shouldAddBubble = YES;
             center = [weakSelf randomPointWithCenterCycleR:[AIBubble smaBubbleRadius]];
-            //bubble = [[AIBubble alloc] initWithCenter:CGPointZero model:[[AIBuyerBubbleModel alloc] init]];
             NSValue *rightValue = [NSValue valueWithCGPoint:center];
             [rightPoints addObject:rightValue];
         }
         else
         {
-            
             for (AIBubble *centerBubble in weakSelf.bubbles) {
                 
                 if (centerBubble.radius == [AIBubble tinyBubbleRadius]) {
@@ -680,7 +662,6 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
                center = [weakSelf searchCenterForBubble:bubble withCenterBubble:centerBubble];
                 
                 if (!CGPointEqualToPoint(center, CGPointZero)) {
-                    shouldAddBubble = YES;
                     NSValue *rightValue = [NSValue valueWithCGPoint:center];
                     [rightPoints addObject:rightValue];
                 }
@@ -689,8 +670,8 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
         }
         
         if (shouldAddBubble) {
-            
-            if (bubble.hadRecommend) {
+
+            if (bubble.hadRecommend) { // 判断是否需要添加推荐气泡
                 center = [weakSelf inserTinyBubbleForBubble:bubble withPoints:rightPoints];
                 if (CGPointEqualToPoint(center, CGPointZero)) {
                     // 没找到合适点放tiny，重新寻找

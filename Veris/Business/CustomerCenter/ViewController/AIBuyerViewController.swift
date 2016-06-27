@@ -314,10 +314,16 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         bubbles.tag = bubblesTag
         bubbleViewContainer.addSubview(bubbles)
 
-        bubbles.addGestureBubbleAction {  [weak self]   (bubbleModel, bubble) -> Void in
-            if let strongSelf = self {
-                strongSelf.showBuyerDetailWithBubble(bubble, model: bubbleModel)
+        weak var wf = self
+        bubbles.addGestureBubbleAction {(bubbleModel, bubble) -> Void in
+
+            if bubbleModel.bubbleType == 2 {
+                wf!.showAddNewBubble(bubble, model: bubbleModel)
+            } else {
+                wf!.showBuyerDetailWithBubble(bubble, model: bubbleModel)
             }
+
+
         }
 
         return bubbles
@@ -334,6 +340,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     private func recreateBubbleView() {
         bubbles.removeFromSuperview()
+        bubbles = nil
 
         makeBubblesWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, topBarHeight + BUBBLE_VIEW_MARGIN, screenWidth - 2 * BUBBLE_VIEW_MARGIN, BUBBLE_VIEW_HEIGHT))
     }
@@ -363,9 +370,16 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         return scaledPoint
     }
 
+    //MARK: Add New Bubble
+    func showAddNewBubble(bubble: AIBubble, model: AIBuyerBubbleModel) {
+        print("showAddNewBubble")
+    }
+
+
+
     func showBuyerDetailWithBubble(bubble: AIBubble, model: AIBuyerBubbleModel) {
 
-        print(UIDevice.modelName)
+
         if UIDevice.isIphone5 || UIDevice.isSimulatorIPhone5 {
 
             let viewsss = createBuyerDetailViewController(model)
@@ -403,7 +417,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             unowned let detailViewController = createBuyerDetailViewController(model)
 
             detailViewController.view.alpha = 0
-            let detailScale: CGFloat = bubble.radius * 2 / CGRectGetWidth(self.view.frame)
 
             // Start CABasicAnimation.
 
@@ -421,11 +434,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
             // self.presentViewController在真机iPhone5上会crash...
             self.presentViewController(detailViewController, animated: false) { () -> Void in
-
-
-//                detailViewController.view.transform =  CGAffineTransformMakeScale(detailScale, detailScale)
-//                detailViewController.view.center = realPoint
-
                 // 开始动画
                 SpringAnimation.springEaseIn(0.3, animations: {
                     detailViewController.view.alpha = 1
@@ -524,6 +532,12 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func moreButtonAction() {
+        #if !DEBUG
+            let vc = AIProductQAViewController()
+            vc.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            vc.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+            presentViewController(vc, animated: true, completion: nil)
+        #endif
         self.makeBubbleView()
     }
 

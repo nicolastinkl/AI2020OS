@@ -9,6 +9,7 @@
 #import "JSONModel.h"
 #import "ProposalModel.h"
 
+
 @protocol AIBuyerBubbleProportModel
 
 

@@ -94,17 +94,13 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         cell.delegate = self
         cell.tag = indexPath.row
 
-        resetCellUI(cell, indexPath: indexPath)
+   //     resetCellUI(cell, indexPath: indexPath)
 
         return cell
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 250
-        } else {
-            return 200
-        }
+        return 250
     }
 
     private func resetCellUI(cell: ServiceCommentTableViewCell, indexPath: NSIndexPath) {

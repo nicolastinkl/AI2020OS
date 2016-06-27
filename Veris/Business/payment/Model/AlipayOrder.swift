@@ -14,38 +14,38 @@ extension Double {
     }
 }
 
-struct AlipayOrder:CustomStringConvertible {
-    let partner:String
-    let seller:String
-    let tradeNO:Int
-    let productName:String
-    let productDescription:String
-    let amount:Double
-    let notifyURL:String
+struct AlipayOrder: CustomStringConvertible {
+    let partner: String
+    let seller: String
+    let tradeNO: Int
+    let productName: String
+    let productDescription: String
+    let amount: Double
+    let notifyURL: String
     
-    let service:String
-    let paymentType:String
-    let inputCharset:String
-    let itBPay:String
-    let showUrl:String
+    let service: String
+    let paymentType: String
+    let inputCharset: String
+    let itBPay: String
+    let showUrl: String
     
-    let rsaDate:String? //optional
-    let appID:String? //optional
+    let rsaDate: String? //optional
+    let appID: String? //optional
     
-    init(partner:String,
-        seller:String,
-        tradeNO:Int,
-        productName:String,
-        productDescription:String,
-        amount:Double,
-        notifyURL:String,
-        service:String,
-        paymentType:String,
-        inputCharset:String,
-        itBPay:String,
-        showUrl:String,
-        rsaDate:String?,
-        appID:String?) {
+    init(partner: String,
+        seller: String,
+        tradeNO: Int,
+        productName: String,
+        productDescription: String,
+        amount: Double,
+        notifyURL: String,
+        service: String,
+        paymentType: String,
+        inputCharset: String,
+        itBPay: String,
+        showUrl: String,
+        rsaDate: String?,
+        appID: String?) {
             self.partner = partner
             self.seller = seller
             self.tradeNO = tradeNO
@@ -62,7 +62,7 @@ struct AlipayOrder:CustomStringConvertible {
             self.appID = appID
     }
     
-    var description:String {
+    var description: String {
         var desc = ""
         desc += "partner=\"\(partner)\""
         desc += "&seller_id=\"\(seller)\""

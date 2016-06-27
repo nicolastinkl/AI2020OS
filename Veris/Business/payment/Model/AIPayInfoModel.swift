@@ -27,11 +27,11 @@ import Foundation
 
 struct AIPayInfoModel: JSONJoy {
     
-    var servicename:String?
-    var price:Double?
-    var childList:Array<AIPayInfoModel>?
+    var servicename: String?
+    var price: Double?
+    var childList: Array<AIPayInfoModel>?
     
-    init(){}
+    init() {}
     init(_ decoder: JSONDecoder) {
         
     }

@@ -18,16 +18,41 @@ class StarRateView: UIView {
     private var backgroundStars: [UIImageView]!
     private var oldFrame: CGRect?
 
-    @IBInspectable var scorePercent: CGFloat = 1.0
+    @IBInspectable var scorePercent: CGFloat = 1.0 {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
     @IBInspectable var hasAnimation: Bool = true
+    
     @IBInspectable var allowIncompleteStar: Bool = true
-    @IBInspectable var foregroundStarImage: String = "Yellow_Star"
-    @IBInspectable var backgroundStarImage: String = "Gray_Star"
-    @IBInspectable var numberOfStars: Int = 5
+    
+    @IBInspectable var foregroundStarImage: String = "Yellow_Star" {
+        didSet {
+            if let stars = foregroundStars {
+                setStarsImage(foregroundStarImage, stars: stars)
+            }
+        }
+    }
+    
+    @IBInspectable var backgroundStarImage: String = "Gray_Star" {
+        didSet {
+            if let stars = backgroundStars {
+                setStarsImage(backgroundStarImage, stars: stars)
+            }
+        }
+    }
+    
+    @IBInspectable var numberOfStars: Int = 5 {
+        didSet {
+            recreateForeAndBackgroundStars()
+        }
+    }
 
     override var frame: CGRect {
         didSet {
-            oldFrame = frame
+            relayoutStars()
         }
     }
 
@@ -69,21 +94,21 @@ class StarRateView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        if let old = oldFrame {
-            if old.height != frame.height || old.width != frame.width {
-                relayoutStars()
-                oldFrame = frame
-            }
-        } else {
-            oldFrame = frame
-        }
+//        if let old = oldFrame {
+//            if old.height != frame.height || old.width != frame.width {
+//                relayoutStars()
+//                oldFrame = frame
+//            }
+//        } else {
+//            oldFrame = frame
+//        }
 
         let interval = self.hasAnimation ? 0.2 : 0
         weak var weakSelf: StarRateView? = self
 
         UIView.animateWithDuration(interval) {
             if let se = weakSelf {
-                se.foregroundStarView.frame = CGRectMake(0, 0, se.bounds.size.width * se.scorePercent, se.bounds.size.height)
+                se.foregroundStarView.frame = CGRect(x: 0, y: 0, width: se.bounds.size.width * se.scorePercent, height: se.bounds.size.height)
             }
 
         }
@@ -113,6 +138,25 @@ class StarRateView: UIView {
         let tapGesture = UITapGestureRecognizer(target: self, action: selector)
         addGestureRecognizer(tapGesture)
     }
+    
+    private func recreateForeAndBackgroundStars() {
+        foregroundStars = createStars(foregroundStarImage)
+        backgroundStars = createStars(backgroundStarImage)
+        
+        clearSubViews(foregroundStarView)
+        clearSubViews(backgroundStarView)
+        
+        addStarsToContainer(foregroundStarView, stars: foregroundStars)
+        addStarsToContainer(backgroundStarView, stars: backgroundStars)
+        
+        setNeedsLayout()
+    }
+    
+    private func clearSubViews(parentView: UIView) {
+        for subView in parentView.subviews {
+            subView.removeFromSuperview()
+        }
+    }
 
     private func createStars(imageName: String) -> [UIImageView] {
         var stars = [UIImageView]()
@@ -122,7 +166,7 @@ class StarRateView: UIView {
 
             let index: CGFloat = CGFloat(i)
             let numStars: CGFloat = CGFloat(numberOfStars)
-            imageView.frame = CGRectMake(index * bounds.size.width / numStars, 0, bounds.size.width / numStars, bounds.size.height)
+            imageView.frame = CGRect(x: index * bounds.size.width / numStars, y: 0, width: bounds.size.width / numStars, height: bounds.size.height)
 
             imageView.contentMode = .ScaleAspectFit
 
@@ -130,6 +174,12 @@ class StarRateView: UIView {
         }
 
         return stars
+    }
+    
+    private func setStarsImage(imageName: String, stars: [UIImageView]) {
+        for star in stars {
+            star.image = UIImage(named: imageName)
+        }
     }
 
     func relayoutStars() {
@@ -146,7 +196,7 @@ class StarRateView: UIView {
 
             let index: CGFloat = CGFloat(i)
             let numStars: CGFloat = CGFloat(numberOfStars)
-            foregroundStar.frame = CGRectMake(index * bounds.size.width / numStars, 0, bounds.size.width / numStars, bounds.size.height)
+            foregroundStar.frame = CGRect(x: index * bounds.size.width / numStars, y: 0, width: bounds.size.width / numStars, height: bounds.size.height)
 
             backgroundStar.frame = foregroundStar.frame
         }
@@ -168,7 +218,7 @@ class StarRateView: UIView {
 
             let index: CGFloat = CGFloat(i)
 
-            imageView.frame = CGRectMake(index * bounds.size.width / numStars, 0, bounds.size.width / numStars, bounds.size.height)
+            imageView.frame = CGRect(x: index * bounds.size.width / numStars, y: 0, width: bounds.size.width / numStars, height: bounds.size.height)
             container.addSubview(imageView)
         }
     }

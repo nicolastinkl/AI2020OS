@@ -109,7 +109,7 @@
 
 - (void)makeBackgroundImages
 {
-    UIImage *bgImage = [UIImage imageNamed:@"scanbg"];
+    UIImage *bgImage = [UIImage imageNamed:@"search_background"];
     
     UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:self.bounds];
     [bgImageView setImage:bgImage];

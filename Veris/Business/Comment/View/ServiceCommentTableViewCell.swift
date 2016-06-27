@@ -14,19 +14,10 @@ class ServiceCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var placeHolderText: UILabel!
     @IBOutlet weak var serviceIcon: UIImageView!
     @IBOutlet weak var inputComment: UITextView!
+    @IBOutlet weak var serviceName: UILabel!
 
- //   @IBOutlet weak var hintHeightConstraint: NSLayoutConstraint!
- //   @IBOutlet weak var heightConstraint: NSLayoutConstraint!
- //   @IBOutlet weak var starContainerWidthConstraint: NSLayoutConstraint!
- //   @IBOutlet weak var starContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var starRateView: StarRateView!
-    @IBOutlet weak var commentServicesHint: UILabel!
-//    @IBOutlet weak var bottomSererator: UIImageView!
 
-//    private var originIconHeight: CGFloat!
-//    private var originStarContainerHeight: CGFloat!
-//    private var originStarContainerWidth: CGFloat!
-//    private var originHintHeight: CGFloat!
 
     var delegate: CommentDistrictDelegate?
 
@@ -38,17 +29,15 @@ class ServiceCommentTableViewCell: UITableViewCell {
 
         serviceIcon.image = UIImage(named: "testHolder1")
 
-//        originIconHeight = heightConstraint.constant
-//        originStarContainerHeight = starContainerHeightConstraint.constant
-//        originStarContainerWidth = starContainerWidthConstraint.constant
-//        originHintHeight = hintHeightConstraint.constant
-
         let imageSelector =
             #selector(ServiceCommentTableViewCell.imageButtonAction(_:))
         let imageTap = UITapGestureRecognizer(target: self, action: imageSelector)
         imageButton.addGestureRecognizer(imageTap)
 
         inputComment.delegate = self
+        
+        serviceName.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+        placeHolderText.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
     }
 
     override func layoutSubviews() {
@@ -58,38 +47,6 @@ class ServiceCommentTableViewCell: UITableViewCell {
     func imageButtonAction(sender: UIGestureRecognizer) {
         delegate?.pohotImageButtonClicked(imageButton, buttonParent: self)
     }
-
-//    func setToHeadComment() {
-//
-//        heightConstraint.constant = originIconHeight + 10
-//
-//        starContainerHeightConstraint.constant = originStarContainerHeight + 10
-//        starContainerWidthConstraint.constant = originStarContainerWidth + 30
-//
-//        bottomSererator.hidden = false
-//        commentServicesHint.hidden = false
-//        hintHeightConstraint.constant = originHintHeight
-//
-//        commentServicesHint.setNeedsUpdateConstraints()
-//        starRateView.setNeedsUpdateConstraints()
-//        contentView.layoutIfNeeded()
-//
-//    }
-//
-//    func setToSubComment() {
-//        heightConstraint.constant = originIconHeight
-//
-//        starContainerHeightConstraint.constant = originStarContainerHeight
-//        starContainerWidthConstraint.constant = originStarContainerWidth
-//
-//        bottomSererator.hidden = true
-//        commentServicesHint.hidden = true
-//        hintHeightConstraint.constant = 0
-//
-//        commentServicesHint.setNeedsUpdateConstraints()
-//        starRateView.setNeedsLayout()
-//        contentView.layoutIfNeeded()
-//    }
 }
 
 extension ServiceCommentTableViewCell: UITextViewDelegate {
