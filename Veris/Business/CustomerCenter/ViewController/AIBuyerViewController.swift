@@ -313,7 +313,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         bubbles = AIBubblesView(frame: frame, models: NSMutableArray(array: self.dataSourcePop))
         bubbles.tag = bubblesTag
         bubbleViewContainer.addSubview(bubbles)
-
+     
         bubbles.addGestureBubbleAction {  [weak self]   (bubbleModel, bubble) -> Void in
             if let strongSelf = self {
                 strongSelf.showBuyerDetailWithBubble(bubble, model: bubbleModel)
@@ -334,6 +334,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     private func recreateBubbleView() {
         bubbles.removeFromSuperview()
+        bubbles = nil
 
         makeBubblesWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, topBarHeight + BUBBLE_VIEW_MARGIN, screenWidth - 2 * BUBBLE_VIEW_MARGIN, BUBBLE_VIEW_HEIGHT))
     }
@@ -365,7 +366,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func showBuyerDetailWithBubble(bubble: AIBubble, model: AIBuyerBubbleModel) {
 
-        print(UIDevice.modelName)
+
         if UIDevice.isIphone5 || UIDevice.isSimulatorIPhone5 {
 
             let viewsss = createBuyerDetailViewController(model)
@@ -403,7 +404,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             unowned let detailViewController = createBuyerDetailViewController(model)
 
             detailViewController.view.alpha = 0
-            let detailScale: CGFloat = bubble.radius * 2 / CGRectGetWidth(self.view.frame)
 
             // Start CABasicAnimation.
 
@@ -421,11 +421,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
             // self.presentViewController在真机iPhone5上会crash...
             self.presentViewController(detailViewController, animated: false) { () -> Void in
-
-
-//                detailViewController.view.transform =  CGAffineTransformMakeScale(detailScale, detailScale)
-//                detailViewController.view.center = realPoint
-
                 // 开始动画
                 SpringAnimation.springEaseIn(0.3, animations: {
                     detailViewController.view.alpha = 1

@@ -802,7 +802,7 @@ extension AIBuyerDetailViewController: SettingClickDelegate {
             let userId = NSUserDefaults.standardUserDefaults().objectForKey("Default_UserID") as? String
 
             let userIdInt = Int(userId!)!
-            weak var wf = self
+  
             BDKProposalService().updateParamSettingState(customerId: userIdInt, serviceId: model.service_id, proposalId: (self.bubbleModel?.proposal_id)!, roleId: model.role_id, flag: parentView.isSetted, success: { () -> Void in
                 print("success")
 
