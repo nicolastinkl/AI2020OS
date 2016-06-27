@@ -26,7 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     let WXPaySuccessNotification = "WeixinPaySuccessNotification"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
+//        let vc = AIProductQAViewController()
+//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        self.window?.rootViewController = vc
+//        self.window?.maeKeyAndVisible()
+//        return true
         //AVOS
         configAVOSCloud()
         AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
@@ -98,7 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         }
         
         //跳转支付宝钱包进行支付，处理支付结果
-        AlipaySDK.defaultService().processOrderWithPaymentResult(url, standbyCallback: { (resultDict:[NSObject : AnyObject]!) -> Void in
+        AlipaySDK.defaultService().processOrderWithPaymentResult(url, standbyCallback: { (resultDict: [NSObject : AnyObject]!) -> Void in
             print("openURL result: \(resultDict)")
         })
         

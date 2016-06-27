@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "CTAssetsPickerVideo.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "scanbg@2x.png"
+      "filename" : "CTAssetsPickerVideo@2x.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",

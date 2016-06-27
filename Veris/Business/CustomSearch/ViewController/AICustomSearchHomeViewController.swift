@@ -42,7 +42,16 @@ class AICustomSearchHomeViewController: UIViewController {
 	func makeAWishAction() {
 		showTransitionStyleCrossDissolveView(AIPaymentViewController.initFromNib())
 	}
+    
 	
+    @IBAction func choosePhotoAction(any: AnyObject) {
+        showTransitionStyleCrossDissolveView(AISuperiorityViewController.initFromNib())
+    }
+    
+    @IBAction func showListAction(any: AnyObject) {
+        showTransitionStyleCrossDissolveView(AIAudioSearchViewController.initFromNib())
+    }
+    
 	/**
 	 init with navigation bar.
 	 */
@@ -71,11 +80,12 @@ class AICustomSearchHomeViewController: UIViewController {
 		
 		// Make Wish Button
 		let wishButton = UIButton(type: UIButtonType.Custom)
-		wishButton.setTitle("Make a wish", forState: UIControlState.Normal)
+		wishButton.setTitle("   Make a wish", forState: UIControlState.Normal)
+        wishButton.setImage(UIImage(named: "AI_Search_Home_WIsh"), forState: UIControlState.Normal)
 		view.addSubview(wishButton)
 		wishButton.backgroundColor = UIColor.clearColor()
-		wishButton.titleLabel?.font = UIFont.systemFontOfSize(14)
-		wishButton.titleLabel?.textColor = UIColor.whiteColor()
+		wishButton.titleLabel?.font = AITools.myriadLightSemiCondensedWithSize(16)
+		wishButton.titleLabel?.textColor = UIColor(hexString: "#d4d5ef", alpha: 0.70)
 		constrain(wishButton) { (wishProxy) in
 			wishProxy.height == 30
 			wishProxy.left == wishProxy.superview!.left + 10
@@ -84,11 +94,28 @@ class AICustomSearchHomeViewController: UIViewController {
 		}
 		wishButton.addTarget(self, action: #selector(makeAWishAction), forControlEvents: UIControlEvents.TouchUpInside)
 		
+        
+        let imageview = UIImageView(image: UIImage(named: "AI_Search_Home_right"))
+        wishButton.addSubview(imageview)
+        
+        constrain(imageview) { (wishProxy) in
+            wishProxy.height == 32/3
+            wishProxy.width == 17/3
+            wishProxy.centerY == wishProxy.superview!.centerY - 1
+            wishProxy.centerX == wishProxy.superview!.centerX + 60
+        }
+        
 	}
 	
 	@IBAction func backButtonPressed(sender: AnyObject) {
 		dismissViewControllerAnimated(true, completion: nil)
 	}
+    @IBAction func searchButtonPressed(sender: AnyObject) {
+        let service = AIImageRecongizeService()
+        service.getImageInfo(UIImage(named: "search-icon1")!) { (result, error) in
+            print(result)
+        }
+    }
 	
 	func searching() {
 		if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
@@ -120,8 +147,9 @@ class AICustomSearchHomeViewController: UIViewController {
 extension AICustomSearchHomeViewController: UITextFieldDelegate {
 	
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
-		
+        
 		searching()
+        tableView.hidden = false
 		holdView.hidden = true
 		textField.resignFirstResponder()
 		

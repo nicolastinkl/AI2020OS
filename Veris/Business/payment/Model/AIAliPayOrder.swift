@@ -9,23 +9,23 @@
 import Foundation
 
 struct AIAliPayOrder {
-    var id : Int
-    var title : String
+    var id: Int
+    var title: String
     var content: String
     var url: String
-    var createdAt : String
-    var price : Double
-    var paid : Bool
-    var productID : Int
+    var createdAt: String
+    var price: Double
+    var paid: Bool
+    var productID: Int
     
-    init(id : Int,
-        title : String,
+    init(id: Int,
+        title: String,
         content: String,
         url: String,
-        createdAt : String,
-        price : Double,
-        paid : Bool,
-        productID : Int) {
+        createdAt: String,
+        price: Double,
+        paid: Bool,
+        productID: Int) {
             self.id = id
             self.title = title
             self.content = content
