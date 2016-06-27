@@ -13,6 +13,38 @@
 #import "JSONHTTPClient.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
+/**
+ *  微信开放平台申请得到的 appid, 需要同时添加在 URL schema
+ */
+NSString * const WXAppId = @"wx483dafc09117a3d0";
+
+/**
+ * 微信开放平台和商户约定的支付密钥
+ *
+ * 注意：不能hardcode在客户端，建议genSign这个过程由服务器端完成
+ */
+NSString * const WXAppKey = @"Pm2GQlkyVNoSfAVz7aCQiL6uVBzJrY0nxAEeFr0AYepM3QUcLXQwA70w4EoKfKoxBUSqTmnGtdZYEklxhxzmPamCiIeZ3WT0JlcZnRXtmndUzwQRbf2ueRn7OeqCANvR";
+
+/**
+ * 微信开放平台和商户约定的密钥
+ *
+ * 注意：不能hardcode在客户端，建议genSign这个过程由服务器端完成
+ */
+NSString * const WXAppSecret = @"865c21f8991bd6b229f535648296d088";
+
+/**
+ * 微信开放平台和商户约定的支付密钥
+ *
+ * 注意：不能hardcode在客户端，建议genSign这个过程由服务器端完成
+ */
+NSString * const WXPartnerKey = @"d4a8415b5845bf446a0fc44da5158deb";
+
+/**
+ *  微信公众平台商户模块生成的ID
+ */
+NSString * const WXPartnerId = @"1218670701";
+
+
 NSString *AccessTokenKey = @"access_token";
 NSString *PrePayIdKey = @"prepayid";
 NSString *errcodeKey = @"errcode";
@@ -273,6 +305,7 @@ NSString *expiresInKey = @"expires_in";
             [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
             return;
         } else {
+            [SVProgressHUD dismiss];
             NSLog(@"--- %@", dict);
 //            [weakSelf showAlertWithTitle:@"错误" msg:@"获取 AccessToken 失败"];
         }

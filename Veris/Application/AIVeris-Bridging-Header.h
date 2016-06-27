@@ -133,5 +133,16 @@
 #import "iflyMSC/iflyMSC.h"
 #import "IATConfig.h"
 #import "ISRDataHelper.h"
- 
+
+
+#import "WXPayClient.h"
+//Alipay
+#import <AlipaySDK/AlipaySDK.h>
+#import "RSADataSigner.h"
+
+//wechat
+#import "WXApi.h"
+#import "WXApiObject.h"
+
+#import "CTAssetsPickerController.h"
 

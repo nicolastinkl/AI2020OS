@@ -101,7 +101,7 @@ class AISuperiorityViewController: UIViewController {
         titleLabel.font = AITools.myriadBoldWithSize(105/3)
         titleLabel.setHeight(80)
         titleLabel.setLeft(leftOffSet)
-        addNewSubView(titleLabel, preView: imageView ,color: UIColor.clearColor(), space: 17)
+        addNewSubView(titleLabel, preView: imageView, color: UIColor.clearColor(), space: 17)
         titleLabel.setWidth(UIScreen.mainScreen().bounds.width - 50)
         titleLabel.text = "听说你还为孕检超碎了心？"
 
@@ -111,7 +111,7 @@ class AISuperiorityViewController: UIViewController {
             if let aisCell = AISuperiorityCellView.initFromNib() as? AISuperiorityCellView {
                 aisCell.labelDesciption.text = "一键启动符合服务"
                 if index > 0 {
-                    addNewSubView(aisCell, preView: preCellView!,color: UIColor.clearColor(), space: 8)
+                    addNewSubView(aisCell, preView: preCellView!, color: UIColor.clearColor(), space: 8)
                 } else {
                     addNewSubView(aisCell, preView: titleLabel)
                 }
@@ -125,7 +125,7 @@ class AISuperiorityViewController: UIViewController {
         priceLabel.setHeight(30)
         priceLabel.font = AITools.myriadBoldWithSize(60/3)
         priceLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
-        addNewSubView(priceLabel, preView: preCellView!,color: UIColor.clearColor(), space: 8)
+        addNewSubView(priceLabel, preView: preCellView!, color: UIColor.clearColor(), space: 8)
 //        priceLabel.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
 
         let canvas = canvasLineView(frame: priceLabel.frame)
@@ -138,7 +138,7 @@ class AISuperiorityViewController: UIViewController {
         serverIcons.setHeight(350)
         var height: CGFloat = 0
         var preView: UIView?
-        var leftOffset : CGFloat = 0
+        var leftOffset: CGFloat = 0
         for i in 0...4 {
             if let iconText = AISuperiorityIconTextView.initFromNib() {
                 let offSet: CGFloat = 50.0 + CGFloat(arc4random() % 20)
@@ -147,7 +147,7 @@ class AISuperiorityViewController: UIViewController {
                 if i % 2 != 0 {
                     
                     iconText.setLeft(self.view.width / 3 + CGFloat(arc4random() % 50) + leftOffset)
-                }else{
+                } else {
                     iconText.setLeft(leftOffset)
                 }
                 serverIcons.addSubview(iconText)
@@ -213,11 +213,11 @@ class AISuperiorityViewController: UIViewController {
         }
     }
     
-    func addCureLineView(){
+    func addCureLineView() {
         let rightOffset = self.roundView.right
         let center: CGPoint = CGPointMake(self.roundView.width/2, self.roundView.height)
-        let startPoint: CGPoint = CGPointMake(0,0)
-        let endPoint: CGPoint = CGPointMake(rightOffset,0)
+        let startPoint: CGPoint = CGPointMake(0, 0)
+        let endPoint: CGPoint = CGPointMake(rightOffset, 0)
         let control1: CGPoint = center
         let path: UIBezierPath = UIBezierPath()
         path.moveToPoint(startPoint)
@@ -234,7 +234,7 @@ class AISuperiorityViewController: UIViewController {
         
     }
     
-    func addCurveLineWithModel(model: CurveModel,sview: UIView) -> CAShapeLayer {
+    func addCurveLineWithModel(model: CurveModel, sview: UIView) -> CAShapeLayer {
         let startPoint: CGPoint = CGPointMake(model.startX, model.startY)
         let endPoint: CGPoint = CGPointMake(model.endX, model.endY)
         let path: UIBezierPath = UIBezierPath()
@@ -255,17 +255,19 @@ class AISuperiorityViewController: UIViewController {
 
 class canvasLineView: UIView {
     override func drawRect(rect: CGRect) {
+        
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
         bezierPath.moveToPoint(CGPoint(x: 0, y: 0))
         bezierPath.addLineToPoint(CGPoint(x: rect.width, y: 0))
-        UIColor(hexString: "#FFFFFF" , alpha: 0.65) .setStroke()
+        UIColor(hexString: "#FFFFFF", alpha: 0.65) .setStroke()
         bezierPath.lineWidth = 0.5
         CGContextSaveGState(context)
         CGContextSetLineDash(context, 0, [4, 4], 2)
         bezierPath.stroke()
         CGContextRestoreGState(context)
+        backgroundColor = UIColor.clearColor()        
     }
 }

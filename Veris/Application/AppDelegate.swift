@@ -10,7 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
     var window: UIWindow?
     //
@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var buyerListData: ProposalOrderListModel?
     var buyerProposalData: AIProposalPopListModel?
 
+    let WX_APPID: String  = "wx483dafc09117a3d0"
+    let WXPaySuccessNotification = "WeixinPaySuccessNotification"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
@@ -32,6 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         IQKeyboardManager.sharedManager().enable = true
 
+        //WeChat Pay
+        
+        WXApi.registerApp(WX_APPID, withDescription: "AIVers")
+        
+        
         //处理讯飞语音初始化
         AIAppInit().initWithXUNFEI()
 
@@ -81,6 +88,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         AVAnalytics.setAnalyticsEnabled(true)
 
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        print("openURL:\(url.absoluteString)")
+        
+        if url.scheme == WX_APPID {
+            return WXApi.handleOpenURL(url, delegate: self)
+        }
+        
+        //跳转支付宝钱包进行支付，处理支付结果
+        AlipaySDK.defaultService().processOrderWithPaymentResult(url, standbyCallback: { (resultDict: [NSObject : AnyObject]!) -> Void in
+            print("openURL result: \(resultDict)")
+        })
+        
+        return true
+    }
+    
+    func onResp(resp: BaseResp!) {
+        
+        var strMsg = "\(resp.errCode)"
+        if resp.isKindOfClass(PayResp) {
+            switch resp.errCode {
+            case 0 :
+                NSNotificationCenter.defaultCenter().postNotificationName(WXPaySuccessNotification, object: nil)
+            default:
+                strMsg = "支付失败，请您重新支付!"
+                print("retcode = \(resp.errCode), retstr = \(resp.errStr)")
+            }
+        }
+        let alert = UIAlertView(title: "支付结果", message: strMsg, delegate: nil, cancelButtonTitle: "OK")
+        alert.show()
     }
 
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {

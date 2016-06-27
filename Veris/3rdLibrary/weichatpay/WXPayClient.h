@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "WXApi.h"
 #import "JSONModel.h"
-
+#import "Constant.h"
 
 
 /*!
  *  支付类型
- order_type: 业务类型 1 => 充值, 2 => 快件超期支付, 3 => 租用, 4 => 租用超期, 5 => 存放, 6 => 存放超期, 7 => 寄件
+ order_type: 业务类型 1 => 充值, 2 => 快件超期支付
  for_id:业务ID
  pay_type: 支付类型，1 => 余额， 2 => 支付宝， 3 => 微信
  fee:金额  分为单位

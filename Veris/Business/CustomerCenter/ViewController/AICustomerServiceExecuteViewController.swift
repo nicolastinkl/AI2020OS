@@ -204,13 +204,18 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             return visibleIndexPath.row == indexPath.row
         }) {
             if !visibleIndexPathArray.isEmpty {
-                //TODO: 因为第二次进入从缓存加载图片太快，cell的第一次load还没完成就触发reload，结果展现就错乱了
-                //暂时通过加延迟的方式解决
-                Async.main(after: 0.1, block: {
-                    self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-                })
-                
+                self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
             }
         }
+    }
+    
+    func cellConfirmButtonDidClick(viewModel viewModel: AITimelineViewModel) {
+        let commentVC = ServiceCommentViewController.loadFromXib()
+        commentVC.view.frame = self.view.bounds
+        let vc = parentViewController
+        self.dismissPopupViewController(true) { [weak vc] in
+            vc?.presentPopupViewController(commentVC, animated: true)
+        }
+        
     }
 }

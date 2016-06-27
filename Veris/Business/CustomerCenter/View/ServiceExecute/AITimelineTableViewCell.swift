@@ -30,6 +30,8 @@ class AITimelineTableViewCell: UITableViewCell {
         setupViews()
     }
 
+    
+    // MARK: -> build and layout view methods
     func setupViews() {
         self.backgroundColor = UIColor.clearColor()
         timeLabel.textColor = CustomerCenterConstants.Colors.TimeLabelColor
@@ -38,6 +40,8 @@ class AITimelineTableViewCell: UITableViewCell {
         dotView.backgroundColor = CustomerCenterConstants.Colors.TimelineDotColor
         dotView.layer.cornerRadius = dotView.bounds.width / 2
         dotView.layer.masksToBounds = true
+        
+        self.selectionStyle = UITableViewCellSelectionStyle.None
     }
 
     func buildImageContainerView() {
@@ -60,7 +64,9 @@ class AITimelineTableViewCell: UITableViewCell {
             case AITimelineContentTypeEnum.LocationMap: break
                 
                 
-            case AITimelineContentTypeEnum.Voice: break
+            case AITimelineContentTypeEnum.Voice:
+                let voiceView = buildVoiceContentView(timeContentModel.contentUrl!, time: 2)
+                curView = voiceView
                 
             }
             guard let curView = curView else {return}
@@ -69,10 +75,10 @@ class AITimelineTableViewCell: UITableViewCell {
                     make.top.equalTo(curView.superview!)
                 })
             }
-            if index != 0 && index != viewModelContentsCount - 1 {
+            if index != 0 {
                 if let lastView = lastView {
                     curView.snp_makeConstraints(closure: { (make) in
-                        make.bottom.equalTo(lastView).offset(5)
+                        make.top.equalTo(lastView.snp_bottom).offset(5)
                     })
                     
                 }
@@ -81,8 +87,6 @@ class AITimelineTableViewCell: UITableViewCell {
         }
     }
     
-    
-
     func buildButtonContainerView() {
         
         if let viewModel = viewModel {
@@ -96,16 +100,19 @@ class AITimelineTableViewCell: UITableViewCell {
                 let confirmButton = UIButton()
                 confirmButton.setTitle(CustomerCenterConstants.textContent.confirmButton, forState: UIControlState.Normal)
                 confirmButton.titleLabel?.font = CustomerCenterConstants.Fonts.TimelineButton
-                confirmButton.backgroundColor = UIColor.blueColor()
-                confirmButton.layer.cornerRadius = 8
+                let backImage = UIColor(hex: "#0f86e8").imageWithColor()
+                confirmButton.setBackgroundImage(backImage, forState: UIControlState.Normal)
+                confirmButton.layer.cornerRadius = 13
                 confirmButton.layer.masksToBounds = true
                 buttonContainerView.addSubview(confirmButton)
+                confirmButton.addTarget(self, action: #selector(AITimelineTableViewCell.confirmServiceCompleteAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
                 
-                let buttonWidth = CustomerCenterConstants.textContent.confirmButton.sizeWithFont(CustomerCenterConstants.Fonts.TimelineButton, forWidth: 500).width + 20
+                let buttonWidth = CustomerCenterConstants.textContent.confirmButton.sizeWithFont(CustomerCenterConstants.Fonts.TimelineButton, forWidth: 500).width + 30
                 confirmButton.snp_makeConstraints(closure: { (make) in
                     make.leading.top.bottom.equalTo(buttonContainerView)
                     make.width.equalTo(buttonWidth)
                 })
+            case .Authoration: break
             default:
                 break
             }
@@ -128,22 +135,48 @@ class AITimelineTableViewCell: UITableViewCell {
         imageView.sd_setImageWithURL(NSURL(string: url ), placeholderImage: CustomerCenterConstants.defaultImages.timelineImage, options: SDWebImageOptions.RetryFailed) {[weak self] (image, error, cacheType, url) in
             let imageHeight = self?.getCompressedImageHeight(image)
             if let imageHeight = imageHeight {
-                self?.imageContainerViewHeight = imageHeight
+                self?.imageContainerViewHeight += imageHeight
                 imageView.snp_updateConstraints { (make) in
                     make.height.equalTo(imageHeight)
                 }
                 if self?.viewModel?.cellHeight == 0 {
                     if let delegate = self?.delegate {
-                        let height = self?.getHeight()
-                        if let height = height {
-                            self?.viewModel?.cellHeight = height
-                            delegate.cellImageDidLoad(viewModel: cacheModel, cellHeight: height)
-                        }
+                        //TODO: 因为第二次进入从缓存加载图片太快，cell的第一次load还没完成就触发reload，结果展现就错乱了
+                        //暂时通过加延迟的方式解决
+                        Async.main(after: 0.1, block: { 
+                            let height = self?.getHeight()
+                            if let height = height {
+                                self?.viewModel?.cellHeight = height
+                                delegate.cellImageDidLoad(viewModel: cacheModel, cellHeight: height)
+                            }
+                        })
+                        
+                        
                     }
                 }
             }
         }
         return imageView
+    }
+    
+    func buildVoiceContentView(url: String, time: Int?) -> AIAudioMessageView {
+        let audioModel = AIProposalServiceDetailHopeModel()
+        audioModel.audio_url = url
+        audioModel.time = time ?? 0
+        let audio1 = AIAudioMessageView.currentView()
+        imageContainerView.addSubview(audio1)
+        
+        imageContainerViewHeight += 22
+        
+        //audio1.tag = 11
+        audio1.fillData(audioModel)
+        audio1.snp_makeConstraints { (make) in
+            make.leading.equalTo(self.imageContainerView)
+            make.trailing.equalTo(self.imageContainerView).offset(-40 / 3)
+            make.height.equalTo(22)
+        }
+        audio1.smallMode()
+        return audio1
     }
 
     func loadData(viewModel: AITimelineViewModel) {
@@ -154,6 +187,22 @@ class AITimelineTableViewCell: UITableViewCell {
         buildButtonContainerView()
     }
     
+    // MARK: -> events handle
+    func confirmServiceCompleteAction(sender: UIButton) {
+        if let delegate = delegate {
+            delegate.cellConfirmButtonDidClick(viewModel: viewModel!)
+        }
+    }
+    
+    func authorizeAction(sender: UIButton) {
+        
+    }
+    
+    func rejectAuthorizeAction(sender: UIButton) {
+        
+    }
+    
+    // MARK: -> util methods
     //通过图片的实际宽度和view宽度计算出来的压缩比例计算展现的高度
     func getCompressedImageHeight(image: UIImage) -> CGFloat {
         let compressedRate = cellWidth / image.size.width
@@ -186,4 +235,7 @@ class AITimelineTableViewCell: UITableViewCell {
 
 protocol AITimelineTableViewCellDelegate: NSObjectProtocol {
     func cellImageDidLoad(viewModel viewModel: AITimelineViewModel, cellHeight: CGFloat)
+    
+    func cellConfirmButtonDidClick(viewModel viewModel: AITimelineViewModel)
+    
 }
