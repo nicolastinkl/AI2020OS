@@ -300,6 +300,52 @@
     [_logoButton setImage:[UIImage imageNamed:@"top_logo_click"] forState:UIControlStateHighlighted];
     [_logoButton addTarget:self action:@selector(gobackAction) forControlEvents:UIControlEventTouchUpInside];
     [barView addSubview:_logoButton];
+
+    [self makeMyWallet];
+    [self makeMyWork];
+}
+
+- (UIButton *)commonButtonWithFrame:(CGRect)frame title:(NSString *)title {
+
+    UIButton *button = [AIViews baseButtonWithFrame:frame normalTitle:title];
+    button.titleLabel.font = [AITools myriadRegularWithSize:12];
+    button.titleLabel.numberOfLines = 0;
+    button.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    button.layer.borderColor = [UIColor whiteColor].CGColor;
+    button.layer.borderWidth = 1;
+    button.layer.cornerRadius = 2;
+
+    return button;
+}
+
+- (void)makeMyWallet {
+    CGFloat size = kBarHeight - 10;
+    UIButton *wallet = [self commonButtonWithFrame:CGRectMake(5, 5, size, size) title:@"我的\n钱包"];
+
+    [wallet addTarget:self action:@selector(showMyWallet) forControlEvents:UIControlEventTouchUpInside];
+
+    [_bottomView addSubview:wallet];
+
+}
+
+- (void)makeMyWork {
+    CGFloat size = kBarHeight - 10;
+
+    UIButton *work = [self commonButtonWithFrame:CGRectMake(CGRectGetWidth(_bottomView.frame) - size - 5, 5, size, size) title:@"我的\n工作"];
+    [work addTarget:self action:@selector(showMyWork) forControlEvents:UIControlEventTouchUpInside];
+
+    [_bottomView addSubview:work];
+}
+
+
+#pragma mark - Main Action
+
+- (void)showMyWallet {
+
+}
+
+- (void)showMyWork {
+
 }
 
 #pragma mark - Go Back
