@@ -23,8 +23,8 @@ class AISearchHistoryLabels: UIView {
 	var maxHeight: CGFloat = 0
 	//
     
-	let labelMargin: CGFloat = 10
-	let horizontalMargin: CGFloat = 15
+	let horizontalMargin: CGFloat = AITools.displaySizeFrom1242DesignSize(40)
+	let verticalMargin: CGFloat = 25
     
 	let titleFontSize: CGFloat = AITools.displaySizeFrom1242DesignSize(48)
 	let labelFontSize: CGFloat = AITools.displaySizeFrom1242DesignSize(48)
@@ -100,16 +100,18 @@ class AISearchHistoryLabels: UIView {
 
 			var labelText = historyLabel
 			var size = labelText.sizeWithFont(labelFont, forWidth: maxWidth)
+            size.width += 30
+            size.height += 10
 
-			if (x + labelMargin + size.width) > maxWidth {
-				let shortLabel = findSuitableLabel(maxWidth - x - labelMargin)
+			if (x + horizontalMargin + size.width) > maxWidth {
+				let shortLabel = findSuitableLabel(maxWidth - x - horizontalMargin)
 				if shortLabel != "" {
 					tempLabels.append(labelText)
 					labelText = shortLabel
 
 				} else {
 					x = 0
-					y += horizontalMargin + labelFontSize
+					y += verticalMargin + labelFontSize
 				}
 
 			}
@@ -123,9 +125,9 @@ class AISearchHistoryLabels: UIView {
             label.layer.borderColor = UIColor ( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.2 ).CGColor
             label.layer.borderWidth = 0.5
             label.layer.masksToBounds = true
-            label.layer.cornerRadius = 10
+            label.layer.cornerRadius = size.height / 2
             label.textAlignment  = .Center
-			x = CGRectGetMaxX(label.frame) + labelMargin
+			x = CGRectGetMaxX(label.frame) + horizontalMargin
 
 			containLabels.append(labelText)
 		}
@@ -150,7 +152,7 @@ class AISearchHistoryLabels: UIView {
 		}
 
 		let x: CGFloat = 0
-		let y: CGFloat = (mainTitle == nil ? 0 : CGRectGetMaxY((mainTitleLabel?.frame)!)) + horizontalMargin
+		let y: CGFloat = (mainTitle == nil ? 0 : CGRectGetMaxY((mainTitleLabel?.frame)!)) + verticalMargin
 
 		makeLabels(x, startY: y, labels: historyLabels!)
 

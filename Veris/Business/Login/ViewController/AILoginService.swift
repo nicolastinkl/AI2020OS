@@ -98,23 +98,23 @@ class AILoginService: NSObject {
      */
     func login(userCode: String, password: String, success : (userId: String) -> Void, fail : (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
-        let body : NSDictionary = ["data" : [
+        let body : NSDictionary = [
             "username" : userCode,
-            "password" : password],
-            "desc":["data_mode" : "0", "digest" : ""]]
+            "password" : password
+        ]
         
         message.body.addEntriesFromDictionary(body as [NSObject : AnyObject])
         message.url = AIApplication.AIApplicationServerURL.login.description as String
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
-            if let responseJSON: AnyObject = response{
+            if let responseJSON: AnyObject = response {
                 
                 let dic = responseJSON as! [NSString : AnyObject]
                 success(userId: "1")
                 
                 
-            }else{
+            } else {
                 fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
             }
             
@@ -133,23 +133,22 @@ class AILoginService: NSObject {
      */
     func registUser(userCode: String, password: String, success : (userId: String) -> Void, fail : (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
-        let body : NSDictionary = ["data" : [
+        let body : NSDictionary = [
             "username" : userCode,
-            "password" : password],
-                                   "desc":["data_mode" : "0", "digest" : ""]]
+            "password" : password]
         
         message.body.addEntriesFromDictionary(body as [NSObject : AnyObject])
         message.url = AIApplication.AIApplicationServerURL.register.description as String
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
-            if let responseJSON: AnyObject = response{
+            if let responseJSON: AnyObject = response {
                 
                 let dic = responseJSON as! [NSString : AnyObject]
                 success(userId: "1")
                 
                 
-            }else{
+            } else {
                 fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
             }
             

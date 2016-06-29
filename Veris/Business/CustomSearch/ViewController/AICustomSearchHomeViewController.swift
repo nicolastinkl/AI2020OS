@@ -18,7 +18,6 @@ class AICustomSearchHomeViewController: UIViewController {
 	// MARK: Private
 	
     @IBOutlet weak var searchText: UITextField!
-	var searchBar: UISearchBar?
 	var recentlySearchTag: AISearchHistoryLabels!
 	var everyOneSearchTag: AISearchHistoryLabels!
 	var iconView: AISearchHistoryIconView!
@@ -69,9 +68,10 @@ class AICustomSearchHomeViewController: UIViewController {
 	}
     
 
-    @IBAction func choosePhotoAction(any: AnyObject){
-        
+    @IBAction func choosePhotoAction(any: AnyObject) {
         let vc = AIAssetsPickerController.initFromNib()
+        vc.delegate = self
+        vc.maximumNumberOfSelection = 1
         let navi = UINavigationController(rootViewController: vc)
         navi.navigationBarHidden = true
         self.presentViewController(navi, animated: true, completion: nil)
@@ -110,7 +110,7 @@ class AICustomSearchHomeViewController: UIViewController {
 		
 		// Make Wish Button
 		let wishButton = UIButton(type: UIButtonType.Custom)
-		wishButton.setTitle("   Make a wish", forState: UIControlState.Normal)
+		wishButton.setTitle("   Make a Wish", forState: UIControlState.Normal)
         wishButton.setImage(UIImage(named: "AI_Search_Home_WIsh"), forState: UIControlState.Normal)
 		view.addSubview(wishButton)
 		wishButton.backgroundColor = UIColor.clearColor()
@@ -141,13 +141,12 @@ class AICustomSearchHomeViewController: UIViewController {
 		dismissViewControllerAnimated(true, completion: nil)
 	}
     @IBAction func searchButtonPressed(sender: AnyObject) {
-        let service = AIImageRecongizeService()
-        service.getImageInfo(UIImage(named: "search-icon1")!) { (result, error) in
-            print(result)
-        }
+        
     }
 	
 	func searching() {
+        tableView.hidden = false
+        holdView.hidden = true
 		if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
 			let data: NSData? = NSData(contentsOfFile: path)
 			if let dataJSON = data {
@@ -179,8 +178,7 @@ extension AICustomSearchHomeViewController: UITextFieldDelegate {
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
         
 		searching()
-        tableView.hidden = false
-		holdView.hidden = true
+        
 		textField.resignFirstResponder()
 		
 		return true
@@ -224,4 +222,48 @@ extension AICustomSearchHomeViewController: UITableViewDelegate, UITableViewData
 	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 		return 110.0
 	}
+}
+
+
+extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
+    
+ 
+    /**
+     完成选择
+     
+     1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
+     2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
+        let assetSuper = assets.firstObject as! ALAsset
+        let image = UIImage(CGImage: assetSuper.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+        AIImageRecongizeService().getImageInfo(image) { [weak self] (res, error) in
+            print(res)
+            if error == nil {
+                self?.searchText.text = res
+                self?.searching()
+            }
+        }
+    }
+    
+    /**
+     取消选择
+     */
+    func assetsPickerControllerDidCancel() {
+        
+    }
+    
+    /**
+     选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    /**
+     取消选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
 }

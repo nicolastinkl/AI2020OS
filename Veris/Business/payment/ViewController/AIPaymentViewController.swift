@@ -249,7 +249,7 @@ class AIPaymentViewController: UIViewController {
                         //strongSelf.navigationController?.popViewControllerAnimated(true)
                     } else {
 //                        strongSelf.delegate?.paymentFail(paymentType: .Alipay)
-                        SVProgressHUD.showInfoWithStatus("支付失败，请您重新支付！")
+                        SVProgressHUD.showInfoWithStatus("系统繁忙，请稍后再试")
                     }
                 }
             }

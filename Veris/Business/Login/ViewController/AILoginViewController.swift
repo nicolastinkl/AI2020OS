@@ -29,18 +29,24 @@ class AILoginViewController: UIViewController {
     // MARK: -IBActions
     @IBAction func loginAction(sender: AnyObject) {
         
+        view.showLoading()
         
         if AILoginUtil.validatePassword(passwordTextField.text) && AILoginUtil.validatePhoneNumber(userIdTextField.text) {
             
             loginService.login(userIdTextField.text!, password: passwordTextField.text!, success: { (userId) in
+                self.view.hideLoading()
+                
                 self.dismissViewControllerAnimated(true, completion: nil)
                 }, fail: { (errType, errDes) in
+                    
+                    self.view.hideLoading()
+                    
                     AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
-                    self.dismissViewControllerAnimated(true, completion: nil)
             })
             
             
         } else {
+            self.view.hideLoading()
             AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: validateInfoLabel, widthConstraint: validateInfoLabelWidthConstraint)
         }
     }
@@ -65,8 +71,8 @@ class AILoginViewController: UIViewController {
         setupNavigationBar()
         
         #if !DEBUG
-            userIdTextField.text = "18982194190"
-            passwordTextField.text = "1233123213"
+            userIdTextField.text = "18982293830"
+            passwordTextField.text = "nodgdi"
             loginButton.enabled = true
         #endif
     }
