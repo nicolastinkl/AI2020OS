@@ -209,7 +209,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         }
     }
     
-    func cellConfirmButtonDidClick(viewModel viewModel:AITimelineViewModel){
+    func cellConfirmButtonDidClick(viewModel viewModel: AITimelineViewModel) {
         let commentVC = ServiceCommentViewController.loadFromXib()
         commentVC.view.frame = self.view.bounds
         let vc = parentViewController

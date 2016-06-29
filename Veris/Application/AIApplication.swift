@@ -210,6 +210,10 @@ struct AIApplication {
         // 远程协助状态更新
         static let AIRemoteAssistantConnectionStatusChangeNotificationName = "AIRemoteAssistantConnectionStatusChangeNotificationName"
         static let AIRemoteAssistantManagerMessageReceivedNotificaitonName = "AIRemoteAssistantManagerMessageReceivedNotificaitonName"
+        
+        //语音识别
+        
+        static let AIListeningAudioTools    =    "AIListeningAudioTools"
     }
 
     // MARK: System theme's color

@@ -33,13 +33,13 @@ import SVProgressHUD
 /// 许愿视图
 class AIPaymentViewController: UIViewController {
     
-    let AppScheme:String = "AIVeris"
+    let AppScheme: String = "AIVeris"
     
-    let AlipayPartner:String = "2088311868782039"
-    let AlipaySeller:String = "liaojy@sudiyi.net"
-    let AlipayPrivateKey:String = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAL8lcOW8NKC0XOhhxzmy5GyhtQtpQWqsE/6+A067VeLLObDKQrC1qMt/7oOMD1KW1Mv0/b3b0UzlxrGDamcJod6VQyZoln8txkhklMFfKX3lM/FOYcXz5wS7GRU4AjiLJaLBWsP3UOrCzNM+bvgv6rMJgIUpyhtyHkrdVAQSBDc5AgMBAAECgYBG0v2o8fpiDVJbfFdQRruikKw/ZSmq98WU3xzkoD8rgHeIzPi29yhq9qUOsue+h0qjo8wc/ATqRD1B6tqTARurdFuEspNakYafAe2waVVd4aRg7Vxh9Ju908+UkKQ+DNqmzvoMkVz2Z1CaBdEbC6kKVd3q8IBsmNPr0OmjyII4AQJBAOogQgJuSNlFP5QyZcCmEN7RsH53NyccXeolCBpfWE0WE0NTE/bblY13az1nnW5/dm9/8PkiZ5fmqlH7GlCFXDkCQQDRATVym2gyWviNSQrHuc0ThE88ouM2c0Whh45PWyNy7Fz3er2z12ksMX7Vl8aTHa/s5OWNMSnMMMSPCvoIG7MBAkA5okk9mfJ68c4N6D4eJ4M9prbg2u4LxbLkwcr12wS8rTN+vkPK4BE3qu8ORaR+oAgCuKcUXUDNJu5EkiDPM5UZAkEAyMlQf3ms8DNU9OZm5NkqmsVRGf+iKH01N6jynmn/9Df+WAIinNMkxsAGCUx2CH9Ms1hy7uF8Nh3jt0fkTEXQAQJBAJLVRSUf6FCxL/MYxd1Ls8us7FU+bzRhXkR6m3lurUyRItkrtbv2kdpegBHxWCTRddf0l0Fpbvh21ShzQ/NKGns="
+    let AlipayPartner: String = "2088311868782039"
+    let AlipaySeller: String = "liaojy@sudiyi.net"
+    let AlipayPrivateKey: String = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAL8lcOW8NKC0XOhhxzmy5GyhtQtpQWqsE/6+A067VeLLObDKQrC1qMt/7oOMD1KW1Mv0/b3b0UzlxrGDamcJod6VQyZoln8txkhklMFfKX3lM/FOYcXz5wS7GRU4AjiLJaLBWsP3UOrCzNM+bvgv6rMJgIUpyhtyHkrdVAQSBDc5AgMBAAECgYBG0v2o8fpiDVJbfFdQRruikKw/ZSmq98WU3xzkoD8rgHeIzPi29yhq9qUOsue+h0qjo8wc/ATqRD1B6tqTARurdFuEspNakYafAe2waVVd4aRg7Vxh9Ju908+UkKQ+DNqmzvoMkVz2Z1CaBdEbC6kKVd3q8IBsmNPr0OmjyII4AQJBAOogQgJuSNlFP5QyZcCmEN7RsH53NyccXeolCBpfWE0WE0NTE/bblY13az1nnW5/dm9/8PkiZ5fmqlH7GlCFXDkCQQDRATVym2gyWviNSQrHuc0ThE88ouM2c0Whh45PWyNy7Fz3er2z12ksMX7Vl8aTHa/s5OWNMSnMMMSPCvoIG7MBAkA5okk9mfJ68c4N6D4eJ4M9prbg2u4LxbLkwcr12wS8rTN+vkPK4BE3qu8ORaR+oAgCuKcUXUDNJu5EkiDPM5UZAkEAyMlQf3ms8DNU9OZm5NkqmsVRGf+iKH01N6jynmn/9Df+WAIinNMkxsAGCUx2CH9Ms1hy7uF8Nh3jt0fkTEXQAQJBAJLVRSUf6FCxL/MYxd1Ls8us7FU+bzRhXkR6m3lurUyRItkrtbv2kdpegBHxWCTRddf0l0Fpbvh21ShzQ/NKGns="
     
-    let AlipayNotifyURL:String = "http://www.yourdomain.com/order/alipay_notify_app"
+    let AlipayNotifyURL: String = "http://www.yourdomain.com/order/alipay_notify_app"
     
     @IBOutlet weak var providerIcon: AIImageView!
     
@@ -57,7 +57,7 @@ class AIPaymentViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var dataSource = Array<AIPayInfoModel> ()
-    var expandedIndexPaths : [NSIndexPath] = [NSIndexPath]()
+    var expandedIndexPaths: [NSIndexPath] = [NSIndexPath]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +79,7 @@ class AIPaymentViewController: UIViewController {
         
     }
     
-    func initTableView(){
+    func initTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
@@ -111,7 +111,7 @@ class AIPaymentViewController: UIViewController {
         self.tableView.reloadData()
     }
     
-    func layoutSubView(){
+    func layoutSubView() {
         
         /// Init Size and Font
         
@@ -154,14 +154,14 @@ class AIPaymentViewController: UIViewController {
         
     }
     
-    func drawLine(){
+    func drawLine() {
         
         /// Top
         let offset: CGFloat = self.view.width/7.4
         let widthLine = label_Price_info.left - offset - 11
         let top = label_Price_info.y + label_Price_info.height/2
-        let price_List_Left_Line = StrokeLineView(frame: CGRectMake(offset,top,widthLine,1))
-        let price_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info.left + label_Price_info.width + 11,top,widthLine,1))
+        let price_List_Left_Line = StrokeLineView(frame: CGRectMake(offset, top, widthLine, 1))
+        let price_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info.left + label_Price_info.width + 11, top, widthLine, 1))
         price_List_Left_Line.backgroundColor = UIColor.clearColor()
         price_List_Right_Line.backgroundColor = UIColor.clearColor()
         bgView.addSubview(price_List_Left_Line)
@@ -170,8 +170,8 @@ class AIPaymentViewController: UIViewController {
         
         /// Middle
         let top_Middle = label_Pay_Style.y + label_Pay_Style.height/2
-        let pay_List_Left_Line = StrokeLineView(frame: CGRectMake(offset,top_Middle,widthLine,1))
-        let pay_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info.left + label_Price_info.width + 11,top_Middle,widthLine,1))
+        let pay_List_Left_Line = StrokeLineView(frame: CGRectMake(offset, top_Middle, widthLine, 1))
+        let pay_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info.left + label_Price_info.width + 11, top_Middle, widthLine, 1))
         pay_List_Left_Line.backgroundColor = UIColor.clearColor()
         pay_List_Right_Line.backgroundColor = UIColor.clearColor()
         payView.addSubview(pay_List_Left_Line)
@@ -216,7 +216,7 @@ class AIPaymentViewController: UIViewController {
             model.sign_str = ""
             WXPayClient.shareInstance().payProduct(model, withNotify: AlipayNotifyURL)
             
-        }else{
+        } else {
             SVProgressHUD.showErrorWithStatus("该设备未安装微信客户端")
         }
         
@@ -291,7 +291,7 @@ extension AIPaymentViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard var cell : AIPayListInfoCellView = tableView.dequeueReusableCellWithIdentifier("CellID") as? AIPayListInfoCellView else {
+        guard var cell: AIPayListInfoCellView = tableView.dequeueReusableCellWithIdentifier("CellID") as? AIPayListInfoCellView else {
             preconditionFailure("reusable cell not found")
         }
         if cell.arrowDirectIcon == nil {
@@ -336,11 +336,11 @@ extension AIPaymentViewController: UITableViewDelegate, UITableViewDataSource {
         
     //MARK: compute cell height
     
-    private func dynamicCellHeight(indexPath:NSIndexPath)->CGFloat {
+    private func dynamicCellHeight(indexPath: NSIndexPath)->CGFloat {
         
         struct StaticStruct {
-            static var sizingCell : AIPayListInfoCellView?
-            static var onceToken : dispatch_once_t = 0
+            static var sizingCell: AIPayListInfoCellView?
+            static var onceToken: dispatch_once_t = 0
             
         } // workaround to add static variables inside function in swift
         dispatch_once(&StaticStruct.onceToken) { () -> Void in

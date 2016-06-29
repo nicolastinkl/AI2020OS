@@ -144,5 +144,6 @@
 #import "WXApi.h"
 #import "WXApiObject.h"
 
+#import <AssetsLibrary/AssetsLibrary.h>
 
 

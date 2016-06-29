@@ -42,7 +42,7 @@ class AIPayListInfoCellView: UITableViewCell {
         
     }
     
-    func setCellContent(item : AIPayInfoModel, isExpanded : Bool) {
+    func setCellContent(item: AIPayInfoModel, isExpanded: Bool) {
         
         debugPrint(isExpanded)
         self.payName.text = item.servicename ?? ""
@@ -108,8 +108,3 @@ class AIPayListInfoCellView: UITableViewCell {
     }
     
 }
-
-
-
-
-

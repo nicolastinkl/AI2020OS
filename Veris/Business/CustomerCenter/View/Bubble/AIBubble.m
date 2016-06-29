@@ -191,11 +191,10 @@ typedef enum  {
     self.frame = CGRectMake(0, 0, width, width);
     self.center = center;
     _radius = width / 2;
-    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, width, width)];
-    [button setImage:[UIImage imageNamed:@"addbubble"] forState:UIControlStateNormal];
-    button.center =  CGPointMake(self.width/2, self.height/2);
-    [button addTarget:self action:@selector(addAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:button];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"addbubble"]];
+    imageView.frame = CGRectMake(0, 0, width, width);
+    imageView.center = CGPointMake(self.width/2, self.height/2);
+    [self addSubview:imageView];
 //    self.layer.masksToBounds = YES;
 //    self.clipsToBounds = YES;
 //    [self setNeedsDisplay];
