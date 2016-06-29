@@ -34,7 +34,7 @@ protocol AIAssetsPickerControllerDelegate: class {
      1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
      2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
      */
-    func assetsPickerController(picker:AIAssetsPickerController,didFinishPickingAssets assets: NSArray)
+    func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray)
     
     /**
      取消选择
@@ -44,11 +44,11 @@ protocol AIAssetsPickerControllerDelegate: class {
     /**
      选中某张照片
      */
-    func assetsPickerController(picker:AIAssetsPickerController,didSelectItemAtIndexPath indexPath: NSIndexPath)
+    func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath)
     /**
      取消选中某张照片
      */
-    func assetsPickerController(picker:AIAssetsPickerController,didDeselectItemAtIndexPath indexPath: NSIndexPath)
+    func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath)
     
     
 }
@@ -73,7 +73,7 @@ class AIAssetsPickerController: UIViewController {
     
     var maximumNumberOfSelection: Int = 10 //default
     
-    weak var delegate:AIAssetsPickerControllerDelegate?
+    weak var delegate: AIAssetsPickerControllerDelegate?
     
     @IBOutlet weak var collctionView: UICollectionView!
     
@@ -119,24 +119,24 @@ class AIAssetsPickerController: UIViewController {
         
     }
     
-    @IBAction func closeAction(any: AnyObject){
+    @IBAction func closeAction(any: AnyObject) {
         delegate?.assetsPickerControllerDidCancel()
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func initSettings(){
+    func initSettings() {
         self.collctionView.allowsMultipleSelection = true
         self.collctionView.registerClass(AIAssetsViewCell.self, forCellWithReuseIdentifier: kAssetsViewCellIdentifier)
         self.collctionView.registerClass(AIAssetsFootViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: kAssetsSupplementaryViewIdentifier)
         
         layoutColl.itemSize = CGSizeMake(100, 100)
         layoutColl.footerReferenceSize = CGSizeMake(0, 44)
-        layoutColl.sectionInset            = UIEdgeInsetsMake(0.0, 0, 0, 0);
-        layoutColl.minimumInteritemSpacing = 2.0;
-        layoutColl.minimumLineSpacing      = 2.0;
+        layoutColl.sectionInset            = UIEdgeInsetsMake(0.0, 0, 0, 0)
+        layoutColl.minimumInteritemSpacing = 2.0
+        layoutColl.minimumLineSpacing      = 2.0
     }
     
-    func fetchData(){
+    func fetchData() {
         //Find the frist Photo Ablum
         assetsLibrary.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (group, stop) in
             if (group != nil) {
@@ -168,7 +168,7 @@ class AIAssetsPickerController: UIViewController {
     
     /// Action
     
-    @IBAction func finishChooseAction(any: AnyObject){
+    @IBAction func finishChooseAction(any: AnyObject) {
         
         let newArray = NSMutableArray()
         self.collctionView.indexPathsForSelectedItems()?.forEach({ (indexPath) in
@@ -178,19 +178,19 @@ class AIAssetsPickerController: UIViewController {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func preViewAction(any: AnyObject){
+    @IBAction func preViewAction(any: AnyObject) {
         
         self.navigationController?.pushViewController(AIAssetsReviewsController.initFromNib(), animated: true)
         
     }
     
     
-    @IBAction func retainActino(any: AnyObject){
+    @IBAction func retainActino(any: AnyObject) {
         isRetainImage = !isRetainImage
         refershDataSize(self.collctionView.indexPathsForSelectedItems())
     }
     
-    func refershDataSize(indexPaths: NSArray?){
+    func refershDataSize(indexPaths: NSArray?) {
         if isRetainImage {
             var size = 0
             indexPaths?.forEach({ (index) in
@@ -199,7 +199,7 @@ class AIAssetsPickerController: UIViewController {
                     let imageBuffer = UnsafeMutablePointer<UInt8>.alloc(Int(representation.size()))
                     let bufferSize = representation.getBytes(imageBuffer, fromOffset: Int64(0),
                         length: Int(representation.size()), error: nil)
-                    let dataImageFull: NSData =  NSData(bytesNoCopy:imageBuffer ,length:bufferSize, freeWhenDone:true)
+                    let dataImageFull: NSData =  NSData(bytesNoCopy:imageBuffer, length:bufferSize, freeWhenDone:true)
                     size += dataImageFull.length
                 }
                 
@@ -208,12 +208,12 @@ class AIAssetsPickerController: UIViewController {
             
             if size/1024 < 1000 {
                 sizeButton.setTitle(" 原图(\(size/1024)KB)", forState: UIControlState.Normal)
-            }else{
+            } else {
                 sizeButton.setTitle(" 原图(\(newSizeMB)MB)", forState: UIControlState.Normal)
             }
             
             sizeButton.setImage(UIImage(named: "UINaviAble"), forState: UIControlState.Normal)
-        }else{
+        } else {
             sizeButton.setTitle(" 原图", forState: UIControlState.Normal)
             sizeButton.setImage(UIImage(named: "UINaviDisable"), forState: UIControlState.Normal)
         }
@@ -222,7 +222,7 @@ class AIAssetsPickerController: UIViewController {
 }
 
 
-extension AIAssetsPickerController: UICollectionViewDelegate,UICollectionViewDataSource {
+extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -270,7 +270,7 @@ extension AIAssetsPickerController: UICollectionViewDelegate,UICollectionViewDat
     }
     
     
-    func setTitleWithSelectedIndexPaths(indexPaths: NSArray?){
+    func setTitleWithSelectedIndexPaths(indexPaths: NSArray?) {
         
         if let indexPaths = indexPaths {
             
@@ -286,9 +286,3 @@ extension AIAssetsPickerController: UICollectionViewDelegate,UICollectionViewDat
     
     
 }
-
-
-
-
-
-

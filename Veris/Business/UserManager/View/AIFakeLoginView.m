@@ -16,13 +16,9 @@
 
 
 #define kMargin 20
-
 #define kBuyer1Tag 100
-
 #define kSeller1Tag 200
-
 #define kSellerDavidTag 300
-
 #define kBuyer1         @"100000002410"
 #define kSeller1        @"200000002501"
 #define kSellerDavid    @"200000002501"
