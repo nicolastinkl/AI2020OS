@@ -65,11 +65,14 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
     override func imagePicked(image: UIImage) {
         if let cell = getCurrentOperateCell() {
-            cell.imageButton.image = image
 
             let row = cell.tag
 
-            comments[row].image = image
+            comments[row].images.append(image)
+            
+            if let cell = serviceTableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? ServiceCommentTableViewCell {
+                cell.addImage(image)
+            }
         }
     }
 
@@ -94,20 +97,22 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         cell.delegate = self
         cell.tag = indexPath.row
 
-   //     resetCellUI(cell, indexPath: indexPath)
+        resetCellUI(cell, indexPath: indexPath)
 
         return cell
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 250
+        return 270
     }
 
     private func resetCellUI(cell: ServiceCommentTableViewCell, indexPath: NSIndexPath) {
-        cell.imageButton.image = comments[indexPath.row].image
+        cell.clearImages()
+        
+        cell.addImages(comments[indexPath.row].images)
     }
 }
 
 class CommentTestModel {
-    var image: UIImage?
+    var images = [UIImage]()
 }

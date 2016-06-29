@@ -9,6 +9,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentDistrictView" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="commentEditText" destination="r4o-bT-Xg8" id="m52-X4-Nk1"/>
+                <outlet property="imagesCollection" destination="sgC-Ma-3bJ" id="0fz-D3-lM8"/>
+                <outlet property="imagesCollectionHeight" destination="DWc-yq-jyF" id="NcD-b2-3ji"/>
                 <outlet property="photoImage" destination="oCy-bW-g5d" id="QPu-j8-lys"/>
                 <outlet property="placeHolderText" destination="bdQ-PX-trx" id="RLp-Z1-ozv"/>
                 <outlet property="serviceImage" destination="KMd-Ln-ShW" id="RyP-NG-2iY"/>
@@ -43,7 +45,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r4o-bT-Xg8" userLabel="CommentInput">
-                    <rect key="frame" x="75" y="19" width="517" height="493"/>
+                    <rect key="frame" x="75" y="19" width="517" height="413"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -61,23 +63,59 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="CommentDistrictView.inputHint"/>
                     </userDefinedRuntimeAttributes>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgC-Ma-3bJ" customClass="ImagesCollectionView" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="13" y="442" width="579" height="70"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="DWc-yq-jyF"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                            <real key="value" value="60"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                            <real key="value" value="60"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="horizontalSpace">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="verticalSpace">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="limitLine">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="lines">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="oCy-bW-g5d" secondAttribute="bottom" constant="14" id="4Nh-MO-DYr"/>
                 <constraint firstItem="okQ-iw-WAT" firstAttribute="leading" secondItem="oCy-bW-g5d" secondAttribute="trailing" constant="12" id="5J9-bI-AUW"/>
+                <constraint firstItem="sgC-Ma-3bJ" firstAttribute="trailing" secondItem="r4o-bT-Xg8" secondAttribute="trailing" id="7ax-zx-iPZ"/>
+                <constraint firstItem="oCy-bW-g5d" firstAttribute="top" secondItem="sgC-Ma-3bJ" secondAttribute="bottom" constant="14" id="9dn-iZ-nOp"/>
                 <constraint firstItem="oCy-bW-g5d" firstAttribute="leading" secondItem="KMd-Ln-ShW" secondAttribute="leading" id="Eq1-m3-abe"/>
                 <constraint firstItem="KMd-Ln-ShW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="19" id="FPd-so-a0B"/>
                 <constraint firstItem="oCy-bW-g5d" firstAttribute="top" secondItem="r4o-bT-Xg8" secondAttribute="bottom" constant="14" id="JN3-U7-NGi"/>
                 <constraint firstItem="r4o-bT-Xg8" firstAttribute="leading" secondItem="KMd-Ln-ShW" secondAttribute="trailing" constant="12" id="JxO-su-uE3"/>
+                <constraint firstItem="sgC-Ma-3bJ" firstAttribute="leading" secondItem="oCy-bW-g5d" secondAttribute="leading" id="KJQ-9j-13y"/>
                 <constraint firstItem="bdQ-PX-trx" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="r4o-bT-Xg8" secondAttribute="trailing" id="KSS-jY-njc"/>
                 <constraint firstAttribute="trailing" secondItem="r4o-bT-Xg8" secondAttribute="trailing" constant="8" id="L8s-Eq-Sk4"/>
                 <constraint firstItem="KMd-Ln-ShW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="Rcf-DU-Au8"/>
+                <constraint firstItem="sgC-Ma-3bJ" firstAttribute="top" secondItem="r4o-bT-Xg8" secondAttribute="bottom" constant="10" id="WAe-Lo-kph"/>
                 <constraint firstItem="bdQ-PX-trx" firstAttribute="leading" secondItem="r4o-bT-Xg8" secondAttribute="leading" id="aXM-sl-RnM"/>
                 <constraint firstItem="r4o-bT-Xg8" firstAttribute="top" secondItem="KMd-Ln-ShW" secondAttribute="top" id="dK6-TE-9g5"/>
                 <constraint firstItem="bdQ-PX-trx" firstAttribute="centerY" secondItem="KMd-Ln-ShW" secondAttribute="centerY" id="n03-Zg-2qZ"/>
                 <constraint firstItem="okQ-iw-WAT" firstAttribute="centerY" secondItem="oCy-bW-g5d" secondAttribute="centerY" id="xQt-2s-8jB"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="JN3-U7-NGi"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>
