@@ -31,10 +31,12 @@ class AILoginViewController: UIViewController {
         
         
         if AILoginUtil.validatePassword(passwordTextField.text) && AILoginUtil.validatePhoneNumber(userIdTextField.text) {
-            
+            self.view.showLoading()
             loginService.login(userIdTextField.text!, password: passwordTextField.text!, success: { (userId) in
+                self.view.hideLoading()
                 self.dismissViewControllerAnimated(true, completion: nil)
                 }, fail: { (errType, errDes) in
+                    self.view.hideLoading()
                     AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
             })
             
@@ -99,6 +101,8 @@ class AILoginViewController: UIViewController {
         userIdTextField.delegate = self
         userIdTextField.keyboardType = UIKeyboardType.DecimalPad
         userIdTextField.returnKeyType = UIReturnKeyType.Done
+        userIdTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        
         passwordTextField.delegate = self
         passwordTextField.secureTextEntry = true
         passwordTextField.returnKeyType = UIReturnKeyType.Go
@@ -116,7 +120,7 @@ class AILoginViewController: UIViewController {
     }
     
     func passwordInputAction(target: UITextField) {
-        loginButton.enabled = (target.text?.length >= 6)
+        loginButton.enabled = AILoginUtil.validatePassword(passwordTextField.text) && AILoginUtil.validatePhoneNumber(userIdTextField.text)
     }
     
 }
