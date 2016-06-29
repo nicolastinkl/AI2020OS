@@ -29,17 +29,24 @@ class AILoginViewController: UIViewController {
     // MARK: -IBActions
     @IBAction func loginAction(sender: AnyObject) {
         
+        view.showLoading()
         
         if AILoginUtil.validatePassword(passwordTextField.text) && AILoginUtil.validatePhoneNumber(userIdTextField.text) {
             
             loginService.login(userIdTextField.text!, password: passwordTextField.text!, success: { (userId) in
+                self.view.hideLoading()
+                
                 self.dismissViewControllerAnimated(true, completion: nil)
                 }, fail: { (errType, errDes) in
+                    
+                    self.view.hideLoading()
+                    
                     AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
             })
             
             
         } else {
+            self.view.hideLoading()
             AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: validateInfoLabel, widthConstraint: validateInfoLabelWidthConstraint)
         }
     }
