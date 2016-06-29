@@ -49,7 +49,7 @@ class ServiceCommentViewController: AbsCommentViewController {
     }
     
     func dismissAction(sender: UIGestureRecognizer) {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissPopupViewController(true, completion: nil)
     }
     
     func submitAction(sender: UIGestureRecognizer) {
