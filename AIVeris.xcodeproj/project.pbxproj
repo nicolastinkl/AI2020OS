@@ -434,6 +434,8 @@
 		81433ECB1CFBE5A700347C29 /* UIColor+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C261CFBE5A700347C29 /* UIColor+TDAdditions.m */; };
 		81433ECC1CFBE5A700347C29 /* UIImage+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */; };
 		81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81433F1F1CFBE80700347C29 /* Default-568h@2x.png */; };
+		81512ED01D220A8900AE041D /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */; };
+		81512ED31D220AFE00AE041D /* AIWorkManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ED21D220AFE00AE041D /* AIWorkManageViewController.swift */; };
 		8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7141CFD2710006F2C8F /* AIImageView.swift */; };
 		8175A7BA1CFD2710006F2C8F /* AISwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */; };
 		8175A7BB1CFD2710006F2C8F /* AIUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7171CFD2710006F2C8F /* AIUINavigationController.m */; };
@@ -1237,6 +1239,8 @@
 		81433C271CFBE5A700347C29 /* UIImage+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TDAdditions.h"; sourceTree = "<group>"; };
 		81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TDAdditions.m"; sourceTree = "<group>"; };
 		81433F1F1CFBE80700347C29 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIFundManageViewController.swift; path = FundManage/AIFundManageViewController.swift; sourceTree = "<group>"; };
+		81512ED21D220AFE00AE041D /* AIWorkManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIWorkManageViewController.swift; path = WorkManage/AIWorkManageViewController.swift; sourceTree = "<group>"; };
 		8175A7141CFD2710006F2C8F /* AIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageView.swift; sourceTree = "<group>"; };
 		8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwiftyJSON.swift; sourceTree = "<group>"; };
 		8175A7161CFD2710006F2C8F /* AIUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIUINavigationController.h; sourceTree = "<group>"; };
@@ -1774,6 +1778,8 @@
 		814339291CFBE5A600347C29 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				81512ED11D220AD900AE041D /* WorkManage */,
+				81512ECE1D2209E300AE041D /* FundManage */,
 				93E4C3F31D20C2C8007EB116 /* ChoosePhoto */,
 				93A0AB931D12AA1B00562090 /* Payment */,
 				12D764931D0D40AE002B001B /* Login */,
@@ -3021,6 +3027,22 @@
 				81433F1F1CFBE80700347C29 /* Default-568h@2x.png */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		81512ECE1D2209E300AE041D /* FundManage */ = {
+			isa = PBXGroup;
+			children = (
+				81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */,
+			);
+			name = FundManage;
+			sourceTree = "<group>";
+		};
+		81512ED11D220AD900AE041D /* WorkManage */ = {
+			isa = PBXGroup;
+			children = (
+				81512ED21D220AFE00AE041D /* AIWorkManageViewController.swift */,
+			);
+			name = WorkManage;
 			sourceTree = "<group>";
 		};
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
@@ -4275,6 +4297,7 @@
 				81433E7A1CFBE5A700347C29 /* FLEXLiveObjectsTableViewController.m in Sources */,
 				81433E051CFBE5A700347C29 /* BubbleView.m in Sources */,
 				8175A7E71CFD2710006F2C8F /* _OALayoutGuide.m in Sources */,
+				81512ED01D220A8900AE041D /* AIFundManageViewController.swift in Sources */,
 				81433D2D1CFBE5A700347C29 /* ServiceDetailView.swift in Sources */,
 				81433D471CFBE5A700347C29 /* AITextMessageView.swift in Sources */,
 				8175A7D31CFD2710006F2C8F /* RegexKitLite.m in Sources */,
@@ -4286,6 +4309,7 @@
 				81433D4E1CFBE5A700347C29 /* AIAddressRouteView.swift in Sources */,
 				81433D1B1CFBE5A700347C29 /* AIParamedicView.m in Sources */,
 				8175A7E81CFD2710006F2C8F /* OAStackView+Constraint.m in Sources */,
+				81512ED31D220AFE00AE041D /* AIWorkManageViewController.swift in Sources */,
 				81433E4C1CFBE5A700347C29 /* UIImageUtils.swift in Sources */,
 				81433E5B1CFBE5A700347C29 /* FLEXArgumentInputSwitchView.m in Sources */,
 				81433E481CFBE5A700347C29 /* UIView+Toast.m in Sources */,
