@@ -237,11 +237,15 @@ extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
     func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
         let assetSuper = assets.firstObject as! ALAsset
         let image = UIImage(CGImage: assetSuper.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+        view.showLoading()
         AIImageRecongizeService().getImageInfo(image) { [weak self] (res, error) in
             print(res)
+            self?.view.hideLoading()
             if error == nil {
                 self?.searchText.text = res
                 self?.searching()
+            } else {
+                
             }
         }
     }

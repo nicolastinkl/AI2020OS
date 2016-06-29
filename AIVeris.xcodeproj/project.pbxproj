@@ -293,7 +293,6 @@
 		81433E3B1CFBE5A700347C29 /* AIShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B121CFBE5A700347C29 /* AIShareViewController.m */; };
 		81433E3C1CFBE5A700347C29 /* AIFakeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B161CFBE5A700347C29 /* AIFakeUser.m */; };
 		81433E3D1CFBE5A700347C29 /* AIFakeLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B191CFBE5A700347C29 /* AIFakeLoginView.m */; };
-		81433E3E1CFBE5A700347C29 /* AIButtonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B1D1CFBE5A700347C29 /* AIButtonUtils.swift */; };
 		81433E3F1CFBE5A700347C29 /* AIUIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B1E1CFBE5A700347C29 /* AIUIDevice.swift */; };
 		81433E401CFBE5A700347C29 /* AIUIViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B1F1CFBE5A700347C29 /* AIUIViewUtils.swift */; };
 		81433E411CFBE5A700347C29 /* CATransform3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B201CFBE5A700347C29 /* CATransform3D.swift */; };
@@ -633,6 +632,8 @@
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */; };
 		FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */; };
+		FB73551E1D23ACFC00CE549C /* AIProductCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */; };
+		FB7355201D23B7B300CE549C /* UILabel-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */; };
 		FB7A4E1F1D1D2BA300DBE07E /* AIImageRecongizeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */; };
 		FB8D126F1D210BC200101EEE /* AIProductQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D126E1D210BC200101EEE /* AIProductQAViewController.swift */; };
 		FBAE7FC41D115188002FF522 /* EvernoteTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */; };
@@ -1000,7 +1001,6 @@
 		81433B161CFBE5A700347C29 /* AIFakeUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFakeUser.m; sourceTree = "<group>"; };
 		81433B181CFBE5A700347C29 /* AIFakeLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFakeLoginView.h; sourceTree = "<group>"; };
 		81433B191CFBE5A700347C29 /* AIFakeLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFakeLoginView.m; sourceTree = "<group>"; };
-		81433B1D1CFBE5A700347C29 /* AIButtonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIButtonUtils.swift; sourceTree = "<group>"; };
 		81433B1E1CFBE5A700347C29 /* AIUIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUIDevice.swift; sourceTree = "<group>"; };
 		81433B1F1CFBE5A700347C29 /* AIUIViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUIViewUtils.swift; sourceTree = "<group>"; };
 		81433B201CFBE5A700347C29 /* CATransform3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATransform3D.swift; sourceTree = "<group>"; };
@@ -1616,6 +1616,8 @@
 		FB6600F81D123C01004667E2 /* AISellerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellerCollectionViewCell.h; sourceTree = "<group>"; };
 		FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerCollectionViewCell.m; sourceTree = "<group>"; };
 		FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
+		FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductCommentsViewController.swift; sourceTree = "<group>"; };
+		FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel-Helper.swift"; sourceTree = "<group>"; };
 		FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageRecongizeService.swift; sourceTree = "<group>"; };
 		FB8D126E1D210BC200101EEE /* AIProductQAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductQAViewController.swift; sourceTree = "<group>"; };
 		FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvernoteTransition.swift; sourceTree = "<group>"; };
@@ -2198,6 +2200,7 @@
 			isa = PBXGroup;
 			children = (
 				81433A241CFBE5A700347C29 /* AIBuyerViewController.swift */,
+				FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */,
 				81433A281CFBE5A700347C29 /* ReadmeViewController.swift */,
 				126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */,
 			);
@@ -2626,7 +2629,6 @@
 		81433B301CFBE5A700347C29 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				81433B1D1CFBE5A700347C29 /* AIButtonUtils.swift */,
 				81433B1E1CFBE5A700347C29 /* AIUIDevice.swift */,
 				81433B1F1CFBE5A700347C29 /* AIUIViewUtils.swift */,
 				81433B201CFBE5A700347C29 /* CATransform3D.swift */,
@@ -2637,6 +2639,7 @@
 				81433B321CFBE5A700347C29 /* UIImageUtils.swift */,
 				81433B331CFBE5A700347C29 /* UIView+Shake.swift */,
 				81433B341CFBE5A700347C29 /* UIViewController+AIPopup.swift */,
+				FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -4360,6 +4363,7 @@
 				81433E681CFBE5A700347C29 /* FLEXToolbarItem.m in Sources */,
 				8175A7FF1CFD2710006F2C8F /* UIButton+WebCache.m in Sources */,
 				81433CE91CFBE5A700347C29 /* ProposalEnum.swift in Sources */,
+				FB73551E1D23ACFC00CE549C /* AIProductCommentsViewController.swift in Sources */,
 				81433D331CFBE5A700347C29 /* TopServiceContainerView.swift in Sources */,
 				81433E251CFBE5A700347C29 /* AIBuyerDetailViewController.swift in Sources */,
 				81433CE71CFBE5A700347C29 /* AIServiceDetailUIModel.m in Sources */,
@@ -4393,6 +4397,7 @@
 				9392B58B1D1CE37A0007F241 /* AIAliPayOrder.swift in Sources */,
 				81433E2A1CFBE5A700347C29 /* AIRequireContentViewController.swift in Sources */,
 				81433D161CFBE5A700347C29 /* AICardCell.m in Sources */,
+				FB7355201D23B7B300CE549C /* UILabel-Helper.swift in Sources */,
 				81433E0B1CFBE5A700347C29 /* JTSScrollIndicator.m in Sources */,
 				81433DFB1CFBE5A700347C29 /* CustomPickerColumnView.swift in Sources */,
 				FB7A4E1F1D1D2BA300DBE07E /* AIImageRecongizeService.swift in Sources */,
@@ -4513,7 +4518,6 @@
 				9392B5801D1CD9F10007F241 /* Order.m in Sources */,
 				8175A8021CFD2710006F2C8F /* UIImage+WebP.m in Sources */,
 				8175A7CF1CFD2710006F2C8F /* CustomMethod.m in Sources */,
-				81433E3E1CFBE5A700347C29 /* AIButtonUtils.swift in Sources */,
 				81433E831CFBE5A700347C29 /* FLEXNetworkTransactionDetailTableViewController.m in Sources */,
 				8175A7F71CFD2710006F2C8F /* NSData+ImageContentType.m in Sources */,
 				846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */,
