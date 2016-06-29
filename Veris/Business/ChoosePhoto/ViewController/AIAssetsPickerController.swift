@@ -179,8 +179,14 @@ class AIAssetsPickerController: UIViewController {
     }
     
     @IBAction func preViewAction(any: AnyObject){
-        
-        self.navigationController?.pushViewController(AIAssetsReviewsController.initFromNib(), animated: true)
+        let prevc = AIAssetsReviewsController.initFromNib()
+        let newArray = NSMutableArray()
+        self.collctionView.indexPathsForSelectedItems()?.forEach({ (indexPath) in
+            newArray.addObject(self.assets.objectAtIndex(indexPath.row))
+        })
+        prevc.assets = newArray
+        prevc.maximumNumberOfSelection = self.maximumNumberOfSelection
+        self.navigationController?.pushViewController(prevc, animated: true)
         
     }
     
@@ -202,7 +208,6 @@ class AIAssetsPickerController: UIViewController {
                     let dataImageFull: NSData =  NSData(bytesNoCopy:imageBuffer ,length:bufferSize, freeWhenDone:true)
                     size += dataImageFull.length
                 }
-                
             })
             let newSizeMB = Double(size/1024/1024)
             
