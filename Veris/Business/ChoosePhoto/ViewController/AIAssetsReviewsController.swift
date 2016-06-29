@@ -134,7 +134,7 @@ class AIAssetsReviewsController: UIViewController,UIScrollViewDelegate {
             }else{
                 chooseButton.setImage(UIImage(named: "UINaviAble"), forState: UIControlState.Normal)
             }
-            let newDict = dict            
+            let newDict = dict
             //newDict.setValue(newBol, forKey: selected)
             assetsSelected[index] = newDict
             
