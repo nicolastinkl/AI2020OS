@@ -100,8 +100,7 @@ class AIPaymentViewController: UIViewController {
         model2.price = 23
         model2.servicename = "神州专车"
         dataSource.append(model2)
-        
-        
+                
         var model3 = AIPayInfoModel()
         model3.price = 30
         model3.servicename = "春雨医生"
@@ -186,8 +185,8 @@ class AIPaymentViewController: UIViewController {
         alipayLineView.backgroundColor = UIColor.clearColor()
         payView.addSubview(wechatLineView)
         payView.addSubview(alipayLineView)
-        wechatLineView.setTop(weixinButton.y + weixinButton.height + 5)
-        alipayLineView.setTop(alipayButton.y + alipayButton.height + 5)
+        wechatLineView.setTop(weixinButton.y + weixinButton.height)
+        alipayLineView.setTop(alipayButton.y + alipayButton.height)
         wechatLineView.setLeft(offset)
         alipayLineView.setLeft(offset)
         wechatLineView.setWidth(view.width - offset * 2)
