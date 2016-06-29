@@ -24,6 +24,7 @@
 
 import Foundation
 import AssetsLibrary
+import SVProgressHUD
 
 /// 调用委托
 protocol AIAssetsPickerControllerDelegate: class {
@@ -179,17 +180,19 @@ class AIAssetsPickerController: UIViewController {
     }
     
     @IBAction func preViewAction(any: AnyObject) {
-        let prevc = AIAssetsReviewsController.initFromNib()
-        let newArray = NSMutableArray()
-        self.collctionView.indexPathsForSelectedItems()?.forEach({ (indexPath) in
-            newArray.addObject(self.assets.objectAtIndex(indexPath.row))
-        })
-        prevc.assets = newArray
-        prevc.maximumNumberOfSelection = self.maximumNumberOfSelection
-        self.navigationController?.pushViewController(prevc, animated: true)
-        
+        if self.collctionView.indexPathsForSelectedItems()?.count > 0 {
+            let prevc = AIAssetsReviewsController.initFromNib()
+            let newArray = NSMutableArray()
+            self.collctionView.indexPathsForSelectedItems()?.forEach({ (indexPath) in
+                newArray.addObject(self.assets.objectAtIndex(indexPath.row))
+            })
+            prevc.assets = newArray
+            prevc.maximumNumberOfSelection = self.maximumNumberOfSelection
+            self.navigationController?.pushViewController(prevc, animated: true)
+        } else {
+            SVProgressHUD.showErrorWithStatus("没有选中图片")
+        }
     }
-    
     
     @IBAction func retainActino(any: AnyObject) {
         isRetainImage = !isRetainImage

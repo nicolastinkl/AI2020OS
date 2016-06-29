@@ -28,7 +28,15 @@ extension AbsCommentViewController: CommentDistrictDelegate {
         }
 
         let actionPhotosAlbum = UIAlertAction(title: "Gallery".localized, style: .Default) { (UIAlertAction) in
-            BuildInCameraUtils.startMediaBrowserFromViewController(self, delegate: self)
+            
+            let vc = AIAssetsPickerController.initFromNib()
+            vc.delegate = self
+            vc.maximumNumberOfSelection = 1
+            let navi = UINavigationController(rootViewController: vc)
+            navi.navigationBarHidden = true
+            self.presentViewController(navi, animated: true, completion: nil)
+
+         //   BuildInCameraUtils.startMediaBrowserFromViewController(self, delegate: self)
         }
 
         let actionCancel = UIAlertAction(title: "AIAudioMessageView.close".localized,
@@ -75,5 +83,41 @@ extension AbsCommentViewController: UIImagePickerControllerDelegate {
 
     func imagePicked(image: UIImage) {
 
+    }
+}
+
+extension AbsCommentViewController: AIAssetsPickerControllerDelegate {
+    /**
+     完成选择
+     
+     1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
+     2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
+        
+        let assetSuper = assets.firstObject as! ALAsset
+        let image = UIImage(CGImage: assetSuper.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+        
+        imagePicked(image)
+    }
+    
+    /**
+     取消选择
+     */
+    func assetsPickerControllerDidCancel() {
+        
+    }
+    
+    /**
+     选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    /**
+     取消选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        
     }
 }

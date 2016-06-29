@@ -25,12 +25,12 @@ class AIChangeStatusButton: UIButton {
         //设置禁用和可用时的背景色
         let disableImage = UIColor(hexString: "ebe7ff", alpha: 0.4).imageWithColor()
         
-        let enableImage = UIImage(named: "login_button_bg")?.resizableImageWithCapInsets(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), resizingMode: UIImageResizingMode.Tile)
+        let enableImage = UIImage(named: "login_button_bg")?.resizableImageWithCapInsets(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), resizingMode: UIImageResizingMode.Stretch)
         self.setBackgroundImage(disableImage, forState: UIControlState.Disabled)
         self.setBackgroundImage(enableImage, forState: UIControlState.Normal)
-        
-        self.layer.cornerRadius = 8
-        self.layer.masksToBounds = true
+        self.backgroundColor = UIColor.clearColor()
+//        self.layer.cornerRadius = 8
+//        self.layer.masksToBounds = true
     }
 }
 
