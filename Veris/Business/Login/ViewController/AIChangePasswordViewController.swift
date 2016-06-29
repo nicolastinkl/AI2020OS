@@ -14,6 +14,8 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
     @IBOutlet weak var confirmButton: AIChangeStatusButton!
     @IBOutlet weak var passwordTextField: UITextField!
     var rightImageView: UIImageView!
+    
+    var loginService = AILoginService()
 
     //切换是否显示密码的图标
     let showPasswordImageArray = [UIImage(named: "aa_speaker_off"), UIImage(named: "aa_speaker_on")]
@@ -74,11 +76,23 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
     }
 
     func passwordInputAction(target: UITextField) {
-        confirmButton.enabled = (target.text?.length >= 6)
+        confirmButton.enabled = AILoginUtil.validatePassword(passwordTextField.text)
     }
 
     @IBAction func confirmAction(sender: AnyObject) {
-
+//        guard let phoneNumber = AILoginPublicValue.phoneNumber else { return }
+//        if AILoginUtil.validatePassword(passwordTextField.text){
+//            
+//            loginService.registUser(userIdTextField.text!, password: passwordTextField.text!, success: { (userId) in
+//                self.dismissViewControllerAnimated(true, completion: nil)
+//                }, fail: { (errType, errDes) in
+//                    AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
+//            })
+//            
+//            
+//        } else {
+//            AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: validateInfoLabel, widthConstraint: validateInfoLabelWidthConstraint)
+//        }
     }
 
 
