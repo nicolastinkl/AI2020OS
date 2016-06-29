@@ -32,7 +32,6 @@ class AILoginViewController: UIViewController {
         
         SVProgressHUD.showWithStatus("正在登录...", maskType: SVProgressHUDMaskType.Gradient)
         if AILoginUtil.validatePassword(passwordTextField.text) && AILoginUtil.validatePhoneNumber(userIdTextField.text) {
-            self.view.showLoading()
             loginService.login(userIdTextField.text!, password: passwordTextField.text!, success: { (userId) in
 
                 SVProgressHUD.dismiss()

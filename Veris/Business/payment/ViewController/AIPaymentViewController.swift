@@ -291,12 +291,12 @@ class AIPaymentViewController: UIViewController {
         // 检测支付宝是否有安装
         
         if UIApplication.sharedApplication().canOpenURL(NSURL(string: "alipay://")!) {
-            let order = AIAliPayOrder(id: 1, title: "alipay", content: "pay note", url: "", createdAt: "", price: 0, paid: false, productID: 0)
+            let order = AIAliPayOrder(id: (12310 + Int(arc4random()%999)), title: "服务预定", content: "pay note", url: "http://asdfasdf.comasdom.domad", createdAt: "\(NSDate().timeIntervalSinceReferenceDate)", price: 10, paid: false, productID: (12310 + Int(arc4random()%9)))
             
             let aliOrder = AlipayOrder(partner: AlipayPartner, seller: AlipaySeller, tradeNO: order.id, productName: order.title, productDescription: order.content, amount: order.price, notifyURL: AlipayNotifyURL, service: "mobile.securitypay.pay", paymentType: "1", inputCharset: "utf-8", itBPay: "30m", showUrl: "m.alipay.com", rsaDate: nil, appID: nil)
             
             
-            let orderSpec = aliOrder.description //orderA.description
+            let orderSpec = aliOrder.description
             
             let signer = RSADataSigner(privateKey: AlipayPrivateKey)
             let signedString = signer.signString(orderSpec)

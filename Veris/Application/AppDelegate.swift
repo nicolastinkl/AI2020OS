@@ -115,6 +115,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         if url.host == "safepay" {
             //跳转支付宝钱包进行支付，处理支付结果
             AlipaySDK.defaultService().processOrderWithPaymentResult(url, standbyCallback: { (resultDict: [NSObject : AnyObject]!) -> Void in
+                if resultDict != nil {
+                    
+                    if let resultCode = resultDict["resultStatus"] as? Int {
+                        if resultCode == 9000 {
+                            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WeixinPaySuccessNotification, object: nil)
+                        }else{
+                            let alert = UIAlertView(title: "支付失败", message: resultDict["memo"] as? String ?? "", delegate: nil, cancelButtonTitle: "OK")
+                            alert.show()
+                        }
+                    }
+                }
                 print("openURL result: \(resultDict)")
             })
  
