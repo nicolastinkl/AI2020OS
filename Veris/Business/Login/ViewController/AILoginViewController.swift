@@ -36,6 +36,7 @@ class AILoginViewController: UIViewController {
                 self.dismissViewControllerAnimated(true, completion: nil)
                 }, fail: { (errType, errDes) in
                     AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
+                    self.dismissViewControllerAnimated(true, completion: nil)
             })
             
             
@@ -64,7 +65,7 @@ class AILoginViewController: UIViewController {
         setupNavigationBar()
         
         #if !DEBUG
-            userIdTextField.text = "213231231321"
+            userIdTextField.text = "18982194190"
             passwordTextField.text = "1233123213"
             loginButton.enabled = true
         #endif

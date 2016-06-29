@@ -97,7 +97,7 @@
                 [weakSelf parseSuccessResponseWithTask:task
                                         responseObject:responseObject
                                                success:success
-                                                  fail:nil];
+                                                  fail:fail];
             }else{
                 [weakSelf parseFailResponseWithTask:task
                                               error:[NSError errorWithDomain:@"Null Data" code:-1 userInfo:nil]                                            success:nil fail:fail];
