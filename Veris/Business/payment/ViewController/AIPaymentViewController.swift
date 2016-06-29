@@ -108,6 +108,8 @@ class AIPaymentViewController: UIViewController {
         model3.childList = dataSource
         dataSource.append(model3)
         
+        dataSource.append(model2)
+        
         self.tableView.reloadData()
     }
     
