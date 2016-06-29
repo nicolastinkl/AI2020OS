@@ -14,7 +14,7 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
 
 
     @IBOutlet weak var regionSelectContainerView: UIView!
-    @IBOutlet weak var nextStepButton: DesignableButton!
+    @IBOutlet weak var nextStepButton: AIChangeStatusButton!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var regionSelectButton: UIButton!
 
@@ -54,7 +54,7 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     func handleLoginType() {
-        if AILoginPublicValue.loginType == AILoginUtil.LoginType.ForgotPassword {
+        if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
             self.setupLoginNavigationBar("Forgot Password")
         } else {
             self.setupLoginNavigationBar("Register")
@@ -72,14 +72,20 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
         phoneNumberTextField.leftView = leftView
         phoneNumberTextField.addTarget(self, action: #selector(AIRegistViewController.phoneNumberInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
 
-        nextStepButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
-        nextStepButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
+        nextStepButton.setBackgroundImage(LoginConstants.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
+        nextStepButton.setBackgroundImage(LoginConstants.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
         nextStepButton.enabled = false
+        
     }
 
     //TODO: 这里要根据规则判断，调用判断方法
     func phoneNumberInputAction(target: UITextField) {
         nextStepButton.enabled = (AILoginUtil.validatePhoneNumber(target.text!))
+    }
+    
+    func showValidateResult(validateResultCode: LoginConstants.ValidateResultCode) {
+        let resultText = validateResultCode.rawValue
+        //let width = resultText.sizeWithFont(<#T##font: UIFont##UIFont#>, forWidth: <#T##CGFloat#>)
     }
 }
 

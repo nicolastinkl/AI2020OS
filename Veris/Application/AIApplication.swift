@@ -22,6 +22,8 @@ struct AIApplication {
     internal static let AVOSCLOUDKEY = "LGwq0DTaJb8D59IV3kK18wmh"
     internal static let KURL_ReleaseURL =  "http://171.221.254.231:3000"  //正式地址
     internal static let KURL_DebugURL   =  "http://171.221.254.231:3000"  //测试地址
+    
+    internal static let KURL_Appstore_ReleaseURL =  "http://171.221.254.231:2999/nsboss/admin"  //appstore版本正式地址
 
     // MARK: XUNFEI APPID
     internal static let XUNFEIAPPID  = "551ba83b"
@@ -378,6 +380,11 @@ struct AIApplication {
         //MARK: 初始化任务实例
         case initTask
 
+        //MARK: 注册
+        case register
+        
+        //MARK: 登陆
+        case login
         // 一键恢复订单
         var description: String {
 
@@ -427,6 +434,10 @@ struct AIApplication {
             case .grabOrder: return AIApplication.KURL_ReleaseURL + "/grabOrder"
             case .queryGrabOrderDetail: return AIApplication.KURL_ReleaseURL + "/queryGrabOrderDetail"
             case .initTask: return AIApplication.KURL_ReleaseURL + "/initTask"
+                
+            //登陆注册接口
+            case .register: return AIApplication.KURL_Appstore_ReleaseURL + "/register"
+            case .login: return AIApplication.KURL_Appstore_ReleaseURL + "/login"
             }
         }
     }

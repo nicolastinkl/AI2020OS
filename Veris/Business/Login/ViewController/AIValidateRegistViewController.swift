@@ -23,7 +23,10 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
     @IBOutlet weak var validationButtonWidthConstrant: NSLayoutConstraint!
     @IBOutlet weak var validationButton: UIButton!
     @IBOutlet weak var identifyTextField: UITextField!
-    @IBOutlet weak var nextStepButton: DesignableButton!
+    @IBOutlet weak var nextStepButton: AIChangeStatusButton!
+    
+    @IBOutlet weak var validateInfoLabel: UILabel!
+    @IBOutlet weak var validateInfoWidthConstraint: NSLayoutConstraint!
 
     // MARK: -> life cycle
     override func viewDidLoad() {
@@ -49,10 +52,10 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
             if bol {
                 let changePasswordVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIChangePasswordViewController)
                 //设置类型为忘记密码
-                AILoginPublicValue.loginType = AILoginUtil.LoginType.ForgotPassword
+                AILoginPublicValue.loginType = LoginConstants.LoginType.ForgotPassword
                 self.navigationController?.pushViewController(changePasswordVC, animated: true)
             } else {
-                AIAlertView().showError("input error validate code", subTitle: error.description)
+                AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoWidthConstraint)
             }
         }
     }
@@ -109,7 +112,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
     }
 
     func handleLoginType() {
-        if AILoginPublicValue.loginType == AILoginUtil.LoginType.ForgotPassword {
+        if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
             self.setupLoginNavigationBar("Forgot Password")
         } else {
             self.setupLoginNavigationBar("Enter Validation Code")
@@ -139,6 +142,10 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         handleLoginType()
         //修复navigationController侧滑关闭失效的问题
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
+        validateInfoWidthConstraint.constant = 0
+        validateInfoLabel.layer.cornerRadius = 8
+        validateInfoLabel.layer.masksToBounds = true
     }
 
 }

@@ -81,3 +81,80 @@ class LoginStateHandler: NSObject {
         changeHandler?(.LoggedOut)
     }
 }
+
+class AILoginService: NSObject {
+    
+    struct AINetErrorDescription {
+        static let FormatError = "AIOrderPreListModel JSON Parse error."
+    }
+    
+    /**
+     登陆服务
+     
+     - parameter userCode: <#userCode description#>
+     - parameter password: <#password description#>
+     - parameter success:  <#success description#>
+     - parameter fail:     <#fail description#>
+     */
+    func login(userCode: String, password: String, success : (userId: String) -> Void, fail : (errType: AINetError, errDes: String) -> Void) {
+        let message = AIMessage()
+        let body : NSDictionary = ["data" : [
+            "username" : userCode,
+            "password" : password],
+            "desc":["data_mode" : "0", "digest" : ""]]
+        
+        message.body.addEntriesFromDictionary(body as [NSObject : AnyObject])
+        message.url = AIApplication.AIApplicationServerURL.login.description as String
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            if let responseJSON: AnyObject = response{
+                
+                let dic = responseJSON as! [NSString : AnyObject]
+                success(userId: "1")
+                
+                
+            }else{
+                fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+            }
+            
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes)
+        }
+
+    }
+    
+    /**
+     <#Description#>
+     
+     - parameter userCode: <#userCode description#>
+     - parameter success:  <#success description#>
+     - parameter fail:     <#fail description#>
+     */
+    func registUser(userCode: String, password: String, success : (userId: String) -> Void, fail : (errType: AINetError, errDes: String) -> Void) {
+        let message = AIMessage()
+        let body : NSDictionary = ["data" : [
+            "username" : userCode,
+            "password" : password],
+                                   "desc":["data_mode" : "0", "digest" : ""]]
+        
+        message.body.addEntriesFromDictionary(body as [NSObject : AnyObject])
+        message.url = AIApplication.AIApplicationServerURL.register.description as String
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            if let responseJSON: AnyObject = response{
+                
+                let dic = responseJSON as! [NSString : AnyObject]
+                success(userId: "1")
+                
+                
+            }else{
+                fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+            }
+            
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes)
+        }
+    }
+}

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
 		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
+		12873EE71D20C0BA00C3AF9A /* LoginConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */; };
 		12933BD41D17E71B008A1693 /* AITimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */; };
 		12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */; };
 		12933BD71D18D6C2008A1693 /* CustomerCenterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD61D18D6C2008A1693 /* CustomerCenterConstants.swift */; };
@@ -651,6 +652,7 @@
 		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
 		126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteViewController.swift; sourceTree = "<group>"; };
 		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
+		12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConstants.swift; sourceTree = "<group>"; };
 		12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTableViewCell.swift; sourceTree = "<group>"; };
 		12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTableViewCell.xib; sourceTree = "<group>"; };
 		12933BD61D18D6C2008A1693 /* CustomerCenterConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerCenterConstants.swift; sourceTree = "<group>"; };
@@ -1669,6 +1671,7 @@
 			children = (
 				12D764941D0D40AE002B001B /* View */,
 				12D764951D0D40AE002B001B /* ViewController */,
+				12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -4135,6 +4138,7 @@
 				81433E5C1CFBE5A700347C29 /* FLEXArgumentInputTextView.m in Sources */,
 				9392B5851D1CD9F10007F241 /* openssl_wrapper.m in Sources */,
 				93FD2FDD1D13DA7E00B88355 /* AISearchResultModel.swift in Sources */,
+				12873EE71D20C0BA00C3AF9A /* LoginConstants.swift in Sources */,
 				8175A7EE1CFD2710006F2C8F /* OAStackViewDistributionStrategy.m in Sources */,
 				81433CEF1CFBE5A700347C29 /* AIBaseModel.swift in Sources */,
 				81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */,
