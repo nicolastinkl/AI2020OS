@@ -528,6 +528,8 @@
 		845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700511D015E7600512597 /* CompondServiceCommentViewController.xib */; };
 		845700581D015FD600512597 /* ServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */; };
 		845700591D015FD600512597 /* ServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */; };
+		84687E401D236B960083BD9B /* ImagesCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84687E3F1D236B960083BD9B /* ImagesCollectionView.xib */; };
+		84687E421D236BB90083BD9B /* ImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84687E411D236BB90083BD9B /* ImagesCollectionView.swift */; };
 		846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */; };
 		846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */; };
 		846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */; };
@@ -1397,6 +1399,8 @@
 		845700511D015E7600512597 /* CompondServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompondServiceCommentViewController.xib; sourceTree = "<group>"; };
 		845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
+		84687E3F1D236B960083BD9B /* ImagesCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesCollectionView.xib; sourceTree = "<group>"; };
+		84687E411D236BB90083BD9B /* ImagesCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesCollectionView.swift; sourceTree = "<group>"; };
 		846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
 		846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentHelp.swift; sourceTree = "<group>"; };
 		846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsCommentViewController.swift; sourceTree = "<group>"; };
@@ -3329,6 +3333,8 @@
 				8457004C1D012D7D00512597 /* CommentDistrictView.xib */,
 				845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */,
 				845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */,
+				84687E3F1D236B960083BD9B /* ImagesCollectionView.xib */,
+				84687E411D236BB90083BD9B /* ImagesCollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4059,6 +4065,7 @@
 				9392B57C1D1CD9F10007F241 /* AlipaySDK.bundle in Resources */,
 				930677421D18E34C0079805D /* HiraginoSansGBW3.otf in Resources */,
 				845700591D015FD600512597 /* ServiceCommentTableViewCell.xib in Resources */,
+				84687E401D236B960083BD9B /* ImagesCollectionView.xib in Resources */,
 				81433D7F1CFBE5A700347C29 /* AIFoldedCellView.xib in Resources */,
 				81433E711CFBE5A700347C29 /* LICENSE in Resources */,
 				81433DF51CFBE5A700347C29 /* AIDatePickerView.xib in Resources */,
@@ -4426,6 +4433,7 @@
 				81433CFD1CFBE5A700347C29 /* AIViews.m in Sources */,
 				81433D7B1CFBE5A700347C29 /* AIStarRate.m in Sources */,
 				81433D411CFBE5A700347C29 /* AIDropdownBrandView.swift in Sources */,
+				84687E421D236BB90083BD9B /* ImagesCollectionView.swift in Sources */,
 				81433D451CFBE5A700347C29 /* AIProviderView.swift in Sources */,
 				81433E9D1CFBE5A700347C29 /* Localize.swift in Sources */,
 				8175A7D81CFD2710006F2C8F /* JSONModel.m in Sources */,

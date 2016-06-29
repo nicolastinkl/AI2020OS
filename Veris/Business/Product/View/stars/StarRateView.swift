@@ -94,15 +94,6 @@ class StarRateView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-//        if let old = oldFrame {
-//            if old.height != frame.height || old.width != frame.width {
-//                relayoutStars()
-//                oldFrame = frame
-//            }
-//        } else {
-//            oldFrame = frame
-//        }
-
         let interval = self.hasAnimation ? 0.2 : 0
         weak var weakSelf: StarRateView? = self
 

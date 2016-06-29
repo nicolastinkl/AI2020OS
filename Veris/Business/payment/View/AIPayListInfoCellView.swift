@@ -24,6 +24,7 @@
 
 import Foundation
 import Cartography
+import Spring
 
 class AIPayListInfoCellView: UITableViewCell {
     
@@ -44,56 +45,64 @@ class AIPayListInfoCellView: UITableViewCell {
     
     func setCellContent(item: AIPayInfoModel, isExpanded: Bool) {
         
-        debugPrint(isExpanded)
         self.payName.text = item.servicename ?? ""
         self.payPrice.text = "\(item.price ?? 0)元"
+        
         self.arrowDirectIcon.image = item.childList?.count > 0 ? UIImage(named: "AI_Search_Home_right") : nil
-//        self.disclosureView.direction = isExpanded ? ArrowDirection.Top : ArrowDirection.Bottom
-//        self.disclosureView.setNeedsDisplay()
         
-        let expendListView = UIView()
-        var topOffset: CGFloat = 0
-        if let m = item.childList {
-            for model in m {
-                let name = UILabel()
-                name.text = model.servicename ?? ""
+        if isExpanded == false {
+            /*let animation = CABasicAnimation()
+            animation.keyPath = "transform.rotation.z"
+            animation.fromValue = degreesToRadians(0)
+            animation.toValue = degreesToRadians(90)
+            animation.duration = 0.5
+            animation.repeatCount = 1
+            self.arrowDirectIcon.layer.addAnimation(animation, forKey: "")*/
+            expendView.subviews.first?.removeFromSuperview()
+            expendConstrint.constant = 0
+            
+        }else{ 
+            let expendListView = UIView()
+            var topOffset: CGFloat = 0
+            if let m = item.childList {
+                for model in m {
+                    let name = UILabel()
+                    name.text = model.servicename ?? ""
+                    let price = UILabel()
+                    price.text = "\(model.price ?? 0)元"
+                    
+                    expendListView.addSubview(name)
+                    expendListView.addSubview(price)
                 
-                let price = UILabel()
-                price.text = "\(model.price ?? 0)元"
-                
-                name.textColor = UIColor(hexString: "#fefefe", alpha: 0.76)
-                price.textColor = UIColor(hexString: "#fefefe", alpha: 0.76)
-                
-                name.font = AITools.myriadLightWithSize(40/3)
-                price.font = AITools.myriadLightWithSize(40/3)
-                
-                name.textAlignment = .Left
-                price.textAlignment = .Right
-                
-                name.setWidth(100)
-                price.setWidth(60)
-                price.setRight(0)
-                
-                name.setTop(topOffset)
-                price.setTop(topOffset)
-                
-                topOffset += 30
-                
-                expendListView.addSubview(name)
-                expendListView.addSubview(price)
-                
+                    name.textColor = UIColor(hexString: "#fefefe", alpha: 0.76)
+                    price.textColor = UIColor(hexString: "#fefefe", alpha: 0.76)
+                    
+                    name.font = AITools.myriadLightWithSize(40/3)
+                    price.font = AITools.myriadLightWithSize(40/3)
+                    
+                    name.textAlignment = .Left
+                    price.textAlignment = .Right
+                    
+                    name.setWidth(100)
+                    name.setHeight(30)
+                    
+                    price.setWidth(60)
+                    price.setHeight(30)
+                    price.setLeft(200)
+                    
+                    name.setTop(topOffset)
+                    price.setTop(topOffset)
+                    
+                    topOffset += 30
+                    
+                }
             }
-        }
-        
-        expendConstrint.constant = topOffset
-        
-        expendView.addSubview(expendListView)
-        
-        constrain(expendListView) { (expendListViewProxy) in
-            expendListViewProxy.left == expendListViewProxy.superview!.left
-            expendListViewProxy.right == expendListViewProxy.superview!.right
-            expendListViewProxy.top == expendListViewProxy.superview!.top
-            expendListViewProxy.bottom == expendListViewProxy.superview!.bottom
+            
+            expendConstrint.constant = topOffset
+            
+            expendView.addSubview(expendListView)
+            
+            expendListView.pinToEdgesOfSuperview(offset: 0)
         }
         
         expendView.setNeedsLayout()

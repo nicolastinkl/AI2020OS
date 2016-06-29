@@ -16,7 +16,10 @@ class CommentDistrictView: UIView {
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var commentEditText: UITextView!
     @IBOutlet weak var placeHolderText: UILabel!
+    @IBOutlet weak var imagesCollection: ImagesCollectionView!
 
+    @IBOutlet weak var imagesCollectionHeight: NSLayoutConstraint!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
@@ -36,6 +39,16 @@ class CommentDistrictView: UIView {
 
     func cameraAction(sender: UIGestureRecognizer) {
         delegate?.pohotImageButtonClicked(photoImage, buttonParent: self)
+    }
+    
+    func addImage(image: UIImage) {
+        imagesCollection.addImage(image)
+        let height = imagesCollection.intrinsicContentSize().height
+        
+        if height > imagesCollectionHeight.constant {
+            imagesCollectionHeight.constant = height
+            imagesCollection.setNeedsUpdateConstraints()
+        }
     }
 }
 

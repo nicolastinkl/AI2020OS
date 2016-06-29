@@ -110,7 +110,7 @@ class AICustomSearchHomeViewController: UIViewController {
 		
 		// Make Wish Button
 		let wishButton = UIButton(type: UIButtonType.Custom)
-		wishButton.setTitle("   Make a wish", forState: UIControlState.Normal)
+		wishButton.setTitle("   Make a Wish", forState: UIControlState.Normal)
         wishButton.setImage(UIImage(named: "AI_Search_Home_WIsh"), forState: UIControlState.Normal)
 		view.addSubview(wishButton)
 		wishButton.backgroundColor = UIColor.clearColor()
