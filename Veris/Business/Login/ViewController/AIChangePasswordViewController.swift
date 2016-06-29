@@ -11,7 +11,7 @@ import UIKit
 class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDelegate {
 
 
-    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var confirmButton: AIChangeStatusButton!
     @IBOutlet weak var passwordTextField: UITextField!
     var rightImageView: UIImageView!
 
@@ -33,7 +33,7 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
     }
 
     func handleLoginType() {
-        if AILoginPublicValue.loginType == AILoginUtil.LoginType.ForgotPassword {
+        if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
             self.setupLoginNavigationBar("Forgot Password")
         } else {
             self.setupLoginNavigationBar("Enter Password")
@@ -59,8 +59,8 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
 
         confirmButton.layer.cornerRadius = 5
         confirmButton.layer.masksToBounds = true
-        confirmButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
-        confirmButton.setBackgroundImage(AILoginUtil.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
+        confirmButton.setBackgroundImage(LoginConstants.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
+        confirmButton.setBackgroundImage(LoginConstants.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
         confirmButton.enabled = false
 
         //修复navigationController侧滑关闭失效的问题
