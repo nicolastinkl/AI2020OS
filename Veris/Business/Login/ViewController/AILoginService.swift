@@ -108,13 +108,13 @@ class AILoginService: NSObject {
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
-            if let responseJSON: AnyObject = response{
+            if let responseJSON: AnyObject = response {
                 
                 let dic = responseJSON as! [NSString : AnyObject]
                 success(userId: "1")
                 
                 
-            }else{
+            } else {
                 fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
             }
             
@@ -142,13 +142,13 @@ class AILoginService: NSObject {
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
-            if let responseJSON: AnyObject = response{
+            if let responseJSON: AnyObject = response {
                 
                 let dic = responseJSON as! [NSString : AnyObject]
                 success(userId: "1")
                 
                 
-            }else{
+            } else {
                 fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
             }
             

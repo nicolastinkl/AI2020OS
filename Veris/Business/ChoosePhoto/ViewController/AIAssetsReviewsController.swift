@@ -24,7 +24,7 @@
 
 import Foundation
 
-class AIAssetsReviewsController: UIViewController,UIScrollViewDelegate {
+class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var topView: UIView!
     
@@ -42,7 +42,7 @@ class AIAssetsReviewsController: UIViewController,UIScrollViewDelegate {
     
     var assetsSelected = Array<NSDictionary>()
     
-    var maximumNumberOfSelection:Int = 10
+    var maximumNumberOfSelection: Int = 10
     
     private var isRetainImage: Bool = false
     
@@ -70,7 +70,7 @@ class AIAssetsReviewsController: UIViewController,UIScrollViewDelegate {
         
         // Copy.
         assets.forEach { (value) in
-            let dic = ["value": value,selected: true]
+            let dic = ["value": value, selected: true]
             assetsSelected.append(NSDictionary(dictionary: dic))
         }
         
@@ -104,7 +104,7 @@ class AIAssetsReviewsController: UIViewController,UIScrollViewDelegate {
         refereshButton()
     }
     
-    func refereshButton(){
+    func refereshButton() {
         var count: Int = 0
         assetsSelected.forEach { (dict) in
             if let bol = dict[selected] as? Bool {
@@ -120,7 +120,7 @@ class AIAssetsReviewsController: UIViewController,UIScrollViewDelegate {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    @IBAction func choooseAction(sender: AnyObject){
+    @IBAction func choooseAction(sender: AnyObject) {
         
         let index = pageControl.currentPage
         let dict = assetsSelected[index]
@@ -131,7 +131,7 @@ class AIAssetsReviewsController: UIViewController,UIScrollViewDelegate {
             
             if newBol {
                 chooseButton.setImage(UIImage(named: "UINaviDisable"), forState: UIControlState.Normal)
-            }else{
+            } else {
                 chooseButton.setImage(UIImage(named: "UINaviAble"), forState: UIControlState.Normal)
             }
             let newDict = dict
@@ -146,17 +146,17 @@ class AIAssetsReviewsController: UIViewController,UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         
-        let index = fabs(scrollView.contentOffset.x) / scrollView.frame.size.width;
+        let index = fabs(scrollView.contentOffset.x) / scrollView.frame.size.width
         pageControl.currentPage = Int(index)
         
     }
     
-    @IBAction func retainAction(sender: AnyObject){
+    @IBAction func retainAction(sender: AnyObject) {
         isRetainImage = !isRetainImage
         refershDataSize()
     }
     
-    func refershDataSize(){
+    func refershDataSize() {
         if isRetainImage {
             var size = 0
             assets.forEach({ (assetObj) in                
@@ -164,7 +164,7 @@ class AIAssetsReviewsController: UIViewController,UIScrollViewDelegate {
                 let imageBuffer = UnsafeMutablePointer<UInt8>.alloc(Int(representation.size()))
                 let bufferSize = representation.getBytes(imageBuffer, fromOffset: Int64(0),
                     length: Int(representation.size()), error: nil)
-                let dataImageFull: NSData =  NSData(bytesNoCopy:imageBuffer ,length:bufferSize, freeWhenDone:true)
+                let dataImageFull: NSData =  NSData(bytesNoCopy:imageBuffer, length:bufferSize, freeWhenDone:true)
                 size += dataImageFull.length
                 
             })
@@ -172,16 +172,15 @@ class AIAssetsReviewsController: UIViewController,UIScrollViewDelegate {
             
             if size/1024 < 1000 {
                 sizeButton.setTitle(" 原图(\(size/1024)KB)", forState: UIControlState.Normal)
-            }else{
+            } else {
                 sizeButton.setTitle(" 原图(\(newSizeMB)MB)", forState: UIControlState.Normal)
             }
             
             sizeButton.setImage(UIImage(named: "UINaviAble"), forState: UIControlState.Normal)
-        }else{
+        } else {
             sizeButton.setTitle(" 原图", forState: UIControlState.Normal)
             sizeButton.setImage(UIImage(named: "UINaviDisable"), forState: UIControlState.Normal)
         }
     }
 
 }
-

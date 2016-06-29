@@ -57,7 +57,7 @@ struct LoginConstants {
     }
 
     
-    enum ValidateResultCode : String {
+    enum ValidateResultCode: String {
         case WrongIdOrPassword = "Wrong ID or password!"
     }
 }

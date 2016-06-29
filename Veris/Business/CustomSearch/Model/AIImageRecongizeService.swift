@@ -11,7 +11,7 @@ import Alamofire
 
 class AIImageRecongizeService: NSObject {
 	
-	func getImageInfo(image: UIImage, callback: ((AnyObject, error: Error?) -> ())?) {
+	func getImageInfo(image: UIImage, callback: ((String?, error: Error?) -> ())?) {
 		let data = UIImagePNGRepresentation(image)!
 		Alamofire.upload(.POST, "http://10.5.1.249:3001/uploadAndIdentify",
 			multipartFormData: { multipartFormData in
@@ -21,6 +21,26 @@ class AIImageRecongizeService: NSObject {
 				switch encodingResult {
 				case .Success(let upload, _, _):
 					upload.responseJSON { response in
+						let failblock = {
+							if let callback = callback {
+								let e = Error(message: "无法解析", code: 2)
+								callback(nil, error: e)
+							}
+						}
+						
+						if let res = response.result.value as? NSDictionary {
+							print(res)
+							if let objectList = res["data"]?["objectList"] as? NSArray {
+								if objectList.count > 0 {
+									let firstItem = objectList.firstObject as! NSDictionary
+									callback?(firstItem["name"] as? String, error: nil)
+								} else {
+									failblock()
+								}
+							}
+						} else {
+							failblock()
+						}
 						debugPrint(response)
 					}
 				case .Failure(let encodingError):

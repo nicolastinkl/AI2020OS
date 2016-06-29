@@ -20,7 +20,7 @@ class AILoginUtil {
     static func validatePassword(password: String?) -> Bool {
         guard let password = password else {return false}
         let pattern = "[0-9a-zA-Z!@#$%*()_+^&]{6,20}"
-        if let _ = password.rangeOfString(pattern, options: NSStringCompareOptions.RegularExpressionSearch, range: nil, locale: nil){
+        if let _ = password.rangeOfString(pattern, options: NSStringCompareOptions.RegularExpressionSearch, range: nil, locale: nil) {
             return true
         }
         return false
@@ -29,7 +29,7 @@ class AILoginUtil {
     // MARK: -验证手机号是否符合规范
     // 11位数字
     static func validatePhoneNumber(phoneNumber: String?) -> Bool {
-        guard let phoneNumber = phoneNumber else{return false}
+        guard let phoneNumber = phoneNumber else {return false}
         let pattern = "^1+[3578]+\\d{9}"
         if let _ = phoneNumber.rangeOfString(pattern, options: NSStringCompareOptions.RegularExpressionSearch, range: nil, locale: nil) {
             return true
