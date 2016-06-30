@@ -41,4 +41,10 @@
         getUserInfo: getUserInfo,
         getDeviceInfo: getDeviceInfo
     }
+
+    // send ready 
+    var doc = document
+    var readyEvent = doc.createEvent('Events')
+    readyEvent.initEvent('JSSDKReady')
+    doc.dispatchEvent(readyEvent)
 })();

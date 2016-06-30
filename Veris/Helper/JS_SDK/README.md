@@ -1,48 +1,37 @@
 # JS SDK 文档
 
-Demo
+## 基础接口
+
+### 调用方法
 
 ```
-<!DOCTYPE html>
-<html lang="en">
+// 注意: 只能在JSSDKReady以后调用 接口
+document.addEventListener('JSSDKReady', function() {
+    var cb = function(data) { console.log(data) }
+    ai.getUserInfo(cb)
+    ai.getDeviceInfo(cb)
+}, false)
 
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-  <script>
-    function getUserInfo() {
-      ai.getUserInfo(function(data) {
-        //data {
-        //  userName: userName
-        //  userId: userId
-        //}
-        document.getElementById("userInfo").textContent = JSON.stringify(data)
-      })
-    }
-
-    function getDeviceInfo() {
-      ai.getDeviceInfo(function(data) {
-        // data {
-          // deviceType: deviceType,
-          // systemVersion: systemVersion,
-          // systemName: systemName
-        // }
-        document.getElementById("deviceInfo").textContent = JSON.stringify(data)
-      })
-    }
-  </script>
-</head>
-
-<body>
-  <p>device info</p>
-  <p id='deviceInfo'></p>
-  <p>user info</p>
-  <p id='userInfo'></p>
-  <form action="">
-    <input type="button" value="get device version" onclick="getDeviceInfo()">
-    <input type="button" value="get user name" onclick="getUserInfo()">
-  </form>
-</body>
-
-</html>
 ```
+
+### 获取用户信息
+
+```
+ai.getUserInfo(function(data) {
+    var userName = data.userName
+    var userId = data.userId
+})
+```
+
+### 获取设备信息
+
+```
+ai.getDeviceInfo(function(data) {
+    var deviceType = data.deviceType
+    var systemVersion = data.systemVersion
+    var systemName = data.systemName
+})
+```
+
+
+[Demo.html](https://gist.github.com/bumaociyuan/5e240443ecf1882cb6df4b6221b62d58)
