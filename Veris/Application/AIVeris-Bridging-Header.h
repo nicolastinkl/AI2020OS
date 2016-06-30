@@ -13,7 +13,6 @@
 
 // MARK: 自定义视图
 #import "UIView+MaterialDesign.h"
-#import "CWStarRateView.h"
 
 #import "TableViewCellBackgroundView.h"
 #import "UIImage+Effect.h"
@@ -55,8 +54,6 @@
 #import "AIMessageWrapper.h"
 
 #import "AINetEngine.h"
-
-#import "CWStarRateView.h"
 
 //oc models
 #import "ProposalModel.h"

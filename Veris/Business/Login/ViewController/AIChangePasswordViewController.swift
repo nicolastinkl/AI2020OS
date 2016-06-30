@@ -7,19 +7,17 @@
 //
 
 import UIKit
+import AIAlertView
 
 class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDelegate {
 
 
     @IBOutlet weak var confirmButton: AIChangeStatusButton!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: AILoginPasswordTextField!
     var rightImageView: UIImageView!
     
     var loginService = AILoginService()
 
-    //切换是否显示密码的图标
-    let showPasswordImageArray = [UIImage(named: "aa_speaker_off"), UIImage(named: "aa_speaker_on")]
-    var showPasswordText = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,21 +41,7 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
     }
 
     func setupViews() {
-        passwordTextField.secureTextEntry = true
-        passwordTextField.returnKeyType = UIReturnKeyType.Go
-        passwordTextField.layer.cornerRadius = 5
-        passwordTextField.layer.masksToBounds = true
-        rightImageView = UIImageView(frame: CGRect(x: 0, y: 10, width: 40, height: 30))
-        rightImageView.image = showPasswordImageArray[0]
-        rightImageView.contentMode = UIViewContentMode.ScaleAspectFit
-        rightImageView.userInteractionEnabled = true
-        passwordTextField.rightView = rightImageView
-        passwordTextField.rightViewMode = UITextFieldViewMode.Always
-
         passwordTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
-
-        let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(AIChangePasswordViewController.switchDisplayPasswordText(_:)))
-        rightImageView.addGestureRecognizer(tapGuesture)
 
         confirmButton.layer.cornerRadius = 5
         confirmButton.layer.masksToBounds = true
@@ -69,41 +53,26 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
 
-    func switchDisplayPasswordText(sender: UITapGestureRecognizer) {
-        showPasswordText = !showPasswordText
-        passwordTextField.secureTextEntry = !passwordTextField.secureTextEntry
-        rightImageView.image = showPasswordText ? showPasswordImageArray[1] : showPasswordImageArray[0]
-    }
-
     func passwordInputAction(target: UITextField) {
         confirmButton.enabled = AILoginUtil.validatePassword(passwordTextField.text)
     }
 
     @IBAction func confirmAction(sender: AnyObject) {
-//        guard let phoneNumber = AILoginPublicValue.phoneNumber else { return }
-//        if AILoginUtil.validatePassword(passwordTextField.text){
-//            
-//            loginService.registUser(userIdTextField.text!, password: passwordTextField.text!, success: { (userId) in
-//                self.dismissViewControllerAnimated(true, completion: nil)
-//                }, fail: { (errType, errDes) in
-//                    AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
-//            })
-//            
-//            
-//        } else {
-//            AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: validateInfoLabel, widthConstraint: validateInfoLabelWidthConstraint)
-//        }
+        guard let phoneNumber = AILoginPublicValue.phoneNumber else { return }
+        if AILoginUtil.validatePassword(passwordTextField.text){
+            if AILoginPublicValue.loginType == LoginConstants.LoginType.Register{
+                loginService.registUser(phoneNumber, password: passwordTextField.text!, success: { (userId) in
+                    //TODO: 暂时的提示
+                    AIAlertView().showSuccess("注册成功!", subTitle: "")
+                    }, fail: { (errType, errDes) in
+                        <#code#>
+                })
+            }
+            else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword{
+                
+            }
+        }
+
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

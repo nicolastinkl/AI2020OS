@@ -14,7 +14,8 @@ typedef enum  {
     
     typeToNormal = 0,
     typeToSignIcon = 1,//
-    typeToAdd = 2//
+    typeToAdd = 2,//
+    typeToWish = 3
     
 }BubbleType;
 
