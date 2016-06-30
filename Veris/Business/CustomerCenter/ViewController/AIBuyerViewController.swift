@@ -8,6 +8,7 @@
 
 import UIKit
 import Spring
+import Glass
 
 class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AIBuyerDetailDelegate {
 
@@ -88,6 +89,24 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         self.tableView.headerBeginRefreshing()
 
+        
+    }
+    
+    func makePopTableView(){
+        
+        let rootViewController = AIProposalTableViewController()
+        /// Offsetable windows can't be dragged off the screen by a user's pan gesture
+        /// Dismissable windows can be dragged off the screen by a pan gesture to be dismissed
+        WindowManager.shared.pushWindow(rootViewController, type: .Offsetable)
+        
+        /*WindowManager.shared.pushWindow(rootViewController, type: .Dismissable, style: .None,
+         gesturePredicate: { (rootViewController: UIViewController, type: WindowType) -> (Bool) in
+         // Check app state, perform magic computations, etc. here
+         return true
+         })
+         */
+        
+        
     }
 
 
@@ -119,17 +138,14 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             ws!.tableView.headerBeginRefreshing()
         }
     }
-
-
-
-
+ 
 
     func setupUIWithCurrentLanguage() {
         //TODO: reload data with current language
 
         //remake bubble
-        let label = bubbleViewContainer.viewWithTag(progressLabelTag) as? UILabel
-        label?.text = "AIBuyerViewController.progress".localized
+//        let label = bubbleViewContainer.viewWithTag(progressLabelTag) as? UILabel
+//        label?.text = "AIBuyerViewController.progress".localized
 
         // reset refresh view
         tableView.removeHeader()
@@ -149,6 +165,16 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         tableViewCellCache.removeAllObjects()
         tableView.reloadData()
 
+        
+        // Add Test Action
+        let button = UIButton()
+        button.addTarget(self, action: #selector(AIBuyerViewController.makePopTableView), forControlEvents: UIControlEvents.TouchUpInside)
+        bubbleViewContainer.addSubview(button)
+        
+        button.pinToBottomEdgeOfSuperview()
+        button.pinToLeftEdgeOfSuperview()
+        button.pinToRightEdgeOfSuperview()
+        button.sizeToHeight(70)
     }
 
 
@@ -185,10 +211,12 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         } else {
             let bdk = BDKProposalService()
-            var listDone = false
-            var bubblesDone = false
             // 列表数据
-
+            
+            /*
+             var listDone = false
+             var bubblesDone = false
+             
             bdk.getProposalList({ (responseData) -> Void in
                 listDone = true
                 weakSelf!.didRefresh = true
@@ -203,17 +231,15 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
                     weakSelf!.didRefresh = false
                     weakSelf!.tableView.headerEndRefreshing()
             })
+             */
 
             //气泡数据
-
+            var bubblesDone = false
             bdk.getPoposalBubbles({ (responseData) -> Void in
                 bubblesDone = true
                 weakSelf!.didRefresh = true
                 weakSelf!.parseProposalData(responseData)
-
-                if listDone {
-                    weakSelf!.tableView.headerEndRefreshing()
-                }
+                weakSelf!.tableView.headerEndRefreshing()
                 }, fail: { (errType, errDes) -> Void in
                     weakSelf!.didRefresh = false
                     weakSelf!.tableView.headerEndRefreshing()
@@ -349,7 +375,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         // add bubbles
         makeBubblesWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, topBarHeight + BUBBLE_VIEW_MARGIN, screenWidth - 2 * BUBBLE_VIEW_MARGIN, BUBBLE_VIEW_HEIGHT))
-
+/*
         let y = CGRectGetMaxY(bubbles.frame)
         let label: UPLabel = AIViews.normalLabelWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, y, screenWidth - 2 * BUBBLE_VIEW_MARGIN, 20), text: "AIBuyerViewController.progress".localized, fontSize: 20, color: UIColor.whiteColor())
         label.textAlignment = .Right
@@ -357,7 +383,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         label.verticalAlignment = UPVerticalAlignmentMiddle
         label.font = AITools.myriadRegularWithSize(20)
-        bubbleViewContainer.addSubview(label)
+        bubbleViewContainer.addSubview(label)*/
     }
 
     func convertPointToScaledPoint(point: CGPoint, scale: CGFloat, baseRect: CGRect) -> CGPoint {
@@ -543,6 +569,14 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func startSearch() {
+      
+        /**
+         Expend View , If Count ==0 the app will crash.         
+         */
+        if WindowManager.shared.count > 0 {
+            WindowManager.shared.setTopWindowOffset(view.height, style: AnimationStyle.Spring)
+        }
+        
         showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController.initFromNib())
     }
 
@@ -652,6 +686,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         if !dataSource[indexPath.row].isExpanded {
             rowSelectAction(indexPath)
         }
