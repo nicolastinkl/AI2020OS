@@ -9,6 +9,7 @@
 import UIKit
 
 class AIProductCommentsViewController: UIViewController {
+    var comments: [String: AnyObject] = [:]
 	var tableView: UITableView!
 	var filterBar: AIFilterBar!
 	
@@ -22,7 +23,7 @@ class AIProductCommentsViewController: UIViewController {
 	}
 	
 	func setupData() {
-		
+        
 	}
 	
 	func setupFilterBar() {
@@ -43,7 +44,7 @@ class AIProductCommentsViewController: UIViewController {
 		]
 		
 		filterBar = AIFilterBar(titles: titles, subtitles: subtitles)
-        filterBar.selectedIndex = 0
+		filterBar.selectedIndex = 0
 		view.addSubview(filterBar)
 		filterBar.snp_makeConstraints { (make) in
 			make.top.leading.trailing.equalTo(view)
@@ -52,6 +53,36 @@ class AIProductCommentsViewController: UIViewController {
 	}
 	
 	func setupTableView() {
+		tableView = UITableView(frame: .zero, style: .Plain)
+		tableView.delegate = self
+		tableView.dataSource = self
+		view.addSubview(tableView)
+        
+        tableView.registerClass(AIProductCommentCell.self, forCellReuseIdentifier: "cell")
+		
+		tableView.snp_makeConstraints { (make) in
+			make.top.equalTo(filterBar.snp_bottom)
+			make.bottom.leading.trailing.equalTo(view)
+		}
+	}
+}
+
+// MARK: - UITableViewDataSource
+extension AIProductCommentsViewController: UITableViewDataSource {
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+	}
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! AIProductCommentCell
+        return cell
+	}
+}
+
+// MARK: - UITableViewDelegate
+extension AIProductCommentsViewController: UITableViewDelegate {
+
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		
 	}
 }
@@ -93,12 +124,12 @@ class AIFilterBar: UIView {
 		for i in 0..<count {
 			let title = titles[i]
 			let subtitle = subtitles[i]
-			let button = FilterBarButton(title: title, subtitle: subtitle)
-			let tap = UITapGestureRecognizer(target: self, action: #selector(AIFilterBar.buttonPressed(_:)))
-			button.addGestureRecognizer(tap)
-			button.tag = i
-			addSubview(button)
-			buttons.append(button)
+            let button = FilterBarButton(title: title, subtitle: subtitle)
+            let tap = UITapGestureRecognizer(target: self, action: #selector(AIFilterBar.buttonPressed(_:)))
+            button.addGestureRecognizer(tap)
+            button.tag = i
+            addSubview(button)
+            buttons.append(button)
 		}
 		
 		var previousButton: FilterBarButton!
@@ -109,13 +140,13 @@ class AIFilterBar: UIView {
 					make.leading.top.bottom.equalTo(self)
 				} else if i < buttons.count - 1 {
 					make.leading.equalTo(previousButton.snp_trailing)
-                    make.width.equalTo(previousButton)
-                    make.height.equalTo(previousButton)
+					make.width.equalTo(previousButton)
+					make.height.equalTo(previousButton)
 				} else {
-                    make.trailing.equalTo(self)
-                    make.leading.equalTo(previousButton.snp_trailing)
-                    make.width.equalTo(previousButton)
-                    make.height.equalTo(previousButton)
+					make.trailing.equalTo(self)
+					make.leading.equalTo(previousButton.snp_trailing)
+					make.width.equalTo(previousButton)
+					make.height.equalTo(previousButton)
 				}
 			})
 			previousButton = button
@@ -151,7 +182,7 @@ class AIFilterBar: UIView {
 		override class func requiresConstraintBasedLayout() -> Bool {
 			return true
 		}
-        
+		
 		private var titleLabel: UILabel!
 		private var subtitleLabel: UILabel!
 		
@@ -172,10 +203,10 @@ class AIFilterBar: UIView {
 		func setup() {
 			backgroundColor = normalBackgroundColor
 			titleLabel = UILabel.label(Constants.titleFont, textColor: Constants.titleColor)
-            titleLabel.text = title
-            
+			titleLabel.text = title
+			
 			subtitleLabel = UILabel.label(Constants.subtitleFont, textColor: Constants.subtitleColor)
-            subtitleLabel.text = subtitle
+			subtitleLabel.text = subtitle
 			
 			addSubview(titleLabel)
 			addSubview(subtitleLabel)
@@ -195,5 +226,8 @@ class AIFilterBar: UIView {
 			fatalError("init(coder:) has not been implemented")
 		}
 	}
-	
+}
+
+class AIProductCommentCell: UITableViewCell {
+    
 }
