@@ -566,6 +566,7 @@
 		933BC84B1D00252D005E1789 /* AIProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */; };
 		935986FF1D20FB9D00BBED4E /* AIAssetsReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */; };
 		935987011D20FCB900BBED4E /* AIAssetsReviewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */; };
+		93698EF61D24D06100DD4145 /* AIProposalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */; };
 		9378C3E51D2131E3004D42EA /* AIAssetsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
 		9392B5171D1CD63B0007F241 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5131D1CD63B0007F241 /* CommonUtil.m */; };
@@ -1443,6 +1444,7 @@
 		933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductInfoViewController.xib; sourceTree = "<group>"; };
 		935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsReviewsController.swift; sourceTree = "<group>"; };
 		935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsReviewsController.xib; sourceTree = "<group>"; };
+		93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProposalTableViewController.swift; sourceTree = "<group>"; };
 		9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsViewCell.swift; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9392B5121D1CD63B0007F241 /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = "<group>"; };
@@ -2207,6 +2209,7 @@
 				FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */,
 				81433A281CFBE5A700347C29 /* ReadmeViewController.swift */,
 				126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */,
+				93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4569,6 +4572,7 @@
 				81433D2E1CFBE5A700347C29 /* ServiceSettingView.swift in Sources */,
 				81433D4A1CFBE5A700347C29 /* ServiceRestoreToolBar.swift in Sources */,
 				81433E781CFBE5A700347C29 /* FLEXInstancesTableViewController.m in Sources */,
+				93698EF61D24D06100DD4145 /* AIProposalTableViewController.swift in Sources */,
 				81433EB71CFBE5A700347C29 /* UIViewControllerUtils.swift in Sources */,
 				81433D541CFBE5A700347C29 /* AIEventCapacityView.swift in Sources */,
 				81433EB21CFBE5A700347C29 /* NullSafe.m in Sources */,

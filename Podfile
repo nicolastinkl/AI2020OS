@@ -36,4 +36,7 @@ pod 'IQKeyboardManagerSwift'
 
 pod 'SVProgressHUD', '~> 1.0'
 
+pod 'Glass'
+
+
 end
