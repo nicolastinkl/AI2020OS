@@ -12,6 +12,8 @@ import AIAlertView
 class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDelegate {
 
 
+    @IBOutlet weak var validateInfoLabelWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var validateInfoLabel: UILabel!
     @IBOutlet weak var confirmButton: AIChangeStatusButton!
     @IBOutlet weak var passwordTextField: AILoginPasswordTextField!
     var rightImageView: UIImageView!
@@ -59,17 +61,22 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
 
     @IBAction func confirmAction(sender: AnyObject) {
         guard let phoneNumber = AILoginPublicValue.phoneNumber else { return }
+        guard let smsCode = AILoginPublicValue.smsCode else {return}
         if AILoginUtil.validatePassword(passwordTextField.text){
             if AILoginPublicValue.loginType == LoginConstants.LoginType.Register{
                 loginService.registUser(phoneNumber, password: passwordTextField.text!, success: { (userId) in
                     //TODO: 暂时的提示
                     AIAlertView().showSuccess("注册成功!", subTitle: "")
                     }, fail: { (errType, errDes) in
-                        <#code#>
+                        AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.RegisterFaild, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
                 })
             }
             else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword{
-                
+                loginService.resetPassword(smsCode, newPassword: passwordTextField.text!, success: { 
+                    AIAlertView().showSuccess("修改密码成功!", subTitle: "")
+                    }, fail: { (errType, errDes) in
+                        AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.RestPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
+                })
             }
         }
 

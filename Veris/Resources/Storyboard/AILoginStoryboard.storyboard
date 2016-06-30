@@ -115,6 +115,17 @@
                                     <action selector="confirmAction:" destination="wES-Bn-yMP" eventType="touchUpInside" id="lDq-Tm-Coe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong ID or  password!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF2-JN-Ods">
+                                <rect key="frame" x="229" y="225" width="142" height="27"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.1176470588" blue="0.1764705882" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="Oii-ka-RQL"/>
+                                    <constraint firstAttribute="width" constant="142" id="bsX-Ah-12f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -124,6 +135,8 @@
                             <constraint firstItem="xEC-ry-8Dd" firstAttribute="leading" secondItem="iXk-wI-TUB" secondAttribute="leading" id="Jle-Ag-ns1"/>
                             <constraint firstItem="HzG-Lr-OWo" firstAttribute="top" secondItem="DQS-SR-ofP" secondAttribute="bottom" constant="60" id="Nh5-QI-kwN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HzG-Lr-OWo" secondAttribute="trailing" constant="10" id="PbI-42-v10"/>
+                            <constraint firstItem="fF2-JN-Ods" firstAttribute="top" secondItem="ghs-5x-sqy" secondAttribute="bottom" constant="26" id="Wbj-G4-pdm"/>
+                            <constraint firstItem="fF2-JN-Ods" firstAttribute="centerX" secondItem="xEC-ry-8Dd" secondAttribute="centerX" id="gWo-IE-hp7"/>
                             <constraint firstItem="xEC-ry-8Dd" firstAttribute="top" secondItem="iXk-wI-TUB" secondAttribute="top" id="hmc-2L-tV0"/>
                             <constraint firstItem="ghs-5x-sqy" firstAttribute="top" secondItem="HzG-Lr-OWo" secondAttribute="bottom" constant="31" id="ode-Nm-MW3"/>
                             <constraint firstItem="HzG-Lr-OWo" firstAttribute="leading" secondItem="iXk-wI-TUB" secondAttribute="leadingMargin" constant="10" id="xro-Ja-xh6"/>
@@ -134,6 +147,8 @@
                     <connections>
                         <outlet property="confirmButton" destination="ghs-5x-sqy" id="nu7-gP-iPE"/>
                         <outlet property="passwordTextField" destination="HzG-Lr-OWo" id="m6l-tj-kzB"/>
+                        <outlet property="validateInfoLabel" destination="fF2-JN-Ods" id="XqL-2T-aNu"/>
+                        <outlet property="validateInfoLabelWidthConstraint" destination="bsX-Ah-12f" id="ADr-JC-B6i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rLU-sX-PsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
