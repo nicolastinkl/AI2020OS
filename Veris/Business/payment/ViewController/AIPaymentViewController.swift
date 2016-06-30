@@ -55,20 +55,25 @@ class AIPaymentViewController: UIViewController {
     private var dataSource = Array<AIPayInfoModel> ()
     
     var expandedIndexPaths: [NSIndexPath] = [NSIndexPath]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         /**
          Init SubView
          */
         layoutSubView()
-        
+
         /**
          Init TableView
          */
         initTableView()
-        
+    }
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+         
         /**
          Init dataSource
          */
@@ -134,23 +139,18 @@ class AIPaymentViewController: UIViewController {
         
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.drawLine()
-        
-    }
-    
+   
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
     }
     
-    @IBAction func closePayAction(){
+    @IBAction func closePayAction() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
-    @IBAction func commitPayAction(){
+    @IBAction func commitPayAction() {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
@@ -186,9 +186,24 @@ class AIPaymentViewController: UIViewController {
         
         self.tableView.reloadData()
     }
+
+
+    func getLabelLineWidth() -> CGFloat {
+
+        let maxWidth = UIScreen.mainScreen().bounds.size.width
+
+        let offset = maxWidth / 7.4
+
+        let labelWidth = label_Price_info.text?.sizeWithFont(AITools.myriadLightWithSize(48/3), forWidth: maxWidth).width
+
+        let lineWidth = (maxWidth - labelWidth! - offset*2 - 22) / 2
+
+        return lineWidth
+    }
     
     func layoutSubView() {
-        
+
+        print("\(self.view.frame.size.width)")
         /// Init Size and Font
         
         providerName.font = AITools.myriadLightWithSize(48/3)
@@ -202,37 +217,43 @@ class AIPaymentViewController: UIViewController {
         
         providerName.text = "孕检无忧"
         
-        if let starRateView = CWStarRateView(frameAndImage: CGRect(x: 0, y: 5, width: 60, height: 11), numberOfStars: 5, foreground: "star_rating_results_highlight", background: "star_rating_results_normal" ) {
-            starRateView.userInteractionEnabled = false
-            let score: CGFloat = 5
-            starRateView.scorePercent = score / 10
-            providerLevel.addSubview(starRateView)
-            
-            let label = UILabel()
-            label.text = "\(score)"
-            label.font = UIFont.systemFontOfSize(12)
-            label.textColor = AITools.colorWithR(253, g: 225, b: 50)
-            label.frame = CGRectMake(starRateView.right + 5, 1, 30, 20)
-            providerLevel.addSubview(label)
-            
-            let zanlabel = UILabel()
-            zanlabel.text = "12345单"
-            zanlabel.font = AITools.myriadLightWithSize(40/3)
-            zanlabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.6)
-            zanlabel.frame = CGRectMake(label.right, 1, 80, 20)
-            providerLevel.addSubview(zanlabel)
-            
-        }
+        let starRateView = StarRateView(frame: CGRect(x: 0, y: 5, width: 60, height: 11), numberOfStars: 5, foregroundImage: "star_rating_results_highlight", backgroundImage: "star_rating_results_normal")
+        
+        starRateView.userInteractionEnabled = false
+        let score: CGFloat = 5
+        starRateView.scorePercent = score / 10
+        providerLevel.addSubview(starRateView)
+        
+        let label = UILabel()
+        label.text = "\(score)"
+        label.font = UIFont.systemFontOfSize(12)
+        label.textColor = AITools.colorWithR(253, g: 225, b: 50)
+        label.frame = CGRectMake(starRateView.right + 5, 1, 30, 20)
+        providerLevel.addSubview(label)
+        
+        let zanlabel = UILabel()
+        zanlabel.text = "12345单"
+        zanlabel.font = AITools.myriadLightWithSize(40/3)
+        zanlabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.6)
+        zanlabel.frame = CGRectMake(label.right, 1, 80, 20)
+        providerLevel.addSubview(zanlabel)
+
+        self.drawLine()
+        
     }
     
     func drawLine() {
-        
+        let maxWidth = UIScreen.mainScreen().bounds.size.width
+
+
+        let labelWidth = label_Price_info.text?.sizeWithFont(AITools.myriadLightWithSize(48/3), forWidth: maxWidth).width
+        let label_Price_info_x = (maxWidth - labelWidth!) / 2
         /// Top
         let offset: CGFloat = self.view.width/7.4
-        let widthLine = label_Price_info.left - offset - 11
+        let widthLine = label_Price_info_x - offset - 11
         let top = label_Price_info.y + label_Price_info.height/2
         let price_List_Left_Line = StrokeLineView(frame: CGRectMake(offset, top, widthLine, 1))
-        let price_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info.left + label_Price_info.width + 11, top, widthLine, 1))
+        let price_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info_x + labelWidth! + 11, top, widthLine, 1))
         price_List_Left_Line.backgroundColor = UIColor.clearColor()
         price_List_Right_Line.backgroundColor = UIColor.clearColor()
         bgView.addSubview(price_List_Left_Line)
@@ -241,7 +262,7 @@ class AIPaymentViewController: UIViewController {
         /// Middle
         let top_Middle = label_Pay_Style.y + label_Pay_Style.height/2
         let pay_List_Left_Line = StrokeLineView(frame: CGRectMake(offset, top_Middle, widthLine, 1))
-        let pay_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info.left + label_Price_info.width + 11, top_Middle, widthLine, 1))
+        let pay_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info_x + labelWidth! + 11, top_Middle, widthLine, 1))
         pay_List_Left_Line.backgroundColor = UIColor.clearColor()
         pay_List_Right_Line.backgroundColor = UIColor.clearColor()
         payView.addSubview(pay_List_Left_Line)
@@ -376,7 +397,7 @@ extension AIPaymentViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+        if NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1 {
             return UITableViewAutomaticDimension
         } else {
             return self.dynamicCellHeight(indexPath)
@@ -394,7 +415,7 @@ extension AIPaymentViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: table view delegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if(self.expandedIndexPaths.contains(indexPath)) {
+        if self.expandedIndexPaths.contains(indexPath) {
             let idx = self.expandedIndexPaths.indexOf(indexPath)
             self.expandedIndexPaths.removeAtIndex(idx!)
         } else {
@@ -405,7 +426,7 @@ extension AIPaymentViewController: UITableViewDelegate, UITableViewDataSource {
         
     //MARK: compute cell height
     
-    private func dynamicCellHeight(indexPath: NSIndexPath)->CGFloat {
+    private func dynamicCellHeight(indexPath: NSIndexPath) -> CGFloat {
         
         struct StaticStruct {
             static var sizingCell: AIPayListInfoCellView?

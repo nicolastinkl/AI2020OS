@@ -122,7 +122,10 @@
 
 - (void)handleLoginAction
 {
-    self.loginAction = [[LoginAction alloc] initWithViewController:self completion:nil];
+    if (![AILoginUtil isLogin]){
+         self.loginAction = [[LoginAction alloc] initWithViewController:self completion:nil];
+    }
+   
 }
 
 @end

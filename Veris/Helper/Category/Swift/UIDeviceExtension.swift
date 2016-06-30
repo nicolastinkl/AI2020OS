@@ -46,6 +46,44 @@ public enum DeviceType {
     case IPadPro
 
     case Simulator
+    
+    func description() -> String {
+        let titles = [
+            "NotAvailable",
+            "IPhone2G",
+            "IPhone3G",
+            "IPhone3GS",
+            "IPhone4",
+            "IPhone4S",
+            "IPhone5",
+            "IPhone5C",
+            "IPhone5S",
+            "IPhone6Plus",
+            "IPhone6",
+            "IPhone6S",
+            "IPhone6SPlus",
+            "IPhoneSE",
+            "IPodTouch1G",
+            "IPodTouch2G",
+            "IPodTouch3G",
+            "IPodTouch4G",
+            "IPodTouch5G",
+            "IPad",
+            "IPad2",
+            "IPad3",
+            "IPad4",
+            "IPadMini",
+            "IPadMiniRetina",
+            "IPadMini3",
+            "IPadAir",
+            "IPadAir2",
+            "IPadPro",
+            "Simulator"
+        ]
+ 
+        let result = titles[hashValue]
+        return result
+    }
 }
 
 func parseDeviceType(identifier: String) -> DeviceType {

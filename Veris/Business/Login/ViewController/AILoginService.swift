@@ -111,7 +111,11 @@ class AILoginService: NSObject {
             if let responseJSON: AnyObject = response {
                 
                 let dic = responseJSON as! [NSString : AnyObject]
-                success(userId: "1")
+                if let userId = dic["user_id"] as? String {
+                    success(userId: userId)
+                } else {
+                     fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+                }
                 
                 
             } else {
@@ -143,9 +147,12 @@ class AILoginService: NSObject {
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
             if let responseJSON: AnyObject = response {
-                
                 let dic = responseJSON as! [NSString : AnyObject]
-                success(userId: "1")
+                if let userId = dic["user_id"] as? String {
+                    success(userId: userId)
+                } else {
+                    fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+                }
                 
                 
             } else {
@@ -154,6 +161,36 @@ class AILoginService: NSObject {
             
         }) { (error: AINetError, errorDes: String!) -> Void in
             fail(errType: error, errDes: errorDes)
+        }
+    }
+    
+    /**
+     重置密码
+     
+     - parameter smsCode:     <#smsCode description#>
+     - parameter newPassword: <#newPassword description#>
+     - parameter success:     <#success description#>
+     - parameter fail:        <#fail description#>
+     */
+    func resetPassword(smsCode: String, newPassword:String, success : () -> Void, fail: (errType: AINetError, errDes: String) -> Void){
+        AVUser.resetPasswordWithSmsCode(smsCode, newPassword: newPassword) { (bol, error) in
+            if bol{
+                success()
+            }
+            else{
+                fail(errType: AINetError.Failed, errDes: error.description)
+            }
+        }
+    }
+    
+    func requestPasswordResetWithPhoneNumber(phoneNumber: String, success : () -> Void, fail: (errType: AINetError, errDes: String) -> Void){
+        AVUser.requestPasswordResetWithPhoneNumber(phoneNumber) { (bol, error) in
+            if bol{
+                success()
+            }
+            else{
+                fail(errType: AINetError.Failed, errDes: error.description)
+            }
         }
     }
 }

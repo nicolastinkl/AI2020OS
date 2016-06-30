@@ -24,7 +24,6 @@ class ServiceCommentViewController: AbsCommentViewController {
         return vc
     }
 
-    var starRateView: CWStarRateView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
