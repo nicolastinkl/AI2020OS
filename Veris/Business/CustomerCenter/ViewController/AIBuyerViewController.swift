@@ -375,7 +375,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         // add bubbles
         makeBubblesWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, topBarHeight + BUBBLE_VIEW_MARGIN, screenWidth - 2 * BUBBLE_VIEW_MARGIN, BUBBLE_VIEW_HEIGHT))
-
+/*
         let y = CGRectGetMaxY(bubbles.frame)
         let label: UPLabel = AIViews.normalLabelWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, y, screenWidth - 2 * BUBBLE_VIEW_MARGIN, 20), text: "AIBuyerViewController.progress".localized, fontSize: 20, color: UIColor.whiteColor())
         label.textAlignment = .Right
@@ -383,7 +383,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         label.verticalAlignment = UPVerticalAlignmentMiddle
         label.font = AITools.myriadRegularWithSize(20)
-        bubbleViewContainer.addSubview(label)
+        bubbleViewContainer.addSubview(label)*/
     }
 
     func convertPointToScaledPoint(point: CGPoint, scale: CGFloat, baseRect: CGRect) -> CGPoint {

@@ -88,7 +88,10 @@ class AIPayListInfoCellView: UITableViewCell {
                     
                     price.setWidth(60)
                     price.setHeight(30)
-                    price.setLeft(200)
+                    
+                    let offs = UIScreen.mainScreen().bounds.size.width / 2.07
+                    
+                    price.setLeft(offs)
                     
                     name.setTop(topOffset)
                     price.setTop(topOffset)

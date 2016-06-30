@@ -92,6 +92,7 @@ class AIProposalTableViewController: UIViewController {
         bgImageView.frame = self.view.frame
         self.view.addSubview(bgImageView)
         
+        
         let y: CGFloat = 10
         let label: UPLabel = AIViews.normalLabelWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, y, screenWidth - 2 * BUBBLE_VIEW_MARGIN, 20), text: "AIBuyerViewController.progress".localized, fontSize: 20, color: UIColor.whiteColor())
         view.addSubview(label)

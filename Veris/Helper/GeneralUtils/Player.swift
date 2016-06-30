@@ -339,7 +339,7 @@ public class Player: UIViewController {
             self.playerItem?.addObserver(self, forKeyPath: PlayerKeepUp, options: (NSKeyValueObservingOptions.New), context: &PlayerItemObserverContext)
             self.playerItem?.addObserver(self, forKeyPath: PlayerStatusKey, options: (NSKeyValueObservingOptions.New), context: &PlayerItemObserverContext)
 
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "playerItemDidPlayToEndTime:", name: AVPlayerItemDidPlayToEndTimeNotification, object: self.playerItem)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(Player.playerItemDidPlayToEndTime(_:)), name: AVPlayerItemDidPlayToEndTimeNotification, object: self.playerItem)
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(Player.playerItemFailedToPlayToEndTime(_:)), name: AVPlayerItemFailedToPlayToEndTimeNotification, object: self.playerItem)
         }
 
