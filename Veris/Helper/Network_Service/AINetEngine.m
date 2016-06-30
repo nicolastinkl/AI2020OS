@@ -19,6 +19,9 @@
 #define kSuccessCode                   @"200"
 #define kSuccessCode_1                 @"1"
 
+#define kCookieIdentifier              @"CookieIdentifier"
+
+
 @interface AINetEngine ()
 {
     NSURLSessionConfiguration *_sessionConfiguration;
@@ -86,24 +89,14 @@
     [self addHeaders:message.header];
     	
     __weak typeof(self) weakSelf = self;
+    __weak AFHTTPSessionManager *weakManager = _sessionManager;
     NSURLSessionDataTask *curTask = [_sessionManager POST:message.url parameters:message.body success:^(NSURLSessionDataTask *task, id responseObject) {    
-        
-        if (responseObject) {
-            NSInteger length = [[NSString stringWithFormat:@"%@",responseObject] length];
-            NSLog(@"responseObject lenght:%ld",(long)length);
-            if (length > 170 && [responseObject isKindOfClass:[NSDictionary class]]) {
-                //长度200 判断不准确，长度200以下也可能是成功的  {"data":{"result":"1"},"desc":{"result_code":"200","result_msg":"success","data_mode":"0","digest":""}}
-                
-                [weakSelf parseSuccessResponseWithTask:task
-                                        responseObject:responseObject
-                                               success:success
-                                                  fail:fail];
-            }else{
-                [weakSelf parseFailResponseWithTask:task
-                                              error:[NSError errorWithDomain:@"Null Data" code:-1 userInfo:nil]                                            success:nil fail:fail];
-            }
-        }
-        
+        [weakManager saveServerCookie];
+        [weakSelf parseSuccessResponseWithTask:task
+                                responseObject:responseObject
+                                       success:success
+                                          fail:fail];
+
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [weakSelf parseFailResponseWithTask:task
                                       error:error
