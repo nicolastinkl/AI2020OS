@@ -9,5 +9,6 @@
 import Foundation
 
 protocol CommentDistrictDelegate {
-    func pohotImageButtonClicked(button: UIImageView, buttonParent: UIView)
+    func pohotImageButtonClicked(button: UIImageView, buttonParentCell: UIView)
+    func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
 }

@@ -38,7 +38,7 @@ class CommentDistrictView: UIView {
     }
 
     func cameraAction(sender: UIGestureRecognizer) {
-        delegate?.pohotImageButtonClicked(photoImage, buttonParent: self)
+        delegate?.pohotImageButtonClicked(photoImage, buttonParentCell: self)
     }
     
     func addImage(image: UIImage) {

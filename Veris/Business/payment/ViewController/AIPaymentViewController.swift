@@ -91,7 +91,7 @@ class AIPaymentViewController: UIViewController {
     /**
      显示支付状态（成功）
      */
-    func showNotifyPayStatus(){
+    func showNotifyPayStatus() {
 
         self.label_Price_info.text = "成功支付"
         
@@ -145,7 +145,6 @@ class AIPaymentViewController: UIViewController {
     }
     
     @IBAction func commitPayAction(){
-        
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
@@ -325,7 +324,7 @@ class AIPaymentViewController: UIViewController {
                 })
             
         
-        }else{
+        } else {
             SVProgressHUD.showErrorWithStatus("该设备未安装支付宝客户端")
         }
     }

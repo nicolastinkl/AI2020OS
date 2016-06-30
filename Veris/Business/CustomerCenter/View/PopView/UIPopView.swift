@@ -16,11 +16,11 @@ import Spring
     @IBOutlet weak var popBackgroundView: AIImageView!
     @IBOutlet weak var popPrice: UILabel!
     @IBOutlet weak var popBuyNumber: UILabel!
-
+    @IBOutlet weak var wishIndicator: UIImageView!
     var firstImageView: AIImageView?
 
     // MARK: currentView
-    class func currentView()->UIPopView {
+    class func currentView() -> UIPopView {
         let selfView = NSBundle.mainBundle().loadNibNamed("UIPopView", owner: self, options: nil).first  as! UIPopView
         return selfView
     }
@@ -29,6 +29,9 @@ import Spring
     数据填充处理
     */
     public func fillDataWithModel(model: AIBuyerBubbleModel) -> Void {
+        // hide wishIndicator
+        self.wishIndicator.hidden = true
+
         //self.fill data
         popPrice.text = model.proposal_price ?? ""
         popPrice.textColor = UIColor(hex: "272727")
