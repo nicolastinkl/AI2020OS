@@ -17,6 +17,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var serviceName: UILabel!
 
     @IBOutlet weak var starRateView: StarRateView!
+    @IBOutlet weak var imagesCollectionView: ImagesCollectionView!
 
 
     var delegate: CommentDistrictDelegate?
@@ -46,6 +47,18 @@ class ServiceCommentTableViewCell: UITableViewCell {
 
     func imageButtonAction(sender: UIGestureRecognizer) {
         delegate?.pohotImageButtonClicked(imageButton, buttonParent: self)
+    }
+    
+    func addImage(image: UIImage) {
+        imagesCollectionView.addImage(image)
+    }
+    
+    func addImages(images: [UIImage]) {
+        imagesCollectionView.addImages(images)
+    }
+    
+    func clearImages() {
+        imagesCollectionView.clearImages()
     }
 }
 

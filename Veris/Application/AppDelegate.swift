@@ -23,14 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     var buyerProposalData: AIProposalPopListModel?
 
     let WX_APPID: String  = "wx483dafc09117a3d0"
-    let WXPaySuccessNotification = "WeixinPaySuccessNotification"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//        let vc = AIProductQAViewController()
-//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        self.window?.rootViewController = vc
-//        self.window?.maeKeyAndVisible()
-//        return true
+        //let vc = AIProductCommentsViewController()
+        //self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        //self.window?.rootViewController = vc
+        //self.window?.makeKeyAndVisible()
+        //return true
         //AVOS
         configAVOSCloud()
         AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
@@ -94,17 +93,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
     }
     
+    /**
+     Open URL
+     
+     - parameter application:       <#application description#>
+     - parameter url:               <#url description#>
+     - parameter sourceApplication: <#sourceApplication description#>
+     - parameter annotation:        <#annotation description#>
+     
+     - returns: <#return value description#>
+     */
+    
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        print("openURL:\(url.absoluteString)")
         
+        print("openURL:\(url.absoluteString)")
+        // 微信支付跳转
         if url.scheme == WX_APPID {
             return WXApi.handleOpenURL(url, delegate: self)
         }
         
-        //跳转支付宝钱包进行支付，处理支付结果
-        AlipaySDK.defaultService().processOrderWithPaymentResult(url, standbyCallback: { (resultDict: [NSObject : AnyObject]!) -> Void in
-            print("openURL result: \(resultDict)")
-        })
+        if url.host == "safepay" {
+            //跳转支付宝钱包进行支付，处理支付结果
+            AlipaySDK.defaultService().processOrderWithPaymentResult(url, standbyCallback: { (resultDict: [NSObject : AnyObject]!) -> Void in
+                if resultDict != nil {
+                    
+                    if let resultCode = resultDict["resultStatus"] as? Int {
+                        if resultCode == 9000 {
+                            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WeixinPaySuccessNotification, object: nil)
+                        } else {
+                            let alert = UIAlertView(title: "支付失败", message: resultDict["memo"] as? String ?? "", delegate: nil, cancelButtonTitle: "OK")
+                            alert.show()
+                        }
+                    }
+                }
+                print("openURL result: \(resultDict)")
+            })
+ 
+        }
+        
         
         return true
     }
@@ -115,7 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         if resp.isKindOfClass(PayResp) {
             switch resp.errCode {
             case 0 :
-                NSNotificationCenter.defaultCenter().postNotificationName(WXPaySuccessNotification, object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WeixinPaySuccessNotification, object: nil)
             default:
                 strMsg = "支付失败，请您重新支付!"
                 print("retcode = \(resp.errCode), retstr = \(resp.errStr)")

@@ -35,7 +35,15 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxe2821688aeb1e29f</string>
+				<string>wx483dafc09117a3d0</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>AIVeris</string>
 			</array>
 		</dict>
 	</array>

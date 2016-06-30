@@ -88,12 +88,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-AB-Yuc">
-                            <rect key="frame" x="0.0" y="481" width="600" height="119"/>
+                            <rect key="frame" x="0.0" y="390" width="600" height="180"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUg-RS-HYs">
-                                    <rect key="frame" x="66" y="25" width="468" height="30"/>
+                                    <rect key="frame" x="66" y="25" width="468" height="62"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="J0G-t2-fkI"/>
+                                        <constraint firstAttribute="height" constant="62" id="J0G-t2-fkI"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <state key="normal" title="  微信支付" image="wechatpay">
@@ -114,9 +114,9 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcA-Lb-zir">
-                                    <rect key="frame" x="66" y="67" width="468" height="30"/>
+                                    <rect key="frame" x="66" y="87" width="468" height="62"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="7Ic-hb-UFt"/>
+                                        <constraint firstAttribute="height" constant="62" id="7Ic-hb-UFt"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <state key="normal" title="  支付宝支付" image="alipay">
@@ -130,18 +130,24 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="MUg-RS-HYs" secondAttribute="trailing" constant="66" id="K9R-Td-92q"/>
+                                <constraint firstItem="OcA-Lb-zir" firstAttribute="top" secondItem="MUg-RS-HYs" secondAttribute="bottom" id="Ut9-VJ-HYm"/>
                                 <constraint firstItem="MUg-RS-HYs" firstAttribute="top" secondItem="wjp-AB-Yuc" secondAttribute="top" constant="25" id="VZ1-gT-6Id"/>
                                 <constraint firstItem="uoU-Zb-Gfq" firstAttribute="top" secondItem="wjp-AB-Yuc" secondAttribute="top" id="aMv-fp-ilo"/>
                                 <constraint firstItem="MUg-RS-HYs" firstAttribute="leading" secondItem="wjp-AB-Yuc" secondAttribute="leading" constant="66" id="b6z-wB-D9I"/>
                                 <constraint firstItem="uoU-Zb-Gfq" firstAttribute="centerX" secondItem="wjp-AB-Yuc" secondAttribute="centerX" id="edo-bX-YJC"/>
-                                <constraint firstAttribute="height" constant="119" id="euu-2E-3yW"/>
+                                <constraint firstAttribute="height" constant="180" id="euu-2E-3yW"/>
                                 <constraint firstAttribute="trailing" secondItem="OcA-Lb-zir" secondAttribute="trailing" constant="66" id="f2a-H7-Iw6"/>
                                 <constraint firstItem="OcA-Lb-zir" firstAttribute="top" secondItem="uoU-Zb-Gfq" secondAttribute="bottom" constant="46" id="tAp-S0-kr5"/>
                                 <constraint firstItem="OcA-Lb-zir" firstAttribute="leading" secondItem="wjp-AB-Yuc" secondAttribute="leading" constant="66" id="whI-7p-Lnf"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="tAp-S0-kr5"/>
+                                </mask>
+                            </variation>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L5p-Qo-2Vt">
-                            <rect key="frame" x="0.0" y="138" width="600" height="324"/>
+                            <rect key="frame" x="0.0" y="138" width="600" height="233"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </tableView>
                     </subviews>
@@ -149,7 +155,7 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="wjp-AB-Yuc" secondAttribute="trailing" id="0nM-gq-v0y"/>
                         <constraint firstAttribute="trailing" secondItem="lsE-MX-sUM" secondAttribute="trailing" id="18q-WA-x2g"/>
-                        <constraint firstAttribute="bottom" secondItem="wjp-AB-Yuc" secondAttribute="bottom" id="6HA-t6-hkp"/>
+                        <constraint firstAttribute="bottom" secondItem="wjp-AB-Yuc" secondAttribute="bottom" constant="30" id="6HA-t6-hkp"/>
                         <constraint firstItem="L5p-Qo-2Vt" firstAttribute="leading" secondItem="kpA-bI-hgw" secondAttribute="leading" id="CB6-AF-aRs"/>
                         <constraint firstItem="lsE-MX-sUM" firstAttribute="leading" secondItem="kpA-bI-hgw" secondAttribute="leading" id="J7S-dB-ONH"/>
                         <constraint firstAttribute="trailing" secondItem="L5p-Qo-2Vt" secondAttribute="trailing" id="KKH-FN-VZq"/>
@@ -173,7 +179,7 @@
                 <constraint firstItem="kpA-bI-hgw" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="hlR-mz-qM2"/>
                 <constraint firstItem="kpA-bI-hgw" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="nME-iP-e3R"/>
             </constraints>
-            <point key="canvasLocation" x="-1970" y="377"/>
+            <point key="canvasLocation" x="-2264" y="452"/>
         </view>
     </objects>
     <resources>

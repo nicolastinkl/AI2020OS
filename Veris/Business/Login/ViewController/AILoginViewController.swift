@@ -8,6 +8,7 @@
 
 import UIKit
 import Spring
+import SVProgressHUD
 
 
 class AILoginViewController: UIViewController {
@@ -29,24 +30,21 @@ class AILoginViewController: UIViewController {
     // MARK: -IBActions
     @IBAction func loginAction(sender: AnyObject) {
         
-        view.showLoading()
-        
+        SVProgressHUD.showWithStatus("正在登录...", maskType: SVProgressHUDMaskType.Gradient)
         if AILoginUtil.validatePassword(passwordTextField.text) && AILoginUtil.validatePhoneNumber(userIdTextField.text) {
-            
             loginService.login(userIdTextField.text!, password: passwordTextField.text!, success: { (userId) in
-                self.view.hideLoading()
+
+                SVProgressHUD.dismiss()
                 
                 self.dismissViewControllerAnimated(true, completion: nil)
                 }, fail: { (errType, errDes) in
-                    
-                    self.view.hideLoading()
-                    
+                     SVProgressHUD.dismiss()
                     AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
             })
             
             
         } else {
-            self.view.hideLoading()
+            SVProgressHUD.dismiss()
             AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: validateInfoLabel, widthConstraint: validateInfoLabelWidthConstraint)
         }
     }
@@ -106,6 +104,8 @@ class AILoginViewController: UIViewController {
         userIdTextField.delegate = self
         userIdTextField.keyboardType = UIKeyboardType.DecimalPad
         userIdTextField.returnKeyType = UIReturnKeyType.Done
+        userIdTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        
         passwordTextField.delegate = self
         passwordTextField.secureTextEntry = true
         passwordTextField.returnKeyType = UIReturnKeyType.Go
@@ -123,7 +123,7 @@ class AILoginViewController: UIViewController {
     }
     
     func passwordInputAction(target: UITextField) {
-        loginButton.enabled = (target.text?.length >= 6)
+        loginButton.enabled = AILoginUtil.validatePassword(passwordTextField.text) && AILoginUtil.validatePhoneNumber(userIdTextField.text)
     }
     
 }

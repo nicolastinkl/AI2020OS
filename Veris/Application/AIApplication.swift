@@ -214,6 +214,8 @@ struct AIApplication {
         //语音识别
         
         static let AIListeningAudioTools    =    "AIListeningAudioTools"
+        
+        static let WeixinPaySuccessNotification =  "WeixinPaySuccessNotification"
     }
 
     // MARK: System theme's color

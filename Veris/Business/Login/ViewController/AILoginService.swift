@@ -98,7 +98,7 @@ class AILoginService: NSObject {
      */
     func login(userCode: String, password: String, success : (userId: String) -> Void, fail : (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
-        let body : NSDictionary = [
+        let body: NSDictionary = [
             "username" : userCode,
             "password" : password
         ]
@@ -133,7 +133,7 @@ class AILoginService: NSObject {
      */
     func registUser(userCode: String, password: String, success : (userId: String) -> Void, fail : (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
-        let body : NSDictionary = [
+        let body: NSDictionary = [
             "username" : userCode,
             "password" : password]
         

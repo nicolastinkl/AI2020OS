@@ -77,6 +77,70 @@ class AIPaymentViewController: UIViewController {
          */
         initData()
         
+        /**
+         Register Notify
+         */
+        initRegisternotify()
+        
+    }
+    
+    func initRegisternotify() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIPaymentViewController.showNotifyPayStatus), name: AIApplication.Notification.WeixinPaySuccessNotification, object: nil)
+    }
+    
+    /**
+     显示支付状态（成功）
+     */
+    func showNotifyPayStatus() {
+
+        self.label_Price_info.text = "成功支付"
+        
+        // refersh Views Status
+        
+        SpringAnimation.springWithCompletion(0.3, animations: { 
+            self.payView.alpha = 0
+            self.tableView.alpha = 0
+            }) { (complate) in
+                self.payView.hidden = true
+                self.tableView.hidden = true
+        }
+        
+        // Display Button's commit
+        
+        
+        let priceLabel = UILabel()
+        priceLabel.textAlignment = .Center
+        priceLabel.text = "123元"
+        priceLabel.font = AITools.myriadBoldWithSize(140/3)
+        priceLabel.textColor = UIColor(white: 1, alpha: 0.7)
+        bgView.addSubview(priceLabel)
+        priceLabel.pinTopEdgeToTopEdgeOfItem(label_Price_info, offset: 80, priority: UILayoutPriorityRequired)
+        priceLabel.sizeToMinWidth(100)
+        priceLabel.sizeToHeight(50)
+        priceLabel.centerHorizontallyInSuperview()
+        
+        let commitButton = DesignableButton(type: .Custom)
+        bgView.addSubview(commitButton)
+        commitButton.pinTopEdgeToTopEdgeOfItem(priceLabel, offset: 83, priority: UILayoutPriorityRequired)
+        commitButton.sizeToWidth(78)
+        commitButton.sizeToHeight(44)
+        commitButton.centerHorizontallyInSuperview()
+        commitButton.titleLabel?.font = AITools.myriadBoldWithSize(68/3)
+        
+        commitButton.borderWidth = 1
+        commitButton.cornerRadius = 4
+        commitButton.setTitle("评价", forState: UIControlState.Normal)
+        commitButton.borderColor = UIColor(hexString: "#0f86e8")
+        commitButton.setTitleColor(UIColor(hexString: "#0f86e8"), forState: UIControlState.Normal)
+        commitButton.setTitleColor(UIColor(hexString: "#FFFFFF"), forState: UIControlState.Highlighted)
+        commitButton.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Highlighted)
+        commitButton.addTarget(self, action: #selector(AIPaymentViewController.commitPayAction), forControlEvents: UIControlEvents.TouchUpInside)
+        
+    }
+    
+    @IBAction func commitPayAction() {
+        
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     func initTableView() {
@@ -100,13 +164,14 @@ class AIPaymentViewController: UIViewController {
         model2.price = 23
         model2.servicename = "神州专车"
         dataSource.append(model2)
-        
-        
+                
         var model3 = AIPayInfoModel()
         model3.price = 30
         model3.servicename = "春雨医生"
         model3.childList = dataSource
         dataSource.append(model3)
+        
+        dataSource.append(model2)
         
         self.tableView.reloadData()
     }
@@ -184,8 +249,8 @@ class AIPaymentViewController: UIViewController {
         alipayLineView.backgroundColor = UIColor.clearColor()
         payView.addSubview(wechatLineView)
         payView.addSubview(alipayLineView)
-        wechatLineView.setTop(weixinButton.y + weixinButton.height + 5)
-        alipayLineView.setTop(alipayButton.y + alipayButton.height + 5)
+        wechatLineView.setTop(weixinButton.y + weixinButton.height)
+        alipayLineView.setTop(alipayButton.y + alipayButton.height)
         wechatLineView.setLeft(offset)
         alipayLineView.setLeft(offset)
         wechatLineView.setWidth(view.width - offset * 2)
@@ -219,46 +284,45 @@ class AIPaymentViewController: UIViewController {
         } else {
             SVProgressHUD.showErrorWithStatus("该设备未安装微信客户端")
         }
-        
     }
     
     @IBAction func alipayAction(sender: AnyObject) {
      
-        let order = AIAliPayOrder(id: 1, title: "alipay", content: "pay note", url: "", createdAt: "", price: 0, paid: false, productID: 0)
+        // 检测支付宝是否有安装
         
-        let aliOrder = AlipayOrder(partner: AlipayPartner, seller: AlipaySeller, tradeNO: order.id, productName: order.title, productDescription: order.content, amount: order.price, notifyURL: AlipayNotifyURL, service: "mobile.securitypay.pay", paymentType: "1", inputCharset: "utf-8", itBPay: "30m", showUrl: "m.alipay.com", rsaDate: nil, appID: nil)
-        
-        
-        let orderSpec = aliOrder.description //orderA.description
-        
-        let signer = RSADataSigner(privateKey: AlipayPrivateKey)
-        let signedString = signer.signString(orderSpec)
-        
-        let orderString = "\(orderSpec)&sign=\"\(signedString)\"&sign_type=\"RSA\""
-        
-        print(orderString)
-        
-        AlipaySDK.defaultService().payOrder(orderString, fromScheme: AppScheme, callback: {[weak self] resultDic in
-            if let _ = self {
-                print("Alipay result = \(resultDic as Dictionary)")
-                let resultDic = resultDic as Dictionary
-                if let resultStatus = resultDic["resultStatus"] as? String {
-                    if resultStatus == "9000" {
-                        //strongSelf.delegate?.paymentSuccess(paymentType: .Alipay)
-                        SVProgressHUD.showSuccessWithStatus("支付成功", maskType: SVProgressHUDMaskType.Gradient)
-                        //strongSelf.navigationController?.popViewControllerAnimated(true)
-                    } else {
-//                        strongSelf.delegate?.paymentFail(paymentType: .Alipay)
-                        SVProgressHUD.showInfoWithStatus("系统繁忙，请稍后再试")
+        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "alipay://")!) {
+            let order = AIAliPayOrder(id: (12310 + Int(arc4random()%999)), title: "服务预定", content: "pay note", url: "http://asdfasdf.comasdom.domad", createdAt: "\(NSDate().timeIntervalSinceReferenceDate)", price: 10, paid: false, productID: (12310 + Int(arc4random()%9)))
+            
+            let aliOrder = AlipayOrder(partner: AlipayPartner, seller: AlipaySeller, tradeNO: order.id, productName: order.title, productDescription: order.content, amount: order.price, notifyURL: AlipayNotifyURL, service: "mobile.securitypay.pay", paymentType: "1", inputCharset: "utf-8", itBPay: "30m", showUrl: "m.alipay.com", rsaDate: nil, appID: nil)
+            
+            
+            let orderSpec = aliOrder.description
+            
+            let signer = RSADataSigner(privateKey: AlipayPrivateKey)
+            let signedString = signer.signString(orderSpec)
+            
+            let orderString = "\(orderSpec)&sign=\"\(signedString)\"&sign_type=\"RSA\""
+            
+            AlipaySDK.defaultService().payOrder(orderString, fromScheme: AppScheme, callback: {[weak self] resultDic in
+                if let _ = self {
+                    print("Alipay result = \(resultDic as Dictionary)")
+                    let resultDic = resultDic as Dictionary
+                    if let resultStatus = resultDic["resultStatus"] as? String {
+                        if resultStatus == "9000" {
+                            SVProgressHUD.showSuccessWithStatus("支付成功", maskType: SVProgressHUDMaskType.Gradient)
+                            //strongSelf.navigationController?.popViewControllerAnimated(true)
+                        } else {
+                            SVProgressHUD.showInfoWithStatus("系统繁忙，请稍后再试")
+                        }
                     }
                 }
-            }
-            })
+                })
+            
         
+        } else {
+            SVProgressHUD.showErrorWithStatus("该设备未安装支付宝客户端")
+        }
     }
-    
-    
-
 }
 
 class StrokeLineView: UIView {
