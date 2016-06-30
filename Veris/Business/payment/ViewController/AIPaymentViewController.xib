@@ -127,7 +127,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbA-Be-Wdj">
-                                    <rect key="frame" x="552" y="140" width="40" height="40"/>
+                                    <rect key="frame" x="552" y="150" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="dAS-Lx-2DK"/>
                                         <constraint firstAttribute="width" constant="40" id="qZ3-B5-ZVB"/>
@@ -140,7 +140,7 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="dbA-Be-Wdj" secondAttribute="bottom" id="943-ba-95d"/>
+                                <constraint firstAttribute="bottom" secondItem="dbA-Be-Wdj" secondAttribute="bottom" constant="-10" id="943-ba-95d"/>
                                 <constraint firstAttribute="trailing" secondItem="MUg-RS-HYs" secondAttribute="trailing" constant="66" id="K9R-Td-92q"/>
                                 <constraint firstItem="OcA-Lb-zir" firstAttribute="top" secondItem="MUg-RS-HYs" secondAttribute="bottom" id="Ut9-VJ-HYm"/>
                                 <constraint firstItem="MUg-RS-HYs" firstAttribute="top" secondItem="wjp-AB-Yuc" secondAttribute="top" constant="25" id="VZ1-gT-6Id"/>
@@ -192,7 +192,7 @@
                 <constraint firstItem="kpA-bI-hgw" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="hlR-mz-qM2"/>
                 <constraint firstItem="kpA-bI-hgw" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="nME-iP-e3R"/>
             </constraints>
-            <point key="canvasLocation" x="-2489" y="488"/>
+            <point key="canvasLocation" x="-2484" y="562"/>
         </view>
     </objects>
     <resources>
