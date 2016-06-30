@@ -138,6 +138,12 @@ class AIPaymentViewController: UIViewController {
         
     }
     
+    
+    @IBAction func closePayAction(){
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
     @IBAction func commitPayAction(){
         
         self.dismissViewControllerAnimated(false, completion: nil)
