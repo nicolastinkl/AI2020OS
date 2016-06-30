@@ -42,6 +42,8 @@
 #import <UIKit/UIKit.h>
 #endif
 
+
+#define kLocalCookieIdentifier  @"LocalCookieIdentifier"
 @interface AFHTTPSessionManager ()
 @property (readwrite, nonatomic, strong) NSURL *baseURL;
 @end
@@ -217,6 +219,39 @@
     return dataTask;
 }
 
+
+#pragma mark - 新增cookie的处理
+
+- (void)saveServerCookie {
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+
+    if (cookies.count == 0) return;
+
+    for (NSHTTPCookie *cookie in cookies) {
+        // Here I see the correct rails session cookie
+        NSLog(@"cookie: %@", cookie);
+    }
+
+    NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: cookiesData forKey: kLocalCookieIdentifier];
+    [defaults synchronize];
+}
+
+- (void)setLocalCookieForRequest:(NSMutableURLRequest *)request {
+    NSArray *arcCookies = [NSKeyedUnarchiver unarchiveObjectWithData: [[NSUserDefaults standardUserDefaults] objectForKey: kLocalCookieIdentifier]];
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+
+    for (NSHTTPCookie *cookie in arcCookies){
+        [cookieStorage setCookie: cookie];
+    }
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:request.URL];//id: NSHTTPCookie
+    NSDictionary *sheaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
+    [request setAllHTTPHeaderFields:sheaders];
+}
+
+
+
 - (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method
                                        URLString:(NSString *)URLString
                                       parameters:(id)parameters
@@ -225,6 +260,10 @@
 {
     NSError *serializationError = nil;
     NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:&serializationError];
+
+    // 给每个请求增加本地Cookie
+    [self setLocalCookieForRequest:request];
+
     if (serializationError) {
         if (failure) {
 #pragma clang diagnostic push

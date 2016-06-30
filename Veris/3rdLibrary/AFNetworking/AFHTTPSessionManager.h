@@ -235,6 +235,18 @@
                          success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                          failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+
+
+
+/*
+ *说明：保存服务器返回的cookie
+ *
+ *
+ *
+ */
+
+- (void)saveServerCookie;
+
 @end
 
 #endif
