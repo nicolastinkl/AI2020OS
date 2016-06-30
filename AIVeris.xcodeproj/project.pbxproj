@@ -565,6 +565,7 @@
 		933BC84B1D00252D005E1789 /* AIProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */; };
 		935986FF1D20FB9D00BBED4E /* AIAssetsReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */; };
 		935987011D20FCB900BBED4E /* AIAssetsReviewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */; };
+		93698EF61D24D06100DD4145 /* AIProposalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */; };
 		9378C3E51D2131E3004D42EA /* AIAssetsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
 		9392B5171D1CD63B0007F241 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5131D1CD63B0007F241 /* CommonUtil.m */; };
@@ -633,6 +634,10 @@
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */; };
 		FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */; };
+		FB703ADE1D24B7BF00229A08 /* SwiftWebViewBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */; };
+		FB703ADF1D24B7BF00229A08 /* SwiftWebViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */; };
+		FB703AE21D24C05C00229A08 /* AIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703AE11D24C05C00229A08 /* AIWebViewController.swift */; };
+		FB703AE41D24C59400229A08 /* JSSDK.js in Resources */ = {isa = PBXBuildFile; fileRef = FB703AE31D24C59400229A08 /* JSSDK.js */; };
 		FB73551E1D23ACFC00CE549C /* AIProductCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */; };
 		FB7355201D23B7B300CE549C /* UILabel-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */; };
 		FB7A4E1F1D1D2BA300DBE07E /* AIImageRecongizeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */; };
@@ -1440,6 +1445,7 @@
 		933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductInfoViewController.xib; sourceTree = "<group>"; };
 		935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsReviewsController.swift; sourceTree = "<group>"; };
 		935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsReviewsController.xib; sourceTree = "<group>"; };
+		93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProposalTableViewController.swift; sourceTree = "<group>"; };
 		9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsViewCell.swift; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9392B5121D1CD63B0007F241 /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = "<group>"; };
@@ -1617,6 +1623,10 @@
 		FB6600F81D123C01004667E2 /* AISellerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellerCollectionViewCell.h; sourceTree = "<group>"; };
 		FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerCollectionViewCell.m; sourceTree = "<group>"; };
 		FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
+		FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SwiftWebViewBridge.js; sourceTree = "<group>"; };
+		FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebViewBridge.swift; sourceTree = "<group>"; };
+		FB703AE11D24C05C00229A08 /* AIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWebViewController.swift; sourceTree = "<group>"; };
+		FB703AE31D24C59400229A08 /* JSSDK.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSSDK.js; sourceTree = "<group>"; };
 		FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductCommentsViewController.swift; sourceTree = "<group>"; };
 		FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel-Helper.swift"; sourceTree = "<group>"; };
 		FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageRecongizeService.swift; sourceTree = "<group>"; };
@@ -2204,6 +2214,7 @@
 				FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */,
 				81433A281CFBE5A700347C29 /* ReadmeViewController.swift */,
 				126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */,
+				93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2655,6 +2666,7 @@
 		81433B381CFBE5A700347C29 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				FB703AE01D24C05C00229A08 /* JS_SDK */,
 				81433B1B1CFBE5A700347C29 /* Category */,
 				93F3FFEA1D06BF9F000283DA /* Debug_Tools */,
 				93F3FFEF1D06C455000283DA /* Extension */,
@@ -3053,6 +3065,7 @@
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */,
 				9392B5191D1CD9F10007F241 /* alipay */,
 				93A0ABBB1D12AAB600562090 /* weichatpay */,
 				930455121D124E71007AFC0C /* XunfeiLib */,
@@ -3853,6 +3866,24 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */ = {
+			isa = PBXGroup;
+			children = (
+				FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */,
+				FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */,
+			);
+			path = SwiftWebViewBridge;
+			sourceTree = "<group>";
+		};
+		FB703AE01D24C05C00229A08 /* JS_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				FB703AE11D24C05C00229A08 /* AIWebViewController.swift */,
+				FB703AE31D24C59400229A08 /* JSSDK.js */,
+			);
+			path = JS_SDK;
+			sourceTree = "<group>";
+		};
 		FBAE7FC21D115188002FF522 /* LSYEvernote */ = {
 			isa = PBXGroup;
 			children = (
@@ -3974,6 +4005,7 @@
 				933BC8401D002434005E1789 /* AISuperiorityViewController.xib in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
 				126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */,
+				FB703ADE1D24B7BF00229A08 /* SwiftWebViewBridge.js in Resources */,
 				81433DA91CFBE5A700347C29 /* AITaskTimeLineView.xib in Resources */,
 				93A0AB911D129FEB00562090 /* va_start.wav in Resources */,
 				81433EC21CFBE5A700347C29 /* UIBuyerStoryboard.storyboard in Resources */,
@@ -4002,6 +4034,7 @@
 				12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */,
 				81433EC01CFBE5A700347C29 /* MyriadProRegular.ttf in Resources */,
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
+				FB703AE41D24C59400229A08 /* JSSDK.js in Resources */,
 				93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */,
 				81433D181CFBE5A700347C29 /* airplane@2x.png in Resources */,
 				846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */,
@@ -4546,6 +4579,7 @@
 				81433EA51CFBE5A700347C29 /* AINetEngine.m in Sources */,
 				81433D861CFBE5A700347C29 /* MDCSpotlightView.m in Sources */,
 				8175A7F51CFD2710006F2C8F /* RRTagController.swift in Sources */,
+				FB703ADF1D24B7BF00229A08 /* SwiftWebViewBridge.swift in Sources */,
 				81433E9A1CFBE5A700347C29 /* FLEXHierarchyTableViewCell.m in Sources */,
 				FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */,
 				84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */,
@@ -4564,6 +4598,7 @@
 				81433D2E1CFBE5A700347C29 /* ServiceSettingView.swift in Sources */,
 				81433D4A1CFBE5A700347C29 /* ServiceRestoreToolBar.swift in Sources */,
 				81433E781CFBE5A700347C29 /* FLEXInstancesTableViewController.m in Sources */,
+				93698EF61D24D06100DD4145 /* AIProposalTableViewController.swift in Sources */,
 				81433EB71CFBE5A700347C29 /* UIViewControllerUtils.swift in Sources */,
 				81433D541CFBE5A700347C29 /* AIEventCapacityView.swift in Sources */,
 				81433EB21CFBE5A700347C29 /* NullSafe.m in Sources */,
@@ -4618,6 +4653,7 @@
 				81433E6D1CFBE5A700347C29 /* FLEXTableContentCell.m in Sources */,
 				81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */,
 				12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */,
+				FB703AE21D24C05C00229A08 /* AIWebViewController.swift in Sources */,
 				81433EB51CFBE5A700347C29 /* TableViewCellBackgroundView.m in Sources */,
 				81433D091CFBE5A700347C29 /* AIServicesRequester.swift in Sources */,
 				81433E8D1CFBE5A700347C29 /* FLEXLayerExplorerViewController.m in Sources */,

@@ -13,6 +13,7 @@ import Spring
 class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
 
 
+    @IBOutlet weak var regionTitleLabel: UILabel!
     @IBOutlet weak var regionSelectContainerView: UIView!
     @IBOutlet weak var nextStepButton: AIChangeStatusButton!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -75,6 +76,9 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
         nextStepButton.setBackgroundImage(LoginConstants.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
         nextStepButton.setBackgroundImage(LoginConstants.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
         nextStepButton.enabled = false
+        
+        regionTitleLabel.font = LoginConstants.Fonts.textFieldInput
+        regionSelectButton.titleLabel?.font = LoginConstants.Fonts.textFieldInput
         
     }
 

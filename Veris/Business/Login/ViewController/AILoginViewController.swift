@@ -19,13 +19,14 @@ class AILoginViewController: UIViewController {
     @IBOutlet weak var appNameViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoImageTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var userIdTextField: AILoginBaseTextField!
-    @IBOutlet weak var passwordTextField: AILoginBaseTextField!
+    @IBOutlet weak var passwordTextField: AILoginPasswordTextField!
     @IBOutlet weak var logoImageCenterXConstraint: NSLayoutConstraint!
     @IBOutlet weak var validateInfoLabel: UILabel!
     
     @IBOutlet weak var validateInfoLabelWidthConstraint: NSLayoutConstraint!
     
     let loginService = AILoginService()
+    
     
     // MARK: -IBActions
     @IBAction func loginAction(sender: AnyObject) {
@@ -35,7 +36,7 @@ class AILoginViewController: UIViewController {
             loginService.login(userIdTextField.text!, password: passwordTextField.text!, success: { (userId) in
 
                 SVProgressHUD.dismiss()
-                
+                AILoginUtil.handleUserLogin(userId)
                 self.dismissViewControllerAnimated(true, completion: nil)
                 }, fail: { (errType, errDes) in
                      SVProgressHUD.dismiss()
@@ -101,21 +102,17 @@ class AILoginViewController: UIViewController {
     }
     
     func setupViews() {
+        //userIdTextField
         userIdTextField.delegate = self
         userIdTextField.keyboardType = UIKeyboardType.DecimalPad
         userIdTextField.returnKeyType = UIReturnKeyType.Done
         userIdTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
-        
+        //passwordTextField
         passwordTextField.delegate = self
-        passwordTextField.secureTextEntry = true
-        passwordTextField.returnKeyType = UIReturnKeyType.Go
-        
         passwordTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
-        
-        loginButton.setBackgroundImage(LoginConstants.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
-        loginButton.setBackgroundImage(LoginConstants.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
+        //loginButton
         loginButton.enabled = false
-        
+        //validateInfoLabel
         validateInfoLabelWidthConstraint.constant = 0
         validateInfoLabel.layer.cornerRadius = 8
         validateInfoLabel.font = LoginConstants.Fonts.validateResult

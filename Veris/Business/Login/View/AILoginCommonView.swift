@@ -25,12 +25,12 @@ class AIChangeStatusButton: UIButton {
         //设置禁用和可用时的背景色
         let disableImage = UIColor(hexString: "ebe7ff", alpha: 0.4).imageWithColor()
         
-        let enableImage = UIImage(named: "login_button_bg")?.resizableImageWithCapInsets(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), resizingMode: UIImageResizingMode.Stretch)
+        let enableImage = UIImage(named: "login_button_bg")?.resizableImageWithCapInsets(UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20), resizingMode: UIImageResizingMode.Stretch)
         self.setBackgroundImage(disableImage, forState: UIControlState.Disabled)
         self.setBackgroundImage(enableImage, forState: UIControlState.Normal)
         self.backgroundColor = UIColor.clearColor()
-//        self.layer.cornerRadius = 8
-//        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
+        self.layer.masksToBounds = true
     }
 }
 
@@ -42,7 +42,7 @@ class AILoginBaseTextField: UITextField {
     
     func setupLayout() {
         self.backgroundColor = LoginConstants.Colors.TextFieldBackground
-        self.layer.cornerRadius = 8
+        self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
         self.layer.borderColor = LoginConstants.Colors.TextFieldBorder.CGColor
         self.layer.borderWidth = 1
@@ -78,17 +78,53 @@ class AILoginBaseTextField: UITextField {
 //    }
 }
 
+class AILoginPasswordTextField: AILoginBaseTextField {
+    var rightImageView: UIImageView!
+    
+    //切换是否显示密码的图标
+    let showPasswordImageArray = [UIImage(named: "login_show_password"), UIImage(named: "login_hide_password")]
+    var showPasswordText = false
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupLayout()
+    }
+    
+    override func setupLayout() {
+        super.setupLayout()
+        
+        self.secureTextEntry = true
+        self.returnKeyType = UIReturnKeyType.Go
+        rightImageView = UIImageView(frame: CGRect(x: 0, y: 10, width: 40, height: 30))
+        rightImageView.image = showPasswordImageArray[0]
+        rightImageView.contentMode = UIViewContentMode.Center
+        rightImageView.userInteractionEnabled = true
+        self.rightView = rightImageView
+        self.rightViewMode = UITextFieldViewMode.Always
+        
+        let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(AILoginPasswordTextField.switchDisplayPasswordText(_:)))
+        rightImageView.addGestureRecognizer(tapGuesture)
+
+    }
+    
+    func switchDisplayPasswordText(sender: UITapGestureRecognizer) {
+        showPasswordText = !showPasswordText
+        self.secureTextEntry = !self.secureTextEntry
+        rightImageView.image = showPasswordText ? showPasswordImageArray[1] : showPasswordImageArray[0]
+    }
+
+}
+
 extension UIViewController {
     func setupLoginNavigationBar(title: String) {
-        let NAVIGATION_TITLE = AITools.myriadSemiCondensedWithSize(60 / 3)
         let frame = CGRect(x: 0, y: 0, width: 100, height: 44)
         let titleLabel = UILabel(frame: frame)
-        titleLabel.font = NAVIGATION_TITLE
+        titleLabel.font = LoginConstants.Fonts.NavigationTitle
         titleLabel.textColor = UIColor.whiteColor()
         titleLabel.text = title
         self.navigationItem.titleView = titleLabel
         //这样才是原图渲染，不受tintColor影响
-        let backImage = UIImage(named: "se_back")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        let backImage = UIImage(named: "login_back")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.loginBackAction(_:)))
         leftButtonItem.tintColor = UIColor.lightGrayColor()
         self.navigationItem.leftBarButtonItem = leftButtonItem

@@ -42,21 +42,18 @@ class AIPaymentViewController: UIViewController {
     let AlipayNotifyURL: String = "http://www.yourdomain.com/order/alipay_notify_app"
     
     @IBOutlet weak var providerIcon: AIImageView!
-    
     @IBOutlet weak var providerName: UILabel!
-    
     @IBOutlet weak var providerLevel: UIView!
     @IBOutlet weak var weixinButton: UIButton!
     @IBOutlet weak var alipayButton: UIButton!
-    
     @IBOutlet weak var label_Price_info: UILabel!
     @IBOutlet weak var label_Pay_Style: UILabel!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var payView: UIView!
-    
     @IBOutlet weak var tableView: UITableView!
     
     private var dataSource = Array<AIPayInfoModel> ()
+    
     var expandedIndexPaths: [NSIndexPath] = [NSIndexPath]()
 
 
@@ -76,9 +73,7 @@ class AIPaymentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        
+         
         /**
          Init dataSource
          */
@@ -114,7 +109,6 @@ class AIPaymentViewController: UIViewController {
         
         // Display Button's commit
         
-        
         let priceLabel = UILabel()
         priceLabel.textAlignment = .Center
         priceLabel.text = "123元"
@@ -145,6 +139,11 @@ class AIPaymentViewController: UIViewController {
         
     }
     
+   
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+    }
     
     @IBAction func closePayAction() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -259,7 +258,6 @@ class AIPaymentViewController: UIViewController {
         price_List_Right_Line.backgroundColor = UIColor.clearColor()
         bgView.addSubview(price_List_Left_Line)
         bgView.addSubview(price_List_Right_Line)
-        
         
         /// Middle
         let top_Middle = label_Pay_Style.y + label_Pay_Style.height/2

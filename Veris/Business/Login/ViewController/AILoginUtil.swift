@@ -8,16 +8,16 @@
 
 import Foundation
 
-class AILoginUtil {
+class AILoginUtil: NSObject {
 
-    
+    static let KEY_USER_ID = "KEY_USER_ID"
 
     // MARK: -验证密码是否符合规范
     //密码位数为6-20位，可包含以下类别：
     //英文字母（从 A 到 Z以及从 a 到 z ）
     //10 个基本数字（从 0 到 9）
    // 非字母字符（例如!、$、#、%、@、&、*等）
-    static func validatePassword(password: String?) -> Bool {
+    class func validatePassword(password: String?) -> Bool {
         guard let password = password else {return false}
         let pattern = "[0-9a-zA-Z!@#$%*()_+^&]{6,20}"
         if let _ = password.rangeOfString(pattern, options: NSStringCompareOptions.RegularExpressionSearch, range: nil, locale: nil) {
@@ -28,7 +28,7 @@ class AILoginUtil {
 
     // MARK: -验证手机号是否符合规范
     // 11位数字
-    static func validatePhoneNumber(phoneNumber: String?) -> Bool {
+    class func validatePhoneNumber(phoneNumber: String?) -> Bool {
         guard let phoneNumber = phoneNumber else {return false}
         let pattern = "^1+[3578]+\\d{9}"
         if let _ = phoneNumber.rangeOfString(pattern, options: NSStringCompareOptions.RegularExpressionSearch, range: nil, locale: nil) {
@@ -38,12 +38,12 @@ class AILoginUtil {
     }
 
     // 4位数字
-    static func validateCode(validationCode: String) -> Bool {
+    class func validateCode(validationCode: String) -> Bool {
         return false
     }
     
     //显示验证结果提示信息
-    static func showValidateResult(validateResultCode: LoginConstants.ValidateResultCode, validateInfoLabel: UILabel, widthConstraint: NSLayoutConstraint) {
+    class func showValidateResult(validateResultCode: LoginConstants.ValidateResultCode, validateInfoLabel: UILabel, widthConstraint: NSLayoutConstraint) {
         let resultText = validateResultCode.rawValue
         let width = resultText.sizeWithFont(LoginConstants.Fonts.validateResult, forWidth: 1000).width + 23
         
@@ -59,7 +59,32 @@ class AILoginUtil {
                 validateInfoLabel.superview!.layoutIfNeeded()
                 }, completion: nil)
         }
-        
+    }
+    
+    //处理用户登陆事件， 1.存储userId到本地
+    class func handleUserLogin(userId: String) {
+        NSUserDefaults.standardUserDefaults().setObject(userId, forKey: KEY_USER_ID)
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    /**
+     处理用户登出事件， 清除所有的本地用户信息
+     */
+    class func handleUserLogout() {
+        NSUserDefaults.resetStandardUserDefaults()
+    }
+    
+    /**
+     验证当前用户是否已登陆
+     
+     - returns: <#return value description#>
+     */
+    class func isLogin() -> Bool {
+        if (NSUserDefaults.standardUserDefaults().objectForKey(KEY_USER_ID) as? String) != nil {
+            return true
+        } else {
+            return false
+        }
     }
 }
 
