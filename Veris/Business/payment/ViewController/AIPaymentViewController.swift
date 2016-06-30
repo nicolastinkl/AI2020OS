@@ -58,19 +58,30 @@ class AIPaymentViewController: UIViewController {
     
     private var dataSource = Array<AIPayInfoModel> ()
     var expandedIndexPaths: [NSIndexPath] = [NSIndexPath]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+
+    override func awakeFromNib () {
+        super.awakeFromNib()
+        print("\(CGRectGetMinX(label_Price_info.frame))")
+
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         /**
          Init SubView
          */
         layoutSubView()
-        
+
         /**
          Init TableView
          */
         initTableView()
+    }
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+
         
         /**
          Init dataSource
@@ -180,9 +191,24 @@ class AIPaymentViewController: UIViewController {
         
         self.tableView.reloadData()
     }
+
+
+    func getLabelLineWidth() -> CGFloat {
+
+        let maxWidth = UIScreen.mainScreen().bounds.size.width
+
+        let offset = maxWidth / 7.4
+
+        let labelWidth = label_Price_info.text?.sizeWithFont(AITools.myriadLightWithSize(48/3), forWidth: maxWidth).width
+
+        let lineWidth = (maxWidth - labelWidth! - offset*2 - 22) / 2
+
+        return lineWidth
+    }
     
     func layoutSubView() {
-        
+
+        print("\(self.view.frame.size.width)")
         /// Init Size and Font
         
         providerName.font = AITools.myriadLightWithSize(48/3)
@@ -217,21 +243,25 @@ class AIPaymentViewController: UIViewController {
             providerLevel.addSubview(zanlabel)
             
         }
-        
+        self.drawLine()
         Async.main(after: 1) {
-            self.drawLine()
+
         }
         
     }
     
     func drawLine() {
-        
+        let maxWidth = UIScreen.mainScreen().bounds.size.width
+
+
+        let labelWidth = label_Price_info.text?.sizeWithFont(AITools.myriadLightWithSize(48/3), forWidth: maxWidth).width
+        let label_Price_info_x = (maxWidth - labelWidth!) / 2
         /// Top
         let offset: CGFloat = self.view.width/7.4
-        let widthLine = label_Price_info.left - offset - 11
+        let widthLine = label_Price_info_x - offset - 11
         let top = label_Price_info.y + label_Price_info.height/2
         let price_List_Left_Line = StrokeLineView(frame: CGRectMake(offset, top, widthLine, 1))
-        let price_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info.left + label_Price_info.width + 11, top, widthLine, 1))
+        let price_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info_x + labelWidth! + 11, top, widthLine, 1))
         price_List_Left_Line.backgroundColor = UIColor.clearColor()
         price_List_Right_Line.backgroundColor = UIColor.clearColor()
         bgView.addSubview(price_List_Left_Line)
@@ -241,7 +271,7 @@ class AIPaymentViewController: UIViewController {
         /// Middle
         let top_Middle = label_Pay_Style.y + label_Pay_Style.height/2
         let pay_List_Left_Line = StrokeLineView(frame: CGRectMake(offset, top_Middle, widthLine, 1))
-        let pay_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info.left + label_Price_info.width + 11, top_Middle, widthLine, 1))
+        let pay_List_Right_Line = StrokeLineView(frame: CGRectMake(label_Price_info_x + labelWidth! + 11, top_Middle, widthLine, 1))
         pay_List_Left_Line.backgroundColor = UIColor.clearColor()
         pay_List_Right_Line.backgroundColor = UIColor.clearColor()
         payView.addSubview(pay_List_Left_Line)
