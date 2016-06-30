@@ -88,9 +88,9 @@ class AIProposalTableViewController: UIViewController {
     // MARK: - 构造列表区域
     func makeTableView () {
         
-        let bgImageView = UIImageView(image: UIImage(named: "Buyer_topBar_Bg"))
-        bgImageView.frame = self.view.frame
-        self.view.addSubview(bgImageView)
+//        let bgImageView = UIImageView(image: UIImage(named: "Buyer_topBar_Bg"))
+//        bgImageView.frame = self.view.frame
+//        self.view.addSubview(bgImageView)
         
         
         let y: CGFloat = 10
