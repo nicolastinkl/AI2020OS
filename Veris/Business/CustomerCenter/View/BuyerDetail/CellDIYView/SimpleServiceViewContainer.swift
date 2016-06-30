@@ -267,9 +267,9 @@ class SimpleServiceViewContainer: UIView {
         }
 
         if let modArray = models {
-            if (modArray.count == 1) {
+            if modArray.count == 1 {
                 let viewTemplate = ProposalServiceViewTemplate(rawValue: Int(modArray.first!.param_key)!)
-                if (viewTemplate == .MutilTextAndImage) {
+                if viewTemplate == .MutilTextAndImage {
                      paramHeight += ( AITools.displaySizeFrom1080DesignSize(40))
                 }
             }
@@ -353,7 +353,7 @@ class SimpleServiceViewContainer: UIView {
             topView.setNeedsUpdateConstraints()
         }
 
-        let starRateView = CWStarRateView(frameAndImage: CGRect(x: 0, y: 0, width: 60, height: 10), numberOfStars: 5, foreground: "review_star_yellow", background: "review_star_gray")
+        let starRateView = StarRateView(frame: CGRect(x: 0, y: 0, width: 60, height: 10), numberOfStars: 5, foregroundImage: "review_star_yellow", backgroundImage: "review_star_gray")
         topView.addSubview(starRateView)
         let score: CGFloat = CGFloat(rating) / 10
         starRateView.scorePercent = score
@@ -373,7 +373,7 @@ class SimpleServiceViewContainer: UIView {
         return topView.height
     }
 
-    private func totalHeight()-> CGFloat {
+    private func totalHeight() -> CGFloat {
         return getTopHeight() + paramsViewTopMargin.constant + paramViewHeight + dividerTopMargin.constant + dividerBottomMargin.constant + divider.height + messageHeight.constant
     }
 }

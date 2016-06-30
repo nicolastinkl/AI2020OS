@@ -257,7 +257,6 @@
 		81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81433ADD1CFBE5A700347C29 /* ProposalViewTest.storyboard */; };
 		81433E181CFBE5A700347C29 /* ProposalServiceDetailBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433ADF1CFBE5A700347C29 /* ProposalServiceDetailBaseView.m */; };
 		81433E191CFBE5A700347C29 /* GIBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AE21CFBE5A700347C29 /* GIBadgeView.m */; };
-		81433E1A1CFBE5A700347C29 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AE51CFBE5A700347C29 /* CWStarRateView.m */; };
 		81433E1B1CFBE5A700347C29 /* SESlideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AE81CFBE5A700347C29 /* SESlideTableViewCell.m */; };
 		81433E1C1CFBE5A700347C29 /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AEA1CFBE5A700347C29 /* SevenSwitch.swift */; };
 		81433E1D1CFBE5A700347C29 /* SwitchExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AEB1CFBE5A700347C29 /* SwitchExampleViewController.swift */; };
@@ -960,8 +959,6 @@
 		81433ADF1CFBE5A700347C29 /* ProposalServiceDetailBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProposalServiceDetailBaseView.m; sourceTree = "<group>"; };
 		81433AE11CFBE5A700347C29 /* GIBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIBadgeView.h; sourceTree = "<group>"; };
 		81433AE21CFBE5A700347C29 /* GIBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIBadgeView.m; sourceTree = "<group>"; };
-		81433AE41CFBE5A700347C29 /* CWStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
-		81433AE51CFBE5A700347C29 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
 		81433AE71CFBE5A700347C29 /* SESlideTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESlideTableViewCell.h; sourceTree = "<group>"; };
 		81433AE81CFBE5A700347C29 /* SESlideTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESlideTableViewCell.m; sourceTree = "<group>"; };
 		81433AEA1CFBE5A700347C29 /* SevenSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenSwitch.swift; sourceTree = "<group>"; };
@@ -2459,8 +2456,6 @@
 		81433AE31CFBE5A700347C29 /* stars */ = {
 			isa = PBXGroup;
 			children = (
-				81433AE41CFBE5A700347C29 /* CWStarRateView.h */,
-				81433AE51CFBE5A700347C29 /* CWStarRateView.m */,
 				84E51EF91D1242930026AF22 /* StarRateView.swift */,
 			);
 			path = stars;
@@ -4629,7 +4624,6 @@
 				81433D7C1CFBE5A700347C29 /* AIStepperParamView.swift in Sources */,
 				8175A7DC1CFD2710006F2C8F /* JSONModelError.m in Sources */,
 				81433E751CFBE5A700347C29 /* FLEXFileBrowserSearchOperation.m in Sources */,
-				81433E1A1CFBE5A700347C29 /* CWStarRateView.m in Sources */,
 				81433E301CFBE5A700347C29 /* AITaskInputViewController.swift in Sources */,
 				8175A7E31CFD2710006F2C8F /* MJRefreshHeaderView.m in Sources */,
 				8175A7E51CFD2710006F2C8F /* UIScrollView+MJRefresh.m in Sources */,
