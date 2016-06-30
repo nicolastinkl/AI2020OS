@@ -80,6 +80,11 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
         regionTitleLabel.font = LoginConstants.Fonts.textFieldInput
         regionSelectButton.titleLabel?.font = LoginConstants.Fonts.textFieldInput
         
+        regionSelectContainerView.backgroundColor = LoginConstants.Colors.TextFieldBackground
+        regionSelectContainerView.layer.cornerRadius = 5
+        regionSelectContainerView.layer.masksToBounds = true
+        regionSelectContainerView.layer.borderColor = LoginConstants.Colors.TextFieldBorder.CGColor
+        regionSelectContainerView.layer.borderWidth = 1
     }
 
     //TODO: 这里要根据规则判断，调用判断方法

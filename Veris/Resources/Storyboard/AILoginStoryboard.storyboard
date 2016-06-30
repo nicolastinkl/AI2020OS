@@ -97,7 +97,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg" translatesAutoresizingMaskIntoConstraints="NO" id="xEC-ry-8Dd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HzG-Lr-OWo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HzG-Lr-OWo" customClass="AILoginPasswordTextField" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="30" y="80" width="540" height="44"/>
                                 <color key="backgroundColor" red="0.54141223430633545" green="0.50639235973358154" blue="0.66370731592178345" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -254,7 +254,7 @@
                         <outlet property="nextStepButton" destination="Ecj-Ps-Z8V" id="EtJ-Yu-7HP"/>
                         <outlet property="phoneNumberTextField" destination="L47-do-Rfl" id="nHP-5i-VF4"/>
                         <outlet property="regionSelectButton" destination="TMW-VV-xQf" id="gvo-IK-Pxh"/>
-                        <outlet property="regionSelectContainerView" destination="0xs-9k-Rf0" id="4l7-w8-39G"/>
+                        <outlet property="regionSelectContainerView" destination="0xs-9k-Rf0" id="LB0-hg-E0F"/>
                         <outlet property="regionTitleLabel" destination="D5z-Wg-fqn" id="uMh-XM-nOm"/>
                     </connections>
                 </viewController>
@@ -401,6 +401,7 @@
                         <outlet property="validateInfoWidthConstraint" destination="N5u-IR-nJi" id="rEe-fg-zx6"/>
                         <outlet property="validationButton" destination="aDd-qb-T25" id="a64-Rr-nlY"/>
                         <outlet property="validationButtonWidthConstrant" destination="Ofo-tK-IzP" id="ByY-7e-gQR"/>
+                        <outlet property="validationContainerView" destination="50h-Ti-YI2" id="eGi-Wt-Lhp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxO-o8-ORy" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,6 +20,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
     var timer: NSTimer?
     var timerEndDate: NSDate!
 
+    @IBOutlet weak var validationContainerView: UIView!
     @IBOutlet weak var validationButtonWidthConstrant: NSLayoutConstraint!
     @IBOutlet weak var validationButton: UIButton!
     @IBOutlet weak var identifyTextField: UITextField!
@@ -168,6 +169,13 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         validateInfoWidthConstraint.constant = 0
         validateInfoLabel.layer.cornerRadius = 8
         validateInfoLabel.layer.masksToBounds = true
+        
+        //validationContainerView
+        validationContainerView.backgroundColor = LoginConstants.Colors.TextFieldBackground
+        validationContainerView.layer.cornerRadius = 5
+        validationContainerView.layer.masksToBounds = true
+        validationContainerView.layer.borderColor = LoginConstants.Colors.TextFieldBorder.CGColor
+        validationContainerView.layer.borderWidth = 1
     }
 
 }

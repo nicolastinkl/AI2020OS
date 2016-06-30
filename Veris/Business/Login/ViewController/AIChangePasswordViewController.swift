@@ -16,7 +16,6 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
     @IBOutlet weak var validateInfoLabel: UILabel!
     @IBOutlet weak var confirmButton: AIChangeStatusButton!
     @IBOutlet weak var passwordTextField: AILoginPasswordTextField!
-    var rightImageView: UIImageView!
     
     var loginService = AILoginService()
 
