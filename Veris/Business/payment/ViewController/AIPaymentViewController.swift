@@ -59,11 +59,7 @@ class AIPaymentViewController: UIViewController {
     private var dataSource = Array<AIPayInfoModel> ()
     var expandedIndexPaths: [NSIndexPath] = [NSIndexPath]()
 
-    override func awakeFromNib () {
-        super.awakeFromNib()
-        print("\(CGRectGetMinX(label_Price_info.frame))")
 
-    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         /**
@@ -150,12 +146,12 @@ class AIPaymentViewController: UIViewController {
     }
     
     
-    @IBAction func closePayAction(){
+    @IBAction func closePayAction() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
-    @IBAction func commitPayAction(){
+    @IBAction func commitPayAction() {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
@@ -222,31 +218,28 @@ class AIPaymentViewController: UIViewController {
         
         providerName.text = "孕检无忧"
         
-        if let starRateView = CWStarRateView(frameAndImage: CGRect(x: 0, y: 5, width: 60, height: 11), numberOfStars: 5, foreground: "star_rating_results_highlight", background: "star_rating_results_normal" ) {
-            starRateView.userInteractionEnabled = false
-            let score: CGFloat = 5
-            starRateView.scorePercent = score / 10
-            providerLevel.addSubview(starRateView)
-            
-            let label = UILabel()
-            label.text = "\(score)"
-            label.font = UIFont.systemFontOfSize(12)
-            label.textColor = AITools.colorWithR(253, g: 225, b: 50)
-            label.frame = CGRectMake(starRateView.right + 5, 1, 30, 20)
-            providerLevel.addSubview(label)
-            
-            let zanlabel = UILabel()
-            zanlabel.text = "12345单"
-            zanlabel.font = AITools.myriadLightWithSize(40/3)
-            zanlabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.6)
-            zanlabel.frame = CGRectMake(label.right, 1, 80, 20)
-            providerLevel.addSubview(zanlabel)
-            
-        }
-        self.drawLine()
-        Async.main(after: 1) {
+        let starRateView = StarRateView(frame: CGRect(x: 0, y: 5, width: 60, height: 11), numberOfStars: 5, foregroundImage: "star_rating_results_highlight", backgroundImage: "star_rating_results_normal")
+        
+        starRateView.userInteractionEnabled = false
+        let score: CGFloat = 5
+        starRateView.scorePercent = score / 10
+        providerLevel.addSubview(starRateView)
+        
+        let label = UILabel()
+        label.text = "\(score)"
+        label.font = UIFont.systemFontOfSize(12)
+        label.textColor = AITools.colorWithR(253, g: 225, b: 50)
+        label.frame = CGRectMake(starRateView.right + 5, 1, 30, 20)
+        providerLevel.addSubview(label)
+        
+        let zanlabel = UILabel()
+        zanlabel.text = "12345单"
+        zanlabel.font = AITools.myriadLightWithSize(40/3)
+        zanlabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.6)
+        zanlabel.frame = CGRectMake(label.right, 1, 80, 20)
+        providerLevel.addSubview(zanlabel)
 
-        }
+        self.drawLine()
         
     }
     
@@ -406,7 +399,7 @@ extension AIPaymentViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+        if NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1 {
             return UITableViewAutomaticDimension
         } else {
             return self.dynamicCellHeight(indexPath)
@@ -424,7 +417,7 @@ extension AIPaymentViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: table view delegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if(self.expandedIndexPaths.contains(indexPath)) {
+        if self.expandedIndexPaths.contains(indexPath) {
             let idx = self.expandedIndexPaths.indexOf(indexPath)
             self.expandedIndexPaths.removeAtIndex(idx!)
         } else {
@@ -435,7 +428,7 @@ extension AIPaymentViewController: UITableViewDelegate, UITableViewDataSource {
         
     //MARK: compute cell height
     
-    private func dynamicCellHeight(indexPath: NSIndexPath)->CGFloat {
+    private func dynamicCellHeight(indexPath: NSIndexPath) -> CGFloat {
         
         struct StaticStruct {
             static var sizingCell: AIPayListInfoCellView?
