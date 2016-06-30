@@ -49,32 +49,33 @@ class AICommentInfoView: UIView {
             imageview.setURL(NSURL(string: "http://ww2.sinaimg.cn/bmiddle/9fe1d9e1gw1f4ht3tkwp8j20ss0hsgpa.jpg"), placeholderImage: smallPlace())
         }
 
-        if let starRateView = CWStarRateView(frameAndImage: CGRect(x: 0, y: 5, width: 60, height: 11), numberOfStars: 5, foreground: "star_rating_results_highlight", background: "star_rating_results_normal" ) {
-            starRateView.userInteractionEnabled = false
-            let score: CGFloat = 5
-            starRateView.scorePercent = score / 10
-            commentControls.addSubview(starRateView)
+        let starRateView = StarRateView(frame: CGRect(x: 0, y: 5, width: 60, height: 11), numberOfStars: 5, foregroundImage: "star_rating_results_highlight", backgroundImage: "star_rating_results_normal" )
+        
+        starRateView.userInteractionEnabled = false
+        let score: CGFloat = 5
+        starRateView.scorePercent = score / 10
+        commentControls.addSubview(starRateView)
 
-            let label = UILabel()
-            label.text = "\(score)"
-            label.font = UIFont.systemFontOfSize(12)
-            label.textColor = AITools.colorWithR(253, g: 225, b: 50)
-            label.frame = CGRectMake(starRateView.right + 5, 1, 40, 20)
-            commentControls.addSubview(label)
+        let label = UILabel()
+        label.text = "\(score)"
+        label.font = UIFont.systemFontOfSize(12)
+        label.textColor = AITools.colorWithR(253, g: 225, b: 50)
+        label.frame = CGRectMake(starRateView.right + 5, 1, 40, 20)
+        commentControls.addSubview(label)
 
-            //点赞
-            let zanImageView = UIImageView(image: UIImage(named: "Zan")!)
-            commentControls.addSubview(zanImageView)
-            zanImageView.frame = CGRectMake(label.right + 5, 5, 11, 11)
+        //点赞
+        let zanImageView = UIImageView(image: UIImage(named: "Zan")!)
+        commentControls.addSubview(zanImageView)
+        zanImageView.frame = CGRectMake(label.right + 5, 5, 11, 11)
 
-            let zanlabel = UILabel()
-            zanlabel.text = "12345"
-            zanlabel.font = UIFont.systemFontOfSize(12)
-            zanlabel.textColor = UIColor.whiteColor()
-            zanlabel.frame = CGRectMake(zanImageView.right + 5, 1, 40, 20)
-            commentControls.addSubview(zanlabel)
+        let zanlabel = UILabel()
+        zanlabel.text = "12345"
+        zanlabel.font = UIFont.systemFontOfSize(12)
+        zanlabel.textColor = UIColor.whiteColor()
+        zanlabel.frame = CGRectMake(zanImageView.right + 5, 1, 40, 20)
+        commentControls.addSubview(zanlabel)
 
-        }
+        
 
 
     }

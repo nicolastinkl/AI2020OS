@@ -31,7 +31,7 @@ class AIAssignServiceView: UIView {
     var delegate: AIAssignServiceViewDelegate?
     var isRunAnimation = true
     var repeatTimer: NSTimer?
-    var starRateView: CWStarRateView!
+    var starRateView: StarRateView!
 
     var limitIconArray = Array<UIImageView>()
     let limitIconOnArray = [UIImage(named: "limit01-on"), UIImage(named: "limit02-on"), UIImage(named: "limit03-on"), UIImage(named: "limit04-on")]
@@ -83,7 +83,7 @@ class AIAssignServiceView: UIView {
     }
 
     func initRatingView() {
-        starRateView = CWStarRateView(frame: ratingView.bounds, numberOfStars: 5)
+        starRateView = StarRateView(frame: ratingView.bounds, numberOfStars: 5)
         starRateView?.allowIncompleteStar = true
         ratingView.addSubview(starRateView!)
     }
