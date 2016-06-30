@@ -86,11 +86,6 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
     func phoneNumberInputAction(target: UITextField) {
         nextStepButton.enabled = (AILoginUtil.validatePhoneNumber(target.text!))
     }
-    
-    func showValidateResult(validateResultCode: LoginConstants.ValidateResultCode) {
-        let resultText = validateResultCode.rawValue
-        //let width = resultText.sizeWithFont(<#T##font: UIFont##UIFont#>, forWidth: <#T##CGFloat#>)
-    }
 }
 
 extension AIRegistViewController : AISelectRegionViewControllerDelegate {
