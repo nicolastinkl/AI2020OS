@@ -94,6 +94,13 @@ typedef enum  {
             case typeToSignIcon:
             {
                 [self initWithSignIcon:center model:model];
+
+            }
+
+                break;
+            case typeToWish:
+            {
+                [self initWithWish:center model:model];
             }
                 break;
                 
@@ -349,6 +356,57 @@ typedef enum  {
     }];
     */
 }
+
+
+- (void) initWithWish:(CGPoint)center model:(AIBuyerBubbleModel *)model {
+    CGFloat size = model.bubbleSize*2;//[self bubbleRadiusByModel:_bubbleModel] * 2;
+    _radius = size / 2;
+    self.floatSize = size;
+    self.frame = CGRectMake(0, 0, size, size);
+    self.center = center;
+
+    //背景
+    UIImageView * imageview = [[UIImageView alloc] init];
+    imageview.frame = self.frame;
+    imageview.alpha = kDefaultAlpha;
+    imageview.center =  CGPointMake(self.width/2, self.height/2);
+    [self addSubview:imageview];
+
+
+    UIPopView * popView = [UIPopView currentView];
+    [popView fillDataWithModel:_bubbleModel];
+    popView.wishIndicator.hidden = NO;
+    [self addSubview:popView];
+
+    double BridNum = size / popView.width;
+    popView.transform =  CGAffineTransformMakeScale(BridNum, BridNum);
+    popView.center = CGPointMake(self.width/2, self.height/2);
+    self.layer.cornerRadius = size / 2;
+    self.layer.borderWidth = 1.5;
+    self.layer.masksToBounds = YES;
+    self.clipsToBounds = YES;
+
+
+    /** 这里是算法取颜色值*/
+    {
+        //NSLog(@"self.index :%d  %@",self.index,model.proposal_name);
+        NSString * colorDeep =  model.deepColor;
+        NSString * colorUnderOne = model.undertoneColor;
+        NSString * colorBorder =  model.borderColor;
+
+        self.layer.borderColor = [UIColor colorWithHexString:colorBorder].CGColor;
+
+        imageview.alpha=0.1;
+        imageview.image = [self buttonImageFromColors:@[[UIColor colorWithHexString:colorUnderOne],[UIColor colorWithHexString:colorDeep]] frame:imageview.frame];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:(0.5)];
+        [imageview setNeedsDisplay];
+        imageview.alpha = kDefaultAlpha;
+        [UIView commitAnimations];
+        
+    }
+}
+
 
 - (void) layoutSubviews
 {

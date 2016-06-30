@@ -189,7 +189,7 @@ class AIAssetsPickerController: UIViewController {
             prevc.assets = newArray
             prevc.maximumNumberOfSelection = self.maximumNumberOfSelection
             self.navigationController?.pushViewController(prevc, animated: true)
-        }else{
+        } else {
             SVProgressHUD.showErrorWithStatus("没有选中图片")
         }
     }

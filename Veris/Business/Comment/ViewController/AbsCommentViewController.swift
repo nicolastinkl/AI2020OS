@@ -19,7 +19,7 @@ extension AbsCommentViewController: UINavigationControllerDelegate {
 }
 
 extension AbsCommentViewController: CommentDistrictDelegate {
-    func pohotImageButtonClicked(button: UIImageView, buttonParent: UIView) {
+    func pohotImageButtonClicked(button: UIImageView, buttonParentCell: UIView) {
         let alert = UIAlertController(title: nil, message: "AbsCommentViewController.selectSrc".localized, preferredStyle: .ActionSheet)
 
         let actionCamera = UIAlertAction(title: "Camera".localized,
@@ -47,6 +47,10 @@ extension AbsCommentViewController: CommentDistrictDelegate {
         alert.addAction(actionCancel)
 
         presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView) {
+        
     }
 }
 

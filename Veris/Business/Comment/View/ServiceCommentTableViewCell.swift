@@ -18,13 +18,23 @@ class ServiceCommentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var starRateView: StarRateView!
     @IBOutlet weak var imagesCollectionView: ImagesCollectionView!
-
+    @IBOutlet weak var bottomStrokeLine: StrokeLineView!
+    @IBOutlet weak var appendCommentButton: UIButton!
+    @IBOutlet weak var appendInputComment: UITextView!
 
     var delegate: CommentDistrictDelegate?
+    
+    var isInAppendComment = false {
+        didSet {
+            appendCommentAreaHidden(!isInAppendComment)
+            appendCommentButton.hidden = isInAppendComment
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        selectionStyle = .None
 
         serviceIcon.clipsToBounds = true
 
@@ -39,14 +49,27 @@ class ServiceCommentTableViewCell: UITableViewCell {
         
         serviceName.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
         placeHolderText.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
+        
+        appendCommentButton.layer.cornerRadius = appendCommentButton.height / 2
+        appendCommentButton.layer.borderWidth = 1
+        appendCommentButton.layer.borderColor = UIColor(hex: "FFFFFFAA").CGColor
+        appendCommentButton.hidden = false
     }
 
     override func layoutSubviews() {
         serviceIcon.layer.cornerRadius = serviceIcon.height / 2
     }
+    
+    @IBAction func appendButtonAction(sender: UIButton) {
+        appendCommentButton.hidden = true
+        appendCommentAreaHidden(false)
+        imageButton.hidden = true
+        
+        delegate?.appendCommentClicked(sender, buttonParentCell: self)
+    }
 
     func imageButtonAction(sender: UIGestureRecognizer) {
-        delegate?.pohotImageButtonClicked(imageButton, buttonParent: self)
+        delegate?.pohotImageButtonClicked(imageButton, buttonParentCell: self)
     }
     
     func addImage(image: UIImage) {
@@ -59,6 +82,11 @@ class ServiceCommentTableViewCell: UITableViewCell {
     
     func clearImages() {
         imagesCollectionView.clearImages()
+    }
+    
+    private func appendCommentAreaHidden(hidden: Bool) {
+        bottomStrokeLine.hidden = hidden
+        appendInputComment.hidden = hidden
     }
 }
 

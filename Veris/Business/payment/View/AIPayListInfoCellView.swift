@@ -61,7 +61,7 @@ class AIPayListInfoCellView: UITableViewCell {
             expendView.subviews.first?.removeFromSuperview()
             expendConstrint.constant = 0
             
-        }else{ 
+        } else { 
             let expendListView = UIView()
             var topOffset: CGFloat = 0
             if let m = item.childList {

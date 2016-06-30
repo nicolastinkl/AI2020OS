@@ -36,11 +36,10 @@ class AIFundManageViewController: UIViewController {
 
     func makeBackButton() {
 
-        let frame = CGRect(x: 10, y: 10, width: 35, height: 35)
-        let backButton = AIViews.baseButtonWithFrame(frame, normalTitle: "")
-
+        let frame = CGRect(x: 10, y: 10, width: 95, height: 35)
+        let backButton = AIViews.baseButtonWithFrame(frame, normalTitle: " ")
         backButton.setImage(UIImage(named: "backIcon"), forState: .Normal)
-
+        backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 60)
         backButton.addTarget(self, action: #selector(backAction), forControlEvents: UIControlEvents.TouchUpInside)
 
         self.view.addSubview(backButton)

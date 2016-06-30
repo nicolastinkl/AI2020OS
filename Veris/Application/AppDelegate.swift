@@ -25,11 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     let WX_APPID: String  = "wx483dafc09117a3d0"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//        let vc = AIProductQAViewController()
-//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        self.window?.rootViewController = vc
-//        self.window?.maeKeyAndVisible()
-//        return true
+        //let vc = AIProductCommentsViewController()
+        //self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        //self.window?.rootViewController = vc
+        //self.window?.makeKeyAndVisible()
+        //return true
         //AVOS
         configAVOSCloud()
         AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
@@ -120,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
                     if let resultCode = resultDict["resultStatus"] as? Int {
                         if resultCode == 9000 {
                             NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WeixinPaySuccessNotification, object: nil)
-                        }else{
+                        } else {
                             let alert = UIAlertView(title: "支付失败", message: resultDict["memo"] as? String ?? "", delegate: nil, cancelButtonTitle: "OK")
                             alert.show()
                         }

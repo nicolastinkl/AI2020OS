@@ -609,7 +609,9 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
     [_bubbleModels enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         AIBuyerBubbleModel *model  = obj;
         NSUInteger i = idx;
-        
+        if (i == 0) {
+            model.bubbleType = 3;
+        }
         // 构造bubble
 
         if (model.service_list.count >= 6){
@@ -619,19 +621,9 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
         }else {
             model.bubbleSize = [AIBubble smaBubbleRadius];
         }
-        
-        AIBubble *bubble = nil;
-        
-        if (model.bubbleType == 2) {
-            bubble = [[AIBubble alloc] initWithCenter:CGPointZero model:model type:typeToAdd Index:indexView];
-        
-        }else if (model.bubbleType == 1) {
-            bubble = [[AIBubble alloc] initWithCenter:CGPointZero model:model type:typeToSignIcon Index:indexView];
-            
-        }else{
-            bubble = [[AIBubble alloc] initWithCenter:CGPointZero model:model type:typeToNormal Index:indexView];
-        }
-        
+
+        AIBubble *bubble = [[AIBubble alloc] initWithCenter:CGPointZero model:model type:model.bubbleType Index:indexView];
+
         indexView += 1;
         // 计算bubble的center
         
