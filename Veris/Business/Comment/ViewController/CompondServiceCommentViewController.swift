@@ -43,11 +43,18 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
     }
 
-    override func pohotImageButtonClicked(button: UIImageView, buttonParent: UIView) {
-        super.pohotImageButtonClicked(button, buttonParent: buttonParent)
+    override func pohotImageButtonClicked(button: UIImageView, buttonParentCell: UIView) {
+        super.pohotImageButtonClicked(button, buttonParentCell: buttonParentCell)
 
-        if let cell = buttonParent as? ServiceCommentTableViewCell {
+        if let cell = buttonParentCell as? ServiceCommentTableViewCell {
             recordCurrentOperateCell(cell)
+        }
+    }
+    
+    override func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView) {
+        if let cell = buttonParentCell as? ServiceCommentTableViewCell {
+            let row = cell.tag
+            comments[row].isInAppendComment = true
         }
     }
 
@@ -105,14 +112,18 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 270
     }
+    
 
     private func resetCellUI(cell: ServiceCommentTableViewCell, indexPath: NSIndexPath) {
         cell.clearImages()
         
         cell.addImages(comments[indexPath.row].images)
+        
+        cell.isInAppendComment = comments[indexPath.row].isInAppendComment
     }
 }
 
 class CommentTestModel {
     var images = [UIImage]()
+    var isInAppendComment = false
 }
