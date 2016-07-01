@@ -365,8 +365,8 @@ extension AICollContentViewController : AIAssignServiceViewDelegate, AIPopupChoo
         self.dismissPopupViewController(true, completion: nil)
     }
 
-    // MARK: - business logic
-    // TODO 这里有逻辑问题，关闭弹出window后就开始继续滚动，那这里取当前number就有问题的，应该弹出时就把需要的参数赋值在vc中
+    //MARK: - business logic
+    //TODO 这里有逻辑问题，关闭弹出window后就开始继续滚动，那这里取当前number就有问题的，应该弹出时就把需要的参数赋值在vc中
     func submitPermissionConfig(itemModels: [AIPopupChooseModel]) {
         if let bussinessModel = AIRequirementViewPublicValue.bussinessModel {
             let customerId = bussinessModel.baseJsonValue?.customer.customer_id
