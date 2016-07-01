@@ -140,7 +140,7 @@ class AITaskNoteEditViewController: UIViewController {
 extension AITaskNoteEditViewController: AITaskNavigationBarDelegate {
 
 	func navigationBar(navigationBar: AITaskNavigationBar, cancelButtonPressed sender: UIButton) {
-		print("cancel button pressed")
+		AILog("cancel button pressed")
 		view.endEditing(true)
 		dismissViewControllerAnimated(true, completion: nil)
 	}

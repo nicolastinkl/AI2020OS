@@ -39,7 +39,7 @@ static NSString *const QUERY_TABLENAMES_SQL = @"SELECT name FROM sqlite_master W
     }
     int err = sqlite3_open([_databasePath UTF8String], &_db);
     if(err != SQLITE_OK) {
-        NSLog(@"error opening!: %d", err);
+        AIOCLog(@"error opening!: %d", err);
         return NO;
     }
     return YES;
@@ -62,14 +62,14 @@ static NSString *const QUERY_TABLENAMES_SQL = @"SELECT name FROM sqlite_master W
                 triedFinalizingOpenStatements = YES;
                 sqlite3_stmt *pStmt;
                 while ((pStmt = sqlite3_next_stmt(_db, nil)) !=0) {
-                    NSLog(@"Closing leaked statement");
+                    AIOCLog(@"Closing leaked statement");
                     sqlite3_finalize(pStmt);
                     retry = YES;
                 }
             }
         }
         else if (SQLITE_OK != rc) {
-            NSLog(@"error closing!: %d", rc);
+            AIOCLog(@"error closing!: %d", rc);
         }
     }
     while (retry);

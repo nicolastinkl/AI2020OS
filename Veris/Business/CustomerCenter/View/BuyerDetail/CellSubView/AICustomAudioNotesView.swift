@@ -82,7 +82,7 @@ internal class AICustomAudioNotesView: UIView, AVAudioRecorderDelegate {
             currentAutioUrl = fileName
             recorder = try AVAudioRecorder(URL: NSURL(string: fileName)!, settings: recorderSettingsDict)
 
-            print(fileName)
+            AILog(fileName)
             if let _ = recorder {
 
                 AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
@@ -104,7 +104,7 @@ internal class AICustomAudioNotesView: UIView, AVAudioRecorderDelegate {
                 })
             }
         } catch {
-            logInfo("startRecording error")
+            AILog("startRecording error")
         }
     }
 
@@ -190,7 +190,7 @@ internal class AICustomAudioNotesView: UIView, AVAudioRecorderDelegate {
 
             let videoFile = AVFile(name: "\(NSDate().timeIntervalSince1970).aac", data:data)
             videoFile.saveInBackgroundWithBlock({ (success, error) -> Void in
-                print("saveInBackgroundWithBlock : \(videoFile.url)")
+                AILog("saveInBackgroundWithBlock : \(videoFile.url)")
                 weakSelf?.notifyEndRecordWithUrl(videoFile.url)
             })
         }
@@ -200,7 +200,7 @@ internal class AICustomAudioNotesView: UIView, AVAudioRecorderDelegate {
         error: NSError?) {
 
             self.delegateAudio?.endRecordingWithError(error!.localizedDescription)
-            print("\(error!.localizedDescription)")
+            AILog("\(error!.localizedDescription)")
     }
 
     // MARK: -
@@ -232,7 +232,7 @@ internal class AICustomAudioNotesView: UIView, AVAudioRecorderDelegate {
             timer = nil
             audioButton.setTitle("AICustomAudioNotesView.hold".localized, forState: UIControlState.Normal)
             self.delegateAudio?.willEndRecording()
-            logInfo("松开 结束录音")
+            AILog("松开 结束录音")
         }
     }
 

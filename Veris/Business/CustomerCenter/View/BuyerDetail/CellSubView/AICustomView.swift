@@ -77,7 +77,7 @@ internal class AICustomView: UIView {
             let ramdWidth = sizenew.width  + 55
             let ramdHeigth: CGFloat = 35
 
-            //print("\(x + CGFloat(ramdWidth) + tagMargin)   \((self.width - tagMargin*4))")
+            //AILog("\(x + CGFloat(ramdWidth) + tagMargin)   \((self.width - tagMargin*4))")
             if (x + CGFloat(ramdWidth) + tagMargin) > (self.width - tagMargin*5) {
 
                 n = 0

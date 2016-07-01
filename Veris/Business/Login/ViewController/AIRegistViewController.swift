@@ -85,7 +85,7 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
         regionSelectContainerView.layer.borderColor = LoginConstants.Colors.TextFieldBorder.CGColor
         regionSelectContainerView.layer.borderWidth = 1
         
-        if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword{
+        if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
             promoteLabel.text = LoginConstants.textContent.forgotPasswordPrompt
         }
     }
@@ -93,6 +93,11 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
     //TODO: 这里要根据规则判断，调用判断方法
     func phoneNumberInputAction(target: UITextField) {
         nextStepButton.enabled = (AILoginUtil.validatePhoneNumber(target.text!))
+    }
+    
+    func showValidateResult(validateResultCode: LoginConstants.ValidateResultCode) {
+        _ = validateResultCode.rawValue
+        //let width = resultText.sizeWithFont(<#T##font: UIFont##UIFont#>, forWidth: <#T##CGFloat#>)
     }
 }
 

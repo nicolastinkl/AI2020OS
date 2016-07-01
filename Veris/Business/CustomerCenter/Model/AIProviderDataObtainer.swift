@@ -24,7 +24,7 @@ class MockProviderDataObtainer: ProviderDataObtainer {
                     let model = try AIOrderPreListModel(data: dataJSON)
                     success(responseData: model)
                 } catch {
-                    print("AIOrderPreListModel JSON Parse err.")
+                    AILog("AIOrderPreListModel JSON Parse err.")
                     fail(errType: AINetError.Format, errDes: "AIOrderPreListModel JSON Parse error.")
                 }
             }

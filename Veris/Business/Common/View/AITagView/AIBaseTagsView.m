@@ -140,7 +140,7 @@
     
     if (expectedLabelSize.width > MAX_TAG_SIZE) expectedLabelSize.width = MAX_TAG_SIZE;
 
-    NSLog(@"%f", expectedLabelSize.width);
+    AIOCLog(@"%f", expectedLabelSize.width);
 
     if ((tagXPos + expectedLabelSize.width) > self.frame.size.width) {
         tagXPos = TAG_SPACE_HORIZONTAL;

@@ -145,7 +145,7 @@ class AITagsView: AIServiceParamBaseView {
 		}
 		newSelectedTagIds.append(sender.selectedTagId!)
 		selectedTagIds = newSelectedTagIds
-		print(selectedTagIds)
+		AILog(selectedTagIds)
 		renderAllViews()
 		sendActionsForControlEvents(.ValueChanged)
 	}

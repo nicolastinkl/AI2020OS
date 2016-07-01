@@ -85,7 +85,7 @@ internal class AIAudioInputView: UIView, AVAudioRecorderDelegate {
             currentAutioUrl = fileName
             recorder = try AVAudioRecorder(URL: NSURL(string: fileName)!, settings: recorderSettingsDict)
 
-            print(fileName)
+            AILog(fileName)
             if let _ = recorder {
 
                 AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
@@ -107,7 +107,7 @@ internal class AIAudioInputView: UIView, AVAudioRecorderDelegate {
                 })
             }
         } catch {
-            logInfo("startRecording error")
+            AILog("startRecording error")
         }
     }
 
@@ -216,7 +216,7 @@ internal class AIAudioInputView: UIView, AVAudioRecorderDelegate {
                     self.audioButtonRecord.hideProgressViewLoading()
                     self.audioButtonRecord.enabled = true
 
-                    print("saveInBackgroundWithBlock : \(videoFile.url)")
+                    AILog("saveInBackgroundWithBlock : \(videoFile.url)")
                     weakSelf?.notifyEndRecordWithUrl(videoFile.url)
 
                 })
@@ -229,7 +229,7 @@ internal class AIAudioInputView: UIView, AVAudioRecorderDelegate {
         error: NSError?) {
 
             self.delegateAudio?.endRecordingWithError(error!.localizedDescription)
-            print("\(error!.localizedDescription)")
+            AILog("\(error!.localizedDescription)")
     }
 
     // MARK: -
@@ -253,7 +253,7 @@ internal class AIAudioInputView: UIView, AVAudioRecorderDelegate {
 
             timeText.text = "AICustomAudioNotesView.hold".localized
             self.delegateAudio?.willEndRecording()
-            logInfo("松开 结束录音")
+            AILog("松开 结束录音")
         }
     }
 

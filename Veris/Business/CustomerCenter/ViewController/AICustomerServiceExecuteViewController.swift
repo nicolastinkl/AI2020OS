@@ -178,9 +178,9 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
         if let _ = cell.delegate {
-            print("this is a reuse cell, item_id : \(cell.viewModel!.itemId), indexPath : \(indexPath.row)")
+            AILog("this is a reuse cell, item_id : \(cell.viewModel!.itemId), indexPath : \(indexPath.row)")
         } else {
-            print("this is a new cell")
+            AILog("this is a new cell")
         }
         let timeLineItem = timelineModels[indexPath.row]
         cell.delegate = self
@@ -198,7 +198,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     
     func cellImageDidLoad(viewModel viewModel: AITimelineViewModel, cellHeight: CGFloat) {
         let indexPath = NSIndexPath(forRow: Int(viewModel.itemId!)!, inSection: 0)
-        print("\(viewModel.itemId!) : \(indexPath.row)")
+        AILog("\(viewModel.itemId!) : \(indexPath.row)")
         //如果cell在visible状态，才reload，否则不reload
         if let visibleIndexPathArray = timelineTableView.indexPathsForVisibleRows?.filter({ (visibleIndexPath) -> Bool in
             return visibleIndexPath.row == indexPath.row

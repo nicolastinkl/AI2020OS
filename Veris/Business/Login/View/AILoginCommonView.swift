@@ -115,7 +115,7 @@ class AILoginPasswordTextField: AILoginBaseTextField {
 
 }
 
-class AILoginPromptLabel : UILabel{
+class AILoginPromptLabel: UILabel {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -259,11 +259,11 @@ class AIAudioMessageView: AIWishMessageView, AVAudioPlayerDelegate {
 
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         self.stopPlay()
-        logInfo("audioPlayerDidFinishPlaying")
+        AILog("audioPlayerDidFinishPlaying")
     }
 
     func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
         self.stopPlay()
-        logInfo("audioPlayerDecodeErrorDidOccur error\(error?.description)")
+        AILog("audioPlayerDecodeErrorDidOccur error\(error?.description)")
     }
 }

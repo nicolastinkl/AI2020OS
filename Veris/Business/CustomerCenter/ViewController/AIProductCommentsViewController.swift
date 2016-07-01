@@ -9,21 +9,41 @@
 import UIKit
 
 class AIProductCommentsViewController: UIViewController {
-    var comments: [String: AnyObject] = [:]
+	var comments: [String] = []
 	var tableView: UITableView!
 	var filterBar: AIFilterBar!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		edgesForExtendedLayout = .None
 		title = "Comments"
-		view.backgroundColor = UIColor (red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
+		view.backgroundColor = UIColor.clearColor()
 		setupData()
 		setupFilterBar()
 		setupTableView()
+        
+        let back = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(AIProductCommentsViewController.dismiss))
+        navigationItem.leftBarButtonItem = back
+        print(self)
 	}
+    
+    func dismiss() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 	
 	func setupData() {
-        
+		comments = [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+		]
 	}
 	
 	func setupFilterBar() {
@@ -56,9 +76,13 @@ class AIProductCommentsViewController: UIViewController {
 		tableView = UITableView(frame: .zero, style: .Plain)
 		tableView.delegate = self
 		tableView.dataSource = self
+		tableView.estimatedRowHeight = 44
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.backgroundColor = UIColor.clearColor()
+		tableView.tableFooterView = UIView()
 		view.addSubview(tableView)
-        
-        tableView.registerClass(AIProductCommentCell.self, forCellReuseIdentifier: "cell")
+		
+		tableView.registerClass(AIProductCommentCell.self, forCellReuseIdentifier: "cell")
 		
 		tableView.snp_makeConstraints { (make) in
 			make.top.equalTo(filterBar.snp_bottom)
@@ -70,18 +94,17 @@ class AIProductCommentsViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension AIProductCommentsViewController: UITableViewDataSource {
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return comments.count
+		return comments.count
 	}
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! AIProductCommentCell
-        return cell
+		let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! AIProductCommentCell
+		return cell
 	}
 }
 
 // MARK: - UITableViewDelegate
 extension AIProductCommentsViewController: UITableViewDelegate {
-
+	
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		
 	}
@@ -124,12 +147,13 @@ class AIFilterBar: UIView {
 		for i in 0..<count {
 			let title = titles[i]
 			let subtitle = subtitles[i]
-            let button = FilterBarButton(title: title, subtitle: subtitle)
-            let tap = UITapGestureRecognizer(target: self, action: #selector(AIFilterBar.buttonPressed(_:)))
-            button.addGestureRecognizer(tap)
-            button.tag = i
-            addSubview(button)
-            buttons.append(button)
+			let button = FilterBarButton(title: title, subtitle: subtitle)
+			let tap = UITapGestureRecognizer(target: self, action: #selector(AIFilterBar.buttonPressed(_:)))
+//			let tap = UITapGestureRecognizer(target: self, action: #selector(AIFilterBar.buttonPressed(_:)))
+			button.addGestureRecognizer(tap)
+			button.tag = i
+			addSubview(button)
+			buttons.append(button)
 		}
 		
 		var previousButton: FilterBarButton!
@@ -229,5 +253,28 @@ class AIFilterBar: UIView {
 }
 
 class AIProductCommentCell: UITableViewCell {
-    
+	var commentInfoView: AICommentInfoView!
+	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+		super.init(style: style, reuseIdentifier: reuseIdentifier)
+		setup()
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	internal override class func requiresConstraintBasedLayout() -> Bool {
+		return true
+	}
+	
+	func setup() {
+		selectionStyle = .None
+        backgroundColor = UIColor.clearColor()
+		commentInfoView = AICommentInfoView.initFromNib() as! AICommentInfoView
+		commentInfoView.fillDataWithModel()
+		contentView.addSubview(commentInfoView)
+		commentInfoView.snp_makeConstraints { (make) in
+			make.edges.equalTo(contentView)
+		}
+	}
 }

@@ -94,7 +94,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
             //随机大小
             let randomWidth = randomIn(min: 66, max: 110)
 
-            //print("\(randomWidth)")
+            //AILog("\(randomWidth)")
             item.setWidth(CGFloat(randomWidth))
             item.setHeight(CGFloat(randomWidth))
 

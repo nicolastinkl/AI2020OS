@@ -86,7 +86,7 @@ struct AIHttpEngine {
 
     static func postRequestWithParameters(path: ResourcePath, parameters: [String: AnyObject]? = nil, response: (response: AnyObject?, error: Error?) -> ()) {
 
-        print("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
+        AILog("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
 
         let encoding = Alamofire.ParameterEncoding.JSON
 
@@ -132,7 +132,7 @@ struct AIHttpEngine {
     /*
     // add by liliang: for text
     static func postWithParameters(path:ResourcePath,parameters: [String: AnyObject]? = nil, responseHandler: (response:AnyObject?, error:Error?) -> ()) {
-        print("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
+        AILog("url: \(self.baseURL+path.description)      ------------   parameters:\(parameters)")
         let encoding = AINetworking.ParameterEncoding.JSON
         AINetworking.request(.POST, self.baseURL+path.description,parameters:parameters, encoding: encoding)
             .responseJSON { (_request, _response, JSON, error) in

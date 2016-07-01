@@ -78,7 +78,7 @@ static CGFloat const kBounceValue = 20.0f;
             }
             
             
-            //NSLog(@"%f",(fabs(currentPoint.y) / fabs(currentPoint.x)));
+            //AIOCLog(@"%f",(fabs(currentPoint.y) / fabs(currentPoint.x)));
             if ((fabs(currentPoint.y) / fabs(currentPoint.x)) < 0.5){
                 
                 BOOL panningLeft = NO;
@@ -128,7 +128,7 @@ static CGFloat const kBounceValue = 20.0f;
                 self.contentViewLeftConstraint.constant = -self.contentViewRightConstraint.constant; //20
             }
                 
-           // NSLog(@"deltaX: %f   y:%f",deltaX,(currentPoint.y - self.panStartPoint.y));
+           // AIOCLog(@"deltaX: %f   y:%f",deltaX,(currentPoint.y - self.panStartPoint.y));
             
             
         }
@@ -291,7 +291,7 @@ static CGFloat const kBounceValue = 20.0f;
 //- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
 //    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
 //        CGPoint point = [(UIPanGestureRecognizer *)gestureRecognizer translationInView:self];
-//        NSLog(@"横向手势 %f %f",fabs(point.y) , fabs(point.x));
+//        AIOCLog(@"横向手势 %f %f",fabs(point.y) , fabs(point.x));
 //        if ((fabs(point.y) / fabs(point.x)) < 1) { // 判断角度 tan(45),这里需要通过正负来判断手势方向
 //            
 //            return YES;

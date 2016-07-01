@@ -28,7 +28,7 @@ class AIWebViewController: UIViewController {
 		webView.delegate = self
         SwiftWebViewBridge.logging = false
 		bridge = SwiftWebViewBridge.bridge(webView, defaultHandler: { data, responseCallback in
-			print("Swift received message from JS: \(data)")
+			AILog("Swift received message from JS: \(data)")
 			responseCallback("Swift already got your msg, thanks")
 		})
 		
@@ -39,7 +39,7 @@ class AIWebViewController: UIViewController {
 	}
 	
 	private func printReceivedParmas(data: AnyObject) {
-		print("Swift recieved data passed from JS: \(data)")
+		AILog("Swift recieved data passed from JS: \(data)")
 	}
 	
 	func injectJS() {
@@ -59,7 +59,7 @@ extension AIWebViewController: UIWebViewDelegate {
 class JSSDKAPI: NSObject {
 	class func setupAPIWithBridge(bridge: SwiftWebViewBridge) {
 		bridge.registerHandlerForJS(handlerName: "getUserInfo", handler: { jsonData, responseCallback in
-			print(responseCallback)
+			AILog(responseCallback)
 			responseCallback([
 				"name": "zx",
 				"userId": 233
@@ -67,7 +67,7 @@ class JSSDKAPI: NSObject {
 		})
         
         bridge.registerHandlerForJS(handlerName: "getDeviceInfo", handler: { jsonData, responseCallback in
-            print(responseCallback)
+            AILog(responseCallback)
             let deviceType = UIDevice.currentDevice().deviceType.description()
             responseCallback([
                 "deviceType": deviceType,

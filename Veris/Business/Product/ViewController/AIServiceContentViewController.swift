@@ -133,7 +133,7 @@ internal class AIServiceContentViewController: UIViewController {
 
         var s = NSStringFromClass(AIServiceContentViewController)
         s = s+"\(self.pageIndex)"
-        print(s)
+        AILog(s)
 
         NSNotificationCenter.defaultCenter().addObserverForName(s, object: nil, queue: nil) { (NSNotificationOBJ) -> Void in
 
@@ -179,7 +179,7 @@ internal class AIServiceContentViewController: UIViewController {
 
                 let message = AIMessage()
                 message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""], "data":data])
-                print(message.body)
+                AILog(message.body)
                 message.url = AIApplication.AIApplicationServerURL.saveServiceParameters.description
 
                 AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
@@ -205,7 +205,7 @@ internal class AIServiceContentViewController: UIViewController {
 
         let message = AIMessage()
         message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""], "data":data])
-        print(message.body)
+        AILog(message.body)
         message.url = AIApplication.AIApplicationServerURL.saveServiceParameters.description
         view.showLoading()
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
@@ -417,7 +417,7 @@ internal class AIServiceContentViewController: UIViewController {
                 })
             }, fail : {[weak self]
                 (errType, errDes) -> Void in
-                print(errDes)
+                AILog(errDes)
 
                 Async.main({ () -> Void in
                     if let strongSelf = self {
@@ -481,7 +481,7 @@ internal class AIServiceContentViewController: UIViewController {
 
         let topView = AINavigationBarView.currentView()
         self.view.addSubview(topView)
-        print(topView.height)
+        AILog(topView.height)
         self.view.addSubview(scrollView)
         topView.setWidth(self.view.width)
         scrollView.frame = CGRectMake(0, topView.height, self.view.width, self.view.height-topView.height)
@@ -1150,7 +1150,7 @@ extension AIServiceContentViewController : AIDeleteActionDelegate {
             cell?.alpha = 0
             //刷新UI
             let height = cell?.height ?? 0
-            print("delete view: \(height)")
+            AILog("delete view: \(height)")
             let top = cell?.top
 
             let newListSubViews = self.scrollView.subviews.filter({ (subview) -> Bool in
@@ -1162,7 +1162,7 @@ extension AIServiceContentViewController : AIDeleteActionDelegate {
             }
 
             var contentSizeOld = self.scrollView.contentSize
-            print(contentSizeOld.height)
+            AILog(contentSizeOld.height)
             contentSizeOld.height -= height
             self.scrollView.contentSize = contentSizeOld
 
@@ -1183,7 +1183,7 @@ extension AIServiceContentViewController : AIDeleteActionDelegate {
 
         weak var weakSelf = self
         AINetEngine.defaultEngine().postMessage(message, success: { (response ) -> Void in
-            print(response)
+            AILog(response)
             weakSelf!.deleteAnimation(cell)
             weakSelf!.view.hideLoading()
             weakSelf!.view.userInteractionEnabled = true
@@ -1287,7 +1287,7 @@ extension AIServiceContentViewController : UITextViewDelegate {
         for index: Int in anchor ..< scrollViewSubviews.count {
             let sview: UIView = scrollViewSubviews[index]
             if let v = sview as? AIMusicTherapyView {
-                print(v)
+                AILog(v)
             }
             var frame = sview.frame
             frame.origin.y += offset

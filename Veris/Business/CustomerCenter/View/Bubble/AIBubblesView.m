@@ -163,7 +163,7 @@
     shapeLayer.borderColor = [UIColor redColor].CGColor;
     /**注意:图层之间与贝塞尔曲线之间通过path进行关联*/
     shapeLayer.path=shapePath.CGPath;
-    NSLog(@"%@",shapePath.CGPath);
+    AIOCLog(@"%@",shapePath.CGPath);
     
     shapeLayer.fillColor=[UIColor blackColor].CGColor;
     //[_testView.layer addSublayer:shapeLayer];
@@ -172,18 +172,18 @@
     CGPoint outPoint=CGPointMake(1, 1);
     if (CGPathContainsPoint(shapePath.CGPath, NULL, point, NO))
     {
-        NSLog(@"point in path!");
+        AIOCLog(@"point in path!");
     }
     if (!CGPathContainsPoint(shapePath.CGPath, NULL, outPoint, NO))
     {
-        NSLog(@"outPoint out path!");
+        AIOCLog(@"outPoint out path!");
     }
 
     NSMutableArray *thePoints = [[NSMutableArray alloc] init];
    
     CGPathApply(shapePath.CGPath, (__bridge void * _Nullable)(thePoints), MyCGPathApplierFunc);
     
-    NSLog(@"points %@", thePoints);
+    AIOCLog(@"points %@", thePoints);
     //[self testGravityAndCollision4];
     
     [self drawCycleWithPath:shapePath.CGPath];
@@ -212,11 +212,11 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
     CGPoint outPoint=CGPointMake(1, 1);
     if (CGPathContainsPoint(pathRef, NULL, point, NO))
     {
-        NSLog(@"point in path!");
+        AIOCLog(@"point in path!");
     }
     if (!CGPathContainsPoint(pathRef, NULL, outPoint, NO))
     {
-        NSLog(@"outPoint out path!");
+        AIOCLog(@"outPoint out path!");
     }
     
     CFRelease(pathRef);
@@ -409,7 +409,7 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
         
         
         if (!CGPointEqualToPoint(tcenter, CGPointZero)) {
-            NSLog(@"Tiny Center : %@", [NSValue valueWithCGPoint:tcenter]);
+            AIOCLog(@"Tiny Center : %@", [NSValue valueWithCGPoint:tcenter]);
             // 添加 tiny 气泡
             AIBuyerBubbleModel *model = [[AIBuyerBubbleModel alloc] init];
             model.bubbleSize = [AIBubble tinyBubbleRadius];
