@@ -88,7 +88,7 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func showValidateResult(validateResultCode: LoginConstants.ValidateResultCode) {
-        let resultText = validateResultCode.rawValue
+        _ = validateResultCode.rawValue
         //let width = resultText.sizeWithFont(<#T##font: UIFont##UIFont#>, forWidth: <#T##CGFloat#>)
     }
 }

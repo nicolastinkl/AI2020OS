@@ -20,7 +20,7 @@ class AIProductQAViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setupBlurView()
+//		setupBlurView()
 		setupTopBar()
 		setupData()
 		setupTableView()
