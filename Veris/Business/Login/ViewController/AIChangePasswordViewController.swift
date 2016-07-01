@@ -44,14 +44,16 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
     func setupViews() {
         passwordTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
 
-        confirmButton.layer.cornerRadius = 5
-        confirmButton.layer.masksToBounds = true
-        confirmButton.setBackgroundImage(LoginConstants.PropertyConstants.ButtonDisabledColor.imageWithColor(), forState: UIControlState.Disabled)
-        confirmButton.setBackgroundImage(LoginConstants.PropertyConstants.ButtonNormalColor.imageWithColor(), forState: UIControlState.Normal)
         confirmButton.enabled = false
 
         //修复navigationController侧滑关闭失效的问题
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
+        //validateInfoLabel
+        validateInfoLabelWidthConstraint.constant = 0
+        validateInfoLabel.layer.cornerRadius = 8
+        validateInfoLabel.font = LoginConstants.Fonts.validateResult
+        validateInfoLabel.layer.masksToBounds = true
     }
 
     func passwordInputAction(target: UITextField) {
@@ -66,12 +68,16 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
                 loginService.registUser(phoneNumber, password: passwordTextField.text!, success: { (userId) in
                     //TODO: 暂时的提示
                     AIAlertView().showSuccess("注册成功!", subTitle: "")
+                    //跳回登陆页面
+                    self.navigationController?.popToRootViewControllerAnimated(true)
                     }, fail: { (errType, errDes) in
                         AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.RegisterFaild, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
                 })
             } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
                 loginService.resetPassword(smsCode, newPassword: passwordTextField.text!, success: { 
                     AIAlertView().showSuccess("修改密码成功!", subTitle: "")
+                    //跳回登陆页面
+                    self.navigationController?.popToRootViewControllerAnimated(true)
                     }, fail: { (errType, errDes) in
                         AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.RestPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
                 })

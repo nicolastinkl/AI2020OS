@@ -50,6 +50,8 @@ typedef NS_ENUM(NSInteger, AIMovementDirection) {
     // 判断方向和位移量
     AIMovementDirection _currentDirection;
     CGFloat _currentMovement;
+    
+    LoginAction *loginAction;
 }
 
 
@@ -58,6 +60,8 @@ typedef NS_ENUM(NSInteger, AIMovementDirection) {
 
 
 @implementation AIOpeningView
+
+
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -179,6 +183,16 @@ typedef NS_ENUM(NSInteger, AIMovementDirection) {
             } fail:^(AINetError error, NSString * errDes) {
                 
             }];
+        }];
+        [alert addAction:action];
+    }
+    
+    //add by liux at 20160701 临时退出按钮
+    {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"退出登陆"  style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [AILoginUtil handleUserLogout];
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            loginAction = [[LoginAction alloc] initWithViewController:window.rootViewController completion:nil];
         }];
         [alert addAction:action];
     }
