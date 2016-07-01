@@ -358,7 +358,7 @@ extension AICollContentViewController : AIAssignServiceViewDelegate, AIPopupChoo
         if view.businessType == PopupBusinessType.LimitConfig {
             submitPermissionConfig(itemModels)
         }
-        AILog(AIBaseViewModel.AILogArrayModelContent(itemModels))
+        AILog(AIBaseViewModel.printArrayModelContent(itemModels))
     }
 
     func didCancel(view: AIPopupChooseBaseView) {
