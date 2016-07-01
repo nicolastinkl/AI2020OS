@@ -172,23 +172,21 @@ class AILoginService: NSObject {
      - parameter success:     <#success description#>
      - parameter fail:        <#fail description#>
      */
-    func resetPassword(smsCode: String, newPassword:String, success : () -> Void, fail: (errType: AINetError, errDes: String) -> Void){
+    func resetPassword(smsCode: String, newPassword: String, success : () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         AVUser.resetPasswordWithSmsCode(smsCode, newPassword: newPassword) { (bol, error) in
-            if bol{
+            if bol {
                 success()
-            }
-            else{
+            } else {
                 fail(errType: AINetError.Failed, errDes: error.description)
             }
         }
     }
     
-    func requestPasswordResetWithPhoneNumber(phoneNumber: String, success : () -> Void, fail: (errType: AINetError, errDes: String) -> Void){
+    func requestPasswordResetWithPhoneNumber(phoneNumber: String, success : () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         AVUser.requestPasswordResetWithPhoneNumber(phoneNumber) { (bol, error) in
-            if bol{
+            if bol {
                 success()
-            }
-            else{
+            } else {
                 fail(errType: AINetError.Failed, errDes: error.description)
             }
         }

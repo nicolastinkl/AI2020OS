@@ -64,7 +64,7 @@ class AIProposalTableViewController: UIViewController {
     }
     
     
-    func loadingData(){
+    func loadingData() {
         view.showLoading()
         let bdk = BDKProposalService()
         // 列表数据
@@ -92,6 +92,7 @@ class AIProposalTableViewController: UIViewController {
         bgImageView.frame = self.view.frame
         self.view.addSubview(bgImageView)
         
+        
         let y: CGFloat = 10
         let label: UPLabel = AIViews.normalLabelWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, y, screenWidth - 2 * BUBBLE_VIEW_MARGIN, 20), text: "AIBuyerViewController.progress".localized, fontSize: 20, color: UIColor.whiteColor())
         view.addSubview(label)
@@ -100,7 +101,7 @@ class AIProposalTableViewController: UIViewController {
         label.text = "AIBuyerViewController.progress".localized
         label.font = AITools.myriadRegularWithSize(20)
         
-        
+        bgImageView.setTop(44)
         tableView.setTop(44)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 20
@@ -244,7 +245,7 @@ class AIProposalTableViewController: UIViewController {
 }
 
 
-extension AIProposalTableViewController: UITableViewDelegate,UITableViewDataSource {
+extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -322,4 +323,3 @@ extension AIProposalTableViewController : AIFoldedCellViewDelegate {
         self.presentPopupViewController(serviceExecVC, animated: true)
     }
 }
-

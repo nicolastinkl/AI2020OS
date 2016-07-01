@@ -13,6 +13,7 @@ import Spring
 class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
 
 
+    @IBOutlet weak var promoteLabel: AILoginPromptLabel!
     @IBOutlet weak var regionTitleLabel: UILabel!
     @IBOutlet weak var regionSelectContainerView: UIView!
     @IBOutlet weak var nextStepButton: AIChangeStatusButton!
@@ -80,6 +81,15 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
         regionTitleLabel.font = LoginConstants.Fonts.textFieldInput
         regionSelectButton.titleLabel?.font = LoginConstants.Fonts.textFieldInput
         
+        regionSelectContainerView.backgroundColor = LoginConstants.Colors.TextFieldBackground
+        regionSelectContainerView.layer.cornerRadius = 5
+        regionSelectContainerView.layer.masksToBounds = true
+        regionSelectContainerView.layer.borderColor = LoginConstants.Colors.TextFieldBorder.CGColor
+        regionSelectContainerView.layer.borderWidth = 1
+        
+        if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
+            promoteLabel.text = LoginConstants.textContent.forgotPasswordPrompt
+        }
     }
 
     //TODO: 这里要根据规则判断，调用判断方法

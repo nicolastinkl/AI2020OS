@@ -13,6 +13,7 @@ import SVProgressHUD
 
 class AILoginViewController: UIViewController {
     
+    // MARK: -IBOutlets
     @IBOutlet weak var loginButton: AIChangeStatusButton!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var appNameCenterXConstraint: NSLayoutConstraint!
@@ -60,7 +61,7 @@ class AILoginViewController: UIViewController {
     }
     
     
-    
+    // MARK: -lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,7 +92,7 @@ class AILoginViewController: UIViewController {
         }
     }
     
-    
+    // MARK: -private methods
     func setupNavigationBar() {
         let navigationBar = self.navigationController!.navigationBar
         navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
