@@ -25,6 +25,7 @@ class AILoginUtil: NSObject {
         }
         return false
     }
+    
 
     // MARK: -验证手机号是否符合规范
     // 11位数字
@@ -38,7 +39,12 @@ class AILoginUtil: NSObject {
     }
 
     // 4位数字
-    class func validateCode(validationCode: String) -> Bool {
+    class func validateCode(validationCode: String?) -> Bool {
+        guard let validationCode = validationCode else {return false}
+        let pattern = "[0-9]{6}"
+        if let _ = validationCode.rangeOfString(pattern, options: NSStringCompareOptions.RegularExpressionSearch, range: nil, locale: nil) {
+            return true
+        }
         return false
     }
     
@@ -71,7 +77,8 @@ class AILoginUtil: NSObject {
      处理用户登出事件， 清除所有的本地用户信息
      */
     class func handleUserLogout() {
-        NSUserDefaults.resetStandardUserDefaults()
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(KEY_USER_ID)
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     /**

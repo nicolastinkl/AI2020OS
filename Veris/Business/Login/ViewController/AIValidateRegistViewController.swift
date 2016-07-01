@@ -163,9 +163,11 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         rightViewlayer.opacity = 0.8
         rightViewlayer.cornerRadius = 8
         rightViewlayer.masksToBounds = true
+        
         validationButtonWidthConstrant.constant = fontSize.width + 20
         //identifyTextField
         identifyTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
+        identifyTextField.addTarget(self, action: #selector(AIValidateRegistViewController.validateCodeInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
         //navigation
         handleLoginType()
         //修复navigationController侧滑关闭失效的问题
@@ -181,6 +183,10 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         validationContainerView.layer.masksToBounds = true
         validationContainerView.layer.borderColor = LoginConstants.Colors.TextFieldBorder.CGColor
         validationContainerView.layer.borderWidth = 1
+        //nextStepButton
+        nextStepButton.enabled = false
     }
 
+    func validateCodeInputAction(sender: UITextField) {
+        nextStepButton.enabled = AILoginUtil.validateCode(identifyTextField.text)    }
 }
