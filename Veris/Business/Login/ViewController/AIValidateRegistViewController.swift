@@ -26,6 +26,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
     @IBOutlet weak var identifyTextField: UITextField!
     @IBOutlet weak var nextStepButton: AIChangeStatusButton!
     
+    @IBOutlet weak var promoteLabel: AILoginPromptLabel!
     @IBOutlet weak var validateInfoLabel: UILabel!
     @IBOutlet weak var validateInfoWidthConstraint: NSLayoutConstraint!
 
@@ -72,6 +73,9 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
     @IBAction func sendValidationAction(sender: UIButton) {
         
         if let phoneNumber = AILoginPublicValue.phoneNumber {
+            
+            promoteLabel.text = "\(LoginConstants.textContent.validationPrompt) \(phoneNumber)"
+            
             if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
                 AVOSCloud.requestSmsCodeWithPhoneNumber(phoneNumber, callback: { (bol, error) in
                     if bol {
@@ -118,7 +122,8 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         if timerInterval == 0 {
             self.timer!.invalidate()
             self.timer = nil
-
+            //重置提示内容
+            promoteLabel.text = " "
             let fontSize = buttonTitle1.sizeWithFont(titleFont, forWidth: view.width)
             self.validationButtonWidthConstrant.constant = fontSize.width + 20
             UIView.animateWithDuration(0.25, animations: {

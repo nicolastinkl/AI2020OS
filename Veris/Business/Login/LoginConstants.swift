@@ -19,10 +19,13 @@ struct LoginConstants {
         static let validateResult = AITools.myriadLightWithSize(AITools.displaySizeFrom1080DesignSize(36))
         static let textFieldInput = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
         static let NavigationTitle = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(72))
+        static let promptLabel = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
     }
     
     struct textContent {
         static let confirmButton = "确认完成"
+        static let forgotPasswordPrompt = "Enter phone number to reset the password."
+        static let validationPrompt = "Validation code has been sent to "
     }
     
     struct defaultImages {
