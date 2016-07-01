@@ -18,16 +18,15 @@ class AIImageRecongizeService: NSObject {
 				multipartFormData.appendBodyPart(data: data, name: "fileUp", fileName: "fileUp", mimeType: "image/png")
 			},
 			encodingCompletion: { encodingResult in
+				let failblock = {
+					if let callback = callback {
+						let e = Error(message: "无法解析", code: 2)
+						callback(nil, error: e)
+					}
+				}
 				switch encodingResult {
 				case .Success(let upload, _, _):
 					upload.responseJSON { response in
-						let failblock = {
-							if let callback = callback {
-								let e = Error(message: "无法解析", code: 2)
-								callback(nil, error: e)
-							}
-						}
-						
 						if let res = response.result.value as? NSDictionary {
 							AILog(res)
 							if let objectList = res["data"]?["objectList"] as? NSArray {
@@ -37,6 +36,8 @@ class AIImageRecongizeService: NSObject {
 								} else {
 									failblock()
 								}
+							} else {
+								failblock()
 							}
 						} else {
 							failblock()
@@ -44,6 +45,7 @@ class AIImageRecongizeService: NSObject {
 						debugPrint(response)
 					}
 				case .Failure(let encodingError):
+					failblock()
 					debugPrint(encodingError)
 				}
 		})

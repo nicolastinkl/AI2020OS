@@ -38,7 +38,7 @@ CHECKOUT OPTIONS:
     :commit: 2de5b00cba21ea82c3c5af5fcde0a21fce5d82d3
     :git: https://github.com/asiainfomobile/AIAlertView.git
   Spring:
-    :commit: 2e1d44fbd7b50298abfc2ff881f60268ac806757
+    :commit: e9fbb2915689b5102a050a55bf8170b0a2777e49
     :git: https://github.com/asiainfomobile/Spring.git
   SwiftyJSON:
     :commit: 73670b94292b8d8496c398a973f56ac67789ba9f

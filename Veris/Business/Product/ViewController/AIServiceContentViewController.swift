@@ -1176,8 +1176,8 @@ extension AIServiceContentViewController : AIDeleteActionDelegate {
     func deleteAction(cell: UIView?) {
 
         let noteView = cell as? AIWishMessageView
-        self.view.userInteractionEnabled = false
-        self.view.showLoading()
+        view.userInteractionEnabled = false
+        view.showLoading()
         let message = AIMessageWrapper.deleteWishNoteWithWishID((noteView?.wishID)!, noteID: (noteView?.noteID)!)
         message.url = AIApplication.AIApplicationServerURL.delWishListNote.description
 
