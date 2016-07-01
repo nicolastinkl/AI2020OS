@@ -113,7 +113,7 @@ class AIServiceRouteViewController: UIViewController {
         // Optional: To pick from custom countries list
 
         let vc = AILocationSelectViewController { (name, code) in
-            print(code)
+            AILog(code)
         }
 
         vc.customCountriesCode = ["VEG", "WUS", "CAF", "AQ", "BAX", "EG", "MUS", "AF", "AQ", "AX", "EG", "US", "AF", "AF", "ADX", "ECG", "UVS", "AGF", "AHQ", "AJX", "EJG", "ULS", "APF", "AOQ", "AUX", "EUG", "UYS", "ATF", "ARQ", "AEX"]
@@ -123,7 +123,7 @@ class AIServiceRouteViewController: UIViewController {
         vc.showMenuTitleViewController(navigation, title: "Location")
 
         vc.didSelectCountryClosure = { (name, code) in
-            print(code)
+            AILog(code)
         }
     }
 

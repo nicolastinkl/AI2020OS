@@ -203,7 +203,7 @@ class AIPaymentViewController: UIViewController {
     
     func layoutSubView() {
 
-        print("\(self.view.frame.size.width)")
+        AILog("\(self.view.frame.size.width)")
         /// Init Size and Font
         
         providerName.font = AITools.myriadLightWithSize(48/3)
@@ -331,7 +331,7 @@ class AIPaymentViewController: UIViewController {
             
             AlipaySDK.defaultService().payOrder(orderString, fromScheme: AppScheme, callback: {[weak self] resultDic in
                 if let _ = self {
-                    print("Alipay result = \(resultDic as Dictionary)")
+                    AILog("Alipay result = \(resultDic as Dictionary)")
                     let resultDic = resultDic as Dictionary
                     if let resultStatus = resultDic["resultStatus"] as? String {
                         if resultStatus == "9000" {

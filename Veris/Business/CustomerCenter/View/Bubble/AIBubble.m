@@ -285,7 +285,7 @@ typedef enum  {
     
     /** 这里是算法取颜色值*/
     {
-        //NSLog(@"self.index :%d  %@",self.index,model.proposal_name);
+        //AIOCLog(@"self.index :%d  %@",self.index,model.proposal_name);
         NSString * colorDeep =  model.deepColor;
         NSString * colorUnderOne = model.undertoneColor;
         NSString * colorBorder =  model.borderColor;
@@ -389,7 +389,7 @@ typedef enum  {
 
     /** 这里是算法取颜色值*/
     {
-        //NSLog(@"self.index :%d  %@",self.index,model.proposal_name);
+        //AIOCLog(@"self.index :%d  %@",self.index,model.proposal_name);
         NSString * colorDeep =  model.deepColor;
         NSString * colorUnderOne = model.undertoneColor;
         NSString * colorBorder =  model.borderColor;

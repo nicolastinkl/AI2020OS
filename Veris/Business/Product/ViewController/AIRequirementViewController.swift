@@ -296,7 +296,7 @@ internal class AIRequirementViewController: UIViewController {
             }
 
         case 4 :
-            print("")
+            AILog("")
         default:
             break
         }

@@ -147,7 +147,7 @@ class AICollContentViewController: UIViewController {
 
     func notifySwitchServiceInst(notify: NSNotification) {
         let serviceInstIds = notify.object as! Array<Int>
-        print(serviceInstIds)
+        AILog(serviceInstIds)
         reloadServiceInstView(serviceInstIds)
     }
 
@@ -252,7 +252,7 @@ class AICollContentViewController: UIViewController {
         AIRequirementHandler.defaultHandler().assginTask(submitServiceInstIds, success: { () -> Void in
             self.finishLaunchAction()
             }) { (errType, errDes) -> Void in
-                print("assignTask faild, errorInfo: \(errDes)")
+                AILog("assignTask faild, errorInfo: \(errDes)")
         }
     }
 
@@ -348,7 +348,7 @@ extension AICollContentViewController : AIAssignServiceViewDelegate, AIPopupChoo
     }
 
     func serviceDidRotate(view: AIAssignServiceView, curServiceInst: AssignServiceInstModel) {
-        //print(curServiceInst)
+        //AILog(curServiceInst)
     }
 
     func didConfirm(view: AIPopupChooseBaseView, itemModels: [AIPopupChooseModel]) {
@@ -358,7 +358,7 @@ extension AICollContentViewController : AIAssignServiceViewDelegate, AIPopupChoo
         if view.businessType == PopupBusinessType.LimitConfig {
             submitPermissionConfig(itemModels)
         }
-        print(AIBaseViewModel.printArrayModelContent(itemModels))
+        AILog(AIBaseViewModel.AILogArrayModelContent(itemModels))
     }
 
     func didCancel(view: AIPopupChooseBaseView) {
@@ -386,21 +386,21 @@ extension AICollContentViewController : AIAssignServiceViewDelegate, AIPopupChoo
             for (index, assginServiceInst) in assginServiceInsts.enumerate() {
                 let serviceInstId = assginServiceInst.serviceInstId
                 AIRequirementHandler.defaultHandler().setServiceProviderRights(NSNumber(integer: providerId), customID: customerId!, serviceInstId: NSNumber(integer: serviceInstId), rightsList: permissions, success: { () -> Void in
-                    print(" save permissions success! ")
+                    AILog(" save permissions success! ")
                     //发通知更新数，最后一次才发通知
                     if index == self.assginServiceInsts.count - 1 {
                         NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIRequirementReloadDataNotificationName, object: nil, userInfo: nil)
                     }
                     }, fail: { (errType, errDes) -> Void in
-                        print("\(errDes)")
+                        AILog("\(errDes)")
                 })
             }
             //            AIRequirementHandler.defaultHandler().setServiceProviderRights(NSNumber(integer: providerId), customID: customerId!,serviceInstId: NSNumber(integer: serviceInstId), rightsList: permissions, success: { () -> Void in
-            //                    print(" save permissions success! ")
+            //                    AILog(" save permissions success! ")
             //                //发通知更新数据
             //                NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIRequirementReloadDataNotificationName, object: nil, userInfo: nil)
             //                }, fail: { (errType, errDes) -> Void in
-            //                    print("\(errDes)")
+            //                    AILog("\(errDes)")
             //            })
         }
     }

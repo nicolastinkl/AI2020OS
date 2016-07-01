@@ -75,6 +75,6 @@ class SwitchExampleViewController: UIViewController {
     }
 
     func switchChanged(sender: SevenSwitch) {
-        print("Changed value to: \(sender.on)")
+        AILog("Changed value to: \(sender.on)")
     }
 }

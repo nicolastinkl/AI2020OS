@@ -15,7 +15,7 @@ class AITaskTagViewController: RRTagController {
     var shouldShowInputTextField = false
 
     override func addTagDidClick() {
-        print("addTagDidClick")
+        AILog("addTagDidClick")
         let vc = AITaskInputViewController.initFromNib()
         vc.delegate = self
         presentPopupViewController(vc, animated: true)
@@ -87,7 +87,7 @@ extension AITaskTagViewController: AITaskInputViewControllerDelegate {
 
 extension AITaskTagViewController: AITaskNavigationBarDelegate {
     func navigationBar(navigationBar: AITaskNavigationBar, cancelButtonPressed: UIButton) {
-        print("cancel button pressed")
+        AILog("cancel button pressed")
         if let onDidCancel = onDidCancel {
             onDidCancel()
         }

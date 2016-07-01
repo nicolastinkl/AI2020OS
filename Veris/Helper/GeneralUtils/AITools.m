@@ -57,7 +57,7 @@
     
     if (myPlayer == nil)
     {
-        NSLog(@"ERror creating player: %@", [playerError description]);
+        AIOCLog(@"ERror creating player: %@", [playerError description]);
     }
     
     // [self handleNotification:YES];

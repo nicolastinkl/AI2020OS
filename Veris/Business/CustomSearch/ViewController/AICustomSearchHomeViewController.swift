@@ -165,7 +165,7 @@ class AICustomSearchHomeViewController: UIViewController {
 						tableView.reloadData()
 					}
 				} catch {
-					print("AIOrderPreListModel JSON Parse err.")
+					AILog("AIOrderPreListModel JSON Parse err.")
 					
 				}
 			}
@@ -188,8 +188,8 @@ extension AICustomSearchHomeViewController: UITextFieldDelegate {
 
 extension AICustomSearchHomeViewController: AISearchHistoryLabelsDelegate {
 	func searchHistoryLabels(searchHistoryLabel: AISearchHistoryLabels, clickedText: String) {
-		print(#function + " called")
-		print(clickedText)
+		AILog(#function + " called")
+		AILog(clickedText)
 	}
 }
 
@@ -239,7 +239,7 @@ extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
         let image = UIImage(CGImage: assetSuper.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
         view.showLoading()
         AIImageRecongizeService().getImageInfo(image) { [weak self] (res, error) in
-            print(res)
+            AILog(res)
             self?.view.hideLoading()
             if error == nil {
                 self?.searchText.text = res

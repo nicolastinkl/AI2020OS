@@ -27,7 +27,7 @@ class ServiceOrderExpandContentViewFactory {
 
             let s: NSString = param.content
             let convertString = s.stringByReplacingOccurrencesOfString("\\", withString: "")
-            print(convertString)
+            AILog(convertString)
             let itemList = GoodsListMode(string: convertString, error: nil)
             expandContent.goodsList = itemList
             contentView = expandContent

@@ -100,7 +100,7 @@ class AIServiceParamView: UIView {
 	}
 
 	func modifyPrice(response: AnyObject!) {
-		print(response)
+		AILog(response)
 		if let dic = response as? NSDictionary {
 			if let m = self.priceView?.displayModel {
 				if let price = dic["price"] as? NSDictionary {

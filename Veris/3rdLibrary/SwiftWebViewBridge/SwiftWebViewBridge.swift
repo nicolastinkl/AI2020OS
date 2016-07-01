@@ -301,7 +301,7 @@ extension SwiftWebViewBridge: UIWebViewDelegate {
                     
                     self.handleMessagesFromJS(jsonMessages)
                 } else {
-                    print("Didn't fetch any message from JS!")
+                    AILog("Didn't fetch any message from JS!")
                 }
             } else if let oriDelegate = self.oriDelegate as? UIWebViewDelegate {
                 
@@ -339,7 +339,7 @@ extension SwiftWebViewBridge: UIWebViewDelegate {
             // inject js
             webView.stringByEvaluatingJavaScriptFromString(self.loadMinifiedJS())
             if webView.stringByEvaluatingJavaScriptFromString(kJsCheckObjectDefinedCommand) != "true" {
-                print("Injection of js Failed!")
+                AILog("Injection of js Failed!")
             } else {
                 self.dispatchStartupMessageQueue()
             }
@@ -395,7 +395,7 @@ extension SwiftWebViewBridge {
     private func swvb_printLog(logType: LogType) {
         
         if SwiftWebViewBridge.logging {
-            print(logType.description)
+            AILog(logType.description)
         }
     }
 }

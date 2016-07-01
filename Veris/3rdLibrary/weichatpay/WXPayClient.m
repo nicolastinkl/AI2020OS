@@ -63,11 +63,11 @@ NSString *expiresInKey = @"expires_in";
         if (format != nil) {
             va_list args;
             va_start(args, format);
-            NSLog(format, args);
+            AIOCLog(format, args);
             va_end(args);
         }
     } @catch (...) {
-        NSLog(@"Caught an exception in UALogger", nil);
+        AIOCLog(@"Caught an exception in UALogger", nil);
     }
     
 }
@@ -239,7 +239,7 @@ NSString *expiresInKey = @"expires_in";
 
     NSString *result = [NSString stringWithFormat:@"%@&sign=%@", packageParamsString, packageSign];
     
-    NSLog(@"--- Package: %@", result);
+    AIOCLog(@"--- Package: %@", result);
     
     return result;
 }
@@ -263,7 +263,7 @@ NSString *expiresInKey = @"expires_in";
     NSString *signString = [[sign copy] substringWithRange:NSMakeRange(0, sign.length - 1)];
     
     NSString *result = [CommonUtil sha1:signString];
-    NSLog(@"--- Gen sign: %@", result);
+    AIOCLog(@"--- Gen sign: %@", result);
     return result;
 }
 
@@ -285,7 +285,7 @@ NSString *expiresInKey = @"expires_in";
     
     NSError *error = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error: &error];
-    NSLog(@"--- ProductArgs: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+    AIOCLog(@"--- ProductArgs: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     return [NSMutableData dataWithData:jsonData]; 
 }
 
@@ -295,7 +295,7 @@ NSString *expiresInKey = @"expires_in";
 {
     NSString *getAccessTokenUrl = [NSString stringWithFormat:@"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%@&secret=%@", WXAppId, WXAppSecret];
     
-    NSLog(@"--- GetAccessTokenUrl: %@", getAccessTokenUrl);
+    AIOCLog(@"--- GetAccessTokenUrl: %@", getAccessTokenUrl);
     
 #pragma mark json model request
     __weak WXPayClient *weakSelf = self;
@@ -306,13 +306,13 @@ NSString *expiresInKey = @"expires_in";
             return;
         } else {
             [SVProgressHUD dismiss];
-            NSLog(@"--- %@", dict);
+            AIOCLog(@"--- %@", dict);
 //            [weakSelf showAlertWithTitle:@"错误" msg:@"获取 AccessToken 失败"];
         }
         
         NSString *accessToken = dict[AccessTokenKey];
         if (accessToken) {
-            NSLog(@"--- AccessToken: %@", accessToken);
+            AIOCLog(@"--- AccessToken: %@", accessToken);
             
             __strong WXPayClient *strongSelf = weakSelf;
             [strongSelf getPrepayId:accessToken];
@@ -344,10 +344,10 @@ NSString *expiresInKey = @"expires_in";
 //            [weakSelf showAlertWithTitle:@"错误" msg:@"获取 PrePayId 失败"];
             return;
         }else{
-            NSLog(@"dict %@",dict);
+            AIOCLog(@"dict %@",dict);
             NSString *prePayId = dict[PrePayIdKey];
             if (prePayId) {
-                NSLog(@"--- PrePayId: %@", prePayId);
+                AIOCLog(@"--- PrePayId: %@", prePayId);
                 
                 // 调起微信支付
                 PayReq *request   = [[PayReq alloc] init];

@@ -741,9 +741,9 @@ extension AIBuyerDetailViewController: AIBueryDetailCellDetegate {
         let logo = view.logo
         // TODO: delete from server
 //        BDKProposalService().delServiceCategory((model?.service_id)!, proposalId: (self.bubbleModel?.proposal_id)!, success: { () -> Void in
-//            print("success")
+//            AILog("success")
 //            }) { (errType, errDes) -> Void in
-//                print("failed")
+//                AILog("failed")
 //        }
 
 
@@ -804,10 +804,10 @@ extension AIBuyerDetailViewController: SettingClickDelegate {
             let userIdInt = Int(userId!)!
   
             BDKProposalService().updateParamSettingState(customerId: userIdInt, serviceId: model.service_id, proposalId: (self.bubbleModel?.proposal_id)!, roleId: model.role_id, flag: parentView.isSetted, success: { () -> Void in
-                print("success")
+                AILog("success")
 
                 }) { (errType, errDes) -> Void in
-                    print(errDes)
+                    AILog(errDes)
             }
             model.param_setting_flag = Int(parentView.isSetted)
             menuLightView?.showLightView(model)
@@ -854,7 +854,7 @@ extension AIBuyerDetailViewController {
 //        if let touch = touches.first {
 //            let view = touch.view
 //
-//            //print("\(view.clas)")
+//            //AILog("\(view.clas)")
 //        }
     }
 

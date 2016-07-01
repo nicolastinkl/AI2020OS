@@ -53,14 +53,14 @@ class AIServiceSearchView: UIView, UITextFieldDelegate {
 
     // MARK: - textfield delegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        print(textField.text)
+        AILog(textField.text)
         buildSearchResult()
         setSearchingViewAttr()
         return true
     }
 
     func textChangedAction(sender: UITextField) {
-        print("value changed ,text:\(sender.text)")
+        AILog("value changed ,text:\(sender.text)")
         buildSearchResult()
         setSearchingViewAttr()
     }

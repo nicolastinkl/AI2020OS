@@ -80,7 +80,7 @@ public class JSONSerializer {
                 any = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
             } catch let error as NSError {
                 let sError = String(error)
-                NSLog(sError)
+                AILog(sError)
                 throw JSONSerializerError.JsonIsNotValid
             }
         }
@@ -121,7 +121,7 @@ public class JSONSerializer {
 
             /*let type = value.dynamicType
             let typeString = String(type)
-            print("SELF: \(type)")*/
+            AILog("SELF: \(type)")*/
 
             let propertyName = optionalPropertyName!
             let property = Mirror(reflecting: value)

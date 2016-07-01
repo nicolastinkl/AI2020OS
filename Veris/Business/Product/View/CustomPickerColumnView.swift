@@ -158,7 +158,7 @@ extension CustomPickerColumnView: UIScrollViewDelegate {
 			let timeOffset = min(1, max(0, CGFloat(1) - spaceBetweenViewAndCenter * 2 / height))
 			layer.timeOffset = Double(timeOffset)
 			if view.tag == 0 {
-				print(timeOffset)
+				AILog(timeOffset)
 			}
 		}
 	}

@@ -339,15 +339,15 @@ public extension UIImage {
 	public func applyBlurWithRadius(blurRadius: CGFloat, tintColor: UIColor?, saturationDeltaFactor: CGFloat, maskImage: UIImage? = nil) -> UIImage? {
 		// Check pre-conditions.
 		if (size.width < 1 || size.height < 1) {
-			print("*** error: invalid size: \(size.width) x \(size.height). Both dimensions must be >= 1: \(self)")
+			AILog("*** error: invalid size: \(size.width) x \(size.height). Both dimensions must be >= 1: \(self)")
 			return nil
 		}
 		if self.CGImage == nil {
-			print("*** error: image must be backed by a CGImage: \(self)")
+			AILog("*** error: image must be backed by a CGImage: \(self)")
 			return nil
 		}
 		if maskImage != nil && maskImage!.CGImage == nil {
-			print("*** error: maskImage must be backed by a CGImage: \(maskImage)")
+			AILog("*** error: maskImage must be backed by a CGImage: \(maskImage)")
 			return nil
 		}
 

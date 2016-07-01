@@ -29,7 +29,7 @@ class AIImageRecongizeService: NSObject {
 						}
 						
 						if let res = response.result.value as? NSDictionary {
-							print(res)
+							AILog(res)
 							if let objectList = res["data"]?["objectList"] as? NSArray {
 								if objectList.count > 0 {
 									let firstItem = objectList.firstObject as! NSDictionary
