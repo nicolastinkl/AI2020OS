@@ -24,7 +24,6 @@ class AIProductCommentsViewController: UIViewController {
         
         let back = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(AIProductCommentsViewController.dismiss))
         navigationItem.leftBarButtonItem = back
-        print(self)
 	}
     
     func dismiss() {
