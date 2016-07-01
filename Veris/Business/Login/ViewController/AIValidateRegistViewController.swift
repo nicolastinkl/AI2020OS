@@ -20,14 +20,17 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
     var timer: NSTimer?
     var timerEndDate: NSDate!
 
+    @IBOutlet weak var validationContainerView: UIView!
     @IBOutlet weak var validationButtonWidthConstrant: NSLayoutConstraint!
     @IBOutlet weak var validationButton: UIButton!
     @IBOutlet weak var identifyTextField: UITextField!
     @IBOutlet weak var nextStepButton: AIChangeStatusButton!
     
+    @IBOutlet weak var promoteLabel: AILoginPromptLabel!
     @IBOutlet weak var validateInfoLabel: UILabel!
     @IBOutlet weak var validateInfoWidthConstraint: NSLayoutConstraint!
 
+    var loginService = AILoginService()
     // MARK: -> life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,46 +50,70 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
 
         guard let validateCode = identifyTextField.text else {return}
         guard let phoneNumber = AILoginPublicValue.phoneNumber else {return}
-
-        AVOSCloud.verifySmsCode(validateCode, mobilePhoneNumber: phoneNumber) { (bol, error) in
-            if bol {
-                let changePasswordVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIChangePasswordViewController)
-                //设置类型为忘记密码
-                AILoginPublicValue.loginType = LoginConstants.LoginType.ForgotPassword
-                self.navigationController?.pushViewController(changePasswordVC, animated: true)
-            } else {
-                AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoWidthConstraint)
+        
+        //短信验证码赋值到全局变量
+        AILoginPublicValue.smsCode = validateCode
+        
+        if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
+            AVOSCloud.verifySmsCode(validateCode, mobilePhoneNumber: phoneNumber) { (bol, error) in
+                if bol {
+                    let changePasswordVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIChangePasswordViewController)
+                    self.navigationController?.pushViewController(changePasswordVC, animated: true)
+                } else {
+                    AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoWidthConstraint)
+                }
             }
+        } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
+            //重置密码的方法没法直接校验是否正确
+            let changePasswordVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIChangePasswordViewController)
+            self.navigationController?.pushViewController(changePasswordVC, animated: true)
         }
     }
 
     @IBAction func sendValidationAction(sender: UIButton) {
-
+        
         if let phoneNumber = AILoginPublicValue.phoneNumber {
-            AVOSCloud.requestSmsCodeWithPhoneNumber(phoneNumber, callback: { (bol, error) in
-                if bol {
-                    let curButtonTitle = "\(self.buttonTitle2)(60 Sec)"
-                    let fontSize = curButtonTitle.sizeWithFont(self.titleFont, forWidth: self.view.width)
-                    self.validationButtonWidthConstrant.constant = fontSize.width + 20
-                    UIView.animateWithDuration(0.25, animations: {
-                        self.validationButton.layoutIfNeeded()
-                        //self.validationButtonWidthConstrant.constant = fontSize.width + 20
-
-                    }) { (finished) in
-                        if let timer = self.timer {
-                            timer.invalidate()
-                        }
-                        self.timerEndDate = NSDate(timeIntervalSinceNow: 60)
-                        self.validationButton.setTitle(curButtonTitle, forState: UIControlState.Normal)
-                        self.validationButton.enabled = false
-                        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(AIValidateRegistViewController.changeTimer(_:)), userInfo: nil, repeats: true)
-                    }                } else {
-                    AIAlertView().showError("Request validation code failed", subTitle: error.description)
-                }
-            })
+            
+            promoteLabel.text = "\(LoginConstants.textContent.validationPrompt) \(phoneNumber)"
+            
+            if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
+                AVOSCloud.requestSmsCodeWithPhoneNumber(phoneNumber, callback: { (bol, error) in
+                    if bol {
+                        self.handleValidationButton()
+                    } else {
+                        AIAlertView().showError("Request validation code failed", subTitle: error.description)
+                    }
+                })
+            } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
+                loginService.requestPasswordResetWithPhoneNumber(phoneNumber, success: {
+                    self.handleValidationButton()
+                    }, fail: { (errType, errDes) in
+                        AIAlertView().showError("Request validation code failed", subTitle: errDes)
+                })
+            }
         }
-
-
+    }
+    
+    /**
+     处理点击发送验证码后的UI逻辑
+     */
+    func handleValidationButton() {
+        let curButtonTitle = "\(self.buttonTitle2)(60 Sec)"
+        let fontSize = curButtonTitle.sizeWithFont(self.titleFont, forWidth: self.view.width)
+        self.validationButtonWidthConstrant.constant = fontSize.width + 20
+        UIView.animateWithDuration(0.25, animations: {
+            self.validationButton.layoutIfNeeded()
+            //self.validationButtonWidthConstrant.constant = fontSize.width + 20
+            
+        }) { (finished) in
+            if let timer = self.timer {
+                timer.invalidate()
+            }
+            self.timerEndDate = NSDate(timeIntervalSinceNow: 60)
+            self.validationButton.setTitle(curButtonTitle, forState: UIControlState.Normal)
+            self.validationButton.enabled = false
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(AIValidateRegistViewController.changeTimer(_:)), userInfo: nil, repeats: true)
+        }
     }
 
     func changeTimer(timer: NSTimer) {
@@ -95,7 +122,8 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         if timerInterval == 0 {
             self.timer!.invalidate()
             self.timer = nil
-
+            //重置提示内容
+            promoteLabel.text = " "
             let fontSize = buttonTitle1.sizeWithFont(titleFont, forWidth: view.width)
             self.validationButtonWidthConstrant.constant = fontSize.width + 20
             UIView.animateWithDuration(0.25, animations: {
@@ -146,6 +174,13 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         validateInfoWidthConstraint.constant = 0
         validateInfoLabel.layer.cornerRadius = 8
         validateInfoLabel.layer.masksToBounds = true
+        
+        //validationContainerView
+        validationContainerView.backgroundColor = LoginConstants.Colors.TextFieldBackground
+        validationContainerView.layer.cornerRadius = 5
+        validationContainerView.layer.masksToBounds = true
+        validationContainerView.layer.borderColor = LoginConstants.Colors.TextFieldBorder.CGColor
+        validationContainerView.layer.borderWidth = 1
     }
 
 }
