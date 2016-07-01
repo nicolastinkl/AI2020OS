@@ -15,6 +15,37 @@ import UIKit
  *  NOTICE:Changing this property’s value provides visual feedback in the user interface, including the running of any associated animations. The selected item displays the tab bar item’s selectedImage image, using the tab bar’s selectedImageTintColor value. To prevent system coloring of an item, provide images using the UIImageRenderingModeAlwaysOriginal rendering mode.
  */
 extension UIViewController {
+    
+    /**
+     系统通用模糊化present
+     
+     - parameter viewControllerToPresent: viewcontroller
+     - parameter flag:                    是否动画
+     - parameter completion:              回调
+     */
+    func presentBlurViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> ())?) {
+        viewControllerToPresent.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        viewControllerToPresent.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        
+        let view = viewControllerToPresent.view
+        view.backgroundColor = UIColor.clearColor()
+//        let lightEffect = UIBlurEffect(style: .Light)
+//        let lightView = UIVisualEffectView(effect: lightEffect)
+//        view.insertSubview(lightView, atIndex: 0)
+//        lightView.snp_makeConstraints { (make) in
+//            make.edges.equalTo(view)
+//        }
+        
+        
+        let darkEffect = UIBlurEffect(style: .Dark)
+        let darkView = UIVisualEffectView(effect: darkEffect)
+        view.insertSubview(darkView, atIndex: 0)
+        darkView.snp_makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+        
+        presentViewController(viewControllerToPresent, animated: flag, completion: completion)
+    }
 
 	class func initFromNib() -> Self {
 		let name = NSStringFromClass(classForCoder()).componentsSeparatedByString(".").last

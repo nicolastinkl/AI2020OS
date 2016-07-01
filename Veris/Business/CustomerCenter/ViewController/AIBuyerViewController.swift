@@ -92,7 +92,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
-    func makePopTableView(){
+    func makePopTableView() {
         
         let rootViewController = AIProposalTableViewController()
         /// Offsetable windows can't be dragged off the screen by a user's pan gesture
@@ -560,10 +560,10 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func moreButtonAction() {
         #if !DEBUG
-            let vc = AIProductQAViewController()
-            vc.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-            vc.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-            presentViewController(vc, animated: true, completion: nil)
+//            let vc = AIProductQAViewController()
+            let vc = AIProductCommentsViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            presentBlurViewController(nav, animated: true, completion: nil)
         #endif
         self.makeBubbleView()
     }

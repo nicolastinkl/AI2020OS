@@ -64,7 +64,7 @@ class AIProposalTableViewController: UIViewController {
     }
     
     
-    func loadingData(){
+    func loadingData() {
         view.showLoading()
         let bdk = BDKProposalService()
         // 列表数据
@@ -245,7 +245,7 @@ class AIProposalTableViewController: UIViewController {
 }
 
 
-extension AIProposalTableViewController: UITableViewDelegate,UITableViewDataSource {
+extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -323,4 +323,3 @@ extension AIProposalTableViewController : AIFoldedCellViewDelegate {
         self.presentPopupViewController(serviceExecVC, animated: true)
     }
 }
-
