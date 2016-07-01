@@ -25,12 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     let WX_APPID: String  = "wx483dafc09117a3d0"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//        let vc = AIProductCommentsViewController()
-//        let nav = UINavigationController(rootViewController: vc)
-//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        self.window?.rootViewController = nav
-//        self.window?.makeKeyAndVisible()
-//        return true
+
         //AVOS
         configAVOSCloud()
         AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
