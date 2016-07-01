@@ -158,9 +158,6 @@ class AIDropdownBrandView: UIView {
 		for (i, brand) in brands.enumerate() {
 			let label = HalfRoundedCornerLabel(text: brand.title, backgroundColor: Constants.Label.backgroundColor, highlightedBackgroundColor: Constants.Label.highlightedBackgroundColor, textColor: Constants.Label.textColor, highlightedTextColor: Constants.Label.highlightedTextColor)
 			label.text = brand.title
-//			#if !DEBUG
-//			label.text = "\(brand.id)"
-//			#endif
 			label.tag = i
 			label.userInteractionEnabled = true
 			barScrollView.addSubview(label)

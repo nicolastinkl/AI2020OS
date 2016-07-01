@@ -559,7 +559,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func moreButtonAction() {
-        #if !DEBUG
+        #if DEBUG
 //            let vc = AIProductQAViewController()
             let vc = AIProductCommentsViewController()
             let nav = UINavigationController(rootViewController: vc)
