@@ -71,7 +71,7 @@
     [allHeaders addEntriesFromDictionary:self.commonHeaders];
     [allHeaders addEntriesFromDictionary:headers];
     
-    NSLog(@"allHeaders:%@\n", allHeaders);
+    AIOCLog(@"allHeaders:%@\n", allHeaders);
     
     for (NSString *key in allHeaders.allKeys) {
         id value = [allHeaders objectForKey:key];

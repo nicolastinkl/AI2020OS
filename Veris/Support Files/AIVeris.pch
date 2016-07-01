@@ -1,0 +1,11 @@
+//
+//  AIVeris.pch
+//  AIVeris
+//
+//  Created by 王坜 on 16/6/30.
+//  Copyright © 2016年 ___ASIAINFO___. All rights reserved.
+//
+
+#ifdef __OBJC__
+#import "AIDefines.h"
+#endif

@@ -145,7 +145,7 @@ class SimpleServiceViewContainer: UIView {
                 let bottomViewHeight = selfViews.top + selfViews.height
                 let slogne = AITools.displaySizeFrom1080DesignSize(50)
                 let selfSlogne = self.paramsView.height - bottomViewHeight
-                print(selfSlogne)
+                AILog(selfSlogne)
                 if selfSlogne > 0 {
                     //paramViewHeight -= (selfSlogne - slogne)
                    // paramViewHeight  = paramViewHeight -  10

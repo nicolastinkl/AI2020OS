@@ -104,7 +104,7 @@
     }
     
     
-    NSLog(@"left: %f   right: %f ",self.borderInsetLeft,self.borderInsetRight);
+    AIOCLog(@"left: %f   right: %f ",self.borderInsetLeft,self.borderInsetRight);
     
 //    CGContextSetStrokeColorWithColor(context, self.separatorCGColor.CGColor);
 //    CGContextSetLineWidth(context, 1);

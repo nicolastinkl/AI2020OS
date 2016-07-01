@@ -67,7 +67,7 @@ class BuildInCameraUtils {
                 let cfData = CFDataCreate(kCFAllocatorDefault, UnsafePointer<UInt8>(data!.bytes), data!.length)
                 let cgImageSource = CGImageSourceCreateWithData(cfData, nil)
                 let properties = NSDictionary(dictionary: CGImageSourceCopyProperties(cgImageSource!, nil)!)
-                print("photo properties: \(properties)")
+                AILog("photo properties: \(properties)")
 
                /* if isFullImageKey == 0{
                     //let cgImageRef = image?.CGImage
@@ -76,7 +76,7 @@ class BuildInCameraUtils {
                     let cfData = CFDataCreate(kCFAllocatorDefault, UnsafePointer<UInt8>(data!.bytes), data!.length)
                     let cgImageSource = CGImageSourceCreateWithData(cfData, nil)
                     let properties = NSDictionary(dictionary: CGImageSourceCopyProperties(cgImageSource!, nil)!)
-                    print("photo properties: \(properties)")
+                    AILog("photo properties: \(properties)")
                 }*/
             }
 
@@ -97,8 +97,8 @@ class BuildInCameraUtils {
                     if (asset != nil) {
                         let representation = asset.defaultRepresentation()
                         info = representation.metadata()
-                        NSLog("info: %@", info!)
-                        //        print(String.init(format: "info: %@", info!))
+                        AILog(info!)
+                        //        AILog(String.init(format: "info: %@", info!))
                     }
 
                 })
@@ -117,7 +117,7 @@ class BuildInCameraUtils {
      options.networkAccessAllowed = true
      asset.requestContentEditingInputWithOptions(options) { (contentEditingInput : PHContentEditingInput?, _) in
      let fullImage = CIImage(contentsOfURL: contentEditingInput!.fullSizeImageURL!)
-     print(fullImage?.properties)
+     AILog(fullImage?.properties)
      }
     */
 
@@ -150,7 +150,7 @@ class BuildInCameraUtils {
      failureBlock: ^(NSError *error)
      {
      // Typically you should handle an error more gracefully than this.
-     NSLog(@"No groups");
+     AIOCLog(@"No groups");
      }];
 
      [library release];

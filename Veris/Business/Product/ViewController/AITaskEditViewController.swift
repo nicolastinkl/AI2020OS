@@ -165,7 +165,7 @@ extension AITaskEditViewController: AITaskTimeLineViewDelegate {
 		}
 
 		vc.onDetermineButtonClick = { [weak self] date, dateDescription in
-//			print(self)
+//			AILog(self)
 			self?.dateNode = (date: date, dateDescription: dateDescription)
 		}
 		presentPopupViewController(vc, animated: true)
@@ -205,7 +205,7 @@ extension AITaskEditViewController {
             for i in 0 ... roles.count - 1 {
 
                 let role = roles[i] as AIServiceProvider
-                print("insID" + "\(role.relservice_instance_id)")
+                AILog("insID" + "\(role.relservice_instance_id)")
                 AIRequirementHandler.defaultHandler().queryTaskList("\(role.relservice_instance_id)", serviceIcon: role.provider_portrait_url, success: { (task) -> Void in
                     services.append(task)
                     postCount += 1

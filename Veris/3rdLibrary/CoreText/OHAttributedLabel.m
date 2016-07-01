@@ -274,7 +274,7 @@ BOOL CTRunContainsCharactersFromStringRange(CTRunRef run, NSRange range) {
 		 @catch (NSException * e) {
 			 // Protection against NSRangeException
 			 if ([[e name] isEqualToString:NSRangeException]) {
-				 NSLog(@"[OHAttributedLabel] exception: %@",e);
+				 AIOCLog(@"[OHAttributedLabel] exception: %@",e);
 			 } else {
 				 @throw;
 			 }
@@ -581,7 +581,7 @@ BOOL CTRunContainsCharactersFromStringRange(CTRunRef run, NSRange range) {
 -(void)setAttString:(NSAttributedString *)string withImages:(NSMutableArray *)imgs
 {
     self.images = imgs;
-    //NSLog(@"count %d",[self.images count]);
+    //AIOCLog(@"count %d",[self.images count]);
     [self setAttributedText:string];
 }
 
@@ -716,15 +716,15 @@ BOOL CTRunContainsCharactersFromStringRange(CTRunRef run, NSRange range) {
 	|| (self.lineBreakMode == NSLineBreakByTruncatingMiddle)
 	|| (self.lineBreakMode == NSLineBreakByTruncatingTail);
 	if (truncationMode) {
-		NSLog(@"[OHAttributedLabel] Warning: \"UILineBreakMode...Truncation\" lineBreakModes not yet fully supported by CoreText and OHAttributedLabel");
-		NSLog(@"                    (truncation will appear on each paragraph instead of the whole text)");
-		NSLog(@"                    This is a known issue (Help to solve this would be greatly appreciated).");
-		NSLog(@"                    See https://github.com/AliSoftware/OHAttributedLabel/issues/3");
+		AIOCLog(@"[OHAttributedLabel] Warning: \"UILineBreakMode...Truncation\" lineBreakModes not yet fully supported by CoreText and OHAttributedLabel");
+		AIOCLog(@"                    (truncation will appear on each paragraph instead of the whole text)");
+		AIOCLog(@"                    This is a known issue (Help to solve this would be greatly appreciated).");
+		AIOCLog(@"                    See https://github.com/AliSoftware/OHAttributedLabel/issues/3");
 	}
 }
 -(void)warnAboutKnownIssues_CheckAdjustsFontSizeToFitWidth {
 	if (self.adjustsFontSizeToFitWidth) {
-		NSLog(@"[OHAttributedLabel] Warning: \"adjustsFontSizeToFitWidth\" property not supported by CoreText and OHAttributedLabel! This property will be ignored.");
+		AIOCLog(@"[OHAttributedLabel] Warning: \"adjustsFontSizeToFitWidth\" property not supported by CoreText and OHAttributedLabel! This property will be ignored.");
 	}	
 }
 -(void)setAdjustsFontSizeToFitWidth:(BOOL)value {
@@ -733,9 +733,9 @@ BOOL CTRunContainsCharactersFromStringRange(CTRunRef run, NSRange range) {
 }
 
 -(void)setNumberOfLines:(NSInteger)nbLines {
-	NSLog(@"[OHAttributedLabel] Warning: the numberOfLines property is not yet supported by CoreText and OHAttributedLabel. (this property is ignored right now)");
-	NSLog(@"                    This is a known issue (Help to solve this would be greatly appreciated).");
-	NSLog(@"                    See https://github.com/AliSoftware/OHAttributedLabel/issues/34");
+	AIOCLog(@"[OHAttributedLabel] Warning: the numberOfLines property is not yet supported by CoreText and OHAttributedLabel. (this property is ignored right now)");
+	AIOCLog(@"                    This is a known issue (Help to solve this would be greatly appreciated).");
+	AIOCLog(@"                    See https://github.com/AliSoftware/OHAttributedLabel/issues/34");
 
 	[super setNumberOfLines:nbLines];
 }

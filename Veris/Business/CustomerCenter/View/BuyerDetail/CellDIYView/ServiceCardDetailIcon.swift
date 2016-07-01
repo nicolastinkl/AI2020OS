@@ -117,7 +117,7 @@ class ServiceCardDetailIcon: ServiceParamlView {
         titleLabel.textColor = UIColor.whiteColor()
         self.addSubview(titleLabel)
         var heightAlisx: CGFloat = 0
-        //print(dataSource?.product_name)
+        //AILog(dataSource?.product_name)
         if dataSource?.product_name.isEmpty == true {
             heightAlisx = 0
         } else {

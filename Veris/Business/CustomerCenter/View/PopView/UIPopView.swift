@@ -91,7 +91,7 @@ import Spring
     // 图标 弧形排列
     func centerForIconAtIndex(index: Int) -> CGPoint {
         let firstAngle: CGFloat = CGFloat(M_PI)*0.48 + (CGFloat(M_PI_2) - kAngleOffset) - CGFloat(index) * kAngleOffset
-        //print(firstAngle)
+        //AILog(firstAngle)
         let startPoint = self.center
         let x = startPoint.x + cos(firstAngle) * kSphereLength - kSphereFixPosition
         let y = startPoint.y + sin(firstAngle) * kSphereLength - kSphereFixPosition + 2

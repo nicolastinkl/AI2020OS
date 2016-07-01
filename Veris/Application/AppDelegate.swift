@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         IQKeyboardManager.sharedManager().enable = true
 
         //WeChat Pay
-        
+    
         WXApi.registerApp(WX_APPID, withDescription: "AIVers")
         
         
@@ -107,7 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         
-        print("openURL:\(url.absoluteString)")
+        AILog("openURL:\(url.absoluteString)")
         // 微信支付跳转
         if url.scheme == WX_APPID {
             return WXApi.handleOpenURL(url, delegate: self)
@@ -127,7 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
                         }
                     }
                 }
-                print("openURL result: \(resultDict)")
+                AILog("openURL result: \(resultDict)")
             })
  
         }
@@ -145,7 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
                 NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WeixinPaySuccessNotification, object: nil)
             default:
                 strMsg = "支付失败，请您重新支付!"
-                print("retcode = \(resp.errCode), retstr = \(resp.errStr)")
+                AILog("retcode = \(resp.errCode), retstr = \(resp.errStr)")
             }
         }
         let alert = UIAlertView(title: "支付结果", message: strMsg, delegate: nil, cancelButtonTitle: "OK")
@@ -153,11 +153,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     }
 
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        logError("\(error.userInfo)")
+        AILog("\(error.userInfo)")
     }
 
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        logInfo("\(userInfo)")
+        AILog("\(userInfo)")
 
         AVAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
 
@@ -170,7 +170,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
 
         AVOSCloud.handleRemoteNotificationsWithDeviceToken(deviceToken)
-        logInfo("DeviceToken OK")
+        AILog("DeviceToken OK")
 
     }
 
@@ -218,7 +218,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
             if let type = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserType) {
                 defaultUserType = type as! String
             }
-            print("Default UserID is " + userID)
+            AILog("Default UserID is " + userID)
         } else {
             NSUserDefaults.standardUserDefaults().setObject(defaultUserID, forKey: kDefault_UserID)
             NSUserDefaults.standardUserDefaults().setObject(defaultUserType, forKey: kDefault_UserType)
@@ -268,7 +268,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         let path = url.lastPathComponent
 
-        print(path)
+        AILog(path)
         return true
     }
 

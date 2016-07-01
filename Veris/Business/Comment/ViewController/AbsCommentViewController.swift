@@ -74,7 +74,7 @@ extension AbsCommentViewController: UIImagePickerControllerDelegate {
 
             if picker.sourceType == .Camera {
                 _ = info[UIImagePickerControllerMediaMetadata] as! NSDictionary
-                print("")
+                AILog("")
             }
 
             if let image = imageToSave {

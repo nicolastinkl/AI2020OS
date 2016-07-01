@@ -13,7 +13,7 @@
 #import <UIKit/UIKit.h>
 
 #ifdef DEBUG
-#define MJLog(...) NSLog(__VA_ARGS__)
+#define MJLog(...) AIOCLog(__VA_ARGS__)
 #else
 #define MJLog(...)
 #endif

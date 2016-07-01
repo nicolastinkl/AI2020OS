@@ -18,14 +18,14 @@ class RRFlowLayout: UICollectionViewFlowLayout {
 		attributes?.forEach { layoutAttribute in
 			if layoutAttribute.frame.origin.x == sectionInset.left {
 				leftMargin = sectionInset.left
-				print("first")
+				AILog("first")
 			} else if leftMargin + layoutAttribute.frame.width > (CGRectGetWidth(rect) - sectionInset.right) {
 				layoutAttribute.frame.origin.x = sectionInset.left
                 leftMargin = sectionInset.left
-                print("here")
+                AILog("here")
 			} else {
 				layoutAttribute.frame.origin.x = leftMargin
-				print("rest")
+				AILog("rest")
 			}
 
 			leftMargin += layoutAttribute.frame.width + minimumInteritemSpacing

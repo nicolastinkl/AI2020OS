@@ -36,11 +36,11 @@
     const CGFloat *componentColors = CGColorGetComponents(newColor.CGColor);
     CGFloat colorBrightness = ((componentColors[0] * 299) + (componentColors[1] * 587) + (componentColors[2] * 114)) / 1000;
     if (colorBrightness < 0.5){
-        NSLog(@"Color is dark");
+        AIOCLog(@"Color is dark");
         return YES;
     }
     else{
-        NSLog(@"Color is light");
+        AIOCLog(@"Color is light");
         return NO;
     }
 }
@@ -134,7 +134,7 @@
         
     {
         
-        NSLog(@"error:为图片添加模糊效果时，未能获取原始图片");
+        AIOCLog(@"error:为图片添加模糊效果时，未能获取原始图片");
         
         return nil;
         
@@ -148,7 +148,7 @@
     //boxSize必须大于0
     int boxSize = (int)(blur * 100);
     boxSize -= (boxSize % 2) + 1;
-    NSLog(@"boxSize:%i",boxSize);
+    AIOCLog(@"boxSize:%i",boxSize);
     //图像处理
     CGImageRef img = image.CGImage;
     //需要引入#import <Accelerate/Accelerate.h>
@@ -198,10 +198,10 @@
     
     
     if (error) {
-        NSLog(@"error from convolution %ld", error);
+        AIOCLog(@"error from convolution %ld", error);
     }
     
-    //    NSLog(@"字节组成部分：%zu",CGImageGetBitsPerComponent(img));
+    //    AIOCLog(@"字节组成部分：%zu",CGImageGetBitsPerComponent(img));
     //颜色空间DeviceRGB
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     //用图片创建上下文,CGImageGetBitsPerComponent(img),7,8
