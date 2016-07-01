@@ -71,6 +71,7 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
         leftView.text = "+86"
         leftView.textAlignment = NSTextAlignment.Center
         leftView.textColor = UIColor.whiteColor()
+        leftView.font = LoginConstants.Fonts.textFieldInput
         phoneNumberTextField.leftView = leftView
         phoneNumberTextField.addTarget(self, action: #selector(AIRegistViewController.phoneNumberInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
 
@@ -78,7 +79,7 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
         
         regionTitleLabel.font = LoginConstants.Fonts.textFieldInput
         regionSelectButton.titleLabel?.font = LoginConstants.Fonts.textFieldInput
-        
+        regionSelectButton.setTitle("China >", forState: UIControlState.Normal)
         regionSelectContainerView.backgroundColor = LoginConstants.Colors.TextFieldBackground
         regionSelectContainerView.layer.cornerRadius = 5
         regionSelectContainerView.layer.masksToBounds = true
@@ -106,6 +107,6 @@ extension AIRegistViewController : AISelectRegionViewControllerDelegate {
         if let leftView = phoneNumberTextField.leftView as? UILabel {
             leftView.text = countryNumber
         }
-        regionSelectButton.titleLabel?.text = regionName
+        regionSelectButton.setTitle("\(regionName) >", forState: UIControlState.Normal)
     }
 }

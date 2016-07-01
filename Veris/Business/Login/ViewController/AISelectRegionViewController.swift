@@ -56,12 +56,13 @@ class AISelectRegionViewController: UIViewController, UITableViewDelegate, UITab
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RegionSelectTableViewCell", forIndexPath: indexPath) as UITableViewCell
-        //TODO: 后续根据UI修改
         let regionModel = model![indexPath.row]
         cell.textLabel?.text = regionModel.countryNumber
         cell.textLabel?.textColor = UIColor.whiteColor()
+        cell.textLabel?.font = LoginConstants.Fonts.promptLabel
         cell.detailTextLabel?.text = regionModel.regionName
         cell.detailTextLabel?.textColor = UIColor.whiteColor()
+        cell.detailTextLabel?.font = LoginConstants.Fonts.promptLabel
         return cell
     }
 
