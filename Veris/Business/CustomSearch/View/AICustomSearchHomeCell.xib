@@ -35,7 +35,6 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tbz-WP-I6U">
-<<<<<<< HEAD
                         <rect key="frame" x="73" y="39" width="174" height="19"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3B-Fr-pjd" userLabel="Stars" customClass="StarRateView" customModule="Veris" customModuleProvider="target">
@@ -43,15 +42,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="BAH-EI-WFd"/>
-=======
-                        <rect key="frame" x="73" y="39" width="219" height="19"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3B-Fr-pjd" userLabel="Stars" customClass="StarRateView" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="5" width="100" height="10"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="BAH-EI-WFd"/>
->>>>>>> 4f1884018cf05235f7fcca5ce3cc57f600e25dab
                                     <constraint firstAttribute="height" constant="10" id="Vt3-M3-3xT"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -63,22 +53,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnu-IA-E47">
-<<<<<<< HEAD
                                 <rect key="frame" x="68" y="2" width="39" height="15"/>
-=======
-                                <rect key="frame" x="113" y="2" width="39" height="15"/>
->>>>>>> 4f1884018cf05235f7fcca5ce3cc57f600e25dab
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="4g8-Xv-qo3"/>
                                 </constraints>
                                 <state key="normal" title="like" image="search-like"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbP-hR-uLS">
-<<<<<<< HEAD
                                 <rect key="frame" x="115" y="2" width="39" height="15"/>
-=======
-                                <rect key="frame" x="160" y="2" width="39" height="15"/>
->>>>>>> 4f1884018cf05235f7fcca5ce3cc57f600e25dab
                                 <state key="normal" title="hot" image="search-hot"/>
                             </button>
                         </subviews>
