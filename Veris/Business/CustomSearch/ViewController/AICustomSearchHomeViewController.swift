@@ -23,6 +23,8 @@ class AICustomSearchHomeViewController: UIViewController {
 	var iconView: AISearchHistoryIconView!
 	
 	@IBOutlet weak var holdView: UIView!
+    var resultFilterBar: AICutomSearchHomeResultFilterBar!
+    @IBOutlet weak var resultHoldView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	
     // MARK: Private
@@ -82,9 +84,6 @@ class AICustomSearchHomeViewController: UIViewController {
         showTransitionStyleCrossDissolveView(AIAudioSearchViewController.initFromNib())
     }
     
-	/**
-	 init with navigation bar.
-	 */
 	func initLayoutViews() {
         
         
@@ -135,6 +134,8 @@ class AICustomSearchHomeViewController: UIViewController {
             wishProxy.centerX == wishProxy.superview!.centerX + 60
         }
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
 	}
 	
 	@IBAction func backButtonPressed(sender: AnyObject) {
@@ -145,6 +146,7 @@ class AICustomSearchHomeViewController: UIViewController {
     }
 	
 	func searching() {
+        view.endEditing(true)
         tableView.hidden = false
         holdView.hidden = true
 		if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
@@ -153,7 +155,6 @@ class AICustomSearchHomeViewController: UIViewController {
 				do {
 					let model = try AISearchResultModel(data: dataJSON)
 					
-//                  model.results = model.results.map({ AISearchResultItemModel(dictionary: $0)})
 					do {
 						try model.results?.forEach({ (item) in
 							let resultItem = try AISearchResultItemModel(dictionary: item as [NSObject: AnyObject])
@@ -179,7 +180,6 @@ extension AICustomSearchHomeViewController: UITextFieldDelegate {
         
 		searching()
         
-		textField.resignFirstResponder()
 		
 		return true
 	}
@@ -190,6 +190,8 @@ extension AICustomSearchHomeViewController: AISearchHistoryLabelsDelegate {
 	func searchHistoryLabels(searchHistoryLabel: AISearchHistoryLabels, clickedText: String) {
 		AILog(#function + " called")
 		AILog(clickedText)
+        searchText.text = clickedText
+        searching()
 	}
 }
 
@@ -214,20 +216,11 @@ extension AICustomSearchHomeViewController: UITableViewDelegate, UITableViewData
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return dataSource.count
 	}
-	
-	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-		return 1
-	}
-	
-	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		return 110.0
-	}
 }
 
 
 extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
     
- 
     /**
      完成选择
      
@@ -239,13 +232,13 @@ extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
         let image = UIImage(CGImage: assetSuper.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
         view.showLoading()
         AIImageRecongizeService().getImageInfo(image) { [weak self] (res, error) in
-            AILog(res)
             self?.view.hideLoading()
             if error == nil {
+                AILog(res)
                 self?.searchText.text = res
                 self?.searching()
             } else {
-                
+                // handle error
             }
         }
     }
@@ -269,5 +262,9 @@ extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
     func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         
     }
+    
+}
+
+class AICutomSearchHomeResultFilterBar: UIView {
     
 }

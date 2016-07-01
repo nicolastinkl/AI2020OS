@@ -25,32 +25,55 @@
 import Foundation
 
 class AICustomSearchHomeCell: UITableViewCell {
-
-    @IBOutlet weak var imageview: AIImageView!
-
-    @IBOutlet weak var nameLabel: UILabel!
-
-    @IBOutlet weak var desLabel: UILabel!
-
-    @IBOutlet weak var nameTwiceLabel: UILabel!
-
-    @IBOutlet weak var priceLabel: UILabel!
-
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        desLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
-
-        priceLabel.font = UIFont.systemFontOfSize(16)
-        priceLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
-    }
-
-    func initData(model: AISearchResultItemModel) {
-        imageview.setURL(NSURL(string: ""), placeholderImage: smallPlace())
-        nameLabel.text = model.service_name as String
-        nameTwiceLabel.text = model.service_second_name as String
-        desLabel.text = model.service_description as String
-        priceLabel.text = model.service_price as String
-    }
+	
+	@IBOutlet weak var imageview: AIImageView!
+	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var desLabel: UILabel!
+	@IBOutlet weak var nameTwiceLabel: UILabel!
+	@IBOutlet weak var priceLabel: UILabel!
+	@IBOutlet weak var likeButton: UIButton!
+	@IBOutlet weak var hotButton: UIButton!
+	@IBOutlet weak var rateView: StarRateView!
+	@IBOutlet weak var wavyLineView: UIView!
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		
+		nameLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+        nameLabel.textColor = UIColor.whiteColor()
+        
+		priceLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+		desLabel.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+        desLabel.textColor = UIColor(hexString: "#d4d5ef", alpha: 0.7)
+		nameTwiceLabel.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+        nameTwiceLabel.textColor = UIColor(hexString: "#aba8b5")
+		
+		let buttonFont = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(36))
+        likeButton.titleLabel?.font = buttonFont
+        hotButton.titleLabel?.font = buttonFont
+        likeButton.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.5), forState: .Normal)
+        hotButton.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.5), forState: .Normal)
+		
+		desLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
+		priceLabel.font = AITools.myriadSemiboldSemiCnWithSize(AITools.displaySizeFrom1242DesignSize(60))
+		priceLabel.textColor = UIColor(hexString: "#e7c400")
+		let wavyImage = UIImage(named: "wavy_lines")?.stretchableImageWithLeftCapWidth(1, topCapHeight: 0)
+		let wavyColor = UIColor(patternImage: wavyImage!)
+		wavyLineView.backgroundColor = wavyColor
+		
+	}
+	
+	func initData(model: AISearchResultItemModel) {
+		imageview.setURL(NSURL(string: ""), placeholderImage: smallPlace())
+		nameLabel.text = model.service_name as String
+		nameTwiceLabel.text = model.service_second_name as String
+		desLabel.text = model.service_description as String
+		priceLabel.text = model.service_price as String
+		
+		let likeString = String(format: " %d", model.service_likes)
+		let hotString = String(format: " %d", model.service_browse)
+		likeButton.setTitle(likeString, forState: .Normal)
+		hotButton.setTitle(hotString, forState: .Normal)
+		
+	}
 }
