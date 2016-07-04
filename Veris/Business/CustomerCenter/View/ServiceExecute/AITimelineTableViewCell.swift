@@ -55,36 +55,38 @@ class AITimelineTableViewCell: UITableViewCell {
         //重置变化的高度计算
         imageContainerViewHeight = 0
         
-        let viewModelContentsCount = viewModel.contents!.count
-        for (index, timeContentModel) in (viewModel.contents)!.enumerate() {
-            switch timeContentModel.contentType! {
-            case AITimelineContentTypeEnum.Image:
-                let imageView = buildImageContentView(timeContentModel.contentUrl!)
-                curView = imageView
-            case AITimelineContentTypeEnum.LocationMap: break
-                
-                
-            case AITimelineContentTypeEnum.Voice:
-                let voiceView = buildVoiceContentView(timeContentModel.contentUrl!, time: 2)
-                curView = voiceView
-                
-            }
-            guard let curView = curView else {return}
-            if index == 0 {
-                curView.snp_makeConstraints(closure: { (make) in
-                    make.top.equalTo(curView.superview!)
-                })
-            }
-            if index != 0 {
-                if let lastView = lastView {
-                    curView.snp_makeConstraints(closure: { (make) in
-                        make.top.equalTo(lastView.snp_bottom).offset(5)
-                    })
+        if (viewModel.contents?.count) != nil{
+            for (index, timeContentModel) in (viewModel.contents)!.enumerate() {
+                switch timeContentModel.contentType! {
+                case AITimelineContentTypeEnum.Image:
+                    let imageView = buildImageContentView(timeContentModel.contentUrl!)
+                    curView = imageView
+                case AITimelineContentTypeEnum.LocationMap: break
+                    
+                    
+                case AITimelineContentTypeEnum.Voice:
+                    let voiceView = buildVoiceContentView(timeContentModel.contentUrl!, time: 2)
+                    curView = voiceView
                     
                 }
+                guard let curView = curView else {return}
+                if index == 0 {
+                    curView.snp_makeConstraints(closure: { (make) in
+                        make.top.equalTo(curView.superview!)
+                    })
+                }
+                if index != 0 {
+                    if let lastView = lastView {
+                        curView.snp_makeConstraints(closure: { (make) in
+                            make.top.equalTo(lastView.snp_bottom).offset(5)
+                        })
+                        
+                    }
+                }
+                lastView = curView
             }
-            lastView = curView
         }
+        
     }
     
     func buildButtonContainerView() {
@@ -96,7 +98,7 @@ class AITimelineTableViewCell: UITableViewCell {
             }
             
             switch viewModel.layoutType! {
-            case .ConfirmServiceComplete:
+            case .ConfirmServiceComplete, .ConfirmOrderComplete:
                 let confirmButton = UIButton()
                 confirmButton.setTitle(CustomerCenterConstants.textContent.confirmButton, forState: UIControlState.Normal)
                 confirmButton.titleLabel?.font = CustomerCenterConstants.Fonts.TimelineButton

@@ -148,9 +148,10 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
     func loadData() {
         timelineModels.removeAll()
-        for i in 0...4 {
+        for i in 0...3 {
             timelineModels.append(AITimelineViewModel.createFakeData("\(i)"))
         }
+        timelineModels.append(AITimelineViewModel.createFakeDataOrderComplete("\(4)"))
     }
     
     //TODO: 过滤时间线
@@ -210,11 +211,21 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     }
     
     func cellConfirmButtonDidClick(viewModel viewModel: AITimelineViewModel) {
-        let commentVC = ServiceCommentViewController.loadFromXib()
-        commentVC.view.frame = self.view.bounds
+        
         let vc = parentViewController
         self.dismissPopupViewController(true) { [weak vc] in
-            vc?.presentPopupViewController(commentVC, animated: true)
+            //打开评论页面
+            if viewModel.layoutType == AITimelineLayoutTypeEnum.ConfirmServiceComplete {
+                let commentVC = ServiceCommentViewController.loadFromXib()
+                commentVC.view.frame = self.view.bounds
+                vc?.presentPopupViewController(commentVC, animated: true)
+            }
+            //打开支付页面
+            else if viewModel.layoutType == AITimelineLayoutTypeEnum.ConfirmOrderComplete {
+                let popupVC = AIPaymentViewController.initFromNib()
+                popupVC.view.frame = self.view.bounds
+                vc?.presentPopupViewController(popupVC, animated: true)
+            }
         }
         
     }

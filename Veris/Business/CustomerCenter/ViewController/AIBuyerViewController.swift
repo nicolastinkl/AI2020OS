@@ -604,7 +604,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             let proposalModel = dataSource[indexPath.row].model!
             let folderCellView = AIFolderCellView.currentView()
             folderCellView.loadData(proposalModel)
-            folderCellView.delegate = self
             cell.setFoldedView(folderCellView)
         }
         
@@ -669,7 +668,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = AITableFoldedCellHolder()
         cell.tag = indexPath.row
         let folderCellView = AIFolderCellView.currentView()
-        folderCellView.delegate = self
         folderCellView.loadData(proposalModel)
         folderCellView.frame = cell.contentView.bounds
         cell.foldedView = folderCellView
