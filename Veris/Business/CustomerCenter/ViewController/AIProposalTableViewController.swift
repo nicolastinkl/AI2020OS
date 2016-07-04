@@ -92,7 +92,7 @@ class AIProposalTableViewController: UIViewController {
         self.view.addSubview(bgImageView)
         
         
-        let y: CGFloat = 44
+        let y: CGFloat = 34
         let label: UPLabel = AIViews.normalLabelWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, y, screenWidth - 2 * BUBBLE_VIEW_MARGIN, 20), text: "AIBuyerViewController.progress".localized, fontSize: 20, color: UIColor.whiteColor())
         view.addSubview(label)
         label.textAlignment = .Right
@@ -100,8 +100,8 @@ class AIProposalTableViewController: UIViewController {
         label.text = "AIBuyerViewController.progress".localized
         label.font = AITools.myriadRegularWithSize(20)
         
-        bgImageView.setTop(y)
-        tableView.setTop(y + 20 )
+        bgImageView.setTop(y + 30)
+        tableView.setTop(y + 30)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 20
         
