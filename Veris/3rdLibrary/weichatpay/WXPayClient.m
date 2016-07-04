@@ -355,7 +355,7 @@ NSString *expiresInKey = @"expires_in";
                 request.prepayId  = prePayId;
                 request.package   = @"Sign=WXPay";      // 文档为 `Request.package = _package;` , 但如果填写上面生成的 `package` 将不能支付成功
                 request.nonceStr  = weakSelf.nonceStr;
-                request.timeStamp = [weakSelf.timeStamp  longLongValue];
+                request.timeStamp = [weakSelf.timeStamp intValue];
                 
                 // 构造参数列表
                 NSMutableDictionary *params = [NSMutableDictionary dictionary];

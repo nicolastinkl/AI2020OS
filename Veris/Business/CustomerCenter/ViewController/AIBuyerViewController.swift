@@ -95,7 +95,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
  
     }
     
-    func initMakePopTableView(){
+    func initMakePopTableView() {
         
         WindowManager.shared.delegate = self
         let rootViewController = AIProposalTableViewController()

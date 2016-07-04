@@ -249,7 +249,7 @@ class AIProposalTableViewController: UIViewController {
 }
 
 
-extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSource , UIScrollViewDelegate {
+extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
 //    func scrollViewDidScroll(scrollView: UIScrollView) {
 //        if scrollView.contentOffset.y < 0 {

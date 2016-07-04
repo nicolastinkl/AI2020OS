@@ -215,7 +215,7 @@ extension AITaskEditViewController {
             }
         }
 
-        while (postCount != serviceRoles?.count) {
+        while postCount != serviceRoles?.count {
             NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate.distantFuture())
         }
 

@@ -112,7 +112,7 @@ static UIEdgeInsets JTSScrollIndicator_InherentInset;
     
     if (contentOffset.y < 0-contentInset.top
      || adjustedRect.origin.y < (0-contentInset.top + indicatorInset.top) + JTSScrollIndicator_InherentInset.top) {
-        CGFloat heightAdjustment = fabsf(contentInset.top - fabsf(contentOffset.y));
+        CGFloat heightAdjustment = fabs(contentInset.top - fabs(contentOffset.y));
         adjustedRect.size.height -= heightAdjustment;
         adjustedRect.size.height = MAX(adjustedRect.size.height, JTSScrollIndicator_MinIndicatorHeightWhenCompressed);
         adjustedRect.origin.y = contentOffset.y + indicatorInset.top + JTSScrollIndicator_InherentInset.top;

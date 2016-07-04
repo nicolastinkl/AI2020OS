@@ -139,7 +139,7 @@
             _coverageModel = param;
             serviceCoverage = [[AIServiceCoverage alloc] initWithFrame:coverageFrame model:param];
             
-            [self initSelectedParamsDic: param.param_value];
+            [self initSelectedParamsDic:param.param_value];
         }
     }
     

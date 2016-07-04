@@ -13,7 +13,7 @@ internal class AIDetailTopMenuView: UIView {
 
     @IBOutlet weak var share: UILabel!
     @IBOutlet weak var custom: UILabel!
-    class func currentView()->AIDetailTopMenuView {
+    class func currentView() -> AIDetailTopMenuView {
         let selfView = NSBundle.mainBundle().loadNibNamed("AIDetailTopMenuView", owner: self, options: nil).first  as! AIDetailTopMenuView
         return selfView
     }

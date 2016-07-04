@@ -32,7 +32,6 @@ static const char * kMapperObjectKey;
 static const char * kClassPropertiesKey;
 static const char * kClassRequiredPropertyNamesKey;
 static const char * kIndexPropertyNameKey;
-static const char * kDisplayTypeKey = "kDisplayTypeKey";
 
 #pragma mark - class static variables
 static NSArray* allowedJSONTypes = nil;

@@ -26,7 +26,7 @@ class AIOrderCellEShopSubView: UIView {
 
 
     // MARK: currentView
-    class func currentView()->AIOrderCellEShopSubView {
+    class func currentView() -> AIOrderCellEShopSubView {
         let selfView = NSBundle.mainBundle().loadNibNamed("AIOrderCellEShopSubView", owner: self, options: nil).first  as! AIOrderCellEShopSubView
 
         //config statusLabel

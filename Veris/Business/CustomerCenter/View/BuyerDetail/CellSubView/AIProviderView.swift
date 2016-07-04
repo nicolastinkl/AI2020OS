@@ -20,7 +20,7 @@ class AIProviderView: UIView {
     @IBOutlet weak var content: UILabel!
 
     // MARK: currentView
-    class func currentView()->AIProviderView {
+    class func currentView() -> AIProviderView {
         let selfView = NSBundle.mainBundle().loadNibNamed("AIProviderView", owner: self, options: nil).first  as! AIProviderView
 
         selfView.title.font = AITools.myriadSemiCondensedWithSize(63/PurchasedViewDimention.CONVERT_FACTOR)
