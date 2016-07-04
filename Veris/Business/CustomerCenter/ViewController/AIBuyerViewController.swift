@@ -234,9 +234,9 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
              */
 
             //气泡数据
-            var bubblesDone = false
+
             bdk.getPoposalBubbles({ (responseData) -> Void in
-                bubblesDone = true
+
                 weakSelf!.didRefresh = true
                 weakSelf!.parseProposalData(responseData)
                 weakSelf!.tableView.headerEndRefreshing()
@@ -717,7 +717,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     // MARK: - ScrollViewDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if (scrollView.contentOffset.y > 0) {
+        if scrollView.contentOffset.y > 0 {
             topBar.backgroundColor = UIColor(white: 0, alpha: 0.55)
         } else {
             topBar.backgroundColor = UIColor.clearColor()

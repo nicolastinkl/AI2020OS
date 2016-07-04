@@ -89,9 +89,6 @@
 		81433D121CFBE5A700347C29 /* AIOrderCellEShopSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339881CFBE5A600347C29 /* AIOrderCellEShopSubView.xib */; };
 		81433D141CFBE5A700347C29 /* AIBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143398C1CFBE5A600347C29 /* AIBubble.m */; };
 		81433D151CFBE5A700347C29 /* AIBubblesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143398E1CFBE5A600347C29 /* AIBubblesView.m */; };
-		81433D161CFBE5A700347C29 /* AICardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339911CFBE5A600347C29 /* AICardCell.m */; };
-		81433D171CFBE5A700347C29 /* AICardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339931CFBE5A600347C29 /* AICardView.m */; };
-		81433D181CFBE5A700347C29 /* airplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 814339941CFBE5A600347C29 /* airplane@2x.png */; };
 		81433D1B1CFBE5A700347C29 /* AIParamedicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143399B1CFBE5A600347C29 /* AIParamedicView.m */; };
 		81433D1C1CFBE5A700347C29 /* AccommodationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143399D1CFBE5A600347C29 /* AccommodationService.swift */; };
 		81433D1D1CFBE5A700347C29 /* AIIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143399E1CFBE5A600347C29 /* AIIconTextView.swift */; };
@@ -456,12 +453,6 @@
 		8175A7CC1CFD2710006F2C8F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7341CFD2710006F2C8F /* AFURLRequestSerialization.m */; };
 		8175A7CD1CFD2710006F2C8F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7361CFD2710006F2C8F /* AFURLResponseSerialization.m */; };
 		8175A7CE1CFD2710006F2C8F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7381CFD2710006F2C8F /* AFURLSessionManager.m */; };
-		8175A7CF1CFD2710006F2C8F /* CustomMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A73B1CFD2710006F2C8F /* CustomMethod.m */; };
-		8175A7D01CFD2710006F2C8F /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A73D1CFD2710006F2C8F /* MarkupParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8175A7D11CFD2710006F2C8F /* NSAttributedString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A73F1CFD2710006F2C8F /* NSAttributedString+Attributes.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8175A7D21CFD2710006F2C8F /* OHAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7411CFD2710006F2C8F /* OHAttributedLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8175A7D31CFD2710006F2C8F /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7431CFD2710006F2C8F /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8175A7D41CFD2710006F2C8F /* SCGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7451CFD2710006F2C8F /* SCGIFImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8175A7D51CFD2710006F2C8F /* DDHTimerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7481CFD2710006F2C8F /* DDHTimerControl.m */; };
 		8175A7D81CFD2710006F2C8F /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7511CFD2710006F2C8F /* JSONModel.m */; };
 		8175A7D91CFD2710006F2C8F /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7531CFD2710006F2C8F /* JSONModelArray.m */; };
@@ -772,11 +763,6 @@
 		8143398C1CFBE5A600347C29 /* AIBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBubble.m; sourceTree = "<group>"; };
 		8143398D1CFBE5A600347C29 /* AIBubblesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBubblesView.h; sourceTree = "<group>"; };
 		8143398E1CFBE5A600347C29 /* AIBubblesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBubblesView.m; sourceTree = "<group>"; };
-		814339901CFBE5A600347C29 /* AICardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICardCell.h; sourceTree = "<group>"; };
-		814339911CFBE5A600347C29 /* AICardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICardCell.m; sourceTree = "<group>"; };
-		814339921CFBE5A600347C29 /* AICardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICardView.h; sourceTree = "<group>"; };
-		814339931CFBE5A600347C29 /* AICardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICardView.m; sourceTree = "<group>"; };
-		814339941CFBE5A600347C29 /* airplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplane@2x.png"; sourceTree = "<group>"; };
 		814339961CFBE5A600347C29 /* AIBuyerParamsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBuyerParamsDelegate.h; sourceTree = "<group>"; };
 		8143399A1CFBE5A600347C29 /* AIParamedicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIParamedicView.h; sourceTree = "<group>"; };
 		8143399B1CFBE5A600347C29 /* AIParamedicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIParamedicView.m; sourceTree = "<group>"; };
@@ -1283,18 +1269,6 @@
 		8175A7361CFD2710006F2C8F /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		8175A7371CFD2710006F2C8F /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		8175A7381CFD2710006F2C8F /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		8175A73A1CFD2710006F2C8F /* CustomMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMethod.h; sourceTree = "<group>"; };
-		8175A73B1CFD2710006F2C8F /* CustomMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMethod.m; sourceTree = "<group>"; };
-		8175A73C1CFD2710006F2C8F /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupParser.h; sourceTree = "<group>"; };
-		8175A73D1CFD2710006F2C8F /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupParser.m; sourceTree = "<group>"; };
-		8175A73E1CFD2710006F2C8F /* NSAttributedString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Attributes.h"; sourceTree = "<group>"; };
-		8175A73F1CFD2710006F2C8F /* NSAttributedString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Attributes.m"; sourceTree = "<group>"; };
-		8175A7401CFD2710006F2C8F /* OHAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHAttributedLabel.h; sourceTree = "<group>"; };
-		8175A7411CFD2710006F2C8F /* OHAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHAttributedLabel.m; sourceTree = "<group>"; };
-		8175A7421CFD2710006F2C8F /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
-		8175A7431CFD2710006F2C8F /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
-		8175A7441CFD2710006F2C8F /* SCGIFImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGIFImageView.h; sourceTree = "<group>"; };
-		8175A7451CFD2710006F2C8F /* SCGIFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGIFImageView.m; sourceTree = "<group>"; };
 		8175A7471CFD2710006F2C8F /* DDHTimerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHTimerControl.h; sourceTree = "<group>"; };
 		8175A7481CFD2710006F2C8F /* DDHTimerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHTimerControl.m; sourceTree = "<group>"; };
 		8175A7501CFD2710006F2C8F /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
@@ -1599,7 +1573,7 @@
 		93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentViewController.xib; sourceTree = "<group>"; };
 		93C8C9A71D14034A00F1DFCF /* AICustomSearchHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchHomeCell.swift; sourceTree = "<group>"; };
 		93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomSearchHomeCell.xib; sourceTree = "<group>"; };
-		93D5A3491B709C1C00DDB158 /* Veris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veris.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D5A3491B709C1C00DDB158 /* Veris-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Veris-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E4C3FF1D20E40D007EB116 /* AIAssetsPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsPickerController.swift; sourceTree = "<group>"; };
 		93E4C4011D20E478007EB116 /* AIAssetsPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsPickerController.xib; sourceTree = "<group>"; };
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
@@ -2005,7 +1979,6 @@
 				81433A0C1CFBE5A700347C29 /* Cell */,
 				81433A141CFBE5A700347C29 /* PopView */,
 				81433A1C1CFBE5A700347C29 /* PurchasedService */,
-				8143398F1CFBE5A600347C29 /* buyerCard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2019,18 +1992,6 @@
 				8143398E1CFBE5A600347C29 /* AIBubblesView.m */,
 			);
 			path = Bubble;
-			sourceTree = "<group>";
-		};
-		8143398F1CFBE5A600347C29 /* buyerCard */ = {
-			isa = PBXGroup;
-			children = (
-				814339901CFBE5A600347C29 /* AICardCell.h */,
-				814339911CFBE5A600347C29 /* AICardCell.m */,
-				814339921CFBE5A600347C29 /* AICardView.h */,
-				814339931CFBE5A600347C29 /* AICardView.m */,
-				814339941CFBE5A600347C29 /* airplane@2x.png */,
-			);
-			path = buyerCard;
 			sourceTree = "<group>";
 		};
 		814339951CFBE5A600347C29 /* BuyerDetail */ = {
@@ -3081,7 +3042,6 @@
 				FBAE7FC21D115188002FF522 /* LSYEvernote */,
 				FB0180FE1D0D125400213DF8 /* libWeiboSDK */,
 				8175A7251CFD2710006F2C8F /* AFNetworking */,
-				8175A7391CFD2710006F2C8F /* CoreText */,
 				8175A7461CFD2710006F2C8F /* DDHTimerControl */,
 				81433B351CFBE5A700347C29 /* Frameworks */,
 				8175A74F1CFD2710006F2C8F /* JSONModel */,
@@ -3122,25 +3082,6 @@
 				8175A7381CFD2710006F2C8F /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		8175A7391CFD2710006F2C8F /* CoreText */ = {
-			isa = PBXGroup;
-			children = (
-				8175A73A1CFD2710006F2C8F /* CustomMethod.h */,
-				8175A73B1CFD2710006F2C8F /* CustomMethod.m */,
-				8175A73C1CFD2710006F2C8F /* MarkupParser.h */,
-				8175A73D1CFD2710006F2C8F /* MarkupParser.m */,
-				8175A73E1CFD2710006F2C8F /* NSAttributedString+Attributes.h */,
-				8175A73F1CFD2710006F2C8F /* NSAttributedString+Attributes.m */,
-				8175A7401CFD2710006F2C8F /* OHAttributedLabel.h */,
-				8175A7411CFD2710006F2C8F /* OHAttributedLabel.m */,
-				8175A7421CFD2710006F2C8F /* RegexKitLite.h */,
-				8175A7431CFD2710006F2C8F /* RegexKitLite.m */,
-				8175A7441CFD2710006F2C8F /* SCGIFImageView.h */,
-				8175A7451CFD2710006F2C8F /* SCGIFImageView.m */,
-			);
-			path = CoreText;
 			sourceTree = "<group>";
 		};
 		8175A7461CFD2710006F2C8F /* DDHTimerControl */ = {
@@ -3750,7 +3691,7 @@
 		93D5A34A1B709C1C00DDB158 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				93D5A3491B709C1C00DDB158 /* Veris.app */,
+				93D5A3491B709C1C00DDB158 /* Veris-2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3955,7 +3896,7 @@
 			);
 			name = AIVeris;
 			productName = AISBOSS;
-			productReference = 93D5A3491B709C1C00DDB158 /* Veris.app */;
+			productReference = 93D5A3491B709C1C00DDB158 /* Veris-2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -4055,7 +3996,6 @@
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
 				FB703AE41D24C59400229A08 /* JSSDK.js in Resources */,
 				93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */,
-				81433D181CFBE5A700347C29 /* airplane@2x.png in Resources */,
 				846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */,
 				84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */,
 				81433D9A1CFBE5A700347C29 /* AIErrorRetryView.xib in Resources */,
@@ -4319,7 +4259,6 @@
 				81433CD41CFBE5A700347C29 /* AIConnectToolModel.swift in Sources */,
 				81433D5B1CFBE5A700347C29 /* AIPathRouteViewController.swift in Sources */,
 				81433CD31CFBE5A700347C29 /* AICatalogServicesModel.swift in Sources */,
-				8175A7D01CFD2710006F2C8F /* MarkupParser.m in Sources */,
 				81433D011CFBE5A700347C29 /* AIOrderDetailService.swift in Sources */,
 				81433E561CFBE5A700347C29 /* FLEXArgumentInputJSONObjectView.m in Sources */,
 				81433EA31CFBE5A700347C29 /* AIMessage.m in Sources */,
@@ -4361,7 +4300,6 @@
 				81512ED01D220A8900AE041D /* AIFundManageViewController.swift in Sources */,
 				81433D2D1CFBE5A700347C29 /* ServiceDetailView.swift in Sources */,
 				81433D471CFBE5A700347C29 /* AITextMessageView.swift in Sources */,
-				8175A7D31CFD2710006F2C8F /* RegexKitLite.m in Sources */,
 				81433D7D1CFBE5A700347C29 /* AIBuyerTableCellView.swift in Sources */,
 				81433D561CFBE5A700347C29 /* AILocationSelectHeadView.swift in Sources */,
 				81433E531CFBE5A700347C29 /* FLEXArgumentInputDateView.m in Sources */,
@@ -4397,7 +4335,6 @@
 				8175A7EB1CFD2710006F2C8F /* OAStackView.m in Sources */,
 				81433DA61CFBE5A700347C29 /* AITaskDataModel.swift in Sources */,
 				81433E7E1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m in Sources */,
-				8175A7D21CFD2710006F2C8F /* OHAttributedLabel.m in Sources */,
 				8175A7EC1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m in Sources */,
 				84F2E5BA1D17D02E009E0C72 /* SubServiceCardView.swift in Sources */,
 				84F2E5BD1D17F155009E0C72 /* ExpandableTableViewCell.swift in Sources */,
@@ -4451,7 +4388,6 @@
 				9392B58B1D1CE37A0007F241 /* AIAliPayOrder.swift in Sources */,
 				1273444A1D26593500D7CCEF /* AICustomerOrderFoldedTableViewCell.swift in Sources */,
 				81433E2A1CFBE5A700347C29 /* AIRequireContentViewController.swift in Sources */,
-				81433D161CFBE5A700347C29 /* AICardCell.m in Sources */,
 				FB7355201D23B7B300CE549C /* UILabel-Helper.swift in Sources */,
 				81433E0B1CFBE5A700347C29 /* JTSScrollIndicator.m in Sources */,
 				81433DFB1CFBE5A700347C29 /* CustomPickerColumnView.swift in Sources */,
@@ -4467,7 +4403,6 @@
 				81433E3B1CFBE5A700347C29 /* AIShareViewController.m in Sources */,
 				81433E2C1CFBE5A700347C29 /* AIRequirementViewController.swift in Sources */,
 				8175A7F91CFD2710006F2C8F /* SDWebImageCompat.m in Sources */,
-				8175A7D41CFD2710006F2C8F /* SCGIFImageView.m in Sources */,
 				81433E9E1CFBE5A700347C29 /* UIButton+Localize.swift in Sources */,
 				81433DB21CFBE5A700347C29 /* BuyerMessageCell.swift in Sources */,
 				81433CD91CFBE5A700347C29 /* AIOrderDetailModel.swift in Sources */,
@@ -4498,7 +4433,6 @@
 				81433E091CFBE5A700347C29 /* AIBueryDetailCell.swift in Sources */,
 				81B6005C1D25169E0052ADC8 /* AIDefines.swift in Sources */,
 				81433E4E1CFBE5A700347C29 /* UIViewController+AIPopup.swift in Sources */,
-				81433D171CFBE5A700347C29 /* AICardView.m in Sources */,
 				8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */,
 				81433DFD1CFBE5A700347C29 /* DependOnNodeCell.swift in Sources */,
 				81433E611CFBE5A700347C29 /* FLEXFieldEditorViewController.m in Sources */,
@@ -4574,7 +4508,6 @@
 				81433D841CFBE5A700347C29 /* AIPopHoldView.swift in Sources */,
 				9392B5801D1CD9F10007F241 /* Order.m in Sources */,
 				8175A8021CFD2710006F2C8F /* UIImage+WebP.m in Sources */,
-				8175A7CF1CFD2710006F2C8F /* CustomMethod.m in Sources */,
 				81433E831CFBE5A700347C29 /* FLEXNetworkTransactionDetailTableViewController.m in Sources */,
 				8175A7F71CFD2710006F2C8F /* NSData+ImageContentType.m in Sources */,
 				846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */,
@@ -4623,7 +4556,6 @@
 				81433EB71CFBE5A700347C29 /* UIViewControllerUtils.swift in Sources */,
 				81433D541CFBE5A700347C29 /* AIEventCapacityView.swift in Sources */,
 				81433EB21CFBE5A700347C29 /* NullSafe.m in Sources */,
-				8175A7D11CFD2710006F2C8F /* NSAttributedString+Attributes.m in Sources */,
 				81433E901CFBE5A700347C29 /* FLEXSetExplorerViewController.m in Sources */,
 				81433E7C1CFBE5A700347C29 /* FLEXSystemLogMessage.m in Sources */,
 				9392B5181D1CD63B0007F241 /* WXPayClient.m in Sources */,
@@ -4848,8 +4780,8 @@
 					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
-				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
-				PRODUCT_NAME = Veris;
+				PRODUCT_BUNDLE_IDENTIFIER = "asiainfo.aicd2020.sboss-version2";
+				PRODUCT_NAME = "Veris-2";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
@@ -4900,8 +4832,8 @@
 					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
-				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
-				PRODUCT_NAME = Veris;
+				PRODUCT_BUNDLE_IDENTIFIER = "asiainfo.aicd2020.sboss-version2";
+				PRODUCT_NAME = "Veris-2";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";

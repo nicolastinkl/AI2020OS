@@ -537,11 +537,17 @@ extension AIRequireContentViewController: UITableViewDelegate, UITableViewDataSo
                 make.left.equalTo(iconView).offset(index * 25)
                 make.width.height.equalTo(20)
             })
-            editButton.addTarget(cell, action: "addExpendCell:", forControlEvents: UIControlEvents.TouchUpInside)
+            editButton.addTarget(cell, action: #selector(AIRequireContentViewController.addExpendCell(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         }
     }
 
+    func addExpendCell(button: UIButton) {
+
+    }
+
 }
+
+
 
 // MARK: - Cell Call back Event.
 

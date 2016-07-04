@@ -156,7 +156,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
 
         //[self removeSnapBehaviors];
 
-        if (self.expanded == true) {
+        if self.expanded == true {
             self.shrinkSubmenu()
         } else {
             self.expandSubmenu()
