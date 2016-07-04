@@ -44,7 +44,7 @@ class AIOrderDescView: UIView {
     func loadData(serviceOrderModel: ServiceOrderModel) {
         self.serviceOrderModel = serviceOrderModel
 
-        if (serviceOrderModel.arrange_script_info != nil) {
+        if serviceOrderModel.arrange_script_info != nil {
 
             let x = buildKeypointsView()
             buildDescriptionAndAlertView(x)

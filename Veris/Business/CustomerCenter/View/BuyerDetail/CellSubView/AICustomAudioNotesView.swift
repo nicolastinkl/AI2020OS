@@ -124,7 +124,7 @@ internal class AICustomAudioNotesView: UIView, AVAudioRecorderDelegate {
             //logInfo("Average input Low pass results: \(lowPassResults)")
             // 如果录音长度超长，则停止录音
 
-            if (rder.currentTime >= maxRecordTime) {
+            if rder.currentTime >= maxRecordTime {
                 stopRecording()
             }
 

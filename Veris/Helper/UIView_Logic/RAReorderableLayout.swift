@@ -497,11 +497,11 @@ class RAReorderableLayout: UICollectionViewFlowLayout, UIGestureRecognizerDelega
         }
 
         if gestureRecognizer.isEqual(self.longPress) {
-            if (self.collectionView!.panGestureRecognizer.state != .Possible && self.collectionView!.panGestureRecognizer.state != .Failed) {
+            if self.collectionView!.panGestureRecognizer.state != .Possible && self.collectionView!.panGestureRecognizer.state != .Failed {
                 return false
             }
         } else if gestureRecognizer.isEqual(self.panGesture) {
-            if (self.longPress!.state == .Possible || self.longPress!.state == .Failed) {
+            if self.longPress!.state == .Possible || self.longPress!.state == .Failed {
                 return false
             }
         }
@@ -521,7 +521,7 @@ class RAReorderableLayout: UICollectionViewFlowLayout, UIGestureRecognizerDelega
                 return false
             }
         } else if gestureRecognizer.isEqual(self.collectionView?.panGestureRecognizer) {
-            if (self.longPress!.state != .Possible || self.longPress!.state != .Failed) {
+            if self.longPress!.state != .Possible || self.longPress!.state != .Failed {
                 return false
             }
         }

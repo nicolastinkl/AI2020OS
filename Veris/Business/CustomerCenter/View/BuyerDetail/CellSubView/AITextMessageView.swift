@@ -29,13 +29,13 @@ class AITextMessageView: AIWishMessageView {
 
     func handleLongPress(longPressRecognizer: UILongPressGestureRecognizer) {
 
-        if (longPressRecognizer.state != UIGestureRecognizerState.Began) {
+        if longPressRecognizer.state != UIGestureRecognizerState.Began {
             return
         }
 
         let point = longPressRecognizer.locationInView(self)
 
-        if (becomeFirstResponder() == false) {
+        if becomeFirstResponder() == false {
             return
         }
 

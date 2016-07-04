@@ -199,7 +199,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         let listData: ProposalOrderListModel? = appDelegate.buyerListData
         let proposalData: AIProposalPopListModel? = appDelegate.buyerProposalData
         weak var weakSelf = self
-        if (listData != nil && proposalData != nil) {
+        if listData != nil && proposalData != nil {
             Async.main(after: 0.3, block: { () -> Void in
                 weakSelf!.parseListData(listData)
                 weakSelf!.parseProposalData(proposalData)
@@ -717,7 +717,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     // MARK: - ScrollViewDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if (scrollView.contentOffset.y > 0) {
+        if scrollView.contentOffset.y > 0 {
             topBar.backgroundColor = UIColor(white: 0, alpha: 0.55)
         } else {
             topBar.backgroundColor = UIColor.clearColor()
@@ -731,9 +731,9 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         if let bView = bubbleViewContainer {
             let maxHeight = CGRectGetHeight(bView.frame) - topBarHeight
 
-            if (offset > maxHeight / 2 && offset <= maxHeight) {
+            if offset > maxHeight / 2 && offset <= maxHeight {
                 tableView?.scrollRectToVisible(CGRectMake(0, maxHeight - AITools.displaySizeFrom1080DesignSize(96), screenWidth, CGRectGetHeight((tableView?.frame)!)), animated: true)
-            } else if (offset < maxHeight / 2) {
+            } else if offset < maxHeight / 2 {
                 tableView?.scrollRectToVisible(CGRectMake(0, 0, screenWidth, CGRectGetHeight((tableView?.frame)!)), animated: true)
             }
         }
@@ -765,7 +765,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
             // 添加占位区
             let offset = CGRectGetHeight(self.view.bounds) - self.topBarHeight - (CGFloat(self.dataSource.count)  *  self.tableCellRowHeight)
-            if (offset > 0) {
+            if offset > 0 {
                 let view = UIView(frame: CGRectMake(0, 0, self.screenWidth, offset))
                 self.tableView.tableFooterView = view
             } else {

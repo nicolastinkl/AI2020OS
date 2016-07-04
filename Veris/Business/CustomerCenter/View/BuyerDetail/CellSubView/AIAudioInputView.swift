@@ -131,7 +131,7 @@ internal class AIAudioInputView: UIView, AVAudioRecorderDelegate {
                 self.timeText.text = "0:\(audioTimes)"
             }
 
-            if (rder.currentTime >= maxRecordTime) {
+            if rder.currentTime >= maxRecordTime {
                 stopRecording()
             }
         }

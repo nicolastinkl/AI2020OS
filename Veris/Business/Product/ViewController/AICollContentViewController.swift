@@ -423,7 +423,7 @@ extension AICollContentViewController : UITableViewDataSource, UITableViewDelega
     }
 
     func getCellWithIndexPath(indexPath: NSIndexPath) -> AITimelineCellBaseView {
-        if (cachedCells[indexPath.row] != nil) {
+        if cachedCells[indexPath.row] != nil {
             return cachedCells[indexPath.row]!
         } else {
             let model = timelineModels[indexPath.row]

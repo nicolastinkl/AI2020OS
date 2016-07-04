@@ -221,7 +221,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         }
 
         // 配置语音协助定向推送
-        if (defaultUserType == "100") {
+        if defaultUserType == "100" {
             AIRemoteNotificationHandler.defaultHandler().addNotificationForUser(defaultUserID)
         } else {
             AIRemoteNotificationHandler.defaultHandler().removeNotificationForUser(defaultUserID)
@@ -290,7 +290,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
             self.didFinishGetBuyerListData = true
             self.buyerListData = responseData
 
-            if (self.didFinishGetSellerData && self.didFinishGetBuyerProposalData) {
+            if self.didFinishGetSellerData && self.didFinishGetBuyerProposalData {
                 self.showRootViewController()
             }
 
@@ -298,7 +298,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
                 self.didFinishGetBuyerListData = true
                 self.buyerListData = nil
-                if (self.didFinishGetSellerData && self.didFinishGetBuyerProposalData) {
+                if self.didFinishGetSellerData && self.didFinishGetBuyerProposalData {
                     self.showRootViewController()
                 }
         }
@@ -307,7 +307,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
             self.didFinishGetBuyerProposalData = true
             self.buyerProposalData = responseData
 
-            if (self.didFinishGetSellerData && self.didFinishGetBuyerListData) {
+            if self.didFinishGetSellerData && self.didFinishGetBuyerListData {
                 self.showRootViewController()
             }
 
@@ -315,7 +315,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
                 self.didFinishGetBuyerProposalData = true
                 self.buyerProposalData = nil
-                if (self.didFinishGetSellerData && self.didFinishGetBuyerListData) {
+                if self.didFinishGetSellerData && self.didFinishGetBuyerListData {
                     self.showRootViewController()
                 }
         }
@@ -332,14 +332,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
             self.didFinishGetSellerData = true
             self.sellerData = response as? NSDictionary
 
-            if (self.didFinishGetBuyerListData && self.didFinishGetBuyerProposalData) {
+            if self.didFinishGetBuyerListData && self.didFinishGetBuyerProposalData {
                 self.showRootViewController()
             }
 
             }) { (AINetError, String) -> Void in
                 self.didFinishGetSellerData = true
                 self.sellerData = nil
-                if (self.didFinishGetBuyerListData && self.didFinishGetBuyerProposalData) {
+                if self.didFinishGetBuyerListData && self.didFinishGetBuyerProposalData {
                     self.showRootViewController()
                 }
         }

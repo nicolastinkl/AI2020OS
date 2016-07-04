@@ -89,12 +89,12 @@ class BuildInCameraUtils {
 
         library.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (assetsGroup: ALAssetsGroup!, pointer: UnsafeMutablePointer<ObjCBool>) in
 
-            if (assetsGroup != nil) {
+            if assetsGroup != nil {
                 assetsGroup.setAssetsFilter(ALAssetsFilter.allPhotos())
 
                 assetsGroup.enumerateAssetsAtIndexes(NSIndexSet.init(index: 0), options: NSEnumerationOptions.init(rawValue: 0), usingBlock: { (asset: ALAsset!, index: Int, point: UnsafeMutablePointer<ObjCBool>) in
 
-                    if (asset != nil) {
+                    if asset != nil {
                         let representation = asset.defaultRepresentation()
                         info = representation.metadata()
                         AILog(info!)
@@ -140,7 +140,7 @@ class BuildInCameraUtils {
      {
 
      // The end of the enumeration is signaled by asset == nil.
-     if (alAsset) {
+     if alAsset {
      ALAssetRepresentation *representation = [alAsset defaultRepresentation];
      NSDictionary *imageMetadata = [representation metadata];
      // Do something interesting with the metadata.

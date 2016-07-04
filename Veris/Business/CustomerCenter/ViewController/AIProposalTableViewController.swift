@@ -131,7 +131,7 @@ class AIProposalTableViewController: UIViewController {
             
             // 添加占位区
 //            let offset = CGRectGetHeight(self.view.bounds) - self.topBarHeight - (CGFloat(self.dataSource.count)  *  self.tableCellRowHeight)
-//            if (offset > 0) {
+//            if offset > 0 {
 //                let view = UIView(frame: CGRectMake(0, 0, self.screenWidth, offset))
 //                self.tableView.tableFooterView = view
 //            } else {

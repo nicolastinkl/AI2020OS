@@ -338,7 +338,7 @@ public extension UIImage {
 
 	public func applyBlurWithRadius(blurRadius: CGFloat, tintColor: UIColor?, saturationDeltaFactor: CGFloat, maskImage: UIImage? = nil) -> UIImage? {
 		// Check pre-conditions.
-		if (size.width < 1 || size.height < 1) {
+		if size.width < 1 || size.height < 1 {
 			AILog("*** error: invalid size: \(size.width) x \(size.height). Both dimensions must be >= 1: \(self)")
 			return nil
 		}

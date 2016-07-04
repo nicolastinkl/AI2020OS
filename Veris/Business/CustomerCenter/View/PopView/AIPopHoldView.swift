@@ -156,7 +156,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
 
         //[self removeSnapBehaviors];
 
-        if (self.expanded == true) {
+        if self.expanded == true {
             self.shrinkSubmenu()
         } else {
             self.expandSubmenu()
@@ -169,7 +169,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
 
         //[self removeSnapBehaviors];
 
-        if (self.expanded == true) {
+        if self.expanded == true {
             self.shrinkSubmenu()
         } else {
             self.expandSubmenu()
@@ -185,17 +185,17 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
 
     func panned(gesture: UIPanGestureRecognizer) {
         let touchedView = gesture.view
-        if (gesture.state == UIGestureRecognizerState.Began) {
+        if gesture.state == UIGestureRecognizerState.Began {
             self.animator?.removeBehavior(self.itemBehavior!)
             self.animator?.removeBehavior(self.collision!)
             self.removeSnapBehaviors()
-        } else if (gesture.state == UIGestureRecognizerState.Changed) {
+        } else if gesture.state == UIGestureRecognizerState.Changed {
             touchedView?.center = gesture.locationInView(self.superview)
-        } else if (gesture.state == UIGestureRecognizerState.Ended) {
+        } else if gesture.state == UIGestureRecognizerState.Ended {
             self.bumper = touchedView
             self.animator?.addBehavior(self.collision!)
             let index = self.indexOfItemInArray(self.items!, item: touchedView!)
-            if (index >= 0) {
+            if index >= 0 {
                 self.snapToPostionsWithIndex(index)
             }
 
@@ -206,7 +206,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
         self.animator?.addBehavior(self.collision!)
         let lastView = self.items?.last
         let index = self.indexOfItemInArray(self.items!, item: lastView!)
-        if (index >= 0) {
+        if index >= 0 {
             self.snapToPostionsWithIndex(index)
         }
     }
@@ -214,7 +214,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
     func indexOfItemInArray(dataArray: Array<UIPopView>, item: AnyObject) -> Int {
         var index = -1
         for i in 0 ..< dataArray.count {
-            if (dataArray[i] === item) {
+            if dataArray[i] === item {
                 index = i
                 break
             }
@@ -268,16 +268,16 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
     func collisionBehavior(behavior: UICollisionBehavior, endedContactForItem item1: UIDynamicItem, withItem item2: UIDynamicItem) {
         self.animator?.addBehavior(self.itemBehavior!)
 
-        if (item1 !== self.bumper) {
+        if item1 !== self.bumper {
             let index = self.indexOfItemInArray(self.items!, item: item1)
-            if (index >= 0) {
+            if index >= 0 {
                 self.snapToPostionsWithIndex(index)
             }
         }
 
-        if (item2 !== self.bumper) {
+        if item2 !== self.bumper {
             let index = self.indexOfItemInArray(self.items!, item: item2)
-            if (index >= 0) {
+            if index >= 0 {
                 self.snapToPostionsWithIndex(index)
             }
         }
