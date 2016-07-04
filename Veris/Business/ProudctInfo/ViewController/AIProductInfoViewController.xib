@@ -85,11 +85,15 @@
                                 <constraint firstAttribute="height" id="y70-YS-Jgz"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buyerBottom" translatesAutoresizingMaskIntoConstraints="NO" id="Dz2-2r-1TW">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buyerBottom" translatesAutoresizingMaskIntoConstraints="NO" id="Dz2-2r-1TW">
                             <rect key="frame" x="0.0" y="57" width="600" height="80"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="pKw-lc-uQu"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="AmW-do-R8p" appends="YES" id="At7-Fv-aHF"/>
+                            </connections>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -122,8 +126,13 @@
                 <constraint firstAttribute="bottom" secondItem="moH-Ny-t9w" secondAttribute="bottom" id="hno-SI-vac"/>
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="uh5-Iw-2bm"/>
             </constraints>
-            <point key="canvasLocation" x="-240" y="155"/>
+            <point key="canvasLocation" x="-297" y="102"/>
         </view>
+        <tapGestureRecognizer id="AmW-do-R8p">
+            <connections>
+                <action selector="showOrderAction:" destination="-1" id="tma-vf-fZ7"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="buyerBottom" width="360" height="75"/>

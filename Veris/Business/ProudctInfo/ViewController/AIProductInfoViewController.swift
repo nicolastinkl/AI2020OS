@@ -211,13 +211,22 @@ class AIProductInfoViewController: UIViewController {
             tag.borderWidth = 0.5
             tag.cornerRadius = 10
             tagsView.addSubview(tag)
-            tag.setTitle("方案A", forState: UIControlState.Normal)
             tag.titleLabel?.textColor = UIColor.whiteColor()
             tag.titleLabel?.font = UIFont.systemFontOfSize(13)
             tag.frame = CGRectMake(CGFloat(index) * (55 + 10), 10, 55, 20)
 
             tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             tag.setTitleColor(AITools.colorWithR(253, g: 225, b: 50), forState: UIControlState.Highlighted)
+            
+            
+            if index == 0 {
+                tag.setTitle("方案A", forState: UIControlState.Normal)
+            }else if index == 1 {
+                tag.setTitle("方案B", forState: UIControlState.Normal)
+            }else{
+                tag.setTitle("自由定制", forState: UIControlState.Normal)
+                tag.addTarget(self, action: #selector(AIProductInfoViewController.showDetailView), forControlEvents: UIControlEvents.TouchUpInside)
+            }
 
         }
         tagsView.setLeft(10)
@@ -282,6 +291,44 @@ class AIProductInfoViewController: UIViewController {
         }
         return splitView
     }
+    
+    
+    // MARK: - DIY ACTION
+    
+    func showDetailView(){
+        let model = AIBuyerBubbleModel()
+        model.proposal_id = 3525
+        model.proposal_name = "Pregnancy Care"
+        let viewsss = createBuyerDetailViewController(model)
+        self.showViewController(viewsss, sender: self)
+    }
+    
+    func  createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
+        
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
+        viewController.bubbleModel = model
+        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        
+        return viewController
+    }
+    
+    func configOrderAction(){
+        let model = AIProposalInstModel()
+        model.proposal_id = 3525
+        model.proposal_name = "Pregnancy Care"
+        
+        if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
+            vc.dataSource  = model
+            self.showViewController(vc, sender: self)
+        }
+        
+    }
+   
+    @IBAction func showOrderAction(sender: AnyObject) {
+        configOrderAction()
+    }
+    
 }
 
 

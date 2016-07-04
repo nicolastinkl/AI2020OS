@@ -25,7 +25,9 @@
 import Foundation
 import Spring
 import Cartography
+import AIAlertView
 
+/// 订单确认界面
 class AIConfirmOrderViewController: UIViewController {
 
     @IBOutlet weak var backButton: UIButton!
@@ -38,7 +40,7 @@ class AIConfirmOrderViewController: UIViewController {
 
     var heightDic: [String:CGFloat] = Dictionary<String, CGFloat>()
 
-    var dataSource: AIProposalInstModel!
+    var dataSource: AIProposalInstModel?
 
     private var current_service_list: NSArray? {
         get {
@@ -55,16 +57,48 @@ class AIConfirmOrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-
+        /**
+         Config.
+         */
+        ConfigTableView()
+        
         /**
          Init.
          */
         InitData()
 
-        tableView.reloadData()
-
+        /**
+         Data Referesh.
+         */
+        if let _ = current_service_list {
+            tableView.reloadData()
+        }else{
+            //Reqest Networking.
+            reqestData()
+        }
+        
+    }
+    
+    func reqestData(){
+        view.showLoading()
+        BDKProposalService().queryCustomerProposalDetail(dataSource?.proposal_id ?? 0, success: { [weak self](responseData) in
+            
+            if let strongSelf = self {
+                strongSelf.dataSource = responseData
+                strongSelf.tableView.reloadData()
+                strongSelf.view.hideLoading()
+            }
+            }) { (errType, errDes) in
+                self.view.hideLoading()
+        }
+    }
+    
+    func ConfigTableView(){
+        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0)
+        
     }
 
     func InitData() {
@@ -129,8 +163,15 @@ class AIConfirmOrderViewController: UIViewController {
     }
 
     @IBAction func pleaseMyOrderAction(sender: AnyObject) {
-
-
+        view.showLoading()
+        AIOrderRequester().submitProposalOrder(dataSource?.proposal_id ?? 0, serviceList:current_service_list as! [AnyObject], success: { () -> Void in
+            AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
+            self.view.hideLoading()
+            self.dismissViewControllerAnimated(true, completion: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
+        }) { (errType, errDes) -> Void in
+            self.view.hideLoading()
+        }
     }
 
 
@@ -319,7 +360,6 @@ extension AIConfirmOrderViewController: UITableViewDelegate, UITableViewDataSour
     func settingsBlackColor(sviews: [UIView]) {
 
         for sview in sviews {
-//            sview.alpha = 0.7
             constrain(sview) { (layout) in
                 layout.width == 10
                 layout.height == 10
