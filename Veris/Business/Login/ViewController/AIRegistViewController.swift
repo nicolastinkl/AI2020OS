@@ -9,9 +9,7 @@
 import UIKit
 import Spring
 
-
 class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
-
 
     @IBOutlet weak var promoteLabel: AILoginPromptLabel!
     @IBOutlet weak var regionTitleLabel: UILabel!

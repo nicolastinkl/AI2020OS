@@ -244,7 +244,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
                     weakSelf!.didRefresh = false
                     weakSelf!.tableView.headerEndRefreshing()
             })
-
+            AILog(bubblesDone)
         }
     }
 

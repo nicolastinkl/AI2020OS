@@ -75,8 +75,7 @@ class ServiceCardTextView: ServiceParamlView {
 		
 		if let dataSource = dataSource {
 			for i in 0..<dataSource.param_list.count {
-				
-				let stadandParam = dataSource?.param_list[i] as! ServiceCellStadandParamModel
+				let stadandParam = dataSource.param_list[i] as! ServiceCellStadandParamModel
 				let text = stadandParam.param_value
 				curFrame = buildFlag(curFrame, text: text, number: i)
 			}

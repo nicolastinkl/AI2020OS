@@ -67,6 +67,7 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
         view.addSubview(pageControl)
         scrollView.pagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
         
         // Copy.
         assets.forEach { (value) in
@@ -76,7 +77,6 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
         
         pageControl.pinToBottomEdgeOfSuperview(offset: 20, priority: UILayoutPriorityRequired)
         pageControl.centerHorizontallyInSuperview()
-        
         
         // Add the album view controllers to the scroll view
         var index: Int = 1
@@ -92,8 +92,9 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
             imageview.tag = index
             index += 1
         }
-        
-        scrollView.contentSize = CGSizeMake(CGFloat(assets.count) * scrollView.width, scrollView.height)
+        if assets.count > 1 {
+            scrollView.contentSize = CGSizeMake(CGFloat(assets.count) * scrollView.width, scrollView.height)
+        }
         pageControl.numberOfPages = assets.count
         if #available(iOS 9, *) {
             scrollView.boundHorizontally(pageViews)
