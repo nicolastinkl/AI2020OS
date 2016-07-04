@@ -41,7 +41,7 @@ class AITaskInputViewController: UIViewController {
 
 extension AITaskInputViewController: UITextViewDelegate {
 	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-		if (text == "\n") {
+		if text == "\n" {
             if let textViewShouldEndEditing = delegate?.inputViewControllerShouldEndEditing?(self, text: textView.text) {
                 if !textViewShouldEndEditing {
                     textView.shake(.Horizontal, numberOfTimes: 10, totalDuration: 0.6, completion: {

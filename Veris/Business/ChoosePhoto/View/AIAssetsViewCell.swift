@@ -27,7 +27,7 @@ import Foundation
 /// Photo Cell
 class AIAssetsViewCell: UICollectionViewCell {
     
-    var model:AIAssetsPickerModel?
+    var model: AIAssetsPickerModel?
     
     private var asset: ALAsset?
     
@@ -48,14 +48,14 @@ class AIAssetsViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func bind(assetSuper: ALAsset){
+    func bind(assetSuper: ALAsset) {
         asset = assetSuper
         image = UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
         type = assetSuper.valueForProperty(ALAssetPropertyType) as! String
     }
     
     override var selected: Bool {
-        didSet{
+        didSet {
             setNeedsDisplay()
         }
     }
@@ -65,16 +65,16 @@ class AIAssetsViewCell: UICollectionViewCell {
         self.image?.drawInRect(CGRectMake(0, 0, 100, 100))
         
         var imageSelect: UIImage = uncheckedIcon
-        if (self.selected) {
+        if self.selected {
             imageSelect = checkedIcon
-        }else{
+        } else {
             imageSelect = uncheckedIcon
         }
         
         let x = CGRectGetMaxX(rect) - checkedIcon.size.width - 3
         let y = CGRectGetMinY(rect) + 3
         
-        imageSelect.drawAtPoint(CGPointMake(x,y))
+        imageSelect.drawAtPoint(CGPointMake(x, y))
     }
 }
 
@@ -98,7 +98,7 @@ class AIAssetsFootViewCell: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setNumberOfPhotos(photos: Int){
+    func setNumberOfPhotos(photos: Int) {
         sectionLabel.text = "照片\(photos)张"
     }
     

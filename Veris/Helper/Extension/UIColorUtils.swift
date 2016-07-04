@@ -45,7 +45,7 @@ extension UIColor {
             if scanner.scanHexLongLong(&hexValue) {
 
                 let counts = hex.length
-                switch (counts) {
+                switch counts {
                 case 3:
                     red   = CGFloat((hexValue & 0xF00) >> 8)       / 15.0
                     green = CGFloat((hexValue & 0x0F0) >> 4)       / 15.0

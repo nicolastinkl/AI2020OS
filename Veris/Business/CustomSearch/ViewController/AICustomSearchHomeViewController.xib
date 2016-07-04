@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AICustomSearchHomeViewController" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="holdView" destination="ZmO-Bo-P57" id="w7M-vp-euA"/>
+                <outlet property="resultHoldView" destination="mdy-F9-PrK" id="fl0-0N-9u8"/>
                 <outlet property="searchText" destination="TLn-s0-RLL" id="DDb-i8-jV0"/>
                 <outlet property="tableView" destination="x0X-vW-wdc" id="AnB-hf-7fp"/>
                 <outlet property="view" destination="kgd-tX-Y0E" id="8IO-Dh-mWN"/>
@@ -145,39 +146,55 @@
                                 </mask>
                             </variation>
                         </view>
-                        <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x0X-vW-wdc">
-                            <rect key="frame" x="0.0" y="58" width="600" height="542"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="SUP-sj-Txb"/>
-                                <outlet property="delegate" destination="-1" id="fzh-mp-Xjg"/>
-                            </connections>
-                        </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZmO-Bo-P57">
                             <rect key="frame" x="0.0" y="58" width="600" height="542"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdy-F9-PrK">
+                            <rect key="frame" x="0.0" y="58" width="600" height="542"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x0X-vW-wdc">
+                                    <rect key="frame" x="0.0" y="52" width="600" height="490"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="SUP-sj-Txb"/>
+                                        <outlet property="delegate" destination="-1" id="fzh-mp-Xjg"/>
+                                    </connections>
+                                </tableView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T59-kx-bm1" customClass="AICutomSearchHomeResultFilterBar" customModule="Veris" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="10" width="600" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="1Fu-Lf-NAd"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="T59-kx-bm1" firstAttribute="leading" secondItem="mdy-F9-PrK" secondAttribute="leading" id="0NC-R2-wXw"/>
+                                <constraint firstAttribute="trailing" secondItem="x0X-vW-wdc" secondAttribute="trailing" id="6Q0-yr-lBc"/>
+                                <constraint firstItem="x0X-vW-wdc" firstAttribute="top" secondItem="T59-kx-bm1" secondAttribute="bottom" constant="2" id="cmX-hC-XT9"/>
+                                <constraint firstItem="x0X-vW-wdc" firstAttribute="leading" secondItem="mdy-F9-PrK" secondAttribute="leading" id="jJz-nG-UDr"/>
+                                <constraint firstAttribute="trailing" secondItem="T59-kx-bm1" secondAttribute="trailing" id="jSJ-fB-z90"/>
+                                <constraint firstAttribute="bottom" secondItem="x0X-vW-wdc" secondAttribute="bottom" id="znc-w8-bIv"/>
+                                <constraint firstItem="T59-kx-bm1" firstAttribute="top" secondItem="mdy-F9-PrK" secondAttribute="top" constant="10" id="zqg-rd-qDh"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="6tC-Zl-1mK" secondAttribute="trailing" id="Bbt-FI-hVY"/>
-                        <constraint firstAttribute="trailing" secondItem="x0X-vW-wdc" secondAttribute="trailing" id="H4K-O5-zcx"/>
-                        <constraint firstItem="x0X-vW-wdc" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" id="IEz-7f-ofv"/>
+                        <constraint firstItem="mdy-F9-PrK" firstAttribute="top" secondItem="6tC-Zl-1mK" secondAttribute="bottom" id="O8i-6l-3J0"/>
+                        <constraint firstAttribute="trailing" secondItem="mdy-F9-PrK" secondAttribute="trailing" id="Xmn-w1-Vfv"/>
+                        <constraint firstAttribute="bottom" secondItem="mdy-F9-PrK" secondAttribute="bottom" id="Xoh-7e-KUC"/>
                         <constraint firstAttribute="bottom" secondItem="ZmO-Bo-P57" secondAttribute="bottom" id="daQ-ws-ddP"/>
                         <constraint firstItem="ZmO-Bo-P57" firstAttribute="top" secondItem="6tC-Zl-1mK" secondAttribute="bottom" id="jfS-Kh-YP1"/>
                         <constraint firstItem="6tC-Zl-1mK" firstAttribute="top" secondItem="gcb-5F-OXg" secondAttribute="top" constant="20" id="qg0-VS-9jS"/>
-                        <constraint firstItem="x0X-vW-wdc" firstAttribute="top" secondItem="6tC-Zl-1mK" secondAttribute="bottom" id="rHR-Yw-J5A"/>
                         <constraint firstItem="ZmO-Bo-P57" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" id="rf5-ML-Vqb"/>
                         <constraint firstItem="6tC-Zl-1mK" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" id="sSB-au-jIe"/>
-                        <constraint firstAttribute="bottom" secondItem="x0X-vW-wdc" secondAttribute="bottom" id="vou-8q-BHt"/>
+                        <constraint firstItem="mdy-F9-PrK" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" id="viU-tY-iUO"/>
                         <constraint firstAttribute="trailing" secondItem="ZmO-Bo-P57" secondAttribute="trailing" id="xaq-d0-U7r"/>
-                        <constraint firstItem="ZmO-Bo-P57" firstAttribute="top" secondItem="6tC-Zl-1mK" secondAttribute="top" id="zVs-7f-KFh"/>
                     </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="zVs-7f-KFh"/>
-                        </mask>
-                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

@@ -544,7 +544,7 @@ typedef NS_ENUM(NSInteger, AIMovementDirection) {
     _backgroundView = [[UIView alloc]initWithFrame:self.bounds];
     _backgroundView.backgroundColor = [UIColor blackColor];
    
-    [self insertSubview:_backgroundView aboveSubview:_moviewPlayer];
+    [self insertSubview:_backgroundView aboveSubview:_moviewPlayer.view];
 }
 
 - (void)removeTouchedBackgroundView

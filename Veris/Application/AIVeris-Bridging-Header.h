@@ -43,9 +43,7 @@
 
 #import "AITools.h"
 
-#import "AICardCell.h"
 
-#import "AICardView.h"
 
 #import "AIViews.h"
 

@@ -29,7 +29,7 @@ extension UIButton {
     /**
      显示按钮加载视图
      */
-    func showActioningLoading(){
+    func showActioningLoading() {
         self.showProgressViewLoading()
         self.enabled = false
         self.setTitle("", forState: UIControlState.Normal)
@@ -39,7 +39,7 @@ extension UIButton {
     /**
      隐藏按钮加载视图
      */
-    func hideActioningLoading(title: String){
+    func hideActioningLoading(title: String) {
         self.hideProgressViewLoading()
         self.enabled = true
         self.setTitle(title, forState: UIControlState.Normal)

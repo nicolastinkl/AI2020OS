@@ -47,7 +47,7 @@ class CollectionViewLayout: UICollectionViewFlowLayout {
 		let numOfItems = self.collectionView!.numberOfSections()
 
 		for attr: UICollectionViewLayoutAttributes in attrsArray! {
-			if (attr.representedElementCategory == UICollectionElementCategory.Cell) {
+			if attr.representedElementCategory == UICollectionElementCategory.Cell {
 				var cellRect = attr.frame
 				if offsetY <= 0 {
 					let distance = fabs(offsetY) / SpringFactor

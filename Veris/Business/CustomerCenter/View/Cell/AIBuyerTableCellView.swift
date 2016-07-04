@@ -16,7 +16,7 @@ class AITableFoldedCellHolder: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         let folderCellView = self.contentView.subviews.first
-        if (folderCellView?.hidden == false) {
+        if folderCellView?.hidden == false {
             var frame = self.contentView.frame
             frame.size.height += 10
             self.contentView.frame = frame

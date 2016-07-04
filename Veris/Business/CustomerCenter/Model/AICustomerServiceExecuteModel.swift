@@ -23,7 +23,7 @@ class AITimelineViewModel: AIBaseViewModel {
         timelineViewModel.desc = "陪护人员已完成挂号任务"
         let timeModel = AIDateTimeViewModel()
         timeModel.date = "6月20日"
-        timeModel.time = "\(16 + Int(itemId)! * 10):10"
+        timeModel.time = "\(16 + Int(itemId)!):10"
         timelineViewModel.timeModel = timeModel
         
         let contentViewModel = [AITimeContentViewModel(contentType: AITimelineContentTypeEnum.Image, contentUrl: "http://tinkl.qiniudn.com/tinklUpload_newimage/imageview-01.png"), AITimeContentViewModel(contentType: AITimelineContentTypeEnum.Voice, contentUrl: "https://dn-xkz4nhs9.qbox.me/jeltYtKqE6fVQIUSbz04SbB.aac")]
@@ -38,7 +38,7 @@ class AITimelineViewModel: AIBaseViewModel {
         timelineViewModel.desc = "订单服务已完成"
         let timeModel = AIDateTimeViewModel()
         timeModel.date = "6月20日"
-        timeModel.time = "\(16 + Int(itemId)! * 10):10"
+        timeModel.time = "\(16 + Int(itemId)!):10"
         timelineViewModel.timeModel = timeModel
         return timelineViewModel
     }

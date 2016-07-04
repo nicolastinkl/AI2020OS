@@ -153,7 +153,7 @@ struct AIHttpEngine {
                     }
                 }
 
-                if (error != nil) {
+                if error != nil {
                     result = false
                 }
 

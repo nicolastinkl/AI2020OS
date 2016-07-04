@@ -285,7 +285,8 @@ class AIBuyerDetailViewController: UIViewController {
     // MARK: 提交订单
     func addTapActionForView(view: UIView) {
         let width: CGFloat = 100
-        let frame: CGRect = CGRectMake((CGRectGetWidth(view.frame)-width) / 2, 0, width, CGRectGetHeight(view.frame))
+        let x: CGFloat = (CGRectGetWidth(view.frame)-width) / 2
+        let frame: CGRect = CGRect(x: x, y: 0, width: width, height: CGRectGetHeight(view.frame))
 
         let tapView = UIView(frame: frame)
         tapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIBuyerDetailViewController.bottomTapAction)))
@@ -301,27 +302,27 @@ class AIBuyerDetailViewController: UIViewController {
             self.showViewController(vc, sender: self)
         }
          
-        return
-
-        if let anyServiceNotSelected = current_service_list?.contains({ (obj) -> Bool in
-            return obj.param_setting_flag == 0 ? true : false
-        }) {
-            //有任何一个或几个服务 未选中
-            if anyServiceNotSelected {
-                AIAlertView().showInfo("AIBuyerDetailViewController.selectService".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
-                return
-            }
-        }
-
-        view.showLoading()
-        AIOrderRequester().submitProposalOrder(dataSource.proposal_id, serviceList:current_service_list as! [AnyObject], success: { () -> Void in
-            AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
-            self.view.hideLoading()
-            self.dismissViewControllerAnimated(true, completion: nil)
-            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
-            }) { (errType, errDes) -> Void in
-                self.view.hideLoading()
-        }
+//        return
+//
+//        if let anyServiceNotSelected = current_service_list?.contains({ (obj) -> Bool in
+//            return obj.param_setting_flag == 0 ? true : false
+//        }) {
+//            //有任何一个或几个服务 未选中
+//            if anyServiceNotSelected {
+//                AIAlertView().showInfo("AIBuyerDetailViewController.selectService".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
+//                return
+//            }
+//        }
+//
+//        view.showLoading()
+//        AIOrderRequester().submitProposalOrder(dataSource.proposal_id, serviceList:current_service_list as! [AnyObject], success: { () -> Void in
+//            AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
+//            self.view.hideLoading()
+//            self.dismissViewControllerAnimated(true, completion: nil)
+//            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
+//            }) { (errType, errDes) -> Void in
+//                self.view.hideLoading()
+//        }
     }
 
     func showNextViewController() {
@@ -678,7 +679,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
 
         var serviceList: NSArray?
 
-        if (tableView == deletedTableView) {
+        if tableView == deletedTableView {
             serviceList = deleted_service_list
         } else {
             serviceList = current_service_list
@@ -688,8 +689,9 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
 
         if let height = serviceDataModel.cell?.cellHeight {
 
-            if  (serviceDataModel.wish_list == nil) {
-                if (serviceDataModel.service_param == nil) {
+            if serviceDataModel.wish_list == nil {
+
+                if serviceDataModel.service_param == nil {
                     return height + 50
                 }
             }
@@ -705,7 +707,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
             selectCount = 0
             var serviceList: NSArray?
 
-            if (tableView == deletedTableView) {
+            if tableView == deletedTableView {
                 //需求说已删除的服务 不支持点击事件
                 return
                 //            serviceList = deleted_service_list
