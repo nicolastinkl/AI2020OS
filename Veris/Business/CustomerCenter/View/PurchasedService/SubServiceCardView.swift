@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Spring
 
 class SubServiceCardView: UIView {
 
+    @IBOutlet weak var proporsalName: UILabel!
+    @IBOutlet weak var messageNumber: UILabel!
+    @IBOutlet weak var statusButton: UIButton!
     @IBOutlet weak var serviceIcon: UIImageView!
     @IBOutlet weak var personIcon: UIImageView!
     @IBOutlet weak var serviceName: UILabel!
@@ -52,9 +56,14 @@ class SubServiceCardView: UIView {
     private func initSubView() {
         serviceIcon.makeRound()
         personIcon.makeRound()
+        additionDescription.makeRound()
         
-        leftButton.layer.cornerRadius = leftButton.height / 2
-        rightButton.layer.cornerRadius = rightButton.height / 2
+        proporsalName.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(60))
+        messageNumber.makeRound()
+        statusButton.titleLabel?.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(39))
+        
+        leftButton.makeRound()
+        rightButton.makeRound()
         rightButton.layer.borderColor = UIColor(hex: "#0f86e8").CGColor
         rightButton.layer.borderWidth = 1
         
