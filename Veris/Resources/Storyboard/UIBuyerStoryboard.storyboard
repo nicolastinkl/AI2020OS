@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -570,7 +570,7 @@
                                 <rect key="frame" x="0.0" y="537" width="600" height="63"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cru-fe-Z3x" customClass="DesignableButton" customModule="Spring">
-                                        <rect key="frame" x="114" y="11" width="372" height="42"/>
+                                        <rect key="frame" x="40" y="11" width="520" height="42"/>
                                         <color key="backgroundColor" red="0.0" green="0.51372549019607838" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="279" id="PxJ-67-vyo"/>
@@ -596,8 +596,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.34843195921985815" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="cru-fe-Z3x" firstAttribute="leading" secondItem="EVU-qY-4VM" secondAttribute="leading" constant="114" id="Hu7-z3-nyx"/>
-                                    <constraint firstAttribute="trailing" secondItem="cru-fe-Z3x" secondAttribute="trailing" constant="114" id="Lx7-U3-HZw"/>
+                                    <constraint firstItem="cru-fe-Z3x" firstAttribute="leading" secondItem="EVU-qY-4VM" secondAttribute="leading" constant="40" id="Hu7-z3-nyx"/>
+                                    <constraint firstAttribute="trailing" secondItem="cru-fe-Z3x" secondAttribute="trailing" constant="40" id="Lx7-U3-HZw"/>
                                     <constraint firstAttribute="height" constant="63" id="VQ0-qI-TOn"/>
                                     <constraint firstItem="cru-fe-Z3x" firstAttribute="centerX" secondItem="EVU-qY-4VM" secondAttribute="centerX" id="pf0-gb-YdB"/>
                                     <constraint firstItem="cru-fe-Z3x" firstAttribute="centerY" secondItem="EVU-qY-4VM" secondAttribute="centerY" id="rbp-Cb-A6P"/>
