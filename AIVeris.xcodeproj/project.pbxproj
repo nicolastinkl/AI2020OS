@@ -4133,7 +4133,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nif swiftlint version == 0.11.1; then\nswiftlint\nelse\necho \"请升级swiftlint , brew upgrade swiftlint\"\nfi\nelse\necho \"请安装swiftlint , brew install swiftlint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
