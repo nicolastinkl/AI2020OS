@@ -164,7 +164,7 @@ class JSSAlertView: UIViewController {
         hBorderView.frame = CGRectMake(0, yPos-0.5, alertWidth, 0.5)
         vBorderView.frame = CGRectMake(buttonWidth, yPos, 0.5, buttonHeight)
 
-        if (hBorderView.superview == nil) {
+        if hBorderView.superview == nil {
             alertBackgroundView.addSubview(hBorderView)
             alertBackgroundView.addSubview(vBorderView)
         }

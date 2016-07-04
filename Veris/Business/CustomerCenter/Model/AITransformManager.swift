@@ -126,13 +126,6 @@ class AIMockTransformManager: AITransformManager {
     }
 
     func modifyFavoriteFlag(contentId: Int, favoriteFlag: AIFavoriteStatu, completion: (Error?) -> Void) {
-//        for var i = 0; i < contentList.count; i++ {
-//            if contentList[i].id == contentId {
-//                contentList[i].isFavorite = favoriteFlag
-//                break
-//            }
-//        }
-
         completion(nil)
     }
 
