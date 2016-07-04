@@ -101,7 +101,7 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
 				
 //            let tap = UITapGestureRecognizer(target: self, action:"tapped:")
 //            item.addGestureRecognizer(tap)
-				
+
 				let pan = UIPanGestureRecognizer(target: self, action: #selector(AIPopHoldView.panned(_:)))
 				item.addGestureRecognizer(pan)
 				self.items?.append(item)
@@ -291,5 +291,5 @@ class AIPopHoldView: UIView, UICollisionBehaviorDelegate {
 			}
 		}
 	}
-	
+
 }

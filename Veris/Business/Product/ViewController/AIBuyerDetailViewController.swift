@@ -285,7 +285,8 @@ class AIBuyerDetailViewController: UIViewController {
     // MARK: 提交订单
     func addTapActionForView(view: UIView) {
         let width: CGFloat = 100
-        let frame: CGRect = CGRectMake((CGRectGetWidth(view.frame)-width) / 2, 0, width, CGRectGetHeight(view.frame))
+        let x: CGFloat = (CGRectGetWidth(view.frame)-width) / 2
+        let frame: CGRect = CGRect(x: x, y: 0, width: width, height: CGRectGetHeight(view.frame))
 
         let tapView = UIView(frame: frame)
         tapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIBuyerDetailViewController.bottomTapAction)))
@@ -688,7 +689,8 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
 
         if let height = serviceDataModel.cell?.cellHeight {
 
-            if  serviceDataModel.wish_list == nil {
+            if serviceDataModel.wish_list == nil {
+
                 if serviceDataModel.service_param == nil {
                     return height + 50
                 }

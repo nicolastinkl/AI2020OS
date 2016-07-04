@@ -69,9 +69,9 @@ class AIProposalTableViewController: UIViewController {
         let bdk = BDKProposalService()
         // 列表数据
         weak var weakSelf = self
-        var listDone = false
+
         bdk.getProposalList({ (responseData) -> Void in
-            listDone = true
+
             weakSelf!.didRefresh = true
             weakSelf!.parseListData(responseData)
             weakSelf!.tableView.reloadData()
