@@ -55,12 +55,20 @@ class SubServiceCardView: UIView {
         
         leftButton.layer.cornerRadius = leftButton.height / 2
         rightButton.layer.cornerRadius = rightButton.height / 2
+        rightButton.layer.borderColor = UIColor(hex: "#0f86e8").CGColor
+        rightButton.layer.borderWidth = 1
         
         additionalViewHeight.constant = 0
         addtionView.updateConstraints()
         
         urgeButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SubServiceCardView.urgeBtnTap(_:))))
         callButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SubServiceCardView.callBtnTap(_:))))
+        
+        serviceName.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+        nodeName.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+        additionDescription.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+        nodeState.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(39))
+        nodeDate.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
     }
     
 }
