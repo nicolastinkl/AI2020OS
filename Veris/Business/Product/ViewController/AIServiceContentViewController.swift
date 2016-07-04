@@ -63,7 +63,7 @@ internal class AIServiceContentViewController: UIViewController {
 	private var currentAudioView: AIAudioInputView?
 	private var brandView: AIDropdownBrandView?
 	private var musicView: AIMusicTherapyView?
-	private var paramedicView: AIParamedicView?
+
 	
 	private var isfinishLoadData: Bool = false
 	
@@ -727,16 +727,7 @@ internal class AIServiceContentViewController: UIViewController {
 		galleryView.imageModelArray = imageArray
 		galleryView.setTop(5)
 	}
-	
-	private func addEscortView(preView: UIView?) -> UIView {
-		let preView = preView ?? galleryView
-		let paramedicFrame = CGRectMake(0, preView.bottom, CGRectGetWidth(scrollView.frame), 600)
-		paramedicView = AIParamedicView(frame: paramedicFrame, model: currentDatasource, shouldShowParams: serviceContentType != .None)
-		
-		addNewSubView(paramedicView!, preView: preView)
-		paramedicView!.backgroundColor = UIColor.clearColor()
-		return paramedicView!
-	}
+
 	
 	private func addCustomView(preView: UIView) -> UIView? {
 		
@@ -1089,11 +1080,7 @@ extension AIServiceContentViewController: AIBuyerParamsDelegate {
 			selectedParams = []
 			selectedParams? += musicParams
 		}
-		
-		if let paramedicParams = paramedicView?.getSelectedParams() {
-			selectedParams = []
-			selectedParams? += paramedicParams
-		}
+
 		
 		return selectedParams
 	}
