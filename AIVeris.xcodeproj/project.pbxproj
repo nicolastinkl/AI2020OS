@@ -620,6 +620,7 @@
 		93C8C9AA1D14035B00F1DFCF /* AICustomSearchHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */; };
 		93E4C4001D20E40D007EB116 /* AIAssetsPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4C3FF1D20E40D007EB116 /* AIAssetsPickerController.swift */; };
 		93E4C4021D20E478007EB116 /* AIAssetsPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E4C4011D20E478007EB116 /* AIAssetsPickerController.xib */; };
+		93E8469B1D2A0FB400CD4BD0 /* AIUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */; };
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93F3FFEE1D06C0EB000283DA /* README.txt in Sources */ = {isa = PBXBuildFile; fileRef = 93F3FFED1D06C0EB000283DA /* README.txt */; };
 		93F3FFF21D06C5C0000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF11D06C5C0000283DA /* README.txt */; };
@@ -1602,6 +1603,7 @@
 		93D5A3491B709C1C00DDB158 /* Veris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E4C3FF1D20E40D007EB116 /* AIAssetsPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsPickerController.swift; sourceTree = "<group>"; };
 		93E4C4011D20E478007EB116 /* AIAssetsPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsPickerController.xib; sourceTree = "<group>"; };
+		93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUIButton.swift; sourceTree = "<group>"; };
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
 		93F3FFED1D06C0EB000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		93F3FFF11D06C5C0000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
@@ -2658,6 +2660,7 @@
 				81433B331CFBE5A700347C29 /* UIView+Shake.swift */,
 				81433B341CFBE5A700347C29 /* UIViewController+AIPopup.swift */,
 				FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */,
+				93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -4688,6 +4691,7 @@
 				81433D141CFBE5A700347C29 /* AIBubble.m in Sources */,
 				81433ECC1CFBE5A700347C29 /* UIImage+TDAdditions.m in Sources */,
 				81433E3A1CFBE5A700347C29 /* AIWeiboData.m in Sources */,
+				93E8469B1D2A0FB400CD4BD0 /* AIUIButton.swift in Sources */,
 				81433CE51CFBE5A700347C29 /* AIProposalServiceCellModel.m in Sources */,
 				81433E121CFBE5A700347C29 /* UnderlineLabel.swift in Sources */,
 				81433CED1CFBE5A700347C29 /* PriceAccount.swift in Sources */,

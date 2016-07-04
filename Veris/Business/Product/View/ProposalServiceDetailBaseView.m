@@ -48,7 +48,7 @@
 
     CGRect frame = CGRectMake(0, positionY, totalWidth, totalHeight);
 
-    __weak ProposalServiceDetailBaseView *weakself = self;
+    //__weak ProposalServiceDetailBaseView *weakself = self;
     PriceAndStepperView *priceView = [[PriceAndStepperView alloc]initWithFrame:frame price:price showStepper:YES defaultValue:0 minValue:0 maxValue:-1 onValueChanged:^(PriceAndStepperView *stepper) {
     }];
 
