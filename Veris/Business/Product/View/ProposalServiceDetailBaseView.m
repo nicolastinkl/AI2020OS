@@ -88,8 +88,4 @@
     return attriString;
 }
 
-- (NSArray *)getSelectedParams {
-    return @[];
-}
-
 @end

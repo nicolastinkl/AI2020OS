@@ -137,7 +137,14 @@
         
         if ([param.param_name isEqual: @"Service Coverage"]) {
             _coverageModel = param;
-            serviceCoverage = [[AIServiceCoverage alloc] initWithFrame:coverageFrame model:param];
+            
+            AIServiceCoverageModel * model = [[AIServiceCoverageModel alloc] init];
+            model.title = param.param_name;
+            model.options = @[];
+            model.modelType = param.param_type;
+//            model.params = param.param_value;            
+            
+            serviceCoverage = [[AIServiceCoverage alloc] initWithFrame:coverageFrame model:model];
             
             [self initSelectedParamsDic:param.param_value];
         }
