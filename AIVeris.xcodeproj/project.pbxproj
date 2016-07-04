@@ -505,6 +505,7 @@
 		81BB86771CFE894200899B58 /* AICustomSearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */; };
 		81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */; };
 		81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */; };
+		8412C7631D2A6429003F34AF /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412C7621D2A6429003F34AF /* PaddingLabel.swift */; };
 		842936921D17870D00795C57 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842936911D17870D00795C57 /* CheckboxButton.swift */; };
 		844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */; };
 		844AFA211CE1DA5900C58B1C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA201CE1DA5900C58B1C /* CoreMedia.framework */; };
@@ -1364,6 +1365,7 @@
 		81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchHomeViewController.swift; sourceTree = "<group>"; };
 		81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryLabels.swift; sourceTree = "<group>"; };
 		81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8412C7621D2A6429003F34AF /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		842936911D17870D00795C57 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		844AFA201CE1DA5900C58B1C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -2397,6 +2399,7 @@
 				81433AD31CFBE5A700347C29 /* SeparatorLineLabel.swift */,
 				81433AD41CFBE5A700347C29 /* SeparatorLineLabel.xib */,
 				81433AD51CFBE5A700347C29 /* UnderlineLabel.swift */,
+				8412C7621D2A6429003F34AF /* PaddingLabel.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -4278,6 +4281,7 @@
 				81433CF21CFBE5A700347C29 /* AIRequirementViewModel.swift in Sources */,
 				81433D981CFBE5A700347C29 /* AICircleProgressView.swift in Sources */,
 				81433D781CFBE5A700347C29 /* AIServiceParamBaseView.m in Sources */,
+				8412C7631D2A6429003F34AF /* PaddingLabel.swift in Sources */,
 				81433DF21CFBE5A700347C29 /* ContentsCellView.swift in Sources */,
 				81433E4B1CFBE5A700347C29 /* UIDeviceExtension.swift in Sources */,
 				81433D021CFBE5A700347C29 /* AIOrdeRequireServices.swift in Sources */,

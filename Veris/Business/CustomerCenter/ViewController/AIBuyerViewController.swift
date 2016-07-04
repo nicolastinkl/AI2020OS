@@ -10,6 +10,8 @@ import UIKit
 import Spring
 import Glass
 
+
+/// Proprosal 详情页
 class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AIBuyerDetailDelegate {
 
     // MARK: - Properties
@@ -88,8 +90,26 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         setupUIWithCurrentLanguage()
 
         self.tableView.headerBeginRefreshing()
-
         
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.initMakePopTableView), name: "showProposalTableView", object: nil)
+ 
+    }
+    
+    func initMakePopTableView() {
+        
+        WindowManager.shared.delegate = self
+        let rootViewController = AIProposalTableViewController()
+        /// Offsetable windows can't be dragged off the screen by a user's pan gesture
+        /// Dismissable windows can be dragged off the screen by a pan gesture to be dismissed
+        WindowManager.shared.pushWindow(rootViewController, type: .Offsetable)
+        
+        
+        /**
+         Expend View , If Count ==0 the app will crash. 
+        if WindowManager.shared.count > 0 {
+            WindowManager.shared.setTopWindowOffset(WindowManager.shared.offsetableWindowYOffset, style: AnimationStyle.Spring)
+        }
+        */
     }
     
     func makePopTableView() {
@@ -402,11 +422,15 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController.initFromNib())
     }
 
-
-
     func showBuyerDetailWithBubble(bubble: AIBubble, model: AIBuyerBubbleModel) {
 
-
+        /**
+         Expend View , If Count ==0 the app will crash.
+         */
+        if WindowManager.shared.count > 0 {
+            WindowManager.shared.setTopWindowOffset(view.height, style: AnimationStyle.Spring)
+        }
+        
         if UIDevice.isIphone5 || UIDevice.isSimulatorIPhone5 {
 
             let viewsss = createBuyerDetailViewController(model)
@@ -553,8 +577,15 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         topBar?.addSubview(moreButton)
     }
 
-
     func backToFirstPage () {
+        
+        /**
+         Expend View , If Count ==0 the app will crash.
+         */
+        if WindowManager.shared.count > 0 {
+            WindowManager.shared.setTopWindowOffset(view.height, style: AnimationStyle.Spring)
+        }
+        
         AIOpeningView.instance().show()
     }
 
@@ -838,4 +869,13 @@ extension AIBuyerViewController : AIFoldedCellViewDelegate {
         let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
         self.presentPopupViewController(serviceExecVC, animated: true)
     }
+}
+
+
+extension AIBuyerViewController: WindowManagerDelegate {
+    
+    func didPanTopWindow(rootViewController: UIViewController, type: WindowType, frame: CGRect) {
+        
+    }
+    
 }
