@@ -115,7 +115,7 @@ public class Player: UIViewController {
         }
         set {
             // Make sure everything is reset beforehand
-            if(self.playbackState == .Playing) {
+            if self.playbackState == .Playing {
                 self.pause()
             }
 
@@ -231,7 +231,7 @@ public class Player: UIViewController {
         self.playerView.layer.addObserver(self, forKeyPath: PlayerReadyForDisplay, options: (NSKeyValueObservingOptions.New), context: &PlayerLayerObserverContext)
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillResignActive(_:)), name: UIApplicationWillResignActiveNotification, object: UIApplication.sharedApplication())
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: UIApplication.sharedApplication())
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIApplicationDelegate.applicationDidEnterBackground(_:)), name: UIApplicationDidEnterBackgroundNotification, object: UIApplication.sharedApplication())
     }
 
     public override func viewDidDisappear(animated: Bool) {
@@ -403,7 +403,7 @@ public class Player: UIViewController {
             if let dic = change {
                 let status = (dic[NSKeyValueChangeNewKey] as! NSNumber).integerValue
                 // as AVPlayerStatus.RawValue
-                switch (status) {
+                switch status {
                 case AVPlayerStatus.ReadyToPlay.rawValue:
                     self.playerView.playerLayer.player = self.player
                     self.playerView.playerLayer.hidden = false
@@ -429,7 +429,7 @@ public class Player: UIViewController {
             if let dic = change {
                 let status = (dic[NSKeyValueChangeNewKey] as! NSNumber).integerValue
 
-                switch (status) {
+                switch status {
                 case AVPlayerStatus.ReadyToPlay.rawValue:
                     self.playerView.playerLayer.player = self.player
                     self.playerView.playerLayer.hidden = false

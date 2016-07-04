@@ -221,9 +221,9 @@ class AIProductInfoViewController: UIViewController {
             
             if index == 0 {
                 tag.setTitle("方案A", forState: UIControlState.Normal)
-            }else if index == 1 {
+            } else if index == 1 {
                 tag.setTitle("方案B", forState: UIControlState.Normal)
-            }else{
+            } else {
                 tag.setTitle("自由定制", forState: UIControlState.Normal)
                 tag.addTarget(self, action: #selector(AIProductInfoViewController.showDetailView), forControlEvents: UIControlEvents.TouchUpInside)
             }
@@ -295,7 +295,7 @@ class AIProductInfoViewController: UIViewController {
     
     // MARK: - DIY ACTION
     
-    func showDetailView(){
+    func showDetailView() {
         let model = AIBuyerBubbleModel()
         model.proposal_id = 3525
         model.proposal_name = "Pregnancy Care"
@@ -313,7 +313,7 @@ class AIProductInfoViewController: UIViewController {
         return viewController
     }
     
-    func configOrderAction(){
+    func configOrderAction() {
         let model = AIProposalInstModel()
         model.proposal_id = 3525
         model.proposal_name = "Pregnancy Care"

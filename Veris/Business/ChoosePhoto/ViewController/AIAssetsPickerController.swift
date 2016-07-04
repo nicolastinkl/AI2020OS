@@ -140,14 +140,14 @@ class AIAssetsPickerController: UIViewController {
     func fetchData() {
         //Find the frist Photo Ablum
         assetsLibrary.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (group, stop) in
-            if (group != nil) {
+            if group != nil {
                 debugPrint(group.numberOfAssets())
                 self.groups.addObject(group)
                 self.assetsGroup = group
                 
                 group.enumerateAssetsUsingBlock({ (asset, idnex, complate) in
                     
-                    if (asset != nil) {
+                    if asset != nil {
                         self.assets.addObject(asset)
                         if let newAsset = (asset.valueForProperty(ALAssetPropertyType)) as? String {
                             if newAsset == ALAssetTypePhoto {

@@ -44,7 +44,7 @@ class AIOrderDescView: UIView {
     func loadData(serviceOrderModel: ServiceOrderModel) {
         self.serviceOrderModel = serviceOrderModel
 
-        if (serviceOrderModel.arrange_script_info != nil) {
+        if serviceOrderModel.arrange_script_info != nil {
 
             let x = buildKeypointsView()
             buildDescriptionAndAlertView(x)
@@ -58,7 +58,7 @@ class AIOrderDescView: UIView {
         let arrangeModel = serviceOrderModel.arrange_script_info
 
         if let keypoints = arrangeModel?.info_key_points as? [KeypointModel] {
-            for var index = keypoints.count - 1; index >= 0; index -= 1 {
+            for index in (0..<keypoints.count).reverse() {
                 let keypoint = keypoints[index]
 
                 preFrame = addKeyPoint(keypoint, preFrame: preFrame)

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AICutomSearchHomeResultFilterBar" customModule="Veris" customModuleProvider="target">
+            <connections>
+                <outlet property="mainView" destination="iN0-l3-epB" id="wCm-Au-8h8"/>
+                <outletCollection property="FilterButtons" destination="FnO-8u-nrB" collectionClass="NSMutableArray" id="peQ-v3-g66"/>
+                <outletCollection property="FilterButtons" destination="F7t-PF-Cpu" collectionClass="NSMutableArray" id="AFl-Ia-ih5"/>
+                <outletCollection property="FilterButtons" destination="gqp-Xq-vwL" collectionClass="NSMutableArray" id="ayS-fy-MJH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="584" height="67"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OYU-j1-3Iu" userLabel="space">
+                    <rect key="frame" x="161" y="0.0" width="107" height="67"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6g-ha-nZd" userLabel="space">
+                    <rect key="frame" x="325" y="0.0" width="107" height="67"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObE-L4-dDQ" userLabel="space">
+                    <rect key="frame" x="498" y="0.0" width="86" height="67"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqp-Xq-vwL" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="268" y="23" width="57" height="22"/>
+                    <state key="normal" title="Age" image="search-down"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="titlePositionString" value="left"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7t-PF-Cpu" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="432" y="23" width="66" height="22"/>
+                    <state key="normal" title="Price" image="search-down"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="titlePositionString" value="left"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                            <real key="value" value="11"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnO-8u-nrB" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="8" y="22" width="151" height="24"/>
+                    <state key="normal" title="Pragnancy Stage" image="search-down"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="titlePositionString" value="left"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.79549986837531161" blue="0.84070631923948813" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="F7t-PF-Cpu" firstAttribute="leading" secondItem="I6g-ha-nZd" secondAttribute="trailing" id="7qU-R7-0gD"/>
+                <constraint firstItem="gqp-Xq-vwL" firstAttribute="leading" secondItem="OYU-j1-3Iu" secondAttribute="trailing" id="8YL-PM-H6X"/>
+                <constraint firstItem="FnO-8u-nrB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="BGZ-dL-WnD"/>
+                <constraint firstAttribute="bottom" secondItem="I6g-ha-nZd" secondAttribute="bottom" id="CnW-Wj-qbM"/>
+                <constraint firstItem="ObE-L4-dDQ" firstAttribute="leading" secondItem="F7t-PF-Cpu" secondAttribute="trailing" id="D16-hw-M86"/>
+                <constraint firstItem="ObE-L4-dDQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OVL-lq-tcK"/>
+                <constraint firstItem="gqp-Xq-vwL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="OlH-BF-hqv"/>
+                <constraint firstItem="ObE-L4-dDQ" firstAttribute="width" secondItem="OYU-j1-3Iu" secondAttribute="width" multiplier="0.8" id="R5m-Yt-gjT"/>
+                <constraint firstAttribute="trailing" secondItem="ObE-L4-dDQ" secondAttribute="trailing" id="YHh-z6-WaH"/>
+                <constraint firstAttribute="bottom" secondItem="OYU-j1-3Iu" secondAttribute="bottom" id="YXI-Yi-ISC"/>
+                <constraint firstAttribute="bottom" secondItem="ObE-L4-dDQ" secondAttribute="bottom" id="arS-NE-rSS"/>
+                <constraint firstItem="I6g-ha-nZd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cHo-db-4DJ"/>
+                <constraint firstItem="I6g-ha-nZd" firstAttribute="leading" secondItem="gqp-Xq-vwL" secondAttribute="trailing" id="dJU-hD-5yN"/>
+                <constraint firstItem="F7t-PF-Cpu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hEg-dr-wfD"/>
+                <constraint firstItem="FnO-8u-nrB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hsW-oj-T4y"/>
+                <constraint firstItem="OYU-j1-3Iu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kMr-90-rgv"/>
+                <constraint firstItem="OYU-j1-3Iu" firstAttribute="leading" secondItem="FnO-8u-nrB" secondAttribute="trailing" id="n5J-64-MCW"/>
+                <constraint firstItem="I6g-ha-nZd" firstAttribute="width" secondItem="OYU-j1-3Iu" secondAttribute="width" id="tqN-9s-VgJ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="22" y="129.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="search-down" width="13" height="8"/>
+    </resources>
+</document>

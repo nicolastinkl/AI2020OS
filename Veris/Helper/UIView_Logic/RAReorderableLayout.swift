@@ -230,7 +230,7 @@ class RAReorderableLayout: UICollectionViewFlowLayout, UIGestureRecognizerDelega
             return
         }
 
-        self.displayLink = CADisplayLink(target: self, selector: "continuousScroll")
+        self.displayLink = CADisplayLink(target: self, selector: #selector(RAReorderableLayout.continuousScroll))
         self.displayLink!.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSRunLoopCommonModes)
     }
 
@@ -385,8 +385,8 @@ class RAReorderableLayout: UICollectionViewFlowLayout, UIGestureRecognizerDelega
             return
         }
 
-        self.longPress = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
-        self.panGesture = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
+        self.longPress = UILongPressGestureRecognizer(target: self, action: #selector(RAReorderableLayout.handleLongPress(_:)))
+        self.panGesture = UIPanGestureRecognizer(target: self, action: #selector(RAReorderableLayout.handlePanGesture(_:)))
         self.longPress?.delegate = self
         self.panGesture?.delegate = self
         self.panGesture?.maximumNumberOfTouches = 1
@@ -497,11 +497,11 @@ class RAReorderableLayout: UICollectionViewFlowLayout, UIGestureRecognizerDelega
         }
 
         if gestureRecognizer.isEqual(self.longPress) {
-            if (self.collectionView!.panGestureRecognizer.state != .Possible && self.collectionView!.panGestureRecognizer.state != .Failed) {
+            if self.collectionView!.panGestureRecognizer.state != .Possible && self.collectionView!.panGestureRecognizer.state != .Failed {
                 return false
             }
         } else if gestureRecognizer.isEqual(self.panGesture) {
-            if (self.longPress!.state == .Possible || self.longPress!.state == .Failed) {
+            if self.longPress!.state == .Possible || self.longPress!.state == .Failed {
                 return false
             }
         }
@@ -521,7 +521,7 @@ class RAReorderableLayout: UICollectionViewFlowLayout, UIGestureRecognizerDelega
                 return false
             }
         } else if gestureRecognizer.isEqual(self.collectionView?.panGestureRecognizer) {
-            if (self.longPress!.state != .Possible || self.longPress!.state != .Failed) {
+            if self.longPress!.state != .Possible || self.longPress!.state != .Failed {
                 return false
             }
         }

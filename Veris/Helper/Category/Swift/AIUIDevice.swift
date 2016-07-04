@@ -64,7 +64,7 @@ public extension UIDevice {
     }
 
     static var isIpad: Bool {
-        if (UIDevice.currentDevice().model.rangeOfString("iPad") != nil) {
+        if UIDevice.currentDevice().model.rangeOfString("iPad") != nil {
             return true
         }
         return false

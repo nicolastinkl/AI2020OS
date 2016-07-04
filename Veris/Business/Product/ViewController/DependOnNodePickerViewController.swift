@@ -241,7 +241,7 @@ class DependOnNodePickerViewController: UIViewController {
 		button.backgroundColor = UIColorFromHex(0x0f86e8)
 		button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
 		button.layer.cornerRadius = 20
-		button.addTarget(self, action: "determineButtonPressed", forControlEvents: .TouchUpInside)
+		button.addTarget(self, action: #selector(DependOnNodePickerViewController.determineButtonPressed), forControlEvents: .TouchUpInside)
 		view.addSubview(button)
 
 		button.snp_makeConstraints { (make) -> Void in

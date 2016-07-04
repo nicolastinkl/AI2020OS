@@ -72,14 +72,14 @@ class AIConfirmOrderViewController: UIViewController {
          */
         if let _ = current_service_list {
             tableView.reloadData()
-        }else{
+        } else {
             //Reqest Networking.
             reqestData()
         }
         
     }
     
-    func reqestData(){
+    func reqestData() {
         view.showLoading()
         BDKProposalService().queryCustomerProposalDetail(dataSource?.proposal_id ?? 0, success: { [weak self](responseData) in
             
@@ -93,7 +93,7 @@ class AIConfirmOrderViewController: UIViewController {
         }
     }
     
-    func ConfigTableView(){
+    func ConfigTableView() {
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         

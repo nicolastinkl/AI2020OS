@@ -83,7 +83,7 @@ extension UIView {
                 break
             }
             }) { (complete) -> Void in
-                if (forTimes == 0) {
+                if forTimes == 0 {
                     UIView.animateWithDuration(durationPerShake, animations: { () -> Void in
                         self.layer.setAffineTransform(CGAffineTransformIdentity)
                         }, completion: { (complete) -> Void in
