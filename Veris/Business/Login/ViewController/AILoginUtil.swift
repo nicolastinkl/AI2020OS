@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Spring
 
 class AILoginUtil: NSObject {
 
@@ -54,17 +55,31 @@ class AILoginUtil: NSObject {
         let width = resultText.sizeWithFont(LoginConstants.Fonts.validateResult, forWidth: 1000).width + 23
         
         validateInfoLabel.text = resultText
+        
         widthConstraint.constant = 0
-        UIView.animateWithDuration(0.5, animations: {
+        
+        SpringAnimation.springWithCompletion(1, animations: {
             widthConstraint.constant = width
             validateInfoLabel.superview!.layoutIfNeeded()
-        }) { (finished) in
-            widthConstraint.constant = width
-            UIView.animateWithDuration(0.5, delay: 2, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            }) { (complate) in
                 widthConstraint.constant = 0
                 validateInfoLabel.superview!.layoutIfNeeded()
-                }, completion: nil)
         }
+        
+//        UIView.animateWithDuration(0.5, animations: {
+//            widthConstraint.constant = width
+//            validateInfoLabel.superview!.layoutIfNeeded()
+//        }) { (finished) in
+//            widthConstraint.constant = 0
+//            validateInfoLabel.superview!.layoutIfNeeded()
+////            
+////            UIView.animateWithDuration(0.5, delay: 2, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+////                widthConstraint.constant = 0
+////                validateInfoLabel.superview!.layoutIfNeeded()
+////                }, completion: nil)
+//            
+//            
+//        }
     }
     
     //处理用户登陆事件， 1.存储userId到本地
