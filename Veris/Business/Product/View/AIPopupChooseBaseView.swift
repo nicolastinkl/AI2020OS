@@ -61,7 +61,7 @@ class AIPopupChooseBaseView: UIView {
     }
 
     func fixFrame() {
-        if(cancelButton != nil) {
+        if cancelButton != nil {
             self.frame.size.height = CGRectGetMaxY(cancelButton.frame) + buttonPaddingTop
             bgView.frame = self.bounds
         }

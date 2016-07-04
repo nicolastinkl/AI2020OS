@@ -99,8 +99,8 @@
   NSCountedSet *imageColors = [[NSCountedSet alloc] initWithCapacity:width * height];
   NSCountedSet *leftEdgeColors = [[NSCountedSet  alloc] initWithCapacity:height];
   
-  for (NSUInteger x = 0; x < width; x++) {
-    for (NSUInteger y = 0; y < height; y++) {
+  for (int x = 0; x < width; x++) {
+    for (int y = 0; y < height; y++) {
       UIColor *color = [UIImage colorFromImage:image atX:x andY:y];
       if (x == 0)
         [leftEdgeColors addObject:color];

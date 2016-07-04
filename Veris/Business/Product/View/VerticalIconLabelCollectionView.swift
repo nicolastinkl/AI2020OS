@@ -139,7 +139,7 @@ extension VerticalIconLabelCollectionView: UICollectionViewDelegate, UICollectio
             if itemWidth > 0 && itemCountOfOneLine > 0 {
                 var itemWidthTemp = itemWidth
 
-                if (itemWidthTemp * CGFloat(itemCountOfOneLine) > maxWidth) {
+                if itemWidthTemp * CGFloat(itemCountOfOneLine) > maxWidth {
                     itemWidthTemp = maxWidth / CGFloat(itemCountOfOneLine)
                 }
 

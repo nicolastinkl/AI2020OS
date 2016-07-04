@@ -38,7 +38,7 @@ class AIAssignServiceView: UIView {
     let limitIconOffArray = [UIImage(named: "limit01-off"), UIImage(named: "limit02-off"), UIImage(named: "limit03-off"), UIImage(named: "limit04-off")]
     let serviceNameFontSize: CGFloat = 48 / 3
 
-    class func currentView()->AIAssignServiceView {
+    class func currentView() -> AIAssignServiceView {
         let selfview =  NSBundle.mainBundle().loadNibNamed("AIAssignServiceView", owner: self, options: nil).first  as! AIAssignServiceView
 
         selfview.curModelNum = 0

@@ -212,7 +212,7 @@ withCloseButtonColor:(UIColor *)closeColor
 
 - (CGSize)getTagSize
 {
-    CGSize tSize = ([self.tTitle respondsToSelector:@selector(sizeWithAttributes:)] ? [self.tTitle sizeWithAttributes:@{NSFontAttributeName:[UIFont fontWithName:self.tFontName size:[self.tFontSize floatValue]]}] : [self.tTitle sizeWithFont:[UIFont fontWithName:self.tFontName size:[self.tFontSize floatValue]]]);
+    CGSize tSize = [self.tTitle sizeWithAttributes:@{NSFontAttributeName:[UIFont fontWithName:self.tFontName size:[self.tFontSize floatValue]]}];
     
     return CGSizeMake(tagHeight + tagMargin + tSize.width  + tagCloseButton, tagHeight);
 }
@@ -237,8 +237,13 @@ withCloseButtonColor:(UIColor *)closeColor
                  withAttributes:@{NSFontAttributeName:[UIFont fontWithName:self.tFontName size:[self.tFontSize floatValue]], NSForegroundColorAttributeName:self.tLabelColor}];
     }else{
         [self.tLabelColor set];
-        [self.tTitle drawInRect:CGRectMake(tagHeight - 10  , ([self getTagSize].height / 2.0f) - ([self getTagSize].height / 2.0f), [self getTagSize].width, [self getTagSize].height)
-                       withFont:[UIFont fontWithName:self.tFontName size:[self.tFontSize floatValue]] lineBreakMode:NSLineBreakByWordWrapping];
+        CGRect frame = CGRectMake(tagHeight - 10  , ([self getTagSize].height / 2.0f) - ([self getTagSize].height / 2.0f), [self getTagSize].width, [self getTagSize].height);
+        NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        [style setLineBreakMode:NSLineBreakByWordWrapping];
+        NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:self.tFontName size:[self.tFontSize floatValue]], NSParagraphStyleAttributeName: style};
+        [self.tTitle drawInRect:frame withAttributes:attributes];
+//        [self.tTitle drawInRect:
+//                       withFont:[UIFont fontWithName:self.tFontName size:[self.tFontSize floatValue]] lineBreakMode:NSLineBreakByWordWrapping];
     }
 
     

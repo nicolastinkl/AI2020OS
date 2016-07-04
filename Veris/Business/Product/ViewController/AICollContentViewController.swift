@@ -431,7 +431,7 @@ extension AICollContentViewController : UITableViewDataSource, UITableViewDelega
             let cellView = AITimelineCellBaseView(frame: cellFrame)
             //如果是最后一个model，传入一个标志，view就不加下面的竖线
             var isLastModel = false
-            if(indexPath.row == timelineModels.count - 1) {
+            if indexPath.row == timelineModels.count - 1 {
                 isLastModel = true
             }
             cellView.setContent(model, isLast: isLastModel)

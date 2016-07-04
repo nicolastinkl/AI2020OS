@@ -206,7 +206,7 @@ extension AIPageBueryViewController : AIServiceContentDelegate {
 
         }
 
-        while (AINetEngine.defaultEngine().activitedTask.count > 0) {
+        while AINetEngine.defaultEngine().activitedTask.count > 0 {
             NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate.distantFuture())
         }
 

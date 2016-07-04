@@ -24,40 +24,39 @@
 
 import Foundation
 
-
 class AINavigationBar: UIView {
-
-    var holderViewController: UIViewController?
-
-    @IBOutlet weak var bgView: UIView!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var commentButton: UIButton!
-    @IBOutlet weak var videoButton: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        backButton.addTarget(self, action: #selector(AINavigationBar.closeViewController), forControlEvents: UIControlEvents.TouchUpInside)
-    }
-
-    func setRightIcon1Action(icon: UIImage){
-        commentButton.setImage(icon, forState: UIControlState.Normal)
-    }
-    
-    func setRightIcon2Action(icon: UIImage){
-        videoButton.setImage(icon, forState: UIControlState.Normal)
-    }
-
-    func showNavigationLine() {
-
-        Async.main(after: 0.1) {
-            self.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
-        }
-    }
-
-    func closeViewController() {
-        holderViewController?.dismissViewControllerAnimated(true, completion: nil)
-        //AIApplication().SendAction("closeViewController", ownerName: self)
-    }
-
+	
+	var holderViewController: UIViewController?
+	
+	@IBOutlet weak var bgView: UIView!
+	@IBOutlet weak var backButton: UIButton!
+	@IBOutlet weak var commentButton: UIButton!
+	@IBOutlet weak var videoButton: UIButton!
+	@IBOutlet weak var titleLabel: UILabel!
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		backButton.addTarget(self, action: #selector(AINavigationBar.closeViewController), forControlEvents: UIControlEvents.TouchUpInside)
+	}
+	
+	func setRightIcon1Action(icon: UIImage) {
+		commentButton.setImage(icon, forState: UIControlState.Normal)
+	}
+	
+	func setRightIcon2Action(icon: UIImage) {
+		videoButton.setImage(icon, forState: UIControlState.Normal)
+	}
+	
+	func showNavigationLine() {
+		
+		Async.main(after: 0.1) {
+			self.addBottomWholeSSBorderLine(AIApplication.AIColor.MainSystemLineColor)
+		}
+	}
+	
+	func closeViewController() {
+		holderViewController?.dismissViewControllerAnimated(true, completion: nil)
+		// AIApplication().SendAction("closeViewController", ownerName: self)
+	}
+	
 }
