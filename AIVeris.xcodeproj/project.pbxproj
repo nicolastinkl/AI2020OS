@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
 		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
-		1273444A1D26593500D7CCEF /* AICustomerOrderFoldedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127344481D26593500D7CCEF /* AICustomerOrderFoldedTableViewCell.swift */; };
-		1273444B1D26593500D7CCEF /* AICustomerOrderFoldedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 127344491D26593500D7CCEF /* AICustomerOrderFoldedTableViewCell.xib */; };
+		1273444D1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */; };
+		1273444F1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */; };
 		12873EE71D20C0BA00C3AF9A /* LoginConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */; };
 		12933BD41D17E71B008A1693 /* AITimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */; };
 		12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */; };
@@ -672,8 +672,8 @@
 		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
 		126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteViewController.swift; sourceTree = "<group>"; };
 		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
-		127344481D26593500D7CCEF /* AICustomerOrderFoldedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerOrderFoldedTableViewCell.swift; sourceTree = "<group>"; };
-		127344491D26593500D7CCEF /* AICustomerOrderFoldedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomerOrderFoldedTableViewCell.xib; sourceTree = "<group>"; };
+		1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomerOrderFoldedView.xib; sourceTree = "<group>"; };
+		1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerOrderFoldedView.swift; sourceTree = "<group>"; };
 		12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConstants.swift; sourceTree = "<group>"; };
 		12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTableViewCell.swift; sourceTree = "<group>"; };
 		12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTableViewCell.xib; sourceTree = "<group>"; };
@@ -2180,8 +2180,8 @@
 				84F2E5BC1D17F155009E0C72 /* ExpandableTableViewCell.xib */,
 				84F2E5BF1D181376009E0C72 /* TestExpandableCellViewController.swift */,
 				84F2E5C01D181376009E0C72 /* TestExpandableCellViewController.xib */,
-				127344481D26593500D7CCEF /* AICustomerOrderFoldedTableViewCell.swift */,
-				127344491D26593500D7CCEF /* AICustomerOrderFoldedTableViewCell.xib */,
+				1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */,
+				1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -4016,6 +4016,7 @@
 				933BC83E1D002434005E1789 /* AINavigationBar.xib in Resources */,
 				81433E1F1CFBE5A700347C29 /* SwitchServiceView.xib in Resources */,
 				81433D971CFBE5A700347C29 /* AIAssignServiceView.xib in Resources */,
+				1273444D1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib in Resources */,
 				84F2E5BE1D17F155009E0C72 /* ExpandableTableViewCell.xib in Resources */,
 				81433EB81CFBE5A700347C29 /* MyriadPro-Black.otf in Resources */,
 				81433EBA1CFBE5A700347C29 /* MyriadPro-Cond.otf in Resources */,
@@ -4043,7 +4044,6 @@
 				81433E0A1CFBE5A700347C29 /* AIBueryDetailCell.xib in Resources */,
 				81433E011CFBE5A700347C29 /* AirTicketView.xib in Resources */,
 				8457004D1D012D7D00512597 /* CommentDistrictView.xib in Resources */,
-				1273444B1D26593500D7CCEF /* AICustomerOrderFoldedTableViewCell.xib in Resources */,
 				81433D511CFBE5A700347C29 /* AIConfirmOrderCellView.xib in Resources */,
 				93C8C9AA1D14035B00F1DFCF /* AICustomSearchHomeCell.xib in Resources */,
 				93A0AB9C1D12AA1B00562090 /* AIPaymentViewController.xib in Resources */,
@@ -4243,6 +4243,7 @@
 				81433D721CFBE5A700347C29 /* AIDetailText.m in Sources */,
 				81433DA81CFBE5A700347C29 /* AITaskTimeLineView.swift in Sources */,
 				81433E721CFBE5A700347C29 /* FLEXClassesTableViewController.m in Sources */,
+				1273444F1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift in Sources */,
 				81433E101CFBE5A700347C29 /* SeparatorLineLabel.swift in Sources */,
 				81433E6E1CFBE5A700347C29 /* FLEXTableContentViewController.m in Sources */,
 				81433E001CFBE5A700347C29 /* AirTicketView.swift in Sources */,
@@ -4452,7 +4453,6 @@
 				81433CF11CFBE5A700347C29 /* AIRequirementHandler.swift in Sources */,
 				12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */,
 				9392B58B1D1CE37A0007F241 /* AIAliPayOrder.swift in Sources */,
-				1273444A1D26593500D7CCEF /* AICustomerOrderFoldedTableViewCell.swift in Sources */,
 				81433E2A1CFBE5A700347C29 /* AIRequireContentViewController.swift in Sources */,
 				81433D161CFBE5A700347C29 /* AICardCell.m in Sources */,
 				FB7355201D23B7B300CE549C /* UILabel-Helper.swift in Sources */,
