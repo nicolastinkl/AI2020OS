@@ -28,25 +28,23 @@ class AILoginViewController: UIViewController {
     
     let loginService = AILoginService()
     
-    
     // MARK: -IBActions
     @IBAction func loginAction(sender: AnyObject) {
-        
-        SVProgressHUD.showWithStatus("正在登录...", maskType: SVProgressHUDMaskType.Gradient)
+        let title = loginButton.titleLabel?.text ?? ""
+        loginButton.showActioningLoading()
         if AILoginUtil.validatePassword(passwordTextField.text) && AILoginUtil.validatePhoneNumber(userIdTextField.text) {
             loginService.login(userIdTextField.text!, password: passwordTextField.text!, success: { (userId) in
-
-                SVProgressHUD.dismiss()
+                self.loginButton.hideActioningLoading(title)
                 AILoginUtil.handleUserLogin(userId)
                 self.dismissViewControllerAnimated(true, completion: nil)
                 }, fail: { (errType, errDes) in
-                     SVProgressHUD.dismiss()
+                    self.loginButton.hideActioningLoading(title)
                     AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
             })
             
             
         } else {
-            SVProgressHUD.dismiss()
+            self.loginButton.hideActioningLoading(title)
             AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: validateInfoLabel, widthConstraint: validateInfoLabelWidthConstraint)
         }
     }

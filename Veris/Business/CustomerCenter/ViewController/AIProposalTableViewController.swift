@@ -84,7 +84,6 @@ class AIProposalTableViewController: UIViewController {
         
     }
     
-    
     // MARK: - 构造列表区域
     func makeTableView () {
         
