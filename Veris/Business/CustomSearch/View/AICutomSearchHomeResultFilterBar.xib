@@ -19,17 +19,17 @@
             <rect key="frame" x="0.0" y="0.0" width="584" height="67"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OYU-j1-3Iu" userLabel="space">
-                    <rect key="frame" x="161" y="0.0" width="107" height="67"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OYU-j1-3Iu" userLabel="space">
+                    <rect key="frame" x="159" y="0.0" width="116" height="67"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6g-ha-nZd" userLabel="space">
-                    <rect key="frame" x="325" y="0.0" width="107" height="67"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I6g-ha-nZd" userLabel="space">
+                    <rect key="frame" x="320" y="0.0" width="116" height="67"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObE-L4-dDQ" userLabel="space">
-                    <rect key="frame" x="498" y="0.0" width="86" height="67"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ObE-L4-dDQ" userLabel="space">
+                    <rect key="frame" x="491" y="0.0" width="93" height="67"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqp-Xq-vwL" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="268" y="23" width="57" height="22"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqp-Xq-vwL" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="275" y="23" width="45" height="22"/>
                     <state key="normal" title="Age" image="search-down"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="titlePositionString" value="left"/>
@@ -38,8 +38,8 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7t-PF-Cpu" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="432" y="23" width="66" height="22"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7t-PF-Cpu" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="436" y="23" width="55" height="22"/>
                     <state key="normal" title="Price" image="search-down"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="titlePositionString" value="left"/>
@@ -49,7 +49,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnO-8u-nrB" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="8" y="22" width="151" height="24"/>
+                    <rect key="frame" x="8" y="23" width="151" height="22"/>
                     <state key="normal" title="Pragnancy Stage" image="search-down"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="titlePositionString" value="left"/>
@@ -82,7 +82,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="22" y="129.5"/>
+            <point key="canvasLocation" x="359" y="163.5"/>
         </view>
     </objects>
     <resources>
