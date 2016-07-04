@@ -307,7 +307,7 @@ class JSSAlertView: UIViewController {
             let buttonHighlightColor = UIImage.withColor(adjustBrightness(defaultButtonColor, amount: 1.1))
             cancelButton.setBackgroundImage(buttonColor, forState: .Normal)
             cancelButton.setBackgroundImage(buttonHighlightColor, forState: .Highlighted)
-            cancelButton.addTarget(self, action: "cancelButtonTap", forControlEvents: .TouchUpInside)
+            cancelButton.addTarget(self, action: #selector(JSSAlertView.cancelButtonTap), forControlEvents: .TouchUpInside)
             alertBackgroundView!.addSubview(cancelButton)
             // Button text
             self.cancelButtonLabel = UILabel()

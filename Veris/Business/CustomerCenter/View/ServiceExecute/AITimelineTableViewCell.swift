@@ -55,7 +55,7 @@ class AITimelineTableViewCell: UITableViewCell {
         //重置变化的高度计算
         imageContainerViewHeight = 0
         
-        let viewModelContentsCount = viewModel.contents!.count
+        _ = viewModel.contents!.count
         for (index, timeContentModel) in (viewModel.contents)!.enumerate() {
             switch timeContentModel.contentType! {
             case AITimelineContentTypeEnum.Image:
