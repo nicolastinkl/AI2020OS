@@ -76,12 +76,15 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
             
             promoteLabel.text = "\(LoginConstants.textContent.validationPrompt) \(phoneNumber)"
             
+            validationButton.showActioningLoading()
+            
             if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
                 AVOSCloud.requestSmsCodeWithPhoneNumber(phoneNumber, callback: { (bol, error) in
                     if bol {
                         self.handleValidationButton()
                     } else {
                         AIAlertView().showError("Request validation code failed", subTitle: error.description)
+                        self.validationButton.hideActioningLoading(LoginConstants.textContent.validateButtonDefault)
                     }
                 })
             } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
@@ -89,6 +92,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
                     self.handleValidationButton()
                     }, fail: { (errType, errDes) in
                         AIAlertView().showError("Request validation code failed", subTitle: errDes)
+                        self.validationButton.hideActioningLoading(LoginConstants.textContent.validateButtonDefault)
                 })
             }
         }
@@ -101,6 +105,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         let curButtonTitle = "\(self.buttonTitle2)(60 Sec)"
         let fontSize = curButtonTitle.sizeWithFont(self.titleFont, forWidth: self.view.width)
         self.validationButtonWidthConstrant.constant = fontSize.width + 20
+        validationButton.hideActioningLoading(curButtonTitle)
         UIView.animateWithDuration(0.25, animations: {
             self.validationButton.layoutIfNeeded()
             //self.validationButtonWidthConstrant.constant = fontSize.width + 20

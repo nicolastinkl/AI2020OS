@@ -26,6 +26,8 @@ struct LoginConstants {
         static let confirmButton = "确认完成"
         static let forgotPasswordPrompt = "Enter phone number to reset the password."
         static let validationPrompt = "Validation code has been sent to "
+        static let validateButtonDefault = "Send Validation Code"
+        static let nextStep = "Next Step"
     }
     
     struct defaultImages {

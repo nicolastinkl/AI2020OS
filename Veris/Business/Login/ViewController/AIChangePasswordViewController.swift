@@ -65,13 +65,14 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
         guard let phoneNumber = AILoginPublicValue.phoneNumber else { return }
         guard let smsCode = AILoginPublicValue.smsCode else {return}
         
-        SVProgressHUD.showWithStatus("正在注册...", maskType: SVProgressHUDMaskType.Gradient)
-        
+       let title = confirmButton.titleLabel?.text ?? ""
+        confirmButton.showActioningLoading()
         if AILoginUtil.validatePassword(passwordTextField.text) {
             if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
+                
                 loginService.registUser(phoneNumber, password: passwordTextField.text!, success: { (userId) in
                     //TODO: 暂时的提示
-                    SVProgressHUD.dismiss()
+                    self.confirmButton.hideActioningLoading(title)
                     AIAlertView().showSuccess("注册成功!", subTitle: "")
                     //跳回登陆页面
                     self.navigationController?.popToRootViewControllerAnimated(true)
@@ -81,7 +82,7 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
                 })
             } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
                 loginService.resetPassword(smsCode, newPassword: passwordTextField.text!, success: {
-                    SVProgressHUD.dismiss()
+                    self.confirmButton.hideActioningLoading(title)
                     AIAlertView().showSuccess("修改密码成功!", subTitle: "")
                     //跳回登陆页面
                     self.navigationController?.popToRootViewControllerAnimated(true)
