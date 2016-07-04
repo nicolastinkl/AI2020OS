@@ -344,7 +344,6 @@
 		81433E6E1CFBE5A700347C29 /* FLEXTableContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B7C1CFBE5A700347C29 /* FLEXTableContentViewController.m */; };
 		81433E6F1CFBE5A700347C29 /* FLEXTableLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B7E1CFBE5A700347C29 /* FLEXTableLeftCell.m */; };
 		81433E701CFBE5A700347C29 /* FLEXTableListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B801CFBE5A700347C29 /* FLEXTableListViewController.m */; };
-		81433E711CFBE5A700347C29 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 81433B811CFBE5A700347C29 /* LICENSE */; };
 		81433E721CFBE5A700347C29 /* FLEXClassesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B831CFBE5A700347C29 /* FLEXClassesTableViewController.m */; };
 		81433E731CFBE5A700347C29 /* FLEXCookiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B851CFBE5A700347C29 /* FLEXCookiesTableViewController.m */; };
 		81433E741CFBE5A700347C29 /* FLEXFileBrowserFileOperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B871CFBE5A700347C29 /* FLEXFileBrowserFileOperationController.m */; };
@@ -365,7 +364,6 @@
 		81433E831CFBE5A700347C29 /* FLEXNetworkTransactionDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BA71CFBE5A700347C29 /* FLEXNetworkTransactionDetailTableViewController.m */; };
 		81433E841CFBE5A700347C29 /* FLEXNetworkTransactionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BA91CFBE5A700347C29 /* FLEXNetworkTransactionTableViewCell.m */; };
 		81433E851CFBE5A700347C29 /* FLEXNetworkObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BAC1CFBE5A700347C29 /* FLEXNetworkObserver.m */; };
-		81433E861CFBE5A700347C29 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 81433BAD1CFBE5A700347C29 /* LICENSE */; };
 		81433E871CFBE5A700347C29 /* FLEXArrayExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BB01CFBE5A700347C29 /* FLEXArrayExplorerViewController.m */; };
 		81433E881CFBE5A700347C29 /* FLEXClassExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BB21CFBE5A700347C29 /* FLEXClassExplorerViewController.m */; };
 		81433E891CFBE5A700347C29 /* FLEXDefaultsExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BB41CFBE5A700347C29 /* FLEXDefaultsExplorerViewController.m */; };
@@ -622,10 +620,6 @@
 		93E4C4021D20E478007EB116 /* AIAssetsPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E4C4011D20E478007EB116 /* AIAssetsPickerController.xib */; };
 		93E8469B1D2A0FB400CD4BD0 /* AIUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */; };
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
-		93F3FFEE1D06C0EB000283DA /* README.txt in Sources */ = {isa = PBXBuildFile; fileRef = 93F3FFED1D06C0EB000283DA /* README.txt */; };
-		93F3FFF21D06C5C0000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF11D06C5C0000283DA /* README.txt */; };
-		93F3FFF41D06C5E4000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF31D06C5E4000283DA /* README.txt */; };
-		93F3FFF61D06C613000283DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93F3FFF51D06C613000283DA /* README.txt */; };
 		93FD2FDD1D13DA7E00B88355 /* AISearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */; };
 		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
 		DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */; };
@@ -1102,7 +1096,6 @@
 		81433B7E1CFBE5A700347C29 /* FLEXTableLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXTableLeftCell.m; sourceTree = "<group>"; };
 		81433B7F1CFBE5A700347C29 /* FLEXTableListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXTableListViewController.h; sourceTree = "<group>"; };
 		81433B801CFBE5A700347C29 /* FLEXTableListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXTableListViewController.m; sourceTree = "<group>"; };
-		81433B811CFBE5A700347C29 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		81433B821CFBE5A700347C29 /* FLEXClassesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXClassesTableViewController.h; sourceTree = "<group>"; };
 		81433B831CFBE5A700347C29 /* FLEXClassesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXClassesTableViewController.m; sourceTree = "<group>"; };
 		81433B841CFBE5A700347C29 /* FLEXCookiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXCookiesTableViewController.h; sourceTree = "<group>"; };
@@ -1143,7 +1136,6 @@
 		81433BA91CFBE5A700347C29 /* FLEXNetworkTransactionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXNetworkTransactionTableViewCell.m; sourceTree = "<group>"; };
 		81433BAB1CFBE5A700347C29 /* FLEXNetworkObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXNetworkObserver.h; sourceTree = "<group>"; };
 		81433BAC1CFBE5A700347C29 /* FLEXNetworkObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXNetworkObserver.m; sourceTree = "<group>"; };
-		81433BAD1CFBE5A700347C29 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		81433BAF1CFBE5A700347C29 /* FLEXArrayExplorerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXArrayExplorerViewController.h; sourceTree = "<group>"; };
 		81433BB01CFBE5A700347C29 /* FLEXArrayExplorerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXArrayExplorerViewController.m; sourceTree = "<group>"; };
 		81433BB11CFBE5A700347C29 /* FLEXClassExplorerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXClassExplorerViewController.h; sourceTree = "<group>"; };
@@ -1608,10 +1600,6 @@
 		93E4C4011D20E478007EB116 /* AIAssetsPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsPickerController.xib; sourceTree = "<group>"; };
 		93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUIButton.swift; sourceTree = "<group>"; };
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
-		93F3FFED1D06C0EB000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		93F3FFF11D06C5C0000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		93F3FFF31D06C5E4000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		93F3FFF51D06C613000283DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchResultModel.swift; sourceTree = "<group>"; };
 		93FD2FDE1D13E7A400B88355 /* searchJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchJson.json; sourceTree = "<group>"; };
 		F968A668E0CC6829EA8B698F /* Pods-AIVeris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1800,7 +1788,6 @@
 				814339281CFBE5A600347C29 /* AppDelegate.swift */,
 				9304550F1D124DE5007AFC0C /* AIAppInit.h */,
 				930455101D124DE5007AFC0C /* AIAppInit.m */,
-				93F3FFF51D06C613000283DA /* README.txt */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1825,7 +1812,6 @@
 				933BC82E1D002434005E1789 /* Superiority */,
 				81433B131CFBE5A700347C29 /* UserManager */,
 				933BC8361D002434005E1789 /* Wish */,
-				93F3FFF31D06C5E4000283DA /* README.txt */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -2694,7 +2680,6 @@
 				81433BDD1CFBE5A700347C29 /* Localize_Swift */,
 				81433BE61CFBE5A700347C29 /* Network_Service */,
 				93F3FFE91D06BF43000283DA /* UIView_Logic */,
-				93F3FFF11D06C5C0000283DA /* README.txt */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -2831,7 +2816,6 @@
 				81433B7E1CFBE5A700347C29 /* FLEXTableLeftCell.m */,
 				81433B7F1CFBE5A700347C29 /* FLEXTableListViewController.h */,
 				81433B801CFBE5A700347C29 /* FLEXTableListViewController.m */,
-				81433B811CFBE5A700347C29 /* LICENSE */,
 			);
 			path = DatabaseBrowser;
 			sourceTree = "<group>";
@@ -2874,7 +2858,6 @@
 			children = (
 				81433BAB1CFBE5A700347C29 /* FLEXNetworkObserver.h */,
 				81433BAC1CFBE5A700347C29 /* FLEXNetworkObserver.m */,
-				81433BAD1CFBE5A700347C29 /* LICENSE */,
 			);
 			path = PonyDebugger;
 			sourceTree = "<group>";
@@ -3100,7 +3083,6 @@
 				8175A7851CFD2710006F2C8F /* OBShapedButton */,
 				8175A78E1CFD2710006F2C8F /* RRTagController */,
 				8175A7921CFD2710006F2C8F /* SDWebImage */,
-				93F3FFED1D06C0EB000283DA /* README.txt */,
 				8175A7221CFD2710006F2C8F /* libicucore.A.dylib */,
 				8175A7231CFD2710006F2C8F /* libsqlite3.dylib */,
 				8175A7241CFD2710006F2C8F /* libz.1.dylib */,
@@ -4089,7 +4071,6 @@
 				93BEFFDD1D0D474B00832799 /* AISuperiorityCellView.xib in Resources */,
 				933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */,
 				81433D251CFBE5A700347C29 /* MiddleServiceContainer.xib in Resources */,
-				93F3FFF41D06C5E4000283DA /* README.txt in Resources */,
 				81433E0F1CFBE5A700347C29 /* IconLabel.xib in Resources */,
 				81433D4F1CFBE5A700347C29 /* AIAddressRouteView.xib in Resources */,
 				81433D3C1CFBE5A700347C29 /* AICustomAudioNotesView.xib in Resources */,
@@ -4110,11 +4091,9 @@
 				81433EBD1CFBE5A700347C29 /* MyriadPro-LightSemiExt.otf in Resources */,
 				12D764A11D0D46AA002B001B /* AILoginStoryboard.storyboard in Resources */,
 				81433E311CFBE5A700347C29 /* AITaskInputViewController.xib in Resources */,
-				93F3FFF61D06C613000283DA /* README.txt in Resources */,
 				81433D621CFBE5A700347C29 /* AIShoppingListViewCell.xib in Resources */,
 				81433D641CFBE5A700347C29 /* AIStartEndTimeView.xib in Resources */,
 				81433EC61CFBE5A700347C29 /* Assets.xcassets in Resources */,
-				81433E861CFBE5A700347C29 /* LICENSE in Resources */,
 				81433D4B1CFBE5A700347C29 /* ServiceRestoreToolBar.xib in Resources */,
 				81433D4D1CFBE5A700347C29 /* UICustomsTags.xib in Resources */,
 				FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */,
@@ -4122,7 +4101,6 @@
 				81433EC71CFBE5A700347C29 /* Localizable.strings in Resources */,
 				81433EC91CFBE5A700347C29 /* Veris.entitlements in Resources */,
 				81433D531CFBE5A700347C29 /* AIDepartReahCityView.xib in Resources */,
-				93F3FFF21D06C5C0000283DA /* README.txt in Resources */,
 				93A9DA591D0131D900F16610 /* AICommentInfoView.xib in Resources */,
 				81433D5D1CFBE5A700347C29 /* AIServiceRouteView.xib in Resources */,
 				9392B57C1D1CD9F10007F241 /* AlipaySDK.bundle in Resources */,
@@ -4130,7 +4108,6 @@
 				845700591D015FD600512597 /* ServiceCommentTableViewCell.xib in Resources */,
 				84687E401D236B960083BD9B /* ImagesCollectionView.xib in Resources */,
 				81433D7F1CFBE5A700347C29 /* AIFoldedCellView.xib in Resources */,
-				81433E711CFBE5A700347C29 /* LICENSE in Resources */,
 				81433DF51CFBE5A700347C29 /* AIDatePickerView.xib in Resources */,
 				93C61FC41D01196F0063C2BF /* ServiceCommentViewController.xib in Resources */,
 				81433D5A1CFBE5A700347C29 /* AINumberCountControl.xib in Resources */,
@@ -4262,7 +4239,6 @@
 				81433DA21CFBE5A700347C29 /* AIRequireProtocol.swift in Sources */,
 				81433E841CFBE5A700347C29 /* FLEXNetworkTransactionTableViewCell.m in Sources */,
 				81433E601CFBE5A700347C29 /* FLEXFieldEditorView.m in Sources */,
-				93F3FFEE1D06C0EB000283DA /* README.txt in Sources */,
 				81433D791CFBE5A700347C29 /* AIServiceParamView.swift in Sources */,
 				81433D891CFBE5A700347C29 /* ImageContent.swift in Sources */,
 				81433D611CFBE5A700347C29 /* AIShoppingListViewCell.swift in Sources */,

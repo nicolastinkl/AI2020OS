@@ -403,7 +403,7 @@ public class Player: UIViewController {
             if let dic = change {
                 let status = (dic[NSKeyValueChangeNewKey] as! NSNumber).integerValue
                 // as AVPlayerStatus.RawValue
-                switch (status) {
+                switch status {
                 case AVPlayerStatus.ReadyToPlay.rawValue:
                     self.playerView.playerLayer.player = self.player
                     self.playerView.playerLayer.hidden = false

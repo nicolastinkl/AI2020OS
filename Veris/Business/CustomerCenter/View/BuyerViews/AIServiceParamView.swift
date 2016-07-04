@@ -133,7 +133,7 @@ class AIServiceParamView: UIView {
 
 			let model: JSONModel = models.objectAtIndex(i) as! JSONModel
 			let type: Int = model.displayType as Int
-			switch (type) {
+			switch type {
 			case 1: // title + detail
 				addView1(model)
 				break

@@ -74,7 +74,7 @@ class ServiceCardDetailShopping: ServiceParamlView {
 		if let dataSource = dataSource {
 			for i in 0..<dataSource.param_list.count {
 				
-				let paramModel = dataSource?.param_list[i] as! ServiceCellStadandParamModel
+				let paramModel = dataSource.param_list[i] as! ServiceCellStadandParamModel
 				if paramModel.param_key == "time" {
 					timeIconImageView.image = UIImage(named: "icon_time_big")
 					timeLabelView.text = paramModel.param_value
@@ -225,19 +225,20 @@ class ServiceCardDetailShopping: ServiceParamlView {
 		
 		shoppingViewContainer = UIView(frame: CGRect.zero)
 		self.addSubview(shoppingViewContainer)
-		for var index = 0; index < dataSource?.item_list.count; index += 1 {
-			
-			let cellView = SCDShoppingListCellView(frame: CGRect.zero)
-			let serviceItemModel = dataSource?.item_list[index] as! ServiceCellShoppingItemModel
-			cellView.loadData(serviceItemModel)
-			shoppingViewContainer.addSubview(cellView)
-			
-			constrain(cellView) {
-				cellView in
-				cellView.leadingMargin == cellView.superview!.leadingMargin
-				cellView.trailingMargin == cellView.trailingMargin
-				cellView.height == SHOPPING_ITEM_HEIGHT
-				cellView.topMargin == cellView.superview!.topMargin + CGFloat(index) * SHOPPING_ITEM_HEIGHT
+		if let dataSource = dataSource {
+			for index in 0..<dataSource.param_list.count {
+				let cellView = SCDShoppingListCellView(frame: CGRect.zero)
+				let serviceItemModel = dataSource.item_list[index] as! ServiceCellShoppingItemModel
+				cellView.loadData(serviceItemModel)
+				shoppingViewContainer.addSubview(cellView)
+				
+				constrain(cellView) {
+					cellView in
+					cellView.leadingMargin == cellView.superview!.leadingMargin
+					cellView.trailingMargin == cellView.trailingMargin
+					cellView.height == SHOPPING_ITEM_HEIGHT
+					cellView.topMargin == cellView.superview!.topMargin + CGFloat(index) * SHOPPING_ITEM_HEIGHT
+				}
 			}
 		}
 		

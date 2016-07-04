@@ -1,4 +1,3 @@
-
 //
 //  ServiceCardDetailFlag.swift
 //  AIVeris
@@ -91,14 +90,11 @@ class ServiceCardDetailFlag: ServiceParamlView {
 		self.addSubview(flagContainer)
 		var curFrame = CGRectMake(0, 0, 0, FLAG_LABEL_HEIGHT)
 		
-//        for i in 0..<dataSource?.param_list.count {
-//
-//        }
 		
 		if let dataSource = dataSource {
 			for i in 0..<dataSource.param_list.count {
 				
-				let stadandParam = dataSource?.param_list[i] as! ServiceCellStadandParamModel
+				let stadandParam = dataSource.param_list[i] as! ServiceCellStadandParamModel
 				let text = stadandParam.param_value
 				curFrame = buildFlag(curFrame, text: text, number: i)
 			}
