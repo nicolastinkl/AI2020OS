@@ -74,17 +74,22 @@
 
 - (void)didOperatedWithDirection:(NSInteger)direction// 0:center 1:up 2:down 3:left 4:right
 {
+   
     switch (direction) {
         case 0: //0:center
             break;
         case 1: // 1:up
         {
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"showProposalTableView" object:nil];
+            
             if (_currentViewController == self.upDirectionViewController) {
                 return;
             }
             [self transitionFromViewController:_currentViewController toViewController:self.upDirectionViewController duration:0 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:^(BOOL finished) {
                 _currentViewController = self.upDirectionViewController;
             }];
+            
         }
             break;
         case 2: // 2:down
