@@ -484,7 +484,7 @@ import QuartzCore
                 self.isAnimating = false
             })
         } else {
-            if (self.tracking) {
+            if self.tracking {
                 thumbView.frame = CGRectMake(1, thumbView.frame.origin.y, activeKnobWidth, thumbView.frame.size.height)
                 backgroundView.backgroundColor = self.activeColor
             } else {

@@ -505,7 +505,7 @@ extension AIRequireContentViewController: UITableViewDelegate, UITableViewDataSo
     }
 
 
-    // TODO: Do something with refersh icon view's subviews data.
+    // MARK: Do something with refersh icon view's subviews data.
     func refereshIconData(iconView: UIView, contentModel: [AIIconTagModel]?, cell: AIRACContentCell) {
 
         var index: Int = 0
@@ -537,7 +537,8 @@ extension AIRequireContentViewController: UITableViewDelegate, UITableViewDataSo
                 make.left.equalTo(iconView).offset(index * 25)
                 make.width.height.equalTo(20)
             })
-            editButton.addTarget(cell, action: #selector(AIRequireContentViewController.addExpendCell(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+
+            editButton.addTarget(cell, action: #selector(AIRACContentCell.addExpendCell(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         }
     }
 

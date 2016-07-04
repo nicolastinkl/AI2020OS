@@ -70,11 +70,11 @@ class AIAudioMessageView: AIWishMessageView, AVAudioPlayerDelegate {
 
     func handleLongPress(longPressRecognizer: UILongPressGestureRecognizer) {
 
-        if (longPressRecognizer.state != UIGestureRecognizerState.Began) {
+        if longPressRecognizer.state != UIGestureRecognizerState.Began {
             return
         }
 
-        if (becomeFirstResponder() == false) {
+        if becomeFirstResponder() == false {
             return
         }
         let point = longPressRecognizer.locationInView(self)
@@ -201,7 +201,7 @@ class AIAudioMessageView: AIWishMessageView, AVAudioPlayerDelegate {
 
     @IBAction func playAction(sender: AnyObject) {
 
-        if (currentModelss!.audio_url == nil || currentModelss!.audio_url.length == 0) {
+        if currentModelss!.audio_url == nil || currentModelss!.audio_url.length == 0 {
             currentModelss!.audio_url = "http://ac-xkz4nhs9.clouddn.com/lXoqWTK4pc4RcKjokfXcDgD.aac"
         }
 
@@ -211,7 +211,7 @@ class AIAudioMessageView: AIWishMessageView, AVAudioPlayerDelegate {
 
                 let data = NSData(contentsOfURL: url!)
 
-                if (data != nil) {
+                if data != nil {
                     audioPlayer = try AVAudioPlayer(data: data!)
                 } else {
                     audioPlayer = try AVAudioPlayer(contentsOfURL: url!)
@@ -229,7 +229,7 @@ class AIAudioMessageView: AIWishMessageView, AVAudioPlayerDelegate {
 
 
             //start playing gif Images
-            if (self.audioPlayer != nil) {
+            if self.audioPlayer != nil {
                 if self.audioPlayer.playing {
                     self.stopPlay()
 

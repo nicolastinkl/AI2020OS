@@ -8,13 +8,14 @@
 
 import Foundation
 import UIKit
+import Spring
 
 /*!
  *  @author wantsor, 16/6/14
  *
  *  提供登录服务
  */
-class AIChangeStatusButton: UIButton {
+class AIChangeStatusButton: DesignableButton {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -34,7 +35,7 @@ class AIChangeStatusButton: UIButton {
     }
 }
 
-class AILoginBaseTextField: UITextField {
+class AILoginBaseTextField: DesignableTextField {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupLayout()

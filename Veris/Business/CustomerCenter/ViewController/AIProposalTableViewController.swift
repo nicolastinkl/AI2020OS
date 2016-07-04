@@ -69,9 +69,9 @@ class AIProposalTableViewController: UIViewController {
         let bdk = BDKProposalService()
         // 列表数据
         weak var weakSelf = self
-        var listDone = false
+
         bdk.getProposalList({ (responseData) -> Void in
-            listDone = true
+
             weakSelf!.didRefresh = true
             weakSelf!.parseListData(responseData)
             weakSelf!.tableView.reloadData()
@@ -84,16 +84,23 @@ class AIProposalTableViewController: UIViewController {
         
     }
     
-    
     // MARK: - 构造列表区域
     func makeTableView () {
         
-        let bgImageView = UIImageView(image: UIImage(named: "Buyer_topBar_Bg"))
-        bgImageView.frame = self.view.frame
-        self.view.addSubview(bgImageView)
+//        let bgImageView = UIImageView(image: UIImage(named: "Buyer_topBar_Bg"))
+//        bgImageView.frame = self.view.frame
+//        self.view.addSubview(bgImageView)
+        //改为使用虚化背景
+        let blurEffect = UIBlurEffect(style: .Dark)
+        // 使用你之前设置过的blurEffect来构建UIVibrancyEffect，UIVibrancyEffect是UIVisualEffect另一个子类。
+        //let vibrancyEffect = UIVibrancyEffect(forBlurEffect: blurEffect)
+        // 创建UIVisualEffectView来应用Vibrancy效果,这个过程恰巧跟生成模糊图一样。因为你使用的是自动布局所以在这里需要把自适应大小改为false
+        let vibrancyView = UIVisualEffectView(effect: blurEffect)
+        vibrancyView.frame = self.view.frame
+        self.view.addSubview(vibrancyView)
         
         
-        let y: CGFloat = 10
+        let y: CGFloat = 34
         let label: UPLabel = AIViews.normalLabelWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, y, screenWidth - 2 * BUBBLE_VIEW_MARGIN, 20), text: "AIBuyerViewController.progress".localized, fontSize: 20, color: UIColor.whiteColor())
         view.addSubview(label)
         label.textAlignment = .Right
@@ -101,8 +108,8 @@ class AIProposalTableViewController: UIViewController {
         label.text = "AIBuyerViewController.progress".localized
         label.font = AITools.myriadRegularWithSize(20)
         
-        bgImageView.setTop(44)
-        tableView.setTop(44)
+        vibrancyView.setTop(y + 30)
+        tableView.setTop(y + 30)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 20
         
@@ -131,7 +138,7 @@ class AIProposalTableViewController: UIViewController {
             
             // 添加占位区
 //            let offset = CGRectGetHeight(self.view.bounds) - self.topBarHeight - (CGFloat(self.dataSource.count)  *  self.tableCellRowHeight)
-//            if (offset > 0) {
+//            if offset > 0 {
 //                let view = UIView(frame: CGRectMake(0, 0, self.screenWidth, offset))
 //                self.tableView.tableFooterView = view
 //            } else {
@@ -260,10 +267,8 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCellWithIdentifier("ExpandableTableViewCell") as! ExpandableTableViewCell
         
         if cell.topContentView == nil {
-            let proposalModel = dataSource[indexPath.row].model!
-            let folderCellView = AIFolderCellView.currentView()
-            folderCellView.loadData(proposalModel)
-            folderCellView.delegate = self
+            //let proposalModel = dataSource[indexPath.row].model!
+            let folderCellView = AICustomerOrderFoldedView.currentView()
             cell.setFoldedView(folderCellView)
         }
         
@@ -293,7 +298,7 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         //        }
         
         cell.isExpanded = dataSource[indexPath.row].isExpanded
-        
+        cell.contentView.layer.cornerRadius = 18
         return cell
     }
     

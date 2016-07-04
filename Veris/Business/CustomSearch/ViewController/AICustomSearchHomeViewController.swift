@@ -53,11 +53,9 @@ class AICustomSearchHomeViewController: UIViewController {
             let string = result["Results"] as? String
             Async.main({ 
                 self.searchText.text = string ?? ""
-                
                 self.searching()
                 self.tableView.hidden = false
                 self.holdView.hidden = true
-                
             })
             
         }
@@ -147,7 +145,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	
 	func searching() {
         view.endEditing(true)
-        tableView.hidden = false
+        resultHoldView.hidden = false
         holdView.hidden = true
 		if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
 			let data: NSData? = NSData(contentsOfFile: path)
@@ -175,15 +173,10 @@ class AICustomSearchHomeViewController: UIViewController {
 }
 
 extension AICustomSearchHomeViewController: UITextFieldDelegate {
-	
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
 		searching()
-        
-		
 		return true
 	}
-	
 }
 
 extension AICustomSearchHomeViewController: AISearchHistoryLabelsDelegate {
@@ -262,9 +255,5 @@ extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
     func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         
     }
-    
-}
-
-class AICutomSearchHomeResultFilterBar: UIView {
     
 }

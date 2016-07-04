@@ -296,31 +296,33 @@ class AIBuyerDetailViewController: UIViewController {
     }
 
     func bottomTapAction () {
-        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("AIConfirmOrderViewController") as? AIConfirmOrderViewController {
+        
+        if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
             vc.dataSource = self.dataSource
             self.showViewController(vc, sender: self)
         }
-        return
-
-        if let anyServiceNotSelected = current_service_list?.contains({ (obj) -> Bool in
-            return obj.param_setting_flag == 0 ? true : false
-        }) {
-            //有任何一个或几个服务 未选中
-            if anyServiceNotSelected {
-                AIAlertView().showInfo("AIBuyerDetailViewController.selectService".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
-                return
-            }
-        }
-
-        view.showLoading()
-        AIOrderRequester().submitProposalOrder(dataSource.proposal_id, serviceList:current_service_list as! [AnyObject], success: { () -> Void in
-            AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
-            self.view.hideLoading()
-            self.dismissViewControllerAnimated(true, completion: nil)
-            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
-            }) { (errType, errDes) -> Void in
-                self.view.hideLoading()
-        }
+         
+//        return
+//
+//        if let anyServiceNotSelected = current_service_list?.contains({ (obj) -> Bool in
+//            return obj.param_setting_flag == 0 ? true : false
+//        }) {
+//            //有任何一个或几个服务 未选中
+//            if anyServiceNotSelected {
+//                AIAlertView().showInfo("AIBuyerDetailViewController.selectService".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
+//                return
+//            }
+//        }
+//
+//        view.showLoading()
+//        AIOrderRequester().submitProposalOrder(dataSource.proposal_id, serviceList:current_service_list as! [AnyObject], success: { () -> Void in
+//            AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
+//            self.view.hideLoading()
+//            self.dismissViewControllerAnimated(true, completion: nil)
+//            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
+//            }) { (errType, errDes) -> Void in
+//                self.view.hideLoading()
+//        }
     }
 
     func showNextViewController() {
@@ -688,6 +690,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
         if let height = serviceDataModel.cell?.cellHeight {
 
             if serviceDataModel.wish_list == nil {
+
                 if serviceDataModel.service_param == nil {
                     return height + 50
                 }

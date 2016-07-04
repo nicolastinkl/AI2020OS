@@ -87,6 +87,7 @@ struct AIApplication {
             static let TaskDetailViewController = "TaskDetailViewController"
             static let TaskResultCommitViewController = "TaskResultCommitViewController"
             static let AILocationSearchViewController = "AILocationSearchViewController"
+            static let AIConfirmOrderViewController = "AIConfirmOrderViewController"
             //add by liux at 20160615
             static let AIValidateRegistViewController = "AIValidateRegistViewController"
             static let AIRegistViewController = "AIRegistViewController"
@@ -180,7 +181,7 @@ struct AIApplication {
         static let UIAIASINFOOpenRemoveViewNotification         = "UIAIASINFOOpenRemoveViewNotification"
         static let UIAIASINFOChangeDateViewNotification         = "UIAIASINFOChangeDateViewNotification"
         static let UIAIASINFOmotifyParamsNotification =     "UIAIASINFOmotifyParamsNotification"
-        // FIXME: 视频拍摄完成文件地址
+        //  视频拍摄完成文件地址
         static let NSNotirydidFinishMergingVideosToOutPutFileAtURL  = "NSNotirydidFinishMergingVideosToOutPutFileAtURL"
         //一键清除订单
         static let UIAIASINFORecoverOrdersNotification = "UIAIASINFORecoverOrdersNotification"
@@ -273,7 +274,7 @@ struct AIApplication {
     static func hookViewDidLoad() {
         swizzlingMethod(UIViewController.self,
             oldSelector: #selector(UIViewController.viewDidLoad),
-            newSelector: Selector("viewDidLoadForChangeTitleColor"))
+            newSelector: #selector(UIViewController.viewDidLoadForChangeTitleColor))
     }
 
     /*!
@@ -282,13 +283,13 @@ struct AIApplication {
     static func hookViewWillAppear() {
         swizzlingMethod(UIViewController.self,
             oldSelector: #selector(UIViewController.viewDidAppear(_:)),
-            newSelector: Selector("viewWillAppearForShowBottomBar:"))
+            newSelector: #selector(UIViewController.viewWillAppearForShowBottomBar(_:)))
     }
 
     static func hookViewWillDisappear() {
         swizzlingMethod(UIViewController.self,
             oldSelector: #selector(UIViewController.viewWillDisappear(_:)),
-            newSelector: Selector("viewWillDisappearForHiddenBottomBar:"))
+            newSelector: #selector(UIViewController.viewWillDisappearForHiddenBottomBar(_:)))
     }
 
     static func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {

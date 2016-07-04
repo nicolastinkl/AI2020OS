@@ -51,7 +51,6 @@ class AIConfirmOrderCellView: UIView {
         price.text = "\(model.service_price.original)"
 
         imageview.sd_setImageWithURL(NSURL(string: "\(model.service_thumbnail_icon)"))
-    
 
     }
 
