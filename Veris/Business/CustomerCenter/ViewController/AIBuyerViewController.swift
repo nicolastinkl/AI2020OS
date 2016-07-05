@@ -418,7 +418,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     //MARK: Add New Bubble
     func showAddNewBubble(bubble: AIBubble, model: AIBuyerBubbleModel) {
-
         showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController.initFromNib())
     }
 

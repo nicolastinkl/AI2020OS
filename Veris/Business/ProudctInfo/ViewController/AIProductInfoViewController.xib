@@ -61,7 +61,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moH-Ny-t9w">
                     <rect key="frame" x="0.0" y="463" width="600" height="137"/>
                     <subviews>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buyerBottomCurve" translatesAutoresizingMaskIntoConstraints="NO" id="PXR-E2-8L8" customClass="OBShapedImageView">
+                        <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buyerBottomCurve" translatesAutoresizingMaskIntoConstraints="NO" id="PXR-E2-8L8" customClass="OBShapedImageView">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="57"/>
                             <gestureRecognizers/>
                             <constraints>
