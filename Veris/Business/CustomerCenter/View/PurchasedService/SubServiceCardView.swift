@@ -56,7 +56,6 @@ class SubServiceCardView: UIView {
     private func initSubView() {
         serviceIcon.makeRound()
         personIcon.makeRound()
-        additionDescription.makeRound()
         
         proporsalName.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(60))
         messageNumber.makeRound()

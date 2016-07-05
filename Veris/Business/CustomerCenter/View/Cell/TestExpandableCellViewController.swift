@@ -2,7 +2,7 @@
 //  TestExpandableCellViewController.swift
 //  AIVeris
 //
-//  Created by admin on 16/6/20.
+//  Created by Rocky on 16/6/20.
 //  Copyright © 2016年 ___ASIAINFO___. All rights reserved.
 //
 
@@ -33,6 +33,8 @@ class TestExpandableCellViewController: UIViewController, UITableViewDataSource,
         tableSource.append(false)
         
         tableView.registerNib(UINib(nibName: "ExpandableTableViewCell", bundle: nil), forCellReuseIdentifier: "ExpandableTableViewCell")
+        tableView.registerClass(SwitchedTableViewCell.self, forCellReuseIdentifier: "SwitchedTableViewCell")
+
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 20
@@ -48,22 +50,38 @@ class TestExpandableCellViewController: UIViewController, UITableViewDataSource,
         return tableSource.count
     }
 
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//
+//        let cell = tableView.dequeueReusableCellWithIdentifier("ExpandableTableViewCell") as! ExpandableTableViewCell
+//        if cell.expandedContentView == nil {
+//            cell.setFoldedView(AIFolderCellView.currentView())
+//                    cell.setBottomExpandedView(SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView)
+//        }
+//
+//
+//        cell.isExpanded = tableSource[indexPath.row]
+//
+//        return cell
+//    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCellWithIdentifier("ExpandableTableViewCell") as! ExpandableTableViewCell
-        if cell.expandedContentView == nil {
-            cell.setFoldedView(AIFolderCellView.currentView())
-                    cell.setBottomExpandedView(SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView)
-//            cell.setBottomExpandedView({
-//                let result = UILabel()
-//                result.text = "test"
-//                return result
-//                }())
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("SwitchedTableViewCell") as! SwitchedTableViewCell
+        
+        if cell.mainView == nil {
+            cell.mainView = AICustomerOrderFoldedView.currentView()
         }
-
-
-        cell.isExpanded = tableSource[indexPath.row]
-
+        
+        if cell.getView("expanded") == nil {
+            cell.addCandidateView("expanded", subView: SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView)
+        }
+        
+        if tableSource[indexPath.row] {
+            cell.showView("expanded")
+        } else {
+            cell.showMainView()
+        }
+        
         return cell
     }
 
