@@ -515,6 +515,7 @@
 		844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA261CE1DA8B00C58B1C /* libc++.tbd */; };
 		84512D4F1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84512D4E1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift */; };
 		84512D511D2B57E2007E2E8A /* ImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84512D501D2B57E2007E2E8A /* ImageCard.swift */; };
+		84512D531D2BA6BF007E2E8A /* ListSubServiceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84512D521D2BA6BF007E2E8A /* ListSubServiceCardView.swift */; };
 		8457004D1D012D7D00512597 /* CommentDistrictView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8457004C1D012D7D00512597 /* CommentDistrictView.xib */; };
 		8457004F1D012DA800512597 /* CommentDistrictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457004E1D012DA800512597 /* CommentDistrictView.swift */; };
 		845700521D015E7600512597 /* CompondServiceCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845700501D015E7600512597 /* CompondServiceCommentViewController.swift */; };
@@ -1380,6 +1381,7 @@
 		844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		84512D4E1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchedTableViewCell.swift; sourceTree = "<group>"; };
 		84512D501D2B57E2007E2E8A /* ImageCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCard.swift; sourceTree = "<group>"; };
+		84512D521D2BA6BF007E2E8A /* ListSubServiceCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSubServiceCardView.swift; sourceTree = "<group>"; };
 		8457004C1D012D7D00512597 /* CommentDistrictView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentDistrictView.xib; sourceTree = "<group>"; };
 		8457004E1D012DA800512597 /* CommentDistrictView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentDistrictView.swift; sourceTree = "<group>"; };
 		845700501D015E7600512597 /* CompondServiceCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompondServiceCommentViewController.swift; sourceTree = "<group>"; };
@@ -2179,6 +2181,7 @@
 				84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */,
 				84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */,
 				84512D501D2B57E2007E2E8A /* ImageCard.swift */,
+				84512D521D2BA6BF007E2E8A /* ListSubServiceCardView.swift */,
 			);
 			path = PurchasedService;
 			sourceTree = "<group>";
@@ -4244,6 +4247,7 @@
 				81433E801CFBE5A700347C29 /* FLEXNetworkRecorder.m in Sources */,
 				81433E401CFBE5A700347C29 /* AIUIViewUtils.swift in Sources */,
 				8175A7E91CFD2710006F2C8F /* OAStackView+Hiding.m in Sources */,
+				84512D531D2BA6BF007E2E8A /* ListSubServiceCardView.swift in Sources */,
 				81433E871CFBE5A700347C29 /* FLEXArrayExplorerViewController.m in Sources */,
 				81433D1F1CFBE5A700347C29 /* AITitleAndIconTextView.swift in Sources */,
 				81433E8C1CFBE5A700347C29 /* FLEXImageExplorerViewController.m in Sources */,
