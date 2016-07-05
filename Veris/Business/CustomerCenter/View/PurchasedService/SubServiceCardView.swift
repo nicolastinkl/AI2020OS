@@ -59,6 +59,7 @@ class SubServiceCardView: UIView {
         
         proporsalName.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(60))
         messageNumber.makeRound()
+        statusButton.makeRound()
         statusButton.titleLabel?.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(39))
         
         leftButton.makeRound()
