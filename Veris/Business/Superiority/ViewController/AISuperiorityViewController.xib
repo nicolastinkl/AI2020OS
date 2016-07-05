@@ -18,6 +18,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="effectBgView" translatesAutoresizingMaskIntoConstraints="NO" id="Xr1-Rs-A9y">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0f-IX-8YH">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTQ-E9-dSz">
@@ -82,15 +85,19 @@
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="110-Ik-X1s"/>
                 <constraint firstAttribute="bottom" secondItem="ohQ-4c-Sjf" secondAttribute="bottom" constant="20" id="3AD-ed-3V6"/>
                 <constraint firstItem="2aM-sA-BDw" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="6sd-Nd-LIj"/>
+                <constraint firstAttribute="trailing" secondItem="Xr1-Rs-A9y" secondAttribute="trailing" id="99Y-W3-SVy"/>
                 <constraint firstAttribute="bottom" secondItem="w0f-IX-8YH" secondAttribute="bottom" id="A1F-Sm-jJa"/>
                 <constraint firstAttribute="bottom" secondItem="gcb-5F-OXg" secondAttribute="bottom" id="BqG-uW-LHN"/>
+                <constraint firstItem="Xr1-Rs-A9y" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="KQH-eU-fh6"/>
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="OAc-YL-GSP"/>
                 <constraint firstAttribute="trailing" secondItem="gcb-5F-OXg" secondAttribute="trailing" id="PNh-to-nc6"/>
                 <constraint firstItem="ohQ-4c-Sjf" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="QZw-Hu-9K6"/>
                 <constraint firstAttribute="trailing" secondItem="x7H-H6-6Ps" secondAttribute="trailing" constant="18" id="X3B-Zx-W2V"/>
+                <constraint firstAttribute="bottom" secondItem="Xr1-Rs-A9y" secondAttribute="bottom" id="ZsN-xm-EHs"/>
                 <constraint firstItem="2aM-sA-BDw" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="aJ7-oj-kct"/>
                 <constraint firstAttribute="trailing" secondItem="w0f-IX-8YH" secondAttribute="trailing" id="dLN-NA-D9B"/>
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="ecc-f6-tlq"/>
+                <constraint firstItem="Xr1-Rs-A9y" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="fq9-h3-Ez8"/>
                 <constraint firstAttribute="trailing" secondItem="2aM-sA-BDw" secondAttribute="trailing" id="hPd-Jd-Yx2"/>
                 <constraint firstAttribute="trailing" secondItem="ohQ-4c-Sjf" secondAttribute="trailing" id="rIo-hx-PK9"/>
                 <constraint firstAttribute="bottom" secondItem="2aM-sA-BDw" secondAttribute="bottom" constant="23" id="to7-qe-dlZ"/>
@@ -101,5 +108,6 @@
     </objects>
     <resources>
         <image name="AI_Superiority_bg" width="414" height="713"/>
+        <image name="effectBgView" width="308" height="485"/>
     </resources>
 </document>

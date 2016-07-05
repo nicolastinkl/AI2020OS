@@ -190,8 +190,10 @@ class AIProposalTableViewController: UIViewController {
         return servicesViewContainer
     }
     
-    private func buildSuvServiceCard(model: ProposalOrderModel) -> SubServiceCardView {
-        return SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView
+    private func buildSuvServiceCard(model: ProposalOrderModel) -> ListSubServiceCardView {
+        let list = ListSubServiceCardView(frame: CGRect(x: 0, y: 0, width: tableView.width, height: 50))
+        list.setSubServicesForTest(model.order_list.count)
+        return list
     }
     
     
@@ -238,9 +240,10 @@ class AIProposalTableViewController: UIViewController {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if !dataSource[indexPath.row].isExpanded {
-            rowSelectAction(indexPath)
-        }
+        rowSelectAction(indexPath)
+//        if !dataSource[indexPath.row].isExpanded {
+//            rowSelectAction(indexPath)
+//        }
     }
 
 
@@ -268,7 +271,7 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         }
         
         if cell.getView("expanded") == nil {
-            cell.addCandidateView("expanded", subView: SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView)
+            cell.addCandidateView("expanded", subView: buildSuvServiceCard(dataSource[indexPath.row].model!))
         }
         
         if dataSource[indexPath.row].isExpanded {
@@ -277,7 +280,7 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
             cell.showMainView()
         }
         
-        
+        cell.selectionStyle = .None
         //        var cell: AITableFoldedCellHolder!
         //
         //        if let cacheCell: AITableFoldedCellHolder = tableViewCellCache[indexPath.row] as! AITableFoldedCellHolder? {

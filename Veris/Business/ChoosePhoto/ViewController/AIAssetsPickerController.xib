@@ -97,7 +97,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUr-o4-ON9" customClass="DesignableButton" customModule="Spring">
                             <rect key="frame" x="486" y="11" width="106" height="30"/>
-                            <color key="backgroundColor" red="0.0" green="0.46666666666666667" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.52549019607843139" green="0.5490196078431373" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="A2Q-Cs-Drj"/>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="ado-5X-8wf"/>

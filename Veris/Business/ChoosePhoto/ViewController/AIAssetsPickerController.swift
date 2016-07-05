@@ -199,6 +199,15 @@ class AIAssetsPickerController: UIViewController {
         refershDataSize(self.collctionView.indexPathsForSelectedItems())
     }
     
+    func takePhotoAction(){
+        
+        let imagePickVC = UIImagePickerController()
+        imagePickVC.delegate = self
+        imagePickVC.sourceType = UIImagePickerControllerSourceType.Camera
+        presentViewController(imagePickVC, animated: true, completion: nil)
+        
+    }
+    
     func refershDataSize(indexPaths: NSArray?) {
         if isRetainImage {
             var size = 0
@@ -242,13 +251,27 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
+        
         let CellIdentifier = self.kAssetsViewCellIdentifier
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CellIdentifier, forIndexPath: indexPath) as? AIAssetsViewCell
         
-        let curretnAsset = assets.objectAtIndex(indexPath.row) as! ALAsset
-        cell?.bind(curretnAsset)
-        cell?.model = self.choosePhotoModel
+        if indexPath.row == 0 {
+            //return camera.
+            let button = UIButton(type: .Custom)
+            cell?.contentView.addSubview(button)
+            button.setImage(UIImage(named: "UINaviCamera"), forState: UIControlState.Normal)
+            button.backgroundColor = UIColor(hexString: "#6F6D81")
+            button.setWidth(100)
+            button.setHeight(100)
+            button.addTarget(self, action: #selector(AIAssetsPickerController.takePhotoAction), forControlEvents: UIControlEvents.TouchUpInside)
+        }else{
+            let curretnAsset = assets.objectAtIndex(indexPath.row) as! ALAsset
+            cell?.bind(curretnAsset)
+            cell?.model = self.choosePhotoModel
+        }
         return cell ?? AIAssetsViewCell()
+        
+        
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -271,7 +294,6 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
         setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
     }
     
-    
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         delegate?.assetsPickerController(self, didDeselectItemAtIndexPath: indexPath)
         setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
@@ -286,11 +308,35 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
             
             if indexPaths.count == 0 {
                 // NONE
+                numberButton.backgroundColor = UIColor(hexString: "868c90", alpha: 0.60)
+                numberButton.enabled = false
+                numberButton.setTitle("上传", forState: UIControlState.Normal)
+            }else{
+                numberButton.enabled = true
+                numberButton.backgroundColor = UIColor(hexString: "0077CF")
+                numberButton.setTitle("\(indexPaths.count)/\(maximumNumberOfSelection) 上传", forState: UIControlState.Normal)
             }
-            numberButton.setTitle("\(indexPaths.count)/\(maximumNumberOfSelection) 上传", forState: UIControlState.Normal)
+            
         }
     }
     
+}
+
+extension AIAssetsPickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let image = info[UIImagePickerControllerOriginalImage]
+        AILog(image)
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     
 }
