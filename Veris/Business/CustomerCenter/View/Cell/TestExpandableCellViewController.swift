@@ -69,11 +69,11 @@ class TestExpandableCellViewController: UIViewController, UITableViewDataSource,
         let cell = tableView.dequeueReusableCellWithIdentifier("SwitchedTableViewCell") as! SwitchedTableViewCell
         
         if cell.mainView == nil {
-            cell.mainView = AICustomerOrderFoldedView.currentView()
+            cell.mainView = AIFolderCellView.currentView()
         }
         
         if cell.getView("expanded") == nil {
-            cell.addCandidateView("expanded", subView: SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView)
+            cell.addCandidateView("expanded", subView: buildCard())
         }
         
         if tableSource[indexPath.row] {
@@ -83,6 +83,16 @@ class TestExpandableCellViewController: UIViewController, UITableViewDataSource,
         }
         
         return cell
+    }
+    
+    private func buildCard() -> SubServiceCardView {
+        let card = SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView
+        let imageContent = ImageCard(frame: CGRect(x: 0, y: 0, width: tableView.width, height: 50))
+        
+        imageContent.imgUrl = "http://171.221.254.231:3000/upload/shoppingcart/GNcdKBip4tYnW.png"
+        card.setContentView(imageContent)
+        
+        return card
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

@@ -26,10 +26,10 @@ class SubServiceCardView: UIView {
     @IBOutlet weak var addtionView: UIView!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
-    @IBOutlet weak var additionalViewHeight: NSLayoutConstraint!
+    
  
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder) 
         
    //     initSelfFromXib()
         
@@ -50,7 +50,13 @@ class SubServiceCardView: UIView {
     }
     
     func setContentView(view: UIView) {
+        addtionView.addSubview(view)
         
+        view.snp_makeConstraints { (make) in
+            make.edges.equalTo(addtionView)
+        }
+        
+        setNeedsUpdateConstraints()
     }
     
     private func initSubView() {
@@ -67,7 +73,7 @@ class SubServiceCardView: UIView {
         rightButton.layer.borderColor = UIColor(hex: "#0f86e8").CGColor
         rightButton.layer.borderWidth = 1
         
-        additionalViewHeight.constant = 0
+        
         addtionView.updateConstraints()
         
         urgeButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SubServiceCardView.urgeBtnTap(_:))))
