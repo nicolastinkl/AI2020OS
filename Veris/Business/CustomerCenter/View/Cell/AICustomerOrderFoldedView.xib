@@ -38,14 +38,24 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="228-IE-L7H">
-                    <rect key="frame" x="305" y="14" width="109" height="30"/>
-                    <state key="normal" title="Action Required">
+                    <rect key="frame" x="291" y="19" width="133" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="mbr-6i-HlM"/>
+                    </constraints>
+                    <state key="normal" title="   Action Required   ">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="ServiceDetailAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="1q9-D2-jo3"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSo-E9-xE0">
+                    <rect key="frame" x="409" y="19" width="5" height="20"/>
+                    <color key="backgroundColor" red="0.90678554773330688" green="0.91245168447494507" blue="0.047925762832164764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="5" id="2uh-9b-2bE"/>
+                    </constraints>
+                </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatorbibo" translatesAutoresizingMaskIntoConstraints="NO" id="UTC-fW-Zyu">
                     <rect key="frame" x="13" y="57" width="22" height="22"/>
                     <constraints>
@@ -84,10 +94,12 @@
                 <constraint firstItem="uJY-Ta-Ga2" firstAttribute="leading" secondItem="Oyv-no-0nU" secondAttribute="trailing" constant="15" id="4O7-c4-7ya"/>
                 <constraint firstAttribute="bottom" secondItem="kiu-eT-y4r" secondAttribute="bottom" id="4W7-mA-r9N"/>
                 <constraint firstItem="y9V-XF-qFi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="4zQ-XH-Tb8"/>
+                <constraint firstItem="BSo-E9-xE0" firstAttribute="centerY" secondItem="228-IE-L7H" secondAttribute="centerY" id="6NV-ba-HdF"/>
                 <constraint firstItem="EeK-YJ-kkD" firstAttribute="leading" secondItem="UTC-fW-Zyu" secondAttribute="trailing" constant="8" id="AP2-8A-tcZ"/>
-                <constraint firstAttribute="trailing" secondItem="228-IE-L7H" secondAttribute="trailing" id="BCC-6f-iLC"/>
+                <constraint firstAttribute="trailing" secondItem="228-IE-L7H" secondAttribute="trailing" constant="-10" id="BCC-6f-iLC"/>
                 <constraint firstItem="y9V-XF-qFi" firstAttribute="centerY" secondItem="228-IE-L7H" secondAttribute="centerY" id="KTU-r3-Rhk"/>
                 <constraint firstItem="UTC-fW-Zyu" firstAttribute="centerY" secondItem="uJY-Ta-Ga2" secondAttribute="centerY" id="MzK-qr-tN5"/>
+                <constraint firstItem="BSo-E9-xE0" firstAttribute="height" secondItem="228-IE-L7H" secondAttribute="height" id="Ntg-yX-dNL"/>
                 <constraint firstItem="y9V-XF-qFi" firstAttribute="top" secondItem="xbE-pM-Vxf" secondAttribute="top" id="P3u-ta-6Yz"/>
                 <constraint firstItem="y9V-XF-qFi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="SWb-9A-h9c"/>
                 <constraint firstItem="ZXV-bO-TR1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="V2v-yr-eAv"/>
@@ -97,6 +109,7 @@
                 <constraint firstAttribute="trailing" secondItem="uJY-Ta-Ga2" secondAttribute="trailing" constant="13" id="eHJ-ZK-nFH"/>
                 <constraint firstItem="UTC-fW-Zyu" firstAttribute="centerY" secondItem="EeK-YJ-kkD" secondAttribute="centerY" id="hQA-mb-94N"/>
                 <constraint firstItem="xbE-pM-Vxf" firstAttribute="leading" secondItem="y9V-XF-qFi" secondAttribute="trailing" constant="4" id="jcI-RL-3nV"/>
+                <constraint firstAttribute="trailing" secondItem="BSo-E9-xE0" secondAttribute="trailing" id="lXt-ZO-lBp"/>
                 <constraint firstAttribute="trailing" secondItem="ZXV-bO-TR1" secondAttribute="trailing" id="rZu-ob-j80"/>
                 <constraint firstItem="Oyv-no-0nU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EeK-YJ-kkD" secondAttribute="trailing" constant="5" id="sww-fR-lTO"/>
                 <constraint firstAttribute="bottom" secondItem="UTC-fW-Zyu" secondAttribute="bottom" constant="18" id="zF6-6J-jKV"/>
@@ -112,10 +125,12 @@
                 <outlet property="proporalNameLabel" destination="y9V-XF-qFi" id="DHR-8B-ST4"/>
                 <outlet property="providerIcon" destination="UTC-fW-Zyu" id="nZN-K6-q87"/>
                 <outlet property="statusButton" destination="228-IE-L7H" id="aGK-Zm-Ch3"/>
+                <outlet property="statusColorView" destination="BSo-E9-xE0" id="Z1F-4B-cC0"/>
                 <outlet property="taskNameLabel" destination="EeK-YJ-kkD" id="RUg-fF-P04"/>
                 <outlet property="taskSchedulTimeLabel" destination="uJY-Ta-Ga2" id="al0-Hs-om0"/>
                 <outlet property="taskStatusLabel" destination="Oyv-no-0nU" id="fcK-ch-6ii"/>
             </connections>
+            <point key="canvasLocation" x="200" y="412.5"/>
         </view>
     </objects>
     <resources>

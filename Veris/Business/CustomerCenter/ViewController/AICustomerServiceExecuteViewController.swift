@@ -148,9 +148,10 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
     func loadData() {
         timelineModels.removeAll()
-        for i in 0...4 {
+        for i in 0...3 {
             timelineModels.append(AITimelineViewModel.createFakeData("\(i)"))
         }
+        timelineModels.append(AITimelineViewModel.createFakeDataOrderComplete("\(4)"))
     }
     
     //TODO: 过滤时间线
@@ -177,11 +178,11 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
-        if let _ = cell.delegate {
-            AILog("this is a reuse cell, item_id : \(cell.viewModel!.itemId), indexPath : \(indexPath.row)")
-        } else {
-            AILog("this is a new cell")
-        }
+//        if let _ = cell.delegate {
+//            AILog("this is a reuse cell, item_id : \(cell.viewModel!.itemId), indexPath : \(indexPath.row)")
+//        } else {
+//            AILog("this is a new cell")
+//        }
         let timeLineItem = timelineModels[indexPath.row]
         cell.delegate = self
         cell.loadData(timeLineItem)
@@ -193,12 +194,12 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         if timeLineItem.cellHeight != 0 {
             return timeLineItem.cellHeight
         }
-        return 210
+        return AITimelineTableViewCell.caculateHeightWidthData(timeLineItem)
     }
     
     func cellImageDidLoad(viewModel viewModel: AITimelineViewModel, cellHeight: CGFloat) {
         let indexPath = NSIndexPath(forRow: Int(viewModel.itemId!)!, inSection: 0)
-        AILog("\(viewModel.itemId!) : \(indexPath.row)")
+        //AILog("\(viewModel.itemId!) : \(indexPath.row)")
         //如果cell在visible状态，才reload，否则不reload
         if let visibleIndexPathArray = timelineTableView.indexPathsForVisibleRows?.filter({ (visibleIndexPath) -> Bool in
             return visibleIndexPath.row == indexPath.row
@@ -210,11 +211,21 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     }
     
     func cellConfirmButtonDidClick(viewModel viewModel: AITimelineViewModel) {
-        let commentVC = ServiceCommentViewController.loadFromXib()
-        commentVC.view.frame = self.view.bounds
+        
         let vc = parentViewController
         self.dismissPopupViewController(true) { [weak vc] in
-            vc?.presentPopupViewController(commentVC, animated: true)
+            //打开评论页面
+            if viewModel.layoutType == AITimelineLayoutTypeEnum.ConfirmServiceComplete {
+                let commentVC = ServiceCommentViewController.loadFromXib()
+                commentVC.view.frame = self.view.bounds
+                vc?.presentPopupViewController(commentVC, animated: true)
+            }
+            //打开支付页面
+            else if viewModel.layoutType == AITimelineLayoutTypeEnum.ConfirmOrderComplete {
+                let popupVC = AIPaymentViewController.initFromNib()
+                popupVC.view.frame = self.view.bounds
+                vc?.presentPopupViewController(popupVC, animated: true)
+            }
         }
         
     }

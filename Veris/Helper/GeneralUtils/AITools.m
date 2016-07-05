@@ -292,7 +292,7 @@
 #pragma mark - New Fonts
 
 + (BOOL) fontsWithLanguageEN {
-    NSString * language = [[NSUserDefaults standardUserDefaults] objectForKey:@"LCLCurrentLanguageKey"];
+    NSString * language = [Localize currentLanguage];
     if (language != nil && [language isEqual: @"en"]) {
         return true;
     }else{
