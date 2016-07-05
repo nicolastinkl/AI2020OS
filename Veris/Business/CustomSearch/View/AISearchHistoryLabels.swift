@@ -24,7 +24,7 @@ class AISearchHistoryLabels: UIView {
 	//
     
 	let horizontalMargin: CGFloat = AITools.displaySizeFrom1242DesignSize(40)
-	let verticalMargin: CGFloat = 25
+	let verticalMargin: CGFloat = AITools.displaySizeFrom1242DesignSize(50)
     
 	let titleFontSize: CGFloat = AITools.displaySizeFrom1242DesignSize(48)
 	let labelFontSize: CGFloat = AITools.displaySizeFrom1242DesignSize(48)
@@ -103,7 +103,7 @@ class AISearchHistoryLabels: UIView {
 			var labelText = historyLabel
 			var size = labelText.sizeWithFont(labelFont, forWidth: maxWidth)
             size.width += 30
-            size.height += 16
+            size.height += 14
 
 			if (x + horizontalMargin + size.width) > maxWidth {
 				let shortLabel = findSuitableLabel(maxWidth - x - horizontalMargin)
@@ -111,8 +111,8 @@ class AISearchHistoryLabels: UIView {
 					tempLabels.append(labelText)
 					labelText = shortLabel
                     size = labelText.sizeWithFont(labelFont, forWidth: maxWidth)
-                    size.width += 30
-                    size.height += 16
+                    size.width += 28
+                    size.height += 10
 
 				} else {
 					x = 0
@@ -121,14 +121,14 @@ class AISearchHistoryLabels: UIView {
 
 			}
 
-			let label = AIViews.wrapLabelWithFrame(CGRectMake(x, y, size.width, size.height), text: labelText, fontSize: labelFontSize, color: UIColor.whiteColor())
+			let label = AIViews.wrapLabelWithFrame(CGRectMake(x, y, size.width, size.height), text: labelText, fontSize: labelFontSize, color: UIColor ( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8 ))
             label.font = labelFont
             label.userInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(AISearchHistoryLabels.labelTapped(_:)))
             label.addGestureRecognizer(tap)
 			addSubview(label)
-            label.layer.borderColor = UIColor ( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.2 ).CGColor
-            label.layer.borderWidth = 0.5
+            label.layer.borderColor = UIColor ( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8 ).CGColor
+            label.layer.borderWidth = AITools.displaySizeFrom1242DesignSize(2)
             label.layer.masksToBounds = true
             label.layer.cornerRadius = size.height / 2
             label.textAlignment  = .Center
