@@ -36,14 +36,15 @@ class AICustomSearchHomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// Make Title View
-		initLayoutViews()
+        setupTableView()
+        setupFilterView()
+        setupBubbleView()
+        setupSearchView()
         
         // Register Audio Tools Notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
         
 	}
-	
     /**
      处理语音识别数据搜索
      
@@ -82,8 +83,18 @@ class AICustomSearchHomeViewController: UIViewController {
         showTransitionStyleCrossDissolveView(AIAudioSearchViewController.initFromNib())
     }
     
-	func initLayoutViews() {
+	
+    func setupTableView() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+    }
+    func setupFilterView() {
         
+    }
+    func setupBubbleView() {
+        
+    }
+    func setupSearchView() {
         
 		// Make Test Data View
 		recentlySearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 20, width: screenWidth, height: 200), title: "You recently searched", labels: ["Pregnat", "Travel", "Europe", "Outdoors"])
@@ -131,10 +142,7 @@ class AICustomSearchHomeViewController: UIViewController {
             wishProxy.centerY == wishProxy.superview!.centerY - 1
             wishProxy.centerX == wishProxy.superview!.centerX + 60
         }
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
-	}
+    }
 	
 	@IBAction func backButtonPressed(sender: AnyObject) {
 		dismissViewControllerAnimated(true, completion: nil)
