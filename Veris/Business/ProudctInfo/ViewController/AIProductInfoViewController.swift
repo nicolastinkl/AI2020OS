@@ -143,7 +143,7 @@ class AIProductInfoViewController: UIViewController {
         /**
          定制的TitleView
          */
-        func getTitleLabelView(title: String, desctiption: String = "") -> UIView {
+        func getTitleLabelView(title: String, desctiption: String = "", showRight: Bool = true) -> UIView {
             let heightLabel: CGFloat = 30
             let tView = UIView()
             tView.frame = CGRectMake(0, 0, self.view.width, heightLabel)
@@ -170,7 +170,7 @@ class AIProductInfoViewController: UIViewController {
             tView.addSubview(imageview)
             imageview.contentMode = UIViewContentMode.ScaleToFill
             imageview.frame = CGRectMake(view.width - 15, 10, 8, 12)
-
+            imageview.hidden = !showRight
             return tView
         }
 
@@ -181,9 +181,10 @@ class AIProductInfoViewController: UIViewController {
         addNewSubView(topImage, preView: UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
 
         // Setup 2: title Info View.
-        let titleLabel = getTitleLabelView("孕检无忧")
+        let titleLabel = getTitleLabelView("孕检无忧", desctiption: "", showRight: false)
         addNewSubView(titleLabel, preView: topImage)
-
+        titleLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
+        
         let desLabel = AILabel()
         desLabel.text = "最后还是要提一下，“过早的优化是万恶之源”，在需求未定，性能问题不明显时，没必要尝试做优化，而要尽量正确的实现功能。做性能优化时，也最好是走修改代码 -> Profile -> 修改代码这样一个流程，优先解决最值得优化的地方。"
         desLabel.setHeight(60)

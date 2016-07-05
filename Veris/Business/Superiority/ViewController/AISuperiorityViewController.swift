@@ -51,22 +51,19 @@ class AISuperiorityViewController: UIViewController {
         super.viewDidLoad()
         // MARK: Init
         self.initLayoutViews()
-
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        // MARK: Loading Data Views
+      
         Async.main(after: 0.15) {
-             
             // MARK: Layout
             self.initDataWithModel()
             
+            // MARK: Loading Data Views
             self.initDatawithViews()
-            
         }
     }
-    
     
     @IBAction func targetServiceDetail(any: AnyObject) {
         showTransitionStyleCrossDissolveView(AIProductInfoViewController.initFromNib())
@@ -78,7 +75,9 @@ class AISuperiorityViewController: UIViewController {
         
         let shapLayer = CAShapeLayer()
         shapLayer.contents = UIImage(named: "AI_Superiority_bg_mask")?.CGImage
-        shapLayer.frame = superView.frame
+        var newFrame = superView.frame
+        newFrame.origin = CGPointMake(0, -13)
+        shapLayer.frame = newFrame
         superView.layer.mask = shapLayer
         
         // Top ImageView.
@@ -202,7 +201,8 @@ class AISuperiorityViewController: UIViewController {
     func addNewSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
         cview.alpha = 0
         scrollview.addSubview(cview)
-        cview.setWidth(self.view.width)
+        let width = UIScreen.mainScreen().bounds.size.width
+        cview.setWidth(width)
         cview.setTop(preView.top + preView.height+space)
         cview.backgroundColor = color
         scrollview.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
