@@ -191,7 +191,12 @@ class AIProposalTableViewController: UIViewController {
     }
     
     private func buildSuvServiceCard(model: ProposalOrderModel) -> SubServiceCardView {
-        return SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView
+        let card = SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView
+        let imageContent = ImageCard(frame: CGRect.zero)
+        imageContent.imgUrl = "http://171.221.254.231:3000/upload/shoppingcart/GNcdKBip4tYnW.png"
+        card.setContentView(imageContent)
+        
+        return card
     }
     
     
@@ -268,7 +273,7 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         }
         
         if cell.getView("expanded") == nil {
-            cell.addCandidateView("expanded", subView: SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView)
+            cell.addCandidateView("expanded", subView: buildSuvServiceCard(dataSource[indexPath.row].model!))
         }
         
         if dataSource[indexPath.row].isExpanded {
