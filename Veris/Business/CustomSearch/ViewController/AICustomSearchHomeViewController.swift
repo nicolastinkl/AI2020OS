@@ -36,32 +36,38 @@ class AICustomSearchHomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		setupTableView()
-		setupFilterView()
-		setupBubbleView()
-		setupSearchView()
-		
-		// Register Audio Tools Notification
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
-		
+        setupTableView()
+        setupFilterView()
+        setupBubbleView()
+        setupSearchView()
+        
+        // Register Audio Tools Notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
 	}
-	/**
-	 处理语音识别数据搜索
-
-	 */
-	func listeningAudioTools(notify: NSNotification) {
-		if let result = notify.userInfo {
-			let string = result["Results"] as? String
-			Async.main({
-				self.searchText.text = string ?? ""
-				self.searching()
-				self.tableView.hidden = false
-				self.holdView.hidden = true
-			})
-			
-		}
-	}
-	
+    
+    func popToRootView(){
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
+    /**
+     处理语音识别数据搜索
+     
+     */
+    func listeningAudioTools(notify: NSNotification) {
+        if let result = notify.userInfo {
+            let string = result["Results"] as? String
+            Async.main({ 
+                self.searchText.text = string ?? ""
+                self.searching()
+                self.tableView.hidden = false
+                self.holdView.hidden = true
+            })
+            
+        }
+    }    
+    
 	// MARK: Action
 	
 	func makeAWishAction() {

@@ -217,6 +217,9 @@ struct AIApplication {
         static let AIListeningAudioTools    =    "AIListeningAudioTools"
         
         static let WeixinPaySuccessNotification =  "WeixinPaySuccessNotification"
+        
+        // 关闭所有VC
+        static let dissMissPresentViewController    = "dissMissPresentViewController"
     }
 
     // MARK: System theme's color

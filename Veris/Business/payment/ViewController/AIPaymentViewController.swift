@@ -52,6 +52,8 @@ class AIPaymentViewController: UIViewController {
     @IBOutlet weak var payView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var topNaviConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topNaviView: UIView!
     private var dataSource = Array<AIPayInfoModel> ()
     
     var expandedIndexPaths: [NSIndexPath] = [NSIndexPath]()
@@ -83,7 +85,7 @@ class AIPaymentViewController: UIViewController {
          Register Notify
          */
         initRegisternotify()
-        
+         
     }
     
     func initRegisternotify() {
@@ -97,6 +99,8 @@ class AIPaymentViewController: UIViewController {
 
         self.label_Price_info.text = "成功支付"
         
+        topNaviConstraint.constant = 44
+        topNaviView.layoutIfNeeded()
         // refersh Views Status
         
         SpringAnimation.springWithCompletion(0.3, animations: { 
@@ -112,6 +116,7 @@ class AIPaymentViewController: UIViewController {
         let priceLabel = UILabel()
         priceLabel.textAlignment = .Center
         priceLabel.text = "123元"
+        
         priceLabel.font = AITools.myriadBoldWithSize(140/3)
         priceLabel.textColor = UIColor(white: 1, alpha: 0.7)
         bgView.addSubview(priceLabel)
@@ -127,7 +132,7 @@ class AIPaymentViewController: UIViewController {
         commitButton.sizeToHeight(44)
         commitButton.centerHorizontallyInSuperview()
         commitButton.titleLabel?.font = AITools.myriadBoldWithSize(68/3)
-        
+        commitButton.layer.masksToBounds = true
         commitButton.borderWidth = 1
         commitButton.cornerRadius = 4
         commitButton.setTitle("评价", forState: UIControlState.Normal)
@@ -138,7 +143,6 @@ class AIPaymentViewController: UIViewController {
         commitButton.addTarget(self, action: #selector(AIPaymentViewController.commitPayAction), forControlEvents: UIControlEvents.TouchUpInside)
         
     }
-    
    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -147,12 +151,16 @@ class AIPaymentViewController: UIViewController {
     
     @IBAction func closePayAction() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
-        self.dismissViewControllerAnimated(false, completion: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
+        
     }
     
     @IBAction func commitPayAction() {
-        self.dismissViewControllerAnimated(false, completion: nil)
+        
+        presentPopupViewController(ServiceCommentViewController.loadFromXib(), animated: true)
+        
     }
+    
     
     func initTableView() {
         tableView.dataSource = self
