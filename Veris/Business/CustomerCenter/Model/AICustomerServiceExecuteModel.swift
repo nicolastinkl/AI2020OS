@@ -62,7 +62,7 @@ class AITimeContentViewModel: AIBaseViewModel {
 
 // MARK: -> enums
 enum AITimelineLayoutTypeEnum: Int {
-    case Normal = 1, Authoration, ConfirmServiceComplete, ConfirmOrderComplete
+    case Normal = 1, Authoration, ConfirmServiceComplete, ConfirmOrderComplete, Now
 }
 
 enum AITimelineContentTypeEnum: Int {

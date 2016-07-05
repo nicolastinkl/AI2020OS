@@ -27,8 +27,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
     @IBOutlet weak var nextStepButton: AIChangeStatusButton!
     
     @IBOutlet weak var promoteLabel: AILoginPromptLabel!
-    @IBOutlet weak var validateInfoLabel: UILabel!
-    @IBOutlet weak var validateInfoWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var validateInfoLabel: AIAnimatedPromptLabel!
 
     var loginService = AILoginService()
     // MARK: -> life cycle
@@ -60,7 +59,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
                     let changePasswordVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIChangePasswordViewController)
                     self.navigationController?.pushViewController(changePasswordVC, animated: true)
                 } else {
-                    AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoWidthConstraint)
+                    self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.WrongSMSCode.rawValue)
                 }
             }
         } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
@@ -177,10 +176,6 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         handleLoginType()
         //修复navigationController侧滑关闭失效的问题
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        
-        validateInfoWidthConstraint.constant = 0
-        validateInfoLabel.layer.cornerRadius = 8
-        validateInfoLabel.layer.masksToBounds = true
         
         //validationContainerView
         validationContainerView.backgroundColor = LoginConstants.Colors.TextFieldBackground

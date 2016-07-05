@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Spring
+import SnapKit
 
 /*!
  *  @author wantsor, 16/6/14
@@ -114,6 +115,47 @@ class AILoginPasswordTextField: AILoginBaseTextField {
         rightImageView.image = showPasswordText ? showPasswordImageArray[1] : showPasswordImageArray[0]
     }
 
+}
+
+class AIAnimatedPromptLabel: UILabel {
+    
+    var widthConstraints: Constraint!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupLayout()
+    }
+    
+    func setupLayout() {
+        self.layer.cornerRadius = 8
+        self.font = LoginConstants.Fonts.validateResult
+        self.layer.masksToBounds = true
+        
+        widthConstraints = (self.snp_prepareConstraints { (make) in
+            make.width.equalTo(0)
+        })[0]
+        widthConstraints.install()
+    }
+    
+    func showPrompt(content: String) {
+        let width = content.sizeWithFont(LoginConstants.Fonts.validateResult, forWidth: 1000).width + 23
+        self.text = content
+        //避免重复动画，先remove
+        self.layer.removeAllAnimations()
+        UIView.animateWithDuration(0.5, animations: {
+            self.widthConstraints.updateOffset(width)
+            self.widthConstraints.install()
+            self.superview!.layoutIfNeeded()
+        }) { (finished) in
+            UIView.animateWithDuration(0.5, delay: 2, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+                self.widthConstraints.updateOffset(0)
+                self.widthConstraints.install()
+                self.superview!.layoutIfNeeded()
+
+                }, completion: nil)
+        }
+
+    }
 }
 
 class AILoginPromptLabel: UILabel {

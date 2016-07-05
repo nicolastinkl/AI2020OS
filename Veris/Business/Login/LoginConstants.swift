@@ -65,6 +65,7 @@ struct LoginConstants {
     
     enum ValidateResultCode: String {
         case WrongIdOrPassword = "Wrong ID or password!"
+        case WrongSMSCode = "Wrong Validation Code!"
         case RegisterFaild = "注册失败"
         case RestPassword = "重置密码失败"
     }

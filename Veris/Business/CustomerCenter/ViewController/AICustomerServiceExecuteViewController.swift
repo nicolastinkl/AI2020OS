@@ -178,11 +178,6 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
-//        if let _ = cell.delegate {
-//            AILog("this is a reuse cell, item_id : \(cell.viewModel!.itemId), indexPath : \(indexPath.row)")
-//        } else {
-//            AILog("this is a new cell")
-//        }
         let timeLineItem = timelineModels[indexPath.row]
         cell.delegate = self
         cell.loadData(timeLineItem)
@@ -229,4 +224,8 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         }
         
     }
+    
+//    func insertNowCellToModel(timelineModels : [AITimelineViewModel]) -> [AITimelineViewModel]{
+//        let nowTime = NSDate(timeIntervalSince1970: <#T##NSTimeInterval#>)
+//    }
 }

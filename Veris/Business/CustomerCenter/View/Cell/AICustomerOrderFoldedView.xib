@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -112,6 +112,7 @@
                 <constraint firstAttribute="trailing" secondItem="BSo-E9-xE0" secondAttribute="trailing" id="lXt-ZO-lBp"/>
                 <constraint firstAttribute="trailing" secondItem="ZXV-bO-TR1" secondAttribute="trailing" id="rZu-ob-j80"/>
                 <constraint firstItem="Oyv-no-0nU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EeK-YJ-kkD" secondAttribute="trailing" constant="5" id="sww-fR-lTO"/>
+                <constraint firstItem="UTC-fW-Zyu" firstAttribute="top" secondItem="xbE-pM-Vxf" secondAttribute="bottom" constant="20" id="wIt-dk-T9d"/>
                 <constraint firstAttribute="bottom" secondItem="UTC-fW-Zyu" secondAttribute="bottom" constant="18" id="zF6-6J-jKV"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
