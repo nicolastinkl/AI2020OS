@@ -21,7 +21,7 @@ class AITimelineNowTableViewCell: UITableViewCell {
         setupViews()
     }
     
-    func setupViews(){
+    func setupViews() {
         dotView.layer.cornerRadius = dotView.height / 2
         dotView.layer.masksToBounds = true
         dotView.layer.borderColor = UIColor(hexString: "#ffffff", alpha: 0.3).CGColor
