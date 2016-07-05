@@ -22,9 +22,7 @@ class AILoginViewController: UIViewController {
     @IBOutlet weak var userIdTextField: AILoginBaseTextField!
     @IBOutlet weak var passwordTextField: AILoginPasswordTextField!
     @IBOutlet weak var logoImageCenterXConstraint: NSLayoutConstraint!
-    @IBOutlet weak var validateInfoLabel: UILabel!
-    
-    @IBOutlet weak var validateInfoLabelWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var validateInfoLabel: AIAnimatedPromptLabel!
     
     let loginService = AILoginService()
     
@@ -39,13 +37,13 @@ class AILoginViewController: UIViewController {
                 self.dismissViewControllerAnimated(true, completion: nil)
                 }, fail: { (errType, errDes) in
                     self.loginButton.hideActioningLoading(title)
-                    AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
+                    self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.WrongIdOrPassword.rawValue)
             })
             
             
         } else {
             self.loginButton.hideActioningLoading(title)
-            AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.WrongIdOrPassword, validateInfoLabel: validateInfoLabel, widthConstraint: validateInfoLabelWidthConstraint)
+            self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.WrongIdOrPassword.rawValue)
         }
     }
     
@@ -112,10 +110,10 @@ class AILoginViewController: UIViewController {
         //loginButton
         loginButton.enabled = false
         //validateInfoLabel
-        validateInfoLabelWidthConstraint.constant = 0
-        validateInfoLabel.layer.cornerRadius = 8
-        validateInfoLabel.font = LoginConstants.Fonts.validateResult
-        validateInfoLabel.layer.masksToBounds = true
+//        validateInfoLabelWidthConstraint.constant = 0
+//        validateInfoLabel.layer.cornerRadius = 8
+//        validateInfoLabel.font = LoginConstants.Fonts.validateResult
+//        validateInfoLabel.layer.masksToBounds = true
     }
     
     func passwordInputAction(target: UITextField) {
