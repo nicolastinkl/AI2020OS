@@ -94,15 +94,16 @@ class AISuperiorityViewController: UIViewController {
 
         // Top Title.
         let titleLabel = DesignableLabel()
+        titleLabel.textAlignment = .Left
         titleLabel.numberOfLines = 2
         titleLabel.lineBreakMode = .ByCharWrapping
         titleLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.8)
-        titleLabel.font = AITools.myriadBoldWithSize(105/3)
-        titleLabel.setHeight(80)
+        titleLabel.font = UIFont.boldSystemFontOfSize(105/3)
+        titleLabel.setHeight(284/3)
         titleLabel.setLeft(leftOffSet)
         addNewSubView(titleLabel, preView: imageView, color: UIColor.clearColor(), space: 17)
         titleLabel.setWidth(UIScreen.mainScreen().bounds.width - 50)
-        titleLabel.text = "听说你还为孕检超碎了心？"
+        titleLabel.text = "听说你还为孕检\n超碎了心？"
 
         // List Superiority Desciption.
         var preCellView: UIView?
@@ -121,21 +122,20 @@ class AISuperiorityViewController: UIViewController {
         // Price Label.
         let priceLabel = AILabel()
         priceLabel.text = "$ 184.0"
-        priceLabel.setHeight(30)
-        priceLabel.font = AITools.myriadBoldWithSize(60/3)
-        priceLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
-        addNewSubView(priceLabel, preView: preCellView!, color: UIColor.clearColor(), space: 8)
-//        priceLabel.addBottomWholeSSBorderLine(AIApplication.AIColor.AIVIEWLINEColor)
+        priceLabel.setHeight(44/3)
+        addNewSubView(priceLabel, preView: preCellView!, color: UIColor.clearColor(), space: 69/3)
+        priceLabel.font = UIFont.boldSystemFontOfSize(60/3)
+        priceLabel.textColor = UIColor(hexString: "e7c400")
 
         let canvas = canvasLineView(frame: priceLabel.frame)
-        addNewSubView(canvas, preView: priceLabel, color: UIColor.clearColor(), space: 3)
+        addNewSubView(canvas, preView: priceLabel, color: UIColor.clearColor(), space: 55/3)
         
  
         // Add Service List Icon , So at top and at down.
  
         let serverIcons = UIView()
         serverIcons.setHeight(350)
-        var height: CGFloat = 0
+        var height: CGFloat = 10
         var preView: UIView?
         var leftOffset: CGFloat = 0
         for i in 0...4 {
