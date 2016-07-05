@@ -28,38 +28,37 @@ import SVProgressHUD
 
 /// 调用委托
 protocol AIAssetsPickerControllerDelegate: class {
- 
-    /**
-     完成选择
-     
-     1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
-     2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
-     */
-    func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray)
-    
-    /**
-     取消选择
-     */
-    func assetsPickerControllerDidCancel()
-    
-    /**
-     选中某张照片
-     */
-    func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath)
-    /**
-     取消选中某张照片
-     */
-    func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath)
-    
-    
+	
+	/**
+	 完成选择
+
+	 1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
+	 2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
+	 */
+	func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray)
+	
+	/**
+	 取消选择
+	 */
+	func assetsPickerControllerDidCancel()
+	
+	/**
+	 选中某张照片
+	 */
+	func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath)
+	/**
+	 取消选中某张照片
+	 */
+	func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath)
+	
 }
 
 enum AIAssetsPickerModel: Int {
-    case singleModel
-    case mutliModel
+	case singleModel
+	case mutliModel
 }
 
- /// How to use it ?
+/// How to use it ?
 /**
  let vc = AIAssetsPickerController.initFromNib()
  vc.delegate = self
@@ -69,274 +68,267 @@ enum AIAssetsPickerModel: Int {
 
 /// 相册界面
 class AIAssetsPickerController: UIViewController {
-    
-    var choosePhotoModel: AIAssetsPickerModel = .mutliModel  //default value.
-    
-    var maximumNumberOfSelection: Int = 10 //default
-    
-    weak var delegate: AIAssetsPickerControllerDelegate?
-    
-    @IBOutlet weak var collctionView: UICollectionView!
-    
-    @IBOutlet weak var sizeButton: UIButton!
-    
-    @IBOutlet weak var numberButton: UIButton!
-    
-    @IBOutlet weak var layoutColl: UICollectionViewFlowLayout!
-    
-    private let selectionFilter = NSPredicate(value: true)
-    
-    private var assets: NSMutableArray = NSMutableArray()
-    
-    private var assetsLibrary: ALAssetsLibrary = ALAssetsLibrary()
-    
-    private var groups: NSMutableArray = NSMutableArray()
-    
-    private var numberOfPhotos: Int = 0
-    
-    private var assetsGroup: ALAssetsGroup?
-    
-    private let kAssetsViewCellIdentifier = "AssetsViewCellIdentifier"
-    
-    private let kAssetsSupplementaryViewIdentifier = "AssetsSupplementaryViewIdentifier"
-    
-    private var isRetainImage: Bool = false
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        /**
-         *  Single Mode
-         */
-        if choosePhotoModel == .singleModel {
-            maximumNumberOfSelection = 1
-        }
-        
-        // init Settings.
-        initSettings()
-        
-        // Loading Data Assets.
-        fetchData ()
-        
-    }
-    
-    @IBAction func closeAction(any: AnyObject) {
-        delegate?.assetsPickerControllerDidCancel()
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func initSettings() {
-        self.collctionView.allowsMultipleSelection = true
-        self.collctionView.registerClass(AIAssetsViewCell.self, forCellWithReuseIdentifier: kAssetsViewCellIdentifier)
-        self.collctionView.registerClass(AIAssetsFootViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: kAssetsSupplementaryViewIdentifier)
-        
-        layoutColl.itemSize = CGSizeMake(100, 100)
-        layoutColl.footerReferenceSize = CGSizeMake(0, 44)
-        layoutColl.sectionInset            = UIEdgeInsetsMake(0.0, 0, 0, 0)
-        layoutColl.minimumInteritemSpacing = 2.0
-        layoutColl.minimumLineSpacing      = 2.0
-    }
-    
-    func fetchData() {
-        //Find the frist Photo Ablum
-        assetsLibrary.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (group, stop) in
-            if group != nil {
-                debugPrint(group.numberOfAssets())
-                self.groups.addObject(group)
-                self.assetsGroup = group
-                
-                group.enumerateAssetsUsingBlock({ (asset, idnex, complate) in
-                    
-                    if asset != nil {
-                        self.assets.addObject(asset)
-                        if let newAsset = (asset.valueForProperty(ALAssetPropertyType)) as? String {
-                            if newAsset == ALAssetTypePhoto {
-                                self.numberOfPhotos += 1
-                            }
-                            
-                        
-                        }
-                    }
-                })
-                
-                self.collctionView.reloadData()
-                
-            }
-            }) { (error) in
-            debugPrint(error.userInfo)
-        }
-    }
-    
-    /// Action
-    
-    @IBAction func finishChooseAction(any: AnyObject) {
-        
-        let newArray = NSMutableArray()
-        self.collctionView.indexPathsForSelectedItems()?.forEach({ (indexPath) in
-            newArray.addObject(self.assets.objectAtIndex(indexPath.row))
-        })
-        delegate?.assetsPickerController(self, didFinishPickingAssets: newArray)
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func preViewAction(any: AnyObject) {
-        if self.collctionView.indexPathsForSelectedItems()?.count > 0 {
-            let prevc = AIAssetsReviewsController.initFromNib()
-            let newArray = NSMutableArray()
-            self.collctionView.indexPathsForSelectedItems()?.forEach({ (indexPath) in
-                newArray.addObject(self.assets.objectAtIndex(indexPath.row))
-            })
-            prevc.assets = newArray
-            prevc.maximumNumberOfSelection = self.maximumNumberOfSelection
-            self.navigationController?.pushViewController(prevc, animated: true)
-        } else {
-            SVProgressHUD.showErrorWithStatus("没有选中图片")
-        }
-    }
-    
-    @IBAction func retainActino(any: AnyObject) {
-        isRetainImage = !isRetainImage
-        refershDataSize(self.collctionView.indexPathsForSelectedItems())
-    }
-    
-    func takePhotoAction(){
-        
-        let imagePickVC = UIImagePickerController()
-        imagePickVC.delegate = self
-        imagePickVC.sourceType = UIImagePickerControllerSourceType.Camera
-        presentViewController(imagePickVC, animated: true, completion: nil)
-        
-    }
-    
-    func refershDataSize(indexPaths: NSArray?) {
-        if isRetainImage {
-            var size = 0
-            indexPaths?.forEach({ (index) in
-                if let assetObj = self.assets.objectAtIndex(index.row) as? ALAsset {
-                    let representation =  assetObj.defaultRepresentation()
-                    let imageBuffer = UnsafeMutablePointer<UInt8>.alloc(Int(representation.size()))
-                    let bufferSize = representation.getBytes(imageBuffer, fromOffset: Int64(0),
-                        length: Int(representation.size()), error: nil)
-                    let dataImageFull: NSData =  NSData(bytesNoCopy:imageBuffer, length:bufferSize, freeWhenDone:true)
-                    size += dataImageFull.length
-                }
-            })
-            let newSizeMB = Double(size/1024/1024)
-            
-            if size/1024 < 1000 {
-                sizeButton.setTitle(" 原图(\(size/1024)KB)", forState: UIControlState.Normal)
-            } else {
-                sizeButton.setTitle(" 原图(\(newSizeMB)MB)", forState: UIControlState.Normal)
-            }
-            
-            sizeButton.setImage(UIImage(named: "UINaviAble"), forState: UIControlState.Normal)
-        } else {
-            sizeButton.setTitle(" 原图", forState: UIControlState.Normal)
-            sizeButton.setImage(UIImage(named: "UINaviDisable"), forState: UIControlState.Normal)
-        }
-    }
-    
+	
+	var choosePhotoModel: AIAssetsPickerModel = .mutliModel // default value.
+	
+	var maximumNumberOfSelection: Int = 10 // default
+	
+	weak var delegate: AIAssetsPickerControllerDelegate?
+	
+	@IBOutlet weak var collctionView: UICollectionView!
+	
+	@IBOutlet weak var sizeButton: UIButton!
+	
+	@IBOutlet weak var numberButton: UIButton!
+	
+	@IBOutlet weak var layoutColl: UICollectionViewFlowLayout!
+	
+	private let selectionFilter = NSPredicate(value: true)
+	
+	private var assets: NSMutableArray = NSMutableArray()
+	
+	private var assetsLibrary: ALAssetsLibrary = ALAssetsLibrary()
+	
+	private var groups: NSMutableArray = NSMutableArray()
+	
+	private var numberOfPhotos: Int = 0
+	
+	private var assetsGroup: ALAssetsGroup?
+	
+	private let kAssetsViewCellIdentifier = "AssetsViewCellIdentifier"
+	
+	private let kAssetsSupplementaryViewIdentifier = "AssetsSupplementaryViewIdentifier"
+	
+	private var isRetainImage: Bool = false
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		/**
+		 *  Single Mode
+		 */
+		if choosePhotoModel == .singleModel {
+			maximumNumberOfSelection = 1
+		}
+		
+		// init Settings.
+		initSettings()
+		
+		// Loading Data Assets.
+		fetchData ()
+		
+	}
+	
+	@IBAction func closeAction(any: AnyObject) {
+		delegate?.assetsPickerControllerDidCancel()
+		self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	func initSettings() {
+		self.collctionView.allowsMultipleSelection = true
+		self.collctionView.registerClass(AIAssetsViewCell.self, forCellWithReuseIdentifier: kAssetsViewCellIdentifier)
+		self.collctionView.registerClass(AIAssetsFootViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: kAssetsSupplementaryViewIdentifier)
+		
+		layoutColl.itemSize = CGSizeMake(100, 100)
+		layoutColl.footerReferenceSize = CGSizeMake(0, 44)
+		layoutColl.sectionInset = UIEdgeInsetsMake(0.0, 0, 0, 0)
+		layoutColl.minimumInteritemSpacing = 2.0
+		layoutColl.minimumLineSpacing = 2.0
+	}
+	
+	func fetchData() {
+		// Find the frist Photo Ablum
+		assetsLibrary.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (group, stop) in
+			if group != nil {
+				debugPrint(group.numberOfAssets())
+				self.groups.addObject(group)
+				self.assetsGroup = group
+				
+				group.enumerateAssetsUsingBlock({ (asset, idnex, complate) in
+					
+					if asset != nil {
+						self.assets.addObject(asset)
+						if let newAsset = (asset.valueForProperty(ALAssetPropertyType)) as? String {
+							if newAsset == ALAssetTypePhoto {
+								self.numberOfPhotos += 1
+							}
+							
+						}
+					}
+				})
+				
+				self.collctionView.reloadData()
+				
+			}
+		}) { (error) in
+			debugPrint(error.userInfo)
+		}
+	}
+	
+	/// Action
+	
+	@IBAction func finishChooseAction(any: AnyObject) {
+		
+		let newArray = NSMutableArray()
+		self.collctionView.indexPathsForSelectedItems()?.forEach({ (indexPath) in
+			newArray.addObject(self.assets.objectAtIndex(indexPath.row))
+		})
+		delegate?.assetsPickerController(self, didFinishPickingAssets: newArray)
+		self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	@IBAction func preViewAction(any: AnyObject) {
+		if self.collctionView.indexPathsForSelectedItems()?.count > 0 {
+			let prevc = AIAssetsReviewsController.initFromNib()
+			let newArray = NSMutableArray()
+			self.collctionView.indexPathsForSelectedItems()?.forEach({ (indexPath) in
+				newArray.addObject(self.assets.objectAtIndex(indexPath.row))
+			})
+			prevc.assets = newArray
+			prevc.maximumNumberOfSelection = self.maximumNumberOfSelection
+			self.navigationController?.pushViewController(prevc, animated: true)
+		} else {
+			SVProgressHUD.showErrorWithStatus("没有选中图片")
+		}
+	}
+	
+	@IBAction func retainActino(any: AnyObject) {
+		isRetainImage = !isRetainImage
+		refershDataSize(self.collctionView.indexPathsForSelectedItems())
+	}
+	
+	func takePhotoAction() {
+		
+		let imagePickVC = UIImagePickerController()
+		imagePickVC.delegate = self
+		imagePickVC.sourceType = UIImagePickerControllerSourceType.Camera
+		presentViewController(imagePickVC, animated: true, completion: nil)
+		
+	}
+	
+	func refershDataSize(indexPaths: NSArray?) {
+		if isRetainImage {
+			var size = 0
+			indexPaths?.forEach({ (index) in
+				if let assetObj = self.assets.objectAtIndex(index.row) as? ALAsset {
+					let representation = assetObj.defaultRepresentation()
+					let imageBuffer = UnsafeMutablePointer<UInt8>.alloc(Int(representation.size()))
+					let bufferSize = representation.getBytes(imageBuffer, fromOffset: Int64(0),
+						length: Int(representation.size()), error: nil)
+					let dataImageFull: NSData = NSData(bytesNoCopy: imageBuffer, length: bufferSize, freeWhenDone: true)
+					size += dataImageFull.length
+				}
+			})
+			let newSizeMB = Double(size / 1024 / 1024)
+			
+			if size / 1024 < 1000 {
+				sizeButton.setTitle(" 原图(\(size/1024)KB)", forState: UIControlState.Normal)
+			} else {
+				sizeButton.setTitle(" 原图(\(newSizeMB)MB)", forState: UIControlState.Normal)
+			}
+			
+			sizeButton.setImage(UIImage(named: "UINaviAble"), forState: UIControlState.Normal)
+		} else {
+			sizeButton.setTitle(" 原图", forState: UIControlState.Normal)
+			sizeButton.setImage(UIImage(named: "UINaviDisable"), forState: UIControlState.Normal)
+		}
+	}
+	
 }
 
-
 extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return assets.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        
-        let CellIdentifier = self.kAssetsViewCellIdentifier
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CellIdentifier, forIndexPath: indexPath) as? AIAssetsViewCell
-        
-        if indexPath.row == 0 {
-            //return camera.
-            let button = UIButton(type: .Custom)
-            cell?.contentView.addSubview(button)
-            button.setImage(UIImage(named: "UINaviCamera"), forState: UIControlState.Normal)
-            button.backgroundColor = UIColor(hexString: "#6F6D81")
-            button.setWidth(100)
-            button.setHeight(100)
-            button.addTarget(self, action: #selector(AIAssetsPickerController.takePhotoAction), forControlEvents: UIControlEvents.TouchUpInside)
-        }else{
-            let curretnAsset = assets.objectAtIndex(indexPath.row) as! ALAsset
-            cell?.bind(curretnAsset)
-            cell?.model = self.choosePhotoModel
-        }
-        return cell ?? AIAssetsViewCell()
-        
-        
-    }
-    
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        
-        let CellIdentifier = self.kAssetsSupplementaryViewIdentifier
-        let cell = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: CellIdentifier, forIndexPath: indexPath) as? AIAssetsFootViewCell
-        cell?.setNumberOfPhotos(numberOfPhotos)
-        return cell ?? UICollectionReusableView()
-    }
-    
-    
-    func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        
-        let asset = self.assets.objectAtIndex(indexPath.row)
-        return selectionFilter.evaluateWithObject(asset) && (collectionView.indexPathsForSelectedItems()?.count < maximumNumberOfSelection)
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        delegate?.assetsPickerController(self, didSelectItemAtIndexPath: indexPath)
-        setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
-    }
-    
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        delegate?.assetsPickerController(self, didDeselectItemAtIndexPath: indexPath)
-        setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
-    }
-    
-    
-    func setTitleWithSelectedIndexPaths(indexPaths: NSArray?) {
-        
-        if let indexPaths = indexPaths {
-            
-            refershDataSize(indexPaths)
-            
-            if indexPaths.count == 0 {
-                // NONE
-                numberButton.backgroundColor = UIColor(hexString: "868c90", alpha: 0.60)
-                numberButton.enabled = false
-                numberButton.setTitle("上传", forState: UIControlState.Normal)
-            }else{
-                numberButton.enabled = true
-                numberButton.backgroundColor = UIColor(hexString: "0077CF")
-                numberButton.setTitle("\(indexPaths.count)/\(maximumNumberOfSelection) 上传", forState: UIControlState.Normal)
-            }
-            
-        }
-    }
-    
+	
+	func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+		return 1
+	}
+	
+	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return assets.count
+	}
+	
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+		
+		let CellIdentifier = self.kAssetsViewCellIdentifier
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CellIdentifier, forIndexPath: indexPath) as? AIAssetsViewCell
+		
+		if indexPath.row == 0 {
+			// return camera.
+			let button = UIButton(type: .Custom)
+			cell?.contentView.addSubview(button)
+			button.setImage(UIImage(named: "UINaviCamera"), forState: UIControlState.Normal)
+			button.backgroundColor = UIColor(hexString: "#6F6D81")
+			button.setWidth(100)
+			button.setHeight(100)
+			button.addTarget(self, action: #selector(AIAssetsPickerController.takePhotoAction), forControlEvents: UIControlEvents.TouchUpInside)
+		} else {
+			let curretnAsset = assets.objectAtIndex(indexPath.row) as! ALAsset
+			cell?.bind(curretnAsset)
+			cell?.model = self.choosePhotoModel
+		}
+		return cell ?? AIAssetsViewCell()
+		
+	}
+	
+	func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+		
+		let CellIdentifier = self.kAssetsSupplementaryViewIdentifier
+		let cell = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: CellIdentifier, forIndexPath: indexPath) as? AIAssetsFootViewCell
+		cell?.setNumberOfPhotos(numberOfPhotos)
+		return cell ?? UICollectionReusableView()
+	}
+	
+	func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+		
+		let asset = self.assets.objectAtIndex(indexPath.row)
+		return selectionFilter.evaluateWithObject(asset) && (collectionView.indexPathsForSelectedItems()?.count < maximumNumberOfSelection)
+	}
+	
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		delegate?.assetsPickerController(self, didSelectItemAtIndexPath: indexPath)
+		setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
+	}
+	
+	func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+		delegate?.assetsPickerController(self, didDeselectItemAtIndexPath: indexPath)
+		setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
+	}
+	
+	func setTitleWithSelectedIndexPaths(indexPaths: NSArray?) {
+		
+		if let indexPaths = indexPaths {
+			
+			refershDataSize(indexPaths)
+			
+			if indexPaths.count == 0 {
+				// NONE
+				numberButton.backgroundColor = UIColor(hexString: "868c90", alpha: 0.60)
+				numberButton.enabled = false
+				numberButton.setTitle("上传", forState: UIControlState.Normal)
+			} else {
+				numberButton.enabled = true
+				numberButton.backgroundColor = UIColor(hexString: "0077CF")
+				numberButton.setTitle("\(indexPaths.count)/\(maximumNumberOfSelection) 上传", forState: UIControlState.Normal)
+			}
+			
+		}
+	}
+	
 }
 
 extension AIAssetsPickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let image = info[UIImagePickerControllerOriginalImage]
-        AILog(image)
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    
+	
+	func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+		picker.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
+		let image = info[UIImagePickerControllerOriginalImage]
+		AILog(image)
+		picker.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String: AnyObject]?) {
+		picker.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
 }
