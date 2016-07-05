@@ -9,16 +9,22 @@
 import UIKit
 
 class AITimelineNowTableViewCell: UITableViewCell {
+    
+    
+    @IBOutlet weak var nowLabel: UILabel!
+    @IBOutlet weak var dotView: UIView!
+    @IBOutlet weak var timeLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupViews()
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setupViews() {
+        dotView.layer.cornerRadius = dotView.height / 2
+        dotView.layer.masksToBounds = true
+        dotView.layer.borderColor = UIColor(hexString: "#ffffff", alpha: 0.3).CGColor
     }
     
 }

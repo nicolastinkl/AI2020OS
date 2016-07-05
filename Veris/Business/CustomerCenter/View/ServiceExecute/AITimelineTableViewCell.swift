@@ -170,6 +170,7 @@ class AITimelineTableViewCell: UITableViewCell {
         audioModel.audio_url = url
         audioModel.time = time ?? 0
         let audio1 = AIAudioMessageView.currentView()
+        audio1.audioBg.backgroundColor = UIColor(hexString: "#18b9c3")
         imageContainerView.addSubview(audio1)
         
         imageContainerViewHeight += 22
@@ -177,7 +178,7 @@ class AITimelineTableViewCell: UITableViewCell {
         //audio1.tag = 11
         audio1.fillData(audioModel)
         audio1.snp_makeConstraints { (make) in
-            make.leading.equalTo(self.imageContainerView).offset(-10)
+            make.leading.equalTo(self.imageContainerView).offset(-14)
             make.trailing.equalTo(self.imageContainerView).offset(-40 / 3)
             make.height.equalTo(22)
         }
@@ -225,13 +226,13 @@ class AITimelineTableViewCell: UITableViewCell {
                 totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.cellMargin
             case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
                 totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.subViewMargin + AITimelineTableViewCell.baseButtonsHeight + AITimelineTableViewCell.cellMargin + imageContainerViewHeight
-                
+            default: break
             }
         }
         AILog("totalHeight : \(totalHeight)")
         return totalHeight
     }
-
+    
     class func caculateHeightWidthData(viewModel: AITimelineViewModel) -> CGFloat {
         var totalHeight: CGFloat = 0
         switch viewModel.layoutType! {
@@ -239,7 +240,9 @@ class AITimelineTableViewCell: UITableViewCell {
             totalHeight = baseTimelineContentLabelHeight + cellMargin
         case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
             totalHeight = baseTimelineContentLabelHeight + subViewMargin + baseButtonsHeight + cellMargin
+        default: break
         }
+        
         return totalHeight
     }
 }

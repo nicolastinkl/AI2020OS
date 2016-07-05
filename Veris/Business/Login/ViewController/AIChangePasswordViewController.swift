@@ -12,9 +12,7 @@ import SVProgressHUD
 
 class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDelegate {
 
-
-    @IBOutlet weak var validateInfoLabelWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var validateInfoLabel: UILabel!
+    @IBOutlet weak var validateInfoLabel: AIAnimatedPromptLabel!
     @IBOutlet weak var confirmButton: AIChangeStatusButton!
     @IBOutlet weak var passwordTextField: AILoginPasswordTextField!
     
@@ -49,12 +47,6 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
 
         //修复navigationController侧滑关闭失效的问题
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        
-        //validateInfoLabel
-        validateInfoLabelWidthConstraint.constant = 0
-        validateInfoLabel.layer.cornerRadius = 8
-        validateInfoLabel.font = LoginConstants.Fonts.validateResult
-        validateInfoLabel.layer.masksToBounds = true
     }
 
     func passwordInputAction(target: UITextField) {
@@ -78,7 +70,7 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
                     self.navigationController?.popToRootViewControllerAnimated(true)
                     }, fail: { (errType, errDes) in
                         SVProgressHUD.dismiss()
-                        AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.RegisterFaild, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
+                        self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.RegisterFaild.rawValue)
                 })
             } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
                 loginService.resetPassword(smsCode, newPassword: passwordTextField.text!, success: {
@@ -88,7 +80,7 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
                     self.navigationController?.popToRootViewControllerAnimated(true)
                     }, fail: { (errType, errDes) in
                         SVProgressHUD.dismiss()
-                        AILoginUtil.showValidateResult(LoginConstants.ValidateResultCode.RestPassword, validateInfoLabel: self.validateInfoLabel, widthConstraint: self.validateInfoLabelWidthConstraint)
+                        self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.RestPassword.rawValue)
                 })
             }
         }

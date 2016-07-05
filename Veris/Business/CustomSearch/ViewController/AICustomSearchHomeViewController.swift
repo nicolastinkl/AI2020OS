@@ -97,7 +97,7 @@ class AICustomSearchHomeViewController: UIViewController {
     func setupSearchView() {
         
 		// Make Test Data View
-		recentlySearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 20, width: screenWidth, height: 200), title: "You recently searched", labels: ["Pregnat", "Travel", "Europe", "Outdoors"])
+		recentlySearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 20, width: screenWidth, height: 200), title: "You recently searched", labels: ["Pregnat", "Travel", "Europe", "Outdoors", "Delicious Foods", "Bi"])
 		recentlySearchTag.delegate = self
 		holdView.addSubview(recentlySearchTag)
 		everyOneSearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 0, width: screenWidth, height: 200), title: "Everyone is searching", labels: ["Ordering", "Baby Carriage", "Children's clothing"])
