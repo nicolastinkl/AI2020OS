@@ -129,8 +129,8 @@ class AIAssetsPickerController: UIViewController {
         self.collctionView.allowsMultipleSelection = true
         self.collctionView.registerClass(AIAssetsViewCell.self, forCellWithReuseIdentifier: kAssetsViewCellIdentifier)
         self.collctionView.registerClass(AIAssetsFootViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: kAssetsSupplementaryViewIdentifier)
-        
-        layoutColl.itemSize = CGSizeMake(100, 100)
+        let width = UIScreen.mainScreen().bounds.size.width/4 - 1.5
+        layoutColl.itemSize = CGSizeMake(width, width)
         layoutColl.footerReferenceSize = CGSizeMake(0, 44)
         layoutColl.sectionInset            = UIEdgeInsetsMake(0.0, 0, 0, 0)
         layoutColl.minimumInteritemSpacing = 2.0
@@ -158,7 +158,6 @@ class AIAssetsPickerController: UIViewController {
                         }
                     }
                 })
-                
                 self.collctionView.reloadData()
                 
             }
@@ -257,18 +256,16 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
         
         if indexPath.row == 0 {
             //return camera.
-            let button = UIButton(type: .Custom)
-            cell?.contentView.addSubview(button)
-            button.setImage(UIImage(named: "UINaviCamera"), forState: UIControlState.Normal)
-            button.backgroundColor = UIColor(hexString: "#6F6D81")
-            button.setWidth(100)
-            button.setHeight(100)
-            button.addTarget(self, action: #selector(AIAssetsPickerController.takePhotoAction), forControlEvents: UIControlEvents.TouchUpInside)
+            cell?.showCamera = true
         }else{
-            let curretnAsset = assets.objectAtIndex(indexPath.row) as! ALAsset
+            cell?.showCamera = false
+        }
+        
+        if let curretnAsset = assets.objectAtIndex(indexPath.row) as? ALAsset {
             cell?.bind(curretnAsset)
             cell?.model = self.choosePhotoModel
         }
+        
         return cell ?? AIAssetsViewCell()
         
         
@@ -290,13 +287,22 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        delegate?.assetsPickerController(self, didSelectItemAtIndexPath: indexPath)
-        setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
+        
+        if indexPath.row == 0 {
+            takePhotoAction()
+        }else{
+            delegate?.assetsPickerController(self, didSelectItemAtIndexPath: indexPath)
+            setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
+        }
+        
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        delegate?.assetsPickerController(self, didDeselectItemAtIndexPath: indexPath)
-        setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
+        if indexPath.row > 0 {
+            delegate?.assetsPickerController(self, didDeselectItemAtIndexPath: indexPath)
+            setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
+        }
+        
     }
     
     
