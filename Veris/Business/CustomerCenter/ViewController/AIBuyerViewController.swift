@@ -140,7 +140,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         tableView.registerNib(UINib(nibName: "ExpandableTableViewCell", bundle: nil), forCellReuseIdentifier: "ExpandableTableViewCell")
 
-        self.view.addSubview(tableView)
+        view.addSubview(tableView)
 
         tableView.tableHeaderView = bubbleViewContainer
 
