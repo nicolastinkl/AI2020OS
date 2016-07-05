@@ -59,7 +59,7 @@ class AITimelineTableViewCell: UITableViewCell {
         }
         //重置变化的高度计算
         imageContainerViewHeight = 0
-        if (viewModel.contents?.count) != nil{
+        if (viewModel.contents?.count) != nil {
             for (index, timeContentModel) in (viewModel.contents)!.enumerate() {
                 switch timeContentModel.contentType! {
                 case AITimelineContentTypeEnum.Image:
@@ -232,7 +232,7 @@ class AITimelineTableViewCell: UITableViewCell {
         return totalHeight
     }
 
-    class func caculateHeightWidthData(viewModel: AITimelineViewModel) -> CGFloat{
+    class func caculateHeightWidthData(viewModel: AITimelineViewModel) -> CGFloat {
         var totalHeight: CGFloat = 0
         switch viewModel.layoutType! {
         case AITimelineLayoutTypeEnum.Normal:
