@@ -21,7 +21,7 @@ class AISearchHistoryIconView: UIView {
 		static let titleLabelSpace: CGFloat = AITools.displaySizeFrom1242DesignSize(28)
 		static let titleLabelHeight: CGFloat = AITools.displaySizeFrom1242DesignSize(28 + Constants.titleLabelFontSize)
 		static let titleLabelFontSize: CGFloat = AITools.displaySizeFrom1242DesignSize(48)
-		static let titleLabelFont: UIFont = AITools.myriadSemiboldSemiCnWithSize(Constants.titleLabelFontSize)
+		static let titleLabelFont: UIFont = AITools.myriadSemiCondensedWithSize(Constants.titleLabelFontSize)
 	}
 	
 	convenience init(items: [(image: String, title: String)], width: CGFloat) {
@@ -45,7 +45,7 @@ class AISearchHistoryIconView: UIView {
 		
 		// setup title label
 		titleLabel = UILabel()
-		titleLabel.text = "You recently searched"
+		titleLabel.text = "Recently browsed"
 		titleLabel.textColor = UIColor.whiteColor()
 		titleLabel.font = Constants.titleLabelFont
 		titleLabel.sizeToFit()
