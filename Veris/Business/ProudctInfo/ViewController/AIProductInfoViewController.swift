@@ -234,7 +234,7 @@ class AIProductInfoViewController: UIViewController {
         tagsView.setLeft(10)
         
         // Add Free Custom Make View Button.
-        func addFreeButton(){
+        func addFreeButton() {
             // add tag view.
             let tag = DesignableButton()
             tag.borderColor = UIColor.whiteColor()

@@ -21,10 +21,16 @@ class AITimelineNowTableViewCell: UITableViewCell {
         setupViews()
     }
     
-    func setupViews(){
+    func setupViews() {
+        dotView.backgroundColor = UIColor(hexString: "#ffffff")
         dotView.layer.cornerRadius = dotView.height / 2
         dotView.layer.masksToBounds = true
-        dotView.layer.borderColor = UIColor(hexString: "#ffffff", alpha: 0.3).CGColor
+        dotView.layer.borderColor = UIColor(hexString: "#000000", alpha: 0.3).CGColor
+        dotView.layer.borderWidth = 2
+        let nowDate = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        timeLabel.text = dateFormatter.stringFromDate(nowDate)
     }
     
 }

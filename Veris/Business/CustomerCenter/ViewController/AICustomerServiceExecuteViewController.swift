@@ -127,6 +127,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         orderInfoContentView?.model = orderInfoModel
         //timeLine tableView
         timelineTableView.registerNib(UINib(nibName: AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, bundle: nil), forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell)
+        timelineTableView.registerNib(UINib(nibName: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell, bundle: nil), forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell)
         timelineTableView.delegate = self
         timelineTableView.dataSource = self
     }
@@ -152,6 +153,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
             timelineModels.append(AITimelineViewModel.createFakeData("\(i)"))
         }
         timelineModels.append(AITimelineViewModel.createFakeDataOrderComplete("\(4)"))
+        timelineModels = handleViewModels(timelineModels)
     }
     
     //TODO: 过滤时间线
@@ -177,11 +179,18 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
         let timeLineItem = timelineModels[indexPath.row]
-        cell.delegate = self
-        cell.loadData(timeLineItem)
-        return cell
+        if timeLineItem.layoutType == AITimelineLayoutTypeEnum.Now {
+            let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell, forIndexPath: indexPath) as! AITimelineNowTableViewCell
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
+            
+            cell.delegate = self
+            cell.loadData(timeLineItem)
+            return cell
+        }
+        
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -225,7 +234,67 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         
     }
     
-//    func insertNowCellToModel(timelineModels : [AITimelineViewModel]) -> [AITimelineViewModel]{
-//        let nowTime = NSDate(timeIntervalSince1970: <#T##NSTimeInterval#>)
-//    }
+    /**
+     <#Description#>
+     
+     - parameter timelineModels: <#timelineModels description#>
+     
+     - returns: <#return value description#>
+     */
+    func handleViewModels(timelineModels: [AITimelineViewModel]) -> [AITimelineViewModel] {
+        //insertNowCellToModel
+        var newTimelineModels = timelineModels
+        let nowTime = NSDate()
+        let datetimeFormat = NSDateFormatter()
+        var lastDate: NSDate!
+        var isNowHandled = false
+        datetimeFormat.dateFormat = "MM-dd HH:mm"
+        for (index, timelineModel) in timelineModels.enumerate() {
+            let timelineDateString = "\(timelineModel.timeModel!.date!) \(timelineModel.timeModel!.time!)"
+            if let timelineDate = datetimeFormat.dateFromString(timelineDateString) {
+                //处理now
+                if nowTime.compare(timelineDate) == NSComparisonResult.OrderedAscending && !isNowHandled {
+                    let nowTimelineViewModel = AITimelineViewModel()
+                    nowTimelineViewModel.layoutType = AITimelineLayoutTypeEnum.Now
+                    nowTimelineViewModel.cellHeight = 44
+                    newTimelineModels.insert(nowTimelineViewModel, atIndex: index)
+                    isNowHandled = true
+                }
+                //处理是否显示月日
+                if index == 0 {
+                    timelineModel.timeModel?.shouldShowDate = true
+                } else {
+                    if compareOneDate(timelineDate, anotherDate: lastDate) != NSComparisonResult.OrderedSame {
+                        timelineModel.timeModel?.shouldShowDate = true
+                    }
+                }
+                lastDate = timelineDate
+            }
+        }
+        //如果循环到最后都没有，则加在最后
+        if !isNowHandled {
+            let nowTimelineViewModel = AITimelineViewModel()
+            nowTimelineViewModel.layoutType = AITimelineLayoutTypeEnum.Now
+            nowTimelineViewModel.cellHeight = 44
+            newTimelineModels.append(nowTimelineViewModel)
+        }
+        
+        return newTimelineModels
+    }
+    
+    /**
+     按天来比较日期
+     
+     - parameter oneDate:     <#oneDate description#>
+     - parameter anotherDate: <#anotherDate description#>
+     
+     - returns: <#return value description#>
+     */
+    func compareOneDate(oneDate: NSDate, anotherDate: NSDate) -> NSComparisonResult {
+        let dateFormat = NSDateFormatter()
+        dateFormat.dateFormat = "MM-dd"
+        let oneFormatDate = dateFormat.dateFromString(dateFormat.stringFromDate(oneDate))
+        let anotherFormatDate = dateFormat.dateFromString(dateFormat.stringFromDate(anotherDate))
+        return (oneFormatDate?.compare(anotherFormatDate!))!
+    }
 }

@@ -130,6 +130,7 @@ struct AIApplication {
             
             // MARK: SERVICE EXECUTE
             static let AITimelineTableViewCell = "AITimelineTableViewCell"
+            static let AITimelineNowTableViewCell = "AITimelineNowTableViewCell"
 
         }
 

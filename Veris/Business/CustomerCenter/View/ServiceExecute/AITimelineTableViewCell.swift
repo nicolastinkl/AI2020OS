@@ -11,12 +11,15 @@ import UIKit
 class AITimelineTableViewCell: UITableViewCell {
 
     // MARK: -> IB properties
+    
+    @IBOutlet weak var dateLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var buttonContainerView: UIView!
     @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var timeContentLabel: UILabel!
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var dotView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
 
     var viewModel: AITimelineViewModel?
     var imageContainerViewHeight: CGFloat = 0
@@ -47,6 +50,7 @@ class AITimelineTableViewCell: UITableViewCell {
         dotView.layer.masksToBounds = true
         
         self.selectionStyle = UITableViewCellSelectionStyle.None
+        self.clipsToBounds = true
     }
 
     func buildImageContainerView() {
@@ -191,6 +195,17 @@ class AITimelineTableViewCell: UITableViewCell {
 
         timeLabel.text = viewModel.timeModel?.time
         timeContentLabel.text = viewModel.desc
+        
+        //处理是否显示天数
+        if let timeModel = viewModel.timeModel {
+            if timeModel.shouldShowDate {
+                dateLabelTopConstraint.constant = 5
+            } else {
+                dateLabelTopConstraint.constant = -20
+            }
+        }
+        dateLabel.text = viewModel.timeModel?.date
+        
         buildImageContainerView()
         buildButtonContainerView()
     }

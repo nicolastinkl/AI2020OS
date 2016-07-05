@@ -22,7 +22,7 @@ class AITimelineViewModel: AIBaseViewModel {
         timelineViewModel.layoutType = AITimelineLayoutTypeEnum.ConfirmServiceComplete
         timelineViewModel.desc = "陪护人员已完成挂号任务"
         let timeModel = AIDateTimeViewModel()
-        timeModel.date = "6月20日"
+        timeModel.date = "6-20"
         timeModel.time = "\(16 + Int(itemId)!):10"
         timelineViewModel.timeModel = timeModel
         
@@ -37,7 +37,7 @@ class AITimelineViewModel: AIBaseViewModel {
         timelineViewModel.layoutType = AITimelineLayoutTypeEnum.ConfirmOrderComplete
         timelineViewModel.desc = "订单服务已完成"
         let timeModel = AIDateTimeViewModel()
-        timeModel.date = "6月20日"
+        timeModel.date = "6-20"
         timeModel.time = "\(16 + Int(itemId)!):10"
         timelineViewModel.timeModel = timeModel
         return timelineViewModel
@@ -47,7 +47,8 @@ class AITimelineViewModel: AIBaseViewModel {
 class AIDateTimeViewModel: AIBaseViewModel {
     var date: String?
     var time: String?
-    var isNow: Bool = false
+    var isNow = false
+    var shouldShowDate = false
 }
 
 class AITimeContentViewModel: AIBaseViewModel {
