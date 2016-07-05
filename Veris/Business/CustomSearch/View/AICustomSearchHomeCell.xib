@@ -46,7 +46,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="scorePercent">
-                                        <real key="value" value="0.80000000000000004"/>
+                                        <real key="value" value="0.90000000000000002"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="backgroundStarImage" value="Hollow_Star"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="foregroundStarImage" value="Comment_Star"/>
@@ -113,6 +113,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="PWL-Vx-oR8" secondAttribute="trailing" id="4s0-LB-DS8"/>
                     <constraint firstItem="Tbz-WP-I6U" firstAttribute="top" secondItem="k34-wo-TC9" secondAttribute="bottom" constant="8" id="6TW-9K-w4n"/>

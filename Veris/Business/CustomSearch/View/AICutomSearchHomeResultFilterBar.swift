@@ -14,7 +14,7 @@ class AICutomSearchHomeResultFilterBar: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         mainView.backgroundColor = UIColor.clearColor()
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor ( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15 )
         
         filterButtons.forEach { (b) in
             b.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))

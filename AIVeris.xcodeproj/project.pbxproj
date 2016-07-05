@@ -625,7 +625,6 @@
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
 		FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB01810F1D0D650E00213DF8 /* AISearchBar.xib */; };
-		FB4DC8B01D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DC8AF1D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift */; };
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */; };
 		FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */; };
@@ -1604,7 +1603,6 @@
 		FB01810A1D0D125400213DF8 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
 		FB01810D1D0D650100213DF8 /* AISearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBar.swift; sourceTree = "<group>"; };
 		FB01810F1D0D650E00213DF8 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
-		FB4DC8AF1D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchRecentlyLogoView.swift; sourceTree = "<group>"; };
 		FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryIconView.swift; sourceTree = "<group>"; };
 		FB6600F81D123C01004667E2 /* AISellerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellerCollectionViewCell.h; sourceTree = "<group>"; };
 		FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerCollectionViewCell.m; sourceTree = "<group>"; };
@@ -3276,7 +3274,6 @@
 			children = (
 				81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */,
 				933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */,
-				FB4DC8AF1D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift */,
 				9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */,
 				9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */,
 			);
@@ -4650,7 +4647,6 @@
 				81433D821CFBE5A700347C29 /* AIOrderDescView.swift in Sources */,
 				81433D341CFBE5A700347C29 /* TransportService.swift in Sources */,
 				81433D8A1CFBE5A700347C29 /* ProposalExpandedView.swift in Sources */,
-				FB4DC8B01D13EC2400513438 /* AICustomSearchRecentlyLogoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
