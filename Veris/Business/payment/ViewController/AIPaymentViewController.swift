@@ -85,7 +85,9 @@ class AIPaymentViewController: UIViewController {
          Register Notify
          */
         initRegisternotify()
-         
+        
+        topNaviView.hidden = true
+        
     }
     
     func initRegisternotify() {
@@ -97,6 +99,7 @@ class AIPaymentViewController: UIViewController {
      */
     func showNotifyPayStatus() {
 
+        topNaviView.hidden = false
         self.label_Price_info.text = "成功支付"
         
         topNaviConstraint.constant = 44
