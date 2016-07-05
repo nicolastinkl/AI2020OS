@@ -35,32 +35,8 @@ class ExpandableTableViewCell: UITableViewCell {
             }
 
         }
-
-//        didSet {
-//            if oldValue == isExpanded {
-//                return
-//            }
-//            if isExpanded {
-//                if let ex = expandedContentView {
-//                    expandedViewHeight.active = false
-//                    expandedView.addSubview(ex)
-//                    ex.snp_makeConstraints { (make) in
-//                        make.edges.equalTo(expandedView)
-//                    }
-//                }
-//            } else {
-//                expandedViewHeight.active = true
-//                expandedContentView?.removeFromSuperview()
-//                expandedViewHeight.constant = 0
-//            }
-//            expandedView.updateConstraints()
-//            contentView.layoutIfNeeded()
-//        }
     }
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        isExpanded = false
-//    }
+
 
     func setFoldedView(view: UIView) {
         topContentView = view
@@ -69,7 +45,6 @@ class ExpandableTableViewCell: UITableViewCell {
 
     func setBottomExpandedView(view: UIView) {
         expandedContentView = view
-//        addAndSetViewHeight(view, containerView: expandedView, containerHeightConstraint:  expandedViewHeight)
     }
 
     private func addAndSetViewHeight(view: UIView, containerView: UIView, containerHeightConstraint: NSLayoutConstraint) {
