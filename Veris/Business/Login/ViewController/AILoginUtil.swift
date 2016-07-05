@@ -58,28 +58,17 @@ class AILoginUtil: NSObject {
         
         widthConstraint.constant = 0
         
-        SpringAnimation.springWithCompletion(1, animations: {
+        //避免重复动画，先remove
+        validateInfoLabel.layer.removeAllAnimations()
+        UIView.animateWithDuration(0.5, animations: {
             widthConstraint.constant = width
             validateInfoLabel.superview!.layoutIfNeeded()
-            }) { (complate) in
+        }) { (finished) in
+            UIView.animateWithDuration(0.5, delay: 2, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
                 widthConstraint.constant = 0
                 validateInfoLabel.superview!.layoutIfNeeded()
+                }, completion: nil)
         }
-        
-//        UIView.animateWithDuration(0.5, animations: {
-//            widthConstraint.constant = width
-//            validateInfoLabel.superview!.layoutIfNeeded()
-//        }) { (finished) in
-//            widthConstraint.constant = 0
-//            validateInfoLabel.superview!.layoutIfNeeded()
-////            
-////            UIView.animateWithDuration(0.5, delay: 2, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-////                widthConstraint.constant = 0
-////                validateInfoLabel.superview!.layoutIfNeeded()
-////                }, completion: nil)
-//            
-//            
-//        }
     }
     
     //处理用户登陆事件， 1.存储userId到本地

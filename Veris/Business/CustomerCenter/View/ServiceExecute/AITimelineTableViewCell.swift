@@ -226,13 +226,13 @@ class AITimelineTableViewCell: UITableViewCell {
                 totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.cellMargin
             case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
                 totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.subViewMargin + AITimelineTableViewCell.baseButtonsHeight + AITimelineTableViewCell.cellMargin + imageContainerViewHeight
-                
+            default: break
             }
         }
         AILog("totalHeight : \(totalHeight)")
         return totalHeight
     }
-
+    
     class func caculateHeightWidthData(viewModel: AITimelineViewModel) -> CGFloat {
         var totalHeight: CGFloat = 0
         switch viewModel.layoutType! {
@@ -240,7 +240,9 @@ class AITimelineTableViewCell: UITableViewCell {
             totalHeight = baseTimelineContentLabelHeight + cellMargin
         case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
             totalHeight = baseTimelineContentLabelHeight + subViewMargin + baseButtonsHeight + cellMargin
+        default: break
         }
+        
         return totalHeight
     }
 }
