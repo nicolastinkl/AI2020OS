@@ -56,6 +56,8 @@ class AISearchHistoryLabels: UIView {
 		mainTitleLabel = AIViews.wrapLabelWithFrame(CGRectMake(0, 0, (size?.width)!, (size?.height)!), text: mainTitle, fontSize: titleFontSize, color: UIColor.whiteColor())
         mainTitleLabel.font = titleFont
 		addSubview(mainTitleLabel)
+
+        maxHeight = (size?.height)!
 	}
 
 	func findSuitableLabel(suitableSize: CGFloat) -> String {
@@ -101,7 +103,7 @@ class AISearchHistoryLabels: UIView {
 			var labelText = historyLabel
 			var size = labelText.sizeWithFont(labelFont, forWidth: maxWidth)
             size.width += 30
-            size.height += 10
+            size.height += 16
 
 			if (x + horizontalMargin + size.width) > maxWidth {
 				let shortLabel = findSuitableLabel(maxWidth - x - horizontalMargin)
@@ -111,11 +113,11 @@ class AISearchHistoryLabels: UIView {
 
 				} else {
 					x = 0
-					y += verticalMargin + labelFontSize
+					y += verticalMargin + size.height
 				}
 
 			}
-			size.height = size.height + 6
+
 			let label = AIViews.wrapLabelWithFrame(CGRectMake(x, y, size.width, size.height), text: labelText, fontSize: labelFontSize, color: UIColor.whiteColor())
             label.font = labelFont
             label.userInteractionEnabled = true
@@ -130,9 +132,9 @@ class AISearchHistoryLabels: UIView {
 			x = CGRectGetMaxX(label.frame) + horizontalMargin
 
 			containLabels.append(labelText)
-		}
 
-		maxHeight = y + labelFontSize
+            maxHeight = y + size.height
+		}
 
 		if tempLabels.count > 0 {
 			makeLabels(x, startY: y, labels: tempLabels)
