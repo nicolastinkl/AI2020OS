@@ -50,7 +50,7 @@ class AIConfirmOrderViewController: UIViewController {
                 }
                 return result
             }
-            return nil
+            return [AnyObject]()
         }
     }
 
