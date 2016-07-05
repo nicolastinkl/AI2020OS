@@ -170,6 +170,7 @@ class AITimelineTableViewCell: UITableViewCell {
         audioModel.audio_url = url
         audioModel.time = time ?? 0
         let audio1 = AIAudioMessageView.currentView()
+        audio1.audioBg.backgroundColor = UIColor(hexString: "#18b9c3")
         imageContainerView.addSubview(audio1)
         
         imageContainerViewHeight += 22
@@ -177,7 +178,7 @@ class AITimelineTableViewCell: UITableViewCell {
         //audio1.tag = 11
         audio1.fillData(audioModel)
         audio1.snp_makeConstraints { (make) in
-            make.leading.equalTo(self.imageContainerView).offset(-10)
+            make.leading.equalTo(self.imageContainerView).offset(-14)
             make.trailing.equalTo(self.imageContainerView).offset(-40 / 3)
             make.height.equalTo(22)
         }
