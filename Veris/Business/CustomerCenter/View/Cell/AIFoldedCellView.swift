@@ -21,7 +21,6 @@ class AIFolderCellView: UIView {
     @IBOutlet weak var alertIcon: UIImageView!
     var descContentView: AIOrderDescView?
 
-    var delegate: AIFoldedCellViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,10 +67,6 @@ class AIFolderCellView: UIView {
 
     //TODO: 这里没法传参数，要考虑通过delegate在外层去打开新页面
     func serviceExecDetailAction(sender: UILabel) {
-
-        if let delegate = delegate {
-            delegate.statusButtonDidClick(proposalModel!)
-        }
 
     }
 
@@ -133,10 +128,6 @@ class AIFolderCellView: UIView {
         return selfView
     }
 
-}
-
-protocol AIFoldedCellViewDelegate {
-    func statusButtonDidClick(proposalModel: ProposalOrderModel)
 }
 
 struct ProposalOrderModelWrap {
