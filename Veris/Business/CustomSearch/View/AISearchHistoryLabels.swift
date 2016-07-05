@@ -110,6 +110,9 @@ class AISearchHistoryLabels: UIView {
 				if shortLabel != "" {
 					tempLabels.append(labelText)
 					labelText = shortLabel
+                    size = labelText.sizeWithFont(labelFont, forWidth: maxWidth)
+                    size.width += 30
+                    size.height += 16
 
 				} else {
 					x = 0
