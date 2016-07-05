@@ -101,7 +101,7 @@ class AISuperiorityViewController: UIViewController {
         titleLabel.font = UIFont.boldSystemFontOfSize(105/3)
         titleLabel.setHeight(284/3)
         titleLabel.setLeft(leftOffSet)
-        addNewSubView(titleLabel, preView: imageView, color: UIColor.clearColor(), space: 17)
+        addNewSubView(titleLabel, preView: imageView, color: UIColor.clearColor(), space: 53/3)
         titleLabel.setWidth(UIScreen.mainScreen().bounds.width - 50)
         titleLabel.text = "听说你还为孕检\n超碎了心？"
 
@@ -111,7 +111,7 @@ class AISuperiorityViewController: UIViewController {
             if let aisCell = AISuperiorityCellView.initFromNib() as? AISuperiorityCellView {
                 aisCell.labelDesciption.text = "一键启动符合服务"
                 if index > 0 {
-                    addNewSubView(aisCell, preView: preCellView!, color: UIColor.clearColor(), space: 8)
+                    addNewSubView(aisCell, preView: preCellView!, color: UIColor.clearColor(), space: 48/3)
                 } else {
                     addNewSubView(aisCell, preView: titleLabel)
                 }
@@ -121,7 +121,7 @@ class AISuperiorityViewController: UIViewController {
 
         // Price Label.
         let priceLabel = AILabel()
-        priceLabel.text = "$ 184.0"
+        priceLabel.text = "¢ 184.0 +"
         priceLabel.setHeight(44/3)
         addNewSubView(priceLabel, preView: preCellView!, color: UIColor.clearColor(), space: 69/3)
         priceLabel.font = UIFont.boldSystemFontOfSize(60/3)
