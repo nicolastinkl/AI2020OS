@@ -22,7 +22,12 @@ class AITimelineTableViewCell: UITableViewCell {
     var imageContainerViewHeight: CGFloat = 0
     weak var delegate: AITimelineTableViewCellDelegate?
     var needComputeHeight = true
-    let cellWidth = UIScreen.mainScreen().bounds.width - AITools.displaySizeFrom1242DesignSize(220)
+    
+    static let cellWidth = UIScreen.mainScreen().bounds.width - AITools.displaySizeFrom1242DesignSize(220)
+    static let baseTimelineContentLabelHeight: CGFloat = 22
+    static let cellMargin: CGFloat = 20
+    static let subViewMargin: CGFloat = 20
+    static let baseButtonsHeight: CGFloat = 26
 
     // MARK: -> override methods
     override func awakeFromNib() {
@@ -53,38 +58,39 @@ class AITimelineTableViewCell: UITableViewCell {
             subView.removeFromSuperview()
         }
         //重置变化的高度计算
-
         imageContainerViewHeight = 0
-
-        for (index, timeContentModel) in (viewModel.contents)!.enumerate() {
-            switch timeContentModel.contentType! {
-            case AITimelineContentTypeEnum.Image:
-                let imageView = buildImageContentView(timeContentModel.contentUrl!)
-                curView = imageView
-            case AITimelineContentTypeEnum.LocationMap: break
-                
-                
-            case AITimelineContentTypeEnum.Voice:
-                let voiceView = buildVoiceContentView(timeContentModel.contentUrl!, time: 2)
-                curView = voiceView
-                
-            }
-            guard let curView = curView else {return}
-            if index == 0 {
-                curView.snp_makeConstraints(closure: { (make) in
-                    make.top.equalTo(curView.superview!)
-                })
-            }
-            if index != 0 {
-                if let lastView = lastView {
-                    curView.snp_makeConstraints(closure: { (make) in
-                        make.top.equalTo(lastView.snp_bottom).offset(5)
-                    })
+        if (viewModel.contents?.count) != nil {
+            for (index, timeContentModel) in (viewModel.contents)!.enumerate() {
+                switch timeContentModel.contentType! {
+                case AITimelineContentTypeEnum.Image:
+                    let imageView = buildImageContentView(timeContentModel.contentUrl!)
+                    curView = imageView
+                case AITimelineContentTypeEnum.LocationMap: break
+                    
+                    
+                case AITimelineContentTypeEnum.Voice:
+                    let voiceView = buildVoiceContentView(timeContentModel.contentUrl!, time: 2)
+                    curView = voiceView
                     
                 }
+                guard let curView = curView else {return}
+                if index == 0 {
+                    curView.snp_makeConstraints(closure: { (make) in
+                        make.top.equalTo(curView.superview!)
+                    })
+                }
+                if index != 0 {
+                    if let lastView = lastView {
+                        curView.snp_makeConstraints(closure: { (make) in
+                            make.top.equalTo(lastView.snp_bottom).offset(5)
+                        })
+                        
+                    }
+                }
+                lastView = curView
             }
-            lastView = curView
         }
+        
     }
     
     func buildButtonContainerView() {
@@ -96,7 +102,7 @@ class AITimelineTableViewCell: UITableViewCell {
             }
             
             switch viewModel.layoutType! {
-            case .ConfirmServiceComplete:
+            case .ConfirmServiceComplete, .ConfirmOrderComplete:
                 let confirmButton = UIButton()
                 confirmButton.setTitle(CustomerCenterConstants.textContent.confirmButton, forState: UIControlState.Normal)
                 confirmButton.titleLabel?.font = CustomerCenterConstants.Fonts.TimelineButton
@@ -141,7 +147,7 @@ class AITimelineTableViewCell: UITableViewCell {
                 }
                 if self?.viewModel?.cellHeight == 0 {
                     if let delegate = self?.delegate {
-                        //TODO: 因为第二次进入从缓存加载图片太快，cell的第一次load还没完成就触发reload，结果展现就错乱了
+                        //因为第二次进入从缓存加载图片太快，cell的第一次load还没完成就触发reload，结果展现就错乱了
                         //暂时通过加延迟的方式解决
                         Async.main(after: 0.1, block: { 
                             let height = self?.getHeight()
@@ -171,7 +177,7 @@ class AITimelineTableViewCell: UITableViewCell {
         //audio1.tag = 11
         audio1.fillData(audioModel)
         audio1.snp_makeConstraints { (make) in
-            make.leading.equalTo(self.imageContainerView)
+            make.leading.equalTo(self.imageContainerView).offset(-10)
             make.trailing.equalTo(self.imageContainerView).offset(-40 / 3)
             make.height.equalTo(22)
         }
@@ -183,6 +189,7 @@ class AITimelineTableViewCell: UITableViewCell {
         self.viewModel = viewModel
 
         timeLabel.text = viewModel.timeModel?.time
+        timeContentLabel.text = viewModel.desc
         buildImageContainerView()
         buildButtonContainerView()
     }
@@ -205,31 +212,36 @@ class AITimelineTableViewCell: UITableViewCell {
     // MARK: -> util methods
     //通过图片的实际宽度和view宽度计算出来的压缩比例计算展现的高度
     func getCompressedImageHeight(image: UIImage) -> CGFloat {
-        let compressedRate = cellWidth / image.size.width
+        let compressedRate = AITimelineTableViewCell.cellWidth / image.size.width
         return image.size.height * compressedRate
     }
     
     //计算view高度，如果还没有loadData则返回0
     func getHeight() -> CGFloat {
-        let baseTimelineContentLabelHeight: CGFloat = 33
-        let cellMargin: CGFloat = 20
-        let subViewMargin: CGFloat = 11
-        let baseButtonsHeight: CGFloat = 26
-        
         var totalHeight: CGFloat = 0
-        
         if let viewModel = viewModel {
             switch viewModel.layoutType! {
             case AITimelineLayoutTypeEnum.Normal:
-                totalHeight = baseTimelineContentLabelHeight + cellMargin
+                totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.cellMargin
             case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
-                totalHeight = baseTimelineContentLabelHeight + subViewMargin * 2 + baseButtonsHeight + cellMargin + imageContainerViewHeight
+                totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.subViewMargin + AITimelineTableViewCell.baseButtonsHeight + AITimelineTableViewCell.cellMargin + imageContainerViewHeight
                 
             }
         }
+        AILog("totalHeight : \(totalHeight)")
         return totalHeight
     }
 
+    class func caculateHeightWidthData(viewModel: AITimelineViewModel) -> CGFloat {
+        var totalHeight: CGFloat = 0
+        switch viewModel.layoutType! {
+        case AITimelineLayoutTypeEnum.Normal:
+            totalHeight = baseTimelineContentLabelHeight + cellMargin
+        case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
+            totalHeight = baseTimelineContentLabelHeight + subViewMargin + baseButtonsHeight + cellMargin
+        }
+        return totalHeight
+    }
 }
 
 

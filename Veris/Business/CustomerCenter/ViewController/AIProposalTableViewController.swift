@@ -112,7 +112,7 @@ class AIProposalTableViewController: UIViewController {
         
         tableView.registerClass(AITableFoldedCellHolder.self, forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITableFoldedCellHolder)
         
-        tableView.registerNib(UINib(nibName: "ExpandableTableViewCell", bundle: nil), forCellReuseIdentifier: "ExpandableTableViewCell")
+        tableView.registerClass(SwitchedTableViewCell.self, forCellReuseIdentifier: "SwitchedTableViewCell")
         
         self.view.addSubview(tableView)
         
@@ -221,7 +221,6 @@ class AIProposalTableViewController: UIViewController {
         let cell = AITableFoldedCellHolder()
         cell.tag = indexPath.row
         let folderCellView = AIFolderCellView.currentView()
-        folderCellView.delegate = self
         folderCellView.loadData(proposalModel)
         folderCellView.frame = cell.contentView.bounds
         cell.foldedView = folderCellView
@@ -248,16 +247,7 @@ class AIProposalTableViewController: UIViewController {
     
 }
 
-
-extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
-    
-//    func scrollViewDidScroll(scrollView: UIScrollView) {
-//        if scrollView.contentOffset.y < 0 {
-//            tableView.scrollEnabled = false
-//        }else{
-//            tableView.scrollEnabled = true
-//        }
-//    }
+extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSource, AIFoldedCellViewDelegate {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -269,17 +259,24 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ExpandableTableViewCell") as! ExpandableTableViewCell
-        
-        if cell.topContentView == nil {
-            //let proposalModel = dataSource[indexPath.row].model!
+        let cell = tableView.dequeueReusableCellWithIdentifier("SwitchedTableViewCell") as! SwitchedTableViewCell
+        if cell.mainView == nil {
             let folderCellView = AICustomerOrderFoldedView.currentView()
-            cell.setFoldedView(folderCellView)
+            folderCellView.delegate = self
+            folderCellView.loadData(dataSource[indexPath.row].model!)
+            cell.mainView = folderCellView
         }
         
-        if cell.expandedContentView == nil {
-            cell.setBottomExpandedView(buildSuvServiceCard(dataSource[indexPath.row].model!))
+        if cell.getView("expanded") == nil {
+            cell.addCandidateView("expanded", subView: SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView)
         }
+        
+        if dataSource[indexPath.row].isExpanded {
+            cell.showView("expanded")
+        } else {
+            cell.showMainView()
+        }
+        
         
         //        var cell: AITableFoldedCellHolder!
         //
@@ -302,9 +299,12 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         //            expandedCellView?.hidden = true
         //        }
         
-        cell.isExpanded = dataSource[indexPath.row].isExpanded
-        cell.contentView.layer.cornerRadius = 18
         return cell
+    }
+    
+    func statusButtonDidClick(proposalModel: ProposalOrderModel) {
+        let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
+        self.presentPopupViewController(serviceExecVC, animated: true)
     }
     
 }
@@ -325,11 +325,4 @@ extension AIProposalTableViewController : DimentionChangable, ProposalExpandedDe
     }
     
     
-}
-
-extension AIProposalTableViewController : AIFoldedCellViewDelegate {
-    func statusButtonDidClick(proposalModel: ProposalOrderModel) {
-        let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
-        self.presentPopupViewController(serviceExecVC, animated: true)
-    }
 }

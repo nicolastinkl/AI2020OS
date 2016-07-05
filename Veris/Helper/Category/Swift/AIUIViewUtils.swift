@@ -141,6 +141,18 @@ extension UIView {
 		lineLayer.frame = CGRectMake(0, self.height - 1, self.width + 10, 0.5)
 		self.layer.addSublayer(lineLayer)
 	}
+    
+    /*!
+     Cell下线满格处理
+     */
+    func addBottomWholeSSBorderLineLeftMapping(colors: String, leftMapping: CGFloat = 40/3) {
+        // = AIApplication.AIColor.AIVIEWLINEColor
+        let color = UIColor(hexString: colors, alpha: 0.3)
+        let lineLayer = CALayer()
+        lineLayer.backgroundColor = color.CGColor
+        lineLayer.frame = CGRectMake(leftMapping, self.height - 1, self.width + 10, 0.5)
+        self.layer.addSublayer(lineLayer)
+    }
 	
 	/*!
 	 Cell上线处理
@@ -442,6 +454,7 @@ extension UIView {
 	 */
 	func makeRound() {
 		layer.cornerRadius = height / 2
+        clipsToBounds = true
 	}
 
 }

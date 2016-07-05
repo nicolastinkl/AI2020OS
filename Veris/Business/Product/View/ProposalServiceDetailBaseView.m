@@ -31,6 +31,10 @@
     return self;
 }
 
+-(NSArray *)getSelectedParams {
+    return @[];
+}
+
 - (CGFloat)addDetailText:(CGFloat)positionY {
     CGFloat width = [self contentViewWidth];
     CGRect textFrame = CGRectMake(_sideMargin, positionY, width, 0);
@@ -82,10 +86,6 @@
 
 
     return attriString;
-}
-
-- (NSArray *)getSelectedParams {
-    return @[];
 }
 
 @end

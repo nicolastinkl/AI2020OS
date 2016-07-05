@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="352" height="191"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="352" height="190.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="352" height="190"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="8:46" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICm-BR-fDN" userLabel="timeLabel">
@@ -46,11 +46,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4L-Iy-LDc" userLabel="imageContainerView">
-                        <rect key="frame" x="61" y="49" width="271" height="104"/>
+                        <rect key="frame" x="61" y="49" width="271" height="82"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7y-On-rvR" userLabel="buttonContainerView">
-                        <rect key="frame" x="61" y="164" width="271" height="26"/>
+                        <rect key="frame" x="61" y="142" width="271" height="26"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="26" id="RFC-2C-U58"/>
@@ -67,7 +67,7 @@
                     <constraint firstItem="Fln-wl-yBu" firstAttribute="centerY" secondItem="ICm-BR-fDN" secondAttribute="centerY" id="JGz-1Q-xFS"/>
                     <constraint firstItem="uwo-Ve-tDI" firstAttribute="top" secondItem="Fln-wl-yBu" secondAttribute="top" id="Joc-tn-NdA"/>
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="top" secondItem="Fln-wl-yBu" secondAttribute="bottom" id="P0k-j7-QcE"/>
-                    <constraint firstAttribute="bottom" secondItem="e7y-On-rvR" secondAttribute="bottom" id="PVv-i2-Py8"/>
+                    <constraint firstAttribute="bottom" secondItem="e7y-On-rvR" secondAttribute="bottom" constant="22" id="PVv-i2-Py8"/>
                     <constraint firstItem="e7y-On-rvR" firstAttribute="width" secondItem="uwo-Ve-tDI" secondAttribute="width" id="TcR-wV-nUo"/>
                     <constraint firstItem="g4L-Iy-LDc" firstAttribute="width" secondItem="e7y-On-rvR" secondAttribute="width" id="Vgk-4q-qM8"/>
                     <constraint firstItem="e7y-On-rvR" firstAttribute="top" secondItem="g4L-Iy-LDc" secondAttribute="bottom" constant="11" id="XqB-KM-wDb"/>
