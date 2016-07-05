@@ -44,7 +44,13 @@ class AICustomSearchHomeViewController: UIViewController {
         // Register Audio Tools Notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
 	}
+    
+    func popToRootView(){
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
     /**
      处理语音识别数据搜索
      
