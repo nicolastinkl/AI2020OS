@@ -10,173 +10,173 @@ import Foundation
 import UIKit
 
 class AIVerticalScrollView: UIScrollView {
-
-    var iconViews = [UIView]()
-
-    var models: [IconServiceIntModel]?
-    var myDelegate: VerticalScrollViewDelegate?
-    //全选按钮
-    var checkAllView: UIImageView!
-    var isSelectAll = false
-    let checkAllIcon = UIImage(named: "checkall")
-    let unCheckAllIcon = UIImage(named: "checkall")
-    //是否需要全选按钮的开关
-    var needCheckAll: Bool = true
-
-    //position
-    let iconWidth: CGFloat = 86 / 3
-    let iconPaddingTop: CGFloat = 12 //8
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    //便利构造函数，加入是否需要全选按钮的控制
-    convenience init(frame: CGRect, needCheckAll: Bool) {
-        self.init(frame: frame)
-        self.needCheckAll = needCheckAll
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    func loadData(models: [IconServiceIntModel]) {
-        self.models = models
-        if needCheckAll {
-            buildCheckAllView()
-        }        
-        buildIconViews()
-        configScrollView()
-    }
-
-    func buildCheckAllView() {
-        let iconX: CGFloat! = CGRectGetMidX(self.bounds) - iconWidth / 2
-        let frame = CGRect(x: iconX, y:  0 + iconPaddingTop, width: iconWidth, height: iconWidth)
-        checkAllView = UIImageView(frame: frame)
-
-        //TODO 这里还要等市场部输出图
-        checkAllView.image = checkAllIcon
-        //增加全选事件
-        let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(AIVerticalScrollView.checkAllAction(_:)))
-        checkAllView.userInteractionEnabled = true
-        checkAllView.addGestureRecognizer(tapGuesture)
-        self.addSubview(checkAllView)
-    }
-
-    func checkAllAction(sender: AnyObject) {
-        isSelectAll = !isSelectAll
-
-        if isSelectAll {
-            checkAllView.image = checkAllIcon
-        } else {
-            checkAllView.image = unCheckAllIcon
-        }
-        for (index, iconView) in iconViews.enumerate() {
-            let subViews = iconView.subviews.filter({ (subView) -> Bool in
-                subView.isKindOfClass(AICircleProgressView)
-            })
-            if let circleView = subViews.first as? AICircleProgressView {
-                circleView.changeSelect(isSelectAll)
-                //TODO 这里逻辑不太清晰，是要更新model的isSelect状态，根据circleView是否选中
-                models![index].isSelected = circleView.isSelect
-            }
-        }
-        if let myDelegate = myDelegate {
-            myDelegate.viewCellDidSelect(self, index: -1, cellView: checkAllView)
-        }
-    }
-
-    func buildIconViews() {
-        if let models = models {
-            let iconX: CGFloat! = CGRectGetMidX(self.bounds) - iconWidth / 2
-            for (index, model) in models.enumerate() {
-                
-                var frame = CGRect(x: iconX, y:  (iconWidth + iconPaddingTop) * CGFloat(index) + iconPaddingTop, width: iconWidth, height: iconWidth)
-                //有没有全选按钮占位不一样
-                if needCheckAll{
-                    frame.origin.y += iconWidth + iconPaddingTop
-                }
-                insertIconView(frame, model: model, tag: index)
-            }
-
-        }
-    }
-
-    func configScrollView() {
-        let finalSize = CGSize(width: self.bounds.width, height: CGFloat(models!.count + 1) * (iconWidth + iconPaddingTop))
-        self.contentSize = finalSize
-    }
-
-    func insertIconView(frame: CGRect, model: IconServiceIntModel, tag: Int) {
-        let iconView = UIImageView(frame: frame)
-        //TODO 这里在正式代码中替换为sdImage加载网络图片
-        let url = NSURL(string: model.serviceIcon)
-        iconView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "Seller_Image2")!)
-        iconView.backgroundColor = UIColor.clearColor()
-        iconView.tag = tag
-        self.addSubview(iconView)
-        //进度条
-        iconView.userInteractionEnabled = true
-
-        let circleProgressView = AICircleProgressView(frame: iconView.bounds)
-
-        circleProgressView.delegate = self
-        iconView.addSubview(circleProgressView)
-
-        iconViews.append(iconView)
-    }
-
-    //单独刷新进度信息，
-    func refreshProgress() {
-        for (index, model) in models!.enumerate() {
-            //这里需要做状态判断，已派单的才需要刷新进度
-            if model.serviceInstStatus != ServiceInstStatus.Init {
-                //进度是0-1
-                if let circleProgressView = iconViews[index].subviews.first as? AICircleProgressView {
-                    circleProgressView.refreshProgress(CGFloat(model.executeProgress))
-                }
-
-            }
-        }
-
-    }
-
-    //让外部获取当前选中的信息
-    func getSelectedModels() -> [IconServiceIntModel] {
-        var selectedModels = [IconServiceIntModel]()
-        if let models = models {
-            for model in models {
-                if model.isSelected {
-                    selectedModels.append(model)
-                }
-            }
-        }
-        return selectedModels
-    }
+	
+	var iconViews = [UIView]()
+	
+	var models: [IconServiceIntModel]?
+	var myDelegate: VerticalScrollViewDelegate?
+	// 全选按钮
+	var checkAllView: UIImageView!
+	var isSelectAll = false
+	let checkAllIcon = UIImage(named: "checkall")
+	let unCheckAllIcon = UIImage(named: "checkall")
+	// 是否需要全选按钮的开关
+	var needCheckAll: Bool = true
+	
+	// position
+	let iconWidth: CGFloat = 86 / 3
+	let iconPaddingTop: CGFloat = 12 // 8
+	
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+	}
+	
+	// 便利构造函数，加入是否需要全选按钮的控制
+	convenience init(frame: CGRect, needCheckAll: Bool) {
+		self.init(frame: frame)
+		self.needCheckAll = needCheckAll
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+	
+	func loadData(models: [IconServiceIntModel]) {
+		self.models = models
+		if needCheckAll {
+			buildCheckAllView()
+		}
+		buildIconViews()
+		configScrollView()
+	}
+	
+	func buildCheckAllView() {
+		let iconX: CGFloat! = CGRectGetMidX(self.bounds) - iconWidth / 2
+		let frame = CGRect(x: iconX, y: 0 + iconPaddingTop, width: iconWidth, height: iconWidth)
+		checkAllView = UIImageView(frame: frame)
+		
+		// TODO 这里还要等市场部输出图
+		checkAllView.image = checkAllIcon
+		// 增加全选事件
+		let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(AIVerticalScrollView.checkAllAction(_:)))
+		checkAllView.userInteractionEnabled = true
+		checkAllView.addGestureRecognizer(tapGuesture)
+		self.addSubview(checkAllView)
+	}
+	
+	func checkAllAction(sender: AnyObject) {
+		isSelectAll = !isSelectAll
+		
+		if isSelectAll {
+			checkAllView.image = checkAllIcon
+		} else {
+			checkAllView.image = unCheckAllIcon
+		}
+		for (index, iconView) in iconViews.enumerate() {
+			let subViews = iconView.subviews.filter({ (subView) -> Bool in
+				subView.isKindOfClass(AICircleProgressView)
+			})
+			if let circleView = subViews.first as? AICircleProgressView {
+				circleView.changeSelect(isSelectAll)
+				// TODO 这里逻辑不太清晰，是要更新model的isSelect状态，根据circleView是否选中
+				models![index].isSelected = circleView.isSelect
+			}
+		}
+		if let myDelegate = myDelegate {
+			myDelegate.viewCellDidSelect(self, index: -1, cellView: checkAllView)
+		}
+	}
+	
+	func buildIconViews() {
+		if let models = models {
+			let iconX: CGFloat! = CGRectGetMidX(self.bounds) - iconWidth / 2
+			for (index, model) in models.enumerate() {
+				
+				var frame = CGRect(x: iconX, y: (iconWidth + iconPaddingTop) * CGFloat(index) + iconPaddingTop, width: iconWidth, height: iconWidth)
+				// 有没有全选按钮占位不一样
+				if needCheckAll {
+					frame.origin.y += iconWidth + iconPaddingTop
+				}
+				insertIconView(frame, model: model, tag: index)
+			}
+			
+		}
+	}
+	
+	func configScrollView() {
+		let finalSize = CGSize(width: self.bounds.width, height: CGFloat(models!.count + 1) * (iconWidth + iconPaddingTop))
+		self.contentSize = finalSize
+	}
+	
+	func insertIconView(frame: CGRect, model: IconServiceIntModel, tag: Int) {
+		let iconView = UIImageView(frame: frame)
+		// TODO 这里在正式代码中替换为sdImage加载网络图片
+		let url = NSURL(string: model.serviceIcon)
+		iconView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "Seller_Image2")!)
+		iconView.backgroundColor = UIColor.clearColor()
+		iconView.tag = tag
+		self.addSubview(iconView)
+		// 进度条
+		iconView.userInteractionEnabled = true
+		
+		let circleProgressView = AICircleProgressView(frame: iconView.bounds)
+		
+		circleProgressView.delegate = self
+		iconView.addSubview(circleProgressView)
+		
+		iconViews.append(iconView)
+	}
+	
+	// 单独刷新进度信息，
+	func refreshProgress() {
+		for (index, model) in models!.enumerate() {
+			// 这里需要做状态判断，已派单的才需要刷新进度
+			if model.serviceInstStatus != ServiceInstStatus.Init {
+				// 进度是0-1
+				if let circleProgressView = iconViews[index].subviews.first as? AICircleProgressView {
+					circleProgressView.refreshProgress(CGFloat(model.executeProgress))
+				}
+				
+			}
+		}
+		
+	}
+	
+	// 让外部获取当前选中的信息
+	func getSelectedModels() -> [IconServiceIntModel] {
+		var selectedModels = [IconServiceIntModel]()
+		if let models = models {
+			for model in models {
+				if model.isSelected {
+					selectedModels.append(model)
+				}
+			}
+		}
+		return selectedModels
+	}
 }
 
-extension AIVerticalScrollView : CircleProgressViewDelegate {
-
-    func viewDidSelect(circleView: AICircleProgressView) {
-        for (index, iconView) in iconViews.enumerate() {
-            if circleView.superview! == iconView {
-                if let models = models {
-                    models[index].isSelected = circleView.isSelect
-                }
-                if let myDelegate = myDelegate {
-                    myDelegate.viewCellDidSelect(self, index: index, cellView: iconView)
-                }
-
-                break
-            }
-        }
-
-    }
+extension AIVerticalScrollView: CircleProgressViewDelegate {
+	
+	func viewDidSelect(circleView: AICircleProgressView) {
+		for (index, iconView) in iconViews.enumerate() {
+			if circleView.superview! == iconView {
+				if let models = models {
+					models[index].isSelected = circleView.isSelect
+				}
+				if let myDelegate = myDelegate {
+					myDelegate.viewCellDidSelect(self, index: index, cellView: iconView)
+				}
+				
+				break
+			}
+		}
+		
+	}
 }
 
 //MARK: - delegate，处理选中事件
 protocol VerticalScrollViewDelegate {
-
-    func viewCellDidSelect(verticalScrollView: AIVerticalScrollView, index: Int, cellView: UIView)
+	
+	func viewCellDidSelect(verticalScrollView: AIVerticalScrollView, index: Int, cellView: UIView)
 }

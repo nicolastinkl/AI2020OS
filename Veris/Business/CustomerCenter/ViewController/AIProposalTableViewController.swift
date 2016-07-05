@@ -248,7 +248,6 @@ class AIProposalTableViewController: UIViewController {
 }
 
 extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSource, AIFoldedCellViewDelegate {
-
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

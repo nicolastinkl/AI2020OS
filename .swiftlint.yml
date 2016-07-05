@@ -12,7 +12,8 @@ disabled_rules: # rule identifiers to exclude from running
   - variable_name
   - legacy_constructor
   - nesting
+  - todo
+  - legacy_cggeometry_functions
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
   - Pods
-

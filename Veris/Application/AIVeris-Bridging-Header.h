@@ -72,7 +72,7 @@
 // Buyer Details
 #import "AISuperSwipeableCell.h"
 #import "AIMusicTherapyView.h"
-#import "AIParamedicView.h"
+#import "AIServiceCoverage.h"
 #import "UIScrollView+MJRefresh.h"
 
 #import <AudioToolbox/AudioToolbox.h>

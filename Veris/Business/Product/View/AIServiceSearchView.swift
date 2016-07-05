@@ -160,7 +160,7 @@ class AIServiceSearchView: UIView, UITextFieldDelegate {
         searchTextField.resignFirstResponder()
     }
 
-    class func currentView()->AIServiceSearchView {
+    class func currentView() -> AIServiceSearchView {
         let view = NSBundle.mainBundle().loadNibNamed("AIServiceSearchView", owner: self, options: nil).first as! AIServiceSearchView
         view.initDefaultViewAttr()
         return view

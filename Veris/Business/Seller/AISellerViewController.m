@@ -402,24 +402,24 @@
     table.backgroundView = backImageView;
 }
 
-- (void)makeTableView {
-    self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(kTablePadding, 0, CGRectGetWidth(self.view.frame) - kTablePadding * 2, CGRectGetHeight(self.view.frame)) style:UITableViewStylePlain];
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        tableView.showsVerticalScrollIndicator = NO;
-        tableView.backgroundColor = [UIColor clearColor];
-
-        [self addBackgroundViewForTable:tableView];
-        [self addTopAndBottomMaskForTable:tableView];
-
-        tableView;
-    });
-
-
-    [self.view addSubview:self.tableView];
-}
+//- (void)makeTableView {
+//    self.tableView = ({
+//        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(kTablePadding, 0, CGRectGetWidth(self.view.frame) - kTablePadding * 2, CGRectGetHeight(self.view.frame)) style:UITableViewStylePlain];
+//        tableView.delegate = self;
+//        tableView.dataSource = self;
+//        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        tableView.showsVerticalScrollIndicator = NO;
+//        tableView.backgroundColor = [UIColor clearColor];
+//
+//        [self addBackgroundViewForTable:tableView];
+//        [self addTopAndBottomMaskForTable:tableView];
+//
+//        tableView;
+//    });
+//
+//
+//    [self.view addSubview:self.tableView];
+//}
 
 // test
 - (void)makeMaskForTable {
