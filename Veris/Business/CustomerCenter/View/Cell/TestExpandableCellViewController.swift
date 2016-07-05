@@ -73,7 +73,7 @@ class TestExpandableCellViewController: UIViewController, UITableViewDataSource,
         }
         
         if cell.getView("expanded") == nil {
-            cell.addCandidateView("expanded", subView: buildCard())
+            cell.addCandidateView("expanded", subView: buildCardList())
         }
         
         if tableSource[indexPath.row] {
@@ -93,6 +93,12 @@ class TestExpandableCellViewController: UIViewController, UITableViewDataSource,
         card.setContentView(imageContent)
         
         return card
+    }
+    
+    private func buildCardList() -> ListSubServiceCardView {
+        let list = ListSubServiceCardView(frame: CGRect(x: 0, y: 0, width: tableView.width, height: 50))
+        list.setSubServicesForTest(3)
+        return list
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

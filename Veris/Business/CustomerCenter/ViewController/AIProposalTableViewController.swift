@@ -190,13 +190,10 @@ class AIProposalTableViewController: UIViewController {
         return servicesViewContainer
     }
     
-    private func buildSuvServiceCard(model: ProposalOrderModel) -> SubServiceCardView {
-        let card = SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView
-        let imageContent = ImageCard(frame: CGRect.zero)
-        imageContent.imgUrl = "http://171.221.254.231:3000/upload/shoppingcart/GNcdKBip4tYnW.png"
-        card.setContentView(imageContent)
-        
-        return card
+    private func buildSuvServiceCard(model: ProposalOrderModel) -> ListSubServiceCardView {
+        let list = ListSubServiceCardView(frame: CGRect(x: 0, y: 0, width: tableView.width, height: 50))
+        list.setSubServicesForTest(model.order_list.count)
+        return list
     }
     
     
@@ -243,9 +240,10 @@ class AIProposalTableViewController: UIViewController {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if !dataSource[indexPath.row].isExpanded {
-            rowSelectAction(indexPath)
-        }
+        rowSelectAction(indexPath)
+//        if !dataSource[indexPath.row].isExpanded {
+//            rowSelectAction(indexPath)
+//        }
     }
 
 
@@ -282,7 +280,7 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
             cell.showMainView()
         }
         
-        
+        cell.selectionStyle = .None
         //        var cell: AITableFoldedCellHolder!
         //
         //        if let cacheCell: AITableFoldedCellHolder = tableViewCellCache[indexPath.row] as! AITableFoldedCellHolder? {

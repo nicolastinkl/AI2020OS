@@ -28,38 +28,37 @@ import SVProgressHUD
 
 /// 调用委托
 protocol AIAssetsPickerControllerDelegate: class {
- 
-    /**
-     完成选择
-     
-     1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
-     2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
-     */
-    func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray)
-    
-    /**
-     取消选择
-     */
-    func assetsPickerControllerDidCancel()
-    
-    /**
-     选中某张照片
-     */
-    func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath)
-    /**
-     取消选中某张照片
-     */
-    func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath)
-    
-    
+	
+	/**
+	 完成选择
+
+	 1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
+	 2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
+	 */
+	func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray)
+	
+	/**
+	 取消选择
+	 */
+	func assetsPickerControllerDidCancel()
+	
+	/**
+	 选中某张照片
+	 */
+	func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath)
+	/**
+	 取消选中某张照片
+	 */
+	func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath)
+	
 }
 
 enum AIAssetsPickerModel: Int {
-    case singleModel
-    case mutliModel
+	case singleModel
+	case mutliModel
 }
 
- /// How to use it ?
+/// How to use it ?
 /**
  let vc = AIAssetsPickerController.initFromNib()
  vc.delegate = self
@@ -69,6 +68,7 @@ enum AIAssetsPickerModel: Int {
 
 /// 相册界面
 class AIAssetsPickerController: UIViewController {
+
     
     var choosePhotoModel: AIAssetsPickerModel = .mutliModel  //default value.
     
@@ -237,7 +237,6 @@ class AIAssetsPickerController: UIViewController {
     
 }
 
-
 extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -329,20 +328,19 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
 }
 
 extension AIAssetsPickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let image = info[UIImagePickerControllerOriginalImage]
-        AILog(image)
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    
+	
+	func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+		picker.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
+		let image = info[UIImagePickerControllerOriginalImage]
+		AILog(image)
+		picker.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String: AnyObject]?) {
+		picker.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
 }
