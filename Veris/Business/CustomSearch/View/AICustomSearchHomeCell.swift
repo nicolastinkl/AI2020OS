@@ -40,19 +40,19 @@ class AICustomSearchHomeCell: UITableViewCell {
 		super.awakeFromNib()
 		
 		nameLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
-        nameLabel.textColor = UIColor.whiteColor()
-        
+		nameLabel.textColor = UIColor.whiteColor()
+		
 		priceLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
 		desLabel.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
-        desLabel.textColor = UIColor(hexString: "#d4d5ef", alpha: 0.7)
+		desLabel.textColor = UIColor(hexString: "#d4d5ef", alpha: 0.7)
 		nameTwiceLabel.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
-        nameTwiceLabel.textColor = UIColor(hexString: "#aba8b5")
+		nameTwiceLabel.textColor = UIColor(hexString: "#aba8b5")
 		
 		let buttonFont = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(36))
-        likeButton.titleLabel?.font = buttonFont
-        hotButton.titleLabel?.font = buttonFont
-        likeButton.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.5), forState: .Normal)
-        hotButton.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.5), forState: .Normal)
+		likeButton.titleLabel?.font = buttonFont
+		hotButton.titleLabel?.font = buttonFont
+		likeButton.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.5), forState: .Normal)
+		hotButton.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.5), forState: .Normal)
 		
 		desLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
 		priceLabel.font = AITools.myriadSemiboldSemiCnWithSize(AITools.displaySizeFrom1242DesignSize(60))
@@ -66,10 +66,10 @@ class AICustomSearchHomeCell: UITableViewCell {
 	func initData(model: AISearchResultItemModel) {
 		imageview.setURL(NSURL(string: ""), placeholderImage: smallPlace())
 		nameLabel.text = model.service_name as String
-		nameTwiceLabel.text = String(format: " - %@", model.service_second_name )
+		nameTwiceLabel.text = String(format: " - %@", model.service_second_name)
 		desLabel.text = model.service_description as String
-		priceLabel.text = model.service_price as String
-		
+		let priceString = String(format: "€%@", model.service_price as String)
+		priceLabel.text = priceString
 		let likeString = String(format: " %d", model.service_likes)
 		let hotString = String(format: " %d", model.service_browse)
 		likeButton.setTitle(likeString, forState: .Normal)
