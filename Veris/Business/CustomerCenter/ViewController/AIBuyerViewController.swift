@@ -110,24 +110,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
     }
-    
-    func makePopTableView() {
-        //WindowManager.shared.delegate = self
-        let rootViewController = AIProposalTableViewController()
-        /// Offsetable windows can't be dragged off the screen by a user's pan gesture
-        /// Dismissable windows can be dragged off the screen by a pan gesture to be dismissed
-        WindowManager.shared.pushWindow(rootViewController, type: .Offsetable , offSet: WindowManager.shared.offsetableWindowYOffset)
-        
-        /*WindowManager.shared.pushWindow(rootViewController, type: .Dismissable, style: .None,
-         gesturePredicate: { (rootViewController: UIViewController, type: WindowType) -> (Bool) in
-         // Check app state, perform magic computations, etc. here
-         return true
-         })
-         */
-        
-        
-    }
-
 
     // MARK: - 构造列表区域
     func makeTableView () {
@@ -184,16 +166,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         tableViewCellCache.removeAllObjects()
         tableView.reloadData()
 
-        
-        // Add Test Action
-        let button = UIButton()
-        button.addTarget(self, action: #selector(AIBuyerViewController.makePopTableView), forControlEvents: UIControlEvents.TouchUpInside)
-        bubbleViewContainer.addSubview(button)
-        
-        button.pinToBottomEdgeOfSuperview()
-        button.pinToLeftEdgeOfSuperview()
-        button.pinToRightEdgeOfSuperview()
-        button.sizeToHeight(70)
     }
 
 
