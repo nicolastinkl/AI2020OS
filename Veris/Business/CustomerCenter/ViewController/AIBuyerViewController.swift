@@ -91,33 +91,32 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         self.tableView.headerBeginRefreshing()
         
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.initMakePopTableView), name: "showProposalTableView", object: nil)
- 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.initMakePopTableView), name: "showProposalTableView", object: nil)
     }
     
     func initMakePopTableView() {
         
-        WindowManager.shared.delegate = self
-        let rootViewController = AIProposalTableViewController()
-        /// Offsetable windows can't be dragged off the screen by a user's pan gesture
-        /// Dismissable windows can be dragged off the screen by a pan gesture to be dismissed
-        WindowManager.shared.pushWindow(rootViewController, type: .Offsetable)
-        
-        
-        /**
-         Expend View , If Count ==0 the app will crash. 
-        if WindowManager.shared.count > 0 {
-            WindowManager.shared.setTopWindowOffset(WindowManager.shared.offsetableWindowYOffset, style: AnimationStyle.Spring)
+        Async.main(after: 0.5) {
+            if WindowManager.shared.count > 0 {
+                WindowManager.shared.delegate = self
+                WindowManager.shared.setTopWindowOffset(WindowManager.shared.offsetableWindowYOffset, style: AnimationStyle.Linear)
+            }else{
+                WindowManager.shared.delegate = self
+                let rootViewController = AIProposalTableViewController()
+                /// Offsetable windows can't be dragged off the screen by a user's pan gesture
+                /// Dismissable windows can be dragged off the screen by a pan gesture to be dismissed
+                WindowManager.shared.pushWindow(rootViewController, type: .Offsetable, offSet: WindowManager.shared.offsetableWindowYOffset)
+            }
         }
-        */
+        
     }
     
     func makePopTableView() {
-        
+        //WindowManager.shared.delegate = self
         let rootViewController = AIProposalTableViewController()
         /// Offsetable windows can't be dragged off the screen by a user's pan gesture
         /// Dismissable windows can be dragged off the screen by a pan gesture to be dismissed
-        WindowManager.shared.pushWindow(rootViewController, type: .Offsetable)
+        WindowManager.shared.pushWindow(rootViewController, type: .Offsetable , offSet: WindowManager.shared.offsetableWindowYOffset)
         
         /*WindowManager.shared.pushWindow(rootViewController, type: .Dismissable, style: .None,
          gesturePredicate: { (rootViewController: UIViewController, type: WindowType) -> (Bool) in
@@ -254,17 +253,16 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
              */
 
             //气泡数据
-
-            bdk.getPoposalBubbles({ (responseData) -> Void in
-
-                weakSelf!.didRefresh = true
-                weakSelf!.parseProposalData(responseData)
-                weakSelf!.tableView.headerEndRefreshing()
-                }, fail: { (errType, errDes) -> Void in
-                    weakSelf!.didRefresh = false
-                    weakSelf!.tableView.headerEndRefreshing()
+            
+            bdk.getPoposalBubbles({ (responseData) in
+                self.didRefresh = true
+                self.parseProposalData(responseData)
+                self.tableView.headerEndRefreshing()
+                }, fail: { (errType, errDes) in
+                    self.didRefresh = false
+                    self.tableView.headerEndRefreshing()
             })
-
+  
         }
     }
 
@@ -872,6 +870,18 @@ extension AIBuyerViewController : AIFoldedCellViewDelegate {
 extension AIBuyerViewController: WindowManagerDelegate {
     
     func didPanTopWindow(rootViewController: UIViewController, type: WindowType, frame: CGRect) {
+        
+    }
+    
+    func willAnimateTopWindow(rootViewController: UIViewController, type: WindowType, style: AnimationStyle, frame: CGRect) {
+        
+    }
+    
+    func didAnimateTopWindow(rootViewController: UIViewController, type: WindowType, style: AnimationStyle, frame: CGRect) {
+        
+    }
+        
+    func didRemoveTopWindow(rootViewController: UIViewController, type: WindowType) {
         
     }
     

@@ -81,13 +81,13 @@
         case 1: // 1:up
         {
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"showProposalTableView" object:nil];
-            
             if (_currentViewController == self.upDirectionViewController) {
+                 [[NSNotificationCenter defaultCenter] postNotificationName:@"showProposalTableView" object:nil];
                 return;
             }
             [self transitionFromViewController:_currentViewController toViewController:self.upDirectionViewController duration:0 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:^(BOOL finished) {
                 _currentViewController = self.upDirectionViewController;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"showProposalTableView" object:nil];
             }];
             
         }
