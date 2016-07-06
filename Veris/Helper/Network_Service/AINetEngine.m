@@ -222,7 +222,7 @@
     } else {
         NSString *errorDes = [des objectForKey:kKeyForResultMsg];
         if (fail) {
-            fail(AINetErrorFormat, errorDes);
+            fail(AINetErrorFormat, errorDes ?: @"");
         }
         
     }
