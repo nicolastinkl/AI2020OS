@@ -148,7 +148,6 @@ class AICustomSearchHomeViewController: UIViewController {
 	}
 	
 	@IBAction func backButtonPressed(sender: AnyObject) {
-        //NSNotificationCenter.defaultCenter().postNotificationName("showProposalTableView", object: nil)
 		dismissViewControllerAnimated(true, completion: nil)
 	}
 	@IBAction func searchButtonPressed(sender: AnyObject) {

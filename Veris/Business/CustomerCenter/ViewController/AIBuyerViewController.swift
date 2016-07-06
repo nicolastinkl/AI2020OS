@@ -41,7 +41,11 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     let topBarHeight: CGFloat = AITools.displaySizeFrom1080DesignSize(130)
 
     // MARK: - Variable
-
+    private var panGestureStartY: CGFloat = 0
+    private var panGestureThresholdYVelocity: CGFloat = 50
+    private var panGestureMaxBeginYOffset: CGFloat = 0.33 * CGRectGetHeight(UIScreen.mainScreen().bounds)
+    private var offsetableWindowYOffset: CGFloat = 0.80 * CGRectGetHeight(UIScreen.mainScreen().bounds)
+    
     private lazy var bubbleViewContainer: UIView = {
         // Create Bubble View of Top.
         let height = CGRectGetHeight(self.view.bounds) - AITools.displaySizeFrom1080DesignSize(116)
@@ -62,7 +66,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     var didRefresh: Bool?
 
-
+    private var popTableView: UIView = UIView()
+    
     private let BUBBLE_VIEW_MARGIN = AITools.displaySizeFrom1080DesignSize(40)
 
     private let BUBBLE_VIEW_HEIGHT = AITools.displaySizeFrom1080DesignSize(1538)
@@ -75,7 +80,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ 
         selfViewPoint = self.view.center
 
         self.makeBaseProperties()
@@ -89,24 +94,85 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         setupUIWithCurrentLanguage()
 
+        initMakePopTableView()
+        
         self.tableView.headerBeginRefreshing()
         
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.initMakePopTableView), name: "showProposalTableView", object: nil)
+        view.addSubview(popTableView)
+        popTableView.frame = view.frame
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        Async.main(after: 0.3) {
+            let rootViewController = AIProposalTableViewController()
+            self.addSubViewController(rootViewController, toView: self.popTableView)
+            self.finishPanDownwards(self.popTableView, velocity: 0)
+        }
+    }
+    
+    // MARK: -> Internal methods
+    func addSubViewController(viewController: UIViewController, toView: UIView? = nil) {
+        self.addChildViewController(viewController)
+        toView?.addSubview(viewController.view)
+        viewController.didMoveToParentViewController(self)
+        viewController.view.pinToEdgesOfSuperview()
     }
     
     func initMakePopTableView() {
-        /*
-        Async.main(after: 0.5) {
-            
-            WindowManager.shared.delegate = self
-            let rootViewController = AIProposalTableViewController()
-            /// Offsetable windows can't be dragged off the screen by a user's pan gesture
-            /// Dismissable windows can be dragged off the screen by a pan gesture to be dismissed
-            WindowManager.shared.pushWindow(rootViewController, type: .Offsetable, offSet: WindowManager.shared.offsetableWindowYOffset)
-        }
-        */
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(AIBuyerViewController.didRecognizePanGesture(_:)))
+        pan.delegate = self
+        view.addGestureRecognizer(pan) 
     }
-
+    
+    
+    /**
+     滑动手势
+     */
+    func didRecognizePanGesture(recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .Began:
+            panGestureStartY = popTableView.frame.origin.y
+            fallthrough
+        case .Changed:
+            let translation = panGestureStartY + recognizer.translationInView(popTableView).y
+            popTableView.setY(translation)
+        case .Ended:
+            fallthrough
+        case.Cancelled:
+            let velocity = recognizer.velocityInView(popTableView).y
+            if abs(velocity) >= 50 { // TODO make threshold velocity configurable
+                if velocity > 0 {
+                    finishPanDownwards(popTableView, velocity: velocity)
+                } else {
+                    finishPanUpwards(popTableView, velocity: velocity)
+                }
+            } else {
+                if popTableView.frame.origin.y >= 0.5 * CGRectGetWidth(UIScreen.mainScreen().bounds) {
+                    finishPanDownwards(popTableView, velocity: velocity)
+                } else {
+                    finishPanUpwards(popTableView, velocity: velocity)
+                }
+            }
+        default:
+            break // Nothing to do when failed/possible
+        }
+    }
+    
+    private func finishPanUpwards(window: UIView, velocity: CGFloat) {
+        SpringAnimation.spring(0.5) { 
+            window.setY(0)
+        }
+    }
+    
+    private func finishPanDownwards(window: UIView, velocity: CGFloat) {
+        SpringAnimation.spring(0.5) {
+            window.setY(self.offsetableWindowYOffset)
+        }
+    }
+    
     // MARK: - 构造列表区域
     func makeTableView () {
 
@@ -389,13 +455,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func showBuyerDetailWithBubble(bubble: AIBubble, model: AIBuyerBubbleModel) {
 
-        /**
-         Expend View , If Count ==0 the app will crash.
-         */
-        if WindowManager.shared.count > 0 {
-            WindowManager.shared.setTopWindowOffset(view.height, style: AnimationStyle.Spring)
-        }
-        
         if UIDevice.isIphone5 || UIDevice.isSimulatorIPhone5 {
 
             let viewsss = createBuyerDetailViewController(model)
@@ -543,14 +602,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func backToFirstPage () {
-        
-        /**
-         Expend View , If Count ==0 the app will crash.
-         */
-        if WindowManager.shared.count > 0 {
-            WindowManager.shared.setTopWindowOffset(view.height, style: AnimationStyle.Spring)
-        }
-        
         AIOpeningView.instance().show()
     }
 
@@ -559,14 +610,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func startSearch() {
-      
-        /**
-         Expend View , If Count ==0 the app will crash.         
-         */
-        if WindowManager.shared.count > 0 {
-            WindowManager.shared.setTopWindowOffset(view.height, style: AnimationStyle.Spring)
-        }
-        
         showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController.initFromNib())
     }
 
@@ -828,23 +871,19 @@ extension AIBuyerViewController : AIFoldedCellViewDelegate {
     }
 }
 
-
-extension AIBuyerViewController: WindowManagerDelegate {
+extension AIBuyerViewController: UIGestureRecognizerDelegate {
     
-    func didPanTopWindow(rootViewController: UIViewController, type: WindowType, frame: CGRect) {
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         
+        if gestureRecognizer.dynamicType == UIPanGestureRecognizer.self {
+            //Only the top most window in our stack will ever be allowed to have it's
+            let panGestureRecognizer = gestureRecognizer as! UIPanGestureRecognizer
+            let velocity = panGestureRecognizer.velocityInView(popTableView)
+            let location = panGestureRecognizer.locationInView(popTableView)
+            return location.y <= panGestureMaxBeginYOffset && abs(velocity.y) >= panGestureThresholdYVelocity
+            
+        }
+        return false
     }
-    
-    func willAnimateTopWindow(rootViewController: UIViewController, type: WindowType, style: AnimationStyle, frame: CGRect) {
-        
-    }
-    
-    func didAnimateTopWindow(rootViewController: UIViewController, type: WindowType, style: AnimationStyle, frame: CGRect) {
-        
-    }
-        
-    func didRemoveTopWindow(rootViewController: UIViewController, type: WindowType) {
-        
-    }
-    
+  
 }
