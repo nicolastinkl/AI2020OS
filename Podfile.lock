@@ -37,7 +37,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AIAlertView:
-    :commit: 2de5b00cba21ea82c3c5af5fcde0a21fce5d82d3
+    :commit: 3bb248ff9d8366ec50779304a4e1eeb59c5498a8
     :git: https://github.com/asiainfomobile/AIAlertView.git
   Glass:
     :commit: 17cd84d8992b25f13990eb6ab26580d3affa28ff

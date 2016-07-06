@@ -95,20 +95,16 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func initMakePopTableView() {
-        
+        /*
         Async.main(after: 0.5) {
-            if WindowManager.shared.count > 0 {
-                WindowManager.shared.delegate = self
-                WindowManager.shared.setTopWindowOffset(WindowManager.shared.offsetableWindowYOffset, style: AnimationStyle.Linear)
-            } else {
-                WindowManager.shared.delegate = self
-                let rootViewController = AIProposalTableViewController()
-                /// Offsetable windows can't be dragged off the screen by a user's pan gesture
-                /// Dismissable windows can be dragged off the screen by a pan gesture to be dismissed
-                WindowManager.shared.pushWindow(rootViewController, type: .Offsetable, offSet: WindowManager.shared.offsetableWindowYOffset)
-            }
+            
+            WindowManager.shared.delegate = self
+            let rootViewController = AIProposalTableViewController()
+            /// Offsetable windows can't be dragged off the screen by a user's pan gesture
+            /// Dismissable windows can be dragged off the screen by a pan gesture to be dismissed
+            WindowManager.shared.pushWindow(rootViewController, type: .Offsetable, offSet: WindowManager.shared.offsetableWindowYOffset)
         }
-        
+        */
     }
 
     // MARK: - 构造列表区域
@@ -559,12 +555,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func moreButtonAction() {
-        #if DEBUG
-//            let vc = AIProductQAViewController()
-            let vc = AIProductCommentsViewController()
-            let nav = UINavigationController(rootViewController: vc)
-            presentBlurViewController(nav, animated: true, completion: nil)
-        #endif
         self.makeBubbleView()
     }
 

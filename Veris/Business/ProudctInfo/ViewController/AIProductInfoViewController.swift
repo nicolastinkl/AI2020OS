@@ -116,7 +116,6 @@ class AIProductInfoViewController: UIViewController {
 
     }
 
-
     /**
      Init with TOP VIEW.
      */
@@ -126,13 +125,8 @@ class AIProductInfoViewController: UIViewController {
         if let navi = navi as? AINavigationBar {
             view.addSubview(navi)
             navi.holderViewController = self
-            constrain(navi, block: { (layout) in
-                layout.left == layout.superview!.left
-                layout.top == layout.superview!.top
-                layout.right == layout.superview!.right
-                layout.height == 44.0 + 10.0
-            })
-
+            navi.pinToSideEdgesOfSuperview()
+            navi.sizeToHeight(44+10)
             navi.titleLabel.text = ""
 
         }
@@ -268,6 +262,8 @@ class AIProductInfoViewController: UIViewController {
         // Setup 3:
         let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
         addNewSubView(commond, preView: lineView1)
+        commond.userInteractionEnabled = true
+        commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))
         commond.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
 
         let commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
@@ -335,6 +331,12 @@ class AIProductInfoViewController: UIViewController {
         addNewSubView(providerView, preView: bottomImage)
         
         
+    }
+    
+    func showCommentView(){
+        let vc = AIProductCommentsViewController()
+        presentBlurViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
+    
     }
 
     /**
