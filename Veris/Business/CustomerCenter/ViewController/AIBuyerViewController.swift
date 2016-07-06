@@ -91,7 +91,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         self.tableView.headerBeginRefreshing()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.initMakePopTableView), name: "showProposalTableView", object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.initMakePopTableView), name: "showProposalTableView", object: nil)
     }
     
     func initMakePopTableView() {

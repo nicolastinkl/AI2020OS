@@ -295,7 +295,7 @@ class AIProductInfoViewController: UIViewController {
 		aButton.setCenterX(self.view.width / 2)
 		aButton.layer.masksToBounds = true
 		aButton.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Highlighted)
-		aButton.addTarget(self, action: "qaButtonPressed", forControlEvents: .TouchUpInside)
+		aButton.addTarget(self, action: #selector(AIProductInfoViewController.qaButtonPressed), forControlEvents: .TouchUpInside)
 		
 		let lineView2 = addSplitView()
 		

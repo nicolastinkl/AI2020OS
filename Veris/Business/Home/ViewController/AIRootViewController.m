@@ -38,7 +38,7 @@
     [self startOpenningAnimation];
  
     
-    [self handleLoginAction];
+   // [self handleLoginAction];
 }
 
 -(BOOL)prefersStatusBarHidden{
@@ -82,12 +82,12 @@
         {
             
             if (_currentViewController == self.upDirectionViewController) {
-                 [[NSNotificationCenter defaultCenter] postNotificationName:@"showProposalTableView" object:nil];
+                 //[[NSNotificationCenter defaultCenter] postNotificationName:@"showProposalTableView" object:nil];
                 return;
             }
             [self transitionFromViewController:_currentViewController toViewController:self.upDirectionViewController duration:0 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:^(BOOL finished) {
                 _currentViewController = self.upDirectionViewController;
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"showProposalTableView" object:nil];
+                //[[NSNotificationCenter defaultCenter] postNotificationName:@"showProposalTableView" object:nil];
             }];
             
         }
