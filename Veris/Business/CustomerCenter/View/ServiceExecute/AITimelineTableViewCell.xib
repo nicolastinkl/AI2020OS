@@ -14,21 +14,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="352" height="190"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="7月5日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0A-Nu-kg1" userLabel="dateLabel">
+                        <rect key="frame" x="2" y="-20" width="45" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="8:46" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICm-BR-fDN" userLabel="timeLabel">
-                        <rect key="frame" x="11" y="8" width="33" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <rect key="frame" x="10" y="5" width="31" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lje-Xb-cAI" userLabel="lineView">
-                        <rect key="frame" x="52" y="0.0" width="1" height="190"/>
+                        <rect key="frame" x="46" y="0.0" width="1" height="190"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="HHo-EZ-re4"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="Fln-wl-yBu" userLabel="dotView">
-                        <rect key="frame" x="48" y="13" width="8" height="8"/>
+                        <rect key="frame" x="42" y="10" width="8" height="8"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="8" id="Np7-Un-iTu"/>
@@ -36,7 +42,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="陪护人员需要您授权使用取号二维码，来完成排队工作" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-Ve-tDI" userLabel="timeContentLabel">
-                        <rect key="frame" x="61" y="8" width="240" height="39"/>
+                        <rect key="frame" x="55" y="5" width="272" height="39"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="koE-U4-gTo"/>
                         </constraints>
@@ -46,11 +52,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4L-Iy-LDc" userLabel="imageContainerView">
-                        <rect key="frame" x="61" y="49" width="271" height="82"/>
+                        <rect key="frame" x="55" y="46" width="277" height="85"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7y-On-rvR" userLabel="buttonContainerView">
-                        <rect key="frame" x="61" y="142" width="271" height="26"/>
+                        <rect key="frame" x="55" y="142" width="277" height="26"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="26" id="RFC-2C-U58"/>
@@ -61,6 +67,7 @@
                     <constraint firstItem="uwo-Ve-tDI" firstAttribute="top" secondItem="ICm-BR-fDN" secondAttribute="top" id="1SG-Qv-fOS"/>
                     <constraint firstItem="e7y-On-rvR" firstAttribute="leading" secondItem="Fln-wl-yBu" secondAttribute="trailing" constant="5" id="1Zf-L2-0Ls"/>
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="centerX" secondItem="Fln-wl-yBu" secondAttribute="centerX" id="717-ct-jbu"/>
+                    <constraint firstItem="m0A-Nu-kg1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-20" id="9pa-fx-nSF"/>
                     <constraint firstItem="g4L-Iy-LDc" firstAttribute="top" secondItem="e7y-On-rvR" secondAttribute="bottom" constant="-105" id="Huz-9C-5nD"/>
                     <constraint firstItem="Fln-wl-yBu" firstAttribute="leading" secondItem="ICm-BR-fDN" secondAttribute="trailing" constant="4" id="IAF-gO-RIp"/>
                     <constraint firstAttribute="trailing" secondItem="e7y-On-rvR" secondAttribute="trailing" constant="20" symbolic="YES" id="ISi-ri-A7l"/>
@@ -70,6 +77,7 @@
                     <constraint firstAttribute="bottom" secondItem="e7y-On-rvR" secondAttribute="bottom" constant="22" id="PVv-i2-Py8"/>
                     <constraint firstItem="e7y-On-rvR" firstAttribute="width" secondItem="uwo-Ve-tDI" secondAttribute="width" id="TcR-wV-nUo"/>
                     <constraint firstItem="g4L-Iy-LDc" firstAttribute="width" secondItem="e7y-On-rvR" secondAttribute="width" id="Vgk-4q-qM8"/>
+                    <constraint firstItem="ICm-BR-fDN" firstAttribute="top" secondItem="m0A-Nu-kg1" secondAttribute="bottom" constant="8" id="WZ3-Pd-eRC"/>
                     <constraint firstItem="e7y-On-rvR" firstAttribute="top" secondItem="g4L-Iy-LDc" secondAttribute="bottom" constant="11" id="XqB-KM-wDb"/>
                     <constraint firstItem="uwo-Ve-tDI" firstAttribute="leading" secondItem="Fln-wl-yBu" secondAttribute="trailing" constant="5" id="YUJ-xG-hda"/>
                     <constraint firstAttribute="bottom" secondItem="lje-Xb-cAI" secondAttribute="bottom" id="Znk-xj-ppo"/>
@@ -78,14 +86,18 @@
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aik-ka-FKG"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uwo-Ve-tDI" secondAttribute="trailing" constant="20" symbolic="YES" id="b3g-YN-sXc"/>
                     <constraint firstItem="g4L-Iy-LDc" firstAttribute="width" secondItem="uwo-Ve-tDI" secondAttribute="width" id="fl4-DB-pbP"/>
-                    <constraint firstItem="ICm-BR-fDN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="j7Y-aa-LxP"/>
+                    <constraint firstItem="m0A-Nu-kg1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="hyt-hU-yqC"/>
+                    <constraint firstItem="ICm-BR-fDN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="j7Y-aa-LxP"/>
                     <constraint firstItem="g4L-Iy-LDc" firstAttribute="top" secondItem="uwo-Ve-tDI" secondAttribute="bottom" constant="2" id="q65-k0-D7V"/>
-                    <constraint firstItem="ICm-BR-fDN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qgh-Nh-ZO7"/>
+                    <constraint firstItem="ICm-BR-fDN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="qgh-Nh-ZO7"/>
+                    <constraint firstItem="lje-Xb-cAI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="46" id="s3v-za-JDx"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="qgh-Nh-ZO7"/>
                         <exclude reference="P0k-j7-QcE"/>
                         <exclude reference="aGU-Vh-2CA"/>
+                        <exclude reference="IAF-gO-RIp"/>
                         <exclude reference="Joc-tn-NdA"/>
                         <exclude reference="Huz-9C-5nD"/>
                         <exclude reference="fl4-DB-pbP"/>
@@ -96,6 +108,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="buttonContainerView" destination="e7y-On-rvR" id="Hgl-nF-mfo"/>
+                <outlet property="dateLabel" destination="m0A-Nu-kg1" id="kDs-cg-GD9"/>
+                <outlet property="dateLabelTopConstraint" destination="9pa-fx-nSF" id="FMK-VC-aRa"/>
                 <outlet property="dotView" destination="Fln-wl-yBu" id="dxZ-Ju-knb"/>
                 <outlet property="imageContainerView" destination="g4L-Iy-LDc" id="F6l-df-Bi5"/>
                 <outlet property="lineView" destination="lje-Xb-cAI" id="ORp-zh-1nb"/>
