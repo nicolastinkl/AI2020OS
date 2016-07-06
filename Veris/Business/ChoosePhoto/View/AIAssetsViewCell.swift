@@ -34,6 +34,7 @@ class AIAssetsViewCell: UICollectionViewCell {
     private var image: UIImage?
     
     private var type: String = ""
+    var showCamera: Bool = false
     
     private var checkedIcon: UIImage = UIImage(named: "UINaviHaschecked")!
     private var uncheckedIcon: UIImage = UIImage(named: "UINaviunChecked")!
@@ -50,8 +51,11 @@ class AIAssetsViewCell: UICollectionViewCell {
     
     func bind(assetSuper: ALAsset) {
         asset = assetSuper
+        
         image = UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
         type = assetSuper.valueForProperty(ALAssetPropertyType) as! String
+        
+        
     }
     
     override var selected: Bool {
@@ -62,19 +66,27 @@ class AIAssetsViewCell: UICollectionViewCell {
     
     // Draw everything to improve scrolling responsiveness
     override func drawRect(rect: CGRect) {
-        self.image?.drawInRect(CGRectMake(0, 0, 100, 100))
         
-        var imageSelect: UIImage = uncheckedIcon
-        if self.selected {
-            imageSelect = checkedIcon
-        } else {
-            imageSelect = uncheckedIcon
+        if showCamera {
+            
+            UIImage(named: "UINaviCamera")?.drawInRect(CGRectMake(0, 0, rect.width, rect.width))
+        }else{
+            
+            self.image?.drawInRect(CGRectMake(0, 0, rect.width, rect.width))
+            
+            var imageSelect: UIImage = uncheckedIcon
+            if self.selected {
+                imageSelect = checkedIcon
+            } else {
+                imageSelect = uncheckedIcon
+            }
+            
+            let x = CGRectGetMaxX(rect) - checkedIcon.size.width - 3
+            let y = CGRectGetMinY(rect) + 3
+            
+            imageSelect.drawAtPoint(CGPointMake(x, y))
         }
         
-        let x = CGRectGetMaxX(rect) - checkedIcon.size.width - 3
-        let y = CGRectGetMinY(rect) + 3
-        
-        imageSelect.drawAtPoint(CGPointMake(x, y))
     }
 }
 

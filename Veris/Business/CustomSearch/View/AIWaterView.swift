@@ -41,8 +41,8 @@ class AIWaterView: DesignableView {
         let layer: CAShapeLayer = CAShapeLayer()
         layer.path = path.CGPath
         // 添加路径 下面三个同理
-        layer.strokeColor = UIColor(hex: "2e2e6a").CGColor
-        layer.fillColor = UIColor(hexString: "2e2e6a", alpha: 0.6).CGColor
+        layer.strokeColor =  UIColor(hexString: "#FFFFFF", alpha: 0.3).CGColor
+        layer.fillColor = UIColor(hexString: "#FFFFFF", alpha: 0.4).CGColor
         self.layer.addSublayer(layer)
     }
 

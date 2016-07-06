@@ -360,14 +360,13 @@ class AIProductInfoViewController: UIViewController {
         return splitView
     }
     
-    
     // MARK: - DIY ACTION
     func showDetailView() {
         let model = AIBuyerBubbleModel()
         model.proposal_id = 3525
         model.proposal_name = "Pregnancy Care"
         let viewsss = createBuyerDetailViewController(model)
-        self.showViewController(viewsss, sender: self)
+        showTransitionStyleCrossDissolveView(viewsss)
     }
     
     func  createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
@@ -387,7 +386,7 @@ class AIProductInfoViewController: UIViewController {
         
         if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
             vc.dataSource  = model
-            self.showViewController(vc, sender: self)
+            showTransitionStyleCrossDissolveView(vc)
         }
         
     }

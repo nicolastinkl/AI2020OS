@@ -41,5 +41,4 @@ class AIServerProviderView: UIView {
         des.text = "中国著名妇产科专家，现任北京XXX主任，现任北京XXX主任，现任北京XXX主任，现任北京XXX主任. 毕业于宜宾理工学院"
         image.image = UIImage(named: "se_customer_icon")
     }
-    
 }

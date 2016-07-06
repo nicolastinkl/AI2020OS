@@ -24,7 +24,7 @@ class AISearchHistoryLabels: UIView {
 	//
     
 	let horizontalMargin: CGFloat = AITools.displaySizeFrom1242DesignSize(40)
-	let verticalMargin: CGFloat = 25
+	let verticalMargin: CGFloat = AITools.displaySizeFrom1242DesignSize(50)
     
 	let titleFontSize: CGFloat = AITools.displaySizeFrom1242DesignSize(48)
 	let labelFontSize: CGFloat = AITools.displaySizeFrom1242DesignSize(48)
@@ -56,6 +56,8 @@ class AISearchHistoryLabels: UIView {
 		mainTitleLabel = AIViews.wrapLabelWithFrame(CGRectMake(0, 0, (size?.width)!, (size?.height)!), text: mainTitle, fontSize: titleFontSize, color: UIColor.whiteColor())
         mainTitleLabel.font = titleFont
 		addSubview(mainTitleLabel)
+
+        maxHeight = (size?.height)!
 	}
 
 	func findSuitableLabel(suitableSize: CGFloat) -> String {
@@ -101,38 +103,41 @@ class AISearchHistoryLabels: UIView {
 			var labelText = historyLabel
 			var size = labelText.sizeWithFont(labelFont, forWidth: maxWidth)
             size.width += 30
-            size.height += 10
+            size.height += 14
 
 			if (x + horizontalMargin + size.width) > maxWidth {
 				let shortLabel = findSuitableLabel(maxWidth - x - horizontalMargin)
 				if shortLabel != "" {
 					tempLabels.append(labelText)
 					labelText = shortLabel
+                    size = labelText.sizeWithFont(labelFont, forWidth: maxWidth)
+                    size.width += 28
+                    size.height += 10
 
 				} else {
 					x = 0
-					y += verticalMargin + labelFontSize
+					y += verticalMargin + size.height
 				}
 
 			}
-			size.height = size.height + 6
-			let label = AIViews.wrapLabelWithFrame(CGRectMake(x, y, size.width, size.height), text: labelText, fontSize: labelFontSize, color: UIColor.whiteColor())
+
+			let label = AIViews.wrapLabelWithFrame(CGRectMake(x, y, size.width, size.height), text: labelText, fontSize: labelFontSize, color: UIColor ( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8 ))
             label.font = labelFont
             label.userInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(AISearchHistoryLabels.labelTapped(_:)))
             label.addGestureRecognizer(tap)
 			addSubview(label)
-            label.layer.borderColor = UIColor ( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.2 ).CGColor
-            label.layer.borderWidth = 0.5
+            label.layer.borderColor = UIColor ( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8 ).CGColor
+            label.layer.borderWidth = AITools.displaySizeFrom1242DesignSize(2)
             label.layer.masksToBounds = true
             label.layer.cornerRadius = size.height / 2
             label.textAlignment  = .Center
 			x = CGRectGetMaxX(label.frame) + horizontalMargin
 
 			containLabels.append(labelText)
-		}
 
-		maxHeight = y + labelFontSize
+            maxHeight = y + size.height
+		}
 
 		if tempLabels.count > 0 {
 			makeLabels(x, startY: y, labels: tempLabels)

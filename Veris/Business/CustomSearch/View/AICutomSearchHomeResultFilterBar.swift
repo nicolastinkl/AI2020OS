@@ -9,15 +9,16 @@
 import UIKit
 
 class AICutomSearchHomeResultFilterBar: UIView {
-    @IBOutlet var FilterButtons: [ImagePositionButton]!
+    @IBOutlet var filterButtons: [ImagePositionButton]!
     @IBOutlet var mainView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         mainView.backgroundColor = UIColor.clearColor()
         backgroundColor = UIColor.clearColor()
         
-        FilterButtons.forEach { (b) in
+        filterButtons.forEach { (b) in
             b.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
+            b.updateImageInset()
         }
     }
     

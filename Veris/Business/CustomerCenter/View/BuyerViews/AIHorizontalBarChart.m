@@ -133,7 +133,7 @@
     CGFloat y = (_maxHeight - fontSize) / 2;
     CGRect frame = CGRectMake(x, y, width, fontSize);
     
-    _numberLabel = [AIViews normalLabelWithFrame:frame text:[NSString stringWithFormat:@"%ld", _number] fontSize:fontSize color:Color_MiddleWhite];
+    _numberLabel = [AIViews normalLabelWithFrame:frame text:[NSString stringWithFormat:@"%ld", (long)_number] fontSize:fontSize color:Color_MiddleWhite];
     _numberLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     [self addSubview:_numberLabel];
 }

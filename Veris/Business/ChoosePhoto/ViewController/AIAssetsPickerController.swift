@@ -28,38 +28,37 @@ import SVProgressHUD
 
 /// 调用委托
 protocol AIAssetsPickerControllerDelegate: class {
- 
-    /**
-     完成选择
-     
-     1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
-     2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
-     */
-    func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray)
-    
-    /**
-     取消选择
-     */
-    func assetsPickerControllerDidCancel()
-    
-    /**
-     选中某张照片
-     */
-    func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath)
-    /**
-     取消选中某张照片
-     */
-    func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath)
-    
-    
+	
+	/**
+	 完成选择
+
+	 1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
+	 2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
+	 */
+	func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray)
+	
+	/**
+	 取消选择
+	 */
+	func assetsPickerControllerDidCancel()
+	
+	/**
+	 选中某张照片
+	 */
+	func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath)
+	/**
+	 取消选中某张照片
+	 */
+	func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath)
+	
 }
 
 enum AIAssetsPickerModel: Int {
-    case singleModel
-    case mutliModel
+	case singleModel
+	case mutliModel
 }
 
- /// How to use it ?
+/// How to use it ?
 /**
  let vc = AIAssetsPickerController.initFromNib()
  vc.delegate = self
@@ -69,6 +68,7 @@ enum AIAssetsPickerModel: Int {
 
 /// 相册界面
 class AIAssetsPickerController: UIViewController {
+
     
     var choosePhotoModel: AIAssetsPickerModel = .mutliModel  //default value.
     
@@ -129,8 +129,8 @@ class AIAssetsPickerController: UIViewController {
         self.collctionView.allowsMultipleSelection = true
         self.collctionView.registerClass(AIAssetsViewCell.self, forCellWithReuseIdentifier: kAssetsViewCellIdentifier)
         self.collctionView.registerClass(AIAssetsFootViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: kAssetsSupplementaryViewIdentifier)
-        
-        layoutColl.itemSize = CGSizeMake(100, 100)
+        let width = UIScreen.mainScreen().bounds.size.width/4 - 1.5
+        layoutColl.itemSize = CGSizeMake(width, width)
         layoutColl.footerReferenceSize = CGSizeMake(0, 44)
         layoutColl.sectionInset            = UIEdgeInsetsMake(0.0, 0, 0, 0)
         layoutColl.minimumInteritemSpacing = 2.0
@@ -158,7 +158,6 @@ class AIAssetsPickerController: UIViewController {
                         }
                     }
                 })
-                
                 self.collctionView.reloadData()
                 
             }
@@ -199,6 +198,15 @@ class AIAssetsPickerController: UIViewController {
         refershDataSize(self.collctionView.indexPathsForSelectedItems())
     }
     
+    func takePhotoAction(){
+        
+        let imagePickVC = UIImagePickerController()
+        imagePickVC.delegate = self
+        imagePickVC.sourceType = UIImagePickerControllerSourceType.Camera
+        presentViewController(imagePickVC, animated: true, completion: nil)
+        
+    }
+    
     func refershDataSize(indexPaths: NSArray?) {
         if isRetainImage {
             var size = 0
@@ -229,7 +237,6 @@ class AIAssetsPickerController: UIViewController {
     
 }
 
-
 extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -242,13 +249,25 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
+        
         let CellIdentifier = self.kAssetsViewCellIdentifier
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CellIdentifier, forIndexPath: indexPath) as? AIAssetsViewCell
         
-        let curretnAsset = assets.objectAtIndex(indexPath.row) as! ALAsset
-        cell?.bind(curretnAsset)
-        cell?.model = self.choosePhotoModel
+        if indexPath.row == 0 {
+            //return camera.
+            cell?.showCamera = true
+        }else{
+            cell?.showCamera = false
+        }
+        
+        if let curretnAsset = assets.objectAtIndex(indexPath.row) as? ALAsset {
+            cell?.bind(curretnAsset)
+            cell?.model = self.choosePhotoModel
+        }
+        
         return cell ?? AIAssetsViewCell()
+        
+        
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -267,14 +286,22 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        delegate?.assetsPickerController(self, didSelectItemAtIndexPath: indexPath)
-        setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
+        
+        if indexPath.row == 0 {
+            takePhotoAction()
+        }else{
+            delegate?.assetsPickerController(self, didSelectItemAtIndexPath: indexPath)
+            setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
+        }
+        
     }
     
-    
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        delegate?.assetsPickerController(self, didDeselectItemAtIndexPath: indexPath)
-        setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
+        if indexPath.row > 0 {
+            delegate?.assetsPickerController(self, didDeselectItemAtIndexPath: indexPath)
+            setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
+        }
+        
     }
     
     
@@ -286,11 +313,34 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
             
             if indexPaths.count == 0 {
                 // NONE
+                numberButton.backgroundColor = UIColor(hexString: "868c90", alpha: 0.60)
+                numberButton.enabled = false
+                numberButton.setTitle("上传", forState: UIControlState.Normal)
+            }else{
+                numberButton.enabled = true
+                numberButton.backgroundColor = UIColor(hexString: "0077CF")
+                numberButton.setTitle("\(indexPaths.count)/\(maximumNumberOfSelection) 上传", forState: UIControlState.Normal)
             }
-            numberButton.setTitle("\(indexPaths.count)/\(maximumNumberOfSelection) 上传", forState: UIControlState.Normal)
+            
         }
     }
     
-    
-    
+}
+
+extension AIAssetsPickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+	
+	func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+		picker.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
+		let image = info[UIImagePickerControllerOriginalImage]
+		AILog(image)
+		picker.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String: AnyObject]?) {
+		picker.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
 }
