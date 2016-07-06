@@ -198,7 +198,7 @@ class AIAssetsPickerController: UIViewController {
         refershDataSize(self.collctionView.indexPathsForSelectedItems())
     }
     
-    func takePhotoAction(){
+    func takePhotoAction() {
         
         let imagePickVC = UIImagePickerController()
         imagePickVC.delegate = self
@@ -256,7 +256,7 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
         if indexPath.row == 0 {
             //return camera.
             cell?.showCamera = true
-        }else{
+        } else {
             cell?.showCamera = false
         }
         
@@ -289,7 +289,7 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
         
         if indexPath.row == 0 {
             takePhotoAction()
-        }else{
+        } else {
             delegate?.assetsPickerController(self, didSelectItemAtIndexPath: indexPath)
             setTitleWithSelectedIndexPaths(collectionView.indexPathsForSelectedItems())
         }
@@ -316,7 +316,7 @@ extension AIAssetsPickerController: UICollectionViewDelegate, UICollectionViewDa
                 numberButton.backgroundColor = UIColor(hexString: "868c90", alpha: 0.60)
                 numberButton.enabled = false
                 numberButton.setTitle("上传", forState: UIControlState.Normal)
-            }else{
+            } else {
                 numberButton.enabled = true
                 numberButton.backgroundColor = UIColor(hexString: "0077CF")
                 numberButton.setTitle("\(indexPaths.count)/\(maximumNumberOfSelection) 上传", forState: UIControlState.Normal)

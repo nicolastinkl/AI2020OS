@@ -176,7 +176,7 @@ class AIConfirmOrderViewController: UIViewController {
         }
     }
     
-    func showPayViewAction(){
+    func showPayViewAction() {
         showTransitionStyleCrossDissolveView(AIPaymentViewController.initFromNib())
     }
 
