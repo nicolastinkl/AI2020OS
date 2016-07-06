@@ -70,7 +70,7 @@ class AIAssetsViewCell: UICollectionViewCell {
         if showCamera {
             
             UIImage(named: "UINaviCamera")?.drawInRect(CGRectMake(0, 0, rect.width, rect.width))
-        }else{
+        } else {
             
             self.image?.drawInRect(CGRectMake(0, 0, rect.width, rect.width))
             

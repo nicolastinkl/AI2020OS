@@ -47,7 +47,7 @@ class AICustomSearchHomeViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
 	}
     
-    func popToRootView(){
+    func popToRootView() {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
