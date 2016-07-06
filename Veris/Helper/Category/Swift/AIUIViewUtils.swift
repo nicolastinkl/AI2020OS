@@ -436,6 +436,18 @@ extension UIView {
 		self.layer.mask = nil
 	}
 	
+    /**
+     快速设置View的圆角，注意view大小变化时需要重新调用此方法，比如在layoutSubviews中调用此方法
+     - parameter corners:     UIRectCorner eg. [.TopLeft, .TopRight]
+     - parameter cornerRadii: CGSize 圆角大小
+     */
+    func setCorner(corners corners: UIRectCorner, cornerRadii: CGSize) {
+        let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: cornerRadii)
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds
+        maskLayer.path = maskPath.CGPath
+        layer.mask = maskLayer
+    }
 	/**
 	 高效处理圆角
 	 */

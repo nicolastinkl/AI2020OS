@@ -100,7 +100,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             if WindowManager.shared.count > 0 {
                 WindowManager.shared.delegate = self
                 WindowManager.shared.setTopWindowOffset(WindowManager.shared.offsetableWindowYOffset, style: AnimationStyle.Linear)
-            }else{
+            } else {
                 WindowManager.shared.delegate = self
                 let rootViewController = AIProposalTableViewController()
                 /// Offsetable windows can't be dragged off the screen by a user's pan gesture

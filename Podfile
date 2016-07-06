@@ -36,7 +36,7 @@ pod 'IQKeyboardManagerSwift'
 
 pod 'SVProgressHUD', '~> 1.0'
 
-pod 'Glass'
+pod 'Glass', :git => 'https://github.com/asiainfomobile/WindowManager.git'
 
 
 end

@@ -16,7 +16,7 @@ DEPENDENCIES:
   - AIAlertView (from `https://github.com/asiainfomobile/AIAlertView.git`)
   - Alamofire (~> 3.1.4)
   - Cartography (~> 0.6.0)
-  - Glass
+  - Glass (from `https://github.com/asiainfomobile/WindowManager.git`)
   - IQKeyboardManagerSwift
   - SnapKit (~> 0.18.0)
   - Spring (from `https://github.com/asiainfomobile/Spring.git`, branch `swift2`)
@@ -27,6 +27,8 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   AIAlertView:
     :git: https://github.com/asiainfomobile/AIAlertView.git
+  Glass:
+    :git: https://github.com/asiainfomobile/WindowManager.git
   Spring:
     :branch: swift2
     :git: https://github.com/asiainfomobile/Spring.git
@@ -37,6 +39,9 @@ CHECKOUT OPTIONS:
   AIAlertView:
     :commit: 2de5b00cba21ea82c3c5af5fcde0a21fce5d82d3
     :git: https://github.com/asiainfomobile/AIAlertView.git
+  Glass:
+    :commit: 17cd84d8992b25f13990eb6ab26580d3affa28ff
+    :git: https://github.com/asiainfomobile/WindowManager.git
   Spring:
     :commit: e9fbb2915689b5102a050a55bf8170b0a2777e49
     :git: https://github.com/asiainfomobile/Spring.git
@@ -48,7 +53,7 @@ SPEC CHECKSUMS:
   AIAlertView: 9d17a80a22042548ee7888d7e645c84ccbfb1d53
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
-  Glass: a4ac9a73d2c426698d63a00d4dc1a8650840caac
+  Glass: c1069b7b87be870a4353b30a1cbb9b9a5f404f17
   IQKeyboardManagerSwift: e0964d04d6a29b71016fd346dca13ecb80a2823a
   SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7

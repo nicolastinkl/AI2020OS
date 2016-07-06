@@ -60,6 +60,10 @@ class AICustomSearchHomeCell: UITableViewCell {
 		let wavyImage = UIImage(named: "wavy_lines")?.stretchableImageWithLeftCapWidth(1, topCapHeight: 0)
 		let wavyColor = UIColor(patternImage: wavyImage!)
 		wavyLineView.backgroundColor = wavyColor
+        
+        likeButton.userInteractionEnabled = false
+        hotButton.userInteractionEnabled = false
+        rateView.userInteractionEnabled = false
 		
 	}
 	
