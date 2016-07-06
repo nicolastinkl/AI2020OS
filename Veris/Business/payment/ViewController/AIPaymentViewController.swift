@@ -155,6 +155,7 @@ class AIPaymentViewController: UIViewController {
     @IBAction func closePayAction() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
+        self.dismissViewControllerAnimated(false, completion: nil)
         
     }
     
@@ -213,8 +214,6 @@ class AIPaymentViewController: UIViewController {
     }
     
     func layoutSubView() {
-
-        AILog("\(self.view.frame.size.width)")
         /// Init Size and Font
         
         providerName.font = AITools.myriadLightWithSize(48/3)

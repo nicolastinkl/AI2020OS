@@ -226,7 +226,7 @@ class AIBuyerDetailViewController: UIViewController {
 	func targetDetail2() {
 		let vc = AIServiceContentViewController()
 		vc.serviceContentType = AIServiceContentType.Escort
-		self.showViewController(vc, sender: self)
+		showTransitionStyleCrossDissolveView(vc)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -293,7 +293,7 @@ class AIBuyerDetailViewController: UIViewController {
 		
 		if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
 			vc.dataSource = self.dataSource
-			self.showViewController(vc, sender: self)
+			showTransitionStyleCrossDissolveView(vc)
 		}
 		
 //        return
@@ -322,7 +322,7 @@ class AIBuyerDetailViewController: UIViewController {
 	func showNextViewController() {
 		let vc = AIServiceContentViewController()
 		vc.serviceContentType = AIServiceContentType.MusicTherapy
-		self.showViewController(vc, sender: self)
+		showTransitionStyleCrossDissolveView(vc)
 		
 	}
 	
@@ -707,7 +707,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
 			viewController.proposalId = dataSource.proposal_id
 			viewController.bubbleModelArray = serviceList as? [AIProposalServiceModel]
 			viewController.selectCurrentIndex = indexPath.row
-			self.showViewController(viewController, sender: self)
+			showTransitionStyleCrossDissolveView(viewController)
 			
 		}
 		
