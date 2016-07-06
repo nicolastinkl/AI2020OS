@@ -70,7 +70,7 @@ class AIConfirmOrderViewController: UIViewController {
         /**
          Data Referesh.
          */
-        if let _ = current_service_list {
+        if current_service_list?.count > 0 {
             tableView.reloadData()
         } else {
             //Reqest Networking.

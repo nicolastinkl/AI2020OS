@@ -8,7 +8,6 @@
 
 import UIKit
 import Spring
-import Glass
 
 
 /// Proprosal 详情页
@@ -106,9 +105,12 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         Async.main(after: 0.3) {
-            let rootViewController = AIProposalTableViewController()
-            self.addSubViewController(rootViewController, toView: self.popTableView)
-            self.finishPanDownwards(self.popTableView, velocity: 0)
+            if self.popTableView.subviews.count == 0 {
+                let rootViewController = AIProposalTableViewController()
+                self.addSubViewController(rootViewController, toView: self.popTableView)
+                self.finishPanDownwards(self.popTableView, velocity: 0)
+            }
+            
         }
     }
     
@@ -124,7 +126,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(AIBuyerViewController.didRecognizePanGesture(_:)))
         pan.delegate = self
-        view.addGestureRecognizer(pan) 
+        view.addGestureRecognizer(pan)
     }
     
     

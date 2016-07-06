@@ -69,9 +69,6 @@
 		<string>MyriadPro-Black.otf</string>
 		<string>MyriadPro-Cond.otf</string>
 		<string>MyriadPro-SemiboldSemiCn.otf</string>
-		<string>MyriadPro-Light.otf</string>
-		<string>HiraginoSansGBW3.otf</string>
-		<string>HiraginoSansGBW6.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
