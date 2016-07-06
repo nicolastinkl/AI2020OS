@@ -220,11 +220,13 @@
 
         success(returnResponseObject);
     } else {
+
         if (des != nil) {
             NSString *errorDes = [des objectForKey:kKeyForResultMsg];
             if (fail) {
                 fail(AINetErrorFormat, errorDes);
             }
+
         }
         
         

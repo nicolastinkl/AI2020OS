@@ -20,7 +20,6 @@ class AIProductQAViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		setupBlurView()
 		setupTopBar()
 		setupData()
 		setupTableView()
@@ -52,7 +51,7 @@ class AIProductQAViewController: UIViewController {
 		
 		backButton.snp_makeConstraints { (make) in
 			make.centerY.equalTo(navigationBar)
-			make.leading.equalTo(navigationBar).offset(20)
+			make.leading.equalTo(navigationBar).offset(AITools.displaySizeFrom1242DesignSize(55))
 		}
 		
 		titleLabel.snp_makeConstraints { (make) in
@@ -79,8 +78,8 @@ class AIProductQAViewController: UIViewController {
 			make.edges.equalTo(view)
 		}
 	}
+    
 	func setupData() {
-		
 		for i in 0...6 {
 			var string = "这里是提问内容，这里是提问内容。"
 			for _ in 0...i {
