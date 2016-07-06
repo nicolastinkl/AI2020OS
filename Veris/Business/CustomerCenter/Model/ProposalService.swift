@@ -172,7 +172,7 @@ class BDKProposalService: MockProposalService {
             }
 
             }) { (error: AINetError, errorDes: String!) -> Void in
-                fail(errType: error, errDes: errorDes)
+                fail(errType: error, errDes: errorDes ?? "")
         }
     }
 
