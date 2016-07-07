@@ -10,6 +10,7 @@
 
 
 
+//由于swift 编译不过 注释掉了这个枚举
 typedef enum  {
     
     typeToNormal = 0,
@@ -32,7 +33,7 @@ typedef enum  {
 @property (nonatomic) NSInteger index;
 
 //类型
-@property (nonatomic) BubbleType bubbleType;
+@property (nonatomic) NSInteger bubbleType;
 //是否发光
 @property (nonatomic) CGFloat isLight;
 //是否周边有小气泡标识
@@ -65,7 +66,7 @@ typedef enum  {
 
 - (instancetype)initWithFrame:(CGRect)frame model:(AIBuyerBubbleModel *)model;
 
-- (instancetype)initWithCenter:(CGPoint)center model:(AIBuyerBubbleModel *)model type:(BubbleType) type Index:(NSInteger) indexModel;
+- (instancetype)initWithCenter:(CGPoint)center model:(AIBuyerBubbleModel *)model type:(NSInteger)type Index:(NSInteger)indexModel;
 
 
 @end
