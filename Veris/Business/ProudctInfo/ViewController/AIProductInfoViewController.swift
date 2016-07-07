@@ -120,6 +120,7 @@ class AIProductInfoViewController: UIViewController {
 	 */
 	func initLayoutViews() {
 		
+        self.scrollview.contentInset = UIEdgeInsetsMake(0, 0, 200, 0)
 		/// Title.
 		if let navi = navi as? AINavigationBar {
 			view.addSubview(navi)
@@ -267,7 +268,9 @@ class AIProductInfoViewController: UIViewController {
 		let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
 		addNewSubView(commond, preView: lineView1)
 		commond.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
-		
+		commond.userInteractionEnabled = true
+        commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))
+        
 		let commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
 		addNewSubView(commentView!, preView: commond)
 		commentView?.fillDataWithModel()
@@ -293,7 +296,7 @@ class AIProductInfoViewController: UIViewController {
 		aButton.setCenterX(self.view.width / 2)
 		aButton.layer.masksToBounds = true
 		aButton.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Highlighted)
-		aButton.addTarget(self, action: "qaButtonPressed", forControlEvents: .TouchUpInside)
+		aButton.addTarget(self, action: #selector(AIProductInfoViewController.qaButtonPressed), forControlEvents: .TouchUpInside)
 		
 		let lineView2 = addSplitView()
 		
@@ -303,101 +306,163 @@ class AIProductInfoViewController: UIViewController {
 //        pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
 //        let hView4 = AIServerProviderView.initFromNib()
 //        addNewSubView(hView4!, preView: pLabel)
-		
-		// Setup 5:
-		let pLabel = getTitleLabelView("服务者介绍")
-		addNewSubView(pLabel, preView: lineView2)
-		pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
-		let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
-		addNewSubView(hView4!, preView: pLabel)
-		hView4?.fillDataWithModel()
-		let lineView3 = addSplitView()
-		
-		// Setup 6:
-		let pcLabel = getTitleLabelView("商品介绍")
-		addNewSubView(pcLabel, preView: lineView3)
-		pcLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
-		let holdSpaceView = UIView()
-		addNewSubView(holdSpaceView, preView: pcLabel)
-		holdSpaceView.setHeight(44 / 3)
-		let bottomImage = AIImageView()
-		bottomImage.setURL(NSURL(string: "http://tse3.mm.bing.net/th?id=OIP.M0270ecfd4170b83f759ef204f51ec417o0&pid=15.1"), placeholderImage: smallPlace())
-		bottomImage.setHeight(675)
-		bottomImage.backgroundColor = UIColor(hexString: "#6AB92E", alpha: 0.7)
-		bottomImage.contentMode = UIViewContentMode.ScaleAspectFill
-		bottomImage.clipsToBounds = true
-		addNewSubView(bottomImage, preView: holdSpaceView)
-		
-		// Setup 7:
-		let providerView = AIProviderView.currentView()
-		providerView.content.text = "请选择符合您情况的标签"
-		addNewSubView(providerView, preView: bottomImage)
-		
-	}
-	
-	/**
-	 copy from old View Controller.
-	 */
-	func addNewSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
-		scrollview.addSubview(cview)
-		cview.setWidth(self.view.width)
-		cview.setTop(preView.top + preView.height + space)
-		cview.backgroundColor = color
-		scrollview.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
-		preCacheView = cview
-	}
-	
-	// Make Add Split View.
-	func addSplitView() -> UIView {
-		let splitView = UIView()
-		splitView.setHeight(0)
-		if let preCacheView = preCacheView {
-			addNewSubView(splitView, preView: preCacheView)
-			splitView.backgroundColor = UIColor(hexString: "#372D49", alpha: 0.8)
-		}
-		return splitView
-	}
-	
-	// MARK: - DIY ACTION
-	func showDetailView() {
-		let model = AIBuyerBubbleModel()
-		model.proposal_id = 3525
-		model.proposal_name = "Pregnancy Care"
-		let viewsss = createBuyerDetailViewController(model)
-		showTransitionStyleCrossDissolveView(viewsss)
-	}
+        
+        // Setup 5:
+        let pLabel = getTitleLabelView("服务者介绍")
+        addNewSubView(pLabel, preView: lineView2)
+        pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
+        let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
+        addNewSubView(hView4!, preView: pLabel)
+        hView4?.fillDataWithModel()
+        let lineView3 = addSplitView()
+
+        // Setup 6:
+        let pcLabel = getTitleLabelView("商品介绍")
+        addNewSubView(pcLabel, preView: lineView3)
+        pcLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
+        let holdSpaceView = UIView()
+        addNewSubView(holdSpaceView, preView: pcLabel)
+        holdSpaceView.setHeight(44/3)
+        let bottomImage = AIImageView()
+        bottomImage.setURL(NSURL(string:"http://tse3.mm.bing.net/th?id=OIP.M0270ecfd4170b83f759ef204f51ec417o0&pid=15.1"), placeholderImage: smallPlace())
+        bottomImage.setHeight(675)
+        bottomImage.backgroundColor = UIColor(hexString: "#6AB92E", alpha: 0.7)
+        bottomImage.contentMode = UIViewContentMode.ScaleAspectFill
+        bottomImage.clipsToBounds = true
+        addNewSubView(bottomImage, preView: holdSpaceView)
+
+        // Setup 7: Provider Info
+        
+        let provideView = addCustomView(bottomImage)
+        
+        // Setup 8: Audio
+        let audioView = AICustomAudioNotesView.currentView()
+        addNewSubView(audioView, preView: provideView!)
+        audioView.delegateShowAudio = self
+        
+    }
+    
+    func showCommentView() {
+        let vc = AIProductCommentsViewController()
+        presentBlurViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
+    
+    }
+
+    private func addCustomView(preView: UIView) -> UIView? {
+        
+        var viw: UIView = preView
+        
+        // 处理数据填充
+        if let wish: AIProposalServiceDetail_WishModel = AIProposalServiceDetail_WishModel() {
+            
+//            内分泌失调 焦虑  疲惫  睡眠质量差  低落
+            let labelModel_1 = AIProposalServiceDetailLabelModel()
+            labelModel_1.content = "易怒"
+            labelModel_1.label_id = 1
+            labelModel_1.selected_flag = 0
+            labelModel_1.selected_num = 2
+            
+            let labelModel_2 = AIProposalServiceDetailLabelModel()
+            labelModel_2.content = "内分泌失调"
+            labelModel_2.label_id = 2
+            labelModel_2.selected_flag = 0
+            labelModel_2.selected_num = 21
+            
+            let labelModel_3 = AIProposalServiceDetailLabelModel()
+            labelModel_3.content = "焦虑"
+            labelModel_3.label_id = 3
+            labelModel_3.selected_flag = 1
+            labelModel_3.selected_num = 121
+            
+            wish.label_list = [labelModel_1,labelModel_2,labelModel_3,labelModel_2,labelModel_1]
+            wish.hope_list = []
+            let providerView = AIProviderView.currentView()
+            addNewSubView(providerView, preView: viw)
+            viw = providerView
+            providerView.content.text = "请选择符合您情况的标签"
+            if wish.label_list != nil || (wish.hope_list != nil) {
+                if wish.hope_list.count > 0 || wish.label_list.count > 0 {
+                    let custView = AICustomView.currentView()
+                    let heisss = 200 + wish.label_list.count * 16
+                    custView.setHeight(CGFloat(heisss))
+                    addNewSubView(custView, preView: viw)
+                    viw = custView
+                    custView.wish_id = 1
+                    if let labelList = wish.label_list as? [AIProposalServiceDetailLabelModel] {
+                        custView.fillTags(labelList, isNormal: true)
+                    }
+                }
+            }
+        }
+        if view == preView {
+            return nil
+        }
+        return viw
+    }
+    
+    /**
+     copy from old View Controller.
+     */
+    func addNewSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
+        scrollview.addSubview(cview)
+        cview.setWidth(self.view.width)
+        cview.setTop(preView.top + preView.height+space)
+        cview.backgroundColor = color
+        scrollview.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
+        preCacheView = cview
+    }
+
+    // Make Add Split View.
+    func addSplitView() -> UIView {
+        let splitView = UIView()
+        splitView.setHeight(0)
+        if let preCacheView = preCacheView {
+            addNewSubView(splitView, preView: preCacheView)
+            splitView.backgroundColor = UIColor(hexString: "#372D49", alpha: 0.8)
+        }
+        return splitView
+    }
+    
+    // MARK: - DIY ACTION
+    func showDetailView() {
+        let model = AIBuyerBubbleModel()
+        model.proposal_id = 3525
+        model.proposal_name = "Pregnancy Care"
+        let viewsss = createBuyerDetailViewController(model)
+        showTransitionStyleCrossDissolveView(viewsss)
+    }
+    
+    func  createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
+        
+        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
+        viewController.bubbleModel = model
+        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        
+        return viewController
+    }
+    
+    func configOrderAction() {
+        let model = AIProposalInstModel()
+        model.proposal_id = 3525
+        model.proposal_name = "Pregnancy Care"
+        
+        if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
+            vc.dataSource  = model
+            showTransitionStyleCrossDissolveView(vc)
+        }
+        
+    }
+   
+    @IBAction func showOrderAction(sender: AnyObject) {
+        configOrderAction()
+    }
     
 	func qaButtonPressed() {
         let vc = AIProductQAViewController()
         presentBlurViewController(vc, animated: true, completion: nil)
 	}
-	
-	func createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
-		
-		let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
-		viewController.bubbleModel = model
-		viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-		viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-		
-		return viewController
-	}
-	
-	func configOrderAction() {
-		let model = AIProposalInstModel()
-		model.proposal_id = 3525
-		model.proposal_name = "Pregnancy Care"
-		
-		if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
-			vc.dataSource = model
-			showTransitionStyleCrossDissolveView(vc)
-		}
-		
-	}
-	
-	@IBAction func showOrderAction(sender: AnyObject) {
-		configOrderAction()
-	}
-	
+	 
 }
 
 extension AIProductInfoViewController: UIScrollViewDelegate {
@@ -406,4 +471,12 @@ extension AIProductInfoViewController: UIScrollViewDelegate {
 		
 	}
 	
+}
+
+
+extension AIProductInfoViewController: AICustomAudioNotesViewShowAudioDelegate {
+    
+    func showAudioView(type: Int) {
+        
+    }
 }

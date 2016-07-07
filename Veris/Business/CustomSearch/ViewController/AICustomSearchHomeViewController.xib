@@ -102,8 +102,8 @@
                                         <action selector="choosePhotoAction:" destination="-1" eventType="touchUpInside" id="yRA-Xg-HqX"/>
                                     </connections>
                                 </button>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TLn-s0-RLL">
-                                    <rect key="frame" x="88" y="4" width="419" height="30"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TLn-s0-RLL">
+                                    <rect key="frame" x="89" y="4" width="419" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="KgA-Su-Weq"/>
                                     </constraints>

@@ -47,7 +47,7 @@ class AICustomSearchHomeViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
 	}
     
-    func popToRootView(){
+    func popToRootView() {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
@@ -148,7 +148,6 @@ class AICustomSearchHomeViewController: UIViewController {
 	}
 	
 	@IBAction func backButtonPressed(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().postNotificationName("showProposalTableView", object: nil)
 		dismissViewControllerAnimated(true, completion: nil)
 	}
 	@IBAction func searchButtonPressed(sender: AnyObject) {
