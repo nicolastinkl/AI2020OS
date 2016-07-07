@@ -98,6 +98,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.headerBeginRefreshing()
         
         view.addSubview(popTableView)
+        
         popTableView.frame = view.frame
         
     }
