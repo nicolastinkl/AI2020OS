@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DocBlurPresentViewController" customModule="DocApp" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9P-Kw-xVb">
+                    <rect key="frame" x="268" y="57" width="64" height="30"/>
+                    <state key="normal" title="Press me"/>
+                    <connections>
+                        <action selector="buttonPressed:" destination="-1" eventType="touchUpInside" id="qCp-Xp-kKP"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IgL-bD-3py">
+                    <rect key="frame" x="8" y="95" width="584" height="497"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">        let vc = AIProductQAViewController()
+        // CustomViewController 不需要实现任何 blur的代码
+        // 初始化 CustomViewController 用任意方法初始化后调用下面一行
+        presentBlurViewController(vc, animated: true, completion: nil)</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="d9P-Kw-xVb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="57" id="1by-ya-QhA"/>
+                <constraint firstItem="IgL-bD-3py" firstAttribute="top" secondItem="d9P-Kw-xVb" secondAttribute="bottom" constant="8" id="Btj-T9-TE0"/>
+                <constraint firstItem="IgL-bD-3py" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="GfW-ig-GIf"/>
+                <constraint firstItem="d9P-Kw-xVb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TMI-JR-1rr"/>
+                <constraint firstAttribute="trailing" secondItem="IgL-bD-3py" secondAttribute="trailing" constant="8" id="fzA-Cd-IT5"/>
+                <constraint firstAttribute="bottom" secondItem="IgL-bD-3py" secondAttribute="bottom" constant="8" id="wbP-AG-cMh"/>
+            </constraints>
+            <point key="canvasLocation" x="361" y="308"/>
+        </view>
+    </objects>
+</document>

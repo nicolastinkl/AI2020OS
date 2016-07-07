@@ -10,38 +10,42 @@ import UIKit
 
 @IBDesignable
 class ImagePositionButton: UIButton {
-    
-    override func intrinsicContentSize() -> CGSize {
-        var result = super.intrinsicContentSize()
-        switch titlePosition {
-        case .Top: fallthrough
-        case .Bottom:
-            result.height += spacing
-        case .Left: fallthrough
-        case .Right:
-            result.width += spacing
-        default:
-            break
-        }
-
-        
-        return result
-    }
+	
+	override func intrinsicContentSize() -> CGSize {
+		let intrinsicContentSize = super.intrinsicContentSize()
+		
+		switch titlePosition {
+		case .Top: fallthrough
+		case .Bottom:
+			let adjustedWidth = intrinsicContentSize.width + titleEdgeInsets.left + titleEdgeInsets.right + imageEdgeInsets.left + imageEdgeInsets.right
+			let adjustedHeight = intrinsicContentSize.height + titleEdgeInsets.top + titleEdgeInsets.bottom + imageEdgeInsets.top + imageEdgeInsets.bottom
+			
+			return CGSize(width: adjustedWidth, height: adjustedHeight)
+		case .Left: fallthrough
+		case .Right: fallthrough
+		default:
+			let adjustedWidth = intrinsicContentSize.width + titleEdgeInsets.left + titleEdgeInsets.right + imageEdgeInsets.left + imageEdgeInsets.right
+			let adjustedHeight = intrinsicContentSize.height + titleEdgeInsets.top + titleEdgeInsets.bottom + imageEdgeInsets.top + imageEdgeInsets.bottom
+			
+			return CGSize(width: adjustedWidth, height: adjustedHeight)
+		}
+		
+	}
 	
 	@IBInspectable
-    var titlePositionString: String = "right" {
+	var titlePositionString: String = "right" {
 		didSet {
-            switch titlePositionString {
-            case "right":
-                titlePosition = .Right
-            case "left":
-                titlePosition = .Left
-            case "top":
-                titlePosition = .Top
-            case "bottom":
-                titlePosition = .Bottom
-            default: break
-            }
+			switch titlePositionString {
+			case "right":
+				titlePosition = .Right
+			case "left":
+				titlePosition = .Left
+			case "top":
+				titlePosition = .Top
+			case "bottom":
+				titlePosition = .Bottom
+			default: break
+			}
 		}
 	}
 	
@@ -65,7 +69,7 @@ class ImagePositionButton: UIButton {
 	
 	override func setImage(image: UIImage?, forState state: UIControlState) {
 		super.setImage(image, forState: state)
-		updateImageInset()
+//		updateImageInset()
 	}
 	
 	override func setTitle(title: String?, forState state: UIControlState) {
@@ -74,23 +78,23 @@ class ImagePositionButton: UIButton {
 	}
 	
 	private func positionLabelRespectToImage(title: String, position: UIViewContentMode, spacing: CGFloat) {
-		let imageSize = imageRectForContentRect(frame)
+		let imageFrame = imageRectForContentRect(frame)
 		let titleFont = titleLabel?.font!
-		let titleSize = title.sizeWithAttributes([NSFontAttributeName: titleFont!])
+		let titleFrame = title.sizeWithAttributes([NSFontAttributeName: titleFont!])
 		
 		var titleEdgeInsets: UIEdgeInsets
 		var imageEdgeInsets: UIEdgeInsets
 		
 		switch position {
 		case .Top:
-			titleEdgeInsets = UIEdgeInsets(top: -(imageSize.height + titleSize.height + spacing), left: -(imageSize.width), bottom: 0, right: 0)
-			imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleSize.width)
+			titleEdgeInsets = UIEdgeInsets(top: -(imageFrame.height + titleFrame.height + spacing), left: -(imageFrame.width), bottom: 0, right: 0)
+			imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleFrame.width)
 		case .Bottom:
-			titleEdgeInsets = UIEdgeInsets(top: (imageSize.height + titleSize.height + spacing), left: -(imageSize.width), bottom: 0, right: 0)
-			imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleSize.width)
+			titleEdgeInsets = UIEdgeInsets(top: (imageFrame.height + titleFrame.height + spacing), left: -(imageFrame.width), bottom: 0, right: 0)
+			imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleFrame.width)
 		case .Left:
-			titleEdgeInsets = UIEdgeInsets(top: 0, left: -(imageSize.width * 2), bottom: 0, right: 0)
-			imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -(titleSize.width * 2 + spacing))
+			titleEdgeInsets = UIEdgeInsets(top: 0, left: -(imageFrame.width * 2), bottom: 0, right: 0)
+			imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -(titleFrame.width * 2 + spacing))
 		case .Right:
 			titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -spacing)
 			imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -101,6 +105,6 @@ class ImagePositionButton: UIButton {
 		
 		self.titleEdgeInsets = titleEdgeInsets
 		self.imageEdgeInsets = imageEdgeInsets
-        invalidateIntrinsicContentSize()
+		invalidateIntrinsicContentSize()
 	}
 }

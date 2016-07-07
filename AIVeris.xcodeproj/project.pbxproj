@@ -625,6 +625,650 @@
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
 		FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB01810F1D0D650E00213DF8 /* AISearchBar.xib */; };
+		FB3D38FE1D2CF57C005AC9E0 /* AVOSCloud.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81433B361CFBE5A700347C29 /* AVOSCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FB3D38FF1D2CF57C005AC9E0 /* AVOSCloudCrashReporting.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81433B371CFBE5A700347C29 /* AVOSCloudCrashReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FB3D39011D2CF57C005AC9E0 /* CurveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AC41CFBE5A700347C29 /* CurveView.m */; };
+		FB3D39021D2CF57C005AC9E0 /* UILabel+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BE11CFBE5A700347C29 /* UILabel+Localize.swift */; };
+		FB3D39031D2CF57C005AC9E0 /* AIServiceDetailTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143393A1CFBE5A600347C29 /* AIServiceDetailTool.swift */; };
+		FB3D39041D2CF57C005AC9E0 /* AIConfirmOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AF91CFBE5A700347C29 /* AIConfirmOrderViewController.swift */; };
+		FB3D39051D2CF57C005AC9E0 /* AIAssetsReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */; };
+		FB3D39061D2CF57C005AC9E0 /* AISellerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FCD1D115428002FF522 /* AISellerModel.m */; };
+		FB3D39071D2CF57C005AC9E0 /* ServiceCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C61FC11D01196F0063C2BF /* ServiceCommentViewController.swift */; };
+		FB3D39081D2CF57C005AC9E0 /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C071CFBE5A700347C29 /* UIColorUtils.swift */; };
+		FB3D39091D2CF57C005AC9E0 /* AIServiceContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B001CFBE5A700347C29 /* AIServiceContentViewController.swift */; };
+		FB3D390A1D2CF57C005AC9E0 /* AIFakeLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B191CFBE5A700347C29 /* AIFakeLoginView.m */; };
+		FB3D390B1D2CF57C005AC9E0 /* AIServiceTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433A081CFBE5A700347C29 /* AIServiceTypes.m */; };
+		FB3D390C1D2CF57C005AC9E0 /* MD5DataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5731D1CD9F10007F241 /* MD5DataSigner.m */; };
+		FB3D390D1D2CF57C005AC9E0 /* FLEXKeyboardHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BCB1CFBE5A700347C29 /* FLEXKeyboardHelpViewController.m */; };
+		FB3D390E1D2CF57C005AC9E0 /* VerticalIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AF01CFBE5A700347C29 /* VerticalIconLabel.swift */; };
+		FB3D390F1D2CF57C005AC9E0 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7A91CFD2710006F2C8F /* UIImage+GIF.m */; };
+		FB3D39101D2CF57C005AC9E0 /* FLEXNetworkHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B9F1CFBE5A700347C29 /* FLEXNetworkHistoryTableViewController.m */; };
+		FB3D39111D2CF57C005AC9E0 /* AITimelineFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B061CFBE5A700347C29 /* AITimelineFilterViewController.swift */; };
+		FB3D39121D2CF57C005AC9E0 /* ProposalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339811CFBE5A600347C29 /* ProposalService.swift */; };
+		FB3D39131D2CF57C005AC9E0 /* AIRequirmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143395C1CFBE5A600347C29 /* AIRequirmentModel.swift */; };
+		FB3D39141D2CF57C005AC9E0 /* UICustomsTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339CE1CFBE5A700347C29 /* UICustomsTags.swift */; };
+		FB3D39151D2CF57C005AC9E0 /* AIPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339FF1CFBE5A700347C29 /* AIPriceView.swift */; };
+		FB3D39161D2CF57C005AC9E0 /* ServiceContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339AD1CFBE5A600347C29 /* ServiceContainerView.swift */; };
+		FB3D39171D2CF57C005AC9E0 /* FLEXArgumentInputStructView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B4F1CFBE5A700347C29 /* FLEXArgumentInputStructView.m */; };
+		FB3D39181D2CF57C005AC9E0 /* CGAffineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B211CFBE5A700347C29 /* CGAffineTransform.swift */; };
+		FB3D39191D2CF57C005AC9E0 /* AISingleSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AAB1CFBE5A700347C29 /* AISingleSelectView.swift */; };
+		FB3D391A1D2CF57C005AC9E0 /* SimpleServiceViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339B11CFBE5A700347C29 /* SimpleServiceViewContainer.swift */; };
+		FB3D391B1D2CF57C005AC9E0 /* AIShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339E21CFBE5A700347C29 /* AIShoppingListView.swift */; };
+		FB3D391C1D2CF57C005AC9E0 /* ProposalProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339511CFBE5A600347C29 /* ProposalProtocal.swift */; };
+		FB3D391D1D2CF57C005AC9E0 /* AIDetailText.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339FB1CFBE5A700347C29 /* AIDetailText.m */; };
+		FB3D391E1D2CF57C005AC9E0 /* AITaskTimeLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A461CFBE5A700347C29 /* AITaskTimeLineView.swift */; };
+		FB3D391F1D2CF57C005AC9E0 /* FLEXClassesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B831CFBE5A700347C29 /* FLEXClassesTableViewController.m */; };
+		FB3D39201D2CF57C005AC9E0 /* AICustomerOrderFoldedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */; };
+		FB3D39211D2CF57C005AC9E0 /* SeparatorLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AD31CFBE5A700347C29 /* SeparatorLineLabel.swift */; };
+		FB3D39221D2CF57C005AC9E0 /* FLEXTableContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B7C1CFBE5A700347C29 /* FLEXTableContentViewController.m */; };
+		FB3D39231D2CF57C005AC9E0 /* AirTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AB41CFBE5A700347C29 /* AirTicketView.swift */; };
+		FB3D39241D2CF57C005AC9E0 /* AICommentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9DA561D0131C000F16610 /* AICommentInfoView.swift */; };
+		FB3D39251D2CF57C005AC9E0 /* AITaskNoteEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B041CFBE5A700347C29 /* AITaskNoteEditViewController.swift */; };
+		FB3D39261D2CF57C005AC9E0 /* AIRequireProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A401CFBE5A700347C29 /* AIRequireProtocol.swift */; };
+		FB3D39271D2CF57C005AC9E0 /* FLEXNetworkTransactionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BA91CFBE5A700347C29 /* FLEXNetworkTransactionTableViewCell.m */; };
+		FB3D39281D2CF57C005AC9E0 /* FLEXFieldEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B5B1CFBE5A700347C29 /* FLEXFieldEditorView.m */; };
+		FB3D39291D2CF57C005AC9E0 /* AIServiceParamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A061CFBE5A700347C29 /* AIServiceParamView.swift */; };
+		FB3D392A1D2CF57C005AC9E0 /* ImageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A1D1CFBE5A700347C29 /* ImageContent.swift */; };
+		FB3D392B1D2CF57C005AC9E0 /* AIShoppingListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339E41CFBE5A700347C29 /* AIShoppingListViewCell.swift */; };
+		FB3D392C1D2CF57C005AC9E0 /* FLEXTableLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B7E1CFBE5A700347C29 /* FLEXTableLeftCell.m */; };
+		FB3D392D1D2CF57C005AC9E0 /* AISingleLineTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339671CFBE5A600347C29 /* AISingleLineTagView.swift */; };
+		FB3D392E1D2CF57C005AC9E0 /* NSDataEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5751D1CD9F10007F241 /* NSDataEx.m */; };
+		FB3D392F1D2CF57C005AC9E0 /* AIRACClosureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A3D1CFBE5A700347C29 /* AIRACClosureTableViewCell.swift */; };
+		FB3D39301D2CF57C005AC9E0 /* BuyerOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143395D1CFBE5A600347C29 /* BuyerOrderModel.swift */; };
+		FB3D39311D2CF57C005AC9E0 /* AIAssetsPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4C3FF1D20E40D007EB116 /* AIAssetsPickerController.swift */; };
+		FB3D39321D2CF57C005AC9E0 /* AIInterfaceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339591CFBE5A600347C29 /* AIInterfaceTest.swift */; };
+		FB3D39331D2CF57C005AC9E0 /* CATransform3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B201CFBE5A700347C29 /* CATransform3D.swift */; };
+		FB3D39341D2CF57C005AC9E0 /* AIOpeningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339601CFBE5A600347C29 /* AIOpeningView.m */; };
+		FB3D39351D2CF57C005AC9E0 /* SwitchedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84512D4E1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift */; };
+		FB3D39361D2CF57C005AC9E0 /* PriceAndStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433ADB1CFBE5A700347C29 /* PriceAndStepperView.swift */; };
+		FB3D39371D2CF57C005AC9E0 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B291CFBE5A700347C29 /* UIImage+Resize.m */; };
+		FB3D39381D2CF57C005AC9E0 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7271CFD2710006F2C8F /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FB3D39391D2CF57C005AC9E0 /* AITimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A491CFBE5A700347C29 /* AITimePickerView.swift */; };
+		FB3D393A1D2CF57C005AC9E0 /* JumpNumberLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433ACD1CFBE5A700347C29 /* JumpNumberLabel.swift */; };
+		FB3D393B1D2CF57C005AC9E0 /* KBHTextFieldStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BF91CFBE5A700347C29 /* KBHTextFieldStepper.swift */; };
+		FB3D393C1D2CF57C005AC9E0 /* UIView+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B331CFBE5A700347C29 /* UIView+Shake.swift */; };
+		FB3D393D1D2CF57C005AC9E0 /* ReadmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A281CFBE5A700347C29 /* ReadmeViewController.swift */; };
+		FB3D393E1D2CF57C005AC9E0 /* AISwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */; };
+		FB3D393F1D2CF57C005AC9E0 /* KMPlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BFF1CFBE5A700347C29 /* KMPlaceholderTextView.swift */; };
+		FB3D39401D2CF57C005AC9E0 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7941CFD2710006F2C8F /* MKAnnotationView+WebCache.m */; };
+		FB3D39411D2CF57C005AC9E0 /* AIRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764961D0D469A002B001B /* AIRegistViewController.swift */; };
+		FB3D39421D2CF57C005AC9E0 /* UITextField+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BE21CFBE5A700347C29 /* UITextField+Localize.swift */; };
+		FB3D39431D2CF57C005AC9E0 /* FLEXArgumentInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B531CFBE5A700347C29 /* FLEXArgumentInputTextView.m */; };
+		FB3D39441D2CF57C005AC9E0 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5771D1CD9F10007F241 /* openssl_wrapper.m */; };
+		FB3D39451D2CF57C005AC9E0 /* AISearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */; };
+		FB3D39461D2CF57C005AC9E0 /* LoginConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */; };
+		FB3D39471D2CF57C005AC9E0 /* OAStackViewDistributionStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7821CFD2710006F2C8F /* OAStackViewDistributionStrategy.m */; };
+		FB3D39481D2CF57C005AC9E0 /* AIBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339581CFBE5A600347C29 /* AIBaseModel.swift */; };
+		FB3D39491D2CF57C005AC9E0 /* AISearchHistoryLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */; };
+		FB3D394A1D2CF57C005AC9E0 /* UIView+MaterialDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BE51CFBE5A700347C29 /* UIView+MaterialDesign.m */; };
+		FB3D394B1D2CF57C005AC9E0 /* AIAudioInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339B71CFBE5A700347C29 /* AIAudioInputView.swift */; };
+		FB3D394C1D2CF57C005AC9E0 /* TestExpandableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5BF1D181376009E0C72 /* TestExpandableCellViewController.swift */; };
+		FB3D394D1D2CF57C005AC9E0 /* AIBuyServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143392C1CFBE5A600347C29 /* AIBuyServiceModel.swift */; };
+		FB3D394E1D2CF57C005AC9E0 /* AIPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0AB981D12AA1B00562090 /* AIPaymentViewController.swift */; };
+		FB3D394F1D2CF57C005AC9E0 /* AIKinectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BF11CFBE5A700347C29 /* AIKinectButton.swift */; };
+		FB3D39501D2CF57C005AC9E0 /* FLEXLibrariesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B911CFBE5A700347C29 /* FLEXLibrariesTableViewController.m */; };
+		FB3D39511D2CF57C005AC9E0 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A72E1CFD2710006F2C8F /* AFNetworkReachabilityManager.m */; };
+		FB3D39521D2CF57C005AC9E0 /* AIAssignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BF01CFBE5A700347C29 /* AIAssignUtils.swift */; };
+		FB3D39531D2CF57C005AC9E0 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7A01CFD2710006F2C8F /* SDWebImageDownloaderOperation.m */; };
+		FB3D39541D2CF57C005AC9E0 /* ImagePositionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E6A7F1D2A0B8F000E2615 /* ImagePositionButton.swift */; };
+		FB3D39551D2CF57C005AC9E0 /* FLEXNetworkRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BA11CFBE5A700347C29 /* FLEXNetworkRecorder.m */; };
+		FB3D39561D2CF57C005AC9E0 /* AIUIViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B1F1CFBE5A700347C29 /* AIUIViewUtils.swift */; };
+		FB3D39571D2CF57C005AC9E0 /* OAStackView+Hiding.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7781CFD2710006F2C8F /* OAStackView+Hiding.m */; };
+		FB3D39581D2CF57C005AC9E0 /* ListSubServiceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84512D521D2BA6BF007E2E8A /* ListSubServiceCardView.swift */; };
+		FB3D39591D2CF57C005AC9E0 /* FLEXArrayExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BB01CFBE5A700347C29 /* FLEXArrayExplorerViewController.m */; };
+		FB3D395A1D2CF57C005AC9E0 /* AITitleAndIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339A01CFBE5A600347C29 /* AITitleAndIconTextView.swift */; };
+		FB3D395B1D2CF57C005AC9E0 /* FLEXImageExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BBA1CFBE5A700347C29 /* FLEXImageExplorerViewController.m */; };
+		FB3D395C1D2CF57C005AC9E0 /* GIBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AE21CFBE5A700347C29 /* GIBadgeView.m */; };
+		FB3D395D1D2CF57C005AC9E0 /* AIOrderPreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339451CFBE5A600347C29 /* AIOrderPreModel.m */; };
+		FB3D395E1D2CF57C005AC9E0 /* AIModelSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933763011CFD7040006B997D /* AIModelSerice.swift */; };
+		FB3D395F1D2CF57C005AC9E0 /* FLEXDefaultsExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BB41CFBE5A700347C29 /* FLEXDefaultsExplorerViewController.m */; };
+		FB3D39601D2CF57C005AC9E0 /* FLEXWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B6F1CFBE5A700347C29 /* FLEXWindow.m */; };
+		FB3D39611D2CF57C005AC9E0 /* FLEXObjectExplorerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BBE1CFBE5A700347C29 /* FLEXObjectExplorerFactory.m */; };
+		FB3D39621D2CF57C005AC9E0 /* ExpandContentViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A131CFBE5A700347C29 /* ExpandContentViewFactory.swift */; };
+		FB3D39631D2CF57C005AC9E0 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A75F1CFD2710006F2C8F /* JSONValueTransformer.m */; };
+		FB3D39641D2CF57C005AC9E0 /* NSObjcetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C001CFBE5A700347C29 /* NSObjcetUtils.swift */; };
+		FB3D39651D2CF57C005AC9E0 /* AITimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B071CFBE5A700347C29 /* AITimePickerViewController.swift */; };
+		FB3D39661D2CF57C005AC9E0 /* FLEXPropertyEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B631CFBE5A700347C29 /* FLEXPropertyEditorViewController.m */; };
+		FB3D39671D2CF57C005AC9E0 /* OrderAndBuyerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AD61CFBE5A700347C29 /* OrderAndBuyerInfoView.swift */; };
+		FB3D39681D2CF57C005AC9E0 /* AIStartEndTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339E61CFBE5A700347C29 /* AIStartEndTimeView.swift */; };
+		FB3D39691D2CF57C005AC9E0 /* JSSAlertView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B221CFBE5A700347C29 /* JSSAlertView-Extension.swift */; };
+		FB3D396A1D2CF57C005AC9E0 /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0ABD91D12AD6200562090 /* JSONAPI.m */; };
+		FB3D396B1D2CF57C005AC9E0 /* DataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5711D1CD9F10007F241 /* DataVerifier.m */; };
+		FB3D396C1D2CF57C005AC9E0 /* AIDetailTopMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339C11CFBE5A700347C29 /* AIDetailTopMenuView.swift */; };
+		FB3D396D1D2CF57C005AC9E0 /* AIPayListInfoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392B58C1D1D2DD10007F241 /* AIPayListInfoCellView.swift */; };
+		FB3D396E1D2CF57C005AC9E0 /* VerticalIconLabelCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AF11CFBE5A700347C29 /* VerticalIconLabelCollectionView.swift */; };
+		FB3D396F1D2CF57C005AC9E0 /* AIConnectToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143392E1CFBE5A600347C29 /* AIConnectToolModel.swift */; };
+		FB3D39701D2CF57C005AC9E0 /* AIPathRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339DE1CFBE5A700347C29 /* AIPathRouteViewController.swift */; };
+		FB3D39711D2CF57C005AC9E0 /* AICatalogServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143392D1CFBE5A600347C29 /* AICatalogServicesModel.swift */; };
+		FB3D39721D2CF57C005AC9E0 /* AIOrderDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339761CFBE5A600347C29 /* AIOrderDetailService.swift */; };
+		FB3D39731D2CF57C005AC9E0 /* FLEXArgumentInputJSONObjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B471CFBE5A700347C29 /* FLEXArgumentInputJSONObjectView.m */; };
+		FB3D39741D2CF57C005AC9E0 /* AIMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BE91CFBE5A700347C29 /* AIMessage.m */; };
+		FB3D39751D2CF57C005AC9E0 /* FLEXResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BD11CFBE5A700347C29 /* FLEXResources.m */; };
+		FB3D39761D2CF57C005AC9E0 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7A21CFD2710006F2C8F /* SDWebImageManager.m */; };
+		FB3D39771D2CF57C005AC9E0 /* AIRemoteNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143397B1CFBE5A600347C29 /* AIRemoteNotificationHandler.swift */; };
+		FB3D39781D2CF57C005AC9E0 /* AITagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143396A1CFBE5A600347C29 /* AITagLabel.m */; };
+		FB3D39791D2CF57C005AC9E0 /* AIBuyerBubbleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143393D1CFBE5A600347C29 /* AIBuyerBubbleModel.m */; };
+		FB3D397A1D2CF57C005AC9E0 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7AB1CFD2710006F2C8F /* UIImage+MultiFormat.m */; };
+		FB3D397B1D2CF57C005AC9E0 /* IconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AD11CFBE5A700347C29 /* IconLabel.swift */; };
+		FB3D397C1D2CF57C005AC9E0 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7291CFD2710006F2C8F /* AFHTTPRequestOperationManager.m */; };
+		FB3D397D1D2CF57C005AC9E0 /* AITaskEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B011CFBE5A700347C29 /* AITaskEditViewController.swift */; };
+		FB3D397E1D2CF57C005AC9E0 /* FLEXArgumentInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B551CFBE5A700347C29 /* FLEXArgumentInputView.m */; };
+		FB3D397F1D2CF57C005AC9E0 /* ProposalServiceDetailBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433ADF1CFBE5A700347C29 /* ProposalServiceDetailBaseView.m */; };
+		FB3D39801D2CF57C005AC9E0 /* CompondServiceCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845700501D015E7600512597 /* CompondServiceCommentViewController.swift */; };
+		FB3D39811D2CF57C005AC9E0 /* FLEXKeyboardShortcutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BCD1CFBE5A700347C29 /* FLEXKeyboardShortcutManager.m */; };
+		FB3D39821D2CF57C005AC9E0 /* UIBezierPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AEF1CFBE5A700347C29 /* UIBezierPageView.swift */; };
+		FB3D39831D2CF57C005AC9E0 /* FLEXGlobalsTableViewControllerEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BB81CFBE5A700347C29 /* FLEXGlobalsTableViewControllerEntry.m */; };
+		FB3D39841D2CF57C005AC9E0 /* AIRACContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A3F1CFBE5A700347C29 /* AIRACContentCell.swift */; };
+		FB3D39851D2CF57C005AC9E0 /* AIFakeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B161CFBE5A700347C29 /* AIFakeUser.m */; };
+		FB3D39861D2CF57C005AC9E0 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A72B1CFD2710006F2C8F /* AFHTTPSessionManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FB3D39871D2CF57C005AC9E0 /* AINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8311D002434005E1789 /* AINavigationBar.swift */; };
+		FB3D39881D2CF57C005AC9E0 /* AIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339321CFBE5A600347C29 /* AIModels.swift */; };
+		FB3D39891D2CF57C005AC9E0 /* AIRemoteRequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143397C1CFBE5A600347C29 /* AIRemoteRequestQueue.swift */; };
+		FB3D398A1D2CF57C005AC9E0 /* AIDeleteActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A301CFBE5A700347C29 /* AIDeleteActionDelegate.swift */; };
+		FB3D398B1D2CF57C005AC9E0 /* AIRequirementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143395B1CFBE5A600347C29 /* AIRequirementViewModel.swift */; };
+		FB3D398C1D2CF57C005AC9E0 /* AICircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A341CFBE5A700347C29 /* AICircleProgressView.swift */; };
+		FB3D398D1D2CF57C005AC9E0 /* AIServiceParamBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433A051CFBE5A700347C29 /* AIServiceParamBaseView.m */; };
+		FB3D398E1D2CF57C005AC9E0 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412C7621D2A6429003F34AF /* PaddingLabel.swift */; };
+		FB3D398F1D2CF57C005AC9E0 /* ContentsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AA21CFBE5A700347C29 /* ContentsCellView.swift */; };
+		FB3D39901D2CF57C005AC9E0 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B311CFBE5A700347C29 /* UIDeviceExtension.swift */; };
+		FB3D39911D2CF57C005AC9E0 /* AIOrdeRequireServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339771CFBE5A600347C29 /* AIOrdeRequireServices.swift */; };
+		FB3D39921D2CF57C005AC9E0 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5131D1CD63B0007F241 /* CommonUtil.m */; };
+		FB3D39931D2CF57C005AC9E0 /* AIHorizontalLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AD01CFBE5A700347C29 /* AIHorizontalLineLabel.swift */; };
+		FB3D39941D2CF57C005AC9E0 /* FLEXMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BCF1CFBE5A700347C29 /* FLEXMultilineTableViewCell.m */; };
+		FB3D39951D2CF57C005AC9E0 /* AIHorizontalBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339FD1CFBE5A700347C29 /* AIHorizontalBarChart.m */; };
+		FB3D39961D2CF57C005AC9E0 /* FLEXLiveObjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B931CFBE5A700347C29 /* FLEXLiveObjectsTableViewController.m */; };
+		FB3D39971D2CF57C005AC9E0 /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AC01CFBE5A700347C29 /* BubbleView.m */; };
+		FB3D39981D2CF57C005AC9E0 /* _OALayoutGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7741CFD2710006F2C8F /* _OALayoutGuide.m */; };
+		FB3D39991D2CF57C005AC9E0 /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */; };
+		FB3D399A1D2CF57C005AC9E0 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339AE1CFBE5A600347C29 /* ServiceDetailView.swift */; };
+		FB3D399B1D2CF57C005AC9E0 /* AITextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339C91CFBE5A700347C29 /* AITextMessageView.swift */; };
+		FB3D399C1D2CF57C005AC9E0 /* AIBuyerTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A0D1CFBE5A700347C29 /* AIBuyerTableCellView.swift */; };
+		FB3D399D1D2CF57C005AC9E0 /* AILocationSelectHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339D91CFBE5A700347C29 /* AILocationSelectHeadView.swift */; };
+		FB3D399E1D2CF57C005AC9E0 /* FLEXArgumentInputDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B411CFBE5A700347C29 /* FLEXArgumentInputDateView.m */; };
+		FB3D399F1D2CF57C005AC9E0 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7B11CFD2710006F2C8F /* UIImageView+WebCache.m */; };
+		FB3D39A01D2CF57C005AC9E0 /* TDImageColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C241CFBE5A700347C29 /* TDImageColors.m */; };
+		FB3D39A11D2CF57C005AC9E0 /* AIAddressRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339D11CFBE5A700347C29 /* AIAddressRouteView.swift */; };
+		FB3D39A21D2CF57C005AC9E0 /* OAStackView+Constraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7761CFD2710006F2C8F /* OAStackView+Constraint.m */; };
+		FB3D39A31D2CF57C005AC9E0 /* AIWorkManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ED21D220AFE00AE041D /* AIWorkManageViewController.swift */; };
+		FB3D39A41D2CF57C005AC9E0 /* UIImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B321CFBE5A700347C29 /* UIImageUtils.swift */; };
+		FB3D39A51D2CF57C005AC9E0 /* FLEXArgumentInputSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B511CFBE5A700347C29 /* FLEXArgumentInputSwitchView.m */; };
+		FB3D39A61D2CF57C005AC9E0 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B2B1CFBE5A700347C29 /* UIView+Toast.m */; };
+		FB3D39A71D2CF57C005AC9E0 /* ServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */; };
+		FB3D39A81D2CF57C005AC9E0 /* AIServiceSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A421CFBE5A700347C29 /* AIServiceSearchView.swift */; };
+		FB3D39A91D2CF57C005AC9E0 /* AIAssetsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */; };
+		FB3D39AA1D2CF57C005AC9E0 /* FLEXDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B741CFBE5A700347C29 /* FLEXDatabaseManager.m */; };
+		FB3D39AB1D2CF57C005AC9E0 /* AITransformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143397F1CFBE5A600347C29 /* AITransformManager.swift */; };
+		FB3D39AC1D2CF57C005AC9E0 /* AICustomAudioNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339BD1CFBE5A700347C29 /* AICustomAudioNotesView.swift */; };
+		FB3D39AD1D2CF57C005AC9E0 /* OAStackViewAlignmentStrategyBaseline.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7801CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.m */; };
+		FB3D39AE1D2CF57C005AC9E0 /* BottomServiceContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339A31CFBE5A600347C29 /* BottomServiceContainerView.swift */; };
+		FB3D39AF1D2CF57C005AC9E0 /* AISellerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FCB1D115428002FF522 /* AISellerCell.m */; };
+		FB3D39B01D2CF57C005AC9E0 /* AITimelineNowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */; };
+		FB3D39B11D2CF57C005AC9E0 /* AISellerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FCF1D115428002FF522 /* AISellerViewController.m */; };
+		FB3D39B21D2CF57C005AC9E0 /* AIWishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8381D002434005E1789 /* AIWishModel.swift */; };
+		FB3D39B31D2CF57C005AC9E0 /* AIMusicTherapyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433A391CFBE5A700347C29 /* AIMusicTherapyView.m */; };
+		FB3D39B41D2CF57C005AC9E0 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7581CFD2710006F2C8F /* JSONModelClassProperty.m */; };
+		FB3D39B51D2CF57C005AC9E0 /* DDHTimerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7481CFD2710006F2C8F /* DDHTimerControl.m */; };
+		FB3D39B61D2CF57C005AC9E0 /* AIPopupChooseBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A3C1CFBE5A700347C29 /* AIPopupChooseBaseView.swift */; };
+		FB3D39B71D2CF57C005AC9E0 /* AIErrorRetryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A351CFBE5A700347C29 /* AIErrorRetryView.swift */; };
+		FB3D39B81D2CF57C005AC9E0 /* UICollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A71E1CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m */; };
+		FB3D39B91D2CF57C005AC9E0 /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9304551E1D128E48007AFC0C /* IATConfig.m */; };
+		FB3D39BA1D2CF57C005AC9E0 /* ServiceOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339531CFBE5A600347C29 /* ServiceOrderDetailModel.m */; };
+		FB3D39BB1D2CF57C005AC9E0 /* AIWishMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339CB1CFBE5A700347C29 /* AIWishMessageView.swift */; };
+		FB3D39BC1D2CF57C005AC9E0 /* OAStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A77C1CFD2710006F2C8F /* OAStackView.m */; };
+		FB3D39BD1D2CF57C005AC9E0 /* AITaskDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A441CFBE5A700347C29 /* AITaskDataModel.swift */; };
+		FB3D39BE1D2CF57C005AC9E0 /* FLEXSystemLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B9C1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m */; };
+		FB3D39BF1D2CF57C005AC9E0 /* OAStackViewAlignmentStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A77E1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m */; };
+		FB3D39C01D2CF57C005AC9E0 /* SubServiceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */; };
+		FB3D39C11D2CF57C005AC9E0 /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5BB1D17F155009E0C72 /* ExpandableTableViewCell.swift */; };
+		FB3D39C21D2CF57C005AC9E0 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
+		FB3D39C31D2CF57C005AC9E0 /* FLEXArgumentInputViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B571CFBE5A700347C29 /* FLEXArgumentInputViewFactory.m */; };
+		FB3D39C41D2CF57C005AC9E0 /* FLEXDefaultEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B591CFBE5A700347C29 /* FLEXDefaultEditorViewController.m */; };
+		FB3D39C51D2CF57C005AC9E0 /* OBShapedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7871CFD2710006F2C8F /* OBShapedButton.m */; };
+		FB3D39C61D2CF57C005AC9E0 /* AIProviderDataObtainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143397A1CFBE5A600347C29 /* AIProviderDataObtainer.swift */; };
+		FB3D39C71D2CF57C005AC9E0 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */; };
+		FB3D39C81D2CF57C005AC9E0 /* AIProductInfoServcieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939310671D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift */; };
+		FB3D39C91D2CF57C005AC9E0 /* AINavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339C51CFBE5A700347C29 /* AINavigationBarView.swift */; };
+		FB3D39CA1D2CF57C005AC9E0 /* AIGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339C41CFBE5A700347C29 /* AIGalleryView.swift */; };
+		FB3D39CB1D2CF57C005AC9E0 /* AIServiceSchemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339371CFBE5A600347C29 /* AIServiceSchemeModel.swift */; };
+		FB3D39CC1D2CF57C005AC9E0 /* FLEXFileBrowserFileOperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B871CFBE5A700347C29 /* FLEXFileBrowserFileOperationController.m */; };
+		FB3D39CD1D2CF57C005AC9E0 /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7649A1D0D469A002B001B /* AILoginService.swift */; };
+		FB3D39CE1D2CF57C005AC9E0 /* SwitchExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AEB1CFBE5A700347C29 /* SwitchExampleViewController.swift */; };
+		FB3D39CF1D2CF57C005AC9E0 /* FLEXToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B6D1CFBE5A700347C29 /* FLEXToolbarItem.m */; };
+		FB3D39D01D2CF57C005AC9E0 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7A71CFD2710006F2C8F /* UIButton+WebCache.m */; };
+		FB3D39D11D2CF57C005AC9E0 /* AIServerProviderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C81F891D2B5CF500D84D46 /* AIServerProviderView.swift */; };
+		FB3D39D21D2CF57C005AC9E0 /* ProposalEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143394E1CFBE5A600347C29 /* ProposalEnum.swift */; };
+		FB3D39D31D2CF57C005AC9E0 /* AIProductCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */; };
+		FB3D39D41D2CF57C005AC9E0 /* TopServiceContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339B41CFBE5A700347C29 /* TopServiceContainerView.swift */; };
+		FB3D39D51D2CF57C005AC9E0 /* AIBuyerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AF71CFBE5A700347C29 /* AIBuyerDetailViewController.swift */; };
+		FB3D39D61D2CF57C005AC9E0 /* AIServiceDetailUIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143394B1CFBE5A600347C29 /* AIServiceDetailUIModel.m */; };
+		FB3D39D71D2CF57C005AC9E0 /* AIAppInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 930455101D124DE5007AFC0C /* AIAppInit.m */; };
+		FB3D39D81D2CF57C005AC9E0 /* AICommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339F91CFBE5A700347C29 /* AICommentCell.m */; };
+		FB3D39D91D2CF57C005AC9E0 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A71B1CFD2710006F2C8F /* JSONSerializer.swift */; };
+		FB3D39DA1D2CF57C005AC9E0 /* AIOrderMangerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339781CFBE5A600347C29 /* AIOrderMangerProtocol.swift */; };
+		FB3D39DB1D2CF57C005AC9E0 /* AIRequirementMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AFD1CFBE5A700347C29 /* AIRequirementMenuViewController.swift */; };
+		FB3D39DC1D2CF57C005AC9E0 /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7531CFD2710006F2C8F /* JSONModelArray.m */; };
+		FB3D39DD1D2CF57C005AC9E0 /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7561CFD2710006F2C8F /* NSArray+JSONModel.m */; };
+		FB3D39DE1D2CF57C005AC9E0 /* AIAudioSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */; };
+		FB3D39DF1D2CF57C005AC9E0 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7341CFD2710006F2C8F /* AFURLRequestSerialization.m */; };
+		FB3D39E01D2CF57C005AC9E0 /* AIExecuteServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339411CFBE5A600347C29 /* AIExecuteServiceModel.m */; };
+		FB3D39E11D2CF57C005AC9E0 /* AIChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */; };
+		FB3D39E21D2CF57C005AC9E0 /* AILocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339DB1CFBE5A700347C29 /* AILocationSelectViewController.swift */; };
+		FB3D39E31D2CF57C005AC9E0 /* FLEXHeapEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BC91CFBE5A700347C29 /* FLEXHeapEnumerator.m */; };
+		FB3D39E41D2CF57C005AC9E0 /* RRFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A78F1CFD2710006F2C8F /* RRFlowLayout.swift */; };
+		FB3D39E51D2CF57C005AC9E0 /* ServiceCardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339AC1CFBE5A600347C29 /* ServiceCardTextView.swift */; };
+		FB3D39E61D2CF57C005AC9E0 /* AIProductQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D126E1D210BC200101EEE /* AIProductQAViewController.swift */; };
+		FB3D39E71D2CF57C005AC9E0 /* AIFavoritesServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339311CFBE5A600347C29 /* AIFavoritesServicesModel.swift */; };
+		FB3D39E81D2CF57C005AC9E0 /* UIPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A1A1CFBE5A700347C29 /* UIPopView.swift */; };
+		FB3D39E91D2CF57C005AC9E0 /* AISelectedServiceTableVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AFF1CFBE5A700347C29 /* AISelectedServiceTableVController.swift */; };
+		FB3D39EA1D2CF57C005AC9E0 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7A51CFD2710006F2C8F /* SDWebImagePrefetcher.m */; };
+		FB3D39EB1D2CF57C005AC9E0 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0ABDD1D12AD6200562090 /* JSONModel+networking.m */; };
+		FB3D39EC1D2CF57C005AC9E0 /* OATransformLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7841CFD2710006F2C8F /* OATransformLayer.m */; };
+		FB3D39ED1D2CF57C005AC9E0 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7301CFD2710006F2C8F /* AFSecurityPolicy.m */; };
+		FB3D39EE1D2CF57C005AC9E0 /* AICustomerServiceExecuteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD81D191CD4008A1693 /* AICustomerServiceExecuteModel.swift */; };
+		FB3D39EF1D2CF57C005AC9E0 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7671CFD2710006F2C8F /* MJRefreshConst.m */; };
+		FB3D39F01D2CF57C005AC9E0 /* AIRequirementHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143395A1CFBE5A600347C29 /* AIRequirementHandler.swift */; };
+		FB3D39F11D2CF57C005AC9E0 /* AISelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764981D0D469A002B001B /* AISelectRegionViewController.swift */; };
+		FB3D39F21D2CF57C005AC9E0 /* AIAliPayOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392B58A1D1CE37A0007F241 /* AIAliPayOrder.swift */; };
+		FB3D39F31D2CF57C005AC9E0 /* AIRequireContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AFC1CFBE5A700347C29 /* AIRequireContentViewController.swift */; };
+		FB3D39F41D2CF57C005AC9E0 /* UILabel-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */; };
+		FB3D39F51D2CF57C005AC9E0 /* JTSScrollIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433ACB1CFBE5A700347C29 /* JTSScrollIndicator.m */; };
+		FB3D39F61D2CF57C005AC9E0 /* CustomPickerColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AAC1CFBE5A700347C29 /* CustomPickerColumnView.swift */; };
+		FB3D39F71D2CF57C005AC9E0 /* AIImageRecongizeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */; };
+		FB3D39F81D2CF57C005AC9E0 /* AIOrderCellEShopSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339871CFBE5A600347C29 /* AIOrderCellEShopSubView.swift */; };
+		FB3D39F91D2CF57C005AC9E0 /* FLEXArgumentInputNotSupportedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B491CFBE5A700347C29 /* FLEXArgumentInputNotSupportedView.m */; };
+		FB3D39FA1D2CF57C005AC9E0 /* CommentDistrictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457004E1D012DA800512597 /* CommentDistrictView.swift */; };
+		FB3D39FB1D2CF57C005AC9E0 /* AIServiceRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339DF1CFBE5A700347C29 /* AIServiceRouteView.swift */; };
+		FB3D39FC1D2CF57C005AC9E0 /* AIIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143399E1CFBE5A600347C29 /* AIIconTextView.swift */; };
+		FB3D39FD1D2CF57C005AC9E0 /* AIRACClosureTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A3E1CFBE5A700347C29 /* AIRACClosureTableViewDataSource.swift */; };
+		FB3D39FE1D2CF57C005AC9E0 /* OBShapedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7891CFD2710006F2C8F /* OBShapedImageView.m */; };
+		FB3D39FF1D2CF57C005AC9E0 /* RRTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7901CFD2710006F2C8F /* RRTagCollectionViewCell.swift */; };
+		FB3D3A001D2CF57C005AC9E0 /* AIShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B121CFBE5A700347C29 /* AIShareViewController.m */; };
+		FB3D3A011D2CF57C005AC9E0 /* AIRequirementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AFE1CFBE5A700347C29 /* AIRequirementViewController.swift */; };
+		FB3D3A021D2CF57C005AC9E0 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A79A1CFD2710006F2C8F /* SDWebImageCompat.m */; };
+		FB3D3A031D2CF57C005AC9E0 /* UIButton+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BE01CFBE5A700347C29 /* UIButton+Localize.swift */; };
+		FB3D3A041D2CF57C005AC9E0 /* BuyerMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A561CFBE5A700347C29 /* BuyerMessageCell.swift */; };
+		FB3D3A051D2CF57C005AC9E0 /* AIOrderDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339331CFBE5A600347C29 /* AIOrderDetailModel.swift */; };
+		FB3D3A061D2CF57C005AC9E0 /* AIAudioRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339BB1CFBE5A700347C29 /* AIAudioRecordView.swift */; };
+		FB3D3A071D2CF57C005AC9E0 /* FLEXFileBrowserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B8B1CFBE5A700347C29 /* FLEXFileBrowserTableViewController.m */; };
+		FB3D3A081D2CF57C005AC9E0 /* UIColor+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C261CFBE5A700347C29 /* UIColor+TDAdditions.m */; };
+		FB3D3A091D2CF57C005AC9E0 /* AIOrderTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC91D115428002FF522 /* AIOrderTableModel.m */; };
+		FB3D3A0A1D2CF57C005AC9E0 /* AIFavoriteContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339301CFBE5A600347C29 /* AIFavoriteContentModel.swift */; };
+		FB3D3A0B1D2CF57C005AC9E0 /* AirTicketGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AB31CFBE5A700347C29 /* AirTicketGroupView.swift */; };
+		FB3D3A0C1D2CF57C005AC9E0 /* FLEXViewControllerExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BC41CFBE5A700347C29 /* FLEXViewControllerExplorerViewController.m */; };
+		FB3D3A0D1D2CF57C005AC9E0 /* DependOnNodePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B0B1CFBE5A700347C29 /* DependOnNodePickerViewController.swift */; };
+		FB3D3A0E1D2CF57C005AC9E0 /* BuildInCameraUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B3A1CFBE5A700347C29 /* BuildInCameraUtils.swift */; };
+		FB3D3A0F1D2CF57C005AC9E0 /* FLEXArgumentInputStringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B4D1CFBE5A700347C29 /* FLEXArgumentInputStringView.m */; };
+		FB3D3A101D2CF57C005AC9E0 /* KGNAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BFA1CFBE5A700347C29 /* KGNAutoLayout.swift */; };
+		FB3D3A111D2CF57C005AC9E0 /* FLEXImagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BDC1CFBE5A700347C29 /* FLEXImagePreviewViewController.m */; };
+		FB3D3A121D2CF57C005AC9E0 /* AIViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143396E1CFBE5A600347C29 /* AIViews.m */; };
+		FB3D3A131D2CF57C005AC9E0 /* AIStarRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433A0A1CFBE5A700347C29 /* AIStarRate.m */; };
+		FB3D3A141D2CF57C005AC9E0 /* AIDropdownBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339C31CFBE5A700347C29 /* AIDropdownBrandView.swift */; };
+		FB3D3A151D2CF57C005AC9E0 /* ImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84687E411D236BB90083BD9B /* ImagesCollectionView.swift */; };
+		FB3D3A161D2CF57C005AC9E0 /* AIProviderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339C71CFBE5A700347C29 /* AIProviderView.swift */; };
+		FB3D3A171D2CF57C005AC9E0 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BDF1CFBE5A700347C29 /* Localize.swift */; };
+		FB3D3A181D2CF57C005AC9E0 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7511CFD2710006F2C8F /* JSONModel.m */; };
+		FB3D3A191D2CF57C005AC9E0 /* AICutomSearchHomeResultFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB74E0141D29FDA300472F68 /* AICutomSearchHomeResultFilterBar.swift */; };
+		FB3D3A1A1D2CF57C005AC9E0 /* FLEXRuntimeUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BD31CFBE5A700347C29 /* FLEXRuntimeUtility.m */; };
+		FB3D3A1B1D2CF57C005AC9E0 /* FLEXNetworkSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BA31CFBE5A700347C29 /* FLEXNetworkSettingsTableViewController.m */; };
+		FB3D3A1C1D2CF57C005AC9E0 /* ServiceCardDetailIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339A91CFBE5A600347C29 /* ServiceCardDetailIcon.swift */; };
+		FB3D3A1D1D2CF57C005AC9E0 /* FLEXNetworkObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BAC1CFBE5A700347C29 /* FLEXNetworkObserver.m */; };
+		FB3D3A1E1D2CF57C005AC9E0 /* AILimitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AFA1CFBE5A700347C29 /* AILimitListViewController.swift */; };
+		FB3D3A1F1D2CF57C005AC9E0 /* AIBueryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AC81CFBE5A700347C29 /* AIBueryDetailCell.swift */; };
+		FB3D3A201D2CF57C005AC9E0 /* AIDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B6005B1D25169E0052ADC8 /* AIDefines.swift */; };
+		FB3D3A211D2CF57C005AC9E0 /* UIViewController+AIPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B341CFBE5A700347C29 /* UIViewController+AIPopup.swift */; };
+		FB3D3A221D2CF57C005AC9E0 /* TopServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */; };
+		FB3D3A231D2CF57C005AC9E0 /* DependOnNodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AAE1CFBE5A700347C29 /* DependOnNodeCell.swift */; };
+		FB3D3A241D2CF57C005AC9E0 /* FLEXFieldEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B5D1CFBE5A700347C29 /* FLEXFieldEditorViewController.m */; };
+		FB3D3A251D2CF57C005AC9E0 /* AIOrderManagementModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339431CFBE5A600347C29 /* AIOrderManagementModels.m */; };
+		FB3D3A261D2CF57C005AC9E0 /* CustomXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AAD1CFBE5A700347C29 /* CustomXibView.swift */; };
+		FB3D3A271D2CF57C005AC9E0 /* AIUIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B1E1CFBE5A700347C29 /* AIUIDevice.swift */; };
+		FB3D3A281D2CF57C005AC9E0 /* AlipayOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5881D1CE1B40007F241 /* AlipayOrder.swift */; };
+		FB3D3A291D2CF57C005AC9E0 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A79E1CFD2710006F2C8F /* SDWebImageDownloader.m */; };
+		FB3D3A2A1D2CF57C005AC9E0 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7321CFD2710006F2C8F /* AFURLConnectionOperation.m */; };
+		FB3D3A2B1D2CF57C005AC9E0 /* SESlideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AE81CFBE5A700347C29 /* SESlideTableViewCell.m */; };
+		FB3D3A2C1D2CF57C005AC9E0 /* ViewProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A211CFBE5A700347C29 /* ViewProtocal.swift */; };
+		FB3D3A2D1D2CF57C005AC9E0 /* ProposalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339501CFBE5A600347C29 /* ProposalModel.m */; };
+		FB3D3A2E1D2CF57C005AC9E0 /* AICustomSearchHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8C9A71D14034A00F1DFCF /* AICustomSearchHomeCell.swift */; };
+		FB3D3A2F1D2CF57C005AC9E0 /* PurchasedServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A1F1CFBE5A700347C29 /* PurchasedServiceView.swift */; };
+		FB3D3A301D2CF57C005AC9E0 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
+		FB3D3A311D2CF57C005AC9E0 /* AICustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339BF1CFBE5A700347C29 /* AICustomView.swift */; };
+		FB3D3A321D2CF57C005AC9E0 /* AINumberCountControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339DC1CFBE5A700347C29 /* AINumberCountControl.swift */; };
+		FB3D3A331D2CF57C005AC9E0 /* AIServiceSubmitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143394D1CFBE5A600347C29 /* AIServiceSubmitModel.m */; };
+		FB3D3A341D2CF57C005AC9E0 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7651CFD2710006F2C8F /* MJRefreshBaseView.m */; };
+		FB3D3A351D2CF57C005AC9E0 /* AICustomSearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */; };
+		FB3D3A361D2CF57C005AC9E0 /* AIBaseTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339661CFBE5A600347C29 /* AIBaseTagsView.m */; };
+		FB3D3A371D2CF57C005AC9E0 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7381CFD2710006F2C8F /* AFURLSessionManager.m */; };
+		FB3D3A381D2CF57C005AC9E0 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7181CFD2710006F2C8F /* Async.swift */; };
+		FB3D3A391D2CF57C005AC9E0 /* AIRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433A2C1CFBE5A700347C29 /* AIRootViewController.m */; };
+		FB3D3A3A1D2CF57C005AC9E0 /* AIPageBueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AFB1CFBE5A700347C29 /* AIPageBueryViewController.swift */; };
+		FB3D3A3B1D2CF57C005AC9E0 /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AEA1CFBE5A700347C29 /* SevenSwitch.swift */; };
+		FB3D3A3C1D2CF57C005AC9E0 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7AF1CFD2710006F2C8F /* UIImageView+HighlightedWebCache.m */; };
+		FB3D3A3D1D2CF57C005AC9E0 /* AIHttpEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BE71CFBE5A700347C29 /* AIHttpEngine.swift */; };
+		FB3D3A3E1D2CF57C005AC9E0 /* AICustomerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143392F1CFBE5A600347C29 /* AICustomerModels.swift */; };
+		FB3D3A3F1D2CF57C005AC9E0 /* AIWaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304551B1D125312007AFC0C /* AIWaterView.swift */; };
+		FB3D3A401D2CF57C005AC9E0 /* AIVerticalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A4A1CFBE5A700347C29 /* AIVerticalScrollView.swift */; };
+		FB3D3A411D2CF57C005AC9E0 /* FLEXUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BD51CFBE5A700347C29 /* FLEXUtility.m */; };
+		FB3D3A421D2CF57C005AC9E0 /* FLEXHierarchyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BDA1CFBE5A700347C29 /* FLEXHierarchyTableViewController.m */; };
+		FB3D3A431D2CF57C005AC9E0 /* AITaskTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B051CFBE5A700347C29 /* AITaskTagViewController.swift */; };
+		FB3D3A441D2CF57C005AC9E0 /* AIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7141CFD2710006F2C8F /* AIImageView.swift */; };
+		FB3D3A451D2CF57C005AC9E0 /* AISinglePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AA91CFBE5A700347C29 /* AISinglePickerView.swift */; };
+		FB3D3A461D2CF57C005AC9E0 /* AILoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */; };
+		FB3D3A471D2CF57C005AC9E0 /* FLEXCookiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B851CFBE5A700347C29 /* FLEXCookiesTableViewController.m */; };
+		FB3D3A481D2CF57C005AC9E0 /* KMActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BFC1CFBE5A700347C29 /* KMActivityIndicator.m */; };
+		FB3D3A491D2CF57C005AC9E0 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7361CFD2710006F2C8F /* AFURLResponseSerialization.m */; };
+		FB3D3A4A1D2CF57C005AC9E0 /* AIOrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339791CFBE5A600347C29 /* AIOrderService.swift */; };
+		FB3D3A4B1D2CF57C005AC9E0 /* AIAudioMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339B91CFBE5A700347C29 /* AIAudioMessageView.swift */; };
+		FB3D3A4C1D2CF57C005AC9E0 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7711CFD2710006F2C8F /* UIView+MJExtension.m */; };
+		FB3D3A4D1D2CF57C005AC9E0 /* FLEXExplorerToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B661CFBE5A700347C29 /* FLEXExplorerToolbar.m */; };
+		FB3D3A4E1D2CF57C005AC9E0 /* AISuperiorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8341D002434005E1789 /* AISuperiorityViewController.swift */; };
+		FB3D3A4F1D2CF57C005AC9E0 /* AIMessageWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BEB1CFBE5A700347C29 /* AIMessageWrapper.m */; };
+		FB3D3A501D2CF57C005AC9E0 /* AIEventTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AA71CFBE5A700347C29 /* AIEventTimerView.swift */; };
+		FB3D3A511D2CF57C005AC9E0 /* FLEXMultiColumnTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B761CFBE5A700347C29 /* FLEXMultiColumnTableView.m */; };
+		FB3D3A521D2CF57C005AC9E0 /* PKYStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433ADA1CFBE5A700347C29 /* PKYStepper.m */; };
+		FB3D3A531D2CF57C005AC9E0 /* FLEXGlobalsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B8D1CFBE5A700347C29 /* FLEXGlobalsTableViewController.m */; };
+		FB3D3A541D2CF57C005AC9E0 /* AILocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339751CFBE5A600347C29 /* AILocalStore.swift */; };
+		FB3D3A551D2CF57C005AC9E0 /* AIWishVowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC83B1D002434005E1789 /* AIWishVowViewController.swift */; };
+		FB3D3A561D2CF57C005AC9E0 /* DataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B56F1D1CD9F10007F241 /* DataSigner.m */; };
+		FB3D3A571D2CF57C005AC9E0 /* AIAssignmentContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AF61CFBE5A700347C29 /* AIAssignmentContentViewController.swift */; };
+		FB3D3A581D2CF57C005AC9E0 /* AIServiceRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339E11CFBE5A700347C29 /* AIServiceRouteViewController.swift */; };
+		FB3D3A591D2CF57C005AC9E0 /* AIFavorServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339741CFBE5A600347C29 /* AIFavorServicesManager.swift */; };
+		FB3D3A5A1D2CF57C005AC9E0 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A79C1CFD2710006F2C8F /* SDWebImageDecoder.m */; };
+		FB3D3A5B1D2CF57C005AC9E0 /* AIBuyerModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143393F1CFBE5A600347C29 /* AIBuyerModels.m */; };
+		FB3D3A5C1D2CF57C005AC9E0 /* FlightServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339A41CFBE5A600347C29 /* FlightServiceView.swift */; };
+		FB3D3A5D1D2CF57C005AC9E0 /* UIIMage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B251CFBE5A700347C29 /* UIIMage+Color.m */; };
+		FB3D3A5E1D2CF57C005AC9E0 /* FLEXArgumentInputNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B4B1CFBE5A700347C29 /* FLEXArgumentInputNumberView.m */; };
+		FB3D3A5F1D2CF57C005AC9E0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C021CFBE5A700347C29 /* Player.swift */; };
+		FB3D3A601D2CF57C005AC9E0 /* FLEXWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B951CFBE5A700347C29 /* FLEXWebViewController.m */; };
+		FB3D3A611D2CF57C005AC9E0 /* AITagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143396B1CFBE5A600347C29 /* AITagsView.swift */; };
+		FB3D3A621D2CF57C005AC9E0 /* AIConfirmOrderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339D31CFBE5A700347C29 /* AIConfirmOrderCellView.swift */; };
+		FB3D3A631D2CF57C005AC9E0 /* FLEXTableListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B801CFBE5A700347C29 /* FLEXTableListViewController.m */; };
+		FB3D3A641D2CF57C005AC9E0 /* AISchemeDataObtainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143397D1CFBE5A600347C29 /* AISchemeDataObtainer.swift */; };
+		FB3D3A651D2CF57C005AC9E0 /* SwitchServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AED1CFBE5A700347C29 /* SwitchServiceView.swift */; };
+		FB3D3A661D2CF57C005AC9E0 /* AIUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7171CFD2710006F2C8F /* AIUINavigationController.m */; };
+		FB3D3A671D2CF57C005AC9E0 /* AITimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */; };
+		FB3D3A681D2CF57C005AC9E0 /* JSSAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B231CFBE5A700347C29 /* JSSAlertView.swift */; };
+		FB3D3A691D2CF57C005AC9E0 /* UIImage+Effect.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B271CFBE5A700347C29 /* UIImage+Effect.m */; };
+		FB3D3A6A1D2CF57C005AC9E0 /* AIPopHoldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A151CFBE5A700347C29 /* AIPopHoldView.swift */; };
+		FB3D3A6B1D2CF57C005AC9E0 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B56B1D1CD9F10007F241 /* Order.m */; };
+		FB3D3A6C1D2CF57C005AC9E0 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7AD1CFD2710006F2C8F /* UIImage+WebP.m */; };
+		FB3D3A6D1D2CF57C005AC9E0 /* FLEXNetworkTransactionDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BA71CFBE5A700347C29 /* FLEXNetworkTransactionDetailTableViewController.m */; };
+		FB3D3A6E1D2CF57C005AC9E0 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7961CFD2710006F2C8F /* NSData+ImageContentType.m */; };
+		FB3D3A6F1D2CF57C005AC9E0 /* CommentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */; };
+		FB3D3A701D2CF57C005AC9E0 /* CurveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AC21CFBE5A700347C29 /* CurveModel.m */; };
+		FB3D3A711D2CF57C005AC9E0 /* AbsCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */; };
+		FB3D3A721D2CF57C005AC9E0 /* AIPayInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932762E91D1D3225002F7FA0 /* AIPayInfoModel.swift */; };
+		FB3D3A731D2CF57C005AC9E0 /* AIDepartReahCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339D51CFBE5A700347C29 /* AIDepartReahCityView.swift */; };
+		FB3D3A741D2CF57C005AC9E0 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7B31CFD2710006F2C8F /* UIView+WebCacheOperation.m */; };
+		FB3D3A751D2CF57C005AC9E0 /* ServiceCardDetailShopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339AB1CFBE5A600347C29 /* ServiceCardDetailShopping.swift */; };
+		FB3D3A761D2CF57C005AC9E0 /* UPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339701CFBE5A600347C29 /* UPLabel.m */; };
+		FB3D3A771D2CF57C005AC9E0 /* UP_NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B2F1CFBE5A700347C29 /* UP_NSString+Size.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FB3D3A781D2CF57C005AC9E0 /* KMDetailsPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BFE1CFBE5A700347C29 /* KMDetailsPageView.m */; };
+		FB3D3A791D2CF57C005AC9E0 /* AIValidateRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */; };
+		FB3D3A7A1D2CF57C005AC9E0 /* AIServiceCoverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433A011CFBE5A700347C29 /* AIServiceCoverage.m */; };
+		FB3D3A7B1D2CF57C005AC9E0 /* FLEXSystemLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B9A1CFBE5A700347C29 /* FLEXSystemLogTableViewCell.m */; };
+		FB3D3A7C1D2CF57C005AC9E0 /* AISuperiorityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BEFFDA1D0D472700832799 /* AISuperiorityCellView.swift */; };
+		FB3D3A7D1D2CF57C005AC9E0 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A76D1CFD2710006F2C8F /* UIScrollView+MJExtension.m */; };
+		FB3D3A7E1D2CF57C005AC9E0 /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A78B1CFD2710006F2C8F /* UIImage+ColorAtPixel.m */; };
+		FB3D3A7F1D2CF57C005AC9E0 /* FLEXArgumentInputFontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B451CFBE5A700347C29 /* FLEXArgumentInputFontView.m */; };
+		FB3D3A801D2CF57C005AC9E0 /* GBSlideOutToUnlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AB71CFBE5A700347C29 /* GBSlideOutToUnlockView.m */; };
+		FB3D3A811D2CF57C005AC9E0 /* AISellingProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD11D115428002FF522 /* AISellingProgressBar.m */; };
+		FB3D3A821D2CF57C005AC9E0 /* AICollContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AF81CFBE5A700347C29 /* AICollContentViewController.swift */; };
+		FB3D3A831D2CF57C005AC9E0 /* AINetEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BED1CFBE5A700347C29 /* AINetEngine.m */; };
+		FB3D3A841D2CF57C005AC9E0 /* MDCSpotlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433A191CFBE5A700347C29 /* MDCSpotlightView.m */; };
+		FB3D3A851D2CF57C005AC9E0 /* RRTagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7911CFD2710006F2C8F /* RRTagController.swift */; };
+		FB3D3A861D2CF57C005AC9E0 /* SwiftWebViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */; };
+		FB3D3A871D2CF57C005AC9E0 /* FLEXHierarchyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BD81CFBE5A700347C29 /* FLEXHierarchyTableViewCell.m */; };
+		FB3D3A881D2CF57C005AC9E0 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */; };
+		FB3D3A891D2CF57C005AC9E0 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
+		FB3D3A8A1D2CF57C005AC9E0 /* ImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84512D501D2B57E2007E2E8A /* ImageCard.swift */; };
+		FB3D3A8B1D2CF57C005AC9E0 /* FLEXTableColumnHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B781CFBE5A700347C29 /* FLEXTableColumnHeader.m */; };
+		FB3D3A8C1D2CF57C005AC9E0 /* AIAssignServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A321CFBE5A700347C29 /* AIAssignServiceView.swift */; };
+		FB3D3A8D1D2CF57C005AC9E0 /* FLEXNetworkTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BA51CFBE5A700347C29 /* FLEXNetworkTransaction.m */; };
+		FB3D3A8E1D2CF57C005AC9E0 /* AITagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339381CFBE5A600347C29 /* AITagModel.swift */; };
+		FB3D3A8F1D2CF57C005AC9E0 /* RAReorderableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A71C1CFD2710006F2C8F /* RAReorderableLayout.swift */; };
+		FB3D3A901D2CF57C005AC9E0 /* AISuperSwipeableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BF51CFBE5A700347C29 /* AISuperSwipeableCell.m */; };
+		FB3D3A911D2CF57C005AC9E0 /* AIRACModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339351CFBE5A600347C29 /* AIRACModel.swift */; };
+		FB3D3A921D2CF57C005AC9E0 /* FLEXDictionaryExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BB61CFBE5A700347C29 /* FLEXDictionaryExplorerViewController.m */; };
+		FB3D3A931D2CF57C005AC9E0 /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0ABDB1D12AD6200562090 /* JSONHTTPClient.m */; };
+		FB3D3A941D2CF57C005AC9E0 /* AISuperiorityIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C289C31D178A1A003F0473 /* AISuperiorityIconTextView.swift */; };
+		FB3D3A951D2CF57C005AC9E0 /* AIBubblesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143398E1CFBE5A600347C29 /* AIBubblesView.m */; };
+		FB3D3A961D2CF57C005AC9E0 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7981CFD2710006F2C8F /* SDImageCache.m */; };
+		FB3D3A971D2CF57C005AC9E0 /* ServiceSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339AF1CFBE5A600347C29 /* ServiceSettingView.swift */; };
+		FB3D3A981D2CF57C005AC9E0 /* ServiceRestoreToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339CC1CFBE5A700347C29 /* ServiceRestoreToolBar.swift */; };
+		FB3D3A991D2CF57C005AC9E0 /* FLEXInstancesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B8F1CFBE5A700347C29 /* FLEXInstancesTableViewController.m */; };
+		FB3D3A9A1D2CF57C005AC9E0 /* AIProposalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */; };
+		FB3D3A9B1D2CF57C005AC9E0 /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C081CFBE5A700347C29 /* UIViewControllerUtils.swift */; };
+		FB3D3A9C1D2CF57C005AC9E0 /* AIEventCapacityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339D71CFBE5A700347C29 /* AIEventCapacityView.swift */; };
+		FB3D3A9D1D2CF57C005AC9E0 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C011CFBE5A700347C29 /* NullSafe.m */; };
+		FB3D3A9E1D2CF57C005AC9E0 /* FLEXSetExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BC21CFBE5A700347C29 /* FLEXSetExplorerViewController.m */; };
+		FB3D3A9F1D2CF57C005AC9E0 /* FLEXSystemLogMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B981CFBE5A700347C29 /* FLEXSystemLogMessage.m */; };
+		FB3D3AA01D2CF57C005AC9E0 /* WXPayClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5161D1CD63B0007F241 /* WXPayClient.m */; };
+		FB3D3AA11D2CF57C005AC9E0 /* FLEXIvarEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B5F1CFBE5A700347C29 /* FLEXIvarEditorViewController.m */; };
+		FB3D3AA21D2CF57C005AC9E0 /* FLEXArgumentInputColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B3F1CFBE5A700347C29 /* FLEXArgumentInputColorView.m */; };
+		FB3D3AA31D2CF57C005AC9E0 /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 930455201D128E48007AFC0C /* ISRDataHelper.m */; };
+		FB3D3AA41D2CF57C005AC9E0 /* AIServiceLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433A031CFBE5A700347C29 /* AIServiceLabel.m */; };
+		FB3D3AA51D2CF57C005AC9E0 /* AITagDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339681CFBE5A600347C29 /* AITagDescView.swift */; };
+		FB3D3AA61D2CF57C005AC9E0 /* FLEXExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B681CFBE5A700347C29 /* FLEXExplorerViewController.m */; };
+		FB3D3AA71D2CF57C005AC9E0 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842936911D17870D00795C57 /* CheckboxButton.swift */; };
+		FB3D3AA81D2CF57C005AC9E0 /* AITools.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BF81CFBE5A700347C29 /* AITools.m */; };
+		FB3D3AA91D2CF57C005AC9E0 /* FLEXViewExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BC61CFBE5A700347C29 /* FLEXViewExplorerViewController.m */; };
+		FB3D3AAA1D2CF57C005AC9E0 /* AISellerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */; };
+		FB3D3AAB1D2CF57C005AC9E0 /* AILimitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A371CFBE5A700347C29 /* AILimitListView.swift */; };
+		FB3D3AAC1D2CF57C005AC9E0 /* FLEXMethodCallingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B611CFBE5A700347C29 /* FLEXMethodCallingViewController.m */; };
+		FB3D3AAD1D2CF57C005AC9E0 /* ServiceCardDetailFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339A81CFBE5A600347C29 /* ServiceCardDetailFlag.swift */; };
+		FB3D3AAE1D2CF57C005AC9E0 /* AIScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339631CFBE5A600347C29 /* AIScrollLabel.m */; };
+		FB3D3AAF1D2CF57C005AC9E0 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5791D1CD9F10007F241 /* RSADataSigner.m */; };
+		FB3D3AB01D2CF57C005AC9E0 /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
+		FB3D3AB11D2CF57C005AC9E0 /* AISellserAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */; };
+		FB3D3AB21D2CF57C005AC9E0 /* MiddleServiceContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339A71CFBE5A600347C29 /* MiddleServiceContainerView.swift */; };
+		FB3D3AB31D2CF57C005AC9E0 /* AIDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AA51CFBE5A700347C29 /* AIDatePickerView.swift */; };
+		FB3D3AB41D2CF57C005AC9E0 /* AILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764991D0D469A002B001B /* AILoginViewController.swift */; };
+		FB3D3AB51D2CF57C005AC9E0 /* AIOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339341CFBE5A600347C29 /* AIOrderModel.swift */; };
+		FB3D3AB61D2CF57C005AC9E0 /* SwipeableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C041CFBE5A700347C29 /* SwipeableCell.m */; };
+		FB3D3AB71D2CF57C005AC9E0 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A201CFBE5A700347C29 /* ViewConstants.swift */; };
+		FB3D3AB81D2CF57C005AC9E0 /* FLEXManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B6B1CFBE5A700347C29 /* FLEXManager.m */; };
+		FB3D3AB91D2CF57C005AC9E0 /* FLEXArgumentInputFontsPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B431CFBE5A700347C29 /* FLEXArgumentInputFontsPickerView.m */; };
+		FB3D3ABA1D2CF57C005AC9E0 /* OAStackView+Traversal.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A77A1CFD2710006F2C8F /* OAStackView+Traversal.m */; };
+		FB3D3ABB1D2CF57C005AC9E0 /* FLEXObjectExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BC01CFBE5A700347C29 /* FLEXObjectExplorerViewController.m */; };
+		FB3D3ABC1D2CF57C005AC9E0 /* AIFoldedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A0E1CFBE5A700347C29 /* AIFoldedCellView.swift */; };
+		FB3D3ABD1D2CF57C005AC9E0 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A75D1CFD2710006F2C8F /* JSONKeyMapper.m */; };
+		FB3D3ABF1D2CF57C005AC9E0 /* EvernoteTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */; };
+		FB3D3AC01D2CF57C005AC9E0 /* AOTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433A4C1CFBE5A700347C29 /* AOTag.m */; };
+		FB3D3AC11D2CF57C005AC9E0 /* AITaskNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A451CFBE5A700347C29 /* AITaskNavigationBar.swift */; };
+		FB3D3AC21D2CF57C005AC9E0 /* FLEXClassExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BB21CFBE5A700347C29 /* FLEXClassExplorerViewController.m */; };
+		FB3D3AC31D2CF57C005AC9E0 /* UP_NSString+Format.mm in Sources */ = {isa = PBXBuildFile; fileRef = 81433B2D1CFBE5A700347C29 /* UP_NSString+Format.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FB3D3AC41D2CF57C005AC9E0 /* AITimelineCellBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A481CFBE5A700347C29 /* AITimelineCellBaseView.swift */; };
+		FB3D3AC51D2CF57C005AC9E0 /* AccommodationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143399D1CFBE5A600347C29 /* AccommodationService.swift */; };
+		FB3D3AC61D2CF57C005AC9E0 /* AIProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */; };
+		FB3D3AC71D2CF57C005AC9E0 /* YLProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433AF41CFBE5A700347C29 /* YLProgressBar.m */; };
+		FB3D3AC81D2CF57C005AC9E0 /* AIProposalServiceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339491CFBE5A600347C29 /* AIProposalServiceParser.m */; };
+		FB3D3AC91D2CF57C005AC9E0 /* AIBuyerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A241CFBE5A700347C29 /* AIBuyerViewController.swift */; };
+		FB3D3ACA1D2CF57C005AC9E0 /* AIServiceCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339361CFBE5A600347C29 /* AIServiceCatalogModel.swift */; };
+		FB3D3ACB1D2CF57C005AC9E0 /* CustomerCenterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD61D18D6C2008A1693 /* CustomerCenterConstants.swift */; };
+		FB3D3ACC1D2CF57C005AC9E0 /* FLEXTableContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B7A1CFBE5A700347C29 /* FLEXTableContentCell.m */; };
+		FB3D3ACD1D2CF57C005AC9E0 /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
+		FB3D3ACE1D2CF57C005AC9E0 /* AILoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */; };
+		FB3D3ACF1D2CF57C005AC9E0 /* AIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703AE11D24C05C00229A08 /* AIWebViewController.swift */; };
+		FB3D3AD01D2CF57C005AC9E0 /* TableViewCellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C061CFBE5A700347C29 /* TableViewCellBackgroundView.m */; };
+		FB3D3AD11D2CF57C005AC9E0 /* AIServicesRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143397E1CFBE5A600347C29 /* AIServicesRequester.swift */; };
+		FB3D3AD21D2CF57C005AC9E0 /* FLEXLayerExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BBC1CFBE5A700347C29 /* FLEXLayerExplorerViewController.m */; };
+		FB3D3AD31D2CF57C005AC9E0 /* AIStepperParamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A0B1CFBE5A700347C29 /* AIStepperParamView.swift */; };
+		FB3D3AD41D2CF57C005AC9E0 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A75A1CFD2710006F2C8F /* JSONModelError.m */; };
+		FB3D3AD51D2CF57C005AC9E0 /* FLEXFileBrowserSearchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B891CFBE5A700347C29 /* FLEXFileBrowserSearchOperation.m */; };
+		FB3D3AD61D2CF57C005AC9E0 /* AITaskInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B021CFBE5A700347C29 /* AITaskInputViewController.swift */; };
+		FB3D3AD71D2CF57C005AC9E0 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A76B1CFD2710006F2C8F /* MJRefreshHeaderView.m */; };
+		FB3D3AD81D2CF57C005AC9E0 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A76F1CFD2710006F2C8F /* UIScrollView+MJRefresh.m */; };
+		FB3D3AD91D2CF57C005AC9E0 /* PriceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339561CFBE5A600347C29 /* PriceItem.swift */; };
+		FB3D3ADA1D2CF57C005AC9E0 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7691CFD2710006F2C8F /* MJRefreshFooterView.m */; };
+		FB3D3ADB1D2CF57C005AC9E0 /* AIBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 8143398C1CFBE5A600347C29 /* AIBubble.m */; };
+		FB3D3ADC1D2CF57C005AC9E0 /* UIImage+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */; };
+		FB3D3ADD1D2CF57C005AC9E0 /* AIWeiboData.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B0F1CFBE5A700347C29 /* AIWeiboData.m */; };
+		FB3D3ADE1D2CF57C005AC9E0 /* AIUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */; };
+		FB3D3ADF1D2CF57C005AC9E0 /* AIProposalServiceCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814339471CFBE5A600347C29 /* AIProposalServiceCellModel.m */; };
+		FB3D3AE01D2CF57C005AC9E0 /* UnderlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AD51CFBE5A700347C29 /* UnderlineLabel.swift */; };
+		FB3D3AE11D2CF57C005AC9E0 /* PriceAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339551CFBE5A600347C29 /* PriceAccount.swift */; };
+		FB3D3AE21D2CF57C005AC9E0 /* AIInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339FE1CFBE5A700347C29 /* AIInputView.swift */; };
+		FB3D3AE31D2CF57C005AC9E0 /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
+		FB3D3AE41D2CF57C005AC9E0 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B57B1D1CD9F10007F241 /* RSADataVerifier.m */; };
+		FB3D3AE51D2CF57C005AC9E0 /* BuyerRequirmentMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B091CFBE5A700347C29 /* BuyerRequirmentMessageViewController.swift */; };
+		FB3D3AE61D2CF57C005AC9E0 /* AIRotateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A411CFBE5A700347C29 /* AIRotateView.swift */; };
+		FB3D3AE71D2CF57C005AC9E0 /* MDCFocalPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433A171CFBE5A700347C29 /* MDCFocalPointView.m */; };
+		FB3D3AE81D2CF57C005AC9E0 /* AIOrderDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A121CFBE5A700347C29 /* AIOrderDescView.swift */; };
+		FB3D3AE91D2CF57C005AC9E0 /* TransportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339B51CFBE5A700347C29 /* TransportService.swift */; };
+		FB3D3AEA1D2CF57C005AC9E0 /* ProposalExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433A1E1CFBE5A700347C29 /* ProposalExpandedView.swift */; };
+		FB3D3AEC1D2CF57C005AC9E0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB71B9D7EB500CD1FEB /* CoreTelephony.framework */; };
+		FB3D3AED1D2CF57C005AC9E0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A0ABF71D12C4BD00562090 /* libz.tbd */; };
+		FB3D3AEE1D2CF57C005AC9E0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F2E1B9C25EC007BF506 /* UIKit.framework */; };
+		FB3D3AEF1D2CF57C005AC9E0 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9392B51D1D1CD9F10007F241 /* libssl.a */; };
+		FB3D3AF01D2CF57C005AC9E0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930455191D124F8A007AFC0C /* AddressBook.framework */; };
+		FB3D3AF11D2CF57C005AC9E0 /* AVOSCloudCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81433B371CFBE5A700347C29 /* AVOSCloudCrashReporting.framework */; };
+		FB3D3AF21D2CF57C005AC9E0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7231CFD2710006F2C8F /* libsqlite3.dylib */; };
+		FB3D3AF31D2CF57C005AC9E0 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA261CE1DA8B00C58B1C /* libc++.tbd */; };
+		FB3D3AF41D2CF57C005AC9E0 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA241CE1DA7300C58B1C /* GLKit.framework */; };
+		FB3D3AF51D2CF57C005AC9E0 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA221CE1DA6800C58B1C /* CoreVideo.framework */; };
+		FB3D3AF61D2CF57C005AC9E0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA201CE1DA5900C58B1C /* CoreMedia.framework */; };
+		FB3D3AF71D2CF57C005AC9E0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */; };
+		FB3D3AF81D2CF57C005AC9E0 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A0458E1C11675500296E56 /* CoreAudio.framework */; };
+		FB3D3AF91D2CF57C005AC9E0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
+		FB3D3AFA1D2CF57C005AC9E0 /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7221CFD2710006F2C8F /* libicucore.A.dylib */; };
+		FB3D3AFB1D2CF57C005AC9E0 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
+		FB3D3AFC1D2CF57C005AC9E0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B523911BB8F0F400DFB1C9 /* CoreMotion.framework */; };
+		FB3D3AFD1D2CF57C005AC9E0 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A0ABF01D12C43400562090 /* libWeChatSDK.a */; };
+		FB3D3AFE1D2CF57C005AC9E0 /* libSunFlower.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 930455171D124EF5007AFC0C /* libSunFlower.a */; };
+		FB3D3AFF1D2CF57C005AC9E0 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930455131D124E71007AFC0C /* iflyMSC.framework */; };
+		FB3D3B001D2CF57C005AC9E0 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9392B51C1D1CD9F10007F241 /* libcrypto.a */; };
+		FB3D3B011D2CF57C005AC9E0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */; };
+		FB3D3B021D2CF57C005AC9E0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB51B9D7EA900CD1FEB /* Security.framework */; };
+		FB3D3B031D2CF57C005AC9E0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AB31B9D7E9C00CD1FEB /* MobileCoreServices.framework */; };
+		FB3D3B041D2CF57C005AC9E0 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81433B361CFBE5A700347C29 /* AVOSCloud.framework */; };
+		FB3D3B051D2CF57C005AC9E0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AA91B9D7B7D00CD1FEB /* ImageIO.framework */; };
+		FB3D3B061D2CF57C005AC9E0 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9392B51B1D1CD9F10007F241 /* AlipaySDK.framework */; };
+		FB3D3B071D2CF57C005AC9E0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F381B9C2825007BF506 /* SystemConfiguration.framework */; };
+		FB3D3B081D2CF57C005AC9E0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F361B9C2813007BF506 /* QuartzCore.framework */; };
+		FB3D3B091D2CF57C005AC9E0 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F321B9C27B1007BF506 /* CoreText.framework */; };
+		FB3D3B0A1D2CF57C005AC9E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F301B9C25F8007BF506 /* Foundation.framework */; };
+		FB3D3B0B1D2CF57C005AC9E0 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7241CFD2710006F2C8F /* libz.1.dylib */; };
+		FB3D3B0C1D2CF57C005AC9E0 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */; };
+		FB3D3B0E1D2CF57C005AC9E0 /* SimpleServiceViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339B21CFBE5A700347C29 /* SimpleServiceViewContainer.xib */; };
+		FB3D3B0F1D2CF57C005AC9E0 /* AIAudioSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */; };
+		FB3D3B101D2CF57C005AC9E0 /* AICustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339C01CFBE5A700347C29 /* AICustomView.xib */; };
+		FB3D3B111D2CF57C005AC9E0 /* TopServiceContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339B31CFBE5A700347C29 /* TopServiceContainer.xib */; };
+		FB3D3B121D2CF57C005AC9E0 /* AINavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8321D002434005E1789 /* AINavigationBar.xib */; };
+		FB3D3B131D2CF57C005AC9E0 /* SwitchServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AEE1CFBE5A700347C29 /* SwitchServiceView.xib */; };
+		FB3D3B141D2CF57C005AC9E0 /* AIAssignServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433A331CFBE5A700347C29 /* AIAssignServiceView.xib */; };
+		FB3D3B151D2CF57C005AC9E0 /* AICustomerOrderFoldedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */; };
+		FB3D3B161D2CF57C005AC9E0 /* ExpandableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2E5BC1D17F155009E0C72 /* ExpandableTableViewCell.xib */; };
+		FB3D3B171D2CF57C005AC9E0 /* MyriadPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81433C0B1CFBE5A700347C29 /* MyriadPro-Black.otf */; };
+		FB3D3B181D2CF57C005AC9E0 /* MyriadPro-Cond.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81433C0D1CFBE5A700347C29 /* MyriadPro-Cond.otf */; };
+		FB3D3B191D2CF57C005AC9E0 /* AIServiceSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433A431CFBE5A700347C29 /* AIServiceSearchView.xib */; };
+		FB3D3B1A1D2CF57C005AC9E0 /* AIAudioInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339B81CFBE5A700347C29 /* AIAudioInputView.xib */; };
+		FB3D3B1B1D2CF57C005AC9E0 /* AIAssetsPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E4C4011D20E478007EB116 /* AIAssetsPickerController.xib */; };
+		FB3D3B1C1D2CF57C005AC9E0 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 81433C191CFBE5A700347C29 /* loading.gif */; };
+		FB3D3B1D1D2CF57C005AC9E0 /* AICutomSearchHomeResultFilterBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB74E0151D29FDA300472F68 /* AICutomSearchHomeResultFilterBar.xib */; };
+		FB3D3B1E1D2CF57C005AC9E0 /* AISuperiorityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8351D002434005E1789 /* AISuperiorityViewController.xib */; };
+		FB3D3B1F1D2CF57C005AC9E0 /* ProposalViewTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81433ADD1CFBE5A700347C29 /* ProposalViewTest.storyboard */; };
+		FB3D3B201D2CF57C005AC9E0 /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
+		FB3D3B211D2CF57C005AC9E0 /* SwiftWebViewBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */; };
+		FB3D3B221D2CF57C005AC9E0 /* AITaskTimeLineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433A471CFBE5A700347C29 /* AITaskTimeLineView.xib */; };
+		FB3D3B231D2CF57C005AC9E0 /* va_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93A0AB8F1D129FEB00562090 /* va_start.wav */; };
+		FB3D3B241D2CF57C005AC9E0 /* UIBuyerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81433C161CFBE5A700347C29 /* UIBuyerStoryboard.storyboard */; };
+		FB3D3B251D2CF57C005AC9E0 /* ContentsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AA31CFBE5A700347C29 /* ContentsCellView.xib */; };
+		FB3D3B261D2CF57C005AC9E0 /* HiraginoSansGBW6.otf in Resources */ = {isa = PBXBuildFile; fileRef = 930677411D18E34C0079805D /* HiraginoSansGBW6.otf */; };
+		FB3D3B271D2CF57C005AC9E0 /* MyriadPro-SemiboldSemiCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81433C111CFBE5A700347C29 /* MyriadPro-SemiboldSemiCn.otf */; };
+		FB3D3B281D2CF57C005AC9E0 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB01810F1D0D650E00213DF8 /* AISearchBar.xib */; };
+		FB3D3B291D2CF57C005AC9E0 /* TestExpandableCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2E5C01D181376009E0C72 /* TestExpandableCellViewController.xib */; };
+		FB3D3B2A1D2CF57C005AC9E0 /* FlightServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339A51CFBE5A600347C29 /* FlightServiceView.xib */; };
+		FB3D3B2B1D2CF57C005AC9E0 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81433C0C1CFBE5A700347C29 /* MyriadPro-Bold.otf */; };
+		FB3D3B2C1D2CF57C005AC9E0 /* ServiceCardDetailIcon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339AA1CFBE5A600347C29 /* ServiceCardDetailIcon.xib */; };
+		FB3D3B2D1D2CF57C005AC9E0 /* AIPayListInfoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 932762E71D1D2E60002F7FA0 /* AIPayListInfoCellView.xib */; };
+		FB3D3B2E1D2CF57C005AC9E0 /* MyriadPro-LightSemiCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81433C0F1CFBE5A700347C29 /* MyriadPro-LightSemiCn.otf */; };
+		FB3D3B2F1D2CF57C005AC9E0 /* AIBueryDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AC91CFBE5A700347C29 /* AIBueryDetailCell.xib */; };
+		FB3D3B301D2CF57C005AC9E0 /* AirTicketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AB51CFBE5A700347C29 /* AirTicketView.xib */; };
+		FB3D3B311D2CF57C005AC9E0 /* CommentDistrictView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8457004C1D012D7D00512597 /* CommentDistrictView.xib */; };
+		FB3D3B321D2CF57C005AC9E0 /* AIConfirmOrderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339D41CFBE5A700347C29 /* AIConfirmOrderCellView.xib */; };
+		FB3D3B331D2CF57C005AC9E0 /* AICustomSearchHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */; };
+		FB3D3B341D2CF57C005AC9E0 /* AIPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A0AB991D12AA1B00562090 /* AIPaymentViewController.xib */; };
+		FB3D3B351D2CF57C005AC9E0 /* CompondServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700511D015E7600512597 /* CompondServiceCommentViewController.xib */; };
+		FB3D3B361D2CF57C005AC9E0 /* AILocationSelectHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339DA1CFBE5A700347C29 /* AILocationSelectHeadView.xib */; };
+		FB3D3B371D2CF57C005AC9E0 /* AINavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339C61CFBE5A700347C29 /* AINavigationBarView.xib */; };
+		FB3D3B381D2CF57C005AC9E0 /* AIDetailTopMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339C21CFBE5A700347C29 /* AIDetailTopMenuView.xib */; };
+		FB3D3B391D2CF57C005AC9E0 /* AIEventCapacityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339D81CFBE5A700347C29 /* AIEventCapacityView.xib */; };
+		FB3D3B3A1D2CF57C005AC9E0 /* AIProviderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339C81CFBE5A700347C29 /* AIProviderView.xib */; };
+		FB3D3B3B1D2CF57C005AC9E0 /* AITimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */; };
+		FB3D3B3C1D2CF57C005AC9E0 /* MyriadProRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81433C131CFBE5A700347C29 /* MyriadProRegular.ttf */; };
+		FB3D3B3D1D2CF57C005AC9E0 /* MyriadPro-SemiCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81433C121CFBE5A700347C29 /* MyriadPro-SemiCn.otf */; };
+		FB3D3B3E1D2CF57C005AC9E0 /* JSSDK.js in Resources */ = {isa = PBXBuildFile; fileRef = FB703AE31D24C59400229A08 /* JSSDK.js */; };
+		FB3D3B3F1D2CF57C005AC9E0 /* voicesearch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93A0AB901D129FEB00562090 /* voicesearch.mp3 */; };
+		FB3D3B401D2CF57C005AC9E0 /* TopServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */; };
+		FB3D3B411D2CF57C005AC9E0 /* SubServiceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */; };
+		FB3D3B421D2CF57C005AC9E0 /* AIErrorRetryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433A361CFBE5A700347C29 /* AIErrorRetryView.xib */; };
+		FB3D3B431D2CF57C005AC9E0 /* UIRrequirementStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81433C171CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard */; };
+		FB3D3B441D2CF57C005AC9E0 /* BottomServiceContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339A21CFBE5A600347C29 /* BottomServiceContainer.xib */; };
+		FB3D3B451D2CF57C005AC9E0 /* AIProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */; };
+		FB3D3B461D2CF57C005AC9E0 /* AITextMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339CA1CFBE5A700347C29 /* AITextMessageView.xib */; };
+		FB3D3B471D2CF57C005AC9E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81433C151CFBE5A700347C29 /* LaunchScreen.storyboard */; };
+		FB3D3B481D2CF57C005AC9E0 /* AITimePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433B081CFBE5A700347C29 /* AITimePickerViewController.xib */; };
+		FB3D3B491D2CF57C005AC9E0 /* AIIconTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8143399F1CFBE5A600347C29 /* AIIconTextView.xib */; };
+		FB3D3B4A1D2CF57C005AC9E0 /* AIShoppingListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339E31CFBE5A700347C29 /* AIShoppingListView.xib */; };
+		FB3D3B4B1D2CF57C005AC9E0 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8175A7621CFD2710006F2C8F /* MJRefresh.bundle */; };
+		FB3D3B4C1D2CF57C005AC9E0 /* AIServerProviderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C81F8B1D2B5D0400D84D46 /* AIServerProviderView.xib */; };
+		FB3D3B4D1D2CF57C005AC9E0 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
+		FB3D3B4E1D2CF57C005AC9E0 /* BuyerRequirmentMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433B0A1CFBE5A700347C29 /* BuyerRequirmentMessageViewController.xib */; };
+		FB3D3B4F1D2CF57C005AC9E0 /* AIEventTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AA81CFBE5A700347C29 /* AIEventTimerView.xib */; };
+		FB3D3B501D2CF57C005AC9E0 /* BuyerMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433A571CFBE5A700347C29 /* BuyerMessageCell.xib */; };
+		FB3D3B511D2CF57C005AC9E0 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93A0ABF11D12C43400562090 /* read_me.txt */; };
+		FB3D3B521D2CF57C005AC9E0 /* AISuperiorityCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BEFFDC1D0D474B00832799 /* AISuperiorityCellView.xib */; };
+		FB3D3B531D2CF57C005AC9E0 /* AICustomSearchHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC82C1D001EA5005E1789 /* AICustomSearchHomeViewController.xib */; };
+		FB3D3B541D2CF57C005AC9E0 /* MiddleServiceContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339A61CFBE5A600347C29 /* MiddleServiceContainer.xib */; };
+		FB3D3B551D2CF57C005AC9E0 /* IconLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AD21CFBE5A700347C29 /* IconLabel.xib */; };
+		FB3D3B561D2CF57C005AC9E0 /* AIAddressRouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339D21CFBE5A700347C29 /* AIAddressRouteView.xib */; };
+		FB3D3B571D2CF57C005AC9E0 /* AICustomAudioNotesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339BE1CFBE5A700347C29 /* AICustomAudioNotesView.xib */; };
+		FB3D3B581D2CF57C005AC9E0 /* AIWishVowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC83C1D002434005E1789 /* AIWishVowViewController.xib */; };
+		FB3D3B591D2CF57C005AC9E0 /* ServiceSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339B01CFBE5A600347C29 /* ServiceSettingView.xib */; };
+		FB3D3B5A1D2CF57C005AC9E0 /* DependOnNodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AAF1CFBE5A700347C29 /* DependOnNodeCell.xib */; };
+		FB3D3B5B1D2CF57C005AC9E0 /* AISinglePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AAA1CFBE5A700347C29 /* AISinglePickerView.xib */; };
+		FB3D3B5C1D2CF57C005AC9E0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81433F1F1CFBE80700347C29 /* Default-568h@2x.png */; };
+		FB3D3B5D1D2CF57C005AC9E0 /* AIOrderCellEShopSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339881CFBE5A600347C29 /* AIOrderCellEShopSubView.xib */; };
+		FB3D3B5E1D2CF57C005AC9E0 /* AITimelineNowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */; };
+		FB3D3B5F1D2CF57C005AC9E0 /* UIPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433A1B1CFBE5A700347C29 /* UIPopView.xib */; };
+		FB3D3B601D2CF57C005AC9E0 /* AISuperiorityIconTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C289C51D178A27003F0473 /* AISuperiorityIconTextView.xib */; };
+		FB3D3B611D2CF57C005AC9E0 /* AIAudioRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339BC1CFBE5A700347C29 /* AIAudioRecordView.xib */; };
+		FB3D3B621D2CF57C005AC9E0 /* OrderAndBuyerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AD71CFBE5A700347C29 /* OrderAndBuyerInfoView.xib */; };
+		FB3D3B631D2CF57C005AC9E0 /* SeparatorLineLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AD41CFBE5A700347C29 /* SeparatorLineLabel.xib */; };
+		FB3D3B641D2CF57C005AC9E0 /* AIAssetsReviewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */; };
+		FB3D3B651D2CF57C005AC9E0 /* AIAudioMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339BA1CFBE5A700347C29 /* AIAudioMessageView.xib */; };
+		FB3D3B661D2CF57C005AC9E0 /* MyriadPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81433C0E1CFBE5A700347C29 /* MyriadPro-Light.otf */; };
+		FB3D3B671D2CF57C005AC9E0 /* MyriadPro-LightSemiExt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81433C101CFBE5A700347C29 /* MyriadPro-LightSemiExt.otf */; };
+		FB3D3B681D2CF57C005AC9E0 /* AILoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D764A01D0D46AA002B001B /* AILoginStoryboard.storyboard */; };
+		FB3D3B691D2CF57C005AC9E0 /* AITaskInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433B031CFBE5A700347C29 /* AITaskInputViewController.xib */; };
+		FB3D3B6A1D2CF57C005AC9E0 /* AIShoppingListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339E51CFBE5A700347C29 /* AIShoppingListViewCell.xib */; };
+		FB3D3B6B1D2CF57C005AC9E0 /* AIStartEndTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339E71CFBE5A700347C29 /* AIStartEndTimeView.xib */; };
+		FB3D3B6C1D2CF57C005AC9E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81433C1C1CFBE5A700347C29 /* Assets.xcassets */; };
+		FB3D3B6D1D2CF57C005AC9E0 /* ServiceRestoreToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339CD1CFBE5A700347C29 /* ServiceRestoreToolBar.xib */; };
+		FB3D3B6E1D2CF57C005AC9E0 /* UICustomsTags.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339CF1CFBE5A700347C29 /* UICustomsTags.xib */; };
+		FB3D3B6F1D2CF57C005AC9E0 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
+		FB3D3B701D2CF57C005AC9E0 /* multiLabels.json in Resources */ = {isa = PBXBuildFile; fileRef = 8143396C1CFBE5A600347C29 /* multiLabels.json */; };
+		FB3D3B711D2CF57C005AC9E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 81433C1D1CFBE5A700347C29 /* Localizable.strings */; };
+		FB3D3B721D2CF57C005AC9E0 /* Veris.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 81433C201CFBE5A700347C29 /* Veris.entitlements */; };
+		FB3D3B731D2CF57C005AC9E0 /* AIDepartReahCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339D61CFBE5A700347C29 /* AIDepartReahCityView.xib */; };
+		FB3D3B741D2CF57C005AC9E0 /* AICommentInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A9DA581D0131D900F16610 /* AICommentInfoView.xib */; };
+		FB3D3B751D2CF57C005AC9E0 /* AIServiceRouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339E01CFBE5A700347C29 /* AIServiceRouteView.xib */; };
+		FB3D3B761D2CF57C005AC9E0 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9392B51A1D1CD9F10007F241 /* AlipaySDK.bundle */; };
+		FB3D3B771D2CF57C005AC9E0 /* HiraginoSansGBW3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 930677401D18E34C0079805D /* HiraginoSansGBW3.otf */; };
+		FB3D3B781D2CF57C005AC9E0 /* ServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */; };
+		FB3D3B791D2CF57C005AC9E0 /* ImagesCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84687E3F1D236B960083BD9B /* ImagesCollectionView.xib */; };
+		FB3D3B7A1D2CF57C005AC9E0 /* AIFoldedCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433A0F1CFBE5A700347C29 /* AIFoldedCellView.xib */; };
+		FB3D3B7B1D2CF57C005AC9E0 /* AIDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81433AA61CFBE5A700347C29 /* AIDatePickerView.xib */; };
+		FB3D3B7C1D2CF57C005AC9E0 /* ServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */; };
+		FB3D3B7D1D2CF57C005AC9E0 /* AINumberCountControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339DD1CFBE5A700347C29 /* AINumberCountControl.xib */; };
+		FB3D3B7E1D2CF57C005AC9E0 /* start.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 81433C1A1CFBE5A700347C29 /* start.mp4 */; };
+		FB3D3B7F1D2CF57C005AC9E0 /* AITitleAndIconTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 814339A11CFBE5A600347C29 /* AITitleAndIconTextView.xib */; };
+		FB3D3B8E1D2CF65F005AC9E0 /* DocAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D3B8C1D2CF65C005AC9E0 /* DocAppDelegate.swift */; };
+		FB3D3B911D2CFBAA005AC9E0 /* DocRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D3B8F1D2CFAED005AC9E0 /* DocRootViewController.swift */; };
+		FB3D3B9A1D2D0431005AC9E0 /* DocBlurPresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D3B961D2D0314005AC9E0 /* DocBlurPresentViewController.swift */; };
+		FB3D3B9C1D2D0438005AC9E0 /* DocBlurPresentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3D3B971D2D0314005AC9E0 /* DocBlurPresentViewController.xib */; };
+		FB3D3BA11D2D07BB005AC9E0 /* DocButtonImagePositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D3B9D1D2D06D6005AC9E0 /* DocButtonImagePositionViewController.swift */; };
+		FB3D3BA21D2D07BB005AC9E0 /* DocButtonImagePositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3D3B9E1D2D06D6005AC9E0 /* DocButtonImagePositionViewController.xib */; };
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */; };
 		FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */; };
@@ -657,6 +1301,17 @@
 			files = (
 				81BB86721CFD808D00899B58 /* AVOSCloud.framework in CopyFiles */,
 				81BB86731CFD808D00899B58 /* AVOSCloudCrashReporting.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB3D38FD1D2CF57C005AC9E0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FB3D38FE1D2CF57C005AC9E0 /* AVOSCloud.framework in CopyFiles */,
+				FB3D38FF1D2CF57C005AC9E0 /* AVOSCloudCrashReporting.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1603,6 +2258,14 @@
 		FB01810A1D0D125400213DF8 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
 		FB01810D1D0D650100213DF8 /* AISearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBar.swift; sourceTree = "<group>"; };
 		FB01810F1D0D650E00213DF8 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
+		FB3D3B871D2CF57C005AC9E0 /* DocApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DocApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB3D3B8C1D2CF65C005AC9E0 /* DocAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocAppDelegate.swift; sourceTree = "<group>"; };
+		FB3D3B8F1D2CFAED005AC9E0 /* DocRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocRootViewController.swift; sourceTree = "<group>"; };
+		FB3D3B931D2CFCC5005AC9E0 /* DocApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DocApp-Info.plist"; sourceTree = "<group>"; };
+		FB3D3B961D2D0314005AC9E0 /* DocBlurPresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocBlurPresentViewController.swift; sourceTree = "<group>"; };
+		FB3D3B971D2D0314005AC9E0 /* DocBlurPresentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocBlurPresentViewController.xib; sourceTree = "<group>"; };
+		FB3D3B9D1D2D06D6005AC9E0 /* DocButtonImagePositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocButtonImagePositionViewController.swift; sourceTree = "<group>"; };
+		FB3D3B9E1D2D06D6005AC9E0 /* DocButtonImagePositionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocButtonImagePositionViewController.xib; sourceTree = "<group>"; };
 		FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryIconView.swift; sourceTree = "<group>"; };
 		FB6600F81D123C01004667E2 /* AISellerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellerCollectionViewCell.h; sourceTree = "<group>"; };
 		FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerCollectionViewCell.m; sourceTree = "<group>"; };
@@ -1671,6 +2334,46 @@
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
 				8175A7C51CFD2710006F2C8F /* libz.1.dylib in Frameworks */,
 				DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB3D3AEB1D2CF57C005AC9E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB3D3AEC1D2CF57C005AC9E0 /* CoreTelephony.framework in Frameworks */,
+				FB3D3AED1D2CF57C005AC9E0 /* libz.tbd in Frameworks */,
+				FB3D3AEE1D2CF57C005AC9E0 /* UIKit.framework in Frameworks */,
+				FB3D3AEF1D2CF57C005AC9E0 /* libssl.a in Frameworks */,
+				FB3D3AF01D2CF57C005AC9E0 /* AddressBook.framework in Frameworks */,
+				FB3D3AF11D2CF57C005AC9E0 /* AVOSCloudCrashReporting.framework in Frameworks */,
+				FB3D3AF21D2CF57C005AC9E0 /* libsqlite3.dylib in Frameworks */,
+				FB3D3AF31D2CF57C005AC9E0 /* libc++.tbd in Frameworks */,
+				FB3D3AF41D2CF57C005AC9E0 /* GLKit.framework in Frameworks */,
+				FB3D3AF51D2CF57C005AC9E0 /* CoreVideo.framework in Frameworks */,
+				FB3D3AF61D2CF57C005AC9E0 /* CoreMedia.framework in Frameworks */,
+				FB3D3AF71D2CF57C005AC9E0 /* AudioToolbox.framework in Frameworks */,
+				FB3D3AF81D2CF57C005AC9E0 /* CoreAudio.framework in Frameworks */,
+				FB3D3AF91D2CF57C005AC9E0 /* AVFoundation.framework in Frameworks */,
+				FB3D3AFA1D2CF57C005AC9E0 /* libicucore.A.dylib in Frameworks */,
+				FB3D3AFB1D2CF57C005AC9E0 /* libWeiboSDK.a in Frameworks */,
+				FB3D3AFC1D2CF57C005AC9E0 /* CoreMotion.framework in Frameworks */,
+				FB3D3AFD1D2CF57C005AC9E0 /* libWeChatSDK.a in Frameworks */,
+				FB3D3AFE1D2CF57C005AC9E0 /* libSunFlower.a in Frameworks */,
+				FB3D3AFF1D2CF57C005AC9E0 /* iflyMSC.framework in Frameworks */,
+				FB3D3B001D2CF57C005AC9E0 /* libcrypto.a in Frameworks */,
+				FB3D3B011D2CF57C005AC9E0 /* CoreGraphics.framework in Frameworks */,
+				FB3D3B021D2CF57C005AC9E0 /* Security.framework in Frameworks */,
+				FB3D3B031D2CF57C005AC9E0 /* MobileCoreServices.framework in Frameworks */,
+				FB3D3B041D2CF57C005AC9E0 /* AVOSCloud.framework in Frameworks */,
+				FB3D3B051D2CF57C005AC9E0 /* ImageIO.framework in Frameworks */,
+				FB3D3B061D2CF57C005AC9E0 /* AlipaySDK.framework in Frameworks */,
+				FB3D3B071D2CF57C005AC9E0 /* SystemConfiguration.framework in Frameworks */,
+				FB3D3B081D2CF57C005AC9E0 /* QuartzCore.framework in Frameworks */,
+				FB3D3B091D2CF57C005AC9E0 /* CoreText.framework in Frameworks */,
+				FB3D3B0A1D2CF57C005AC9E0 /* Foundation.framework in Frameworks */,
+				FB3D3B0B1D2CF57C005AC9E0 /* libz.1.dylib in Frameworks */,
+				FB3D3B0C1D2CF57C005AC9E0 /* Pods_AIVeris.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1757,6 +2460,7 @@
 		814339221CFBE4DF00347C29 /* Veris */ = {
 			isa = PBXGroup;
 			children = (
+				FB3D3B8B1D2CF643005AC9E0 /* DocApp */,
 				8175A7211CFD2710006F2C8F /* 3rdLibrary */,
 				814339251CFBE5A600347C29 /* Application */,
 				814339291CFBE5A600347C29 /* Business */,
@@ -3702,6 +4406,7 @@
 			isa = PBXGroup;
 			children = (
 				93D5A3491B709C1C00DDB158 /* Veris.app */,
+				FB3D3B871D2CF57C005AC9E0 /* DocApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3835,6 +4540,28 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		FB3D3B8B1D2CF643005AC9E0 /* DocApp */ = {
+			isa = PBXGroup;
+			children = (
+				FB3D3B931D2CFCC5005AC9E0 /* DocApp-Info.plist */,
+				FB3D3B8C1D2CF65C005AC9E0 /* DocAppDelegate.swift */,
+				FB3D3B8F1D2CFAED005AC9E0 /* DocRootViewController.swift */,
+				FB3D3B951D2D0304005AC9E0 /* Actions */,
+			);
+			path = DocApp;
+			sourceTree = "<group>";
+		};
+		FB3D3B951D2D0304005AC9E0 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				FB3D3B961D2D0314005AC9E0 /* DocBlurPresentViewController.swift */,
+				FB3D3B971D2D0314005AC9E0 /* DocBlurPresentViewController.xib */,
+				FB3D3B9D1D2D06D6005AC9E0 /* DocButtonImagePositionViewController.swift */,
+				FB3D3B9E1D2D06D6005AC9E0 /* DocButtonImagePositionViewController.xib */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
 		FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -3909,6 +4636,29 @@
 			productReference = 93D5A3491B709C1C00DDB158 /* Veris.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FB3D38FB1D2CF57C005AC9E0 /* DocApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB3D3B841D2CF57C005AC9E0 /* Build configuration list for PBXNativeTarget "DocApp" */;
+			buildPhases = (
+				FB3D38FC1D2CF57C005AC9E0 /* 📦 Check Pods Manifest.lock */,
+				FB3D38FD1D2CF57C005AC9E0 /* CopyFiles */,
+				FB3D39001D2CF57C005AC9E0 /* Sources */,
+				FB3D3AEB1D2CF57C005AC9E0 /* Frameworks */,
+				FB3D3B0D1D2CF57C005AC9E0 /* Resources */,
+				FB3D3B801D2CF57C005AC9E0 /* 📦 Embed Pods Frameworks */,
+				FB3D3B811D2CF57C005AC9E0 /* 📦 Copy Pods Resources */,
+				FB3D3B821D2CF57C005AC9E0 /* Embed Pods Frameworks */,
+				FB3D3B831D2CF57C005AC9E0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DocApp;
+			productName = AISBOSS;
+			productReference = FB3D3B871D2CF57C005AC9E0 /* DocApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -3948,6 +4698,7 @@
 			projectRoot = "";
 			targets = (
 				93D5A3481B709C1C00DDB158 /* AIVeris */,
+				FB3D38FB1D2CF57C005AC9E0 /* DocApp */,
 			);
 		};
 /* End PBXProject section */
@@ -4074,6 +4825,129 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB3D3B0D1D2CF57C005AC9E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB3D3B0E1D2CF57C005AC9E0 /* SimpleServiceViewContainer.xib in Resources */,
+				FB3D3B0F1D2CF57C005AC9E0 /* AIAudioSearchViewController.xib in Resources */,
+				FB3D3B101D2CF57C005AC9E0 /* AICustomView.xib in Resources */,
+				FB3D3B111D2CF57C005AC9E0 /* TopServiceContainer.xib in Resources */,
+				FB3D3B121D2CF57C005AC9E0 /* AINavigationBar.xib in Resources */,
+				FB3D3B131D2CF57C005AC9E0 /* SwitchServiceView.xib in Resources */,
+				FB3D3B141D2CF57C005AC9E0 /* AIAssignServiceView.xib in Resources */,
+				FB3D3B151D2CF57C005AC9E0 /* AICustomerOrderFoldedView.xib in Resources */,
+				FB3D3B161D2CF57C005AC9E0 /* ExpandableTableViewCell.xib in Resources */,
+				FB3D3B171D2CF57C005AC9E0 /* MyriadPro-Black.otf in Resources */,
+				FB3D3B181D2CF57C005AC9E0 /* MyriadPro-Cond.otf in Resources */,
+				FB3D3B191D2CF57C005AC9E0 /* AIServiceSearchView.xib in Resources */,
+				FB3D3B1A1D2CF57C005AC9E0 /* AIAudioInputView.xib in Resources */,
+				FB3D3B1B1D2CF57C005AC9E0 /* AIAssetsPickerController.xib in Resources */,
+				FB3D3BA21D2D07BB005AC9E0 /* DocButtonImagePositionViewController.xib in Resources */,
+				FB3D3B1C1D2CF57C005AC9E0 /* loading.gif in Resources */,
+				FB3D3B1D1D2CF57C005AC9E0 /* AICutomSearchHomeResultFilterBar.xib in Resources */,
+				FB3D3B1E1D2CF57C005AC9E0 /* AISuperiorityViewController.xib in Resources */,
+				FB3D3B1F1D2CF57C005AC9E0 /* ProposalViewTest.storyboard in Resources */,
+				FB3D3B201D2CF57C005AC9E0 /* AIServiceExecuteStoryboard.storyboard in Resources */,
+				FB3D3B211D2CF57C005AC9E0 /* SwiftWebViewBridge.js in Resources */,
+				FB3D3B221D2CF57C005AC9E0 /* AITaskTimeLineView.xib in Resources */,
+				FB3D3B231D2CF57C005AC9E0 /* va_start.wav in Resources */,
+				FB3D3B241D2CF57C005AC9E0 /* UIBuyerStoryboard.storyboard in Resources */,
+				FB3D3B251D2CF57C005AC9E0 /* ContentsCellView.xib in Resources */,
+				FB3D3B261D2CF57C005AC9E0 /* HiraginoSansGBW6.otf in Resources */,
+				FB3D3B271D2CF57C005AC9E0 /* MyriadPro-SemiboldSemiCn.otf in Resources */,
+				FB3D3B281D2CF57C005AC9E0 /* AISearchBar.xib in Resources */,
+				FB3D3B291D2CF57C005AC9E0 /* TestExpandableCellViewController.xib in Resources */,
+				FB3D3B2A1D2CF57C005AC9E0 /* FlightServiceView.xib in Resources */,
+				FB3D3B2B1D2CF57C005AC9E0 /* MyriadPro-Bold.otf in Resources */,
+				FB3D3B2C1D2CF57C005AC9E0 /* ServiceCardDetailIcon.xib in Resources */,
+				FB3D3B2D1D2CF57C005AC9E0 /* AIPayListInfoCellView.xib in Resources */,
+				FB3D3B2E1D2CF57C005AC9E0 /* MyriadPro-LightSemiCn.otf in Resources */,
+				FB3D3B2F1D2CF57C005AC9E0 /* AIBueryDetailCell.xib in Resources */,
+				FB3D3B301D2CF57C005AC9E0 /* AirTicketView.xib in Resources */,
+				FB3D3B311D2CF57C005AC9E0 /* CommentDistrictView.xib in Resources */,
+				FB3D3B321D2CF57C005AC9E0 /* AIConfirmOrderCellView.xib in Resources */,
+				FB3D3B331D2CF57C005AC9E0 /* AICustomSearchHomeCell.xib in Resources */,
+				FB3D3B341D2CF57C005AC9E0 /* AIPaymentViewController.xib in Resources */,
+				FB3D3B351D2CF57C005AC9E0 /* CompondServiceCommentViewController.xib in Resources */,
+				FB3D3B361D2CF57C005AC9E0 /* AILocationSelectHeadView.xib in Resources */,
+				FB3D3B371D2CF57C005AC9E0 /* AINavigationBarView.xib in Resources */,
+				FB3D3B381D2CF57C005AC9E0 /* AIDetailTopMenuView.xib in Resources */,
+				FB3D3B391D2CF57C005AC9E0 /* AIEventCapacityView.xib in Resources */,
+				FB3D3B3A1D2CF57C005AC9E0 /* AIProviderView.xib in Resources */,
+				FB3D3B3B1D2CF57C005AC9E0 /* AITimelineTableViewCell.xib in Resources */,
+				FB3D3B3C1D2CF57C005AC9E0 /* MyriadProRegular.ttf in Resources */,
+				FB3D3B3D1D2CF57C005AC9E0 /* MyriadPro-SemiCn.otf in Resources */,
+				FB3D3B3E1D2CF57C005AC9E0 /* JSSDK.js in Resources */,
+				FB3D3B3F1D2CF57C005AC9E0 /* voicesearch.mp3 in Resources */,
+				FB3D3B401D2CF57C005AC9E0 /* TopServiceCommentTableViewCell.xib in Resources */,
+				FB3D3B411D2CF57C005AC9E0 /* SubServiceCard.xib in Resources */,
+				FB3D3B421D2CF57C005AC9E0 /* AIErrorRetryView.xib in Resources */,
+				FB3D3B431D2CF57C005AC9E0 /* UIRrequirementStoryboard.storyboard in Resources */,
+				FB3D3B441D2CF57C005AC9E0 /* BottomServiceContainer.xib in Resources */,
+				FB3D3B451D2CF57C005AC9E0 /* AIProductInfoViewController.xib in Resources */,
+				FB3D3B461D2CF57C005AC9E0 /* AITextMessageView.xib in Resources */,
+				FB3D3B471D2CF57C005AC9E0 /* LaunchScreen.storyboard in Resources */,
+				FB3D3B481D2CF57C005AC9E0 /* AITimePickerViewController.xib in Resources */,
+				FB3D3B491D2CF57C005AC9E0 /* AIIconTextView.xib in Resources */,
+				FB3D3B9C1D2D0438005AC9E0 /* DocBlurPresentViewController.xib in Resources */,
+				FB3D3B4A1D2CF57C005AC9E0 /* AIShoppingListView.xib in Resources */,
+				FB3D3B4B1D2CF57C005AC9E0 /* MJRefresh.bundle in Resources */,
+				FB3D3B4C1D2CF57C005AC9E0 /* AIServerProviderView.xib in Resources */,
+				FB3D3B4D1D2CF57C005AC9E0 /* searchJson.json in Resources */,
+				FB3D3B4E1D2CF57C005AC9E0 /* BuyerRequirmentMessageViewController.xib in Resources */,
+				FB3D3B4F1D2CF57C005AC9E0 /* AIEventTimerView.xib in Resources */,
+				FB3D3B501D2CF57C005AC9E0 /* BuyerMessageCell.xib in Resources */,
+				FB3D3B511D2CF57C005AC9E0 /* read_me.txt in Resources */,
+				FB3D3B521D2CF57C005AC9E0 /* AISuperiorityCellView.xib in Resources */,
+				FB3D3B531D2CF57C005AC9E0 /* AICustomSearchHomeViewController.xib in Resources */,
+				FB3D3B541D2CF57C005AC9E0 /* MiddleServiceContainer.xib in Resources */,
+				FB3D3B551D2CF57C005AC9E0 /* IconLabel.xib in Resources */,
+				FB3D3B561D2CF57C005AC9E0 /* AIAddressRouteView.xib in Resources */,
+				FB3D3B571D2CF57C005AC9E0 /* AICustomAudioNotesView.xib in Resources */,
+				FB3D3B581D2CF57C005AC9E0 /* AIWishVowViewController.xib in Resources */,
+				FB3D3B591D2CF57C005AC9E0 /* ServiceSettingView.xib in Resources */,
+				FB3D3B5A1D2CF57C005AC9E0 /* DependOnNodeCell.xib in Resources */,
+				FB3D3B5B1D2CF57C005AC9E0 /* AISinglePickerView.xib in Resources */,
+				FB3D3B5C1D2CF57C005AC9E0 /* Default-568h@2x.png in Resources */,
+				FB3D3B5D1D2CF57C005AC9E0 /* AIOrderCellEShopSubView.xib in Resources */,
+				FB3D3B5E1D2CF57C005AC9E0 /* AITimelineNowTableViewCell.xib in Resources */,
+				FB3D3B5F1D2CF57C005AC9E0 /* UIPopView.xib in Resources */,
+				FB3D3B601D2CF57C005AC9E0 /* AISuperiorityIconTextView.xib in Resources */,
+				FB3D3B611D2CF57C005AC9E0 /* AIAudioRecordView.xib in Resources */,
+				FB3D3B621D2CF57C005AC9E0 /* OrderAndBuyerInfoView.xib in Resources */,
+				FB3D3B631D2CF57C005AC9E0 /* SeparatorLineLabel.xib in Resources */,
+				FB3D3B641D2CF57C005AC9E0 /* AIAssetsReviewsController.xib in Resources */,
+				FB3D3B651D2CF57C005AC9E0 /* AIAudioMessageView.xib in Resources */,
+				FB3D3B661D2CF57C005AC9E0 /* MyriadPro-Light.otf in Resources */,
+				FB3D3B671D2CF57C005AC9E0 /* MyriadPro-LightSemiExt.otf in Resources */,
+				FB3D3B681D2CF57C005AC9E0 /* AILoginStoryboard.storyboard in Resources */,
+				FB3D3B691D2CF57C005AC9E0 /* AITaskInputViewController.xib in Resources */,
+				FB3D3B6A1D2CF57C005AC9E0 /* AIShoppingListViewCell.xib in Resources */,
+				FB3D3B6B1D2CF57C005AC9E0 /* AIStartEndTimeView.xib in Resources */,
+				FB3D3B6C1D2CF57C005AC9E0 /* Assets.xcassets in Resources */,
+				FB3D3B6D1D2CF57C005AC9E0 /* ServiceRestoreToolBar.xib in Resources */,
+				FB3D3B6E1D2CF57C005AC9E0 /* UICustomsTags.xib in Resources */,
+				FB3D3B6F1D2CF57C005AC9E0 /* WeiboSDK.bundle in Resources */,
+				FB3D3B701D2CF57C005AC9E0 /* multiLabels.json in Resources */,
+				FB3D3B711D2CF57C005AC9E0 /* Localizable.strings in Resources */,
+				FB3D3B721D2CF57C005AC9E0 /* Veris.entitlements in Resources */,
+				FB3D3B731D2CF57C005AC9E0 /* AIDepartReahCityView.xib in Resources */,
+				FB3D3B741D2CF57C005AC9E0 /* AICommentInfoView.xib in Resources */,
+				FB3D3B751D2CF57C005AC9E0 /* AIServiceRouteView.xib in Resources */,
+				FB3D3B761D2CF57C005AC9E0 /* AlipaySDK.bundle in Resources */,
+				FB3D3B771D2CF57C005AC9E0 /* HiraginoSansGBW3.otf in Resources */,
+				FB3D3B781D2CF57C005AC9E0 /* ServiceCommentTableViewCell.xib in Resources */,
+				FB3D3B791D2CF57C005AC9E0 /* ImagesCollectionView.xib in Resources */,
+				FB3D3B7A1D2CF57C005AC9E0 /* AIFoldedCellView.xib in Resources */,
+				FB3D3B7B1D2CF57C005AC9E0 /* AIDatePickerView.xib in Resources */,
+				FB3D3B7C1D2CF57C005AC9E0 /* ServiceCommentViewController.xib in Resources */,
+				FB3D3B7D1D2CF57C005AC9E0 /* AINumberCountControl.xib in Resources */,
+				FB3D3B7E1D2CF57C005AC9E0 /* start.mp4 in Resources */,
+				FB3D3B7F1D2CF57C005AC9E0 /* AITitleAndIconTextView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -4136,6 +5010,79 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FB3D38FC1D2CF57C005AC9E0 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FB3D3B801D2CF57C005AC9E0 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB3D3B811D2CF57C005AC9E0 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB3D3B821D2CF57C005AC9E0 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB3D3B831D2CF57C005AC9E0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nif [ $(swiftlint version) == '0.11.1' ]; then\nswiftlint\nelse\necho \"请升级swiftlint , brew upgrade swiftlint\"\nfi\nelse\necho \"请安装swiftlint , brew install swiftlint\"\nfi\n";
 		};
 		FB9DEBB51D17CBDC00B3595D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4650,6 +5597,506 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB3D39001D2CF57C005AC9E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB3D39011D2CF57C005AC9E0 /* CurveView.m in Sources */,
+				FB3D39021D2CF57C005AC9E0 /* UILabel+Localize.swift in Sources */,
+				FB3D39031D2CF57C005AC9E0 /* AIServiceDetailTool.swift in Sources */,
+				FB3D39041D2CF57C005AC9E0 /* AIConfirmOrderViewController.swift in Sources */,
+				FB3D39051D2CF57C005AC9E0 /* AIAssetsReviewsController.swift in Sources */,
+				FB3D39061D2CF57C005AC9E0 /* AISellerModel.m in Sources */,
+				FB3D39071D2CF57C005AC9E0 /* ServiceCommentViewController.swift in Sources */,
+				FB3D39081D2CF57C005AC9E0 /* UIColorUtils.swift in Sources */,
+				FB3D39091D2CF57C005AC9E0 /* AIServiceContentViewController.swift in Sources */,
+				FB3D390A1D2CF57C005AC9E0 /* AIFakeLoginView.m in Sources */,
+				FB3D390B1D2CF57C005AC9E0 /* AIServiceTypes.m in Sources */,
+				FB3D390C1D2CF57C005AC9E0 /* MD5DataSigner.m in Sources */,
+				FB3D390D1D2CF57C005AC9E0 /* FLEXKeyboardHelpViewController.m in Sources */,
+				FB3D390E1D2CF57C005AC9E0 /* VerticalIconLabel.swift in Sources */,
+				FB3D390F1D2CF57C005AC9E0 /* UIImage+GIF.m in Sources */,
+				FB3D39101D2CF57C005AC9E0 /* FLEXNetworkHistoryTableViewController.m in Sources */,
+				FB3D39111D2CF57C005AC9E0 /* AITimelineFilterViewController.swift in Sources */,
+				FB3D39121D2CF57C005AC9E0 /* ProposalService.swift in Sources */,
+				FB3D39131D2CF57C005AC9E0 /* AIRequirmentModel.swift in Sources */,
+				FB3D39141D2CF57C005AC9E0 /* UICustomsTags.swift in Sources */,
+				FB3D39151D2CF57C005AC9E0 /* AIPriceView.swift in Sources */,
+				FB3D39161D2CF57C005AC9E0 /* ServiceContainerView.swift in Sources */,
+				FB3D39171D2CF57C005AC9E0 /* FLEXArgumentInputStructView.m in Sources */,
+				FB3D39181D2CF57C005AC9E0 /* CGAffineTransform.swift in Sources */,
+				FB3D39191D2CF57C005AC9E0 /* AISingleSelectView.swift in Sources */,
+				FB3D391A1D2CF57C005AC9E0 /* SimpleServiceViewContainer.swift in Sources */,
+				FB3D391B1D2CF57C005AC9E0 /* AIShoppingListView.swift in Sources */,
+				FB3D391C1D2CF57C005AC9E0 /* ProposalProtocal.swift in Sources */,
+				FB3D391D1D2CF57C005AC9E0 /* AIDetailText.m in Sources */,
+				FB3D391E1D2CF57C005AC9E0 /* AITaskTimeLineView.swift in Sources */,
+				FB3D391F1D2CF57C005AC9E0 /* FLEXClassesTableViewController.m in Sources */,
+				FB3D39201D2CF57C005AC9E0 /* AICustomerOrderFoldedView.swift in Sources */,
+				FB3D39211D2CF57C005AC9E0 /* SeparatorLineLabel.swift in Sources */,
+				FB3D39221D2CF57C005AC9E0 /* FLEXTableContentViewController.m in Sources */,
+				FB3D39231D2CF57C005AC9E0 /* AirTicketView.swift in Sources */,
+				FB3D39241D2CF57C005AC9E0 /* AICommentInfoView.swift in Sources */,
+				FB3D39251D2CF57C005AC9E0 /* AITaskNoteEditViewController.swift in Sources */,
+				FB3D39261D2CF57C005AC9E0 /* AIRequireProtocol.swift in Sources */,
+				FB3D39271D2CF57C005AC9E0 /* FLEXNetworkTransactionTableViewCell.m in Sources */,
+				FB3D39281D2CF57C005AC9E0 /* FLEXFieldEditorView.m in Sources */,
+				FB3D39291D2CF57C005AC9E0 /* AIServiceParamView.swift in Sources */,
+				FB3D392A1D2CF57C005AC9E0 /* ImageContent.swift in Sources */,
+				FB3D392B1D2CF57C005AC9E0 /* AIShoppingListViewCell.swift in Sources */,
+				FB3D392C1D2CF57C005AC9E0 /* FLEXTableLeftCell.m in Sources */,
+				FB3D392D1D2CF57C005AC9E0 /* AISingleLineTagView.swift in Sources */,
+				FB3D392E1D2CF57C005AC9E0 /* NSDataEx.m in Sources */,
+				FB3D392F1D2CF57C005AC9E0 /* AIRACClosureTableViewCell.swift in Sources */,
+				FB3D39301D2CF57C005AC9E0 /* BuyerOrderModel.swift in Sources */,
+				FB3D39311D2CF57C005AC9E0 /* AIAssetsPickerController.swift in Sources */,
+				FB3D39321D2CF57C005AC9E0 /* AIInterfaceTest.swift in Sources */,
+				FB3D39331D2CF57C005AC9E0 /* CATransform3D.swift in Sources */,
+				FB3D39341D2CF57C005AC9E0 /* AIOpeningView.m in Sources */,
+				FB3D39351D2CF57C005AC9E0 /* SwitchedTableViewCell.swift in Sources */,
+				FB3D39361D2CF57C005AC9E0 /* PriceAndStepperView.swift in Sources */,
+				FB3D39371D2CF57C005AC9E0 /* UIImage+Resize.m in Sources */,
+				FB3D39381D2CF57C005AC9E0 /* AFHTTPRequestOperation.m in Sources */,
+				FB3D39391D2CF57C005AC9E0 /* AITimePickerView.swift in Sources */,
+				FB3D393A1D2CF57C005AC9E0 /* JumpNumberLabel.swift in Sources */,
+				FB3D393B1D2CF57C005AC9E0 /* KBHTextFieldStepper.swift in Sources */,
+				FB3D393C1D2CF57C005AC9E0 /* UIView+Shake.swift in Sources */,
+				FB3D393D1D2CF57C005AC9E0 /* ReadmeViewController.swift in Sources */,
+				FB3D393E1D2CF57C005AC9E0 /* AISwiftyJSON.swift in Sources */,
+				FB3D393F1D2CF57C005AC9E0 /* KMPlaceholderTextView.swift in Sources */,
+				FB3D39401D2CF57C005AC9E0 /* MKAnnotationView+WebCache.m in Sources */,
+				FB3D39411D2CF57C005AC9E0 /* AIRegistViewController.swift in Sources */,
+				FB3D39421D2CF57C005AC9E0 /* UITextField+Localize.swift in Sources */,
+				FB3D39431D2CF57C005AC9E0 /* FLEXArgumentInputTextView.m in Sources */,
+				FB3D39441D2CF57C005AC9E0 /* openssl_wrapper.m in Sources */,
+				FB3D39451D2CF57C005AC9E0 /* AISearchResultModel.swift in Sources */,
+				FB3D39461D2CF57C005AC9E0 /* LoginConstants.swift in Sources */,
+				FB3D39471D2CF57C005AC9E0 /* OAStackViewDistributionStrategy.m in Sources */,
+				FB3D39481D2CF57C005AC9E0 /* AIBaseModel.swift in Sources */,
+				FB3D39491D2CF57C005AC9E0 /* AISearchHistoryLabels.swift in Sources */,
+				FB3D394A1D2CF57C005AC9E0 /* UIView+MaterialDesign.m in Sources */,
+				FB3D394B1D2CF57C005AC9E0 /* AIAudioInputView.swift in Sources */,
+				FB3D394C1D2CF57C005AC9E0 /* TestExpandableCellViewController.swift in Sources */,
+				FB3D394D1D2CF57C005AC9E0 /* AIBuyServiceModel.swift in Sources */,
+				FB3D394E1D2CF57C005AC9E0 /* AIPaymentViewController.swift in Sources */,
+				FB3D394F1D2CF57C005AC9E0 /* AIKinectButton.swift in Sources */,
+				FB3D39501D2CF57C005AC9E0 /* FLEXLibrariesTableViewController.m in Sources */,
+				FB3D39511D2CF57C005AC9E0 /* AFNetworkReachabilityManager.m in Sources */,
+				FB3D39521D2CF57C005AC9E0 /* AIAssignUtils.swift in Sources */,
+				FB3D39531D2CF57C005AC9E0 /* SDWebImageDownloaderOperation.m in Sources */,
+				FB3D39541D2CF57C005AC9E0 /* ImagePositionButton.swift in Sources */,
+				FB3D39551D2CF57C005AC9E0 /* FLEXNetworkRecorder.m in Sources */,
+				FB3D39561D2CF57C005AC9E0 /* AIUIViewUtils.swift in Sources */,
+				FB3D39571D2CF57C005AC9E0 /* OAStackView+Hiding.m in Sources */,
+				FB3D39581D2CF57C005AC9E0 /* ListSubServiceCardView.swift in Sources */,
+				FB3D39591D2CF57C005AC9E0 /* FLEXArrayExplorerViewController.m in Sources */,
+				FB3D395A1D2CF57C005AC9E0 /* AITitleAndIconTextView.swift in Sources */,
+				FB3D395B1D2CF57C005AC9E0 /* FLEXImageExplorerViewController.m in Sources */,
+				FB3D395C1D2CF57C005AC9E0 /* GIBadgeView.m in Sources */,
+				FB3D395D1D2CF57C005AC9E0 /* AIOrderPreModel.m in Sources */,
+				FB3D395E1D2CF57C005AC9E0 /* AIModelSerice.swift in Sources */,
+				FB3D395F1D2CF57C005AC9E0 /* FLEXDefaultsExplorerViewController.m in Sources */,
+				FB3D39601D2CF57C005AC9E0 /* FLEXWindow.m in Sources */,
+				FB3D39611D2CF57C005AC9E0 /* FLEXObjectExplorerFactory.m in Sources */,
+				FB3D39621D2CF57C005AC9E0 /* ExpandContentViewFactory.swift in Sources */,
+				FB3D39631D2CF57C005AC9E0 /* JSONValueTransformer.m in Sources */,
+				FB3D39641D2CF57C005AC9E0 /* NSObjcetUtils.swift in Sources */,
+				FB3D39651D2CF57C005AC9E0 /* AITimePickerViewController.swift in Sources */,
+				FB3D39661D2CF57C005AC9E0 /* FLEXPropertyEditorViewController.m in Sources */,
+				FB3D39671D2CF57C005AC9E0 /* OrderAndBuyerInfoView.swift in Sources */,
+				FB3D39681D2CF57C005AC9E0 /* AIStartEndTimeView.swift in Sources */,
+				FB3D39691D2CF57C005AC9E0 /* JSSAlertView-Extension.swift in Sources */,
+				FB3D396A1D2CF57C005AC9E0 /* JSONAPI.m in Sources */,
+				FB3D396B1D2CF57C005AC9E0 /* DataVerifier.m in Sources */,
+				FB3D396C1D2CF57C005AC9E0 /* AIDetailTopMenuView.swift in Sources */,
+				FB3D396D1D2CF57C005AC9E0 /* AIPayListInfoCellView.swift in Sources */,
+				FB3D396E1D2CF57C005AC9E0 /* VerticalIconLabelCollectionView.swift in Sources */,
+				FB3D396F1D2CF57C005AC9E0 /* AIConnectToolModel.swift in Sources */,
+				FB3D39701D2CF57C005AC9E0 /* AIPathRouteViewController.swift in Sources */,
+				FB3D39711D2CF57C005AC9E0 /* AICatalogServicesModel.swift in Sources */,
+				FB3D39721D2CF57C005AC9E0 /* AIOrderDetailService.swift in Sources */,
+				FB3D39731D2CF57C005AC9E0 /* FLEXArgumentInputJSONObjectView.m in Sources */,
+				FB3D39741D2CF57C005AC9E0 /* AIMessage.m in Sources */,
+				FB3D39751D2CF57C005AC9E0 /* FLEXResources.m in Sources */,
+				FB3D39761D2CF57C005AC9E0 /* SDWebImageManager.m in Sources */,
+				FB3D39771D2CF57C005AC9E0 /* AIRemoteNotificationHandler.swift in Sources */,
+				FB3D39781D2CF57C005AC9E0 /* AITagLabel.m in Sources */,
+				FB3D39791D2CF57C005AC9E0 /* AIBuyerBubbleModel.m in Sources */,
+				FB3D397A1D2CF57C005AC9E0 /* UIImage+MultiFormat.m in Sources */,
+				FB3D397B1D2CF57C005AC9E0 /* IconLabel.swift in Sources */,
+				FB3D397C1D2CF57C005AC9E0 /* AFHTTPRequestOperationManager.m in Sources */,
+				FB3D397D1D2CF57C005AC9E0 /* AITaskEditViewController.swift in Sources */,
+				FB3D397E1D2CF57C005AC9E0 /* FLEXArgumentInputView.m in Sources */,
+				FB3D397F1D2CF57C005AC9E0 /* ProposalServiceDetailBaseView.m in Sources */,
+				FB3D39801D2CF57C005AC9E0 /* CompondServiceCommentViewController.swift in Sources */,
+				FB3D39811D2CF57C005AC9E0 /* FLEXKeyboardShortcutManager.m in Sources */,
+				FB3D39821D2CF57C005AC9E0 /* UIBezierPageView.swift in Sources */,
+				FB3D39831D2CF57C005AC9E0 /* FLEXGlobalsTableViewControllerEntry.m in Sources */,
+				FB3D39841D2CF57C005AC9E0 /* AIRACContentCell.swift in Sources */,
+				FB3D39851D2CF57C005AC9E0 /* AIFakeUser.m in Sources */,
+				FB3D39861D2CF57C005AC9E0 /* AFHTTPSessionManager.m in Sources */,
+				FB3D39871D2CF57C005AC9E0 /* AINavigationBar.swift in Sources */,
+				FB3D39881D2CF57C005AC9E0 /* AIModels.swift in Sources */,
+				FB3D39891D2CF57C005AC9E0 /* AIRemoteRequestQueue.swift in Sources */,
+				FB3D398A1D2CF57C005AC9E0 /* AIDeleteActionDelegate.swift in Sources */,
+				FB3D398B1D2CF57C005AC9E0 /* AIRequirementViewModel.swift in Sources */,
+				FB3D398C1D2CF57C005AC9E0 /* AICircleProgressView.swift in Sources */,
+				FB3D398D1D2CF57C005AC9E0 /* AIServiceParamBaseView.m in Sources */,
+				FB3D398E1D2CF57C005AC9E0 /* PaddingLabel.swift in Sources */,
+				FB3D398F1D2CF57C005AC9E0 /* ContentsCellView.swift in Sources */,
+				FB3D39901D2CF57C005AC9E0 /* UIDeviceExtension.swift in Sources */,
+				FB3D39911D2CF57C005AC9E0 /* AIOrdeRequireServices.swift in Sources */,
+				FB3D39921D2CF57C005AC9E0 /* CommonUtil.m in Sources */,
+				FB3D39931D2CF57C005AC9E0 /* AIHorizontalLineLabel.swift in Sources */,
+				FB3D39941D2CF57C005AC9E0 /* FLEXMultilineTableViewCell.m in Sources */,
+				FB3D39951D2CF57C005AC9E0 /* AIHorizontalBarChart.m in Sources */,
+				FB3D39961D2CF57C005AC9E0 /* FLEXLiveObjectsTableViewController.m in Sources */,
+				FB3D39971D2CF57C005AC9E0 /* BubbleView.m in Sources */,
+				FB3D39981D2CF57C005AC9E0 /* _OALayoutGuide.m in Sources */,
+				FB3D39991D2CF57C005AC9E0 /* AIFundManageViewController.swift in Sources */,
+				FB3D399A1D2CF57C005AC9E0 /* ServiceDetailView.swift in Sources */,
+				FB3D399B1D2CF57C005AC9E0 /* AITextMessageView.swift in Sources */,
+				FB3D399C1D2CF57C005AC9E0 /* AIBuyerTableCellView.swift in Sources */,
+				FB3D399D1D2CF57C005AC9E0 /* AILocationSelectHeadView.swift in Sources */,
+				FB3D399E1D2CF57C005AC9E0 /* FLEXArgumentInputDateView.m in Sources */,
+				FB3D3B8E1D2CF65F005AC9E0 /* DocAppDelegate.swift in Sources */,
+				FB3D399F1D2CF57C005AC9E0 /* UIImageView+WebCache.m in Sources */,
+				FB3D39A01D2CF57C005AC9E0 /* TDImageColors.m in Sources */,
+				FB3D39A11D2CF57C005AC9E0 /* AIAddressRouteView.swift in Sources */,
+				FB3D39A21D2CF57C005AC9E0 /* OAStackView+Constraint.m in Sources */,
+				FB3D39A31D2CF57C005AC9E0 /* AIWorkManageViewController.swift in Sources */,
+				FB3D39A41D2CF57C005AC9E0 /* UIImageUtils.swift in Sources */,
+				FB3D39A51D2CF57C005AC9E0 /* FLEXArgumentInputSwitchView.m in Sources */,
+				FB3D39A61D2CF57C005AC9E0 /* UIView+Toast.m in Sources */,
+				FB3D39A71D2CF57C005AC9E0 /* ServiceCommentTableViewCell.swift in Sources */,
+				FB3D39A81D2CF57C005AC9E0 /* AIServiceSearchView.swift in Sources */,
+				FB3D39A91D2CF57C005AC9E0 /* AIAssetsViewCell.swift in Sources */,
+				FB3D39AA1D2CF57C005AC9E0 /* FLEXDatabaseManager.m in Sources */,
+				FB3D39AB1D2CF57C005AC9E0 /* AITransformManager.swift in Sources */,
+				FB3D39AC1D2CF57C005AC9E0 /* AICustomAudioNotesView.swift in Sources */,
+				FB3D39AD1D2CF57C005AC9E0 /* OAStackViewAlignmentStrategyBaseline.m in Sources */,
+				FB3D39AE1D2CF57C005AC9E0 /* BottomServiceContainerView.swift in Sources */,
+				FB3D39AF1D2CF57C005AC9E0 /* AISellerCell.m in Sources */,
+				FB3D39B01D2CF57C005AC9E0 /* AITimelineNowTableViewCell.swift in Sources */,
+				FB3D39B11D2CF57C005AC9E0 /* AISellerViewController.m in Sources */,
+				FB3D39B21D2CF57C005AC9E0 /* AIWishModel.swift in Sources */,
+				FB3D39B31D2CF57C005AC9E0 /* AIMusicTherapyView.m in Sources */,
+				FB3D39B41D2CF57C005AC9E0 /* JSONModelClassProperty.m in Sources */,
+				FB3D39B51D2CF57C005AC9E0 /* DDHTimerControl.m in Sources */,
+				FB3D39B61D2CF57C005AC9E0 /* AIPopupChooseBaseView.swift in Sources */,
+				FB3D39B71D2CF57C005AC9E0 /* AIErrorRetryView.swift in Sources */,
+				FB3D39B81D2CF57C005AC9E0 /* UICollectionViewWaterfallLayout.m in Sources */,
+				FB3D39B91D2CF57C005AC9E0 /* IATConfig.m in Sources */,
+				FB3D39BA1D2CF57C005AC9E0 /* ServiceOrderDetailModel.m in Sources */,
+				FB3D39BB1D2CF57C005AC9E0 /* AIWishMessageView.swift in Sources */,
+				FB3D39BC1D2CF57C005AC9E0 /* OAStackView.m in Sources */,
+				FB3D39BD1D2CF57C005AC9E0 /* AITaskDataModel.swift in Sources */,
+				FB3D39BE1D2CF57C005AC9E0 /* FLEXSystemLogTableViewController.m in Sources */,
+				FB3D39BF1D2CF57C005AC9E0 /* OAStackViewAlignmentStrategy.m in Sources */,
+				FB3D39C01D2CF57C005AC9E0 /* SubServiceCardView.swift in Sources */,
+				FB3D39C11D2CF57C005AC9E0 /* ExpandableTableViewCell.swift in Sources */,
+				FB3D39C21D2CF57C005AC9E0 /* AISearchBar.swift in Sources */,
+				FB3D39C31D2CF57C005AC9E0 /* FLEXArgumentInputViewFactory.m in Sources */,
+				FB3D3B9A1D2D0431005AC9E0 /* DocBlurPresentViewController.swift in Sources */,
+				FB3D39C41D2CF57C005AC9E0 /* FLEXDefaultEditorViewController.m in Sources */,
+				FB3D39C51D2CF57C005AC9E0 /* OBShapedButton.m in Sources */,
+				FB3D39C61D2CF57C005AC9E0 /* AIProviderDataObtainer.swift in Sources */,
+				FB3D39C71D2CF57C005AC9E0 /* UINavigationBar+Awesome.m in Sources */,
+				FB3D39C81D2CF57C005AC9E0 /* AIProductInfoServcieInfoView.swift in Sources */,
+				FB3D39C91D2CF57C005AC9E0 /* AINavigationBarView.swift in Sources */,
+				FB3D39CA1D2CF57C005AC9E0 /* AIGalleryView.swift in Sources */,
+				FB3D39CB1D2CF57C005AC9E0 /* AIServiceSchemeModel.swift in Sources */,
+				FB3D39CC1D2CF57C005AC9E0 /* FLEXFileBrowserFileOperationController.m in Sources */,
+				FB3D39CD1D2CF57C005AC9E0 /* AILoginService.swift in Sources */,
+				FB3D39CE1D2CF57C005AC9E0 /* SwitchExampleViewController.swift in Sources */,
+				FB3D39CF1D2CF57C005AC9E0 /* FLEXToolbarItem.m in Sources */,
+				FB3D39D01D2CF57C005AC9E0 /* UIButton+WebCache.m in Sources */,
+				FB3D39D11D2CF57C005AC9E0 /* AIServerProviderView.swift in Sources */,
+				FB3D39D21D2CF57C005AC9E0 /* ProposalEnum.swift in Sources */,
+				FB3D39D31D2CF57C005AC9E0 /* AIProductCommentsViewController.swift in Sources */,
+				FB3D39D41D2CF57C005AC9E0 /* TopServiceContainerView.swift in Sources */,
+				FB3D39D51D2CF57C005AC9E0 /* AIBuyerDetailViewController.swift in Sources */,
+				FB3D39D61D2CF57C005AC9E0 /* AIServiceDetailUIModel.m in Sources */,
+				FB3D39D71D2CF57C005AC9E0 /* AIAppInit.m in Sources */,
+				FB3D39D81D2CF57C005AC9E0 /* AICommentCell.m in Sources */,
+				FB3D39D91D2CF57C005AC9E0 /* JSONSerializer.swift in Sources */,
+				FB3D39DA1D2CF57C005AC9E0 /* AIOrderMangerProtocol.swift in Sources */,
+				FB3D39DB1D2CF57C005AC9E0 /* AIRequirementMenuViewController.swift in Sources */,
+				FB3D39DC1D2CF57C005AC9E0 /* JSONModelArray.m in Sources */,
+				FB3D39DD1D2CF57C005AC9E0 /* NSArray+JSONModel.m in Sources */,
+				FB3D39DE1D2CF57C005AC9E0 /* AIAudioSearchViewController.swift in Sources */,
+				FB3D39DF1D2CF57C005AC9E0 /* AFURLRequestSerialization.m in Sources */,
+				FB3D39E01D2CF57C005AC9E0 /* AIExecuteServiceModel.m in Sources */,
+				FB3D39E11D2CF57C005AC9E0 /* AIChangePasswordViewController.swift in Sources */,
+				FB3D39E21D2CF57C005AC9E0 /* AILocationSelectViewController.swift in Sources */,
+				FB3D39E31D2CF57C005AC9E0 /* FLEXHeapEnumerator.m in Sources */,
+				FB3D39E41D2CF57C005AC9E0 /* RRFlowLayout.swift in Sources */,
+				FB3D39E51D2CF57C005AC9E0 /* ServiceCardTextView.swift in Sources */,
+				FB3D39E61D2CF57C005AC9E0 /* AIProductQAViewController.swift in Sources */,
+				FB3D39E71D2CF57C005AC9E0 /* AIFavoritesServicesModel.swift in Sources */,
+				FB3D39E81D2CF57C005AC9E0 /* UIPopView.swift in Sources */,
+				FB3D39E91D2CF57C005AC9E0 /* AISelectedServiceTableVController.swift in Sources */,
+				FB3D39EA1D2CF57C005AC9E0 /* SDWebImagePrefetcher.m in Sources */,
+				FB3D39EB1D2CF57C005AC9E0 /* JSONModel+networking.m in Sources */,
+				FB3D39EC1D2CF57C005AC9E0 /* OATransformLayer.m in Sources */,
+				FB3D39ED1D2CF57C005AC9E0 /* AFSecurityPolicy.m in Sources */,
+				FB3D39EE1D2CF57C005AC9E0 /* AICustomerServiceExecuteModel.swift in Sources */,
+				FB3D39EF1D2CF57C005AC9E0 /* MJRefreshConst.m in Sources */,
+				FB3D39F01D2CF57C005AC9E0 /* AIRequirementHandler.swift in Sources */,
+				FB3D39F11D2CF57C005AC9E0 /* AISelectRegionViewController.swift in Sources */,
+				FB3D39F21D2CF57C005AC9E0 /* AIAliPayOrder.swift in Sources */,
+				FB3D39F31D2CF57C005AC9E0 /* AIRequireContentViewController.swift in Sources */,
+				FB3D39F41D2CF57C005AC9E0 /* UILabel-Helper.swift in Sources */,
+				FB3D39F51D2CF57C005AC9E0 /* JTSScrollIndicator.m in Sources */,
+				FB3D39F61D2CF57C005AC9E0 /* CustomPickerColumnView.swift in Sources */,
+				FB3D39F71D2CF57C005AC9E0 /* AIImageRecongizeService.swift in Sources */,
+				FB3D3BA11D2D07BB005AC9E0 /* DocButtonImagePositionViewController.swift in Sources */,
+				FB3D39F81D2CF57C005AC9E0 /* AIOrderCellEShopSubView.swift in Sources */,
+				FB3D39F91D2CF57C005AC9E0 /* FLEXArgumentInputNotSupportedView.m in Sources */,
+				FB3D3B911D2CFBAA005AC9E0 /* DocRootViewController.swift in Sources */,
+				FB3D39FA1D2CF57C005AC9E0 /* CommentDistrictView.swift in Sources */,
+				FB3D39FB1D2CF57C005AC9E0 /* AIServiceRouteView.swift in Sources */,
+				FB3D39FC1D2CF57C005AC9E0 /* AIIconTextView.swift in Sources */,
+				FB3D39FD1D2CF57C005AC9E0 /* AIRACClosureTableViewDataSource.swift in Sources */,
+				FB3D39FE1D2CF57C005AC9E0 /* OBShapedImageView.m in Sources */,
+				FB3D39FF1D2CF57C005AC9E0 /* RRTagCollectionViewCell.swift in Sources */,
+				FB3D3A001D2CF57C005AC9E0 /* AIShareViewController.m in Sources */,
+				FB3D3A011D2CF57C005AC9E0 /* AIRequirementViewController.swift in Sources */,
+				FB3D3A021D2CF57C005AC9E0 /* SDWebImageCompat.m in Sources */,
+				FB3D3A031D2CF57C005AC9E0 /* UIButton+Localize.swift in Sources */,
+				FB3D3A041D2CF57C005AC9E0 /* BuyerMessageCell.swift in Sources */,
+				FB3D3A051D2CF57C005AC9E0 /* AIOrderDetailModel.swift in Sources */,
+				FB3D3A061D2CF57C005AC9E0 /* AIAudioRecordView.swift in Sources */,
+				FB3D3A071D2CF57C005AC9E0 /* FLEXFileBrowserTableViewController.m in Sources */,
+				FB3D3A081D2CF57C005AC9E0 /* UIColor+TDAdditions.m in Sources */,
+				FB3D3A091D2CF57C005AC9E0 /* AIOrderTableModel.m in Sources */,
+				FB3D3A0A1D2CF57C005AC9E0 /* AIFavoriteContentModel.swift in Sources */,
+				FB3D3A0B1D2CF57C005AC9E0 /* AirTicketGroupView.swift in Sources */,
+				FB3D3A0C1D2CF57C005AC9E0 /* FLEXViewControllerExplorerViewController.m in Sources */,
+				FB3D3A0D1D2CF57C005AC9E0 /* DependOnNodePickerViewController.swift in Sources */,
+				FB3D3A0E1D2CF57C005AC9E0 /* BuildInCameraUtils.swift in Sources */,
+				FB3D3A0F1D2CF57C005AC9E0 /* FLEXArgumentInputStringView.m in Sources */,
+				FB3D3A101D2CF57C005AC9E0 /* KGNAutoLayout.swift in Sources */,
+				FB3D3A111D2CF57C005AC9E0 /* FLEXImagePreviewViewController.m in Sources */,
+				FB3D3A121D2CF57C005AC9E0 /* AIViews.m in Sources */,
+				FB3D3A131D2CF57C005AC9E0 /* AIStarRate.m in Sources */,
+				FB3D3A141D2CF57C005AC9E0 /* AIDropdownBrandView.swift in Sources */,
+				FB3D3A151D2CF57C005AC9E0 /* ImagesCollectionView.swift in Sources */,
+				FB3D3A161D2CF57C005AC9E0 /* AIProviderView.swift in Sources */,
+				FB3D3A171D2CF57C005AC9E0 /* Localize.swift in Sources */,
+				FB3D3A181D2CF57C005AC9E0 /* JSONModel.m in Sources */,
+				FB3D3A191D2CF57C005AC9E0 /* AICutomSearchHomeResultFilterBar.swift in Sources */,
+				FB3D3A1A1D2CF57C005AC9E0 /* FLEXRuntimeUtility.m in Sources */,
+				FB3D3A1B1D2CF57C005AC9E0 /* FLEXNetworkSettingsTableViewController.m in Sources */,
+				FB3D3A1C1D2CF57C005AC9E0 /* ServiceCardDetailIcon.swift in Sources */,
+				FB3D3A1D1D2CF57C005AC9E0 /* FLEXNetworkObserver.m in Sources */,
+				FB3D3A1E1D2CF57C005AC9E0 /* AILimitListViewController.swift in Sources */,
+				FB3D3A1F1D2CF57C005AC9E0 /* AIBueryDetailCell.swift in Sources */,
+				FB3D3A201D2CF57C005AC9E0 /* AIDefines.swift in Sources */,
+				FB3D3A211D2CF57C005AC9E0 /* UIViewController+AIPopup.swift in Sources */,
+				FB3D3A221D2CF57C005AC9E0 /* TopServiceCommentTableViewCell.swift in Sources */,
+				FB3D3A231D2CF57C005AC9E0 /* DependOnNodeCell.swift in Sources */,
+				FB3D3A241D2CF57C005AC9E0 /* FLEXFieldEditorViewController.m in Sources */,
+				FB3D3A251D2CF57C005AC9E0 /* AIOrderManagementModels.m in Sources */,
+				FB3D3A261D2CF57C005AC9E0 /* CustomXibView.swift in Sources */,
+				FB3D3A271D2CF57C005AC9E0 /* AIUIDevice.swift in Sources */,
+				FB3D3A281D2CF57C005AC9E0 /* AlipayOrder.swift in Sources */,
+				FB3D3A291D2CF57C005AC9E0 /* SDWebImageDownloader.m in Sources */,
+				FB3D3A2A1D2CF57C005AC9E0 /* AFURLConnectionOperation.m in Sources */,
+				FB3D3A2B1D2CF57C005AC9E0 /* SESlideTableViewCell.m in Sources */,
+				FB3D3A2C1D2CF57C005AC9E0 /* ViewProtocal.swift in Sources */,
+				FB3D3A2D1D2CF57C005AC9E0 /* ProposalModel.m in Sources */,
+				FB3D3A2E1D2CF57C005AC9E0 /* AICustomSearchHomeCell.swift in Sources */,
+				FB3D3A2F1D2CF57C005AC9E0 /* PurchasedServiceView.swift in Sources */,
+				FB3D3A301D2CF57C005AC9E0 /* AISearchHistoryIconView.swift in Sources */,
+				FB3D3A311D2CF57C005AC9E0 /* AICustomView.swift in Sources */,
+				FB3D3A321D2CF57C005AC9E0 /* AINumberCountControl.swift in Sources */,
+				FB3D3A331D2CF57C005AC9E0 /* AIServiceSubmitModel.m in Sources */,
+				FB3D3A341D2CF57C005AC9E0 /* MJRefreshBaseView.m in Sources */,
+				FB3D3A351D2CF57C005AC9E0 /* AICustomSearchHomeViewController.swift in Sources */,
+				FB3D3A361D2CF57C005AC9E0 /* AIBaseTagsView.m in Sources */,
+				FB3D3A371D2CF57C005AC9E0 /* AFURLSessionManager.m in Sources */,
+				FB3D3A381D2CF57C005AC9E0 /* Async.swift in Sources */,
+				FB3D3A391D2CF57C005AC9E0 /* AIRootViewController.m in Sources */,
+				FB3D3A3A1D2CF57C005AC9E0 /* AIPageBueryViewController.swift in Sources */,
+				FB3D3A3B1D2CF57C005AC9E0 /* SevenSwitch.swift in Sources */,
+				FB3D3A3C1D2CF57C005AC9E0 /* UIImageView+HighlightedWebCache.m in Sources */,
+				FB3D3A3D1D2CF57C005AC9E0 /* AIHttpEngine.swift in Sources */,
+				FB3D3A3E1D2CF57C005AC9E0 /* AICustomerModels.swift in Sources */,
+				FB3D3A3F1D2CF57C005AC9E0 /* AIWaterView.swift in Sources */,
+				FB3D3A401D2CF57C005AC9E0 /* AIVerticalScrollView.swift in Sources */,
+				FB3D3A411D2CF57C005AC9E0 /* FLEXUtility.m in Sources */,
+				FB3D3A421D2CF57C005AC9E0 /* FLEXHierarchyTableViewController.m in Sources */,
+				FB3D3A431D2CF57C005AC9E0 /* AITaskTagViewController.swift in Sources */,
+				FB3D3A441D2CF57C005AC9E0 /* AIImageView.swift in Sources */,
+				FB3D3A451D2CF57C005AC9E0 /* AISinglePickerView.swift in Sources */,
+				FB3D3A461D2CF57C005AC9E0 /* AILoginUtil.swift in Sources */,
+				FB3D3A471D2CF57C005AC9E0 /* FLEXCookiesTableViewController.m in Sources */,
+				FB3D3A481D2CF57C005AC9E0 /* KMActivityIndicator.m in Sources */,
+				FB3D3A491D2CF57C005AC9E0 /* AFURLResponseSerialization.m in Sources */,
+				FB3D3A4A1D2CF57C005AC9E0 /* AIOrderService.swift in Sources */,
+				FB3D3A4B1D2CF57C005AC9E0 /* AIAudioMessageView.swift in Sources */,
+				FB3D3A4C1D2CF57C005AC9E0 /* UIView+MJExtension.m in Sources */,
+				FB3D3A4D1D2CF57C005AC9E0 /* FLEXExplorerToolbar.m in Sources */,
+				FB3D3A4E1D2CF57C005AC9E0 /* AISuperiorityViewController.swift in Sources */,
+				FB3D3A4F1D2CF57C005AC9E0 /* AIMessageWrapper.m in Sources */,
+				FB3D3A501D2CF57C005AC9E0 /* AIEventTimerView.swift in Sources */,
+				FB3D3A511D2CF57C005AC9E0 /* FLEXMultiColumnTableView.m in Sources */,
+				FB3D3A521D2CF57C005AC9E0 /* PKYStepper.m in Sources */,
+				FB3D3A531D2CF57C005AC9E0 /* FLEXGlobalsTableViewController.m in Sources */,
+				FB3D3A541D2CF57C005AC9E0 /* AILocalStore.swift in Sources */,
+				FB3D3A551D2CF57C005AC9E0 /* AIWishVowViewController.swift in Sources */,
+				FB3D3A561D2CF57C005AC9E0 /* DataSigner.m in Sources */,
+				FB3D3A571D2CF57C005AC9E0 /* AIAssignmentContentViewController.swift in Sources */,
+				FB3D3A581D2CF57C005AC9E0 /* AIServiceRouteViewController.swift in Sources */,
+				FB3D3A591D2CF57C005AC9E0 /* AIFavorServicesManager.swift in Sources */,
+				FB3D3A5A1D2CF57C005AC9E0 /* SDWebImageDecoder.m in Sources */,
+				FB3D3A5B1D2CF57C005AC9E0 /* AIBuyerModels.m in Sources */,
+				FB3D3A5C1D2CF57C005AC9E0 /* FlightServiceView.swift in Sources */,
+				FB3D3A5D1D2CF57C005AC9E0 /* UIIMage+Color.m in Sources */,
+				FB3D3A5E1D2CF57C005AC9E0 /* FLEXArgumentInputNumberView.m in Sources */,
+				FB3D3A5F1D2CF57C005AC9E0 /* Player.swift in Sources */,
+				FB3D3A601D2CF57C005AC9E0 /* FLEXWebViewController.m in Sources */,
+				FB3D3A611D2CF57C005AC9E0 /* AITagsView.swift in Sources */,
+				FB3D3A621D2CF57C005AC9E0 /* AIConfirmOrderCellView.swift in Sources */,
+				FB3D3A631D2CF57C005AC9E0 /* FLEXTableListViewController.m in Sources */,
+				FB3D3A641D2CF57C005AC9E0 /* AISchemeDataObtainer.swift in Sources */,
+				FB3D3A651D2CF57C005AC9E0 /* SwitchServiceView.swift in Sources */,
+				FB3D3A661D2CF57C005AC9E0 /* AIUINavigationController.m in Sources */,
+				FB3D3A671D2CF57C005AC9E0 /* AITimelineTableViewCell.swift in Sources */,
+				FB3D3A681D2CF57C005AC9E0 /* JSSAlertView.swift in Sources */,
+				FB3D3A691D2CF57C005AC9E0 /* UIImage+Effect.m in Sources */,
+				FB3D3A6A1D2CF57C005AC9E0 /* AIPopHoldView.swift in Sources */,
+				FB3D3A6B1D2CF57C005AC9E0 /* Order.m in Sources */,
+				FB3D3A6C1D2CF57C005AC9E0 /* UIImage+WebP.m in Sources */,
+				FB3D3A6D1D2CF57C005AC9E0 /* FLEXNetworkTransactionDetailTableViewController.m in Sources */,
+				FB3D3A6E1D2CF57C005AC9E0 /* NSData+ImageContentType.m in Sources */,
+				FB3D3A6F1D2CF57C005AC9E0 /* CommentHelp.swift in Sources */,
+				FB3D3A701D2CF57C005AC9E0 /* CurveModel.m in Sources */,
+				FB3D3A711D2CF57C005AC9E0 /* AbsCommentViewController.swift in Sources */,
+				FB3D3A721D2CF57C005AC9E0 /* AIPayInfoModel.swift in Sources */,
+				FB3D3A731D2CF57C005AC9E0 /* AIDepartReahCityView.swift in Sources */,
+				FB3D3A741D2CF57C005AC9E0 /* UIView+WebCacheOperation.m in Sources */,
+				FB3D3A751D2CF57C005AC9E0 /* ServiceCardDetailShopping.swift in Sources */,
+				FB3D3A761D2CF57C005AC9E0 /* UPLabel.m in Sources */,
+				FB3D3A771D2CF57C005AC9E0 /* UP_NSString+Size.m in Sources */,
+				FB3D3A781D2CF57C005AC9E0 /* KMDetailsPageView.m in Sources */,
+				FB3D3A791D2CF57C005AC9E0 /* AIValidateRegistViewController.swift in Sources */,
+				FB3D3A7A1D2CF57C005AC9E0 /* AIServiceCoverage.m in Sources */,
+				FB3D3A7B1D2CF57C005AC9E0 /* FLEXSystemLogTableViewCell.m in Sources */,
+				FB3D3A7C1D2CF57C005AC9E0 /* AISuperiorityCellView.swift in Sources */,
+				FB3D3A7D1D2CF57C005AC9E0 /* UIScrollView+MJExtension.m in Sources */,
+				FB3D3A7E1D2CF57C005AC9E0 /* UIImage+ColorAtPixel.m in Sources */,
+				FB3D3A7F1D2CF57C005AC9E0 /* FLEXArgumentInputFontView.m in Sources */,
+				FB3D3A801D2CF57C005AC9E0 /* GBSlideOutToUnlockView.m in Sources */,
+				FB3D3A811D2CF57C005AC9E0 /* AISellingProgressBar.m in Sources */,
+				FB3D3A821D2CF57C005AC9E0 /* AICollContentViewController.swift in Sources */,
+				FB3D3A831D2CF57C005AC9E0 /* AINetEngine.m in Sources */,
+				FB3D3A841D2CF57C005AC9E0 /* MDCSpotlightView.m in Sources */,
+				FB3D3A851D2CF57C005AC9E0 /* RRTagController.swift in Sources */,
+				FB3D3A861D2CF57C005AC9E0 /* SwiftWebViewBridge.swift in Sources */,
+				FB3D3A871D2CF57C005AC9E0 /* FLEXHierarchyTableViewCell.m in Sources */,
+				FB3D3A881D2CF57C005AC9E0 /* CollectionViewLayout.swift in Sources */,
+				FB3D3A891D2CF57C005AC9E0 /* StarRateView.swift in Sources */,
+				FB3D3A8A1D2CF57C005AC9E0 /* ImageCard.swift in Sources */,
+				FB3D3A8B1D2CF57C005AC9E0 /* FLEXTableColumnHeader.m in Sources */,
+				FB3D3A8C1D2CF57C005AC9E0 /* AIAssignServiceView.swift in Sources */,
+				FB3D3A8D1D2CF57C005AC9E0 /* FLEXNetworkTransaction.m in Sources */,
+				FB3D3A8E1D2CF57C005AC9E0 /* AITagModel.swift in Sources */,
+				FB3D3A8F1D2CF57C005AC9E0 /* RAReorderableLayout.swift in Sources */,
+				FB3D3A901D2CF57C005AC9E0 /* AISuperSwipeableCell.m in Sources */,
+				FB3D3A911D2CF57C005AC9E0 /* AIRACModel.swift in Sources */,
+				FB3D3A921D2CF57C005AC9E0 /* FLEXDictionaryExplorerViewController.m in Sources */,
+				FB3D3A931D2CF57C005AC9E0 /* JSONHTTPClient.m in Sources */,
+				FB3D3A941D2CF57C005AC9E0 /* AISuperiorityIconTextView.swift in Sources */,
+				FB3D3A951D2CF57C005AC9E0 /* AIBubblesView.m in Sources */,
+				FB3D3A961D2CF57C005AC9E0 /* SDImageCache.m in Sources */,
+				FB3D3A971D2CF57C005AC9E0 /* ServiceSettingView.swift in Sources */,
+				FB3D3A981D2CF57C005AC9E0 /* ServiceRestoreToolBar.swift in Sources */,
+				FB3D3A991D2CF57C005AC9E0 /* FLEXInstancesTableViewController.m in Sources */,
+				FB3D3A9A1D2CF57C005AC9E0 /* AIProposalTableViewController.swift in Sources */,
+				FB3D3A9B1D2CF57C005AC9E0 /* UIViewControllerUtils.swift in Sources */,
+				FB3D3A9C1D2CF57C005AC9E0 /* AIEventCapacityView.swift in Sources */,
+				FB3D3A9D1D2CF57C005AC9E0 /* NullSafe.m in Sources */,
+				FB3D3A9E1D2CF57C005AC9E0 /* FLEXSetExplorerViewController.m in Sources */,
+				FB3D3A9F1D2CF57C005AC9E0 /* FLEXSystemLogMessage.m in Sources */,
+				FB3D3AA01D2CF57C005AC9E0 /* WXPayClient.m in Sources */,
+				FB3D3AA11D2CF57C005AC9E0 /* FLEXIvarEditorViewController.m in Sources */,
+				FB3D3AA21D2CF57C005AC9E0 /* FLEXArgumentInputColorView.m in Sources */,
+				FB3D3AA31D2CF57C005AC9E0 /* ISRDataHelper.m in Sources */,
+				FB3D3AA41D2CF57C005AC9E0 /* AIServiceLabel.m in Sources */,
+				FB3D3AA51D2CF57C005AC9E0 /* AITagDescView.swift in Sources */,
+				FB3D3AA61D2CF57C005AC9E0 /* FLEXExplorerViewController.m in Sources */,
+				FB3D3AA71D2CF57C005AC9E0 /* CheckboxButton.swift in Sources */,
+				FB3D3AA81D2CF57C005AC9E0 /* AITools.m in Sources */,
+				FB3D3AA91D2CF57C005AC9E0 /* FLEXViewExplorerViewController.m in Sources */,
+				FB3D3AAA1D2CF57C005AC9E0 /* AISellerCollectionViewCell.m in Sources */,
+				FB3D3AAB1D2CF57C005AC9E0 /* AILimitListView.swift in Sources */,
+				FB3D3AAC1D2CF57C005AC9E0 /* FLEXMethodCallingViewController.m in Sources */,
+				FB3D3AAD1D2CF57C005AC9E0 /* ServiceCardDetailFlag.swift in Sources */,
+				FB3D3AAE1D2CF57C005AC9E0 /* AIScrollLabel.m in Sources */,
+				FB3D3AAF1D2CF57C005AC9E0 /* RSADataSigner.m in Sources */,
+				FB3D3AB01D2CF57C005AC9E0 /* AICustomerServiceExecuteViewController.swift in Sources */,
+				FB3D3AB11D2CF57C005AC9E0 /* AISellserAnimationView.m in Sources */,
+				FB3D3AB21D2CF57C005AC9E0 /* MiddleServiceContainerView.swift in Sources */,
+				FB3D3AB31D2CF57C005AC9E0 /* AIDatePickerView.swift in Sources */,
+				FB3D3AB41D2CF57C005AC9E0 /* AILoginViewController.swift in Sources */,
+				FB3D3AB51D2CF57C005AC9E0 /* AIOrderModel.swift in Sources */,
+				FB3D3AB61D2CF57C005AC9E0 /* SwipeableCell.m in Sources */,
+				FB3D3AB71D2CF57C005AC9E0 /* ViewConstants.swift in Sources */,
+				FB3D3AB81D2CF57C005AC9E0 /* FLEXManager.m in Sources */,
+				FB3D3AB91D2CF57C005AC9E0 /* FLEXArgumentInputFontsPickerView.m in Sources */,
+				FB3D3ABA1D2CF57C005AC9E0 /* OAStackView+Traversal.m in Sources */,
+				FB3D3ABB1D2CF57C005AC9E0 /* FLEXObjectExplorerViewController.m in Sources */,
+				FB3D3ABC1D2CF57C005AC9E0 /* AIFoldedCellView.swift in Sources */,
+				FB3D3ABD1D2CF57C005AC9E0 /* JSONKeyMapper.m in Sources */,
+				FB3D3ABF1D2CF57C005AC9E0 /* EvernoteTransition.swift in Sources */,
+				FB3D3AC01D2CF57C005AC9E0 /* AOTag.m in Sources */,
+				FB3D3AC11D2CF57C005AC9E0 /* AITaskNavigationBar.swift in Sources */,
+				FB3D3AC21D2CF57C005AC9E0 /* FLEXClassExplorerViewController.m in Sources */,
+				FB3D3AC31D2CF57C005AC9E0 /* UP_NSString+Format.mm in Sources */,
+				FB3D3AC41D2CF57C005AC9E0 /* AITimelineCellBaseView.swift in Sources */,
+				FB3D3AC51D2CF57C005AC9E0 /* AccommodationService.swift in Sources */,
+				FB3D3AC61D2CF57C005AC9E0 /* AIProductInfoViewController.swift in Sources */,
+				FB3D3AC71D2CF57C005AC9E0 /* YLProgressBar.m in Sources */,
+				FB3D3AC81D2CF57C005AC9E0 /* AIProposalServiceParser.m in Sources */,
+				FB3D3AC91D2CF57C005AC9E0 /* AIBuyerViewController.swift in Sources */,
+				FB3D3ACA1D2CF57C005AC9E0 /* AIServiceCatalogModel.swift in Sources */,
+				FB3D3ACB1D2CF57C005AC9E0 /* CustomerCenterConstants.swift in Sources */,
+				FB3D3ACC1D2CF57C005AC9E0 /* FLEXTableContentCell.m in Sources */,
+				FB3D3ACD1D2CF57C005AC9E0 /* AIApplication.swift in Sources */,
+				FB3D3ACE1D2CF57C005AC9E0 /* AILoginCommonView.swift in Sources */,
+				FB3D3ACF1D2CF57C005AC9E0 /* AIWebViewController.swift in Sources */,
+				FB3D3AD01D2CF57C005AC9E0 /* TableViewCellBackgroundView.m in Sources */,
+				FB3D3AD11D2CF57C005AC9E0 /* AIServicesRequester.swift in Sources */,
+				FB3D3AD21D2CF57C005AC9E0 /* FLEXLayerExplorerViewController.m in Sources */,
+				FB3D3AD31D2CF57C005AC9E0 /* AIStepperParamView.swift in Sources */,
+				FB3D3AD41D2CF57C005AC9E0 /* JSONModelError.m in Sources */,
+				FB3D3AD51D2CF57C005AC9E0 /* FLEXFileBrowserSearchOperation.m in Sources */,
+				FB3D3AD61D2CF57C005AC9E0 /* AITaskInputViewController.swift in Sources */,
+				FB3D3AD71D2CF57C005AC9E0 /* MJRefreshHeaderView.m in Sources */,
+				FB3D3AD81D2CF57C005AC9E0 /* UIScrollView+MJRefresh.m in Sources */,
+				FB3D3AD91D2CF57C005AC9E0 /* PriceItem.swift in Sources */,
+				FB3D3ADA1D2CF57C005AC9E0 /* MJRefreshFooterView.m in Sources */,
+				FB3D3ADB1D2CF57C005AC9E0 /* AIBubble.m in Sources */,
+				FB3D3ADC1D2CF57C005AC9E0 /* UIImage+TDAdditions.m in Sources */,
+				FB3D3ADD1D2CF57C005AC9E0 /* AIWeiboData.m in Sources */,
+				FB3D3ADE1D2CF57C005AC9E0 /* AIUIButton.swift in Sources */,
+				FB3D3ADF1D2CF57C005AC9E0 /* AIProposalServiceCellModel.m in Sources */,
+				FB3D3AE01D2CF57C005AC9E0 /* UnderlineLabel.swift in Sources */,
+				FB3D3AE11D2CF57C005AC9E0 /* PriceAccount.swift in Sources */,
+				FB3D3AE21D2CF57C005AC9E0 /* AIInputView.swift in Sources */,
+				FB3D3AE31D2CF57C005AC9E0 /* AISuperiorityModel.swift in Sources */,
+				FB3D3AE41D2CF57C005AC9E0 /* RSADataVerifier.m in Sources */,
+				FB3D3AE51D2CF57C005AC9E0 /* BuyerRequirmentMessageViewController.swift in Sources */,
+				FB3D3AE61D2CF57C005AC9E0 /* AIRotateView.swift in Sources */,
+				FB3D3AE71D2CF57C005AC9E0 /* MDCFocalPointView.m in Sources */,
+				FB3D3AE81D2CF57C005AC9E0 /* AIOrderDescView.swift in Sources */,
+				FB3D3AE91D2CF57C005AC9E0 /* TransportService.swift in Sources */,
+				FB3D3AEA1D2CF57C005AC9E0 /* ProposalExpandedView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -4859,6 +6306,113 @@
 			};
 			name = Release;
 		};
+		FB3D3B851D2CF57C005AC9E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F968A668E0CC6829EA8B698F /* Pods-AIVeris.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj *.txt";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/3rdLibrary/alipay";
+				INFOPLIST_FILE = "$(SRCROOT)/Veris/DocApp/DocApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/libWeiboSDK",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib/sunflower",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/weichatpay/SDK1.6.2",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AIAlertView\"",
+					"-framework",
+					"\"Cartography\"",
+					"-licucore",
+					"-all_load",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
+				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.docapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Veris-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Debug;
+		};
+		FB3D3B861D2CF57C005AC9E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				DEFINES_MODULE = NO;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj *.txt";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/3rdLibrary/alipay";
+				INFOPLIST_FILE = "$(SRCROOT)/Veris/DocApp/DocApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/libWeiboSDK",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib/sunflower",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/weichatpay/SDK1.6.2",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AIAlertView\"",
+					"-framework",
+					"\"Cartography\"",
+					"-licucore",
+					"-all_load",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
+				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.docapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Veris-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -4876,6 +6430,15 @@
 			buildConfigurations = (
 				93D5A3721B709C1D00DDB158 /* Debug */,
 				93D5A3731B709C1D00DDB158 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FB3D3B841D2CF57C005AC9E0 /* Build configuration list for PBXNativeTarget "DocApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB3D3B851D2CF57C005AC9E0 /* Debug */,
+				FB3D3B861D2CF57C005AC9E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
