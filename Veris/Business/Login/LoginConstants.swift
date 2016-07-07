@@ -16,7 +16,7 @@ struct LoginConstants {
     }
     
     struct Fonts {
-        static let validateResult = AITools.myriadLightWithSize(AITools.displaySizeFrom1080DesignSize(36))
+        static let validateResult = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(36))
         static let textFieldInput = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
         static let NavigationTitle = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(72))
         static let promptLabel = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
