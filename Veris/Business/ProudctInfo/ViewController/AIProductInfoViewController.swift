@@ -120,6 +120,7 @@ class AIProductInfoViewController: UIViewController {
 	 */
 	func initLayoutViews() {
 		
+        self.scrollview.contentInset = UIEdgeInsetsMake(0, 0, 200, 0)
 		/// Title.
 		if let navi = navi as? AINavigationBar {
 			view.addSubview(navi)
@@ -330,11 +331,14 @@ class AIProductInfoViewController: UIViewController {
         bottomImage.clipsToBounds = true
         addNewSubView(bottomImage, preView: holdSpaceView)
 
-        // Setup 7:        
-        let providerView =  AIProviderView.currentView()
-        providerView.content.text = "请选择符合您情况的标签"
-        addNewSubView(providerView, preView: bottomImage)
+        // Setup 7: Provider Info
         
+        let provideView = addCustomView(bottomImage)
+        
+        // Setup 8: Audio
+        let audioView = AICustomAudioNotesView.currentView()
+        addNewSubView(audioView, preView: provideView!)
+        audioView.delegateShowAudio = self
         
     }
     
@@ -344,6 +348,58 @@ class AIProductInfoViewController: UIViewController {
     
     }
 
+    private func addCustomView(preView: UIView) -> UIView? {
+        
+        var viw: UIView = preView
+        
+        // 处理数据填充
+        if let wish: AIProposalServiceDetail_WishModel = AIProposalServiceDetail_WishModel() {
+            
+//            内分泌失调 焦虑  疲惫  睡眠质量差  低落
+            let labelModel_1 = AIProposalServiceDetailLabelModel()
+            labelModel_1.content = "易怒"
+            labelModel_1.label_id = 1
+            labelModel_1.selected_flag = 0
+            labelModel_1.selected_num = 2
+            
+            let labelModel_2 = AIProposalServiceDetailLabelModel()
+            labelModel_2.content = "内分泌失调"
+            labelModel_2.label_id = 2
+            labelModel_2.selected_flag = 0
+            labelModel_2.selected_num = 21
+            
+            let labelModel_3 = AIProposalServiceDetailLabelModel()
+            labelModel_3.content = "焦虑"
+            labelModel_3.label_id = 3
+            labelModel_3.selected_flag = 1
+            labelModel_3.selected_num = 121
+            
+            wish.label_list = [labelModel_1,labelModel_2,labelModel_3,labelModel_2,labelModel_1]
+            wish.hope_list = []
+            let providerView = AIProviderView.currentView()
+            addNewSubView(providerView, preView: viw)
+            viw = providerView
+            providerView.content.text = "请选择符合您情况的标签"
+            if wish.label_list != nil || (wish.hope_list != nil) {
+                if wish.hope_list.count > 0 || wish.label_list.count > 0 {
+                    let custView = AICustomView.currentView()
+                    let heisss = 200 + wish.label_list.count * 16
+                    custView.setHeight(CGFloat(heisss))
+                    addNewSubView(custView, preView: viw)
+                    viw = custView
+                    custView.wish_id = 1
+                    if let labelList = wish.label_list as? [AIProposalServiceDetailLabelModel] {
+                        custView.fillTags(labelList, isNormal: true)
+                    }
+                }
+            }
+        }
+        if view == preView {
+            return nil
+        }
+        return viw
+    }
+    
     /**
      copy from old View Controller.
      */
@@ -415,4 +471,12 @@ extension AIProductInfoViewController: UIScrollViewDelegate {
 		
 	}
 	
+}
+
+
+extension AIProductInfoViewController: AICustomAudioNotesViewShowAudioDelegate {
+    
+    func showAudioView(type: Int) {
+        
+    }
 }
