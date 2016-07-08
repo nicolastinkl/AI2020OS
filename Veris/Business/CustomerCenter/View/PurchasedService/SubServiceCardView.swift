@@ -68,10 +68,6 @@ class SubServiceCardView: UIView {
         statusButton.removeFromSuperview()
         statusColor.removeFromSuperview()
         
-//        proporsalName.snp_makeConstraints(closure: { (make) in
-//            make.height.equalTo(0)
-//        })
-        
         seperator.snp_updateConstraints(closure: { (make) in
             make.height.equalTo(0)
         })
