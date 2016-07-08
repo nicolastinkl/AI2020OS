@@ -560,6 +560,8 @@
 		935986FF1D20FB9D00BBED4E /* AIAssetsReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */; };
 		935987011D20FCB900BBED4E /* AIAssetsReviewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */; };
 		93698EF61D24D06100DD4145 /* AIProposalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */; };
+		936B32A51D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936B32A41D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift */; };
+		936B32A71D2F948B004465AD /* AIProposalCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936B32A61D2F948B004465AD /* AIProposalCollCell.xib */; };
 		9378C3E51D2131E3004D42EA /* AIAssetsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
 		9392B5171D1CD63B0007F241 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5131D1CD63B0007F241 /* CommonUtil.m */; };
@@ -1428,6 +1430,8 @@
 		935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsReviewsController.swift; sourceTree = "<group>"; };
 		935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsReviewsController.xib; sourceTree = "<group>"; };
 		93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProposalTableViewController.swift; sourceTree = "<group>"; };
+		936B32A41D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickyCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		936B32A61D2F948B004465AD /* AIProposalCollCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProposalCollCell.xib; sourceTree = "<group>"; };
 		9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsViewCell.swift; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9392B5121D1CD63B0007F241 /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = "<group>"; };
@@ -2143,6 +2147,7 @@
 				1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */,
 				1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */,
 				84512D4E1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift */,
+				936B32A61D2F948B004465AD /* AIProposalCollCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2188,6 +2193,7 @@
 				81433A281CFBE5A700347C29 /* ReadmeViewController.swift */,
 				126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */,
 				93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */,
+				936B32A41D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3963,6 +3969,7 @@
 				81433EB81CFBE5A700347C29 /* MyriadPro-Black.otf in Resources */,
 				81433EBA1CFBE5A700347C29 /* MyriadPro-Cond.otf in Resources */,
 				81433DA51CFBE5A700347C29 /* AIServiceSearchView.xib in Resources */,
+				936B32A71D2F948B004465AD /* AIProposalCollCell.xib in Resources */,
 				81433D361CFBE5A700347C29 /* AIAudioInputView.xib in Resources */,
 				93E4C4021D20E478007EB116 /* AIAssetsPickerController.xib in Resources */,
 				81433EC41CFBE5A700347C29 /* loading.gif in Resources */,
@@ -4602,6 +4609,7 @@
 				81433E491CFBE5A700347C29 /* UP_NSString+Format.mm in Sources */,
 				81433DAA1CFBE5A700347C29 /* AITimelineCellBaseView.swift in Sources */,
 				81433D1C1CFBE5A700347C29 /* AccommodationService.swift in Sources */,
+				936B32A51D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift in Sources */,
 				933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */,
 				81433E231CFBE5A700347C29 /* YLProgressBar.m in Sources */,
 				81433CE61CFBE5A700347C29 /* AIProposalServiceParser.m in Sources */,

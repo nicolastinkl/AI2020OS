@@ -130,7 +130,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         view.addGestureRecognizer(pan)
     }
     
-    
     /**
      滑动手势
      */

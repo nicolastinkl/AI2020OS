@@ -44,9 +44,24 @@ class AIProposalTableViewController: UIViewController {
         tableView.separatorStyle = .None
         tableView.showsVerticalScrollIndicator = true
         tableView.backgroundColor = UIColor.clearColor()
+        tableView.hidden = true
         return  tableView
     }()
     
+    
+    let kCellHeight: CGFloat = 120.0
+    let kItemSpace: CGFloat = -30.0
+    let kAIProposalCellIdentifierss = "kAIProposalCellIdentifier"
+        
+    private lazy var collectionView: UICollectionView = {
+        let coll = UICollectionView(frame: UIScreen.mainScreen().bounds, collectionViewLayout: StickyCollectionViewFlowLayout())
+        coll.delegate = self
+        coll.dataSource = self
+        coll.backgroundColor = UIColor.clearColor()
+        coll.showsHorizontalScrollIndicator = false
+        return coll
+        
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +69,7 @@ class AIProposalTableViewController: UIViewController {
         /**
          Structure UITableView
          */
-        makeTableView()
+        makeTableView() 
         
         /**
          Loading Data From Networking
@@ -62,6 +77,7 @@ class AIProposalTableViewController: UIViewController {
         self.tableView.headerBeginRefreshing()
         
     }
+    
     
     
     func loadingData() {
@@ -83,7 +99,6 @@ class AIProposalTableViewController: UIViewController {
                 weakSelf!.didRefresh = false
                 weakSelf!.tableView.reloadData()
         })
-        
     }
     
     // MARK: - 构造列表区域
@@ -96,7 +111,7 @@ class AIProposalTableViewController: UIViewController {
         // 创建UIVisualEffectView来应用Vibrancy效果,这个过程恰巧跟生成模糊图一样。因为你使用的是自动布局所以在这里需要把自适应大小改为false
         let vibrancyView = UIVisualEffectView(effect: blurEffect)
         vibrancyView.frame = self.view.frame
-        self.view.addSubview(vibrancyView)
+        //self.view.addSubview(vibrancyView)
         
         let y: CGFloat = 44
         let label: UPLabel = AIViews.normalLabelWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, y, screenWidth - 2 * BUBBLE_VIEW_MARGIN, 20), text: "AIBuyerViewController.progress".localized, fontSize: 20, color: UIColor.whiteColor())
@@ -131,11 +146,18 @@ class AIProposalTableViewController: UIViewController {
             if let weakSelf = weakSelf {
                 weakSelf.tableView.headerEndRefreshing()
                 weakSelf.tableView.reloadData()
+                weakSelf.collectionView.reloadData()
             }
             
             
         }
         
+        collectionView.registerClass(AIProposalCollCell.self, forCellWithReuseIdentifier: kAIProposalCellIdentifierss)
+        
+        collectionView.registerNib(UINib(nibName: "AIProposalCollCell", bundle: nil), forCellWithReuseIdentifier: kAIProposalCellIdentifierss)
+        collectionView.frame = self.view.frame
+        view.addSubview(collectionView)
+        collectionView.setTop(y + 30)
     }
     
     func clearPropodalData(){
@@ -351,6 +373,104 @@ extension AIProposalTableViewController : DimentionChangable, ProposalExpandedDe
         let indexPath = NSIndexPath(forRow: proposalView.tag, inSection: 0)
         rowSelectAction(indexPath)
     }
+}
+
+extension AIProposalTableViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.dynamicType == UICollectionView.self {
+            if scrollView.contentOffset.y < 0 {
+                self.collectionView.scrollEnabled = false
+                //Throw UIGesture To SuperView.         
+//                scrollView.panGestureRecognizer
+            }else{
+                self.collectionView.scrollEnabled = true
+            }
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kAIProposalCellIdentifierss, forIndexPath: indexPath) as! AIProposalCollCell
+        
+        if cell.backingView.subviews.count == 1 {
+            let folderCellView = AICustomerOrderFoldedView.currentView()
+            folderCellView.delegate = self
+            folderCellView.loadData(dataSource[indexPath.row].model!)
+            cell.backingView.addSubview(folderCellView)
+            folderCellView.pinToTopEdgeOfSuperview()
+            folderCellView.pinToLeftEdgeOfSuperview()
+            folderCellView.pinToRightEdgeOfSuperview()
+            folderCellView.sizeToHeight(97)
+        }
+    
+        return cell
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(CGRectGetWidth(view.bounds), kCellHeight)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: NSInteger) -> CGFloat {
+        return kItemSpace
+    }
+
+}
+
+
+class AIProposalCollCell: UICollectionViewCell {
+    
+    var backingView: UIView = UIView()
+    
+    var color: UIColor? {
+        didSet {
+            backingView.backgroundColor = color
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        // Settings Shadow.
+        
+        if let _ = self.contentView.viewWithTag(2) {
+        }else{
+            let imageview = UIImageView(image: UIImage(named: "bllw_shadow"))
+            self.contentView.addSubview(imageview)
+            imageview.tag == 2
+            imageview.pinToTopEdgeOfSuperview()
+            imageview.pinToLeftEdgeOfSuperview()
+            imageview.pinToRightEdgeOfSuperview()
+            imageview.sizeToHeight(17)
+            imageview.alpha = 0.6
+        }
+        
+        // Settings backingView.
+        if let _ = self.contentView.viewWithTag(1) {
+        }else{
+            
+            backingView.tag = 1
+            self.contentView.addSubview(backingView)
+            backingView.pinToBottomEdgeOfSuperview()
+            backingView.pinToLeftEdgeOfSuperview()
+            backingView.pinToRightEdgeOfSuperview()
+            backingView.pinToTopEdgeOfSuperview(offset: 10, priority: UILayoutPriorityDefaultHigh)
+            backingView.layer.cornerRadius = 10
+            backingView.layer.masksToBounds = true
+            // Add EffectView to BackingView.
+            if backingView.subviews.count == 0 {
+                let blurEffect = UIBlurEffect(style: .Dark)
+                let vibrancyView = UIVisualEffectView(effect: blurEffect)
+                backingView.addSubview(vibrancyView)
+                vibrancyView.pinToEdgesOfSuperview()
+                
+            }
+            
+        }        
+        
+    }
     
 }
+ 
