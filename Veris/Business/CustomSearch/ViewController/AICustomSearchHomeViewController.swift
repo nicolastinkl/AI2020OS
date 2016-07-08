@@ -26,11 +26,14 @@ class AICustomSearchHomeViewController: UIViewController {
 	var resultFilterBar: AICutomSearchHomeResultFilterBar!
 	@IBOutlet weak var resultHoldView: UIView!
 	@IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bubbleContainerView: UIView!
 	
 	// MARK: Private
 	
 	private var dataSource: [AISearchResultItemModel] = Array<AISearchResultItemModel>()
-	
+    
+    var bubbleModels = [AIBuyerBubbleModel]()
+    
 	// MARK: Method Init
 	
 	override func viewDidLoad() {
@@ -95,8 +98,30 @@ class AICustomSearchHomeViewController: UIViewController {
 	func setupFilterView() {
 		
 	}
+    
+    func fakeBubbleModels() {
+        if let presentingViewController = presentingViewController as? AIUINavigationController {
+            if let buyerVC = presentingViewController.viewControllers.first as? AIBuyerViewController {
+                bubbleModels = buyerVC.dataSourcePop
+            }
+        }
+    }
+    
 	func setupBubbleView() {
-		
+        fakeBubbleModels()
+        for i in 0..<min(4, bubbleModels.count) {
+            let model: AIBuyerBubbleModel! = bubbleModels[i]
+            let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
+            let space = AITools.displaySizeFrom1242DesignSize(15)
+            let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
+            model.bubbleSize = Int(bubbleWidth)/2
+            let bubbleView = AIBubble(center: .zero, model: model, type: model.bubbleType, index: 0)
+            bubbleView.tag = i
+            bubbleContainerView.addSubview(bubbleView)
+            
+            let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
+            bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + space), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
+        }
 	}
 	func setupSearchView() {
 		

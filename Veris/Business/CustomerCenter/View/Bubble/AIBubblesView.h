@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "AIBubble.h"
 
+typedef void (^BubbleBlock)(AIBuyerBubbleModel *model, AIBubble *bubble);
+
 @class AIBuyerBubbleModel;
 
 @interface AIBubblesView : UIView
 
-typedef void (^BubbleBlock)(AIBuyerBubbleModel *model,AIBubble *bubble);
+- (id)initWithFrame:(CGRect)frame models:(NSMutableArray *)models;
 
-- (id) initWithFrame:(CGRect)frame models:(NSMutableArray *)models;
-
-- (void) addGestureBubbleAction:(BubbleBlock) block;
+- (void)addGestureBubbleAction:(BubbleBlock)block;
 
 @end

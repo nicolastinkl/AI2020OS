@@ -356,7 +356,7 @@
 + (UIFont *) myriadLightWithSize:(CGFloat)size
 {
     if ([self fontsWithLanguageEN]) {
-        return [UIFont fontWithName:@"MyriadPro-Light" size:size];
+        return [UIFont fontWithName:@"MyriadPro-LightSemiCn" size:size];
     }else{
         return [UIFont systemFontOfSize:size * 3/4];
     }

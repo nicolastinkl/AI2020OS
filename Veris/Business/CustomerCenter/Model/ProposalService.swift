@@ -172,7 +172,7 @@ class BDKProposalService: MockProposalService {
             }
 
             }) { (error: AINetError, errorDes: String!) -> Void in
-                fail(errType: error, errDes: errorDes)
+                fail(errType: error, errDes: errorDes ?? "")
         }
     }
 
@@ -186,6 +186,7 @@ class BDKProposalService: MockProposalService {
     override func getProposalList(success: (responseData: ProposalOrderListModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
 
+   //     message.header.setObject("0&0&200000002501&0", forKey: "HttpQuery")
         message.url = AIApplication.AIApplicationServerURL.queryCustomerOrderList.description
 
         let body = ["data":["order_role":1, "order_state": "0"], "desc":["data_mode":"0", "digest":""]]
