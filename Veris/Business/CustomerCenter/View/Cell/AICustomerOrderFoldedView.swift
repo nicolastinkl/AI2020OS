@@ -19,7 +19,7 @@ class AICustomerOrderFoldedView: UIView {
     @IBOutlet weak var providerIcon: UIImageView!
     @IBOutlet weak var statusButton: UIButton!
     @IBOutlet weak var noticeBadgeLabel: DesignableLabel!
-    @IBOutlet weak var proporalNameLabel: UILabel!
+    @IBOutlet weak var proposalName: UILabel!
     
     var delegate: AIFoldedCellViewDelegate?
     var proposalModel: ProposalOrderModel!
@@ -42,9 +42,16 @@ class AICustomerOrderFoldedView: UIView {
         statusButton.setBackgroundImage(buttonBgImage, forState: UIControlState.Normal)
         statusButton.layer.cornerRadius = 10
         statusButton.layer.masksToBounds = true
+        statusButton.titleLabel?.font = CustomerCenterConstants.Fonts.CustomerOrderStatus
         
         noticeBadgeLabel.layer.cornerRadius = 8
         noticeBadgeLabel.layer.masksToBounds = true
+        noticeBadgeLabel.font = CustomerCenterConstants.Fonts.CustomerOrderBadge
+        
+        proposalName.font = CustomerCenterConstants.Fonts.CustomerOrderTitle
+        taskSchedulTimeLabel.font = CustomerCenterConstants.Fonts.CustomerOrderTaskName
+        taskStatusLabel.font = CustomerCenterConstants.Fonts.CustomerOrderTaskStatus
+        taskNameLabel.font = CustomerCenterConstants.Fonts.CustomerOrderTaskName
     }
     
     func loadData(proposalModel: ProposalOrderModel) {
