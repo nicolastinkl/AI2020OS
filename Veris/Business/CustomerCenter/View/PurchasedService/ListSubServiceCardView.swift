@@ -40,6 +40,8 @@ class ListSubServiceCardView: UIView {
                 self.bottomConstraint = make.bottom.equalTo(self).constraint
             })
         } else {
+            subService.hideTop()
+            
             let lastView = cardList.last!
             
             subService.snp_makeConstraints(closure: { (make) in
