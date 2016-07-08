@@ -2,7 +2,6 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "卡片阴影.png",
       "scale" : "1x"
     },
     {
@@ -11,7 +10,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "卡片阴影@3x.png",
+      "filename" : "未标题-13.png",
       "scale" : "3x"
     }
   ],
