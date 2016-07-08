@@ -16,6 +16,7 @@ class SubServiceCardView: UIView {
     @IBOutlet weak var statusButton: UIButton!
     @IBOutlet weak var serviceIcon: UIImageView!
     @IBOutlet weak var personIcon: UIImageView!
+    @IBOutlet weak var statusColor: UIView!
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var nodeName: UILabel!
     @IBOutlet weak var nodeState: UILabel!
@@ -26,7 +27,7 @@ class SubServiceCardView: UIView {
     @IBOutlet weak var addtionView: UIView!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
-    
+    @IBOutlet weak var seperator: UIView!
  
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder) 
@@ -42,6 +43,7 @@ class SubServiceCardView: UIView {
     
     
     func urgeBtnTap(sender: UITapGestureRecognizer) {
+        
 
     }
 
@@ -57,6 +59,22 @@ class SubServiceCardView: UIView {
         }
         
         setNeedsUpdateConstraints()
+    }
+    
+    func hideTop() {
+        proporsalName.text = nil
+        proporsalName.removeFromSuperview()
+        messageNumber.removeFromSuperview()
+        statusButton.removeFromSuperview()
+        statusColor.removeFromSuperview()
+        
+//        proporsalName.snp_makeConstraints(closure: { (make) in
+//            make.height.equalTo(0)
+//        })
+        
+        seperator.snp_updateConstraints(closure: { (make) in
+            make.height.equalTo(0)
+        })
     }
     
     private func initSubView() {
