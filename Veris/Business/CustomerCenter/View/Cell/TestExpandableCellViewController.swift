@@ -69,7 +69,7 @@ class TestExpandableCellViewController: UIViewController, UITableViewDataSource,
         let cell = tableView.dequeueReusableCellWithIdentifier("SwitchedTableViewCell") as! SwitchedTableViewCell
         
         if cell.mainView == nil {
-            cell.mainView = AIFolderCellView.currentView()
+            cell.mainView = AICustomerOrderFoldedView.currentView()
         }
         
         if cell.getView("expanded") == nil {
@@ -81,7 +81,7 @@ class TestExpandableCellViewController: UIViewController, UITableViewDataSource,
         } else {
             cell.showMainView()
         }
-        
+
         return cell
     }
     
