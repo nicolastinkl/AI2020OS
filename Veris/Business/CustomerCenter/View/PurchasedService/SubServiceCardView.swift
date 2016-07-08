@@ -68,19 +68,18 @@ class SubServiceCardView: UIView {
         statusButton.removeFromSuperview()
         statusColor.removeFromSuperview()
         
-        seperator.snp_updateConstraints(closure: { (make) in
-            make.height.equalTo(0)
-        })
+        seperator.hidden = true
     }
     
     private func initSubView() {
         serviceIcon.makeRound()
         personIcon.makeRound()
         
-        proporsalName.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(60))
+        proporsalName.font = CustomerCenterConstants.Fonts.CustomerOrderTitle
+        messageNumber.font = CustomerCenterConstants.Fonts.CustomerOrderBadge
         messageNumber.makeRound()
         statusButton.makeRound()
-        statusButton.titleLabel?.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(39))
+        statusButton.titleLabel?.font = CustomerCenterConstants.Fonts.CustomerOrderStatus
         
         leftButton.makeRound()
         rightButton.makeRound()
@@ -94,10 +93,11 @@ class SubServiceCardView: UIView {
         callButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SubServiceCardView.callBtnTap(_:))))
         
         serviceName.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
-        nodeName.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+        nodeName.font = CustomerCenterConstants.Fonts.CustomerOrderTaskName
         additionDescription.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
-        nodeState.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(39))
-        nodeDate.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+        nodeState.font = CustomerCenterConstants.Fonts.CustomerOrderTaskStatus
+        nodeDate.font = CustomerCenterConstants.Fonts.CustomerOrderTaskName
+
     }
     
 }
