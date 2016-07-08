@@ -257,7 +257,7 @@ internal class AIServiceContentViewController: UIViewController {
 		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardDidHide(_:)), name: UIKeyboardDidHideNotification, object: nil)
 		
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardDidChange(_:)), name: UIKeyboardDidChangeFrameNotification, object: nil)
+		//NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardDidChange(_:)), name: UIKeyboardDidChangeFrameNotification, object: nil)
 	}
 	
 	func removeKeyboardNotifications() {
@@ -281,7 +281,7 @@ internal class AIServiceContentViewController: UIViewController {
 			let keyboardRectValue: NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
 			let keyboardRect: CGRect = keyboardRectValue.CGRectValue()
 			let keyboardHeight: CGFloat = min(CGRectGetHeight(keyboardRect), CGRectGetWidth(keyboardRect))
-			
+
 			if let view1 = self.currentAudioView {
 				if keyboardHeight > 0 {
 					let newLayoutConstraint = keyboardHeight - view1.holdViewHeigh
@@ -317,7 +317,13 @@ internal class AIServiceContentViewController: UIViewController {
 			
 			scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0)
 			scrollViewBottom()
-			
+//            if let view1 = self.currentAudioView {
+//                if keyboardHeight > 0 {
+////                    let newLayoutConstraint = keyboardHeight - view1.holdViewHeigh
+////                    view1.inputButtomValue.constant = newLayoutConstraint
+//                }
+//            }
+            
 			// hidden
 			if let view1 = self.currentAudioView {
 				view1.audioButtonView.hidden = true
@@ -593,13 +599,13 @@ internal class AIServiceContentViewController: UIViewController {
 		}
 		
 		// TODO: Add AIShoppingListView
-		if let sview = AIShoppingListView.initFromNib() as? AIShoppingListView {
+		/*if let sview = AIShoppingListView.initFromNib() as? AIShoppingListView {
 			let array = AIModelTest.testShoppingListModel()
 			sview.setHeight(CGFloat(array.count * 100) + 50)
 			addNewSubView(sview)
 			sview.dataSource = array
 			sview.backgroundColor = UIColor.clearColor()
-		}
+		}*/
 	}
 	
 	func clickRouteViewEvent() {

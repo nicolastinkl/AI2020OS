@@ -59,25 +59,27 @@ class AIProposalTableViewController: UIViewController {
         /**
          Loading Data From Networking
          */
-        loadingData()
+        self.tableView.headerBeginRefreshing()
         
     }
     
     
     func loadingData() {
-        view.showLoading()
+    
         let bdk = BDKProposalService()
         // 列表数据
         weak var weakSelf = self
 
         bdk.getProposalList({ (responseData) -> Void in
-
-            weakSelf!.didRefresh = true
-            weakSelf!.parseListData(responseData)
-            weakSelf!.tableView.reloadData()
-            weakSelf!.view.hideLoading()
+            if let weakSelf = weakSelf {
+                weakSelf.didRefresh = true
+                weakSelf.parseListData(responseData)
+                weakSelf.tableView.reloadData()
+                weakSelf.tableView.headerEndRefreshing()
+            }
+            
             }, fail: { (errType, errDes) -> Void in
-                weakSelf!.view.hideLoading()
+                
                 weakSelf!.didRefresh = false
                 weakSelf!.tableView.reloadData()
         })
@@ -95,7 +97,6 @@ class AIProposalTableViewController: UIViewController {
         let vibrancyView = UIVisualEffectView(effect: blurEffect)
         vibrancyView.frame = self.view.frame
         self.view.addSubview(vibrancyView)
-        
         
         let y: CGFloat = 44
         let label: UPLabel = AIViews.normalLabelWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, y, screenWidth - 2 * BUBBLE_VIEW_MARGIN, 20), text: "AIBuyerViewController.progress".localized, fontSize: 20, color: UIColor.whiteColor())
@@ -117,6 +118,30 @@ class AIProposalTableViewController: UIViewController {
         self.view.addSubview(tableView)
         
         
+        weak var weakSelf = self
+        tableView.addHeaderWithCallback { () -> Void in
+            if let weakSelf = weakSelf {
+                weakSelf.clearPropodalData()
+                weakSelf.loadingData()
+            }
+            
+        }
+        
+        tableView.addHeaderRefreshEndCallback { () -> Void in
+            if let weakSelf = weakSelf {
+                weakSelf.tableView.headerEndRefreshing()
+                weakSelf.tableView.reloadData()
+            }
+            
+            
+        }
+        
+    }
+    
+    func clearPropodalData(){
+        
+        dataSource.removeAll()
+        tableView.reloadData()
     }
 
     

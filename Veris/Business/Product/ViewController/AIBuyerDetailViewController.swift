@@ -555,22 +555,22 @@ extension AIBuyerDetailViewController: ServiceRestoreToolBarDelegate {
 		
 		if index < 5 {
 			let model = self.deleted_service_list[index] as! AIProposalServiceModel
-			
 			let cell = model.cell
-			
-			let view: SimpleServiceViewContainer = cell?.contentView.viewWithTag(SIMPLE_SERVICE_VIEW_CONTAINER_TAG) as! SimpleServiceViewContainer
-			
-			let logo = view.logo
-			
-			let name = model.service_desc
-			
-			let logoWidth = AITools.displaySizeFrom1080DesignSize(94)
-			let text = String(format: "AIBuyerDetailViewController.alert".localized, name)
-			weak var wf = self
-			JSSAlertView().comfirm(self, title: name, text: text, customIcon: logo.image, customIconSize: CGSizeMake(logoWidth, logoWidth), onComfirm: { () -> Void in
-				
-				wf!.restoreService(model)
-			})
+            if cell != nil {
+                
+                let view: SimpleServiceViewContainer = cell?.contentView.viewWithTag(SIMPLE_SERVICE_VIEW_CONTAINER_TAG) as! SimpleServiceViewContainer
+                
+                let logo = view.logo
+                
+                let name = model.service_desc
+                
+                let logoWidth = AITools.displaySizeFrom1080DesignSize(94)
+                let text = String(format: "AIBuyerDetailViewController.alert".localized, name)
+                weak var wf = self
+                JSSAlertView().comfirm(self, title: name, text: text, customIcon: logo.image, customIconSize: CGSizeMake(logoWidth, logoWidth), onComfirm: { () -> Void in                    
+                    wf!.restoreService(model)
+                })
+            }
 			
 		} else {
 			openDeletedTableView(true)

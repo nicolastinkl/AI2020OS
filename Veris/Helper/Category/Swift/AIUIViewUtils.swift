@@ -466,6 +466,7 @@ extension UIView {
 	 */
 	func makeRound() {
 		layer.cornerRadius = height / 2
+        layer.masksToBounds = true
         clipsToBounds = true
 	}
 

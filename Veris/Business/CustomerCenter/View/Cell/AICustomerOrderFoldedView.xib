@@ -76,7 +76,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_order_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="ZXV-bO-TR1">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_order_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="ZXV-bO-TR1">
                     <rect key="frame" x="0.0" y="-99" width="414" height="196"/>
                 </imageView>
             </subviews>
