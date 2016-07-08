@@ -18,6 +18,8 @@ class AICutomSearchHomeResultFilterBar: UIView {
         
         filterButtons.forEach { (b) in
             b.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
+            b.setTitleColor(UIColor.yellowColor(), forState: .Selected)
+            b.addTarget(self, action: #selector(AICutomSearchHomeResultFilterBar.buttonPressed(_:)), forControlEvents: .TouchUpInside)
             b.updateImageInset()
         }
     }
@@ -25,5 +27,11 @@ class AICutomSearchHomeResultFilterBar: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initSelfFromXib()
+    }
+    
+    func buttonPressed(sender: UIButton) {
+        filterButtons.forEach { b in
+//           b.
+        }
     }
 }
