@@ -8,9 +8,9 @@
 
 import UIKit
 
-class OrderAndBuyerInfoView: UIView {
+class AITimelineTopView: UIView {
 
-    var delegate: OrderAndBuyerInfoViewDelegate?
+    //var delegate: OrderAndBuyerInfoViewDelegate?
 
     @IBOutlet weak var buyerIcon: UIImageView!
     @IBOutlet weak var messageNumber: UILabel!
@@ -34,15 +34,10 @@ class OrderAndBuyerInfoView: UIView {
                 if let name = m.buyerName {
                     buyerName.text = name
                 }
-
                 if let service = m.serviceName {
                     serviceName.text = service
                 }
-
                 setProgress(m.completion != nil ? CGFloat(m.completion!) : 0)
-
-
-            //    price.text = m.price != nil ? NSString(format: "%.1f", m.price!) as String : "0"
                 price.text = m.price != nil ? m.price! : "0"
                 if let number = m.messageNumber {
                     if number > 0 {
@@ -52,7 +47,6 @@ class OrderAndBuyerInfoView: UIView {
                         messageNumber.hidden = true
                     }
                 }
-
                 let imageUrl = "\(AIRequirementViewPublicValue.orderPreModel?.customer.user_portrait_icon ?? "")"
                 buyerIcon.asyncLoadImage(imageUrl)
 
@@ -64,8 +58,6 @@ class OrderAndBuyerInfoView: UIView {
     }
 
     override func awakeFromNib() {
-
-        setBuyerIconCorner()
 
         messageNumber.layer.cornerRadius = messageNumber.frame.width / 2
         messageNumber.layer.masksToBounds = true
@@ -93,29 +85,11 @@ class OrderAndBuyerInfoView: UIView {
 
 
     func buyerIconClicked(sender: UIGestureRecognizer) {
-        delegate?.buyerIconClicked?()
+        //delegate?.buyerIconClicked?()
     }
 
-
-    private func setBuyerIconCorner() {
-        /*
-        let iconBounds = buyerIcon.bounds
-
-        let maskLayer = CAShapeLayer()
-
-
-        maskLayer.frame = CGRect(x: 0, y: 0, width: iconBounds.width * 1.5, height: iconBounds.width * 1.5)
-
-        maskLayer.frame.offsetInPlace(dx: (iconBounds.width - maskLayer.frame.width), dy: (iconBounds.height - maskLayer.frame.height) / 2)
-
-        let maskPath = UIBezierPath(roundedRect: maskLayer.bounds, byRoundingCorners: [.TopRight, .BottomRight], cornerRadii: CGSizeMake(maskLayer.frame.width / 2, maskLayer.frame.width / 2))
-
-        maskLayer.path = maskPath.CGPath
-        buyerIcon.layer.mask = maskLayer
-        */
-    }
 }
 
-@objc protocol OrderAndBuyerInfoViewDelegate {
-    optional func buyerIconClicked()
-}
+//@objc protocol OrderAndBuyerInfoViewDelegate {
+//    optional func buyerIconClicked()
+//}
