@@ -71,7 +71,7 @@ class AIProductInfoViewController: UIViewController {
     /**
      定制按钮和Top按钮
      */
-    func configButtons(){
+    func configButtons() {
         
         let topButton = UIButton()
         view.addSubview(topButton)
@@ -113,14 +113,12 @@ class AIProductInfoViewController: UIViewController {
 	 处理大图放大缩小效果
 	 */
 	func scrollViewDidScrollWithOffset(scrollOffset: CGFloat) {
-		let scrollViewDragPoint: CGPoint = CGPoint(x: 0, y: 0)
-		if scrollOffset < 0 {
-			// topImage.transform = CGAffineTransformMakeScale(1 - (scrollOffset / self.imageScalingFactor), 1 - (scrollOffset / self.imageScalingFactor))
-		} else {
-			// topImage.transform = CGAffineTransformMakeScale(1.0, 1.0)
-		}
-		
-		animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
+        
+        let alphaSc = (scrollOffset / defaultTableViewHeaderMargin)
+        if let navi = self.navi as? AINavigationBar {
+            navi.bgView.subviews.first?.alpha = alphaSc
+        }
+		//animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
 		
 	}
 	
@@ -434,7 +432,7 @@ class AIProductInfoViewController: UIViewController {
             labelModel_3.selected_flag = 1
             labelModel_3.selected_num = 121
             
-            wish.label_list = [labelModel_1,labelModel_2,labelModel_3,labelModel_2,labelModel_1]
+            wish.label_list = [labelModel_1, labelModel_2, labelModel_3, labelModel_2, labelModel_1]
             wish.hope_list = []
             let providerView = AIProviderView.currentView()
             addNewSubView(providerView, preView: viw)
@@ -527,7 +525,7 @@ class AIProductInfoViewController: UIViewController {
     /**
      Back to top position.
      */
-    func topAction(){
+    func topAction() {
         scrollview.scrollsToTop = true
         scrollview.setContentOffset(CGPointMake(0, 0), animated: true)
     }
@@ -535,7 +533,7 @@ class AIProductInfoViewController: UIViewController {
     /**
      Target to Edit ViewController.
      */
-    func editAction(){
+    func editAction() {
         scrollview.setContentOffset(CGPointMake(0, scrollview.contentSize.height), animated: true)
     }
 	 
@@ -545,7 +543,7 @@ class AIProductInfoViewController: UIViewController {
 extension AIProductInfoViewController: UIScrollViewDelegate {
 	
 	func scrollViewDidScroll(scrollView: UIScrollView) {
-		
+        
 	}
 	
 }

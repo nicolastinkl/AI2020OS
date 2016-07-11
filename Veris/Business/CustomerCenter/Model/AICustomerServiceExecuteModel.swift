@@ -66,7 +66,7 @@ class AICustomerOrderViewModel: AIBaseViewModel {
     
 }
 
-class AICustomerOrderDetailTopViewModel : AIBaseViewModel {
+class AICustomerOrderDetailTopViewModel: AIBaseViewModel {
     var serviceIcon: String!
     var serviceName: String!
     var serviceDesc: String!
