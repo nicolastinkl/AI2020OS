@@ -23,7 +23,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
     var serviceInstsView: AIVerticalScrollView!
     var models: [IconServiceIntModel]?
-    var orderInfoContentView: OrderAndBuyerInfoView?
+    var orderInfoContentView: AITimelineTopView?
     var orderInfoModel: BuyerOrderModel?
     var timelineModels: [AITimelineViewModel] = []
     var cellHeightArray: Array<CGFloat>!
@@ -109,9 +109,9 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
     func setupViews() {
         //orderInfoView
-        orderInfoContentView = OrderAndBuyerInfoView.createInstance()
+        orderInfoContentView = AITimelineTopView.createInstance()
         orderInfoView.addSubview(orderInfoContentView!)
-        orderInfoContentView?.delegate = self
+        //orderInfoContentView?.delegate = self
 
         orderInfoContentView?.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(orderInfoView)
@@ -124,6 +124,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         orderInfoModel?.price = "340"
         orderInfoModel?.serviceName = "Ground Transportation"
         orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png"
+        orderInfoModel
         orderInfoContentView?.model = orderInfoModel
         //timeLine tableView
         timelineTableView.registerNib(UINib(nibName: AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, bundle: nil), forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell)

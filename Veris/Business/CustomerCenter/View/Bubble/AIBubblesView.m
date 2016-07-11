@@ -413,7 +413,7 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
             // 添加 tiny 气泡
             AIBuyerBubbleModel *model = [[AIBuyerBubbleModel alloc] init];
             model.bubbleSize = [AIBubble tinyBubbleRadius];
-            AIBubble *tinyBubble = [[AIBubble alloc] initWithCenter:tcenter model:bubble.bubbleModel type:typeToSignIcon Index:self.bubbles.count];
+            AIBubble *tinyBubble = [[AIBubble alloc] initWithCenter:tcenter model:bubble.bubbleModel type:1 Index:self.bubbles.count];
             [self.bubbles addObject:tinyBubble];
             [self addSubview:tinyBubble];
             bubble.center = center;

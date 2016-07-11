@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="MyriadPro-LightSemiCn.otf">
+            <string>MyriadPro-LightSemiCn</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AICustomSearchHomeViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="bubbleContainerView" destination="7V0-3c-akw" id="f6i-Fq-LB2"/>
                 <outlet property="holdView" destination="ZmO-Bo-P57" id="w7M-vp-euA"/>
                 <outlet property="resultHoldView" destination="mdy-F9-PrK" id="fl0-0N-9u8"/>
                 <outlet property="searchText" destination="TLn-s0-RLL" id="DDb-i8-jV0"/>
@@ -154,7 +160,7 @@
                             <rect key="frame" x="0.0" y="58" width="600" height="542"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x0X-vW-wdc">
-                                    <rect key="frame" x="0.0" y="52" width="600" height="490"/>
+                                    <rect key="frame" x="0.0" y="52" width="600" height="322"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <outlet property="dataSource" destination="-1" id="SUP-sj-Txb"/>
@@ -168,15 +174,39 @@
                                         <constraint firstAttribute="height" constant="40" id="1Fu-Lf-NAd"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7V0-3c-akw">
+                                    <rect key="frame" x="0.0" y="374" width="600" height="168"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-recommend" translatesAutoresizingMaskIntoConstraints="NO" id="If7-YO-yqx">
+                                            <rect key="frame" x="13" y="5" width="21" height="21"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommendation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy9-i5-jWJ">
+                                            <rect key="frame" x="43" y="8" width="105" height="16"/>
+                                            <fontDescription key="fontDescription" name="MyriadPro-LightSemiCn" family="Myriad Pro" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Iy9-i5-jWJ" firstAttribute="centerY" secondItem="If7-YO-yqx" secondAttribute="centerY" id="E7G-4y-CO4"/>
+                                        <constraint firstItem="If7-YO-yqx" firstAttribute="leading" secondItem="7V0-3c-akw" secondAttribute="leading" constant="13" id="ob5-dj-3K5"/>
+                                        <constraint firstItem="If7-YO-yqx" firstAttribute="top" secondItem="7V0-3c-akw" secondAttribute="top" constant="5" id="pd1-wB-8Ua"/>
+                                        <constraint firstItem="Iy9-i5-jWJ" firstAttribute="leading" secondItem="If7-YO-yqx" secondAttribute="trailing" constant="9" id="taW-ti-7eP"/>
+                                        <constraint firstAttribute="height" constant="168" id="uiI-sL-1nl"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="T59-kx-bm1" firstAttribute="leading" secondItem="mdy-F9-PrK" secondAttribute="leading" id="0NC-R2-wXw"/>
                                 <constraint firstAttribute="trailing" secondItem="x0X-vW-wdc" secondAttribute="trailing" id="6Q0-yr-lBc"/>
+                                <constraint firstItem="7V0-3c-akw" firstAttribute="top" secondItem="x0X-vW-wdc" secondAttribute="bottom" id="7Yc-ZS-OjY"/>
+                                <constraint firstItem="7V0-3c-akw" firstAttribute="leading" secondItem="mdy-F9-PrK" secondAttribute="leading" id="F0d-VE-ARI"/>
+                                <constraint firstAttribute="trailing" secondItem="7V0-3c-akw" secondAttribute="trailing" id="STP-Dx-Ien"/>
+                                <constraint firstAttribute="bottom" secondItem="7V0-3c-akw" secondAttribute="bottom" id="YRf-uG-9dw"/>
                                 <constraint firstItem="x0X-vW-wdc" firstAttribute="top" secondItem="T59-kx-bm1" secondAttribute="bottom" constant="2" id="cmX-hC-XT9"/>
                                 <constraint firstItem="x0X-vW-wdc" firstAttribute="leading" secondItem="mdy-F9-PrK" secondAttribute="leading" id="jJz-nG-UDr"/>
                                 <constraint firstAttribute="trailing" secondItem="T59-kx-bm1" secondAttribute="trailing" id="jSJ-fB-z90"/>
-                                <constraint firstAttribute="bottom" secondItem="x0X-vW-wdc" secondAttribute="bottom" id="znc-w8-bIv"/>
                                 <constraint firstItem="T59-kx-bm1" firstAttribute="top" secondItem="mdy-F9-PrK" secondAttribute="top" constant="10" id="zqg-rd-qDh"/>
                             </constraints>
                         </view>
@@ -208,7 +238,7 @@
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="ecc-f6-tlq"/>
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="uh5-Iw-2bm"/>
             </constraints>
-            <point key="canvasLocation" x="-198" y="174"/>
+            <point key="canvasLocation" x="-146" y="38"/>
         </view>
     </objects>
     <resources>
@@ -216,5 +246,6 @@
         <image name="AI_Search_Home_camera" width="26" height="24"/>
         <image name="AI_Search_Home_mmenu" width="28" height="23"/>
         <image name="backIcon" width="13" height="22"/>
+        <image name="search-recommend" width="21" height="21"/>
     </resources>
 </document>

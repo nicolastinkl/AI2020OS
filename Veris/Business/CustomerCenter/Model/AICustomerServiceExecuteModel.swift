@@ -61,6 +61,24 @@ class AITimeContentViewModel: AIBaseViewModel {
     }
 }
 
+/// 客户订单列表视图
+class AICustomerOrderViewModel: AIBaseViewModel {
+    
+}
+
+class AICustomerOrderDetailTopViewModel : AIBaseViewModel {
+    var serviceIcon: String!
+    var serviceName: String!
+    var serviceDesc: String!
+    var completion: Float!
+    var price: String!
+}
+
+/// 客户订单服务实例视图
+class AICustomerServInstViewModel: AIBaseViewModel {
+    
+}
+
 // MARK: -> enums
 enum AITimelineLayoutTypeEnum: Int {
     case Normal = 1, Authoration, ConfirmServiceComplete, ConfirmOrderComplete, Now

@@ -68,6 +68,15 @@ class AIProposalTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        var model = ProposalOrderModelWrap()
+//        model.isExpanded = false
+//        model.model = ProposalOrderModel()
+//        dataSource.append(model)
+//        model = ProposalOrderModelWrap()
+//        model.model = ProposalOrderModel()
+//        model.isExpanded = false
+//        dataSource.append(model)
+
         /**
          Structure UITableView
          */
@@ -325,11 +334,21 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         
         if dataSource[indexPath.row].isExpanded {
             cell.showView("expanded")
+            cell.isBottomRoundCorner = true
+            cell.isTopRoundCorner = true
         } else {
             cell.showMainView()
+            cell.isBottomRoundCorner = false
+            cell.isTopRoundCorner = true
+        }
+        
+        if indexPath.row == dataSource.count - 1 {
+            cell.isBottomRoundCorner = true
         }
         
         cell.selectionStyle = .None
+        
+        
         //        var cell: AITableFoldedCellHolder!
         //
         //        if let cacheCell: AITableFoldedCellHolder = tableViewCellCache[indexPath.row] as! AITableFoldedCellHolder? {

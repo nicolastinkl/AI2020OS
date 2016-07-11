@@ -11,6 +11,10 @@ import UIKit
 class SwitchedTableViewCell: UITableViewCell {
 
     private var viewsMap = [String: UIView]()
+    private static let radius = 10
+    
+    var isTopRoundCorner = false
+    var isBottomRoundCorner = false
     
     func getView(key: String) -> UIView? {
         let v = viewsMap[key]
@@ -39,6 +43,17 @@ class SwitchedTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        
+        if isTopRoundCorner && isBottomRoundCorner {
+            setCorner(corners: [.TopLeft, .TopRight, .BottomLeft, .BottomRight], cornerRadii: CGSize(width: SwitchedTableViewCell.radius, height: SwitchedTableViewCell.radius))
+        } else if isTopRoundCorner {
+            setCorner(corners: [.TopLeft, .TopRight], cornerRadii: CGSize(width: SwitchedTableViewCell.radius, height: SwitchedTableViewCell.radius))
+        } else {
+            setCorner(corners: [.BottomLeft, .BottomRight], cornerRadii: CGSize(width: SwitchedTableViewCell.radius, height: SwitchedTableViewCell.radius))
+        }       
     }
     
     func addCandidateView(viewKey: String, subView: UIView) {
