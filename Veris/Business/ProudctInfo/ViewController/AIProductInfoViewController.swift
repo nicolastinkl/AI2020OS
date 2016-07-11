@@ -113,14 +113,12 @@ class AIProductInfoViewController: UIViewController {
 	 处理大图放大缩小效果
 	 */
 	func scrollViewDidScrollWithOffset(scrollOffset: CGFloat) {
-		let scrollViewDragPoint: CGPoint = CGPoint(x: 0, y: 0)
-		if scrollOffset < 0 {
-			// topImage.transform = CGAffineTransformMakeScale(1 - (scrollOffset / self.imageScalingFactor), 1 - (scrollOffset / self.imageScalingFactor))
-		} else {
-			// topImage.transform = CGAffineTransformMakeScale(1.0, 1.0)
-		}
-		
-		animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
+        
+        let alphaSc = (scrollOffset / defaultTableViewHeaderMargin)
+        if let navi = self.navi as? AINavigationBar {
+            navi.bgView.subviews.first?.alpha = alphaSc
+        }
+		//animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
 		
 	}
 	
@@ -545,7 +543,7 @@ class AIProductInfoViewController: UIViewController {
 extension AIProductInfoViewController: UIScrollViewDelegate {
 	
 	func scrollViewDidScroll(scrollView: UIScrollView) {
-		
+        
 	}
 	
 }
