@@ -32,8 +32,6 @@ class AIProposalTableViewController: UIViewController {
     var lastSelectedIndexPath: NSIndexPath?
     var didRefresh: Bool?
     
-    weak var superVC: AIBuyerViewController?
-    
     private let BUBBLE_VIEW_MARGIN = AITools.displaySizeFrom1080DesignSize(40)
     
     private let BUBBLE_VIEW_HEIGHT = AITools.displaySizeFrom1080DesignSize(1538)
@@ -46,7 +44,6 @@ class AIProposalTableViewController: UIViewController {
         tableView.separatorStyle = .None
         tableView.showsVerticalScrollIndicator = true
         tableView.backgroundColor = UIColor.clearColor()
-        tableView.hidden = true
         return  tableView
     }()
     
@@ -108,12 +105,9 @@ class AIProposalTableViewController: UIViewController {
         
         //改为使用虚化背景
         let blurEffect = UIBlurEffect(style: .Dark)
-        // 使用你之前设置过的blurEffect来构建UIVibrancyEffect，UIVibrancyEffect是UIVisualEffect另一个子类。
-        //let vibrancyEffect = UIVibrancyEffect(forBlurEffect: blurEffect)
-        // 创建UIVisualEffectView来应用Vibrancy效果,这个过程恰巧跟生成模糊图一样。因为你使用的是自动布局所以在这里需要把自适应大小改为false
         let vibrancyView = UIVisualEffectView(effect: blurEffect)
         vibrancyView.frame = self.view.frame
-        //self.view.addSubview(vibrancyView)
+        self.view.addSubview(vibrancyView)
         
         let y: CGFloat = 44
         let label: UPLabel = AIViews.normalLabelWithFrame(CGRectMake(BUBBLE_VIEW_MARGIN, y, screenWidth - 2 * BUBBLE_VIEW_MARGIN, 20), text: "AIBuyerViewController.progress".localized, fontSize: 20, color: UIColor.whiteColor())
