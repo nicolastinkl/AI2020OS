@@ -67,15 +67,6 @@ class AIProposalTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        var model = ProposalOrderModelWrap()
-//        model.isExpanded = false
-//        model.model = ProposalOrderModel()
-//        dataSource.append(model)
-//        model = ProposalOrderModelWrap()
-//        model.model = ProposalOrderModel()
-//        model.isExpanded = false
-//        dataSource.append(model)
 
         /**
          Structure UITableView
@@ -163,12 +154,12 @@ class AIProposalTableViewController: UIViewController {
             
         }
         
-        collectionView.registerClass(AIProposalCollCell.self, forCellWithReuseIdentifier: kAIProposalCellIdentifierss)
-        
-        collectionView.registerNib(UINib(nibName: "AIProposalCollCell", bundle: nil), forCellWithReuseIdentifier: kAIProposalCellIdentifierss)
-        collectionView.frame = self.view.frame
-        view.addSubview(collectionView)
-        collectionView.setTop(y + 30)
+//        collectionView.registerClass(AIProposalCollCell.self, forCellWithReuseIdentifier: kAIProposalCellIdentifierss)
+//        
+//        collectionView.registerNib(UINib(nibName: "AIProposalCollCell", bundle: nil), forCellWithReuseIdentifier: kAIProposalCellIdentifierss)
+//        collectionView.frame = self.view.frame
+//        view.addSubview(collectionView)
+//        collectionView.setTop(y + 30)
     }
     
     func clearPropodalData(){
