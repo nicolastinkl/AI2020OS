@@ -108,6 +108,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         Async.main(after: 0.3) {
             if self.popTableView.subviews.count == 0 {
                 let rootViewController = AIProposalTableViewController()
+                rootViewController.superVC = self
                 self.addSubViewController(rootViewController, toView: self.popTableView)
                 self.finishPanDownwards(self.popTableView, velocity: 0)
             }

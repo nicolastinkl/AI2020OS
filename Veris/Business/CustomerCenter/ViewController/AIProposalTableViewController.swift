@@ -32,6 +32,8 @@ class AIProposalTableViewController: UIViewController {
     var lastSelectedIndexPath: NSIndexPath?
     var didRefresh: Bool?
     
+    weak var superVC: AIBuyerViewController?
+    
     private let BUBBLE_VIEW_MARGIN = AITools.displaySizeFrom1080DesignSize(40)
     
     private let BUBBLE_VIEW_HEIGHT = AITools.displaySizeFrom1080DesignSize(1538)
@@ -380,9 +382,9 @@ extension AIProposalTableViewController: UICollectionViewDelegate,UICollectionVi
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView.dynamicType == UICollectionView.self {
             if scrollView.contentOffset.y < 0 {
-                self.collectionView.scrollEnabled = false
-                //Throw UIGesture To SuperView.         
-//                scrollView.panGestureRecognizer
+                //Throw UIGesture To SuperView.
+                superVC?.didRecognizePanGesture(scrollView.panGestureRecognizer)
+                
             }else{
                 self.collectionView.scrollEnabled = true
             }
