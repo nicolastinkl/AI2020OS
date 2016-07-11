@@ -23,7 +23,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	var iconView: AISearchHistoryIconView!
 	
 	@IBOutlet weak var holdView: UIView!
-	var resultFilterBar: AICutomSearchHomeResultFilterBar!
+	@IBOutlet weak var resultFilterBar: AICustomSearchHomeResultFilterBar!
 	@IBOutlet weak var resultHoldView: UIView!
 	@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bubbleContainerView: UIView!
@@ -95,8 +95,33 @@ class AICustomSearchHomeViewController: UIViewController {
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 100
 	}
+    
 	func setupFilterView() {
-		
+        resultFilterBar.menuContainerView = view
+        resultFilterBar.menuViewTopSpace = AITools.displaySizeFrom1242DesignSize(198+122)
+        resultFilterBar.delegate = self
+        
+        resultFilterBar.filterTitles = [
+            "Price: Low to High",
+            "Price: High to Low",
+            "Avg.Custom Review",
+            "Newest Arrivals"
+        ]
+        
+        resultFilterBar.priceTitles = [
+            "€ 0 - € 5",
+            "€ 5 - € 30",
+            "€ 30 - € 60",
+            "€ 60 - € 100",
+            "€ 100 or more"
+        ]
+        
+        resultFilterBar.sortTitles = [
+            "Transport",
+            "Paramedic",
+            "Medication",
+            "Other",
+        ]
 	}
     
     func fakeBubbleModels() {
@@ -310,5 +335,13 @@ extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
 	func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
 		
 	}
-	
+}
+
+extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDelegate {
+    func customSearchHomeResultFilterBar(filterBar: AICustomSearchHomeResultFilterBar, didSelectType type: FilterType, index: Int) {
+        filterBar.hideMenu()
+        AILog(type)
+        AILog(index)
+        AILog("button filter bar did pressed")
+    }
 }
