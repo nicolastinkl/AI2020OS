@@ -124,7 +124,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         orderInfoModel?.price = "340"
         orderInfoModel?.serviceName = "Ground Transportation"
         orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png"
-        orderInfoModel
+        //orderInfoModel
         orderInfoContentView?.model = orderInfoModel
         //timeLine tableView
         timelineTableView.registerNib(UINib(nibName: AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, bundle: nil), forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell)
