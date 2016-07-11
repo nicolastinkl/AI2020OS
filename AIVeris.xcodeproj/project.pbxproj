@@ -529,6 +529,8 @@
 		846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */; };
 		846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */; };
 		846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */; };
+		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
+		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
 		84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */; };
@@ -562,6 +564,8 @@
 		935986FF1D20FB9D00BBED4E /* AIAssetsReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */; };
 		935987011D20FCB900BBED4E /* AIAssetsReviewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */; };
 		93698EF61D24D06100DD4145 /* AIProposalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */; };
+		936B32A51D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936B32A41D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift */; };
+		936B32A71D2F948B004465AD /* AIProposalCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936B32A61D2F948B004465AD /* AIProposalCollCell.xib */; };
 		9378C3E51D2131E3004D42EA /* AIAssetsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */; };
 		937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
 		9392B5171D1CD63B0007F241 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392B5131D1CD63B0007F241 /* CommonUtil.m */; };
@@ -1394,6 +1398,9 @@
 		846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
 		846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentHelp.swift; sourceTree = "<group>"; };
 		846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsCommentViewController.swift; sourceTree = "<group>"; };
+		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 		8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
@@ -1432,6 +1439,8 @@
 		935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsReviewsController.swift; sourceTree = "<group>"; };
 		935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsReviewsController.xib; sourceTree = "<group>"; };
 		93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProposalTableViewController.swift; sourceTree = "<group>"; };
+		936B32A41D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickyCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		936B32A61D2F948B004465AD /* AIProposalCollCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProposalCollCell.xib; sourceTree = "<group>"; };
 		9378C3E41D2131E3004D42EA /* AIAssetsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsViewCell.swift; sourceTree = "<group>"; };
 		937EA3801C02BB2700AF776B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9392B5121D1CD63B0007F241 /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = "<group>"; };
@@ -2149,6 +2158,7 @@
 				1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */,
 				1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */,
 				84512D4E1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift */,
+				936B32A61D2F948B004465AD /* AIProposalCollCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2194,6 +2204,7 @@
 				81433A281CFBE5A700347C29 /* ReadmeViewController.swift */,
 				126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */,
 				93698EF51D24D06100DD4145 /* AIProposalTableViewController.swift */,
+				936B32A41D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3317,6 +3328,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8483169D1D33372E00082D38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8483169E1D33374200082D38 /* CommentService.swift */,
+				848316A21D333B1C00082D38 /* CommentModel.h */,
+				848316A31D333B3E00082D38 /* CommentModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		930455121D124E71007AFC0C /* XunfeiLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -3669,6 +3690,7 @@
 		93C61FBF1D01196F0063C2BF /* Comment */ = {
 			isa = PBXGroup;
 			children = (
+				8483169D1D33372E00082D38 /* Model */,
 				8457004B1D012D3500512597 /* View */,
 				93C61FC01D01196F0063C2BF /* ViewController */,
 			);
@@ -3969,6 +3991,7 @@
 				81433EB81CFBE5A700347C29 /* MyriadPro-Black.otf in Resources */,
 				81433EBA1CFBE5A700347C29 /* MyriadPro-Cond.otf in Resources */,
 				81433DA51CFBE5A700347C29 /* AIServiceSearchView.xib in Resources */,
+				936B32A71D2F948B004465AD /* AIProposalCollCell.xib in Resources */,
 				81433D361CFBE5A700347C29 /* AIAudioInputView.xib in Resources */,
 				93E4C4021D20E478007EB116 /* AIAssetsPickerController.xib in Resources */,
 				81433EC41CFBE5A700347C29 /* loading.gif in Resources */,
@@ -4180,6 +4203,7 @@
 				81433D2C1CFBE5A700347C29 /* ServiceContainerView.swift in Sources */,
 				81433E5A1CFBE5A700347C29 /* FLEXArgumentInputStructView.m in Sources */,
 				81433E421CFBE5A700347C29 /* CGAffineTransform.swift in Sources */,
+				848316A41D333B3E00082D38 /* CommentModel.m in Sources */,
 				81433DFA1CFBE5A700347C29 /* AISingleSelectView.swift in Sources */,
 				81433D301CFBE5A700347C29 /* SimpleServiceViewContainer.swift in Sources */,
 				81433D5F1CFBE5A700347C29 /* AIShoppingListView.swift in Sources */,
@@ -4427,6 +4451,7 @@
 				81433E911CFBE5A700347C29 /* FLEXViewControllerExplorerViewController.m in Sources */,
 				81433E391CFBE5A700347C29 /* DependOnNodePickerViewController.swift in Sources */,
 				81433E511CFBE5A700347C29 /* BuildInCameraUtils.swift in Sources */,
+				8483169F1D33374200082D38 /* CommentService.swift in Sources */,
 				81433E591CFBE5A700347C29 /* FLEXArgumentInputStringView.m in Sources */,
 				81433EAD1CFBE5A700347C29 /* KGNAutoLayout.swift in Sources */,
 				81433E9C1CFBE5A700347C29 /* FLEXImagePreviewViewController.m in Sources */,
@@ -4610,6 +4635,7 @@
 				81433E491CFBE5A700347C29 /* UP_NSString+Format.mm in Sources */,
 				81433DAA1CFBE5A700347C29 /* AITimelineCellBaseView.swift in Sources */,
 				81433D1C1CFBE5A700347C29 /* AccommodationService.swift in Sources */,
+				936B32A51D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift in Sources */,
 				933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */,
 				81433E231CFBE5A700347C29 /* YLProgressBar.m in Sources */,
 				81433CE61CFBE5A700347C29 /* AIProposalServiceParser.m in Sources */,
@@ -4795,7 +4821,7 @@
 					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
-				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
+				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
 				PRODUCT_NAME = Veris;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
@@ -4848,7 +4874,7 @@
 					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
-				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
+				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
 				PRODUCT_NAME = Veris;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";

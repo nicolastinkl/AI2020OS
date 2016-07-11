@@ -103,7 +103,7 @@ class AISuperiorityViewController: UIViewController {
         titleLabel.setLeft(leftOffSet)
         addNewSubView(titleLabel, preView: imageView, color: UIColor.clearColor(), space: 53/3)
         titleLabel.setWidth(UIScreen.mainScreen().bounds.width - 50)
-        titleLabel.text = "听说你还为孕检\n超碎了心？"
+        titleLabel.text = "听说你还为孕检\n操碎了心？"
 
         // List Superiority Desciption.
         var preCellView: UIView?

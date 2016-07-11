@@ -122,6 +122,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         orderInfoModel?.serviceName = "孕检无忧"
         orderInfoModel?.completion = 0.75
         orderInfoModel?.price = "340"
+        orderInfoModel?.serviceName = "Ground Transportation"
+        orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png"
         orderInfoModel?.serviceDesc = "孕检无负担，轻松愉快。"
         orderInfoContentView?.model = orderInfoModel
         //timeLine tableView
