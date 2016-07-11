@@ -16,13 +16,12 @@ class AITimelineTopView: UIView {
     @IBOutlet weak var messageNumber: UILabel!
     @IBOutlet weak var buyerName: UILabel!
     @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var serviceIcon: UIImageView!
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var percentageNumber: UILabel!
     @IBOutlet weak var progressBar: YLProgressBar!
 
-    static func createInstance() -> OrderAndBuyerInfoView {
-        let viewThis = NSBundle.mainBundle().loadNibNamed("OrderAndBuyerInfoView", owner: self, options: nil).first  as! OrderAndBuyerInfoView
+    static func createInstance() -> AITimelineTopView {
+        let viewThis = NSBundle.mainBundle().loadNibNamed("AITimelineTopView", owner: self, options: nil).first  as! AITimelineTopView
 
         return viewThis
     }
@@ -49,10 +48,6 @@ class AITimelineTopView: UIView {
                 }
                 let imageUrl = "\(AIRequirementViewPublicValue.orderPreModel?.customer.user_portrait_icon ?? "")"
                 buyerIcon.asyncLoadImage(imageUrl)
-
-                if let serviceIconUrl = m.serviceIcon {
-                    serviceIcon.asyncLoadImage(serviceIconUrl)
-                }
             }
         }
     }

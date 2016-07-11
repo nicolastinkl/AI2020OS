@@ -66,6 +66,14 @@ class AICustomerOrderViewModel: AIBaseViewModel {
     
 }
 
+class AICustomerOrderDetailTopViewModel : AIBaseViewModel {
+    var serviceIcon: String!
+    var serviceName: String!
+    var serviceDesc: String!
+    var completion: Float!
+    var price: String!
+}
+
 /// 客户订单服务实例视图
 class AICustomerServInstViewModel: AIBaseViewModel {
     
