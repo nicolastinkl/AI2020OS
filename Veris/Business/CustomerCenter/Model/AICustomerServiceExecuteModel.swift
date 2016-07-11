@@ -72,6 +72,7 @@ class AICustomerOrderDetailTopViewModel : AIBaseViewModel {
     var serviceDesc: String!
     var completion: Float!
     var price: String!
+    var messageNumber: Int?
 }
 
 /// 客户订单服务实例视图

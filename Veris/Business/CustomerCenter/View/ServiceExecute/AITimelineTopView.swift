@@ -12,11 +12,11 @@ class AITimelineTopView: UIView {
 
     //var delegate: OrderAndBuyerInfoViewDelegate?
 
-    @IBOutlet weak var buyerIcon: UIImageView!
+    @IBOutlet weak var serviceIcon: UIImageView!
     @IBOutlet weak var messageNumber: UILabel!
-    @IBOutlet weak var buyerName: UILabel!
-    @IBOutlet weak var price: UILabel!
     @IBOutlet weak var serviceName: UILabel!
+    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var serviceDesc: UILabel!
     @IBOutlet weak var percentageNumber: UILabel!
     @IBOutlet weak var progressBar: YLProgressBar!
 
@@ -26,15 +26,15 @@ class AITimelineTopView: UIView {
         return viewThis
     }
 
-    var model: BuyerOrderModel? {
+    var model: AICustomerOrderDetailTopViewModel? {
         didSet {
             if let m = model {
 
-                if let name = m.buyerName {
-                    buyerName.text = name
+                if let name = m.serviceName {
+                    serviceName.text = name
                 }
-                if let service = m.serviceName {
-                    serviceName.text = service
+                if let service = m.serviceDesc {
+                    serviceDesc.text = service
                 }
                 setProgress(m.completion != nil ? CGFloat(m.completion!) : 0)
                 price.text = m.price != nil ? m.price! : "0"
@@ -46,8 +46,9 @@ class AITimelineTopView: UIView {
                         messageNumber.hidden = true
                     }
                 }
-                let imageUrl = "\(AIRequirementViewPublicValue.orderPreModel?.customer.user_portrait_icon ?? "")"
-                buyerIcon.asyncLoadImage(imageUrl)
+                if let serviceIconString = m.serviceIcon{
+                    serviceIcon.sd_setImageWithURL(NSURL(string: serviceIconString))
+                }
             }
         }
     }
@@ -57,7 +58,7 @@ class AITimelineTopView: UIView {
         messageNumber.layer.cornerRadius = messageNumber.frame.width / 2
         messageNumber.layer.masksToBounds = true
         let offSet: CGFloat = 4
-        buyerName.font = AITools.myriadSemiboldSemiCnWithSize(AITools.displaySizeFrom1080DesignSize(60-offSet))
+        serviceName.font = AITools.myriadSemiboldSemiCnWithSize(AITools.displaySizeFrom1080DesignSize(60-offSet))
         price.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(70-offSet))
         messageNumber.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(40-offSet))
         serviceName.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(36-offSet))
@@ -67,7 +68,7 @@ class AITimelineTopView: UIView {
         progressBar.progressTintColors = barColors
 
 
-        buyerIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(OrderAndBuyerInfoView.buyerIconClicked(_:))))
+        serviceIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(OrderAndBuyerInfoView.buyerIconClicked(_:))))
     }
 
     func setProgress(progress: CGFloat) {
