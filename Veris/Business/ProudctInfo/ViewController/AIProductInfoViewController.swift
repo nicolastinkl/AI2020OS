@@ -34,6 +34,7 @@ class AIProductInfoViewController: UIViewController {
 	
     // MARK: - Propites
 	private let defaultTableViewHeaderMargin: CGFloat = 413.0
+    
 	private let imageScalingFactor: CGFloat = 413.0
 	
 	@IBOutlet weak var scrollview: UIScrollView!
@@ -337,15 +338,38 @@ class AIProductInfoViewController: UIViewController {
 		let lineView2 = addSplitView()
 		
 		// Setup 4:
-//        let pLabel1 = getTitleLabelView("为您推荐")
-//        addNewSubView(pLabel, preView: lineView2)
-//        pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
-//        let hView4 = AIServerProviderView.initFromNib()
-//        addNewSubView(hView4!, preView: pLabel)
+        let pLabel44 = getTitleLabelView("为您推荐")
+        addNewSubView(pLabel44, preView: lineView2)
+        pLabel44.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
+        
+        let bubbleViewContain = UIView()
+        bubbleViewContain.setHeight(0)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let bubbleModels = appDelegate.dataSourcePop
+        if bubbleModels.count > 0 {
+            for i in 0..<min(4, bubbleModels.count) {
+                let model: AIBuyerBubbleModel! = bubbleModels[i]
+                let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
+                let space = AITools.displaySizeFrom1242DesignSize(15)
+                let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
+                model.bubbleSize = Int(bubbleWidth)/2
+                let bubbleView = AIBubble(center: .zero, model: model, type: model.bubbleType, index: 0)
+                bubbleViewContain.addSubview(bubbleView)
+                bubbleView.tag = i
+                let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
+                bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + space), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
+                
+            }
+            
+            bubbleViewContain.setHeight(125)
+        }
+        addNewSubView(bubbleViewContain, preView: pLabel44)
         
         // Setup 5:
         let pLabel = getTitleLabelView("服务者介绍")
-        addNewSubView(pLabel, preView: lineView2)
+        
+        addNewSubView(pLabel, preView: bubbleViewContain)
         pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
         let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
         addNewSubView(hView4!, preView: pLabel)

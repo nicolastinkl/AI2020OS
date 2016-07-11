@@ -821,6 +821,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             if let pops = data.proposal_list {
                 if pops.count > 0 {
                     self.dataSourcePop = pops as! [AIBuyerBubbleModel]
+                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.dataSourcePop = self.dataSourcePop
                     self.makeBubbleView()
                 }
             }
