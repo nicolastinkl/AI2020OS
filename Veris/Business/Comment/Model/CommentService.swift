@@ -8,14 +8,15 @@
 
 import Foundation
 
-
-protocol CommentService {
+protocol CommentService: NSObjectProtocol {
     func getSingleComment(serviceId: String, success: (responseData: SingleComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func getCompondComment(serviceId: String, success: (responseData: CompondComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 
 }
 
-class HttpCommentService: CommentService {
+class HttpCommentService: NSObject {}
+
+extension HttpCommentService: CommentService {
     func getSingleComment(serviceId: String, success: (responseData: SingleComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         let message = AIMessage()
@@ -70,4 +71,3 @@ class HttpCommentService: CommentService {
         }
     }
 }
-
