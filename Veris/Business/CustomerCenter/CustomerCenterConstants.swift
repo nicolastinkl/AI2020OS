@@ -17,13 +17,14 @@ struct CustomerCenterConstants {
     }
     
     struct Fonts {
-        static let TimeLabelNormal = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(42))
-        static let TimelineButton = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(48))
+        static let TimeLabelNormal = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
+        static let TimelineButton = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
         //订单列表界面
-        static let CustomerOrderTitle = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(60))
-        static let CustomerOrderTaskStatus = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(39))
-        static let CustomerOrderStatus = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(39))
-        static let CustomerOrderBadge = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(43))
+        static let CustomerOrderTitle = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(60))
+        static let CustomerOrderTaskStatus = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(39))
+        static let CustomerOrderStatus = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(39))
+        static let CustomerOrderBadge = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(43))
+        static let CustomerOrderTaskName = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
         
     }
     

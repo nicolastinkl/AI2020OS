@@ -19,9 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	var didFinishGetBuyerProposalData: Bool = false
 	
 	var sellerData: NSDictionary?
-	var buyerListData: ProposalOrderListModel?
-	var buyerProposalData: AIProposalPopListModel?
-	
+    var buyerListData: ProposalOrderListModel?
+    var buyerProposalData: AIProposalPopListModel?
+    var dataSourcePop = [AIBuyerBubbleModel]()
+    
 	let WX_APPID: String = "wx483dafc09117a3d0"
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -271,79 +272,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 		self.window?.makeKeyAndVisible()
 	}
 	
-	func showRootViewController() {
-		
-	}
-	
-	func fetchBuyerData() {
-		let bdk = BDKProposalService()
-		// 列表数据
-		bdk.getProposalList({ (responseData) -> Void in
-			self.didFinishGetBuyerListData = true
-			self.buyerListData = responseData
-			
-			if self.didFinishGetSellerData && self.didFinishGetBuyerProposalData {
-				self.showRootViewController()
-			}
-			
-		}) { (errType, errDes) -> Void in
-			
-			self.didFinishGetBuyerListData = true
-			self.buyerListData = nil
-			if self.didFinishGetSellerData && self.didFinishGetBuyerProposalData {
-				self.showRootViewController()
-			}
-		}
-		
-		bdk.getPoposalBubbles({ (responseData) -> Void in
-			self.didFinishGetBuyerProposalData = true
-			self.buyerProposalData = responseData
-			
-			if self.didFinishGetSellerData && self.didFinishGetBuyerListData {
-				self.showRootViewController()
-			}
-			
-		}) { (errType, errDes) -> Void in
-			
-			self.didFinishGetBuyerProposalData = true
-			self.buyerProposalData = nil
-			if self.didFinishGetSellerData && self.didFinishGetBuyerListData {
-				self.showRootViewController()
-			}
-		}
-	}
-	
-	func fetchSellerData () {
-		let dic = ["data": ["order_state": "0", "order_role": "2"],
-			"desc": ["data_mode": "0", "digest": ""]]
-		
-		let message = AIMessage()
-		message.url = AIApplication.AIApplicationServerURL.querySellerOrderList.description
-		message.body.addEntriesFromDictionary(dic)
-		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-			self.didFinishGetSellerData = true
-			self.sellerData = response as? NSDictionary
-			
-			if self.didFinishGetBuyerListData && self.didFinishGetBuyerProposalData {
-				self.showRootViewController()
-			}
-			
-		}) { (AINetError, String) -> Void in
-			self.didFinishGetSellerData = true
-			self.sellerData = nil
-			if self.didFinishGetBuyerListData && self.didFinishGetBuyerProposalData {
-				self.showRootViewController()
-			}
-		}
-	}
-	
-	func fetchPreSellerAndBuyerData () {
-		
-		// Get Seller
-		fetchSellerData()
-		
-		// Get Buyer
-		fetchBuyerData()
-		
-	}
 }

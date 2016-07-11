@@ -32,7 +32,9 @@ import SnapKit
 /// 商品详情视图
 class AIProductInfoViewController: UIViewController {
 	
-	private let defaultTableViewHeaderMargin: CGFloat = 300.0
+    // MARK: - Propites
+	private let defaultTableViewHeaderMargin: CGFloat = 413.0
+    
 	private let imageScalingFactor: CGFloat = 413.0
 	
 	@IBOutlet weak var scrollview: UIScrollView!
@@ -43,10 +45,10 @@ class AIProductInfoViewController: UIViewController {
 	
 	private let topImage = AIImageView()
 	
+    // MARK: - Init Function
 	/**
 	 Init
 	 */
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -55,6 +57,9 @@ class AIProductInfoViewController: UIViewController {
 		
 		// Make AINavigationBar 'View.
 		initLayoutViews()
+        
+        // Make Config Buttons.
+        configButtons()
 		
 		// Make UIScrollView.
 		Async.main(after: 0.1) {
@@ -62,6 +67,33 @@ class AIProductInfoViewController: UIViewController {
 		}
 		
 	}
+    
+    /**
+     定制按钮和Top按钮
+     */
+    func configButtons() {
+        
+        let topButton = UIButton()
+        view.addSubview(topButton)
+        
+        let editButton = UIButton()
+        view.addSubview(editButton)
+        
+        topButton.setImage(UIImage(named: "AI_ProductInfo_Home_Edit"), forState: UIControlState.Normal)
+        editButton.setImage(UIImage(named: "AI_ProductInfo_Home_Top"), forState: UIControlState.Normal)
+        
+        topButton.sizeToWidthAndHeight(38.6)
+        editButton.sizeToWidthAndHeight(38.6)
+        topButton.pinToRightEdgeOfSuperview(offset: 13, priority: UILayoutPriorityDefaultHigh)
+        editButton.pinToRightEdgeOfSuperview(offset: 13, priority: UILayoutPriorityDefaultHigh)
+        
+        topButton.positionViewsBelow([editButton], offset: 15, priority: UILayoutPriorityDefaultHigh)
+        topButton.pinToBottomEdgeOfSuperview(offset: 100, priority: UILayoutPriorityDefaultHigh)
+        
+        topButton.addTarget(self, action: #selector(AIProductInfoViewController.editAction), forControlEvents: UIControlEvents.TouchUpInside)
+        editButton.addTarget(self, action: #selector(AIProductInfoViewController.topAction), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
 	/**
 	 observerValueForKeyPath.
 	 */
@@ -81,14 +113,12 @@ class AIProductInfoViewController: UIViewController {
 	 处理大图放大缩小效果
 	 */
 	func scrollViewDidScrollWithOffset(scrollOffset: CGFloat) {
-		let scrollViewDragPoint: CGPoint = CGPoint(x: 0, y: 0)
-		if scrollOffset < 0 {
-			// topImage.transform = CGAffineTransformMakeScale(1 - (scrollOffset / self.imageScalingFactor), 1 - (scrollOffset / self.imageScalingFactor))
-		} else {
-			// topImage.transform = CGAffineTransformMakeScale(1.0, 1.0)
-		}
-		
-		animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
+        
+        let alphaSc = (scrollOffset / defaultTableViewHeaderMargin)
+        if let navi = self.navi as? AINavigationBar {
+            navi.bgView.subviews.first?.alpha = alphaSc
+        }
+		//animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
 		
 	}
 	
@@ -131,12 +161,17 @@ class AIProductInfoViewController: UIViewController {
 				layout.right == layout.superview!.right
 				layout.height == 44.0 + 10.0
 			})
+            
+            navi.backButton.setImage(UIImage(named: "AI_ProductInfo_Home_Back"), forState: UIControlState.Normal)
+            navi.commentButton.setImage(UIImage(named: "AI_ProductInfo_Home_Favirtor"), forState: UIControlState.Normal)
+            navi.videoButton.setImage(UIImage(named: "AI_ProductInfo_Home_Shared"), forState: UIControlState.Normal)
 			
 			navi.titleLabel.text = ""
 			
 		}
 	}
 	
+   // MARK: - Init ScrollData
 	func initScrollViewData() {
 		
 		/**
@@ -174,7 +209,7 @@ class AIProductInfoViewController: UIViewController {
 		}
 		
 		// Setup 1 : Top UIImageView.
-		topImage.setURL(NSURL(string: "https://www.cdc.gov/pregnancy/meds/images/woman-talking-to-dr-400px.jpg"), placeholderImage: smallPlace())
+		topImage.setURL(NSURL(string: "http://7xq9bx.com1.z0.glb.clouddn.com/AI_ProductInfo_Home_%E6%9C%8D%E5%8A%A1%E7%A4%BA%E6%84%8F%E5%9B%BE.8.8.png"), placeholderImage: smallPlace())
 		topImage.setHeight(imageScalingFactor)
 		topImage.contentMode = UIViewContentMode.ScaleAspectFill
 		addNewSubView(topImage, preView: UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
@@ -301,15 +336,38 @@ class AIProductInfoViewController: UIViewController {
 		let lineView2 = addSplitView()
 		
 		// Setup 4:
-//        let pLabel1 = getTitleLabelView("为您推荐")
-//        addNewSubView(pLabel, preView: lineView2)
-//        pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
-//        let hView4 = AIServerProviderView.initFromNib()
-//        addNewSubView(hView4!, preView: pLabel)
+        let pLabel44 = getTitleLabelView("为您推荐")
+        addNewSubView(pLabel44, preView: lineView2)
+        pLabel44.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
+        
+        let bubbleViewContain = UIView()
+        bubbleViewContain.setHeight(0)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let bubbleModels = appDelegate.dataSourcePop
+        if bubbleModels.count > 0 {
+            for i in 0..<min(4, bubbleModels.count) {
+                let model: AIBuyerBubbleModel! = bubbleModels[i]
+                let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
+                let space = AITools.displaySizeFrom1242DesignSize(15)
+                let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
+                model.bubbleSize = Int(bubbleWidth)/2
+                let bubbleView = AIBubble(center: .zero, model: model, type: model.bubbleType, index: 0)
+                bubbleViewContain.addSubview(bubbleView)
+                bubbleView.tag = i
+                let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
+                bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + space), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
+                
+            }
+            
+            bubbleViewContain.setHeight(125)
+        }
+        addNewSubView(bubbleViewContain, preView: pLabel44)
         
         // Setup 5:
         let pLabel = getTitleLabelView("服务者介绍")
-        addNewSubView(pLabel, preView: lineView2)
+        
+        addNewSubView(pLabel, preView: bubbleViewContain)
         pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
         let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
         addNewSubView(hView4!, preView: pLabel)
@@ -324,7 +382,7 @@ class AIProductInfoViewController: UIViewController {
         addNewSubView(holdSpaceView, preView: pcLabel)
         holdSpaceView.setHeight(44/3)
         let bottomImage = AIImageView()
-        bottomImage.setURL(NSURL(string:"http://tse3.mm.bing.net/th?id=OIP.M0270ecfd4170b83f759ef204f51ec417o0&pid=15.1"), placeholderImage: smallPlace())
+        bottomImage.setURL(NSURL(string:"http://7xq9bx.com1.z0.glb.clouddn.com/AI_ProductInfo_Home_%E5%95%86%E5%93%81%E4%BB%8B%E7%BB%8D%E5%8C%BA%E5%9F%9F.8.8.png"), placeholderImage: smallPlace())
         bottomImage.setHeight(675)
         bottomImage.backgroundColor = UIColor(hexString: "#6AB92E", alpha: 0.7)
         bottomImage.contentMode = UIViewContentMode.ScaleAspectFill
@@ -374,7 +432,7 @@ class AIProductInfoViewController: UIViewController {
             labelModel_3.selected_flag = 1
             labelModel_3.selected_num = 121
             
-            wish.label_list = [labelModel_1,labelModel_2,labelModel_3,labelModel_2,labelModel_1]
+            wish.label_list = [labelModel_1, labelModel_2, labelModel_3, labelModel_2, labelModel_1]
             wish.hope_list = []
             let providerView = AIProviderView.currentView()
             addNewSubView(providerView, preView: viw)
@@ -454,6 +512,7 @@ class AIProductInfoViewController: UIViewController {
         
     }
    
+    // MARK: - Action Event Touch Up Inside
     @IBAction func showOrderAction(sender: AnyObject) {
         configOrderAction()
     }
@@ -462,13 +521,29 @@ class AIProductInfoViewController: UIViewController {
         let vc = AIProductQAViewController()
         presentBlurViewController(vc, animated: true, completion: nil)
 	}
+    
+    /**
+     Back to top position.
+     */
+    func topAction() {
+        scrollview.scrollsToTop = true
+        scrollview.setContentOffset(CGPointMake(0, 0), animated: true)
+    }
+    
+    /**
+     Target to Edit ViewController.
+     */
+    func editAction() {
+        scrollview.setContentOffset(CGPointMake(0, scrollview.contentSize.height), animated: true)
+    }
 	 
 }
 
+// MARK: - Extension
 extension AIProductInfoViewController: UIScrollViewDelegate {
 	
 	func scrollViewDidScroll(scrollView: UIScrollView) {
-		
+        
 	}
 	
 }

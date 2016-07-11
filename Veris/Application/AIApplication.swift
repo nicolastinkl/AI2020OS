@@ -397,6 +397,12 @@ struct AIApplication {
         //MARK: 登陆
         case login
         // 一键恢复订单
+        
+        // 单一服务评论
+        case singleComment
+        // 复合服务评论
+        case compondComment
+        
         var description: String {
 
             let serverStatus = NSUserDefaults.standardUserDefaults().integerForKey(kDefault_ServerURLStatus)
@@ -449,6 +455,10 @@ struct AIApplication {
             //登陆注册接口
             case .register: return AIApplication.KURL_Appstore_ReleaseURL + "/register"
             case .login: return AIApplication.KURL_Appstore_ReleaseURL + "/login"
+                
+            //服务评论接口
+            case .singleComment: return AIApplication.KURL_Appstore_ReleaseURL + "/nsboss/judge/querySingleJudgement"
+            case .compondComment: return AIApplication.KURL_Appstore_ReleaseURL + "/nsboss/judge/queryJudgement"
             }
         }
     }

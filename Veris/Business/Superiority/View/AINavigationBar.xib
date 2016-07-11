@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -61,7 +61,7 @@
                         <constraint firstAttribute="height" constant="32" id="8TN-OH-St9"/>
                         <constraint firstAttribute="width" constant="32" id="Mca-pj-yBH"/>
                     </constraints>
-                    <state key="normal" image="viocephonebutton">
+                    <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -71,7 +71,7 @@
                         <constraint firstAttribute="height" constant="32" id="9TB-Cr-Ydi"/>
                         <constraint firstAttribute="width" constant="32" id="ZhO-gm-9jE"/>
                     </constraints>
-                    <state key="normal" image="serviceDetailInfo">
+                    <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">
@@ -129,7 +129,5 @@
     </objects>
     <resources>
         <image name="AINavigationBar_back" width="34" height="34"/>
-        <image name="serviceDetailInfo" width="36" height="36"/>
-        <image name="viocephonebutton" width="36" height="36"/>
     </resources>
 </document>

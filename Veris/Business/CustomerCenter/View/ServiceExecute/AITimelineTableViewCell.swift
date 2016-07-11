@@ -243,6 +243,9 @@ class AITimelineTableViewCell: UITableViewCell {
                 totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.subViewMargin + AITimelineTableViewCell.baseButtonsHeight + AITimelineTableViewCell.cellMargin + imageContainerViewHeight
             default: break
             }
+            if viewModel.timeModel?.shouldShowDate == true {
+                totalHeight += 25
+            }
         }
         AILog("totalHeight : \(totalHeight)")
         return totalHeight
