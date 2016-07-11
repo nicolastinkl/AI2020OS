@@ -16,6 +16,7 @@ class SubServiceCardView: UIView {
     @IBOutlet weak var statusButton: UIButton!
     @IBOutlet weak var serviceIcon: UIImageView!
     @IBOutlet weak var personIcon: UIImageView!
+    @IBOutlet weak var statusColor: UIView!
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var nodeName: UILabel!
     @IBOutlet weak var nodeState: UILabel!
@@ -26,7 +27,7 @@ class SubServiceCardView: UIView {
     @IBOutlet weak var addtionView: UIView!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
-    
+    @IBOutlet weak var seperator: UIView!
  
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder) 
@@ -42,6 +43,7 @@ class SubServiceCardView: UIView {
     
     
     func urgeBtnTap(sender: UITapGestureRecognizer) {
+        
 
     }
 
@@ -59,14 +61,25 @@ class SubServiceCardView: UIView {
         setNeedsUpdateConstraints()
     }
     
+    func hideTop() {
+        proporsalName.text = nil
+        proporsalName.removeFromSuperview()
+        messageNumber.removeFromSuperview()
+        statusButton.removeFromSuperview()
+        statusColor.removeFromSuperview()
+        
+        seperator.hidden = true
+    }
+    
     private func initSubView() {
         serviceIcon.makeRound()
         personIcon.makeRound()
         
-        proporsalName.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(60))
+        proporsalName.font = CustomerCenterConstants.Fonts.CustomerOrderTitle
+        messageNumber.font = CustomerCenterConstants.Fonts.CustomerOrderBadge
         messageNumber.makeRound()
         statusButton.makeRound()
-        statusButton.titleLabel?.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(39))
+        statusButton.titleLabel?.font = CustomerCenterConstants.Fonts.CustomerOrderStatus
         
         leftButton.makeRound()
         rightButton.makeRound()
@@ -80,10 +93,11 @@ class SubServiceCardView: UIView {
         callButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SubServiceCardView.callBtnTap(_:))))
         
         serviceName.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
-        nodeName.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+        nodeName.font = CustomerCenterConstants.Fonts.CustomerOrderTaskName
         additionDescription.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
-        nodeState.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(39))
-        nodeDate.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+        nodeState.font = CustomerCenterConstants.Fonts.CustomerOrderTaskStatus
+        nodeDate.font = CustomerCenterConstants.Fonts.CustomerOrderTaskName
+
     }
     
 }
