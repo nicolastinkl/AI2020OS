@@ -37,7 +37,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AI_Search_Home_WIsh" translatesAutoresizingMaskIntoConstraints="NO" id="IwS-JC-xrW">
-                    <rect key="frame" x="98" y="21" width="22" height="22"/>
+                    <rect key="frame" x="94" y="14" width="22" height="22"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
