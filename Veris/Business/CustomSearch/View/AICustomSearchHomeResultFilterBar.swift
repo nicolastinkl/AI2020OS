@@ -100,6 +100,8 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	func setupFilterButtons() {
 		for i in 0..<filterButtons.count {
 			let b = filterButtons[i]
+            b.titlePosition = .Left
+            b.setImage(UIImage(named: "search-down"), forState: .Normal)
 			b.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
 			b.addTarget(self, action: #selector(AICustomSearchHomeResultFilterBar.filterButtonPressed(_:)), forControlEvents: .TouchUpInside)
 			b.updateImageInset()
