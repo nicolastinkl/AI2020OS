@@ -75,6 +75,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     private var selfViewPoint: CGPoint?
     var maxBubbleViewController: UIViewController?
+    private let rootViewController = AIProposalTableViewController()
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -107,8 +108,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidAppear(animated)
         Async.main(after: 0.3) {
             if self.popTableView.subviews.count == 0 {
-                let rootViewController = AIProposalTableViewController()
-                self.addSubViewController(rootViewController, toView: self.popTableView)
+                self.addSubViewController(self.rootViewController, toView: self.popTableView)
                 self.finishPanDownwards(self.popTableView, velocity: 0)
             }
             
@@ -164,12 +164,16 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     private func finishPanUpwards(window: UIView, velocity: CGFloat) {
+        rootViewController.tableView.userInteractionEnabled = true
         SpringAnimation.spring(0.5) { 
             window.setY(0)
         }
     }
     
     private func finishPanDownwards(window: UIView, velocity: CGFloat) {
+        // Settings Pan Disabled.
+        
+        rootViewController.tableView.userInteractionEnabled = false
         SpringAnimation.spring(0.5) {
             window.setY(self.offsetableWindowYOffset)
         }

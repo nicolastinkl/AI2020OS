@@ -37,7 +37,7 @@ class AIProposalTableViewController: UIViewController {
     private let BUBBLE_VIEW_HEIGHT = AITools.displaySizeFrom1080DesignSize(1538)
 
     
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style: .Plain)
         tableView.delegate = self
         tableView.dataSource = self
@@ -387,10 +387,10 @@ extension AIProposalTableViewController: UICollectionViewDelegate,UICollectionVi
         if scrollView.dynamicType == UICollectionView.self {
             if scrollView.contentOffset.y < 0 {
                 //Throw UIGesture To SuperView.
-                superVC?.didRecognizePanGesture(scrollView.panGestureRecognizer)
+//                superVC?.didRecognizePanGesture(scrollView.panGestureRecognizer)
                 
             }else{
-                self.collectionView.scrollEnabled = true
+//                self.collectionView.scrollEnabled = true
             }
         }
     }
