@@ -46,7 +46,7 @@ class AITimelineTopView: UIView {
                         messageNumber.hidden = true
                     }
                 }
-                if let serviceIconString = m.serviceIcon{
+                if let serviceIconString = m.serviceIcon {
                     serviceIcon.sd_setImageWithURL(NSURL(string: serviceIconString))
                 }
             }

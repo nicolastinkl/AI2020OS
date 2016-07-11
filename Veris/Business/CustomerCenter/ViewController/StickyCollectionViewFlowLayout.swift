@@ -21,8 +21,7 @@ class StickyCollectionViewFlowLayout: UICollectionViewFlowLayout {
             
             if attributes.representedElementKind == UICollectionElementKindSectionHeader {
                 headerAttributes = attributes
-            }
-            else {
+            } else {
                 self.updateCellAttributes(attributes, headerAttributes: headerAttributes)
             }
         }

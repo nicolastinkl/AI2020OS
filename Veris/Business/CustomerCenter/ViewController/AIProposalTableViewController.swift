@@ -156,7 +156,7 @@ class AIProposalTableViewController: UIViewController {
 //        collectionView.setTop(y + 30)
     }
     
-    func clearPropodalData(){
+    func clearPropodalData() {
         
         dataSource.removeAll()
         tableView.reloadData()
@@ -381,7 +381,7 @@ extension AIProposalTableViewController : DimentionChangable, ProposalExpandedDe
     }
 }
 
-extension AIProposalTableViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+extension AIProposalTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView.dynamicType == UICollectionView.self {
@@ -389,7 +389,7 @@ extension AIProposalTableViewController: UICollectionViewDelegate,UICollectionVi
                 //Throw UIGesture To SuperView.
 //                superVC?.didRecognizePanGesture(scrollView.panGestureRecognizer)
                 
-            }else{
+            } else {
 //                self.collectionView.scrollEnabled = true
             }
         }
@@ -442,7 +442,7 @@ class AIProposalCollCell: UICollectionViewCell {
         // Settings Shadow.
         
         if let _ = self.contentView.viewWithTag(2) {
-        }else{
+        } else {
             let imageview = UIImageView(image: UIImage(named: "bllw_shadow"))
             self.contentView.addSubview(imageview)
             imageview.tag == 2
@@ -455,7 +455,7 @@ class AIProposalCollCell: UICollectionViewCell {
         
         // Settings backingView.
         if let _ = self.contentView.viewWithTag(1) {
-        }else{
+        } else {
             
             backingView.tag = 1
             self.contentView.addSubview(backingView)
@@ -477,6 +477,4 @@ class AIProposalCollCell: UICollectionViewCell {
         }        
         
     }
-    
 }
- 
