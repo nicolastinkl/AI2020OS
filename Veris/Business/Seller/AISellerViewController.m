@@ -73,7 +73,6 @@
     self.customTransition = [EvernoteTransition new];
     self.collectionView = ({
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(kTablePadding, 0, CGRectGetWidth(self.view.frame) - kTablePadding * 2, CGRectGetHeight(self.view.frame))  collectionViewLayout:[CollectionViewLayout new]];
-//                UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(kTablePadding, 0, CGRectGetWidth(self.view.frame) - kTablePadding * 2, CGRectGetHeight(self.view.frame)) style:UITableViewStylePlain];
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.showsVerticalScrollIndicator = NO;
@@ -81,7 +80,6 @@
         collectionView.contentInset = UIEdgeInsetsMake(0, 0, kBarHeight, 0);
         [collectionView registerClass:[AISellerCollectionViewCell  class] forCellWithReuseIdentifier:@"cell"];
         [self addBackgroundViewForTable:collectionView];
-//        [self addTopAndBottomMaskForTable:collectionView];
         collectionView;
     });
 
