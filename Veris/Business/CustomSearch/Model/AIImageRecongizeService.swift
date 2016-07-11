@@ -51,34 +51,4 @@ class AIImageRecongizeService: NSObject {
 		})
 	}
 }
-//data =     {
-//    objectIdentificationId = 171;
-//    objectList =         (
-//        {
-//            name = "loquat \U6787\U6777";
-//            probability = "0.5316030979156494";
-//        },
-//        {
-//            name = "longan \U9f99\U773c";
-//            probability = "0.1988506466150284";
-//        },
-//        {
-//            name = "lemon \U67e0\U6aac";
-//            probability = "0.1204324141144753";
-//        },
-//        {
-//            name = "cherry \U6a31\U6843";
-//            probability = "0.05779446288943291";
-//        },
-//        {
-//            name = "pineapple \U83e0\U841d";
-//            probability = "0.04347565770149231";
-//        }
-//    );
-//};
-//desc =     {
-//    "data_mode" = 0;
-//    digest = "";
-//    "result_code" = 1;
-//    "result_msg" = ok;
-//};
+
