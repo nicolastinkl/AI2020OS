@@ -24,7 +24,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     var serviceInstsView: AIVerticalScrollView!
     var models: [IconServiceIntModel]?
     var orderInfoContentView: AITimelineTopView?
-    var orderInfoModel: BuyerOrderModel?
+    var orderInfoModel: AICustomerOrderDetailTopViewModel?
     var timelineModels: [AITimelineViewModel] = []
     var cellHeightArray: Array<CGFloat>!
 
@@ -117,14 +117,14 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
             make.edges.equalTo(orderInfoView)
         }
 
-        orderInfoModel = BuyerOrderModel()
-        orderInfoModel?.avatarUrl = "http://171.221.254.231:3000/upload/shoppingcart/Hm7ulONUnenmN.png"
-        orderInfoModel?.buyerName = "Alma Lee"
+        orderInfoModel = AICustomerOrderDetailTopViewModel()
+        orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/shoppingcart/Hm7ulONUnenmN.png"
+        orderInfoModel?.serviceName = "孕检无忧"
         orderInfoModel?.completion = 0.75
         orderInfoModel?.price = "340"
         orderInfoModel?.serviceName = "Ground Transportation"
         orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png"
-        //orderInfoModel
+        orderInfoModel?.serviceDesc = "孕检无负担，轻松愉快。"
         orderInfoContentView?.model = orderInfoModel
         //timeLine tableView
         timelineTableView.registerNib(UINib(nibName: AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, bundle: nil), forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell)
