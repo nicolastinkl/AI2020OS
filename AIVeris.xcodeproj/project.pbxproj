@@ -529,6 +529,7 @@
 		846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */; };
 		846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */; };
 		846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */; };
+		84717F1F1D3483E300AE7E9A /* VerisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84717F1E1D3483E300AE7E9A /* VerisTests.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -652,6 +653,16 @@
 		FBAE7FD91D115428002FF522 /* AISellingProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD11D115428002FF522 /* AISellingProgressBar.m */; };
 		FBAE7FDA1D115428002FF522 /* AISellserAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84717F211D3483E300AE7E9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93D5A3411B709C1C00DDB158 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D5A3481B709C1C00DDB158;
+			remoteInfo = AIVeris;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9324A4721CCF58DF00A0A397 /* CopyFiles */ = {
@@ -1399,6 +1410,9 @@
 		846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
 		846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentHelp.swift; sourceTree = "<group>"; };
 		846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsCommentViewController.swift; sourceTree = "<group>"; };
+		84717F1C1D3483E300AE7E9A /* VerisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VerisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84717F1E1D3483E300AE7E9A /* VerisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerisTests.swift; sourceTree = "<group>"; };
+		84717F201D3483E300AE7E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
@@ -1645,6 +1659,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		84717F191D3483E300AE7E9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93D5A3461B709C1C00DDB158 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -3331,6 +3352,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		84717F1D1D3483E300AE7E9A /* VerisTests */ = {
+			isa = PBXGroup;
+			children = (
+				84717F1E1D3483E300AE7E9A /* VerisTests.swift */,
+				84717F201D3483E300AE7E9A /* Info.plist */,
+			);
+			path = VerisTests;
+			sourceTree = "<group>";
+		};
 		8483169D1D33372E00082D38 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -3717,6 +3747,7 @@
 			isa = PBXGroup;
 			children = (
 				814339221CFBE4DF00347C29 /* Veris */,
+				84717F1D1D3483E300AE7E9A /* VerisTests */,
 				61647BAFC7200B01794A2E67 /* Frameworks */,
 				DA9F72896661016CFF11C0E1 /* Pods */,
 				93D5A34A1B709C1C00DDB158 /* Products */,
@@ -3727,6 +3758,7 @@
 			isa = PBXGroup;
 			children = (
 				93D5A3491B709C1C00DDB158 /* Veris.app */,
+				84717F1C1D3483E300AE7E9A /* VerisTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3911,6 +3943,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		84717F1B1D3483E300AE7E9A /* VerisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84717F251D3483E300AE7E9A /* Build configuration list for PBXNativeTarget "VerisTests" */;
+			buildPhases = (
+				84717F181D3483E300AE7E9A /* Sources */,
+				84717F191D3483E300AE7E9A /* Frameworks */,
+				84717F1A1D3483E300AE7E9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84717F221D3483E300AE7E9A /* PBXTargetDependency */,
+			);
+			name = VerisTests;
+			productName = VerisTests;
+			productReference = 84717F1C1D3483E300AE7E9A /* VerisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		93D5A3481B709C1C00DDB158 /* AIVeris */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93D5A3711B709C1D00DDB158 /* Build configuration list for PBXNativeTarget "AIVeris" */;
@@ -3944,10 +3994,14 @@
 					New,
 				);
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "___ASIAINFO___";
 				TargetAttributes = {
+					84717F1B1D3483E300AE7E9A = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 93D5A3481B709C1C00DDB158;
+					};
 					93D5A3481B709C1C00DDB158 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = T2362RFKT6;
@@ -3973,11 +4027,19 @@
 			projectRoot = "";
 			targets = (
 				93D5A3481B709C1C00DDB158 /* AIVeris */,
+				84717F1B1D3483E300AE7E9A /* VerisTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		84717F1A1D3483E300AE7E9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93D5A3471B709C1C00DDB158 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4178,6 +4240,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		84717F181D3483E300AE7E9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84717F1F1D3483E300AE7E9A /* VerisTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93D5A3451B709C1C00DDB158 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4682,6 +4752,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		84717F221D3483E300AE7E9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D5A3481B709C1C00DDB158 /* AIVeris */;
+			targetProxy = 84717F211D3483E300AE7E9A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		81433C1D1CFBE5A700347C29 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -4696,6 +4774,35 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		84717F231D3483E300AE7E9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = VerisTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TK.VerisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Veris.app/Veris";
+			};
+			name = Debug;
+		};
+		84717F241D3483E300AE7E9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = VerisTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TK.VerisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Veris.app/Veris";
+			};
+			name = Release;
+		};
 		93D5A36F1B709C1D00DDB158 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4892,6 +4999,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		84717F251D3483E300AE7E9A /* Build configuration list for PBXNativeTarget "VerisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84717F231D3483E300AE7E9A /* Debug */,
+				84717F241D3483E300AE7E9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		93D5A3441B709C1C00DDB158 /* Build configuration list for PBXProject "AIVeris" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
