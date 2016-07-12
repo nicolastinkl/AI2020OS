@@ -43,6 +43,6 @@ target 'AIVeris' do
     aiveris_pods
 end
 
-target 'AIVerisTests' do
+target 'VerisTests' do
     aiveris_pods
 end
