@@ -434,6 +434,9 @@
 		81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81433F1F1CFBE80700347C29 /* Default-568h@2x.png */; };
 		81512ED01D220A8900AE041D /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */; };
 		81512ED31D220AFE00AE041D /* AIWorkManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ED21D220AFE00AE041D /* AIWorkManageViewController.swift */; };
+		815E94E61D349D5B009B96DA /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 815E94E51D349D5B009B96DA /* libiconv.tbd */; };
+		815E94E71D349DCA009B96DA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B25AAB1B9D7C6800CD1FEB /* libsqlite3.tbd */; };
+		815E94E91D349E40009B96DA /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 815E94E81D349E3F009B96DA /* libstdc++.tbd */; };
 		8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7141CFD2710006F2C8F /* AIImageView.swift */; };
 		8175A7BA1CFD2710006F2C8F /* AISwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */; };
 		8175A7BB1CFD2710006F2C8F /* AIUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7171CFD2710006F2C8F /* AIUINavigationController.m */; };
@@ -1244,6 +1247,8 @@
 		81433F1F1CFBE80700347C29 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIFundManageViewController.swift; path = FundManage/AIFundManageViewController.swift; sourceTree = "<group>"; };
 		81512ED21D220AFE00AE041D /* AIWorkManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIWorkManageViewController.swift; path = WorkManage/AIWorkManageViewController.swift; sourceTree = "<group>"; };
+		815E94E51D349D5B009B96DA /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		815E94E81D349E3F009B96DA /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		8175A7141CFD2710006F2C8F /* AIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageView.swift; sourceTree = "<group>"; };
 		8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwiftyJSON.swift; sourceTree = "<group>"; };
 		8175A7161CFD2710006F2C8F /* AIUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIUINavigationController.h; sourceTree = "<group>"; };
@@ -1647,7 +1652,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				815E94E91D349E40009B96DA /* libstdc++.tbd in Frameworks */,
 				93B25AB81B9D7EB500CD1FEB /* CoreTelephony.framework in Frameworks */,
+				815E94E71D349DCA009B96DA /* libsqlite3.tbd in Frameworks */,
+				815E94E61D349D5B009B96DA /* libiconv.tbd in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
@@ -1734,6 +1742,8 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				815E94E81D349E3F009B96DA /* libstdc++.tbd */,
+				815E94E51D349D5B009B96DA /* libiconv.tbd */,
 				93A0ABF71D12C4BD00562090 /* libz.tbd */,
 				930455191D124F8A007AFC0C /* AddressBook.framework */,
 				844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */,
@@ -4812,11 +4822,6 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
 				);
 				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"AIAlertView\"",
-					"-framework",
-					"\"Cartography\"",
 					"-licucore",
 					"-all_load",
 				);
@@ -4865,11 +4870,6 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
 				);
 				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"AIAlertView\"",
-					"-framework",
-					"\"Cartography\"",
 					"-licucore",
 					"-all_load",
 				);

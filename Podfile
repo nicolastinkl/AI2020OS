@@ -36,6 +36,6 @@ pod 'IQKeyboardManagerSwift'
 
 pod 'SVProgressHUD', '~> 1.0'
 
-
+pod 'UMengSocialCOM', '~> 5.2.1'
 
 end
