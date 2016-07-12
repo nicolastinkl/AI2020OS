@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="bubbleContainerView" destination="7V0-3c-akw" id="f6i-Fq-LB2"/>
                 <outlet property="holdView" destination="ZmO-Bo-P57" id="w7M-vp-euA"/>
+                <outlet property="resultFilterBar" destination="T59-kx-bm1" id="4MX-ZR-ME5"/>
                 <outlet property="resultHoldView" destination="mdy-F9-PrK" id="fl0-0N-9u8"/>
                 <outlet property="searchText" destination="TLn-s0-RLL" id="DDb-i8-jV0"/>
                 <outlet property="tableView" destination="x0X-vW-wdc" id="AnB-hf-7fp"/>
@@ -167,7 +168,7 @@
                                         <outlet property="delegate" destination="-1" id="fzh-mp-Xjg"/>
                                     </connections>
                                 </tableView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T59-kx-bm1" customClass="AICutomSearchHomeResultFilterBar" customModule="Veris" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T59-kx-bm1" customClass="AICustomSearchHomeResultFilterBar" customModule="Veris" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="10" width="600" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -180,7 +181,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-recommend" translatesAutoresizingMaskIntoConstraints="NO" id="If7-YO-yqx">
                                             <rect key="frame" x="13" y="5" width="21" height="21"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommendation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy9-i5-jWJ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Recommendation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy9-i5-jWJ">
                                             <rect key="frame" x="43" y="8" width="105" height="16"/>
                                             <fontDescription key="fontDescription" name="MyriadPro-LightSemiCn" family="Myriad Pro" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

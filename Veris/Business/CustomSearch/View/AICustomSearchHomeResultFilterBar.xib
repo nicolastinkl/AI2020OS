@@ -18,31 +18,28 @@
             <rect key="frame" x="0.0" y="0.0" width="584" height="67"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqp-Xq-vwL" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="264" y="23" width="57" height="22"/>
-                    <state key="normal" title="Age" image="search-down"/>
+                <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqp-Xq-vwL" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="265" y="17" width="54" height="34"/>
+                    <state key="normal" title="Price"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="titlePositionString" value="left"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="spacing">
                             <real key="value" value="12"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnO-8u-nrB" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="8" y="23" width="157" height="22"/>
-                    <state key="normal" title="Pragnancy Stage" image="search-down"/>
+                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnO-8u-nrB" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="8" y="17" width="47" height="34"/>
+                    <state key="normal" title="Filter"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="titlePositionString" value="left"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="spacing">
                             <real key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7t-PF-Cpu" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="510" y="23" width="66" height="22"/>
-                    <state key="normal" title="Price" image="search-down"/>
+                <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7t-PF-Cpu" customClass="ImagePositionButton" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="506" y="17" width="70" height="34"/>
+                    <state key="normal" title="Sort by"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="titlePositionString" value="left"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="spacing">
                             <real key="value" value="11"/>
                         </userDefinedRuntimeAttribute>
@@ -63,7 +60,4 @@
             <point key="canvasLocation" x="359" y="163.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="search-down" width="13" height="8"/>
-    </resources>
 </document>
