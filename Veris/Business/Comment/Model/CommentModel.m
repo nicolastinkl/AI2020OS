@@ -6,4 +6,20 @@
 //  Copyright © 2016年 ___ASIAINFO___. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CommentModel.h"
+
+@implementation StarDesc
+
+@end
+
+@implementation SingleComment
+
+@end
+
+@implementation SubServiceComment
+
+@end
+
+@implementation CompondComment
+
+@end
