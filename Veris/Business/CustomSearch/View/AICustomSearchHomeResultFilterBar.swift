@@ -10,9 +10,9 @@ import UIKit
 
 enum FilterType: Int {
 	case None = -1
-	case Filter = 100
+	case Sort = 100
 	case Price
-	case Sort
+	case Filter
 }
 
 protocol AICustomSearchHomeResultFilterBarDelegate: NSObjectProtocol {
@@ -85,9 +85,9 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	}
 	
 	func updateMenuViews() {
-		updateMenuView(type: .Filter, titles: filterTitles)
+		updateMenuView(type: .Sort, titles: filterTitles)
 		updateMenuView(type: .Price, titles: priceTitles)
-		updateMenuView(type: .Sort, titles: sortTitles)
+		updateMenuView(type: .Filter, titles: sortTitles)
 	}
 	
 	func updateMenuView(type type: FilterType, titles: [String]?) {
@@ -100,8 +100,8 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	func setupFilterButtons() {
 		for i in 0..<filterButtons.count {
 			let b = filterButtons[i]
-            b.titlePosition = .Left
-            b.setImage(UIImage(named: "search-down"), forState: .Normal)
+			b.titlePosition = .Left
+			b.setImage(UIImage(named: "search-down"), forState: .Normal)
 			b.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
 			b.addTarget(self, action: #selector(AICustomSearchHomeResultFilterBar.filterButtonPressed(_:)), forControlEvents: .TouchUpInside)
 			b.updateImageInset()
@@ -119,14 +119,15 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	}
 	
 	func filterButtonPressed(sender: UIButton) {
-		selectFilterButton(button: sender)
 		let type = FilterType(rawValue: sender.tag)!
+		selectFilterButtonWith(type: type)
 		showMenuView(type: type)
 	}
 	
 	// MARK: - helper
 	func hideMenu() {
 		dimView.hidden = true
+		selectFilterButtonWith(type: .None)
 	}
 	
 	func menuView(type type: FilterType) -> AICustomSearchHomeResultFilterBarMenuView {
@@ -144,15 +145,18 @@ class AICustomSearchHomeResultFilterBar: UIView {
 		}
 	}
 	
-	func selectFilterButton(button button: UIButton) {
+	func selectFilterButtonWith(type type: FilterType) {
 		filterButtons.forEach { (b) in
 			b.setImage(UIImage(named: "search-down"), forState: .Normal)
 			b.setTitleColor(UIColor.whiteColor(), forState: .Normal)
 		}
-		button.setImage(UIImage(named: "search-up"), forState: .Normal)
-		button.setTitleColor(UIColor(hexString: "#e7c400"), forState: .Normal)
-		let type = FilterType(rawValue: button.tag)!
-		showMenuView(type: type)
+		if type != .None {
+			let button = filterButtons[type.rawValue - 100]
+			button.setImage(UIImage(named: "search-up"), forState: .Normal)
+			button.setTitleColor(UIColor(hexString: "#e7c400"), forState: .Normal)
+			let type = FilterType(rawValue: button.tag)!
+			showMenuView(type: type)
+		}
 	}
 	
 	func showMenuView(type type: FilterType) {
@@ -170,9 +174,7 @@ extension AICustomSearchHomeResultFilterBar: AICustomSearchHomeResultFilterBarMe
 	func customSearchHomeResultFilterBarMenuView(menuView: AICustomSearchHomeResultFilterBarMenuView, menuButtonDidClickAtIndex index: Int) {
 		let type = FilterType(rawValue: menuView.tag)!
 		delegate?.customSearchHomeResultFilterBar(self, didSelectType: type, index: index)
-		if type == .Filter || type == .Price {
-			menuView.index = index
-		}
+		menuView.index = index
 	}
 }
 
@@ -207,28 +209,12 @@ class AICustomSearchHomeResultFilterBarMenuView: UIView {
 	}
 	
 	func setup() {
-		let addBlurBg: (UIBlurEffectStyle) -> () = { [unowned self] style in
-			let effect = UIBlurEffect(style: style)
-			let blurView = UIVisualEffectView(effect: effect)
-			self.addSubview(blurView)
-			blurView.snp_makeConstraints { (make) in
-				make.edges.equalTo(self)
-			}
+		let bg = UIImage(named: "search-filter-bar-bg")
+		let bgImageView = UIImageView(image: bg)
+		addSubview(bgImageView)
+		bgImageView.snp_makeConstraints { (make) in
+			make.edges.equalTo(self)
 		}
-		
-		let addBg: (UIColor) -> () = { [unowned self] color in
-			let view = UIView()
-			view.backgroundColor = color
-			self.addSubview(view)
-			view.snp_makeConstraints(closure: { (make) in
-				make.edges.equalTo(self)
-			})
-		}
-		
-		addBlurBg(.Dark)
-		addBlurBg(.Light)
-		addBg(UIColor(hexString: "#5c46a4", alpha: 0.33))
-//		addBg(UIColor(hexString: "#b2a5f1", alpha: 0.20))
 	}
 	
 	func updateUI() {
