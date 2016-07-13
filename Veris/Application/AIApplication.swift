@@ -457,8 +457,8 @@ struct AIApplication {
             case .login: return AIApplication.KURL_Appstore_ReleaseURL + "/login"
                 
             //服务评论接口
-            case .singleComment: return AIApplication.KURL_Appstore_ReleaseURL + "/nsboss/judge/querySingleJudgement"
-            case .compondComment: return AIApplication.KURL_Appstore_ReleaseURL + "/nsboss/judge/queryJudgement"
+            case .singleComment: return AIApplication.KURL_Appstore_ReleaseURL + "/judge/querySingleJudgement"
+            case .compondComment: return AIApplication.KURL_Appstore_ReleaseURL + "/judge/queryJudgement"
             }
         }
     }

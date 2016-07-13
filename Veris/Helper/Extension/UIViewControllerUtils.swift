@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 /*!
  *  @author tinkl, 15-04-01 17:04:36
  *
@@ -127,13 +128,6 @@ extension UIViewController {
     func doneClick() {
         AIApplication().SendAction("finishExecEvent", ownerName: self)
     }
-
-	/*!
-	 the local coding scope.
-	 */
-	override func localCode(closeure: () -> ()) {
-		closeure()
-	}
 
 	// 显示搜索主界面
 	func showSearchMainViewController() {

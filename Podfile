@@ -30,12 +30,16 @@ def aiveris_pods
     pod 'AIAlertView', :git => 'https://github.com/asiainfomobile/AIAlertView.git'
     
     pod 'YYImage', '~> 1.0.1'
+
+    pod 'UMengSocialCOM', '~> 5.2.1'
     
     # iOS Debug
     
     pod 'IQKeyboardManagerSwift'
     
     pod 'SVProgressHUD', '~> 1.0'
+
+
     
 end
 
@@ -43,6 +47,6 @@ target 'AIVeris' do
     aiveris_pods
 end
 
-target 'AIVerisTests' do
+target 'VerisTests' do
     aiveris_pods
 end

@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 protocol CommentService: NSObjectProtocol {
     func getSingleComment(serviceId: String, success: (responseData: SingleComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func getCompondComment(serviceId: String, success: (responseData: CompondComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
