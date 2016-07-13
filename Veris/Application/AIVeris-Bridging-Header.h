@@ -151,3 +151,5 @@
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 #import <BaiduMapAPI_Search/BMKSearchComponent.h>
+// UMeng
+//#import "UMSocial.h"

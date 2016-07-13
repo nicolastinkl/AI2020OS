@@ -38,6 +38,16 @@
                ReferencedContainer = "container:AIVeris.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "84717F1B1D3483E300AE7E9A"
+               BuildableName = "VerisTests.xctest"
+               BlueprintName = "VerisTests"
+               ReferencedContainer = "container:AIVeris.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

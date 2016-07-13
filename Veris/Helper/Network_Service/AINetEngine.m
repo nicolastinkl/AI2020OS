@@ -9,6 +9,7 @@
 #import "AINetEngine.h"
 #import "ProposalModel.h"
 #import "AFNetworking.h"
+#import "AIDefines.h"
 
 #define kTimeoutIntervalForRequest     60
 
