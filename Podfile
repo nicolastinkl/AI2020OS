@@ -36,6 +36,7 @@ pod 'IQKeyboardManagerSwift'
 
 pod 'SVProgressHUD', '~> 1.0'
 
-
+# BaiduMap
+#pod 'BaiduMapKit', '~> 2.10.2'
 
 end

@@ -108,6 +108,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     // MARK: -> Public methods
 
     func setupViews() {
+        //selfview CornerRadius
+        view.setCorner(corners: [.TopLeft, .TopRight], cornerRadii: CGSize(width: 10, height: 10))
         //orderInfoView
         orderInfoContentView = AITimelineTopView.createInstance()
         orderInfoView.addSubview(orderInfoContentView!)
@@ -121,8 +123,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/shoppingcart/Hm7ulONUnenmN.png"
         orderInfoModel?.serviceName = "孕检无忧"
         orderInfoModel?.completion = 0.75
-        orderInfoModel?.price = "340"
-        orderInfoModel?.serviceName = "Ground Transportation"
+        orderInfoModel?.price = "¥ 1428"
         orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png"
         orderInfoModel?.serviceDesc = "孕检无负担，轻松愉快。"
         orderInfoContentView?.model = orderInfoModel
@@ -153,7 +154,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         for i in 0...3 {
             timelineModels.append(AITimelineViewModel.createFakeData("\(i)"))
         }
-        timelineModels.append(AITimelineViewModel.createFakeDataOrderComplete("\(4)"))
+        timelineModels.append(AITimelineViewModel.createFakeDataLocation("4"))
+        timelineModels.append(AITimelineViewModel.createFakeDataOrderComplete("5"))
         timelineModels = handleViewModels(timelineModels)
     }
     

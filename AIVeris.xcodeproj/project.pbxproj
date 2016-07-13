@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		122E7BDE1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */; };
 		122E7BDF1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */; };
+		1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */; };
+		1234F99C1D349FE30009FB4F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B5238F1BB8F0EA00DFB1C9 /* OpenGLES.framework */; };
+		1234F99E1D349FFA0009FB4F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F99D1D349FFA0009FB4F /* CoreLocation.framework */; };
+		1234F9A01D34A0320009FB4F /* AIMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234F99F1D34A0320009FB4F /* AIMapView.swift */; };
+		1234F9A91D351C530009FB4F /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A51D351C530009FB4F /* BaiduMapAPI_Base.framework */; };
+		1234F9AA1D351C530009FB4F /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A61D351C530009FB4F /* BaiduMapAPI_Location.framework */; };
+		1234F9AB1D351C530009FB4F /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A71D351C530009FB4F /* BaiduMapAPI_Map.framework */; };
+		1234F9AC1D351C530009FB4F /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */; };
+		1234F9AE1D351C7E0009FB4F /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1234F9AD1D351C7E0009FB4F /* mapapi.bundle */; };
 		123A1F861D2F94F900542D06 /* AITimelineTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123A1F841D2F94F900542D06 /* AITimelineTopView.xib */; };
 		123A1F871D2F94F900542D06 /* AITimelineTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1F851D2F94F900542D06 /* AITimelineTopView.swift */; };
 		126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
@@ -454,7 +463,7 @@
 		8175A7CC1CFD2710006F2C8F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7341CFD2710006F2C8F /* AFURLRequestSerialization.m */; };
 		8175A7CD1CFD2710006F2C8F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7361CFD2710006F2C8F /* AFURLResponseSerialization.m */; };
 		8175A7CE1CFD2710006F2C8F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7381CFD2710006F2C8F /* AFURLSessionManager.m */; };
-		8175A7D51CFD2710006F2C8F /* DDHTimerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7481CFD2710006F2C8F /* DDHTimerControl.m */; };
+		8175A7D51CFD2710006F2C8F /* DDHTimerControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7481CFD2710006F2C8F /* DDHTimerControl.mm */; };
 		8175A7D81CFD2710006F2C8F /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7511CFD2710006F2C8F /* JSONModel.m */; };
 		8175A7D91CFD2710006F2C8F /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7531CFD2710006F2C8F /* JSONModelArray.m */; };
 		8175A7DA1CFD2710006F2C8F /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7561CFD2710006F2C8F /* NSArray+JSONModel.m */; };
@@ -671,6 +680,14 @@
 		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
 		122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineNowTableViewCell.swift; sourceTree = "<group>"; };
 		122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineNowTableViewCell.xib; sourceTree = "<group>"; };
+		1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		1234F99D1D349FFA0009FB4F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1234F99F1D34A0320009FB4F /* AIMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMapView.swift; sourceTree = "<group>"; };
+		1234F9A51D351C530009FB4F /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
+		1234F9A61D351C530009FB4F /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
+		1234F9A71D351C530009FB4F /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
+		1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
+		1234F9AD1D351C7E0009FB4F /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapAPI_Map.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
 		123A1F841D2F94F900542D06 /* AITimelineTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTopView.xib; sourceTree = "<group>"; };
 		123A1F851D2F94F900542D06 /* AITimelineTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTopView.swift; sourceTree = "<group>"; };
 		126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteViewController.swift; sourceTree = "<group>"; };
@@ -1279,7 +1296,7 @@
 		8175A7371CFD2710006F2C8F /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		8175A7381CFD2710006F2C8F /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		8175A7471CFD2710006F2C8F /* DDHTimerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHTimerControl.h; sourceTree = "<group>"; };
-		8175A7481CFD2710006F2C8F /* DDHTimerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHTimerControl.m; sourceTree = "<group>"; };
+		8175A7481CFD2710006F2C8F /* DDHTimerControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DDHTimerControl.mm; sourceTree = "<group>"; };
 		8175A7501CFD2710006F2C8F /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
 		8175A7511CFD2710006F2C8F /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
 		8175A7521CFD2710006F2C8F /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelArray.h; sourceTree = "<group>"; };
@@ -1649,7 +1666,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1234F9A91D351C530009FB4F /* BaiduMapAPI_Base.framework in Frameworks */,
+				1234F99E1D349FFA0009FB4F /* CoreLocation.framework in Frameworks */,
+				1234F99C1D349FE30009FB4F /* OpenGLES.framework in Frameworks */,
 				93B25AB81B9D7EB500CD1FEB /* CoreTelephony.framework in Frameworks */,
+				1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
@@ -1660,6 +1681,7 @@
 				844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */,
 				844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */,
 				844AFA211CE1DA5900C58B1C /* CoreMedia.framework in Frameworks */,
+				1234F9AA1D351C530009FB4F /* BaiduMapAPI_Location.framework in Frameworks */,
 				844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */,
 				81A0458F1C11675500296E56 /* CoreAudio.framework in Frameworks */,
 				937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */,
@@ -1670,6 +1692,8 @@
 				930455181D124EF5007AFC0C /* libSunFlower.a in Frameworks */,
 				930455141D124E71007AFC0C /* iflyMSC.framework in Frameworks */,
 				9392B57E1D1CD9F10007F241 /* libcrypto.a in Frameworks */,
+				1234F9AC1D351C530009FB4F /* BaiduMapAPI_Search.framework in Frameworks */,
+				1234F9AB1D351C530009FB4F /* BaiduMapAPI_Map.framework in Frameworks */,
 				81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */,
 				93B25AB61B9D7EA900CD1FEB /* Security.framework in Frameworks */,
 				93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */,
@@ -1688,6 +1712,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1234F9A41D351C530009FB4F /* BaiduMap */ = {
+			isa = PBXGroup;
+			children = (
+				1234F9AD1D351C7E0009FB4F /* mapapi.bundle */,
+				1234F9A51D351C530009FB4F /* BaiduMapAPI_Base.framework */,
+				1234F9A61D351C530009FB4F /* BaiduMapAPI_Location.framework */,
+				1234F9A71D351C530009FB4F /* BaiduMapAPI_Map.framework */,
+				1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */,
+			);
+			path = BaiduMap;
+			sourceTree = "<group>";
+		};
 		126F82111D12983E009B1C6D /* ServiceExecute */ = {
 			isa = PBXGroup;
 			children = (
@@ -1697,6 +1733,7 @@
 				12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */,
 				122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */,
 				122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */,
+				1234F99F1D34A0320009FB4F /* AIMapView.swift */,
 			);
 			path = ServiceExecute;
 			sourceTree = "<group>";
@@ -1736,6 +1773,8 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1234F99D1D349FFA0009FB4F /* CoreLocation.framework */,
+				1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */,
 				93A0ABF71D12C4BD00562090 /* libz.tbd */,
 				930455191D124F8A007AFC0C /* AddressBook.framework */,
 				844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */,
@@ -3057,6 +3096,7 @@
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				1234F9A41D351C530009FB4F /* BaiduMap */,
 				FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */,
 				9392B5191D1CD9F10007F241 /* alipay */,
 				93A0ABBB1D12AAB600562090 /* weichatpay */,
@@ -3109,7 +3149,7 @@
 			isa = PBXGroup;
 			children = (
 				8175A7471CFD2710006F2C8F /* DDHTimerControl.h */,
-				8175A7481CFD2710006F2C8F /* DDHTimerControl.m */,
+				8175A7481CFD2710006F2C8F /* DDHTimerControl.mm */,
 			);
 			path = DDHTimerControl;
 			sourceTree = "<group>";
@@ -4028,6 +4068,7 @@
 				81433D551CFBE5A700347C29 /* AIEventCapacityView.xib in Resources */,
 				81433D461CFBE5A700347C29 /* AIProviderView.xib in Resources */,
 				12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */,
+				1234F9AE1D351C7E0009FB4F /* mapapi.bundle in Resources */,
 				81433EC01CFBE5A700347C29 /* MyriadProRegular.ttf in Resources */,
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
 				FB703AE41D24C59400229A08 /* JSSDK.js in Resources */,
@@ -4364,7 +4405,7 @@
 				123A1F871D2F94F900542D06 /* AITimelineTopView.swift in Sources */,
 				81433D9C1CFBE5A700347C29 /* AIMusicTherapyView.m in Sources */,
 				8175A7DB1CFD2710006F2C8F /* JSONModelClassProperty.m in Sources */,
-				8175A7D51CFD2710006F2C8F /* DDHTimerControl.m in Sources */,
+				8175A7D51CFD2710006F2C8F /* DDHTimerControl.mm in Sources */,
 				81433D9E1CFBE5A700347C29 /* AIPopupChooseBaseView.swift in Sources */,
 				81433D991CFBE5A700347C29 /* AIErrorRetryView.swift in Sources */,
 				8175A7C11CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m in Sources */,
@@ -4659,6 +4700,7 @@
 				81433E301CFBE5A700347C29 /* AITaskInputViewController.swift in Sources */,
 				8175A7E31CFD2710006F2C8F /* MJRefreshHeaderView.m in Sources */,
 				8175A7E51CFD2710006F2C8F /* UIScrollView+MJRefresh.m in Sources */,
+				1234F9A01D34A0320009FB4F /* AIMapView.swift in Sources */,
 				81433CEE1CFBE5A700347C29 /* PriceItem.swift in Sources */,
 				8175A7E21CFD2710006F2C8F /* MJRefreshFooterView.m in Sources */,
 				81433D141CFBE5A700347C29 /* AIBubble.m in Sources */,
@@ -4801,6 +4843,7 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
@@ -4854,6 +4897,7 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
