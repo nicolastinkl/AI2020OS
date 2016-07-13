@@ -23,11 +23,14 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	
 	weak var delegate: AICustomSearchHomeResultFilterBarDelegate?
 	
-	@IBOutlet private var filterButtons: [ImagePositionButton]!
-	@IBOutlet private var mainView: UIView!
+	private var filterButtons: [ImagePositionButton] = []
 	
 	private lazy var dimView: UIView = { [unowned self] in
 		let result = UIView()
+        result.layer.shadowColor = UIColor.blackColor().CGColor
+        result.layer.shadowOffset = CGSize(width: 0, height: -3)
+        result.layer.shadowRadius = 5
+        result.layer.shadowOpacity = 0.3
 		result.hidden = true
 		let tap = UITapGestureRecognizer(target: self, action: #selector(AICustomSearchHomeResultFilterBar.dimViewTapped))
 		result.addGestureRecognizer(tap)
@@ -76,9 +79,7 @@ class AICustomSearchHomeResultFilterBar: UIView {
 		}
 	}
 	
-	override func awakeFromNib() {
-		super.awakeFromNib()
-		mainView.backgroundColor = UIColor.clearColor()
+	func setup() {
 		backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)
 		setupFilterButtons()
 		updateMenuViews()
@@ -98,19 +99,45 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	}
 	
 	func setupFilterButtons() {
-		for i in 0..<filterButtons.count {
-			let b = filterButtons[i]
-			b.titlePosition = .Left
-			b.setImage(UIImage(named: "search-down"), forState: .Normal)
-			b.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
-			b.addTarget(self, action: #selector(AICustomSearchHomeResultFilterBar.filterButtonPressed(_:)), forControlEvents: .TouchUpInside)
-			b.updateImageInset()
+		let titles = [
+			"Sort by",
+			"Price",
+			"Filter"
+		]
+		
+		for i in 0..<3 {
+			let button = ImagePositionButton()
+			filterButtons.append(button)
+			button.addTarget(self, action: #selector(AICustomSearchHomeResultFilterBar.filterButtonPressed(_:)), forControlEvents: .TouchUpInside)
+			button.setImage(UIImage(named: "search-down"), forState: .Normal)
+			button.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
+			button.titlePosition = .Left
+			button.setTitle(titles[i], forState: .Normal)
+			button.spacing = 6
+			button.tag = i + 100
+			button.updateImageInset()
+			addSubview(button)
+			
+			// setup constraint
+			button.snp_makeConstraints(closure: { (make) in
+				make.centerY.equalTo(self)
+				switch i {
+                    case 0:
+                        make.leading.equalTo(AITools.displaySizeFrom1242DesignSize(40))
+                    case 1:
+                        make.center.equalTo(self)
+                    case 2:
+                        make.trailing.equalTo(self).offset(-AITools.displaySizeFrom1242DesignSize(40))
+                    default: break
+				}
+                
+			})
 		}
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		initSelfFromXib()
+		setup()
 	}
 	
 	// MARK: - target actions
@@ -179,7 +206,6 @@ extension AICustomSearchHomeResultFilterBar: AICustomSearchHomeResultFilterBarMe
 }
 
 // MARK: - AICustomSearchHomeResultFilterBarMenuView
-
 protocol AICustomSearchHomeResultFilterBarMenuViewDelegate: NSObjectProtocol {
 	func customSearchHomeResultFilterBarMenuView(menuView: AICustomSearchHomeResultFilterBarMenuView, menuButtonDidClickAtIndex index: Int)
 }

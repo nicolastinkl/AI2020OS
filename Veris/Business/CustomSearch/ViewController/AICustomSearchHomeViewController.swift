@@ -120,7 +120,7 @@ class AICustomSearchHomeViewController: UIViewController {
             "Transport",
             "Paramedic",
             "Medication",
-            "Other",
+            "Other"
         ]
 	}
     
