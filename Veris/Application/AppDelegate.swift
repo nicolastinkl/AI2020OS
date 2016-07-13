@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 		showRootViewControllerReal()
 
 
-
+    
 
 
 		return true

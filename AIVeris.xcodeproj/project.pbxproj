@@ -442,9 +442,6 @@
 		8175A7C01CFD2710006F2C8F /* RAReorderableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A71C1CFD2710006F2C8F /* RAReorderableLayout.swift */; };
 		8175A7C11CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A71E1CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m */; };
 		8175A7C21CFD2710006F2C8F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */; };
-		8175A7C31CFD2710006F2C8F /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7221CFD2710006F2C8F /* libicucore.A.dylib */; };
-		8175A7C41CFD2710006F2C8F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7231CFD2710006F2C8F /* libsqlite3.dylib */; };
-		8175A7C51CFD2710006F2C8F /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7241CFD2710006F2C8F /* libz.1.dylib */; };
 		8175A7C61CFD2710006F2C8F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7271CFD2710006F2C8F /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8175A7C71CFD2710006F2C8F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7291CFD2710006F2C8F /* AFHTTPRequestOperationManager.m */; };
 		8175A7C81CFD2710006F2C8F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A72B1CFD2710006F2C8F /* AFHTTPSessionManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -508,6 +505,7 @@
 		81BB86771CFE894200899B58 /* AICustomSearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */; };
 		81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */; };
 		81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */; };
+		81F414321D351B8A008DC280 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F414311D351B8A008DC280 /* libsqlite3.0.tbd */; };
 		8412C7631D2A6429003F34AF /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412C7621D2A6429003F34AF /* PaddingLabel.swift */; };
 		842936921D17870D00795C57 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842936911D17870D00795C57 /* CheckboxButton.swift */; };
 		844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */; };
@@ -1279,9 +1277,6 @@
 		8175A71E1CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewWaterfallLayout.m; sourceTree = "<group>"; };
 		8175A71F1CFD2710006F2C8F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
-		8175A7221CFD2710006F2C8F /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libicucore.A.dylib; sourceTree = "<group>"; };
-		8175A7231CFD2710006F2C8F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
-		8175A7241CFD2710006F2C8F /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libz.1.dylib; sourceTree = "<group>"; };
 		8175A7261CFD2710006F2C8F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		8175A7271CFD2710006F2C8F /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		8175A7281CFD2710006F2C8F /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -1400,6 +1395,7 @@
 		81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchHomeViewController.swift; sourceTree = "<group>"; };
 		81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryLabels.swift; sourceTree = "<group>"; };
 		81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		81F414311D351B8A008DC280 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		8412C7621D2A6429003F34AF /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		842936911D17870D00795C57 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -1687,13 +1683,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F414321D351B8A008DC280 /* libsqlite3.0.tbd in Frameworks */,
 				93B25AB81B9D7EB500CD1FEB /* CoreTelephony.framework in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
 				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
 				81433E501CFBE5A700347C29 /* AVOSCloudCrashReporting.framework in Frameworks */,
-				8175A7C41CFD2710006F2C8F /* libsqlite3.dylib in Frameworks */,
 				844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */,
 				844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */,
 				844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */,
@@ -1701,7 +1697,6 @@
 				844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */,
 				81A0458F1C11675500296E56 /* CoreAudio.framework in Frameworks */,
 				937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */,
-				8175A7C31CFD2710006F2C8F /* libicucore.A.dylib in Frameworks */,
 				FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */,
 				93B523921BB8F0F400DFB1C9 /* CoreMotion.framework in Frameworks */,
 				93A0ABF51D12C43400562090 /* libWeChatSDK.a in Frameworks */,
@@ -1718,7 +1713,6 @@
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
-				8175A7C51CFD2710006F2C8F /* libz.1.dylib in Frameworks */,
 				DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1774,6 +1768,7 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81F414311D351B8A008DC280 /* libsqlite3.0.tbd */,
 				93A0ABF71D12C4BD00562090 /* libz.tbd */,
 				930455191D124F8A007AFC0C /* AddressBook.framework */,
 				844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */,
@@ -3111,9 +3106,6 @@
 				8175A7851CFD2710006F2C8F /* OBShapedButton */,
 				8175A78E1CFD2710006F2C8F /* RRTagController */,
 				8175A7921CFD2710006F2C8F /* SDWebImage */,
-				8175A7221CFD2710006F2C8F /* libicucore.A.dylib */,
-				8175A7231CFD2710006F2C8F /* libsqlite3.dylib */,
-				8175A7241CFD2710006F2C8F /* libz.1.dylib */,
 			);
 			path = 3rdLibrary;
 			sourceTree = "<group>";
@@ -4992,6 +4984,7 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
@@ -5040,6 +5033,7 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";

@@ -30,6 +30,8 @@ def aiveris_pods
     pod 'AIAlertView', :git => 'https://github.com/asiainfomobile/AIAlertView.git'
     
     pod 'YYImage', '~> 1.0.1'
+
+    pod 'UMengSocialCOM', '~> 5.2.1'
     
     # iOS Debug
     
@@ -37,7 +39,7 @@ def aiveris_pods
     
     pod 'SVProgressHUD', '~> 1.0'
 
-    pod 'UMengSocialCOM', '~> 5.2.1'
+
     
 end
 
