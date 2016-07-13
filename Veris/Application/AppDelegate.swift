@@ -24,11 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     var dataSourcePop = [AIBuyerBubbleModel]()
     
 	let WX_APPID: String = "wx483dafc09117a3d0"
+    var _mapManager: BMKMapManager?
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
 		// AVOS
 		configAVOSCloud()
+        setupBaiduMap()
 		AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
 		AVAnalytics.setChannel("App Store")
 		
@@ -77,6 +79,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	}
 
 	
+    func setupBaiduMap() {
+        _mapManager = BMKMapManager()
+        // 如果要关注网络及授权验证事件，请设定generalDelegate参数
+        let ret = _mapManager?.start("在此处输入您的授权Key", generalDelegate: self)
+        if ret == false {
+            NSLog("manager start failed!")
+        }
+    }
 	/**
 	 config lean Cloud.
 	 */
@@ -277,4 +287,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 		self.window?.makeKeyAndVisible()
 	}
 	
+}
+extension AppDelegate: BMKGeneralDelegate {
+    
+    /**
+     *返回网络错误
+     *@param iError 错误号
+     */
+    func onGetNetworkState(iError: Int32) {
+        
+    }
+    
+    /**
+     *返回授权验证错误
+     *@param iError 错误号 : 为0时验证通过，具体参加BMKPermissionCheckResultCode
+     */
+    func onGetPermissionState(iError: Int32) {
+        
+    }
+    
 }

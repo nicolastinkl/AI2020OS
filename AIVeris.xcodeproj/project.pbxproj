@@ -5027,10 +5027,14 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/3rdLibrary/alipay";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
@@ -5044,6 +5048,7 @@
 				OTHER_LDFLAGS = (
 					"-licucore",
 					"-all_load",
+					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
@@ -5076,10 +5081,14 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/3rdLibrary/alipay";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
@@ -5093,6 +5102,7 @@
 				OTHER_LDFLAGS = (
 					"-licucore",
 					"-all_load",
+					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
