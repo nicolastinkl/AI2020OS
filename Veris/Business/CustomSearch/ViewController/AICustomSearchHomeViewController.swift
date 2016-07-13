@@ -100,12 +100,15 @@ class AICustomSearchHomeViewController: UIViewController {
         resultFilterBar.menuContainerView = view
         resultFilterBar.menuViewTopSpace = AITools.displaySizeFrom1242DesignSize(198+122)
         resultFilterBar.delegate = self
+        resultFilterBar.setSelectedIndex(0, forType: .Sort)
+        resultFilterBar.setSelectedIndex(0, forType: .Price)
+        resultFilterBar.setSelectedIndex(0, forType: .Filter)
         
-        resultFilterBar.filterTitles = [
-            "Price: Low to High",
-            "Price: High to Low",
-            "Avg.Custom Review",
-            "Newest Arrivals"
+        resultFilterBar.sortTitles = [
+            "Transport",
+            "Paramedic",
+            "Medication",
+            "Other"
         ]
         
         resultFilterBar.priceTitles = [
@@ -116,11 +119,11 @@ class AICustomSearchHomeViewController: UIViewController {
             "€ 100 or more"
         ]
         
-        resultFilterBar.sortTitles = [
-            "Transport",
-            "Paramedic",
-            "Medication",
-            "Other"
+        resultFilterBar.filterTitles = [
+            "Price: Low to High",
+            "Price: High to Low",
+            "Avg.Custom Review",
+            "Newest Arrivals"
         ]
 	}
     
