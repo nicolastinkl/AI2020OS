@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		122E7BDE1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */; };
 		122E7BDF1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */; };
+		1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */; };
+		1234F99C1D349FE30009FB4F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B5238F1BB8F0EA00DFB1C9 /* OpenGLES.framework */; };
+		1234F99E1D349FFA0009FB4F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F99D1D349FFA0009FB4F /* CoreLocation.framework */; };
+		1234F9A01D34A0320009FB4F /* AIMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234F99F1D34A0320009FB4F /* AIMapView.swift */; };
+		1234F9A91D351C530009FB4F /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A51D351C530009FB4F /* BaiduMapAPI_Base.framework */; };
+		1234F9AA1D351C530009FB4F /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A61D351C530009FB4F /* BaiduMapAPI_Location.framework */; };
+		1234F9AB1D351C530009FB4F /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A71D351C530009FB4F /* BaiduMapAPI_Map.framework */; };
+		1234F9AC1D351C530009FB4F /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */; };
+		1234F9AE1D351C7E0009FB4F /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1234F9AD1D351C7E0009FB4F /* mapapi.bundle */; };
 		123A1F861D2F94F900542D06 /* AITimelineTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123A1F841D2F94F900542D06 /* AITimelineTopView.xib */; };
 		123A1F871D2F94F900542D06 /* AITimelineTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1F851D2F94F900542D06 /* AITimelineTopView.swift */; };
 		126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
@@ -442,9 +451,6 @@
 		8175A7C01CFD2710006F2C8F /* RAReorderableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A71C1CFD2710006F2C8F /* RAReorderableLayout.swift */; };
 		8175A7C11CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A71E1CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m */; };
 		8175A7C21CFD2710006F2C8F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */; };
-		8175A7C31CFD2710006F2C8F /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7221CFD2710006F2C8F /* libicucore.A.dylib */; };
-		8175A7C41CFD2710006F2C8F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7231CFD2710006F2C8F /* libsqlite3.dylib */; };
-		8175A7C51CFD2710006F2C8F /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8175A7241CFD2710006F2C8F /* libz.1.dylib */; };
 		8175A7C61CFD2710006F2C8F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7271CFD2710006F2C8F /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8175A7C71CFD2710006F2C8F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7291CFD2710006F2C8F /* AFHTTPRequestOperationManager.m */; };
 		8175A7C81CFD2710006F2C8F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A72B1CFD2710006F2C8F /* AFHTTPSessionManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -454,7 +460,7 @@
 		8175A7CC1CFD2710006F2C8F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7341CFD2710006F2C8F /* AFURLRequestSerialization.m */; };
 		8175A7CD1CFD2710006F2C8F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7361CFD2710006F2C8F /* AFURLResponseSerialization.m */; };
 		8175A7CE1CFD2710006F2C8F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7381CFD2710006F2C8F /* AFURLSessionManager.m */; };
-		8175A7D51CFD2710006F2C8F /* DDHTimerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7481CFD2710006F2C8F /* DDHTimerControl.m */; };
+		8175A7D51CFD2710006F2C8F /* DDHTimerControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7481CFD2710006F2C8F /* DDHTimerControl.mm */; };
 		8175A7D81CFD2710006F2C8F /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7511CFD2710006F2C8F /* JSONModel.m */; };
 		8175A7D91CFD2710006F2C8F /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7531CFD2710006F2C8F /* JSONModelArray.m */; };
 		8175A7DA1CFD2710006F2C8F /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7561CFD2710006F2C8F /* NSArray+JSONModel.m */; };
@@ -508,6 +514,7 @@
 		81BB86771CFE894200899B58 /* AICustomSearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */; };
 		81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */; };
 		81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */; };
+		81F414321D351B8A008DC280 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F414311D351B8A008DC280 /* libsqlite3.0.tbd */; };
 		8412C7631D2A6429003F34AF /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412C7621D2A6429003F34AF /* PaddingLabel.swift */; };
 		842936921D17870D00795C57 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842936911D17870D00795C57 /* CheckboxButton.swift */; };
 		844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */; };
@@ -529,6 +536,17 @@
 		846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */; };
 		846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */; };
 		846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */; };
+		84717F1F1D3483E300AE7E9A /* VerisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84717F1E1D3483E300AE7E9A /* VerisTests.swift */; };
+		84717F271D3489D100AE7E9A /* CommentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84717F261D3489D100AE7E9A /* CommentTest.swift */; };
+		84717F291D348C5700AE7E9A /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
+		84717F2A1D348F9200AE7E9A /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
+		84717F2B1D348FC200AE7E9A /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
+		84717F2C1D348FC900AE7E9A /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
+		84717F2D1D348FE400AE7E9A /* AINetEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BED1CFBE5A700347C29 /* AINetEngine.m */; };
+		84717F2E1D34919800AE7E9A /* AIMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BE91CFBE5A700347C29 /* AIMessage.m */; };
+		84717F301D349A9E00AE7E9A /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C081CFBE5A700347C29 /* UIViewControllerUtils.swift */; };
+		84717F311D349ABA00AE7E9A /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C071CFBE5A700347C29 /* UIColorUtils.swift */; };
+		84717F321D349CC900AE7E9A /* AIDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B6005B1D25169E0052ADC8 /* AIDefines.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -625,6 +643,7 @@
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93FD2FDD1D13DA7E00B88355 /* AISearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */; };
 		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
+		BD6525E0626BD7C36AB7C53C /* Pods_VerisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DB1763B38C00632321CAD5 /* Pods_VerisTests.framework */; };
 		DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */; };
 		FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
@@ -653,6 +672,16 @@
 		FBAE7FDA1D115428002FF522 /* AISellserAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		84717F211D3483E300AE7E9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93D5A3411B709C1C00DDB158 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D5A3481B709C1C00DDB158;
+			remoteInfo = AIVeris;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		9324A4721CCF58DF00A0A397 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -671,6 +700,14 @@
 		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
 		122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineNowTableViewCell.swift; sourceTree = "<group>"; };
 		122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineNowTableViewCell.xib; sourceTree = "<group>"; };
+		1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		1234F99D1D349FFA0009FB4F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1234F99F1D34A0320009FB4F /* AIMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMapView.swift; sourceTree = "<group>"; };
+		1234F9A51D351C530009FB4F /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
+		1234F9A61D351C530009FB4F /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
+		1234F9A71D351C530009FB4F /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
+		1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
+		1234F9AD1D351C7E0009FB4F /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapAPI_Map.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
 		123A1F841D2F94F900542D06 /* AITimelineTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTopView.xib; sourceTree = "<group>"; };
 		123A1F851D2F94F900542D06 /* AITimelineTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTopView.swift; sourceTree = "<group>"; };
 		126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteViewController.swift; sourceTree = "<group>"; };
@@ -692,6 +729,7 @@
 		12D7649A1D0D469A002B001B /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
 		12D764A01D0D46AA002B001B /* AILoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AILoginStoryboard.storyboard; sourceTree = "<group>"; };
 		503E6327D0C6936333F981D4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55DB1763B38C00632321CAD5 /* Pods_VerisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VerisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		814339261CFBE5A600347C29 /* AIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIApplication.swift; sourceTree = "<group>"; };
 		814339271CFBE5A600347C29 /* AIVeris-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AIVeris-Bridging-Header.h"; sourceTree = "<group>"; };
 		814339281CFBE5A600347C29 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1256,9 +1294,6 @@
 		8175A71E1CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewWaterfallLayout.m; sourceTree = "<group>"; };
 		8175A71F1CFD2710006F2C8F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		8175A7201CFD2710006F2C8F /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
-		8175A7221CFD2710006F2C8F /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libicucore.A.dylib; sourceTree = "<group>"; };
-		8175A7231CFD2710006F2C8F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
-		8175A7241CFD2710006F2C8F /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libz.1.dylib; sourceTree = "<group>"; };
 		8175A7261CFD2710006F2C8F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		8175A7271CFD2710006F2C8F /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		8175A7281CFD2710006F2C8F /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -1279,7 +1314,7 @@
 		8175A7371CFD2710006F2C8F /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		8175A7381CFD2710006F2C8F /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		8175A7471CFD2710006F2C8F /* DDHTimerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHTimerControl.h; sourceTree = "<group>"; };
-		8175A7481CFD2710006F2C8F /* DDHTimerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHTimerControl.m; sourceTree = "<group>"; };
+		8175A7481CFD2710006F2C8F /* DDHTimerControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DDHTimerControl.mm; sourceTree = "<group>"; };
 		8175A7501CFD2710006F2C8F /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
 		8175A7511CFD2710006F2C8F /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
 		8175A7521CFD2710006F2C8F /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelArray.h; sourceTree = "<group>"; };
@@ -1377,6 +1412,7 @@
 		81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchHomeViewController.swift; sourceTree = "<group>"; };
 		81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryLabels.swift; sourceTree = "<group>"; };
 		81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		81F414311D351B8A008DC280 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		8412C7621D2A6429003F34AF /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		842936911D17870D00795C57 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -1399,6 +1435,11 @@
 		846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
 		846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentHelp.swift; sourceTree = "<group>"; };
 		846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsCommentViewController.swift; sourceTree = "<group>"; };
+		84717F1C1D3483E300AE7E9A /* VerisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VerisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84717F1E1D3483E300AE7E9A /* VerisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerisTests.swift; sourceTree = "<group>"; };
+		84717F201D3483E300AE7E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84717F261D3489D100AE7E9A /* CommentTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTest.swift; sourceTree = "<group>"; };
+		84717F2F1D3498D300AE7E9A /* AIVerisTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AIVerisTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
@@ -1599,6 +1640,8 @@
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
 		93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchResultModel.swift; sourceTree = "<group>"; };
 		93FD2FDE1D13E7A400B88355 /* searchJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchJson.json; sourceTree = "<group>"; };
+		A901B3016CA954B0ECB6AEFF /* Pods-VerisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B492DE9D2EAE19F900BAB182 /* Pods-VerisTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.release.xcconfig"; sourceTree = "<group>"; };
 		F968A668E0CC6829EA8B698F /* Pods-AIVeris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.debug.xcconfig"; sourceTree = "<group>"; };
 		FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		FB0181001D0D125400213DF8 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
@@ -1645,31 +1688,45 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		84717F191D3483E300AE7E9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD6525E0626BD7C36AB7C53C /* Pods_VerisTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93D5A3461B709C1C00DDB158 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1234F9A91D351C530009FB4F /* BaiduMapAPI_Base.framework in Frameworks */,
+				1234F99E1D349FFA0009FB4F /* CoreLocation.framework in Frameworks */,
+				1234F99C1D349FE30009FB4F /* OpenGLES.framework in Frameworks */,
+				81F414321D351B8A008DC280 /* libsqlite3.0.tbd in Frameworks */,
 				93B25AB81B9D7EB500CD1FEB /* CoreTelephony.framework in Frameworks */,
+				1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
 				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
 				81433E501CFBE5A700347C29 /* AVOSCloudCrashReporting.framework in Frameworks */,
-				8175A7C41CFD2710006F2C8F /* libsqlite3.dylib in Frameworks */,
 				844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */,
 				844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */,
 				844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */,
 				844AFA211CE1DA5900C58B1C /* CoreMedia.framework in Frameworks */,
+				1234F9AA1D351C530009FB4F /* BaiduMapAPI_Location.framework in Frameworks */,
 				844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */,
 				81A0458F1C11675500296E56 /* CoreAudio.framework in Frameworks */,
 				937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */,
-				8175A7C31CFD2710006F2C8F /* libicucore.A.dylib in Frameworks */,
 				FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */,
 				93B523921BB8F0F400DFB1C9 /* CoreMotion.framework in Frameworks */,
 				93A0ABF51D12C43400562090 /* libWeChatSDK.a in Frameworks */,
 				930455181D124EF5007AFC0C /* libSunFlower.a in Frameworks */,
 				930455141D124E71007AFC0C /* iflyMSC.framework in Frameworks */,
 				9392B57E1D1CD9F10007F241 /* libcrypto.a in Frameworks */,
+				1234F9AC1D351C530009FB4F /* BaiduMapAPI_Search.framework in Frameworks */,
+				1234F9AB1D351C530009FB4F /* BaiduMapAPI_Map.framework in Frameworks */,
 				81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */,
 				93B25AB61B9D7EA900CD1FEB /* Security.framework in Frameworks */,
 				93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */,
@@ -1680,7 +1737,6 @@
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
-				8175A7C51CFD2710006F2C8F /* libz.1.dylib in Frameworks */,
 				DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1688,6 +1744,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1234F9A41D351C530009FB4F /* BaiduMap */ = {
+			isa = PBXGroup;
+			children = (
+				1234F9AD1D351C7E0009FB4F /* mapapi.bundle */,
+				1234F9A51D351C530009FB4F /* BaiduMapAPI_Base.framework */,
+				1234F9A61D351C530009FB4F /* BaiduMapAPI_Location.framework */,
+				1234F9A71D351C530009FB4F /* BaiduMapAPI_Map.framework */,
+				1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */,
+			);
+			path = BaiduMap;
+			sourceTree = "<group>";
+		};
 		126F82111D12983E009B1C6D /* ServiceExecute */ = {
 			isa = PBXGroup;
 			children = (
@@ -1697,6 +1765,7 @@
 				12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */,
 				122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */,
 				122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */,
+				1234F99F1D34A0320009FB4F /* AIMapView.swift */,
 			);
 			path = ServiceExecute;
 			sourceTree = "<group>";
@@ -1736,6 +1805,9 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1234F99D1D349FFA0009FB4F /* CoreLocation.framework */,
+				1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */,
+				81F414311D351B8A008DC280 /* libsqlite3.0.tbd */,
 				93A0ABF71D12C4BD00562090 /* libz.tbd */,
 				930455191D124F8A007AFC0C /* AddressBook.framework */,
 				844AFA281CE1DAB200C58B1C /* VideoToolbox.framework */,
@@ -1763,6 +1835,7 @@
 				93C33F2C1B9C256F007BF506 /* libicucore.tbd */,
 				503E6327D0C6936333F981D4 /* Pods.framework */,
 				8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */,
+				55DB1763B38C00632321CAD5 /* Pods_VerisTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3057,6 +3130,7 @@
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				1234F9A41D351C530009FB4F /* BaiduMap */,
 				FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */,
 				9392B5191D1CD9F10007F241 /* alipay */,
 				93A0ABBB1D12AAB600562090 /* weichatpay */,
@@ -3072,9 +3146,6 @@
 				8175A7851CFD2710006F2C8F /* OBShapedButton */,
 				8175A78E1CFD2710006F2C8F /* RRTagController */,
 				8175A7921CFD2710006F2C8F /* SDWebImage */,
-				8175A7221CFD2710006F2C8F /* libicucore.A.dylib */,
-				8175A7231CFD2710006F2C8F /* libsqlite3.dylib */,
-				8175A7241CFD2710006F2C8F /* libz.1.dylib */,
 			);
 			path = 3rdLibrary;
 			sourceTree = "<group>";
@@ -3109,7 +3180,7 @@
 			isa = PBXGroup;
 			children = (
 				8175A7471CFD2710006F2C8F /* DDHTimerControl.h */,
-				8175A7481CFD2710006F2C8F /* DDHTimerControl.m */,
+				8175A7481CFD2710006F2C8F /* DDHTimerControl.mm */,
 			);
 			path = DDHTimerControl;
 			sourceTree = "<group>";
@@ -3329,6 +3400,17 @@
 				84687E411D236BB90083BD9B /* ImagesCollectionView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		84717F1D1D3483E300AE7E9A /* VerisTests */ = {
+			isa = PBXGroup;
+			children = (
+				84717F1E1D3483E300AE7E9A /* VerisTests.swift */,
+				84717F201D3483E300AE7E9A /* Info.plist */,
+				84717F261D3489D100AE7E9A /* CommentTest.swift */,
+				84717F2F1D3498D300AE7E9A /* AIVerisTests-Bridging-Header.h */,
+			);
+			path = VerisTests;
 			sourceTree = "<group>";
 		};
 		8483169D1D33372E00082D38 /* Model */ = {
@@ -3717,6 +3799,7 @@
 			isa = PBXGroup;
 			children = (
 				814339221CFBE4DF00347C29 /* Veris */,
+				84717F1D1D3483E300AE7E9A /* VerisTests */,
 				61647BAFC7200B01794A2E67 /* Frameworks */,
 				DA9F72896661016CFF11C0E1 /* Pods */,
 				93D5A34A1B709C1C00DDB158 /* Products */,
@@ -3727,6 +3810,7 @@
 			isa = PBXGroup;
 			children = (
 				93D5A3491B709C1C00DDB158 /* Veris.app */,
+				84717F1C1D3483E300AE7E9A /* VerisTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3837,6 +3921,8 @@
 			children = (
 				F968A668E0CC6829EA8B698F /* Pods-AIVeris.debug.xcconfig */,
 				083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */,
+				A901B3016CA954B0ECB6AEFF /* Pods-VerisTests.debug.xcconfig */,
+				B492DE9D2EAE19F900BAB182 /* Pods-VerisTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -3911,6 +3997,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		84717F1B1D3483E300AE7E9A /* VerisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84717F251D3483E300AE7E9A /* Build configuration list for PBXNativeTarget "VerisTests" */;
+			buildPhases = (
+				B73A86C0AD951E2968B01582 /* Check Pods Manifest.lock */,
+				84717F181D3483E300AE7E9A /* Sources */,
+				84717F191D3483E300AE7E9A /* Frameworks */,
+				84717F1A1D3483E300AE7E9A /* Resources */,
+				BF544FFC442404893314C870 /* Embed Pods Frameworks */,
+				EF7D0BB29207F5DD30A0BEAC /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84717F221D3483E300AE7E9A /* PBXTargetDependency */,
+			);
+			name = VerisTests;
+			productName = VerisTests;
+			productReference = 84717F1C1D3483E300AE7E9A /* VerisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		93D5A3481B709C1C00DDB158 /* AIVeris */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93D5A3711B709C1D00DDB158 /* Build configuration list for PBXNativeTarget "AIVeris" */;
@@ -3944,10 +4051,14 @@
 					New,
 				);
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "___ASIAINFO___";
 				TargetAttributes = {
+					84717F1B1D3483E300AE7E9A = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 93D5A3481B709C1C00DDB158;
+					};
 					93D5A3481B709C1C00DDB158 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = T2362RFKT6;
@@ -3973,11 +4084,19 @@
 			projectRoot = "";
 			targets = (
 				93D5A3481B709C1C00DDB158 /* AIVeris */,
+				84717F1B1D3483E300AE7E9A /* VerisTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		84717F1A1D3483E300AE7E9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93D5A3471B709C1C00DDB158 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4028,6 +4147,7 @@
 				81433D551CFBE5A700347C29 /* AIEventCapacityView.xib in Resources */,
 				81433D461CFBE5A700347C29 /* AIProviderView.xib in Resources */,
 				12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */,
+				1234F9AE1D351C7E0009FB4F /* mapapi.bundle in Resources */,
 				81433EC01CFBE5A700347C29 /* MyriadProRegular.ttf in Resources */,
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
 				FB703AE41D24C59400229A08 /* JSSDK.js in Resources */,
@@ -4162,6 +4282,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B73A86C0AD951E2968B01582 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BF544FFC442404893314C870 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF7D0BB29207F5DD30A0BEAC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FB9DEBB51D17CBDC00B3595D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4178,6 +4343,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		84717F181D3483E300AE7E9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84717F301D349A9E00AE7E9A /* UIViewControllerUtils.swift in Sources */,
+				84717F321D349CC900AE7E9A /* AIDefines.swift in Sources */,
+				84717F311D349ABA00AE7E9A /* UIColorUtils.swift in Sources */,
+				84717F1F1D3483E300AE7E9A /* VerisTests.swift in Sources */,
+				84717F2C1D348FC900AE7E9A /* BDKTools.swift in Sources */,
+				84717F2B1D348FC200AE7E9A /* AIApplication.swift in Sources */,
+				84717F2A1D348F9200AE7E9A /* CommentModel.m in Sources */,
+				84717F291D348C5700AE7E9A /* CommentService.swift in Sources */,
+				84717F2E1D34919800AE7E9A /* AIMessage.m in Sources */,
+				84717F2D1D348FE400AE7E9A /* AINetEngine.m in Sources */,
+				84717F271D3489D100AE7E9A /* CommentTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93D5A3451B709C1C00DDB158 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4364,7 +4547,7 @@
 				123A1F871D2F94F900542D06 /* AITimelineTopView.swift in Sources */,
 				81433D9C1CFBE5A700347C29 /* AIMusicTherapyView.m in Sources */,
 				8175A7DB1CFD2710006F2C8F /* JSONModelClassProperty.m in Sources */,
-				8175A7D51CFD2710006F2C8F /* DDHTimerControl.m in Sources */,
+				8175A7D51CFD2710006F2C8F /* DDHTimerControl.mm in Sources */,
 				81433D9E1CFBE5A700347C29 /* AIPopupChooseBaseView.swift in Sources */,
 				81433D991CFBE5A700347C29 /* AIErrorRetryView.swift in Sources */,
 				8175A7C11CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m in Sources */,
@@ -4659,6 +4842,7 @@
 				81433E301CFBE5A700347C29 /* AITaskInputViewController.swift in Sources */,
 				8175A7E31CFD2710006F2C8F /* MJRefreshHeaderView.m in Sources */,
 				8175A7E51CFD2710006F2C8F /* UIScrollView+MJRefresh.m in Sources */,
+				1234F9A01D34A0320009FB4F /* AIMapView.swift in Sources */,
 				81433CEE1CFBE5A700347C29 /* PriceItem.swift in Sources */,
 				8175A7E21CFD2710006F2C8F /* MJRefreshFooterView.m in Sources */,
 				81433D141CFBE5A700347C29 /* AIBubble.m in Sources */,
@@ -4682,6 +4866,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		84717F221D3483E300AE7E9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D5A3481B709C1C00DDB158 /* AIVeris */;
+			targetProxy = 84717F211D3483E300AE7E9A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		81433C1D1CFBE5A700347C29 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -4696,6 +4888,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		84717F231D3483E300AE7E9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A901B3016CA954B0ECB6AEFF /* Pods-VerisTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = VerisTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TK.VerisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VerisTests/AIVerisTests-Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Veris.app/Veris";
+			};
+			name = Debug;
+		};
+		84717F241D3483E300AE7E9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B492DE9D2EAE19F900BAB182 /* Pods-VerisTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = VerisTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TK.VerisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VerisTests/AIVerisTests-Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Veris.app/Veris";
+			};
+			name = Release;
+		};
 		93D5A36F1B709C1D00DDB158 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4801,6 +5026,7 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
@@ -4816,11 +5042,6 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
 				);
 				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"AIAlertView\"",
-					"-framework",
-					"\"Cartography\"",
 					"-licucore",
 					"-all_load",
 				);
@@ -4854,6 +5075,7 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
@@ -4869,11 +5091,6 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
 				);
 				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"AIAlertView\"",
-					"-framework",
-					"\"Cartography\"",
 					"-licucore",
 					"-all_load",
 				);
@@ -4892,6 +5109,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		84717F251D3483E300AE7E9A /* Build configuration list for PBXNativeTarget "VerisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84717F231D3483E300AE7E9A /* Debug */,
+				84717F241D3483E300AE7E9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		93D5A3441B709C1C00DDB158 /* Build configuration list for PBXProject "AIVeris" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

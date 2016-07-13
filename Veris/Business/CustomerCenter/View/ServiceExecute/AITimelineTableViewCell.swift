@@ -26,6 +26,7 @@ class AITimelineTableViewCell: UITableViewCell {
     weak var delegate: AITimelineTableViewCellDelegate?
     var needComputeHeight = true
     
+    // MARK: -> static constants
     static let cellWidth = UIScreen.mainScreen().bounds.width - AITools.displaySizeFrom1242DesignSize(220)
     static let baseTimelineContentLabelHeight: CGFloat = 22
     static let cellMargin: CGFloat = 20
@@ -69,9 +70,10 @@ class AITimelineTableViewCell: UITableViewCell {
                 case AITimelineContentTypeEnum.Image:
                     let imageView = buildImageContentView(timeContentModel.contentUrl!)
                     curView = imageView
-                case AITimelineContentTypeEnum.LocationMap: break
-                    
-                    
+                case AITimelineContentTypeEnum.LocationMap:
+                    let mapView = buildMapContentView()
+                    mapView.setupView()
+                    curView = mapView
                 case AITimelineContentTypeEnum.Voice:
                     let voiceView = buildVoiceContentView(timeContentModel.contentUrl!, time: 2)
                     curView = voiceView
@@ -188,6 +190,13 @@ class AITimelineTableViewCell: UITableViewCell {
         }
         audio1.smallMode()
         return audio1
+    }
+    
+    func buildMapContentView() -> AIMapView {
+        let mapView = AIMapView()
+        imageContainerView.addSubview(mapView)
+        imageContainerViewHeight += 118
+        return mapView
     }
 
     func loadData(viewModel: AITimelineViewModel) {

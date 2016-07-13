@@ -13,6 +13,9 @@
 #import "IFlyFlowerCollector.h"
 #import <objc/runtime.h>
 
+
+
+
 #define APPID_VALUE           @"57621235"
 #define URL_VALUE             @""                 // url
 #define TIMEOUT_VALUE         @"20000"            // timeout      连接超时的时间，以ms为单位

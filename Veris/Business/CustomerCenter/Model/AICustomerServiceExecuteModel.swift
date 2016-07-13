@@ -22,7 +22,7 @@ class AITimelineViewModel: AIBaseViewModel {
         timelineViewModel.layoutType = AITimelineLayoutTypeEnum.ConfirmServiceComplete
         timelineViewModel.desc = "陪护人员已完成挂号任务"
         let timeModel = AIDateTimeViewModel()
-        timeModel.date = "6-20"
+        timeModel.date = "7-11"
         timeModel.time = "\(16 + Int(itemId)!):10"
         timelineViewModel.timeModel = timeModel
         
@@ -37,9 +37,24 @@ class AITimelineViewModel: AIBaseViewModel {
         timelineViewModel.layoutType = AITimelineLayoutTypeEnum.ConfirmOrderComplete
         timelineViewModel.desc = "订单服务已完成"
         let timeModel = AIDateTimeViewModel()
-        timeModel.date = "6-20"
+        timeModel.date = "7-13"
         timeModel.time = "\(16 + Int(itemId)!):10"
         timelineViewModel.timeModel = timeModel
+        return timelineViewModel
+    }
+    
+    class func createFakeDataLocation(itemId: String) -> AITimelineViewModel {
+        let timelineViewModel = AITimelineViewModel()
+        timelineViewModel.itemId = itemId
+        timelineViewModel.layoutType = AITimelineLayoutTypeEnum.Normal
+        timelineViewModel.desc = "孕妈专车将在5分钟到达"
+        let timeModel = AIDateTimeViewModel()
+        timeModel.date = "7-14"
+        timeModel.time = "\(16 + Int(itemId)!):10"
+        timelineViewModel.timeModel = timeModel
+        
+        let contentViewModel = [AITimeContentViewModel(contentType: AITimelineContentTypeEnum.LocationMap, contentUrl: "http://tinkl.qiniudn.com/tinklUpload_newimage/imageview-01.png")]
+        timelineViewModel.contents = contentViewModel
         return timelineViewModel
     }
 }

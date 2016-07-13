@@ -7,6 +7,7 @@
 //
 
 #import "JSONModel.h"
+#import "CommentModel.h"
 
 @protocol StarDesc
 @end

@@ -36,14 +36,19 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ca-Tr-VY2" userLabel="ServiceName">
-                    <rect key="frame" x="86" y="8" width="210" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="孕检无忧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ca-Tr-VY2" userLabel="ServiceName">
+                    <rect key="frame" x="86" y="8" width="210" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="hFO-Vq-Dfa"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="hFO-Vq-Dfa"/>
+                        </mask>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frf-IX-tef" userLabel="Percentage">
                     <rect key="frame" x="355" y="62" width="28" height="21"/>
@@ -79,7 +84,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVG-gC-gNw" userLabel="Price">
-                    <rect key="frame" x="313" y="7" width="70" height="24"/>
+                    <rect key="frame" x="313" y="8" width="70" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="SHM-tf-Eu3"/>
                         <constraint firstAttribute="width" constant="70" id="z2C-H1-JEY"/>
@@ -88,14 +93,19 @@
                     <color key="textColor" red="0.99607843137254903" green="0.8901960784313725" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTR-UH-I5I" userLabel="ServiceDesc">
-                    <rect key="frame" x="86" y="28" width="210" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="孕检无负担，轻松愉快" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTR-UH-I5I" userLabel="ServiceDesc">
+                    <rect key="frame" x="86" y="40" width="140" height="17"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="sBb-bx-CFb"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="sBb-bx-CFb"/>
+                        </mask>
+                    </variation>
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -115,7 +125,7 @@
                 <constraint firstItem="EVG-gC-gNw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="QfW-u5-XIR"/>
                 <constraint firstItem="frf-IX-tef" firstAttribute="top" secondItem="dTR-UH-I5I" secondAttribute="top" id="Qfe-ch-bnT"/>
                 <constraint firstAttribute="trailing" secondItem="EVG-gC-gNw" secondAttribute="trailing" constant="5" id="Taf-dQ-dz9"/>
-                <constraint firstItem="dTR-UH-I5I" firstAttribute="top" secondItem="7Ca-Tr-VY2" secondAttribute="bottom" constant="-1" id="WG5-p8-S5u"/>
+                <constraint firstItem="dTR-UH-I5I" firstAttribute="top" secondItem="7Ca-Tr-VY2" secondAttribute="bottom" constant="8" id="WG5-p8-S5u"/>
                 <constraint firstItem="frf-IX-tef" firstAttribute="trailing" secondItem="EVG-gC-gNw" secondAttribute="trailing" id="a8K-fI-ZZo"/>
                 <constraint firstItem="d2G-FW-ckk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ey4-U4-FDG"/>
                 <constraint firstItem="7Ca-Tr-VY2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="iG5-Vd-Kzt"/>
@@ -129,6 +139,7 @@
                 <mask key="constraints">
                     <exclude reference="ey4-U4-FDG"/>
                     <exclude reference="lOu-Pg-gOG"/>
+                    <exclude reference="5WP-rz-etQ"/>
                     <exclude reference="QfW-u5-XIR"/>
                     <exclude reference="DUc-Ty-f1A"/>
                     <exclude reference="GlW-xb-FOe"/>
