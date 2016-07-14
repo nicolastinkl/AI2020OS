@@ -67,6 +67,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 			} catch {
 			}
 		})
+        
+        // 要使用百度地图，请先启动BaiduMapManager
+        _mapManager = BMKMapManager()
+        // 如果要关注网络及授权验证事件，请设定generalDelegate参数
+        let ret = _mapManager?.start("Gs4nCfbzgrq5C99OHC4RBVSnfnNIAGqI", generalDelegate: self)
+        if ret == false {
+            NSLog("manager start failed!")
+        }
 		
 		showRootViewControllerReal()
 

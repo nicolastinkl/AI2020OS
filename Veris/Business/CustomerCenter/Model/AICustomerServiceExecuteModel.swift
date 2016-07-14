@@ -14,7 +14,10 @@ class AITimelineViewModel: AIBaseViewModel {
     var timeModel: AIDateTimeViewModel?
     var desc: String?
     var contents: [AITimeContentViewModel]?
+    //用于tableViewCell的高度
     var cellHeight: CGFloat = 0
+    //里面内容的高度，可能会单独使用
+    var contentContainerHeight: CGFloat = 0
     
     class func createFakeData(itemId: String) -> AITimelineViewModel {
         let timelineViewModel = AITimelineViewModel()
