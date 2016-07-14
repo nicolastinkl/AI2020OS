@@ -7,7 +7,6 @@
 //
 
 #import "AISellerViewController.h"
-#import "AISellerCollectionViewCell.h"
 #import "AISellerCell.h"
 #import "AISellerModel.h"
 #import "AISellingProgressBar.h"
@@ -31,7 +30,7 @@
 #define kCommonCellHeight 95
 
 
-@interface AISellerViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface AISellerViewController ()
 
 @property (nonatomic, strong) UIColor *normalBackgroundColor;
 
@@ -42,10 +41,6 @@
 @property (nonatomic, strong) NSMutableDictionary *tableDictionary; // key is sort String , value is AIOrderTableModel
 
 @property (nonatomic, strong) NSMutableArray *tableHeaderList; // array of sort String
-
-@property (nonatomic, strong) UICollectionView *collectionView;
-
-@property (nonatomic, strong) EvernoteTransition *customTransition;
 
 @end
 
@@ -59,32 +54,13 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 
     [self makeBackGroundView];
-    [self setupCollectionView];
-//    [self makeTableView];
+    [self makeTableView];
     [self makeBottomBar];
     [self addRefreshActions];
     [self setupLanguageNotification];
 
     //Chaged UserID.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataAfterUserChanged) name:kShouldUpdataUserDataNotification object:nil];
-}
-
-- (void)setupCollectionView {
-    self.customTransition = [EvernoteTransition new];
-    self.collectionView = ({
-        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(kTablePadding, 0, CGRectGetWidth(self.view.frame) - kTablePadding * 2, CGRectGetHeight(self.view.frame))  collectionViewLayout:[CollectionViewLayout new]];
-        collectionView.delegate = self;
-        collectionView.dataSource = self;
-        collectionView.showsVerticalScrollIndicator = NO;
-        collectionView.backgroundColor = [UIColor clearColor];
-        collectionView.contentInset = UIEdgeInsetsMake(0, 0, kBarHeight, 0);
-        [collectionView registerClass:[AISellerCollectionViewCell  class] forCellWithReuseIdentifier:@"cell"];
-        [self addBackgroundViewForTable:collectionView];
-        collectionView;
-    });
-
-
-    [self.view addSubview:self.collectionView];
 }
 
 - (void)viewTapped {
@@ -108,13 +84,12 @@
     [_tableDictionary removeAllObjects];
     [_tableHeaderList removeAllObjects];
     self.sellerInfoList = nil;
-//    [self.tableView reloadData];
-    [self.collectionView reloadData];
+    [self.tableView reloadData];
 
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appDelegate.sellerData = nil;
 
-    [self.collectionView headerBeginRefreshing];
+    [self.tableView headerBeginRefreshing];
 }
 
 - (void)reloadDataAfterUserChanged {
@@ -139,18 +114,14 @@
         self.listModel = [[AIOrderPreListModel alloc] initWithDictionary:delegate.sellerData error:nil];
 
         if (self.listModel != nil && self.listModel.order_list.count > 0) {
-            [self.collectionView reloadData];
-            [self.collectionView headerEndRefreshing];
-//            [self.tableView reloadData];
-//            [self.tableView headerEndRefreshing];
-//            [AISellserAnimationView startAnimationOnSellerViewController:self];
+            [self.tableView reloadData];
+            [self.tableView headerEndRefreshing];
+            [AISellserAnimationView startAnimationOnSellerViewController:self];
         } else {
-//            [self.tableView headerBeginRefreshing];
-            [self.collectionView headerBeginRefreshing];
+            [self.tableView headerBeginRefreshing];
         }
     } else {
-//        [self.tableView headerBeginRefreshing];
-        [self.collectionView headerBeginRefreshing];
+        [self.tableView headerBeginRefreshing];
     }
 }
 
@@ -200,8 +171,7 @@
     __weak typeof(self) weakSelf = self;
 
 
-//    [self.tableView addHeaderWithCallback:^{
-    [self.collectionView addHeaderWithCallback:^{
+    [self.tableView addHeaderWithCallback:^{
         NSDictionary *dic = @{ @"data": @{ @"order_state": @"0", @"order_role": @"2" },
                                @"desc": @{ @"data_mode": @"0", @"digest": @"" } };
 
@@ -209,8 +179,7 @@
         //AIMessage *message = [weakSelf getServiceListWithUserID:123123123 role:2];
         [message.body addEntriesFromDictionary:dic];
         message.url = kURL_QuerySellerOrderList;
-//        [weakSelf.tableView hideErrorView];
-        [weakSelf.collectionView hideErrorView];
+        [weakSelf.tableView hideErrorView];
         [[AINetEngine defaultEngine] postMessage:message success:^(NSDictionary *response) {
             if (response != nil) {
                 NSArray *array = response[@"order_list"];
@@ -220,43 +189,33 @@
                         weakSelf.listModel = [[AIOrderPreListModel alloc] initWithDictionary:response error:nil];
 
                         if (weakSelf.listModel == nil) {
-                            [weakSelf.collectionView showErrorContentView];
-//                            [weakSelf.tableView showErrorContentView];
+                            [weakSelf.tableView showErrorContentView];
                         } else {
                             [weakSelf parseTableDataSource];
                         }
                     } else {
-//                        [weakSelf.tableView showDiyContentView:@"No Data"];
-                        [weakSelf.collectionView showDiyContentView:@"No Data"];
+                        [weakSelf.tableView showDiyContentView:@"No Data"];
                     }
                 } else {
-                    [weakSelf.collectionView showErrorContentView];
-//                    [weakSelf.tableView showErrorContentView];
+                    [weakSelf.tableView showErrorContentView];
                 }
             }
 
             dispatch_main_async_safe(^{
-//                [weakSelf.tableView reloadData];
-//                [weakSelf.tableView headerEndRefreshing];
-                [weakSelf.collectionView reloadData];
-                [weakSelf.collectionView headerEndRefreshing];
+                [weakSelf.tableView reloadData];
+                [weakSelf.tableView headerEndRefreshing];
             });
         } fail:^(AINetError error, NSString *errorDes) {
             dispatch_main_async_safe(^{
-                [weakSelf.collectionView headerEndRefreshing];
-                [weakSelf.collectionView showErrorContentView];
-//                [weakSelf.tableView headerEndRefreshing];
-//                [weakSelf.tableView showErrorContentView];
+                [weakSelf.tableView headerEndRefreshing];
+                [weakSelf.tableView showErrorContentView];
             });
         }];
     }];
 
 
-//    [self.tableView addFooterWithCallback:^{
-//        [weakSelf.tableView footerEndRefreshing];
-//    }];
-    [self.collectionView addFooterWithCallback:^{
-        [weakSelf.collectionView footerEndRefreshing];
+    [self.tableView addFooterWithCallback:^{
+        [weakSelf.tableView footerEndRefreshing];
     }];
 }
 
@@ -352,11 +311,9 @@
 
 
 - (void)gobackAction {
-//    [self.tableView footerEndRefreshing];
-//    [self.tableView headerEndRefreshing];
+    [self.tableView footerEndRefreshing];
+    [self.tableView headerEndRefreshing];
 
-    [self.collectionView footerEndRefreshing];
-    [self.collectionView headerEndRefreshing];
     [[AIOpeningView instance] show];
 }
 
@@ -400,24 +357,25 @@
     table.backgroundView = backImageView;
 }
 
-//- (void)makeTableView {
-//    self.tableView = ({
-//        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(kTablePadding, 0, CGRectGetWidth(self.view.frame) - kTablePadding * 2, CGRectGetHeight(self.view.frame)) style:UITableViewStylePlain];
-//        tableView.delegate = self;
-//        tableView.dataSource = self;
-//        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//        tableView.showsVerticalScrollIndicator = NO;
-//        tableView.backgroundColor = [UIColor clearColor];
-//
-//        [self addBackgroundViewForTable:tableView];
-//        [self addTopAndBottomMaskForTable:tableView];
-//
-//        tableView;
-//    });
-//
-//
-//    [self.view addSubview:self.tableView];
-//}
+- (void)makeTableView {
+    self.tableView = ({
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(kTablePadding, 0, CGRectGetWidth(self.view.frame) - kTablePadding * 2, CGRectGetHeight(self.view.frame)) style:UITableViewStylePlain];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        tableView.showsVerticalScrollIndicator = NO;
+        tableView.backgroundColor = [UIColor clearColor];
+
+        [self addBackgroundViewForTable:tableView];
+        [self addTopAndBottomMaskForTable:tableView];
+
+        tableView;
+    });
+
+
+    [self.view addSubview:self.tableView];
+    //[self makeMaskForTable];
+}
 
 // test
 - (void)makeMaskForTable {
@@ -570,89 +528,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0;
-}
-
-#pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    AIOrderTableModel *tableModel = [_tableDictionary objectForKey:[_tableHeaderList objectAtIndex:indexPath.section]];
-    AIOrderPreModel *model = [tableModel.orderList objectAtIndex:indexPath.row];
-
-    AIProposalServiceModel *serviceModel = [[AIProposalServiceModel alloc] init];
-
-    serviceModel.service_id = model.service.service_id;
-
-    AIRequirementViewController *requirementVC = [UIStoryboard storyboardWithName:@"UIRrequirementStoryboard" bundle:nil].instantiateInitialViewController;
-    requirementVC.orderPreModel = model;
-
-//        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionViewCell
-//        let visibleCells = collectionView.visibleCells() as! [CollectionViewCell]
-    AISellerCollectionViewCell *cell = (AISellerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    NSArray *visibleCells = collectionView.visibleCells;
-
-//        let finalFrame = CGRectMake(10, collectionView.contentOffset.y + 10, screenWidth - 20, screenHeight - 40)
-//        self.customTransition.EvernoteTransitionWith(selectCell: cell, visibleCells: visibleCells, originFrame: cell.frame, finalFrame: finalFrame, panViewController:viewController, listViewController: self)
-//        viewController.transitioningDelegate = self.customTransition
-//        viewController.delegate = self.customTransition
-//        self.presentViewController(viewController, animated: true) { () -> Void in
-//        }
-
-//public let screenWidth = UIScreen.mainScreen().bounds.size.width
-//public let screenHeight = UIScreen.mainScreen().bounds.size.height
-    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-    CGRect finalFrame = CGRectMake(10, collectionView.contentOffset.y + 10, screenWidth - 20, screenHeight - 40);
-    [self.customTransition EvernoteTransitionWithSelectCell:cell visibleCells:visibleCells originFrame:cell.frame finalFrame:finalFrame panViewController:requirementVC listViewController:self];
-    requirementVC.transitioningDelegate = self.customTransition;
-    requirementVC.delegate = self.customTransition;
-
-    [self.navigationController presentViewController:requirementVC animated:true completion:nil];
-}
-
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    AISellerCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-
-
-    AIOrderTableModel *tableModel = [_tableDictionary objectForKey:[_tableHeaderList objectAtIndex:indexPath.section]];
-    AIOrderPreModel *model = [tableModel.orderList objectAtIndex:indexPath.row];
-
-    [cell.sellerIcon sd_setImageWithURL:[NSURL URLWithString:model.customer.user_portrait_icon] placeholderImage:nil];
-    cell.sellerName.text = model.customer.user_name;
-    cell.price.text = model.service.service_price;
-
-    NSString *time = [@"AISellerViewController.2beConfirmed" localized];
-    NSString *address = [@"AISellerViewController.2beConfirmed" localized];
-
-    NSArray *array = model.service_progress.param_list;
-
-    if (array) {
-        for (AIServiceParamModel *model in array) {
-            if ([model.param_key isEqualToString:@"time"]) {
-                time = model.param_value ? : time;
-            } else if ([model.param_key isEqualToString:@"location"]) {
-                address = model.param_value ? : address;
-            }
-        }
-    }
-
-    cell.userPhone = model.customer.user_phone;
-    cell.timestamp.text = time;
-    cell.location.text = address;
-    [cell setBackgroundColorType:[self orderState:model.order_state]];
-    [cell setButtonType:model.service_progress.operation];
-    [cell setProgressBarModel:model.service_progress];
-    [cell setServiceCategory:model];
-
-    return cell;
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return _tableDictionary.allKeys.count;
 }
 
 @end
