@@ -10,7 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate, BMKGeneralDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	
 	var window: UIWindow?
 	//
