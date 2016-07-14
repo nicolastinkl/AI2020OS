@@ -11,6 +11,7 @@ import UIKit
 class AIMapView: UIView, BMKMapViewDelegate {
 
     var _mapView: BMKMapView?
+    static let sharedInstance = AIMapView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,9 +26,12 @@ class AIMapView: UIView, BMKMapViewDelegate {
     func setupView() {
         _mapView = BMKMapView()
         _mapView?.viewWillAppear()
-
         _mapView?.delegate = self
         self.addSubview(_mapView!)
+        _mapView!.snp_makeConstraints(closure: { (make) in
+            make.leading.top.bottom.trailing.equalTo(self)
+            
+        })
     }
     
     //加载一个目标坐标点

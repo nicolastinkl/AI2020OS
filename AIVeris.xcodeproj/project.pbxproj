@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120D20A31D360A710001C6A9 /* AITimelineContentContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120D20A21D360A710001C6A9 /* AITimelineContentContainerView.swift */; };
 		122E7BDE1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */; };
 		122E7BDF1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */; };
 		1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */; };
@@ -698,6 +699,7 @@
 
 /* Begin PBXFileReference section */
 		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
+		120D20A21D360A710001C6A9 /* AITimelineContentContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineContentContainerView.swift; sourceTree = "<group>"; };
 		122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineNowTableViewCell.swift; sourceTree = "<group>"; };
 		122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineNowTableViewCell.xib; sourceTree = "<group>"; };
 		1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
@@ -1766,6 +1768,7 @@
 				122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */,
 				122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */,
 				1234F99F1D34A0320009FB4F /* AIMapView.swift */,
+				120D20A21D360A710001C6A9 /* AITimelineContentContainerView.swift */,
 			);
 			path = ServiceExecute;
 			sourceTree = "<group>";
@@ -4554,6 +4557,7 @@
 				930455211D128E48007AFC0C /* IATConfig.m in Sources */,
 				81433CEC1CFBE5A700347C29 /* ServiceOrderDetailModel.m in Sources */,
 				81433D491CFBE5A700347C29 /* AIWishMessageView.swift in Sources */,
+				120D20A31D360A710001C6A9 /* AITimelineContentContainerView.swift in Sources */,
 				8175A7EB1CFD2710006F2C8F /* OAStackView.m in Sources */,
 				81433DA61CFBE5A700347C29 /* AITaskDataModel.swift in Sources */,
 				81433E7E1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m in Sources */,
