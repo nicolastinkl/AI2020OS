@@ -19,19 +19,4 @@
 
 @implementation CompondComment
 @end
-
-=======
-
-@end
-
-@implementation SingleComment
-
-@end
-
-@implementation SubServiceComment
-
-@end
-
-@implementation CompondComment
-
-@end
+  
