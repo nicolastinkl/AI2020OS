@@ -90,7 +90,7 @@ class TestExpandableCellViewController: UIViewController, UITableViewDataSource,
         let imageContent = ImageCard(frame: CGRect(x: 0, y: 0, width: tableView.width, height: 50))
         
         imageContent.imgUrl = "http://171.221.254.231:3000/upload/shoppingcart/GNcdKBip4tYnW.png"
-        card.setContentView(imageContent)
+        card.setContentView(imageContent, height: 200)
         
         return card
     }

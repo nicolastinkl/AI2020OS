@@ -28,7 +28,8 @@ class ListSubServiceCardView: UIView {
             //imageContent.imgUrl = "http://171.221.254.231:3000/upload/shoppingcart/GNcdKBip4tYnW.png"
             //card.setContentView(imageContent)
             let timelineContainerView = AITimelineContentContainerView(viewModel: timelineModels[i-1], delegate: nil)
-            card.setContentView(timelineContainerView)
+            let caculateHeight = timelineContainerView.getCaculateHeight()
+            card.setContentView(timelineContainerView, height: caculateHeight)
             
             addSubService(card)
         }
@@ -60,7 +61,7 @@ class ListSubServiceCardView: UIView {
         cardList.append(subService)
     }
     
-    func buildFakeContentViewModel(){
+    func buildFakeContentViewModel() {
         for i in 1...8 {
             timelineModels.append(AITimelineViewModel.createFakeData("\(i)"))
         }

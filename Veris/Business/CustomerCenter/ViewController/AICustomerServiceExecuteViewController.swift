@@ -156,6 +156,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         }
         timelineModels.append(AITimelineViewModel.createFakeDataLocation("4"))
         timelineModels.append(AITimelineViewModel.createFakeDataOrderComplete("5"))
+        timelineModels.append(AITimelineViewModel.createFakeDataAuthoration("6"))
         timelineModels = handleViewModels(timelineModels)
     }
     
@@ -172,7 +173,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         case AITimelineLayoutTypeEnum.Normal:
             totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.cellMargin + containerHeight
         case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
-            totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.subViewMargin + containerHeight
+            totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.cellMargin + AITimelineTableViewCell.subViewMargin + containerHeight
         default: break
         }
         if viewModel.timeModel?.shouldShowDate == true {
