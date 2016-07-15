@@ -634,8 +634,6 @@
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93FD2FDD1D13DA7E00B88355 /* AISearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */; };
 		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
-		BD6525E0626BD7C36AB7C53C /* Pods_VerisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DB1763B38C00632321CAD5 /* Pods_VerisTests.framework */; };
-		DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */; };
 		FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
@@ -688,7 +686,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
 		122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineNowTableViewCell.swift; sourceTree = "<group>"; };
 		122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineNowTableViewCell.xib; sourceTree = "<group>"; };
 		123A1F841D2F94F900542D06 /* AITimelineTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTopView.xib; sourceTree = "<group>"; };
@@ -712,7 +709,6 @@
 		12D7649A1D0D469A002B001B /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
 		12D764A01D0D46AA002B001B /* AILoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AILoginStoryboard.storyboard; sourceTree = "<group>"; };
 		503E6327D0C6936333F981D4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55DB1763B38C00632321CAD5 /* Pods_VerisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VerisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		814339261CFBE5A600347C29 /* AIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIApplication.swift; sourceTree = "<group>"; };
 		814339271CFBE5A600347C29 /* AIVeris-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AIVeris-Bridging-Header.h"; sourceTree = "<group>"; };
 		814339281CFBE5A600347C29 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1435,7 +1431,6 @@
 		84F2E5BC1D17F155009E0C72 /* ExpandableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandableTableViewCell.xib; sourceTree = "<group>"; };
 		84F2E5BF1D181376009E0C72 /* TestExpandableCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExpandableCellViewController.swift; sourceTree = "<group>"; };
 		84F2E5C01D181376009E0C72 /* TestExpandableCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestExpandableCellViewController.xib; sourceTree = "<group>"; };
-		8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9304550B1D12447E007AFC0C /* AIAudioSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioSearchViewController.swift; sourceTree = "<group>"; };
 		9304550D1D1246F9007AFC0C /* AIAudioSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAudioSearchViewController.xib; sourceTree = "<group>"; };
 		9304550F1D124DE5007AFC0C /* AIAppInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAppInit.h; sourceTree = "<group>"; };
@@ -1623,9 +1618,6 @@
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
 		93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchResultModel.swift; sourceTree = "<group>"; };
 		93FD2FDE1D13E7A400B88355 /* searchJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchJson.json; sourceTree = "<group>"; };
-		A901B3016CA954B0ECB6AEFF /* Pods-VerisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B492DE9D2EAE19F900BAB182 /* Pods-VerisTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.release.xcconfig"; sourceTree = "<group>"; };
-		F968A668E0CC6829EA8B698F /* Pods-AIVeris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.debug.xcconfig"; sourceTree = "<group>"; };
 		FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		FB0181001D0D125400213DF8 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		FB0181011D0D125400213DF8 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -1675,7 +1667,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD6525E0626BD7C36AB7C53C /* Pods_VerisTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1713,7 +1704,6 @@
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
-				DC58EE1F04D6139812355B50 /* Pods_AIVeris.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1795,8 +1785,6 @@
 				93C33F2E1B9C25EC007BF506 /* UIKit.framework */,
 				93C33F2C1B9C256F007BF506 /* libicucore.tbd */,
 				503E6327D0C6936333F981D4 /* Pods.framework */,
-				8735884D7A0B67325EDB70AC /* Pods_AIVeris.framework */,
-				55DB1763B38C00632321CAD5 /* Pods_VerisTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3761,7 +3749,6 @@
 				814339221CFBE4DF00347C29 /* Veris */,
 				84717F1D1D3483E300AE7E9A /* VerisTests */,
 				61647BAFC7200B01794A2E67 /* Frameworks */,
-				DA9F72896661016CFF11C0E1 /* Pods */,
 				93D5A34A1B709C1C00DDB158 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -3876,17 +3863,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		DA9F72896661016CFF11C0E1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F968A668E0CC6829EA8B698F /* Pods-AIVeris.debug.xcconfig */,
-				083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */,
-				A901B3016CA954B0ECB6AEFF /* Pods-VerisTests.debug.xcconfig */,
-				B492DE9D2EAE19F900BAB182 /* Pods-VerisTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		FB0180FE1D0D125400213DF8 /* libWeiboSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -3961,12 +3937,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84717F251D3483E300AE7E9A /* Build configuration list for PBXNativeTarget "VerisTests" */;
 			buildPhases = (
-				B73A86C0AD951E2968B01582 /* Check Pods Manifest.lock */,
 				84717F181D3483E300AE7E9A /* Sources */,
 				84717F191D3483E300AE7E9A /* Frameworks */,
 				84717F1A1D3483E300AE7E9A /* Resources */,
-				BF544FFC442404893314C870 /* Embed Pods Frameworks */,
-				EF7D0BB29207F5DD30A0BEAC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3982,14 +3955,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93D5A3711B709C1D00DDB158 /* Build configuration list for PBXNativeTarget "AIVeris" */;
 			buildPhases = (
-				9367A38C3EB2513F03B86757 /* 📦 Check Pods Manifest.lock */,
 				9324A4721CCF58DF00A0A397 /* CopyFiles */,
 				93D5A3451B709C1C00DDB158 /* Sources */,
 				93D5A3461B709C1C00DDB158 /* Frameworks */,
 				93D5A3471B709C1C00DDB158 /* Resources */,
-				13C65FA095CF27FFCE912A4D /* 📦 Embed Pods Frameworks */,
-				254E65C76A45CA1D5C7DBA22 /* 📦 Copy Pods Resources */,
-				98EE3358B27A194FE68FA1A9 /* Embed Pods Frameworks */,
 				FB9DEBB51D17CBDC00B3595D /* ShellScript */,
 			);
 			buildRules = (
@@ -4181,111 +4150,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13C65FA095CF27FFCE912A4D /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		254E65C76A45CA1D5C7DBA22 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9367A38C3EB2513F03B86757 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		98EE3358B27A194FE68FA1A9 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B73A86C0AD951E2968B01582 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		BF544FFC442404893314C870 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF7D0BB29207F5DD30A0BEAC /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FB9DEBB51D17CBDC00B3595D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4848,7 +4712,6 @@
 /* Begin XCBuildConfiguration section */
 		84717F231D3483E300AE7E9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A901B3016CA954B0ECB6AEFF /* Pods-VerisTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -4864,7 +4727,6 @@
 		};
 		84717F241D3483E300AE7E9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B492DE9D2EAE19F900BAB182 /* Pods-VerisTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -4967,7 +4829,6 @@
 		};
 		93D5A3721B709C1D00DDB158 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F968A668E0CC6829EA8B698F /* Pods-AIVeris.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
@@ -5017,7 +4878,6 @@
 		};
 		93D5A3731B709C1D00DDB158 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
