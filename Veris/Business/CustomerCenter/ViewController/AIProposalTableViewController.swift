@@ -360,6 +360,8 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
     
     func statusButtonDidClick(proposalModel: ProposalOrderModel) {
         let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
+        let TopMargin: CGFloat = 15.3
+        serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
         self.presentPopupViewController(serviceExecVC, animated: true)
     }
     

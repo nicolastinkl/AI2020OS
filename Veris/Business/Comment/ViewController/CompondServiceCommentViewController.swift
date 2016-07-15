@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import AIAlertView
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
+    var serviceID: String!
     var comments: [CommentTestModel]!
     private var currentOperateCell = -1
 
@@ -67,6 +69,24 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             return (serviceTableView.cellForRowAtIndexPath(NSIndexPath(forRow: currentOperateCell, inSection: 0)) as! ServiceCommentTableViewCell)
         } else {
             return nil
+        }
+    }
+    
+    private func loadServiceComments() {
+        view.showLoading()
+        
+        let ser = HttpCommentService()
+        
+        ser.getCompondComment(serviceID, success: { (responseData) in
+            self.view.hideLoading()
+            let re = responseData
+            print("getCompondComment success:\(re)")
+
+        }) { (errType, errDes) in
+            
+            self.view.hideLoading()
+            
+            AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
         }
     }
 

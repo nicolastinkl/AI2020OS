@@ -10,9 +10,9 @@ import UIKit
 
 enum FilterType: Int {
 	case None = -1
-	case Filter = 100
+	case Sort = 100
 	case Price
-	case Sort
+	case Filter
 }
 
 protocol AICustomSearchHomeResultFilterBarDelegate: NSObjectProtocol {
@@ -23,16 +23,31 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	
 	weak var delegate: AICustomSearchHomeResultFilterBarDelegate?
 	
-	@IBOutlet private var filterButtons: [ImagePositionButton]!
-	@IBOutlet private var mainView: UIView!
+	private var filterButtons: [ImagePositionButton] = []
 	
+	// 半透明的黑色背景
 	private lazy var dimView: UIView = { [unowned self] in
 		let result = UIView()
+		result.layer.shadowColor = UIColor.blackColor().CGColor
+		result.layer.shadowOffset = CGSize(width: 0, height: -3)
+		result.layer.shadowRadius = 5
+		result.layer.shadowOpacity = 0.3
 		result.hidden = true
 		let tap = UITapGestureRecognizer(target: self, action: #selector(AICustomSearchHomeResultFilterBar.dimViewTapped))
 		result.addGestureRecognizer(tap)
 		return result
 	}()
+    
+    func setSelectedIndex(index: Int, forType type: FilterType) {
+        let m = menuView(type: type)
+        m.selectedIndex = index
+    }
+	
+	var filterButtonTitles: [String] = ["Sort by", "Price", "Filter"] {
+		didSet {
+            setupFilterButtons()
+		}
+	}
 	
 	var filterTitles: [String]? {
 		didSet {
@@ -50,6 +65,7 @@ class AICustomSearchHomeResultFilterBar: UIView {
 		}
 	}
 	
+    /// 控制menuView 和menuContainerView top的距离
 	var menuViewTopSpace: CGFloat = 0 {
 		didSet {
 			if let menuContainerView = menuContainerView {
@@ -60,6 +76,8 @@ class AICustomSearchHomeResultFilterBar: UIView {
 		}
 	}
 	
+    
+    /// dimView 的 containerView
 	var menuContainerView: UIView? {
 		didSet {
 			if let menuContainerView = menuContainerView {
@@ -76,18 +94,16 @@ class AICustomSearchHomeResultFilterBar: UIView {
 		}
 	}
 	
-	override func awakeFromNib() {
-		super.awakeFromNib()
-		mainView.backgroundColor = UIColor.clearColor()
+	func setup() {
 		backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)
 		setupFilterButtons()
 		updateMenuViews()
 	}
 	
 	func updateMenuViews() {
-		updateMenuView(type: .Filter, titles: filterTitles)
+		updateMenuView(type: .Sort, titles: filterTitles)
 		updateMenuView(type: .Price, titles: priceTitles)
-		updateMenuView(type: .Sort, titles: sortTitles)
+		updateMenuView(type: .Filter, titles: sortTitles)
 	}
 	
 	func updateMenuView(type type: FilterType, titles: [String]?) {
@@ -98,19 +114,44 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	}
 	
 	func setupFilterButtons() {
-		for i in 0..<filterButtons.count {
-			let b = filterButtons[i]
-            b.titlePosition = .Left
-            b.setImage(UIImage(named: "search-down"), forState: .Normal)
-			b.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
-			b.addTarget(self, action: #selector(AICustomSearchHomeResultFilterBar.filterButtonPressed(_:)), forControlEvents: .TouchUpInside)
-			b.updateImageInset()
+        filterButtons.forEach { (b) in
+            b.removeFromSuperview()
+        }
+        filterButtons.removeAll()
+		
+		for i in 0..<filterButtonTitles.count {
+			let button = ImagePositionButton()
+			filterButtons.append(button)
+			button.addTarget(self, action: #selector(AICustomSearchHomeResultFilterBar.filterButtonPressed(_:)), forControlEvents: .TouchUpInside)
+			button.setImage(UIImage(named: "search-down"), forState: .Normal)
+			button.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
+			button.titlePosition = .Left
+			button.setTitle(filterButtonTitles[i], forState: .Normal)
+			button.spacing = 6
+			button.tag = i + 100
+			button.updateImageInset()
+			addSubview(button)
+			
+			// setup constraint
+			button.snp_makeConstraints(closure: { (make) in
+				make.centerY.equalTo(self)
+				switch i {
+				case 0:
+					make.leading.equalTo(AITools.displaySizeFrom1242DesignSize(40))
+				case 1:
+					make.center.equalTo(self)
+				case 2:
+					make.trailing.equalTo(self).offset(-AITools.displaySizeFrom1242DesignSize(40))
+				default: break
+				}
+				
+			})
 		}
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		initSelfFromXib()
+		setup()
 	}
 	
 	// MARK: - target actions
@@ -119,14 +160,15 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	}
 	
 	func filterButtonPressed(sender: UIButton) {
-		selectFilterButton(button: sender)
 		let type = FilterType(rawValue: sender.tag)!
+		selectFilterButtonWith(type: type)
 		showMenuView(type: type)
 	}
 	
 	// MARK: - helper
 	func hideMenu() {
 		dimView.hidden = true
+		selectFilterButtonWith(type: .None)
 	}
 	
 	func menuView(type type: FilterType) -> AICustomSearchHomeResultFilterBarMenuView {
@@ -144,15 +186,18 @@ class AICustomSearchHomeResultFilterBar: UIView {
 		}
 	}
 	
-	func selectFilterButton(button button: UIButton) {
+	func selectFilterButtonWith(type type: FilterType) {
 		filterButtons.forEach { (b) in
 			b.setImage(UIImage(named: "search-down"), forState: .Normal)
 			b.setTitleColor(UIColor.whiteColor(), forState: .Normal)
 		}
-		button.setImage(UIImage(named: "search-up"), forState: .Normal)
-		button.setTitleColor(UIColor(hexString: "#e7c400"), forState: .Normal)
-		let type = FilterType(rawValue: button.tag)!
-		showMenuView(type: type)
+		if type != .None {
+			let button = filterButtons[type.rawValue - 100]
+			button.setImage(UIImage(named: "search-up"), forState: .Normal)
+			button.setTitleColor(UIColor(hexString: "#e7c400"), forState: .Normal)
+			let type = FilterType(rawValue: button.tag)!
+			showMenuView(type: type)
+		}
 	}
 	
 	func showMenuView(type type: FilterType) {
@@ -170,14 +215,11 @@ extension AICustomSearchHomeResultFilterBar: AICustomSearchHomeResultFilterBarMe
 	func customSearchHomeResultFilterBarMenuView(menuView: AICustomSearchHomeResultFilterBarMenuView, menuButtonDidClickAtIndex index: Int) {
 		let type = FilterType(rawValue: menuView.tag)!
 		delegate?.customSearchHomeResultFilterBar(self, didSelectType: type, index: index)
-		if type == .Filter || type == .Price {
-			menuView.index = index
-		}
+		menuView.selectedIndex = index
 	}
 }
 
 // MARK: - AICustomSearchHomeResultFilterBarMenuView
-
 protocol AICustomSearchHomeResultFilterBarMenuViewDelegate: NSObjectProtocol {
 	func customSearchHomeResultFilterBarMenuView(menuView: AICustomSearchHomeResultFilterBarMenuView, menuButtonDidClickAtIndex index: Int)
 }
@@ -207,28 +249,12 @@ class AICustomSearchHomeResultFilterBarMenuView: UIView {
 	}
 	
 	func setup() {
-		let addBlurBg: (UIBlurEffectStyle) -> () = { [unowned self] style in
-			let effect = UIBlurEffect(style: style)
-			let blurView = UIVisualEffectView(effect: effect)
-			self.addSubview(blurView)
-			blurView.snp_makeConstraints { (make) in
-				make.edges.equalTo(self)
-			}
+		let bg = UIImage(named: "search-filter-bar-bg")
+		let bgImageView = UIImageView(image: bg)
+		addSubview(bgImageView)
+		bgImageView.snp_makeConstraints { (make) in
+			make.edges.equalTo(self)
 		}
-		
-		let addBg: (UIColor) -> () = { [unowned self] color in
-			let view = UIView()
-			view.backgroundColor = color
-			self.addSubview(view)
-			view.snp_makeConstraints(closure: { (make) in
-				make.edges.equalTo(self)
-			})
-		}
-		
-		addBlurBg(.Dark)
-		addBlurBg(.Light)
-		addBg(UIColor(hexString: "#5c46a4", alpha: 0.33))
-//		addBg(UIColor(hexString: "#b2a5f1", alpha: 0.20))
 	}
 	
 	func updateUI() {
@@ -246,29 +272,32 @@ class AICustomSearchHomeResultFilterBarMenuView: UIView {
 	}
 	
 	func setupButton(title title: String, index: Int) {
-		let result = UIButton()
-		result.setTitle(title, forState: .Normal)
-		result.contentHorizontalAlignment = .Left
-		result.titleLabel!.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
-		result.setTitleColor(UIColor(hexString: "#ffffff"), forState: .Normal)
+		let button = UIButton()
+		button.setTitle(title, forState: .Normal)
+		button.contentHorizontalAlignment = .Left
+		button.titleLabel!.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+		button.setTitleColor(UIColor(hexString: "#ffffff"), forState: .Normal)
 		let selectedBackgroundImage = UIImage.withColor(UIColor(hexString: "#b2a5f1", alpha: 0.20))
-		result.setBackgroundImage(selectedBackgroundImage, forState: .Selected)
+		button.setBackgroundImage(selectedBackgroundImage, forState: .Selected)
+        if selectedIndex == index {
+            button.selected = true
+        }
 		
 		// setup seperator line
 		let line = UIView()
 		line.backgroundColor = UIColor(hexString: "#ffffff", alpha: 0.12)
-		result.addSubview(line)
+		button.addSubview(line)
 		line.snp_makeConstraints { (make) in
-			make.leading.trailing.bottom.equalTo(result)
+			make.leading.trailing.bottom.equalTo(button)
 			make.height.equalTo(AITools.displaySizeFrom1242DesignSize(3))
 		}
 		
-		result.contentEdgeInsets = UIEdgeInsets(top: 0, left: buttonTitleMargin, bottom: 0, right: 0)
-		result.tag = index
-		result.addTarget(self, action: #selector(AICustomSearchHomeResultFilterBarMenuView.buttonPressed(_:)), forControlEvents: .TouchUpInside)
-		menuButtons.append(result)
-		addSubview(result)
-		result.snp_makeConstraints { (make) in
+		button.contentEdgeInsets = UIEdgeInsets(top: 0, left: buttonTitleMargin, bottom: 0, right: 0)
+		button.tag = index
+		button.addTarget(self, action: #selector(AICustomSearchHomeResultFilterBarMenuView.buttonPressed(_:)), forControlEvents: .TouchUpInside)
+		menuButtons.append(button)
+		addSubview(button)
+		button.snp_makeConstraints { (make) in
 			make.leading.trailing.equalTo(self)
 			make.height.equalTo(buttonHeight)
 			if index == 0 {
@@ -287,13 +316,13 @@ class AICustomSearchHomeResultFilterBarMenuView: UIView {
 		delegate?.customSearchHomeResultFilterBarMenuView(self, menuButtonDidClickAtIndex: sender.tag)
 	}
 	
-	var index: Int = -1 {
+	var selectedIndex: Int = -1 {
 		didSet {
-			if 0..<menuButtons.count ~= index {
+			if 0..<menuButtons.count ~= selectedIndex {
 				menuButtons.forEach({ (b) in
 					b.selected = false
 				})
-				let button = menuButtons[index]
+				let button = menuButtons[selectedIndex]
 				button.selected = true
 			}
 		}

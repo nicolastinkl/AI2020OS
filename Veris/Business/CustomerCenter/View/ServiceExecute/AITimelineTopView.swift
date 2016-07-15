@@ -58,11 +58,11 @@ class AITimelineTopView: UIView {
         messageNumber.layer.cornerRadius = messageNumber.frame.width / 2
         messageNumber.layer.masksToBounds = true
         let offSet: CGFloat = 4
-        serviceName.font = AITools.myriadSemiboldSemiCnWithSize(AITools.displaySizeFrom1080DesignSize(60-offSet))
-        price.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(70-offSet))
-        messageNumber.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(40-offSet))
-        serviceName.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(36-offSet))
-        percentageNumber.font = AITools.myriadLightWithSize(AITools.displaySizeFrom1080DesignSize(36-offSet))
+        serviceName.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(68))
+        price.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(70))
+        messageNumber.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(40-offSet))
+        serviceDesc.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(36))
+        percentageNumber.font = AITools.myriadLightWithSize(AITools.displaySizeFrom1242DesignSize(36))
 
         let barColors = [UIColor(hex: "#0b82c5"), UIColor(hex: "#10c2dd")]
         progressBar.progressTintColors = barColors

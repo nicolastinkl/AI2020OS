@@ -1,0 +1,330 @@
+//
+//  AITimelineContentContainerView.swift
+//  AIVeris
+//
+//  Created by 刘先 on 7/13/16.
+//  Copyright © 2016 ___ASIAINFO___. All rights reserved.
+//
+
+import UIKit
+
+class AITimelineContentContainerView: UIView {
+
+    //可能没有button，先建一个高度为0的，如果有了再updateConstraint
+    var buttonContainerView: UIView!
+    var imageContainerView: UIView!
+    
+    var imageContainerViewHeight: CGFloat = 0
+    var viewModel: AITimelineViewModel?
+    var delegate: AITimelineContentContainerViewDelegate?
+    
+    //MARK: -> Constants
+    let acceptButtonBgColor = UIColor(hexString: "#0f86e8")
+    let acceptButtonTextColor = UIColor(hexString: "#231a66")
+    let buttonTextFont = AITools.myriadSemiCondensedWithSize(60 / 3)
+    let buttonContainterHeight: CGFloat = 26
+    let acceptButtonWidth: CGFloat = AITools.displaySizeFrom1242DesignSize(220)
+    
+    //MARK: -> overrides
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    convenience init(viewModel: AITimelineViewModel, delegate: AITimelineContentContainerViewDelegate?) {
+        self.init(frame: CGRect.zero)
+        setupViews()
+        self.delegate = delegate
+        loadData(viewModel)
+    }
+    
+    //MARK: -> public methods
+    func getCaculateViewHeight() -> CGFloat {
+        return self.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+    }
+    
+    func setupViews() {
+        buttonContainerView = UIView()
+        imageContainerView = UIView()
+        self.addSubview(imageContainerView)
+        self.addSubview(buttonContainerView)
+        imageContainerView.snp_makeConstraints { (make) in
+            make.top.leading.trailing.equalTo(self)
+            make.bottom.equalTo(buttonContainerView.snp_top)
+        }
+        buttonContainerView.snp_makeConstraints { (make) in
+            make.leading.trailing.bottom.equalTo(self)
+            //初始化不知道有没有button时，高度先设置为0
+            make.height.equalTo(0)
+        }
+    }
+    
+    func loadData(viewModel: AITimelineViewModel) {
+        self.viewModel = viewModel
+        buildImageContainerView()
+        buildButtonContainerView()
+    }
+    
+    //MARK: -> private methods
+    func buildImageContainerView() {
+        var lastView: UIView?
+        var curView: UIView?
+        guard let viewModel = viewModel else {return}
+        //清空subView
+        for subView in imageContainerView.subviews {
+            subView.removeFromSuperview()
+        }
+        //重置变化的高度计算
+        imageContainerViewHeight = 0
+        if (viewModel.contents?.count) != nil {
+            for (index, timeContentModel) in (viewModel.contents)!.enumerate() {
+                switch timeContentModel.contentType! {
+                case AITimelineContentTypeEnum.Image:
+                    let imageView = buildImageContentView(timeContentModel.contentUrl!)
+                    curView = imageView
+                case AITimelineContentTypeEnum.LocationMap:
+                    let mapView = buildMapContentView()
+                    mapView.setupView()
+                    curView = mapView
+                case AITimelineContentTypeEnum.Voice:
+                    let voiceView = buildVoiceContentView(timeContentModel.contentUrl!, time: 2)
+                    curView = voiceView
+                    
+                }
+                guard let curView = curView else {return}
+                if index == 0 {
+                    curView.snp_makeConstraints(closure: { (make) in
+                        make.top.equalTo(curView.superview!)
+                    })
+                }
+                if index != 0 {
+                    if let lastView = lastView {
+                        curView.snp_makeConstraints(closure: { (make) in
+                            make.top.equalTo(lastView.snp_bottom).offset(5)
+                        })
+                        
+                    }
+                }
+                lastView = curView
+            }
+        }
+        
+    }
+    
+    func buildButtonContainerView() {
+        
+        if let viewModel = viewModel {
+            //清空subView
+            for subView in buttonContainerView.subviews {
+                subView.removeFromSuperview()
+            }
+            
+            switch viewModel.layoutType! {
+            //需要确认按钮的
+            case .ConfirmServiceComplete, .ConfirmOrderComplete:
+                let confirmButton = UIButton()
+                confirmButton.setTitle(CustomerCenterConstants.textContent.confirmButton, forState: UIControlState.Normal)
+                confirmButton.titleLabel?.font = CustomerCenterConstants.Fonts.TimelineButton
+                let backImage = UIColor(hex: "#0f86e8").imageWithColor()
+                confirmButton.setBackgroundImage(backImage, forState: UIControlState.Normal)
+                confirmButton.layer.cornerRadius = buttonContainterHeight / 2
+                confirmButton.layer.masksToBounds = true
+                buttonContainerView.addSubview(confirmButton)
+                if viewModel.layoutType == .ConfirmServiceComplete {
+                    confirmButton.addTarget(self, action: #selector(AITimelineContentContainerView.confirmServiceCompleteAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+                } else if viewModel.layoutType == .ConfirmOrderComplete {
+                    confirmButton.addTarget(self, action: #selector(AITimelineContentContainerView.confirmOrderCompleteAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+                }
+                
+                let buttonWidth = CustomerCenterConstants.textContent.confirmButton.sizeWithFont(CustomerCenterConstants.Fonts.TimelineButton, forWidth: 500).width + 30
+                confirmButton.snp_makeConstraints(closure: { (make) in
+                    make.leading.top.bottom.equalTo(buttonContainerView)
+                    make.width.equalTo(buttonWidth)
+                })
+                buttonContainerView.snp_updateConstraints(closure: { (make) in
+                    make.height.equalTo(buttonContainterHeight)
+                    make.top.equalTo(imageContainerView.snp_bottom)
+                })
+            //需要接受和拒绝按钮的
+            case .Authoration:
+                let acceptButton = UIButton()
+                acceptButton.setBackgroundImage(acceptButtonBgColor.imageWithColor(), forState: UIControlState.Normal)
+                acceptButton.setTitleColor(acceptButtonTextColor, forState: UIControlState.Normal)
+                acceptButton.setTitle("accept", forState: UIControlState.Normal)
+                acceptButton.titleLabel?.font = buttonTextFont
+                acceptButton.layer.cornerRadius = 5
+                acceptButton.layer.masksToBounds = true
+                buttonContainerView.addSubview(acceptButton)
+                acceptButton.snp_makeConstraints(closure: { (make) in
+                    make.top.bottom.leading.equalTo(buttonContainerView)
+                    make.width.equalTo(acceptButtonWidth)
+                })
+                
+                let ignoreButton = UIButton()
+                ignoreButton.setBackgroundImage(UIColor.clearColor().imageWithColor(), forState: UIControlState.Normal)
+                ignoreButton.setTitleColor(acceptButtonBgColor, forState: UIControlState.Normal)
+                ignoreButton.setTitle("ignore", forState: UIControlState.Normal)
+                ignoreButton.titleLabel?.font = buttonTextFont
+                ignoreButton.layer.cornerRadius = 5
+                ignoreButton.layer.borderWidth = 1
+                ignoreButton.layer.borderColor = acceptButtonBgColor.CGColor
+                ignoreButton.layer.masksToBounds = true
+                buttonContainerView.addSubview(ignoreButton)
+                ignoreButton.snp_makeConstraints(closure: { (make) in
+                    make.top.bottom.equalTo(buttonContainerView)
+                    make.leading.equalTo(acceptButton.snp_trailing).offset(11)
+                    make.width.equalTo(acceptButtonWidth)
+                })
+                
+                buttonContainerView.snp_updateConstraints(closure: { (make) in
+                    make.height.equalTo(buttonContainterHeight)
+                    make.top.equalTo(imageContainerView.snp_bottom)
+                })
+            //没有按钮的
+            case .Normal:
+                buttonContainerView.snp_updateConstraints(closure: { (make) in
+                    make.height.equalTo(0)
+                    make.top.equalTo(imageContainerView.snp_bottom)
+                })
+            default:
+                break
+            }
+        }
+    }
+    
+    func buildImageContentView(url: String) -> UIImageView {
+        let imageView = UIImageView()
+        self.imageContainerView.addSubview(imageView)
+        imageView.snp_makeConstraints { (make) in
+            make.leading.trailing.equalTo(self.imageContainerView)
+            make.height.equalTo(40)
+        }
+        //加载图片以后根据图片高度决定约束高度
+        //通过在这里赋值形成一个强引用
+        let cacheModel = viewModel!
+        
+        
+        imageView.sd_setImageWithURL(NSURL(string: url ), placeholderImage: CustomerCenterConstants.defaultImages.timelineImage, options: SDWebImageOptions.RetryFailed) {[weak self] (image, error, cacheType, url) in
+            let imageHeight = self?.getCompressedImageHeight(image)
+            if let imageHeight = imageHeight {
+                self?.imageContainerViewHeight += imageHeight
+                imageView.snp_updateConstraints { (make) in
+                    make.height.equalTo(imageHeight)
+                }
+                if self?.viewModel?.cellHeight == 0 {
+                    if let delegate = self?.delegate {
+                        //因为第二次进入从缓存加载图片太快，cell的第一次load还没完成就触发reload，结果展现就错乱了
+                        //暂时通过加延迟的方式解决
+                        Async.main(after: 0.1, block: {
+                            let height = self?.getHeight()
+                            if let height = height {
+                                
+                                delegate.containerImageDidLoad(viewModel: cacheModel, containterHeight: height)
+                            }
+                        })
+                    }
+                }
+            }
+        }
+        return imageView
+    }
+    
+    func buildVoiceContentView(url: String, time: Int?) -> AIAudioMessageView {
+        let audioModel = AIProposalServiceDetailHopeModel()
+        audioModel.audio_url = url
+        audioModel.time = time ?? 0
+        let audio1 = AIAudioMessageView.currentView()
+        audio1.audioBg.backgroundColor = UIColor(hexString: "#18b9c3")
+        imageContainerView.addSubview(audio1)
+        
+        imageContainerViewHeight += 22
+        
+        //audio1.tag = 11
+        audio1.fillData(audioModel)
+        audio1.snp_makeConstraints { (make) in
+            make.leading.equalTo(self.imageContainerView).offset(-14)
+            make.trailing.equalTo(self.imageContainerView).offset(-40 / 3)
+            make.height.equalTo(22)
+        }
+        audio1.smallMode()
+        return audio1
+    }
+    
+    func buildMapContentView() -> AIMapView {
+        let mapView = AIMapView.sharedInstance
+        imageContainerView.addSubview(mapView)
+        imageContainerViewHeight += 118
+        mapView.snp_makeConstraints { (make) in
+            make.leading.trailing.equalTo(self.imageContainerView)
+            make.height.equalTo(118)
+        }
+        if viewModel?.cellHeight == 0 {
+            if let delegate = delegate {
+                //因为第二次进入从缓存加载图片太快，cell的第一次load还没完成就触发reload，结果展现就错乱了
+                //暂时通过加延迟的方式解决
+                Async.main(after: 0.1, block: {
+                    let height = self.getHeight()
+                        delegate.containerImageDidLoad(viewModel: self.viewModel!, containterHeight: height)
+                })
+            }
+        }
+        return mapView
+    }
+    // MARK: -> event methods
+    func confirmServiceCompleteAction(sender: UIButton) {
+        if let delegate = delegate {
+            delegate.confirmServiceButtonDidClick(viewModel: viewModel!)
+        }
+    }
+    
+    func confirmOrderCompleteAction(sender: UIButton) {
+        if let delegate = delegate {
+            delegate.confirmOrderButtonDidClick(viewModel: viewModel!)
+        }
+    }
+    func acceptAuthorationAction(sender: UIButton) {
+        if let delegate = delegate {
+            delegate.acceptButtonDidClick(viewModel: viewModel!)
+        }
+    }
+    func refuseAuthorationAction(sender: UIButton) {
+        if let delegate = delegate {
+            delegate.refuseButtonDidClick(viewModel: viewModel!)
+        }
+    }
+
+    // MARK: -> util methods
+    //通过图片的实际宽度和view宽度计算出来的压缩比例计算展现的高度
+    func getCompressedImageHeight(image: UIImage) -> CGFloat {
+        let compressedRate = AITimelineTableViewCell.cellWidth / image.size.width
+        return image.size.height * compressedRate
+    }
+
+    //计算view高度，如果还没有loadData则返回0
+    func getHeight() -> CGFloat {
+        var totalHeight: CGFloat = 0
+        if let viewModel = viewModel {
+            switch viewModel.layoutType! {
+            case AITimelineLayoutTypeEnum.Normal:
+                totalHeight = imageContainerViewHeight
+            case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
+                totalHeight = AITimelineTableViewCell.baseButtonsHeight + AITimelineTableViewCell.cellMargin + imageContainerViewHeight
+            default: break
+            }
+        }
+        AILog("totalHeight : \(totalHeight)")
+        return totalHeight
+    }
+
+}
+
+protocol AITimelineContentContainerViewDelegate: NSObjectProtocol {
+    func containerImageDidLoad(viewModel viewModel: AITimelineViewModel, containterHeight: CGFloat)
+    func confirmServiceButtonDidClick(viewModel viewModel: AITimelineViewModel)
+    func confirmOrderButtonDidClick(viewModel viewModel: AITimelineViewModel)
+    func refuseButtonDidClick(viewModel viewModel: AITimelineViewModel)
+    func acceptButtonDidClick(viewModel viewModel: AITimelineViewModel)
+}
