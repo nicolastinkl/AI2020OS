@@ -38,8 +38,6 @@ def aiveris_pods
     pod 'IQKeyboardManagerSwift'
     
     pod 'SVProgressHUD', '~> 1.0'
-
-
     
 end
 

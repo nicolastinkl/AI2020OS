@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120D20A31D360A710001C6A9 /* AITimelineContentContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120D20A21D360A710001C6A9 /* AITimelineContentContainerView.swift */; };
 		122E7BDE1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */; };
 		122E7BDF1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */; };
+		1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */; };
+		1234F99C1D349FE30009FB4F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B5238F1BB8F0EA00DFB1C9 /* OpenGLES.framework */; };
+		1234F99E1D349FFA0009FB4F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F99D1D349FFA0009FB4F /* CoreLocation.framework */; };
+		1234F9A01D34A0320009FB4F /* AIMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234F99F1D34A0320009FB4F /* AIMapView.swift */; };
+		1234F9A91D351C530009FB4F /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A51D351C530009FB4F /* BaiduMapAPI_Base.framework */; };
+		1234F9AA1D351C530009FB4F /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A61D351C530009FB4F /* BaiduMapAPI_Location.framework */; };
+		1234F9AB1D351C530009FB4F /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A71D351C530009FB4F /* BaiduMapAPI_Map.framework */; };
+		1234F9AC1D351C530009FB4F /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */; };
+		1234F9AE1D351C7E0009FB4F /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1234F9AD1D351C7E0009FB4F /* mapapi.bundle */; };
 		123A1F861D2F94F900542D06 /* AITimelineTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123A1F841D2F94F900542D06 /* AITimelineTopView.xib */; };
 		123A1F871D2F94F900542D06 /* AITimelineTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1F851D2F94F900542D06 /* AITimelineTopView.swift */; };
 		126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
@@ -451,7 +461,7 @@
 		8175A7CC1CFD2710006F2C8F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7341CFD2710006F2C8F /* AFURLRequestSerialization.m */; };
 		8175A7CD1CFD2710006F2C8F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7361CFD2710006F2C8F /* AFURLResponseSerialization.m */; };
 		8175A7CE1CFD2710006F2C8F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7381CFD2710006F2C8F /* AFURLSessionManager.m */; };
-		8175A7D51CFD2710006F2C8F /* DDHTimerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7481CFD2710006F2C8F /* DDHTimerControl.m */; };
+		8175A7D51CFD2710006F2C8F /* DDHTimerControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7481CFD2710006F2C8F /* DDHTimerControl.mm */; };
 		8175A7D81CFD2710006F2C8F /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7511CFD2710006F2C8F /* JSONModel.m */; };
 		8175A7D91CFD2710006F2C8F /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7531CFD2710006F2C8F /* JSONModelArray.m */; };
 		8175A7DA1CFD2710006F2C8F /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7561CFD2710006F2C8F /* NSArray+JSONModel.m */; };
@@ -648,7 +658,6 @@
 		FB73551E1D23ACFC00CE549C /* AIProductCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */; };
 		FB7355201D23B7B300CE549C /* UILabel-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */; };
 		FB74E0161D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB74E0141D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.swift */; };
-		FB74E0171D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB74E0151D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.xib */; };
 		FB7A4E1F1D1D2BA300DBE07E /* AIImageRecongizeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */; };
 		FB7E6A801D2A0B8F000E2615 /* ImagePositionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E6A7F1D2A0B8F000E2615 /* ImagePositionButton.swift */; };
 		FB8D126F1D210BC200101EEE /* AIProductQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D126E1D210BC200101EEE /* AIProductQAViewController.swift */; };
@@ -686,8 +695,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		083098FC3DB8868E1391FC27 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
+		120D20A21D360A710001C6A9 /* AITimelineContentContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineContentContainerView.swift; sourceTree = "<group>"; };
 		122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineNowTableViewCell.swift; sourceTree = "<group>"; };
 		122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineNowTableViewCell.xib; sourceTree = "<group>"; };
+		1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		1234F99D1D349FFA0009FB4F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1234F99F1D34A0320009FB4F /* AIMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMapView.swift; sourceTree = "<group>"; };
+		1234F9A51D351C530009FB4F /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
+		1234F9A61D351C530009FB4F /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
+		1234F9A71D351C530009FB4F /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
+		1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
+		1234F9AD1D351C7E0009FB4F /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapAPI_Map.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
 		123A1F841D2F94F900542D06 /* AITimelineTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTopView.xib; sourceTree = "<group>"; };
 		123A1F851D2F94F900542D06 /* AITimelineTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTopView.swift; sourceTree = "<group>"; };
 		126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteViewController.swift; sourceTree = "<group>"; };
@@ -1293,7 +1312,7 @@
 		8175A7371CFD2710006F2C8F /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		8175A7381CFD2710006F2C8F /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		8175A7471CFD2710006F2C8F /* DDHTimerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHTimerControl.h; sourceTree = "<group>"; };
-		8175A7481CFD2710006F2C8F /* DDHTimerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHTimerControl.m; sourceTree = "<group>"; };
+		8175A7481CFD2710006F2C8F /* DDHTimerControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DDHTimerControl.mm; sourceTree = "<group>"; };
 		8175A7501CFD2710006F2C8F /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
 		8175A7511CFD2710006F2C8F /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
 		8175A7521CFD2710006F2C8F /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelArray.h; sourceTree = "<group>"; };
@@ -1643,7 +1662,6 @@
 		FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductCommentsViewController.swift; sourceTree = "<group>"; };
 		FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel-Helper.swift"; sourceTree = "<group>"; };
 		FB74E0141D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchHomeResultFilterBar.swift; sourceTree = "<group>"; };
-		FB74E0151D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomSearchHomeResultFilterBar.xib; sourceTree = "<group>"; };
 		FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageRecongizeService.swift; sourceTree = "<group>"; };
 		FB7E6A7F1D2A0B8F000E2615 /* ImagePositionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePositionButton.swift; sourceTree = "<group>"; };
 		FB8D126E1D210BC200101EEE /* AIProductQAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductQAViewController.swift; sourceTree = "<group>"; };
@@ -1674,8 +1692,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1234F9A91D351C530009FB4F /* BaiduMapAPI_Base.framework in Frameworks */,
+				1234F99E1D349FFA0009FB4F /* CoreLocation.framework in Frameworks */,
+				1234F99C1D349FE30009FB4F /* OpenGLES.framework in Frameworks */,
 				81F414321D351B8A008DC280 /* libsqlite3.0.tbd in Frameworks */,
 				93B25AB81B9D7EB500CD1FEB /* CoreTelephony.framework in Frameworks */,
+				1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
@@ -1685,6 +1707,7 @@
 				844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */,
 				844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */,
 				844AFA211CE1DA5900C58B1C /* CoreMedia.framework in Frameworks */,
+				1234F9AA1D351C530009FB4F /* BaiduMapAPI_Location.framework in Frameworks */,
 				844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */,
 				81A0458F1C11675500296E56 /* CoreAudio.framework in Frameworks */,
 				937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */,
@@ -1694,6 +1717,8 @@
 				930455181D124EF5007AFC0C /* libSunFlower.a in Frameworks */,
 				930455141D124E71007AFC0C /* iflyMSC.framework in Frameworks */,
 				9392B57E1D1CD9F10007F241 /* libcrypto.a in Frameworks */,
+				1234F9AC1D351C530009FB4F /* BaiduMapAPI_Search.framework in Frameworks */,
+				1234F9AB1D351C530009FB4F /* BaiduMapAPI_Map.framework in Frameworks */,
 				81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */,
 				93B25AB61B9D7EA900CD1FEB /* Security.framework in Frameworks */,
 				93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */,
@@ -1710,6 +1735,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1234F9A41D351C530009FB4F /* BaiduMap */ = {
+			isa = PBXGroup;
+			children = (
+				1234F9AD1D351C7E0009FB4F /* mapapi.bundle */,
+				1234F9A51D351C530009FB4F /* BaiduMapAPI_Base.framework */,
+				1234F9A61D351C530009FB4F /* BaiduMapAPI_Location.framework */,
+				1234F9A71D351C530009FB4F /* BaiduMapAPI_Map.framework */,
+				1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */,
+			);
+			path = BaiduMap;
+			sourceTree = "<group>";
+		};
 		126F82111D12983E009B1C6D /* ServiceExecute */ = {
 			isa = PBXGroup;
 			children = (
@@ -1719,6 +1756,8 @@
 				12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */,
 				122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */,
 				122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */,
+				1234F99F1D34A0320009FB4F /* AIMapView.swift */,
+				120D20A21D360A710001C6A9 /* AITimelineContentContainerView.swift */,
 			);
 			path = ServiceExecute;
 			sourceTree = "<group>";
@@ -1758,6 +1797,8 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1234F99D1D349FFA0009FB4F /* CoreLocation.framework */,
+				1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */,
 				81F414311D351B8A008DC280 /* libsqlite3.0.tbd */,
 				93A0ABF71D12C4BD00562090 /* libz.tbd */,
 				930455191D124F8A007AFC0C /* AddressBook.framework */,
@@ -3079,6 +3120,7 @@
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				1234F9A41D351C530009FB4F /* BaiduMap */,
 				FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */,
 				9392B5191D1CD9F10007F241 /* alipay */,
 				93A0ABBB1D12AAB600562090 /* weichatpay */,
@@ -3128,7 +3170,7 @@
 			isa = PBXGroup;
 			children = (
 				8175A7471CFD2710006F2C8F /* DDHTimerControl.h */,
-				8175A7481CFD2710006F2C8F /* DDHTimerControl.m */,
+				8175A7481CFD2710006F2C8F /* DDHTimerControl.mm */,
 			);
 			path = DDHTimerControl;
 			sourceTree = "<group>";
@@ -3317,7 +3359,6 @@
 			isa = PBXGroup;
 			children = (
 				FB74E0141D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.swift */,
-				FB74E0151D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.xib */,
 				81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */,
 				FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */,
 				9304551B1D125312007AFC0C /* AIWaterView.swift */,
@@ -4046,7 +4087,6 @@
 				81433D361CFBE5A700347C29 /* AIAudioInputView.xib in Resources */,
 				93E4C4021D20E478007EB116 /* AIAssetsPickerController.xib in Resources */,
 				81433EC41CFBE5A700347C29 /* loading.gif in Resources */,
-				FB74E0171D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.xib in Resources */,
 				933BC8401D002434005E1789 /* AISuperiorityViewController.xib in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
 				126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */,
@@ -4076,6 +4116,7 @@
 				81433D551CFBE5A700347C29 /* AIEventCapacityView.xib in Resources */,
 				81433D461CFBE5A700347C29 /* AIProviderView.xib in Resources */,
 				12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */,
+				1234F9AE1D351C7E0009FB4F /* mapapi.bundle in Resources */,
 				81433EC01CFBE5A700347C29 /* MyriadProRegular.ttf in Resources */,
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
 				FB703AE41D24C59400229A08 /* JSSDK.js in Resources */,
@@ -4370,13 +4411,14 @@
 				123A1F871D2F94F900542D06 /* AITimelineTopView.swift in Sources */,
 				81433D9C1CFBE5A700347C29 /* AIMusicTherapyView.m in Sources */,
 				8175A7DB1CFD2710006F2C8F /* JSONModelClassProperty.m in Sources */,
-				8175A7D51CFD2710006F2C8F /* DDHTimerControl.m in Sources */,
+				8175A7D51CFD2710006F2C8F /* DDHTimerControl.mm in Sources */,
 				81433D9E1CFBE5A700347C29 /* AIPopupChooseBaseView.swift in Sources */,
 				81433D991CFBE5A700347C29 /* AIErrorRetryView.swift in Sources */,
 				8175A7C11CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m in Sources */,
 				930455211D128E48007AFC0C /* IATConfig.m in Sources */,
 				81433CEC1CFBE5A700347C29 /* ServiceOrderDetailModel.m in Sources */,
 				81433D491CFBE5A700347C29 /* AIWishMessageView.swift in Sources */,
+				120D20A31D360A710001C6A9 /* AITimelineContentContainerView.swift in Sources */,
 				8175A7EB1CFD2710006F2C8F /* OAStackView.m in Sources */,
 				81433DA61CFBE5A700347C29 /* AITaskDataModel.swift in Sources */,
 				81433E7E1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m in Sources */,
@@ -4665,6 +4707,7 @@
 				81433E301CFBE5A700347C29 /* AITaskInputViewController.swift in Sources */,
 				8175A7E31CFD2710006F2C8F /* MJRefreshHeaderView.m in Sources */,
 				8175A7E51CFD2710006F2C8F /* UIScrollView+MJRefresh.m in Sources */,
+				1234F9A01D34A0320009FB4F /* AIMapView.swift in Sources */,
 				81433CEE1CFBE5A700347C29 /* PriceItem.swift in Sources */,
 				8175A7E21CFD2710006F2C8F /* MJRefreshFooterView.m in Sources */,
 				81433D141CFBE5A700347C29 /* AIBubble.m in Sources */,
@@ -4845,11 +4888,15 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/3rdLibrary/alipay";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
@@ -4863,9 +4910,10 @@
 				OTHER_LDFLAGS = (
 					"-licucore",
 					"-all_load",
+					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
-				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
+				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
@@ -4893,11 +4941,15 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/XunfeiLib",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/3rdLibrary/alipay";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Veris/3rdLibrary/alipay",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
@@ -4911,9 +4963,10 @@
 				OTHER_LDFLAGS = (
 					"-licucore",
 					"-all_load",
+					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
-				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
+				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";

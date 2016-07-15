@@ -108,6 +108,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     // MARK: -> Public methods
 
     func setupViews() {
+        //selfview CornerRadius
+        view.setCorner(corners: [.TopLeft, .TopRight], cornerRadii: CGSize(width: 10, height: 10))
         //orderInfoView
         orderInfoContentView = AITimelineTopView.createInstance()
         orderInfoView.addSubview(orderInfoContentView!)
@@ -121,8 +123,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/shoppingcart/Hm7ulONUnenmN.png"
         orderInfoModel?.serviceName = "孕检无忧"
         orderInfoModel?.completion = 0.75
-        orderInfoModel?.price = "340"
-        orderInfoModel?.serviceName = "Ground Transportation"
+        orderInfoModel?.price = "¥ 1428"
         orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png"
         orderInfoModel?.serviceDesc = "孕检无负担，轻松愉快。"
         orderInfoContentView?.model = orderInfoModel
@@ -153,7 +154,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         for i in 0...3 {
             timelineModels.append(AITimelineViewModel.createFakeData("\(i)"))
         }
-        timelineModels.append(AITimelineViewModel.createFakeDataOrderComplete("\(4)"))
+        timelineModels.append(AITimelineViewModel.createFakeDataLocation("4"))
+        timelineModels.append(AITimelineViewModel.createFakeDataOrderComplete("5"))
         timelineModels = handleViewModels(timelineModels)
     }
     
@@ -162,7 +164,25 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         
     }
 
-    // MARK: -> Protocol <#protocol name#>
+    // MARK: -> util methods
+    //计算view高度，如果还没有loadData则返回0
+    func getHeight(viewModel: AITimelineViewModel, containerHeight: CGFloat) -> CGFloat {
+        var totalHeight: CGFloat = 0
+        switch viewModel.layoutType! {
+        case AITimelineLayoutTypeEnum.Normal:
+            totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.cellMargin + containerHeight
+        case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
+            totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.subViewMargin + containerHeight
+        default: break
+        }
+        if viewModel.timeModel?.shouldShowDate == true {
+            totalHeight += 25
+        }
+        //在这里给cellHeight赋值
+        viewModel.cellHeight = totalHeight
+        AILog("totalHeight : \(totalHeight)")
+        return totalHeight
+    }
 
 }
 
@@ -173,7 +193,7 @@ extension AICustomerServiceExecuteViewController : OrderAndBuyerInfoViewDelegate
     }
 }
 
-extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableViewDataSource, AITimelineTableViewCellDelegate {
+extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableViewDataSource, AITimelineContentContainerViewDelegate {
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timelineModels.count
@@ -186,9 +206,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
-            
-            cell.delegate = self
-            cell.loadData(timeLineItem)
+            cell.loadData(timeLineItem, delegate: self)
             return cell
         }
         
@@ -202,7 +220,33 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         return AITimelineTableViewCell.caculateHeightWidthData(timeLineItem)
     }
     
-    func cellImageDidLoad(viewModel viewModel: AITimelineViewModel, cellHeight: CGFloat) {
+    func confirmServiceButtonDidClick(viewModel viewModel: AITimelineViewModel) {
+        let vc = parentViewController
+        self.dismissPopupViewController(true) { [weak vc] in
+            let commentVC = ServiceCommentViewController.loadFromXib()
+            commentVC.view.frame = self.view.bounds
+            vc?.presentPopupViewController(commentVC, animated: true)
+        }
+    }
+    func confirmOrderButtonDidClick(viewModel viewModel: AITimelineViewModel) {
+        let vc = parentViewController
+        self.dismissPopupViewController(true) { [weak vc] in
+            //打开支付页面
+            let popupVC = AIPaymentViewController.initFromNib()
+            popupVC.view.frame = self.view.bounds
+            vc?.presentPopupViewController(popupVC, animated: true)
+        }
+    }
+    func refuseButtonDidClick(viewModel viewModel: AITimelineViewModel) {
+        
+    }
+    func acceptButtonDidClick(viewModel viewModel: AITimelineViewModel) {
+        
+    }
+    //TODO: 这样继承delegate没意义，因为这里都不需要这个方法
+    func containerImageDidLoad(viewModel viewModel: AITimelineViewModel, containterHeight: CGFloat) {
+        
+        getHeight(viewModel, containerHeight: containterHeight)
         let indexPath = NSIndexPath(forRow: Int(viewModel.itemId!)!, inSection: 0)
         //AILog("\(viewModel.itemId!) : \(indexPath.row)")
         //如果cell在visible状态，才reload，否则不reload
@@ -213,28 +257,9 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
                 self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
             }
         }
+
     }
-    
-    func cellConfirmButtonDidClick(viewModel viewModel: AITimelineViewModel) {
-        
-        let vc = parentViewController
-        self.dismissPopupViewController(true) { [weak vc] in
-            //打开评论页面
-            if viewModel.layoutType == AITimelineLayoutTypeEnum.ConfirmServiceComplete {
-                let commentVC = ServiceCommentViewController.loadFromXib()
-                commentVC.view.frame = self.view.bounds
-                vc?.presentPopupViewController(commentVC, animated: true)
-            }
-            //打开支付页面
-            else if viewModel.layoutType == AITimelineLayoutTypeEnum.ConfirmOrderComplete {
-                let popupVC = AIPaymentViewController.initFromNib()
-                popupVC.view.frame = self.view.bounds
-                vc?.presentPopupViewController(popupVC, animated: true)
-            }
-        }
-        
-    }
-    
+
     /**
      <#Description#>
      
