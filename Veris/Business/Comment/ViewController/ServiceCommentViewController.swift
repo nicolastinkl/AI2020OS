@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileCoreServices
+import AIAlertView
 
 
 class ServiceCommentViewController: AbsCommentViewController {
@@ -18,6 +19,9 @@ class ServiceCommentViewController: AbsCommentViewController {
     @IBOutlet weak var dismissImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var submit: UILabel!
+    
+    var serviceID: String!
+    var serviceIconUrl: String?
 
     class func loadFromXib() -> ServiceCommentViewController {
         let vc = ServiceCommentViewController(nibName: "ServiceCommentViewController", bundle: nil)
@@ -26,7 +30,28 @@ class ServiceCommentViewController: AbsCommentViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadUI()
+        loadStarsDes()
+    }
 
+    override func imagePicked(image: UIImage) {
+        commentDistrict.addImage(image)
+    }
+    
+    func dismissAction(sender: UIGestureRecognizer) {
+        dismissPopupViewController(true, completion: nil)
+    }
+    
+    func submitAction(sender: UIGestureRecognizer) {
+
+    }
+    
+    private func loadUI() {
+        if let url = serviceIconUrl {
+            commentDistrict.serviceImage.asyncLoadImage(url)
+        }
+        
         commentDistrict.delegate = self
         starsDes.font = AITools.myriadLightWithSize(AITools.displaySizeFrom1242DesignSize(48))
         titleLabel.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(60))
@@ -42,17 +67,25 @@ class ServiceCommentViewController: AbsCommentViewController {
         let submitTap = UITapGestureRecognizer(target: self, action: submitSelector)
         submit.addGestureRecognizer(submitTap)
     }
-
-    override func imagePicked(image: UIImage) {
-        commentDistrict.addImage(image)
-    }
     
-    func dismissAction(sender: UIGestureRecognizer) {
-        dismissPopupViewController(true, completion: nil)
-    }
-    
-    func submitAction(sender: UIGestureRecognizer) {
-
+    private func loadStarsDes() {
+        if !CommentUtils.hasStarDesData {
+            view.showLoading()
+            
+            let service = HttpCommentService()
+            
+            service.getSingleComment(serviceID, success: { (responseData) in
+                self.view.hideLoading()
+                if let starList = responseData.stars as? [StarDesc] {
+                    CommentUtils.setStarDesData(starList)
+                }
+            }) { (errType, errDes) in
+                self.view.hideLoading()
+                
+                AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
+                
+            }
+        }
     }
 
 }
