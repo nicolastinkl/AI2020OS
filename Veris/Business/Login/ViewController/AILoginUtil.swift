@@ -75,6 +75,7 @@ class AILoginUtil: NSObject {
     class func handleUserLogin(userId: String) {
         NSUserDefaults.standardUserDefaults().setObject(userId, forKey: KEY_USER_ID)
         NSUserDefaults.standardUserDefaults().synchronize()
+        NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
     }
     
     /**

@@ -14,6 +14,6 @@ public func AILog<T>(message: T, file: String = #file, funcName: String = #funct
         //1.对文件进行处理
         let fileName = (file as NSString).lastPathComponent
         //2.打印内容
-        print("----------------------------------------------------------\n\(fileName)\n\(funcName)\n\(lineNum)\n\(message)\n----------------------------------------------------------\n")
+        print("----------------------------------------------------------\n\(fileName)\n\(funcName) line: \(lineNum)\n\(message)\n----------------------------------------------------------\n")
     #endif
 }

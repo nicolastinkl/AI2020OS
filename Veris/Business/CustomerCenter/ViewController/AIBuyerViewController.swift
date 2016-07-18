@@ -96,8 +96,9 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         initMakePopTableView()
         
-        self.tableView.headerBeginRefreshing()
-        
+        if AILoginUtil.isLogin() {
+            self.tableView.headerBeginRefreshing()
+        }
         view.addSubview(popTableView)
         
         popTableView.frame = view.frame
@@ -198,6 +199,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     func setupLanguageNotification() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.setupUIWithCurrentLanguage), name: LCLLanguageChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
     }
 
     func refreshAfterNewOrder () {

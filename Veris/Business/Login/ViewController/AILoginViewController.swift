@@ -70,7 +70,10 @@ class AILoginViewController: UIViewController {
             userIdTextField.text = "18982194190"
             passwordTextField.text = "nodgdi"
             loginButton.enabled = true
+            
+            
         #endif
+        
     }
     
     override func didReceiveMemoryWarning() {

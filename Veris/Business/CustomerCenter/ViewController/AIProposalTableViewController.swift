@@ -73,11 +73,20 @@ class AIProposalTableViewController: UIViewController {
         /**
          Loading Data From Networking
          */
-        self.tableView.headerBeginRefreshing()
-        
+        if AILoginUtil.isLogin() {
+            self.tableView.headerBeginRefreshing()
+        }
+    
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
     }
     
-    
+    func refreshAfterNewOrder () {
+        
+        weak var ws = self
+        Async.main(after: 0.2) { () -> Void in
+            ws!.tableView.headerBeginRefreshing()
+        }
+    }
     
     func loadingData() {
     
