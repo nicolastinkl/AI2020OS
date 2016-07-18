@@ -28,9 +28,9 @@ class AITimelineTableViewCell: UITableViewCell {
     
     // MARK: -> static constants
     static let cellWidth = UIScreen.mainScreen().bounds.width - AITools.displaySizeFrom1242DesignSize(220)
-    static let baseTimelineContentLabelHeight: CGFloat = 22
+    static let baseTimelineContentLabelHeight: CGFloat = 40
     static let cellMargin: CGFloat = 20
-    static let subViewMargin: CGFloat = 20
+    static let subViewMargin: CGFloat = 11
     static let baseButtonsHeight: CGFloat = 26
 
     // MARK: -> override methods
@@ -117,7 +117,9 @@ class AITimelineTableViewCell: UITableViewCell {
             totalHeight = baseTimelineContentLabelHeight + subViewMargin + baseButtonsHeight + cellMargin
         default: break
         }
-        
+        if viewModel.timeModel?.shouldShowDate == true {
+            totalHeight += 25
+        }
         return totalHeight
     }
 }

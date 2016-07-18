@@ -25,8 +25,6 @@ class SubServiceCardView: UIView {
     @IBOutlet weak var callButton: UIImageView!
     @IBOutlet weak var additionDescription: UILabel!
     @IBOutlet weak var addtionView: UIView!
-    @IBOutlet weak var leftButton: UIButton!
-    @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var seperator: UIView!
  
     required init?(coder aDecoder: NSCoder) {
@@ -51,11 +49,12 @@ class SubServiceCardView: UIView {
         
     }
     
-    func setContentView(view: UIView) {
+    func setContentView(view: UIView, height: CGFloat) {
         addtionView.addSubview(view)
         
         view.snp_makeConstraints { (make) in
             make.edges.equalTo(addtionView)
+            make.height.equalTo(height)
         }
         
         setNeedsUpdateConstraints()
@@ -81,10 +80,10 @@ class SubServiceCardView: UIView {
         statusButton.makeRound()
         statusButton.titleLabel?.font = CustomerCenterConstants.Fonts.CustomerOrderStatus
         
-        leftButton.makeRound()
-        rightButton.makeRound()
-        rightButton.layer.borderColor = UIColor(hex: "#0f86e8").CGColor
-        rightButton.layer.borderWidth = 1
+//        leftButton.makeRound()
+//        rightButton.makeRound()
+//        rightButton.layer.borderColor = UIColor(hex: "#0f86e8").CGColor
+//        rightButton.layer.borderWidth = 1
         
         
         addtionView.updateConstraints()
