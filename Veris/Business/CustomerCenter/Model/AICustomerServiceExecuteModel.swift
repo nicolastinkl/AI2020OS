@@ -60,6 +60,21 @@ class AITimelineViewModel: AIBaseViewModel {
         timelineViewModel.contents = contentViewModel
         return timelineViewModel
     }
+    
+    class func createFakeDataAuthoration(itemId: String) -> AITimelineViewModel {
+        let timelineViewModel = AITimelineViewModel()
+        timelineViewModel.itemId = itemId
+        timelineViewModel.layoutType = AITimelineLayoutTypeEnum.Authoration
+        timelineViewModel.desc = "陪护人员需要您授权使用取号二维码，来完成排队工作。"
+        let timeModel = AIDateTimeViewModel()
+        timeModel.date = "7-14"
+        timeModel.time = "\(16 + Int(itemId)!):10"
+        timelineViewModel.timeModel = timeModel
+        
+        let contentViewModel = [AITimeContentViewModel(contentType: AITimelineContentTypeEnum.Image, contentUrl: "http://www.ai2020lab.com/qrcode.png")]
+        timelineViewModel.contents = contentViewModel
+        return timelineViewModel
+    }
 }
 
 class AIDateTimeViewModel: AIBaseViewModel {
