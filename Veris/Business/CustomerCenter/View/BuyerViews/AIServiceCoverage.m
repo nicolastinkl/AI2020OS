@@ -103,7 +103,7 @@
         AIServiceLabel *label = [[AIServiceLabel alloc] initWithFrame:frame title:title type:AIServiceLabelTypeSelection isSelected:model.isSelected];
         label.delegate = self;
         label.backgroundColor = [self makeColorsAtIndex:i];
-        label.selectionImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"Coverage%ld", i]];
+        label.selectionImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"Coverage%ld", (long)i]];
 
         [self addSubview:label];
 

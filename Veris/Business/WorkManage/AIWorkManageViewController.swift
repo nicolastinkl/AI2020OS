@@ -21,10 +21,9 @@ class AIWorkManageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     //MARK: 设置基本属性
     func makeBaseProperties() {
-
+        
     }
 
 
