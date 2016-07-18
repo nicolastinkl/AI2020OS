@@ -20,10 +20,13 @@ class AITimelineContentContainerView: UIView {
     
     //MARK: -> Constants
     let acceptButtonBgColor = UIColor(hexString: "#0f86e8")
-    let acceptButtonTextColor = UIColor(hexString: "#231a66")
+    let acceptButtonTextColor = UIColor.whiteColor()
     let buttonTextFont = AITools.myriadSemiCondensedWithSize(60 / 3)
     let buttonContainterHeight: CGFloat = 26
     let acceptButtonWidth: CGFloat = AITools.displaySizeFrom1242DesignSize(220)
+    let voiceHeight: CGFloat = 22
+    let subViewMargin: CGFloat = 11
+    let defaultImageHeight: CGFloat = 118
     
     //MARK: -> overrides
     override init(frame: CGRect) {
@@ -53,12 +56,12 @@ class AITimelineContentContainerView: UIView {
         self.addSubview(buttonContainerView)
         imageContainerView.snp_makeConstraints { (make) in
             make.top.leading.trailing.equalTo(self)
-            make.bottom.equalTo(buttonContainerView.snp_top)
         }
         buttonContainerView.snp_makeConstraints { (make) in
             make.leading.trailing.bottom.equalTo(self)
             //初始化不知道有没有button时，高度先设置为0
             make.height.equalTo(0)
+            make.top.equalTo(imageContainerView.snp_bottom)
         }
     }
     
@@ -81,6 +84,7 @@ class AITimelineContentContainerView: UIView {
         imageContainerViewHeight = 0
         if (viewModel.contents?.count) != nil {
             for (index, timeContentModel) in (viewModel.contents)!.enumerate() {
+                imageContainerViewHeight += AITimelineTableViewCell.subViewMargin
                 switch timeContentModel.contentType! {
                 case AITimelineContentTypeEnum.Image:
                     let imageView = buildImageContentView(timeContentModel.contentUrl!)
@@ -103,7 +107,7 @@ class AITimelineContentContainerView: UIView {
                 if index != 0 {
                     if let lastView = lastView {
                         curView.snp_makeConstraints(closure: { (make) in
-                            make.top.equalTo(lastView.snp_bottom).offset(5)
+                            make.top.equalTo(lastView.snp_bottom).offset(10)
                         })
                         
                     }
@@ -146,7 +150,7 @@ class AITimelineContentContainerView: UIView {
                 })
                 buttonContainerView.snp_updateConstraints(closure: { (make) in
                     make.height.equalTo(buttonContainterHeight)
-                    make.top.equalTo(imageContainerView.snp_bottom)
+                    make.top.equalTo(imageContainerView.snp_bottom).offset(15)
                 })
             //需要接受和拒绝按钮的
             case .Authoration:
@@ -155,7 +159,7 @@ class AITimelineContentContainerView: UIView {
                 acceptButton.setTitleColor(acceptButtonTextColor, forState: UIControlState.Normal)
                 acceptButton.setTitle("accept", forState: UIControlState.Normal)
                 acceptButton.titleLabel?.font = buttonTextFont
-                acceptButton.layer.cornerRadius = 5
+                acceptButton.layer.cornerRadius = buttonContainterHeight / 2
                 acceptButton.layer.masksToBounds = true
                 buttonContainerView.addSubview(acceptButton)
                 acceptButton.snp_makeConstraints(closure: { (make) in
@@ -168,7 +172,7 @@ class AITimelineContentContainerView: UIView {
                 ignoreButton.setTitleColor(acceptButtonBgColor, forState: UIControlState.Normal)
                 ignoreButton.setTitle("ignore", forState: UIControlState.Normal)
                 ignoreButton.titleLabel?.font = buttonTextFont
-                ignoreButton.layer.cornerRadius = 5
+                ignoreButton.layer.cornerRadius = buttonContainterHeight / 2
                 ignoreButton.layer.borderWidth = 1
                 ignoreButton.layer.borderColor = acceptButtonBgColor.CGColor
                 ignoreButton.layer.masksToBounds = true
@@ -181,7 +185,7 @@ class AITimelineContentContainerView: UIView {
                 
                 buttonContainerView.snp_updateConstraints(closure: { (make) in
                     make.height.equalTo(buttonContainterHeight)
-                    make.top.equalTo(imageContainerView.snp_bottom)
+                    make.top.equalTo(imageContainerView.snp_bottom).offset(15)
                 })
             //没有按钮的
             case .Normal:
@@ -197,6 +201,7 @@ class AITimelineContentContainerView: UIView {
     
     func buildImageContentView(url: String) -> UIImageView {
         let imageView = UIImageView()
+        //imageView.contentMode = .ScaleAspectFill
         self.imageContainerView.addSubview(imageView)
         imageView.snp_makeConstraints { (make) in
             make.leading.trailing.equalTo(self.imageContainerView)
@@ -208,6 +213,9 @@ class AITimelineContentContainerView: UIView {
         
         
         imageView.sd_setImageWithURL(NSURL(string: url ), placeholderImage: CustomerCenterConstants.defaultImages.timelineImage, options: SDWebImageOptions.RetryFailed) {[weak self] (image, error, cacheType, url) in
+            if image == nil {
+                return
+            }
             let imageHeight = self?.getCompressedImageHeight(image)
             if let imageHeight = imageHeight {
                 self?.imageContainerViewHeight += imageHeight
@@ -240,14 +248,14 @@ class AITimelineContentContainerView: UIView {
         audio1.audioBg.backgroundColor = UIColor(hexString: "#18b9c3")
         imageContainerView.addSubview(audio1)
         
-        imageContainerViewHeight += 22
+        imageContainerViewHeight += voiceHeight
         
         //audio1.tag = 11
         audio1.fillData(audioModel)
         audio1.snp_makeConstraints { (make) in
             make.leading.equalTo(self.imageContainerView).offset(-14)
             make.trailing.equalTo(self.imageContainerView).offset(-40 / 3)
-            make.height.equalTo(22)
+            make.height.equalTo(voiceHeight)
         }
         audio1.smallMode()
         return audio1
@@ -256,10 +264,10 @@ class AITimelineContentContainerView: UIView {
     func buildMapContentView() -> AIMapView {
         let mapView = AIMapView.sharedInstance
         imageContainerView.addSubview(mapView)
-        imageContainerViewHeight += 118
+        imageContainerViewHeight += defaultImageHeight
         mapView.snp_makeConstraints { (make) in
             make.leading.trailing.equalTo(self.imageContainerView)
-            make.height.equalTo(118)
+            make.height.equalTo(defaultImageHeight)
         }
         if viewModel?.cellHeight == 0 {
             if let delegate = delegate {
@@ -311,7 +319,38 @@ class AITimelineContentContainerView: UIView {
             case AITimelineLayoutTypeEnum.Normal:
                 totalHeight = imageContainerViewHeight
             case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
-                totalHeight = AITimelineTableViewCell.baseButtonsHeight + AITimelineTableViewCell.cellMargin + imageContainerViewHeight
+                totalHeight = AITimelineTableViewCell.baseButtonsHeight + imageContainerViewHeight
+            default: break
+            }
+        }
+        AILog("totalHeight : \(totalHeight)")
+        return totalHeight
+    }
+    
+    /**
+     根据传入的模型计算高度
+     
+     - returns: <#return value description#>
+     */
+    func getCaculateHeight() -> CGFloat {
+        var totalHeight: CGFloat = 0
+        if let viewModel = viewModel {
+            if let contents = viewModel.contents {
+                for content: AITimeContentViewModel in contents {
+                    totalHeight += subViewMargin
+                    switch content.contentType! {
+                    case .Image, .LocationMap:
+                        totalHeight += defaultImageHeight
+                    case .Voice:
+                        totalHeight += voiceHeight
+                    }
+                }
+            }
+            switch viewModel.layoutType! {
+            case AITimelineLayoutTypeEnum.Normal:
+                totalHeight += AITimelineTableViewCell.cellMargin
+            case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
+                totalHeight += AITimelineTableViewCell.baseButtonsHeight + AITimelineTableViewCell.cellMargin * 2
             default: break
             }
         }
