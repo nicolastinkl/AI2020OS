@@ -8,9 +8,9 @@ PODS:
   - SVProgressHUD (1.1.3)
   - SwiftyJSON (2.3.2)
   - UMengSocialCOM (5.2.1)
-  - YYImage (1.0.2):
-    - YYImage/Core (= 1.0.2)
-  - YYImage/Core (1.0.2)
+  - YYImage (1.0.3):
+    - YYImage/Core (= 1.0.3)
+  - YYImage/Core (1.0.3)
 
 DEPENDENCIES:
   - AIAlertView (from `https://github.com/asiainfomobile/AIAlertView.git`)
@@ -54,6 +54,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
-  YYImage: 2cc79ed49b9549b71c6715cefe7b0f5ab3d33abf
+  YYImage: 362f44ffba1fc498f2152060f3bb54ed84600981
 
 COCOAPODS: 0.39.0
