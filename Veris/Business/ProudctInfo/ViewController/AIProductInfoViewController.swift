@@ -165,15 +165,25 @@ class AIProductInfoViewController: UIViewController {
             navi.backButton.setImage(UIImage(named: "AI_ProductInfo_Home_Back"), forState: UIControlState.Normal)
             navi.commentButton.setImage(UIImage(named: "AI_ProductInfo_Home_Favirtor"), forState: UIControlState.Normal)
             navi.videoButton.setImage(UIImage(named: "AI_ProductInfo_Home_Shared"), forState: UIControlState.Normal)
-			
+            navi.videoButton.addTarget(self, action: #selector(shareAction), forControlEvents: UIControlEvents.TouchUpInside)
 			navi.titleLabel.text = ""
 			
 		}
 	}
-	
+
+
+
+    //MARK: Share Action
+
+    func shareAction() {
+        //如果需要分享回调，请将delegate对象设置self，并实现下面的回调方法
+        UMSocialData.defaultData().extConfig.title = "分享的title"
+        UMSocialSnsService.presentSnsIconSheetView(self, appKey: AIApplication.UMengAppID, shareText: "ZhuangBi With Me & Fly With Me", shareImage: nil, shareToSnsNames: [UMShareToWechatSession, UMShareToWechatTimeline, UMShareToSina, UMShareToQQ, UMShareToQzone], delegate: self)
+    }
+
    // MARK: - Init ScrollData
 	func initScrollViewData() {
-		
+
 		/**
 		 定制的TitleView
 		 */
@@ -554,4 +564,15 @@ extension AIProductInfoViewController: AICustomAudioNotesViewShowAudioDelegate {
     func showAudioView(type: Int) {
         
     }
+}
+
+//MARK: ShareDelegate
+extension AIProductInfoViewController: UMSocialUIDelegate {
+
+    func didFinishGetUMSocialDataInViewController(response: UMSocialResponseEntity!) {
+        if response.responseCode == UMSResponseCodeSuccess {
+            AILog("share to sns name is" + "\(response.data.keys.first)")
+        }
+    }
+
 }

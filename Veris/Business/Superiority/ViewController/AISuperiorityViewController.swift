@@ -194,8 +194,17 @@ class AISuperiorityViewController: UIViewController {
             navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
             navi.setRightIcon2Action(UIImage(named: "AINavigationBar_send")!)
             navi.titleLabel.text = "孕检无忧"
-            
+            navi.videoButton.addTarget(self, action: #selector(shareAction), forControlEvents: UIControlEvents.TouchUpInside)
         }
+    }
+
+
+    //MARK: Share Action
+
+    func shareAction() {
+        //如果需要分享回调，请将delegate对象设置self，并实现下面的回调方法
+        UMSocialData.defaultData().extConfig.title = "分享的title"
+        UMSocialSnsService.presentSnsIconSheetView(self, appKey: AIApplication.UMengAppID, shareText: "ZhuangBi With Me & Fly With Me", shareImage: nil, shareToSnsNames: [UMShareToWechatSession, UMShareToWechatTimeline, UMShareToSina, UMShareToQQ, UMShareToQzone], delegate: self)
     }
 
     func addNewSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
@@ -270,4 +279,17 @@ class canvasLineView: UIView {
         CGContextRestoreGState(context)
         backgroundColor = UIColor.clearColor()        
     }
+}
+
+
+
+//MARK: ShareDelegate
+extension AISuperiorityViewController: UMSocialUIDelegate {
+
+    func didFinishGetUMSocialDataInViewController(response: UMSocialResponseEntity!) {
+        if response.responseCode == UMSResponseCodeSuccess {
+            AILog("share to sns name is" + "\(response.data.keys.first)")
+        }
+    }
+    
 }
