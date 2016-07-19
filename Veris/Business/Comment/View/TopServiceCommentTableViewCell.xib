@@ -43,7 +43,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mr4-uj-e36" userLabel="ServiceIcon">
                         <rect key="frame" x="22" y="16" width="26" height="26"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="999" constant="26" id="3Oz-te-v3Y"/>
+                            <constraint firstAttribute="height" constant="26" id="3Oz-te-v3Y"/>
                             <constraint firstAttribute="width" secondItem="mr4-uj-e36" secondAttribute="height" multiplier="1:1" id="Quv-hq-Q75"/>
                         </constraints>
                     </imageView>
@@ -86,7 +86,7 @@
                         <rect key="frame" x="22" y="58" width="290" height="132"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="999" constant="132" id="Tzh-cq-LFu"/>
+                            <constraint firstAttribute="height" constant="132" id="Tzh-cq-LFu"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhd-fI-Gi9" userLabel="appendComment" customClass="CommentAreaView" customModule="Veris" customModuleProvider="target">
@@ -113,7 +113,7 @@
                     <constraint firstItem="htZ-yN-aSC" firstAttribute="top" secondItem="mr4-uj-e36" secondAttribute="bottom" constant="16" id="Ihj-4F-43D"/>
                     <constraint firstItem="WGg-9K-9YP" firstAttribute="top" secondItem="hhd-fI-Gi9" secondAttribute="bottom" constant="20" id="L4t-Eo-t3S"/>
                     <constraint firstItem="htZ-yN-aSC" firstAttribute="leading" secondItem="mr4-uj-e36" secondAttribute="leading" id="LAp-em-UQJ"/>
-                    <constraint firstItem="mr4-uj-e36" firstAttribute="top" secondItem="wcX-Sm-ZfZ" secondAttribute="topMargin" constant="8" id="QGQ-iw-AIQ"/>
+                    <constraint firstItem="mr4-uj-e36" firstAttribute="top" secondItem="wcX-Sm-ZfZ" secondAttribute="topMargin" priority="999" constant="8" id="QGQ-iw-AIQ"/>
                     <constraint firstItem="Agq-mz-CC9" firstAttribute="centerY" secondItem="mr4-uj-e36" secondAttribute="centerY" id="RvJ-1u-US8"/>
                     <constraint firstItem="mr4-uj-e36" firstAttribute="leading" secondItem="wcX-Sm-ZfZ" secondAttribute="leadingMargin" constant="14" id="SAy-ZD-xzd"/>
                     <constraint firstItem="Pgw-fb-suK" firstAttribute="leading" secondItem="Agq-mz-CC9" secondAttribute="trailing" constant="10" id="XnP-Nl-efP"/>

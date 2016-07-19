@@ -8,12 +8,6 @@
 
 import Foundation
 
-@objc protocol CommentDistrictDelegate {
-    func photoImageButtonClicked(button: UIImageView, buttonParentCell: UIView)
-    func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
-    @objc optional func commentHeightChanged()
-}
-
 class CommentUtils {
     private static var starDesMap: [String: String]?
     

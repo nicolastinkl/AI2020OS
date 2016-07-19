@@ -27,19 +27,11 @@ class ServiceCommentTableViewCell: UITableViewCell {
     private var commentAreaHeight: CGFloat!
     
     var delegate: CommentDistrictDelegate?
+    var cellDelegate: CommentCellDelegate?
     
     private var appendCommentExpanded = false
     private var stateFactory = [CommentStateEnum: CommentState]()
     private var state: CommentState!
-    
-//    func setIsInAppendComment(isInAppendComment: Bool) {
-//        if isInAppendComment != appendCommentExpanded {
-//            appendCommentExpanded = isInAppendComment
-//            
-//            appendCommentAreaHidden(!isInAppendComment)
-//            
-//        }
-//    }
     
     func getState() -> CommentState {
         return state
@@ -61,12 +53,6 @@ class ServiceCommentTableViewCell: UITableViewCell {
             return getState(.CommentFinshed)
         }
     }
-    
-//    var isAppendCommendExpanded: Bool {
-//        get {
-//            return appendCommentExpanded
-//        }
-//    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -106,35 +92,10 @@ class ServiceCommentTableViewCell: UITableViewCell {
         serviceIcon.layer.cornerRadius = serviceIcon.height / 2
     }
     
-//    var isCommentDone: Bool = false {
-//        willSet {
-//            
-//            if newValue != isCommentDone && newValue {
-//                appendComment.finishComment()
-//                
-//                appendCommentBottomMargin.constant -= imageButtonSpace.constant
-//                appendCommentButton.removeFromSuperview()
-//                imageButton.removeFromSuperview()
-//                
-//                delegate?.commentHeightChanged?()
-//            }
-//            
-//        }
-//    }
-    
-//    var canAppendComment: Bool = true {
-//        didSet {
-//            if canAppendComment {
-//                firstComment.finishComment()
-//                appendCommentButton.hidden = false
-//            }
-//        }
-//    }
-    
     @IBAction func appendButtonAction(sender: UIButton) {
         resetState(getState(.AppendEditing))
         
-        delegate?.appendCommentClicked(sender, buttonParentCell: self)
+        cellDelegate?.appendCommentClicked(sender, buttonParentCell: self)
     }
 
     func imageButtonAction(sender: UIGestureRecognizer) {
@@ -213,8 +174,8 @@ extension ServiceCommentTableViewCell: CommentCellProtocol {
     func touchOut() {
         if state is AppendEditingState {
             if !hasAppendContent {
-                state = getState(.CommentFinshed)
-                state.updateUI()
+                resetState(getState(.CommentFinshed))
+                cellDelegate?.commentHeightChanged()
             }
         }
     }
@@ -261,6 +222,7 @@ private class CommentEditableState: AbsCommentState {
 private class CommentFinshedState: AbsCommentState {
     override func updateUI() {
         cell.firstComment.finishComment()
+        cell.appendCommentHeight.constant = 0
         cell.appendCommentButton.hidden = false
         cell.imageButton.hidden = true
     }
@@ -304,8 +266,13 @@ private class DoneState: AbsCommentState {
         cell.appendCommentButton?.removeFromSuperview()
         cell.imageButton?.removeFromSuperview()
         
-        cell.delegate?.commentHeightChanged?()
+        cell.cellDelegate?.commentHeightChanged()
     }
+}
+
+protocol CommentCellDelegate {
+    func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
+    func commentHeightChanged()
 }
 
 

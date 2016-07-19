@@ -48,14 +48,6 @@ extension AbsCommentViewController: CommentDistrictDelegate {
 
         presentViewController(alert, animated: true, completion: nil)
     }
-    
-    func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView) {
-        
-    }
-    
-    func commentHeightChanged() {
-        
-    }
 }
 
 extension AbsCommentViewController: UIImagePickerControllerDelegate {

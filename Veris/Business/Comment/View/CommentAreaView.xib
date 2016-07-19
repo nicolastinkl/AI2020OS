@@ -40,7 +40,7 @@
                     <rect key="frame" x="0.0" y="555" width="600" height="45"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="45" id="FTG-Vw-Kls"/>
+                        <constraint firstAttribute="height" priority="750" constant="45" id="FTG-Vw-Kls"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
@@ -69,10 +69,10 @@
                 <constraint firstItem="rmF-RW-rwk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wjr-eb-2xs"/>
                 <constraint firstAttribute="trailing" secondItem="6Wq-9r-EQw" secondAttribute="trailing" id="XPr-XG-NLg"/>
                 <constraint firstItem="6Wq-9r-EQw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cYX-bL-3Sc"/>
-                <constraint firstItem="6Wq-9r-EQw" firstAttribute="top" secondItem="rmF-RW-rwk" secondAttribute="bottom" constant="5" id="fJG-gQ-0wx"/>
+                <constraint firstItem="6Wq-9r-EQw" firstAttribute="top" secondItem="rmF-RW-rwk" secondAttribute="bottom" priority="750" constant="5" id="fJG-gQ-0wx"/>
                 <constraint firstItem="rmF-RW-rwk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nP9-1j-blQ"/>
                 <constraint firstAttribute="trailing" secondItem="rmF-RW-rwk" secondAttribute="trailing" id="nQE-8y-RZh"/>
-                <constraint firstItem="3jt-4v-iSX" firstAttribute="top" secondItem="rmF-RW-rwk" secondAttribute="top" constant="10" id="wCI-wc-kva"/>
+                <constraint firstItem="3jt-4v-iSX" firstAttribute="top" secondItem="rmF-RW-rwk" secondAttribute="top" priority="750" constant="10" id="wCI-wc-kva"/>
             </constraints>
         </view>
     </objects>

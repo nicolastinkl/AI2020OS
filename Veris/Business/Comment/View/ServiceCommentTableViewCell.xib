@@ -43,7 +43,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oUy-xX-H03" userLabel="ServiceIcon">
                         <rect key="frame" x="22" y="16" width="26" height="26"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="999" constant="26" id="7Jh-8u-1lm"/>
+                            <constraint firstAttribute="height" constant="26" id="7Jh-8u-1lm"/>
                             <constraint firstAttribute="width" secondItem="oUy-xX-H03" secondAttribute="height" multiplier="1:1" id="96M-8g-ryG"/>
                         </constraints>
                     </imageView>
@@ -86,7 +86,7 @@
                         <rect key="frame" x="22" y="58" width="290" height="132"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="999" constant="132" id="ds9-HY-3bH"/>
+                            <constraint firstAttribute="height" constant="132" id="ds9-HY-3bH"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YW-ax-ngK" userLabel="appendComment" customClass="CommentAreaView" customModule="Veris" customModuleProvider="target">
@@ -103,7 +103,7 @@
                     <constraint firstItem="Qxg-Vh-rxo" firstAttribute="trailing" secondItem="Iaz-ax-E45" secondAttribute="trailing" id="9KF-LK-lfC"/>
                     <constraint firstItem="Iaz-ax-E45" firstAttribute="top" secondItem="oUy-xX-H03" secondAttribute="bottom" constant="16" id="BQq-Ek-Ct3"/>
                     <constraint firstAttribute="bottomMargin" secondItem="7YW-ax-ngK" secondAttribute="bottom" priority="999" constant="60" id="BUS-0H-Sud"/>
-                    <constraint firstItem="oUy-xX-H03" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="BlD-EQ-Het"/>
+                    <constraint firstItem="oUy-xX-H03" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" priority="999" constant="8" id="BlD-EQ-Het"/>
                     <constraint firstItem="gSL-h2-ZvC" firstAttribute="leading" secondItem="oUy-xX-H03" secondAttribute="trailing" constant="5" id="HdZ-67-A8J"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Iaz-ax-E45" secondAttribute="trailing" id="KBA-Yo-bgY"/>
                     <constraint firstItem="7YW-ax-ngK" firstAttribute="top" secondItem="Qxg-Vh-rxo" secondAttribute="bottom" constant="5" id="Lat-DA-ivV"/>

@@ -34,7 +34,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
         for i in 0 ..< 5 {
             let model = SubServiceCommentViewModel()
-            model.commentEditable = i % 2 == 0
+            model.commentEditable = i % 2 != 0
             comments.append(model)
         }
         
@@ -65,18 +65,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             recordCurrentOperateCell(cell)
         }
     }
-    
-    override func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView) {
-        if let cell = buttonParentCell as? ServiceCommentTableViewCell {
-            currentOperateCell = cell.tag
-            comments[currentOperateCell].cellState = cell.getState()
-            serviceTableView.reloadData()
-        }
-    }
-    
-    override func commentHeightChanged() {
-        serviceTableView.reloadData()
-    }
+
 
     @IBAction func submitComments(sender: UIButton) {
         for comment in comments {
@@ -148,6 +137,7 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         }
 
         cell.delegate = self
+        cell.cellDelegate = self
         cell.tag = indexPath.row
         
         if comments[indexPath.row].cellState == nil {
@@ -168,10 +158,20 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         if let state = comments[indexPath.row].cellState {
             cell.resetState(state)
         }
-        
-//        cell.setIsInAppendComment(comments[indexPath.row].isInAppendComment)
-//        cell.canAppendComment = comments[indexPath.row].canAppendComment
-//        cell.isCommentDone = comments[indexPath.row].isCommentDone
+    }
+}
+
+extension CompondServiceCommentViewController: CommentCellDelegate {
+    func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView) {
+        if let cell = buttonParentCell as? ServiceCommentTableViewCell {
+            currentOperateCell = cell.tag
+            comments[currentOperateCell].cellState = cell.getState()
+            serviceTableView.reloadData()
+        }
+    }
+    
+    func commentHeightChanged() {
+        serviceTableView.reloadData()
     }
 }
 
