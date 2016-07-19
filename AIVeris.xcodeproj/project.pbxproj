@@ -1844,6 +1844,7 @@
 		814339221CFBE4DF00347C29 /* Veris */ = {
 			isa = PBXGroup;
 			children = (
+				81B990391D3DC41C008E4F16 /* Development */,
 				8175A7211CFD2710006F2C8F /* 3rdLibrary */,
 				814339251CFBE5A600347C29 /* Application */,
 				814339291CFBE5A600347C29 /* Business */,
@@ -3342,6 +3343,29 @@
 				81B6005B1D25169E0052ADC8 /* AIDefines.swift */,
 			);
 			name = Defines;
+			sourceTree = "<group>";
+		};
+		81B990391D3DC41C008E4F16 /* Development */ = {
+			isa = PBXGroup;
+			children = (
+				81B9903B1D3E0C79008E4F16 /* ScreenAssistant */,
+				81B9903A1D3E0C6D008E4F16 /* Requirement */,
+			);
+			name = Development;
+			sourceTree = "<group>";
+		};
+		81B9903A1D3E0C6D008E4F16 /* Requirement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Requirement;
+			sourceTree = "<group>";
+		};
+		81B9903B1D3E0C79008E4F16 /* ScreenAssistant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ScreenAssistant;
 			sourceTree = "<group>";
 		};
 		81BB86741CFE818900899B58 /* CustomSearch */ = {
@@ -4999,8 +5023,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: jiehong Liu (GTRWCGP736)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiehong Liu (GTRWCGP736)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;
@@ -5037,7 +5061,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "ad471c57-41d8-42ad-a501-93e38374fd77";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5054,8 +5078,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: jiehong Liu (GTRWCGP736)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -5091,7 +5115,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "ad471c57-41d8-42ad-a501-93e38374fd77";
+				PROVISIONING_PROFILE = "6defedf0-7db7-4835-a59a-c8176b10d1b9";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
