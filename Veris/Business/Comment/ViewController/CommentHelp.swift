@@ -8,9 +8,10 @@
 
 import Foundation
 
-protocol CommentDistrictDelegate {
-    func pohotImageButtonClicked(button: UIImageView, buttonParentCell: UIView)
+@objc protocol CommentDistrictDelegate {
+    func photoImageButtonClicked(button: UIImageView, buttonParentCell: UIView)
     func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
+    @objc optional func commentHeightChanged()
 }
 
 class CommentUtils {

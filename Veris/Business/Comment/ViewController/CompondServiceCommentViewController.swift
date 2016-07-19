@@ -12,7 +12,7 @@ import AIAlertView
 class CompondServiceCommentViewController: AbsCommentViewController {
 
     var serviceID: String!
-    var comments: [CommentTestModel]!
+    var comments: [SubServiceCommentViewModel]!
     private var currentOperateCell = -1
 
     @IBOutlet weak var serviceTableView: UITableView!
@@ -30,11 +30,16 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         checkbox.layer.cornerRadius = 4
         submit.layer.cornerRadius = submit.height / 2
 
-        comments = [CommentTestModel]()
+        comments = [SubServiceCommentViewModel]()
 
-        for _ in 0 ..< 30 {
-            comments.append(CommentTestModel())
+        for i in 0 ..< 5 {
+            let model = SubServiceCommentViewModel()
+            model.commentEditable = i % 2 == 0
+            comments.append(model)
         }
+        
+        serviceTableView.rowHeight = UITableViewAutomaticDimension
+        serviceTableView.estimatedRowHeight = 270
 
         serviceTableView.registerNib(UINib(nibName: "ServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "SubServiceCell")
         serviceTableView.registerNib(UINib(nibName: "TopServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "TopServiceCell")
@@ -42,11 +47,19 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+        
+        if let cell = getCurrentOperateCell() {
+            cell.touchOut()
+            comments[currentOperateCell].cellState = cell.getState()
+        }
     }
 
-    override func pohotImageButtonClicked(button: UIImageView, buttonParentCell: UIView) {
-        super.pohotImageButtonClicked(button, buttonParentCell: buttonParentCell)
+    override func photoImageButtonClicked(button: UIImageView, buttonParentCell: UIView) {
+        super.photoImageButtonClicked(button, buttonParentCell: buttonParentCell)
 
         if let cell = buttonParentCell as? ServiceCommentTableViewCell {
             recordCurrentOperateCell(cell)
@@ -55,18 +68,31 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     
     override func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView) {
         if let cell = buttonParentCell as? ServiceCommentTableViewCell {
-            let row = cell.tag
-            comments[row].isInAppendComment = true
+            currentOperateCell = cell.tag
+            comments[currentOperateCell].cellState = cell.getState()
+            serviceTableView.reloadData()
         }
     }
+    
+    override func commentHeightChanged() {
+        serviceTableView.reloadData()
+    }
 
+    @IBAction func submitComments(sender: UIButton) {
+        for comment in comments {
+     //       comment.isCommentDone = true
+        }
+        
+        serviceTableView.reloadData()
+    }
+    
     private func recordCurrentOperateCell(cell: UITableViewCell) {
         currentOperateCell = cell.tag
     }
 
     private func getCurrentOperateCell() -> ServiceCommentTableViewCell? {
         if currentOperateCell != -1 {
-            return (serviceTableView.cellForRowAtIndexPath(NSIndexPath(forRow: currentOperateCell, inSection: 0)) as! ServiceCommentTableViewCell)
+            return (serviceTableView.cellForRowAtIndexPath(NSIndexPath(forRow: currentOperateCell, inSection: 0)) as? ServiceCommentTableViewCell)
         } else {
             return nil
         }
@@ -123,14 +149,14 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
 
         cell.delegate = self
         cell.tag = indexPath.row
+        
+        if comments[indexPath.row].cellState == nil {
+            comments[indexPath.row].cellState = cell.setModel(comments[indexPath.row])
+        }
 
         resetCellUI(cell, indexPath: indexPath)
 
         return cell
-    }
-
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 270
     }
     
 
@@ -139,11 +165,25 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         
         cell.addImages(comments[indexPath.row].images)
         
-        cell.isInAppendComment = comments[indexPath.row].isInAppendComment
+        if let state = comments[indexPath.row].cellState {
+            cell.resetState(state)
+        }
+        
+//        cell.setIsInAppendComment(comments[indexPath.row].isInAppendComment)
+//        cell.canAppendComment = comments[indexPath.row].canAppendComment
+//        cell.isCommentDone = comments[indexPath.row].isCommentDone
     }
 }
 
-class CommentTestModel {
+class SubServiceCommentViewModel {
     var images = [UIImage]()
-    var isInAppendComment = false
+//    var isInAppendComment = false
+//    var canAppendComment = false
+//    var isCommentDone = false
+    var cellState: CommentState!
+    var commentEditable = false
+}
+
+protocol CommentCellProtocol {
+    func touchOut()
 }
