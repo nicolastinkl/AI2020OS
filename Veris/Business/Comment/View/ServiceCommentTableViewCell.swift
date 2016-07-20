@@ -119,7 +119,14 @@ class ServiceCommentTableViewCell: UITableViewCell {
     }
     
     func clearImages() {
+        firstComment.imageCollection.clearImages()
         appendComment.imageCollection.clearImages()
+    }
+    
+    var isEditingAppendComment: Bool {
+        get {
+            return state is AppendEditingState
+        }
     }
     
     var hasAppendContent: Bool {
@@ -230,6 +237,7 @@ private class AbsCommentState: CommentState {
 private class CommentEditableState: AbsCommentState {
     override func updateUI() {
         cell.appendCommentButton.hidden = true
+        cell.starRateView.userInteractionEnabled = true
     }
     
     override func addImage(image: UIImage) {
@@ -262,6 +270,7 @@ private class CommentFinshedState: AbsCommentState {
         cell.appendCommentHeight.constant = 0
         cell.appendCommentButton.hidden = false
         cell.imageButton.hidden = true
+        cell.starRateView.userInteractionEnabled = false
     }
 }
 
@@ -271,6 +280,7 @@ private class AppendEditingState: AbsCommentState {
         cell.appendCommentHeight.constant = cell.firstComment.height
         cell.appendCommentButton.hidden = true
         cell.imageButton.hidden = false
+        cell.starRateView.userInteractionEnabled = true
         
         Async.main(after: 0.1, block: { [weak self] in
             self?.cell.appendComment.inputTextView.becomeFirstResponder()
@@ -298,6 +308,7 @@ private class AppendEditingState: AbsCommentState {
 private class AppendEditedState: AbsCommentState {
     override func updateUI() {
         cell.appendCommentAreaHidden(false)
+        cell.starRateView.userInteractionEnabled = false
     }
 }
 
@@ -313,6 +324,7 @@ private class DoneState: AbsCommentState {
         
         finished = true
         
+        cell.starRateView.userInteractionEnabled = false
         cell.appendComment.finishComment()
         
         cell.appendCommentBottomMargin.constant -= cell.imageButtonSpace.constant
