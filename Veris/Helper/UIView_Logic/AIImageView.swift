@@ -179,7 +179,8 @@ public class AIImageView: UIImageView {
                 }
                 
                 }, progressBlock: { (progress) in
-                progressView.progress = CGFloat(progress)
+                    
+                progressView.progress = CGFloat(progress) / 100
             })
             
             
