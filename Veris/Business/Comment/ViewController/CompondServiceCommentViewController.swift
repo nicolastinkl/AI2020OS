@@ -14,6 +14,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     var serviceID: String!
     var comments: [SubServiceCommentViewModel]!
     private var currentOperateCell = -1
+    private var cellsMap = [Int: UITableViewCell]()
 
     @IBOutlet weak var serviceTableView: UITableView!
     @IBOutlet weak var checkbox: CheckboxButton!
@@ -109,11 +110,15 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         if let cell = getCurrentOperateCell() {
 
             let row = cell.tag
-
-            comments[row].images.append(image)
             
             if let cell = serviceTableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? ServiceCommentTableViewCell {
-                cell.addImage(image)
+                if cell.isEditingAppendComment {
+                    comments[row].secondImages.append(image)
+                } else {
+                    comments[row].firstImages.append(image)
+                }
+                
+                cell.addAsyncUploadImage(image, id: nil, complate: nil)
             }
         }
     }
@@ -128,7 +133,10 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         var cell: ServiceCommentTableViewCell!
-
+        
+        if let c = cellsMap[indexPath.row] {
+            return c
+        }
 
         if indexPath.row == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier("TopServiceCell") as!ServiceCommentTableViewCell
@@ -145,6 +153,8 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         }
 
         resetCellUI(cell, indexPath: indexPath)
+        
+        cellsMap[indexPath.row] = cell
 
         return cell
     }
@@ -153,7 +163,7 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
     private func resetCellUI(cell: ServiceCommentTableViewCell, indexPath: NSIndexPath) {
         cell.clearImages()
         
-        cell.addImages(comments[indexPath.row].images)
+    //    cell.addImages(comments[indexPath.row].images)
         
         if let state = comments[indexPath.row].cellState {
             cell.resetState(state)
@@ -176,10 +186,8 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
 }
 
 class SubServiceCommentViewModel {
-    var images = [UIImage]()
-//    var isInAppendComment = false
-//    var canAppendComment = false
-//    var isCommentDone = false
+    var firstImages = [UIImage]()
+    var secondImages = [UIImage]()
     var cellState: CommentState!
     var commentEditable = false
 }
