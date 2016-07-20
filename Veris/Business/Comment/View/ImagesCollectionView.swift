@@ -10,7 +10,7 @@ import UIKit
 
 class ImagesCollectionView: UIView {
 
-    var images: [UIImageView]!
+    var images: [AIImageView]!
     
     private var row = 0
     private var column = 0
@@ -62,7 +62,7 @@ class ImagesCollectionView: UIView {
     }
     
     private func initSelf() {
-        images = [UIImageView]()
+        images = [AIImageView]()
     }
 
     override func intrinsicContentSize() -> CGSize {
@@ -134,9 +134,33 @@ class ImagesCollectionView: UIView {
         setNeedsLayout()
     }
     
+    func addAsyncUploadImages(images: [(image: UIImage, id: Int?, complate: AIImageView.UploadComplate?)]) {
+        for image in images {
+            appendAsyncUploadImage(image.image, id: image.id, complate: image.complate)
+        }
+        
+        setNeedsUpdateConstraints()
+        setNeedsLayout()
+    }
+    
+    func addAsyncUploadImage(image: UIImage, id: Int? = nil, complate: AIImageView.UploadComplate? = nil) {
+        appendAsyncUploadImage(image, id: id, complate: complate)
+        
+        setNeedsUpdateConstraints()
+        setNeedsLayout()
+    }
+    
     private func appendImage(image: UIImage) {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
+        let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
         imageView.image = image
+        
+        images.append(imageView)
+    }
+    
+    private func appendAsyncUploadImage(image: UIImage, id: Int? = nil, complate: AIImageView.UploadComplate? = nil) {
+        let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
+        imageView.image = image
+        imageView.uploadImage(id, complate: complate)
         
         images.append(imageView)
     }
