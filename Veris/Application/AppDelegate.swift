@@ -72,11 +72,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
         configUmengShare()
     
-
-
+        redirectConsoleLog()
+        
 		return true
 		
 	}
+    
+    /// redirect Log.
+    func redirectConsoleLog() {
+        #if DEBUG
+            let documentDir: String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+            print("documentPath : \(documentDir)")
+            //重定向NSLog
+            let logPath: NSString = documentDir.stringByAppendingString("/console.log")// NSURL(fileURLWithPath: documentDir).URLByAppendingPathComponent("console.log").absoluteString
+            freopen(logPath.fileSystemRepresentation, "a+", stderr)
+            
+        #endif
+    }
+    
 
     /**
      config Umeng.
