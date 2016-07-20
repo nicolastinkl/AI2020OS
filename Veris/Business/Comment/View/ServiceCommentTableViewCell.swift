@@ -103,19 +103,19 @@ class ServiceCommentTableViewCell: UITableViewCell {
     }
     
     func addImage(image: UIImage) {
-        if state is AppendEditingState {
-            appendComment.imageCollection.addImage(image)
-        } else {
-            firstComment.imageCollection.addImage(image)
-        }
+        state.addImage(image)
     }
     
     func addImages(images: [UIImage]) {
-        if state is AppendEditingState {
-            appendComment.imageCollection.addImages(images)
-        } else {
-            firstComment.imageCollection.addImages(images)
-        }
+        state.addImages(images)
+    }
+    
+    func addAsyncUploadImages(images: [(image: UIImage, id: Int?, complate: AIImageView.UploadComplate?)]) {
+        state.addAsyncUploadImages(images)
+    }
+    
+    func addAsyncUploadImage(image: UIImage, id: Int? = nil, complate: AIImageView.UploadComplate? = nil) {
+        state.addAsyncUploadImage(image, id: id, complate: complate)
     }
     
     func clearImages() {
@@ -191,6 +191,10 @@ private enum CommentStateEnum {
 
 protocol CommentState: class {
     func updateUI()
+    func addImage(image: UIImage)
+    func addImages(images: [UIImage])
+    func addAsyncUploadImages(images: [(image: UIImage, id: Int?, complate: AIImageView.UploadComplate?)])
+    func addAsyncUploadImage(image: UIImage, id: Int?, complate: AIImageView.UploadComplate?)
 }
 
 private class AbsCommentState: CommentState {
@@ -200,7 +204,24 @@ private class AbsCommentState: CommentState {
     init(cell: ServiceCommentTableViewCell) {
         self.cell = cell
     }
+    
     func updateUI() {
+        
+    }
+    
+    func addImage(image: UIImage) {
+        
+    }
+    
+    func addImages(images: [UIImage]) {
+        
+    }
+    
+    func addAsyncUploadImages(images: [(image: UIImage, id: Int?, complate: AIImageView.UploadComplate?)]) {
+        
+    }
+    
+    func addAsyncUploadImage(image: UIImage, id: Int? = nil, complate: AIImageView.UploadComplate? = nil) {
         
     }
 }
@@ -209,6 +230,22 @@ private class AbsCommentState: CommentState {
 private class CommentEditableState: AbsCommentState {
     override func updateUI() {
         cell.appendCommentButton.hidden = true
+    }
+    
+    override func addImage(image: UIImage) {
+        cell.firstComment.imageCollection.addImage(image)
+    }
+    
+    override func addImages(images: [UIImage]) {
+        cell.firstComment.imageCollection.addImages(images)
+    }
+    
+    override func addAsyncUploadImages(images: [(image: UIImage, id: Int?, complate: AIImageView.UploadComplate?)]) {
+        cell.firstComment.imageCollection.addAsyncUploadImages(images)
+    }
+    
+    override func addAsyncUploadImage(image: UIImage, id: Int? = nil, complate: AIImageView.UploadComplate? = nil) {
+        cell.firstComment.imageCollection.addAsyncUploadImage(image, id: id, complate: complate)
     }
 }
 
@@ -238,6 +275,22 @@ private class AppendEditingState: AbsCommentState {
         Async.main(after: 0.1, block: { [weak self] in
             self?.cell.appendComment.inputTextView.becomeFirstResponder()
             })
+    }
+    
+    override func addImage(image: UIImage) {
+        cell.appendComment.imageCollection.addImage(image)
+    }
+    
+    override func addImages(images: [UIImage]) {
+        cell.appendComment.imageCollection.addImages(images)
+    }
+    
+    override func addAsyncUploadImages(images: [(image: UIImage, id: Int?, complate: AIImageView.UploadComplate?)]) {
+        cell.appendComment.imageCollection.addAsyncUploadImages(images)
+    }
+    
+    override func addAsyncUploadImage(image: UIImage, id: Int? = nil, complate: AIImageView.UploadComplate? = nil) {
+        cell.appendComment.imageCollection.addAsyncUploadImage(image, id: id, complate: complate)
     }
 }
 

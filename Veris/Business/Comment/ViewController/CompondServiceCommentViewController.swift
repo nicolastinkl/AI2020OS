@@ -32,7 +32,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
         comments = [SubServiceCommentViewModel]()
 
-        for i in 0 ..< 5 {
+        for i in 0 ..< 2 {
             let model = SubServiceCommentViewModel()
             model.commentEditable = i % 2 != 0
             comments.append(model)
@@ -153,7 +153,7 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
     private func resetCellUI(cell: ServiceCommentTableViewCell, indexPath: NSIndexPath) {
         cell.clearImages()
         
-        cell.addImages(comments[indexPath.row].images)
+    //    cell.addImages(comments[indexPath.row].images)
         
         if let state = comments[indexPath.row].cellState {
             cell.resetState(state)
