@@ -65,7 +65,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     var didRefresh: Bool?
 
-    private var popTableView: UIView = UIView()
+    var popTableView: UIView = UIView()
     
     private let BUBBLE_VIEW_MARGIN = AITools.displaySizeFrom1080DesignSize(40)
 
@@ -164,14 +164,14 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    private func finishPanUpwards(window: UIView, velocity: CGFloat) {
+    func finishPanUpwards(window: UIView, velocity: CGFloat) {
         rootViewController.tableView.userInteractionEnabled = true
         SpringAnimation.spring(0.5) { 
             window.setY(0)
         }
     }
     
-    private func finishPanDownwards(window: UIView, velocity: CGFloat) {
+    func finishPanDownwards(window: UIView, velocity: CGFloat) {
         // Settings Pan Disabled.
         
         rootViewController.tableView.userInteractionEnabled = false

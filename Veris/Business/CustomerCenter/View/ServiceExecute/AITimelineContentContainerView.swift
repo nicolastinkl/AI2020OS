@@ -104,8 +104,7 @@ class AITimelineContentContainerView: UIView {
                     curView.snp_makeConstraints(closure: { (make) in
                         make.top.equalTo(curView.superview!)
                     })
-                }
-                else {
+                } else {
                     //两个subview之间的间隔
                     imageContainerViewHeight += AITimelineTableViewCell.subViewMargin
                     if let lastView = lastView {
