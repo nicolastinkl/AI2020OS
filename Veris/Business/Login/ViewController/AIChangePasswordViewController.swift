@@ -54,11 +54,17 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
     }
 
     @IBAction func confirmAction(sender: AnyObject) {
-        guard let phoneNumber = AILoginPublicValue.phoneNumber else { return }
-        guard let smsCode = AILoginPublicValue.smsCode else {return}
+        let phoneNumber = AILoginPublicValue.phoneNumber ?? ""
+        let smsCode = AILoginPublicValue.smsCode ?? ""
         
-       let title = confirmButton.titleLabel?.text ?? ""
+        if phoneNumber.length <= 0 || smsCode.length <= 0 {
+            AIAlertView().showSuccess("密码格式错误", subTitle: "")
+            return
+        }
+        
+        let title = confirmButton.titleLabel?.text ?? ""
         confirmButton.showActioningLoading()
+        
         if AILoginUtil.validatePassword(passwordTextField.text) {
             if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
                 
@@ -69,7 +75,7 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
                     //跳回登陆页面
                     self.navigationController?.popToRootViewControllerAnimated(true)
                     }, fail: { (errType, errDes) in
-                        SVProgressHUD.dismiss()
+                        self.confirmButton.hideActioningLoading(title)
                         self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.RegisterFaild.rawValue)
                 })
             } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
@@ -79,7 +85,7 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
                     //跳回登陆页面
                     self.navigationController?.popToRootViewControllerAnimated(true)
                     }, fail: { (errType, errDes) in
-                        SVProgressHUD.dismiss()
+                        self.confirmButton.hideActioningLoading(title)
                         self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.RestPassword.rawValue)
                 })
             }

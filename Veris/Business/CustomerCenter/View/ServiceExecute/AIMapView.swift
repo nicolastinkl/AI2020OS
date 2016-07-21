@@ -40,7 +40,7 @@ class AIMapView: UIView {
         //showTargetAnnotation()
     }
     
-    func releaseView(){
+    func releaseView() {
         _mapView.viewWillDisappear()
         _mapView.delegate = nil
         locationService.delegate = nil

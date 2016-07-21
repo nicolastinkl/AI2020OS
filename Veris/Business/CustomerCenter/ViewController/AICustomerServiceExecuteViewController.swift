@@ -139,6 +139,16 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         timelineTableView.registerNib(UINib(nibName: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell, bundle: nil), forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell)
         timelineTableView.delegate = self
         timelineTableView.dataSource = self
+        //下拉刷新方法
+        weak var weakSelf = self
+        timelineTableView.addHeaderWithCallback { 
+            () -> Void in
+            weakSelf?.loadData()
+        }
+        timelineTableView.addHeaderRefreshEndCallback { 
+            () -> Void in
+            weakSelf?.timelineTableView.reloadData()
+        }
         //TODO: 测试方式
         //timelineTableView.rowHeight = UITableViewAutomaticDimension
         
@@ -181,6 +191,9 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         timelineModels.append(AITimelineViewModel.createFakeDataOrderComplete("5"))
         timelineModels.append(AITimelineViewModel.createFakeDataAuthoration("6"))
         timelineModels = handleViewModels(timelineModels)
+        //结束下拉刷新
+        timelineTableView.headerEndRefreshing()
+        timelineTableView.reloadData()
     }
     
     //TODO: 过滤时间线

@@ -142,13 +142,14 @@ class AILoginService: NSObject {
 		let message = AIMessage()
 		let body: NSDictionary = [
 			"username": userCode,
-			"password": password]
-		
+			"password": password
+        ]
 		message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
 		message.url = AIApplication.AIApplicationServerURL.register.description as String
 		
 		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
 			
+            AILog("\(message)   \(response)")
 			if let responseJSON: AnyObject = response {
 				let dic = responseJSON as! [NSString: AnyObject]
 				if let userId = dic["user_id"] as? String {

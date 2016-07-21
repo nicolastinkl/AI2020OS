@@ -67,11 +67,9 @@ class AILoginViewController: UIViewController {
         setupNavigationBar()
         
         #if DEBUG
-            userIdTextField.text = "18982194190"
-            passwordTextField.text = "nodgdi"
-            loginButton.enabled = true
-            
-            
+//            userIdTextField.text = "18982194190"
+//            passwordTextField.text = "nodgdi"
+//            loginButton.enabled = true
         #endif
         
         
