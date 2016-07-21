@@ -55,7 +55,7 @@ public class AIImageView: UIImageView {
             self.sd_setImageWithURL(url) { [weak self]  (imgContent, ErrorType, CacheType, CacheURL) -> Void in
                 if let strongSelf = self {
                     if strongSelf.url == CacheURL {
-                        strongSelf.alpha=0.2
+                        strongSelf.alpha = 0.2
                         strongSelf.image = imgContent
                         UIView.beginAnimations(nil, context: nil)
                         UIView.setAnimationDuration(0.5)

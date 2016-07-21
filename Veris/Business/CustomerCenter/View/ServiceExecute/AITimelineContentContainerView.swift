@@ -27,6 +27,7 @@ class AITimelineContentContainerView: UIView {
     let voiceHeight: CGFloat = 22
     let subViewMargin: CGFloat = 11
     let defaultImageHeight: CGFloat = 118
+    let defaultMapHeight: CGFloat = 130
     
     //MARK: -> overrides
     override init(frame: CGRect) {
@@ -84,7 +85,7 @@ class AITimelineContentContainerView: UIView {
         imageContainerViewHeight = 0
         if (viewModel.contents?.count) != nil {
             for (index, timeContentModel) in (viewModel.contents)!.enumerate() {
-                imageContainerViewHeight += AITimelineTableViewCell.subViewMargin
+                
                 switch timeContentModel.contentType! {
                 case AITimelineContentTypeEnum.Image:
                     let imageView = buildImageContentView(timeContentModel.contentUrl!)
@@ -103,8 +104,9 @@ class AITimelineContentContainerView: UIView {
                     curView.snp_makeConstraints(closure: { (make) in
                         make.top.equalTo(curView.superview!)
                     })
-                }
-                if index != 0 {
+                } else {
+                    //两个subview之间的间隔
+                    imageContainerViewHeight += AITimelineTableViewCell.subViewMargin
                     if let lastView = lastView {
                         curView.snp_makeConstraints(closure: { (make) in
                             make.top.equalTo(lastView.snp_bottom).offset(10)
@@ -264,10 +266,10 @@ class AITimelineContentContainerView: UIView {
     func buildMapContentView() -> AIMapView {
         let mapView = AIMapView.sharedInstance
         imageContainerView.addSubview(mapView)
-        imageContainerViewHeight += defaultImageHeight
+        imageContainerViewHeight += defaultMapHeight
         mapView.snp_makeConstraints { (make) in
             make.leading.trailing.equalTo(self.imageContainerView)
-            make.height.equalTo(defaultImageHeight)
+            make.height.equalTo(defaultMapHeight)
         }
         if viewModel?.cellHeight == 0 {
             if let delegate = delegate {
