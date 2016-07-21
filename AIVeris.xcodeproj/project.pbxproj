@@ -551,6 +551,7 @@
 		84717F301D349A9E00AE7E9A /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C081CFBE5A700347C29 /* UIViewControllerUtils.swift */; };
 		84717F311D349ABA00AE7E9A /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C071CFBE5A700347C29 /* UIColorUtils.swift */; };
 		84717F321D349CC900AE7E9A /* AIDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B6005B1D25169E0052ADC8 /* AIDefines.swift */; };
+		847D29741D40BC2A009E26B8 /* SBOSSTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29731D40BC2A009E26B8 /* SBOSSTestCase.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -1454,6 +1455,7 @@
 		84717F201D3483E300AE7E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84717F261D3489D100AE7E9A /* CommentTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTest.swift; sourceTree = "<group>"; };
 		84717F2F1D3498D300AE7E9A /* AIVerisTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AIVerisTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		847D29731D40BC2A009E26B8 /* SBOSSTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBOSSTestCase.swift; sourceTree = "<group>"; };
 		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
@@ -3431,6 +3433,7 @@
 				84717F201D3483E300AE7E9A /* Info.plist */,
 				84717F261D3489D100AE7E9A /* CommentTest.swift */,
 				84717F2F1D3498D300AE7E9A /* AIVerisTests-Bridging-Header.h */,
+				847D29731D40BC2A009E26B8 /* SBOSSTestCase.swift */,
 			);
 			path = VerisTests;
 			sourceTree = "<group>";
@@ -4366,6 +4369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847D29741D40BC2A009E26B8 /* SBOSSTestCase.swift in Sources */,
 				84717F301D349A9E00AE7E9A /* UIViewControllerUtils.swift in Sources */,
 				84717F321D349CC900AE7E9A /* AIDefines.swift in Sources */,
 				84717F311D349ABA00AE7E9A /* UIColorUtils.swift in Sources */,
