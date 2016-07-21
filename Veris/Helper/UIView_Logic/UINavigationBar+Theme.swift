@@ -11,8 +11,6 @@ import UIKit
 // 全部评论 qa 为您推荐 navigationBar 样式
 extension UIViewController {
 	func setupNavigationBarLikeQA(title title: String, rightBarButtonItems: [UIView] = [], positionForRightBarButtonItemAtIndex: ((Int -> (bottomPadding: CGFloat, spacing: CGFloat))?) = nil) {
-		let back = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(AIProductCommentsViewController.dismiss))
-		navigationItem.leftBarButtonItem = back
 		
 		let backButton = UIButton()
 		backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
@@ -34,7 +32,7 @@ extension UIViewController {
 				}
 			}
 		}
-		appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor (red: 0.0784, green: 0.0588, blue: 0.1216, alpha: 1.0), backgroundImage: nil, height: AITools.displaySizeFrom1242DesignSize(192))
+        appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor (red: 0.0784, green: 0.0588, blue: 0.1216, alpha: 1.0), backgroundImage: nil, shadowImage: nil, height: AITools.displaySizeFrom1242DesignSize(192))
 		appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: title)
 		setNavigationBarAppearance(navigationBarAppearance: appearance)
 	}

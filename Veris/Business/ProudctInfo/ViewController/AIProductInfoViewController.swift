@@ -378,7 +378,8 @@ class AIProductInfoViewController: UIViewController {
         
         // Setup 5:
         let pLabel = getTitleLabelView("服务者介绍")
-        
+        let tap5 = UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.providerDetailPressed))
+        pLabel.addGestureRecognizer(tap5)
         addNewSubView(pLabel, preView: bubbleViewContain)
         pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
         let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
@@ -527,6 +528,12 @@ class AIProductInfoViewController: UIViewController {
     // MARK: - Action Event Touch Up Inside
     @IBAction func showOrderAction(sender: AnyObject) {
         configOrderAction()
+    }
+    
+    func providerDetailPressed() {
+        let vc = AIProviderDetailViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        presentBlurViewController(nav, animated: true, completion: nil)
     }
     
     func recommondForYouPressed() {

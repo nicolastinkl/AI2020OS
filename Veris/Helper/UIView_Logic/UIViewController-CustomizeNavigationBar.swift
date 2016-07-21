@@ -33,6 +33,7 @@ class UINavigationBarAppearance: NSObject {
 	struct BarOption {
 		var backgroundColor: UIColor?
 		var backgroundImage: UIImage?
+        var shadowImage: UIImage?
 		var height: CGFloat = 44
 	}
 }
@@ -80,8 +81,10 @@ extension UIViewController {
 			navBar.translucent = false
 			let backgroundColor = barOption.backgroundColor
 			let backgroundImage = barOption.backgroundImage
+            let shadowImage = barOption.shadowImage
 			navBar.barColor = backgroundColor
 			navBar.barHeight = barOption.height
+            navBar.shadowImage = shadowImage
 			navBar.setBackgroundImage(backgroundImage, forBarPosition: .Any, barMetrics: .Default)
 		}
 		

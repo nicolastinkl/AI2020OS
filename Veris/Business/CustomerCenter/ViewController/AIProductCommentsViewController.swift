@@ -21,7 +21,6 @@ class AIProductCommentsViewController: UIViewController {
 		setupData()
 		setupFilterBar()
 		setupTableView()
-		
 	}
 	
 	func setupNavigtionItems() {
