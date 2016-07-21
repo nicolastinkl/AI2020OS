@@ -343,7 +343,7 @@
     [table.tableFooterView addSubview:view];
 }
 
-- (void)addBackgroundViewForTable:(UICollectionView *)table {
+- (void)addBackgroundViewForTable:(UITableView *)table {
     UIImageView *backImageView = [[UIImageView alloc] initWithFrame:table.bounds];
 
     backImageView.image = [UIImage imageNamed:@"wholebackground"];
