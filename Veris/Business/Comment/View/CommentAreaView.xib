@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentAreaView" customModule="Veris" customModuleProvider="target">
+            <connections>
+                <outlet property="hint" destination="3jt-4v-iSX" id="xvn-mm-V2T"/>
+                <outlet property="imageCollection" destination="6Wq-9r-EQw" id="KdQ-ml-ViL"/>
+                <outlet property="inputTextView" destination="rmF-RW-rwk" id="wl7-eb-HJB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CommentDistrictView.inputHint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jt-4v-iSX" userLabel="Place Holder Text">
+                    <rect key="frame" x="0.0" y="10" width="600" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="CommentDistrictView.inputHint"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rmF-RW-rwk" userLabel="InputComment">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.99607843137254903" green="0.99607843137254903" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="TsJ-BF-3RX"/>
+                    </connections>
+                </textView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Wq-9r-EQw" customClass="ImagesCollectionView" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="555" width="600" height="45"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="750" constant="45" id="FTG-Vw-Kls"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                            <real key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                            <real key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="verticalSpace">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="horizontalSpace">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="lines">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="6Wq-9r-EQw" secondAttribute="bottom" id="Cl7-Xw-rxl"/>
+                <constraint firstItem="3jt-4v-iSX" firstAttribute="width" secondItem="rmF-RW-rwk" secondAttribute="width" id="GGw-ZL-nKX"/>
+                <constraint firstItem="3jt-4v-iSX" firstAttribute="leading" secondItem="rmF-RW-rwk" secondAttribute="leading" id="PxT-ac-JTV"/>
+                <constraint firstItem="rmF-RW-rwk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wjr-eb-2xs"/>
+                <constraint firstAttribute="trailing" secondItem="6Wq-9r-EQw" secondAttribute="trailing" id="XPr-XG-NLg"/>
+                <constraint firstItem="6Wq-9r-EQw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cYX-bL-3Sc"/>
+                <constraint firstItem="6Wq-9r-EQw" firstAttribute="top" secondItem="rmF-RW-rwk" secondAttribute="bottom" priority="750" constant="5" id="fJG-gQ-0wx"/>
+                <constraint firstItem="rmF-RW-rwk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nP9-1j-blQ"/>
+                <constraint firstAttribute="trailing" secondItem="rmF-RW-rwk" secondAttribute="trailing" id="nQE-8y-RZh"/>
+                <constraint firstItem="3jt-4v-iSX" firstAttribute="top" secondItem="rmF-RW-rwk" secondAttribute="top" priority="750" constant="10" id="wCI-wc-kva"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

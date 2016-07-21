@@ -72,11 +72,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
         configUmengShare()
     
-
-
+        redirectConsoleLog()
+        
 		return true
 		
 	}
+    
+    /// redirect Log.
+    func redirectConsoleLog() {
+        #if DEBUG
+            let documentDir: String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+            print("documentPath : \(documentDir)")
+            //重定向NSLog
+            let logPath: NSString = documentDir.stringByAppendingString("/console.log")// NSURL(fileURLWithPath: documentDir).URLByAppendingPathComponent("console.log").absoluteString
+            freopen(logPath.fileSystemRepresentation, "a+", stderr)
+            
+        #endif
+    }
+    
 
     /**
      config Umeng.
@@ -85,12 +98,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         //设置友盟社会化组件appkey
         UMSocialData.setAppKey("5784b6a767e58e5d1b003373")
         //设置微信AppId、appSecret，分享url
-        UMSocialWechatHandler.setWXAppId("wxd930ea5d5a258f4f", appSecret: "db426a9829e4b49a0dcac7b4162da6b6", url: "http://www.umeng.com/social")
+        UMSocialWechatHandler.setWXAppId("wxdc1e388c3822c80b", appSecret: "a393c1527aaccb95f3a4c88d6d1455f6", url: "http://www.umeng.com/social")
         //设置手机QQ 的AppId，Appkey，和分享URL，需要#import "UMSocialQQHandler.h"
         UMSocialQQHandler.setQQWithAppId("100424468", appKey: "c7394704798a158208a74ab60104f0ba", url: "http://www.umeng.com/social")
 
         //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和新浪微博后台设置的回调地址一致。http://open.weibo.com/developers/identity/edit
-        UMSocialSinaSSOHandler.openNewSinaSSOWithAppKey("519170656", secret: "786ca0c18fb681847e609a92cf370349", redirectURL: "http://sns.whalecloud.com/sina2/callback")
+        UMSocialSinaSSOHandler.openNewSinaSSOWithAppKey("3921700954", secret: "04b48b094faeb16683c32669824ebdad", redirectURL: "http://sns.whalecloud.com/sina2/callback")
     }
 
 
@@ -133,6 +146,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
 		
 		AILog("openURL:\(url.absoluteString)")
+
+        // 分享跳转
+        UMSocialSnsService.handleOpenURL(url)
+
 		// 微信支付跳转
 		if url.scheme == WX_APPID {
 			return WXApi.handleOpenURL(url, delegate: self)

@@ -26,7 +26,6 @@ class AIWorkManageViewController: UIViewController {
         
     }
 
-
     //MARK: back button
 
     func backAction() {

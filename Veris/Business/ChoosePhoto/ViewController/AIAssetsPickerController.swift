@@ -46,6 +46,7 @@ protocol AIAssetsPickerControllerDelegate: class {
 	 选中某张照片
 	 */
 	func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    
 	/**
 	 取消选中某张照片
 	 */
@@ -69,7 +70,6 @@ enum AIAssetsPickerModel: Int {
 /// 相册界面
 class AIAssetsPickerController: UIViewController {
 
-    
     var choosePhotoModel: AIAssetsPickerModel = .mutliModel  //default value.
     
     var maximumNumberOfSelection: Int = 10 //default
@@ -187,6 +187,7 @@ class AIAssetsPickerController: UIViewController {
             })
             prevc.assets = newArray
             prevc.maximumNumberOfSelection = self.maximumNumberOfSelection
+            prevc.delegate = self.delegate
             self.navigationController?.pushViewController(prevc, animated: true)
         } else {
             SVProgressHUD.showErrorWithStatus("没有选中图片")

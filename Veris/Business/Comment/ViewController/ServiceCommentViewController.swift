@@ -32,7 +32,7 @@ class ServiceCommentViewController: AbsCommentViewController {
         super.viewDidLoad()
         
         loadUI()
-        loadStarsDes()
+     //   loadStarsDes()
     }
 
     override func imagePicked(image: UIImage) {
@@ -87,5 +87,4 @@ class ServiceCommentViewController: AbsCommentViewController {
             }
         }
     }
-
 }

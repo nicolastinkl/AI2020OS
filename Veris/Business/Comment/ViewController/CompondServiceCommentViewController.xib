@@ -39,6 +39,9 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="ailButtonNormalTitle" value="CompondServiceCommentViewController.submit"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="submitComments:" destination="-1" eventType="touchUpInside" id="Rt6-81-HE8"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtS-bA-Bby" customClass="CheckboxButton" customModule="Veris" customModuleProvider="target">
                     <rect key="frame" x="16" y="513" width="20" height="20"/>

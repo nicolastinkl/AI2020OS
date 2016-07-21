@@ -24,6 +24,7 @@
 
 import Foundation
 
+/// 相册预览界面
 class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var topView: UIView!
@@ -47,6 +48,9 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
     private var isRetainImage: Bool = false
     
     private let selected: String = "selected"
+    
+    /// TODO:// This weak object from presous ViewController
+    weak var delegate: AIAssetsPickerControllerDelegate?
             
     // MARK: -> Internal class methods
     
@@ -138,12 +142,18 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
             let newDict = dict
             //newDict.setValue(newBol, forKey: selected)
             assetsSelected[index] = newDict
-            
         }
-                 
+        
         refereshButton()
         
     }
+    
+    /// 完成选择相册事件
+    @IBAction func finishChooseAlumAction(sender: AnyObject) {
+        delegate?.assetsPickerController(AIAssetsPickerController(), didFinishPickingAssets: assets)
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         

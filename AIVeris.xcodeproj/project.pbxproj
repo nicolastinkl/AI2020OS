@@ -533,6 +533,8 @@
 		845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700511D015E7600512597 /* CompondServiceCommentViewController.xib */; };
 		845700581D015FD600512597 /* ServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */; };
 		845700591D015FD600512597 /* ServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */; };
+		8458167C1D3C727700448A7B /* CommentAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458167B1D3C727700448A7B /* CommentAreaView.swift */; };
+		8458167E1D3C72AC00448A7B /* CommentAreaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8458167D1D3C72AC00448A7B /* CommentAreaView.xib */; };
 		84687E401D236B960083BD9B /* ImagesCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84687E3F1D236B960083BD9B /* ImagesCollectionView.xib */; };
 		84687E421D236BB90083BD9B /* ImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84687E411D236BB90083BD9B /* ImagesCollectionView.swift */; };
 		846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */; };
@@ -1439,6 +1441,8 @@
 		845700511D015E7600512597 /* CompondServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompondServiceCommentViewController.xib; sourceTree = "<group>"; };
 		845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
+		8458167B1D3C727700448A7B /* CommentAreaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentAreaView.swift; sourceTree = "<group>"; };
+		8458167D1D3C72AC00448A7B /* CommentAreaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentAreaView.xib; sourceTree = "<group>"; };
 		84687E3F1D236B960083BD9B /* ImagesCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesCollectionView.xib; sourceTree = "<group>"; };
 		84687E411D236BB90083BD9B /* ImagesCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesCollectionView.swift; sourceTree = "<group>"; };
 		846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -3410,6 +3414,8 @@
 				845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */,
 				84687E3F1D236B960083BD9B /* ImagesCollectionView.xib */,
 				84687E411D236BB90083BD9B /* ImagesCollectionView.swift */,
+				8458167B1D3C727700448A7B /* CommentAreaView.swift */,
+				8458167D1D3C72AC00448A7B /* CommentAreaView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4174,6 +4180,7 @@
 				81433EC01CFBE5A700347C29 /* MyriadProRegular.ttf in Resources */,
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
 				FB703AE41D24C59400229A08 /* JSSDK.js in Resources */,
+				8458167E1D3C72AC00448A7B /* CommentAreaView.xib in Resources */,
 				93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */,
 				846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */,
 				84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */,
@@ -4772,6 +4779,7 @@
 				81433D861CFBE5A700347C29 /* MDCSpotlightView.m in Sources */,
 				8175A7F51CFD2710006F2C8F /* RRTagController.swift in Sources */,
 				FB703ADF1D24B7BF00229A08 /* SwiftWebViewBridge.swift in Sources */,
+				8458167C1D3C727700448A7B /* CommentAreaView.swift in Sources */,
 				81433E9A1CFBE5A700347C29 /* FLEXHierarchyTableViewCell.m in Sources */,
 				FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */,
 				84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */,
@@ -5029,8 +5037,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: jiehong Liu (GTRWCGP736)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiehong Liu (GTRWCGP736)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;
@@ -5050,7 +5058,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5065,9 +5073,9 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
-				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
+				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ad471c57-41d8-42ad-a501-93e38374fd77";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5084,8 +5092,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: jiehong Liu (GTRWCGP736)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -5104,7 +5112,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5119,9 +5127,9 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
-				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
+				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ad471c57-41d8-42ad-a501-93e38374fd77";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
