@@ -26,27 +26,33 @@ extension AbsCommentViewController: CommentDistrictDelegate {
                                          style: .Default) { (UIAlertAction) in
             BuildInCameraUtils.startCameraControllerFromViewController(self, delegate: self)
         }
-
-        let actionPhotosAlbum = UIAlertAction(title: "Gallery".localized, style: .Default) { (UIAlertAction) in
-            
+        
+        func openAlbum() {
             let vc = AIAssetsPickerController.initFromNib()
             vc.delegate = self
             vc.maximumNumberOfSelection = 1
             let navi = UINavigationController(rootViewController: vc)
             navi.navigationBarHidden = true
             self.presentViewController(navi, animated: true, completion: nil)
-
-         //   BuildInCameraUtils.startMediaBrowserFromViewController(self, delegate: self)
         }
+        
+        openAlbum()
 
-        let actionCancel = UIAlertAction(title: "AIAudioMessageView.close".localized,
-                                         style: .Cancel, handler: nil)
+   //     let actionPhotosAlbum = UIAlertAction(title: "Gallery".localized, style: .Default) { (UIAlertAction) in
+            openAlbum()
+         //   BuildInCameraUtils.startMediaBrowserFromViewController(self, delegate: self)
+   //     }
+        
+        
 
-        alert.addAction(actionCamera)
-        alert.addAction(actionPhotosAlbum)
-        alert.addAction(actionCancel)
-
-        presentViewController(alert, animated: true, completion: nil)
+//        let actionCancel = UIAlertAction(title: "AIAudioMessageView.close".localized,
+//                                         style: .Cancel, handler: nil)
+//
+//        alert.addAction(actionCamera)
+//        alert.addAction(actionPhotosAlbum)
+//        alert.addAction(actionCancel)
+//
+//        presentViewController(alert, animated: true, completion: nil)
     }
 }
 
