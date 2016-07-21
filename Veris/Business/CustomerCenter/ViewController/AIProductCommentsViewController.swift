@@ -16,19 +16,17 @@ class AIProductCommentsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		edgesForExtendedLayout = .None
-		title = "Comments"
 		view.backgroundColor = UIColor.clearColor()
+		setupNavigtionItems()
 		setupData()
 		setupFilterBar()
 		setupTableView()
-        
-        let back = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(AIProductCommentsViewController.dismiss))
-        navigationItem.leftBarButtonItem = back
+		
 	}
-    
-    func dismiss() {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+	
+	func setupNavigtionItems() {
+		setupNavigationBarLikeQA(title: "Comments")
+	}
 	
 	func setupData() {
 		comments = [
@@ -267,7 +265,7 @@ class AIProductCommentCell: UITableViewCell {
 	
 	func setup() {
 		selectionStyle = .None
-        backgroundColor = UIColor.clearColor()
+		backgroundColor = UIColor.clearColor()
 		commentInfoView = AICommentInfoView.initFromNib() as! AICommentInfoView
 		commentInfoView.fillDataWithModel()
 		contentView.addSubview(commentInfoView)

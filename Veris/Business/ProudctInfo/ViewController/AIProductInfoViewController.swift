@@ -538,7 +538,8 @@ class AIProductInfoViewController: UIViewController {
     
 	func qaButtonPressed() {
         let vc = AIProductQAViewController()
-        presentBlurViewController(vc, animated: true, completion: nil)
+        let nav = UINavigationController(rootViewController: vc)
+        presentBlurViewController(nav, animated: true, completion: nil)
 	}
     
     /**
