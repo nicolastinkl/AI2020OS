@@ -8,6 +8,35 @@
 
 import UIKit
 
+class UINavigationBarAppearance: NSObject {
+    /// bottomPadding 是barButtonItem 和 navigationBar 底部的距离
+    /// spacing 是barButtonItem 和 前一个barButtonItem 距离, 如果index是0 就是和navigationBar的距离
+	var itemPositionForIndexAtPosition: ((Int, UINavigationBarItemPosition) -> (bottomPadding: CGFloat, spacing: CGFloat))?
+	var leftBarButtonItems: [UIView]?
+	var rightBarButtonItems: [UIView]?
+		
+	var titleOption: TitleOption?
+	var barOption: BarOption?
+	var backItemOption: BackItemOption?
+    
+	struct BackItemOption {
+		var image: UIImage?
+	}
+	
+	struct TitleOption {
+		var bottomPadding: CGFloat = -1
+		var font: UIFont?
+		var textColor = UIColor.whiteColor()
+		var text = ""
+	}
+	
+	struct BarOption {
+		var backgroundColor: UIColor?
+		var backgroundImage: UIImage?
+		var height: CGFloat = 44
+	}
+}
+
 extension UIViewController {
 	
 	/// 自定义NavigationBar各种参数
@@ -48,6 +77,7 @@ extension UIViewController {
 		
 		// bar background color and image
 		if let barOption = appearance.barOption {
+            navBar.translucent = false
 			let backgroundColor = barOption.backgroundColor
 			let backgroundImage = barOption.backgroundImage
             navBar.barColor = backgroundColor
@@ -166,35 +196,6 @@ extension UIViewController {
 enum UINavigationBarItemPosition {
 	case Right
 	case Left
-}
-
-class UINavigationBarAppearance: NSObject {
-    /// bottomPadding 是barButtonItem 和 navigationBar 底部的距离
-    /// spacing 是barButtonItem 和 前一个barButtonItem 距离, 如果index是0 就是和navigationBar的距离
-	var itemPositionForIndexAtPosition: ((Int, UINavigationBarItemPosition) -> (bottomPadding: CGFloat, spacing: CGFloat))?
-	var leftBarButtonItems: [UIView]?
-	var rightBarButtonItems: [UIView]?
-	
-	struct BackItemOption {
-		var image: UIImage?
-	}
-	
-	struct TitleOption {
-		var bottomPadding: CGFloat = -1
-		var font: UIFont?
-		var textColor = UIColor.whiteColor()
-		var text = ""
-	}
-	
-	struct BarOption {
-		var backgroundColor: UIColor?
-		var backgroundImage: UIImage?
-		var height: CGFloat = 44
-	}
-	
-	var titleOption: TitleOption?
-	var barOption: BarOption?
-	var backItemOption: BackItemOption?
 }
 
 extension UINavigationController {
