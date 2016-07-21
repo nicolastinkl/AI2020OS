@@ -539,9 +539,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         viewController.delegate = self
 
-        //let naviController = UINavigationController(rootViewController: viewController)
-        //naviController.navigationBarHidden = true
-
         viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
 

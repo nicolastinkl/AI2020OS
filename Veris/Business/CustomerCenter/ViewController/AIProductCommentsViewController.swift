@@ -148,7 +148,6 @@ class AIFilterBar: UIView {
 			let subtitle = subtitles[i]
 			let button = FilterBarButton(title: title, subtitle: subtitle)
 			let tap = UITapGestureRecognizer(target: self, action: #selector(AIFilterBar.buttonPressed(_:)))
-//			let tap = UITapGestureRecognizer(target: self, action: #selector(AIFilterBar.buttonPressed(_:)))
 			button.addGestureRecognizer(tap)
 			button.tag = i
 			addSubview(button)
