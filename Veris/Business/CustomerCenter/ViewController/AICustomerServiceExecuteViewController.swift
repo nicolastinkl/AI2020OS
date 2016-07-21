@@ -96,6 +96,11 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         setupViews()
         loadData()
     }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        AIMapView.sharedInstance.releaseView()
+    }
 
 
     override func viewDidLayoutSubviews() {
@@ -132,6 +137,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         timelineTableView.registerNib(UINib(nibName: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell, bundle: nil), forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell)
         timelineTableView.delegate = self
         timelineTableView.dataSource = self
+        //TODO: 测试方式
+        //timelineTableView.rowHeight = UITableViewAutomaticDimension
     }
 
     func buildServiceInstsView() {
@@ -212,6 +219,15 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         }
         
     }
+    
+//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        let timeLineItem = timelineModels[indexPath.row]
+//        if timeLineItem.cellHeight != 0 {
+//            return timeLineItem.cellHeight
+//        }
+//        return AITimelineTableViewCell.caculateHeightWidthData(timeLineItem)
+//
+//    }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let timeLineItem = timelineModels[indexPath.row]
@@ -244,7 +260,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     func acceptButtonDidClick(viewModel viewModel: AITimelineViewModel) {
         
     }
-    //TODO: 这样继承delegate没意义，因为这里都不需要这个方法
+
     func containerImageDidLoad(viewModel viewModel: AITimelineViewModel, containterHeight: CGFloat) {
         
         getHeight(viewModel, containerHeight: containterHeight)
@@ -255,6 +271,12 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             return visibleIndexPath.row == indexPath.row
         }) {
             if !visibleIndexPathArray.isEmpty {
+                //测试通过自动高度计算
+//                if let cell = timelineTableView.cellForRowAtIndexPath(indexPath) as? AITimelineTableViewCell {
+//                    cell.layoutIfNeeded()
+//                    viewModel.cellHeight = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+//                    
+//                }
                 self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
             }
         }
