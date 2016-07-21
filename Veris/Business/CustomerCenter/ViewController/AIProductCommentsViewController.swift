@@ -37,7 +37,7 @@ class AIProductCommentsViewController: UIViewController {
 			return (47.displaySizeFrom1242DesignSize(), 55.displaySizeFrom1242DesignSize())
 		}
 		appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor ( red: 0.0784, green: 0.0588, blue: 0.1216, alpha: 1.0 ), backgroundImage: nil, height: AITools.displaySizeFrom1242DesignSize(192))
-		appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 61.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "Comments")
+		appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "Comments")
 		setNavigationBarAppearance(navigationBarAppearance: appearance)
 	}
 	

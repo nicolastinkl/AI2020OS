@@ -12,9 +12,8 @@ class AIProductQAViewController: UIViewController {
 	
 	var tableView: UITableView!
 	var items: [String] = []
-	var navigationBar: UIView!
+//	var navigationBar: UIView!
 	struct Constants {
-		static let barHeight: CGFloat = AITools.displaySizeFrom1242DesignSize(159)
 		static let cellSpace: CGFloat = AITools.displaySizeFrom1242DesignSize(27)
 	}
 	
@@ -26,59 +25,37 @@ class AIProductQAViewController: UIViewController {
 	}
 	
 	func setupTopBar() {
-		navigationBar = UIView()
-		navigationBar.backgroundColor = UIColor ( red: 0.0471, green: 0.0235, blue: 0.1098, alpha: 1.0 )
-		view.addSubview(navigationBar)
+		
+		let back = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(AIProductCommentsViewController.dismiss))
+		navigationItem.leftBarButtonItem = back
 		
 		let backButton = UIButton()
-		backButton.setImage(UIImage(named: "scan_back"), forState: .Normal)
-		backButton.addTarget(self, action: #selector(AIProductQAViewController.backButtonPressed), forControlEvents: .TouchUpInside)
-		navigationBar.addSubview(backButton)
+		backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
+		backButton.addTarget(self, action: #selector(AIProductQAViewController.dismiss), forControlEvents: .TouchUpInside)
 		
-		let rightButton = UIButton()
-		rightButton.setTitle("Message", forState: .Normal)
-		navigationBar.addSubview(rightButton)
+		let commentButton = UIButton()
+		commentButton.setImage(UIImage(named: "qa_comment"), forState: .Normal)
 		
-		navigationBar.snp_makeConstraints { (make) in
-			make.top.leading.trailing.equalTo(view)
-			make.height.equalTo(Constants.barHeight)
+		let appearance = UINavigationBarAppearance()
+		appearance.leftBarButtonItems = [backButton]
+		appearance.rightBarButtonItems = [commentButton]
+		appearance.itemPositionForIndexAtPosition = { index, position in
+			if position == .Left {
+				return (47.displaySizeFrom1242DesignSize(), 55.displaySizeFrom1242DesignSize())
+			} else {
+                return (47.displaySizeFrom1242DesignSize(), 50.displaySizeFrom1242DesignSize())
+			}
 		}
+		appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor (red: 0.0784, green: 0.0588, blue: 0.1216, alpha: 1.0), backgroundImage: nil, height: AITools.displaySizeFrom1242DesignSize(192))
+		appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "常见问题")
+		setNavigationBarAppearance(navigationBarAppearance: appearance)
 		
-		let titleLabel = UILabel()
-		titleLabel.textColor = UIColor.whiteColor()
-		titleLabel.text = "常见问题"
-		navigationBar.addSubview(titleLabel)
-		
-		backButton.snp_makeConstraints { (make) in
-			make.centerY.equalTo(navigationBar)
-			make.leading.equalTo(navigationBar).offset(AITools.displaySizeFrom1242DesignSize(55))
-		}
-		
-		titleLabel.snp_makeConstraints { (make) in
-			make.center.equalTo(navigationBar)
-		}
-		
-		rightButton.snp_makeConstraints { (make) in
-			make.trailing.equalTo(navigationBar).offset(-20)
-			make.centerY.equalTo(navigationBar)
-		}
 	}
-	func setupBlurView() {
-		let lightEffect = UIBlurEffect(style: .Light)
-		let lightView = UIVisualEffectView(effect: lightEffect)
-		view.addSubview(lightView)
-		lightView.snp_makeConstraints { (make) in
-			make.edges.equalTo(view)
-		}
-		
-		let darkEffect = UIBlurEffect(style: .Dark)
-		let darkView = UIVisualEffectView(effect: darkEffect)
-		view.addSubview(darkView)
-		darkView.snp_makeConstraints { (make) in
-			make.edges.equalTo(view)
-		}
+	
+	func dismiss() {
+		dismissViewControllerAnimated(true, completion: nil)
 	}
-    
+	
 	func setupData() {
 		for i in 0...6 {
 			var string = "这里是提问内容，这里是提问内容。"
@@ -99,8 +76,7 @@ class AIProductQAViewController: UIViewController {
 		tableView.sectionHeaderHeight = 0
 		view.addSubview(tableView)
 		tableView.snp_makeConstraints { (make) in
-			make.top.equalTo(navigationBar.snp_bottom)
-			make.leading.trailing.bottom.equalTo(view)
+			make.edges.equalTo(view)
 		}
 		tableView.estimatedRowHeight = 44
 		tableView.rowHeight = UITableViewAutomaticDimension
