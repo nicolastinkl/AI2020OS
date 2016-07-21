@@ -32,6 +32,7 @@ class AICommentInfoView: UIView {
     @IBOutlet weak var commentDate: UILabel!
     @IBOutlet weak var commentImages: UIView!
     @IBOutlet weak var commentControls: UIView!
+    @IBOutlet weak var viewControlrsConstraint: NSLayoutConstraint!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,24 +40,59 @@ class AICommentInfoView: UIView {
 
     func fillDataWithModel() {
 
-        let imageViewWidth: CGFloat = 75
-        for index in 0...2 {
+        let imageViewWidth: CGFloat = 70
+        
+        
+        let urls = ["http://7q5dv2.com1.z0.glb.clouddn.com/Kelvin%20-%20Bootstrap%203%20Resume%20Theme.png",
+                    "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl1.pic.jpg",
+                    "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2D57E5A9-8BCE-4A3E-8C9C-E84C40825D89.png",
+                    "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2H%7BC17WUNL%2503%291%605ANKYL6.jpg",
+                    "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl7711C941-BD7C-47A3-97EA-192AD2B63B87.png",
+                    "http://7q5dv2.com1.z0.glb.clouddn.com/tinklSamsung-Galaxy-Gear-Smartwatch%20%E5%89%AF%E6%9C%AC.PNG",
+                    "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_4.pic.jpg",
+                    "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_64ADD30A-2F22-4E39-8FF0-DCE5ADFCC9B9.png",
+                    "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_9.pic.jpg",
+                    "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_EC78563D-64FF-4F15-B1C5-2495931006C3.png",
+                    "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_Placehold@2x.png",
+                    "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_Seller_Warning@2x.png"]
+
+        var yHeight: CGFloat = 0
+        var offWidth: CGFloat = 0
+        for url in urls {
             let imageview = AIImageView()
-            imageview.frame = CGRectMake(CGFloat(index) * (imageViewWidth + 2), 2, imageViewWidth, imageViewWidth)
+            if (offWidth + (imageViewWidth + 2)) > self.width {
+                offWidth =  2
+                yHeight += imageViewWidth + 2
+            } else {
+                offWidth =  offWidth  + 2
+            }
+            imageview.frame = CGRectMake(offWidth, yHeight, imageViewWidth, imageViewWidth)
             imageview.contentMode = UIViewContentMode.ScaleAspectFill
             commentImages.addSubview(imageview)
             imageview.clipsToBounds = true
-            imageview.setURL(NSURL(string: "http://ww2.sinaimg.cn/bmiddle/9fe1d9e1gw1f4ht3tkwp8j20ss0hsgpa.jpg"), placeholderImage: smallPlace())
+            imageview.setURL(NSURL(string: url), placeholderImage: smallPlace(), showProgress: true)
+            offWidth += imageview.width
         }
 
-        let starRateView = StarRateView(frame: CGRect(x: 0, y: 5, width: 60, height: 11), numberOfStars: 5, foregroundImage: "star_rating_results_highlight", backgroundImage: "star_rating_results_normal" )
+        let starRateView = StarRateView(frame: CGRect(x: 0, y: 5, width: 100, height: 17), numberOfStars: 5, foregroundImage: "star_rating_results_highlight", backgroundImage: "star_rating_results_normal" )
         
         starRateView.userInteractionEnabled = false
         let score: CGFloat = 5
         starRateView.scorePercent = score / 10
         commentControls.addSubview(starRateView)
 
-        let label = UILabel()
+        let wPers = self.width/imageViewWidth
+        let intPers = Int(self.width/imageViewWidth)
+        let pers = CGFloat(urls.count) / wPers
+        let persInt = Int(urls.count) / intPers
+        if pers > CGFloat(persInt) {
+            viewControlrsConstraint.constant = (imageViewWidth + 2) * (pers + 1)
+        } else {
+            viewControlrsConstraint.constant = (imageViewWidth + 2) * pers
+        }
+        self.setNeedsUpdateConstraints()
+        
+        /*let label = UILabel()
         label.text = "\(score)"
         label.font = UIFont.systemFontOfSize(12)
         label.textColor = AITools.colorWithR(253, g: 225, b: 50)
@@ -75,7 +111,7 @@ class AICommentInfoView: UIView {
         zanlabel.frame = CGRectMake(zanImageView.right + 5, 1, 40, 20)
         commentControls.addSubview(zanlabel)
 
-        
+        */
 
 
     }

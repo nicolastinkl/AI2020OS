@@ -168,7 +168,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         rootViewController.tableView.userInteractionEnabled = true
         SpringAnimation.spring(0.5) { 
             window.setY(0)
-        }
+        }                
     }
     
     private func finishPanDownwards(window: UIView, velocity: CGFloat) {
