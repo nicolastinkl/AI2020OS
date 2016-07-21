@@ -27,7 +27,9 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     var orderInfoModel: AICustomerOrderDetailTopViewModel?
     var timelineModels: [AITimelineViewModel] = []
     var cellHeightArray: Array<CGFloat>!
-
+    
+    let messageBadge = GIBadgeView()
+    let noticeBadge = GIBadgeView()
 
     // MARK: -> Public class methods
 
@@ -139,6 +141,20 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         timelineTableView.dataSource = self
         //TODO: 测试方式
         //timelineTableView.rowHeight = UITableViewAutomaticDimension
+        
+        //增加通知图标
+        buttonMessage.addSubview(messageBadge)
+        messageBadge.badgeValue = 1
+        messageBadge.topOffset = 5
+        messageBadge.rightOffset = 5
+        messageBadge.font = AITools.myriadLightSemiExtendedWithSize(12)
+        
+        buttonNeedReply.addSubview(noticeBadge)
+        noticeBadge.badgeValue = 2
+        noticeBadge.topOffset = 5
+        noticeBadge.rightOffset = 5
+        noticeBadge.font = AITools.myriadLightSemiExtendedWithSize(12)
+
     }
 
     func buildServiceInstsView() {
