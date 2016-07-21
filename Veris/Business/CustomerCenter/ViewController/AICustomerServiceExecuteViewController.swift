@@ -27,7 +27,9 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     var orderInfoModel: AICustomerOrderDetailTopViewModel?
     var timelineModels: [AITimelineViewModel] = []
     var cellHeightArray: Array<CGFloat>!
-
+    
+    let messageBadge = GIBadgeView()
+    let noticeBadge = GIBadgeView()
 
     // MARK: -> Public class methods
 
@@ -96,6 +98,11 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         setupViews()
         loadData()
     }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        AIMapView.sharedInstance.releaseView()
+    }
 
 
     override func viewDidLayoutSubviews() {
@@ -132,6 +139,32 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         timelineTableView.registerNib(UINib(nibName: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell, bundle: nil), forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell)
         timelineTableView.delegate = self
         timelineTableView.dataSource = self
+        //下拉刷新方法
+        weak var weakSelf = self
+        timelineTableView.addHeaderWithCallback { 
+            () -> Void in
+            weakSelf?.loadData()
+        }
+        timelineTableView.addHeaderRefreshEndCallback { 
+            () -> Void in
+            weakSelf?.timelineTableView.reloadData()
+        }
+        //TODO: 测试方式
+        //timelineTableView.rowHeight = UITableViewAutomaticDimension
+        
+        //增加通知图标
+        buttonMessage.addSubview(messageBadge)
+        messageBadge.badgeValue = 1
+        messageBadge.topOffset = 5
+        messageBadge.rightOffset = 5
+        messageBadge.font = AITools.myriadLightSemiExtendedWithSize(12)
+        
+        buttonNeedReply.addSubview(noticeBadge)
+        noticeBadge.badgeValue = 2
+        noticeBadge.topOffset = 5
+        noticeBadge.rightOffset = 5
+        noticeBadge.font = AITools.myriadLightSemiExtendedWithSize(12)
+
     }
 
     func buildServiceInstsView() {
@@ -158,6 +191,9 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         timelineModels.append(AITimelineViewModel.createFakeDataOrderComplete("5"))
         timelineModels.append(AITimelineViewModel.createFakeDataAuthoration("6"))
         timelineModels = handleViewModels(timelineModels)
+        //结束下拉刷新
+        timelineTableView.headerEndRefreshing()
+        timelineTableView.reloadData()
     }
     
     //TODO: 过滤时间线
@@ -212,6 +248,15 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         }
         
     }
+    
+//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        let timeLineItem = timelineModels[indexPath.row]
+//        if timeLineItem.cellHeight != 0 {
+//            return timeLineItem.cellHeight
+//        }
+//        return AITimelineTableViewCell.caculateHeightWidthData(timeLineItem)
+//
+//    }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let timeLineItem = timelineModels[indexPath.row]
@@ -244,7 +289,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     func acceptButtonDidClick(viewModel viewModel: AITimelineViewModel) {
         
     }
-    //TODO: 这样继承delegate没意义，因为这里都不需要这个方法
+
     func containerImageDidLoad(viewModel viewModel: AITimelineViewModel, containterHeight: CGFloat) {
         
         getHeight(viewModel, containerHeight: containterHeight)
@@ -255,6 +300,12 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             return visibleIndexPath.row == indexPath.row
         }) {
             if !visibleIndexPathArray.isEmpty {
+                //测试通过自动高度计算
+//                if let cell = timelineTableView.cellForRowAtIndexPath(indexPath) as? AITimelineTableViewCell {
+//                    cell.layoutIfNeeded()
+//                    viewModel.cellHeight = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+//                    
+//                }
                 self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
             }
         }

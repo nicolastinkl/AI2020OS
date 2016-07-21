@@ -55,7 +55,7 @@ public class AIImageView: UIImageView {
             self.sd_setImageWithURL(url) { [weak self]  (imgContent, ErrorType, CacheType, CacheURL) -> Void in
                 if let strongSelf = self {
                     if strongSelf.url == CacheURL {
-                        strongSelf.alpha=0.2
+                        strongSelf.alpha = 0.2
                         strongSelf.image = imgContent
                         UIView.beginAnimations(nil, context: nil)
                         UIView.setAnimationDuration(0.5)
@@ -104,7 +104,7 @@ public class AIImageView: UIImageView {
                 
                 if url?.URLString.length > 10 {
                     self.cacheURL = url
-                    self.sd_setImageWithURL(url!, placeholderImage: placeholderImage, options: SDWebImageOptions.CacheMemoryOnly, progress: { (start, end) in
+                    self.sd_setImageWithURL(url!, placeholderImage: placeholderImage, options: SDWebImageOptions.ContinueInBackground, progress: { (start, end) in
                         progress.progress = CGFloat(start) / CGFloat(end)
                     }) { (image, error, cacheType, url) in
                         AILog(image)
@@ -180,7 +180,8 @@ public class AIImageView: UIImageView {
                 }
                 
                 }, progressBlock: { (progress) in
-                progressView.progress = CGFloat(progress)
+                    
+                progressView.progress = CGFloat(progress) / 100
             })
             
             
