@@ -86,7 +86,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
 
     @IBAction func navigationBackAction(sender: AnyObject) {
-        self.dismissPopupViewController(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
+        //self.dismissPopupViewController(true, completion: nil)
     }
 
 
@@ -230,6 +231,7 @@ extension AICustomerServiceExecuteViewController : OrderAndBuyerInfoViewDelegate
     }
 }
 
+// MARK: -> delegates
 extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableViewDataSource, AITimelineContentContainerViewDelegate {
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
