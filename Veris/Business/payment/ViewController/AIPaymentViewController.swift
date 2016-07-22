@@ -88,6 +88,12 @@ class AIPaymentViewController: UIViewController {
         
         topNaviView.hidden = true
         
+        #if DEBUG
+        
+            showNotifyPayStatus()
+            
+        #endif
+        
     }
     
     func initRegisternotify() {

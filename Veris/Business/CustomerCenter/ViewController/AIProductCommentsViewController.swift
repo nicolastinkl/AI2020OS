@@ -269,7 +269,7 @@ class AIProductCommentCell: UITableViewCell {
 		selectionStyle = .None
         backgroundColor = UIColor.clearColor()
 		commentInfoView = AICommentInfoView.initFromNib() as! AICommentInfoView
-		commentInfoView.fillDataWithModel()
+//		commentInfoView.fillDataWithModel()
 		contentView.addSubview(commentInfoView)
 		commentInfoView.snp_makeConstraints { (make) in
 			make.edges.equalTo(contentView)

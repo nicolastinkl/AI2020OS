@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIProductProviderViewControler" customModule="Veris" customModuleProvider="target">
+            <connections>
+                <outlet property="scrollview" destination="7kZ-mM-Ka3" id="iCs-ey-qtr"/>
+                <outlet property="topView" destination="PbR-wu-yMi" id="T2z-sg-Hlk"/>
+                <outlet property="view" destination="iN0-l3-epB" id="a9w-w1-kvX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRD-ui-w5l">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="PWV-5F-WTp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kH-58-yfR">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PbR-wu-yMi">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="AGh-OJ-YIc"/>
+                            </constraints>
+                        </view>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kZ-mM-Ka3">
+                            <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="7kZ-mM-Ka3" secondAttribute="trailing" id="7Pq-IB-eX0"/>
+                        <constraint firstItem="7kZ-mM-Ka3" firstAttribute="leading" secondItem="1kH-58-yfR" secondAttribute="leading" id="ANl-m1-1Dm"/>
+                        <constraint firstItem="7kZ-mM-Ka3" firstAttribute="top" secondItem="PbR-wu-yMi" secondAttribute="bottom" id="EY0-Pg-8Oc"/>
+                        <constraint firstItem="PbR-wu-yMi" firstAttribute="top" secondItem="1kH-58-yfR" secondAttribute="top" id="Ho6-Wh-6J0"/>
+                        <constraint firstItem="PbR-wu-yMi" firstAttribute="leading" secondItem="1kH-58-yfR" secondAttribute="leading" id="Q4p-HJ-bmm"/>
+                        <constraint firstAttribute="trailing" secondItem="PbR-wu-yMi" secondAttribute="trailing" id="ixi-cb-hgq"/>
+                        <constraint firstItem="7kZ-mM-Ka3" firstAttribute="top" secondItem="1kH-58-yfR" secondAttribute="top" constant="44" id="jU0-Wn-pJe"/>
+                        <constraint firstAttribute="bottom" secondItem="7kZ-mM-Ka3" secondAttribute="bottom" id="mrm-eU-d8u"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="EY0-Pg-8Oc"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="1kH-58-yfR" secondAttribute="trailing" id="5ec-fq-bo5"/>
+                <constraint firstItem="iRD-ui-w5l" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="D88-tD-BNT"/>
+                <constraint firstAttribute="trailing" secondItem="iRD-ui-w5l" secondAttribute="trailing" id="EZX-At-TS5"/>
+                <constraint firstAttribute="bottom" secondItem="iRD-ui-w5l" secondAttribute="bottom" id="EfO-CX-8VA"/>
+                <constraint firstAttribute="bottom" secondItem="1kH-58-yfR" secondAttribute="bottom" id="TqM-bO-gh5"/>
+                <constraint firstItem="1kH-58-yfR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="b9v-mG-mLB"/>
+                <constraint firstItem="iRD-ui-w5l" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fxL-Df-shw"/>
+                <constraint firstItem="1kH-58-yfR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hfi-1u-udQ"/>
+                <constraint firstItem="1kH-58-yfR" firstAttribute="leading" secondItem="iRD-ui-w5l" secondAttribute="trailing" constant="-600" id="x0s-SA-Rph"/>
+            </constraints>
+            <point key="canvasLocation" x="315" y="355"/>
+        </view>
+    </objects>
+</document>
