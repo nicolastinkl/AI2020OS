@@ -435,7 +435,8 @@ class AIProductInfoViewController: UIViewController {
     
     func showCommentView() {
         let vc = AIProductCommentsViewController()
-        presentBlurViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
+        let nav = UINavigationController(rootViewController: vc)
+        presentBlurViewController(nav, animated: true, completion: nil)
     
     }
     

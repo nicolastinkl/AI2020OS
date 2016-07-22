@@ -666,7 +666,6 @@
 		FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */; };
 		FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */; };
 		FB7003FF1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7003FE1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift */; };
-		FB7004031D3CBB5200F28692 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7004021D3CBB5200F28692 /* Then.swift */; };
 		FB703ADE1D24B7BF00229A08 /* SwiftWebViewBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */; };
 		FB703ADF1D24B7BF00229A08 /* SwiftWebViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */; };
 		FB703AE21D24C05C00229A08 /* AIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703AE11D24C05C00229A08 /* AIWebViewController.swift */; };
@@ -1692,8 +1691,6 @@
 		FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerCollectionViewCell.m; sourceTree = "<group>"; };
 		FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		FB7003FE1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-CustomizeNavigationBar.swift"; sourceTree = "<group>"; };
-		FB7004011D3CBB5200F28692 /* Then.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Then.h; sourceTree = "<group>"; };
-		FB7004021D3CBB5200F28692 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SwiftWebViewBridge.js; sourceTree = "<group>"; };
 		FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebViewBridge.swift; sourceTree = "<group>"; };
 		FB703AE11D24C05C00229A08 /* AIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWebViewController.swift; sourceTree = "<group>"; };
@@ -1877,6 +1874,7 @@
 		814339221CFBE4DF00347C29 /* Veris */ = {
 			isa = PBXGroup;
 			children = (
+				81B990391D3DC41C008E4F16 /* Development */,
 				8175A7211CFD2710006F2C8F /* 3rdLibrary */,
 				814339251CFBE5A600347C29 /* Application */,
 				814339291CFBE5A600347C29 /* Business */,
@@ -3166,7 +3164,6 @@
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				FB7004001D3CBB5200F28692 /* Then */,
 				1234F9A41D351C530009FB4F /* BaiduMap */,
 				FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */,
 				9392B5191D1CD9F10007F241 /* alipay */,
@@ -3380,6 +3377,29 @@
 			name = Defines;
 			sourceTree = "<group>";
 		};
+		81B990391D3DC41C008E4F16 /* Development */ = {
+			isa = PBXGroup;
+			children = (
+				81B9903B1D3E0C79008E4F16 /* ScreenAssistant */,
+				81B9903A1D3E0C6D008E4F16 /* Requirement */,
+			);
+			name = Development;
+			sourceTree = "<group>";
+		};
+		81B9903A1D3E0C6D008E4F16 /* Requirement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Requirement;
+			sourceTree = "<group>";
+		};
+		81B9903B1D3E0C79008E4F16 /* ScreenAssistant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ScreenAssistant;
+			sourceTree = "<group>";
+		};
 		81BB86741CFE818900899B58 /* CustomSearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -3586,8 +3606,6 @@
 				939310671D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift */,
 				93C81F891D2B5CF500D84D46 /* AIServerProviderView.swift */,
 				93C81F8B1D2B5D0400D84D46 /* AIServerProviderView.xib */,
-				FB7DA9841D3CAD6A00DEAC9F /* AIRecommondForYouCell.swift */,
-				FB7DA9851D3CAD6A00DEAC9F /* AIRecommondForYouCell.xib */,
 				C95179DC1D40D34400446498 /* AIProvideIView.swift */,
 				C95179DE1D40D36700446498 /* AIProvideIView.xib */,
 				C95179E01D41B41600446498 /* AIAptitudeView.swift */,
@@ -3984,15 +4002,6 @@
 				FB01810A1D0D125400213DF8 /* WeiboUser.h */,
 			);
 			path = libWeiboSDK;
-			sourceTree = "<group>";
-		};
-		FB7004001D3CBB5200F28692 /* Then */ = {
-			isa = PBXGroup;
-			children = (
-				FB7004011D3CBB5200F28692 /* Then.h */,
-				FB7004021D3CBB5200F28692 /* Then.swift */,
-			);
-			path = Then;
 			sourceTree = "<group>";
 		};
 		FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */ = {
@@ -4789,7 +4798,6 @@
 				8175A8021CFD2710006F2C8F /* UIImage+WebP.m in Sources */,
 				81433E831CFBE5A700347C29 /* FLEXNetworkTransactionDetailTableViewController.m in Sources */,
 				8175A7F71CFD2710006F2C8F /* NSData+ImageContentType.m in Sources */,
-				FB7004031D3CBB5200F28692 /* Then.swift in Sources */,
 				846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */,
 				81433E061CFBE5A700347C29 /* CurveModel.m in Sources */,
 				846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */,
@@ -5075,8 +5083,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: jiehong Liu (GTRWCGP736)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiehong Liu (GTRWCGP736)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;
@@ -5113,7 +5121,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "ad471c57-41d8-42ad-a501-93e38374fd77";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5130,8 +5138,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: jiehong Liu (GTRWCGP736)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -5167,7 +5175,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "ad471c57-41d8-42ad-a501-93e38374fd77";
+				PROVISIONING_PROFILE = "6defedf0-7db7-4835-a59a-c8176b10d1b9";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

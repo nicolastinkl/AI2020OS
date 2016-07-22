@@ -80,7 +80,7 @@ class AIProposalTableViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
     }
     
-    func refreshAfterNewOrder () {
+    func refreshAfterNewOrder() {
         
         weak var ws = self
         Async.main(after: 0.2) { () -> Void in
@@ -110,7 +110,7 @@ class AIProposalTableViewController: UIViewController {
     }
     
     // MARK: - 构造列表区域
-    func makeTableView () {
+    func makeTableView() {
         
         //改为使用虚化背景
         let blurEffect = UIBlurEffect(style: .Dark)
@@ -139,6 +139,12 @@ class AIProposalTableViewController: UIViewController {
         
         
         weak var weakSelf = self
+        tableView.addHeaderRefreshEndCallback { () -> Void in
+            if let weakSelf = weakSelf {
+                weakSelf.tableView.reloadData()
+                weakSelf.collectionView.reloadData()
+            }
+        }
         tableView.addHeaderWithCallback { () -> Void in
             if let weakSelf = weakSelf {
                 weakSelf.clearPropodalData()
@@ -147,15 +153,7 @@ class AIProposalTableViewController: UIViewController {
             
         }
         
-        tableView.addHeaderRefreshEndCallback { () -> Void in
-            if let weakSelf = weakSelf {
-                weakSelf.tableView.headerEndRefreshing()
-                weakSelf.tableView.reloadData()
-                weakSelf.collectionView.reloadData()
-            }
-            
-            
-        }
+
         
 //        collectionView.registerClass(AIProposalCollCell.self, forCellWithReuseIdentifier: kAIProposalCellIdentifierss)
 //        
@@ -368,14 +366,20 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func statusButtonDidClick(proposalModel: ProposalOrderModel) {
-        //弹出前先收起订单列表
-        let parentVC = self.parentViewController as! AIBuyerViewController
-        parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)
+
         
         let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
-        let TopMargin: CGFloat = 15.3
-        serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
-        self.presentPopupViewController(serviceExecVC, animated: true)
+        //let TopMargin: CGFloat = 15.3
+        //serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
+        if let navigationController = self.navigationController {
+            navigationController.pushViewController(serviceExecVC, animated: true)
+        } else {
+            //弹出前先收起订单列表
+            let parentVC = self.parentViewController as! AIBuyerViewController
+            parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)
+            self.presentPopupViewController(serviceExecVC, animated: true)
+        }
+        
     }
     
 }

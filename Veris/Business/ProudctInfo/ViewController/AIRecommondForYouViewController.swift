@@ -21,10 +21,6 @@ class AIRecommondForYouViewController: UIViewController {
 		setupNavigationBarLikeQA(title: "为您推荐")
 	}
 	
-	func backButtonPressed() {
-		dismissViewControllerAnimated(true, completion: nil)
-	}
-	
 	func setupData() {
 		if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
 			let data: NSData? = NSData(contentsOfFile: path)
