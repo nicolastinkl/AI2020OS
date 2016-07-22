@@ -7,29 +7,32 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-
-struct AICommentInfoModel : JSONJoy {
+struct AICommentInfoModel: JSONJoy {
     
-    var time:Double?
+    var time: Double?
     
-    var providename:String?
+    var providename: String?
     
-    var descripation:String?
+    var descripation: String?
     
-    var images:[String]?
+    var images: [String]?
     
-    var level:Int = 0
+    var level: Int = 0
     
-    var commentid:Int = 0
+    var commentid: Int = 0
     
-    var like:Int = 0
+    var like: Int = 0
     
-    var commentcount:Int = 0
+    var commentcount: Int = 0
     
     init(_ decoder: JSONDecoder) {
         
     }
     
-    init(){}
+    init() {
+        
+    }
+    
 }

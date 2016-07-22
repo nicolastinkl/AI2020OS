@@ -405,7 +405,7 @@ class AIProductInfoViewController: UIViewController {
         addNewSubView(hView4!, preView: pLabel)
         hView4?.fillDataWithModel()
         let lineView3 = addSplitView()
-        hView4?.image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("targetProInfoAction:")))
+        hView4?.image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.targetProInfoAction(_:))))
         
         // Setup 6:
         let pcLabel = getTitleLabelView("商品介绍")
