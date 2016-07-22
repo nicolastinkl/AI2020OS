@@ -29,7 +29,7 @@
                         </mask>
                     </variation>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlM-dv-Ae2">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="clip" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlM-dv-Ae2">
                     <rect key="frame" x="13" y="34" width="579" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="sa5-eq-ktE"/>
@@ -56,6 +56,14 @@
                         <constraint firstAttribute="height" constant="25" id="sns-av-ho4"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yap-bM-06D">
+                    <rect key="frame" x="509" y="74" width="83" height="25"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="ViH-fH-oUf"/>
+                        <constraint firstAttribute="width" constant="83" id="Wo6-H3-0xt"/>
+                    </constraints>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消费者A" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kd-6I-Q1x">
                     <rect key="frame" x="453" y="8" width="139" height="25"/>
                     <constraints>
@@ -74,7 +82,9 @@
                 <constraint firstAttribute="trailing" secondItem="NlM-dv-Ae2" secondAttribute="trailing" constant="8" id="8Vc-ko-rMq"/>
                 <constraint firstItem="nhe-RF-uHQ" firstAttribute="top" secondItem="NlM-dv-Ae2" secondAttribute="bottom" constant="-1" id="AVc-gi-bBl"/>
                 <constraint firstItem="NlM-dv-Ae2" firstAttribute="top" secondItem="7kd-6I-Q1x" secondAttribute="bottom" id="BPZ-oM-kgd"/>
+                <constraint firstItem="yap-bM-06D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="509" id="Brl-qa-Cvs"/>
                 <constraint firstAttribute="bottom" secondItem="IiL-dZ-5JE" secondAttribute="bottom" constant="8" id="CeG-ov-rw5"/>
+                <constraint firstAttribute="trailing" secondItem="yap-bM-06D" secondAttribute="trailing" constant="8" id="Dq4-kp-nAH"/>
                 <constraint firstItem="7kd-6I-Q1x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="JKt-wg-wsm"/>
                 <constraint firstAttribute="trailing" secondItem="IiL-dZ-5JE" secondAttribute="trailing" constant="8" id="Klt-MN-iNl"/>
                 <constraint firstItem="IiL-dZ-5JE" firstAttribute="top" secondItem="nhe-RF-uHQ" secondAttribute="bottom" constant="2" id="M4e-O3-gk5"/>
@@ -92,6 +102,7 @@
                 <constraint firstItem="7kd-6I-Q1x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="osD-Cj-En0"/>
                 <constraint firstAttribute="trailing" secondItem="nhe-RF-uHQ" secondAttribute="trailing" constant="8" id="phk-SH-Y7L"/>
                 <constraint firstAttribute="trailing" secondItem="NlM-dv-Ae2" secondAttribute="trailing" constant="8" id="rPy-Fg-lfj"/>
+                <constraint firstAttribute="bottom" secondItem="yap-bM-06D" secondAttribute="bottom" id="s2S-kG-nBg"/>
                 <constraint firstItem="mlk-Be-yP4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="w9z-h7-ZYr"/>
                 <constraint firstItem="nhe-RF-uHQ" firstAttribute="top" secondItem="NlM-dv-Ae2" secondAttribute="bottom" id="z1s-NV-yae"/>
             </constraints>
@@ -111,6 +122,7 @@
                     <exclude reference="ZDj-YF-XHH"/>
                     <exclude reference="w9z-h7-ZYr"/>
                     <exclude reference="JKt-wg-wsm"/>
+                    <exclude reference="Brl-qa-Cvs"/>
                 </mask>
             </variation>
             <connections>
@@ -119,9 +131,10 @@
                 <outlet property="commentDate" destination="mlk-Be-yP4" id="znf-dU-dth"/>
                 <outlet property="commentImages" destination="nhe-RF-uHQ" id="gMi-03-5OX"/>
                 <outlet property="commentName" destination="7kd-6I-Q1x" id="2ik-UW-PgD"/>
+                <outlet property="commentlike" destination="yap-bM-06D" id="aC4-bL-3Gn"/>
                 <outlet property="viewControlrsConstraint" destination="TVW-f5-g6w" id="55u-oH-wvS"/>
             </connections>
-            <point key="canvasLocation" x="-130" y="219.5"/>
+            <point key="canvasLocation" x="-396" y="311.5"/>
         </view>
     </objects>
 </document>

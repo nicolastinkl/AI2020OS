@@ -86,7 +86,7 @@ public class AIImageView: UIImageView {
     }
     
     
-    func imageDownloadRetry(button: UIButton){
+    func imageDownloadRetry(button: UIButton) {
         button.removeFromSuperview()
         setURL(self.cacheURL, placeholderImage: self.cacheImage, showProgress: true)
     }
@@ -120,7 +120,7 @@ public class AIImageView: UIImageView {
                         } else {
                             self.userInteractionEnabled = true
                             // add try button
-                            let button = UIButton(frame: CGRectZero )
+                            let button = UIButton(frame: CGRectZero)
                             button.setImage(UIImage(named: "AI_ProductInfo_Home_like"), forState: UIControlState.Normal)
                             self.addSubview(button)
                             button.setWidth(self.width)
@@ -167,7 +167,7 @@ public class AIImageView: UIImageView {
                     if error != nil {
                         self.userInteractionEnabled = true
                         // add try button
-                        let button = UIButton(frame: CGRectZero )
+                        let button = UIButton(frame: CGRectZero)
                         button.setImage(UIImage(named: "AI_ProductInfo_Home_like"), forState: UIControlState.Normal)
                         self.addSubview(button)
                         button.setWidth(self.width)

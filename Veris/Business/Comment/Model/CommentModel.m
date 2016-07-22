@@ -11,11 +11,17 @@
 @implementation StarDesc
 @end
 
+@implementation CommentPhoto
+@end
+
 @implementation SingleComment
 @end
 
-@implementation SubServiceComment
+@implementation ServiceComment
 @end
 
 @implementation CompondComment
+@end
+
+@implementation RequestResult
 @end

@@ -24,6 +24,7 @@
 
 import Foundation
 
+/// 服务者详细信息介绍
 class AIServerProviderView: UIView {
  
     @IBOutlet weak var name: UILabel!
@@ -40,5 +41,8 @@ class AIServerProviderView: UIView {
         name.text = "孙雪珍贵"
         des.text = "中国著名妇产科专家，现任北京XXX主任，现任北京XXX主任，现任北京XXX主任，现任北京XXX主任. 毕业于宜宾理工学院"
         image.image = UIImage(named: "se_customer_icon")
+        image.userInteractionEnabled = true
     }
+    
+    
 }
