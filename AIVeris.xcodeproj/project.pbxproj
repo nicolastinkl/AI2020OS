@@ -648,6 +648,13 @@
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93FD2FDD1D13DA7E00B88355 /* AISearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */; };
 		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
+		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
+		C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */; };
+		C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */; };
+		C95179DD1D40D34400446498 /* AIProvideIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179DC1D40D34400446498 /* AIProvideIView.swift */; };
+		C95179DF1D40D36700446498 /* AIProvideIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DE1D40D36700446498 /* AIProvideIView.xib */; };
+		C95179E11D41B41600446498 /* AIAptitudeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179E01D41B41600446498 /* AIAptitudeView.swift */; };
+		C95179E31D41B47000446498 /* AIAptitudeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179E21D41B47000446498 /* AIAptitudeView.xib */; };
 		FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
@@ -1656,6 +1663,13 @@
 		93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchResultModel.swift; sourceTree = "<group>"; };
 		93FD2FDE1D13E7A400B88355 /* searchJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchJson.json; sourceTree = "<group>"; };
 		A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C95179D61D40C73600446498 /* AICommentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoModel.swift; sourceTree = "<group>"; };
+		C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductProviderViewControler.swift; sourceTree = "<group>"; };
+		C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductProviderViewControler.xib; sourceTree = "<group>"; };
+		C95179DC1D40D34400446498 /* AIProvideIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProvideIView.swift; sourceTree = "<group>"; };
+		C95179DE1D40D36700446498 /* AIProvideIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProvideIView.xib; sourceTree = "<group>"; };
+		C95179E01D41B41600446498 /* AIAptitudeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAptitudeView.swift; sourceTree = "<group>"; };
+		C95179E21D41B47000446498 /* AIAptitudeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAptitudeView.xib; sourceTree = "<group>"; };
 		FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		FB0181001D0D125400213DF8 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		FB0181011D0D125400213DF8 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -3583,6 +3597,7 @@
 		933BC8451D00252D005E1789 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C95179D61D40C73600446498 /* AICommentInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3595,6 +3610,12 @@
 				939310671D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift */,
 				93C81F891D2B5CF500D84D46 /* AIServerProviderView.swift */,
 				93C81F8B1D2B5D0400D84D46 /* AIServerProviderView.xib */,
+				FB7DA9841D3CAD6A00DEAC9F /* AIRecommondForYouCell.swift */,
+				FB7DA9851D3CAD6A00DEAC9F /* AIRecommondForYouCell.xib */,
+				C95179DC1D40D34400446498 /* AIProvideIView.swift */,
+				C95179DE1D40D36700446498 /* AIProvideIView.xib */,
+				C95179E01D41B41600446498 /* AIAptitudeView.swift */,
+				C95179E21D41B47000446498 /* AIAptitudeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3605,6 +3626,8 @@
 				933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */,
 				FB7DA9821D3C87BC00DEAC9F /* AIRecommondForYouViewController.swift */,
 				933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */,
+				C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */,
+				C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4213,6 +4236,7 @@
 				8458167E1D3C72AC00448A7B /* CommentAreaView.xib in Resources */,
 				93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */,
 				846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */,
+				C95179E31D41B47000446498 /* AIAptitudeView.xib in Resources */,
 				84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */,
 				81433D9A1CFBE5A700347C29 /* AIErrorRetryView.xib in Resources */,
 				81433EC31CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard in Resources */,
@@ -4228,6 +4252,7 @@
 				93C81F8C1D2B5D0400D84D46 /* AIServerProviderView.xib in Resources */,
 				93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */,
 				81433E381CFBE5A700347C29 /* BuyerRequirmentMessageViewController.xib in Resources */,
+				C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */,
 				81433DF71CFBE5A700347C29 /* AIEventTimerView.xib in Resources */,
 				81433DB31CFBE5A700347C29 /* BuyerMessageCell.xib in Resources */,
 				93A0ABF61D12C43400562090 /* read_me.txt in Resources */,
@@ -4259,6 +4284,7 @@
 				81433D641CFBE5A700347C29 /* AIStartEndTimeView.xib in Resources */,
 				81433EC61CFBE5A700347C29 /* Assets.xcassets in Resources */,
 				81433D4B1CFBE5A700347C29 /* ServiceRestoreToolBar.xib in Resources */,
+				C95179DF1D40D36700446498 /* AIProvideIView.xib in Resources */,
 				81433D4D1CFBE5A700347C29 /* UICustomsTags.xib in Resources */,
 				FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */,
 				81433CFC1CFBE5A700347C29 /* multiLabels.json in Resources */,
@@ -4572,6 +4598,7 @@
 				81433D7D1CFBE5A700347C29 /* AIBuyerTableCellView.swift in Sources */,
 				81433D561CFBE5A700347C29 /* AILocationSelectHeadView.swift in Sources */,
 				81433E531CFBE5A700347C29 /* FLEXArgumentInputDateView.m in Sources */,
+				C95179DD1D40D34400446498 /* AIProvideIView.swift in Sources */,
 				8175A8041CFD2710006F2C8F /* UIImageView+WebCache.m in Sources */,
 				81433ECA1CFBE5A700347C29 /* TDImageColors.m in Sources */,
 				81433D4E1CFBE5A700347C29 /* AIAddressRouteView.swift in Sources */,
@@ -4635,6 +4662,7 @@
 				8175A7BF1CFD2710006F2C8F /* JSONSerializer.swift in Sources */,
 				81433D031CFBE5A700347C29 /* AIOrderMangerProtocol.swift in Sources */,
 				81433E2B1CFBE5A700347C29 /* AIRequirementMenuViewController.swift in Sources */,
+				C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */,
 				8175A7D91CFD2710006F2C8F /* JSONModelArray.m in Sources */,
 				8175A7DA1CFD2710006F2C8F /* NSArray+JSONModel.m in Sources */,
 				9304550C1D12447E007AFC0C /* AIAudioSearchViewController.swift in Sources */,
@@ -4743,6 +4771,7 @@
 				81433E331CFBE5A700347C29 /* AITaskTagViewController.swift in Sources */,
 				8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */,
 				81433DF81CFBE5A700347C29 /* AISinglePickerView.swift in Sources */,
+				C95179E11D41B41600446498 /* AIAptitudeView.swift in Sources */,
 				12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */,
 				81433E731CFBE5A700347C29 /* FLEXCookiesTableViewController.m in Sources */,
 				81433EAE1CFBE5A700347C29 /* KMActivityIndicator.m in Sources */,
@@ -4874,6 +4903,7 @@
 				FB6127F21D40C8F400DD68DD /* UINavigationBar+Theme.swift in Sources */,
 				81433E491CFBE5A700347C29 /* UP_NSString+Format.mm in Sources */,
 				81433DAA1CFBE5A700347C29 /* AITimelineCellBaseView.swift in Sources */,
+				C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */,
 				81433D1C1CFBE5A700347C29 /* AccommodationService.swift in Sources */,
 				936B32A51D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift in Sources */,
 				933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */,

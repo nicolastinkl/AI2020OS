@@ -69,7 +69,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
 
     @IBAction func submitComments(sender: UIButton) {
-        for comment in comments {
+        for _ in comments {
      //       comment.isCommentDone = true
         }
         

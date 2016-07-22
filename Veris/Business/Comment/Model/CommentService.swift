@@ -57,23 +57,20 @@ extension HttpCommentService: CommentService {
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
-            do {
-                
-                guard let dic = response as? [AnyObject] else {
-                    fail(errType: AINetError.Format, errDes: "queryCommentSpecification JSON Parse Error...")
-                    return
-                }
-                
-                if let model = StarDesc.arrayOfModelsFromDictionaries(dic) as NSArray? as? [StarDesc] {
-                    success(responseData: model)
-                } else {
-                    fail(errType: AINetError.Format, errDes: "queryCommentSpecification JSON Parse Error...")
-
-                }
-                
-            } catch {
+            
+            
+            guard let dic = response as? [AnyObject] else {
                 fail(errType: AINetError.Format, errDes: "queryCommentSpecification JSON Parse Error...")
+                return
             }
+            
+            if let model = StarDesc.arrayOfModelsFromDictionaries(dic) as NSArray? as? [StarDesc] {
+                success(responseData: model)
+            } else {
+                fail(errType: AINetError.Format, errDes: "queryCommentSpecification JSON Parse Error...")
+                
+            }
+            
             
         }) { (error: AINetError, errorDes: String!) -> Void in
             fail(errType: error, errDes: errorDes ?? "")
