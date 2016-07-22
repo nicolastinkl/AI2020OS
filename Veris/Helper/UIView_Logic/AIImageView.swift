@@ -8,6 +8,7 @@
 
 import Foundation
 import Spring
+import AVOSCloud
 
 /// 自定义Label 处理左右间距问题
 public class AILabel: DesignableLabel {
@@ -54,7 +55,7 @@ public class AIImageView: UIImageView {
             self.sd_setImageWithURL(url) { [weak self]  (imgContent, ErrorType, CacheType, CacheURL) -> Void in
                 if let strongSelf = self {
                     if strongSelf.url == CacheURL {
-                        strongSelf.alpha=0.2
+                        strongSelf.alpha = 0.2
                         strongSelf.image = imgContent
                         UIView.beginAnimations(nil, context: nil)
                         UIView.setAnimationDuration(0.5)
@@ -103,7 +104,7 @@ public class AIImageView: UIImageView {
                 
                 if url?.URLString.length > 10 {
                     self.cacheURL = url
-                    self.sd_setImageWithURL(url!, placeholderImage: placeholderImage, options: SDWebImageOptions.CacheMemoryOnly, progress: { (start, end) in
+                    self.sd_setImageWithURL(url!, placeholderImage: placeholderImage, options: SDWebImageOptions.ContinueInBackground, progress: { (start, end) in
                         progress.progress = CGFloat(start) / CGFloat(end)
                     }) { (image, error, cacheType, url) in
                         AILog(image)
@@ -140,6 +141,62 @@ public class AIImageView: UIImageView {
             
         }
     }
+    
+    public typealias UploadComplate = (Int?, NSURL?, NSError!) -> Void
+    
+    // id 用来标识complate，当有多个图片上传时可以用id来识别每个图片的上传结果
+    public func uploadImage(id: Int? = nil, complate: UploadComplate? = nil) {
+        if let image = self.image {
+            let newFrame = CGRectMake(0, 0, self.width, self.height)
+            let progressView = AIProgressWebHoldView(frame: newFrame)
+            self.addSubview(progressView)
+            
+            // upload to LeanCloud
+            let data = UIImagePNGRepresentation(image)
+            let file = AVFile(data: data)
+            file.saveInBackgroundWithBlock({ (finish, error) in
+                
+                if finish {
+                    
+                    UIView.animateWithDuration(0.2, animations: {
+                        progressView.alpha = 1
+                        }, completion: { (complate) in
+                            progressView.removeFromSuperview()
+                    })
+                    
+                    if error != nil {
+                        self.userInteractionEnabled = true
+                        // add try button
+                        let button = UIButton(frame: CGRectZero )
+                        button.setImage(UIImage(named: "AI_ProductInfo_Home_like"), forState: UIControlState.Normal)
+                        self.addSubview(button)
+                        button.setWidth(self.width)
+                        button.setHeight(self.height)
+                        button.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
+                        button.addTarget(self, action: #selector(AIImageView.imageUploadRetry(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+                        
+                    }
+                    complate?(id, NSURL(string: file.url), error)
+                }
+                
+                }, progressBlock: { (progress) in
+                    
+                progressView.progress = CGFloat(progress) / 100
+            })
+            
+            
+        }
+    }
+    
+    
+    // Retry Upload Image to LeanCloud.
+    func imageUploadRetry(button: UIButton){
+        button.removeFromSuperview()
+        uploadImage { (nil, url, error) in
+            
+        }
+    }
+    
 }
 
 

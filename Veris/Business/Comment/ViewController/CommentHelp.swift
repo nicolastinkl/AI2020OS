@@ -8,25 +8,16 @@
 
 import Foundation
 
-protocol CommentDistrictDelegate {
-    func pohotImageButtonClicked(button: UIImageView, buttonParentCell: UIView)
-    func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
-}
-
 class CommentUtils {
-    private static var starDesMap: [String: String]?
+    private static var starDes: [StarDesc]?
     
     static var hasStarDesData: Bool {
         get {
-            return starDesMap != nil
+            return starDes != nil
         }
     }
     
     class func setStarDesData(starList: [StarDesc]) {
-        starDesMap = [String: String]()
-        
-        for data in starList {
-            starDesMap![data.numbers] = data.desc
-        }
+        starDes = starList  
     }
 }

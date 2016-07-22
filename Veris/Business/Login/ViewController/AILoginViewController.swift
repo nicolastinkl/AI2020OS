@@ -67,12 +67,18 @@ class AILoginViewController: UIViewController {
         setupNavigationBar()
         
         #if DEBUG
-            userIdTextField.text = "18982194190"
-            passwordTextField.text = "nodgdi"
-            loginButton.enabled = true
-            
-            
+//            userIdTextField.text = "18982194190"
+//            passwordTextField.text = "nodgdi"
+//            loginButton.enabled = true
         #endif
+        
+        
+//        let image = AIImageView(image: UIImage(named: "AIRequirebg1"))
+//        view.addSubview(image)
+//        image.frame = CGRectMake(100, 450, 100, 100)
+//        image.uploadImage { (url, error) in
+//            debugPrint(url)
+//        }
         
     }
     

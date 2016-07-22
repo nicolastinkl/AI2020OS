@@ -14,8 +14,10 @@
 
 @interface StarDesc : JSONModel
 
-@property (strong, nonatomic) NSString<Optional> * numbers;
-@property (strong, nonatomic) NSString<Optional> * desc;
+@property (strong, nonatomic) NSString<Optional> * id;
+@property (strong, nonatomic) NSString<Optional> * name;
+@property (strong, nonatomic) NSString<Optional> * value_max;
+@property (strong, nonatomic) NSString<Optional> * value_min;
 
 @end
 
@@ -31,18 +33,28 @@
 
 @end
 
-@protocol SubServiceComment
+@protocol CommentPhoto
 @end
 
-@interface SubServiceComment : JSONModel
+@interface CommentPhoto : JSONModel
+
+@property (strong, nonatomic) NSString<Optional> * url;
+
+@end
+
+@protocol ServiceComment
+@end
+
+@interface ServiceComment : JSONModel
 
 
 @property (strong, nonatomic) NSString<Optional> * service_id;
 @property (strong, nonatomic) NSString<Optional> * service_name;
+@property (strong, nonatomic) NSString<Optional> * spec_id;
 @property (strong, nonatomic) NSString<Optional> * service_icon;
-@property (strong, nonatomic) NSString<Optional> * stars;
-@property (strong, nonatomic) NSString<Optional> * judegment;
-@property (strong, nonatomic) NSString<Optional> * image;
+@property (strong, nonatomic) NSString<Optional> * value;
+@property (strong, nonatomic) NSString<Optional> * text;
+@property (strong, nonatomic) NSArray<CommentPhoto, Optional> * photos;
 
 @end
 
@@ -53,6 +65,16 @@
 
 @property (strong, nonatomic) NSString<Optional> * service_name;
 @property (strong, nonatomic) NSString<Optional> * service_icon;
-@property (strong, nonatomic) NSArray<SubServiceComment, Optional> * sub_services;
+@property (strong, nonatomic) NSArray<ServiceComment, Optional> * sub_services;
+
+@end
+
+
+@protocol RequestResult
+@end
+
+@interface RequestResult : JSONModel
+
+@property (nonatomic, assign) BOOL result;
 
 @end

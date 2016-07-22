@@ -46,15 +46,27 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
 
 
     @IBAction func nextStepAction(sender: DesignableButton) {
-
-        guard let validateCode = identifyTextField.text else {return}
-        guard let phoneNumber = AILoginPublicValue.phoneNumber else {return}
+        
+        
+        
+        let validateCode = identifyTextField.text
+        let phoneNumber = AILoginPublicValue.phoneNumber
+        
+        if validateCode?.length == 0 {
+            AIAlertView().showError("验证码格式错误", subTitle: "")
+            return
+        }
+        
+        
+        let title = nextStepButton.titleLabel?.text ?? ""
+        nextStepButton.showActioningLoading()
         
         //短信验证码赋值到全局变量
         AILoginPublicValue.smsCode = validateCode
         
         if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
             AVOSCloud.verifySmsCode(validateCode, mobilePhoneNumber: phoneNumber) { (bol, error) in
+                self.nextStepButton.hideActioningLoading(title)
                 if bol {
                     let changePasswordVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIChangePasswordViewController)
                     self.navigationController?.pushViewController(changePasswordVC, animated: true)
@@ -63,6 +75,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
                 }
             }
         } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
+            self.nextStepButton.hideActioningLoading(title)
             //重置密码的方法没法直接校验是否正确
             let changePasswordVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIChangePasswordViewController)
             self.navigationController?.pushViewController(changePasswordVC, animated: true)

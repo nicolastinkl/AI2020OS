@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class StarRateView: UIView {
 
     var foregroundStarView: UIView!

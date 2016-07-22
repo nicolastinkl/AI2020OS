@@ -32,7 +32,7 @@ class ServiceCommentViewController: AbsCommentViewController {
         super.viewDidLoad()
         
         loadUI()
-        loadStarsDes()
+     //   loadStarsDes()
     }
 
     override func imagePicked(image: UIImage) {
@@ -74,18 +74,15 @@ class ServiceCommentViewController: AbsCommentViewController {
             
             let service = HttpCommentService()
             
-            service.getSingleComment(serviceID, success: { (responseData) in
+            service.queryCommentSpecification({ (responseData) in
                 self.view.hideLoading()
-                if let starList = responseData.stars as? [StarDesc] {
-                    CommentUtils.setStarDesData(starList)
-                }
+                
+                CommentUtils.setStarDesData(responseData)
             }) { (errType, errDes) in
                 self.view.hideLoading()
                 
                 AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
-                
-            }
+            } 
         }
     }
-
 }

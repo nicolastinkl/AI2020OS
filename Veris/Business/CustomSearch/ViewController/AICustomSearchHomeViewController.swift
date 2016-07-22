@@ -11,7 +11,7 @@ import Spring
 import Cartography
 import AIAlertView
 import SnapKit
-//import AsyncDisplayKit
+
 
 class AICustomSearchHomeViewController: UIViewController {
 	
@@ -30,7 +30,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	
 	// MARK: Private
 	
-	private var dataSource: [AISearchResultItemModel] = Array<AISearchResultItemModel>()
+	private var dataSource: [AISearchResultItemModel] = []
     
     var bubbleModels = [AIBuyerBubbleModel]()
     

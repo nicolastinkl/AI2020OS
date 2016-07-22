@@ -70,10 +70,17 @@ extension String {
 }
 
 extension Int {
-//    func string -> String{
-//        let returnString:String = "\(self)"
-//        return returnString
-//    }
+    func displaySizeFrom1242DesignSize() -> CGFloat {
+        let result = AITools.displaySizeFrom1242DesignSize(CGFloat(self))
+        return result
+    }
+}
+
+extension CGFloat {
+    func displaySizeFrom1242DesignSize() -> CGFloat {
+        let result = AITools.displaySizeFrom1242DesignSize(self)
+        return result
+    }
 }
 
 extension Dictionary {
