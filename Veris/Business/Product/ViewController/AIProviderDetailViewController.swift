@@ -24,8 +24,10 @@ class AIProviderDetailViewController: UIViewController {
 		setupNavigationItems()
 		setupBubbleView()
 	}
+    
 	func fakeBubbleModels() {
-
+//        let rootVC = 
+        
 	}
 	
 	func setupBubbleView() {

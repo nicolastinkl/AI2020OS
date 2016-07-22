@@ -17,10 +17,12 @@ extension UIViewController {
 		backButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
 		
 		let appearance = UINavigationBarAppearance()
+        
 		appearance.leftBarButtonItems = [backButton]
 		if rightBarButtonItems.count > 0 {
 			appearance.rightBarButtonItems = rightBarButtonItems
 		}
+        
 		appearance.itemPositionForIndexAtPosition = { index, position in
 			if position == .Left {
 				return (47.displaySizeFrom1242DesignSize(), 55.displaySizeFrom1242DesignSize())
@@ -32,8 +34,11 @@ extension UIViewController {
 				}
 			}
 		}
+        
         appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor (red: 0.0784, green: 0.0588, blue: 0.1216, alpha: 1.0), backgroundImage: nil, shadowImage: nil, height: AITools.displaySizeFrom1242DesignSize(192))
+        
 		appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: title)
+        
 		setNavigationBarAppearance(navigationBarAppearance: appearance)
 	}
 	

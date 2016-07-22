@@ -25,19 +25,13 @@ extension UIViewController {
      - parameter completion:              回调
      */
     func presentBlurViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> ())?) {
+        
         viewControllerToPresent.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         viewControllerToPresent.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
         
         let view = viewControllerToPresent.view
         view.backgroundColor = UIColor.clearColor()
-//        let lightEffect = UIBlurEffect(style: .Light)
-//        let lightView = UIVisualEffectView(effect: lightEffect)
-//        view.insertSubview(lightView, atIndex: 0)
-//        lightView.snp_makeConstraints { (make) in
-//            make.edges.equalTo(view)
-//        }
-        
-        
+
         let darkEffect = UIBlurEffect(style: .Dark)
         let darkView = UIVisualEffectView(effect: darkEffect)
         view.insertSubview(darkView, atIndex: 0)
@@ -55,7 +49,6 @@ extension UIViewController {
 
 	func viewDidLoadForChangeTitleColor() {
 		self.viewDidLoadForChangeTitleColor()
-		// setNeedsStatusBarAppearanceUpdate()
 		if self.isKindOfClass(UINavigationController.classForCoder()) {
 			self.changeNavigationBarTextColor(self as! UINavigationController)
 		}
@@ -67,9 +60,6 @@ extension UIViewController {
 			forKey: NSForegroundColorAttributeName)
 		nav.navigationBar.titleTextAttributes = dic as? [String: AnyObject]
 		nav.navigationBar.tintColor = UIColor.applicationMainColor()
-		// nav.navigationBar.lt_setBackgroundColor(
-		// UIColor.applicationMainColor().colorWithAlphaComponent(0))
-		// nav.setNavigationBarHidden(true, animated: true)
 		self.title = ""
 		UINavigationBar.appearance().shadowImage = UIColor.clearColor().clearImage()
 	}
