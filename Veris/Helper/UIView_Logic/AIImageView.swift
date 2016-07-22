@@ -107,8 +107,7 @@ public class AIImageView: UIImageView {
                     self.sd_setImageWithURL(url!, placeholderImage: placeholderImage, options: SDWebImageOptions.ContinueInBackground, progress: { (start, end) in
                         progress.progress = CGFloat(start) / CGFloat(end)
                     }) { (image, error, cacheType, url) in
-                        AILog(image)
-                        AILog(error)
+                        
                         if image != nil {
                             UIView.animateWithDuration(0.2, animations: { 
                                 progress.alpha = 1
