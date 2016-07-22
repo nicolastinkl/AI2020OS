@@ -24,8 +24,10 @@ class AIProviderDetailViewController: UIViewController {
 		setupNavigationItems()
 		setupBubbleView()
 	}
+	
 	func fakeBubbleModels() {
-
+//        let rootVC =
+		
 	}
 	
 	func setupBubbleView() {
@@ -69,16 +71,15 @@ class AIProviderDetailViewController: UIViewController {
 		backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
 		backButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
 		
-		let followButton = UIButton().then { result in
-			result.setTitle("+ 关注", forState: .Normal)
-			result.titleLabel?.font = UIFont.systemFontOfSize(42.displaySizeFrom1242DesignSize())
-			result.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.6), forState: .Normal)
-			result.backgroundColor = UIColor.clearColor()
-			result.layer.cornerRadius = 12.displaySizeFrom1242DesignSize()
-			result.layer.borderColor = UIColor(hexString: "#6b6a6d").CGColor
-			result.layer.borderWidth = 2.displaySizeFrom1242DesignSize()
-			result.setSize(CGSize(width: 196.displaySizeFrom1242DesignSize(), height: 80.displaySizeFrom1242DesignSize()))
-		}
+		let followButton = UIButton()
+		followButton.setTitle("+ 关注", forState: .Normal)
+		followButton.titleLabel?.font = UIFont.systemFontOfSize(42.displaySizeFrom1242DesignSize())
+		followButton.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.6), forState: .Normal)
+		followButton.backgroundColor = UIColor.clearColor()
+		followButton.layer.cornerRadius = 12.displaySizeFrom1242DesignSize()
+		followButton.layer.borderColor = UIColor(hexString: "#6b6a6d").CGColor
+		followButton.layer.borderWidth = 2.displaySizeFrom1242DesignSize()
+		followButton.setSize(CGSize(width: 196.displaySizeFrom1242DesignSize(), height: 80.displaySizeFrom1242DesignSize()))
 		
 		let appearance = UINavigationBarAppearance()
 		appearance.leftBarButtonItems = [backButton]
