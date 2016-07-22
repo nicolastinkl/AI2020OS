@@ -24,6 +24,7 @@
 
 import Foundation
 
+/// 服务者详细信息介绍
 class AIServerProviderView: UIView {
  
     @IBOutlet weak var name: UILabel!

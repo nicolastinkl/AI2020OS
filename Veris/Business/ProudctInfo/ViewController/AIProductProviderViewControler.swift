@@ -81,6 +81,7 @@ class AIProductProviderViewControler: UIViewController {
         
         if let p = AIProvideIView.initFromNib() {
             addNewSubView(p, preView: UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
+            addNewSubView(AIAptitudeView.initFromNib()!, preView: p)
         }
         
         let s1 = addSplitView()

@@ -652,6 +652,8 @@
 		C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */; };
 		C95179DD1D40D34400446498 /* AIProvideIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179DC1D40D34400446498 /* AIProvideIView.swift */; };
 		C95179DF1D40D36700446498 /* AIProvideIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DE1D40D36700446498 /* AIProvideIView.xib */; };
+		C95179E11D41B41600446498 /* AIAptitudeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179E01D41B41600446498 /* AIAptitudeView.swift */; };
+		C95179E31D41B47000446498 /* AIAptitudeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179E21D41B47000446498 /* AIAptitudeView.xib */; };
 		FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
@@ -1663,6 +1665,8 @@
 		C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductProviderViewControler.xib; sourceTree = "<group>"; };
 		C95179DC1D40D34400446498 /* AIProvideIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProvideIView.swift; sourceTree = "<group>"; };
 		C95179DE1D40D36700446498 /* AIProvideIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProvideIView.xib; sourceTree = "<group>"; };
+		C95179E01D41B41600446498 /* AIAptitudeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAptitudeView.swift; sourceTree = "<group>"; };
+		C95179E21D41B47000446498 /* AIAptitudeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAptitudeView.xib; sourceTree = "<group>"; };
 		FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		FB0181001D0D125400213DF8 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		FB0181011D0D125400213DF8 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -3579,6 +3583,8 @@
 				FB7DA9851D3CAD6A00DEAC9F /* AIRecommondForYouCell.xib */,
 				C95179DC1D40D34400446498 /* AIProvideIView.swift */,
 				C95179DE1D40D36700446498 /* AIProvideIView.xib */,
+				C95179E01D41B41600446498 /* AIAptitudeView.swift */,
+				C95179E21D41B47000446498 /* AIAptitudeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4198,6 +4204,7 @@
 				8458167E1D3C72AC00448A7B /* CommentAreaView.xib in Resources */,
 				93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */,
 				846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */,
+				C95179E31D41B47000446498 /* AIAptitudeView.xib in Resources */,
 				84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */,
 				81433D9A1CFBE5A700347C29 /* AIErrorRetryView.xib in Resources */,
 				81433EC31CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard in Resources */,
@@ -4732,6 +4739,7 @@
 				81433E331CFBE5A700347C29 /* AITaskTagViewController.swift in Sources */,
 				8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */,
 				81433DF81CFBE5A700347C29 /* AISinglePickerView.swift in Sources */,
+				C95179E11D41B41600446498 /* AIAptitudeView.swift in Sources */,
 				12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */,
 				81433E731CFBE5A700347C29 /* FLEXCookiesTableViewController.m in Sources */,
 				81433EAE1CFBE5A700347C29 /* KMActivityIndicator.m in Sources */,

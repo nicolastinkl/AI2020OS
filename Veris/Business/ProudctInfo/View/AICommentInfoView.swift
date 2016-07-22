@@ -24,9 +24,7 @@
 
 import Foundation
 
-
-
-
+/// 评论Cell信息
 class AICommentInfoView: UIView {
 
     @IBOutlet weak var commentName: UILabel!

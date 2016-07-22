@@ -1,17 +1,18 @@
 //
-//  AIProvideIView.swift
+//  AIAptitudeView.swift
 //  AIVeris
 //
-//  Created by asiainfo on 7/21/16.
+//  Created by asiainfo on 7/22/16.
 //  Copyright © 2016 ___ASIAINFO___. All rights reserved.
 //
 
 import Foundation
 
-///  服务者信息头部布局
-class AIProvideIView: UIView {
+///资质认真界面详情列表
+class AIAptitudeView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
 }
