@@ -61,15 +61,7 @@ class AIPaymentViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        /**
-         Init SubView
-         */
-        layoutSubView()
-
-        /**
-         Init TableView
-         */
-        initTableView()
+        
     }
 
 
@@ -88,6 +80,24 @@ class AIPaymentViewController: UIViewController {
         
         topNaviView.hidden = true
         
+        Async.main(after: 0.3) { 
+            /**
+             Init SubView
+             */
+            self.layoutSubView()
+            
+            /**
+             Init TableView
+             */
+            self.initTableView()
+        }
+        
+        #if DEBUG
+        
+            showNotifyPayStatus()
+            
+        #endif
+        
     }
     
     func initRegisternotify() {
@@ -103,7 +113,8 @@ class AIPaymentViewController: UIViewController {
         self.label_Price_info.text = "成功支付"
         
         topNaviConstraint.constant = 44
-        topNaviView.layoutIfNeeded()
+        topNaviView.updateConstraints()
+        
         // refersh Views Status
         
         SpringAnimation.springWithCompletion(0.3, animations: { 
