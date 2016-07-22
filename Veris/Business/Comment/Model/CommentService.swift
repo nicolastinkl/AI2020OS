@@ -10,40 +10,15 @@ import Foundation
 
 
 protocol CommentService: NSObjectProtocol {
-    func getSingleComment(serviceId: String, success: (responseData: SingleComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func getCompondComment(serviceId: String, success: (responseData: CompondComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
-
+    func queryCommentSpecification(success: (responseData: [StarDesc]) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    // 提交评论。userType：1 – customer, 2 - provider
+    func submitComments(userID: String, userType: Int, commentList: [ServiceComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
 class HttpCommentService: NSObject {}
 
 extension HttpCommentService: CommentService {
-    func getSingleComment(serviceId: String, success: (responseData: SingleComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-        
-        let message = AIMessage()
-        let url = AIApplication.AIApplicationServerURL.singleComment.description
-        message.url = url
-        
-        let data = ["service_id" : serviceId]
-        message.body = BDKTools.createRequestBody(data)
-        
-        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-            
-            do {
-                guard let dic = response as? [NSObject : AnyObject] else {
-                    fail(errType: AINetError.Format, errDes: "SingleComment JSON Parse Error...")
-                    return
-                }
-                let model = try SingleComment(dictionary: dic)
-                success(responseData: model)
-            } catch {
-                fail(errType: AINetError.Format, errDes: "SingleComment JSON Parse Error...")
-            }
-            
-        }) { (error: AINetError, errorDes: String!) -> Void in
-            fail(errType: error, errDes: errorDes ?? "")
-        }
-    }
     
     func getCompondComment(serviceId: String, success: (responseData: CompondComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
@@ -71,4 +46,65 @@ extension HttpCommentService: CommentService {
             fail(errType: error, errDes: errorDes ?? "")
         }
     }
+    
+    func queryCommentSpecification(success: (responseData: [StarDesc]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        let message = AIMessage()
+        let url = AIApplication.AIApplicationServerURL.commentSpec.description
+        message.url = url
+        
+        let data = [String: AnyObject]()
+        message.body = BDKTools.createRequestBody(data)
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            do {
+                
+                guard let dic = response as? [AnyObject] else {
+                    fail(errType: AINetError.Format, errDes: "queryCommentSpecification JSON Parse Error...")
+                    return
+                }
+                
+                if let model = StarDesc.arrayOfModelsFromDictionaries(dic) as NSArray? as? [StarDesc] {
+                    success(responseData: model)
+                } else {
+                    fail(errType: AINetError.Format, errDes: "queryCommentSpecification JSON Parse Error...")
+
+                }
+                
+            } catch {
+                fail(errType: AINetError.Format, errDes: "queryCommentSpecification JSON Parse Error...")
+            }
+            
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes ?? "")
+        }
+    }
+    
+    // 提交评论。userType：1 – customer, 2 - provider
+    func submitComments(userID: String, userType: Int, commentList: [ServiceComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        let message = AIMessage()
+        let url = AIApplication.AIApplicationServerURL.saveComment.description
+        message.url = url
+        
+        let data: [String: AnyObject] = ["user_id": userID, "user_type": userType, "comment_list": ServiceComment.arrayOfDictionariesFromModels(commentList)]
+        message.body = BDKTools.createRequestBody(data)
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            do {
+                guard let dic = response as? [NSObject : AnyObject] else {
+                    fail(errType: AINetError.Format, errDes: "submitComments JSON Parse Error...")
+                    return
+                }
+                let model = try RequestResult(dictionary: dic)
+                success(responseData: model)
+            } catch {
+                fail(errType: AINetError.Format, errDes: "submitComments JSON Parse Error...")
+            }
+            
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes ?? "")
+        }
+    }
+    
 }

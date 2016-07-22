@@ -8,39 +8,69 @@
 
 import UIKit
 
+class UINavigationBarAppearance: NSObject {
+	/// bottomPadding 是barButtonItem 和 navigationBar 底部的距离
+	/// spacing 是barButtonItem 和 前一个barButtonItem 距离, 如果index是0 就是和navigationBar的距离
+	var itemPositionForIndexAtPosition: ((Int, UINavigationBarItemPosition) -> (bottomPadding: CGFloat, spacing: CGFloat))?
+	var leftBarButtonItems: [UIView]?
+	var rightBarButtonItems: [UIView]?
+	
+	var titleOption: TitleOption?
+	var barOption: BarOption?
+	var backItemOption: BackItemOption?
+	
+	struct BackItemOption {
+		var image: UIImage?
+	}
+	
+	struct TitleOption {
+		var bottomPadding: CGFloat = -1
+		var font: UIFont?
+		var textColor = UIColor.whiteColor()
+		var text = ""
+	}
+	
+	struct BarOption {
+		var backgroundColor: UIColor?
+		var backgroundImage: UIImage?
+        var shadowImage: UIImage?
+		var height: CGFloat = 44
+	}
+}
+
 extension UIViewController {
 	
 	/// 自定义NavigationBar各种参数
-    ///
-	/// LeftNavigationItems 从左往右index递增
-    ///
-	/// RightNavigationItems 从右往左index递增
-    ///
-	///     func setupNavigationItems() {
-	///         let rightButton1 = UIButton()
-	///         // setup rightButton1
-	///         ...
 	///
-	///         let appearance = UINavigationBarAppearance()
-	///         let barOption = UINavigationBarAppearance.BarOption(backgroundColor: nil, backgroundImage: nil, height: 64)
-	///         let titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 0, font: AITools.myriadSemiboldSemiCnWithSize(20), textColor: UIColor.whiteColor(), text: "测试")
-	///     
-	///         appearance.barOption = barOption
-	///         appearance.titleOption = titleOption
-	///         appearance.rightBarButtonItems = [rightButton1, rightButton2, ...]
-	///         appearance.itemPositionForIndexAtPosition = { index, position in
-	///             if position == .Left {
-	///                 return (10.0, CGFloat(index) * 20.0)
-	///             } else {
-	///                 return (10.0, CGFloat(index) * 20.0)
-	///             }
-	///             // 返回两个参数是 bottomPadding 和 spacing
-	///             // bottomPadding 是barButtonItem 和 navigationBar 底部的距离
-	///             // spacing 是barButtonItem 和 前一个barButtonItem 距离 如果index是0 就是和navigationBar的距离
-	///         }
-	///     
-	///         setNavigationBarAppearance(navigationBarAppearance: appearance)
-	///     }
+	/// LeftNavigationItems 从左往右index递增
+	///
+	/// RightNavigationItems 从右往左index递增
+	///
+	/// func setupNavigationItems() {
+	/// let rightButton1 = UIButton()
+	/// // setup rightButton1
+	/// ...
+	///
+	/// let appearance = UINavigationBarAppearance()
+	/// let barOption = UINavigationBarAppearance.BarOption(backgroundColor: nil, backgroundImage: nil, height: 64)
+	/// let titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 0, font: AITools.myriadSemiboldSemiCnWithSize(20), textColor: UIColor.whiteColor(), text: "测试")
+	///
+	/// appearance.barOption = barOption
+	/// appearance.titleOption = titleOption
+	/// appearance.rightBarButtonItems = [rightButton1, rightButton2, ...]
+	/// appearance.itemPositionForIndexAtPosition = { index, position in
+	/// if position == .Left {
+	/// return (10.0, CGFloat(index) * 20.0)
+	/// } else {
+	/// return (10.0, CGFloat(index) * 20.0)
+	/// }
+	/// // 返回两个参数是 bottomPadding 和 spacing
+	/// // bottomPadding 是barButtonItem 和 navigationBar 底部的距离
+	/// // spacing 是barButtonItem 和 前一个barButtonItem 距离 如果index是0 就是和navigationBar的距离
+	/// }
+	///
+	/// setNavigationBarAppearance(navigationBarAppearance: appearance)
+	/// }
 	///
 	///
 	func setNavigationBarAppearance(navigationBarAppearance appearance: UINavigationBarAppearance) {
@@ -48,10 +78,13 @@ extension UIViewController {
 		
 		// bar background color and image
 		if let barOption = appearance.barOption {
+			navBar.translucent = false
 			let backgroundColor = barOption.backgroundColor
 			let backgroundImage = barOption.backgroundImage
-            navBar.barColor = backgroundColor
+            let shadowImage = barOption.shadowImage
+			navBar.barColor = backgroundColor
 			navBar.barHeight = barOption.height
+            navBar.shadowImage = shadowImage
 			navBar.setBackgroundImage(backgroundImage, forBarPosition: .Any, barMetrics: .Default)
 		}
 		
@@ -168,35 +201,6 @@ enum UINavigationBarItemPosition {
 	case Left
 }
 
-class UINavigationBarAppearance: NSObject {
-    /// bottomPadding 是barButtonItem 和 navigationBar 底部的距离
-    /// spacing 是barButtonItem 和 前一个barButtonItem 距离, 如果index是0 就是和navigationBar的距离
-	var itemPositionForIndexAtPosition: ((Int, UINavigationBarItemPosition) -> (bottomPadding: CGFloat, spacing: CGFloat))?
-	var leftBarButtonItems: [UIView]?
-	var rightBarButtonItems: [UIView]?
-	
-	struct BackItemOption {
-		var image: UIImage?
-	}
-	
-	struct TitleOption {
-		var bottomPadding: CGFloat = -1
-		var font: UIFont?
-		var textColor = UIColor.whiteColor()
-		var text = ""
-	}
-	
-	struct BarOption {
-		var backgroundColor: UIColor?
-		var backgroundImage: UIImage?
-		var height: CGFloat = 44
-	}
-	
-	var titleOption: TitleOption?
-	var barOption: BarOption?
-	var backItemOption: BackItemOption?
-}
-
 extension UINavigationController {
 	
 	class func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {
@@ -238,7 +242,7 @@ class CustomizedNavigationBar: UINavigationBar {
 		if barColor != nil {
 			for v in subviews {
 				if v.isKindOfClass(NSClassFromString("_UINavigationBarBackground")!) {
-                    v.backgroundColor = barColor
+					v.backgroundColor = barColor
 				}
 			}
 		}

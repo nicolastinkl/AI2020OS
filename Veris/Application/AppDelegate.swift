@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	let WX_APPID: String = "wx483dafc09117a3d0"
     var _mapManager: BMKMapManager?
 	
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool { 
 		
 		// AVOS
 		configAVOSCloud()
@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
         configUmengShare()
     
-        redirectConsoleLog()
+        //redirectConsoleLog()
         
 		return true
 		

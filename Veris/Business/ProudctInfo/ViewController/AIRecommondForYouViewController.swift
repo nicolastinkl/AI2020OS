@@ -8,7 +8,7 @@ import UIKit
 
 class AIRecommondForYouViewController: UIViewController {
 	var tableView: UITableView!
-	var data = [String]()
+	private var dataSource: [AISearchResultItemModel] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -18,29 +18,7 @@ class AIRecommondForYouViewController: UIViewController {
 	}
 	
 	func setupNavigationItems() {
-		let rightButton1 = UIButton()
-		rightButton1.setImage(UIImage(named: "ai_audio_button_change"), forState: .Normal)
-		let rightButton2 = UIButton()
-		rightButton2.setImage(UIImage(named: "ai_audio_button_change"), forState: .Normal)
-		let rightButton3 = UIButton()
-		rightButton3.setImage(UIImage(named: "ai_audio_button_change"), forState: .Normal)
-		
-		let appearance = UINavigationBarAppearance()
-		let barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, height: 64)
-		let titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 0, font: AITools.myriadSemiboldSemiCnWithSize(20), textColor: UIColor.whiteColor(), text: "测试")
-		
-		appearance.barOption = barOption
-		appearance.titleOption = titleOption
-		appearance.rightBarButtonItems = [rightButton1, rightButton2, rightButton3]
-		appearance.itemPositionForIndexAtPosition = { index, position in
-			if position == .Left {
-				return (10.0, CGFloat(index) * 20.0)
-			} else {
-				return (10.0, CGFloat(index) * 20.0)
-			}
-		}
-		
-		setNavigationBarAppearance(navigationBarAppearance: appearance)
+		setupNavigationBarLikeQA(title: "为您推荐")
 	}
 	
 	func backButtonPressed() {
@@ -48,15 +26,23 @@ class AIRecommondForYouViewController: UIViewController {
 	}
 	
 	func setupData() {
-		data = [
-			"",
-			"",
-			"",
-			"",
-			"",
-			""
-		]
-		
+		if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
+			let data: NSData? = NSData(contentsOfFile: path)
+			if let dataJSON = data {
+				do {
+					let model = try AISearchResultModel(data: dataJSON)
+					
+					do {
+						try model.results?.forEach({ (item) in
+							let resultItem = try AISearchResultItemModel(dictionary: item as [NSObject: AnyObject])
+							dataSource.append(resultItem)
+						})
+					} catch { }
+				} catch {
+					AILog("AIOrderPreListModel JSON Parse err.")
+				}
+			}
+		}
 	}
 	
 	func setupTableView() {
@@ -65,35 +51,40 @@ class AIRecommondForYouViewController: UIViewController {
 		tableView.backgroundColor = UIColor.clearColor()
 		tableView.delegate = self
 		tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
 		view.addSubview(tableView)
 		tableView.registerNib(UINib(nibName: "AIRecommondForYouCell", bundle: nil), forCellReuseIdentifier: "cell")
 		tableView.snp_makeConstraints { (make) in
 			make.edges.equalTo(view).offset(UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0))
 		}
-        tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+		tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
 	}
 }
 
 // MARK: - UITableViewDataSource
 extension AIRecommondForYouViewController: UITableViewDataSource {
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return data.count
+		return dataSource.count
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
-		return cell
+		let model: AISearchResultItemModel = dataSource[indexPath.row]
+		let cell = AICustomSearchHomeCell.initFromNib() as? AICustomSearchHomeCell
+		cell?.initData(model)
+		cell?.backgroundColor = UIColor.clearColor()
+		return cell!
 	}
 }
 
 // MARK: - UITableViewDelegate
 extension AIRecommondForYouViewController: UITableViewDelegate {
-	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		return AIRecommondForYouCell.cellHeight
-	}
 	
-	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		let vc = AIRecommondForYouViewController()
-		navigationController?.pushViewController(vc, animated: true)
-	}
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let model: AISearchResultItemModel = dataSource[indexPath.row]
+        let vc = AISuperiorityViewController.initFromNib()
+        vc.serviceModel = model
+        showTransitionStyleCrossDissolveView(vc)
+    }
 }
