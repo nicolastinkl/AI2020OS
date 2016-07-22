@@ -86,7 +86,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
 
     @IBAction func navigationBackAction(sender: AnyObject) {
-        self.dismissPopupViewController(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
+        //self.dismissPopupViewController(true, completion: nil)
     }
 
 

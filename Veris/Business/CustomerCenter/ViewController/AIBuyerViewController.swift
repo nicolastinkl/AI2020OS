@@ -75,6 +75,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     private var selfViewPoint: CGPoint?
     var maxBubbleViewController: UIViewController?
+    
     private let rootViewController = AIProposalTableViewController()
 
     // MARK: - Life Cycle
@@ -109,7 +110,9 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidAppear(animated)
         Async.main(after: 0.3) {
             if self.popTableView.subviews.count == 0 {
-                self.addSubViewController(self.rootViewController, toView: self.popTableView)
+                let navigationViewController = UINavigationController(rootViewController: self.rootViewController)
+                navigationViewController.navigationBarHidden = true
+                self.addSubViewController(navigationViewController, toView: self.popTableView)
                 self.finishPanDownwards(self.popTableView, velocity: 0)
             }
             
