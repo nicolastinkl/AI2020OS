@@ -80,7 +80,7 @@ class AIProposalTableViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
     }
     
-    func refreshAfterNewOrder () {
+    func refreshAfterNewOrder() {
         
         weak var ws = self
         Async.main(after: 0.2) { () -> Void in
@@ -110,7 +110,7 @@ class AIProposalTableViewController: UIViewController {
     }
     
     // MARK: - 构造列表区域
-    func makeTableView () {
+    func makeTableView() {
         
         //改为使用虚化背景
         let blurEffect = UIBlurEffect(style: .Dark)
@@ -139,6 +139,12 @@ class AIProposalTableViewController: UIViewController {
         
         
         weak var weakSelf = self
+        tableView.addHeaderRefreshEndCallback { () -> Void in
+            if let weakSelf = weakSelf {
+                weakSelf.tableView.reloadData()
+                weakSelf.collectionView.reloadData()
+            }
+        }
         tableView.addHeaderWithCallback { () -> Void in
             if let weakSelf = weakSelf {
                 weakSelf.clearPropodalData()
@@ -147,15 +153,7 @@ class AIProposalTableViewController: UIViewController {
             
         }
         
-        tableView.addHeaderRefreshEndCallback { () -> Void in
-            if let weakSelf = weakSelf {
-                weakSelf.tableView.headerEndRefreshing()
-                weakSelf.tableView.reloadData()
-                weakSelf.collectionView.reloadData()
-            }
-            
-            
-        }
+
         
 //        collectionView.registerClass(AIProposalCollCell.self, forCellWithReuseIdentifier: kAIProposalCellIdentifierss)
 //        

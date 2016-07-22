@@ -666,7 +666,6 @@
 		FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */; };
 		FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */; };
 		FB7003FF1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7003FE1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift */; };
-		FB7004031D3CBB5200F28692 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7004021D3CBB5200F28692 /* Then.swift */; };
 		FB703ADE1D24B7BF00229A08 /* SwiftWebViewBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */; };
 		FB703ADF1D24B7BF00229A08 /* SwiftWebViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */; };
 		FB703AE21D24C05C00229A08 /* AIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703AE11D24C05C00229A08 /* AIWebViewController.swift */; };
@@ -1692,8 +1691,6 @@
 		FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerCollectionViewCell.m; sourceTree = "<group>"; };
 		FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		FB7003FE1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-CustomizeNavigationBar.swift"; sourceTree = "<group>"; };
-		FB7004011D3CBB5200F28692 /* Then.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Then.h; sourceTree = "<group>"; };
-		FB7004021D3CBB5200F28692 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SwiftWebViewBridge.js; sourceTree = "<group>"; };
 		FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebViewBridge.swift; sourceTree = "<group>"; };
 		FB703AE11D24C05C00229A08 /* AIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWebViewController.swift; sourceTree = "<group>"; };
@@ -3166,7 +3163,6 @@
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				FB7004001D3CBB5200F28692 /* Then */,
 				1234F9A41D351C530009FB4F /* BaiduMap */,
 				FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */,
 				9392B5191D1CD9F10007F241 /* alipay */,
@@ -3586,8 +3582,6 @@
 				939310671D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift */,
 				93C81F891D2B5CF500D84D46 /* AIServerProviderView.swift */,
 				93C81F8B1D2B5D0400D84D46 /* AIServerProviderView.xib */,
-				FB7DA9841D3CAD6A00DEAC9F /* AIRecommondForYouCell.swift */,
-				FB7DA9851D3CAD6A00DEAC9F /* AIRecommondForYouCell.xib */,
 				C95179DC1D40D34400446498 /* AIProvideIView.swift */,
 				C95179DE1D40D36700446498 /* AIProvideIView.xib */,
 				C95179E01D41B41600446498 /* AIAptitudeView.swift */,
@@ -3984,15 +3978,6 @@
 				FB01810A1D0D125400213DF8 /* WeiboUser.h */,
 			);
 			path = libWeiboSDK;
-			sourceTree = "<group>";
-		};
-		FB7004001D3CBB5200F28692 /* Then */ = {
-			isa = PBXGroup;
-			children = (
-				FB7004011D3CBB5200F28692 /* Then.h */,
-				FB7004021D3CBB5200F28692 /* Then.swift */,
-			);
-			path = Then;
 			sourceTree = "<group>";
 		};
 		FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */ = {
@@ -4789,7 +4774,6 @@
 				8175A8021CFD2710006F2C8F /* UIImage+WebP.m in Sources */,
 				81433E831CFBE5A700347C29 /* FLEXNetworkTransactionDetailTableViewController.m in Sources */,
 				8175A7F71CFD2710006F2C8F /* NSData+ImageContentType.m in Sources */,
-				FB7004031D3CBB5200F28692 /* Then.swift in Sources */,
 				846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */,
 				81433E061CFBE5A700347C29 /* CurveModel.m in Sources */,
 				846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */,
