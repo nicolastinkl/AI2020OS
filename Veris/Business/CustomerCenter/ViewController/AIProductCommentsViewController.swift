@@ -9,7 +9,7 @@
 import UIKit
 
 class AIProductCommentsViewController: UIViewController {
-	var comments: [String] = []
+	var comments: [AICommentInfoModel] = Array<AICommentInfoModel>()
 	var tableView: UITableView!
 	var filterBar: AIFilterBar!
 	
@@ -18,9 +18,9 @@ class AIProductCommentsViewController: UIViewController {
 		edgesForExtendedLayout = .None
 		view.backgroundColor = UIColor.clearColor()
 		setupNavigtionItems()
-		setupData()
 		setupFilterBar()
-		setupTableView()
+        setupTableView()
+        setupData()
 	}
 	
 	func setupNavigtionItems() {
@@ -28,18 +28,100 @@ class AIProductCommentsViewController: UIViewController {
 	}
 	
 	func setupData() {
-		comments = [
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-		]
+		
+        localCode { 
+            var commentModel = AICommentInfoModel()
+            commentModel.commentid = 2
+            commentModel.descripation = ""
+            commentModel.images =  ["http://7q5dv2.com1.z0.glb.clouddn.com/Kelvin%20-%20Bootstrap%203%20Resume%20Theme.png",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl1.pic.jpg",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2D57E5A9-8BCE-4A3E-8C9C-E84C40825D89.png",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2H%7BC17WUNL%2503%291%605ANKYL6.jpg",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl7711C941-BD7C-47A3-97EA-192AD2B63B87.png",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklSamsung-Galaxy-Gear-Smartwatch%20%E5%89%AF%E6%9C%AC.PNG",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_4.pic.jpg",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_64ADD30A-2F22-4E39-8FF0-DCE5ADFCC9B9.png",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_9.pic.jpg",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_EC78563D-64FF-4F15-B1C5-2495931006C3.png",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_Placehold@2x.png"]
+            commentModel.level = 3
+            commentModel.providename = "xxxxxxxxxx"
+            commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
+            commentModel.time = 12313
+            
+            self.comments.append(commentModel)
+            
+        }
+        
+        
+        localCode {
+            var commentModel = AICommentInfoModel()
+            commentModel.commentid = 2
+            commentModel.descripation = ""
+            commentModel.images =  ["http://7q5dv2.com1.z0.glb.clouddn.com/Kelvin%20-%20Bootstrap%203%20Resume%20Theme.png",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl1.pic.jpg",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2D57E5A9-8BCE-4A3E-8C9C-E84C40825D89.png",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2H%7BC17WUNL%2503%291%605ANKYL6.jpg",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl7711C941-BD7C-47A3-97EA-192AD2B63B87.png",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklSamsung-Galaxy-Gear-Smartwatch%20%E5%89%AF%E6%9C%AC.PNG",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_4.pic.jpg"]
+            commentModel.level = 3
+            commentModel.providename = "xxxxxxxxxx"
+            commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
+            commentModel.time = 12313
+            
+            self.comments.append(commentModel)
+        }
+        
+        
+        //3
+        
+        localCode {
+            var commentModel = AICommentInfoModel()
+            commentModel.commentid = 2
+            commentModel.descripation = ""
+            commentModel.images =  ["http://7q5dv2.com1.z0.glb.clouddn.com/Kelvin%20-%20Bootstrap%203%20Resume%20Theme.png",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl1.pic.jpg",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2D57E5A9-8BCE-4A3E-8C9C-E84C40825D89.png",
+                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2H%7BC17WUNL%2503%291%605ANKYL6.jpg"]
+            commentModel.level = 3
+            commentModel.providename = "xxxxxxxxxx"
+            commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
+            commentModel.time = 12313
+            
+            self.comments.append(commentModel)
+        }
+        
+        
+        
+        localCode {
+            var commentModel = AICommentInfoModel()
+            commentModel.commentid = 2
+            commentModel.descripation = ""
+            commentModel.images =  []
+            commentModel.level = 3
+            commentModel.providename = "xxxxxxxxxx"
+            commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
+            commentModel.time = 12313
+            
+            self.comments.append(commentModel)
+        }
+        
+        localCode {
+            var commentModel = AICommentInfoModel()
+            commentModel.commentid = 2
+            commentModel.descripation = ""
+            commentModel.images =  []
+            commentModel.level = 3
+            commentModel.providename = "xxxxxxxxxx"
+            commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link,Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
+            commentModel.time = 12313
+            
+            self.comments.append(commentModel)
+        }
+        
+        
+        
 	}
 	
 	func setupFilterBar() {
@@ -72,14 +154,12 @@ class AIProductCommentsViewController: UIViewController {
 		tableView = UITableView(frame: .zero, style: .Plain)
 		tableView.delegate = self
 		tableView.dataSource = self
-		tableView.estimatedRowHeight = 44
-		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.backgroundColor = UIColor.clearColor()
 		tableView.tableFooterView = UIView()
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 		view.addSubview(tableView)
 		
 		tableView.registerClass(AIProductCommentCell.self, forCellReuseIdentifier: "cell")
-		
 		tableView.snp_makeConstraints { (make) in
 			make.top.equalTo(filterBar.snp_bottom)
 			make.bottom.leading.trailing.equalTo(view)
@@ -93,9 +173,20 @@ extension AIProductCommentsViewController: UITableViewDataSource {
 		return comments.count
 	}
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! AIProductCommentCell
-		return cell
+		var cells = tableView.dequeueReusableCellWithIdentifier("cell") as? AIProductCommentCell
+        
+        if let _ = cells {
+            
+        }else{
+            cells = AIProductCommentCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+        }
+        cells?.setup(comments[indexPath.row])
+		return cells ?? UITableViewCell()
 	}
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return AIProductCommentCell.getheight(comments[indexPath.row])
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -138,7 +229,7 @@ class AIFilterBar: UIView {
 		setup()
 	}
 	
-	func setup() {
+    func setup() {
 		let count = titles.count
 		for i in 0..<count {
 			let title = titles[i]
@@ -251,7 +342,15 @@ class AIProductCommentCell: UITableViewCell {
 	var commentInfoView: AICommentInfoView!
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
-		setup()
+		//setup()
+        
+        selectionStyle = .None
+        backgroundColor = UIColor.clearColor()
+        commentInfoView = AICommentInfoView.initFromNib() as! AICommentInfoView
+        contentView.addSubview(commentInfoView)
+//        commentInfoView.snp_makeConstraints { (make) in
+//            make.edges.equalTo(contentView)
+//        }
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -262,14 +361,35 @@ class AIProductCommentCell: UITableViewCell {
 		return true
 	}
 	
-	func setup() {
-		selectionStyle = .None
-		backgroundColor = UIColor.clearColor()
-		commentInfoView = AICommentInfoView.initFromNib() as! AICommentInfoView
-//		commentInfoView.fillDataWithModel()
-		contentView.addSubview(commentInfoView)
-		commentInfoView.snp_makeConstraints { (make) in
-			make.edges.equalTo(contentView)
-		}
+    class func getheight(model: AICommentInfoModel) -> CGFloat {
+        
+        var selfHeight: CGFloat = 34.0
+        let imageViewWidth: CGFloat = 70
+        
+        // count text
+        selfHeight +=
+            model.descripation?.sizeWithFont(AITools.myriadBoldWithSize(13), forWidth: UIScreen.mainScreen().bounds.width).height ?? 0
+        
+        if let urls = model.images {
+
+            let intPers = Int(UIScreen.mainScreen().bounds.width/imageViewWidth)
+            let pers = CGFloat(urls.count) / CGFloat(intPers)
+            let persInt = Int(urls.count) / intPers
+            if pers > CGFloat(persInt) {
+                selfHeight += (imageViewWidth + 2) * (pers + 1)
+            } else {
+                selfHeight += (imageViewWidth + 2) * pers
+            }
+        } else {
+            selfHeight += 0
+        }
+        
+        selfHeight += 20
+        return selfHeight
+        
+    }
+    
+    func setup(model: AICommentInfoModel) {
+        commentInfoView.fillDataWithModel(model)
 	}
 }
