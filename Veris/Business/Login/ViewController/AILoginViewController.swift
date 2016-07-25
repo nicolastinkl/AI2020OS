@@ -99,11 +99,11 @@ class AILoginViewController: UIViewController {
     
     // MARK: -private methods
     func setupNavigationBar() {
-        let navigationBar = self.navigationController!.navigationBar
-        navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navigationBar.shadowImage = UIImage()
-        navigationBar.backgroundColor = UIColor.clearColor()
-        navigationBar.translucent = true
+//        let navigationBar = self.navigationController!.navigationBar
+//        navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+//        navigationBar.shadowImage = UIImage()
+//        navigationBar.backgroundColor = UIColor.clearColor()
+//        navigationBar.translucent = true
         self.navigationController?.navigationBarHidden = true
     }
     

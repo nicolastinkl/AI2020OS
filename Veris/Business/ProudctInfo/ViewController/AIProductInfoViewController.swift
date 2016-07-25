@@ -576,6 +576,7 @@ class AIProductInfoViewController: UIViewController {
         let vc = AIProductQAViewController()
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
+//        presentViewController(nav, animated: true, completion: nil)
 	}
     
     /**
