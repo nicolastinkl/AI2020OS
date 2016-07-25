@@ -9,6 +9,8 @@
 import UIKit
 
 class AIProductCommentsViewController: UIViewController {
+    
+    
 	var comments: [AICommentInfoModel] = Array<AICommentInfoModel>()
 	var tableView: UITableView!
 	var filterBar: AIFilterBar!
@@ -175,10 +177,9 @@ extension AIProductCommentsViewController: UITableViewDataSource {
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		var cells = tableView.dequeueReusableCellWithIdentifier("cell") as? AIProductCommentCell
         
-        if let _ = cells {
-            
-        }else{
+        guard (cells) != nil else {
             cells = AIProductCommentCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+            return cells!
         }
         cells?.setup(comments[indexPath.row])
 		return cells ?? UITableViewCell()
@@ -339,7 +340,10 @@ class AIFilterBar: UIView {
 }
 
 class AIProductCommentCell: UITableViewCell {
+    
+    
 	var commentInfoView: AICommentInfoView!
+    
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		//setup()
@@ -348,9 +352,10 @@ class AIProductCommentCell: UITableViewCell {
         backgroundColor = UIColor.clearColor()
         commentInfoView = AICommentInfoView.initFromNib() as! AICommentInfoView
         contentView.addSubview(commentInfoView)
-//        commentInfoView.snp_makeConstraints { (make) in
-//            make.edges.equalTo(contentView)
-//        }
+        commentInfoView.initSubviews()
+        commentInfoView.snp_makeConstraints { (make) in
+            make.edges.equalTo(contentView)
+        }
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -362,6 +367,8 @@ class AIProductCommentCell: UITableViewCell {
 	}
 	
     class func getheight(model: AICommentInfoModel) -> CGFloat {
+        
+        let offSetWidth: CGFloat = 5
         
         var selfHeight: CGFloat = 34.0
         let imageViewWidth: CGFloat = 70
@@ -376,15 +383,16 @@ class AIProductCommentCell: UITableViewCell {
             let pers = CGFloat(urls.count) / CGFloat(intPers)
             let persInt = Int(urls.count) / intPers
             if pers > CGFloat(persInt) {
-                selfHeight += (imageViewWidth + 2) * (pers + 1)
+                selfHeight += (imageViewWidth + offSetWidth) * (CGFloat)(persInt + 1)
             } else {
-                selfHeight += (imageViewWidth + 2) * pers
+                selfHeight += (imageViewWidth + offSetWidth) * (CGFloat)(persInt)
             }
+            
         } else {
             selfHeight += 0
         }
         
-        selfHeight += 20
+        selfHeight += 40
         return selfHeight
         
     }

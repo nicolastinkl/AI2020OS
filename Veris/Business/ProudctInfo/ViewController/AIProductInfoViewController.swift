@@ -337,6 +337,8 @@ class AIProductInfoViewController: UIViewController {
         commentModel.time = 12313
 		let commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
 		addNewSubView(commentView!, preView: commond)
+        commentView?.initSubviews()
+        commentView?.setWidth(UIScreen.mainScreen().bounds.width)
 		commentView?.fillDataWithModel(commentModel)
 		commentView?.setHeight(commentView?.getheight() ?? 0)
 		// Add Normal Answer Button
