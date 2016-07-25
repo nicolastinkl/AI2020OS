@@ -112,7 +112,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             if self.popTableView.subviews.count == 0 {
                 let navigationViewController = UINavigationController(rootViewController: self.proposalTableViewController)
                 navigationViewController.navigationBarHidden = true
-                self.addSubViewController(navigationViewController, toView: self.popTableView)
+                //TODO: 这里要改成导航切换，还有BUG所以暂时没穿入导航VC
+                self.addSubViewController(self.proposalTableViewController, toView: self.popTableView)
                 self.finishPanDownwards(self.popTableView, velocity: 0)
             }
             
