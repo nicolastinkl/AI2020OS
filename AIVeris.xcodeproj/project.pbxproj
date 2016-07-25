@@ -517,6 +517,8 @@
 		81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */; };
 		81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */; };
 		81F414321D351B8A008DC280 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F414311D351B8A008DC280 /* libsqlite3.0.tbd */; };
+		81FAFB891D45B18900DD3477 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAFB881D45B18900DD3477 /* Requirement.swift */; };
+		81FAFB8B1D45B19900DD3477 /* ScreenAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAFB8A1D45B19900DD3477 /* ScreenAssistant.swift */; };
 		8412C7631D2A6429003F34AF /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412C7621D2A6429003F34AF /* PaddingLabel.swift */; };
 		842936921D17870D00795C57 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842936911D17870D00795C57 /* CheckboxButton.swift */; };
 		844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */; };
@@ -1432,6 +1434,8 @@
 		81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryLabels.swift; sourceTree = "<group>"; };
 		81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		81F414311D351B8A008DC280 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		81FAFB881D45B18900DD3477 /* Requirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
+		81FAFB8A1D45B19900DD3477 /* ScreenAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenAssistant.swift; sourceTree = "<group>"; };
 		8412C7621D2A6429003F34AF /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		842936911D17870D00795C57 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -1874,7 +1878,7 @@
 		814339221CFBE4DF00347C29 /* Veris */ = {
 			isa = PBXGroup;
 			children = (
-				81B990391D3DC41C008E4F16 /* Development */,
+				81FAFB851D45B17500DD3477 /* Developement */,
 				8175A7211CFD2710006F2C8F /* 3rdLibrary */,
 				814339251CFBE5A600347C29 /* Application */,
 				814339291CFBE5A600347C29 /* Business */,
@@ -3377,29 +3381,6 @@
 			name = Defines;
 			sourceTree = "<group>";
 		};
-		81B990391D3DC41C008E4F16 /* Development */ = {
-			isa = PBXGroup;
-			children = (
-				81B9903B1D3E0C79008E4F16 /* ScreenAssistant */,
-				81B9903A1D3E0C6D008E4F16 /* Requirement */,
-			);
-			name = Development;
-			sourceTree = "<group>";
-		};
-		81B9903A1D3E0C6D008E4F16 /* Requirement */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Requirement;
-			sourceTree = "<group>";
-		};
-		81B9903B1D3E0C79008E4F16 /* ScreenAssistant */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ScreenAssistant;
-			sourceTree = "<group>";
-		};
 		81BB86741CFE818900899B58 /* CustomSearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -3433,6 +3414,31 @@
 				93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		81FAFB851D45B17500DD3477 /* Developement */ = {
+			isa = PBXGroup;
+			children = (
+				81FAFB861D45B17500DD3477 /* Requirement */,
+				81FAFB871D45B17500DD3477 /* ScreenAssistant */,
+			);
+			path = Developement;
+			sourceTree = "<group>";
+		};
+		81FAFB861D45B17500DD3477 /* Requirement */ = {
+			isa = PBXGroup;
+			children = (
+				81FAFB881D45B18900DD3477 /* Requirement.swift */,
+			);
+			path = Requirement;
+			sourceTree = "<group>";
+		};
+		81FAFB871D45B17500DD3477 /* ScreenAssistant */ = {
+			isa = PBXGroup;
+			children = (
+				81FAFB8A1D45B19900DD3477 /* ScreenAssistant.swift */,
+			);
+			path = ScreenAssistant;
 			sourceTree = "<group>";
 		};
 		842936901D1786FB00795C57 /* Button */ = {
@@ -4619,6 +4625,7 @@
 				81433DA61CFBE5A700347C29 /* AITaskDataModel.swift in Sources */,
 				81433E7E1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m in Sources */,
 				8175A7EC1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m in Sources */,
+				81FAFB891D45B18900DD3477 /* Requirement.swift in Sources */,
 				84F2E5BA1D17D02E009E0C72 /* SubServiceCardView.swift in Sources */,
 				84F2E5BD1D17F155009E0C72 /* ExpandableTableViewCell.swift in Sources */,
 				FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */,
@@ -4832,6 +4839,7 @@
 				81433D961CFBE5A700347C29 /* AIAssignServiceView.swift in Sources */,
 				81433E821CFBE5A700347C29 /* FLEXNetworkTransaction.m in Sources */,
 				81433CDE1CFBE5A700347C29 /* AITagModel.swift in Sources */,
+				81FAFB8B1D45B19900DD3477 /* ScreenAssistant.swift in Sources */,
 				8175A7C01CFD2710006F2C8F /* RAReorderableLayout.swift in Sources */,
 				81433EA91CFBE5A700347C29 /* AISuperSwipeableCell.m in Sources */,
 				81433CDB1CFBE5A700347C29 /* AIRACModel.swift in Sources */,
