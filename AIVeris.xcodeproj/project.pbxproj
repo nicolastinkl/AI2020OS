@@ -665,6 +665,7 @@
 		FB6127F21D40C8F400DD68DD /* UINavigationBar+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6127F11D40C8F400DD68DD /* UINavigationBar+Theme.swift */; };
 		FB6127F41D40D2EC00DD68DD /* AIProviderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6127F31D40D2EC00DD68DD /* AIProviderDetailViewController.swift */; };
 		FB6127F61D40D2F600DD68DD /* AIProviderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6127F51D40D2F600DD68DD /* AIProviderDetailViewController.xib */; };
+		FB6261FE1D45FAC9003CF604 /* NSUserDefaults+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB734EEC1D45BD4500FD808A /* NSUserDefaults+Object.swift */; };
 		FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */; };
 		FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */; };
 		FB7003FF1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7003FE1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift */; };
@@ -672,6 +673,7 @@
 		FB703ADF1D24B7BF00229A08 /* SwiftWebViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */; };
 		FB703AE21D24C05C00229A08 /* AIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703AE11D24C05C00229A08 /* AIWebViewController.swift */; };
 		FB703AE41D24C59400229A08 /* JSSDK.js in Resources */ = {isa = PBXBuildFile; fileRef = FB703AE31D24C59400229A08 /* JSSDK.js */; };
+		FB734EED1D45BD4500FD808A /* NSUserDefaults+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB734EEC1D45BD4500FD808A /* NSUserDefaults+Object.swift */; };
 		FB73551E1D23ACFC00CE549C /* AIProductCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */; };
 		FB7355201D23B7B300CE549C /* UILabel-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */; };
 		FB74E0161D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB74E0141D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.swift */; };
@@ -1699,6 +1701,7 @@
 		FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebViewBridge.swift; sourceTree = "<group>"; };
 		FB703AE11D24C05C00229A08 /* AIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWebViewController.swift; sourceTree = "<group>"; };
 		FB703AE31D24C59400229A08 /* JSSDK.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSSDK.js; sourceTree = "<group>"; };
+		FB734EEC1D45BD4500FD808A /* NSUserDefaults+Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Object.swift"; sourceTree = "<group>"; };
 		FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductCommentsViewController.swift; sourceTree = "<group>"; };
 		FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel-Helper.swift"; sourceTree = "<group>"; };
 		FB74E0141D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchHomeResultFilterBar.swift; sourceTree = "<group>"; };
@@ -3076,6 +3079,7 @@
 				81433C011CFBE5A700347C29 /* NullSafe.m */,
 				81433C021CFBE5A700347C29 /* Player.swift */,
 				848316A51D3344AA00082D38 /* BDKTools.swift */,
+				FB734EEC1D45BD4500FD808A /* NSUserDefaults+Object.swift */,
 			);
 			path = GeneralUtils;
 			sourceTree = "<group>";
@@ -4420,6 +4424,7 @@
 				84717F2A1D348F9200AE7E9A /* CommentModel.m in Sources */,
 				84717F291D348C5700AE7E9A /* CommentService.swift in Sources */,
 				84717F2E1D34919800AE7E9A /* AIMessage.m in Sources */,
+				FB6261FE1D45FAC9003CF604 /* NSUserDefaults+Object.swift in Sources */,
 				84717F2D1D348FE400AE7E9A /* AINetEngine.m in Sources */,
 				84717F271D3489D100AE7E9A /* CommentTest.swift in Sources */,
 			);
@@ -4517,6 +4522,7 @@
 				81433E801CFBE5A700347C29 /* FLEXNetworkRecorder.m in Sources */,
 				81433E401CFBE5A700347C29 /* AIUIViewUtils.swift in Sources */,
 				8175A7E91CFD2710006F2C8F /* OAStackView+Hiding.m in Sources */,
+				FB734EED1D45BD4500FD808A /* NSUserDefaults+Object.swift in Sources */,
 				84512D531D2BA6BF007E2E8A /* ListSubServiceCardView.swift in Sources */,
 				81433E871CFBE5A700347C29 /* FLEXArrayExplorerViewController.m in Sources */,
 				81433D1F1CFBE5A700347C29 /* AITitleAndIconTextView.swift in Sources */,
