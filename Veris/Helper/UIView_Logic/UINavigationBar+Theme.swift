@@ -45,4 +45,8 @@ extension UIViewController {
 	func dismiss() {
 		dismissViewControllerAnimated(true, completion: nil)
 	}
+    
+    func setupNavigationBarLikeLogin(title title: String, needCloseButton: Bool) {
+        
+    }
 }

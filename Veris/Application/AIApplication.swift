@@ -20,10 +20,10 @@ struct AIApplication {
     // MARK: LEANCLOUD APPKEY
     internal static let AVOSCLOUDID  = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
     internal static let AVOSCLOUDKEY = "LGwq0DTaJb8D59IV3kK18wmh"
-    internal static let KURL_ReleaseURL =  "http://10.5.1.249:2999"  //正式地址
+    internal static let KURL_ReleaseURL =  "http://10.5.1.249:3000"  //正式地址
     internal static let KURL_DebugURL   =  "http://171.221.254.231:3000"  //测试地址
     internal static let UMengAppID      = "5784b6a767e58e5d1b003373"      //友盟分享id
-    internal static let KURL_Appstore_ReleaseURL =  "http://10.5.1.249:2999/nsboss"  //appstore版本正式地址
+    internal static let KURL_Appstore_ReleaseURL =  "http://171.221.254.231:2999/nsboss"  //appstore版本正式地址
 
     // MARK: XUNFEI APPID
     internal static let XUNFEIAPPID  = "551ba83b"
@@ -454,8 +454,8 @@ struct AIApplication {
             case .initTask: return AIApplication.KURL_ReleaseURL + "/initTask"
                 
             //登陆注册接口
-            case .register: return AIApplication.KURL_Appstore_ReleaseURL + "/register"
-            case .login: return AIApplication.KURL_Appstore_ReleaseURL + "/login"
+            case .register: return AIApplication.KURL_Appstore_ReleaseURL + "/admin/register"
+            case .login: return AIApplication.KURL_Appstore_ReleaseURL + "/admin/login"
                 
             //服务评论接口
             case .compondComment: return AIApplication.KURL_Appstore_ReleaseURL + "/comments/queryUserComments"
