@@ -46,7 +46,37 @@ extension UIViewController {
 		dismissViewControllerAnimated(true, completion: nil)
 	}
     
+    /**
+     用于登陆注册页面的导航栏
+     
+     - parameter title:           导航栏标题
+     - parameter needCloseButton: 是否需要右边close按钮
+     */
     func setupNavigationBarLikeLogin(title title: String, needCloseButton: Bool) {
+        extendedLayoutIncludesOpaqueBars = true
         
+        let backButton = UIButton()
+        backButton.setImage(UIImage(named: "login_back"), forState: .Normal)
+        backButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
+        
+        let appearance = UINavigationBarAppearance()
+        
+        appearance.leftBarButtonItems = [backButton]
+        if needCloseButton {
+            let rightCloseButton = UIButton()
+            rightCloseButton.setImage(UIImage(named: "login_close"), forState: .Normal)
+            rightCloseButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
+            appearance.rightBarButtonItems = [rightCloseButton]
+        }
+        
+        appearance.itemPositionForIndexAtPosition = { index, position in
+            return (0, 0)
+        }
+        
+        appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, shadowImage: nil, height: AITools.displaySizeFrom1242DesignSize(192))
+        
+        appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 15.displaySizeFrom1242DesignSize(), font: LoginConstants.Fonts.NavigationTitle, textColor: UIColor.whiteColor(), text: title)
+        
+        setNavigationBarAppearance(navigationBarAppearance: appearance)
     }
 }
