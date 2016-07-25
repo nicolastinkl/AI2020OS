@@ -112,7 +112,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             if self.popTableView.subviews.count == 0 {
                 let navigationViewController = UINavigationController(rootViewController: self.proposalTableViewController)
                 navigationViewController.navigationBarHidden = true
-                self.addSubViewController(navigationViewController, toView: self.popTableView)
+                self.addSubViewController(self.proposalTableViewController, toView: self.popTableView)
                 self.finishPanDownwards(self.popTableView, velocity: 0)
             }
             
