@@ -91,7 +91,7 @@ class AIProviderDetailViewController: UIViewController {
 				return (47.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
 			}
 		}
-		appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, shadowImage: UIImage(), height: AITools.displaySizeFrom1242DesignSize(192))
+		appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
 		setNavigationBarAppearance(navigationBarAppearance: appearance)
 	}
 }

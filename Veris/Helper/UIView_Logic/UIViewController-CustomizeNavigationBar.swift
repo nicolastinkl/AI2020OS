@@ -33,7 +33,7 @@ class UINavigationBarAppearance: NSObject {
 	struct BarOption {
 		var backgroundColor: UIColor?
 		var backgroundImage: UIImage?
-        var shadowImage: UIImage?
+		var removeShadowImage: Bool = false
 		var height: CGFloat = 44
 	}
 }
@@ -81,11 +81,15 @@ extension UIViewController {
 			navBar.translucent = false
 			let backgroundColor = barOption.backgroundColor
 			let backgroundImage = barOption.backgroundImage
-            let shadowImage = barOption.shadowImage
 			navBar.barColor = backgroundColor
 			navBar.barHeight = barOption.height
-            navBar.shadowImage = shadowImage
 			navBar.setBackgroundImage(backgroundImage, forBarPosition: .Any, barMetrics: .Default)
+			
+			let removeShadowImage = barOption.removeShadowImage
+			navBar.removeShadowImage = removeShadowImage
+			if removeShadowImage == false {
+				navBar.shadowImage = UIImage()
+			}
 		}
 		
 		// back item
@@ -236,13 +240,22 @@ extension UINavigationController {
 class CustomizedNavigationBar: UINavigationBar {
 	var barHeight: CGFloat = 44
 	var barColor: UIColor?
+	var removeShadowImage: Bool = false
 	
 	override func layoutSubviews() {
 		super.layoutSubviews()
-		if barColor != nil {
-			for v in subviews {
-				if v.isKindOfClass(NSClassFromString("_UINavigationBarBackground")!) {
-					v.backgroundColor = barColor
+		var barBg: UIView?
+		for v in subviews {
+			if v.isKindOfClass(NSClassFromString("_UINavigationBarBackground")!) {
+				v.backgroundColor = barColor
+				barBg = v
+			}
+		}
+		
+		if let barBg = barBg {
+			for v in barBg.subviews {
+				if v.height < 1 {
+					v.hidden = removeShadowImage
 				}
 			}
 		}

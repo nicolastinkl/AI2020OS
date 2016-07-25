@@ -140,6 +140,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         timelineTableView.registerNib(UINib(nibName: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell, bundle: nil), forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell)
         timelineTableView.delegate = self
         timelineTableView.dataSource = self
+//        timelineTableView.estimatedRowHeight = 110
+//        timelineTableView.rowHeight = UITableViewAutomaticDimension
         //下拉刷新方法
         weak var weakSelf = self
         timelineTableView.addHeaderWithCallback { 
