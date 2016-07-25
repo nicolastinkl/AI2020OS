@@ -120,7 +120,7 @@ public class AIImageView: UIImageView {
                         } else {
                             self.userInteractionEnabled = true
                             // add try button
-                            let button = UIButton(frame: CGRectZero)
+                            let button = UIButton(frame: .zero)
                             button.setImage(UIImage(named: "AI_ProductInfo_Home_like"), forState: UIControlState.Normal)
                             self.addSubview(button)
                             button.setWidth(self.width)
@@ -167,7 +167,7 @@ public class AIImageView: UIImageView {
                     if error != nil {
                         self.userInteractionEnabled = true
                         // add try button
-                        let button = UIButton(frame: CGRectZero)
+                        let button = UIButton(frame: .zero)
                         button.setImage(UIImage(named: "AI_ProductInfo_Home_like"), forState: UIControlState.Normal)
                         self.addSubview(button)
                         button.setWidth(self.width)
@@ -190,7 +190,7 @@ public class AIImageView: UIImageView {
     
     
     // Retry Upload Image to LeanCloud.
-    func imageUploadRetry(button: UIButton){
+    func imageUploadRetry(button: UIButton) {
         button.removeFromSuperview()
         uploadImage { (nil, url, error) in
             
