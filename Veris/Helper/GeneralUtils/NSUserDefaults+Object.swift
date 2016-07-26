@@ -8,49 +8,62 @@
 
 import Foundation
 
-protocol NSUserDefaultsObjectConvertible: NSCoding {
-	func save()
-	var allKeys: [String] { get }
-}
-
-extension NSUserDefaultsObjectConvertible where Self: NSObject {
-	func save() {
-		NSUserDefaults.standardUserDefaults().synchronize()
-	}
-}
-
-class NSUserDefaultsObject: NSObject, NSCoding, NSUserDefaultsObjectConvertible {
-	
-	var allKeys: [String] {
-		fatalError("subclass needs override this property")
+extension JSONModel {
+	func save() -> Bool {
+		var allJSONStrings = self.dynamicType._allJSONStrings()
+		allJSONStrings.append(toJSONString())
+		let key = String(self.dynamicType)
+		let defaults = NSUserDefaults.standardUserDefaults()
+		defaults.setObject(allJSONStrings, forKey: key)
+		return defaults.synchronize()
 	}
 	
-	var uniqueId: Int = 0
-	
-	class func allObjects<T: NSUserDefaultsObject>() -> [T] {
-		print(T)
-		return []
-	}
-	
-	func encodeWithCoder(aCoder: NSCoder) {
-		for key in allKeys {
-			aCoder.encodeObject(valueForKey(key), forKey: key)
+	func delete() -> Bool {
+		var allJSONStrings = self.dynamicType._allJSONStrings()
+		let JSONString = toJSONString()!
+		if let index = allJSONStrings.indexOf(JSONString) {
+			allJSONStrings.removeAtIndex(index)
+			let key = String(self.dynamicType)
+			let defaults = NSUserDefaults.standardUserDefaults()
+			defaults.setObject(allJSONStrings, forKey: key)
+			return defaults.synchronize()
+		} else {
+			return false
 		}
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
-		super.init()
-		for key in allKeys {
-			setValue(aDecoder.decodeObjectForKey(key), forKey: key)
+	static func _allJSONStrings() -> [String] {
+		let key = NSStringFromClass(self)
+		
+		let defaults = NSUserDefaults.standardUserDefaults()
+		if let result = defaults.objectForKey(key) as? [String] {
+			return result
+		} else {
+			let result = [String]()
+			defaults.setObject(result, forKey: key)
+			defaults.synchronize()
+			return result
 		}
 	}
 	
-}
-
-class CommentDraft: NSUserDefaultsObject {
-	var localULR = ""
-	var remoteULR = ""
-	override var allKeys: [String] {
-		return ["uniqueId", "localURL", "remoteULR"]
+    /// 获取所有在NSUserDefaults中的对象
+    /// 注意需要先传入对像类型，例如
+    ///
+    ///     let allStarDescs: [StarDesc] = StarDesc.allObjectsInUserDefaults()
+    ///
+    ///
+	static func allObjectsInUserDefaults<T: JSONModel>(filter: ((T -> Bool)?) = nil) -> [T] {
+		var result = [T]()
+		for (_, json) in _allJSONStrings().enumerate() {
+			let object = T(string: json, error: nil)
+			if let filter = filter {
+				if filter(object) {
+					result.append(object)
+				}
+			} else {
+				result.append(object)
+			}
+		}
+		return result
 	}
 }

@@ -156,3 +156,5 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialSinaSSOHandler.h"
+
+#import "MBFingerTipWindow.h"

@@ -20,7 +20,36 @@ class SBOSSTestCase: XCTestCase {
 	}
 	
 	func testExample() {
-        let list = CommentDraft.allObjects()
+		let singleComments: [SingleComment] = SingleComment.allObjectsInUserDefaults({ t in
+			return t.service_name == "zx"
+		})
+		if let singleComment = singleComments.first {
+			singleComment.delete()
+		}
+		print(singleComments)
+		
+		let newOne = SingleComment()
+		newOne.service_name = "zx"
+		newOne.save()
+	}
+	
+	func testCompare() {
+        
+		let model1 = StarDesc()
+		model1.name = "zx"
+		model1.id = "233"
+		model1.save()
+        
+		let allStarDescs: [StarDesc] = StarDesc.allObjectsInUserDefaults()
+		print(allStarDescs)
+		
+		if allStarDescs.count > 0 {
+			print(allStarDescs.first!)
+		}
+        
+        let firstModel = allStarDescs.first!
+        
+        assert(model1.toJSONString() != firstModel.toJSONString())
 	}
 	
 	private func initNetEngine() {
