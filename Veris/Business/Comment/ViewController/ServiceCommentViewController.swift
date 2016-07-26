@@ -35,8 +35,9 @@ class ServiceCommentViewController: AbsCommentViewController {
      //   loadStarsDes()
     }
 
-    override func imagePicked(image: UIImage) {
-        commentDistrict.addImage(image)
+    override func imagesPicked(images: [ImageInfo]) {
+        
+        commentDistrict.addImages(imageInfos: images)
     }
     
     func dismissAction(sender: UIGestureRecognizer) {

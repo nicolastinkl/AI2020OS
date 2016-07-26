@@ -554,6 +554,15 @@
 		84717F311D349ABA00AE7E9A /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C071CFBE5A700347C29 /* UIColorUtils.swift */; };
 		84717F321D349CC900AE7E9A /* AIDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B6005B1D25169E0052ADC8 /* AIDefines.swift */; };
 		847D29741D40BC2A009E26B8 /* SBOSSTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29731D40BC2A009E26B8 /* SBOSSTestCase.swift */; };
+		847D29761D4748C9009E26B8 /* CommentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */; };
+		847D297A1D474F27009E26B8 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BDF1CFBE5A700347C29 /* Localize.swift */; };
+		847D297B1D474F34009E26B8 /* CustomXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AAD1CFBE5A700347C29 /* CustomXibView.swift */; };
+		847D297D1D474FA2009E26B8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847D297C1D474FA2009E26B8 /* AssetsLibrary.framework */; };
+		847D29811D47504C009E26B8 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847D29801D47504C009E26B8 /* AVKit.framework */; };
+		847D29821D475055009E26B8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
+		847D29831D475129009E26B8 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81433B361CFBE5A700347C29 /* AVOSCloud.framework */; };
+		847D29851D4751E9009E26B8 /* ImageInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29841D4751E9009E26B8 /* ImageInfoModel.swift */; };
+		847D29861D475228009E26B8 /* ImageInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29841D4751E9009E26B8 /* ImageInfoModel.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -1469,6 +1478,9 @@
 		84717F261D3489D100AE7E9A /* CommentTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTest.swift; sourceTree = "<group>"; };
 		84717F2F1D3498D300AE7E9A /* AIVerisTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AIVerisTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		847D29731D40BC2A009E26B8 /* SBOSSTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBOSSTestCase.swift; sourceTree = "<group>"; };
+		847D297C1D474FA2009E26B8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		847D29801D47504C009E26B8 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		847D29841D4751E9009E26B8 /* ImageInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInfoModel.swift; sourceTree = "<group>"; };
 		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
@@ -1732,7 +1744,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847D29821D475055009E26B8 /* AVFoundation.framework in Frameworks */,
+				847D29811D47504C009E26B8 /* AVKit.framework in Frameworks */,
+				847D297D1D474FA2009E26B8 /* AssetsLibrary.framework in Frameworks */,
 				FD6E63660FC29EFB7CB17D2E /* Pods_VerisTests.framework in Frameworks */,
+				847D29831D475129009E26B8 /* AVOSCloud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1846,6 +1862,8 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				847D29801D47504C009E26B8 /* AVKit.framework */,
+				847D297C1D474FA2009E26B8 /* AssetsLibrary.framework */,
 				1234F99D1D349FFA0009FB4F /* CoreLocation.framework */,
 				1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */,
 				81F414311D351B8A008DC280 /* libsqlite3.0.tbd */,
@@ -3492,6 +3510,7 @@
 				8483169E1D33374200082D38 /* CommentService.swift */,
 				848316A21D333B1C00082D38 /* CommentModel.h */,
 				848316A31D333B3E00082D38 /* CommentModel.m */,
+				847D29841D4751E9009E26B8 /* ImageInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4434,8 +4453,12 @@
 				84717F1F1D3483E300AE7E9A /* VerisTests.swift in Sources */,
 				84717F2C1D348FC900AE7E9A /* BDKTools.swift in Sources */,
 				84717F2B1D348FC200AE7E9A /* AIApplication.swift in Sources */,
+				847D297A1D474F27009E26B8 /* Localize.swift in Sources */,
+				847D29861D475228009E26B8 /* ImageInfoModel.swift in Sources */,
 				84717F2A1D348F9200AE7E9A /* CommentModel.m in Sources */,
 				84717F291D348C5700AE7E9A /* CommentService.swift in Sources */,
+				847D29761D4748C9009E26B8 /* CommentHelp.swift in Sources */,
+				847D297B1D474F34009E26B8 /* CustomXibView.swift in Sources */,
 				84717F2E1D34919800AE7E9A /* AIMessage.m in Sources */,
 				FB6261FE1D45FAC9003CF604 /* NSUserDefaults+Object.swift in Sources */,
 				84717F2D1D348FE400AE7E9A /* AINetEngine.m in Sources */,
@@ -4568,6 +4591,7 @@
 				81433E971CFBE5A700347C29 /* FLEXResources.m in Sources */,
 				8175A7FD1CFD2710006F2C8F /* SDWebImageManager.m in Sources */,
 				81433D061CFBE5A700347C29 /* AIRemoteNotificationHandler.swift in Sources */,
+				847D29851D4751E9009E26B8 /* ImageInfoModel.swift in Sources */,
 				81433CFA1CFBE5A700347C29 /* AITagLabel.m in Sources */,
 				81433CE01CFBE5A700347C29 /* AIBuyerBubbleModel.m in Sources */,
 				8175A8011CFD2710006F2C8F /* UIImage+MultiFormat.m in Sources */,
@@ -4990,6 +5014,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
+				);
 				INFOPLIST_FILE = VerisTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -5007,6 +5035,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
+				);
 				INFOPLIST_FILE = VerisTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
