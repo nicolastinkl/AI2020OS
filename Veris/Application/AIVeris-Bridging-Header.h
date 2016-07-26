@@ -156,3 +156,6 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialSinaSSOHandler.h"
+
+// Common Model
+#import "AICommonBusinessModels.h"
