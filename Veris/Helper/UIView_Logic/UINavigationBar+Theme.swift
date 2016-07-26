@@ -78,9 +78,8 @@ extension UIViewController {
         }
         
         appearance.itemPositionForIndexAtPosition = { index, position in
-            return (0, 0)
+            return (0, 40.displaySizeFrom1242DesignSize())
         }
-        
         appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
         
         appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 15.displaySizeFrom1242DesignSize(), font: LoginConstants.Fonts.NavigationTitle, textColor: UIColor.whiteColor(), text: title)
