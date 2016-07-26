@@ -106,22 +106,40 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         }
     }
 
-    override func imagePicked(image: UIImage) {
+    override func imagesPicked(images: [ImageInfo]) {
         if let cell = getCurrentOperateCell() {
 
             let row = cell.tag
             
             if let cell = serviceTableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? ServiceCommentTableViewCell {
-                if cell.isEditingAppendComment {
-                    comments[row].secondImages.append(image)
-                } else {
-                    comments[row].firstImages.append(image)
-                }
                 
-                cell.addAsyncUploadImage(image, id: nil, complate: nil)
+                
+                for imageInfo in images {
+                    cell.addAsyncUploadImage(imageInfo.image, id: nil, complate: nil)
+                    
+                    if cell.isEditingAppendComment {
+                        comments[row].secondImages.append(imageInfo.image)
+                    } else {
+                        comments[row].firstImages.append(imageInfo.image)
+                    }
+                }
             }
         }
     }
+    
+    func saveImage(info: ImageInfo) {
+         ALAssetsLibrary().writeImageToSavedPhotosAlbum(info.image.CGImage, orientation: ALAssetOrientation(rawValue: info.image.imageOrientation.rawValue)!) { (path: NSURL!, error: NSError!) in
+            info.url = path
+        }
+    }
+    
+    func saveImages(infos: [ImageInfo]) {
+        for info in infos {
+            saveImage(info)
+        }
+    }
+    
+    
 
 }
 
@@ -190,6 +208,7 @@ class SubServiceCommentViewModel {
     var secondImages = [UIImage]()
     var cellState: CommentState!
     var commentEditable = false
+    var serviceId: String?
 }
 
 protocol CommentCellProtocol {

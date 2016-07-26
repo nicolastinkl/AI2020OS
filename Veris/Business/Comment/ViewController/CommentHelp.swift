@@ -9,6 +9,7 @@
 import Foundation
 
 class CommentUtils {
+    private static let idPrefix = "CommentImage_"
     private static var starDes: [StarDesc]?
     
     static var hasStarDesData: Bool {
@@ -19,5 +20,34 @@ class CommentUtils {
     
     class func setStarDesData(starList: [StarDesc]) {
         starDes = starList  
+    }
+    
+    class func getCommentImageInfo(serviceId: String) -> ImageInfoPList? {
+        let defa = NSUserDefaults.standardUserDefaults()
+        
+        let key = createImageKey(serviceId)
+        
+        return defa.objectForKey(key) as? ImageInfoPList
+    }
+    
+    class func saveCommentImageInfo(serviceId: String, info: ImageInfoPList) {
+        let defa = NSUserDefaults.standardUserDefaults()
+        
+        let data = NSKeyedArchiver.archivedDataWithRootObject(ImageInfoPList)
+        
+        defa.setObject(data, forKey: createImageKey(serviceId))
+        defa.synchronize()
+    }
+    
+    private class func createImageKey(info: ImageInfo) -> String? {
+        if let id = info.serviceId {
+            return createImageKey(id)
+        } else {
+            return nil
+        }
+    }
+    
+    private class func createImageKey(serviceId: String) -> String {
+        return idPrefix + serviceId
     }
 }
