@@ -322,7 +322,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	
 	func showRootViewControllerReal() {
 		// 创建Root
-		self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+		self.window = MBFingerTipWindow(frame: UIScreen.mainScreen().bounds)
+//        if let window = window as? MBFingerTipWindow {
+//            window.alwaysShowTouches = true
+//        }
 		let root = AIRootViewController()
 		// 创建导航控制器
 		let nav = UINavigationController(rootViewController: root)

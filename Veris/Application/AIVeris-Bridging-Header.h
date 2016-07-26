@@ -156,5 +156,5 @@
 #import "UMSocialWechatHandler.h"
 #import "UMSocialSinaSSOHandler.h"
 
-
 #import <CommonCrypto/CommonHMAC.h>
+#import "MBFingerTipWindow.h"
