@@ -66,9 +66,9 @@ class AILoginViewController: UIViewController {
         setupViews()
         
         #if DEBUG
-//            userIdTextField.text = "18982194190"
-//            passwordTextField.text = "nodgdi"
-//            loginButton.enabled = true
+            userIdTextField.text = "18982194190"
+            passwordTextField.text = "nodgdi"
+            loginButton.enabled = true
         #endif
         
         

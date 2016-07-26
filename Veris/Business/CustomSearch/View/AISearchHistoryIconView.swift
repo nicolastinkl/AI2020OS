@@ -8,7 +8,12 @@
 
 import UIKit
 
+protocol AISearchHistoryIconViewDelegate: NSObjectProtocol {
+    func searchHistoryIconView(iconView: AISearchHistoryIconView, didClickAtIndex index: Int)
+}
+
 class AISearchHistoryIconView: UIView {
+    weak var delegate: AISearchHistoryIconViewDelegate?
 	var items: [(image: String, title: String)]!
 	
 	private var titleLabel: UILabel!
@@ -70,6 +75,8 @@ class AISearchHistoryIconView: UIView {
 			iconLabel.imageSpaceToLabel = AITools.displaySizeFrom1242DesignSize(34)
 			iconLabel.tag = i
 			iconLabel.text = item.title
+            let tap = UITapGestureRecognizer(target: self, action: #selector(AISearchHistoryIconView.iconLabelTapped(_:)))
+            iconLabel.addGestureRecognizer(tap)
 			if let image = UIImage(named: item.image) {
 				iconLabel.image = image
 			} else if let imageURL = NSURL(string: item.image) {
@@ -78,5 +85,9 @@ class AISearchHistoryIconView: UIView {
 			iconContainerView.addSubview(iconLabel)
 		}
 	}
+    
+    func iconLabelTapped(sender: UITapGestureRecognizer) {
+        delegate?.searchHistoryIconView(self, didClickAtIndex: sender.view!.tag)
+    }
 	
 }

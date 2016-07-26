@@ -49,7 +49,7 @@ class SBOSSTestCase: XCTestCase {
         
         let firstModel = allStarDescs.first!
         
-        assert(model1.toJSONString() != firstModel.toJSONString())
+        assert(model1.toJSONString() == firstModel.toJSONString())
 	}
 	
 	private func initNetEngine() {
