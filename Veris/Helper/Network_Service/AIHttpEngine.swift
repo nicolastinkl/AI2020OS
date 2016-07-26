@@ -14,6 +14,7 @@ struct Error {
 
     enum ResultCode: Int {
         case fail = 0, success
+        case relogin = 401
     }
 
     let message: String
@@ -115,6 +116,10 @@ struct AIHttpEngine {
                                 response(response: nil, error: Error(message: "", code: stas))
                             }
 
+                        }
+                        
+                        if stas == Error.ResultCode.relogin.rawValue {
+                            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIRELoginNotification, object: nil)
                         }
                     } else {
                         response(response: nil, error: Error(message: "Data format error", code: 0))

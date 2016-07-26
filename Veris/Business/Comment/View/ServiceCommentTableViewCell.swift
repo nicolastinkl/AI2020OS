@@ -339,8 +339,3 @@ protocol CommentCellDelegate {
     func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
     func commentHeightChanged()
 }
-
-
-
-
-

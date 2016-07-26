@@ -107,8 +107,6 @@ class AICommentInfoView: UIView {
             //imageview.setURL(NSURL(string: url), placeholderImage: smallPlace(), showProgress: true)
             imageview.hidden = true
             offWidth += imageview.width
-            
-            
         }
     }
     

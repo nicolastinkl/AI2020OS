@@ -176,6 +176,9 @@ struct AIApplication {
         static let UIAIASINFOWillShowBarNotification    = "UIAIASINFOWillShowBarNotification"
         static let UIAIASINFOWillhiddenBarNotification  = "UIAIASINFOWillhiddenBarNotification"
         static let UIAIASINFOLoginNotification          = "UIAIASINFOLoginNotification"
+        
+        // 会话过期重新登录
+        static let UIRELoginNotification                = "UIRELoginNotification"
         static let UIAIASINFOLogOutNotification         = "UIAIASINFOLogOutNotification"
 
         static let UIAIASINFOOpenAddViewNotification         = "UIAIASINFOOpenAddViewNotification"
