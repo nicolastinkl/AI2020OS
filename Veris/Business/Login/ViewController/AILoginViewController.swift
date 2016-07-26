@@ -64,7 +64,6 @@ class AILoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         AILoginPublicValue.loginType = LoginConstants.LoginType.Login
         setupViews()
-        setupNavigationBar()
         
         #if DEBUG
 //            userIdTextField.text = "18982194190"
@@ -80,6 +79,18 @@ class AILoginViewController: UIViewController {
 //            debugPrint(url)
 //        }
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //必须在view出现和消失是设置是否显示导航栏
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        //必须在view出现和消失是设置是否显示导航栏
+        self.navigationController?.navigationBarHidden = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -98,14 +109,6 @@ class AILoginViewController: UIViewController {
     }
     
     // MARK: -private methods
-    func setupNavigationBar() {
-        let navigationBar = self.navigationController!.navigationBar
-        navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navigationBar.shadowImage = UIImage()
-        navigationBar.backgroundColor = UIColor.clearColor()
-        navigationBar.translucent = true
-        self.navigationController?.navigationBarHidden = true
-    }
     
     func setupViews() {
         //userIdTextField

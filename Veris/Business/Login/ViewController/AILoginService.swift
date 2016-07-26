@@ -23,8 +23,9 @@ class LoginAction: NSObject, AILoginViewControllerDelegate {
 		super.init()
 		loginHandler = completion
 		let storyBoard: UIStoryboard = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil)
-		let viewNavi = storyBoard.instantiateInitialViewController() as! UINavigationController
-		viewController.presentViewController(viewNavi, animated: true, completion: nil)
+		let loginVC = storyBoard.instantiateInitialViewController() as! AILoginViewController
+        let navVC = UINavigationController(rootViewController: loginVC)
+		viewController.presentViewController(navVC, animated: true, completion: nil)
 	}
 	
 	func didLogin(completion: LoginHandler) {

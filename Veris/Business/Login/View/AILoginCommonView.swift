@@ -172,17 +172,18 @@ class AILoginPromptLabel: UILabel {
 
 extension UIViewController {
     func setupLoginNavigationBar(title: String) {
-        let frame = CGRect(x: 0, y: 0, width: 100, height: 44)
-        let titleLabel = UILabel(frame: frame)
-        titleLabel.font = LoginConstants.Fonts.NavigationTitle
-        titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.text = title
-        self.navigationItem.titleView = titleLabel
-        //这样才是原图渲染，不受tintColor影响
-        let backImage = UIImage(named: "login_back")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.loginBackAction(_:)))
-        leftButtonItem.tintColor = UIColor.lightGrayColor()
-        self.navigationItem.leftBarButtonItem = leftButtonItem
+//        let frame = CGRect(x: 0, y: 0, width: 100, height: 44)
+//        let titleLabel = UILabel(frame: frame)
+//        titleLabel.font = LoginConstants.Fonts.NavigationTitle
+//        titleLabel.textColor = UIColor.whiteColor()
+//        titleLabel.text = title
+//        self.navigationItem.titleView = titleLabel
+//        //这样才是原图渲染，不受tintColor影响
+//        let backImage = UIImage(named: "login_back")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+//        let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.loginBackAction(_:)))
+//        leftButtonItem.tintColor = UIColor.lightGrayColor()
+//        self.navigationItem.leftBarButtonItem = leftButtonItem
+        self.setupNavigationBarLikeLogin(title: title, needCloseButton: true)
     }
 
     func loginBackAction(button: UIBarButtonItem) {

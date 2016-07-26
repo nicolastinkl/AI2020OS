@@ -32,7 +32,15 @@ class AIImageRecongizeService: NSObject {
 							if let objectList = res["data"]?["objectList"] as? NSArray {
 								if objectList.count > 0 {
 									let firstItem = objectList.firstObject as! NSDictionary
-									callback?(firstItem["name"] as? String, error: nil)
+									if let name = firstItem["name"] as? String {
+										if let result = name.componentsSeparatedByString(" ").first {
+											callback?(result, error: nil)
+										} else {
+											failblock()
+										}
+									} else {
+										failblock()
+									}
 								} else {
 									failblock()
 								}

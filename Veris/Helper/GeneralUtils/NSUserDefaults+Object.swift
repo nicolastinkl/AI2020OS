@@ -21,13 +21,15 @@ extension NSUserDefaultsObjectConvertible where Self: NSObject {
 
 class NSUserDefaultsObject: NSObject, NSCoding, NSUserDefaultsObjectConvertible {
 	
-	func allObjectForClassName<T: NSUserDefaultsObject>(className: T) -> [T] {
-		let result = NSUserDefaults.standardUserDefaults().valueForKey(NSStringFromClass(className.dynamicType))
-		if result == nil {
-            
-		} else {
-			return
-		}
+	var allKeys: [String] {
+		fatalError("subclass needs override this property")
+	}
+	
+	var uniqueId: Int = 0
+	
+	class func allObjects<T: NSUserDefaultsObject>() -> [T] {
+		print(T)
+		return []
 	}
 	
 	func encodeWithCoder(aCoder: NSCoder) {
@@ -35,22 +37,19 @@ class NSUserDefaultsObject: NSObject, NSCoding, NSUserDefaultsObjectConvertible 
 			aCoder.encodeObject(valueForKey(key), forKey: key)
 		}
 	}
+	
 	required init?(coder aDecoder: NSCoder) {
 		super.init()
 		for key in allKeys {
 			setValue(aDecoder.decodeObjectForKey(key), forKey: key)
 		}
 	}
-	var allKeys: [String] {
-		fatalError("subclass needs override this property")
-	}
+	
 }
 
 class CommentDraft: NSUserDefaultsObject {
-	var uniqueId = 0
 	var localULR = ""
 	var remoteULR = ""
-	
 	override var allKeys: [String] {
 		return ["uniqueId", "localURL", "remoteULR"]
 	}

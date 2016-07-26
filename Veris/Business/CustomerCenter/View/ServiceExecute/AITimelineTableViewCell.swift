@@ -89,25 +89,6 @@ class AITimelineTableViewCell: UITableViewCell {
         return image.size.height * compressedRate
     }
     
-    //计算view高度，如果还没有loadData则返回0
-    func getHeight(containerHeight: CGFloat) -> CGFloat {
-        var totalHeight: CGFloat = 0
-        if let viewModel = viewModel {
-            switch viewModel.layoutType! {
-            case AITimelineLayoutTypeEnum.Normal:
-                totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.cellMargin + containerHeight
-            case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
-                totalHeight = AITimelineTableViewCell.baseTimelineContentLabelHeight + AITimelineTableViewCell.subViewMargin + containerHeight
-            default: break
-            }
-            if viewModel.timeModel?.shouldShowDate == true {
-                totalHeight += 25
-            }
-        }
-        AILog("totalHeight : \(totalHeight)")
-        return totalHeight
-    }
-    
     class func caculateHeightWidthData(viewModel: AITimelineViewModel) -> CGFloat {
         var totalHeight: CGFloat = 0
         switch viewModel.layoutType! {
