@@ -112,6 +112,9 @@ extension AbsCommentViewController: AIAssetsPickerControllerDelegate {
                 let url = item.defaultRepresentation().url()
                 
                 photos.append(ImageInfo(image: image, url: url))
+                
+                // for test condition of url is nil 
+           //     photos.append(ImageInfo(image: UIImage(named: "limit01-on")!, url: nil))
             }
         }
         
@@ -139,61 +142,3 @@ extension AbsCommentViewController: AIAssetsPickerControllerDelegate {
     }
 }
 
-class ImageInfo: NSObject, NSCoding {
-    var image: UIImage?
-    var url: NSURL?
-    var isUploaded = false
-    var serviceId: String?
-    var isAppendType = false
-    
-    func encodeWithCoder(aCoder: NSCoder) {
-  //      aCoder.encodeBool(isAppendType, forKey: "isAppendType")
-        aCoder.encodeObject(url, forKey: "url")
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init()
-  //      isAppendType = aDecoder.decodeBoolForKey("isAppendType")
-        url = aDecoder.decodeObjectForKey("url") as? NSURL
-    }
-    
-    init(image: UIImage, url: NSURL?) {
-        self.image = image
-        self.url = url
-    }
-}
-
-class ImageInfoPList: NSObject, NSCoding {
-    var firstImages: [ImageInfo]?
-    var appendImages: [ImageInfo]?
-    func encodeWithCoder(aCoder: NSCoder) {
-        if let fis = firstImages {
-            aCoder.encodeObject(fis, forKey: "first")
-        }
-        
-        if let ais = appendImages {
-            aCoder.encodeObject(ais, forKey: "append")
-        }
-        
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init()
-
-        if let fis = aDecoder.decodeObjectForKey("first") as? NSArray as? [ImageInfo] {
-            if firstImages == nil {
-                firstImages = [ImageInfo]()
-            }
-            
-            firstImages!.appendContentsOf(fis)
-        }
-
-        if let ais = aDecoder.decodeObjectForKey("append") as? NSArray as? [ImageInfo] {
-            if appendImages == nil {
-                appendImages = [ImageInfo]()
-            }
-            
-            appendImages!.appendContentsOf(ais)
-        }
-    }
-}

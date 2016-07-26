@@ -51,11 +51,14 @@ class CommentDistrictView: UIView {
         }
     }
     
-    func addImages(infos: [ImageInfo]) {
+    func addImages(imageInfos infos: [ImageInfo]) {
         var images = [UIImage]()
         
         for info in infos {
-            images.append(info.image)
+            if let im = info.image {
+                images.append(im)
+            }
+            
         }
         
         imagesCollection.addImages(images)

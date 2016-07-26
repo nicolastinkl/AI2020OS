@@ -27,16 +27,21 @@ class CommentUtils {
         
         let key = createImageKey(serviceId)
         
-        return defa.objectForKey(key) as? ImageInfoPList
+        if let data = defa.objectForKey(key) as? NSData {
+            return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? ImageInfoPList
+        }
+        
+        return nil
     }
     
-    class func saveCommentImageInfo(serviceId: String, info: ImageInfoPList) {
+    class func saveCommentImageInfo(serviceId: String, info: ImageInfoPList) -> Bool {
+        
         let defa = NSUserDefaults.standardUserDefaults()
         
-        let data = NSKeyedArchiver.archivedDataWithRootObject(ImageInfoPList)
+        let data = NSKeyedArchiver.archivedDataWithRootObject(info)
         
         defa.setObject(data, forKey: createImageKey(serviceId))
-        defa.synchronize()
+        return defa.synchronize()
     }
     
     private class func createImageKey(info: ImageInfo) -> String? {
@@ -50,4 +55,6 @@ class CommentUtils {
     private class func createImageKey(serviceId: String) -> String {
         return idPrefix + serviceId
     }
+    
+    
 }
