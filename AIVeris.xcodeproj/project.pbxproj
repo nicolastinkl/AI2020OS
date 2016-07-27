@@ -565,6 +565,8 @@
 		847D29831D475129009E26B8 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81433B361CFBE5A700347C29 /* AVOSCloud.framework */; };
 		847D29851D4751E9009E26B8 /* ImageInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29841D4751E9009E26B8 /* ImageInfoModel.swift */; };
 		847D29861D475228009E26B8 /* ImageInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29841D4751E9009E26B8 /* ImageInfoModel.swift */; };
+		847D29881D484BF3009E26B8 /* ServiceCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29871D484BF3009E26B8 /* ServiceCommentModel.swift */; };
+		847D29891D484EF9009E26B8 /* ServiceCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29871D484BF3009E26B8 /* ServiceCommentModel.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -1487,6 +1489,7 @@
 		847D297C1D474FA2009E26B8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		847D29801D47504C009E26B8 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		847D29841D4751E9009E26B8 /* ImageInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInfoModel.swift; sourceTree = "<group>"; };
+		847D29871D484BF3009E26B8 /* ServiceCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentModel.swift; sourceTree = "<group>"; };
 		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
@@ -3545,6 +3548,7 @@
 				848316A21D333B1C00082D38 /* CommentModel.h */,
 				848316A31D333B3E00082D38 /* CommentModel.m */,
 				847D29841D4751E9009E26B8 /* ImageInfoModel.swift */,
+				847D29871D484BF3009E26B8 /* ServiceCommentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4488,6 +4492,7 @@
 				84717F2C1D348FC900AE7E9A /* BDKTools.swift in Sources */,
 				84717F2B1D348FC200AE7E9A /* AIApplication.swift in Sources */,
 				847D297A1D474F27009E26B8 /* Localize.swift in Sources */,
+				847D29891D484EF9009E26B8 /* ServiceCommentModel.swift in Sources */,
 				847D29861D475228009E26B8 /* ImageInfoModel.swift in Sources */,
 				84717F2A1D348F9200AE7E9A /* CommentModel.m in Sources */,
 				84717F291D348C5700AE7E9A /* CommentService.swift in Sources */,
@@ -4672,6 +4677,7 @@
 				81433D4E1CFBE5A700347C29 /* AIAddressRouteView.swift in Sources */,
 				8175A7E81CFD2710006F2C8F /* OAStackView+Constraint.m in Sources */,
 				81512ED31D220AFE00AE041D /* AIWorkManageViewController.swift in Sources */,
+				847D29881D484BF3009E26B8 /* ServiceCommentModel.swift in Sources */,
 				81433E4C1CFBE5A700347C29 /* UIImageUtils.swift in Sources */,
 				81433E5B1CFBE5A700347C29 /* FLEXArgumentInputSwitchView.m in Sources */,
 				81433E481CFBE5A700347C29 /* UIView+Toast.m in Sources */,

@@ -9,7 +9,7 @@
 import Foundation
 
 class CommentUtils {
-    private static let idPrefix = "CommentImage_"
+    private static let idPrefix = "CommentViewModel_"
     private static var starDes: [StarDesc]?
     
     static var hasStarDesData: Bool {
@@ -25,7 +25,7 @@ class CommentUtils {
     class func getCommentImageInfo(serviceId: String) -> ImageInfoPList? {
         let defa = NSUserDefaults.standardUserDefaults()
         
-        let key = createImageKey(serviceId)
+        let key = createSearchKey(serviceId)
         
         if let data = defa.objectForKey(key) as? NSData {
             return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? ImageInfoPList
@@ -40,19 +40,41 @@ class CommentUtils {
         
         let data = NSKeyedArchiver.archivedDataWithRootObject(info)
         
-        defa.setObject(data, forKey: createImageKey(serviceId))
+        defa.setObject(data, forKey: createSearchKey(serviceId))
         return defa.synchronize()
     }
     
-    private class func createImageKey(info: ImageInfo) -> String? {
+    class func getCommentModelFromLocal(serviceId: String) -> ServiceCommentLocalSavedModel? {
+        let defa = NSUserDefaults.standardUserDefaults()
+        
+        let key = createSearchKey(serviceId)
+        
+        if let data = defa.objectForKey(key) as? NSData {
+            return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? ServiceCommentLocalSavedModel
+        }
+        
+        return nil
+    }
+    
+    class func saveCommentModelToLocal(serviceId: String, model: ServiceCommentLocalSavedModel) -> Bool {
+        
+        let defa = NSUserDefaults.standardUserDefaults()
+        
+        let data = NSKeyedArchiver.archivedDataWithRootObject(model)
+        
+        defa.setObject(data, forKey: createSearchKey(serviceId))
+        return defa.synchronize()
+    }
+    
+    private class func createSearchKey(info: ImageInfo) -> String? {
         if let id = info.serviceId {
-            return createImageKey(id)
+            return createSearchKey(id)
         } else {
             return nil
         }
     }
     
-    private class func createImageKey(serviceId: String) -> String {
+    private class func createSearchKey(serviceId: String) -> String {
         return idPrefix + serviceId
     }
     
