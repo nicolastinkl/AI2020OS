@@ -32,6 +32,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
     private var appendCommentExpanded = false
     private var stateFactory = [CommentStateEnum: CommentState]()
     private var state: CommentState!
+    private var holdImage: UIImage?
     
     func getState() -> CommentState {
         return state
@@ -46,7 +47,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
         }
     }
     
-    func setModel(model: SubServiceCommentViewModel) -> CommentState {
+    func setModel(model: ServiceCommentViewModel) -> CommentState {
         if model.commentEditable {
             return getState(.CommentEditable)
         } else {
@@ -116,6 +117,10 @@ class ServiceCommentTableViewCell: UITableViewCell {
     
     func addAsyncUploadImage(image: UIImage, id: Int? = nil, complate: AIImageView.UploadComplate? = nil) {
         state.addAsyncUploadImage(image, id: id, complate: complate)
+    }
+    
+    func addAsyncDownloadImages(urls: [NSURL]) {
+        state.addAsyncDownloadImages(urls)
     }
     
     func clearImages() {
@@ -202,6 +207,7 @@ protocol CommentState: class {
     func addImages(images: [UIImage])
     func addAsyncUploadImages(images: [(image: UIImage, id: Int?, complate: AIImageView.UploadComplate?)])
     func addAsyncUploadImage(image: UIImage, id: Int?, complate: AIImageView.UploadComplate?)
+    func addAsyncDownloadImages(urls: [NSURL])
 }
 
 private class AbsCommentState: CommentState {
@@ -231,6 +237,10 @@ private class AbsCommentState: CommentState {
     func addAsyncUploadImage(image: UIImage, id: Int? = nil, complate: AIImageView.UploadComplate? = nil) {
         
     }
+    
+    func addAsyncDownloadImages(urls: [NSURL]) {
+        
+    }
 }
 
 // 评论可编辑
@@ -255,6 +265,10 @@ private class CommentEditableState: AbsCommentState {
     override func addAsyncUploadImage(image: UIImage, id: Int? = nil, complate: AIImageView.UploadComplate? = nil) {
         cell.firstComment.imageCollection.addAsyncUploadImage(image, id: id, complate: complate)
     }
+    
+    override func addAsyncDownloadImages(urls: [NSURL]) {
+        cell.firstComment.imageCollection.addAsyncDownloadImages(urls, holdImage: cell.holdImage)
+    }
 }
 
 //class CommentedNoCommitState: AbsCommentState {
@@ -272,6 +286,10 @@ private class CommentFinshedState: AbsCommentState {
         cell.imageButton.hidden = true
         cell.starRateView.userInteractionEnabled = false
     }
+    
+    override func addAsyncDownloadImages(urls: [NSURL]) {
+        cell.appendComment.imageCollection.addAsyncDownloadImages(urls, holdImage: cell.holdImage)
+    }
 }
 
 // 编辑追加评价中。（展开追加评价）
@@ -284,7 +302,7 @@ private class AppendEditingState: AbsCommentState {
         
         Async.main(after: 0.1, block: { [weak self] in
             self?.cell.appendComment.inputTextView.becomeFirstResponder()
-            })
+        })
     }
     
     override func addImage(image: UIImage) {

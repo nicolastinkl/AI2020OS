@@ -85,26 +85,20 @@ class CommentTest: SBOSSTestCase {
         })
     }
     
-    func testCommentImageSave() {
-        let pl = ImageInfoPList(firstImages: nil, appendImages: nil)
-        
+    func testCommentViewModelLocalSave() {
         let image = ImageInfo()
-        
         image.url = NSURL(fileURLWithPath: "12345")
-        var infos = [image]
         
-        pl.firstImages = infos
+        let model = ServiceCommentLocalSavedModel()
+        model.serviceId = "1"
+        model.images = [image]
         
-        XCTAssert(CommentUtils.saveCommentImageInfo("1", info: pl))
+        XCTAssertTrue(CommentUtils.saveCommentModelToLocal(model.serviceId, model: model))
         
-
-        var npl = CommentUtils.getCommentImageInfo("1")
+        let m = CommentUtils.getCommentModelFromLocal(model.serviceId)
         
-        XCTAssertTrue(npl?.firstImages?.count == 1)
-        XCTAssertEqual(npl?.firstImages?[0].url?.path, "/12345")
-
-        
-        
+        XCTAssertEqual(m?.images?[0].url?.path, "/12345")
+        XCTAssertEqual(m?.serviceId, model.serviceId)
     }
 
 }
