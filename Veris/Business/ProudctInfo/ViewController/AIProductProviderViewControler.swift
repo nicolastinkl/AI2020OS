@@ -154,7 +154,5 @@ class AIProductProviderViewControler: UIViewController {
         }
         return splitView
     }
-    
-    
-    
+     
 }

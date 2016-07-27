@@ -41,8 +41,27 @@ class CommentDistrictView: UIView {
         delegate?.photoImageButtonClicked(photoImage, buttonParentCell: self)
     }
     
-    func addImage(image: UIImage) {
-        imagesCollection.addImage(image)
+    func addImages(images: [UIImage]) {
+        imagesCollection.addImages(images)
+        let height = imagesCollection.intrinsicContentSize().height
+        
+        if height > imagesCollectionHeight.constant {
+            imagesCollectionHeight.constant = height
+            imagesCollection.setNeedsUpdateConstraints()
+        }
+    }
+    
+    func addImages(imageInfos infos: [ImageInfo]) {
+        var images = [UIImage]()
+        
+        for info in infos {
+            if let im = info.image {
+                images.append(im)
+            }
+            
+        }
+        
+        imagesCollection.addImages(images)
         let height = imagesCollection.intrinsicContentSize().height
         
         if height > imagesCollectionHeight.constant {

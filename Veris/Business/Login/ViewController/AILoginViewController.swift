@@ -37,7 +37,7 @@ class AILoginViewController: UIViewController {
                 self.dismissViewControllerAnimated(true, completion: nil)
                 }, fail: { (errType, errDes) in
                     self.loginButton.hideActioningLoading(title)
-                    self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.WrongIdOrPassword.rawValue)
+                    self.validateInfoLabel.showPrompt(errDes)
             })
             
             
@@ -70,14 +70,6 @@ class AILoginViewController: UIViewController {
             passwordTextField.text = "nodgdi"
             loginButton.enabled = true
         #endif
-        
-        
-//        let image = AIImageView(image: UIImage(named: "AIRequirebg1"))
-//        view.addSubview(image)
-//        image.frame = CGRectMake(100, 450, 100, 100)
-//        image.uploadImage { (url, error) in
-//            debugPrint(url)
-//        }
         
     }
     

@@ -76,7 +76,7 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
                     self.navigationController?.popToRootViewControllerAnimated(true)
                     }, fail: { (errType, errDes) in
                         self.confirmButton.hideActioningLoading(title)
-                        self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.RegisterFaild.rawValue)
+                        self.validateInfoLabel.showPrompt(errDes)
                 })
             } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
                 loginService.resetPassword(smsCode, newPassword: passwordTextField.text!, success: {
@@ -86,7 +86,7 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
                     self.navigationController?.popToRootViewControllerAnimated(true)
                     }, fail: { (errType, errDes) in
                         self.confirmButton.hideActioningLoading(title)
-                        self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.RestPassword.rawValue)
+                        self.validateInfoLabel.showPrompt(errDes)
                 })
             }
         }

@@ -20,7 +20,6 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         setupViews()
         self.navigationController?.navigationBarHidden = false

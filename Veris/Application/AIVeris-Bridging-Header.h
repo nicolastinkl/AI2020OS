@@ -140,7 +140,6 @@
 #import "WXApiObject.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
-
 #import "AIDefines.h"
 
 // Comment
@@ -157,4 +156,9 @@
 #import "UMSocialWechatHandler.h"
 #import "UMSocialSinaSSOHandler.h"
 
+// Common Model
+#import "AICommonBusinessModels.h"
+
+#import <CommonCrypto/CommonHMAC.h>
 #import "MBFingerTipWindow.h"
+

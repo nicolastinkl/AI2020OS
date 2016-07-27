@@ -33,9 +33,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
         comments = [SubServiceCommentViewModel]()
 
-        for i in 0 ..< 5 {
+        for i in 0 ..< 1 {
             let model = SubServiceCommentViewModel()
-            model.commentEditable = i % 2 != 0
+            model.commentEditable = i % 2 != 1
             comments.append(model)
         }
         
@@ -106,23 +106,59 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         }
     }
 
-    override func imagePicked(image: UIImage) {
+    override func imagesPicked(images: [ImageInfo]) {
         if let cell = getCurrentOperateCell() {
 
             let row = cell.tag
             
-            if let cell = serviceTableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? ServiceCommentTableViewCell {
-                if cell.isEditingAppendComment {
-                    comments[row].secondImages.append(image)
-                } else {
-                    comments[row].firstImages.append(image)
+            guard let cell = serviceTableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? ServiceCommentTableViewCell else {
+                return
+            }
+            
+            recordImagesInfoToDataSource(images, cell: cell)
+            
+            for imageInfo in images {
+                if let im = imageInfo.image {
+                    cell.addAsyncUploadImage(im, id: nil, complate: nil)
                 }
-                
-                cell.addAsyncUploadImage(image, id: nil, complate: nil)
+            }
+
+        }
+    }
+    
+    private func recordImagesInfoToDataSource(infos: [ImageInfo], cell: ServiceCommentTableViewCell) {
+        let row = cell.tag
+        
+        ensureImageInfoPListNotNil(row)
+        
+        if cell.isEditingAppendComment {
+            comments[row].imagesInfo!.appendImages!.appendContentsOf(infos)
+        } else {
+            comments[row].imagesInfo!.firstImages!.appendContentsOf(infos)
+        }
+        
+        for info in infos {
+            if info.url == nil {
+                saveImageToAlbum(info)
             }
         }
     }
-
+    
+    private func ensureImageInfoPListNotNil(index: Int) {
+        if comments[index].imagesInfo == nil {
+            comments[index].imagesInfo = ImageInfoPList(firstImages: [ImageInfo](), appendImages: [ImageInfo]())
+        }
+    }
+  
+    func saveImageToAlbum(info: ImageInfo) {
+        guard let im = info.image else {
+            return
+        }
+        
+        ALAssetsLibrary().writeImageToSavedPhotosAlbum(im.CGImage, orientation: ALAssetOrientation(rawValue: im.imageOrientation.rawValue)!) { (path: NSURL!, error: NSError!) in
+            info.url = path
+        }
+    }
 }
 
 extension CompondServiceCommentViewController: UITableViewDataSource, UITableViewDelegate {
@@ -186,10 +222,12 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
 }
 
 class SubServiceCommentViewModel {
-    var firstImages = [UIImage]()
-    var secondImages = [UIImage]()
+    var imagesInfo: ImageInfoPList?
+    var firstImages = [NSURL]()
+    var secondImages = [NSURL]()
     var cellState: CommentState!
     var commentEditable = false
+    var serviceId: String?
 }
 
 protocol CommentCellProtocol {
