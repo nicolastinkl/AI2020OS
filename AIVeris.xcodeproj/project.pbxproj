@@ -556,6 +556,15 @@
 		84717F311D349ABA00AE7E9A /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C071CFBE5A700347C29 /* UIColorUtils.swift */; };
 		84717F321D349CC900AE7E9A /* AIDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B6005B1D25169E0052ADC8 /* AIDefines.swift */; };
 		847D29741D40BC2A009E26B8 /* SBOSSTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29731D40BC2A009E26B8 /* SBOSSTestCase.swift */; };
+		847D29761D4748C9009E26B8 /* CommentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */; };
+		847D297A1D474F27009E26B8 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BDF1CFBE5A700347C29 /* Localize.swift */; };
+		847D297B1D474F34009E26B8 /* CustomXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AAD1CFBE5A700347C29 /* CustomXibView.swift */; };
+		847D297D1D474FA2009E26B8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847D297C1D474FA2009E26B8 /* AssetsLibrary.framework */; };
+		847D29811D47504C009E26B8 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847D29801D47504C009E26B8 /* AVKit.framework */; };
+		847D29821D475055009E26B8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
+		847D29831D475129009E26B8 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81433B361CFBE5A700347C29 /* AVOSCloud.framework */; };
+		847D29851D4751E9009E26B8 /* ImageInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29841D4751E9009E26B8 /* ImageInfoModel.swift */; };
+		847D29861D475228009E26B8 /* ImageInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29841D4751E9009E26B8 /* ImageInfoModel.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -663,6 +672,7 @@
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
 		FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB01810F1D0D650E00213DF8 /* AISearchBar.xib */; };
+		FB2E41ED1D461821001DDB5D /* MBFingerTipWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */; };
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB6127F21D40C8F400DD68DD /* UINavigationBar+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6127F11D40C8F400DD68DD /* UINavigationBar+Theme.swift */; };
 		FB6127F41D40D2EC00DD68DD /* AIProviderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6127F31D40D2EC00DD68DD /* AIProviderDetailViewController.swift */; };
@@ -1474,6 +1484,9 @@
 		84717F261D3489D100AE7E9A /* CommentTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTest.swift; sourceTree = "<group>"; };
 		84717F2F1D3498D300AE7E9A /* AIVerisTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AIVerisTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		847D29731D40BC2A009E26B8 /* SBOSSTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBOSSTestCase.swift; sourceTree = "<group>"; };
+		847D297C1D474FA2009E26B8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		847D29801D47504C009E26B8 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		847D29841D4751E9009E26B8 /* ImageInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInfoModel.swift; sourceTree = "<group>"; };
 		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
@@ -1695,6 +1708,8 @@
 		FB01810A1D0D125400213DF8 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
 		FB01810D1D0D650100213DF8 /* AISearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBar.swift; sourceTree = "<group>"; };
 		FB01810F1D0D650E00213DF8 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
+		FB2E41EB1D461821001DDB5D /* MBFingerTipWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFingerTipWindow.h; sourceTree = "<group>"; };
+		FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFingerTipWindow.m; sourceTree = "<group>"; };
 		FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryIconView.swift; sourceTree = "<group>"; };
 		FB6127F11D40C8F400DD68DD /* UINavigationBar+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Theme.swift"; sourceTree = "<group>"; };
 		FB6127F31D40D2EC00DD68DD /* AIProviderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProviderDetailViewController.swift; sourceTree = "<group>"; };
@@ -1735,7 +1750,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847D29821D475055009E26B8 /* AVFoundation.framework in Frameworks */,
+				847D29811D47504C009E26B8 /* AVKit.framework in Frameworks */,
+				847D297D1D474FA2009E26B8 /* AssetsLibrary.framework in Frameworks */,
 				FD6E63660FC29EFB7CB17D2E /* Pods_VerisTests.framework in Frameworks */,
+				847D29831D475129009E26B8 /* AVOSCloud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1874,6 +1893,8 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				847D29801D47504C009E26B8 /* AVKit.framework */,
+				847D297C1D474FA2009E26B8 /* AssetsLibrary.framework */,
 				1234F99D1D349FFA0009FB4F /* CoreLocation.framework */,
 				1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */,
 				81F414311D351B8A008DC280 /* libsqlite3.0.tbd */,
@@ -3206,6 +3227,7 @@
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				FB2E41EA1D461821001DDB5D /* MBFingerTipWindow */,
 				1234F9A41D351C530009FB4F /* BaiduMap */,
 				FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */,
 				9392B5191D1CD9F10007F241 /* alipay */,
@@ -3522,6 +3544,7 @@
 				8483169E1D33374200082D38 /* CommentService.swift */,
 				848316A21D333B1C00082D38 /* CommentModel.h */,
 				848316A31D333B3E00082D38 /* CommentModel.m */,
+				847D29841D4751E9009E26B8 /* ImageInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4048,6 +4071,15 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		FB2E41EA1D461821001DDB5D /* MBFingerTipWindow */ = {
+			isa = PBXGroup;
+			children = (
+				FB2E41EB1D461821001DDB5D /* MBFingerTipWindow.h */,
+				FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */,
+			);
+			path = MBFingerTipWindow;
+			sourceTree = "<group>";
+		};
 		FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -4173,7 +4205,7 @@
 					};
 					93D5A3481B709C1C00DDB158 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = T2362RFKT6;
+						DevelopmentTeam = 388D56L7YB;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
 								enabled = 0;
@@ -4455,8 +4487,12 @@
 				84717F1F1D3483E300AE7E9A /* VerisTests.swift in Sources */,
 				84717F2C1D348FC900AE7E9A /* BDKTools.swift in Sources */,
 				84717F2B1D348FC200AE7E9A /* AIApplication.swift in Sources */,
+				847D297A1D474F27009E26B8 /* Localize.swift in Sources */,
+				847D29861D475228009E26B8 /* ImageInfoModel.swift in Sources */,
 				84717F2A1D348F9200AE7E9A /* CommentModel.m in Sources */,
 				84717F291D348C5700AE7E9A /* CommentService.swift in Sources */,
+				847D29761D4748C9009E26B8 /* CommentHelp.swift in Sources */,
+				847D297B1D474F34009E26B8 /* CustomXibView.swift in Sources */,
 				84717F2E1D34919800AE7E9A /* AIMessage.m in Sources */,
 				FB6261FE1D45FAC9003CF604 /* NSUserDefaults+Object.swift in Sources */,
 				84717F2D1D348FE400AE7E9A /* AINetEngine.m in Sources */,
@@ -4589,6 +4625,7 @@
 				81433E971CFBE5A700347C29 /* FLEXResources.m in Sources */,
 				8175A7FD1CFD2710006F2C8F /* SDWebImageManager.m in Sources */,
 				81433D061CFBE5A700347C29 /* AIRemoteNotificationHandler.swift in Sources */,
+				847D29851D4751E9009E26B8 /* ImageInfoModel.swift in Sources */,
 				81433CFA1CFBE5A700347C29 /* AITagLabel.m in Sources */,
 				81433CE01CFBE5A700347C29 /* AIBuyerBubbleModel.m in Sources */,
 				8175A8011CFD2710006F2C8F /* UIImage+MultiFormat.m in Sources */,
@@ -4949,6 +4986,7 @@
 				81433E6D1CFBE5A700347C29 /* FLEXTableContentCell.m in Sources */,
 				81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */,
 				12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */,
+				FB2E41ED1D461821001DDB5D /* MBFingerTipWindow.m in Sources */,
 				FB703AE21D24C05C00229A08 /* AIWebViewController.swift in Sources */,
 				FB7DA9831D3C87BC00DEAC9F /* AIRecommondForYouViewController.swift in Sources */,
 				81433EB51CFBE5A700347C29 /* TableViewCellBackgroundView.m in Sources */,
@@ -5012,6 +5050,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
+				);
 				INFOPLIST_FILE = VerisTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -5029,6 +5071,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
+				);
 				INFOPLIST_FILE = VerisTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -5169,7 +5215,7 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
-				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
+				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020;
 				PRODUCT_NAME = Veris;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
@@ -5188,7 +5234,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;
@@ -5223,7 +5269,7 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
-				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss.1;
+				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020;
 				PRODUCT_NAME = Veris;
 				PROVISIONING_PROFILE = "6defedf0-7db7-4835-a59a-c8176b10d1b9";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";

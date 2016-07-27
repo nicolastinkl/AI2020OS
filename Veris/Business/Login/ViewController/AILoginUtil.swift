@@ -12,6 +12,9 @@ import Spring
 class AILoginUtil: NSObject {
 
     static let KEY_USER_ID = "KEY_USER_ID"
+    static let KEY_CUSTOM_ID = "KEY_CUSTOM_ID"
+    static let KEY_PROVIDER_ID = "KEY_PROVIDER_ID"
+    static let KEY_HEADURL_STRING = "KEY_HEADURL_STRING"
 
     // MARK: -验证密码是否符合规范
     //密码位数为6-20位，可包含以下类别：

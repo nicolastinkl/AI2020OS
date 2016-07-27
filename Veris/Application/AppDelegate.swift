@@ -122,7 +122,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	func configAVOSCloud() {
 		
 		AVOSCloudCrashReporting.enable()
-		
+        
+        //根据语言选择leanCloud返回不同的语言信息
+        AVOSCloud.setServiceRegion(AVServiceRegion.CN)
+        
 		AVOSCloud.setApplicationId(AIApplication.AVOSCLOUDID,
 			clientKey: AIApplication.AVOSCLOUDKEY)
 		
@@ -130,6 +133,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 		
 		AVAnalytics.setAnalyticsEnabled(true)
 		
+        
+        
 	}
 	
 	/**
@@ -212,8 +217,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 		
 		AVOSCloud.handleRemoteNotificationsWithDeviceToken(deviceToken)
 		AILog("DeviceToken OK")
-		
+        
 	}
+    
 	
 	func applicationWillResignActive(application: UIApplication) {
 		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -273,9 +279,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	}
 	
 	private func initNetEngine() {
-		let timeStamp: Int = 0
-		let token = "0"
-		let RSA = "0"
+		let timeStamp: Int = Int(NSDate(timeIntervalSince1970: 0).timeIntervalSince1970)
+		let token = (NSUserDefaults.standardUserDefaults().objectForKey("Default_Token") ?? "0") as! String
+		let RSA = "23432"
 		
 		let userID = (NSUserDefaults.standardUserDefaults().objectForKey("Default_UserID") ?? "100000002410") as! String
 		
@@ -297,16 +303,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 			}
 			
 		}
-		
-		let header = ["HttpQuery": headerContent]
-		AINetEngine.defaultEngine().configureCommonHeaders(header)
+        let header = ["HttpQuery": headerContent]
+        AINetEngine.defaultEngine().configureCommonHeaders(header)
 	}
 	
 	func application(app: UIApplication, openURL url: NSURL, options: [String: AnyObject]) -> Bool {
-		let path = url.lastPathComponent
+
+        let path = url.lastPathComponent
 		
 		AILog(path)
-
 
         let result = UMSocialSnsService.handleOpenURL(url)
 
@@ -317,7 +322,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	
 	func showRootViewControllerReal() {
 		// 创建Root
-		self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+		self.window = MBFingerTipWindow(frame: UIScreen.mainScreen().bounds)
+//        if let window = window as? MBFingerTipWindow {
+//            window.alwaysShowTouches = true
+//        }
 		let root = AIRootViewController()
 		// 创建导航控制器
 		let nav = UINavigationController(rootViewController: root)

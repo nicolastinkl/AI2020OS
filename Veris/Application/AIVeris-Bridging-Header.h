@@ -140,7 +140,6 @@
 #import "WXApiObject.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
-
 #import "AIDefines.h"
 
 // Comment
@@ -159,3 +158,7 @@
 
 // Common Model
 #import "AICommonBusinessModels.h"
+
+#import <CommonCrypto/CommonHMAC.h>
+#import "MBFingerTipWindow.h"
+

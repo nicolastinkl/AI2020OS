@@ -19,6 +19,7 @@
 #define kKeyForResultMsg               @"result_msg"
 #define kSuccessCode                   @"200"
 #define kSuccessCode_1                 @"1"
+#define kLogoutCode                    @"401"
 
 #define kCookieIdentifier              @"CookieIdentifier"
 
@@ -68,6 +69,7 @@
 
 - (void)addHeaders:(NSDictionary *)headers
 {
+    
     NSMutableDictionary *allHeaders = [[NSMutableDictionary alloc] init];
     [allHeaders addEntriesFromDictionary:self.commonHeaders];
     [allHeaders addEntriesFromDictionary:headers];
@@ -220,6 +222,9 @@
     if ([resultCode isKindOfClass:[NSString class]] && ([resultCode isEqualToString:kSuccessCode] || [resultCode isEqualToString:kSuccessCode_1] ) && success) {
 
         success(returnResponseObject);
+    } else if ([resultCode isEqualToString:kLogoutCode]) {
+        // 通知登录超时
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UserLoginTimeNotification" object:nil];
     } else {
 
         if (des != nil) {

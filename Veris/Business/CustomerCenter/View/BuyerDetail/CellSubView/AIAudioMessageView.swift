@@ -213,11 +213,14 @@ class AIAudioMessageView: AIWishMessageView, AVAudioPlayerDelegate {
 
                 if data != nil {
                     audioPlayer = try AVAudioPlayer(data: data!)
-                } else {
-                    audioPlayer = try AVAudioPlayer(contentsOfURL: url!)
                 }
 
-                audioPlayer.volume = 1.0
+
+            }
+
+
+            if let player = audioPlayer {
+                player.volume = 1.0
             }
 
 

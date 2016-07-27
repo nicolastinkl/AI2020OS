@@ -10,8 +10,9 @@ import UIKit
 import MobileCoreServices
 
 class AbsCommentViewController: UIViewController {
-
-
+    func imagesPicked(images: [ImageInfo]) {
+        
+    }
 }
 
 extension AbsCommentViewController: UINavigationControllerDelegate {
@@ -30,7 +31,7 @@ extension AbsCommentViewController: CommentDistrictDelegate {
         func openAlbum() {
             let vc = AIAssetsPickerController.initFromNib()
             vc.delegate = self
-            vc.maximumNumberOfSelection = 1
+            vc.maximumNumberOfSelection = 10
             let navi = UINavigationController(rootViewController: vc)
             navi.navigationBarHidden = true
             self.presentViewController(navi, animated: true, completion: nil)
@@ -54,6 +55,8 @@ extension AbsCommentViewController: CommentDistrictDelegate {
 //
 //        presentViewController(alert, animated: true, completion: nil)
     }
+    
+    
 }
 
 extension AbsCommentViewController: UIImagePickerControllerDelegate {
@@ -67,6 +70,7 @@ extension AbsCommentViewController: UIImagePickerControllerDelegate {
 
         if mediaType == (kUTTypeImage as String) {
             var imageToSave: UIImage?
+            var url: NSURL?
 
             if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
                 imageToSave = editedImage
@@ -80,16 +84,14 @@ extension AbsCommentViewController: UIImagePickerControllerDelegate {
             }
 
             if let image = imageToSave {
-                imagePicked(image)
+                imagesPicked([ImageInfo(image: image, url: url)])
             }
         }
 
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    func imagePicked(image: UIImage) {
-
-    }
+    
 }
 
 extension AbsCommentViewController: AIAssetsPickerControllerDelegate {
@@ -100,11 +102,23 @@ extension AbsCommentViewController: AIAssetsPickerControllerDelegate {
      2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
      */
     func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
+     //   UIImageWriteToSavedPhotosAlbum(UIImage, AnyObject?, Selector, UnsafeMutablePointer<Void>)
         
-        let assetSuper = assets.firstObject as! ALAsset
-        let image = UIImage(CGImage: assetSuper.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+        var photos = [ImageInfo]()
         
-        imagePicked(image)
+        for asset in assets {
+            if let item = asset as? ALAsset {
+                let image = UIImage(CGImage: item.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+                let url = item.defaultRepresentation().url()
+                
+                photos.append(ImageInfo(image: image, url: url))
+                
+                // for test condition of url is nil 
+           //     photos.append(ImageInfo(image: UIImage(named: "limit01-on")!, url: nil))
+            }
+        }
+        
+        imagesPicked(photos)
     }
     
     /**
@@ -127,3 +141,4 @@ extension AbsCommentViewController: AIAssetsPickerControllerDelegate {
         
     }
 }
+

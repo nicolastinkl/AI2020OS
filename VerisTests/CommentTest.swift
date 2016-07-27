@@ -67,7 +67,7 @@ class CommentTest: SBOSSTestCase {
         let serviceComment = ServiceComment()
         serviceComment.service_id = "1"
         serviceComment.spec_id = "2623"
-        serviceComment.value = "9"
+        serviceComment.rating_level = "9"
         serviceComment.text = "Good."
         
         service.submitComments("1", userType: 1, commentList: [serviceComment], success: { (responseData) in
@@ -83,6 +83,28 @@ class CommentTest: SBOSSTestCase {
         waitForExpectationsWithTimeout(5, handler: { error in
             XCTAssertNil(error, "Error")
         })
+    }
+    
+    func testCommentImageSave() {
+        let pl = ImageInfoPList(firstImages: nil, appendImages: nil)
+        
+        let image = ImageInfo()
+        
+        image.url = NSURL(fileURLWithPath: "12345")
+        var infos = [image]
+        
+        pl.firstImages = infos
+        
+        XCTAssert(CommentUtils.saveCommentImageInfo("1", info: pl))
+        
+
+        var npl = CommentUtils.getCommentImageInfo("1")
+        
+        XCTAssertTrue(npl?.firstImages?.count == 1)
+        XCTAssertEqual(npl?.firstImages?[0].url?.path, "/12345")
+
+        
+        
     }
 
 }
