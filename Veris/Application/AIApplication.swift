@@ -28,10 +28,6 @@ struct AIApplication {
     // MARK: XUNFEI APPID
     internal static let XUNFEIAPPID  = "551ba83b"
 
-    struct IPHONEOS {
-        static let IS_IPHONE6PLUS = UIScreen.mainScreen().bounds.size.width > 375
-    }
-
     // MARK JSON RESPONSE
 
     struct JSONREPONSE {
@@ -212,9 +208,12 @@ struct AIApplication {
         //更新查询需求分析数据的通知
         static let AIRequirementReloadDataNotificationName = "AIRequirementReloadDataNotificationName"
 
+    
         // 远程协助状态更新
         static let AIRemoteAssistantConnectionStatusChangeNotificationName = "AIRemoteAssistantConnectionStatusChangeNotificationName"
         static let AIRemoteAssistantManagerMessageReceivedNotificaitonName = "AIRemoteAssistantManagerMessageReceivedNotificaitonName"
+        static let AIRemoteAssistantAnchorOperationCompletedNotificationName = "AIRemoteAssistantAnchorOperationCompletedNotificationName"
+        static let AIDeepLinkupdateDeepLinkView = "AIDeepLinkupdateDeepLinkView"
         
         //语音识别
         
@@ -467,6 +466,50 @@ struct AIApplication {
             }
         }
     }
+
+
+
+    /*!
+     隐藏消息按钮
+     */
+    static func hideMessageUnreadView() {
+        if let loadingXibView = UIApplication.sharedApplication().keyWindow!.viewWithTag(AIApplication.AIViewTags.AIMessageUnReadViewTag) {
+            loadingXibView.hidden = true
+        }
+    }
+
+
+    static func showAlertView() {
+
+        let viewAlert = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateInitialViewController()
+        if let rootVc = UIApplication.sharedApplication().keyWindow?.rootViewController {
+            if rootVc.isKindOfClass(UINavigationController.self) {
+                //rootVc.pop
+            } else {
+
+            }
+            rootVc.presentPopupViewController(viewAlert!, animated: true)
+        }
+    }
+
+    static func showGladOrderView() {
+        let viewAlert = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIGladOrderViewController) as! AIGladOrderViewController
+
+        if let rootVc = UIApplication.sharedApplication().keyWindow?.rootViewController {
+            AILog("\(rootVc.dynamicType)")
+
+            if rootVc.isKindOfClass(UINavigationController.self) {
+                //rootVc.pop
+            } else {
+
+            }
+            rootVc.presentPopupViewController(viewAlert, animated: true)
+        }
+
+    }
+
+    //MARK: - Case0服务，官方唯一指定抢单任务
+    static let AIServiceIdCase0 = "900001001003"
 
 }
 

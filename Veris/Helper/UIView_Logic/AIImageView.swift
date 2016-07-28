@@ -69,7 +69,8 @@ public class AIImageView: UIImageView {
         }
     }
 
-    public func setURL(url: NSURL?, placeholderImage: UIImage?) {
+
+    public func setImgURL(url: NSURL?, placeholderImage: UIImage?) {
         self.placeholderImage = placeholderImage
         if url?.URLString.length > 10 {
             self.url = url
@@ -82,9 +83,9 @@ public class AIImageView: UIImageView {
             self.alpha = 1
             UIView.commitAnimations()
         }
-
     }
-    
+
+
     
     func imageDownloadRetry(button: UIButton) {
         button.removeFromSuperview()

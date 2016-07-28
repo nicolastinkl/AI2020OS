@@ -150,6 +150,17 @@ class ImagesCollectionView: UIView {
         setNeedsLayout()
     }
     
+    func addAsyncDownloadImages(urls: [NSURL], holdImage: UIImage? = nil) {
+        for url in urls {
+            let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
+            imageView.setURL(url, placeholderImage: holdImage, showProgress: true)
+            images.append(imageView)
+        }
+        
+        setNeedsUpdateConstraints()
+        setNeedsLayout()
+    }
+    
     private func appendImage(image: UIImage) {
         let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
         imageView.image = image

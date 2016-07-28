@@ -89,29 +89,6 @@ internal class AICustomView: UIView {
 				}
 			}
 			
-			/*
-			 if  y < 10 && n < 3 {
-			 currentX = x
-
-			 if isNormal {
-			 }else{
-			 currentY = 2
-			 }
-			 }
-
-			 //iphone 6 plus
-
-			 if AIApplication.IPHONEOS.IS_IPHONE6PLUS {
-			 if y > ramdHeigth*2 {
-			 tags.setOrigin(CGPointMake(currentX + tagMargin*4 + CGFloat(ramdWidth), currentY))
-			 }else{
-
-			 tags.setOrigin(CGPointMake(x, y))
-			 }
-			 }else{
-			 tags.setOrigin(CGPointMake(x, y))
-			 }
-			 */
 			
 			tags.setOrigin(CGPointMake(x, y))
 			

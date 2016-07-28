@@ -10,6 +10,7 @@
 
 @protocol AISuperSwipeableCellDelegate <NSObject>
 
+@optional
 - (void)cellDidOpen:(UITableViewCell *)cell;
 - (void)cellDidClose:(UITableViewCell *)cell;
 - (void)cellWillOpen:(UITableViewCell *)cell;
