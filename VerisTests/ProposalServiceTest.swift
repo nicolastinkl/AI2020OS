@@ -9,20 +9,35 @@
 import XCTest
 
 class ProposalServiceTest: XCTestCase {
+    
+    var service: ProposalService!
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        service = BDKProposalService()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testGetProposalList() {
+        let readyExpectation = expectationWithDescription("done")
+        
+        service.getProposalList({ (responseData) -> Void in
+                let re = responseData
+                print("getProposalList success:\(re)")
+                XCTAssert(true)
+                readyExpectation.fulfill()  
+            }, fail: { (errType, errDes) -> Void in
+                XCTAssert(false)
+                readyExpectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(5, handler: { error in
+            XCTAssertNil(error, "Error")
+        })
+
     }
 
     func testPerformanceExample() {
