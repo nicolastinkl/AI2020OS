@@ -121,6 +121,55 @@ struct AIRemoteNotificationParameters {
 
     }
 
+    //MARK: 处理远程通知
+
+    /**
+     * 处理远程通知
+     *
+     *
+     */
+    func didReceiveRemoteNotificationUserInfo(userinfo : [NSObject : AnyObject]) {
+
+        //如果是抢单通知
+        let key = AIRemoteNotificationKeys.NotificationType
+        let msgDic : Dictionary = userinfo["aps"] as! Dictionary<String , AnyObject>
+        print("\(msgDic)")
+        if let value = userinfo[key] as? String{
+            if value == AIRemoteNotificationParameters.GrabOrderType {
+                AIApplication.showAlertView()
+            }
+            else if value == AIRemoteNotificationParameters.AudioAssistantType {
+                // 语音协助的 接受
+                let topVC = topViewController()
+
+                let roomNumber = userinfo[AIRemoteNotificationParameters.AudioAssistantRoomNumber] as! String
+                let proposalID = userinfo[AIRemoteNotificationKeys.ProposalID] as! Int
+                let proposalName = userinfo[AIRemoteNotificationKeys.ProposalName] as! String
+
+                AudioAssistantManager.sharedInstance.connectionStatus = .Dialing
+
+                let buyerDetailViewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
+
+                let model = AIBuyerBubbleModel()
+                model.proposal_id = proposalID
+                model.proposal_name = proposalName
+                buyerDetailViewController.bubbleModel = model
+                buyerDetailViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+                buyerDetailViewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+                buyerDetailViewController.isLaunchForAssistant = true
+                buyerDetailViewController.roomNumber = String(format: "%d", roomNumber)
+
+                topVC.presentViewController(buyerDetailViewController, animated: false, completion: {
+                    let vc = AAProviderDialogViewController.initFromNib()
+                    vc.roomNumber = roomNumber
+                    vc.proposalID = proposalID
+                    vc.proposalName = proposalName
+                    buyerDetailViewController.providerDialogViewController = vc
+                    buyerDetailViewController.presentViewController(vc, animated: true, completion: nil)
+                })
+            }
+        }
+    }
 
 
     func showBuyerDetailViewController(model: AIBuyerBubbleModel) {
