@@ -20,11 +20,11 @@ class AIServiceExecuteRequester: NSObject {
     //MARK: 单例方法
     
     class func defaultHandler () -> AIServiceExecuteRequester {
-        struct AISingleton{
-            static var predicate : dispatch_once_t = 0
-            static var instance : AIServiceExecuteRequester? = nil
+        struct AISingleton {
+            static var predicate: dispatch_once_t = 0
+            static var instance: AIServiceExecuteRequester? = nil
         }
-        dispatch_once(&AISingleton.predicate,{
+        dispatch_once(&AISingleton.predicate, {
             AISingleton.instance = AIServiceExecuteRequester()
             }
         )
@@ -38,7 +38,7 @@ class AIServiceExecuteRequester: NSObject {
      proposalID      方案ID
      */
     
-    func grabOrder(serviceInstId serviceInstId : String, providerId : String, success : (businessInfo : AIGrabOrderSuccessViewModel)-> Void, fail : (errType: AINetError, errDes: String) -> Void)  {
+    func grabOrder(serviceInstId serviceInstId: String, providerId: String, success: (businessInfo: AIGrabOrderSuccessViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
         let body  = ["data" : ["service_inst_id" : serviceInstId, "provider_id" : providerId], "desc":["data_mode" : "0", "digest" : ""]]
         
@@ -65,7 +65,7 @@ class AIServiceExecuteRequester: NSObject {
         
     }
     
-    func parseGrabOrderResultToViewModel(originalRequirements : AIGrabOrderResultModel ,success : (businessInfo : AIGrabOrderSuccessViewModel)-> Void, fail : (errType: AINetError, errDes: String) -> Void){
+    func parseGrabOrderResultToViewModel(originalRequirements: AIGrabOrderResultModel, success: (businessInfo: AIGrabOrderSuccessViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let result = originalRequirements.result.integerValue
         let businessInfo = AIGrabOrderSuccessViewModel(grabResult: result)
         businessInfo.setOrderInfoByJSONModel(originalRequirements)
@@ -79,7 +79,7 @@ class AIServiceExecuteRequester: NSObject {
      customID	    买家id
      proposalID      方案ID
      */
-    func queryGrabOrderDetail(serviceInstId : String, success : (businessInfo : AIGrabOrderDetailViewModel)-> Void, fail : (errType: AINetError, errDes: String) -> Void)  {
+    func queryGrabOrderDetail(serviceInstId: String, success: (businessInfo: AIGrabOrderDetailViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
         let body  = ["data" : ["service_inst_id" : serviceInstId ], "desc":["data_mode" : "0", "digest" : ""]]
         //        let body = ["data" : ["order_id" : "100000029231", "proposal_id" : "2043", "customer_id" : "100000002410"], "desc":["data_mode" : "0", "digest" : ""]]

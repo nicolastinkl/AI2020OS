@@ -41,7 +41,7 @@ class TaskResultCommitViewController: UIViewController {
 
     }
     
-    func cameraAction(sender : UIGestureRecognizer) {
+    func cameraAction(sender: UIGestureRecognizer) {
         startImagePickController()
     }
     
