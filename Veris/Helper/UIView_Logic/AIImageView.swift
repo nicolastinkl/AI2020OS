@@ -158,7 +158,7 @@ public class AIImageView: UIImageView {
                 
                 if finish {
                     
-                    UIView.animateWithDuration(0.2, animations: {
+                    UIView.animateWithDuration(0.3, animations: {
                         progressView.alpha = 1
                         }, completion: { (complate) in
                             progressView.removeFromSuperview()
@@ -244,7 +244,7 @@ class AIProgressWebHoldView: UIView {
         CGContextStrokeEllipseInRect(context, circleRect)
         
         let center: CGPoint = CGPointMake(allRect.size.width / 2, allRect.size.height / 2)
-        let radius: CGFloat = (allRect.size.width - 4) / 2 - 3
+        let radius: CGFloat = (allRect.size.width - 4) / 3 - 3
         let startAngle: CGFloat = -(CGFloat(M_PI) / 2)
         let endAngle: CGFloat = (self.progress * 2 * CGFloat(M_PI)) + startAngle
         progressTintColor.setFill()
