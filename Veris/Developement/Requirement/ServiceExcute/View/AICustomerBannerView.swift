@@ -34,15 +34,16 @@ class AICustomerBannerView: UIView {
         configLayout()
     }
     
-    func configLayout(){
+    func configLayout() {
         userNameLabel.font = USER_NAME_FONT
         userNameLabel.textColor = UIColor.whiteColor()
         customerDescLabel.textColor = CUSTOMER_DESC_COLOR
         customerDescLabel.font = CUSTOMER_DESC_FONT
         customerDescLabel.alpha = 0.24
     }
-    
-    func loadData(){
+
+    func loadData() {
+
         userIconImageView.image = UIImage(named: "Avatorbibo")
     }
 }

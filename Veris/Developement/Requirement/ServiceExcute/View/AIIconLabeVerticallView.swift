@@ -10,34 +10,34 @@ import UIKit
 
 class AIIconLabelVerticalContainerView: UIView {
 
-    var models : [AIIconLabelViewModel]?
+
+    var models: [AIIconLabelViewModel]?
     
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    func loadData(models : [AIIconLabelViewModel]){
+    func loadData(models: [AIIconLabelViewModel]) {
         self.models = models
         buildView()
     }
     
-    func buildView(){
+    func buildView() {
         guard let models = models else {return}
-        var previousSubView : AIIconLabelVerticalView!
-        for (index,model) in models.enumerate(){
+        var previousSubView: AIIconLabelVerticalView!
+        for (index, model) in models.enumerate() {
             let subView = AIIconLabelVerticalView(model: model)
             self.addSubview(subView)
             subView.snp_makeConstraints(closure: { (make) in
                 make.leading.trailing.equalTo(self)
-                if index == 0{
+                if index == 0 {
                     make.top.equalTo(self)
-                }
-                else{
+                } else {
                     make.top.equalTo(previousSubView.snp_bottom).offset(1)
                     make.height.equalTo(previousSubView)
                 }
-                if index == models.count - 1{
+                if index == models.count - 1 {
                     make.bottom.equalTo(self)
                 }
                 
@@ -46,7 +46,7 @@ class AIIconLabelVerticalContainerView: UIView {
         }
     }
     
-    func fixFrame(){
+    func fixFrame() {
         
     }
 
@@ -54,21 +54,24 @@ class AIIconLabelVerticalContainerView: UIView {
 
 class AIIconLabelVerticalView: UIView {
     
-    var model : AIIconLabelViewModel?
+
+    var model: AIIconLabelViewModel?
     
     //Constants
     let TEXT_FONT = AITools.myriadLightSemiCondensedWithSize(48 / 3)
 
     
-    var iconImageView : UIImageView!
-    var labelView : UILabel!
+
+    var iconImageView: UIImageView!
+    var labelView: UILabel!
     
-    init(){
+    init() {
         super.init(frame: .zero)
         buildView()
     }
     
-    convenience init(model : AIIconLabelViewModel){
+
+    convenience init(model: AIIconLabelViewModel) {
         self.init()
         loadData(model)
     }
@@ -77,7 +80,8 @@ class AIIconLabelVerticalView: UIView {
         super.init(coder: aDecoder)
     }
     
-    func buildView(){
+
+    func buildView() {
         iconImageView = UIImageView()
         self.addSubview(iconImageView)
         labelView = UILabel()
@@ -95,7 +99,7 @@ class AIIconLabelVerticalView: UIView {
         }
     }
     
-    func loadData(model : AIIconLabelViewModel){
+    func loadData(model: AIIconLabelViewModel) {
         self.model = model
         labelView.text = model.labelText
         //如果文本比较长，就从左边对其

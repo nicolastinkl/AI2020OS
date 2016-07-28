@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ServiceCommentLocalSavedModel: NSObject, NSCoding  {
+class ServiceCommentLocalSavedModel: NSObject, NSCoding {
     var images: [ImageInfo]?
     var serviceId = ""
     var text: String?

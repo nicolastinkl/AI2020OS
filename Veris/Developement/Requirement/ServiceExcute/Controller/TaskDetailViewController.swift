@@ -34,7 +34,7 @@ class TaskDetailViewController: UIViewController {
         
     }
     
-    func buildNavigationTitleLabel(){
+    func buildNavigationTitleLabel() {
         let NAVIGATION_TITLE = AITools.myriadSemiCondensedWithSize(80 / 3)
         let frame = CGRect(x: 0, y: 0, width: 100, height: 44)
         let titleLabel = UILabel(frame: frame)
@@ -48,8 +48,8 @@ class TaskDetailViewController: UIViewController {
         leftButtonItem.tintColor = UIColor.lightGrayColor()
         self.navigationItem.leftBarButtonItem = leftButtonItem
     }
-    
-    func backAction(button : UIBarButtonItem){
+
+    func backAction(button: UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(true)
     }
 

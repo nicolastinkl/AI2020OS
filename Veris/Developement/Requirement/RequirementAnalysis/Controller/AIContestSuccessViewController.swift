@@ -34,7 +34,9 @@ class AIContestSuccessViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func buildNavigationTitleLabel(){
+
+    func buildNavigationTitleLabel() {
+
         let NAVIGATION_TITLE = AITools.myriadSemiCondensedWithSize(80 / 3)
         let frame = CGRect(x: 0, y: 0, width: 100, height: 44)
         let titleLabel = UILabel(frame: frame)
@@ -48,14 +50,16 @@ class AIContestSuccessViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = leftButtonItem
     }
     
-    func backAction(button : UIBarButtonItem){
+    func backAction(button: UIBarButtonItem) {
+
         self.dismissPopupViewController(true, completion: nil)
     }
     
     
-    func loadData(){
+
+    func loadData() {
         
-        let orderInfosModel = [AIIconLabelViewModel(labelText: "November 3, 2015", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png") , AIIconLabelViewModel(labelText: "Haidian District Garden Road, Beijing, 49", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png") , AIIconLabelViewModel(labelText: "Accompany pregnant woman to produce a check, queue,take a number, buy foodGeneration of pregnant women", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png")]
+        let orderInfosModel = [AIIconLabelViewModel(labelText: "November 3, 2015", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png"), AIIconLabelViewModel(labelText: "Haidian District Garden Road, Beijing, 49", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png"), AIIconLabelViewModel(labelText: "Accompany pregnant woman to produce a check, queue,take a number, buy foodGeneration of pregnant women", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png")]
         orderInfoView.loadData(orderInfosModel)
     }
     

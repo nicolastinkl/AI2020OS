@@ -27,7 +27,9 @@ import UIKit
 import Spring
 import AIAlertView
 
-class AIAlertViewController: UIViewController,UINavigationControllerDelegate {
+
+class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
+
     
     
     // MARK: - IBOutlet
@@ -41,13 +43,11 @@ class AIAlertViewController: UIViewController,UINavigationControllerDelegate {
     @IBOutlet weak var timerControl: DDHTimerControl!
     
     @IBOutlet weak var userNameLabel: UILabel!
+
+    var timerEndDate: NSDate!
+    var timer: NSTimer?
     
-    
-    
-    var timerEndDate : NSDate!
-    var timer : NSTimer?
-    
-    var serviceInstId : String?
+    var serviceInstId: String?
     
     let TIMER_TEXT_FONT = AITools.myriadSemiCondensedWithSize(70 / 3)
     
@@ -71,7 +71,8 @@ class AIAlertViewController: UIViewController,UINavigationControllerDelegate {
     @IBAction func answerAction(sender: AnyObject) {
         //AIApplication.showGladOrderView()
         //点抢单按钮后就不再倒计时
-        if timer != nil{
+
+        if timer != nil {
             timer!.invalidate()
             timer = nil
         }
@@ -91,7 +92,8 @@ class AIAlertViewController: UIViewController,UINavigationControllerDelegate {
         dismissPopupViewController(true, completion: nil)
     }
     
-    func initViews(){
+
+    func initViews() {
         timerControl.color = UIColor(hex: "#49bf1f")
         //timerControl.highlightColor = UIColor.redColor()
         timerControl.minutesOrSeconds = 59
@@ -109,11 +111,11 @@ class AIAlertViewController: UIViewController,UINavigationControllerDelegate {
         self.navigationController?.delegate = self
     }
     
-    func changeTimer(timer : NSTimer){
+    func changeTimer(timer: NSTimer) {
         let timerInterval = timerEndDate.timeIntervalSinceNow
         timerControl.minutesOrSeconds = NSInteger(timerInterval) % 60
         //倒计时结束的时候
-        if timerControl.minutesOrSeconds == 0{
+        if timerControl.minutesOrSeconds == 0 {
             self.timer!.invalidate()
             self.timer = nil
             self.dismissPopupViewController(true, completion: nil)
@@ -132,16 +134,17 @@ class AIAlertViewController: UIViewController,UINavigationControllerDelegate {
         }
     }
     
-    func requestGrabOrderInterface(){
+
+    func requestGrabOrderInterface() {
         let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
         AIServiceExecuteRequester.defaultHandler().grabOrder(serviceInstId: serviceInstId!, providerId: userId, success: { (businessInfo) in
             let result = businessInfo.grabResult
-            if result == GrabResultEnum.Success{
+            if result == GrabResultEnum.Success {
                 let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIContestSuccessViewController) as! AIContestSuccessViewController
                 
                 self.navigationController?.pushViewController(viewController, animated: true)
-            }
-            else{
+            } else {
+
                 AIAlertView().showInfo("Sorry", subTitle: "You failed!")
                 self.dismissPopupViewController(true, completion: nil)
             }
@@ -150,7 +153,8 @@ class AIAlertViewController: UIViewController,UINavigationControllerDelegate {
         }
     }
     
-    func loadData(viewModel : AIGrabOrderDetailViewModel){
+    func loadData(viewModel: AIGrabOrderDetailViewModel) {
+
         userNameLabel.text = viewModel.customerName
         userIconImageView.sd_setImageWithURL(NSURL(string: viewModel.customerIcon))
         serviceNameLabel.text = viewModel.serviceName
@@ -171,5 +175,5 @@ class AIAlertViewController: UIViewController,UINavigationControllerDelegate {
         navigationBar.translucent = true
         
     }
-    
+
 }

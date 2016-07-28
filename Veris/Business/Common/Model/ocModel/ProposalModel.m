@@ -57,6 +57,15 @@
 @implementation ProposalOrderModel
 @end
 
+@implementation ServiceNodeModel
+@end
+
+@implementation ServiceContentModel
+@end
+
+@implementation MapContentModel
+@end
+
 @implementation AIProposalServiceModel
 
 - (id) init

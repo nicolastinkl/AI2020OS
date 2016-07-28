@@ -60,4 +60,5 @@ class AAProviderDialogViewController: AADialogBaseViewController {
 			self?.view.hideLoading()
 		})
 	}
+
 }

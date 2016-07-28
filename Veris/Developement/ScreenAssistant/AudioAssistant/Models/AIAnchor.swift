@@ -50,17 +50,17 @@ struct AIAnchorUIComponent {
 
 
 protocol Reflectable {
-    func propertys()->[String]
+
+    func propertys() -> [String]
 }
 
 
-extension Reflectable
-{
-    func propertys()->[String]{
+extension Reflectable {
+    func propertys() -> [String] {
         var s = [String]()
-        for c in Mirror(reflecting: self).children
-        {
-            if let name = c.label{
+        for c in Mirror(reflecting: self).children {
+            if let name = c.label {
+
                 s.append(name)
             }
         }
@@ -72,7 +72,7 @@ extension Reflectable
 
 
 protocol AnchorProcess {
-    func processAnchor(anchor : AIAnchor)
+    func processAnchor(anchor: AIAnchor)
 }
 
 class AIAnchorOperation: NSOperation {
@@ -118,7 +118,7 @@ class AIAnchorOperation: NSOperation {
 extension UIButton: AIAnchorProtocal {
     func anchor() -> AIAnchor {
         let result = AIAnchor()
-        result.className = "";
+        result.className = ""
         result.viewComponentName = superview?.instanceClassName()
         return result
     }
@@ -132,22 +132,22 @@ class AIAnchor: NSObject {
     
     var className: String?
     var connectionId: String!
-    var locationX : CGFloat?
-    var locationY : CGFloat?
-    var logoIndex : NSInteger?
-    var pageIndex : NSInteger?
+    var locationX: CGFloat?
+    var locationY: CGFloat?
+    var logoIndex: NSInteger?
+    var pageIndex: NSInteger?
     var parameters: [AnyObject]?     // 参数列表
-    var rootViewControllerName : String?
-    var rowIndex : NSInteger?
-    var scrollOffsetX : CGFloat?
-    var scrollOffsetY : CGFloat?
-    var scrollTableName : String?
-    var sectionIndex : NSInteger?
+    var rootViewControllerName: String?
+    var rowIndex: NSInteger?
+    var scrollOffsetX: CGFloat?
+    var scrollOffsetY: CGFloat?
+    var scrollTableName: String?
+    var sectionIndex: NSInteger?
     var selector: String?            // 方法名
     var step: String?                // 锚点步骤
     var type: String?                // 锚点类型
-    var viewComponentName : String?
-    class func anchorFromJSONString(jsonString : String) -> AIAnchor {
+    var viewComponentName: String?
+    class func anchorFromJSONString(jsonString: String) -> AIAnchor {
         
         let anchor = AIAnchor()
         
@@ -176,8 +176,7 @@ class AIAnchor: NSObject {
                     anchor.type = model["type"] as? String
                     anchor.viewComponentName = model["viewComponentName"] as? String
                 }
-            }
-            catch let JSONError as NSError {
+            } catch let JSONError as NSError {
                 print("json parse error --" + "\(JSONError)")
             }
         }
@@ -203,7 +202,9 @@ class AIAnchor: NSObject {
         return anchor
     }
     
-    class func touchAnchor(anchor : [String : AnyObject]) -> AIAnchor {
+
+    class func touchAnchor(anchor: [String : AnyObject]) -> AIAnchor {
+
         let anchor = AIAnchor()
         anchor.type = AIAnchorType.Touch
         AudioAssistantManager.sharedInstance.sendAnchor(anchor)
@@ -211,8 +212,8 @@ class AIAnchor: NSObject {
         return anchor
     }
     
-    
-    class func touchAnchorWithClassName(className : String?, selector : String?, parameters : [AnyObject]?) -> AIAnchor {
+   
+    class func touchAnchorWithClassName(className: String?, selector: String?, parameters: [AnyObject]?) -> AIAnchor {
         let anchor = AIAnchor()
         anchor.type = AIAnchorType.Touch
         AudioAssistantManager.sharedInstance.sendAnchor(anchor)
@@ -224,7 +225,8 @@ class AIAnchor: NSObject {
     
     
     
-    class func beforeAnchorWithClassName(className : String?, selector : String?, parameters : [AnyObject]?) -> AIAnchor {
+
+    class func beforeAnchorWithClassName(className: String?, selector: String?, parameters: [AnyObject]?) -> AIAnchor {
         let anchor = AIAnchor()
         anchor.type = AIAnchorType.Normal
         anchor.step = AIAnchorStep.Before
@@ -235,8 +237,8 @@ class AIAnchor: NSObject {
         return anchor
         
     }
-    
-    class func executingAnchorWithClassName(className : String?, selector : String?, parameters : [AnyObject]?) -> AIAnchor {
+
+    class func executingAnchorWithClassName(className: String?, selector: String?, parameters: [AnyObject]?) -> AIAnchor {
         let anchor = AIAnchor()
         anchor.type = AIAnchorType.Normal
         anchor.step = AIAnchorStep.Executing
@@ -248,8 +250,8 @@ class AIAnchor: NSObject {
         
     }
     
-    
-    class func afterAnchorWithClassName(className : String?, selector : String?, parameters : [AnyObject]?) -> AIAnchor {
+
+    class func afterAnchorWithClassName(className: String?, selector: String?, parameters: [AnyObject]?) -> AIAnchor {
         let anchor = AIAnchor()
         anchor.type = AIAnchorType.Normal
         anchor.step = AIAnchorStep.After
@@ -277,4 +279,3 @@ extension AIAnchor {
         AudioAssistantManager.sharedInstance.sendAnchor(self)
     }
 }
-

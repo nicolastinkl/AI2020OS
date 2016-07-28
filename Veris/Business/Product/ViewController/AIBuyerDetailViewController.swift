@@ -185,7 +185,7 @@ class AIBuyerDetailViewController: UIViewController {
     /**
      这里处理Deeplink回调时的界面刷新处理
      */
-    func updateDeepLinkView(notify: NSNotification){
+    func updateDeepLinkView(notify: NSNotification) {
 
         if let object = notify.object {
 
@@ -222,8 +222,7 @@ class AIBuyerDetailViewController: UIViewController {
                 param3.param_value = appointmentTime ?? ""
                 param3.param_icon = "http://171.221.254.231:3000/upload/shoppingcart/DQd6bsVqrsHg1.png"
                 param3.product_key = "123"
-
-                ServiceCellProductParamModel1.param_list = [param1,param2,param3]
+                ServiceCellProductParamModel1.param_list = [param1, param2, param3]
 
                 newModel.service_param = [ServiceCellProductParamModel1]
                 self.dataSource.service_list[cacheIndex] = newModel
@@ -909,7 +908,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                     selectIndexPath = indexPath
 
                     // Show View.
-                    Card.sharedInstance.showInView(self.view, serviceId: "2", userInfo: ["title":model.service_desc,"name":"Hospital","url":"\(model.service_thumbnail_icon)"])
+                    Card.sharedInstance.showInView(self.view, serviceId: "2", userInfo: ["title":model.service_desc, "name": "Hospital", "url": "\(model.service_thumbnail_icon)"])
 
                     return
                 }
@@ -918,7 +917,9 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                 if model.service_id == bid.toInt() {
 
                     // Show View.
+
                     Card.sharedInstance.showInView(self.view, serviceId: "1", userInfo: ["title":model.service_desc,"name":"Uber","url":"\(model.service_thumbnail_icon)"])
+
                     return
                 }
                 let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIPageBueryViewController) as! AIPageBueryViewController
@@ -1052,7 +1053,7 @@ extension AIBuyerDetailViewController: AISuperSwipeableCellDelegate {
 		curretCell = cell as? AIBueryDetailCell
 //        self.tableView.userInteractionEnabled = false
         // Send Anchor
-        if self.isNowExcutingAnchor == false  {
+        if self.isNowExcutingAnchor == false {
             let anchor = AIAnchor()
             anchor.type = AIAnchorType.Normal
             anchor.step = AIAnchorStep.After
@@ -1154,7 +1155,8 @@ extension AIBuyerDetailViewController: AIProposalDelegate {
 
 //MARK: 处理Anchor事件
 extension AIBuyerDetailViewController : AnchorProcess {
-    func processAnchor(anchor : AIAnchor) {
+
+    func processAnchor(anchor: AIAnchor) {
         switch anchor.type! {
         case AIAnchorType.Lock:
             processLockAnchor(anchor)
@@ -1174,66 +1176,58 @@ extension AIBuyerDetailViewController : AnchorProcess {
     }
     
     
-    func processLockAnchor(anchor : AIAnchor) {
+    func processLockAnchor(anchor: AIAnchor) {
         if anchor.step == AIAnchorStep.Lock {
             self.view.showLoadingWithMessage("processing...")
-        }
-        else
-        {
+        } else {
             self.view.dismissLoading()
         }
     }
     
-    func processTouchAnchor(anchor : AIAnchor) {
+    func processTouchAnchor(anchor: AIAnchor) {
         isNowExcutingAnchor = true
-        if (anchor.viewComponentName?.containsString("UITableView") == true) {// Table
+        if anchor.viewComponentName?.containsString("UITableView") == true {// Table
             tableView(tableView, didSelectRowAtIndexPath: NSIndexPath(forRow: anchor.rowIndex!, inSection: anchor.sectionIndex!))
-        }
-        else if (anchor.selector == "settingButtonClicked") {
+        } else if anchor.selector == "settingButtonClicked" {
             
             let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: anchor.rowIndex!, inSection: anchor.sectionIndex!))
             let c = cell?.contentView.viewWithTag(SIMPLE_SERVICE_VIEW_CONTAINER_TAG) as! SimpleServiceViewContainer
             settingButtonClicked(UIImageView(), parentView: c)
         
-        }
-        else if (anchor.selector == "removeCellFromSuperView") {
+
+        } else if anchor.selector == "removeCellFromSuperView" {
             let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: anchor.rowIndex!, inSection: anchor.sectionIndex!)) as! AIBueryDetailCell
             let model = cell.currentModel
             removeCellFromSuperView(cell, model: model)
-        }
-        else if anchor.selector == "openDeletedTableView" {
+        } else if anchor.selector == "openDeletedTableView" {
             openDeletedTableView(true)
-        }
-        else if anchor.selector == "closeDeletedTableView" {
+        } else if anchor.selector == "closeDeletedTableView" {
             closeDeletedTableView(true)
-        }
-        else if anchor.selector == "serviceRestoreToolBarDidClickBlankArea" {
+        } else if anchor.selector == "serviceRestoreToolBarDidClickBlankArea" {
             serviceRestoreToolBarDidClickBlankArea(self.serviceRestoreToolbar)
-        }
-        else if anchor.selector == "serviceRestoreToolBar" {
+        } else if anchor.selector == "serviceRestoreToolBar" {
             serviceRestoreToolBar(self.serviceRestoreToolbar, didClickLogoAtIndex: anchor.logoIndex!)
-        }
-        else if anchor.selector == "AIBuyerDetailViewController.alert" {
+        } else if anchor.selector == "AIBuyerDetailViewController.alert" {
+
             let model = self.deleted_service_list[anchor.logoIndex!] as! AIProposalServiceModel
             restoreService(model)
         }
     }
     
     
-    func pricessNormalAnchor(anchor : AIAnchor) {
+    func pricessNormalAnchor(anchor: AIAnchor) {
         
         if anchor.selector == "cellDidOpen" {
             let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: anchor.rowIndex!, inSection: anchor.sectionIndex!)) as! AIBueryDetailCell
             cellDidOpen(cell)
-        }
-        else if anchor.selector == "cellDidClose" {
+
+        } else if anchor.selector == "cellDidClose" {
             let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: anchor.rowIndex!, inSection: anchor.sectionIndex!)) as! AIBueryDetailCell
             cellDidClose(cell)
-        }
-        else if anchor.selector == "scrollViewDidEndDecelerating" {
+        } else if anchor.selector == "scrollViewDidEndDecelerating" {
             if anchor.scrollTableName == "tableView" {
                 tableView.setContentOffset(CGPointMake(anchor.scrollOffsetX!, anchor.scrollOffsetY!), animated: true)
-            }else {
+            } else {
                 deletedTableView.setContentOffset(CGPointMake(anchor.scrollOffsetX!, anchor.scrollOffsetY!), animated: true)
             }
         }

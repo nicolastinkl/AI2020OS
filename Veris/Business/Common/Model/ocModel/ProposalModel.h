@@ -20,6 +20,14 @@
 @protocol ServiceOrderModel
 @end
 
+@protocol ServiceContentModel
+@end
+
+@protocol MapContentModel
+@end
+
+@protocol ServiceNodeModel
+@end
 
 @protocol AIProposalServiceDetailParamModel
 @end
@@ -52,12 +60,47 @@
 @end
 
 
+
+
 @interface InfoDetailModel : JSONModel
 
 @property (nonatomic, strong) NSString<Optional> *type;
 @property (nonatomic, strong) NSString<Optional> *content;
 
 @end
+
+@interface MapContentModel: JSONModel
+
+@property (nonatomic, strong) NSString<Optional> *Loc_type;
+@property (nonatomic, strong) NSString<Optional> *longitude;
+@property (nonatomic, strong) NSString<Optional> *latitude;
+
+@end
+
+@interface ServiceContentModel: JSONModel
+
+@property (nonatomic, strong) NSString<Optional> *type;
+@property (nonatomic, strong) NSString<Optional> *url;
+@property (nonatomic, strong) MapContentModel<Optional> *map;
+
+@end
+
+@interface ServiceNodeModel : JSONModel
+
+@property (nonatomic, strong) NSString<Optional> *id;
+@property (nonatomic, strong) NSString<Optional> *type;
+// 服务商图标
+@property (nonatomic, strong) NSString<Optional> *provider_icon;
+// 服务商电话
+@property (nonatomic, strong) NSString<Optional> *provider_nbr;
+@property (nonatomic, strong) NSString<Optional> *title;
+@property (nonatomic, strong) NSString<Optional> *desc;
+@property (nonatomic, strong) NSString<Optional> *state;
+@property (nonatomic, strong) NSString<Optional> *time;
+@property (nonatomic, strong) ServiceContentModel<Optional> *content;
+
+@end
+
 
 // 流程脚本对象
 @protocol ArrangeScriptModel
@@ -82,20 +125,13 @@
 
 @interface ServiceOrderModel : JSONModel
 
-@property (nonatomic, assign) NSInteger order_id;
-@property (nonatomic, strong) NSString<Optional> *order_state;
-@property (nonatomic, assign) NSInteger service_id;
-@property (nonatomic, strong) NSString<Optional> *service_thumbnail_icon;
-// 详情标识 1:可显示详情 2:不显示详情
-@property (nonatomic, assign) NSInteger detail_flag;
-// 1:可催单 0:不可催单
-@property (nonatomic, assign) NSInteger prompt_flag;
-// 1:可联系 0:不可联系
-@property (nonatomic, assign) NSInteger contact_flag;
-//@property (nonatomic, strong) NSArray<ParamModel, Optional> *param_list;
-
-// 流程脚本对象
-@property (nonatomic, strong) ArrangeScriptModel<Optional> *arrange_script_info;
+@property (nonatomic, assign) NSInteger id;
+// 服务图标
+@property (nonatomic, strong) NSString<Optional> *image;
+// 服务名称
+@property (nonatomic, strong) NSString<Optional> *name;
+// 第一个节点
+@property (nonatomic, strong) ServiceNodeModel<Optional> *node;
 
 
 @end
@@ -107,16 +143,18 @@
 @interface ProposalOrderModel : JSONModel
 
 @property (nonatomic, assign) NSInteger proposal_id;
-@property (nonatomic, strong) NSString<Optional> *proposal_name;
-// 1:正常 0:异常
-@property (nonatomic, assign) NSInteger alarm_state;
-@property (nonatomic, strong) NSArray<ServiceOrderModel, Optional> *order_list;
+@property (nonatomic, strong) NSString<Optional> *name;
+// 消息总数
+@property (nonatomic, assign) NSInteger messages;
+// 消息状态
+@property (nonatomic, strong) NSString<Optional> *state;
+@property (nonatomic, strong) NSArray<ServiceOrderModel, Optional> *service;
 
 @end
 
 @interface ProposalOrderListModel : JSONModel
 
-@property (nonatomic, strong) NSArray<ProposalOrderModel, Optional> *proposal_order_list;
+@property (nonatomic, strong) NSArray<ProposalOrderModel, Optional> *order_list;
 @end
  
 

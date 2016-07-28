@@ -128,17 +128,17 @@ struct AIRemoteNotificationParameters {
      *
      *
      */
-    func didReceiveRemoteNotificationUserInfo(userinfo : [NSObject : AnyObject]) {
+    
+    func didReceiveRemoteNotificationUserInfo(userinfo: [NSObject : AnyObject]) {
 
         //如果是抢单通知
         let key = AIRemoteNotificationKeys.NotificationType
-        let msgDic : Dictionary = userinfo["aps"] as! Dictionary<String , AnyObject>
+        let msgDic: Dictionary = userinfo["aps"] as! Dictionary<String, AnyObject>
         print("\(msgDic)")
-        if let value = userinfo[key] as? String{
+        if let value = userinfo[key] as? String {
             if value == AIRemoteNotificationParameters.GrabOrderType {
                 AIApplication.showAlertView()
-            }
-            else if value == AIRemoteNotificationParameters.AudioAssistantType {
+            } else if value == AIRemoteNotificationParameters.AudioAssistantType {
                 // 语音协助的 接受
                 let topVC = topViewController()
 
