@@ -94,11 +94,6 @@ class AITimeContentViewModel: AIBaseViewModel {
     }
 }
 
-/// 客户订单列表视图
-class AICustomerOrderViewModel: AIBaseViewModel {
-    
-}
-
 class AICustomerOrderDetailTopViewModel: AIBaseViewModel {
     var serviceIcon: String!
     var serviceName: String!
@@ -106,11 +101,9 @@ class AICustomerOrderDetailTopViewModel: AIBaseViewModel {
     var completion: Float!
     var price: String!
     var messageNumber: Int?
-}
-
-/// 客户订单服务实例视图
-class AICustomerServInstViewModel: AIBaseViewModel {
-    
+    var serviceInsts: [IconServiceIntModel]?
+    var unReadMessageNumber: Int?
+    var unConfirmMessageNumber: Int?
 }
 
 // MARK: -> enums

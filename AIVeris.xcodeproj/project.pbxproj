@@ -22,6 +22,7 @@
 		123A1F861D2F94F900542D06 /* AITimelineTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123A1F841D2F94F900542D06 /* AITimelineTopView.xib */; };
 		123A1F871D2F94F900542D06 /* AITimelineTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1F851D2F94F900542D06 /* AITimelineTopView.swift */; };
 		1265F6291D47841400130ECF /* AICustomerServiceExecuteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1265F6281D47841400130ECF /* AICustomerServiceExecuteHandler.swift */; };
+		1265F62B1D48937700130ECF /* AICustomerServiceExecBusiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1265F62A1D48937700130ECF /* AICustomerServiceExecBusiModel.m */; };
 		126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
 		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
 		1273444D1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */; };
@@ -742,6 +743,7 @@
 		123A1F841D2F94F900542D06 /* AITimelineTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTopView.xib; sourceTree = "<group>"; };
 		123A1F851D2F94F900542D06 /* AITimelineTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTopView.swift; sourceTree = "<group>"; };
 		1265F6281D47841400130ECF /* AICustomerServiceExecuteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteHandler.swift; sourceTree = "<group>"; };
+		1265F62A1D48937700130ECF /* AICustomerServiceExecBusiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICustomerServiceExecBusiModel.m; sourceTree = "<group>"; };
 		126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteViewController.swift; sourceTree = "<group>"; };
 		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
 		1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomerOrderFoldedView.xib; sourceTree = "<group>"; };
@@ -1869,6 +1871,7 @@
 			isa = PBXGroup;
 			children = (
 				12DFC0BF1D47031600025D4F /* AICustomerServiceExecBusiModel.h */,
+				1265F62A1D48937700130ECF /* AICustomerServiceExecBusiModel.m */,
 			);
 			path = businessModel;
 			sourceTree = "<group>";
@@ -4818,6 +4821,7 @@
 				81433CEA1CFBE5A700347C29 /* ProposalModel.m in Sources */,
 				93C8C9A81D14034A00F1DFCF /* AICustomSearchHomeCell.swift in Sources */,
 				81433D8B1CFBE5A700347C29 /* PurchasedServiceView.swift in Sources */,
+				1265F62B1D48937700130ECF /* AICustomerServiceExecBusiModel.m in Sources */,
 				FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */,
 				81433D3D1CFBE5A700347C29 /* AICustomView.swift in Sources */,
 				81433D591CFBE5A700347C29 /* AINumberCountControl.swift in Sources */,

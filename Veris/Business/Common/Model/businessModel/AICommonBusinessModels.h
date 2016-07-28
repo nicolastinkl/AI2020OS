@@ -30,17 +30,7 @@
 @property (nonatomic, strong) NSString<Optional> *price_show;
 @end
 
-/**
- *  订单信息
- */
-#pragma mark - 订单信息
-@protocol AIOrderInfoBusiModel @end
 
-@interface AIOrderInfoBusiModel : JSONModel
-@property (nonatomic, strong) NSString<Optional> *order_id;
-@property (nonatomic, strong) NSString<Optional> *order_state;
-@property (nonatomic, strong) NSString<Optional> *order_create_time;
-@end
 
 /**
  *  地址对象
@@ -54,17 +44,6 @@
 @property (nonatomic, strong) NSString<Optional> *loc_type;
 @end
 
-#pragma mark - 时间线对象
-@protocol AITimelineBusiModel @end
-
-@interface AITimelineBusiModel : JSONModel
-@property (nonatomic, strong) NSString<Optional> *type;
-@property (nonatomic, strong) NSString<Optional> *id;
-@property (nonatomic, strong) NSString<Optional> *sub_service_id;
-@property (nonatomic, strong) NSNumber<Optional> *timestamp;
-@property (nonatomic, assign) AIGPSBusiModel<Optional> *map;
-@end
-
 /**
  *  时间线内容对象
  */
@@ -74,9 +53,23 @@
 @interface AITimelineContentBusiModel : JSONModel
 @property (nonatomic, strong) NSString<Optional> *type;
 @property (nonatomic, strong) NSString<Optional> *url;
-@property (nonatomic, assign) AIGPSBusiModel<Optional> *map;
+@property (nonatomic, strong) AIGPSBusiModel<Optional> *map;
 @end
 
+#pragma mark - 时间线对象
+@protocol AITimelineBusiModel @end
+
+@interface AITimelineBusiModel : JSONModel
+@property (nonatomic, strong) NSString<Optional> *procedure_inst_id;
+@property (nonatomic, strong) NSString<Optional> *procedure_inst_name;
+@property (nonatomic, strong) NSString<Optional> *procedure_inst_desc;
+@property (nonatomic, strong) NSString<Optional> *status;
+@property (nonatomic, strong) NSString<Optional> *service_instance_id;
+@property (nonatomic, strong) NSString<Optional> *procedure_inst_type;
+@property (nonatomic, strong) NSString<Optional> *procedure_inst_type_value;
+@property (nonatomic, strong) NSNumber<Optional> *time_value;
+@property (nonatomic, strong) NSArray<AITimelineContentBusiModel, Optional> *attchments;
+@end
 
 /**
  *  服务规格信息
@@ -100,11 +93,30 @@
 @protocol AIServiceInstBusiModel @end
 
 @interface AIServiceInstBusiModel : JSONModel
-@property (nonatomic, strong) NSNumber<Optional> *service_progress;
+@property (nonatomic, strong) NSNumber<Optional> *progress;
 @property (nonatomic, strong) NSString<Optional> *service_catalog;
-@property (nonatomic, strong) NSNumber<Optional> *service_id;
+@property (nonatomic, strong) NSString<Optional> *id;
 @property (nonatomic, strong) NSString<Optional> *service_price;
-@property (nonatomic, strong) NSString<Optional> *service_thumbnail_icon;
+@property (nonatomic, strong) NSString<Optional> *icon;
+@property (nonatomic, strong) NSString<Optional> *name;
 @property (nonatomic, strong) NSString<Optional> *service_intro;
+@end
+
+/**
+ *  订单信息
+ */
+#pragma mark - 订单信息
+@protocol AIOrderInfoBusiModel @end
+
+@interface AIOrderInfoBusiModel : JSONModel
+@property (nonatomic, strong) NSString<Optional> *order_id;
+@property (nonatomic, strong) NSString<Optional> *order_state;
+@property (nonatomic, strong) NSString<Optional> *order_create_time;
+@property (nonatomic, strong) NSString<Optional> *icon;
+@property (nonatomic, strong) NSString<Optional> *name;
+@property (nonatomic, strong) NSNumber<Optional> *progress;
+@property (nonatomic, strong) NSString<Optional> *prvoider_name;
+@property (nonatomic, strong) AIPriceBusiModel<Optional> *price;
+
 @end
 
