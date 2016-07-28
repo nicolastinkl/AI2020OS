@@ -76,12 +76,7 @@ class AIFolderCellView: UIView {
         alertIcon.clipsToBounds = true
 
         descContentView = AIOrderDescView(frame: CGRectMake(0, 0, descView.bounds.width, descView.bounds.height))
-        for serviceOrderModel: ServiceOrderModel in proposalModel.order_list as! [ServiceOrderModel] {
-            if serviceOrderModel.order_state != "Completed" {
-                descContentView?.loadData(serviceOrderModel)
-                break
-            }
-        }
+
 
         descView.addSubview(descContentView!)
 
@@ -91,35 +86,13 @@ class AIFolderCellView: UIView {
 
     func loadData(proposalModel: ProposalOrderModel) {
         self.proposalModel = proposalModel
-        serviceNameLabel.text = proposalModel.proposal_name
 
-        if proposalModel.order_list != nil {
-
-            let firstServiceOrder: ServiceOrderModel? = proposalModel.order_list.first as? ServiceOrderModel
-
-            serviceIcon.layer.cornerRadius = 12
-            serviceIcon.layer.masksToBounds = true
-            serviceIcon.image = smallPlace()
-
-            if let url = firstServiceOrder?.service_thumbnail_icon {
-                serviceIcon.sd_setImageWithURL(url.toURL(), placeholderImage: smallPlace())
-            } else {
-                serviceIcon.image = smallPlace()
-            }
-        }
 
         buildStatusData()
     }
 
     func buildStatusData() {
-        //0: 正常 1:异常
-        if proposalModel.alarm_state == 1 {
-            alertIcon.hidden = false
-            statusLabel.hidden = true
-        } else if proposalModel.alarm_state == 0 {
-            alertIcon.hidden = true
-            statusLabel.hidden = false
-        }
+ 
     }
 
     // MARK: currentView
