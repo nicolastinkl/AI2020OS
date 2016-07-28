@@ -219,7 +219,7 @@ class AIProductInfoViewController: UIViewController {
 		}
 		
 		// Setup 1 : Top UIImageView.
-		topImage.setURL(NSURL(string: "http://7xq9bx.com1.z0.glb.clouddn.com/AI_ProductInfo_Home_%E6%9C%8D%E5%8A%A1%E7%A4%BA%E6%84%8F%E5%9B%BE.8.8.png"), placeholderImage: smallPlace())
+		topImage.setImgURL(NSURL(string: "http://7xq9bx.com1.z0.glb.clouddn.com/AI_ProductInfo_Home_%E6%9C%8D%E5%8A%A1%E7%A4%BA%E6%84%8F%E5%9B%BE.8.8.png"), placeholderImage: smallPlace())
 		topImage.setHeight(imageScalingFactor)
 		topImage.contentMode = UIViewContentMode.ScaleAspectFill
 		addNewSubView(topImage, preView: UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
@@ -417,7 +417,7 @@ class AIProductInfoViewController: UIViewController {
         addNewSubView(holdSpaceView, preView: pcLabel)
         holdSpaceView.setHeight(44/3)
         let bottomImage = AIImageView()
-        bottomImage.setURL(NSURL(string:"http://7xq9bx.com1.z0.glb.clouddn.com/AI_ProductInfo_Home_%E5%95%86%E5%93%81%E4%BB%8B%E7%BB%8D%E5%8C%BA%E5%9F%9F.8.8.png"), placeholderImage: smallPlace())
+        bottomImage.setImgURL(NSURL(string:"http://7xq9bx.com1.z0.glb.clouddn.com/AI_ProductInfo_Home_%E5%95%86%E5%93%81%E4%BB%8B%E7%BB%8D%E5%8C%BA%E5%9F%9F.8.8.png"), placeholderImage: smallPlace())
         bottomImage.setHeight(675)
         bottomImage.backgroundColor = UIColor(hexString: "#6AB92E", alpha: 0.7)
         bottomImage.contentMode = UIViewContentMode.ScaleAspectFill

@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import CardDeepLinkKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	var didFinishGetBuyerListData: Bool = false
 	var didFinishGetBuyerProposalData: Bool = false
 	
+    private lazy var router: CDDeepLinkRouter = CDDeepLinkRouter()
 	var sellerData: NSDictionary?
     var buyerListData: ProposalOrderListModel?
     var buyerProposalData: AIProposalPopListModel?
@@ -72,7 +74,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
         configUmengShare()
     
-        //redirectConsoleLog()
+	// DeepLink
+        router.registerBlock({ (deeplink) in
+            
+            debugPrint("deeplink1 \(deeplink.queryParameters)")
+            
+            // 1. Parser all the Property and unPackage.
+            // 2. Send Notification to do somethings with logic.
+            
+            if let queryParameters = deeplink.queryParameters {
+                //DeepLink Network Requseting.
+                NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIDeepLinkupdateDeepLinkView, object: queryParameters)
+            }
+        }, route: "cddpl://.*")
         
 		return true
 		
@@ -146,6 +160,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
 		
 		AILog("openURL:\(url.absoluteString)")
+	// DeepLink
+	router.handleURL(url) { (complte, error) in
+            AILog("info : \(complte) \(error) ")
+        }
 
         // 分享跳转
         UMSocialSnsService.handleOpenURL(url)
@@ -202,6 +220,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 		
 		AVAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
 		
+        AIRemoteNotificationHandler.defaultHandler().didReceiveRemoteNotificationUserInfo(userInfo)
 	}
 	
 	func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {

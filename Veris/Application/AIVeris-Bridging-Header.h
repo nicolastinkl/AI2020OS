@@ -156,3 +156,10 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialSinaSSOHandler.h"
+
+// model
+#import "AIExecuteServiceModel.h"
+
+// 远程协助
+#import <OpenTok/OpenTok.h>
+#import "TBScreenCapture.h"
