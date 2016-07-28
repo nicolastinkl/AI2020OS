@@ -69,7 +69,7 @@ class AIAlertViewController: UIViewController,UINavigationControllerDelegate {
     
     // MARK: - IBAction
     @IBAction func answerAction(sender: AnyObject) {
-        //AIApplication.showGladOrderView()
+        //AIAlertViewController.showGladOrderView()
         //点抢单按钮后就不再倒计时
         if timer != nil{
             timer!.invalidate()
@@ -169,6 +169,22 @@ class AIAlertViewController: UIViewController,UINavigationControllerDelegate {
         navigationBar.shadowImage = UIImage()
         navigationBar.backgroundColor = UIColor.clearColor()
         navigationBar.translucent = true
+        
+    }
+    
+    static func showGladOrderView() {
+        let viewAlert = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIGladOrderViewController) as! AIGladOrderViewController
+        
+        if let rootVc = UIApplication.sharedApplication().keyWindow?.rootViewController {
+            AILog("\(rootVc.dynamicType)")
+            
+            if rootVc.isKindOfClass(UINavigationController.self) {
+                //rootVc.pop
+            } else {
+                
+            }
+            rootVc.presentPopupViewController(viewAlert, animated: true)
+        }
         
     }
     
