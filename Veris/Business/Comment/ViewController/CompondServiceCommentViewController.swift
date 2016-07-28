@@ -12,7 +12,7 @@ import AIAlertView
 class CompondServiceCommentViewController: AbsCommentViewController {
 
     var serviceID: String!
-    var comments: [SubServiceCommentViewModel]!
+    var comments: [ServiceCommentViewModel]!
     private var currentOperateCell = -1
     private var cellsMap = [Int: UITableViewCell]()
 
@@ -31,19 +31,16 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         checkbox.layer.cornerRadius = 4
         submit.layer.cornerRadius = submit.height / 2
 
-        comments = [SubServiceCommentViewModel]()
-
-        for i in 0 ..< 5 {
-            let model = SubServiceCommentViewModel()
-            model.commentEditable = i % 2 != 0
-            comments.append(model)
-        }
+        
         
         serviceTableView.rowHeight = UITableViewAutomaticDimension
         serviceTableView.estimatedRowHeight = 270
 
         serviceTableView.registerNib(UINib(nibName: "ServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "SubServiceCell")
         serviceTableView.registerNib(UINib(nibName: "TopServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "TopServiceCell")
+        
+        loadServiceComments()
+        loadModelFromLocal()
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,40 +86,109 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
     
     private func loadServiceComments() {
-        view.showLoading()
+        comments = [ServiceCommentViewModel]()
         
-        let ser = HttpCommentService()
+        for i in 0 ..< 1 {
+            let model = ServiceCommentViewModel()
+            model.commentEditable = i % 2 != 1
+            comments.append(model)
+        }
         
-        ser.getCompondComment(serviceID, success: { (responseData) in
-            self.view.hideLoading()
-            let re = responseData
-            print("getCompondComment success:\(re)")
+//        view.showLoading()
 
-        }) { (errType, errDes) in
-            
-            self.view.hideLoading()
-            
-            AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
+        
+//        let ser = HttpCommentService()
+//        
+//        ser.getCompondComment(serviceID, success: { (responseData) in
+//            self.view.hideLoading()
+//            let re = responseData
+//            print("getCompondComment success:\(re)")
+//
+//        }) { (errType, errDes) in
+//            
+//            self.view.hideLoading()
+//            
+//            AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
+//        }
+    }
+    
+    private func loadModelFromLocal() {
+        for comment in comments {
+            let model = CommentUtils.getCommentModelFromLocal(comment.serviceId)
+            comment.loaclModel = model
         }
     }
 
-    override func imagePicked(image: UIImage) {
+    override func imagesPicked(images: [ImageInfo]) {
         if let cell = getCurrentOperateCell() {
 
             let row = cell.tag
             
-            if let cell = serviceTableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? ServiceCommentTableViewCell {
-                if cell.isEditingAppendComment {
-                    comments[row].secondImages.append(image)
-                } else {
-                    comments[row].firstImages.append(image)
-                }
-                
-                cell.addAsyncUploadImage(image, id: nil, complate: nil)
+            guard let cell = serviceTableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? ServiceCommentTableViewCell else {
+                return
+            }
+            
+            recordImagesInfoToDataSource(images, cell: cell)
+            
+            addImagesToCell(images, cell: cell)
+        }
+    }
+    
+    private func recordImagesInfoToDataSource(infos: [ImageInfo], cell: ServiceCommentTableViewCell) {
+        let row = cell.tag
+        
+        ensureLoaclSavedModelNotNil(row)
+        
+        comments[row].loaclModel!.images!.appendContentsOf(infos)
+        comments[row].loaclModel!.isAppend = cell.isEditingAppendComment
+        comments[row].loaclModel!.changed = true
+        
+        for info in infos {
+            if info.url == nil {
+                saveImageToAlbum(info)
             }
         }
     }
-
+    
+    private func ensureLoaclSavedModelNotNil(index: Int) {
+        if comments[index].loaclModel == nil {
+            let model = ServiceCommentLocalSavedModel()
+            model.images = [ImageInfo]()
+            
+            comments[index].loaclModel = model
+        }
+    }
+  
+    func saveImageToAlbum(info: ImageInfo) {
+        guard let im = info.image else {
+            return
+        }
+        
+        ALAssetsLibrary().writeImageToSavedPhotosAlbum(im.CGImage, orientation: ALAssetOrientation(rawValue: im.imageOrientation.rawValue)!) { (path: NSURL!, error: NSError!) in
+     //       info.url = path
+        }
+    }
+    
+    private func addImagesToCell(images: [ImageInfo], cell: ServiceCommentTableViewCell) {
+        let row = cell.tag
+        let serviceId = comments[row].serviceId
+        let model = comments[row].loaclModel
+        
+        for imageInfo in images {
+            if let im = imageInfo.image {
+                cell.addAsyncUploadImage(im, id: nil, complate: { (id, url, error) in
+                    if let u = url {
+                        imageInfo.url = u
+                        imageInfo.isUploaded = true
+                        
+                        if let m = model {
+                            CommentUtils.saveCommentModelToLocal(serviceId, model: m)
+                        }
+                    }  
+                })
+            }
+        }
+    }
 }
 
 extension CompondServiceCommentViewController: UITableViewDataSource, UITableViewDelegate {
@@ -149,7 +215,7 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         cell.tag = indexPath.row
         
         if comments[indexPath.row].cellState == nil {
-            comments[indexPath.row].cellState = cell.setModel(comments[indexPath.row])
+            comments[indexPath.row].cellState = cell.setModel(comments[indexPath.row])     
         }
 
         resetCellUI(cell, indexPath: indexPath)
@@ -163,11 +229,28 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
     private func resetCellUI(cell: ServiceCommentTableViewCell, indexPath: NSIndexPath) {
         cell.clearImages()
         
-    //    cell.addImages(comments[indexPath.row].images)
-        
         if let state = comments[indexPath.row].cellState {
+            if let urls = getImageUrls(indexPath.row) {
+                cell.addAsyncDownloadImages(urls)
+            }
             cell.resetState(state)
         }
+    }
+    
+    private func getImageUrls(row: Int) -> [NSURL]? {
+        if let ims = comments[row].loaclModel?.images {
+            var urls = [NSURL]()
+            for info in ims {
+                if let u = info.url {
+                    urls.append(u)
+                }
+                
+            }
+            
+            return urls
+        }
+        
+        return nil
     }
 }
 
@@ -185,11 +268,14 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
     }
 }
 
-class SubServiceCommentViewModel {
-    var firstImages = [UIImage]()
-    var secondImages = [UIImage]()
+class ServiceCommentViewModel {
+    var firstImages = [String]()
+    var appendImages = [String]()
     var cellState: CommentState!
     var commentEditable = false
+    var submitted = false
+    var serviceId = ""
+    var loaclModel: ServiceCommentLocalSavedModel?
 }
 
 protocol CommentCellProtocol {

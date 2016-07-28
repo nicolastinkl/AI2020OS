@@ -168,6 +168,8 @@ class AICustomSearchHomeViewController: UIViewController {
 			(image: "search-icon2", title: "Pregnacy"),
 			(image: "search-icon3", title: "Photography classroom"),
 			], width: screenWidth)
+        
+        iconView.delegate = self
 		
 		iconView.setY(everyOneSearchTag.bottom + AITools.displaySizeFrom1242DesignSize(109))
 		
@@ -343,8 +345,39 @@ extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
 extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDelegate {
     func customSearchHomeResultFilterBar(filterBar: AICustomSearchHomeResultFilterBar, didSelectType type: FilterType, index: Int) {
         filterBar.hideMenu()
-        AILog(type)
-        AILog(index)
-        AILog("button filter bar did pressed")
+    }
+}
+
+extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
+    func searchHistoryIconView(iconView: AISearchHistoryIconView, didClickAtIndex index: Int) {
+        // fake
+        if let model = fakeData() {
+            let vc = AISuperiorityViewController.initFromNib()
+            vc.serviceModel = model
+            showTransitionStyleCrossDissolveView(vc)
+        }
+    }
+    
+    func fakeData() -> AISearchResultItemModel? {
+        var result: AISearchResultItemModel?
+        if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
+            let data: NSData? = NSData(contentsOfFile: path)
+            if let dataJSON = data {
+                do {
+                    let model = try AISearchResultModel(data: dataJSON)
+                    
+                    do {
+                        try model.results?.forEach({ (item) in
+                            let resultItem = try AISearchResultItemModel(dictionary: item as [NSObject: AnyObject])
+                            result = resultItem
+                        })
+                    } catch { }
+                    
+                } catch {
+                    AILog("AIOrderPreListModel JSON Parse err.")
+                }
+            }
+        }
+        return result
     }
 }

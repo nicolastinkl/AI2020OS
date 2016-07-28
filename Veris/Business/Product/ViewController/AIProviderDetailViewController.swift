@@ -27,7 +27,6 @@ class AIProviderDetailViewController: UIViewController {
 	
 	func fakeBubbleModels() {
 //        let rootVC =
-		
 	}
 	
 	func setupBubbleView() {

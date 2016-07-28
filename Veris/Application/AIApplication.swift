@@ -28,10 +28,6 @@ struct AIApplication {
     // MARK: XUNFEI APPID
     internal static let XUNFEIAPPID  = "551ba83b"
 
-    struct IPHONEOS {
-        static let IS_IPHONE6PLUS = UIScreen.mainScreen().bounds.size.width > 375
-    }
-
     // MARK JSON RESPONSE
 
     struct JSONREPONSE {
@@ -176,6 +172,9 @@ struct AIApplication {
         static let UIAIASINFOWillShowBarNotification    = "UIAIASINFOWillShowBarNotification"
         static let UIAIASINFOWillhiddenBarNotification  = "UIAIASINFOWillhiddenBarNotification"
         static let UIAIASINFOLoginNotification          = "UIAIASINFOLoginNotification"
+        
+        // 会话过期重新登录
+        static let UIRELoginNotification                = "UIRELoginNotification"
         static let UIAIASINFOLogOutNotification         = "UIAIASINFOLogOutNotification"
 
         static let UIAIASINFOOpenAddViewNotification         = "UIAIASINFOOpenAddViewNotification"

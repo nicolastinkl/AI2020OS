@@ -52,7 +52,7 @@
 @property (strong, nonatomic) NSString<Optional> * service_name;
 @property (strong, nonatomic) NSString<Optional> * spec_id;
 @property (strong, nonatomic) NSString<Optional> * service_icon;
-@property (strong, nonatomic) NSString<Optional> * value;
+@property (strong, nonatomic) NSString<Optional> * rating_level;
 @property (strong, nonatomic) NSString<Optional> * text;
 @property (strong, nonatomic) NSArray<CommentPhoto, Optional> * photos;
 

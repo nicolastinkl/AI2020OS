@@ -25,7 +25,7 @@ class LoginAction: NSObject, AILoginViewControllerDelegate {
 		let storyBoard: UIStoryboard = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil)
 		let loginVC = storyBoard.instantiateInitialViewController() as! AILoginViewController
         let navVC = UINavigationController(rootViewController: loginVC)
-		viewController.presentViewController(navVC, animated: true, completion: nil)
+		viewController.presentViewController(navVC, animated: false, completion: nil)
 	}
 	
 	func didLogin(completion: LoginHandler) {
@@ -86,7 +86,7 @@ class LoginStateHandler: NSObject {
 class AILoginService: NSObject {
 	
 	struct AINetErrorDescription {
-		static let FormatError = "AIOrderPreListModel JSON Parse error."
+		static let FormatError = "login Failed."
 	}
 	
 	/**
@@ -101,7 +101,7 @@ class AILoginService: NSObject {
 		let message = AIMessage()
 		let body: NSDictionary = [
 			"username": userCode,
-			"password": password
+			"password": password.md5()
 		]
 		
 		message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
@@ -112,6 +112,15 @@ class AILoginService: NSObject {
 			if let responseJSON: AnyObject = response {
 				
 				let dic = responseJSON as! [NSString: AnyObject]
+                
+                if let cid = dic["customer_id"] as? String , pid = dic["provider_id"] as? String , hurl = dic["head_url"] as? String {
+                    
+                    NSUserDefaults.standardUserDefaults().setObject(cid, forKey: AILoginUtil.KEY_CUSTOM_ID)
+                    NSUserDefaults.standardUserDefaults().setObject(pid, forKey: AILoginUtil.KEY_PROVIDER_ID)
+                    NSUserDefaults.standardUserDefaults().setObject(hurl, forKey: AILoginUtil.KEY_HEADURL_STRING)
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
+                
 				if let userId = dic["user_id"] as? String {
 					success(userId: userId)
 				} else {
@@ -143,24 +152,22 @@ class AILoginService: NSObject {
 		let message = AIMessage()
 		let body: NSDictionary = [
 			"username": userCode,
-			"password": password
+			"password": password.md5()
         ]
 		message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
 		message.url = AIApplication.AIApplicationServerURL.register.description as String
 		
 		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
 			
-            AILog("\(message)   \(response)")
 			if let responseJSON: AnyObject = response {
 				let dic = responseJSON as! [NSString: AnyObject]
 				if let userId = dic["user_id"] as? String {
 					success(userId: userId)
 				} else {
-					fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+					success(userId: "")
 				}
-				
 			} else {
-				fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+                fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
 			}
 			
 		}) { (error: AINetError, errorDes: String!) -> Void in

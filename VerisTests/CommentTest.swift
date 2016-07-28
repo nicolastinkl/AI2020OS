@@ -67,7 +67,7 @@ class CommentTest: SBOSSTestCase {
         let serviceComment = ServiceComment()
         serviceComment.service_id = "1"
         serviceComment.spec_id = "2623"
-        serviceComment.value = "9"
+        serviceComment.rating_level = "9"
         serviceComment.text = "Good."
         
         service.submitComments("1", userType: 1, commentList: [serviceComment], success: { (responseData) in
@@ -83,6 +83,22 @@ class CommentTest: SBOSSTestCase {
         waitForExpectationsWithTimeout(5, handler: { error in
             XCTAssertNil(error, "Error")
         })
+    }
+    
+    func testCommentViewModelLocalSave() {
+        let image = ImageInfo()
+        image.url = NSURL(fileURLWithPath: "12345")
+        
+        let model = ServiceCommentLocalSavedModel()
+        model.serviceId = "1"
+        model.images = [image]
+        
+        XCTAssertTrue(CommentUtils.saveCommentModelToLocal(model.serviceId, model: model))
+        
+        let m = CommentUtils.getCommentModelFromLocal(model.serviceId)
+        
+        XCTAssertEqual(m?.images?[0].url?.path, "/12345")
+        XCTAssertEqual(m?.serviceId, model.serviceId)
     }
 
 }
