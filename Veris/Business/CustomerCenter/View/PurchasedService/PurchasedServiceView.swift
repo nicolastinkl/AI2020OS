@@ -43,24 +43,6 @@ class PurchasedServiceView: UIView, Measureable {
 
             if let model = newValue {
                 logo.image = smallPlace()
-                //AILog("\(model.service_thumbnail_icon)")
-                logo.sd_setImageWithURL("\(model.service_thumbnail_icon)".toURL(), placeholderImage: smallPlace())
-
-                if model.arrange_script_info != nil {
-                    title.text = model.arrange_script_info.info_title
-                    if model.arrange_script_info.info_desc == nil
-                        || model.arrange_script_info.info_desc == "" {
-
-                        hideDescriptionLabel()
-                    } else {
-                        setDescriptionLabelHeight()
-                    }
-                    serviceDescription.text = model.arrange_script_info.info_desc
-
-                }
-
-                statu.text = model.order_state
-
             }
         }
     }
@@ -72,7 +54,7 @@ class PurchasedServiceView: UIView, Measureable {
     private func setDescriptionLabelHeight() {
         let descriptionWidth = serviceDescription.superview!.width - PurchasedViewDimention.PROPOSAL_PADDING_LEFT - PurchasedViewDimention.PROPOSAL_PADDING_RIGHT
 
-        let size = serviceOrderModel!.arrange_script_info.info_desc.sizeWithFont(serviceDescription.font, forWidth: descriptionWidth)
+        let size = CGSize(width: 10, height: 10)
 
         var descriptionHeight = DESCRIPTION_ONE_LINE_HEIGHT
 
@@ -267,14 +249,11 @@ class PurchasedServiceView: UIView, Measureable {
     }
 
     private func orderIsComplete() -> Bool {
-        let state = ServiceOrderState(rawValue: serviceOrderModel!.order_state)
-        return state == ServiceOrderState.Completed
+        return false
     }
 
     private func checkOrderAndChangeState() {
-        let oldState = ServiceOrderState(rawValue: serviceOrderModel!.order_state)
-        serviceOrderModel!.order_state = ServiceOrderState.CompletedAndChecked.rawValue
-        serviceOrderStateProtocal?.orderStateChanged(serviceOrderModel!, oldState: oldState!)
+      
     }
 
     private func adjustFrameToExpand() {
