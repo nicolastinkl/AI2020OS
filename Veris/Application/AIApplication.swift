@@ -21,7 +21,7 @@ struct AIApplication {
     internal static let AVOSCLOUDID  = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
     internal static let AVOSCLOUDKEY = "LGwq0DTaJb8D59IV3kK18wmh"
     internal static let KURL_ReleaseURL =  "http://171.221.254.231:3000"  //正式地址
-    internal static let KURL_DebugURL   =  "http://171.221.254.231:3000"  //测试地址
+    internal static let KURL_DebugURL   =  "http://10.5.1.249:2999/nsboss"  //测试地址
     internal static let UMengAppID      = "5784b6a767e58e5d1b003373"      //友盟分享id
     internal static let KURL_Appstore_ReleaseURL =  "http://171.221.254.231:2999/nsboss"  //appstore版本正式地址
 
@@ -328,7 +328,7 @@ struct AIApplication {
         // 查询客户Proposal列表
         case queryCustomerProposalList
         // 查询客户订单列表
-        case queryCustomerOrderList
+        case queryProcOrders
         // 查找客户Proposal详情
         case findCustomerProposalDetail
         // 查找服务详情
@@ -425,7 +425,7 @@ struct AIApplication {
             case .updateParamSettingState: return AIApplication.KURL_ReleaseURL+"/updateParamSettingState"
             case .delServiceCategory: return AIApplication.KURL_ReleaseURL+"/delServiceCategory"
             case .queryCustomerProposalList: return AIApplication.KURL_ReleaseURL+"/queryCustomerProposalList"
-            case .queryCustomerOrderList: return AIApplication.KURL_ReleaseURL+"/queryCustomerOrderList"
+            case .queryProcOrders: return AIApplication.KURL_DebugURL + "/order/queryProcOrders"
             case .findCustomerProposalDetail: return AIApplication.KURL_ReleaseURL+"/findCustomerProposalDetailNew"
             case .findServiceDetail: return AIApplication.KURL_ReleaseURL+"/findServiceDetail"
             case .updateWishListTagChosenState: return AIApplication.KURL_ReleaseURL+"/updateWishListTagChosenState"
@@ -478,35 +478,6 @@ struct AIApplication {
         }
     }
 
-
-    static func showAlertView() {
-
-        let viewAlert = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateInitialViewController()
-        if let rootVc = UIApplication.sharedApplication().keyWindow?.rootViewController {
-            if rootVc.isKindOfClass(UINavigationController.self) {
-                //rootVc.pop
-            } else {
-
-            }
-            rootVc.presentPopupViewController(viewAlert!, animated: true)
-        }
-    }
-
-    static func showGladOrderView() {
-        let viewAlert = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIGladOrderViewController) as! AIGladOrderViewController
-
-        if let rootVc = UIApplication.sharedApplication().keyWindow?.rootViewController {
-            AILog("\(rootVc.dynamicType)")
-
-            if rootVc.isKindOfClass(UINavigationController.self) {
-                //rootVc.pop
-            } else {
-
-            }
-            rootVc.presentPopupViewController(viewAlert, animated: true)
-        }
-
-    }
 
     //MARK: - Case0服务，官方唯一指定抢单任务
     static let AIServiceIdCase0 = "900001001003"

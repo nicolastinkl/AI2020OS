@@ -113,7 +113,7 @@ class AILoginService: NSObject {
 				
 				let dic = responseJSON as! [NSString: AnyObject]
                 
-                if let cid = dic["customer_id"] as? String , pid = dic["provider_id"] as? String , hurl = dic["head_url"] as? String {
+                if let cid = dic["customer_id"] as? String, pid = dic["provider_id"] as? String, hurl = dic["head_url"] as? String {
                     
                     NSUserDefaults.standardUserDefaults().setObject(cid, forKey: AILoginUtil.KEY_CUSTOM_ID)
                     NSUserDefaults.standardUserDefaults().setObject(pid, forKey: AILoginUtil.KEY_PROVIDER_ID)

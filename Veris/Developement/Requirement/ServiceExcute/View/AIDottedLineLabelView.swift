@@ -10,9 +10,9 @@ import UIKit
 
 class AIDottedLineLabelView: UIView {
 
-    var leftLineImage : UIImageView!
-    var rightLineImage : UIImageView!
-    var textLabel : UILabel!
+    var leftLineImage: UIImageView!
+    var rightLineImage: UIImageView!
+    var textLabel: UILabel!
     
     //Constants
     
@@ -36,23 +36,23 @@ class AIDottedLineLabelView: UIView {
     }
     
     //便利构造方法
-    convenience init(text : String){
+    convenience init(text: String) {
         self.init()
         buildSubViews()
         loadData(text)
         
     }
     
-    func loadData(text : String){
+    func loadData(text: String) {
         textLabel.text = text
     }
 
-    func buildSubViews(){
+    func buildSubViews() {
         buildLineView()
         buildTextLabel()
     }
     
-    private func buildLineView(){
+    private func buildLineView() {
         
         leftLineImage = UIImageView()
         leftLineImage.backgroundColor = UIColor(patternImage: dottedLineImage!)
@@ -73,7 +73,7 @@ class AIDottedLineLabelView: UIView {
         }
     }
     
-    private func buildTextLabel(){
+    private func buildTextLabel() {
         textLabel = UILabel()
         textLabel.text = "label"
         textLabel.textColor = TEXT_COLOR

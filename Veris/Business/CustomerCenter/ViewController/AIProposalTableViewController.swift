@@ -177,7 +177,7 @@ class AIProposalTableViewController: UIViewController {
             tableViewCellCache.removeAllObjects()
             dataSource.removeAll()
             tableView.reloadData()
-            for proposal in data.proposal_order_list {
+            for proposal in data.order_list {
                 let wrapModel = self.proposalToProposalWrap(proposal as! ProposalOrderModel)
                 
                 dataSource.append(wrapModel)
@@ -242,7 +242,7 @@ class AIProposalTableViewController: UIViewController {
     
     private func buildSuvServiceCard(model: ProposalOrderModel) -> ListSubServiceCardView {
         let list = ListSubServiceCardView(frame: CGRect(x: 0, y: 0, width: tableView.width, height: 50))
-        list.setSubServicesForTest(model.order_list.count)
+        list.setSubServicesForTest(model.service.count)
         return list
     }
     

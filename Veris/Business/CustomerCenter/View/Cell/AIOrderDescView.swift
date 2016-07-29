@@ -41,27 +41,16 @@ class AIOrderDescView: UIView {
 	// load data
 	func loadData(serviceOrderModel: ServiceOrderModel) {
 		self.serviceOrderModel = serviceOrderModel
+    }
 		
-		if serviceOrderModel.arrange_script_info != nil {
-			
-			let x = buildKeypointsView()
-			buildDescriptionAndAlertView(x)
-		}
-	}
+
 	
 	// 创建关键点视图， 返回视图的起始点x坐标
 	private func buildKeypointsView() -> CGFloat {
 		
 		var preFrame: CGRect!
-		let arrangeModel = serviceOrderModel.arrange_script_info
-		
-		if let keypoints = arrangeModel?.info_key_points as? [KeypointModel] {
-			for index in (0..<keypoints.count).reverse() {
-				let keypoint = keypoints[index]
-				
-				preFrame = addKeyPoint(keypoint, preFrame: preFrame)
-			}
-		}
+
+
 		
 		if preFrame == nil {
 			preFrame = CGRectMake(self.bounds.width - VIEW_PADDING, 0, 0, TEXT_HEIGHT)
@@ -151,13 +140,12 @@ class AIOrderDescView: UIView {
 		}
 		
 		descLabel = UILabel(frame: descLabelFrame)
-		descLabel.text = serviceOrderModel.arrange_script_info.info_title ?? "AIOrderDescView.delivery".localized
 		descLabel.textColor = UIColor.whiteColor()
 		descLabel.font = DESC_TEXT_FONT
 		addSubview(descLabel)
 	}
 	
 	private func isDelayed() -> Bool {
-		return serviceOrderModel.order_state == "Delayed"
+		return false
 	}
 }

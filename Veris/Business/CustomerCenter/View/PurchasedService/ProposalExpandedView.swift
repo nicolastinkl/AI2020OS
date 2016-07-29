@@ -31,7 +31,7 @@ class ProposalExpandedView: UIView, Measureable, DimentionChangable {
             proposalModel = newValue
 
             if let model = newValue {
-                title.text = model.proposal_name
+                title.text = model.name
 
                 if orderIsNormal(model) {
                     showNormalStatu()
@@ -45,7 +45,7 @@ class ProposalExpandedView: UIView, Measureable, DimentionChangable {
     }
 
     private func orderIsNormal(orderModel: ProposalOrderModel) -> Bool {
-        return orderModel.alarm_state == 0
+        return orderModel.state == "0"
     }
 
     private func showNormalStatu() {
@@ -61,7 +61,7 @@ class ProposalExpandedView: UIView, Measureable, DimentionChangable {
     }
 
     private func appendServiceOrdersView() {
-        for serviceModel in proposalModel!.order_list {
+        for serviceModel in proposalModel!.service {
             guard let serviceOrder = serviceModel as? ServiceOrderModel else {
                 continue
             }
@@ -74,25 +74,12 @@ class ProposalExpandedView: UIView, Measureable, DimentionChangable {
             serviceView.serviceOrderStateProtocal = self
             serviceView.serviceOrderData = serviceOrder
 
-            if serviceOrder.arrange_script_info != nil && serviceOrder.arrange_script_info.info_detail != nil {
-
-                var expandContentView: UIView?
-
-                expandContentView = ServiceOrderExpandContentViewFactory.createExpandContentView(serviceOrder.arrange_script_info.info_detail)
-
-                if expandContentView != nil {
-                    expandContentView?.frame = CGRect(x: 0, y: 0, width: frame.width, height: expandContentView!.frame.height)
-                    serviceView.addExpandView(expandContentView!)
-                }
-            }
-
             addServiceView(serviceView)
         }
     }
 
     private func orderIsCompletedAndChecked(serviceOrder: ServiceOrderModel) -> Bool {
-        let state = ServiceOrderState(rawValue: serviceOrder.order_state)
-        return state == ServiceOrderState.CompletedAndChecked
+        return true
     }
 
     override init(frame: CGRect) {
