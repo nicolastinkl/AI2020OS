@@ -86,8 +86,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
 
     @IBAction func navigationBackAction(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        //self.dismissPopupViewController(true, completion: nil)
+        //self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissPopupViewController(true, completion: nil)
     }
 
 
@@ -268,6 +268,18 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             return timeLineItem.cellHeight
         }
         return AITimelineTableViewCell.caculateHeightWidthData(timeLineItem)
+    }
+    
+    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let timeLineItem = timelineModels[indexPath.row]
+        if timeLineItem.layoutType != AITimelineLayoutTypeEnum.Now {
+            if let timelineCell = cell as? AITimelineTableViewCell {
+                if let mapView = timelineCell.viewWithTag(AIMapView.viewTag) as? BMKMapView {
+                    mapView.viewWillDisappear()
+                    mapView.delegate = nil
+                }
+            }
+        }
     }
     
     func confirmServiceButtonDidClick(viewModel viewModel: AITimelineViewModel) {
