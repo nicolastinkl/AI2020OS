@@ -24,6 +24,9 @@
 @implementation AITimelineContentBusiModel
 @end
 
+@implementation AITimelineBusiModel
+@end
+
 @implementation AIServiceInfoBusiModel
 @end
 

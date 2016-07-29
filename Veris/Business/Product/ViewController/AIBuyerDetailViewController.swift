@@ -222,7 +222,6 @@ class AIBuyerDetailViewController: UIViewController {
                 param3.param_value = appointmentTime ?? ""
                 param3.param_icon = "http://171.221.254.231:3000/upload/shoppingcart/DQd6bsVqrsHg1.png"
                 param3.product_key = "123"
-
                 ServiceCellProductParamModel1.param_list = [param1, param2, param3]
 
                 newModel.service_param = [ServiceCellProductParamModel1]
@@ -918,7 +917,9 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                 if model.service_id == bid.toInt() {
 
                     // Show View.
-                    Card.sharedInstance.showInView(self.view, serviceId: "1", userInfo: ["title":model.service_desc, "name": "Uber", "url": "\(model.service_thumbnail_icon)"])
+
+                    Card.sharedInstance.showInView(self.view, serviceId: "1", userInfo: ["title":model.service_desc,"name":"Uber","url":"\(model.service_thumbnail_icon)"])
+
                     return
                 }
                 let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIPageBueryViewController) as! AIPageBueryViewController
@@ -1154,6 +1155,7 @@ extension AIBuyerDetailViewController: AIProposalDelegate {
 
 //MARK: 处理Anchor事件
 extension AIBuyerDetailViewController : AnchorProcess {
+
     func processAnchor(anchor: AIAnchor) {
         switch anchor.type! {
         case AIAnchorType.Lock:
@@ -1192,6 +1194,7 @@ extension AIBuyerDetailViewController : AnchorProcess {
             let c = cell?.contentView.viewWithTag(SIMPLE_SERVICE_VIEW_CONTAINER_TAG) as! SimpleServiceViewContainer
             settingButtonClicked(UIImageView(), parentView: c)
         
+
         } else if anchor.selector == "removeCellFromSuperView" {
             let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: anchor.rowIndex!, inSection: anchor.sectionIndex!)) as! AIBueryDetailCell
             let model = cell.currentModel
@@ -1205,6 +1208,7 @@ extension AIBuyerDetailViewController : AnchorProcess {
         } else if anchor.selector == "serviceRestoreToolBar" {
             serviceRestoreToolBar(self.serviceRestoreToolbar, didClickLogoAtIndex: anchor.logoIndex!)
         } else if anchor.selector == "AIBuyerDetailViewController.alert" {
+
             let model = self.deleted_service_list[anchor.logoIndex!] as! AIProposalServiceModel
             restoreService(model)
         }
@@ -1216,6 +1220,7 @@ extension AIBuyerDetailViewController : AnchorProcess {
         if anchor.selector == "cellDidOpen" {
             let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: anchor.rowIndex!, inSection: anchor.sectionIndex!)) as! AIBueryDetailCell
             cellDidOpen(cell)
+
         } else if anchor.selector == "cellDidClose" {
             let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: anchor.rowIndex!, inSection: anchor.sectionIndex!)) as! AIBueryDetailCell
             cellDidClose(cell)

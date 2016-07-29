@@ -84,19 +84,21 @@ class AIDateTimeViewModel: AIBaseViewModel {
     var shouldShowDate = false
 }
 
+/// 地图坐标模型
+class AIGPSViewModel: AIBaseViewModel {
+    var locType: String?
+    var longitude: Double?
+    var latitude: Double?
+}
+
 class AITimeContentViewModel: AIBaseViewModel {
     var contentType: AITimelineContentTypeEnum?
     var contentUrl: String?
-    
+    var location: AIGPSViewModel?
     init(contentType: AITimelineContentTypeEnum, contentUrl: String) {
         self.contentType = contentType
         self.contentUrl = contentUrl
     }
-}
-
-/// 客户订单列表视图
-class AICustomerOrderViewModel: AIBaseViewModel {
-    
 }
 
 class AICustomerOrderDetailTopViewModel: AIBaseViewModel {
@@ -106,11 +108,9 @@ class AICustomerOrderDetailTopViewModel: AIBaseViewModel {
     var completion: Float!
     var price: String!
     var messageNumber: Int?
-}
-
-/// 客户订单服务实例视图
-class AICustomerServInstViewModel: AIBaseViewModel {
-    
+    var serviceInsts: [IconServiceIntModel]?
+    var unReadMessageNumber: Int?
+    var unConfirmMessageNumber: Int?
 }
 
 // MARK: -> enums

@@ -102,7 +102,7 @@ public class AIImageView: UIImageView {
                 let newFrame = CGRectMake(0, 0, self.width, self.height)                
                 let progress = AIProgressWebHoldView(frame: newFrame)
                 self.addSubview(progress)
-                
+                //SDWebImageOptions.ContinueInBackground
                 if url?.URLString.length > 10 {
                     self.cacheURL = url
                     self.sd_setImageWithURL(url!, placeholderImage: placeholderImage, options: SDWebImageOptions.ContinueInBackground, progress: { (start, end) in
@@ -114,14 +114,13 @@ public class AIImageView: UIImageView {
                                 progress.alpha = 1
                                 }, completion: { (complate) in
                                 progress.removeFromSuperview()
-                            })
-                            
+                            })                            
                             
                         } else {
                             self.userInteractionEnabled = true
                             // add try button
                             let button = UIButton(frame: .zero)
-                            button.setImage(UIImage(named: "AI_ProductInfo_Home_like"), forState: UIControlState.Normal)
+                            button.setImage(UIImage(named: "retryImagedownload"), forState: UIControlState.Normal)
                             self.addSubview(button)
                             button.setWidth(self.width)
                             button.setHeight(self.height)
@@ -158,7 +157,7 @@ public class AIImageView: UIImageView {
                 
                 if finish {
                     
-                    UIView.animateWithDuration(0.2, animations: {
+                    UIView.animateWithDuration(0.3, animations: {
                         progressView.alpha = 1
                         }, completion: { (complate) in
                             progressView.removeFromSuperview()
@@ -168,7 +167,7 @@ public class AIImageView: UIImageView {
                         self.userInteractionEnabled = true
                         // add try button
                         let button = UIButton(frame: .zero)
-                        button.setImage(UIImage(named: "AI_ProductInfo_Home_like"), forState: UIControlState.Normal)
+                        button.setImage(UIImage(named: "retryImagedownload"), forState: UIControlState.Normal)
                         self.addSubview(button)
                         button.setWidth(self.width)
                         button.setHeight(self.height)
@@ -233,18 +232,23 @@ class AIProgressWebHoldView: UIView {
     //pragma mark - Drawing
     
     override func drawRect(rect: CGRect) {
+        
         let allRect = self.bounds
         let context = UIGraphicsGetCurrentContext()
-        let circleRect: CGRect = CGRectInset(allRect, 2.0, 2.0)
+        let center: CGPoint =  CGPointMake(allRect.size.width / 2, allRect.size.height / 2)
+        var newRectS = CGRect.zero
+        newRectS.origin = CGPointMake(center.x-26/2, center.y-26/2)
+        newRectS.size = CGSizeMake(26, 26)
+        
+        let circleRect: CGRect = CGRectInset(newRectS, 1.0, 1.0)
         let colorBackAlpha: CGColorRef = CGColorCreateCopyWithAlpha(backgroundTintColor.CGColor, 0.1)!
         progressTintColor.setStroke()
         CGContextSetFillColorWithColor(context, colorBackAlpha)
-        CGContextSetLineWidth(context, 2.0)
+        CGContextSetLineWidth(context, 1.0)
         CGContextFillEllipseInRect(context, circleRect)
         CGContextStrokeEllipseInRect(context, circleRect)
-        
-        let center: CGPoint = CGPointMake(allRect.size.width / 2, allRect.size.height / 2)
-        let radius: CGFloat = (allRect.size.width - 4) / 2 - 3
+
+        let radius: CGFloat = (newRectS.size.width) / 2 - 3//(allRect.size.width - 4) / 2 - 3
         let startAngle: CGFloat = -(CGFloat(M_PI) / 2)
         let endAngle: CGFloat = (self.progress * 2 * CGFloat(M_PI)) + startAngle
         progressTintColor.setFill()

@@ -27,7 +27,9 @@ import UIKit
 import Spring
 import AIAlertView
 
+
 class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
+
     
     
     // MARK: - IBOutlet
@@ -41,9 +43,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var timerControl: DDHTimerControl!
     
     @IBOutlet weak var userNameLabel: UILabel!
-    
-    
-    
+
     var timerEndDate: NSDate!
     var timer: NSTimer?
     
@@ -69,8 +69,9 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     
     // MARK: - IBAction
     @IBAction func answerAction(sender: AnyObject) {
-        //AIApplication.showGladOrderView()
+        //AIAlertViewController.showGladOrderView()
         //点抢单按钮后就不再倒计时
+
         if timer != nil {
             timer!.invalidate()
             timer = nil
@@ -91,6 +92,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         dismissPopupViewController(true, completion: nil)
     }
     
+
     func initViews() {
         timerControl.color = UIColor(hex: "#49bf1f")
         //timerControl.highlightColor = UIColor.redColor()
@@ -132,6 +134,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
     
+
     func requestGrabOrderInterface() {
         let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
         AIServiceExecuteRequester.defaultHandler().grabOrder(serviceInstId: serviceInstId!, providerId: userId, success: { (businessInfo) in
@@ -141,6 +144,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
                 
                 self.navigationController?.pushViewController(viewController, animated: true)
             } else {
+
                 AIAlertView().showInfo("Sorry", subTitle: "You failed!")
                 self.dismissPopupViewController(true, completion: nil)
             }
@@ -150,6 +154,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func loadData(viewModel: AIGrabOrderDetailViewModel) {
+
         userNameLabel.text = viewModel.customerName
         userIconImageView.sd_setImageWithURL(NSURL(string: viewModel.customerIcon))
         serviceNameLabel.text = viewModel.serviceName
@@ -170,5 +175,23 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         navigationBar.translucent = true
         
     }
+
+    
+    static func showGladOrderView() {
+        let viewAlert = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIGladOrderViewController) as! AIGladOrderViewController
+        
+        if let rootVc = UIApplication.sharedApplication().keyWindow?.rootViewController {
+            AILog("\(rootVc.dynamicType)")
+            
+            if rootVc.isKindOfClass(UINavigationController.self) {
+                //rootVc.pop
+            } else {
+                
+            }
+            rootVc.presentPopupViewController(viewAlert, animated: true)
+        }
+        
+    }
     
 }
+

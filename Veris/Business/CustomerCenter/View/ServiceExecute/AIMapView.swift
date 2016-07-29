@@ -14,6 +14,9 @@ class AIMapView: UIView {
     var locationService: BMKLocationService!
     var targetAnnotation: BMKPointAnnotation?
     var locationAnnotation: BMKPointAnnotation?
+    //只允许唯一一个地图，设置唯一tag
+    static let viewTag = 1002
+    
     static let sharedInstance = AIMapView()
     
     override init(frame: CGRect) {
@@ -27,16 +30,21 @@ class AIMapView: UIView {
     }
     
     func setupView() {
-        _mapView = BMKMapView()
-        _mapView.viewWillAppear()
-        _mapView.delegate = self
-        self.addSubview(_mapView!)
-        _mapView!.snp_makeConstraints(closure: { (make) in
-            make.leading.top.bottom.trailing.equalTo(self)
-        })
-        locationService = BMKLocationService()
+        if _mapView == nil {
+            _mapView = BMKMapView()
+            _mapView.tag = AIMapView.viewTag
+            
+            self.addSubview(_mapView!)
+            _mapView!.snp_makeConstraints(closure: { (make) in
+                make.leading.top.bottom.trailing.equalTo(self)
+            })
+            locationService = BMKLocationService()
+        }
+        
         //locationService.allowsBackgroundLocationUpdates = true
         locationService.delegate = self
+        _mapView.viewWillAppear()
+        _mapView.delegate = self
         //showTargetAnnotation()
     }
     

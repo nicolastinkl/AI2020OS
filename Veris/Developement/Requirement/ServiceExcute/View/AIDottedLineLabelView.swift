@@ -36,6 +36,7 @@ class AIDottedLineLabelView: UIView {
     }
     
     //便利构造方法
+
     convenience init(text: String) {
         self.init()
         buildSubViews()

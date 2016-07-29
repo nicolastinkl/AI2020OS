@@ -48,7 +48,7 @@ class TaskDetailViewController: UIViewController {
         leftButtonItem.tintColor = UIColor.lightGrayColor()
         self.navigationItem.leftBarButtonItem = leftButtonItem
     }
-    
+
     func backAction(button: UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(true)
     }

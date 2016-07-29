@@ -21,11 +21,11 @@ struct AICommentInfoModel: JSONJoy {
     
     var level: Int = 0
     
-    var commentid: Int = 0
+    var commentid: Int = 345
     
-    var like: Int = 0
+    var like: Int = 2523
     
-    var commentcount: Int = 0
+    var commentcount: Int = 778
     
     init(_ decoder: JSONDecoder) {
         

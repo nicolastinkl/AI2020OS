@@ -187,10 +187,13 @@ class BDKProposalService: MockProposalService {
         let message = AIMessage()
 
    //     message.header.setObject("0&0&200000002501&0", forKey: "HttpQuery")
-        message.url = AIApplication.AIApplicationServerURL.queryCustomerOrderList.description
+        message.url = AIApplication.AIApplicationServerURL.queryProcOrders.description
 
-        let body = ["data":["order_role":1, "order_state": "0"], "desc":["data_mode":"0", "digest":""]]
-        message.body = NSMutableDictionary(dictionary: body)
+        let data = ["order_role":1, "order_state": "0"]
+        message.body = BDKTools.createRequestBody(data)
+        
+//        let body = ["data":["order_role":1, "order_state": "0"], "desc":["data_mode":"0", "digest":""]]
+//        message.body = NSMutableDictionary(dictionary: body)
 
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
 

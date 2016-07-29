@@ -50,6 +50,7 @@ struct AIAnchorUIComponent {
 
 
 protocol Reflectable {
+
     func propertys() -> [String]
 }
 
@@ -59,6 +60,7 @@ extension Reflectable {
         var s = [String]()
         for c in Mirror(reflecting: self).children {
             if let name = c.label {
+
                 s.append(name)
             }
         }
@@ -200,7 +202,9 @@ class AIAnchor: NSObject {
         return anchor
     }
     
+
     class func touchAnchor(anchor: [String : AnyObject]) -> AIAnchor {
+
         let anchor = AIAnchor()
         anchor.type = AIAnchorType.Touch
         AudioAssistantManager.sharedInstance.sendAnchor(anchor)
@@ -208,7 +212,7 @@ class AIAnchor: NSObject {
         return anchor
     }
     
-    
+   
     class func touchAnchorWithClassName(className: String?, selector: String?, parameters: [AnyObject]?) -> AIAnchor {
         let anchor = AIAnchor()
         anchor.type = AIAnchorType.Touch
@@ -221,6 +225,7 @@ class AIAnchor: NSObject {
     
     
     
+
     class func beforeAnchorWithClassName(className: String?, selector: String?, parameters: [AnyObject]?) -> AIAnchor {
         let anchor = AIAnchor()
         anchor.type = AIAnchorType.Normal
@@ -232,7 +237,7 @@ class AIAnchor: NSObject {
         return anchor
         
     }
-    
+
     class func executingAnchorWithClassName(className: String?, selector: String?, parameters: [AnyObject]?) -> AIAnchor {
         let anchor = AIAnchor()
         anchor.type = AIAnchorType.Normal
@@ -245,7 +250,7 @@ class AIAnchor: NSObject {
         
     }
     
-    
+
     class func afterAnchorWithClassName(className: String?, selector: String?, parameters: [AnyObject]?) -> AIAnchor {
         let anchor = AIAnchor()
         anchor.type = AIAnchorType.Normal
