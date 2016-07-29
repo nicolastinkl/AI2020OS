@@ -341,6 +341,7 @@ class AIProductInfoViewController: UIViewController {
         commentView?.setWidth(UIScreen.mainScreen().bounds.width)
 		commentView?.fillDataWithModel(commentModel)
 		commentView?.setHeight(commentView?.getheight() ?? 0)
+        commentView?.bgView.hidden = true
 		// Add Normal Answer Button
         commentView?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
 		
