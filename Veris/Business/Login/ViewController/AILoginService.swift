@@ -110,7 +110,10 @@ class AILoginService: NSObject {
 		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
 			
 			if let responseJSON: AnyObject = response {
-				
+				#if DEBUG
+                success(userId: "")
+                #endif
+                
 				let dic = responseJSON as! [NSString: AnyObject]
                 
                 if let cid = dic["customer_id"] as? String, pid = dic["provider_id"] as? String, hurl = dic["head_url"] as? String {
