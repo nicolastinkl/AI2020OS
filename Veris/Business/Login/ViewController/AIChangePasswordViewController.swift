@@ -63,29 +63,29 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
         }
         
         let title = confirmButton.titleLabel?.text ?? ""
-        confirmButton.showActioningLoading()
+        showButtonLoading(confirmButton)
         
         if AILoginUtil.validatePassword(passwordTextField.text) {
             if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
                 
                 loginService.registUser(phoneNumber, password: passwordTextField.text!, success: { (userId) in
                     //TODO: 暂时的提示
-                    self.confirmButton.hideActioningLoading(title)
+                    self.hideButtonLoading(self.confirmButton, title: title)
                     AIAlertView().showSuccess("注册成功!", subTitle: "")
                     //跳回登陆页面
                     self.navigationController?.popToRootViewControllerAnimated(true)
                     }, fail: { (errType, errDes) in
-                        self.confirmButton.hideActioningLoading(title)
+                        self.hideButtonLoading(self.confirmButton, title: title)
                         self.validateInfoLabel.showPrompt(errDes)
                 })
             } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
                 loginService.resetPassword(smsCode, newPassword: passwordTextField.text!, success: {
-                    self.confirmButton.hideActioningLoading(title)
+                    self.hideButtonLoading(self.confirmButton, title: title)
                     AIAlertView().showSuccess("修改密码成功!", subTitle: "")
                     //跳回登陆页面
                     self.navigationController?.popToRootViewControllerAnimated(true)
                     }, fail: { (errType, errDes) in
-                        self.confirmButton.hideActioningLoading(title)
+                        self.hideButtonLoading(self.confirmButton, title: title)
                         self.validateInfoLabel.showPrompt(errDes)
                 })
             }

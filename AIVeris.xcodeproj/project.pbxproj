@@ -602,6 +602,7 @@
 		847D298D1D49E4AF009E26B8 /* ProposalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339811CFBE5A600347C29 /* ProposalService.swift */; };
 		847D298F1D49E501009E26B8 /* ProposalServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D298E1D49E501009E26B8 /* ProposalServiceTest.swift */; };
 		847D29901D49FFA6009E26B8 /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
+		847D29921D4AF26D009E26B8 /* ProposalOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29911D4AF26D009E26B8 /* ProposalOrderViewModel.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -1561,6 +1562,7 @@
 		847D29841D4751E9009E26B8 /* ImageInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInfoModel.swift; sourceTree = "<group>"; };
 		847D29871D484BF3009E26B8 /* ServiceCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentModel.swift; sourceTree = "<group>"; };
 		847D298E1D49E501009E26B8 /* ProposalServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalServiceTest.swift; sourceTree = "<group>"; };
+		847D29911D4AF26D009E26B8 /* ProposalOrderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProposalOrderViewModel.swift; path = VerisTests/ProposalOrderViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
@@ -1957,6 +1959,7 @@
 			isa = PBXGroup;
 			children = (
 				12933BD81D191CD4008A1693 /* AICustomerServiceExecuteModel.swift */,
+				847D29911D4AF26D009E26B8 /* ProposalOrderViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -4756,6 +4759,7 @@
 				81433D2C1CFBE5A700347C29 /* ServiceContainerView.swift in Sources */,
 				81433E5A1CFBE5A700347C29 /* FLEXArgumentInputStructView.m in Sources */,
 				81433E421CFBE5A700347C29 /* CGAffineTransform.swift in Sources */,
+				847D29921D4AF26D009E26B8 /* ProposalOrderViewModel.swift in Sources */,
 				848316A41D333B3E00082D38 /* CommentModel.m in Sources */,
 				81433DFA1CFBE5A700347C29 /* AISingleSelectView.swift in Sources */,
 				81433D301CFBE5A700347C29 /* SimpleServiceViewContainer.swift in Sources */,

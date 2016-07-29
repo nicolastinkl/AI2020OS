@@ -14,6 +14,7 @@ struct CustomerCenterConstants {
         static let TimeLabelColor = UIColor(hex: "#dcd6e2")
         static let TimelineDotColor = UIColor(hex: "#b8b5c0")
         static let ConfirmButton = UIColor(hex: "#0f86e8")
+        static let DateLabelColor = UIColor(hex: "#342d4d")
     }
     
     struct Fonts {
