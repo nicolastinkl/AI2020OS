@@ -26,6 +26,9 @@ class SubServiceCardView: UIView {
     @IBOutlet weak var additionDescription: UILabel!
     @IBOutlet weak var addtionView: UIView!
     @IBOutlet weak var seperator: UIView!
+    
+    private var serviceModel: ServiceOrderModel!
+    private var proposalModel: ProposalOrderModel?
  
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder) 
@@ -68,6 +71,33 @@ class SubServiceCardView: UIView {
         statusColor.removeFromSuperview()
         
         seperator.hidden = true
+    }
+    
+    func loadData(serviceData: ServiceOrderModel, proposalData: ProposalOrderModel? = nil) {
+        if let pro = proposalData {
+            proposalModel = pro
+            proporsalName.text = pro.name
+            messageNumber.text = "\(pro.messages)"
+            statusButton.titleLabel?.text = pro.state
+        }
+        
+        
+        serviceModel = serviceData
+        
+        serviceName.text = serviceData.name
+        if let serUrl = serviceData.image {
+            serviceIcon.asyncLoadImage(serUrl)
+        }
+        
+        if let node = serviceData.node {
+            nodeName.text = node.title
+            nodeDate.text = node.time
+            nodeState.text = node.state
+            
+            if let url = node.provider_icon {
+                personIcon.asyncLoadImage(url)
+            }
+        }
     }
     
     private func initSubView() {
