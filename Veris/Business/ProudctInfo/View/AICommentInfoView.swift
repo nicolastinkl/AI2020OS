@@ -47,7 +47,7 @@ class AICommentInfoView: UIView {
     func initSubviews() {
         self.setWidth(UIScreen.mainScreen().bounds.width)
         self.layoutSubviews()
-        self.bgView.backgroundColor = UIColor(hexString: "#414747", alpha: 0.4)
+        self.bgView.backgroundColor = UIColor(hexString: "#393448", alpha: 0.3)
         //content
         
         commentContent.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.6)
@@ -152,10 +152,10 @@ class AICommentInfoView: UIView {
         commentContent.text = model.descripation ?? ""
         
         if let label = commentlike.viewWithTag(2) as? UILabel {
-            label.text = "\(model.commentcount )"
+            label.text = "\(model.like)"
         }
         if let label = commentlike.viewWithTag(4) as? UILabel {
-            label.text = "\(model.commentcount )"
+            label.text = "\(model.commentcount)"
         }
         
         if let star = commentControls.viewWithTag(1) as? StarRateView {

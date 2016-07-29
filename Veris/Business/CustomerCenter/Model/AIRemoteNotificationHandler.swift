@@ -128,6 +128,7 @@ struct AIRemoteNotificationParameters {
      *
      *
      */
+    
     func didReceiveRemoteNotificationUserInfo(userinfo: [NSObject : AnyObject]) {
 
         //如果是抢单通知

@@ -25,5 +25,4 @@
 import Foundation
 
 class AIGladOrderViewController: UIViewController {
-    
 }

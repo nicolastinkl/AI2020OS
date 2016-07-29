@@ -93,4 +93,5 @@ extension AADialogBaseViewController: DialogToolBarDelegate {
 		}
 	}
 }
+
 var AVAudioSessionDefaultCategory: String = ""

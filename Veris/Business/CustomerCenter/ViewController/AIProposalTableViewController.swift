@@ -27,7 +27,7 @@ import Foundation
 /// Proposal TableView 独立ViewController
 class AIProposalTableViewController: UIViewController {
  
-    var dataSource  = [ProposalOrderModelWrap]()
+    var dataSource  = [ProposalOrderViewModel]()
     var tableViewCellCache = NSMutableDictionary()    
     var lastSelectedIndexPath: NSIndexPath?
     var didRefresh: Bool?
@@ -152,15 +152,6 @@ class AIProposalTableViewController: UIViewController {
             }
             
         }
-        
-
-        
-//        collectionView.registerClass(AIProposalCollCell.self, forCellWithReuseIdentifier: kAIProposalCellIdentifierss)
-//        
-//        collectionView.registerNib(UINib(nibName: "AIProposalCollCell", bundle: nil), forCellWithReuseIdentifier: kAIProposalCellIdentifierss)
-//        collectionView.frame = self.view.frame
-//        view.addSubview(collectionView)
-//        collectionView.setTop(y + 30)
     }
     
     func clearPropodalData() {
@@ -178,23 +169,12 @@ class AIProposalTableViewController: UIViewController {
             dataSource.removeAll()
             tableView.reloadData()
             for proposal in data.order_list {
-                let wrapModel = self.proposalToProposalWrap(proposal as! ProposalOrderModel)
+                let model = proposalToVieModel(proposal as! ProposalOrderModel)
                 
-                dataSource.append(wrapModel)
+                dataSource.append(model)
             }
-            
-            // 添加占位区
-//            let offset = CGRectGetHeight(self.view.bounds) - self.topBarHeight - (CGFloat(self.dataSource.count)  *  self.tableCellRowHeight)
-//            if offset > 0 {
-//                let view = UIView(frame: CGRectMake(0, 0, self.screenWidth, offset))
-//                self.tableView.tableFooterView = view
-//            } else {
-//                self.tableView.tableFooterView = nil
-//            }
-            
         }
     }
-    
     
     //处理表格点击事件
     func rowSelectAction(indexPath: NSIndexPath) {
@@ -221,9 +201,8 @@ class AIProposalTableViewController: UIViewController {
     
     
     
-    func proposalToProposalWrap(model: ProposalOrderModel) -> ProposalOrderModelWrap {
-        var p = ProposalOrderModelWrap()
-        p.model = model
+    func proposalToVieModel(model: ProposalOrderModel) -> ProposalOrderViewModel {
+        let p = ProposalOrderViewModel(model: model)
         return p
     }
     
@@ -234,15 +213,17 @@ class AIProposalTableViewController: UIViewController {
         servicesViewContainer.proposalOrder = proposalModel
         servicesViewContainer.dimentionListener = self
         servicesViewContainer.delegate = self
-        //新建展开view时纪录高度
+        
         servicesViewContainer.tag = indexPath.row
-        dataSource[indexPath.row].expandHeight = servicesViewContainer.getHeight()
         return servicesViewContainer
     }
     
     private func buildSuvServiceCard(model: ProposalOrderModel) -> ListSubServiceCardView {
         let list = ListSubServiceCardView(frame: CGRect(x: 0, y: 0, width: tableView.width, height: 50))
-        list.setSubServicesForTest(model.service.count)
+        if let services = model.service as? [ServiceOrderModel] {
+            list.loadData(services)
+        }
+        
         return list
     }
     
@@ -316,12 +297,12 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         if cell.mainView == nil {
             let folderCellView = AICustomerOrderFoldedView.currentView()
             folderCellView.delegate = self
-            folderCellView.loadData(dataSource[indexPath.row].model!)
+            folderCellView.loadData(dataSource[indexPath.row].model)
             cell.mainView = folderCellView
         }
         
         if cell.getView("expanded") == nil {
-            cell.addCandidateView("expanded", subView: buildSuvServiceCard(dataSource[indexPath.row].model!))
+            cell.addCandidateView("expanded", subView: buildSuvServiceCard(dataSource[indexPath.row].model))
         }
         
         if dataSource[indexPath.row].isExpanded {
@@ -339,29 +320,7 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         }
         
         cell.selectionStyle = .None
-        
-        
-        //        var cell: AITableFoldedCellHolder!
-        //
-        //        if let cacheCell: AITableFoldedCellHolder = tableViewCellCache[indexPath.row] as! AITableFoldedCellHolder? {
-        //            cell = cacheCell
-        //        } else {
-        //            cell = buildTableViewCell(indexPath)
-        //
-        //            tableViewCellCache[indexPath.row] = cell
-        //        }
-        //
-        //        let folderCellView = cell.foldedView
-        //        let expandedCellView = cell.expanedView
-        //
-        //        if dataSource[indexPath.row].isExpanded {
-        //            folderCellView?.hidden = true
-        //            expandedCellView?.hidden = false
-        //        } else {
-        //            folderCellView?.hidden = false
-        //            expandedCellView?.hidden = true
-        //        }
-        
+      
         return cell
     }
     
@@ -373,6 +332,7 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
 //        if let navigationController = self.navigationController {
 //            navigationController.pushViewController(serviceExecVC, animated: true)
 //        } else {
+
             //弹出前先收起订单列表
             let parentVC = self.parentViewController as! AIBuyerViewController
             parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)
@@ -389,9 +349,6 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
 
 extension AIProposalTableViewController : DimentionChangable, ProposalExpandedDelegate {
     func heightChanged(changedView: UIView, beforeHeight: CGFloat, afterHeight: CGFloat) {
-        let expandView = changedView as! ProposalExpandedView
-        let row = expandView.tag
-        dataSource[row].expandHeight = afterHeight
         tableView.reloadData()
     }
     

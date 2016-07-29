@@ -10,6 +10,7 @@ import UIKit
 
 class AIIconLabelVerticalContainerView: UIView {
 
+
     var models: [AIIconLabelViewModel]?
     
     
@@ -53,12 +54,14 @@ class AIIconLabelVerticalContainerView: UIView {
 
 class AIIconLabelVerticalView: UIView {
     
+
     var model: AIIconLabelViewModel?
     
     //Constants
     let TEXT_FONT = AITools.myriadLightSemiCondensedWithSize(48 / 3)
 
     
+
     var iconImageView: UIImageView!
     var labelView: UILabel!
     
@@ -67,6 +70,7 @@ class AIIconLabelVerticalView: UIView {
         buildView()
     }
     
+
     convenience init(model: AIIconLabelViewModel) {
         self.init()
         loadData(model)
@@ -76,6 +80,7 @@ class AIIconLabelVerticalView: UIView {
         super.init(coder: aDecoder)
     }
     
+
     func buildView() {
         iconImageView = UIImageView()
         self.addSubview(iconImageView)

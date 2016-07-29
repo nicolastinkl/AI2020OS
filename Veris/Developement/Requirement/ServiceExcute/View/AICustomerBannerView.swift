@@ -41,8 +41,9 @@ class AICustomerBannerView: UIView {
         customerDescLabel.font = CUSTOMER_DESC_FONT
         customerDescLabel.alpha = 0.24
     }
-    
+
     func loadData() {
+
         userIconImageView.image = UIImage(named: "Avatorbibo")
     }
 }

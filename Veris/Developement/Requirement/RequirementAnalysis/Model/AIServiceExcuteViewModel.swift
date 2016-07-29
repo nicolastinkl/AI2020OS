@@ -14,6 +14,7 @@ class AIIconLabelViewModel: AIBaseViewModel {
     var iconUrl: String
     
     init(labelText: String, iconUrl: String) {
+
         self.labelText = labelText
         self.iconUrl = iconUrl
     }
@@ -29,6 +30,7 @@ class AIGrabOrderDetailViewModel: AIBaseViewModel {
     var customerParamArray: Array<AIIconLabelViewModel>?
     
     init(serviceName: String, serviceThumbnailIcon: String, serviceIntroContent: String, customerName: String, customerIcon: String) {
+
         self.serviceName = serviceName
         self.serviceThumbnailIcon = serviceThumbnailIcon
         self.serviceIntroContent = serviceIntroContent
