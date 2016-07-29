@@ -137,7 +137,7 @@ struct AIRemoteNotificationParameters {
         print("\(msgDic)")
         if let value = userinfo[key] as? String {
             if value == AIRemoteNotificationParameters.GrabOrderType {
-                AIApplication.showAlertView()
+                UIViewController.showAlertViewController()
             } else if value == AIRemoteNotificationParameters.AudioAssistantType {
                 // 语音协助的 接受
                 let topVC = topViewController()

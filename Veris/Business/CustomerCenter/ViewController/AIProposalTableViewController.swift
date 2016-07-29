@@ -369,16 +369,17 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
 
         
         let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
-        //let TopMargin: CGFloat = 15.3
-        //serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
-        if let navigationController = self.navigationController {
-            navigationController.pushViewController(serviceExecVC, animated: true)
-        } else {
+       
+//        if let navigationController = self.navigationController {
+//            navigationController.pushViewController(serviceExecVC, animated: true)
+//        } else {
             //弹出前先收起订单列表
             let parentVC = self.parentViewController as! AIBuyerViewController
             parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)
+            let TopMargin: CGFloat = 15.3
+            serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
             self.presentPopupViewController(serviceExecVC, animated: true)
-        }
+        //}
         
     }
     

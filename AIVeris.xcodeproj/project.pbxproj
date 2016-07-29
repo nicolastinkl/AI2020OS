@@ -22,6 +22,7 @@
 		123A1F861D2F94F900542D06 /* AITimelineTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123A1F841D2F94F900542D06 /* AITimelineTopView.xib */; };
 		123A1F871D2F94F900542D06 /* AITimelineTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1F851D2F94F900542D06 /* AITimelineTopView.swift */; };
 		1265F6291D47841400130ECF /* AICustomerServiceExecuteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1265F6281D47841400130ECF /* AICustomerServiceExecuteHandler.swift */; };
+		1265F62B1D48937700130ECF /* AICustomerServiceExecBusiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1265F62A1D48937700130ECF /* AICustomerServiceExecBusiModel.m */; };
 		126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
 		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
 		1273444D1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */; };
@@ -581,7 +582,6 @@
 		84717F271D3489D100AE7E9A /* CommentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84717F261D3489D100AE7E9A /* CommentTest.swift */; };
 		84717F291D348C5700AE7E9A /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		84717F2A1D348F9200AE7E9A /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
-		84717F2B1D348FC200AE7E9A /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
 		84717F2C1D348FC900AE7E9A /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
 		84717F2D1D348FE400AE7E9A /* AINetEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BED1CFBE5A700347C29 /* AINetEngine.m */; };
 		84717F2E1D34919800AE7E9A /* AIMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BE91CFBE5A700347C29 /* AIMessage.m */; };
@@ -600,6 +600,9 @@
 		847D29861D475228009E26B8 /* ImageInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29841D4751E9009E26B8 /* ImageInfoModel.swift */; };
 		847D29881D484BF3009E26B8 /* ServiceCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29871D484BF3009E26B8 /* ServiceCommentModel.swift */; };
 		847D29891D484EF9009E26B8 /* ServiceCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29871D484BF3009E26B8 /* ServiceCommentModel.swift */; };
+		847D298D1D49E4AF009E26B8 /* ProposalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339811CFBE5A600347C29 /* ProposalService.swift */; };
+		847D298F1D49E501009E26B8 /* ProposalServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D298E1D49E501009E26B8 /* ProposalServiceTest.swift */; };
+		847D29901D49FFA6009E26B8 /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -778,6 +781,7 @@
 		123A1F841D2F94F900542D06 /* AITimelineTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTopView.xib; sourceTree = "<group>"; };
 		123A1F851D2F94F900542D06 /* AITimelineTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTopView.swift; sourceTree = "<group>"; };
 		1265F6281D47841400130ECF /* AICustomerServiceExecuteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteHandler.swift; sourceTree = "<group>"; };
+		1265F62A1D48937700130ECF /* AICustomerServiceExecBusiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICustomerServiceExecBusiModel.m; sourceTree = "<group>"; };
 		126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteViewController.swift; sourceTree = "<group>"; };
 		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
 		1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomerOrderFoldedView.xib; sourceTree = "<group>"; };
@@ -1555,6 +1559,7 @@
 		847D29801D47504C009E26B8 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		847D29841D4751E9009E26B8 /* ImageInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInfoModel.swift; sourceTree = "<group>"; };
 		847D29871D484BF3009E26B8 /* ServiceCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentModel.swift; sourceTree = "<group>"; };
+		847D298E1D49E501009E26B8 /* ProposalServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalServiceTest.swift; sourceTree = "<group>"; };
 		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
@@ -1941,6 +1946,7 @@
 			isa = PBXGroup;
 			children = (
 				12DFC0BF1D47031600025D4F /* AICustomerServiceExecBusiModel.h */,
+				1265F62A1D48937700130ECF /* AICustomerServiceExecBusiModel.m */,
 			);
 			path = businessModel;
 			sourceTree = "<group>";
@@ -3741,6 +3747,7 @@
 				84717F261D3489D100AE7E9A /* CommentTest.swift */,
 				84717F2F1D3498D300AE7E9A /* AIVerisTests-Bridging-Header.h */,
 				847D29731D40BC2A009E26B8 /* SBOSSTestCase.swift */,
+				847D298E1D49E501009E26B8 /* ProposalServiceTest.swift */,
 			);
 			path = VerisTests;
 			sourceTree = "<group>";
@@ -4697,20 +4704,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				847D29741D40BC2A009E26B8 /* SBOSSTestCase.swift in Sources */,
+				847D298F1D49E501009E26B8 /* ProposalServiceTest.swift in Sources */,
 				84717F301D349A9E00AE7E9A /* UIViewControllerUtils.swift in Sources */,
 				84717F321D349CC900AE7E9A /* AIDefines.swift in Sources */,
 				84717F311D349ABA00AE7E9A /* UIColorUtils.swift in Sources */,
 				84717F1F1D3483E300AE7E9A /* VerisTests.swift in Sources */,
 				84717F2C1D348FC900AE7E9A /* BDKTools.swift in Sources */,
-				84717F2B1D348FC200AE7E9A /* AIApplication.swift in Sources */,
 				847D297A1D474F27009E26B8 /* Localize.swift in Sources */,
 				847D29891D484EF9009E26B8 /* ServiceCommentModel.swift in Sources */,
 				847D29861D475228009E26B8 /* ImageInfoModel.swift in Sources */,
+				847D298D1D49E4AF009E26B8 /* ProposalService.swift in Sources */,
 				84717F2A1D348F9200AE7E9A /* CommentModel.m in Sources */,
 				84717F291D348C5700AE7E9A /* CommentService.swift in Sources */,
 				847D29761D4748C9009E26B8 /* CommentHelp.swift in Sources */,
 				847D297B1D474F34009E26B8 /* CustomXibView.swift in Sources */,
 				84717F2E1D34919800AE7E9A /* AIMessage.m in Sources */,
+				847D29901D49FFA6009E26B8 /* AIApplication.swift in Sources */,
 				FB6261FE1D45FAC9003CF604 /* NSUserDefaults+Object.swift in Sources */,
 				84717F2D1D348FE400AE7E9A /* AINetEngine.m in Sources */,
 				84717F271D3489D100AE7E9A /* CommentTest.swift in Sources */,
@@ -5049,6 +5058,7 @@
 				81433CEA1CFBE5A700347C29 /* ProposalModel.m in Sources */,
 				93C8C9A81D14034A00F1DFCF /* AICustomSearchHomeCell.swift in Sources */,
 				81433D8B1CFBE5A700347C29 /* PurchasedServiceView.swift in Sources */,
+				1265F62B1D48937700130ECF /* AICustomerServiceExecBusiModel.m in Sources */,
 				FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */,
 				81433D3D1CFBE5A700347C29 /* AICustomView.swift in Sources */,
 				81433D591CFBE5A700347C29 /* AINumberCountControl.swift in Sources */,
@@ -5594,6 +5604,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
+
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				DEFINES_MODULE = NO;
@@ -5633,7 +5644,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "6defedf0-7db7-4835-a59a-c8176b10d1b9";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

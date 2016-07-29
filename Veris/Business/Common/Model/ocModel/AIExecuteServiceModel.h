@@ -28,8 +28,8 @@
 @property(nonatomic,strong) NSString<Optional> *service_thumbnail_icon;
 @property(nonatomic,strong) NSString<Optional> *service_name;
 @property(nonatomic,strong) NSString<Optional> *service_intro_content;
-@property(nonatomic,assign) AICustomer<Optional> *customer;
-@property(nonatomic, assign) NSArray<Optional, AIGrabOrderParamModel> *contents;
+@property(nonatomic,strong) AICustomer<Optional> *customer;
+@property(nonatomic, strong) NSArray<Optional, AIGrabOrderParamModel> *contents;
 
 @end
 
@@ -38,7 +38,7 @@
 
 @interface AIGrabOrderUserNeedsModel : JSONModel
 
-@property(nonatomic, assign) NSArray<Optional, AIGrabOrderParamModel> *contents;
+@property(nonatomic, strong) NSArray<Optional, AIGrabOrderParamModel> *contents;
 @property(nonatomic,strong) NSString<Optional> *desc;
 
 @end
@@ -49,6 +49,6 @@
 @interface AIGrabOrderResultModel : JSONModel
 
 @property(nonatomic,strong) NSNumber<Optional> *result;
-@property(nonatomic,assign) AIGrabOrderUserNeedsModel<Optional> *customer;
+@property(nonatomic,strong) AIGrabOrderUserNeedsModel<Optional> *customer;
 
 @end

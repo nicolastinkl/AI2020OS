@@ -16,3 +16,6 @@
 
 // Comment
 #import "CommentModel.h"
+// Proposal
+#import "ProposalModel.h"
+#import "AIBuyerBubbleModel.h"
