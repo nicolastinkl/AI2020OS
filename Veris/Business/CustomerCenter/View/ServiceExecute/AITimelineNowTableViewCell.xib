@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjG-jd-pnf" userLabel="horizenLineView1">
@@ -49,7 +49,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyR-qb-pME" userLabel="horizenLineView2">
-                        <rect key="frame" x="52" y="13" width="362" height="1"/>
+                        <rect key="frame" x="54" y="13" width="360" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="kGx-vZ-9cT"/>
@@ -66,7 +66,7 @@
                 <constraints>
                     <constraint firstItem="phi-Ig-fUj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="1WB-U4-I7p"/>
                     <constraint firstItem="phi-Ig-fUj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="8ut-ma-Wrk"/>
-                    <constraint firstItem="lyR-qb-pME" firstAttribute="leading" secondItem="F4U-yd-fVI" secondAttribute="trailing" id="GzX-Ti-1iM"/>
+                    <constraint firstItem="lyR-qb-pME" firstAttribute="leading" secondItem="F4U-yd-fVI" secondAttribute="trailing" constant="2" id="GzX-Ti-1iM"/>
                     <constraint firstAttribute="trailing" secondItem="lyR-qb-pME" secondAttribute="trailing" id="KMm-oL-W0g"/>
                     <constraint firstItem="pjG-jd-pnf" firstAttribute="centerY" secondItem="F4U-yd-fVI" secondAttribute="centerY" id="Me0-ho-ou7"/>
                     <constraint firstItem="zy8-bR-Lbe" firstAttribute="trailing" secondItem="phi-Ig-fUj" secondAttribute="trailing" id="Mrd-N1-mWQ"/>

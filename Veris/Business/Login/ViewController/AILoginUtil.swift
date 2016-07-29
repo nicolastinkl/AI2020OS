@@ -110,3 +110,16 @@ class AILoginPublicValue {
     //短信验证码
     static var smsCode: String?
 }
+
+// MARK: -> 点击按钮时禁止页面操作
+extension UIViewController {
+    func showButtonLoading(button: UIButton) {
+        button.showActioningLoading()
+        view.userInteractionEnabled = false
+    }
+    
+    func hideButtonLoading(button: UIButton, title: String) {
+        button.hideActioningLoading(title)
+        view.userInteractionEnabled = true
+    }
+}

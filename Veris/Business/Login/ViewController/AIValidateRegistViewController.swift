@@ -59,14 +59,14 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         
         
         let title = nextStepButton.titleLabel?.text ?? ""
-        nextStepButton.showActioningLoading()
+        showButtonLoading(nextStepButton)
         
         //短信验证码赋值到全局变量
         AILoginPublicValue.smsCode = validateCode
         
         if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
             AVOSCloud.verifySmsCode(validateCode, mobilePhoneNumber: phoneNumber) { (bol, error) in
-                self.nextStepButton.hideActioningLoading(title)
+                self.hideButtonLoading(self.nextStepButton, title: title)
                 if bol {
                     let changePasswordVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIChangePasswordViewController)
                     self.navigationController?.pushViewController(changePasswordVC, animated: true)
@@ -75,7 +75,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
                 }
             }
         } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
-            self.nextStepButton.hideActioningLoading(title)
+            self.hideButtonLoading(self.nextStepButton, title: title)
             //重置密码的方法没法直接校验是否正确
             let changePasswordVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIChangePasswordViewController)
             self.navigationController?.pushViewController(changePasswordVC, animated: true)
@@ -87,8 +87,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         if let phoneNumber = AILoginPublicValue.phoneNumber {
             
             promoteLabel.text = "\(LoginConstants.textContent.validationPrompt) \(phoneNumber)"
-            
-            validationButton.showActioningLoading()
+            showButtonLoading(validationButton)
             
             if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
                 AVOSCloud.requestSmsCodeWithPhoneNumber(phoneNumber, callback: { (bol, error) in
@@ -96,7 +95,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
                         self.handleValidationButton()
                     } else {
                         AIAlertView().showError("Request validation code failed", subTitle: error.description)
-                        self.validationButton.hideActioningLoading(LoginConstants.textContent.validateButtonDefault)
+                        self.hideButtonLoading(self.validationButton, title: LoginConstants.textContent.validateButtonDefault)
                     }
                 })
             } else if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
@@ -104,7 +103,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
                     self.handleValidationButton()
                     }, fail: { (errType, errDes) in
                         AIAlertView().showError("Request validation code failed", subTitle: errDes)
-                        self.validationButton.hideActioningLoading(LoginConstants.textContent.validateButtonDefault)
+                        self.hideButtonLoading(self.validationButton, title: LoginConstants.textContent.validateButtonDefault)
                 })
             }
         }
@@ -117,7 +116,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         let curButtonTitle = "\(self.buttonTitle2)(60 Sec)"
         let fontSize = curButtonTitle.sizeWithFont(self.titleFont, forWidth: self.view.width)
         self.validationButtonWidthConstrant.constant = fontSize.width + 20
-        validationButton.hideActioningLoading(curButtonTitle)
+        hideButtonLoading(validationButton, title: curButtonTitle)
         UIView.animateWithDuration(0.25, animations: {
             self.validationButton.layoutIfNeeded()
             //self.validationButtonWidthConstrant.constant = fontSize.width + 20
