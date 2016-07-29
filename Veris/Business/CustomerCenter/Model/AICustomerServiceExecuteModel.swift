@@ -84,10 +84,17 @@ class AIDateTimeViewModel: AIBaseViewModel {
     var shouldShowDate = false
 }
 
+/// 地图坐标模型
+class AIGPSViewModel: AIBaseViewModel {
+    var locType: String?
+    var longitude: Double?
+    var latitude: Double?
+}
+
 class AITimeContentViewModel: AIBaseViewModel {
     var contentType: AITimelineContentTypeEnum?
     var contentUrl: String?
-    
+    var location: AIGPSViewModel?
     init(contentType: AITimelineContentTypeEnum, contentUrl: String) {
         self.contentType = contentType
         self.contentUrl = contentUrl

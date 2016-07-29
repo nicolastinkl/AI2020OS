@@ -38,7 +38,7 @@
     [self startOpenningAnimation];
  
     
-    [self handleLoginAction];
+    //[self handleLoginAction];
 }
 
 -(BOOL)prefersStatusBarHidden{

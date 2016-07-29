@@ -18,5 +18,5 @@
 
 #pragma mark - 时间线详情
 @interface AICustomerTimelineBusiModel : AIOrderInfoBusiModel
-@property (nonatomic, strong) NSArray<AITimelineBusiModel, Optional> *sub_service;
+@property (nonatomic, strong) NSArray<AITimelineBusiModel, Optional> *procedure_list;
 @end
