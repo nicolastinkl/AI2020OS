@@ -15,7 +15,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     // MARK: - Properties
 
-    var dataSource  = [ProposalOrderModelWrap]()
+    var dataSource  = [ProposalOrderViewModel]()
     var dataSourcePop = [AIBuyerBubbleModel]()
     var tableViewCellCache = NSMutableDictionary()
 
@@ -641,12 +641,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
 
-    }
-
-    func proposalToProposalWrap(model: ProposalOrderModel) -> ProposalOrderModelWrap {
-        var p = ProposalOrderModelWrap()
-        p.model = model
-        return p
     }
 }
 

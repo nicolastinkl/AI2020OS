@@ -27,7 +27,7 @@ import Foundation
 /// Proposal TableView 独立ViewController
 class AIProposalTableViewController: UIViewController {
  
-    var dataSource  = [ProposalOrderModelWrap]()
+    var dataSource  = [ProposalOrderViewModel]()
     var tableViewCellCache = NSMutableDictionary()    
     var lastSelectedIndexPath: NSIndexPath?
     var didRefresh: Bool?
@@ -221,8 +221,8 @@ class AIProposalTableViewController: UIViewController {
     
     
     
-    func proposalToProposalWrap(model: ProposalOrderModel) -> ProposalOrderModelWrap {
-        var p = ProposalOrderModelWrap()
+    func proposalToProposalWrap(model: ProposalOrderModel) -> ProposalOrderViewModel {
+        let p = ProposalOrderViewModel()
         p.model = model
         return p
     }
@@ -234,9 +234,8 @@ class AIProposalTableViewController: UIViewController {
         servicesViewContainer.proposalOrder = proposalModel
         servicesViewContainer.dimentionListener = self
         servicesViewContainer.delegate = self
-        //新建展开view时纪录高度
+        
         servicesViewContainer.tag = indexPath.row
-        dataSource[indexPath.row].expandHeight = servicesViewContainer.getHeight()
         return servicesViewContainer
     }
     
@@ -390,7 +389,6 @@ extension AIProposalTableViewController : DimentionChangable, ProposalExpandedDe
     func heightChanged(changedView: UIView, beforeHeight: CGFloat, afterHeight: CGFloat) {
         let expandView = changedView as! ProposalExpandedView
         let row = expandView.tag
-        dataSource[row].expandHeight = afterHeight
         tableView.reloadData()
     }
     
