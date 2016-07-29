@@ -54,6 +54,12 @@ extension UIViewController {
 		}
 	}
     
+    func backToRoot(){
+        if let navigationController = navigationController {
+            navigationController.popToRootViewControllerAnimated(true)
+        }
+    }
+    
     /**
      用于登陆注册页面的导航栏
      
@@ -73,7 +79,7 @@ extension UIViewController {
         if needCloseButton {
             let rightCloseButton = UIButton()
             rightCloseButton.setImage(UIImage(named: "login_close"), forState: .Normal)
-            rightCloseButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
+            rightCloseButton.addTarget(self, action: #selector(UIViewController.backToRoot), forControlEvents: .TouchUpInside)
             appearance.rightBarButtonItems = [rightCloseButton]
         }
         

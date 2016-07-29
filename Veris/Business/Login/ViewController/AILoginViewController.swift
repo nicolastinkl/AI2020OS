@@ -29,20 +29,24 @@ class AILoginViewController: UIViewController {
     // MARK: -IBActions
     @IBAction func loginAction(sender: AnyObject) {
         let title = loginButton.titleLabel?.text ?? ""
-        loginButton.showActioningLoading()
+        
+        view.userInteractionEnabled = false
+        showButtonLoading(loginButton)
         if AILoginUtil.validatePassword(passwordTextField.text) && AILoginUtil.validatePhoneNumber(userIdTextField.text) {
             loginService.login(userIdTextField.text!, password: passwordTextField.text!, success: { (userId) in
-                self.loginButton.hideActioningLoading(title)
+                self.view.userInteractionEnabled = true
+                self.hideButtonLoading(self.loginButton, title: title)
                 AILoginUtil.handleUserLogin(userId)
                 self.dismissViewControllerAnimated(true, completion: nil)
                 }, fail: { (errType, errDes) in
-                    self.loginButton.hideActioningLoading(title)
+                    self.view.userInteractionEnabled = true
+                    self.hideButtonLoading(self.loginButton, title: title)
                     self.validateInfoLabel.showPrompt(errDes)
             })
             
             
         } else {
-            self.loginButton.hideActioningLoading(title)
+            self.hideButtonLoading(self.loginButton, title: title)
             self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.WrongIdOrPassword.rawValue)
         }
     }
@@ -123,7 +127,6 @@ class AILoginViewController: UIViewController {
     func passwordInputAction(target: UITextField) {
         loginButton.enabled = AILoginUtil.validatePassword(passwordTextField.text) && AILoginUtil.validatePhoneNumber(userIdTextField.text)
     }
-    
 }
 
 extension AILoginViewController : UITextFieldDelegate {

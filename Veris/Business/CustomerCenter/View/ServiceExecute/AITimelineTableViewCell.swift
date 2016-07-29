@@ -70,6 +70,8 @@ class AITimelineTableViewCell: UITableViewCell {
             }
         }
         dateLabel.text = viewModel.timeModel?.date
+        dateLabel.font = AITools.myriadRegularWithSize(30.displaySizeFrom1242DesignSize())
+        dateLabel.textColor = CustomerCenterConstants.Colors.DateLabelColor
         
         for subView in timelineContentContainterView.subviews {
             subView.removeFromSuperview()
@@ -99,7 +101,7 @@ class AITimelineTableViewCell: UITableViewCell {
         default: break
         }
         if viewModel.timeModel?.shouldShowDate == true {
-            totalHeight += 25
+            totalHeight += 45.displaySizeFrom1242DesignSize()
         }
         return totalHeight
     }
