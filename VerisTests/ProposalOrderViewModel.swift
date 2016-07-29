@@ -12,4 +12,12 @@ import Foundation
 class ProposalOrderViewModel {
     var isExpanded: Bool = false
     var model: ProposalOrderModel!
+    
+    init() {
+        
+    }
+    
+    init(model: ProposalOrderModel) {
+        self.model = model
+    }
 }

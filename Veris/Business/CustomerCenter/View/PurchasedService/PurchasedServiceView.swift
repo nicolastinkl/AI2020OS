@@ -41,7 +41,7 @@ class PurchasedServiceView: UIView, Measureable {
         set {
             serviceOrderModel = newValue
 
-            if let model = newValue {
+            if newValue != nil {
                 logo.image = smallPlace()
             }
         }
@@ -52,7 +52,6 @@ class PurchasedServiceView: UIView, Measureable {
     }
 
     private func setDescriptionLabelHeight() {
-        let descriptionWidth = serviceDescription.superview!.width - PurchasedViewDimention.PROPOSAL_PADDING_LEFT - PurchasedViewDimention.PROPOSAL_PADDING_RIGHT
 
         let size = CGSize(width: 10, height: 10)
 

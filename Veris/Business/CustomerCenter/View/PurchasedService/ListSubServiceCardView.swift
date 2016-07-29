@@ -12,6 +12,7 @@ import SnapKit
 class ListSubServiceCardView: UIView {
 
     private var cardList = [SubServiceCardView]()
+    private var modelList: [ServiceOrderModel]!
     var timelineModels: [AITimelineViewModel] = []
     var bottomConstraint: Constraint!
     
@@ -59,6 +60,29 @@ class ListSubServiceCardView: UIView {
         }
         
         cardList.append(subService)
+    }
+    
+    func loadData(dataList: [ServiceOrderModel]) {
+        guard dataList.count > 0 else {
+            return
+        }
+        
+        modelList = dataList
+        
+        buildFakeContentViewModel()
+        
+        
+        for i in 0 ..< dataList.count {
+            let card = SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView
+            
+            card.loadData(dataList[i])
+
+            let timelineContainerView = AITimelineContentContainerView(viewModel: timelineModels[i], delegate: nil)
+            let caculateHeight = timelineContainerView.getCaculateHeight()
+            card.setContentView(timelineContainerView, height: caculateHeight)
+            
+            addSubService(card)
+        }
     }
     
     func buildFakeContentViewModel() {

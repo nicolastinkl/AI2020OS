@@ -56,6 +56,19 @@ class AICustomerOrderFoldedView: UIView {
     
     func loadData(proposalModel: ProposalOrderModel) {
         self.proposalModel = proposalModel
+        
+        proposalName.text = proposalModel.name
+        noticeBadgeLabel.text = "\(proposalModel.messages)"
+        taskStatusLabel.text = proposalModel.state
+        
+        if let services = proposalModel.service as? [ServiceOrderModel]{
+            if services.count > 0 {
+                if let node = services[0].node {
+                    taskSchedulTimeLabel.text = node.time
+                    taskNameLabel.text = node.title
+                }
+            }
+        }
     }
 
     // MARK: currentView

@@ -25,20 +25,17 @@
 @end
 
 @implementation ServiceOrderModel
-
-/*
-+(JSONKeyMapper*)keyMapper
+- (id) init
 {
-    // 这里就采用了KVC的方式来取值...
-    return [[JSONKeyMapper alloc] initWithDictionary:@{
-                                                       @"arrange_script_info.info_title": @"service_name",
-                                                       @"arrange_script_info.info_desc": @"service_intro",
-                                                       @"arrange_script_info.info_state": @"order_state",
-                                                       @"arrange_script_info.info_key_points": @"param_list"
-                                                       
-                                                       }];
-}*/
-
+    self = [super init];
+    
+    if (self) {
+        _name = @"";
+        _image = @"";
+    }
+    
+    return self;
+}
 @end
 
 @implementation KeypointModel
@@ -55,9 +52,37 @@
 @end
 
 @implementation ProposalOrderModel
+- (id) init
+{
+    self = [super init];
+    
+    if (self) {
+        _name = @"";
+        _messages = 0;
+        _state = @"";
+    }
+    
+    return self;
+}
 @end
 
 @implementation ServiceNodeModel
+- (id) init
+{
+    self = [super init];
+    
+    if (self) {
+        _type = @"";
+        _provider_icon = @"";
+        _provider_nbr = @"";
+        _title = @"";
+        _desc = @"";
+        _state = @"";
+        _time = @"";
+    }
+    
+    return self;
+}
 @end
 
 @implementation ServiceContentModel
