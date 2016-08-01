@@ -216,7 +216,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         default: break
         }
         if viewModel.timeModel?.shouldShowDate == true {
-            totalHeight += 45.displaySizeFrom1242DesignSize()
+            totalHeight += 60.displaySizeFrom1242DesignSize()
         }
         //在这里给cellHeight赋值
         viewModel.cellHeight = totalHeight

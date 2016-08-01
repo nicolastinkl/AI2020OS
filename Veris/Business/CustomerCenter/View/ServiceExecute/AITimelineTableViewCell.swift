@@ -66,7 +66,7 @@ class AITimelineTableViewCell: UITableViewCell {
             if timeModel.shouldShowDate {
                 dateLabelTopConstraint.constant = 5
             } else {
-                dateLabelTopConstraint.constant = -20
+                dateLabelTopConstraint.constant = -15
             }
         }
         dateLabel.text = viewModel.timeModel?.date
