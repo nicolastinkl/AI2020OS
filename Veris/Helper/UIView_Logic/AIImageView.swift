@@ -141,10 +141,10 @@ public class AIImageView: UIImageView {
         }
     }
     
-    public typealias UploadComplate = (Int?, NSURL?, NSError!) -> Void
+    public typealias UploadComplate = (id: String?, NSURL?, NSError!) -> Void
     
     // id 用来标识complate，当有多个图片上传时可以用id来识别每个图片的上传结果
-    public func uploadImage(id: Int? = nil, complate: UploadComplate? = nil) {
+    public func uploadImage(id: String? = nil, complate: UploadComplate? = nil) {
         if let image = self.image {
             let newFrame = CGRectMake(0, 0, self.width, self.height)
             let progressView = AIProgressWebHoldView(frame: newFrame)
@@ -175,7 +175,7 @@ public class AIImageView: UIImageView {
                         button.addTarget(self, action: #selector(AIImageView.imageUploadRetry(_:)), forControlEvents: UIControlEvents.TouchUpInside)
                         
                     }
-                    complate?(id, NSURL(string: file.url), error)
+                    complate?(id: id, NSURL(string: file.url), error)
                 }
                 
                 }, progressBlock: { (progress) in

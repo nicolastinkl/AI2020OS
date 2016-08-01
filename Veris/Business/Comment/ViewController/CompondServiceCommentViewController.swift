@@ -139,7 +139,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         
         ensureLoaclSavedModelNotNil(row)
         
-        comments[row].loaclModel!.images!.appendContentsOf(infos)
+        comments[row].loaclModel!.images.appendContentsOf(infos)
         comments[row].loaclModel!.isAppend = cell.isEditingAppendComment
         comments[row].loaclModel!.changed = true
         
@@ -269,13 +269,13 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
 }
 
 class ServiceCommentViewModel {
-    var firstImages = [String]()
-    var appendImages = [String]()
     var cellState: CommentState!
     var commentEditable = false
     var submitted = false
     var serviceId = ""
     var loaclModel: ServiceCommentLocalSavedModel?
+    var firstComment: ServiceComment?
+    var appendComment: ServiceComment?
 }
 
 protocol CommentCellProtocol {

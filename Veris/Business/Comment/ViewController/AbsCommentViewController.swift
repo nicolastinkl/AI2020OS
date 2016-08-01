@@ -13,6 +13,33 @@ class AbsCommentViewController: UIViewController {
     func imagesPicked(images: [ImageInfo]) {
         
     }
+    
+    func mergeCommentData(comment: ServiceComment, local: ServiceCommentLocalSavedModel?) -> ServiceCommentViewModel {
+        return ServiceCommentViewModel()
+    }
+    
+    func mergeCommentData(comments: [ServiceComment], local: [ServiceCommentLocalSavedModel]) -> [ServiceCommentViewModel] {
+        
+        func getLocalModel(serviceId: String) -> ServiceCommentLocalSavedModel? {
+            for model in local {
+                if model.serviceId == serviceId {
+                    return model
+                }
+            }
+            
+            return nil
+        }
+        
+        var list = [ServiceCommentViewModel]()
+        
+        for comment in comments {
+            let model = getLocalModel(comment.service_id)
+            list.append(mergeCommentData(comment, local: model))
+            
+        }
+        
+        return list
+    }
 }
 
 extension AbsCommentViewController: UINavigationControllerDelegate {
@@ -40,7 +67,7 @@ extension AbsCommentViewController: CommentDistrictDelegate {
         openAlbum()
 
    //     let actionPhotosAlbum = UIAlertAction(title: "Gallery".localized, style: .Default) { (UIAlertAction) in
-            openAlbum()
+   //         openAlbum()
          //   BuildInCameraUtils.startMediaBrowserFromViewController(self, delegate: self)
    //     }
         

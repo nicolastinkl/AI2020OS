@@ -97,7 +97,7 @@ class CommentTest: SBOSSTestCase {
         
         let m = CommentUtils.getCommentModelFromLocal(model.serviceId)
         
-        XCTAssertEqual(m?.images?[0].url?.path, "/12345")
+        XCTAssertEqual(m?.images[0].url?.path, "/12345")
         XCTAssertEqual(m?.serviceId, model.serviceId)
     }
 
