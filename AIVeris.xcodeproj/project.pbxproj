@@ -585,13 +585,11 @@
 		84717F2C1D348FC900AE7E9A /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
 		84717F2D1D348FE400AE7E9A /* AINetEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BED1CFBE5A700347C29 /* AINetEngine.m */; };
 		84717F2E1D34919800AE7E9A /* AIMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433BE91CFBE5A700347C29 /* AIMessage.m */; };
-		84717F301D349A9E00AE7E9A /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C081CFBE5A700347C29 /* UIViewControllerUtils.swift */; };
 		84717F311D349ABA00AE7E9A /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433C071CFBE5A700347C29 /* UIColorUtils.swift */; };
 		84717F321D349CC900AE7E9A /* AIDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B6005B1D25169E0052ADC8 /* AIDefines.swift */; };
 		847D29741D40BC2A009E26B8 /* SBOSSTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29731D40BC2A009E26B8 /* SBOSSTestCase.swift */; };
 		847D29761D4748C9009E26B8 /* CommentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */; };
 		847D297A1D474F27009E26B8 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433BDF1CFBE5A700347C29 /* Localize.swift */; };
-		847D297B1D474F34009E26B8 /* CustomXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433AAD1CFBE5A700347C29 /* CustomXibView.swift */; };
 		847D297D1D474FA2009E26B8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847D297C1D474FA2009E26B8 /* AssetsLibrary.framework */; };
 		847D29811D47504C009E26B8 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847D29801D47504C009E26B8 /* AVKit.framework */; };
 		847D29821D475055009E26B8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937EA3801C02BB2700AF776B /* AVFoundation.framework */; };
@@ -604,6 +602,7 @@
 		847D298F1D49E501009E26B8 /* ProposalServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D298E1D49E501009E26B8 /* ProposalServiceTest.swift */; };
 		847D29901D49FFA6009E26B8 /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
 		847D29921D4AF26D009E26B8 /* ProposalOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29911D4AF26D009E26B8 /* ProposalOrderViewModel.swift */; };
+		847D29941D4B4CA7009E26B8 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29931D4B4CA7009E26B8 /* AppUtils.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -1562,6 +1561,7 @@
 		847D29871D484BF3009E26B8 /* ServiceCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentModel.swift; sourceTree = "<group>"; };
 		847D298E1D49E501009E26B8 /* ProposalServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalServiceTest.swift; sourceTree = "<group>"; };
 		847D29911D4AF26D009E26B8 /* ProposalOrderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProposalOrderViewModel.swift; path = VerisTests/ProposalOrderViewModel.swift; sourceTree = SOURCE_ROOT; };
+		847D29931D4B4CA7009E26B8 /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
@@ -2033,6 +2033,7 @@
 				814339281CFBE5A600347C29 /* AppDelegate.swift */,
 				9304550F1D124DE5007AFC0C /* AIAppInit.h */,
 				930455101D124DE5007AFC0C /* AIAppInit.m */,
+				847D29931D4B4CA7009E26B8 /* AppUtils.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -4708,7 +4709,6 @@
 			files = (
 				847D29741D40BC2A009E26B8 /* SBOSSTestCase.swift in Sources */,
 				847D298F1D49E501009E26B8 /* ProposalServiceTest.swift in Sources */,
-				84717F301D349A9E00AE7E9A /* UIViewControllerUtils.swift in Sources */,
 				84717F321D349CC900AE7E9A /* AIDefines.swift in Sources */,
 				84717F311D349ABA00AE7E9A /* UIColorUtils.swift in Sources */,
 				84717F1F1D3483E300AE7E9A /* VerisTests.swift in Sources */,
@@ -4720,7 +4720,6 @@
 				84717F2A1D348F9200AE7E9A /* CommentModel.m in Sources */,
 				84717F291D348C5700AE7E9A /* CommentService.swift in Sources */,
 				847D29761D4748C9009E26B8 /* CommentHelp.swift in Sources */,
-				847D297B1D474F34009E26B8 /* CustomXibView.swift in Sources */,
 				84717F2E1D34919800AE7E9A /* AIMessage.m in Sources */,
 				847D29901D49FFA6009E26B8 /* AIApplication.swift in Sources */,
 				FB6261FE1D45FAC9003CF604 /* NSUserDefaults+Object.swift in Sources */,
@@ -5099,6 +5098,7 @@
 				933BC83F1D002434005E1789 /* AISuperiorityViewController.swift in Sources */,
 				81433EA41CFBE5A700347C29 /* AIMessageWrapper.m in Sources */,
 				81433DF61CFBE5A700347C29 /* AIEventTimerView.swift in Sources */,
+				847D29941D4B4CA7009E26B8 /* AppUtils.swift in Sources */,
 				81433E6B1CFBE5A700347C29 /* FLEXMultiColumnTableView.m in Sources */,
 				81433E151CFBE5A700347C29 /* PKYStepper.m in Sources */,
 				81433E771CFBE5A700347C29 /* FLEXGlobalsTableViewController.m in Sources */,
@@ -5608,7 +5608,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
-
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				DEFINES_MODULE = NO;

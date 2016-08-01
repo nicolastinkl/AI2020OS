@@ -91,7 +91,7 @@ class SubServiceCardView: UIView {
         
         if let node = serviceData.node {
             nodeName.text = node.title
-            nodeDate.text = node.time
+      //      nodeDate.text = node.time
             nodeState.text = node.state
             
             if let url = node.provider_icon {
