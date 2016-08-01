@@ -96,7 +96,7 @@
 @property (nonatomic, strong) NSString<Optional> *title;
 @property (nonatomic, strong) NSString<Optional> *desc;
 @property (nonatomic, strong) NSString<Optional> *state;
-@property (nonatomic, strong) NSString<Optional> *time;
+@property (nonatomic, assign) NSInteger time;
 @property (nonatomic, strong) ServiceContentModel<Optional> *content;
 
 @end
@@ -125,7 +125,7 @@
 
 @interface ServiceOrderModel : JSONModel
 
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, strong) NSString *id;
 // 服务图标
 @property (nonatomic, strong) NSString<Optional> *image;
 // 服务名称
@@ -142,10 +142,10 @@
 
 @interface ProposalOrderModel : JSONModel
 
-@property (nonatomic, assign) NSInteger proposal_id;
+@property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString<Optional> *name;
 // 消息总数
-@property (nonatomic, assign) NSInteger messages;
+@property (nonatomic, strong) NSString<Optional> *messages;
 // 消息状态
 @property (nonatomic, strong) NSString<Optional> *state;
 @property (nonatomic, strong) NSArray<ServiceOrderModel, Optional> *service;
