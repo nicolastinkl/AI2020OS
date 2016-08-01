@@ -30,6 +30,7 @@ class LoginAction: NSObject, AILoginViewControllerDelegate {
 	
 	func didLogin(completion: LoginHandler) {
 		loginHandler = completion
+        loginHandler?()
 	}
 	
 	func loginViewControllerDidLogin(controller: AILoginViewController) {

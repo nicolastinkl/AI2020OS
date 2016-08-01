@@ -224,7 +224,12 @@
         success(returnResponseObject);
     } else if ([resultCode isEqualToString:kLogoutCode]) {
         // 通知登录超时
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"UserLoginTimeNotification" object:nil];
+        NSString * msgRelogin = @"";
+        if (returnResponseObject != nil && [returnResponseObject isKindOfClass:[NSDictionary class]]){
+             msgRelogin = returnResponseObject[@"msg"];
+            
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UserLoginTimeNotification" object:msgRelogin];
     } else {
 
         if (des != nil) {
