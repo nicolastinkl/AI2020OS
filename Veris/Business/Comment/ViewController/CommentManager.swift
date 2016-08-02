@@ -150,8 +150,19 @@ class DefaultCommentManager: CommentManager {
     // 将本次要提交的评价数据和以前已经编辑过，保存在本地，但还未提交的评价数据进行合并。
     // newCommentList: 本次要提交的新的评价列表
     // 返回: 合并过后的评价列表
-    private func mergeCommentsData(newCommentList: [ServiceComment]) -> [ServiceComment] {
+    func mergeCommentsData(newCommentList: [ServiceComment]) -> [ServiceComment] {
         var list = [ServiceComment]()
+        
+//        if let localList = localModelList {
+//            for localComment in localList {
+//                if findNewComment(localComment.serviceId) == nil {
+//                    let c = ServiceComment()
+//                    c.service_id = localComment.
+//                    list.append(<#T##newElement: Element##Element#>)
+//                }
+//            }
+//        }
+        
         
         for comment in newCommentList {
             list.append(mergeComment(comment, local: findLocalComment(comment.service_id)))
@@ -167,6 +178,16 @@ class DefaultCommentManager: CommentManager {
         
         for comment in list {
             if comment.serviceId == serviceId {
+                return comment
+            }
+        }
+        
+        return nil
+    }
+    
+    private func findNewComment(serviceId: String, newCommentList: [ServiceComment]) -> ServiceComment? {
+        for comment in newCommentList {
+            if comment.service_id == serviceId {
                 return comment
             }
         }
