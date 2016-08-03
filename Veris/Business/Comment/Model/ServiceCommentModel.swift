@@ -9,7 +9,6 @@
 import Foundation
 
 class ServiceCommentLocalSavedModel: NSObject, NSCoding {
-    var images = [ImageInfo]()
     var imageInfos = [ImageInfoModel]()
     var serviceId = ""
     var text: String?
@@ -17,7 +16,6 @@ class ServiceCommentLocalSavedModel: NSObject, NSCoding {
     var isAppend = false
     
     func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(images, forKey: "images")
         
         coder.encodeObject(imageInfos, forKey: "imageInfos")
         
@@ -32,7 +30,6 @@ class ServiceCommentLocalSavedModel: NSObject, NSCoding {
         self.init()
         
         serviceId = aDecoder.decodeObjectForKey("serviceId") as! String
-        images = aDecoder.decodeObjectForKey("images") as! NSArray as! [ImageInfo]
         imageInfos = aDecoder.decodeObjectForKey("imageInfos") as! NSArray as! [ImageInfoModel]
         text = aDecoder.decodeObjectForKey("text") as? String
     }
@@ -43,6 +40,7 @@ class ImageInfoModel: NSObject, NSCoding {
     var url: NSURL?
     var isSuccessUploaded = false
     var uploadFinished = true
+    var serviceId: String?
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(imageId, forKey: "imageId")
