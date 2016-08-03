@@ -23,10 +23,9 @@ struct AIApplication {
     internal static let KURL_ReleaseURL = "http://171.221.254.231:3000"// "http://171.221.254.231:2999/nsboss" //正式地址v 
     internal static let KURL_DebugURL   = "http://171.221.254.231:2999/nsboss"  //测试地址
     internal static let UMengAppID      = "5784b6a767e58e5d1b003373"      //友盟分享id
-    
-    
+
     // MARK: XUNFEI APPID
-    internal static let XUNFEIAPPID     = "551ba83b"
+    internal static let XUNFEIAPPID  = "551ba83b"
 
     // MARK JSON RESPONSE
 
@@ -274,9 +273,35 @@ struct AIApplication {
         UIApplication.sharedApplication().sendAction(Selector(functionName), to: nil, from: ownerName, forEvent: nil)
     }
 
-    
+    /*!
+    Application hook viewdidload
+    */
+    static func hookViewDidLoad() {
+        swizzlingMethod(UIViewController.self,
+            oldSelector: #selector(UIViewController.viewDidLoad),
+            newSelector: #selector(UIViewController.viewDidLoadForChangeTitleColor))
+    }
 
-    
+    /*!
+    Application hookViewDesLoad
+    */
+    static func hookViewWillAppear() {
+        swizzlingMethod(UIViewController.self,
+            oldSelector: #selector(UIViewController.viewDidAppear(_:)),
+            newSelector: #selector(UIViewController.viewWillAppearForShowBottomBar(_:)))
+    }
+
+    static func hookViewWillDisappear() {
+        swizzlingMethod(UIViewController.self,
+            oldSelector: #selector(UIViewController.viewWillDisappear(_:)),
+            newSelector: #selector(UIViewController.viewWillDisappearForHiddenBottomBar(_:)))
+    }
+
+    static func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {
+        let oldMethod = class_getInstanceMethod(clzz, oldSelector)
+        let newMethod = class_getInstanceMethod(clzz, newSelector)
+        method_exchangeImplementations(oldMethod, newMethod)
+    }
 
     /**
      根据不同环境获取服务器Api地址.
@@ -375,10 +400,8 @@ struct AIApplication {
         
         // 复合服务评论
         case compondComment
-        
         // 复合服务评论
         case commentSpec
-        
         // 提交评论
         case saveComment
         
@@ -400,6 +423,8 @@ struct AIApplication {
         case searchServiceCondition
         // 2.2.3 商品搜索结果过滤
         case filterServices
+
+        
         
         var description: String {
 
@@ -455,6 +480,9 @@ struct AIApplication {
             case .login: return AIApplication.KURL_DebugURL + "/admin/login"
                 
             //服务评论接口
+            case .compondComment: return AIApplication.KURL_DebugURL + "/comments/queryUserComments"
+            case .commentSpec: return AIApplication.KURL_DebugURL + "/comments/queryCommentSpecification"
+            case .saveComment: return AIApplication.KURL_DebugURL + "/comments/saveComments"
                 
             case .preview: return AIApplication.KURL_DebugURL + "/service/preview"
             case .detail: return  AIApplication.KURL_DebugURL + "/service/detail"
@@ -467,6 +495,8 @@ struct AIApplication {
             case .recentlySearch: return AIApplication.KURL_DebugURL + "/search/recentlySearch"
             case .searchServiceCondition: return AIApplication.KURL_DebugURL + "/search/searchServiceCondition"
             case .filterServices: return AIApplication.KURL_DebugURL + "/search/filterServices"
+
+                
             }
         }
     }
