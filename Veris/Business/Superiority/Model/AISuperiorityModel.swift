@@ -24,34 +24,74 @@
 
 import Foundation
 
+class AIPricePublicModel: JSONJoy {
+    
+    var price: Double?
+    var unit: Double?
+    var billing_mode: Double?
+    var price_show: String?
+    
+    init(){}
+    
+    required init(_ decoder: JSONDecoder) {
+        price = decoder["price"].double ?? 0
+        unit = decoder["unit"].double ?? 0
+        billing_mode = decoder["billing_mode"].double ?? 0
+        price_show = decoder["price_show"].string ?? ""
+    }
+    
+}
 
 class AISuperiorityModel: JSONJoy {
 
     var serviceID: Int?
-    var serviceName: String?
-    var serviceURL: String?
-    var serviceSTDescription: String?
-    var serviceSuperiorityList: [String]?
-    var servicePrice: String?
-
+    var name: String?
+    var icon: String?
+    var type: String?
+    var desc: String?
+    var advantage: [String]?  // 服务优势List
+    var price: AIPricePublicModel?
     var serviceExecList: [AISuperiorityIconModel]?
 
     init() {}
 
     required init(_ decoder: JSONDecoder) {
-
+        if let decoderDic = decoder["base_info"].dictionary {
+            
+            name = decoderDic["name"]?.string ?? ""
+            icon = decoderDic["icon"]?.string ?? ""
+            type = decoderDic["type"]?.string ?? ""
+            desc = decoderDic["desc"]?.string ?? ""
+            decoderDic["advantage"]?.getArray(&advantage)
+            if let pr = decoderDic["price"] {
+                price = AIPricePublicModel(pr)
+            }
+            
+            guard let process = decoder["process"].array else {return}
+            var collect = [AISuperiorityIconModel]()
+            for addrDecoder in process {
+                collect.append(AISuperiorityIconModel(addrDecoder))
+            }
+            serviceExecList = collect
+            
+            
+        }
+        
     }
 
 
     class AISuperiorityIconModel: JSONJoy {
 
-        var iconID: Int?
+        var iconstep: String?
         var iconName: String?
         var iconURL: String?
 
         init() {}
         required init(_ decoder: JSONDecoder) {
-
+            iconstep = decoder["step"].string ?? ""
+            iconName = decoder["desc"].string ?? ""
+            iconURL = decoder["icon"].string ?? ""
+            
         }
     }
 }

@@ -375,10 +375,20 @@ struct AIApplication {
         
         // 复合服务评论
         case compondComment
+        
         // 复合服务评论
         case commentSpec
+        
         // 提交评论
         case saveComment
+        
+        // 服务优势介绍
+        case preview
+        
+        // 产品详情
+        case detail
+        
+        
         
         var description: String {
 
@@ -437,6 +447,8 @@ struct AIApplication {
             case .compondComment: return AIApplication.KURL_ReleaseURL + "/comments/queryUserComments"
             case .commentSpec: return AIApplication.KURL_ReleaseURL + "/comments/queryCommentSpecification"
             case .saveComment: return AIApplication.KURL_ReleaseURL + "/comments/saveComments"
+            case .preview: return AIApplication.KURL_ReleaseURL + "/service/preview"
+            case .detail: return  AIApplication.KURL_ReleaseURL + "/service/detail"
             }
         }
     }

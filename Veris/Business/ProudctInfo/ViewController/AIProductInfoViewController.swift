@@ -63,10 +63,19 @@ class AIProductInfoViewController: UIViewController {
 		
 		// Make UIScrollView.
 		Async.main(after: 0.1) {
-			self.initScrollViewData()
+            self.requestData()			
 		}
 		
 	}
+    
+    
+    func requestData(){
+        view.showLoading()
+        AIProdcutinfoService.requestServiceInfo("", userId: "") { (response, error) in
+            self.view.hideLoading()
+            self.initScrollViewData()
+        }
+    }
     
     /**
      定制按钮和Top按钮

@@ -512,8 +512,6 @@
 		8175A8031CFD2710006F2C8F /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7AF1CFD2710006F2C8F /* UIImageView+HighlightedWebCache.m */; };
 		8175A8041CFD2710006F2C8F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7B11CFD2710006F2C8F /* UIImageView+WebCache.m */; };
 		8175A8051CFD2710006F2C8F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7B31CFD2710006F2C8F /* UIView+WebCacheOperation.m */; };
-		817AF02A1D48B2DC00009F9F /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B195791D4852BE0086EB83 /* CardDeepLinkKit.framework */; };
-		817AF02B1D48B2DC00009F9F /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81B195791D4852BE0086EB83 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		81A0458F1C11675500296E56 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A0458E1C11675500296E56 /* CoreAudio.framework */; };
 		81B195661D474A960086EB83 /* AADataReceiverParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B195521D474A960086EB83 /* AADataReceiverParser.swift */; };
 		81B195671D474A960086EB83 /* AIAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B195531D474A960086EB83 /* AIAnchor.swift */; };
@@ -681,6 +679,9 @@
 		93BEFFDD1D0D474B00832799 /* AISuperiorityCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BEFFDC1D0D474B00832799 /* AISuperiorityCellView.xib */; };
 		93C289C41D178A1A003F0473 /* AISuperiorityIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C289C31D178A1A003F0473 /* AISuperiorityIconTextView.swift */; };
 		93C289C61D178A27003F0473 /* AISuperiorityIconTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C289C51D178A27003F0473 /* AISuperiorityIconTextView.xib */; };
+		93C31B3A1D504B24008DD302 /* AISuperiorityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C31B391D504B24008DD302 /* AISuperiorityService.swift */; };
+		93C31B3F1D51930D008DD302 /* AIProdcutinfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C31B3E1D51930D008DD302 /* AIProdcutinfoService.swift */; };
+		93C31B411D5193DC008DD302 /* AIProdcutinfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C31B401D5193DC008DD302 /* AIProdcutinfoModel.swift */; };
 		93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F2E1B9C25EC007BF506 /* UIKit.framework */; };
 		93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F301B9C25F8007BF506 /* Foundation.framework */; };
 		93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F321B9C27B1007BF506 /* CoreText.framework */; };
@@ -709,7 +710,6 @@
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
 		FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB01810F1D0D650E00213DF8 /* AISearchBar.xib */; };
-		FB14BB911D4B3EE60048BD54 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */; };
 		FB14BB921D4B3EE60048BD54 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FB2E41ED1D461821001DDB5D /* MBFingerTipWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */; };
 		FB3DCCD81D4A02A30090DEA6 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */; };
@@ -1742,6 +1742,9 @@
 		93BEFFDC1D0D474B00832799 /* AISuperiorityCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityCellView.xib; sourceTree = "<group>"; };
 		93C289C31D178A1A003F0473 /* AISuperiorityIconTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityIconTextView.swift; sourceTree = "<group>"; };
 		93C289C51D178A27003F0473 /* AISuperiorityIconTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityIconTextView.xib; sourceTree = "<group>"; };
+		93C31B391D504B24008DD302 /* AISuperiorityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityService.swift; sourceTree = "<group>"; };
+		93C31B3E1D51930D008DD302 /* AIProdcutinfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProdcutinfoService.swift; sourceTree = "<group>"; };
+		93C31B401D5193DC008DD302 /* AIProdcutinfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProdcutinfoModel.swift; sourceTree = "<group>"; };
 		93C33F2C1B9C256F007BF506 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		93C33F2E1B9C25EC007BF506 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		93C33F301B9C25F8007BF506 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1876,7 +1879,6 @@
 				93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */,
 				9392B57D1D1CD9F10007F241 /* AlipaySDK.framework in Frameworks */,
 				93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */,
-				FB14BB911D4B3EE60048BD54 /* CardDeepLinkKit.framework in Frameworks */,
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
@@ -3806,6 +3808,7 @@
 			isa = PBXGroup;
 			children = (
 				93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */,
+				93C31B391D504B24008DD302 /* AISuperiorityService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3882,6 +3885,8 @@
 			isa = PBXGroup;
 			children = (
 				C95179D61D40C73600446498 /* AICommentInfoModel.swift */,
+				93C31B3E1D51930D008DD302 /* AIProdcutinfoService.swift */,
+				93C31B401D5193DC008DD302 /* AIProdcutinfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4965,6 +4970,7 @@
 				93C81F8A1D2B5CF500D84D46 /* AIServerProviderView.swift in Sources */,
 				81433CE91CFBE5A700347C29 /* ProposalEnum.swift in Sources */,
 				FB73551E1D23ACFC00CE549C /* AIProductCommentsViewController.swift in Sources */,
+				93C31B411D5193DC008DD302 /* AIProdcutinfoModel.swift in Sources */,
 				81433D331CFBE5A700347C29 /* TopServiceContainerView.swift in Sources */,
 				81433E251CFBE5A700347C29 /* AIBuyerDetailViewController.swift in Sources */,
 				81433CE71CFBE5A700347C29 /* AIServiceDetailUIModel.m in Sources */,
@@ -5042,6 +5048,7 @@
 				FB74E0161D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.swift in Sources */,
 				81433E981CFBE5A700347C29 /* FLEXRuntimeUtility.m in Sources */,
 				81433E811CFBE5A700347C29 /* FLEXNetworkSettingsTableViewController.m in Sources */,
+				93C31B3F1D51930D008DD302 /* AIProdcutinfoService.swift in Sources */,
 				81433D281CFBE5A700347C29 /* ServiceCardDetailIcon.swift in Sources */,
 				848316A61D3344AA00082D38 /* BDKTools.swift in Sources */,
 				81433E851CFBE5A700347C29 /* FLEXNetworkObserver.m in Sources */,
@@ -5076,6 +5083,7 @@
 				81433D941CFBE5A700347C29 /* AIRootViewController.m in Sources */,
 				81433E291CFBE5A700347C29 /* AIPageBueryViewController.swift in Sources */,
 				81433E1C1CFBE5A700347C29 /* SevenSwitch.swift in Sources */,
+				93C31B3A1D504B24008DD302 /* AISuperiorityService.swift in Sources */,
 				8175A8031CFD2710006F2C8F /* UIImageView+HighlightedWebCache.m in Sources */,
 				81433EA21CFBE5A700347C29 /* AIHttpEngine.swift in Sources */,
 				81433CD51CFBE5A700347C29 /* AICustomerModels.swift in Sources */,
