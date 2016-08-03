@@ -134,7 +134,7 @@ class ImagesCollectionView: UIView {
         setNeedsLayout()
     }
     
-    func addAsyncUploadImages(images: [(image: UIImage, id: Int?, complate: AIImageView.UploadComplate?)]) {
+    func addAsyncUploadImages(images: [(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)]) {
         for image in images {
             appendAsyncUploadImage(image.image, id: image.id, complate: image.complate)
         }
@@ -143,7 +143,7 @@ class ImagesCollectionView: UIView {
         setNeedsLayout()
     }
     
-    func addAsyncUploadImage(image: UIImage, id: Int? = nil, complate: AIImageView.UploadComplate? = nil) {
+    func addAsyncUploadImage(image: UIImage, id: String? = nil, complate: AIImageView.UploadComplate? = nil) {
         appendAsyncUploadImage(image, id: id, complate: complate)
         
         setNeedsUpdateConstraints()
@@ -168,7 +168,7 @@ class ImagesCollectionView: UIView {
         images.append(imageView)
     }
     
-    private func appendAsyncUploadImage(image: UIImage, id: Int? = nil, complate: AIImageView.UploadComplate? = nil) {
+    private func appendAsyncUploadImage(image: UIImage, id: String? = nil, complate: AIImageView.UploadComplate? = nil) {
         let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
         imageView.image = image
         imageView.uploadImage(id, complate: complate)

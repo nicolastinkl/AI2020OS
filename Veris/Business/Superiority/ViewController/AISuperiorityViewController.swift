@@ -55,13 +55,11 @@ class AISuperiorityViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-      
+        view.showLoading()
         Async.main(after: 0.15) {
             // MARK: Layout
             self.initDataWithModel()
             
-            // MARK: Loading Data Views
-            self.initDatawithViews()
         }
     }
     
@@ -135,6 +133,7 @@ class AISuperiorityViewController: UIViewController {
  
         let serverIcons = UIView()
         serverIcons.setHeight(350)
+        //  从JSON数据生成的界面
         var height: CGFloat = 10
         var preView: UIView?
         var leftOffset: CGFloat = 0
@@ -144,7 +143,6 @@ class AISuperiorityViewController: UIViewController {
                 iconText.setTop(height)
                 height = offSet + iconText.top
                 if i % 2 != 0 {
-                    
                     iconText.setLeft(self.view.width / 3 + CGFloat(arc4random() % 50) + leftOffset)
                 } else {
                     iconText.setLeft(leftOffset)
@@ -166,15 +164,28 @@ class AISuperiorityViewController: UIViewController {
                 leftOffset += 10
             }
         }
-
-
+        
+//        let imageV = UIImageView(image: UIImage(named: "pathService"))
+//        imageV.setHeight(180)
+//        imageV.setTop(10)
+//        serverIcons.addSubview(imageV)
+//        imageV.setLeft(10)
         addNewSubView(serverIcons, preView: priceLabel, color: UIColor.clearColor(), space: 19)
-
+        
 //        addCureLineView()
 
     }
 
     func initDataWithModel() {
+        
+        AISuperiorityService.requestSuperiority("12") { (response, error) in
+            self.view.hideLoading()
+            if let _ = response {
+                // MARK: Loading Data Views
+                self.initDatawithViews()
+            }
+        }
+        
         
     }
 

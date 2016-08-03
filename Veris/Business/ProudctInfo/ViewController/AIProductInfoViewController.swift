@@ -63,10 +63,19 @@ class AIProductInfoViewController: UIViewController {
 		
 		// Make UIScrollView.
 		Async.main(after: 0.1) {
-			self.initScrollViewData()
+            self.requestData()			
 		}
 		
 	}
+    
+    
+    func requestData(){
+        view.showLoading()
+        AIProdcutinfoService.requestServiceInfo("", userId: "") { (response, error) in
+            self.view.hideLoading()
+            self.initScrollViewData()
+        }
+    }
     
     /**
      定制按钮和Top按钮
@@ -592,7 +601,7 @@ class AIProductInfoViewController: UIViewController {
      Target to Edit ViewController.
      */
     func editAction() {
-        scrollview.setContentOffset(CGPointMake(0, scrollview.contentSize.height), animated: true)
+        scrollview.setContentOffset(CGPointMake(0, scrollview.contentSize.height - scrollview.height), animated: true)
     }
 	 
 }

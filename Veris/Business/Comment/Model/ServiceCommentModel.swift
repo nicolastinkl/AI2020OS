@@ -9,16 +9,17 @@
 import Foundation
 
 class ServiceCommentLocalSavedModel: NSObject, NSCoding {
-    var images: [ImageInfo]?
+    var images = [ImageInfo]()
+    var imageInfos = [ImageInfoModel]()
     var serviceId = ""
     var text: String?
     var changed = false
     var isAppend = false
     
     func encodeWithCoder(coder: NSCoder) {
-        if let ims = images {
-            coder.encodeObject(ims, forKey: "images")
-        }
+        coder.encodeObject(images, forKey: "images")
+        
+        coder.encodeObject(imageInfos, forKey: "imageInfos")
         
         if let t = text {
             coder.encodeObject(t, forKey: "text")
@@ -31,7 +32,36 @@ class ServiceCommentLocalSavedModel: NSObject, NSCoding {
         self.init()
         
         serviceId = aDecoder.decodeObjectForKey("serviceId") as! String
-        images = aDecoder.decodeObjectForKey("images") as? NSArray as? [ImageInfo]
+        images = aDecoder.decodeObjectForKey("images") as! NSArray as! [ImageInfo]
+        imageInfos = aDecoder.decodeObjectForKey("imageInfos") as! NSArray as! [ImageInfoModel]
         text = aDecoder.decodeObjectForKey("text") as? String
+    }
+}
+
+class ImageInfoModel: NSObject, NSCoding {
+    var imageId = ""
+    var url: NSURL?
+    var isSuccessUploaded = false
+    var uploadFinished = true
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(imageId, forKey: "imageId")
+        aCoder.encodeObject(url, forKey: "url")
+        aCoder.encodeBool(isSuccessUploaded, forKey: "isSuccessUploaded")
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init()
+        imageId = aDecoder.decodeObjectForKey("imageId") as! String
+        url = aDecoder.decodeObjectForKey("url") as? NSURL
+        isSuccessUploaded = aDecoder.decodeBoolForKey("isSuccessUploaded")
+    }
+    
+    init(url: NSURL?) {
+        self.url = url
+    }
+    
+    override init() {
+        
     }
 }

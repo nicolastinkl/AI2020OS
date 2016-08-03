@@ -189,7 +189,7 @@ class BDKProposalService: MockProposalService {
    //     message.header.setObject("0&0&200000002501&0", forKey: "HttpQuery")
         message.url = AIApplication.AIApplicationServerURL.queryProcOrders.description
 
-        let data = ["order_role":1, "order_state": "0"]
+        let data = ["user_id":1]
         message.body = BDKTools.createRequestBody(data)
         
 //        let body = ["data":["order_role":1, "order_state": "0"], "desc":["data_mode":"0", "digest":""]]

@@ -1039,7 +1039,12 @@ extension AIBuyerDetailViewController: AISuperSwipeableCellDelegate {
             anchor.step = AIAnchorStep.After
             anchor.rootViewControllerName = self.instanceClassName()
             anchor.viewComponentName = tableView.instanceClassName()
-            anchor.rowIndex = current_service_list!.indexOfObject(curretCell!.currentModel!)
+            if let c = curretCell {
+                anchor.rowIndex = current_service_list!.indexOfObject(c.currentModel!)
+            }else{
+                anchor.rowIndex = 0
+            }
+            
             anchor.sectionIndex = 0
             anchor.selector = "cellDidClose"
             AudioAssistantManager.sharedInstance.sendAnchor(anchor)

@@ -64,7 +64,7 @@ class AICustomerOrderFoldedView: UIView {
         if let services = proposalModel.service as? [ServiceOrderModel]{
             if services.count > 0 {
                 if let node = services[0].node {
-                    taskSchedulTimeLabel.text = node.time
+           //         taskSchedulTimeLabel.text = node.time
                     taskNameLabel.text = node.title
                 }
             }

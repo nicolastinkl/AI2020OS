@@ -23,7 +23,10 @@
 // THE SOFTWARE.
 
 import Foundation
+import Spring
 
 class AISuperiorityIconTextView: UIView {
+    @IBOutlet weak var content: UILabel!
 
+    @IBOutlet weak var icon: DesignableImageView!
 }
