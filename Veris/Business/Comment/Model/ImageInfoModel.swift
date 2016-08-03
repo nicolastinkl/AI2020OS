@@ -13,8 +13,6 @@ class ImageInfo: NSObject, NSCoding {
     var image: UIImage?
     var url: NSURL?
     var isUploaded = false
-    var serviceId: String?
-    var isAppendType = false
     
     func encodeWithCoder(aCoder: NSCoder) {
         //      aCoder.encodeBool(isAppendType, forKey: "isAppendType")

@@ -78,7 +78,7 @@
         _title = @"";
         _desc = @"";
         _state = @"";
-        _time = @"";
+        _time = 0;
     }
     
     return self;

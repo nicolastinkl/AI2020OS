@@ -220,7 +220,7 @@ class AIProposalTableViewController: UIViewController {
     
     private func buildSuvServiceCard(model: ProposalOrderModel) -> ListSubServiceCardView {
         let list = ListSubServiceCardView(frame: CGRect(x: 0, y: 0, width: tableView.width, height: 50))
-        if let services = model.service as? [ServiceOrderModel] {
+        if let _ = model.service as? [ServiceOrderModel] {
             list.loadData(model)
         }
         

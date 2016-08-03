@@ -66,14 +66,6 @@ class CommentUtils {
         return defa.synchronize()
     }
     
-    private class func createSearchKey(info: ImageInfo) -> String? {
-        if let id = info.serviceId {
-            return createSearchKey(id)
-        } else {
-            return nil
-        }
-    }
-    
     private class func createSearchKey(serviceId: String) -> String {
         return idPrefix + serviceId
     }

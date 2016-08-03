@@ -600,6 +600,9 @@
 		847D29901D49FFA6009E26B8 /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
 		847D29921D4AF26D009E26B8 /* ProposalOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29911D4AF26D009E26B8 /* ProposalOrderViewModel.swift */; };
 		847D29941D4B4CA7009E26B8 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29931D4B4CA7009E26B8 /* AppUtils.swift */; };
+		847D29961D4F2CA7009E26B8 /* CommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29951D4F2CA7009E26B8 /* CommentManager.swift */; };
+		847D29981D50350C009E26B8 /* DefaultCommentManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29971D50350C009E26B8 /* DefaultCommentManagerTest.swift */; };
+		847D29991D503537009E26B8 /* CommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29951D4F2CA7009E26B8 /* CommentManager.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -1568,6 +1571,8 @@
 		847D298E1D49E501009E26B8 /* ProposalServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalServiceTest.swift; sourceTree = "<group>"; };
 		847D29911D4AF26D009E26B8 /* ProposalOrderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProposalOrderViewModel.swift; path = VerisTests/ProposalOrderViewModel.swift; sourceTree = SOURCE_ROOT; };
 		847D29931D4B4CA7009E26B8 /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
+		847D29951D4F2CA7009E26B8 /* CommentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentManager.swift; sourceTree = "<group>"; };
+		847D29971D50350C009E26B8 /* DefaultCommentManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCommentManagerTest.swift; sourceTree = "<group>"; };
 		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
@@ -3767,6 +3772,7 @@
 				847D29731D40BC2A009E26B8 /* SBOSSTestCase.swift */,
 				FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */,
 				847D298E1D49E501009E26B8 /* ProposalServiceTest.swift */,
+				847D29971D50350C009E26B8 /* DefaultCommentManagerTest.swift */,
 			);
 			path = VerisTests;
 			sourceTree = "<group>";
@@ -4160,6 +4166,7 @@
 				93C61FC21D01196F0063C2BF /* ServiceCommentViewController.xib */,
 				846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */,
 				846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */,
+				847D29951D4F2CA7009E26B8 /* CommentManager.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4730,8 +4737,10 @@
 				FB23732C1D4F7A7600A8B38A /* AIRecommondForYouService.swift in Sources */,
 				84717F311D349ABA00AE7E9A /* UIColorUtils.swift in Sources */,
 				84717F1F1D3483E300AE7E9A /* VerisTests.swift in Sources */,
+				847D29991D503537009E26B8 /* CommentManager.swift in Sources */,
 				84717F2C1D348FC900AE7E9A /* BDKTools.swift in Sources */,
 				847D297A1D474F27009E26B8 /* Localize.swift in Sources */,
+				847D29981D50350C009E26B8 /* DefaultCommentManagerTest.swift in Sources */,
 				847D29891D484EF9009E26B8 /* ServiceCommentModel.swift in Sources */,
 				847D29861D475228009E26B8 /* ImageInfoModel.swift in Sources */,
 				847D298D1D49E4AF009E26B8 /* ProposalService.swift in Sources */,
@@ -4976,6 +4985,7 @@
 				81433D431CFBE5A700347C29 /* AINavigationBarView.swift in Sources */,
 				81433D421CFBE5A700347C29 /* AIGalleryView.swift in Sources */,
 				81433CDD1CFBE5A700347C29 /* AIServiceSchemeModel.swift in Sources */,
+				847D29961D4F2CA7009E26B8 /* CommentManager.swift in Sources */,
 				81433E741CFBE5A700347C29 /* FLEXFileBrowserFileOperationController.m in Sources */,
 				12D7649F1D0D469A002B001B /* AILoginService.swift in Sources */,
 				81433E1D1CFBE5A700347C29 /* SwitchExampleViewController.swift in Sources */,
