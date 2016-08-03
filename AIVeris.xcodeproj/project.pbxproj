@@ -512,8 +512,6 @@
 		8175A8031CFD2710006F2C8F /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7AF1CFD2710006F2C8F /* UIImageView+HighlightedWebCache.m */; };
 		8175A8041CFD2710006F2C8F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7B11CFD2710006F2C8F /* UIImageView+WebCache.m */; };
 		8175A8051CFD2710006F2C8F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7B31CFD2710006F2C8F /* UIView+WebCacheOperation.m */; };
-		817AF02A1D48B2DC00009F9F /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B195791D4852BE0086EB83 /* CardDeepLinkKit.framework */; };
-		817AF02B1D48B2DC00009F9F /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81B195791D4852BE0086EB83 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		81A0458F1C11675500296E56 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A0458E1C11675500296E56 /* CoreAudio.framework */; };
 		81B195661D474A960086EB83 /* AADataReceiverParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B195521D474A960086EB83 /* AADataReceiverParser.swift */; };
 		81B195671D474A960086EB83 /* AIAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B195531D474A960086EB83 /* AIAnchor.swift */; };
@@ -711,9 +709,16 @@
 		FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB01810F1D0D650E00213DF8 /* AISearchBar.xib */; };
 		FB14BB911D4B3EE60048BD54 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */; };
 		FB14BB921D4B3EE60048BD54 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FB2373241D4F75B500A8B38A /* AIProviderDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373231D4F75B500A8B38A /* AIProviderDetailService.swift */; };
+		FB2373261D4F785100A8B38A /* AIRecommondForYouService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373251D4F785100A8B38A /* AIRecommondForYouService.swift */; };
+		FB2373281D4F78F300A8B38A /* AIProductQAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373271D4F78F300A8B38A /* AIProductQAService.swift */; };
+		FB23732A1D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */; };
+		FB23732B1D4F7A7600A8B38A /* AIProviderDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373231D4F75B500A8B38A /* AIProviderDetailService.swift */; };
+		FB23732C1D4F7A7600A8B38A /* AIRecommondForYouService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373251D4F785100A8B38A /* AIRecommondForYouService.swift */; };
 		FB2E41ED1D461821001DDB5D /* MBFingerTipWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */; };
 		FB3DCCD81D4A02A30090DEA6 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */; };
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
+		FB58838D1D51C7930080588B /* AISearchHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB58838C1D51C7930080588B /* AISearchHomeService.swift */; };
 		FB6127F21D40C8F400DD68DD /* UINavigationBar+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6127F11D40C8F400DD68DD /* UINavigationBar+Theme.swift */; };
 		FB6127F41D40D2EC00DD68DD /* AIProviderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6127F31D40D2EC00DD68DD /* AIProviderDetailViewController.swift */; };
 		FB6127F61D40D2F600DD68DD /* AIProviderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6127F51D40D2F600DD68DD /* AIProviderDetailViewController.xib */; };
@@ -1784,10 +1789,15 @@
 		FB01810A1D0D125400213DF8 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
 		FB01810D1D0D650100213DF8 /* AISearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchBar.swift; sourceTree = "<group>"; };
 		FB01810F1D0D650E00213DF8 /* AISearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISearchBar.xib; sourceTree = "<group>"; };
+		FB2373231D4F75B500A8B38A /* AIProviderDetailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProviderDetailService.swift; sourceTree = "<group>"; };
+		FB2373251D4F785100A8B38A /* AIRecommondForYouService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRecommondForYouService.swift; sourceTree = "<group>"; };
+		FB2373271D4F78F300A8B38A /* AIProductQAService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductQAService.swift; sourceTree = "<group>"; };
+		FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProviderDetailServiceTest.swift; sourceTree = "<group>"; };
 		FB2E41EB1D461821001DDB5D /* MBFingerTipWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFingerTipWindow.h; sourceTree = "<group>"; };
 		FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFingerTipWindow.m; sourceTree = "<group>"; };
 		FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = Debug/CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryIconView.swift; sourceTree = "<group>"; };
+		FB58838C1D51C7930080588B /* AISearchHomeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHomeService.swift; sourceTree = "<group>"; };
 		FB6127F11D40C8F400DD68DD /* UINavigationBar+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Theme.swift"; sourceTree = "<group>"; };
 		FB6127F31D40D2EC00DD68DD /* AIProviderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProviderDetailViewController.swift; sourceTree = "<group>"; };
 		FB6127F51D40D2F600DD68DD /* AIProviderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProviderDetailViewController.xib; sourceTree = "<group>"; };
@@ -2495,6 +2505,8 @@
 				81433A2F1CFBE5A700347C29 /* AIBuyerParamsDelegate.h */,
 				81433A301CFBE5A700347C29 /* AIDeleteActionDelegate.swift */,
 				933763011CFD7040006B997D /* AIModelSerice.swift */,
+				FB2373231D4F75B500A8B38A /* AIProviderDetailService.swift */,
+				FB2373271D4F78F300A8B38A /* AIProductQAService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3753,6 +3765,7 @@
 				84717F261D3489D100AE7E9A /* CommentTest.swift */,
 				84717F2F1D3498D300AE7E9A /* AIVerisTests-Bridging-Header.h */,
 				847D29731D40BC2A009E26B8 /* SBOSSTestCase.swift */,
+				FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */,
 				847D298E1D49E501009E26B8 /* ProposalServiceTest.swift */,
 			);
 			path = VerisTests;
@@ -3882,6 +3895,7 @@
 			isa = PBXGroup;
 			children = (
 				C95179D61D40C73600446498 /* AICommentInfoModel.swift */,
+				FB2373251D4F785100A8B38A /* AIRecommondForYouService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4211,6 +4225,7 @@
 			children = (
 				93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */,
 				FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */,
+				FB58838C1D51C7930080588B /* AISearchHomeService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4712,6 +4727,7 @@
 				847D29741D40BC2A009E26B8 /* SBOSSTestCase.swift in Sources */,
 				847D298F1D49E501009E26B8 /* ProposalServiceTest.swift in Sources */,
 				84717F321D349CC900AE7E9A /* AIDefines.swift in Sources */,
+				FB23732C1D4F7A7600A8B38A /* AIRecommondForYouService.swift in Sources */,
 				84717F311D349ABA00AE7E9A /* UIColorUtils.swift in Sources */,
 				84717F1F1D3483E300AE7E9A /* VerisTests.swift in Sources */,
 				84717F2C1D348FC900AE7E9A /* BDKTools.swift in Sources */,
@@ -4722,7 +4738,9 @@
 				84717F2A1D348F9200AE7E9A /* CommentModel.m in Sources */,
 				84717F291D348C5700AE7E9A /* CommentService.swift in Sources */,
 				847D29761D4748C9009E26B8 /* CommentHelp.swift in Sources */,
+				FB23732B1D4F7A7600A8B38A /* AIProviderDetailService.swift in Sources */,
 				84717F2E1D34919800AE7E9A /* AIMessage.m in Sources */,
+				FB23732A1D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift in Sources */,
 				847D29901D49FFA6009E26B8 /* AIApplication.swift in Sources */,
 				FB6261FE1D45FAC9003CF604 /* NSUserDefaults+Object.swift in Sources */,
 				84717F2D1D348FE400AE7E9A /* AINetEngine.m in Sources */,
@@ -4744,6 +4762,7 @@
 				81433EB61CFBE5A700347C29 /* UIColorUtils.swift in Sources */,
 				81433E2E1CFBE5A700347C29 /* AIServiceContentViewController.swift in Sources */,
 				81433E3D1CFBE5A700347C29 /* AIFakeLoginView.m in Sources */,
+				FB2373261D4F785100A8B38A /* AIRecommondForYouService.swift in Sources */,
 				81433D7A1CFBE5A700347C29 /* AIServiceTypes.m in Sources */,
 				9392B5831D1CD9F10007F241 /* MD5DataSigner.m in Sources */,
 				81433E941CFBE5A700347C29 /* FLEXKeyboardHelpViewController.m in Sources */,
@@ -5010,6 +5029,7 @@
 				81433D5C1CFBE5A700347C29 /* AIServiceRouteView.swift in Sources */,
 				81433D1D1CFBE5A700347C29 /* AIIconTextView.swift in Sources */,
 				81433DA01CFBE5A700347C29 /* AIRACClosureTableViewDataSource.swift in Sources */,
+				FB2373281D4F78F300A8B38A /* AIProductQAService.swift in Sources */,
 				8175A7F11CFD2710006F2C8F /* OBShapedImageView.m in Sources */,
 				8175A7F41CFD2710006F2C8F /* RRTagCollectionViewCell.swift in Sources */,
 				81433E3B1CFBE5A700347C29 /* AIShareViewController.m in Sources */,
@@ -5049,6 +5069,7 @@
 				81433E091CFBE5A700347C29 /* AIBueryDetailCell.swift in Sources */,
 				81B6005C1D25169E0052ADC8 /* AIDefines.swift in Sources */,
 				81433E4E1CFBE5A700347C29 /* UIViewController+AIPopup.swift in Sources */,
+				FB2373241D4F75B500A8B38A /* AIProviderDetailService.swift in Sources */,
 				8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */,
 				81433DFD1CFBE5A700347C29 /* DependOnNodeCell.swift in Sources */,
 				81433E611CFBE5A700347C29 /* FLEXFieldEditorViewController.m in Sources */,
@@ -5062,6 +5083,7 @@
 				81433D8D1CFBE5A700347C29 /* ViewProtocal.swift in Sources */,
 				81433CEA1CFBE5A700347C29 /* ProposalModel.m in Sources */,
 				93C8C9A81D14034A00F1DFCF /* AICustomSearchHomeCell.swift in Sources */,
+				FB58838D1D51C7930080588B /* AISearchHomeService.swift in Sources */,
 				81433D8B1CFBE5A700347C29 /* PurchasedServiceView.swift in Sources */,
 				1265F62B1D48937700130ECF /* AICustomerServiceExecBusiModel.m in Sources */,
 				FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */,

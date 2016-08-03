@@ -380,6 +380,19 @@ struct AIApplication {
         // 提交评论
         case saveComment
         
+        // 2.6.6 所有推荐（为您推荐）
+        case allRecommends
+        // 2.6.7 服务者介绍
+        case queryProvider
+        // 2.6.4 所有问题（常见问题）
+        case allQuestions
+        // 2.2.1 最近搜索
+        case recentlySearch
+        // 2.2.2 商品搜索并带出过滤条件
+        case searchServiceCondition
+        // 2.2.3 商品搜索结果过滤
+        case filterServices
+        
         var description: String {
 
             let serverStatus = NSUserDefaults.standardUserDefaults().integerForKey(kDefault_ServerURLStatus)
@@ -437,6 +450,12 @@ struct AIApplication {
             case .compondComment: return AIApplication.KURL_ReleaseURL + "/comments/queryUserComments"
             case .commentSpec: return AIApplication.KURL_ReleaseURL + "/comments/queryCommentSpecification"
             case .saveComment: return AIApplication.KURL_ReleaseURL + "/comments/saveComments"
+            case .allRecommends: return AIApplication.KURL_ReleaseURL + "/service/allRecomends"
+            case .queryProvider: return AIApplication.KURL_ReleaseURL + "/service/queryProvider"
+            case .allQuestions: return AIApplication.KURL_ReleaseURL + "/service/allQuestions"
+            case .recentlySearch: return AIApplication.KURL_ReleaseURL + "/search/recentlySearch"
+            case .searchServiceCondition: return AIApplication.KURL_ReleaseURL + "/search/searchServiceCondition"
+            case .filterServices: return AIApplication.KURL_ReleaseURL + "/search/filterServices"
             }
         }
     }
