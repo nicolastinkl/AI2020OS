@@ -2,7 +2,7 @@
 //  CommentManagerTest.swift
 //  AIVeris
 //
-//  Created by admin on 16/8/2.
+//  Created by Rocky on 16/8/2.
 //  Copyright © 2016年 ___ASIAINFO___. All rights reserved.
 //
 

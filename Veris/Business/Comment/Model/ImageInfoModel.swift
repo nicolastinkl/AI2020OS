@@ -9,29 +9,13 @@
 import Foundation
 import UIKit
 
-class ImageInfo: NSObject, NSCoding {
+class ImageInfo {
     var image: UIImage?
     var url: NSURL?
-    var isUploaded = false
-    
-    func encodeWithCoder(aCoder: NSCoder) {
-        //      aCoder.encodeBool(isAppendType, forKey: "isAppendType")
-        aCoder.encodeObject(url, forKey: "url")
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init()
-        //      isAppendType = aDecoder.decodeBoolForKey("isAppendType")
-        url = aDecoder.decodeObjectForKey("url") as? NSURL
-    }
     
     init(image: UIImage, url: NSURL?) {
         self.image = image
         self.url = url
-    }
-    
-    override init() {
-        
     }
 }
 
