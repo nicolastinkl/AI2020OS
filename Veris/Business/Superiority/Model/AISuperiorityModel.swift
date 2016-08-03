@@ -31,7 +31,7 @@ class AIPricePublicModel: JSONJoy {
     var billing_mode: Double?
     var price_show: String?
     
-    init(){}
+    init() {}
     
     required init(_ decoder: JSONDecoder) {
         price = decoder["price"].double ?? 0

@@ -54,7 +54,7 @@ extension UIViewController {
 		}
 	}
     
-    func backToRoot(){
+    func backToRoot() {
         if let navigationController = navigationController {
             navigationController.popToRootViewControllerAnimated(true)
         }

@@ -134,7 +134,7 @@ struct AIProductInfoNoteListModel: JSONJoy {
 
 
 //Custom Note
-struct AIProductInfoCustomerNote: JSONJoy{
+struct AIProductInfoCustomerNote: JSONJoy {
 
     var wish_id: Int?
     var wish_name: String?

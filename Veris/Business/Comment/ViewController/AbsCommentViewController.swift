@@ -97,7 +97,7 @@ extension AbsCommentViewController: UIImagePickerControllerDelegate {
 
         if mediaType == (kUTTypeImage as String) {
             var imageToSave: UIImage?
-            var url: NSURL?
+            let url: NSURL = NSURL(string: "http://www.baidu.com")!
 
             if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
                 imageToSave = editedImage

@@ -69,7 +69,7 @@ class AIProductInfoViewController: UIViewController {
 	}
     
     
-    func requestData(){
+    func requestData() {
         view.showLoading()
         AIProdcutinfoService.requestServiceInfo("", userId: "") { (response, error) in
             self.view.hideLoading()

@@ -11,7 +11,7 @@ import Foundation
 
 struct AIProdcutinfoService {
     
-    static func requestServiceInfo(serviceId: String,userId: String,complate:((AnyObject?,String?) -> Void)) {
+    static func requestServiceInfo(serviceId: String, userId: String, complate: ((AnyObject?, String?) -> Void)) {
         
         let message = AIMessage()
         let body: NSDictionary = [
@@ -26,7 +26,7 @@ struct AIProdcutinfoService {
             if let responseJSON: AnyObject = response {
                 let model = AIProdcutinfoModel(JSONDecoder(responseJSON))
                 complate(model, nil)
-            }else{
+            } else {
                 complate(nil, "data is null")
             }
         }) { (error, des) in

@@ -1041,7 +1041,7 @@ extension AIBuyerDetailViewController: AISuperSwipeableCellDelegate {
             anchor.viewComponentName = tableView.instanceClassName()
             if let c = curretCell {
                 anchor.rowIndex = current_service_list!.indexOfObject(c.currentModel!)
-            }else{
+            } else {
                 anchor.rowIndex = 0
             }
             

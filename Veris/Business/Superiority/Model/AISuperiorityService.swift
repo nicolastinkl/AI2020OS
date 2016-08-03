@@ -10,7 +10,7 @@ import Foundation
 
 struct AISuperiorityService {
     
-    static func requestSuperiority(serviceId: String,complate:((AnyObject?,String?) -> Void)) {
+    static func requestSuperiority(serviceId: String, complate: ((AnyObject?, String?) -> Void)) {
      
         let message = AIMessage()
         let body: NSDictionary = [
@@ -24,7 +24,7 @@ struct AISuperiorityService {
             if let responseJSON: AnyObject = response {
                 let model = AISuperiorityModel(JSONDecoder(responseJSON))
                 complate(model, nil)
-            }else{
+            } else {
                 complate(nil, "data is null")
             }
             }) { (error, des) in

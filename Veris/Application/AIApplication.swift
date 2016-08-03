@@ -486,9 +486,6 @@ struct AIApplication {
                 
             case .preview: return AIApplication.KURL_DebugURL + "/service/preview"
             case .detail: return  AIApplication.KURL_DebugURL + "/service/detail"
-            case .compondComment: return AIApplication.KURL_DebugURL + "/comments/queryUserComments"
-            case .commentSpec: return AIApplication.KURL_DebugURL + "/comments/queryCommentSpecification"
-            case .saveComment: return AIApplication.KURL_DebugURL + "/comments/saveComments"
             case .allRecommends: return AIApplication.KURL_DebugURL + "/service/allRecomends"
             case .queryProvider: return AIApplication.KURL_DebugURL + "/service/queryProvider"
             case .allQuestions: return AIApplication.KURL_DebugURL + "/service/allQuestions"
