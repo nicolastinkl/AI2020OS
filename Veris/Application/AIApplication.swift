@@ -388,7 +388,18 @@ struct AIApplication {
         // 产品详情
         case detail
         
-        
+        // 2.6.6 所有推荐（为您推荐）
+        case allRecommends
+        // 2.6.7 服务者介绍
+        case queryProvider
+        // 2.6.4 所有问题（常见问题）
+        case allQuestions
+        // 2.2.1 最近搜索
+        case recentlySearch
+        // 2.2.2 商品搜索并带出过滤条件
+        case searchServiceCondition
+        // 2.2.3 商品搜索结果过滤
+        case filterServices
         
         var description: String {
 
@@ -444,11 +455,18 @@ struct AIApplication {
             case .login: return AIApplication.KURL_DebugURL + "/admin/login"
                 
             //服务评论接口
+                
+            case .preview: return AIApplication.KURL_DebugURL + "/service/preview"
+            case .detail: return  AIApplication.KURL_DebugURL + "/service/detail"
             case .compondComment: return AIApplication.KURL_DebugURL + "/comments/queryUserComments"
             case .commentSpec: return AIApplication.KURL_DebugURL + "/comments/queryCommentSpecification"
             case .saveComment: return AIApplication.KURL_DebugURL + "/comments/saveComments"
-            case .preview: return AIApplication.KURL_DebugURL + "/service/preview"
-            case .detail: return  AIApplication.KURL_DebugURL + "/service/detail"
+            case .allRecommends: return AIApplication.KURL_DebugURL + "/service/allRecomends"
+            case .queryProvider: return AIApplication.KURL_DebugURL + "/service/queryProvider"
+            case .allQuestions: return AIApplication.KURL_DebugURL + "/service/allQuestions"
+            case .recentlySearch: return AIApplication.KURL_DebugURL + "/search/recentlySearch"
+            case .searchServiceCondition: return AIApplication.KURL_DebugURL + "/search/searchServiceCondition"
+            case .filterServices: return AIApplication.KURL_DebugURL + "/search/filterServices"
             }
         }
     }
