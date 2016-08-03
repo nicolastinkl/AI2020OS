@@ -12,6 +12,7 @@ protocol CommentManager {
     func loadCommentModelsFromLocal(serviceIds: [String]) -> [ServiceCommentLocalSavedModel]?
     func getCommentModelFromLocal(serviceId: String) -> ServiceCommentLocalSavedModel? 
     func saveCommentModelToLocal(serviceId: String, model: ServiceCommentLocalSavedModel) -> Bool
+    func deleteCommentModel(serviceIds: [String])
     // 记录上传图片，imageId:标识图片的id url:图片在本地的url
     func recordUploadImage(serviceId: String, imageId: String, url: NSURL)
     func notifyImageUploadResult(imageId: String, url: NSURL?)
@@ -53,47 +54,80 @@ class DefaultCommentManager: CommentManager {
         let defa = NSUserDefaults.standardUserDefaults()
         
         let data = NSKeyedArchiver.archivedDataWithRootObject(model)
-        
         defa.setObject(data, forKey: createSearchKey(serviceId))
         return defa.synchronize()
     }
     
-    // 记录上传图片，imageId:标识图片的id url:图片在本地的url
-    func recordUploadImage(serviceId: String, imageId: String, url: NSURL) {
-        ensureLocalModelListNotNil()
+    func deleteCommentModel(serviceIds: [String]) {
+        let defa = NSUserDefaults.standardUserDefaults()
         
-        var service: ServiceCommentLocalSavedModel!
-        
-        for s in localModelList! {
-            if s.serviceId == serviceId {
-                service = s
+        for id in serviceIds {
+            defa.removeObjectForKey(createSearchKey(id))
+            if let m = findLocalComment(id) {
+                localModelList?.removeAtIndex(m.index)
             }
         }
-        
-        if service == nil {
-            service = ServiceCommentLocalSavedModel()
+    }
+    
+    // 记录上传图片，imageId:标识图片的id url:图片在本地的url
+    func recordUploadImage(serviceId: String, imageId: String, url: NSURL) {
+        Async.main {[weak self] in
+            guard let s = self else {
+                return
+            }
+            
+            s.ensureLocalModelListNotNil()
+            
+            var service: ServiceCommentLocalSavedModel!
+            
+            for se in s.localModelList! {
+                if se.serviceId == serviceId {
+                    service = se
+                }
+            }
+            
+            if service == nil {
+                service = ServiceCommentLocalSavedModel()
+                service.serviceId = serviceId
+            }
+            
+            let info = ImageInfoModel()
+            
+            info.imageId = imageId
+            info.url = url
+            info.uploadFinished = false
+            service.imageInfos.append(info)
+            
+            s.saveCommentModelToLocal(serviceId, model: service)
         }
-        
-        let info = ImageInfoModel()
-        
-        info.imageId = imageId
-        info.url = url
-        info.uploadFinished = false
-        service.imageInfos.append(info)
     }
     
     func notifyImageUploadResult(imageId: String, url: NSURL?) {
-        if let model = findImageInfo(imageId) {
-            
-            model.uploadFinished = true
-            
-            if let u = url {
-                model.isSuccessUploaded = true
-                model.url = u
-            } else {
-                model.isSuccessUploaded = false
+        Async.main {[weak self] in
+            guard let s = self else {
+                return
             }
+            
+            guard let model = s.findLocalModel(imageId) else {
+                return
+            }
+            
+            guard let imageInfo = s.findImageInfo(imageId, localModel: model) else {
+                return
+            }
+            
+                imageInfo.uploadFinished = true
+                
+                if let u = url {
+                    imageInfo.isSuccessUploaded = true
+                    imageInfo.url = u
+                } else {
+                    imageInfo.isSuccessUploaded = false
+                }
+            
+                s.saveCommentModelToLocal(model.serviceId, model: model)
         }
+        
         
     }
     
@@ -118,7 +152,17 @@ class DefaultCommentManager: CommentManager {
         
         let service = HttpCommentService()
         
-        service.submitComments(userID, userType: userType, commentList: list, success: success, fail: fail)
+        service.submitComments(userID, userType: userType, commentList: list, success: { (responseData) in
+            var serviceIds = [String]()
+            for c in commentList {
+                serviceIds.append(c.service_id)
+            }
+            
+            self.deleteCommentModel(serviceIds)
+            
+            success(responseData: responseData)
+            
+            }, fail: fail)
     }
     
     private func createSearchKey(serviceId: String) -> String {
@@ -139,7 +183,35 @@ class DefaultCommentManager: CommentManager {
         for service in list {
             for model in service.imageInfos {
                 if model.imageId == imageId {
+                    model.serviceId = service.serviceId
                     return model
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    private func findImageInfo(imageId: String, localModel: ServiceCommentLocalSavedModel) -> ImageInfoModel? {
+        for model in localModel.imageInfos {
+            if model.imageId == imageId {
+                return model
+            }
+        }
+        
+        return nil
+    }
+    
+    private func findLocalModel(imageId: String) -> ServiceCommentLocalSavedModel? {
+        guard let list = localModelList else {
+            return nil
+        }
+        
+        for service in list {
+            for model in service.imageInfos {
+                if model.imageId == imageId {
+                    model.serviceId = service.serviceId
+                    return service
                 }
             }
         }
@@ -165,20 +237,21 @@ class DefaultCommentManager: CommentManager {
         
         
         for comment in newCommentList {
-            list.append(mergeComment(comment, local: findLocalComment(comment.service_id)))
+            list.append(mergeComment(comment, local: findLocalComment(comment.service_id)?.model))
         }
         
         return list
     }
     
-    private func findLocalComment(serviceId: String) -> ServiceCommentLocalSavedModel? {
+    private func findLocalComment(serviceId: String) -> (index: Int, model: ServiceCommentLocalSavedModel)? {
         guard let list = localModelList else {
             return nil
         }
         
-        for comment in list {
+        for i in 0..<list.count {
+            let comment = list[i]
             if comment.serviceId == serviceId {
-                return comment
+                return (i, comment)
             }
         }
         
