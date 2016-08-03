@@ -601,7 +601,7 @@ class AIProductInfoViewController: UIViewController {
      Target to Edit ViewController.
      */
     func editAction() {
-        scrollview.setContentOffset(CGPointMake(0, scrollview.contentSize.height), animated: true)
+        scrollview.setContentOffset(CGPointMake(0, scrollview.contentSize.height - scrollview.height), animated: true)
     }
 	 
 }
