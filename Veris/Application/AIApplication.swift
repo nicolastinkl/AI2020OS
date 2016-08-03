@@ -21,7 +21,7 @@ struct AIApplication {
     internal static let AVOSCLOUDID  = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
     internal static let AVOSCLOUDKEY = "LGwq0DTaJb8D59IV3kK18wmh"
     internal static let KURL_ReleaseURL =  "http://171.221.254.231:3000"  //正式地址
-    internal static let KURL_DebugURL   =  "http://10.5.1.249:2999/nsboss"  //测试地址
+    internal static let KURL_DebugURL   =  "http://171.221.254.231:2999/nsboss"  //测试地址
     internal static let UMengAppID      = "5784b6a767e58e5d1b003373"      //友盟分享id
     internal static let KURL_Appstore_ReleaseURL =  "http://171.221.254.231:2999/nsboss"  //appstore版本正式地址
 
