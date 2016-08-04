@@ -119,7 +119,7 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
             var image = UIImage(named: "")
             if asset is ALAsset {
                 image = UIImage(CGImage: asset.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
-            }else{
+            } else {
                 image = asset as? UIImage
             }
             
