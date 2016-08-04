@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 import AIAlertView
+import IQKeyboardManagerSwift
 
 
 class ServiceCommentViewController: AbsCommentViewController {
@@ -32,7 +33,12 @@ class ServiceCommentViewController: AbsCommentViewController {
         super.viewDidLoad()
         
         loadUI()
+        IQKeyboardManager.sharedManager().enable = false
      //   loadStarsDes()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        IQKeyboardManager.sharedManager().enable = true
     }
 
     override func imagesPicked(images: [ImageInfo]) {
