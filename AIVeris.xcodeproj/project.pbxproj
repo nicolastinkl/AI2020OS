@@ -451,7 +451,6 @@
 		81433ECC1CFBE5A700347C29 /* UIImage+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */; };
 		81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81433F1F1CFBE80700347C29 /* Default-568h@2x.png */; };
 		81512ED01D220A8900AE041D /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */; };
-		81512ED31D220AFE00AE041D /* AIWorkManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ED21D220AFE00AE041D /* AIWorkManageViewController.swift */; };
 		8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7141CFD2710006F2C8F /* AIImageView.swift */; };
 		8175A7BA1CFD2710006F2C8F /* AISwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */; };
 		8175A7BB1CFD2710006F2C8F /* AIUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7171CFD2710006F2C8F /* AIUINavigationController.m */; };
@@ -727,6 +726,9 @@
 		FB23732B1D4F7A7600A8B38A /* AIProviderDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373231D4F75B500A8B38A /* AIProviderDetailService.swift */; };
 		FB23732C1D4F7A7600A8B38A /* AIRecommondForYouService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373251D4F785100A8B38A /* AIRecommondForYouService.swift */; };
 		FB2E41ED1D461821001DDB5D /* MBFingerTipWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */; };
+		FB2F2B271D51F1EE003F2297 /* AIWorkManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F2B251D51F1EE003F2297 /* AIWorkManageViewController.swift */; };
+		FB2F2B281D51F1EE003F2297 /* AIWorkManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2F2B261D51F1EE003F2297 /* AIWorkManageViewController.xib */; };
+		FB2F2B2A1D51F2C5003F2297 /* AIWorkManageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F2B291D51F2C5003F2297 /* AIWorkManageHeaderView.swift */; };
 		FB3DCCD81D4A02A30090DEA6 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */; };
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB58838D1D51C7930080588B /* AISearchHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB58838C1D51C7930080588B /* AISearchHomeService.swift */; };
@@ -1816,6 +1818,9 @@
 		FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProviderDetailServiceTest.swift; sourceTree = "<group>"; };
 		FB2E41EB1D461821001DDB5D /* MBFingerTipWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFingerTipWindow.h; sourceTree = "<group>"; };
 		FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFingerTipWindow.m; sourceTree = "<group>"; };
+		FB2F2B251D51F1EE003F2297 /* AIWorkManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkManageViewController.swift; sourceTree = "<group>"; };
+		FB2F2B261D51F1EE003F2297 /* AIWorkManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWorkManageViewController.xib; sourceTree = "<group>"; };
+		FB2F2B291D51F2C5003F2297 /* AIWorkManageHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkManageHeaderView.swift; sourceTree = "<group>"; };
 		FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = Debug/CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryIconView.swift; sourceTree = "<group>"; };
 		FB58838C1D51C7930080588B /* AISearchHomeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHomeService.swift; sourceTree = "<group>"; };
@@ -3368,7 +3373,7 @@
 				1265F6311D50420600130ECF /* View */,
 				1265F6321D50420600130ECF /* Model */,
 			);
-			name = WorkManage;
+			path = WorkManage;
 			sourceTree = "<group>";
 		};
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
@@ -4381,6 +4386,30 @@
 			path = MBFingerTipWindow;
 			sourceTree = "<group>";
 		};
+		FB2F2B221D51F1EE003F2297 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FB2F2B231D51F1EE003F2297 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F2B291D51F2C5003F2297 /* AIWorkManageHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB2F2B241D51F1EE003F2297 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F2B251D51F1EE003F2297 /* AIWorkManageViewController.swift */,
+				FB2F2B261D51F1EE003F2297 /* AIWorkManageViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -4616,6 +4645,7 @@
 				8175A7DF1CFD2710006F2C8F /* MJRefresh.bundle in Resources */,
 				93C81F8C1D2B5D0400D84D46 /* AIServerProviderView.xib in Resources */,
 				93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */,
+				FB2F2B281D51F1EE003F2297 /* AIWorkManageViewController.xib in Resources */,
 				81433E381CFBE5A700347C29 /* BuyerRequirmentMessageViewController.xib in Resources */,
 				C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */,
 				81433DF71CFBE5A700347C29 /* AIEventTimerView.xib in Resources */,
@@ -4858,11 +4888,13 @@
 				81433DA81CFBE5A700347C29 /* AITaskTimeLineView.swift in Sources */,
 				81433E721CFBE5A700347C29 /* FLEXClassesTableViewController.m in Sources */,
 				1273444F1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift in Sources */,
+				FB2F2B2A1D51F2C5003F2297 /* AIWorkManageHeaderView.swift in Sources */,
 				81433E101CFBE5A700347C29 /* SeparatorLineLabel.swift in Sources */,
 				81433E6E1CFBE5A700347C29 /* FLEXTableContentViewController.m in Sources */,
 				81433E001CFBE5A700347C29 /* AirTicketView.swift in Sources */,
 				93A9DA571D0131C000F16610 /* AICommentInfoView.swift in Sources */,
 				81433E321CFBE5A700347C29 /* AITaskNoteEditViewController.swift in Sources */,
+				FB2F2B271D51F1EE003F2297 /* AIWorkManageViewController.swift in Sources */,
 				81433DA21CFBE5A700347C29 /* AIRequireProtocol.swift in Sources */,
 				81433E841CFBE5A700347C29 /* FLEXNetworkTransactionTableViewCell.m in Sources */,
 				81433E601CFBE5A700347C29 /* FLEXFieldEditorView.m in Sources */,
@@ -4997,7 +5029,6 @@
 				81B1956E1D474A960086EB83 /* AADialogBaseViewController.swift in Sources */,
 				81433D4E1CFBE5A700347C29 /* AIAddressRouteView.swift in Sources */,
 				8175A7E81CFD2710006F2C8F /* OAStackView+Constraint.m in Sources */,
-				81512ED31D220AFE00AE041D /* AIWorkManageViewController.swift in Sources */,
 				847D29881D484BF3009E26B8 /* ServiceCommentModel.swift in Sources */,
 				81433E4C1CFBE5A700347C29 /* UIImageUtils.swift in Sources */,
 				81433E5B1CFBE5A700347C29 /* FLEXArgumentInputSwitchView.m in Sources */,
