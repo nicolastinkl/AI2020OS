@@ -339,10 +339,10 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         }
     }
     func refuseButtonDidClick(viewModel viewModel: AITimelineViewModel) {
-        
+        AIAlertView().showInfo("忽略授权请求!", subTitle: "")
     }
     func acceptButtonDidClick(viewModel viewModel: AITimelineViewModel) {
-        
+        AIAlertView().showInfo("同意授权请求!", subTitle: "")
     }
 
     func containerImageDidLoad(viewModel viewModel: AITimelineViewModel, containterHeight: CGFloat) {

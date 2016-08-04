@@ -159,10 +159,11 @@ class AITimelineContentContainerView: UIView {
                 let acceptButton = UIButton()
                 acceptButton.setBackgroundImage(acceptButtonBgColor.imageWithColor(), forState: UIControlState.Normal)
                 acceptButton.setTitleColor(acceptButtonTextColor, forState: UIControlState.Normal)
-                acceptButton.setTitle("accept", forState: UIControlState.Normal)
-                acceptButton.titleLabel?.font = buttonTextFont
+                acceptButton.setTitle("授权", forState: UIControlState.Normal)
+                acceptButton.titleLabel?.font = CustomerCenterConstants.Fonts.TimelineButton
                 acceptButton.layer.cornerRadius = buttonContainterHeight / 2
                 acceptButton.layer.masksToBounds = true
+                acceptButton.addTarget(self, action: #selector(AITimelineContentContainerView.acceptAuthorationAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
                 buttonContainerView.addSubview(acceptButton)
                 acceptButton.snp_makeConstraints(closure: { (make) in
                     make.top.bottom.leading.equalTo(buttonContainerView)
@@ -172,12 +173,13 @@ class AITimelineContentContainerView: UIView {
                 let ignoreButton = UIButton()
                 ignoreButton.setBackgroundImage(UIColor.clearColor().imageWithColor(), forState: UIControlState.Normal)
                 ignoreButton.setTitleColor(acceptButtonBgColor, forState: UIControlState.Normal)
-                ignoreButton.setTitle("ignore", forState: UIControlState.Normal)
-                ignoreButton.titleLabel?.font = buttonTextFont
+                ignoreButton.setTitle("忽略", forState: UIControlState.Normal)
+                ignoreButton.titleLabel?.font = CustomerCenterConstants.Fonts.TimelineButton
                 ignoreButton.layer.cornerRadius = buttonContainterHeight / 2
                 ignoreButton.layer.borderWidth = 1
                 ignoreButton.layer.borderColor = acceptButtonBgColor.CGColor
                 ignoreButton.layer.masksToBounds = true
+                ignoreButton.addTarget(self, action: #selector(AITimelineContentContainerView.refuseAuthorationAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
                 buttonContainerView.addSubview(ignoreButton)
                 ignoreButton.snp_makeConstraints(closure: { (make) in
                     make.top.bottom.equalTo(buttonContainerView)
