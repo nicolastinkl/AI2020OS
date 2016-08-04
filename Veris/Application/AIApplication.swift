@@ -18,12 +18,11 @@ import UIKit
 struct AIApplication {
 
     // MARK: LEANCLOUD APPKEY
-    internal static let AVOSCLOUDID  = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
-    internal static let AVOSCLOUDKEY = "LGwq0DTaJb8D59IV3kK18wmh"
-    internal static let KURL_ReleaseURL =  "http://171.221.254.231:3000"  //正式地址
-    internal static let KURL_DebugURL   =  "http://10.5.1.249:2999/nsboss"  //测试地址
+    internal static let AVOSCLOUDID     = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
+    internal static let AVOSCLOUDKEY    = "LGwq0DTaJb8D59IV3kK18wmh"
+    internal static let KURL_ReleaseURL = "http://171.221.254.231:3000"// "http://171.221.254.231:2999/nsboss" //正式地址v 
+    internal static let KURL_DebugURL   = "http://171.221.254.231:2999/nsboss"  //测试地址
     internal static let UMengAppID      = "5784b6a767e58e5d1b003373"      //友盟分享id
-    internal static let KURL_Appstore_ReleaseURL =  "http://171.221.254.231:2999/nsboss"  //appstore版本正式地址
 
     // MARK: XUNFEI APPID
     internal static let XUNFEIAPPID  = "551ba83b"
@@ -274,9 +273,35 @@ struct AIApplication {
         UIApplication.sharedApplication().sendAction(Selector(functionName), to: nil, from: ownerName, forEvent: nil)
     }
 
-    
+    /*!
+    Application hook viewdidload
+    */
+    static func hookViewDidLoad() {
+        swizzlingMethod(UIViewController.self,
+            oldSelector: #selector(UIViewController.viewDidLoad),
+            newSelector: #selector(UIViewController.viewDidLoadForChangeTitleColor))
+    }
 
-    
+    /*!
+    Application hookViewDesLoad
+    */
+    static func hookViewWillAppear() {
+        swizzlingMethod(UIViewController.self,
+            oldSelector: #selector(UIViewController.viewDidAppear(_:)),
+            newSelector: #selector(UIViewController.viewWillAppearForShowBottomBar(_:)))
+    }
+
+    static func hookViewWillDisappear() {
+        swizzlingMethod(UIViewController.self,
+            oldSelector: #selector(UIViewController.viewWillDisappear(_:)),
+            newSelector: #selector(UIViewController.viewWillDisappearForHiddenBottomBar(_:)))
+    }
+
+    static func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {
+        let oldMethod = class_getInstanceMethod(clzz, oldSelector)
+        let newMethod = class_getInstanceMethod(clzz, newSelector)
+        method_exchangeImplementations(oldMethod, newMethod)
+    }
 
     /**
      根据不同环境获取服务器Api地址.
@@ -380,6 +405,27 @@ struct AIApplication {
         // 提交评论
         case saveComment
         
+        // 服务优势介绍
+        case preview
+        
+        // 产品详情
+        case detail
+        
+        // 2.6.6 所有推荐（为您推荐）
+        case allRecommends
+        // 2.6.7 服务者介绍
+        case queryProvider
+        // 2.6.4 所有问题（常见问题）
+        case allQuestions
+        // 2.2.1 最近搜索
+        case recentlySearch
+        // 2.2.2 商品搜索并带出过滤条件
+        case searchServiceCondition
+        // 2.2.3 商品搜索结果过滤
+        case filterServices
+
+        
+        
         var description: String {
 
             let serverStatus = NSUserDefaults.standardUserDefaults().integerForKey(kDefault_ServerURLStatus)
@@ -430,13 +476,24 @@ struct AIApplication {
             case .initTask: return AIApplication.KURL_ReleaseURL + "/initTask"
                 
             //登陆注册接口
-            case .register: return AIApplication.KURL_Appstore_ReleaseURL + "/admin/register"
-            case .login: return AIApplication.KURL_Appstore_ReleaseURL + "/admin/login"
+            case .register: return AIApplication.KURL_DebugURL + "/admin/register"
+            case .login: return AIApplication.KURL_DebugURL + "/admin/login"
                 
             //服务评论接口
-            case .compondComment: return AIApplication.KURL_Appstore_ReleaseURL + "/comments/queryUserComments"
-            case .commentSpec: return AIApplication.KURL_Appstore_ReleaseURL + "/comments/queryCommentSpecification"
-            case .saveComment: return AIApplication.KURL_Appstore_ReleaseURL + "/comments/saveComments"
+            case .compondComment: return AIApplication.KURL_DebugURL + "/comments/queryUserComments"
+            case .commentSpec: return AIApplication.KURL_DebugURL + "/comments/queryCommentSpecification"
+            case .saveComment: return AIApplication.KURL_DebugURL + "/comments/saveComments"
+                
+            case .preview: return AIApplication.KURL_DebugURL + "/service/preview"
+            case .detail: return  AIApplication.KURL_DebugURL + "/service/detail"
+            case .allRecommends: return AIApplication.KURL_DebugURL + "/service/allRecomends"
+            case .queryProvider: return AIApplication.KURL_DebugURL + "/service/queryProvider"
+            case .allQuestions: return AIApplication.KURL_DebugURL + "/service/allQuestions"
+            case .recentlySearch: return AIApplication.KURL_DebugURL + "/search/recentlySearch"
+            case .searchServiceCondition: return AIApplication.KURL_DebugURL + "/search/searchServiceCondition"
+            case .filterServices: return AIApplication.KURL_DebugURL + "/search/filterServices"
+
+                
             }
         }
     }

@@ -9,7 +9,6 @@
 import Foundation
 
 class CommentUtils {
-    private static let idPrefix = "CommentViewModel_"
     private static var starDes: [StarDesc]?
     
     static var hasStarDesData: Bool {
@@ -19,64 +18,77 @@ class CommentUtils {
     }
     
     class func setStarDesData(starList: [StarDesc]) {
-        starDes = starList  
-    }
-    
-    class func getCommentImageInfo(serviceId: String) -> ImageInfoPList? {
-        let defa = NSUserDefaults.standardUserDefaults()
-        
-        let key = createSearchKey(serviceId)
-        
-        if let data = defa.objectForKey(key) as? NSData {
-            return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? ImageInfoPList
-        }
-        
-        return nil
-    }
-    
-    class func saveCommentImageInfo(serviceId: String, info: ImageInfoPList) -> Bool {
-        
-        let defa = NSUserDefaults.standardUserDefaults()
-        
-        let data = NSKeyedArchiver.archivedDataWithRootObject(info)
-        
-        defa.setObject(data, forKey: createSearchKey(serviceId))
-        return defa.synchronize()
-    }
-    
-    class func getCommentModelFromLocal(serviceId: String) -> ServiceCommentLocalSavedModel? {
-        let defa = NSUserDefaults.standardUserDefaults()
-        
-        let key = createSearchKey(serviceId)
-        
-        if let data = defa.objectForKey(key) as? NSData {
-            return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? ServiceCommentLocalSavedModel
-        }
-        
-        return nil
-    }
-    
-    class func saveCommentModelToLocal(serviceId: String, model: ServiceCommentLocalSavedModel) -> Bool {
-        
-        let defa = NSUserDefaults.standardUserDefaults()
-        
-        let data = NSKeyedArchiver.archivedDataWithRootObject(model)
-        
-        defa.setObject(data, forKey: createSearchKey(serviceId))
-        return defa.synchronize()
-    }
-    
-    private class func createSearchKey(info: ImageInfo) -> String? {
-        if let id = info.serviceId {
-            return createSearchKey(id)
-        } else {
-            return nil
+        starDes = starList.sort { (star1, star2) -> Bool in
+            return Float(star2.value_min)! > Float(star1.value_min)!
         }
     }
     
-    private class func createSearchKey(serviceId: String) -> String {
-        return idPrefix + serviceId
+    class func convertPercentToStarValue(percent: CGFloat) -> String {
+        guard let _ = starDes else {
+            return "\(percent)"
+        }
+        
+        let value = convertPercentToValue(percent)
+        
+        return "\(value)"
     }
     
+    class func getStarValueDes(percent: CGFloat) -> String {
+        func isInRange(value: CGFloat, star: StarDesc) -> Bool {
+            let min = CGFloat(Float(star.value_min)!)
+            let max = CGFloat(Float(star.value_max)!)
+            
+            if value <= max && value >= min {
+                return true
+            }
+            return false
+        }
+        
+        guard let stars = starDes else {
+            return ""
+        }
+        
+        let value  = convertPercentToValue(percent)
+        for star in stars {
+            if isInRange(value, star: star) {
+                return star.name
+            }
+        }
+        
+        return ""
+    }
     
+    private class func getMaxValue() -> CGFloat {
+        guard let stars = starDes else {
+            return 1
+        }
+        
+        let max = Float(stars.last!.value_max)!
+        let value = CGFloat(max)
+        return value
+    }
+    
+    private class func convertPercentToValue(percent: CGFloat) -> CGFloat {
+        return getMaxValue() * percent
+    }
+    
+    class func isStarValueValid(value: String?) -> Bool {
+        guard let v = value else {
+            return false
+        }
+        
+        if v.isEmpty {
+            return false
+        }
+        
+        guard let fv = Float(v) else {
+            return false
+        }
+        
+        if fv < 0.0001 {
+            return false
+        }
+        
+        return true
+    }
 }

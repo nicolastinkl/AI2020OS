@@ -20,6 +20,7 @@
 #define kSuccessCode                   @"200"
 #define kSuccessCode_1                 @"1"
 #define kLogoutCode                    @"401"
+#define kNotFoundCode                  @"404"
 
 #define kCookieIdentifier              @"CookieIdentifier"
 
@@ -224,7 +225,12 @@
         success(returnResponseObject);
     } else if ([resultCode isEqualToString:kLogoutCode]) {
         // 通知登录超时
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"UserLoginTimeNotification" object:nil];
+        NSString * msgRelogin = @"";
+        if (returnResponseObject != nil && [returnResponseObject isKindOfClass:[NSDictionary class]]){
+             msgRelogin = returnResponseObject[@"msg"];
+            
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UserLoginTimeNotification" object:msgRelogin];
     } else {
 
         if (des != nil) {
@@ -233,6 +239,14 @@
                 fail(AINetErrorFormat, errorDes);
             }
 
+        }
+        
+        
+        if ([response objectForKey:@"status"] != nil) {
+            int stats = [[response objectForKey:@"status"] intValue];
+            if (stats == 404) {
+                fail(AINetErrorFormat, [response objectForKey:@"msg"]);
+            }
         }
         
         

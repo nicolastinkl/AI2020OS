@@ -15,6 +15,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     var comments: [ServiceCommentViewModel]!
     private var currentOperateCell = -1
     private var cellsMap = [Int: UITableViewCell]()
+    private var commentManager: CommentManager!
 
     @IBOutlet weak var serviceTableView: UITableView!
     @IBOutlet weak var checkbox: CheckboxButton!
@@ -27,6 +28,8 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        commentManager = DefaultCommentManager()
 
         checkbox.layer.cornerRadius = 4
         submit.layer.cornerRadius = submit.height / 2
@@ -40,7 +43,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         serviceTableView.registerNib(UINib(nibName: "TopServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "TopServiceCell")
         
         loadServiceComments()
-        loadModelFromLocal()
+        loadAndMergeModelFromLocal()
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,8 +69,41 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
 
     @IBAction func submitComments(sender: UIButton) {
-        for _ in comments {
-     //       comment.isCommentDone = true
+        
+        if !commentManager.isAllImagesUploaded() {
+            AIAlertView().showInfo("正在上传图片，不能提交", subTitle: "正在上传图片，不能提交")
+            return
+        }
+        
+        var submitList = [ServiceComment]()
+        
+        for item in cellsMap {
+            guard let cell = item.1 as? ServiceCommentTableViewCell else {
+                continue
+            }
+            
+            if let comment = cell.getSubmitData() {
+                if !CommentUtils.isStarValueValid(comment.rating_level) {
+                    AIAlertView().showInfo("评分不能为空，不能提交", subTitle: "评分不能为空，不能提交")
+                    return
+                } else {
+                    submitList.append(comment)
+                }
+            }
+        }
+        
+        if submitList.count == 0 {
+            return
+        }
+        
+        commentManager.submitComments("1", userType: 1, commentList: submitList, success: { (responseData) in
+            if responseData.result {
+                AIAlertView().showInfo("提交成功", subTitle: "提交成功")
+            } else {
+                AIAlertView().showInfo("提交失败", subTitle: "提交失败")
+            }
+            }) { (errType, errDes) in
+                AIAlertView().showInfo("提交失败", subTitle: "提交失败")
         }
         
         serviceTableView.reloadData()
@@ -112,11 +148,34 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 //        }
     }
     
-    private func loadModelFromLocal() {
+    private func loadAndMergeModelFromLocal() {
+        var serviceIds = [String]()
+        
         for comment in comments {
-            let model = CommentUtils.getCommentModelFromLocal(comment.serviceId)
-            comment.loaclModel = model
+            serviceIds.append(comment.serviceId)
         }
+        
+        
+        if let localList = commentManager.loadCommentModelsFromLocal(serviceIds) {
+            
+            func findLocalModel(id: String) -> ServiceCommentLocalSavedModel? {
+                for local in localList {
+                    if local.serviceId == id {
+                        return local
+                    }
+                }
+                
+                return nil
+            }
+            
+            for comment in comments {
+                if let model = findLocalModel(comment.serviceId) {
+                    model.isAppend = !comment.commentEditable
+                    comment.loaclModel = model
+                }
+            }
+        }
+        
     }
 
     override func imagesPicked(images: [ImageInfo]) {
@@ -139,51 +198,51 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         
         ensureLoaclSavedModelNotNil(row)
         
-        comments[row].loaclModel!.images!.appendContentsOf(infos)
-        comments[row].loaclModel!.isAppend = cell.isEditingAppendComment
-        comments[row].loaclModel!.changed = true
+        let serviceId = comments[row].serviceId      
         
         for info in infos {
             if info.url == nil {
-                saveImageToAlbum(info)
+                saveImageToAlbum(serviceId, info: info)
+            } else {
+                commentManager.recordUploadImage(serviceId, imageId: createImageId(info), url: info.url!)
             }
         }
+    }
+    
+    private func createImageId(info: ImageInfo) -> String {
+        return info.url!.absoluteString
     }
     
     private func ensureLoaclSavedModelNotNil(index: Int) {
         if comments[index].loaclModel == nil {
             let model = ServiceCommentLocalSavedModel()
-            model.images = [ImageInfo]()
             
             comments[index].loaclModel = model
         }
     }
   
-    func saveImageToAlbum(info: ImageInfo) {
+    func saveImageToAlbum(serviceId: String, info: ImageInfo) {
         guard let im = info.image else {
             return
         }
         
-        ALAssetsLibrary().writeImageToSavedPhotosAlbum(im.CGImage, orientation: ALAssetOrientation(rawValue: im.imageOrientation.rawValue)!) { (path: NSURL!, error: NSError!) in
-     //       info.url = path
+        ALAssetsLibrary().writeImageToSavedPhotosAlbum(im.CGImage, orientation: ALAssetOrientation(rawValue: im.imageOrientation.rawValue)!) {[weak self] (path: NSURL!, error: NSError!) in
+            if path != nil {
+                info.url = path
+                
+                if let s = self {
+                    s.commentManager.recordUploadImage(serviceId, imageId: s.createImageId(info), url: info.url!)
+                }
+            }
         }
     }
     
     private func addImagesToCell(images: [ImageInfo], cell: ServiceCommentTableViewCell) {
-        let row = cell.tag
-        let serviceId = comments[row].serviceId
-        let model = comments[row].loaclModel
-        
         for imageInfo in images {
             if let im = imageInfo.image {
-                cell.addAsyncUploadImage(im, id: nil, complate: { (id, url, error) in
+                cell.addAsyncUploadImage(im, id: createImageId(imageInfo), complate: { [weak self] (id, url, error) in
                     if let u = url {
-                        imageInfo.url = u
-                        imageInfo.isUploaded = true
-                        
-                        if let m = model {
-                            CommentUtils.saveCommentModelToLocal(serviceId, model: m)
-                        }
+                        self?.commentManager.notifyImageUploadResult(id!, url: u)
                     }  
                 })
             }
@@ -200,6 +259,7 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
 
         var cell: ServiceCommentTableViewCell!
         
+        // 不复用cell
         if let c = cellsMap[indexPath.row] {
             return c
         }
@@ -227,31 +287,33 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
     
 
     private func resetCellUI(cell: ServiceCommentTableViewCell, indexPath: NSIndexPath) {
-        cell.clearImages()
+     //   cell.clearImages()
         
         if let state = comments[indexPath.row].cellState {
-            if let urls = getImageUrls(indexPath.row) {
-                cell.addAsyncDownloadImages(urls)
-            }
+       //     let urls = getImageUrls(indexPath.row)
+      //      cell.addAsyncDownloadImages(urls)
+            
             cell.resetState(state)
         }
     }
     
-    private func getImageUrls(row: Int) -> [NSURL]? {
-        if let ims = comments[row].loaclModel?.images {
-            var urls = [NSURL]()
-            for info in ims {
-                if let u = info.url {
-                    urls.append(u)
-                }
-                
-            }
-            
-            return urls
-        }
-        
-        return nil
-    }
+//    private func getImageUrls(row: Int) -> [NSURL] {
+//        var urls = [NSURL]()
+//        
+//        if let ims = comments[row].loaclModel?.imageInfos {
+//            for info in ims {
+//                guard let u = info.url else {
+//                    continue
+//                }
+//                
+//                if info.isSuccessUploaded {
+//                    urls.append(u)
+//                }
+//            }
+//        }
+//        
+//        return urls
+//    }
 }
 
 extension CompondServiceCommentViewController: CommentCellDelegate {
@@ -269,13 +331,14 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
 }
 
 class ServiceCommentViewModel {
-    var firstImages = [String]()
-    var appendImages = [String]()
-    var cellState: CommentState!
+    var cellState: CommentStateEnum!
     var commentEditable = false
+    // 是否是已经完成的评论
     var submitted = false
     var serviceId = ""
     var loaclModel: ServiceCommentLocalSavedModel?
+    var firstComment: ServiceComment?
+    var appendComment: ServiceComment?
 }
 
 protocol CommentCellProtocol {

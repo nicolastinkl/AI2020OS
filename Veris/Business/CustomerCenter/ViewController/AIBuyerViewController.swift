@@ -8,7 +8,7 @@
 
 import UIKit
 import Spring
-
+import AIAlertView
 
 /// Proprosal 详情页
 class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AIBuyerDetailDelegate {
@@ -207,9 +207,11 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshReLoginAction), name: AIApplication.Notification.UIRELoginNotification, object: nil)
-                
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshReLoginAction), name: "UserLoginTimeNotification", object: nil)
+        
+        
     }
-    
     
     func refreshReLoginAction() {
         let loginA = LoginAction(viewController: self) { 
@@ -218,8 +220,9 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             NSUserDefaults.standardUserDefaults().removeObjectForKey("KEY_USER_ID")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
+        
         loginA.didLogin { 
-            
+            AIAlertView().showError("提示", subTitle: "登录过期,请重新登录!")
         }
         
     }

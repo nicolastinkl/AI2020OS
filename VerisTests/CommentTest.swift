@@ -84,21 +84,4 @@ class CommentTest: SBOSSTestCase {
             XCTAssertNil(error, "Error")
         })
     }
-    
-    func testCommentViewModelLocalSave() {
-        let image = ImageInfo()
-        image.url = NSURL(fileURLWithPath: "12345")
-        
-        let model = ServiceCommentLocalSavedModel()
-        model.serviceId = "1"
-        model.images = [image]
-        
-        XCTAssertTrue(CommentUtils.saveCommentModelToLocal(model.serviceId, model: model))
-        
-        let m = CommentUtils.getCommentModelFromLocal(model.serviceId)
-        
-        XCTAssertEqual(m?.images?[0].url?.path, "/12345")
-        XCTAssertEqual(m?.serviceId, model.serviceId)
-    }
-
 }

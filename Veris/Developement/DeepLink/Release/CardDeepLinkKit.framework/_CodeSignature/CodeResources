@@ -6,11 +6,11 @@
 	<dict>
 		<key>CardDeepLinkKit.bundle/CardAlertView.nib</key>
 		<data>
-		u83uVjBcR4IdkuBesJdmqtQlma4=
+		/LqSv8K3YjRN9EwZlEK1oJf6A4A=
 		</data>
 		<key>CardDeepLinkKit.bundle/LoadingView.nib</key>
 		<data>
-		h2xqkTpO36GJLhSmwtwLH03H+wQ=
+		fHmygM5DuL/gKN1g3OvA3vFoP84=
 		</data>
 		<key>CardDeepLinkKit.bundle/dp_bg.png</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ct8OO2ujgzEnt2V0OUyDUJ16av8=
+		CXQbtPH0niwo+bfwaS8rMiyV6uk=
 		</data>
 		<key>Modules/CardDeepLinkKit.swiftmodule/arm.swiftdoc</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/CardDeepLinkKit.swiftmodule/arm.swiftmodule</key>
 		<data>
-		zVOwa4ujLUNkasSSDq8uvUU6eQI=
+		qq8vetgZ4eQFZb6ChNRg+apn39o=
 		</data>
 		<key>Modules/CardDeepLinkKit.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Modules/CardDeepLinkKit.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		ZyAkDgUGXA3P0HOrj4mgsZ7s3iE=
+		qXoLtygWPtnuIx0weCHVM83+sAQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -75,22 +75,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			u83uVjBcR4IdkuBesJdmqtQlma4=
+			/LqSv8K3YjRN9EwZlEK1oJf6A4A=
 			</data>
 			<key>hash2</key>
 			<data>
-			9UlJ086N7By3ctOaNH6/NRQdSJvab+W2Z6msVUIsjgk=
+			7dswFbsDTXTMW0sf/DGXKxBvhmDUCNsLwEVAyWAYUM8=
 			</data>
 		</dict>
 		<key>CardDeepLinkKit.bundle/LoadingView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			h2xqkTpO36GJLhSmwtwLH03H+wQ=
+			fHmygM5DuL/gKN1g3OvA3vFoP84=
 			</data>
 			<key>hash2</key>
 			<data>
-			31IsTm9Z61Q6oyONf6PeuXauHbN6nBdcnlekoF/miZY=
+			M+Y5ZVHVhvkKwQJBU/LgCKJ+5HbTkBVFVjbexqOsZYw=
 			</data>
 		</dict>
 		<key>CardDeepLinkKit.bundle/dp_bg.png</key>
@@ -196,11 +196,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zVOwa4ujLUNkasSSDq8uvUU6eQI=
+			qq8vetgZ4eQFZb6ChNRg+apn39o=
 			</data>
 			<key>hash2</key>
 			<data>
-			oIwaL7MMiv6B7WQgwFjgDfjUDeXhBXrQrnZSbmDAqTQ=
+			lyxYfQ3KtUgkYCEsu6qy2u4BuwLX7sCXnUHt9YIeZ0I=
 			</data>
 		</dict>
 		<key>Modules/CardDeepLinkKit.swiftmodule/arm64.swiftdoc</key>
@@ -218,11 +218,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZyAkDgUGXA3P0HOrj4mgsZ7s3iE=
+			qXoLtygWPtnuIx0weCHVM83+sAQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			e1agT+N6EZSF2YHuQf/BGsq6SnHsm3T2JZzBgLQYCj0=
+			pKEWIo6rjTq5g/Az2hDvfQ50gT0zofnA1ir8U8lBWcg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

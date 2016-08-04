@@ -390,7 +390,7 @@ class AIBuyerDetailViewController: UIViewController {
     //MARK: Vidio Assistant
     @IBAction func startVideoAction(sender: AnyObject) {
 
-#if DEBUG
+//#if DEBUG
     if providerDialogViewController != nil {
         presentViewController(providerDialogViewController!, animated: true, completion: nil)
     } else {
@@ -402,7 +402,7 @@ class AIBuyerDetailViewController: UIViewController {
         }
         presentViewController(customerDialogViewController!, animated: true, completion: nil)
     }
-#endif
+//#endif
 
     }
 
@@ -918,7 +918,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
 
                     // Show View.
 
-                    Card.sharedInstance.showInView(self.view, serviceId: "1", userInfo: ["title":model.service_desc,"name":"Uber","url":"\(model.service_thumbnail_icon)"])
+                    Card.sharedInstance.showInView(self.view, serviceId: "1", userInfo: ["title": model.service_desc, "name": "Uber", "url": "\(model.service_thumbnail_icon)"])
 
                     return
                 }
@@ -1039,7 +1039,12 @@ extension AIBuyerDetailViewController: AISuperSwipeableCellDelegate {
             anchor.step = AIAnchorStep.After
             anchor.rootViewControllerName = self.instanceClassName()
             anchor.viewComponentName = tableView.instanceClassName()
-            anchor.rowIndex = current_service_list!.indexOfObject(curretCell!.currentModel!)
+            if let c = curretCell {
+                anchor.rowIndex = current_service_list!.indexOfObject(c.currentModel!)
+            } else {
+                anchor.rowIndex = 0
+            }
+            
             anchor.sectionIndex = 0
             anchor.selector = "cellDidClose"
             AudioAssistantManager.sharedInstance.sendAnchor(anchor)
