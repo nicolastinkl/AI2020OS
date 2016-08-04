@@ -45,9 +45,11 @@ class DefaultCommentManager: CommentManager {
         
         if let data = defa.objectForKey(key) as? NSData {
             return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? ServiceCommentLocalSavedModel
+        } else {
+            let m = ServiceCommentLocalSavedModel()
+            m.serviceId = serviceId
+            return m
         }
-        
-        return nil
     }
     
     func saveCommentModelToLocal(serviceId: String, model: ServiceCommentLocalSavedModel) -> Bool {
