@@ -165,7 +165,9 @@ class AIBuyerDetailViewController: UIViewController {
 		
 		// Default request frist networking from asiainfo server.
 		self.tableView.headerBeginRefreshing()
-		
+
+        // Set AnchorManager
+		setupAnchorManager()
 	}
 
 
