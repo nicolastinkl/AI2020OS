@@ -224,7 +224,7 @@ struct AIRemoteNotificationParameters {
     func removeNotificationForUser(user: String) {
 
         let installation = AVInstallation .currentInstallation()
-        installation.removeObjectForKey(AIRemoteNotificationParameters.ProviderIdentifier)
+        installation.setObject("123", forKey: AIRemoteNotificationParameters.ProviderIdentifier)
         installation.removeObject(AIRemoteNotificationParameters.ProviderChannel, forKey: AIRemoteNotificationKeys.Channels)
         installation.saveInBackground()
     }

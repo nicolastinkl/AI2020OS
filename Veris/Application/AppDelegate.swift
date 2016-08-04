@@ -270,7 +270,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	func applicationWillTerminate(application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-	
+
+
+
+    //MARK: 配置默认用户
 	func configDefaultUser () {
 		
 		var defaultUserID = "100000002410"
