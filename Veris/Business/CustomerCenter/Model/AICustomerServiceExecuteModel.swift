@@ -121,3 +121,7 @@ enum AITimelineLayoutTypeEnum: Int {
 enum AITimelineContentTypeEnum: Int {
     case Image = 1, Voice, LocationMap
 }
+
+enum AITimelineFilterTypeEnum: Int {
+    case showAll = 1, showNotice, showAction
+}

@@ -23,6 +23,10 @@
 		123A1F871D2F94F900542D06 /* AITimelineTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1F851D2F94F900542D06 /* AITimelineTopView.swift */; };
 		1265F6291D47841400130ECF /* AICustomerServiceExecuteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1265F6281D47841400130ECF /* AICustomerServiceExecuteHandler.swift */; };
 		1265F62B1D48937700130ECF /* AICustomerServiceExecBusiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1265F62A1D48937700130ECF /* AICustomerServiceExecBusiModel.m */; };
+		1265F62D1D4F755200130ECF /* AIWorkManageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1265F62C1D4F755200130ECF /* AIWorkManageStoryboard.storyboard */; };
+		1265F62F1D4F75F400130ECF /* AIWorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1265F62E1D4F75F400130ECF /* AIWorkInfoViewController.swift */; };
+		1265F6341D50424000130ECF /* AIWorkDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1265F6331D50424000130ECF /* AIWorkDetailView.xib */; };
+		1265F6361D50425D00130ECF /* AIWorkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1265F6351D50425D00130ECF /* AIWorkDetailView.swift */; };
 		126F82131D129864009B1C6D /* AICustomerServiceExecuteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */; };
 		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
 		1273444D1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */; };
@@ -512,8 +516,6 @@
 		8175A8031CFD2710006F2C8F /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7AF1CFD2710006F2C8F /* UIImageView+HighlightedWebCache.m */; };
 		8175A8041CFD2710006F2C8F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7B11CFD2710006F2C8F /* UIImageView+WebCache.m */; };
 		8175A8051CFD2710006F2C8F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7B31CFD2710006F2C8F /* UIView+WebCacheOperation.m */; };
-		817AF02A1D48B2DC00009F9F /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B195791D4852BE0086EB83 /* CardDeepLinkKit.framework */; };
-		817AF02B1D48B2DC00009F9F /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81B195791D4852BE0086EB83 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		81A0458F1C11675500296E56 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A0458E1C11675500296E56 /* CoreAudio.framework */; };
 		81B195661D474A960086EB83 /* AADataReceiverParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B195521D474A960086EB83 /* AADataReceiverParser.swift */; };
 		81B195671D474A960086EB83 /* AIAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B195531D474A960086EB83 /* AIAnchor.swift */; };
@@ -784,6 +786,10 @@
 		123A1F851D2F94F900542D06 /* AITimelineTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTopView.swift; sourceTree = "<group>"; };
 		1265F6281D47841400130ECF /* AICustomerServiceExecuteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteHandler.swift; sourceTree = "<group>"; };
 		1265F62A1D48937700130ECF /* AICustomerServiceExecBusiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICustomerServiceExecBusiModel.m; sourceTree = "<group>"; };
+		1265F62C1D4F755200130ECF /* AIWorkManageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIWorkManageStoryboard.storyboard; sourceTree = "<group>"; };
+		1265F62E1D4F75F400130ECF /* AIWorkInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIWorkInfoViewController.swift; path = ../AIWorkInfoViewController.swift; sourceTree = "<group>"; };
+		1265F6331D50424000130ECF /* AIWorkDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWorkDetailView.xib; sourceTree = "<group>"; };
+		1265F6351D50425D00130ECF /* AIWorkDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkDetailView.swift; sourceTree = "<group>"; };
 		126F82121D129864009B1C6D /* AICustomerServiceExecuteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerServiceExecuteViewController.swift; sourceTree = "<group>"; };
 		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
 		1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomerOrderFoldedView.xib; sourceTree = "<group>"; };
@@ -1363,7 +1369,7 @@
 		81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TDAdditions.m"; sourceTree = "<group>"; };
 		81433F1F1CFBE80700347C29 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIFundManageViewController.swift; path = FundManage/AIFundManageViewController.swift; sourceTree = "<group>"; };
-		81512ED21D220AFE00AE041D /* AIWorkManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIWorkManageViewController.swift; path = WorkManage/AIWorkManageViewController.swift; sourceTree = "<group>"; };
+		81512ED21D220AFE00AE041D /* AIWorkManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIWorkManageViewController.swift; path = ../AIWorkManageViewController.swift; sourceTree = "<group>"; };
 		8175A7141CFD2710006F2C8F /* AIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageView.swift; sourceTree = "<group>"; };
 		8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwiftyJSON.swift; sourceTree = "<group>"; };
 		8175A7161CFD2710006F2C8F /* AIUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIUINavigationController.h; sourceTree = "<group>"; };
@@ -1897,6 +1903,34 @@
 				1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */,
 			);
 			path = BaiduMap;
+			sourceTree = "<group>";
+		};
+		1265F6301D50420600130ECF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81512ED21D220AFE00AE041D /* AIWorkManageViewController.swift */,
+				1265F62E1D4F75F400130ECF /* AIWorkInfoViewController.swift */,
+			);
+			name = ViewController;
+			path = WorkManage/ViewController;
+			sourceTree = "<group>";
+		};
+		1265F6311D50420600130ECF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1265F6331D50424000130ECF /* AIWorkDetailView.xib */,
+				1265F6351D50425D00130ECF /* AIWorkDetailView.swift */,
+			);
+			name = View;
+			path = WorkManage/View;
+			sourceTree = "<group>";
+		};
+		1265F6321D50420600130ECF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			path = WorkManage/Model;
 			sourceTree = "<group>";
 		};
 		126F82111D12983E009B1C6D /* ServiceExecute */ = {
@@ -3259,6 +3293,7 @@
 				81433C161CFBE5A700347C29 /* UIBuyerStoryboard.storyboard */,
 				81433C171CFBE5A700347C29 /* UIRrequirementStoryboard.storyboard */,
 				126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */,
+				1265F62C1D4F755200130ECF /* AIWorkManageStoryboard.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -3303,7 +3338,9 @@
 		81512ED11D220AD900AE041D /* WorkManage */ = {
 			isa = PBXGroup;
 			children = (
-				81512ED21D220AFE00AE041D /* AIWorkManageViewController.swift */,
+				1265F6301D50420600130ECF /* ViewController */,
+				1265F6311D50420600130ECF /* View */,
+				1265F6321D50420600130ECF /* Model */,
 			);
 			name = WorkManage;
 			sourceTree = "<group>";
@@ -4490,6 +4527,7 @@
 				93A0AB911D129FEB00562090 /* va_start.wav in Resources */,
 				81433EC21CFBE5A700347C29 /* UIBuyerStoryboard.storyboard in Resources */,
 				81433DF31CFBE5A700347C29 /* ContentsCellView.xib in Resources */,
+				1265F6341D50424000130ECF /* AIWorkDetailView.xib in Resources */,
 				81433EBE1CFBE5A700347C29 /* MyriadPro-SemiboldSemiCn.otf in Resources */,
 				FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */,
 				84F2E5C21D181376009E0C72 /* TestExpandableCellViewController.xib in Resources */,
@@ -4503,6 +4541,7 @@
 				81433E011CFBE5A700347C29 /* AirTicketView.xib in Resources */,
 				8457004D1D012D7D00512597 /* CommentDistrictView.xib in Resources */,
 				81433D511CFBE5A700347C29 /* AIConfirmOrderCellView.xib in Resources */,
+				1265F62D1D4F755200130ECF /* AIWorkManageStoryboard.storyboard in Resources */,
 				93C8C9AA1D14035B00F1DFCF /* AICustomSearchHomeCell.xib in Resources */,
 				93A0AB9C1D12AA1B00562090 /* AIPaymentViewController.xib in Resources */,
 				845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */,
@@ -5161,6 +5200,7 @@
 				8175A7F51CFD2710006F2C8F /* RRTagController.swift in Sources */,
 				FB703ADF1D24B7BF00229A08 /* SwiftWebViewBridge.swift in Sources */,
 				8458167C1D3C727700448A7B /* CommentAreaView.swift in Sources */,
+				1265F62F1D4F75F400130ECF /* AIWorkInfoViewController.swift in Sources */,
 				81433E9A1CFBE5A700347C29 /* FLEXHierarchyTableViewCell.m in Sources */,
 				FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */,
 				84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */,
@@ -5240,6 +5280,7 @@
 				81433E6D1CFBE5A700347C29 /* FLEXTableContentCell.m in Sources */,
 				81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */,
 				12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */,
+				1265F6361D50425D00130ECF /* AIWorkDetailView.swift in Sources */,
 				FB2E41ED1D461821001DDB5D /* MBFingerTipWindow.m in Sources */,
 				FB703AE21D24C05C00229A08 /* AIWebViewController.swift in Sources */,
 				FB7DA9831D3C87BC00DEAC9F /* AIRecommondForYouViewController.swift in Sources */,

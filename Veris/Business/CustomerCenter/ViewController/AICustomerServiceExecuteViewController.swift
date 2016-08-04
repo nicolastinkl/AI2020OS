@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import AIAlertView
 
 // MARK: -
 // MARK: AICustomerServiceExecuteViewController
@@ -22,10 +23,11 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     // MARK: -> Public properties
 
     var serviceInstsView: AIVerticalScrollView!
-    var models: [IconServiceIntModel]?
     var orderInfoContentView: AITimelineTopView?
     var orderInfoModel: AICustomerOrderDetailTopViewModel?
     var timelineModels: [AITimelineViewModel] = []
+    //订单信息是否已加载标志
+    var orderInfoIsLoad = false
     var cellHeightArray: Array<CGFloat>!
     
     let messageBadge = GIBadgeView()
@@ -97,7 +99,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupViews()
-        loadData()
+        loadDataFake()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -108,7 +110,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if serviceInstsView == nil {
+        if serviceInstsView == nil && orderInfoModel != nil && orderInfoModel?.serviceInsts != nil {
             buildServiceInstsView()
         }
     }
@@ -127,14 +129,6 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
             make.edges.equalTo(orderInfoView)
         }
 
-        orderInfoModel = AICustomerOrderDetailTopViewModel()
-        orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/shoppingcart/Hm7ulONUnenmN.png"
-        orderInfoModel?.serviceName = "孕检无忧"
-        orderInfoModel?.completion = 0.75
-        orderInfoModel?.price = "¥ 1428"
-        orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png"
-        orderInfoModel?.serviceDesc = "孕检无负担，轻松愉快。"
-        orderInfoContentView?.model = orderInfoModel
         //timeLine tableView
         timelineTableView.registerNib(UINib(nibName: AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, bundle: nil), forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell)
         timelineTableView.registerNib(UINib(nibName: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell, bundle: nil), forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell)
@@ -171,9 +165,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     }
 
     func buildServiceInstsView() {
-
-        models = [IconServiceIntModel(serviceInstId: 1, serviceIcon: "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png", serviceInstStatus: ServiceInstStatus.Assigned, executeProgress: 1), IconServiceIntModel(serviceInstId: 1, serviceIcon: "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png", serviceInstStatus: ServiceInstStatus.Assigned, executeProgress: 1), IconServiceIntModel(serviceInstId: 1, serviceIcon: "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png", serviceInstStatus: ServiceInstStatus.Assigned, executeProgress: 1)]
-        if let models = models {
+        
+        if let models = orderInfoModel?.serviceInsts {
 
             let frame = serviceIconContainerView.bounds
             serviceInstsView = AIVerticalScrollView(frame: frame, needCheckAll : false)
@@ -185,7 +178,24 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         }
     }
 
-    func loadData() {
+    func loadDataFake() {
+        //订单信息数据fake
+        orderInfoModel = AICustomerOrderDetailTopViewModel()
+        orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/shoppingcart/Hm7ulONUnenmN.png"
+        orderInfoModel?.serviceName = "孕检无忧"
+        orderInfoModel?.completion = 0.75
+        orderInfoModel?.price = "¥ 1428"
+        orderInfoModel?.serviceIcon = "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png"
+        orderInfoModel?.serviceDesc = "孕检无负担，轻松愉快。"
+        orderInfoModel?.unReadMessageNumber = 1
+        orderInfoModel?.unConfirmMessageNumber = 3
+        orderInfoContentView?.model = orderInfoModel
+        
+        orderInfoModel?.serviceInsts = [IconServiceIntModel(serviceInstId: 1, serviceIcon: "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png", serviceInstStatus: ServiceInstStatus.Assigned, executeProgress: 1), IconServiceIntModel(serviceInstId: 1, serviceIcon: "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png", serviceInstStatus: ServiceInstStatus.Assigned, executeProgress: 1), IconServiceIntModel(serviceInstId: 1, serviceIcon: "http://171.221.254.231:3000/upload/proposal/NKfG9YRqfEZq3.png", serviceInstStatus: ServiceInstStatus.Assigned, executeProgress: 1)]
+        //未读消息赋值
+        messageBadge.badgeValue = orderInfoModel!.unReadMessageNumber!
+        noticeBadge.badgeValue = orderInfoModel!.unConfirmMessageNumber!
+        
         timelineModels.removeAll()
         for i in 0...3 {
             timelineModels.append(AITimelineViewModel.createFakeData("\(i)"))
@@ -197,6 +207,33 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         //结束下拉刷新
         timelineTableView.headerEndRefreshing()
         timelineTableView.reloadData()
+    }
+    
+    func loadData() {
+        let interfaceHandler = AICustomerServiceExecuteHandler.sharedInstance
+        let compServiceInstId = "111"
+        let orderId = "1111"
+        
+        
+        //刷新订单信息和消息数据
+        weak var weakSelf = self
+        interfaceHandler.queryCustomerServiceExecute(compServiceInstId, success: { (viewModel) in
+            weakSelf?.orderInfoContentView?.model = viewModel
+            weakSelf?.messageBadge.badgeValue = viewModel.unReadMessageNumber!
+            weakSelf?.noticeBadge.badgeValue = viewModel.unConfirmMessageNumber!
+            //刷新时间线表格
+            interfaceHandler.queryCustomerTimelineList(orderId, serviceInstIds: [], filterType: 1, success: { (viewModel) in
+                weakSelf?.timelineTableView.headerEndRefreshing()
+                weakSelf?.timelineModels.removeAll()
+                weakSelf?.timelineModels = viewModel
+                weakSelf?.timelineTableView.reloadData()
+            }) { (errType, errDes) in
+                AIAlertView().showError("刷新失败", subTitle: errDes)
+            }
+        }) { (errType, errDes) in
+            weakSelf?.timelineTableView.headerEndRefreshing()
+            AIAlertView().showError("刷新失败", subTitle: errDes)
+        }
     }
     
     //TODO: 过滤时间线
