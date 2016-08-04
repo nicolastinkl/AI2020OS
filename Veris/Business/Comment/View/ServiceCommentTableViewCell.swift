@@ -75,7 +75,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
         
         if model.commentEditable {
             state = getState(.CommentEditable)
-        } else if model.submitted {
+        } else if !model.submitted {
             state = getState(.CommentFinshed)
         } else {
             state = getState(.Done)
