@@ -44,7 +44,8 @@ class AIWishVowViewController: UIViewController {
                 layout.right == layout.superview!.right
                 layout.height == 44.0 + 10.0
             })
-
+            navi.titleLabel.text = "Make a wish"
+            navi.backButton.setImage(UIImage(named: "scan_back"), forState: UIControlState.Normal)
         }
 
     }
