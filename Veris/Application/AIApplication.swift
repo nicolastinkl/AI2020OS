@@ -273,35 +273,7 @@ struct AIApplication {
         UIApplication.sharedApplication().sendAction(Selector(functionName), to: nil, from: ownerName, forEvent: nil)
     }
 
-    /*!
-    Application hook viewdidload
-    */
-    static func hookViewDidLoad() {
-        swizzlingMethod(UIViewController.self,
-            oldSelector: #selector(UIViewController.viewDidLoad),
-            newSelector: #selector(UIViewController.viewDidLoadForChangeTitleColor))
-    }
-
-    /*!
-    Application hookViewDesLoad
-    */
-    static func hookViewWillAppear() {
-        swizzlingMethod(UIViewController.self,
-            oldSelector: #selector(UIViewController.viewDidAppear(_:)),
-            newSelector: #selector(UIViewController.viewWillAppearForShowBottomBar(_:)))
-    }
-
-    static func hookViewWillDisappear() {
-        swizzlingMethod(UIViewController.self,
-            oldSelector: #selector(UIViewController.viewWillDisappear(_:)),
-            newSelector: #selector(UIViewController.viewWillDisappearForHiddenBottomBar(_:)))
-    }
-
-    static func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {
-        let oldMethod = class_getInstanceMethod(clzz, oldSelector)
-        let newMethod = class_getInstanceMethod(clzz, newSelector)
-        method_exchangeImplementations(oldMethod, newMethod)
-    }
+    
 
     /**
      根据不同环境获取服务器Api地址.
