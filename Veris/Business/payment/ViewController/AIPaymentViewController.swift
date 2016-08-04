@@ -94,7 +94,7 @@ class AIPaymentViewController: UIViewController {
         
         #if DEBUG
         
-            showNotifyPayStatus()
+//            showNotifyPayStatus()
             
         #endif
         
