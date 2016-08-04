@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -26,37 +26,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcb-5F-OXg">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82q-6H-fdR" customClass="DesignableButton" customModule="Spring">
-                            <rect key="frame" x="30" y="184" width="540" height="36"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uk4-p7-9sv">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="36" id="clQ-Tt-Dwy"/>
+                                <constraint firstAttribute="height" constant="50" id="1kc-zI-aLa"/>
                             </constraints>
-                            <state key="normal" title="发出心愿">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                    <real key="value" value="1"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                    <real key="value" value="0.0"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="5"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </button>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="说出心愿" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2fd-29-3dj" customClass="DesignableTextView" customModule="Spring">
-                            <rect key="frame" x="30" y="70" width="540" height="89"/>
+                        </view>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="  Your Could write down your wish here or select from blew." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2fd-29-3dj" customClass="DesignableTextView" customModule="Spring">
+                            <rect key="frame" x="15" y="102" width="570" height="89"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="89" id="4Zc-21-ttW"/>
                             </constraints>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="0.59853684971098264" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <userDefinedRuntimeAttributes>
@@ -64,45 +47,147 @@
                                     <real key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uk4-p7-9sv">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="  0 Euro" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3jP-vk-QKj" customClass="DesignableTextView" customModule="Spring">
+                            <rect key="frame" x="15" y="239" width="570" height="37"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="1kc-zI-aLa"/>
+                                <constraint firstAttribute="height" constant="37" id="zm0-vB-W2s"/>
                             </constraints>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您可以能感兴趣的心愿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNt-Bn-B96">
-                            <rect key="frame" x="30" y="238" width="540" height="21"/>
+                            <color key="textColor" white="1" alpha="0.59853684969999998" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Wish_Make_wish" translatesAutoresizingMaskIntoConstraints="NO" id="0Og-OD-FuC">
+                            <rect key="frame" x="16" y="67" width="18" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="21" id="UCk-Ep-7mY"/>
+                                <constraint firstAttribute="width" constant="18" id="Fd5-Ae-hA7"/>
+                                <constraint firstAttribute="height" constant="21" id="FtZ-6L-KLw"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your wish?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-dd-kVe">
+                            <rect key="frame" x="52" y="67" width="334" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="334" id="4Hh-sz-MBc"/>
+                                <constraint firstAttribute="height" constant="21" id="v0k-eG-8Gz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Wish_Make_price" translatesAutoresizingMaskIntoConstraints="NO" id="aO9-OW-Fnm">
+                            <rect key="frame" x="16" y="206" width="18" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="18" id="KAP-Rh-vWe"/>
+                                <constraint firstAttribute="height" constant="21" id="NSc-es-xFH"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much you would like to pay for it?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmT-cF-TRI">
+                            <rect key="frame" x="52" y="206" width="361" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="334" id="3OE-9b-N9S"/>
+                                <constraint firstAttribute="width" constant="361" id="Ozt-kC-lnC"/>
+                                <constraint firstAttribute="height" constant="21" id="bc1-ti-0uw"/>
+                                <constraint firstAttribute="height" constant="26" id="dYl-Hk-91q"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="3OE-9b-N9S"/>
+                                    <exclude reference="bc1-ti-0uw"/>
+                                </mask>
+                            </variation>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82q-6H-fdR" customClass="DesignableButton" customModule="Spring">
+                            <rect key="frame" x="216" y="294" width="168" height="50"/>
+                            <color key="backgroundColor" red="0.054901960784313725" green="0.47450980392156861" blue="0.80000000000000004" alpha="0.80728414017341044" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="clQ-Tt-Dwy"/>
+                                <constraint firstAttribute="height" constant="50" id="mqY-en-GLn"/>
+                                <constraint firstAttribute="width" constant="168" id="oNY-S6-ai5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                            <state key="normal" title="Submit">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="clQ-Tt-Dwy"/>
+                                </mask>
+                            </variation>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="wNt-Bn-B96" firstAttribute="top" secondItem="82q-6H-fdR" secondAttribute="bottom" constant="18" id="A7q-56-zjM"/>
-                        <constraint firstItem="82q-6H-fdR" firstAttribute="top" secondItem="2fd-29-3dj" secondAttribute="bottom" constant="25" id="Eby-iT-CyS"/>
-                        <constraint firstAttribute="trailing" secondItem="2fd-29-3dj" secondAttribute="trailing" constant="30" id="Mor-ph-MPg"/>
-                        <constraint firstItem="wNt-Bn-B96" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="30" id="NnJ-UP-Ob7"/>
+                        <constraint firstItem="wmT-cF-TRI" firstAttribute="top" secondItem="2fd-29-3dj" secondAttribute="bottom" constant="15" id="00D-7S-1t4"/>
+                        <constraint firstItem="2fd-29-3dj" firstAttribute="top" secondItem="Uk4-p7-9sv" secondAttribute="bottom" constant="60" id="0ZK-Qj-KWs"/>
+                        <constraint firstItem="dGM-dd-kVe" firstAttribute="leading" secondItem="0Og-OD-FuC" secondAttribute="trailing" constant="18" id="5Yl-N4-ecw"/>
+                        <constraint firstItem="0Og-OD-FuC" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="16" id="8N8-9u-Izs"/>
+                        <constraint firstItem="82q-6H-fdR" firstAttribute="centerX" secondItem="gcb-5F-OXg" secondAttribute="centerX" id="9zG-Tt-bjw"/>
+                        <constraint firstItem="2fd-29-3dj" firstAttribute="top" secondItem="dGM-dd-kVe" secondAttribute="bottom" constant="14" id="BXH-Sh-HEa"/>
+                        <constraint firstItem="3jP-vk-QKj" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="15" id="DMP-o8-xEh"/>
+                        <constraint firstItem="82q-6H-fdR" firstAttribute="top" secondItem="2fd-29-3dj" secondAttribute="bottom" constant="150" id="Eby-iT-CyS"/>
+                        <constraint firstItem="0Og-OD-FuC" firstAttribute="top" secondItem="Uk4-p7-9sv" secondAttribute="bottom" constant="17" id="GsK-Lb-mUs"/>
+                        <constraint firstItem="2fd-29-3dj" firstAttribute="leading" secondItem="wmT-cF-TRI" secondAttribute="trailing" constant="-398" id="Jzr-dH-ySi"/>
+                        <constraint firstItem="aO9-OW-Fnm" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="16" id="KL5-V5-djt"/>
+                        <constraint firstAttribute="trailing" secondItem="2fd-29-3dj" secondAttribute="trailing" constant="15" id="Mor-ph-MPg"/>
+                        <constraint firstItem="aO9-OW-Fnm" firstAttribute="top" secondItem="2fd-29-3dj" secondAttribute="bottom" constant="15" id="Nm0-8y-inb"/>
                         <constraint firstAttribute="trailing" secondItem="82q-6H-fdR" secondAttribute="trailing" constant="30" id="QEL-nn-A88"/>
-                        <constraint firstItem="2fd-29-3dj" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="30" id="Quv-EV-hGu"/>
+                        <constraint firstItem="2fd-29-3dj" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="15" id="Quv-EV-hGu"/>
+                        <constraint firstItem="82q-6H-fdR" firstAttribute="top" secondItem="3jP-vk-QKj" secondAttribute="bottom" constant="18" id="SGO-tI-jSh"/>
                         <constraint firstItem="Uk4-p7-9sv" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" id="TN7-lD-zcT"/>
                         <constraint firstItem="Uk4-p7-9sv" firstAttribute="top" secondItem="gcb-5F-OXg" secondAttribute="top" id="UNC-Uy-dUI"/>
                         <constraint firstItem="2fd-29-3dj" firstAttribute="top" secondItem="gcb-5F-OXg" secondAttribute="top" constant="70" id="XTC-6K-jLN"/>
-                        <constraint firstAttribute="trailing" secondItem="wNt-Bn-B96" secondAttribute="trailing" constant="30" id="ZWu-D8-ggW"/>
+                        <constraint firstItem="wmT-cF-TRI" firstAttribute="leading" secondItem="aO9-OW-Fnm" secondAttribute="trailing" constant="18" id="ZDQ-3s-eVk"/>
+                        <constraint firstItem="dGM-dd-kVe" firstAttribute="top" secondItem="Uk4-p7-9sv" secondAttribute="bottom" constant="17" id="awl-lJ-wWR"/>
                         <constraint firstItem="82q-6H-fdR" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="30" id="gu8-yG-p51"/>
+                        <constraint firstItem="3jP-vk-QKj" firstAttribute="top" secondItem="wmT-cF-TRI" secondAttribute="bottom" constant="7" id="jis-o9-Ps9"/>
+                        <constraint firstAttribute="trailing" secondItem="3jP-vk-QKj" secondAttribute="trailing" constant="15" id="tsO-aB-N0V"/>
                         <constraint firstAttribute="trailing" secondItem="Uk4-p7-9sv" secondAttribute="trailing" id="yxi-Jl-lxs"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="0ZK-Qj-KWs"/>
+                            <exclude reference="Jzr-dH-ySi"/>
+                            <exclude reference="XTC-6K-jLN"/>
+                            <exclude reference="Eby-iT-CyS"/>
+                            <exclude reference="QEL-nn-A88"/>
+                            <exclude reference="gu8-yG-p51"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -116,7 +201,11 @@
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="ecc-f6-tlq"/>
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="uh5-Iw-2bm"/>
             </constraints>
-            <point key="canvasLocation" x="-196" y="280"/>
+            <point key="canvasLocation" x="-260" y="377"/>
         </view>
     </objects>
+    <resources>
+        <image name="AI_Wish_Make_price" width="18" height="21"/>
+        <image name="AI_Wish_Make_wish" width="18" height="21"/>
+    </resources>
 </document>
