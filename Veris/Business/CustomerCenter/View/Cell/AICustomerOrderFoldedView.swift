@@ -61,7 +61,7 @@ class AICustomerOrderFoldedView: UIView {
         noticeBadgeLabel.text = "\(proposalModel.messages)"
         taskStatusLabel.text = proposalModel.state
         
-        if let services = proposalModel.service as? [ServiceOrderModel]{
+        if let services = proposalModel.service as? [ServiceOrderModel] {
             if services.count > 0 {
                 if let node = services[0].node {
            //         taskSchedulTimeLabel.text = node.time
