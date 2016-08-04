@@ -504,15 +504,18 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             UIView.commitAnimations()
 
             // self.presentViewController在真机iPhone5上会crash...
+
+
             self.presentViewController(detailViewController, animated: false) { () -> Void in
                 // 开始动画
                 SpringAnimation.springEaseIn(0.3, animations: {
                     detailViewController.view.alpha = 1
-//                    detailViewController.view.transform = CGAffineTransformMakeScale(1, 1)
-//                    detailViewController.view.center = self.originalViewCenter!
+                    detailViewController.view.transform = CGAffineTransformMakeScale(1, 1)
+                    detailViewController.view.center = self.originalViewCenter!
                     self.view.userInteractionEnabled = true
                 })
             }
+
 
         }// end
 
