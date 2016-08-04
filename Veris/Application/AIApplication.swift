@@ -395,6 +395,8 @@ struct AIApplication {
         case searchServiceCondition
         // 2.2.3 商品搜索结果过滤
         case filterServices
+        // 图像识别
+        case uploadAndIdentify
 
         
         
@@ -464,8 +466,7 @@ struct AIApplication {
             case .recentlySearch: return AIApplication.KURL_DebugURL + "/search/recentlySearch"
             case .searchServiceCondition: return AIApplication.KURL_DebugURL + "/search/searchServiceCondition"
             case .filterServices: return AIApplication.KURL_DebugURL + "/search/filterServices"
-
-                
+            case .uploadAndIdentify: return "http://171.221.254.231:3001/uploadAndIdentify"
             }
         }
     }
