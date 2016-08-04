@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,6 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIAssetsReviewsController" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="chooseButton" destination="XGL-er-m2N" id="GQF-pQ-0v2"/>
+                <outlet property="indexLabel" destination="wNq-gN-z8O" id="lIW-Cl-yny"/>
+                <outlet property="indexText" destination="JRv-l4-n3h" id="Qpb-m3-y2H"/>
                 <outlet property="numberButton" destination="gp9-4C-OcI" id="HUb-sn-NyF"/>
                 <outlet property="scrollView" destination="d4Q-rN-IEI" id="2H7-nc-U1b"/>
                 <outlet property="sizeButton" destination="Z9X-xB-Cl4" id="yrV-gW-e54"/>
@@ -47,9 +49,10 @@
                                 <constraint firstAttribute="width" constant="44" id="TBh-HZ-G7t"/>
                                 <constraint firstAttribute="width" constant="37" id="stk-hf-qBp"/>
                             </constraints>
-                            <state key="normal" image="UINaviAble">
+                            <state key="normal" image="item_button_delete">
                                 <color key="titleColor" red="0.0" green="0.46666666670000001" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <state key="highlighted" image="item_button_delete_2"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="stk-hf-qBp"/>
@@ -59,10 +62,22 @@
                                 <action selector="choooseAction:" destination="-1" eventType="touchUpInside" id="HJZ-nF-gQn"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNq-gN-z8O">
+                            <rect key="frame" x="246" y="19" width="109" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="5mY-sA-fux"/>
+                                <constraint firstAttribute="width" constant="109" id="pi1-JS-Gmp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.058823529411764705" green="0.039215686274509803" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="XGL-er-m2N" secondAttribute="trailing" constant="8" id="5M0-fb-H36"/>
+                        <constraint firstItem="wNq-gN-z8O" firstAttribute="centerX" secondItem="XW2-WO-KrW" secondAttribute="centerX" id="8qL-WB-dgR"/>
+                        <constraint firstItem="wNq-gN-z8O" firstAttribute="centerY" secondItem="XW2-WO-KrW" secondAttribute="centerY" id="JRv-l4-n3h"/>
                         <constraint firstAttribute="height" constant="60" id="Qrx-d6-tdQ"/>
                         <constraint firstItem="a9G-Zo-0Qf" firstAttribute="centerY" secondItem="XW2-WO-KrW" secondAttribute="centerY" id="Yr3-X9-uq2"/>
                         <constraint firstItem="a9G-Zo-0Qf" firstAttribute="leading" secondItem="XW2-WO-KrW" secondAttribute="leading" id="c8G-Cq-0KI"/>
@@ -140,12 +155,13 @@
                 <constraint firstItem="d4Q-rN-IEI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pqa-w9-JaP"/>
                 <constraint firstAttribute="bottom" secondItem="d4Q-rN-IEI" secondAttribute="bottom" id="uOX-Ep-X2O"/>
             </constraints>
-            <point key="canvasLocation" x="-279" y="432"/>
+            <point key="canvasLocation" x="-298" y="411"/>
         </view>
     </objects>
     <resources>
-        <image name="UINaviAble" width="20" height="20"/>
         <image name="UINaviDisable" width="20" height="20"/>
         <image name="UINaviback" width="13" height="24"/>
+        <image name="item_button_delete" width="17" height="21"/>
+        <image name="item_button_delete_2" width="24" height="29"/>
     </resources>
 </document>
