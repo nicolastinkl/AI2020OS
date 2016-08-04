@@ -136,7 +136,10 @@ class AIBuyerDetailViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+        
+		// Setup setupNotification
+        setupNotification()
+        
 		// Setting's default tableView settings.
 		initTableView()
 		
@@ -896,9 +899,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
             }
             //MARK:fake card data
             if let model = current_service_list![indexPath.row] as? AIProposalServiceModel {
-
-                let aid = "900001001002"
-                if model.service_id == aid.toInt() {
+                if model.service_id == 900001001002 {
 
                     // Cache Current CellView.
                     let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: indexPath.section)) as! AIBueryDetailCell
