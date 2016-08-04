@@ -582,15 +582,15 @@ internal class AIServiceContentViewController: UIViewController {
 		}
 		
 		// TODO: Add Routine Path View.
-		let routeView = addRoutineView()
+		/*let routeView = addRoutineView()
 		addNewSubView(routeView, preView: contentView)
 		routeView.backgroundColor = UIColor.clearColor()
 		
 		let tapGes = UITapGestureRecognizer(target: self, action: #selector(AIServiceContentViewController.clickRouteViewEvent))
 		routeView.addGestureRecognizer(tapGes)
-		
+		*/
 		// TODO: Add helpfull views.
-		let musicView = addMusicView(routeView)
+		let musicView = addMusicView(contentView)
 		
 		// TODO: Necessary public View.
 		// TODO: DisplayForSeller.

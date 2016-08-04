@@ -55,13 +55,11 @@ class AISuperiorityViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-      
+        view.showLoading()
         Async.main(after: 0.15) {
             // MARK: Layout
             self.initDataWithModel()
             
-            // MARK: Loading Data Views
-            self.initDatawithViews()
         }
     }
     
@@ -179,6 +177,15 @@ class AISuperiorityViewController: UIViewController {
     }
 
     func initDataWithModel() {
+        
+        AISuperiorityService.requestSuperiority("12") { (response, error) in
+            self.view.hideLoading()
+            if let _ = response {
+                // MARK: Loading Data Views
+                self.initDatawithViews()
+            }
+        }
+        
         
     }
 

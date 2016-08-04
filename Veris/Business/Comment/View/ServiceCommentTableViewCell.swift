@@ -33,12 +33,35 @@ class ServiceCommentTableViewCell: UITableViewCell {
     private var stateFactory = [CommentStateEnum: CommentState]()
     private var state: CommentState!
     private var holdImage: UIImage?
+    private var model: ServiceCommentViewModel?
     
-    func getState() -> CommentState {
-        return state
+    func getState() -> CommentStateEnum {
+        
+        if state is CommentEditableState {
+            return CommentStateEnum.CommentEditable
+        }
+        
+        if state is CommentFinshedState {
+            return CommentStateEnum.CommentFinshed
+        }
+        
+        if state is AppendEditingState {
+            return CommentStateEnum.AppendEditing
+        }
+        
+        if state is DoneState {
+            return CommentStateEnum.Done
+        }
+        
+        return CommentStateEnum.Done
     }
     
-    func resetState(state: CommentState) {
+    func resetState(state: CommentStateEnum) {
+        let s = getState(state)
+        resetState(s)
+    }
+    
+    private func resetState(state: CommentState) {
         if let s = self.state {
             if s.dynamicType != state.dynamicType {
                 self.state = state
@@ -47,12 +70,20 @@ class ServiceCommentTableViewCell: UITableViewCell {
         }
     }
     
-    func setModel(model: ServiceCommentViewModel) -> CommentState {
+    func setModel(model: ServiceCommentViewModel) -> CommentStateEnum {
+        self.model = model
+        
         if model.commentEditable {
-            return getState(.CommentEditable)
+            state = getState(.CommentEditable)
+        } else if model.submitted {
+            state = getState(.CommentFinshed)
         } else {
-            return getState(.CommentFinshed)
+            state = getState(.Done)
         }
+        
+        state.updateUI()
+        
+        return getState()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -141,6 +172,10 @@ class ServiceCommentTableViewCell: UITableViewCell {
         }
     }
     
+    func getSubmitData() -> ServiceComment? {
+        return state?.getSubmitData()
+    }
+    
     private func appendCommentAreaHidden(hidden: Bool) {
         appendComment.hidden = hidden
         appendCommentButton.hidden = hidden
@@ -169,8 +204,8 @@ class ServiceCommentTableViewCell: UITableViewCell {
                 s = CommentFinshedState(cell: self)
             case .AppendEditing:
                 s = AppendEditingState(cell: self)
-            case .AppendEdited:
-                s = AppendEditedState(cell: self)
+//            case .AppendEdited:
+//                s = AppendEditedState(cell: self)
             case .Done:
                 s = DoneState(cell: self)
             }
@@ -179,6 +214,47 @@ class ServiceCommentTableViewCell: UITableViewCell {
         }
         
         return s!
+    }
+    
+    private func getImageUrls(isAppend: Bool) -> [NSURL] {
+        var urls = [NSURL]()
+        var serviceComment: ServiceComment?
+        
+        serviceComment = isAppend ? model?.appendComment : model?.firstComment
+        
+        if let comment = serviceComment {
+            if let photos = comment.photos as? [CommentPhoto] {
+                for photo in photos {
+                    guard let url = photo.url else {
+                        continue
+                    }
+                    
+                    guard let u = NSURL(string: url) else {
+                        continue
+                    }
+                    
+                    urls.append(u)
+                }
+            }
+        }
+        
+        guard let m = model?.loaclModel else {
+            return urls
+        }
+        
+        if m.isAppend == isAppend {
+            for info in m.imageInfos {
+                guard let u = info.url else {
+                    continue
+                }
+                
+                if info.isSuccessUploaded {
+                    urls.append(u)
+                }
+            }
+        }
+        
+        return urls
     }
 }
 
@@ -193,11 +269,11 @@ extension ServiceCommentTableViewCell: CommentCellProtocol {
     }
 }
 
-private enum CommentStateEnum {
+enum CommentStateEnum {
     case CommentEditable
     case CommentFinshed
     case AppendEditing
-    case AppendEdited
+ //   case AppendEdited
     case Done
 }
 
@@ -208,6 +284,8 @@ protocol CommentState: class {
     func addAsyncUploadImages(images: [(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)])
     func addAsyncUploadImage(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)
     func addAsyncDownloadImages(urls: [NSURL])
+    // 获取要提交的数据, 只返回文字和评分数据，图片数据保存在CommentManager中，在CommentManager提交评价时一并提交
+    func getSubmitData() -> ServiceComment?
 }
 
 private class AbsCommentState: CommentState {
@@ -241,11 +319,20 @@ private class AbsCommentState: CommentState {
     func addAsyncDownloadImages(urls: [NSURL]) {
         
     }
+    
+    func getSubmitData() -> ServiceComment? {
+        return nil
+    }
 }
 
 // 评论可编辑
 private class CommentEditableState: AbsCommentState {
     override func updateUI() {
+        cell.clearImages()
+        
+        let images = cell.getImageUrls(false)
+        addAsyncDownloadImages(images)
+        
         cell.appendCommentButton.hidden = true
         cell.starRateView.userInteractionEnabled = true
     }
@@ -269,6 +356,14 @@ private class CommentEditableState: AbsCommentState {
     override func addAsyncDownloadImages(urls: [NSURL]) {
         cell.firstComment.imageCollection.addAsyncDownloadImages(urls, holdImage: cell.holdImage)
     }
+    
+    override func getSubmitData() -> ServiceComment? {
+        let comment = ServiceComment()
+        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
+        comment.service_id = cell.model!.serviceId
+        comment.text = cell.firstComment.inputTextView.text
+        return comment
+    }
 }
 
 //class CommentedNoCommitState: AbsCommentState {
@@ -280,6 +375,14 @@ private class CommentEditableState: AbsCommentState {
 // 已提交过评价
 private class CommentFinshedState: AbsCommentState {
     override func updateUI() {
+        cell.clearImages()
+        
+        let appendImages = cell.getImageUrls(true)
+        addAsyncDownloadImages(appendImages)
+        
+        let firstImages = cell.getImageUrls(false)
+        cell.appendComment.imageCollection.addAsyncDownloadImages(firstImages, holdImage: cell.holdImage)
+        
         cell.firstComment.finishComment()
         cell.appendCommentHeight.constant = 0
         cell.appendCommentButton.hidden = false
@@ -320,15 +423,23 @@ private class AppendEditingState: AbsCommentState {
     override func addAsyncUploadImage(image: UIImage, id: String? = nil, complate: AIImageView.UploadComplate? = nil) {
         cell.appendComment.imageCollection.addAsyncUploadImage(image, id: id, complate: complate)
     }
+    
+    override func getSubmitData() -> ServiceComment? {
+        let comment = ServiceComment()
+        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
+        comment.service_id = cell.model!.serviceId
+        comment.text = cell.appendComment.inputTextView.text
+        return comment
+    }
 }
 
 // 追加评价已编辑，未提交
-private class AppendEditedState: AbsCommentState {
-    override func updateUI() {
-        cell.appendCommentAreaHidden(false)
-        cell.starRateView.userInteractionEnabled = false
-    }
-}
+//private class AppendEditedState: AbsCommentState {
+//    override func updateUI() {
+//        cell.appendCommentAreaHidden(false)
+//        cell.starRateView.userInteractionEnabled = false
+//    }
+//}
 
 
 // 评价和追加评价都已提交完成

@@ -18,12 +18,11 @@ import UIKit
 struct AIApplication {
 
     // MARK: LEANCLOUD APPKEY
-    internal static let AVOSCLOUDID  = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
-    internal static let AVOSCLOUDKEY = "LGwq0DTaJb8D59IV3kK18wmh"
-    internal static let KURL_ReleaseURL =  "http://171.221.254.231:2999/nsboss" //正式地址
-    internal static let KURL_DebugURL   =  "http://10.5.1.249:2999/nsboss"  //测试地址
+    internal static let AVOSCLOUDID     = "cFJym1CIWdKdTKbUe7NKIRXj-gzGzoHsz"
+    internal static let AVOSCLOUDKEY    = "LGwq0DTaJb8D59IV3kK18wmh"
+    internal static let KURL_ReleaseURL = "http://171.221.254.231:3000"// "http://171.221.254.231:2999/nsboss" //正式地址v 
+    internal static let KURL_DebugURL   = "http://171.221.254.231:2999/nsboss"  //测试地址
     internal static let UMengAppID      = "5784b6a767e58e5d1b003373"      //友盟分享id
-    
 
     // MARK: XUNFEI APPID
     internal static let XUNFEIAPPID  = "551ba83b"
@@ -276,8 +275,6 @@ struct AIApplication {
 
     
 
-    
-
     /**
      根据不同环境获取服务器Api地址.
      */
@@ -380,6 +377,12 @@ struct AIApplication {
         // 提交评论
         case saveComment
         
+        // 服务优势介绍
+        case preview
+        
+        // 产品详情
+        case detail
+        
         // 2.6.6 所有推荐（为您推荐）
         case allRecommends
         // 2.6.7 服务者介绍
@@ -392,6 +395,8 @@ struct AIApplication {
         case searchServiceCondition
         // 2.2.3 商品搜索结果过滤
         case filterServices
+
+        
         
         var description: String {
 
@@ -443,19 +448,24 @@ struct AIApplication {
             case .initTask: return AIApplication.KURL_ReleaseURL + "/initTask"
                 
             //登陆注册接口
-            case .register: return AIApplication.KURL_ReleaseURL + "/admin/register"
-            case .login: return AIApplication.KURL_ReleaseURL + "/admin/login"
+            case .register: return AIApplication.KURL_DebugURL + "/admin/register"
+            case .login: return AIApplication.KURL_DebugURL + "/admin/login"
                 
             //服务评论接口
-            case .compondComment: return AIApplication.KURL_ReleaseURL + "/comments/queryUserComments"
-            case .commentSpec: return AIApplication.KURL_ReleaseURL + "/comments/queryCommentSpecification"
-            case .saveComment: return AIApplication.KURL_ReleaseURL + "/comments/saveComments"
-            case .allRecommends: return AIApplication.KURL_ReleaseURL + "/service/allRecomends"
-            case .queryProvider: return AIApplication.KURL_ReleaseURL + "/service/queryProvider"
-            case .allQuestions: return AIApplication.KURL_ReleaseURL + "/service/allQuestions"
-            case .recentlySearch: return AIApplication.KURL_ReleaseURL + "/search/recentlySearch"
-            case .searchServiceCondition: return AIApplication.KURL_ReleaseURL + "/search/searchServiceCondition"
-            case .filterServices: return AIApplication.KURL_ReleaseURL + "/search/filterServices"
+            case .compondComment: return AIApplication.KURL_DebugURL + "/comments/queryUserComments"
+            case .commentSpec: return AIApplication.KURL_DebugURL + "/comments/queryCommentSpecification"
+            case .saveComment: return AIApplication.KURL_DebugURL + "/comments/saveComments"
+                
+            case .preview: return AIApplication.KURL_DebugURL + "/service/preview"
+            case .detail: return  AIApplication.KURL_DebugURL + "/service/detail"
+            case .allRecommends: return AIApplication.KURL_DebugURL + "/service/allRecomends"
+            case .queryProvider: return AIApplication.KURL_DebugURL + "/service/queryProvider"
+            case .allQuestions: return AIApplication.KURL_DebugURL + "/service/allQuestions"
+            case .recentlySearch: return AIApplication.KURL_DebugURL + "/search/recentlySearch"
+            case .searchServiceCondition: return AIApplication.KURL_DebugURL + "/search/searchServiceCondition"
+            case .filterServices: return AIApplication.KURL_DebugURL + "/search/filterServices"
+
+                
             }
         }
     }

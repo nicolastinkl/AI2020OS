@@ -20,6 +20,7 @@
 #define kSuccessCode                   @"200"
 #define kSuccessCode_1                 @"1"
 #define kLogoutCode                    @"401"
+#define kNotFoundCode                  @"404"
 
 #define kCookieIdentifier              @"CookieIdentifier"
 
@@ -238,6 +239,14 @@
                 fail(AINetErrorFormat, errorDes);
             }
 
+        }
+        
+        
+        if ([response objectForKey:@"status"] != nil) {
+            int stats = [[response objectForKey:@"status"] intValue];
+            if (stats == 404) {
+                fail(AINetErrorFormat, [response objectForKey:@"msg"]);
+            }
         }
         
         

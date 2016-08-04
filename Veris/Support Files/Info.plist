@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>$(PRODUCT_NAME)  Customer</string>
 	<key>CFBundleExecutable</key>
 	<string>Veris</string>
 	<key>CFBundleIdentifier</key>
@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>V0.20160706.002</string>
+	<string>V0.20160706.004</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -92,6 +92,16 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>AIVeris</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>cddpl</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>cddpl</string>
 			</array>
 		</dict>
 	</array>

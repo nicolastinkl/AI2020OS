@@ -170,9 +170,9 @@ class AIPaymentViewController: UIViewController {
         
     }
     
-    @IBAction func commitPayAction() {
-        
-        presentPopupViewController(ServiceCommentViewController.loadFromXib(), animated: true)
+    /// 评价事件
+    @IBAction func commitPayAction() {        
+        presentPopupViewController(CompondServiceCommentViewController.loadFromXib(), animated: true)
         
     }
     
