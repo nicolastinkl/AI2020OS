@@ -30,7 +30,6 @@ class DefaultCommentManager: CommentManager {
         for id in serviceIds {
             if let model = getCommentModelFromLocal(id) {
                 ensureLocalModelListNotNil()
-                
                 localModelList?.append(model)
             }
         }
