@@ -8,6 +8,7 @@
 
 import UIKit
 import AIAlertView
+import Cartography
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
@@ -28,14 +29,25 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
+            view.addSubview(navi)
+            navi.holderViewController = self
+            constrain(navi, block: { (layout) in
+                layout.left == layout.superview!.left
+                layout.top == layout.superview!.top
+                layout.right == layout.superview!.right
+                layout.height == 44.0 + 10.0
+            })
+            navi.titleLabel.text = "评价"
+
+        }
         
         commentManager = DefaultCommentManager()
 
         checkbox.layer.cornerRadius = 4
         submit.layer.cornerRadius = submit.height / 2
 
-        
-        
         serviceTableView.rowHeight = UITableViewAutomaticDimension
         serviceTableView.estimatedRowHeight = 270
 

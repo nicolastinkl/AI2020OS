@@ -22,7 +22,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="65X-Wc-aJO">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="493"/>
+                    <rect key="frame" x="0.0" y="50" width="600" height="443"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="gHq-lp-2np"/>
@@ -86,7 +86,7 @@
                 <constraint firstItem="akx-Da-VWD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="agl-PJ-nhm"/>
                 <constraint firstItem="akx-Da-VWD" firstAttribute="top" secondItem="65X-Wc-aJO" secondAttribute="bottom" constant="50" id="sUI-9F-ep4"/>
                 <constraint firstItem="akx-Da-VWD" firstAttribute="top" secondItem="MtS-bA-Bby" secondAttribute="bottom" constant="10" id="uH6-fN-mfb"/>
-                <constraint firstItem="65X-Wc-aJO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wOA-dY-7mj"/>
+                <constraint firstItem="65X-Wc-aJO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="wOA-dY-7mj"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
