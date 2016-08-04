@@ -184,18 +184,20 @@ class AudioAssistantManager: NSObject {
 		_roomNumber = roomNumber
 		_didFailHandler = didFailHandler
 		_sessionDidConnectHandler = sessionDidConnectHandler
-		let roomURLString = String(format: "http://104.18.58.238/%@.json", roomNumber)
-		print(String("https://opentokrtc.com/%@.json", roomNumber))
-		let roomURL = NSURL(string: roomURLString)!
-		let request = NSMutableURLRequest(URL: roomURL, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10)
-		request.HTTPMethod = "GET"
-		request.addValue("opentokrtc.com", forHTTPHeaderField: "Host")
-		
-		NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { [unowned self](response, data, error) in
-			if error != nil {
-				print("Error, \(error?.localizedDescription), \(roomURLString)")
-				self.connectionToAudioAssiastantRoom(roomNumber: roomNumber, sessionDidConnectHandler: sessionDidConnectHandler)
-			} else {
+//		let roomURLString = String(format: "http://104.18.58.238/%@.json", roomNumber)
+//		print(String("https://opentokrtc.com/%@.json", roomNumber))
+//		let roomURL = NSURL(string: roomURLString)!
+//		let request = NSMutableURLRequest(URL: roomURL, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10)
+//		request.HTTPMethod = "GET"
+//		request.addValue("opentokrtc.com", forHTTPHeaderField: "Host")
+//		
+//		NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { [unowned self](response, data, error) in
+//			if error != nil {
+//				print("Error, \(error?.localizedDescription), \(roomURLString)")
+//				self.connectionToAudioAssiastantRoom(roomNumber: roomNumber, sessionDidConnectHandler: sessionDidConnectHandler)
+//			} else {
+        let path = NSBundle.mainBundle().pathForResource("89897384.json", ofType: nil)!
+        let data: NSData? = NSData(contentsOfFile: path)
 				if let roomInfo = try?NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary {
 					if let roomInfo = roomInfo {
 						let apiKey = roomInfo["apiKey"] as! String
@@ -205,8 +207,8 @@ class AudioAssistantManager: NSObject {
 						self._session?.connectWithToken(token, error: nil)
 					}
 				}
-			}
-		}
+//			}
+//		}
 	}
 	
 	func disconnectFromToAudioAssiastantRoom() {

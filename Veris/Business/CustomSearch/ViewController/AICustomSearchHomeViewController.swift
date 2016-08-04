@@ -80,7 +80,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	@IBAction func choosePhotoAction(any: AnyObject) {
 		let vc = AIAssetsPickerController.initFromNib()
 		vc.delegate = self
-		vc.maximumNumberOfSelection = 1
+		vc.maximumNumberOfSelection = 10
 		let navi = UINavigationController(rootViewController: vc)
 		navi.navigationBarHidden = true
 		self.presentViewController(navi, animated: true, completion: nil)
