@@ -324,7 +324,8 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         self.dismissPopupViewController(true) { [weak vc] in
             let commentVC = ServiceCommentViewController.loadFromXib()
             commentVC.view.frame = self.view.bounds
-            vc?.presentPopupViewController(commentVC, animated: true)
+            vc?.showTransitionStyleCrossDissolveView(commentVC)
+//            vc?.presentPopupViewController(commentVC, animated: true)
         }
     }
     func confirmOrderButtonDidClick(viewModel viewModel: AITimelineViewModel) {
@@ -333,7 +334,8 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             //打开支付页面
             let popupVC = AIPaymentViewController.initFromNib()
             popupVC.view.frame = self.view.bounds
-            vc?.presentPopupViewController(popupVC, animated: true)
+            vc?.showTransitionStyleCrossDissolveView(popupVC)
+//            vc?.presentPopupViewController(popupVC, animated: true)
         }
     }
     func refuseButtonDidClick(viewModel viewModel: AITimelineViewModel) {

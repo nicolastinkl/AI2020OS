@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>$(PRODUCT_NAME)  Customer</string>
 	<key>CFBundleExecutable</key>
 	<string>Veris</string>
 	<key>CFBundleIdentifier</key>
