@@ -171,8 +171,9 @@ class AIPaymentViewController: UIViewController {
     }
     
     /// 评价事件
-    @IBAction func commitPayAction() {        
-        presentPopupViewController(CompondServiceCommentViewController.loadFromXib(), animated: true)
+    @IBAction func commitPayAction() {
+        showTransitionStyleCrossDissolveView(CompondServiceCommentViewController.loadFromXib())
+//        presentPopupViewController(CompondServiceCommentViewController.loadFromXib(), animated: true)
         
     }
     
