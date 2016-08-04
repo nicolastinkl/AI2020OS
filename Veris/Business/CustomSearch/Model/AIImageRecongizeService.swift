@@ -13,7 +13,7 @@ class AIImageRecongizeService: NSObject {
 	
 	func getImageInfo(image: UIImage, callback: ((String?, error: Error?) -> ())?) {
 		let data = UIImagePNGRepresentation(image)!
-        let url = AIApplication.AIApplicationServerURL.uploadAndIdentify.description
+		let url = AIApplication.AIApplicationServerURL.uploadAndIdentify.description
 		Alamofire.upload(.POST, url,
 			multipartFormData: { multipartFormData in
 				multipartFormData.appendBodyPart(data: data, name: "fileUp", fileName: "fileUp", mimeType: "image/png")
