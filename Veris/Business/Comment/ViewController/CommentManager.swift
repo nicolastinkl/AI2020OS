@@ -27,10 +27,37 @@ class DefaultCommentManager: CommentManager {
     var localModelList: [ServiceCommentLocalSavedModel]?
     
     func loadCommentModelsFromLocal(serviceIds: [String]) -> [ServiceCommentLocalSavedModel]? {
+        
+        func deleteInvalideImages(model: ServiceCommentLocalSavedModel) -> ServiceCommentLocalSavedModel? {
+            var newModel: ServiceCommentLocalSavedModel?
+                
+            let valideImages = model.imageInfos.filter { (info) -> Bool in
+                guard let url = info.url else {
+                    return false
+                }
+                
+                return imageIsExist(url)
+            }
+            
+            if valideImages.count != model.imageInfos.count {
+                newModel = model
+                newModel!.imageInfos = valideImages
+            }
+            
+            return newModel
+        }
+        
         for id in serviceIds {
             if let model = getCommentModelFromLocal(id) {
                 ensureLocalModelListNotNil()
-                localModelList?.append(model)
+                
+                if let newModel = deleteInvalideImages(model) {
+                    // 重写过滤无用图片后的评论数据
+                    saveCommentModelToLocal(id, model: newModel)
+                    localModelList?.append(newModel)
+                } else {
+                    localModelList?.append(model)
+                }   
             }
         }
         
@@ -49,6 +76,18 @@ class DefaultCommentManager: CommentManager {
             m.serviceId = serviceId
             return m
         }
+    }
+    
+    private func imageIsExist(url: NSURL) -> Bool {
+        
+        var exist = AssetUrils.assetExists(url)
+        
+        if !exist {
+            let fileManager = NSFileManager.defaultManager()
+            exist = fileManager.fileExistsAtPath(url.absoluteString)
+        }
+        
+        return exist
     }
     
     func saveCommentModelToLocal(serviceId: String, model: ServiceCommentLocalSavedModel) -> Bool {
@@ -119,9 +158,10 @@ class DefaultCommentManager: CommentManager {
             
                 imageInfo.uploadFinished = true
                 
-                if let u = url {
+                if url != nil {
                     imageInfo.isSuccessUploaded = true
-                    imageInfo.url = u
+                    // 只保存本地文件url
+               //     imageInfo.url = u
                 } else {
                     imageInfo.isSuccessUploaded = false
                 }
