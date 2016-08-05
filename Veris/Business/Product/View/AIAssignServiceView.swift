@@ -20,10 +20,10 @@ class AIAssignServiceView: UIView {
     @IBOutlet weak var limitIcon2: UIImageView!
     @IBOutlet weak var limitIcon3: UIImageView!
     @IBOutlet weak var limitIcon4: UIImageView!
-
+    
     @IBOutlet weak var curServiceTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var nextServiceTopConstraint: NSLayoutConstraint!
-
+    
     var models: [AssignServiceInstModel]?
     var curModelNum: Int!
     var nextModelNum: Int!
@@ -32,36 +32,36 @@ class AIAssignServiceView: UIView {
     var isRunAnimation = true
     var repeatTimer: NSTimer?
     var starRateView: StarRateView!
-
+    
     var limitIconArray = Array<UIImageView>()
     let limitIconOnArray = [UIImage(named: "limit01-on"), UIImage(named: "limit02-on"), UIImage(named: "limit03-on"), UIImage(named: "limit04-on")]
     let limitIconOffArray = [UIImage(named: "limit01-off"), UIImage(named: "limit02-off"), UIImage(named: "limit03-off"), UIImage(named: "limit04-off")]
     let serviceNameFontSize: CGFloat = 48 / 3
-
+    
     class func currentView() -> AIAssignServiceView {
         let selfview =  NSBundle.mainBundle().loadNibNamed("AIAssignServiceView", owner: self, options: nil).first  as! AIAssignServiceView
-
+        
         selfview.curModelNum = 0
         selfview.nextModelNum = 1
         selfview.nextServiceLabel.alpha = 0
         return selfview
     }
-
+    
     @IBAction func filterButtonAction(sender: UIButton) {
         switchAnimationState(false)
         if let delegate = delegate {
             delegate.filterButtonAction(self, serviceInstModel : models![curModelNum])
         }
     }
-
+    
     @IBAction func contactButtonAction(sender: UIButton) {
-
+        
         if let delegate = delegate {
             delegate.contactButtonAction(self, serviceInstModel : models![curModelNum])
         }
     }
-
-
+    
+    
     @IBAction func limitButtonAction(sender: UIButton) {
         switchAnimationState(false)
         if let delegate = delegate {
@@ -69,25 +69,25 @@ class AIAssignServiceView: UIView {
             delegate.limitButtonAction(self, serviceInstModel : (models![curModelNum]))
         }
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         initView()
     }
-
+    
     func initView() {
         initRatingView()
         limitIconArray = [limitIcon1, limitIcon2, limitIcon3, limitIcon4]
         curServiceLabel.font = AITools.myriadLightSemiCondensedWithSize(serviceNameFontSize)
         nextServiceLabel.font = AITools.myriadLightSemiCondensedWithSize(serviceNameFontSize)
     }
-
+    
     func initRatingView() {
         starRateView = StarRateView(frame: ratingView.bounds, numberOfStars: 5)
         starRateView?.allowIncompleteStar = true
         ratingView.addSubview(starRateView!)
     }
-
+    
     //TODO 因为在界面写死了是4个权限图标，所以这里只能循环里面写死
     func refreshLimitIcon(model: AssignServiceInstModel) {
         if let limitListModel = model.limits {
@@ -100,7 +100,7 @@ class AIAssignServiceView: UIView {
             }
         }
     }
-
+    
     func loadData(models: [AssignServiceInstModel]) {
         //TODO 是否需要先清空？？
         self.models?.removeAll()
@@ -131,9 +131,9 @@ class AIAssignServiceView: UIView {
             //初始化权限图标
             refreshLimitIcon()
         }*/
-
+        
     }
-
+    
     //当需要刷新本View内容时调用的
     func loadServiceInstWith(model: AssignServiceInstModel) {
         if let ratingLevel =  model.ratingLevel {
@@ -145,35 +145,35 @@ class AIAssignServiceView: UIView {
         } else {
             curServiceLabel.text = model.serviceName
         }
-
+        
     }
 }
 
 //MARK: - 轮播动画
 extension AIAssignServiceView {
-
+    
     func startAnimation() {
         if !isRunAnimation && models?.count < 2 {
             return
         }
-
+        
         let labelMoveHeightCur = curServiceLabel.frame.height / 2
         let labelMoveHeightNext = nextServiceLabel.frame.height / 2
         guard let nextModel =  models?[nextModelNum] else {return}
         nextServiceLabel.text = nextModel.serviceName
         nextServiceLabel.alpha = 0
         nextServiceLabel.transform = CGAffineTransformConcat(CGAffineTransformMakeScale(1.0, 0.1), CGAffineTransformMakeTranslation(1.0, labelMoveHeightNext))
-
+        
         curServiceLabel.text = models?[curModelNum].serviceName
         curServiceLabel.alpha = 1
         curServiceLabel.transform = CGAffineTransformIdentity
-
+        
         UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             self.curServiceLabel.alpha = 0
             let rotateTransform1 = CGAffineTransformMakeScale(1.0, 0.5)
             let positionTransform1 = CGAffineTransformMakeTranslation(1.0, -labelMoveHeightCur)
             self.curServiceLabel.transform = CGAffineTransformConcat(rotateTransform1, positionTransform1)
-
+            
             self.nextServiceLabel.alpha = 1
             self.nextServiceLabel.transform = CGAffineTransformIdentity
         }, completion : { (finished) -> Void in
@@ -197,10 +197,10 @@ extension AIAssignServiceView {
             //翻转完成后，应该显示的是新服务的评级，权限等数据，还需要刷新当前显示的text，
             let curModel = self.models![self.curModelNum]
             self.loadServiceInstWith(curModel)
-
+            
         })
     }
-
+    
     func switchAnimationState(isRunAnimation: Bool) {
         //isRunAnimation = !isRunAnimation
         if isRunAnimation {
@@ -211,16 +211,16 @@ extension AIAssignServiceView {
             repeatTimer = nil
         }
     }
-
+    
 }
 
 @objc
 protocol AIAssignServiceViewDelegate {
     func limitButtonAction(view: AIAssignServiceView, serviceInstModel: AssignServiceInstModel)
     //TODO 这里要确认下到底是过滤当前服务实例还是所有的
-
+    
     func filterButtonAction(view: AIAssignServiceView, serviceInstModel: AssignServiceInstModel)
     func contactButtonAction(view: AIAssignServiceView, serviceInstModel: AssignServiceInstModel)
-
+    
     optional func serviceDidRotate(view: AIAssignServiceView, curServiceInst: AssignServiceInstModel)
 }
