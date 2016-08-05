@@ -26,7 +26,9 @@ import Foundation
 
 /// 相册预览界面
 class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
+    @IBOutlet weak var indexText: NSLayoutConstraint!
     
+    @IBOutlet weak var indexLabel: UILabel!
     @IBOutlet weak var topView: UIView!
     
     @IBOutlet weak var chooseButton: UIButton!
@@ -82,42 +84,19 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
         pageControl.pinToBottomEdgeOfSuperview(offset: 20, priority: UILayoutPriorityRequired)
         pageControl.centerHorizontallyInSuperview()
         
-        // Add the album view controllers to the scroll view
-        var index: Int = 1
-        var pageViews: [UIView] = []
-        assets.forEach { (asset) in
-            let image = UIImage(CGImage: asset.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
-            let imageview = UIImageView(image: image)
-            scrollView.addSubview(imageview)
-            imageview.clipsToBounds = true
-            imageview.contentMode = UIViewContentMode.ScaleAspectFit
-            imageview.sizeWidthAndHeightToWidthAndHeightOfItem(scrollView)
-            pageViews.append(imageview)
-            imageview.tag = index
-            index += 1
-        }
-        if assets.count > 1 {
-            scrollView.contentSize = CGSizeMake(CGFloat(assets.count) * scrollView.width, scrollView.height)
-        }
-        pageControl.numberOfPages = assets.count
-        if #available(iOS 9, *) {
-            scrollView.boundHorizontally(pageViews)
-        } else {
-            // Fallback on earlier versions
-        }
+        refereshAlumArray(1)
         
-        refereshButton()
     }
     
     func refereshButton() {
-        var count: Int = 0
-        assetsSelected.forEach { (dict) in
-            if let bol = dict[selected] as? Bool {
-                if bol == true {
-                    count += 1
-                }
-            }
-        }
+        let count: Int = assets.count
+//        assetsSelected.forEach { (dict) in
+//            if let bol = dict[selected] as? Bool {
+//                if bol == true {
+//                    count += 1
+//                }
+//            }
+//        }
         numberButton.setTitle("\(count)/\(maximumNumberOfSelection) 上传", forState: UIControlState.Normal)
     }
     
@@ -125,26 +104,75 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    func refereshAlumArray(indexs: Int) {
+        
+        if assets.count >= 1 {
+            scrollView.contentSize = CGSizeMake(CGFloat(assets.count) * UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+        }
+        
+        scrollView.subviews.forEach { (sview) in
+            sview.removeFromSuperview()
+        }
+        // Add the album view controllers to the scroll view
+        var index: Int = 1
+        assets.forEach { (asset) in
+            var image = UIImage(named: "")
+            if asset is ALAsset {
+                image = UIImage(CGImage: asset.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+            } else {
+                image = asset as? UIImage
+            }
+            
+            let imageview = UIImageView(image: image)
+            scrollView.addSubview(imageview)
+            imageview.clipsToBounds = true
+            imageview.contentMode = UIViewContentMode.ScaleAspectFit
+            imageview.setLeft(UIScreen.mainScreen().bounds.width*(CGFloat(index)-1))
+            imageview.setWidth(UIScreen.mainScreen().bounds.width)
+            imageview.setHeight(UIScreen.mainScreen().bounds.height)
+            imageview.tag = index
+            index += 1
+        }
+        pageControl.numberOfPages = assets.count
+        
+        indexLabel.text = "\(indexs)/\(assets.count)"
+        
+        refereshButton()
+    }
+    
     @IBAction func choooseAction(sender: AnyObject) {
         
         let index = pageControl.currentPage
-        let dict = assetsSelected[index]
-        
-        if let bol = dict.valueForKey(selected) as? Bool {
-            var newBol = bol
-            newBol = !newBol
-            
-            if newBol {
-                chooseButton.setImage(UIImage(named: "UINaviDisable"), forState: UIControlState.Normal)
-            } else {
-                chooseButton.setImage(UIImage(named: "UINaviAble"), forState: UIControlState.Normal)
-            }
-            let newDict = dict
-            //newDict.setValue(newBol, forKey: selected)
-            assetsSelected[index] = newDict
+        let alertView = UIAlertController(title: "", message: "要删除这张照片吗？", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let a1 = UIAlertAction(title: "删除", style: UIAlertActionStyle.Default) { (action) in
+            self.assets.removeObjectAtIndex(index)
+            self.refereshAlumArray(index)
         }
+        let a2 = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel) { (action) in
+            
+        }
+        alertView.addAction(a1)
+        alertView.addAction(a2)
         
-        refereshButton()
+        showTransitionStyleCrossDissolveView(alertView)
+        
+        
+//        let dict = assetsSelected[index]
+//        if let bol = dict.valueForKey(selected) as? Bool {
+//            var newBol = bol
+//            newBol = !newBol
+//            
+//            if newBol {
+//                chooseButton.setImage(UIImage(named: "UINaviDisable"), forState: UIControlState.Normal)
+//            } else {
+//                chooseButton.setImage(UIImage(named: "UINaviAble"), forState: UIControlState.Normal)
+//            }
+//            let newDict = dict
+//            //newDict.setValue(newBol, forKey: selected)
+//            assetsSelected[index] = newDict
+//        }
+        
+//        refereshButton()
         
     }
     
@@ -159,6 +187,7 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
         
         let index = fabs(scrollView.contentOffset.x) / scrollView.frame.size.width
         pageControl.currentPage = Int(index)
+        indexLabel.text = "\(Int(index)+1)/\(assets.count)"
         
     }
     
@@ -193,5 +222,4 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
             sizeButton.setImage(UIImage(named: "UINaviDisable"), forState: UIControlState.Normal)
         }
     }
-
 }

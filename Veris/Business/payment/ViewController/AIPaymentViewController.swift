@@ -92,11 +92,8 @@ class AIPaymentViewController: UIViewController {
             self.initTableView()
         }
         
-        #if DEBUG
+        showNotifyPayStatus()
         
-            showNotifyPayStatus()
-            
-        #endif
         
     }
     
@@ -185,9 +182,14 @@ class AIPaymentViewController: UIViewController {
         tableView.rowHeight = 37
         tableView.registerClass(AIPayListInfoCellView.self, forCellReuseIdentifier: "CellID")
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.reloadData()
     }
     
     func initData() {
+        
+        var model22 = AIPayInfoModel()
+        model22.price = 15
+        model22.servicename = "春雨医生报告"
         
         var model1 = AIPayInfoModel()
         model1.price = 432.5
@@ -203,8 +205,10 @@ class AIPaymentViewController: UIViewController {
         var model3 = AIPayInfoModel()
         model3.price = 30
         model3.servicename = "春雨医生"
-        model3.childList = dataSource
+        model3.childList = [model22, model22]
         dataSource.append(model3)
+        
+        
         
         dataSource.append(model2)
         

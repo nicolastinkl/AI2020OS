@@ -55,7 +55,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         serviceTableView.registerNib(UINib(nibName: "TopServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "TopServiceCell")
         
         loadServiceComments()
-        loadAndMergeModelFromLocal()
+//        loadAndMergeModelFromLocal()
     }
 
     override func didReceiveMemoryWarning() {

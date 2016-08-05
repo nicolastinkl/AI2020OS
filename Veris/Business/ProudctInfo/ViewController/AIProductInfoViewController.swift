@@ -570,7 +570,7 @@ class AIProductInfoViewController: UIViewController {
     }
     
     func providerDetailPressed() {
-        let vc = AIProviderDetailViewController()
+        let vc = AIProviderDetailViewController.initFromNib()
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     }

@@ -228,7 +228,7 @@
         }
         else
         {
-            [installation removeObjectForKey:@"ProviderIdentifier"];
+            [installation setObject:@"123" forKey:@"ProviderIdentifier"];
             [installation removeObject:@"ProviderChannel" forKey:@"channels"];
             [[NSUserDefaults standardUserDefaults] setObject:@"101" forKey:kDefault_UserType];
         }
@@ -241,7 +241,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         NSString *query = [NSString stringWithFormat:@"0&0&%@&0", user.userID];
-        [[AINetEngine defaultEngine] removeCommonHeaders];         [[AINetEngine defaultEngine] configureCommonHeaders:@{@"HttpQuery" : query}];
+        [[AINetEngine defaultEngine] removeCommonHeaders];
+        [[AINetEngine defaultEngine] configureCommonHeaders:@{@"HttpQuery" : query}];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kShouldUpdataUserDataNotification object:nil];
     }
