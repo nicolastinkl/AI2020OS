@@ -205,7 +205,7 @@ class AIPaymentViewController: UIViewController {
         var model3 = AIPayInfoModel()
         model3.price = 30
         model3.servicename = "春雨医生"
-        model3.childList = [model22,model22]
+        model3.childList = [model22, model22]
         dataSource.append(model3)
         
         

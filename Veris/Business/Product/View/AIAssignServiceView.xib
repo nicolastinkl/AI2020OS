@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -121,6 +121,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="contactButton" destination="L1b-4N-v7e" id="PFj-K2-BOj"/>
+                <outlet property="curServiceLabel" destination="oBq-Ia-OuE" id="wDR-mB-ifI"/>
                 <outlet property="curServiceTopConstraint" destination="YmN-uL-bDL" id="ebP-t5-gJF"/>
                 <outlet property="filterButton" destination="eku-ss-6Q3" id="oDW-gq-gMZ"/>
                 <outlet property="limitButton" destination="kTv-iR-gEL" id="XxC-X6-gbY"/>
@@ -128,6 +129,7 @@
                 <outlet property="limitIcon2" destination="etf-3z-G2x" id="1a1-Nd-uVQ"/>
                 <outlet property="limitIcon3" destination="BO1-VK-fNP" id="aos-iw-blz"/>
                 <outlet property="limitIcon4" destination="Srp-6n-dB4" id="bYS-aN-L6e"/>
+                <outlet property="nextServiceLabel" destination="DSE-kF-6KC" id="qgD-uG-Umc"/>
                 <outlet property="ratingView" destination="Nvi-9K-zDX" id="FN6-9U-gEh"/>
             </connections>
             <point key="canvasLocation" x="428" y="149"/>
