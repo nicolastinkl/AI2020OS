@@ -43,6 +43,7 @@
 		12D7649F1D0D469A002B001B /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7649A1D0D469A002B001B /* AILoginService.swift */; };
 		12D764A11D0D46AA002B001B /* AILoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D764A01D0D46AA002B001B /* AILoginStoryboard.storyboard */; };
 		12DFC0C31D47581600025D4F /* AICommonBusinessModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC0C21D47581600025D4F /* AICommonBusinessModels.m */; };
+		12FBCB8B1D581B0300E333D6 /* AIWorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCB8A1D581B0300E333D6 /* AIWorkInfoViewController.swift */; };
 		16E7F5C2B86F7A124E6FB458 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */; };
 		81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
 		81433CD11CFBE5A700347C29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339281CFBE5A600347C29 /* AppDelegate.swift */; };
@@ -642,7 +643,6 @@
 		933BC84B1D00252D005E1789 /* AIProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */; };
 		935986FF1D20FB9D00BBED4E /* AIAssetsReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */; };
 		935987011D20FCB900BBED4E /* AIAssetsReviewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */; };
-		935E58D71D5315D900252B83 /* AIWorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935E58CC1D5315D900252B83 /* AIWorkInfoViewController.swift */; };
 		935E58D81D5315D900252B83 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 935E58CE1D5315D900252B83 /* .gitignore */; };
 		935E58D91D5315D900252B83 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 935E58D01D5315D900252B83 /* .gitignore */; };
 		935E58DA1D5315D900252B83 /* AIWorkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935E58D11D5315D900252B83 /* AIWorkDetailView.swift */; };
@@ -829,6 +829,7 @@
 		12DFC0BF1D47031600025D4F /* AICustomerServiceExecBusiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AICustomerServiceExecBusiModel.h; sourceTree = "<group>"; };
 		12DFC0C11D4711EA00025D4F /* AICommonBusinessModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AICommonBusinessModels.h; sourceTree = "<group>"; };
 		12DFC0C21D47581600025D4F /* AICommonBusinessModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICommonBusinessModels.m; sourceTree = "<group>"; };
+		12FBCB8A1D581B0300E333D6 /* AIWorkInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkInfoViewController.swift; sourceTree = "<group>"; };
 		156E8DB358B5989BFE7F032F /* Pods-VerisTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.release.xcconfig"; sourceTree = "<group>"; };
 		459E2FAC4C1547F753408EF1 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
 		486E1A2D1E30B64C2A263F10 /* Pods-AIVeris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1631,7 +1632,6 @@
 		933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductInfoViewController.xib; sourceTree = "<group>"; };
 		935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsReviewsController.swift; sourceTree = "<group>"; };
 		935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsReviewsController.xib; sourceTree = "<group>"; };
-		935E58CC1D5315D900252B83 /* AIWorkInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkInfoViewController.swift; sourceTree = "<group>"; };
 		935E58CE1D5315D900252B83 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		935E58D01D5315D900252B83 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		935E58D11D5315D900252B83 /* AIWorkDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkDetailView.swift; sourceTree = "<group>"; };
@@ -3973,7 +3973,6 @@
 		935E58CB1D5315D900252B83 /* WorkManage */ = {
 			isa = PBXGroup;
 			children = (
-				935E58CC1D5315D900252B83 /* AIWorkInfoViewController.swift */,
 				935E58CD1D5315D900252B83 /* Model */,
 				935E58CF1D5315D900252B83 /* View */,
 				935E58D41D5315D900252B83 /* ViewController */,
@@ -4003,6 +4002,7 @@
 		935E58D41D5315D900252B83 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				12FBCB8A1D581B0300E333D6 /* AIWorkInfoViewController.swift */,
 				935E58D51D5315D900252B83 /* AIWorkManageViewController.swift */,
 				935E58D61D5315D900252B83 /* AIWorkManageViewController.xib */,
 			);
@@ -5308,6 +5308,7 @@
 				81433E901CFBE5A700347C29 /* FLEXSetExplorerViewController.m in Sources */,
 				81433E7C1CFBE5A700347C29 /* FLEXSystemLogMessage.m in Sources */,
 				81B195721D474A960086EB83 /* DialogToolBar.swift in Sources */,
+				12FBCB8B1D581B0300E333D6 /* AIWorkInfoViewController.swift in Sources */,
 				9392B5181D1CD63B0007F241 /* WXPayClient.m in Sources */,
 				81433E621CFBE5A700347C29 /* FLEXIvarEditorViewController.m in Sources */,
 				81433E521CFBE5A700347C29 /* FLEXArgumentInputColorView.m in Sources */,
@@ -5387,7 +5388,6 @@
 				81433D741CFBE5A700347C29 /* AIInputView.swift in Sources */,
 				93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */,
 				9392B5871D1CD9F10007F241 /* RSADataVerifier.m in Sources */,
-				935E58D71D5315D900252B83 /* AIWorkInfoViewController.swift in Sources */,
 				847D29A11D546424009E26B8 /* UIImageViewExtension.swift in Sources */,
 				81433E371CFBE5A700347C29 /* BuyerRequirmentMessageViewController.swift in Sources */,
 				81433DA31CFBE5A700347C29 /* AIRotateView.swift in Sources */,
