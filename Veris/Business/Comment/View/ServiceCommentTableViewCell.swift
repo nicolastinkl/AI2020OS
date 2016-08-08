@@ -154,6 +154,10 @@ class ServiceCommentTableViewCell: UITableViewCell {
         state.addAsyncDownloadImages(urls)
     }
     
+    func addAssetImages(urls: [NSURL]) {
+        state.addAssetImages(urls)
+    }
+    
     func clearImages() {
         firstComment.imageCollection.clearImages()
         appendComment.imageCollection.clearImages()
@@ -216,6 +220,29 @@ class ServiceCommentTableViewCell: UITableViewCell {
         return s!
     }
     
+    private func getAssetUrls() -> [NSURL]? {
+        var urls: [NSURL]!
+        
+        guard let m = model?.loaclModel else {
+            return urls
+        }
+        
+        for info in m.imageInfos {
+            guard let u = info.url else {
+                continue
+            }
+            
+            if info.isSuccessUploaded {
+                if urls == nil {
+                    urls = [NSURL]()
+                }
+                urls.append(u)
+            }
+        }
+        
+        return urls
+    }
+    
     private func getImageUrls(isAppend: Bool) -> [NSURL] {
         var urls = [NSURL]()
         var serviceComment: ServiceComment?
@@ -233,22 +260,6 @@ class ServiceCommentTableViewCell: UITableViewCell {
                         continue
                     }
                     
-                    urls.append(u)
-                }
-            }
-        }
-        
-        guard let m = model?.loaclModel else {
-            return urls
-        }
-        
-        if m.isAppend == isAppend {
-            for info in m.imageInfos {
-                guard let u = info.url else {
-                    continue
-                }
-                
-                if info.isSuccessUploaded {
                     urls.append(u)
                 }
             }
@@ -286,6 +297,7 @@ protocol CommentState: class {
     func addAsyncDownloadImages(urls: [NSURL])
     // 获取要提交的数据, 只返回文字和评分数据，图片数据保存在CommentManager中，在CommentManager提交评价时一并提交
     func getSubmitData() -> ServiceComment?
+    func addAssetImages(url: [NSURL])
 }
 
 private class AbsCommentState: CommentState {
@@ -323,6 +335,10 @@ private class AbsCommentState: CommentState {
     func getSubmitData() -> ServiceComment? {
         return nil
     }
+    
+    func addAssetImages(url: [NSURL]) {
+        
+    }
 }
 
 // 评论可编辑
@@ -330,8 +346,9 @@ private class CommentEditableState: AbsCommentState {
     override func updateUI() {
         cell.clearImages()
         
-        let images = cell.getImageUrls(false)
-        addAsyncDownloadImages(images)
+        if let imagesUrl = cell.getAssetUrls() {
+            addAssetImages(imagesUrl)
+        }
         
         cell.appendCommentButton.hidden = true
         cell.starRateView.userInteractionEnabled = true
@@ -364,25 +381,25 @@ private class CommentEditableState: AbsCommentState {
         comment.text = cell.firstComment.inputTextView.text
         return comment
     }
+    
+    override func addAssetImages(urls: [NSURL]) {
+        cell.firstComment.imageCollection.addAssetImages(urls)
+    }
 }
-
-//class CommentedNoCommitState: AbsCommentState {
-//    override func updateUI() {
-//        
-//    }
-//}
 
 // 已提交过评价
 private class CommentFinshedState: AbsCommentState {
     override func updateUI() {
         cell.clearImages()
         
-        let appendImages = cell.getImageUrls(true)
-        addAsyncDownloadImages(appendImages)
-        
         let firstImages = cell.getImageUrls(false)
-        cell.appendComment.imageCollection.addAsyncDownloadImages(firstImages, holdImage: cell.holdImage)
         
+        cell.firstComment.imageCollection.addAsyncDownloadImages(firstImages, holdImage: cell.holdImage)
+        
+        if let imagesUrl = cell.getAssetUrls() {
+            addAssetImages(imagesUrl)
+        }
+  
         cell.firstComment.finishComment()
         cell.appendCommentHeight.constant = 0
         cell.appendCommentButton.hidden = false
@@ -393,6 +410,10 @@ private class CommentFinshedState: AbsCommentState {
     override func addAsyncDownloadImages(urls: [NSURL]) {
         cell.appendComment.imageCollection.addAsyncDownloadImages(urls, holdImage: cell.holdImage)
     }
+    
+    override func addAssetImages(urls: [NSURL]) {
+        cell.appendComment.imageCollection.addAssetImages(urls)
+    }
 }
 
 // 编辑追加评价中。（展开追加评价）
@@ -402,6 +423,10 @@ private class AppendEditingState: AbsCommentState {
         cell.appendCommentButton.hidden = true
         cell.imageButton.hidden = false
         cell.starRateView.userInteractionEnabled = true
+        
+        let firstImages = cell.getImageUrls(false)
+        
+        cell.appendComment.imageCollection.addAsyncDownloadImages(firstImages, holdImage: cell.holdImage)
         
         Async.main(after: 0.1, block: { [weak self] in
             self?.cell.appendComment.inputTextView.becomeFirstResponder()
@@ -431,16 +456,11 @@ private class AppendEditingState: AbsCommentState {
         comment.text = cell.appendComment.inputTextView.text
         return comment
     }
+    
+    override func addAssetImages(urls: [NSURL]) {
+        cell.appendComment.imageCollection.addAssetImages(urls)
+    }
 }
-
-// 追加评价已编辑，未提交
-//private class AppendEditedState: AbsCommentState {
-//    override func updateUI() {
-//        cell.appendCommentAreaHidden(false)
-//        cell.starRateView.userInteractionEnabled = false
-//    }
-//}
-
 
 // 评价和追加评价都已提交完成
 private class DoneState: AbsCommentState {
@@ -461,6 +481,14 @@ private class DoneState: AbsCommentState {
         cell.imageButton?.removeFromSuperview()
         
         cell.cellDelegate?.commentHeightChanged()
+        
+        let firstImages = cell.getImageUrls(false)
+        
+        cell.appendComment.imageCollection.addAsyncDownloadImages(firstImages, holdImage: cell.holdImage)
+        
+        let appendImages = cell.getImageUrls(true)
+        
+        cell.appendComment.imageCollection.addAsyncDownloadImages(appendImages, holdImage: cell.holdImage)
     }
 }
 

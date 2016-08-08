@@ -161,6 +161,17 @@ class ImagesCollectionView: UIView {
         setNeedsLayout()
     }
     
+    func addAssetImages(urls: [NSURL]) {
+        for url in urls {
+            let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
+            imageView.loadFromAsset(url)
+            images.append(imageView)
+        }
+        
+        setNeedsUpdateConstraints()
+        setNeedsLayout()
+    }
+    
     private func appendImage(image: UIImage) {
         let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
         imageView.image = image
