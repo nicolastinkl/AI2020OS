@@ -29,7 +29,7 @@ class StarRateView: UIView {
     
     @IBInspectable var allowIncompleteStar: Bool = true
     
-    @IBInspectable var foregroundStarImage: String = "Yellow_Star" {
+    @IBInspectable var foregroundStarImage: String = "Comment_Star" {
         didSet {
             if let stars = foregroundStars {
                 setStarsImage(foregroundStarImage, stars: stars)
@@ -37,7 +37,7 @@ class StarRateView: UIView {
         }
     }
     
-    @IBInspectable var backgroundStarImage: String = "Gray_Star" {
+    @IBInspectable var backgroundStarImage: String = "Hollow_Star" {
         didSet {
             if let stars = backgroundStars {
                 setStarsImage(backgroundStarImage, stars: stars)
