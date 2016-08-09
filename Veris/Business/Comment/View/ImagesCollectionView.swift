@@ -254,7 +254,7 @@ class ImagesCollectionView: UIView {
     
     func imageAction(sender: UITapGestureRecognizer) {
         if let image = sender.view as? AIImageView {
-            delegate?.imageClicked(image.image, imageInfo: image.tag)
+            delegate?.imageClicked(image.image, imageId: image.imageId)
         }
         
     }
@@ -263,5 +263,5 @@ class ImagesCollectionView: UIView {
 }
 
 protocol ImagesCollectionProtocol {
-    func imageClicked(image: UIImage?, imageInfo: AnyObject)
+    func imageClicked(image: UIImage?, imageId: String?)
 }

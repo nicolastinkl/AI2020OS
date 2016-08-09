@@ -51,9 +51,25 @@ class AISearchHomeService: NSObject {
 			"search_key": search_key,
 			"page_size": page_size,
 			"page_number": page_number,
-			"catalog_id": 0,
+			"catalog_id": catalog_id,
 			"price_area": price_area,
 			"sort_by": sort_by
+			], "desc": ["data_mode": "0", "digest": ""]]
+		message.body = NSMutableDictionary(dictionary: body)
+		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+			success(response)
+		}) { (error: AINetError, errorDes: String!) -> Void in
+			fail(errType: error, errDes: errorDes ?? "")
+		}
+	}
+	
+	func getRecommendedServices(user_id: Int, user_type: Int, success: (AnyObject) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+		let message = AIMessage()
+//    2.2.4 商品推荐
+		message.url = AIApplication.AIApplicationServerURL.filterServices.description
+		let body = ["data": [
+			"user_type": user_type,
+			"user_id": user_id,
 			], "desc": ["data_mode": "0", "digest": ""]]
 		message.body = NSMutableDictionary(dictionary: body)
 		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
