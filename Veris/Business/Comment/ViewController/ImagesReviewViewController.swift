@@ -10,8 +10,11 @@ import Foundation
 
 class ImagesReviewViewController: UIViewController {
     
-    var images: [Int: UIImage]!
+    var images: [(imageId: String, UIImage)]!
+    var dataSource = [(id: String, UIImage)]()
+    var deleteImages = [String]()
     var delegate: ImagesReviewDelegate?
+    private var currentIndex = 0
 
     @IBOutlet weak var scrollView: UIScrollView!
     class func loadFromXib() -> ImagesReviewViewController {
@@ -26,21 +29,24 @@ class ImagesReviewViewController: UIViewController {
         scrollView.pagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
-        
-        loadImages()
 
+        loadImages()
+        updateTitle()
     }
     
+    
+    
     private func setupNavigationBar() {
-        extendedLayoutIncludesOpaqueBars = true
+//        extendedLayoutIncludesOpaqueBars = true
         
         let backButton = UIButton()
         backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
-        backButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
+        backButton.addTarget(self, action: #selector(ImagesReviewViewController.dismissController), forControlEvents: .TouchUpInside)
         
         let deleteButton = UIButton()
         deleteButton.setImage(UIImage(named: "item_button_delete"), forState: .Normal)
         deleteButton.setSize(CGSize(width: 196.displaySizeFrom1242DesignSize(), height: 80.displaySizeFrom1242DesignSize()))
+        deleteButton.addTarget(self, action: #selector(ImagesReviewViewController.deleteImage), forControlEvents: .TouchUpInside)
         
         let appearance = UINavigationBarAppearance()
         appearance.leftBarButtonItems = [backButton]
@@ -53,6 +59,7 @@ class ImagesReviewViewController: UIViewController {
             }
         }
         appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
+        appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: getTitle())
         setNavigationBarAppearance(navigationBarAppearance: appearance)
     }
     
@@ -61,27 +68,105 @@ class ImagesReviewViewController: UIViewController {
             return
         }
         
+        for imageInfo in images {
+            dataSource.append((imageInfo.0, imageInfo.1))
+        }
+        
+        setScrollViewContent()
+    }
+    
+    func deleteImage() {
+        if dataSource.count == 0 {
+            return
+        }
+        
+        deleteImages.append(dataSource[currentIndex].id)
+        
+        dataSource.removeAtIndex(currentIndex)
+        
+        updateImages()
+        updateTitle()
+    }
+    
+    func dismissController() {
+        dismissViewControllerAnimated(true) { 
+            if self.deleteImages.count > 0 {
+                self.delegate?.deleteImages(self.deleteImages)
+            }
+        }
+    }
+    
+    private func updateTitle() {
+        title = getTitle()
+    }
+    
+    private func getTitle() -> String {
+        let total = dataSource.count
+        return "\(currentIndex + 1)/\(total)"
+    }
+    
+    private func updateImages() {
+        for sub in scrollView.subviews {
+            sub.removeFromSuperview()
+        }
+        
+        if currentIndex > 0 {
+            currentIndex -= 1
+        }
+        
+        if dataSource.count == 0 {
+            dismissController()
+        } else {
+            setScrollViewContent()
+            
+            moveToCurrentIndex()
+        }
+    }
+    
+    private func setScrollViewContent() {
+        let imageWidth = UIScreen.mainScreen().bounds.width
+        let imageHeight = scrollView.height
+        
+        if dataSource.count >= 1 {
+            scrollView.contentSize = CGSizeMake(CGFloat(dataSource.count) * imageWidth, imageHeight)
+        }
+        
         var index: Int = 0
         
-        for imageInfo in images {
-            let imageview = UIImageView(image: imageInfo.1)
+        for data in dataSource {
+            let imageview = UIImageView(image: data.1)
             scrollView.addSubview(imageview)
             imageview.clipsToBounds = true
-            imageview.tag = imageInfo.0
             imageview.contentMode = UIViewContentMode.ScaleAspectFit
-            imageview.setLeft(UIScreen.mainScreen().bounds.width * (CGFloat(index)))
-            imageview.setWidth(UIScreen.mainScreen().bounds.width)
-            imageview.setHeight(UIScreen.mainScreen().bounds.height)
-            
+            imageview.snp_makeConstraints(closure: { (make) in
+                make.leading.equalTo(imageWidth * (CGFloat(index)))
+                make.top.equalTo(0)
+                make.width.equalTo(view)
+                make.height.equalTo(view)
+            })
             index += 1
         }
+    }
+    
+    private func moveToCurrentIndex() {
+        let imageWidth = UIScreen.mainScreen().bounds.width
+        let imageHeight = scrollView.height
+        
+        let currentRect = CGRect(origin: CGPoint(x: CGFloat(currentIndex) * imageWidth, y: 0), size: CGSize(width: imageWidth, height: imageHeight))
+        
+        scrollView.scrollRectToVisible(currentRect, animated: true)
     }
 }
 
 extension ImagesReviewViewController: UIScrollViewDelegate {
-    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        
+        let indexf = fabs(scrollView.contentOffset.x) / scrollView.frame.size.width
+        currentIndex = Int(indexf)
+        updateTitle()
+    }
 }
 
 protocol ImagesReviewDelegate {
-    func deleteImages(imageTags: [Int])
+    func deleteImages(imageIds: [String])
 }

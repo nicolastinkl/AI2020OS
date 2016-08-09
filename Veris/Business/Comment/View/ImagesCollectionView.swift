@@ -135,17 +135,17 @@ class ImagesCollectionView: UIView {
         setNeedsLayout()
     }
     
-    func addAsyncUploadImages(images: [(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)]) {
+    func addAsyncUploadImages(images: [(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)]) {
         for image in images {
-            appendAsyncUploadImage(image.image, id: image.id, complate: image.complate)
+            appendAsyncUploadImage(image.image, imageId: image.imageId, complate: image.complate)
         }
         
         setNeedsUpdateConstraints()
         setNeedsLayout()
     }
     
-    func addAsyncUploadImage(image: UIImage, id: String? = nil, complate: AIImageView.UploadComplate? = nil) {
-        appendAsyncUploadImage(image, id: id, complate: complate)
+    func addAsyncUploadImage(image: UIImage, imageId: String? = nil, complate: AIImageView.UploadComplate? = nil) {
+        appendAsyncUploadImage(image, imageId: imageId, complate: complate)
         
         setNeedsUpdateConstraints()
         setNeedsLayout()
@@ -174,16 +174,16 @@ class ImagesCollectionView: UIView {
     }
     
     private func appendImage(image: UIImage, imageId: String? = nil) {
-        let imageView = createImageView()
+        let imageView = createImageView(imageId)
         imageView.image = image
         
         images.append(imageView)
     }
     
-    private func appendAsyncUploadImage(image: UIImage, id: String? = nil, complate: AIImageView.UploadComplate? = nil) {
-        let imageView = createImageView()
+    private func appendAsyncUploadImage(image: UIImage, imageId: String? = nil, complate: AIImageView.UploadComplate? = nil) {
+        let imageView = createImageView(imageId)
         imageView.image = image
-        imageView.uploadImage(id, complate: complate)
+        imageView.uploadImage(imageId, complate: complate)
         images.append(imageView)
     }
     
@@ -199,16 +199,23 @@ class ImagesCollectionView: UIView {
         setNeedsLayout()
     }
     
-    func deleteImages(imageTags: [Int]) {
-        for tag in imageTags {
+    func deleteImages(imageIds: [String]) {
+        for id in imageIds {
             for imageView in images {
-                if imageView.tag == tag {
+                if imageView.imageId == id {
                     imageView.removeFromSuperview()       
                 }
             }
         }
         
-        let keepedImages = images.filter { !imageTags.contains($0.tag) }
+        let keepedImages = images.filter { (imageView) -> Bool in
+            if imageView.imageId == nil {
+                return false
+            }
+            
+            return !imageIds.contains(imageView.imageId!)
+        }
+        
         images = keepedImages
         
         setNeedsUpdateConstraints()
@@ -216,7 +223,7 @@ class ImagesCollectionView: UIView {
         
     }
     
-    private func createImageView(imageId: String? = nil) -> AIImageView {
+    private func createImageView(imageId: String?) -> AIImageView {
         let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
         imageView.userInteractionEnabled = true
         
@@ -254,7 +261,7 @@ class ImagesCollectionView: UIView {
     
     func imageAction(sender: UITapGestureRecognizer) {
         if let image = sender.view as? AIImageView {
-            delegate?.imageClicked(image.image, imageInfo: image.tag)
+            delegate?.imageClicked(image.image, imageId: image.imageId)
         }
         
     }
@@ -263,5 +270,5 @@ class ImagesCollectionView: UIView {
 }
 
 protocol ImagesCollectionProtocol {
-    func imageClicked(image: UIImage?, imageInfo: AnyObject)
+    func imageClicked(image: UIImage?, imageId: String?)
 }
