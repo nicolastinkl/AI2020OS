@@ -32,9 +32,15 @@ import SnapKit
 /// 许愿视图
 class AIWishVowViewController: UIViewController {
 
+    @IBOutlet weak var payContent: DesignableTextView!
+    @IBOutlet weak var wishContent: DesignableTextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Register Audio Tools Notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
+        
         if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
             view.addSubview(navi)
             navi.holderViewController = self
@@ -44,10 +50,36 @@ class AIWishVowViewController: UIViewController {
                 layout.right == layout.superview!.right
                 layout.height == 44.0 + 10.0
             })
+            navi.titleLabel.font = AITools.myriadLightWithSize(24)
             navi.titleLabel.text = "Make a wish"
             navi.backButton.setImage(UIImage(named: "scan_back"), forState: UIControlState.Normal)
         }
 
     }
-
+    
+    /**
+     处理语音识别数据搜索
+     
+     */
+    func listeningAudioTools(notify: NSNotification) {
+        if let result = notify.userInfo {
+            let string = result["Results"] as? String
+            Async.main({
+                self.wishContent.text = string ?? ""                
+            })
+        }
+    }
+    
+    /// 语音录入
+    @IBAction func audioAction(sender: AnyObject) {
+    
+        showTransitionStyleCrossDissolveView(AIAudioSearchViewController.initFromNib())
+        
+    }
+    
+    /// 提交按钮
+    @IBAction func SubmitAction(sender: AnyObject) {
+        
+    }
+    
 }
