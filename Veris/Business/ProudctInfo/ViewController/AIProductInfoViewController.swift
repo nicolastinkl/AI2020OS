@@ -176,10 +176,18 @@ class AIProductInfoViewController: UIViewController {
             navi.videoButton.setImage(UIImage(named: "AI_ProductInfo_Home_Shared"), forState: UIControlState.Normal)
             navi.videoButton.addTarget(self, action: #selector(shareAction), forControlEvents: UIControlEvents.TouchUpInside)
 			navi.titleLabel.text = ""
-			
+            navi.commentButton.addTarget(self, action: #selector(favoriteAction), forControlEvents: UIControlEvents.TouchUpInside)
+            
 		}
 	}
 
+    func favoriteAction(){
+        view.showLoading()
+        
+        AIProdcutinfoService.addFavoriteServiceInfo("") { (obj, error) in
+             self.view.hideLoading()
+        }
+    }
 
 
     //MARK: Share Action
