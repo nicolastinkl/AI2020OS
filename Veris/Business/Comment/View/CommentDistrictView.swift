@@ -40,8 +40,8 @@ class CommentDistrictView: UIView {
     func cameraAction(sender: UIGestureRecognizer) {
         delegate?.photoImageButtonClicked(photoImage, buttonParentCell: self)
     }
-    
-    func addImages(images: [UIImage]) {
+
+    func addImages(images: [(image: UIImage, imageId: String?)]) {
         imagesCollection.addImages(images)
         let height = imagesCollection.intrinsicContentSize().height
         
@@ -52,11 +52,11 @@ class CommentDistrictView: UIView {
     }
     
     func addImages(imageInfos infos: [ImageInfo]) {
-        var images = [UIImage]()
+        var images = [(image: UIImage, imageId: String?)]()
         
         for info in infos {
             if let im = info.image {
-                images.append(im)
+                images.append((im, nil))
             }
             
         }
