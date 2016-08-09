@@ -607,6 +607,8 @@
 		847D299D1D51EA08009E26B8 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7181CFD2710006F2C8F /* Async.swift */; };
 		847D299F1D542B59009E26B8 /* AssetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D299E1D542B59009E26B8 /* AssetUtils.swift */; };
 		847D29A11D546424009E26B8 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29A01D546424009E26B8 /* UIImageViewExtension.swift */; };
+		847D29A31D547C5F009E26B8 /* ImagesReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D29A21D547C5F009E26B8 /* ImagesReviewViewController.xib */; };
+		847D29A51D548C77009E26B8 /* ImagesReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29A41D548C77009E26B8 /* ImagesReviewViewController.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -1591,6 +1593,8 @@
 		847D299B1D51E817009E26B8 /* CommentSpecTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentSpecTest.swift; sourceTree = "<group>"; };
 		847D299E1D542B59009E26B8 /* AssetUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetUtils.swift; sourceTree = "<group>"; };
 		847D29A01D546424009E26B8 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		847D29A21D547C5F009E26B8 /* ImagesReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesReviewViewController.xib; sourceTree = "<group>"; };
+		847D29A41D548C77009E26B8 /* ImagesReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesReviewViewController.swift; sourceTree = "<group>"; };
 		8483169E1D33374200082D38 /* CommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
@@ -4235,6 +4239,8 @@
 		93C61FC01D01196F0063C2BF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				847D29A41D548C77009E26B8 /* ImagesReviewViewController.swift */,
+				847D29A21D547C5F009E26B8 /* ImagesReviewViewController.xib */,
 				845700501D015E7600512597 /* CompondServiceCommentViewController.swift */,
 				845700511D015E7600512597 /* CompondServiceCommentViewController.xib */,
 				93C61FC11D01196F0063C2BF /* ServiceCommentViewController.swift */,
@@ -4636,6 +4642,7 @@
 				81433D601CFBE5A700347C29 /* AIShoppingListView.xib in Resources */,
 				8175A7DF1CFD2710006F2C8F /* MJRefresh.bundle in Resources */,
 				93C81F8C1D2B5D0400D84D46 /* AIServerProviderView.xib in Resources */,
+				847D29A31D547C5F009E26B8 /* ImagesReviewViewController.xib in Resources */,
 				93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */,
 				81433E381CFBE5A700347C29 /* BuyerRequirmentMessageViewController.xib in Resources */,
 				C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */,
@@ -5175,6 +5182,7 @@
 				81433DFC1CFBE5A700347C29 /* CustomXibView.swift in Sources */,
 				81433E3F1CFBE5A700347C29 /* AIUIDevice.swift in Sources */,
 				9392B5891D1CE1B40007F241 /* AlipayOrder.swift in Sources */,
+				847D29A51D548C77009E26B8 /* ImagesReviewViewController.swift in Sources */,
 				8175A7FB1CFD2710006F2C8F /* SDWebImageDownloader.m in Sources */,
 				8175A7CB1CFD2710006F2C8F /* AFURLConnectionOperation.m in Sources */,
 				81433E1B1CFBE5A700347C29 /* SESlideTableViewCell.m in Sources */,
