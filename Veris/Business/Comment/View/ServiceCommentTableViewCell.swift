@@ -510,7 +510,7 @@ private class DoneState: AbsCommentState {
 }
 
 extension ServiceCommentTableViewCell: ImagesCollectionProtocol {
-    func imageClicked(image: UIImage?, imageInfo: AnyObject) {
+    func imageClicked(image: UIImage?, imageId: String?) {
         
         var images: [AIImageView]?
         
@@ -528,14 +528,18 @@ extension ServiceCommentTableViewCell: ImagesCollectionProtocol {
             return
         }
         
-        var clickImages = [Int : UIImage]()
+        var clickImages = [String : UIImage]()
         
         for info in ims {
             guard let im = info.image else {
                 continue
             }
             
-            clickImages[info.tag] = im
+            guard let id = info.imageId else {
+                continue
+            }
+            
+            clickImages[id] = im
         }
         
         if clickImages.count > 0 {
@@ -548,5 +552,5 @@ protocol CommentCellDelegate {
     func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
     func commentHeightChanged()
     // images: key is ImageTag
-    func imagesClicked(images: [Int : UIImage])
+    func imagesClicked(images: [String : UIImage])
 }

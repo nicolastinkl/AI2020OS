@@ -10,7 +10,7 @@ import Foundation
 
 class ImagesReviewViewController: UIViewController {
     
-    var images: [Int: UIImage]!
+    var images: [String: UIImage]!
     var delegate: ImagesReviewDelegate?
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -67,7 +67,6 @@ class ImagesReviewViewController: UIViewController {
             let imageview = UIImageView(image: imageInfo.1)
             scrollView.addSubview(imageview)
             imageview.clipsToBounds = true
-            imageview.tag = imageInfo.0
             imageview.contentMode = UIViewContentMode.ScaleAspectFit
             imageview.setLeft(UIScreen.mainScreen().bounds.width * (CGFloat(index)))
             imageview.setWidth(UIScreen.mainScreen().bounds.width)
