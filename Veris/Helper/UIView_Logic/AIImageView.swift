@@ -196,6 +196,8 @@ public class AIImageView: UIImageView {
         }
     }
     
+    var imageId: String?
+    
 }
 
 
