@@ -96,6 +96,17 @@
                             <constraint firstAttribute="height" id="2WB-kR-eEn"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXu-CS-BiX" userLabel="CheckBox" customClass="CheckboxButton" customModule="Veris" customModuleProvider="target">
+                        <rect key="frame" x="240" y="221" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="lXu-CS-BiX" secondAttribute="height" multiplier="1:1" id="Xks-Kf-4Wd"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="checkLineWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -106,8 +117,10 @@
                     <constraint firstItem="oUy-xX-H03" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" priority="999" constant="8" id="BlD-EQ-Het"/>
                     <constraint firstItem="gSL-h2-ZvC" firstAttribute="leading" secondItem="oUy-xX-H03" secondAttribute="trailing" constant="5" id="HdZ-67-A8J"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Iaz-ax-E45" secondAttribute="trailing" id="KBA-Yo-bgY"/>
+                    <constraint firstItem="lXu-CS-BiX" firstAttribute="top" secondItem="Lbx-Ya-0Bq" secondAttribute="top" id="KKB-em-gh0"/>
                     <constraint firstItem="7YW-ax-ngK" firstAttribute="top" secondItem="Qxg-Vh-rxo" secondAttribute="bottom" constant="5" id="Lat-DA-ivV"/>
                     <constraint firstItem="7YW-ax-ngK" firstAttribute="leading" secondItem="AA3-rZ-vu2" secondAttribute="leading" id="Mip-gi-pvk"/>
+                    <constraint firstItem="lXu-CS-BiX" firstAttribute="height" secondItem="Lbx-Ya-0Bq" secondAttribute="height" id="N2h-h1-mol"/>
                     <constraint firstItem="AA3-rZ-vu2" firstAttribute="top" secondItem="oUy-xX-H03" secondAttribute="bottom" constant="16" id="Ren-SO-yB4"/>
                     <constraint firstItem="AA3-rZ-vu2" firstAttribute="leading" secondItem="Iaz-ax-E45" secondAttribute="leading" id="SJP-PR-pQI"/>
                     <constraint firstItem="Lbx-Ya-0Bq" firstAttribute="centerY" secondItem="GsB-aE-nrk" secondAttribute="centerY" id="YJH-6t-UBS"/>
@@ -122,6 +135,7 @@
                     <constraint firstItem="Qxg-Vh-rxo" firstAttribute="top" secondItem="AA3-rZ-vu2" secondAttribute="bottom" constant="5" id="faM-ya-381"/>
                     <constraint firstItem="q5n-Qs-AxA" firstAttribute="centerY" secondItem="gSL-h2-ZvC" secondAttribute="centerY" id="kb4-Z3-Rm3"/>
                     <constraint firstItem="gSL-h2-ZvC" firstAttribute="centerY" secondItem="oUy-xX-H03" secondAttribute="centerY" id="mfS-2V-jaI"/>
+                    <constraint firstItem="lXu-CS-BiX" firstAttribute="leading" secondItem="Lbx-Ya-0Bq" secondAttribute="leading" id="ueG-Nx-lA6"/>
                     <constraint firstAttribute="bottomMargin" secondItem="GsB-aE-nrk" secondAttribute="bottom" constant="10" id="w2r-AJ-F4e"/>
                     <constraint firstAttribute="trailingMargin" secondItem="q5n-Qs-AxA" secondAttribute="trailing" constant="14" id="y69-O2-yBS"/>
                 </constraints>
