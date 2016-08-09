@@ -643,6 +643,7 @@
 		933BC8431D002434005E1789 /* AIWishVowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC83C1D002434005E1789 /* AIWishVowViewController.xib */; };
 		933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */; };
 		933BC84B1D00252D005E1789 /* AIProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */; };
+		9354DDE01D598494000C7E0C /* AIWishServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9354DDDF1D598494000C7E0C /* AIWishServices.swift */; };
 		935986FF1D20FB9D00BBED4E /* AIAssetsReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */; };
 		935987011D20FCB900BBED4E /* AIAssetsReviewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */; };
 		935E58D81D5315D900252B83 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 935E58CE1D5315D900252B83 /* .gitignore */; };
@@ -1635,6 +1636,7 @@
 		933BC83C1D002434005E1789 /* AIWishVowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishVowViewController.xib; sourceTree = "<group>"; };
 		933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductInfoViewController.swift; sourceTree = "<group>"; };
 		933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductInfoViewController.xib; sourceTree = "<group>"; };
+		9354DDDF1D598494000C7E0C /* AIWishServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishServices.swift; sourceTree = "<group>"; };
 		935986FE1D20FB9D00BBED4E /* AIAssetsReviewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAssetsReviewsController.swift; sourceTree = "<group>"; };
 		935987001D20FCB900BBED4E /* AIAssetsReviewsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsReviewsController.xib; sourceTree = "<group>"; };
 		935E58CE1D5315D900252B83 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -3908,6 +3910,7 @@
 			isa = PBXGroup;
 			children = (
 				933BC8381D002434005E1789 /* AIWishModel.swift */,
+				9354DDDF1D598494000C7E0C /* AIWishServices.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4908,6 +4911,7 @@
 				81433CF41CFBE5A700347C29 /* BuyerOrderModel.swift in Sources */,
 				93E4C4001D20E40D007EB116 /* AIAssetsPickerController.swift in Sources */,
 				81433CF01CFBE5A700347C29 /* AIInterfaceTest.swift in Sources */,
+				9354DDE01D598494000C7E0C /* AIWishServices.swift in Sources */,
 				81433E411CFBE5A700347C29 /* CATransform3D.swift in Sources */,
 				81433CF51CFBE5A700347C29 /* AIOpeningView.m in Sources */,
 				84512D4F1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift in Sources */,

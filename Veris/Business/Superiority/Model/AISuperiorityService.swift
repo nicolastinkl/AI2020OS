@@ -10,6 +10,7 @@ import Foundation
 
 struct AISuperiorityService {
     
+    /// 服务首页数据接口
     static func requestSuperiority(serviceId: String, complate: ((AnyObject?, String?) -> Void)) {
      
         let message = AIMessage()
