@@ -29,18 +29,19 @@ class ImagesReviewViewController: UIViewController {
         scrollView.pagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
-        
+
         loadImages()
         updateTitle()
-
     }
+    
+    
     
     private func setupNavigationBar() {
 //        extendedLayoutIncludesOpaqueBars = true
         
         let backButton = UIButton()
         backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
-        backButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
+        backButton.addTarget(self, action: #selector(ImagesReviewViewController.dismissController), forControlEvents: .TouchUpInside)
         
         let deleteButton = UIButton()
         deleteButton.setImage(UIImage(named: "item_button_delete"), forState: .Normal)
@@ -81,14 +82,18 @@ class ImagesReviewViewController: UIViewController {
         
         deleteImages.append(dataSource[currentIndex].id)
         
-        let deletedData = dataSource[currentIndex]
-        delegate?.deleteImages([deletedData.id])
         dataSource.removeAtIndex(currentIndex)
         
-        
         updateImages()
-        
         updateTitle()
+    }
+    
+    func dismissController() {
+        dismissViewControllerAnimated(true) { 
+            if self.deleteImages.count > 0 {
+                self.delegate?.deleteImages(self.deleteImages)
+            }
+        }
     }
     
     private func updateTitle() {
@@ -110,7 +115,7 @@ class ImagesReviewViewController: UIViewController {
         }
         
         if dataSource.count == 0 {
-            dismiss()
+            dismissController()
         } else {
             setScrollViewContent()
             

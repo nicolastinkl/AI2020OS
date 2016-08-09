@@ -204,6 +204,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                 if let model = findLocalModel(comment.serviceId) {
                     model.isAppend = !comment.commentEditable
                     comment.loaclModel = model
+                } else {
+                    comment.loaclModel = ServiceCommentLocalSavedModel()
+                    comment.loaclModel?.serviceId = comment.serviceId
                 }
             }
         }
@@ -272,7 +275,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private func addImagesToCell(images: [ImageInfo], cell: ServiceCommentTableViewCell) {
         for imageInfo in images {
             if let im = imageInfo.image {
-                cell.addAsyncUploadImage(im, id: createImageId(imageInfo), complate: { [weak self] (id, url, error) in
+                cell.addAsyncUploadImage(im, imageId: createImageId(imageInfo), complate: { [weak self] (id, url, error) in
                     if let u = url {
                         self?.commentManager.notifyImageUploadResult(id!, url: u)
                     }  
@@ -283,9 +286,10 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     
     private func presentImagesReviewController(images: [(imageId: String, UIImage)]) {
         let vc = ImagesReviewViewController.loadFromXib()
+        vc.delegate = self
         vc.images = images
-        let n = UINavigationController(rootViewController: vc)
         
+        let n = UINavigationController(rootViewController: vc)
         presentViewController(n, animated: true, completion: nil)
     }
 }
@@ -369,8 +373,40 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         serviceTableView.reloadData()
     }
     
-    func imagesClicked(images: [(imageId :String, UIImage)]) {
+    func imagesClicked(images: [(imageId :String, UIImage)], cell: ServiceCommentTableViewCell) {
+        currentOperateCell = cell.tag
+        
         presentImagesReviewController(images)
+    }
+}
+
+extension CompondServiceCommentViewController: ImagesReviewDelegate {
+    func deleteImages(imageIds: [String]) {
+        
+        func deleteLocalData() {
+            guard let local = comments[currentOperateCell].loaclModel else {
+                return
+            }
+            
+            if imageIds.count == 0 {
+                return
+            }
+            
+            local.imageInfos = local.imageInfos.filter { (model) -> Bool in
+                return !imageIds.contains(model.imageId)
+            }
+            
+            commentManager.saveCommentModelToLocal(local.serviceId, model: local)
+        }
+        
+        func deleteCellImages() {
+            if let cell = cellsMap[currentOperateCell] as? ServiceCommentTableViewCell {
+                cell.deleteImages(imageIds)
+            }
+        }
+        
+        deleteLocalData()
+        deleteCellImages()
     }
 }
 
