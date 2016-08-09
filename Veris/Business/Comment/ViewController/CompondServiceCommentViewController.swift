@@ -281,7 +281,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         }
     }
     
-    private func presentImagesReviewController(images: [String : UIImage]) {
+    private func presentImagesReviewController(images: [(imageId: String, UIImage)]) {
         let vc = ImagesReviewViewController.loadFromXib()
         vc.images = images
         let n = UINavigationController(rootViewController: vc)
@@ -369,7 +369,7 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         serviceTableView.reloadData()
     }
     
-    func imagesClicked(images: [String : UIImage]) {
+    func imagesClicked(images: [(imageId :String, UIImage)]) {
         presentImagesReviewController(images)
     }
 }

@@ -528,7 +528,7 @@ extension ServiceCommentTableViewCell: ImagesCollectionProtocol {
             return
         }
         
-        var clickImages = [String : UIImage]()
+        var clickImages = [(imageId: String, UIImage)]()
         
         for info in ims {
             guard let im = info.image else {
@@ -539,7 +539,7 @@ extension ServiceCommentTableViewCell: ImagesCollectionProtocol {
                 continue
             }
             
-            clickImages[id] = im
+            clickImages.append((id, im))
         }
         
         if clickImages.count > 0 {
@@ -552,5 +552,5 @@ protocol CommentCellDelegate {
     func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
     func commentHeightChanged()
     // images: key is ImageTag
-    func imagesClicked(images: [String : UIImage])
+    func imagesClicked(images: [(imageId: String, UIImage)])
 }
