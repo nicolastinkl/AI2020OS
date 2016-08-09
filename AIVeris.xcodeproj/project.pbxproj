@@ -754,6 +754,7 @@
 		FB7A4E1F1D1D2BA300DBE07E /* AIImageRecongizeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */; };
 		FB7DA9831D3C87BC00DEAC9F /* AIRecommondForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DA9821D3C87BC00DEAC9F /* AIRecommondForYouViewController.swift */; };
 		FB7E6A801D2A0B8F000E2615 /* ImagePositionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E6A7F1D2A0B8F000E2615 /* ImagePositionButton.swift */; };
+		FB87DDEC1D582A5200798B5A /* NSFoundation+Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB87DDEB1D582A5200798B5A /* NSFoundation+Completion.swift */; };
 		FB8D126F1D210BC200101EEE /* AIProductQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D126E1D210BC200101EEE /* AIProductQAViewController.swift */; };
 		FBAE7FC41D115188002FF522 /* EvernoteTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */; };
 		FBAE7FD51D115428002FF522 /* AIOrderTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC91D115428002FF522 /* AIOrderTableModel.m */; };
@@ -1850,6 +1851,7 @@
 		FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageRecongizeService.swift; sourceTree = "<group>"; };
 		FB7DA9821D3C87BC00DEAC9F /* AIRecommondForYouViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRecommondForYouViewController.swift; sourceTree = "<group>"; };
 		FB7E6A7F1D2A0B8F000E2615 /* ImagePositionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePositionButton.swift; sourceTree = "<group>"; };
+		FB87DDEB1D582A5200798B5A /* NSFoundation+Completion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFoundation+Completion.swift"; sourceTree = "<group>"; };
 		FB8D126E1D210BC200101EEE /* AIProductQAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductQAViewController.swift; sourceTree = "<group>"; };
 		FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvernoteTransition.swift; sourceTree = "<group>"; };
 		FBAE7FC81D115428002FF522 /* AIOrderTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOrderTableModel.h; sourceTree = "<group>"; };
@@ -3265,6 +3267,7 @@
 				81433C021CFBE5A700347C29 /* Player.swift */,
 				848316A51D3344AA00082D38 /* BDKTools.swift */,
 				FB734EEC1D45BD4500FD808A /* NSUserDefaults+Object.swift */,
+				FB87DDEB1D582A5200798B5A /* NSFoundation+Completion.swift */,
 				847D299E1D542B59009E26B8 /* AssetUtils.swift */,
 			);
 			path = GeneralUtils;
@@ -5094,6 +5097,7 @@
 				8175A7DA1CFD2710006F2C8F /* NSArray+JSONModel.m in Sources */,
 				9304550C1D12447E007AFC0C /* AIAudioSearchViewController.swift in Sources */,
 				8175A7CC1CFD2710006F2C8F /* AFURLRequestSerialization.m in Sources */,
+				FB87DDEC1D582A5200798B5A /* NSFoundation+Completion.swift in Sources */,
 				81B195661D474A960086EB83 /* AADataReceiverParser.swift in Sources */,
 				81433CE21CFBE5A700347C29 /* AIExecuteServiceModel.m in Sources */,
 				12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */,
