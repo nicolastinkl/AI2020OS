@@ -169,9 +169,10 @@ class AIPaymentViewController: UIViewController {
     
     /// 评价事件
     @IBAction func commitPayAction() {
-        showTransitionStyleCrossDissolveView(CompondServiceCommentViewController.loadFromXib())
-//        presentPopupViewController(CompondServiceCommentViewController.loadFromXib(), animated: true)
+        let vc = CompondServiceCommentViewController.loadFromXib()
         
+        let nav = UINavigationController(rootViewController: vc)
+        presentViewController(nav, animated: true, completion: nil)
     }
     
     

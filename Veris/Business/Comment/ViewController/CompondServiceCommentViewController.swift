@@ -29,19 +29,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
-            view.addSubview(navi)
-            navi.holderViewController = self
-            constrain(navi, block: { (layout) in
-                layout.left == layout.superview!.left
-                layout.top == layout.superview!.top
-                layout.right == layout.superview!.right
-                layout.height == 44.0 + 10.0
-            })
-            navi.titleLabel.text = "评价"
-
-        }
+        setupNavigationBar()
         
         commentManager = DefaultCommentManager()
 
@@ -55,7 +43,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         serviceTableView.registerNib(UINib(nibName: "TopServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "TopServiceCell")
         
         loadServiceComments()
-//        loadAndMergeModelFromLocal()
+        loadAndMergeModelFromLocal()
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,43 +70,74 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
     @IBAction func submitComments(sender: UIButton) {
         
-        if !commentManager.isAllImagesUploaded() {
-            AIAlertView().showInfo("正在上传图片，不能提交", subTitle: "正在上传图片，不能提交")
-            return
-        }
         
-        var submitList = [ServiceComment]()
         
-        for item in cellsMap {
-            guard let cell = item.1 as? ServiceCommentTableViewCell else {
-                continue
-            }
-            
-            if let comment = cell.getSubmitData() {
-                if !CommentUtils.isStarValueValid(comment.rating_level) {
-                    AIAlertView().showInfo("评分不能为空，不能提交", subTitle: "评分不能为空，不能提交")
-                    return
-                } else {
-                    submitList.append(comment)
-                }
-            }
-        }
+//        if !commentManager.isAllImagesUploaded() {
+//            AIAlertView().showInfo("正在上传图片，不能提交", subTitle: "正在上传图片，不能提交")
+//            return
+//        }
+//        
+//        var submitList = [ServiceComment]()
+//        
+//        for item in cellsMap {
+//            guard let cell = item.1 as? ServiceCommentTableViewCell else {
+//                continue
+//            }
+//            
+//            if let comment = cell.getSubmitData() {
+//                if !CommentUtils.isStarValueValid(comment.rating_level) {
+//                    AIAlertView().showInfo("评分不能为空，不能提交", subTitle: "评分不能为空，不能提交")
+//                    return
+//                } else {
+//                    submitList.append(comment)
+//                }
+//            }
+//        }
+//        
+//        if submitList.count == 0 {
+//            return
+//        }
+//        
+//        commentManager.submitComments("1", userType: 1, commentList: submitList, success: { (responseData) in
+//            if responseData.result {
+//                AIAlertView().showInfo("提交成功", subTitle: "提交成功")
+//            } else {
+//                AIAlertView().showInfo("提交失败", subTitle: "提交失败")
+//            }
+//            }) { (errType, errDes) in
+//                AIAlertView().showInfo("提交失败", subTitle: "提交失败")
+//        }
+//        
+//        serviceTableView.reloadData()
+    }
+    
+    private func setupNavigationBar() {
+        extendedLayoutIncludesOpaqueBars = true
         
-        if submitList.count == 0 {
-            return
-        }
+        let backButton = UIButton()
+        backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
+        backButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
         
-        commentManager.submitComments("1", userType: 1, commentList: submitList, success: { (responseData) in
-            if responseData.result {
-                AIAlertView().showInfo("提交成功", subTitle: "提交成功")
+        let followButton = UIButton()
+        followButton.setTitle("提交", forState: .Normal)
+        followButton.titleLabel?.font = UIFont.systemFontOfSize(42.displaySizeFrom1242DesignSize())
+        followButton.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.6), forState: .Normal)
+        followButton.backgroundColor = UIColor.clearColor()
+        followButton.layer.cornerRadius = 12.displaySizeFrom1242DesignSize()
+        followButton.setSize(CGSize(width: 196.displaySizeFrom1242DesignSize(), height: 80.displaySizeFrom1242DesignSize()))
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.leftBarButtonItems = [backButton]
+        appearance.rightBarButtonItems = [followButton]
+        appearance.itemPositionForIndexAtPosition = { index, position in
+            if position == .Left {
+                return (47.displaySizeFrom1242DesignSize(), 55.displaySizeFrom1242DesignSize())
             } else {
-                AIAlertView().showInfo("提交失败", subTitle: "提交失败")
+                return (47.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
             }
-            }) { (errType, errDes) in
-                AIAlertView().showInfo("提交失败", subTitle: "提交失败")
         }
-        
-        serviceTableView.reloadData()
+        appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
+        setNavigationBarAppearance(navigationBarAppearance: appearance)
     }
     
     private func recordCurrentOperateCell(cell: UITableViewCell) {
@@ -136,7 +155,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private func loadServiceComments() {
         comments = [ServiceCommentViewModel]()
         
-        for i in 0 ..< 2 {
+        for i in 0 ..< 1 {
             let model = ServiceCommentViewModel()
             model.serviceId = "\(i)"
             model.commentEditable = i % 2 != 1
@@ -261,6 +280,14 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
     }
+    
+    private func presentImagesReviewController(images: [Int : UIImage]) {
+        let vc = ImagesReviewViewController.loadFromXib()
+        vc.images = images
+        let n = UINavigationController(rootViewController: vc)
+        
+        presentViewController(n, animated: true, completion: nil)
+    }
 }
 
 extension CompondServiceCommentViewController: UITableViewDataSource, UITableViewDelegate {
@@ -340,6 +367,10 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
     
     func commentHeightChanged() {
         serviceTableView.reloadData()
+    }
+    
+    func imagesClicked(images: [Int : UIImage]) {
+        presentImagesReviewController(images)
     }
 }
 

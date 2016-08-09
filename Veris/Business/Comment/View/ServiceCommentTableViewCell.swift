@@ -112,6 +112,9 @@ class ServiceCommentTableViewCell: UITableViewCell {
         firstComment.inputTextView.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
         appendComment.inputTextView.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
         
+        firstComment.imageCollection.delegate = self
+        appendComment.imageCollection.delegate = self
+        
         appendCommentButton.layer.cornerRadius = appendCommentButton.height / 2
         appendCommentButton.layer.borderWidth = 1
         appendCommentButton.layer.borderColor = UIColor(hex: "FFFFFFAA").CGColor
@@ -134,11 +137,11 @@ class ServiceCommentTableViewCell: UITableViewCell {
         delegate?.photoImageButtonClicked(imageButton, buttonParentCell: self)
     }
     
-    func addImage(image: UIImage) {
-        state.addImage(image)
+    func addImage(image: UIImage, imageId: String? = nil) {
+        state.addImage(image, imageId: imageId)
     }
     
-    func addImages(images: [UIImage]) {
+    func addImages(images: [(image: UIImage, imageId: String?)]) {
         state.addImages(images)
     }
     
@@ -150,11 +153,11 @@ class ServiceCommentTableViewCell: UITableViewCell {
         state.addAsyncUploadImage(image, id: id, complate: complate)
     }
     
-    func addAsyncDownloadImages(urls: [NSURL]) {
+    func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)]) {
         state.addAsyncDownloadImages(urls)
     }
     
-    func addAssetImages(urls: [NSURL]) {
+    func addAssetImages(urls: [(url: NSURL, imageId: String?)]) {
         state.addAssetImages(urls)
     }
     
@@ -220,8 +223,8 @@ class ServiceCommentTableViewCell: UITableViewCell {
         return s!
     }
     
-    private func getAssetUrls() -> [NSURL]? {
-        var urls: [NSURL]!
+    private func getAssetUrls() -> [(url: NSURL, imageId: String?)]? {
+        var urls: [(url: NSURL, imageId: String?)]!
         
         guard let m = model?.loaclModel else {
             return urls
@@ -234,17 +237,18 @@ class ServiceCommentTableViewCell: UITableViewCell {
             
             if info.isSuccessUploaded {
                 if urls == nil {
-                    urls = [NSURL]()
+                    urls = [(url: NSURL, imageId: String?)]()
                 }
-                urls.append(u)
+                
+                urls.append((u, info.serviceId))
             }
         }
         
         return urls
     }
     
-    private func getImageUrls(isAppend: Bool) -> [NSURL] {
-        var urls = [NSURL]()
+    private func getImageUrls(isAppend: Bool) -> [(url: NSURL, imageId: String?)] {
+        var urls = [(url: NSURL, imageId: String?)]()
         var serviceComment: ServiceComment?
         
         serviceComment = isAppend ? model?.appendComment : model?.firstComment
@@ -260,7 +264,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
                         continue
                     }
                     
-                    urls.append(u)
+                    urls.append((u, nil))
                 }
             }
         }
@@ -290,14 +294,14 @@ enum CommentStateEnum {
 
 protocol CommentState: class {
     func updateUI()
-    func addImage(image: UIImage)
-    func addImages(images: [UIImage])
+    func addImage(image: UIImage, imageId: String?)
+    func addImages(images: [(image: UIImage, imageId: String?)])
     func addAsyncUploadImages(images: [(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)])
     func addAsyncUploadImage(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)
-    func addAsyncDownloadImages(urls: [NSURL])
+    func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)])
     // 获取要提交的数据, 只返回文字和评分数据，图片数据保存在CommentManager中，在CommentManager提交评价时一并提交
     func getSubmitData() -> ServiceComment?
-    func addAssetImages(url: [NSURL])
+    func addAssetImages(url: [(url: NSURL, imageId: String?)])
 }
 
 private class AbsCommentState: CommentState {
@@ -312,11 +316,11 @@ private class AbsCommentState: CommentState {
         
     }
     
-    func addImage(image: UIImage) {
+    func addImage(image: UIImage, imageId: String? = nil) {
         
     }
     
-    func addImages(images: [UIImage]) {
+    func addImages(images: [(image: UIImage, imageId: String?)]) {
         
     }
     
@@ -328,7 +332,7 @@ private class AbsCommentState: CommentState {
         
     }
     
-    func addAsyncDownloadImages(urls: [NSURL]) {
+    func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)]) {
         
     }
     
@@ -336,7 +340,7 @@ private class AbsCommentState: CommentState {
         return nil
     }
     
-    func addAssetImages(url: [NSURL]) {
+    func addAssetImages(url: [(url: NSURL, imageId: String?)]) {
         
     }
 }
@@ -344,6 +348,9 @@ private class AbsCommentState: CommentState {
 // 评论可编辑
 private class CommentEditableState: AbsCommentState {
     override func updateUI() {
+        cell.firstComment.userInteractionEnabled = true
+        cell.appendComment.userInteractionEnabled = false
+        
         cell.clearImages()
         
         if let imagesUrl = cell.getAssetUrls() {
@@ -353,12 +360,12 @@ private class CommentEditableState: AbsCommentState {
         cell.appendCommentButton.hidden = true
         cell.starRateView.userInteractionEnabled = true
     }
-    
-    override func addImage(image: UIImage) {
-        cell.firstComment.imageCollection.addImage(image)
+
+    override func addImage(image: UIImage, imageId: String? = nil) {
+        cell.firstComment.imageCollection.addImage(image, imageId: imageId)
     }
     
-    override func addImages(images: [UIImage]) {
+    override func addImages(images: [(image: UIImage, imageId: String?)]) {
         cell.firstComment.imageCollection.addImages(images)
     }
     
@@ -370,7 +377,7 @@ private class CommentEditableState: AbsCommentState {
         cell.firstComment.imageCollection.addAsyncUploadImage(image, id: id, complate: complate)
     }
     
-    override func addAsyncDownloadImages(urls: [NSURL]) {
+    override func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)]) {
         cell.firstComment.imageCollection.addAsyncDownloadImages(urls, holdImage: cell.holdImage)
     }
     
@@ -382,7 +389,7 @@ private class CommentEditableState: AbsCommentState {
         return comment
     }
     
-    override func addAssetImages(urls: [NSURL]) {
+    override func addAssetImages(urls: [(url: NSURL, imageId: String?)]) {
         cell.firstComment.imageCollection.addAssetImages(urls)
     }
 }
@@ -390,6 +397,10 @@ private class CommentEditableState: AbsCommentState {
 // 已提交过评价
 private class CommentFinshedState: AbsCommentState {
     override func updateUI() {
+        
+        cell.firstComment.userInteractionEnabled = false
+        cell.appendComment.userInteractionEnabled = true
+        
         cell.clearImages()
         
         let firstImages = cell.getImageUrls(false)
@@ -407,11 +418,11 @@ private class CommentFinshedState: AbsCommentState {
         cell.starRateView.userInteractionEnabled = false
     }
     
-    override func addAsyncDownloadImages(urls: [NSURL]) {
+    override func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)]) {
         cell.appendComment.imageCollection.addAsyncDownloadImages(urls, holdImage: cell.holdImage)
     }
     
-    override func addAssetImages(urls: [NSURL]) {
+    override func addAssetImages(urls: [(url: NSURL, imageId: String?)]) {
         cell.appendComment.imageCollection.addAssetImages(urls)
     }
 }
@@ -419,6 +430,9 @@ private class CommentFinshedState: AbsCommentState {
 // 编辑追加评价中。（展开追加评价）
 private class AppendEditingState: AbsCommentState {
     override func updateUI() {
+        cell.firstComment.userInteractionEnabled = false
+        cell.appendComment.userInteractionEnabled = true
+        
         cell.appendCommentHeight.constant = cell.firstComment.height
         cell.appendCommentButton.hidden = true
         cell.imageButton.hidden = false
@@ -433,11 +447,11 @@ private class AppendEditingState: AbsCommentState {
         })
     }
     
-    override func addImage(image: UIImage) {
-        cell.appendComment.imageCollection.addImage(image)
+    override func addImage(image: UIImage, imageId: String?) {
+        cell.appendComment.imageCollection.addImage(image, imageId: imageId)
     }
     
-    override func addImages(images: [UIImage]) {
+    override func addImages(images: [(image: UIImage, imageId: String?)]) {
         cell.appendComment.imageCollection.addImages(images)
     }
     
@@ -457,8 +471,8 @@ private class AppendEditingState: AbsCommentState {
         return comment
     }
     
-    override func addAssetImages(urls: [NSURL]) {
-        cell.appendComment.imageCollection.addAssetImages(urls)
+    override func addAssetImages(url: [(url: NSURL, imageId: String?)]) {
+        cell.appendComment.imageCollection.addAssetImages(url)
     }
 }
 
@@ -467,6 +481,9 @@ private class DoneState: AbsCommentState {
     private var finished = false
     
     override func updateUI() {
+        cell.firstComment.userInteractionEnabled = false
+        cell.appendComment.userInteractionEnabled = false
+        
         if finished {
             return
         }
@@ -492,7 +509,44 @@ private class DoneState: AbsCommentState {
     }
 }
 
+extension ServiceCommentTableViewCell: ImagesCollectionProtocol {
+    func imageClicked(image: UIImage?, imageInfo: AnyObject) {
+        
+        var images: [AIImageView]?
+        
+        if firstComment.userInteractionEnabled {
+            images = firstComment.imageCollection.images
+        } else if appendComment.userInteractionEnabled {
+            images = appendComment.imageCollection.images
+        }
+        
+        guard let ims = images else {
+            return
+        }
+        
+        if ims.count == 0 {
+            return
+        }
+        
+        var clickImages = [Int : UIImage]()
+        
+        for info in ims {
+            guard let im = info.image else {
+                continue
+            }
+            
+            clickImages[info.tag] = im
+        }
+        
+        if clickImages.count > 0 {
+            cellDelegate?.imagesClicked(clickImages)
+        }
+    }
+}
+
 protocol CommentCellDelegate {
     func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
     func commentHeightChanged()
+    // images: key is ImageTag
+    func imagesClicked(images: [Int : UIImage])
 }
