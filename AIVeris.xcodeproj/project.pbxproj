@@ -745,6 +745,7 @@
 		FB3DCCD81D4A02A30090DEA6 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */; };
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB58838D1D51C7930080588B /* AISearchHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB58838C1D51C7930080588B /* AISearchHomeService.swift */; };
+		FB5934191D59BAD500CBE237 /* HorizontalBubblesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5934181D59BAD500CBE237 /* HorizontalBubblesView.swift */; };
 		FB6127F21D40C8F400DD68DD /* UINavigationBar+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6127F11D40C8F400DD68DD /* UINavigationBar+Theme.swift */; };
 		FB6127F41D40D2EC00DD68DD /* AIProviderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6127F31D40D2EC00DD68DD /* AIProviderDetailViewController.swift */; };
 		FB6127F61D40D2F600DD68DD /* AIProviderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6127F51D40D2F600DD68DD /* AIProviderDetailViewController.xib */; };
@@ -1851,6 +1852,7 @@
 		FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = Debug/CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryIconView.swift; sourceTree = "<group>"; };
 		FB58838C1D51C7930080588B /* AISearchHomeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHomeService.swift; sourceTree = "<group>"; };
+		FB5934181D59BAD500CBE237 /* HorizontalBubblesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalBubblesView.swift; sourceTree = "<group>"; };
 		FB6127F11D40C8F400DD68DD /* UINavigationBar+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Theme.swift"; sourceTree = "<group>"; };
 		FB6127F31D40D2EC00DD68DD /* AIProviderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProviderDetailViewController.swift; sourceTree = "<group>"; };
 		FB6127F51D40D2F600DD68DD /* AIProviderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProviderDetailViewController.xib; sourceTree = "<group>"; };
@@ -3680,6 +3682,7 @@
 				9304551B1D125312007AFC0C /* AIWaterView.swift */,
 				93C8C9A71D14034A00F1DFCF /* AICustomSearchHomeCell.swift */,
 				93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */,
+				FB5934181D59BAD500CBE237 /* HorizontalBubblesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5329,6 +5332,7 @@
 				81433E821CFBE5A700347C29 /* FLEXNetworkTransaction.m in Sources */,
 				81433CDE1CFBE5A700347C29 /* AITagModel.swift in Sources */,
 				8175A7C01CFD2710006F2C8F /* RAReorderableLayout.swift in Sources */,
+				FB5934191D59BAD500CBE237 /* HorizontalBubblesView.swift in Sources */,
 				81433EA91CFBE5A700347C29 /* AISuperSwipeableCell.m in Sources */,
 				81433CDB1CFBE5A700347C29 /* AIRACModel.swift in Sources */,
 				81433E8A1CFBE5A700347C29 /* FLEXDictionaryExplorerViewController.m in Sources */,
