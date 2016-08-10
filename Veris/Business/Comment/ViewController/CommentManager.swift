@@ -80,7 +80,7 @@ class DefaultCommentManager: CommentManager {
     
     private func imageIsExist(url: NSURL) -> Bool {
         
-        var exist = AssetUrils.assetExists(url)
+        var exist = AssetUtils.assetExists(url)
         
         if !exist {
             let fileManager = NSFileManager.defaultManager()
