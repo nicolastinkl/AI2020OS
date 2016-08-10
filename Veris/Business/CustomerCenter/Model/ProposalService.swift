@@ -186,7 +186,6 @@ class BDKProposalService: MockProposalService {
     override func getProposalList(success: (responseData: ProposalOrderListModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
 
-   //     message.header.setObject("0&0&200000002501&0", forKey: "HttpQuery")
         message.url = AIApplication.AIApplicationServerURL.queryProcOrders.description
 
         let data = ["user_id":1]

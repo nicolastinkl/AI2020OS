@@ -368,9 +368,11 @@ struct AIApplication {
         case register
         //MARK: 登陆
         case login
+        // 单一服务评论
+        case serviceComment
         // 复合服务评论
         case compondComment
-        // 复合服务评论
+        // 评论规格
         case commentSpec
         // 提交评论
         case saveComment
@@ -458,6 +460,7 @@ struct AIApplication {
             case .login: return AIApplication.KURL_DebugURL + "/admin/login"
                 
             //服务评论接口
+            case .serviceComment: return AIApplication.KURL_DebugURL + "/comments/queryServiceComments"
             case .compondComment: return AIApplication.KURL_DebugURL + "/comments/queryUserComments"
             case .commentSpec: return AIApplication.KURL_DebugURL + "/comments/queryCommentSpecification"
             case .saveComment: return AIApplication.KURL_DebugURL + "/comments/saveComments"

@@ -188,7 +188,7 @@ class AISuperiorityViewController: UIViewController {
         
     }
     
-    func favoriteAction(){
+    func favoriteAction() {
         view.showLoading()
         
         AIProdcutinfoService.addFavoriteServiceInfo("11") { (obj, error) in

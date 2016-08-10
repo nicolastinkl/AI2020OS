@@ -9,7 +9,7 @@
 import Foundation
 
 //许愿服务接口实现类
-struct AIWishServices{
+struct AIWishServices {
     
     /// 提交许愿单
     static func requestMakeWishs(money: Double, wish: String, complate: ((AnyObject?, String?) -> Void)) {

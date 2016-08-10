@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIWorkOpportunityIndexViewController" customModule="Veris" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="iLW-0u-FzE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhX-l3-TGP" customClass="AIWorkManageHeaderView" customModule="Veris" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="210"/>
+                    <color key="backgroundColor" red="0.66345050059999999" green="0.65288446730000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="210" id="md3-L8-49h"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMa-Lw-ter" userLabel="navigationBar">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAi-sk-Eom">
+                            <rect key="frame" x="17" y="22" width="13" height="24"/>
+                            <state key="normal" image="wm-back"/>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQY-aY-8CZ" userLabel="searchTextFieldContainer">
+                            <rect key="frame" x="46" y="13" width="502" height="42"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqo-dd-PSV">
+                                    <rect key="frame" x="466" y="9" width="26" height="24"/>
+                                    <state key="normal" image="wm-camera"/>
+                                </button>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FKo-Zy-48E">
+                                    <rect key="frame" x="31" y="9" width="435" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wm-search" translatesAutoresizingMaskIntoConstraints="NO" id="lV7-22-D4C">
+                                    <rect key="frame" x="7" y="9" width="24" height="24"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="0.52000000000000002" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="FKo-Zy-48E" firstAttribute="centerY" secondItem="bQY-aY-8CZ" secondAttribute="centerY" id="8QV-k6-bql"/>
+                                <constraint firstItem="Jqo-dd-PSV" firstAttribute="leading" secondItem="FKo-Zy-48E" secondAttribute="trailing" id="Anl-Mk-omw"/>
+                                <constraint firstItem="Jqo-dd-PSV" firstAttribute="centerY" secondItem="bQY-aY-8CZ" secondAttribute="centerY" id="DQD-Iy-lHA"/>
+                                <constraint firstAttribute="trailing" secondItem="Jqo-dd-PSV" secondAttribute="trailing" constant="10" id="T5n-0z-6sp"/>
+                                <constraint firstItem="lV7-22-D4C" firstAttribute="leading" secondItem="bQY-aY-8CZ" secondAttribute="leading" constant="7" id="Zkf-tJ-ikJ"/>
+                                <constraint firstItem="lV7-22-D4C" firstAttribute="centerY" secondItem="bQY-aY-8CZ" secondAttribute="centerY" id="gNu-f9-gmT"/>
+                                <constraint firstItem="FKo-Zy-48E" firstAttribute="leading" secondItem="lV7-22-D4C" secondAttribute="trailing" id="uJs-N5-9vV"/>
+                                <constraint firstAttribute="height" constant="42" id="uTH-hX-U5O"/>
+                                <constraint firstItem="FKo-Zy-48E" firstAttribute="height" secondItem="lV7-22-D4C" secondAttribute="height" id="vBd-Km-BrQ"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf5-QP-6bc">
+                            <rect key="frame" x="561" y="23" width="26" height="22"/>
+                            <state key="normal" image="wm-search2"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="IAi-sk-Eom" firstAttribute="leading" secondItem="CMa-Lw-ter" secondAttribute="leading" constant="17" id="1MA-ne-Eaf"/>
+                        <constraint firstItem="bQY-aY-8CZ" firstAttribute="top" secondItem="CMa-Lw-ter" secondAttribute="top" constant="13" id="C1L-xd-D3u"/>
+                        <constraint firstItem="bQY-aY-8CZ" firstAttribute="centerY" secondItem="CMa-Lw-ter" secondAttribute="centerY" id="EGa-mH-DSr"/>
+                        <constraint firstItem="Bf5-QP-6bc" firstAttribute="leading" secondItem="bQY-aY-8CZ" secondAttribute="trailing" constant="13" id="RLy-YZ-KCW"/>
+                        <constraint firstItem="bQY-aY-8CZ" firstAttribute="leading" secondItem="IAi-sk-Eom" secondAttribute="trailing" constant="16" id="Z3N-OX-Ywi"/>
+                        <constraint firstItem="Bf5-QP-6bc" firstAttribute="centerY" secondItem="CMa-Lw-ter" secondAttribute="centerY" id="ezq-C5-Zqc"/>
+                        <constraint firstItem="IAi-sk-Eom" firstAttribute="centerY" secondItem="CMa-Lw-ter" secondAttribute="centerY" id="fNT-Ka-OPS"/>
+                        <constraint firstAttribute="trailing" secondItem="Bf5-QP-6bc" secondAttribute="trailing" constant="13" id="hdL-5Q-2hO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="CMa-Lw-ter" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3eE-or-bbN"/>
+                <constraint firstItem="yhX-l3-TGP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SvL-Tp-eZO"/>
+                <constraint firstAttribute="trailing" secondItem="yhX-l3-TGP" secondAttribute="trailing" id="ZPw-61-Des"/>
+                <constraint firstAttribute="trailing" secondItem="CMa-Lw-ter" secondAttribute="trailing" id="bxS-tR-v3H"/>
+                <constraint firstItem="yhX-l3-TGP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qkw-fs-DJR"/>
+                <constraint firstItem="CMa-Lw-ter" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="w8p-sF-xHh"/>
+            </constraints>
+            <point key="canvasLocation" x="329" y="411"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="wm-back" width="13" height="24"/>
+        <image name="wm-camera" width="26" height="24"/>
+        <image name="wm-search" width="24" height="24"/>
+        <image name="wm-search2" width="26" height="21"/>
+    </resources>
+</document>
