@@ -39,6 +39,8 @@ def aiveris_pods
     
     pod 'SVProgressHUD', '~> 1.0'
     
+    pod 'iCarousel', '~> 1.8.2'
+    
 end
 
 target 'AIVeris' do

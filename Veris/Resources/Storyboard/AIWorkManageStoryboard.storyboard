@@ -132,6 +132,10 @@
                                 <rect key="frame" x="0.0" y="150" width="600" height="371"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7t-gV-nyD" userLabel="QualificationView" customClass="AIWorkQualificationView" customModule="Veris" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="115" width="600" height="371"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>

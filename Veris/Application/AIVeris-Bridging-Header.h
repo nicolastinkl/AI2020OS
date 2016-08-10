@@ -172,3 +172,6 @@
 
 // CustomerServiceExecuteInterface
 #import "AICustomerServiceExecBusiModel.h"
+
+// iCarousel
+#import <iCarousel/iCarousel.h>
