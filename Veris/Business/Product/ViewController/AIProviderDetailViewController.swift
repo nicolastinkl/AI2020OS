@@ -26,24 +26,18 @@ class AIProviderDetailViewController: UIViewController {
 	}
 	
 	func fakeBubbleModels() {
-//        let rootVC =
+        if let presentingViewController = presentingViewController as? AIUINavigationController {
+            if let buyerVC = presentingViewController.viewControllers.first as? AIBuyerViewController {
+                bubbleModels = buyerVC.dataSourcePop
+            }
+        }
 	}
 	
 	func setupBubbleView() {
 		fakeBubbleModels()
-		for i in 0..<min(4, bubbleModels.count) {
-			let model: AIBuyerBubbleModel! = bubbleModels[i]
-			let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
-			let space = AITools.displaySizeFrom1242DesignSize(15)
-			let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
-			model.bubbleSize = Int(bubbleWidth) / 2
-			let bubbleView = AIBubble(center: .zero, model: model, type: model.bubbleType, index: 0)
-			bubbleView.tag = i
-			bubbleContainerView.addSubview(bubbleView)
-			
-			let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
-			bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + space), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
-		}
+        let bubblesView = HorizontalBubblesView(bubbleModels: bubbleModels)
+        bubblesView.delegate = self
+        bubbleContainerView.addSubview(bubblesView)
 	}
 	func setupUI() {
 		clearViews.forEach { (v) in
@@ -93,4 +87,14 @@ class AIProviderDetailViewController: UIViewController {
 		appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
 		setNavigationBarAppearance(navigationBarAppearance: appearance)
 	}
+}
+
+extension AIProviderDetailViewController: HorizontalBubblesViewDelegate {
+    func bubblesView(bubblesView: HorizontalBubblesView, didClickBubbleViewAtIndex index: Int) {
+        let model = bubblesView.bubbleModels[index]
+        AILog(model)
+        //        let vc = AISuperiorityViewController.initFromNib()
+        //        vc.serviceModel = model
+        //        showTransitionStyleCrossDissolveView(vc)
+    }
 }
