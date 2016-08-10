@@ -155,7 +155,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         for i in 0 ..< 2 {
             let model = ServiceCommentViewModel()
             model.serviceId = "\(i)"
-            model.commentEditable = i % 2 != 1
+            model.commentEditable = i % 2 != 0
             comments.append(model)
         }
         
