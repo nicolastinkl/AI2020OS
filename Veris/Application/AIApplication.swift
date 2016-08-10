@@ -366,23 +366,18 @@ struct AIApplication {
 
         //MARK: 注册
         case register
-        
         //MARK: 登陆
         case login
-        
         // 复合服务评论
         case compondComment
         // 复合服务评论
         case commentSpec
         // 提交评论
         case saveComment
-        
         // 服务优势介绍
         case preview
-        
         // 产品详情
         case detail
-        
         // 2.6.6 所有推荐（为您推荐）
         case allRecommends
         // 2.6.7 服务者介绍
@@ -395,10 +390,17 @@ struct AIApplication {
         case searchServiceCondition
         // 2.2.3 商品搜索结果过滤
         case filterServices
+        // 2.2.4 商品推荐
+        case getRecommendedServices
+        
         // 图像识别
         case uploadAndIdentify
-
-        
+        // 许愿提交
+        case makewish
+        // 许愿查询
+        case wishpreview
+        // 添加收藏
+        case favoriteadd
         
         var description: String {
 
@@ -411,38 +413,40 @@ struct AIApplication {
 
             switch self {
             case .getServiceScheme: return AIApplication.KURL_ReleaseURL+"/getServiceScheme"
-            case .addWishListNote: return AIApplication.KURL_ReleaseURL+"/addWishListNote"
-            case .delWishListNote: return AIApplication.KURL_ReleaseURL+"/delWishListNote"
-            case .saveServiceParameters: return AIApplication.KURL_ReleaseURL+"/saveServiceParameters"
-            case .submitProposalOrder: return AIApplication.KURL_ReleaseURL+"/submitProposalOrder"
-            case .querySellerOrderList: return AIApplication.KURL_ReleaseURL+"/querySellerOrderList"
-            case .updateParamSettingState: return AIApplication.KURL_ReleaseURL+"/updateParamSettingState"
+            case .addWishListNote: return AIApplication.KURL_ReleaseURL+"/wish/addWishListNote"
+            case .delWishListNote: return AIApplication.KURL_ReleaseURL+"/wish/delWishListNote"
+            case .saveServiceParameters: return AIApplication.KURL_ReleaseURL+"/proposal/saveServiceParameters"
+            case .submitProposalOrder: return AIApplication.KURL_ReleaseURL+"/proposal/submitProposalOrder"
+            case .querySellerOrderList: return AIApplication.KURL_ReleaseURL+"/order/querySellerOrderList"
+            case .updateParamSettingState: return AIApplication.KURL_ReleaseURL+"/proposal/updateParamSettingState"
             case .delServiceCategory: return AIApplication.KURL_ReleaseURL+"/delServiceCategory"
             case .queryCustomerProposalList: return AIApplication.KURL_ReleaseURL+"/queryCustomerProposalList"
             case .queryProcOrders: return AIApplication.KURL_DebugURL + "/order/queryProcOrders"
-            case .findCustomerProposalDetail: return AIApplication.KURL_ReleaseURL+"/findCustomerProposalDetailNew"
-            case .findServiceDetail: return AIApplication.KURL_ReleaseURL+"/findServiceDetail"
-            case .updateWishListTagChosenState: return AIApplication.KURL_ReleaseURL+"/updateWishListTagChosenState"
+            case .findCustomerProposalDetail: return AIApplication.KURL_ReleaseURL+"/proposal/findCustomerProposalDetailNew"
+            case .findServiceDetail: return AIApplication.KURL_ReleaseURL+"/proposal/findServiceDetail"
+            case .updateWishListTagChosenState: return AIApplication.KURL_ReleaseURL+"/wish/updateWishListTagChosenState"
             case .queryHotSearch: return "http://171.221.254.231:8282/sboss/queryHotSearch"
-            case .recoverOrders: return AIApplication.KURL_ReleaseURL+"/recoverOrders"
-            case .submitOrderByService:   return AIApplication.KURL_ReleaseURL + "/submitOrderByService"
-            case .findServiceDetailNew: return AIApplication.KURL_ReleaseURL+"/findServiceDetailNew"
-            case .findServicePrice: return AIApplication.KURL_ReleaseURL + "/findServicePrice"
+            case .recoverOrders: return AIApplication.KURL_ReleaseURL+"/order/recoverOrders"
+            case .submitOrderByService:   return AIApplication.KURL_ReleaseURL + "/order/submitOrderByService"
+            case .findServiceDetailNew: return AIApplication.KURL_ReleaseURL+"/proposal/findServiceDetailNew"
+            case .findServicePrice: return AIApplication.KURL_ReleaseURL + "/service/findServicePrice"
+
 
             // 原始需求列表
             case .queryBusinessInfo: return AIApplication.KURL_ReleaseURL + "/queryCustomerInfoSubserverList"
-            case .queryOriginalRequirements: return AIApplication.KURL_ReleaseURL + "/queryOriginalRequirements"
-            case .saveAsTask: return AIApplication.KURL_ReleaseURL + "/updateDistributionState"
-            case .queryUnassignedRequirements: return AIApplication.KURL_ReleaseURL + "/queryUnDistributeRequirementList"
-            case .saveTagsAsTask: return AIApplication.KURL_ReleaseURL + "/saveAnalysisTag"
-            case .addNewNote: return AIApplication.KURL_ReleaseURL + "/saveAnalysisNote"
-            case .addNewTag : return AIApplication.KURL_ReleaseURL + "/addWishTag"
-            case .addNewTask : return AIApplication.KURL_ReleaseURL + "/saveAnalysisTaskNode"
-            case .setServiceProviderRights : return AIApplication.KURL_ReleaseURL + "/updateAccessPermission"
-            case .assginTask : return AIApplication.KURL_ReleaseURL + "/submitWorkOrder"
-            case .queryServiceDefaultTags : return AIApplication.KURL_ReleaseURL + "/queryDistributionTagList"
-            case .distributeRequirement : return AIApplication.KURL_ReleaseURL + "/distributeRequirement"
-            case .queryTaskList: return AIApplication.KURL_ReleaseURL + "/queryTaskNodeList"
+            case .queryOriginalRequirements: return AIApplication.KURL_ReleaseURL + "/requirement/queryOriginalRequirements"
+            case .saveAsTask: return AIApplication.KURL_ReleaseURL + "/requirement/updateDistributionState"
+            case .queryUnassignedRequirements: return AIApplication.KURL_ReleaseURL + "/requirement/queryUnDistributeRequirementList"
+            case .saveTagsAsTask: return AIApplication.KURL_ReleaseURL + "/requirement/saveAnalysisTag"
+            case .addNewNote: return AIApplication.KURL_ReleaseURL + "/requirement/saveAnalysisNote"
+            case .addNewTag : return AIApplication.KURL_ReleaseURL + "/requirement/addWishTag"
+            case .addNewTask : return AIApplication.KURL_ReleaseURL + "/requirement/saveAnalysisTaskNode"
+            case .setServiceProviderRights : return AIApplication.KURL_ReleaseURL + "/requirement/updateAccessPermission"
+            case .assginTask : return AIApplication.KURL_ReleaseURL + "/requirement/submitWorkOrder"
+            case .queryServiceDefaultTags : return AIApplication.KURL_ReleaseURL + "/requirement/queryDistributionTagList"
+            case .distributeRequirement : return AIApplication.KURL_ReleaseURL + "/requirement/distributeRequirement"
+            case .queryTaskList: return AIApplication.KURL_ReleaseURL + "/requirement/queryTaskNodeList"
+
 
             //抢单接口
             case .grabOrder: return AIApplication.KURL_ReleaseURL + "/grabOrder"
@@ -466,7 +470,11 @@ struct AIApplication {
             case .recentlySearch: return AIApplication.KURL_DebugURL + "/search/recentlySearch"
             case .searchServiceCondition: return AIApplication.KURL_DebugURL + "/search/searchServiceCondition"
             case .filterServices: return AIApplication.KURL_DebugURL + "/search/filterServices"
+            case .getRecommendedServices: return AIApplication.KURL_DebugURL + "/search/getRecommendedServices"
             case .uploadAndIdentify: return "http://171.221.254.231:3001/uploadAndIdentify"
+            case .makewish: return AIApplication.KURL_DebugURL + "/wish/submitWish"
+            case .wishpreview: return AIApplication.KURL_DebugURL + "/wish/queryWishList"
+            case .favoriteadd: return AIApplication.KURL_DebugURL + "/favorite/add"
             }
         }
     }

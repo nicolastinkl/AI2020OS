@@ -1,31 +1,36 @@
 //
-//  AIProdcutinfoService.swift
+//  AIWishServices.swift
 //  AIVeris
 //
-//  Created by tinkl on 8/3/16.
+//  Created by tinkl on 8/9/16.
 //  Copyright © 2016 ___ASIAINFO___. All rights reserved.
 //
 
 import Foundation
 
-
-struct AIProdcutinfoService {
+//许愿服务接口实现类
+struct AIWishServices{
     
-    /// 请求产品详情数据
-    static func requestServiceInfo(serviceId: String, userId: String, complate: ((AnyObject?, String?) -> Void)) {
-        
+    /// 提交许愿单
+    static func requestMakeWishs(money: Double, wish: String, complate: ((AnyObject?, String?) -> Void)) {
+        let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
         let message = AIMessage()
+        //获取本地语言类型推算币种类型
+        print(Localize.currentLanguage())
         let body: NSDictionary = [
-            "service_id": serviceId,
-            "user_id":userId
+            "wish_desc": wish,
+            "user_id":userId,
+            "money_amount":money,
+            "money_type":"CNY",
+            "money_unit":""
         ]
         
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
-        message.url = AIApplication.AIApplicationServerURL.detail.description as String
+        message.url = AIApplication.AIApplicationServerURL.makewish.description as String
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
-                let model = AIProdcutinfoModel(JSONDecoder(responseJSON))
+                let model = AISuperiorityModel(JSONDecoder(responseJSON))
                 complate(model, nil)
             } else {
                 complate(nil, "data is null")
@@ -34,22 +39,21 @@ struct AIProdcutinfoService {
             complate(nil, des)
         }
     }
-
-    /// 处理收藏添加
-    static func addFavoriteServiceInfo(serviceId: String, complate: ((AnyObject?, String?) -> Void)) {
+    
+    /// 许愿单查询
+    static func requestQueryWishs(complate: ((AnyObject?, String?) -> Void)) {
         let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
         let message = AIMessage()
         let body: NSDictionary = [
-            "service_id": serviceId,
             "user_id":userId
         ]
         
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
-        message.url = AIApplication.AIApplicationServerURL.favoriteadd.description as String
+        message.url = AIApplication.AIApplicationServerURL.wishpreview.description as String
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
-                let model = AIProdcutinfoModel(JSONDecoder(responseJSON))
+                let model = AIWishModel(JSONDecoder(responseJSON))
                 complate(model, nil)
             } else {
                 complate(nil, "data is null")

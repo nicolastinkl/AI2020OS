@@ -299,18 +299,18 @@
 
 - (void)showMyWallet {
     // 演示屏蔽
-//    AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
-//    [self presentViewController:fundManageViewController animated:YES completion:nil];
+
+
+    AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:fundManageViewController];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)showMyWork {
     // 演示屏蔽
-//    AIWorkManageViewController *workManageViewController = [[AIWorkManageViewController alloc] init];
-//    [self presentViewController:workManageViewController animated:YES completion:nil];
-//    let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIContestSuccessViewController) as! AIContestSuccessViewController
-    AIWorkInfoViewController *workInfoViewController = (AIWorkInfoViewController *)[[UIStoryboard storyboardWithName: @"AIWorkManageStoryboard" bundle: nil] instantiateViewControllerWithIdentifier: @"AIWorkInfoViewController"];
-    [self presentViewController:workInfoViewController animated:YES completion:nil];
-    //AIWorkInfoViewController *workInfoViewController = [[UIStoryboard alloc] init: st]
+    AIWorkManageViewController *workManageViewController = [[AIWorkManageViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:workManageViewController];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark - Go Back

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIWishPreviewController" customModule="Veris" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="7HT-RY-D7O"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Wish_Make_bg" translatesAutoresizingMaskIntoConstraints="NO" id="w8o-jv-tHA">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6u-Iz-0M0">
+                    <rect key="frame" x="0.0" y="508" width="600" height="92"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN1-bp-YVN" customClass="DesignableButton" customModule="Spring">
+                            <rect key="frame" x="17" y="21" width="565" height="50"/>
+                            <color key="backgroundColor" red="0.054901960780000002" green="0.47450980390000003" blue="0.80000000000000004" alpha="0.80728414020000006" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="168" id="342-aJ-RNm"/>
+                                <constraint firstAttribute="height" constant="50" id="8Ur-NM-8jR"/>
+                                <constraint firstAttribute="height" constant="36" id="RRX-RH-XuT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                            <state key="normal" title="Submit">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="RRX-RH-XuT"/>
+                                    <exclude reference="342-aJ-RNm"/>
+                                </mask>
+                            </variation>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.15686274509803921" green="0.066666666666666666" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="bN1-bp-YVN" secondAttribute="trailing" constant="18" id="GYb-w1-EIz"/>
+                        <constraint firstAttribute="height" constant="92" id="Lrt-am-gri"/>
+                        <constraint firstItem="bN1-bp-YVN" firstAttribute="leading" secondItem="N6u-Iz-0M0" secondAttribute="leading" constant="17" id="M31-b8-sZx"/>
+                        <constraint firstItem="bN1-bp-YVN" firstAttribute="centerY" secondItem="N6u-Iz-0M0" secondAttribute="centerY" id="RMb-ml-ht3"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="w8o-jv-tHA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="24m-AB-DPu"/>
+                <constraint firstItem="N6u-Iz-0M0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8Xi-YB-xrh"/>
+                <constraint firstAttribute="trailing" secondItem="N6u-Iz-0M0" secondAttribute="trailing" id="LDW-ga-VWO"/>
+                <constraint firstAttribute="bottom" secondItem="w8o-jv-tHA" secondAttribute="bottom" id="djk-2n-mJ9"/>
+                <constraint firstAttribute="bottom" secondItem="N6u-Iz-0M0" secondAttribute="bottom" id="rke-T5-Kxd"/>
+                <constraint firstAttribute="trailing" secondItem="w8o-jv-tHA" secondAttribute="trailing" id="se6-38-dCX"/>
+                <constraint firstItem="w8o-jv-tHA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wpJ-S9-wXq"/>
+            </constraints>
+            <point key="canvasLocation" x="365" y="343"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="AI_Wish_Make_bg" width="414" height="736"/>
+    </resources>
+</document>

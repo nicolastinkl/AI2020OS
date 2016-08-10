@@ -11,8 +11,7 @@ import UIKit
 class AIProductQAViewController: UIViewController {
 	
 	var tableView: UITableView!
-	var items: [String] = []
-//	var navigationBar: UIView!
+	var items: [[String: String]] = []
 	struct Constants {
 		static let cellSpace: CGFloat = AITools.displaySizeFrom1242DesignSize(27)
 	}
@@ -33,12 +32,12 @@ class AIProductQAViewController: UIViewController {
 	}
 	
 	func setupData() {
-		for i in 0...6 {
-			var string = "这里是提问内容，这里是提问内容。"
-			for _ in 0...i {
-				string += string
-				items.append(string)
-			}
+		let service = AIProductQAService()
+		service.allQuestions("900001001002", user_id: "100000000208", success: { [weak self] response in
+            self?.items = response
+            self?.tableView.reloadData()
+		}) { (errType, errDes) in
+			
 		}
 	}
 	
@@ -91,11 +90,11 @@ extension AIProductQAViewController: UITableViewDataSource {
 		let row = indexPath.row
 		if row == 0 {
 			let cell = tableView.dequeueReusableCellWithIdentifier("q") as! AIProductQuestionCell
-			cell.contentLabel.text = item
+            cell.contentLabel.text = item["ask"]
 			return cell
 		} else {
 			let cell = tableView.dequeueReusableCellWithIdentifier("a") as! AIProductAnswerCell
-			cell.contentLabel.text = item
+			cell.contentLabel.text = item["answer"]
 			return cell
 		}
 	}

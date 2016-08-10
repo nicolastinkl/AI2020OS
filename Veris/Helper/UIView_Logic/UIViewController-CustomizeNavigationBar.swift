@@ -74,6 +74,7 @@ extension UIViewController {
 	///
 	///
 	func setNavigationBarAppearance(navigationBarAppearance appearance: UINavigationBarAppearance) {
+        assert(navigationController != nil, "controller 需要被包在UINavigationController里面")
 		let navBar = navigationController!.navigationBar as! CustomizedNavigationBar
 		
 		// bar background color and image

@@ -22,18 +22,36 @@ class AISearchHomeService: NSObject {
 		}
 	}
 	
+	func searchServiceCondition(search_key: String, user_id: Int, user_type: Int, page_size: Int, page_number: Int, success: (AnyObject) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+		let message = AIMessage()
+//   2.2.2 商品搜索并带出过滤条件
+		message.url = AIApplication.AIApplicationServerURL.searchServiceCondition.description
+		let body = ["data": [
+			"user_type": user_type,
+			"user_id": user_id,
+			"search_key": search_key,
+			"page_size": page_size,
+			"page_number": page_number
+			], "desc": ["data_mode": "0", "digest": ""]]
+		message.body = NSMutableDictionary(dictionary: body)
+		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+			success(response)
+		}) { (error: AINetError, errorDes: String!) -> Void in
+			fail(errType: error, errDes: errorDes ?? "")
+		}
+	}
+	
 	func filterServices(search_key: String, user_id: Int, user_type: Int, page_size: Int, page_number: Int, catalog_id: Int, price_area: [String: Int], sort_by: String, success: (AnyObject) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 		let message = AIMessage()
 //    2.2.3 商品搜索结果过滤
 		message.url = AIApplication.AIApplicationServerURL.filterServices.description
-		
 		let body = ["data": [
 			"user_type": user_type,
 			"user_id": user_id,
 			"search_key": search_key,
 			"page_size": page_size,
 			"page_number": page_number,
-			"catalog_id": 0,
+			"catalog_id": catalog_id,
 			"price_area": price_area,
 			"sort_by": sort_by
 			], "desc": ["data_mode": "0", "digest": ""]]
@@ -45,4 +63,19 @@ class AISearchHomeService: NSObject {
 		}
 	}
 	
+	func getRecommendedServices(user_id: Int, user_type: Int, success: (AnyObject) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+		let message = AIMessage()
+//    2.2.4 商品推荐
+		message.url = AIApplication.AIApplicationServerURL.filterServices.description
+		let body = ["data": [
+			"user_type": user_type,
+			"user_id": user_id,
+			], "desc": ["data_mode": "0", "digest": ""]]
+		message.body = NSMutableDictionary(dictionary: body)
+		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+			success(response)
+		}) { (error: AINetError, errorDes: String!) -> Void in
+			fail(errType: error, errDes: errorDes ?? "")
+		}
+	}
 }

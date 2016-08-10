@@ -188,6 +188,15 @@ class AISuperiorityViewController: UIViewController {
         
         
     }
+    
+    func favoriteAction(){
+        view.showLoading()
+        
+        AIProdcutinfoService.addFavoriteServiceInfo("") { (obj, error) in
+            self.view.hideLoading()
+        }
+    }
+    
 
     func initLayoutViews() {
 
@@ -206,6 +215,7 @@ class AISuperiorityViewController: UIViewController {
             navi.setRightIcon2Action(UIImage(named: "AINavigationBar_send")!)
             navi.titleLabel.text = "孕检无忧"
             navi.videoButton.addTarget(self, action: #selector(shareAction), forControlEvents: UIControlEvents.TouchUpInside)
+            navi.commentButton.addTarget(self, action: #selector(favoriteAction), forControlEvents: UIControlEvents.TouchUpInside)
         }
     }
 

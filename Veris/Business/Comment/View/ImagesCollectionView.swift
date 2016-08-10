@@ -11,6 +11,7 @@ import UIKit
 class ImagesCollectionView: UIView {
 
     var images: [AIImageView]!
+    var delegate: ImagesCollectionProtocol?
     
     private var row = 0
     private var column = 0
@@ -118,42 +119,42 @@ class ImagesCollectionView: UIView {
         }
     }
     
-    func addImage(image: UIImage) {
+    func addImage(image: UIImage, imageId: String? = nil) {
         appendImage(image)
         
         setNeedsUpdateConstraints()
         setNeedsLayout()
     }
     
-    func addImages(images: [UIImage]) {
-        for image in images {
-            appendImage(image)
+    func addImages(images: [(image: UIImage, imageId: String?)]) {
+        for imageItem in images {
+            appendImage(imageItem.image, imageId: imageItem.imageId)
         }
         
         setNeedsUpdateConstraints()
         setNeedsLayout()
     }
     
-    func addAsyncUploadImages(images: [(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)]) {
+    func addAsyncUploadImages(images: [(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)]) {
         for image in images {
-            appendAsyncUploadImage(image.image, id: image.id, complate: image.complate)
+            appendAsyncUploadImage(image.image, imageId: image.imageId, complate: image.complate)
         }
         
         setNeedsUpdateConstraints()
         setNeedsLayout()
     }
     
-    func addAsyncUploadImage(image: UIImage, id: String? = nil, complate: AIImageView.UploadComplate? = nil) {
-        appendAsyncUploadImage(image, id: id, complate: complate)
+    func addAsyncUploadImage(image: UIImage, imageId: String? = nil, complate: AIImageView.UploadComplate? = nil) {
+        appendAsyncUploadImage(image, imageId: imageId, complate: complate)
         
         setNeedsUpdateConstraints()
         setNeedsLayout()
     }
     
-    func addAsyncDownloadImages(urls: [NSURL], holdImage: UIImage? = nil) {
-        for url in urls {
-            let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
-            imageView.setURL(url, placeholderImage: holdImage, showProgress: true)
+    func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)], holdImage: UIImage? = nil) {
+        for urlItem in urls {
+            let imageView = createImageView(urlItem.imageId)
+            imageView.setURL(urlItem.url, placeholderImage: holdImage, showProgress: true)
             images.append(imageView)
         }
         
@@ -161,10 +162,10 @@ class ImagesCollectionView: UIView {
         setNeedsLayout()
     }
     
-    func addAssetImages(urls: [NSURL]) {
-        for url in urls {
-            let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
-            imageView.loadFromAsset(url)
+    func addAssetImages(urls: [(url: NSURL, imageId: String?)]) {
+        for urlItem in urls {
+            let imageView = createImageView(urlItem.imageId)
+            imageView.loadFromAsset(urlItem.url)
             images.append(imageView)
         }
         
@@ -172,18 +173,17 @@ class ImagesCollectionView: UIView {
         setNeedsLayout()
     }
     
-    private func appendImage(image: UIImage) {
-        let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
+    private func appendImage(image: UIImage, imageId: String? = nil) {
+        let imageView = createImageView(imageId)
         imageView.image = image
         
         images.append(imageView)
     }
     
-    private func appendAsyncUploadImage(image: UIImage, id: String? = nil, complate: AIImageView.UploadComplate? = nil) {
-        let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
+    private func appendAsyncUploadImage(image: UIImage, imageId: String? = nil, complate: AIImageView.UploadComplate? = nil) {
+        let imageView = createImageView(imageId)
         imageView.image = image
-        imageView.uploadImage(id, complate: complate)
-        
+        imageView.uploadImage(imageId, complate: complate)
         images.append(imageView)
     }
     
@@ -197,6 +197,46 @@ class ImagesCollectionView: UIView {
         
         setNeedsUpdateConstraints()
         setNeedsLayout()
+    }
+    
+    func deleteImages(imageIds: [String]) {
+        for id in imageIds {
+            for imageView in images {
+                if imageView.imageId == id {
+                    imageView.removeFromSuperview()       
+                }
+            }
+        }
+        
+        let keepedImages = images.filter { (imageView) -> Bool in
+            if imageView.imageId == nil {
+                return false
+            }
+            
+            return !imageIds.contains(imageView.imageId!)
+        }
+        
+        images = keepedImages
+        
+        setNeedsUpdateConstraints()
+        setNeedsLayout()
+        
+    }
+    
+    private func createImageView(imageId: String?) -> AIImageView {
+        let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
+        imageView.userInteractionEnabled = true
+        
+        let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(ImagesCollectionView.imageAction(_:)))
+        imageView.addGestureRecognizer(tapGuesture)
+        
+        if let id = imageId {
+            imageView.imageId = id
+        } else {
+            imageView.imageId = "\(NSDate().timeIntervalSince1970)"
+        }
+        
+        return imageView
     }
     
     private func maxColunm() -> Int {
@@ -219,5 +259,16 @@ class ImagesCollectionView: UIView {
         return row
     }
     
+    func imageAction(sender: UITapGestureRecognizer) {
+        if let image = sender.view as? AIImageView {
+            delegate?.imageClicked(image.image, imageId: image.imageId)
+        }
+        
+    }
     
+    
+}
+
+protocol ImagesCollectionProtocol {
+    func imageClicked(image: UIImage?, imageId: String?)
 }
