@@ -184,9 +184,21 @@ class AIProductInfoViewController: UIViewController {
     func favoriteAction(){
         view.showLoading()
         
-        AIProdcutinfoService.addFavoriteServiceInfo("") { (obj, error) in
-             self.view.hideLoading()
+        
+        AIProdcutinfoService.addFavoriteServiceInfo("11") { (obj, error) in
+            self.view.hideLoading()
+            if let res = obj as? String {
+                // MARK: Loading Data Views
+                if res == "1" {
+                    if let navi = self.navi as? AINavigationBar {
+                            navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+                    }
+                }else{
+                    AIAlertView().showError("收藏失败", subTitle: "")
+                }
+            }
         }
+        
     }
 
 

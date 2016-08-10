@@ -35,9 +35,12 @@ class AIWishVowViewController: UIViewController {
     @IBOutlet weak var payContent: DesignableTextView!
     @IBOutlet weak var wishContent: DesignableTextView!
     
+    @IBOutlet weak var scrollview: UIScrollView!
+    
+    private var preCacheView: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         // Register Audio Tools Notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
@@ -62,10 +65,82 @@ class AIWishVowViewController: UIViewController {
     }
     
     func queryWishs(){
+        
         AIWishServices.requestQueryWishs { (objc, error) in
             
         }
+        
+        Async.main { 
+            self.refereshBubble()
+        }
     }
+    
+    
+    func refereshBubble(){
+        let title1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
+        title1.icon.image = UIImage(named: "AI_Wish_Make_instrst")
+        title1.title.text = "Recommended Wish"
+        addNewSubView(title1, preView: UIView(), space : 12)
+        
+        let bubbleViewContain = UIView()
+        bubbleViewContain.setHeight(0)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let bubbleModels = appDelegate.dataSourcePop
+        if bubbleModels.count > 0 {
+            for i in 0..<min(4, bubbleModels.count) {
+                let model: AIBuyerBubbleModel! = bubbleModels[i]
+                let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
+                let space = AITools.displaySizeFrom1242DesignSize(15)
+                let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
+                model.bubbleSize = Int(bubbleWidth)/2
+                let bubbleView = AIBubble(center: .zero, model: model, type: model.bubbleType, index: 0)
+                bubbleViewContain.addSubview(bubbleView)
+                bubbleView.tag = i
+                let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
+                bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + space), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
+                bubbleView.tag = i
+                
+                bubbleView.userInteractionEnabled = true
+                bubbleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIWishVowViewController.prewishAction(_:))))
+                
+            }
+            
+            bubbleViewContain.setHeight(125)
+        }
+        addNewSubView(bubbleViewContain, preView: title1, space : 0)
+        
+        
+        let title2 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
+        title2.icon.image = UIImage(named: "AI_Wish_Make_hot")
+        title2.title.text = "Popular Wish"
+        addNewSubView(title2, preView: bubbleViewContain, space : 12)
+ 
+    }
+    
+    func prewishAction(send: UITapGestureRecognizer){
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let bubbleModels = appDelegate.dataSourcePop
+        if let s = send.view {
+            let model = bubbleModels[s.tag]
+            let vc = AIWishPreviewController.initFromNib() 
+            vc.model = model
+            showTransitionStyleCrossDissolveView(vc)
+        }
+    }
+    
+    /**
+     copy from old View Controller.
+     */
+    func addNewSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
+        scrollview.addSubview(cview)
+        cview.setWidth(UIScreen.mainScreen().bounds.width)
+        cview.setTop(preView.top + preView.height+space)
+        cview.backgroundColor =  UIColor.clearColor()
+        scrollview.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
+        preCacheView = cview
+    }
+    
+    
     
     /**
      处理语音识别数据搜索
