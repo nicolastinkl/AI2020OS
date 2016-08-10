@@ -145,7 +145,7 @@ extension UIViewController {
 			}
 			
 			let bottomPadding = itemPositionForIndexAtPosition(i, position).bottomPadding
-			
+			AILog("\(button.frame)")
 			// 修改竖直方向位置
 			
 			// button 真实高度
