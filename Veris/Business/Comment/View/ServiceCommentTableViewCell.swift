@@ -22,6 +22,8 @@ class ServiceCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var appendCommentHeight: NSLayoutConstraint!
     @IBOutlet weak var imageButtonSpace: NSLayoutConstraint!
     @IBOutlet weak var appendCommentBottomMargin: NSLayoutConstraint!
+    @IBOutlet weak var checkbox: CheckboxButton!
+    @IBOutlet weak var anonymousLabel: UILabel!
     
     private var hasAppendHeight: CGFloat!
     private var commentAreaHeight: CGFloat!
@@ -110,7 +112,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
         serviceName.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
         firstComment.hint.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
         firstComment.inputTextView.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
-        appendComment.inputTextView.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
+        appendComment.inputTextView.font = AITools.myriadSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
         
         firstComment.imageCollection.delegate = self
         appendComment.imageCollection.delegate = self
@@ -121,6 +123,9 @@ class ServiceCommentTableViewCell: UITableViewCell {
         
         hasAppendHeight = height
         commentAreaHeight = firstComment.height
+        
+        checkbox.layer.cornerRadius = 4
+        anonymousLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(40))
     }
 
     override func layoutSubviews() {
@@ -145,12 +150,12 @@ class ServiceCommentTableViewCell: UITableViewCell {
         state.addImages(images)
     }
     
-    func addAsyncUploadImages(images: [(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)]) {
+    func addAsyncUploadImages(images: [(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)]) {
         state.addAsyncUploadImages(images)
     }
     
-    func addAsyncUploadImage(image: UIImage, id: String? = nil, complate: AIImageView.UploadComplate? = nil) {
-        state.addAsyncUploadImage(image, id: id, complate: complate)
+    func addAsyncUploadImage(image: UIImage, imageId: String? = nil, complate: AIImageView.UploadComplate? = nil) {
+        state.addAsyncUploadImage(image, imageId: imageId, complate: complate)
     }
     
     func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)]) {
@@ -181,6 +186,10 @@ class ServiceCommentTableViewCell: UITableViewCell {
     
     func getSubmitData() -> ServiceComment? {
         return state?.getSubmitData()
+    }
+    
+    func deleteImages(imageIds: [String]) {
+        state?.deleteImages(imageIds)
     }
     
     private func appendCommentAreaHidden(hidden: Bool) {
@@ -296,12 +305,13 @@ protocol CommentState: class {
     func updateUI()
     func addImage(image: UIImage, imageId: String?)
     func addImages(images: [(image: UIImage, imageId: String?)])
-    func addAsyncUploadImages(images: [(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)])
-    func addAsyncUploadImage(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)
+    func addAsyncUploadImages(images: [(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)])
+    func addAsyncUploadImage(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)
     func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)])
     // 获取要提交的数据, 只返回文字和评分数据，图片数据保存在CommentManager中，在CommentManager提交评价时一并提交
     func getSubmitData() -> ServiceComment?
     func addAssetImages(url: [(url: NSURL, imageId: String?)])
+    func deleteImages(imageIds: [String])
 }
 
 private class AbsCommentState: CommentState {
@@ -324,11 +334,11 @@ private class AbsCommentState: CommentState {
         
     }
     
-    func addAsyncUploadImages(images: [(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)]) {
+    func addAsyncUploadImages(images: [(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)]) {
         
     }
     
-    func addAsyncUploadImage(image: UIImage, id: String? = nil, complate: AIImageView.UploadComplate? = nil) {
+    func addAsyncUploadImage(image: UIImage, imageId: String? = nil, complate: AIImageView.UploadComplate? = nil) {
         
     }
     
@@ -341,6 +351,10 @@ private class AbsCommentState: CommentState {
     }
     
     func addAssetImages(url: [(url: NSURL, imageId: String?)]) {
+        
+    }
+    
+    func deleteImages(imageIds: [String]) {
         
     }
 }
@@ -359,6 +373,9 @@ private class CommentEditableState: AbsCommentState {
         
         cell.appendCommentButton.hidden = true
         cell.starRateView.userInteractionEnabled = true
+        
+        cell.checkbox.hidden = false
+        cell.anonymousLabel.hidden = false
     }
 
     override func addImage(image: UIImage, imageId: String? = nil) {
@@ -369,12 +386,12 @@ private class CommentEditableState: AbsCommentState {
         cell.firstComment.imageCollection.addImages(images)
     }
     
-    override func addAsyncUploadImages(images: [(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)]) {
+    override func addAsyncUploadImages(images: [(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)]) {
         cell.firstComment.imageCollection.addAsyncUploadImages(images)
     }
     
-    override func addAsyncUploadImage(image: UIImage, id: String? = nil, complate: AIImageView.UploadComplate? = nil) {
-        cell.firstComment.imageCollection.addAsyncUploadImage(image, id: id, complate: complate)
+    override func addAsyncUploadImage(image: UIImage, imageId: String? = nil, complate: AIImageView.UploadComplate? = nil) {
+        cell.firstComment.imageCollection.addAsyncUploadImage(image, imageId: imageId, complate: complate)
     }
     
     override func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)]) {
@@ -391,6 +408,10 @@ private class CommentEditableState: AbsCommentState {
     
     override func addAssetImages(urls: [(url: NSURL, imageId: String?)]) {
         cell.firstComment.imageCollection.addAssetImages(urls)
+    }
+    
+    override func deleteImages(imageIds: [String]) {
+        cell.firstComment.imageCollection.deleteImages(imageIds)
     }
 }
 
@@ -416,6 +437,9 @@ private class CommentFinshedState: AbsCommentState {
         cell.appendCommentButton.hidden = false
         cell.imageButton.hidden = true
         cell.starRateView.userInteractionEnabled = false
+        
+        cell.checkbox.hidden = true
+        cell.anonymousLabel.hidden = true
     }
     
     override func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)]) {
@@ -424,6 +448,10 @@ private class CommentFinshedState: AbsCommentState {
     
     override func addAssetImages(urls: [(url: NSURL, imageId: String?)]) {
         cell.appendComment.imageCollection.addAssetImages(urls)
+    }
+    
+    override func deleteImages(imageIds: [String]) {
+        cell.appendComment.imageCollection.deleteImages(imageIds)
     }
 }
 
@@ -445,6 +473,9 @@ private class AppendEditingState: AbsCommentState {
         Async.main(after: 0.1, block: { [weak self] in
             self?.cell.appendComment.inputTextView.becomeFirstResponder()
         })
+        
+        cell.checkbox.hidden = true
+        cell.anonymousLabel.hidden = true
     }
     
     override func addImage(image: UIImage, imageId: String?) {
@@ -455,12 +486,12 @@ private class AppendEditingState: AbsCommentState {
         cell.appendComment.imageCollection.addImages(images)
     }
     
-    override func addAsyncUploadImages(images: [(image: UIImage, id: String?, complate: AIImageView.UploadComplate?)]) {
+    override func addAsyncUploadImages(images: [(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)]) {
         cell.appendComment.imageCollection.addAsyncUploadImages(images)
     }
     
-    override func addAsyncUploadImage(image: UIImage, id: String? = nil, complate: AIImageView.UploadComplate? = nil) {
-        cell.appendComment.imageCollection.addAsyncUploadImage(image, id: id, complate: complate)
+    override func addAsyncUploadImage(image: UIImage, imageId: String? = nil, complate: AIImageView.UploadComplate? = nil) {
+        cell.appendComment.imageCollection.addAsyncUploadImage(image, imageId: imageId, complate: complate)
     }
     
     override func getSubmitData() -> ServiceComment? {
@@ -473,6 +504,10 @@ private class AppendEditingState: AbsCommentState {
     
     override func addAssetImages(url: [(url: NSURL, imageId: String?)]) {
         cell.appendComment.imageCollection.addAssetImages(url)
+    }
+    
+    override func deleteImages(imageIds: [String]) {
+        cell.appendComment.imageCollection.deleteImages(imageIds)
     }
 }
 
@@ -506,6 +541,9 @@ private class DoneState: AbsCommentState {
         let appendImages = cell.getImageUrls(true)
         
         cell.appendComment.imageCollection.addAsyncDownloadImages(appendImages, holdImage: cell.holdImage)
+        
+        cell.checkbox.hidden = true
+        cell.anonymousLabel.hidden = true
     }
 }
 
@@ -528,7 +566,7 @@ extension ServiceCommentTableViewCell: ImagesCollectionProtocol {
             return
         }
         
-        var clickImages = [String : UIImage]()
+        var clickImages = [(imageId: String, UIImage)]()
         
         for info in ims {
             guard let im = info.image else {
@@ -539,11 +577,11 @@ extension ServiceCommentTableViewCell: ImagesCollectionProtocol {
                 continue
             }
             
-            clickImages[id] = im
+            clickImages.append((id, im))
         }
         
         if clickImages.count > 0 {
-            cellDelegate?.imagesClicked(clickImages)
+            cellDelegate?.imagesClicked(clickImages, cell: self)
         }
     }
 }
@@ -552,5 +590,5 @@ protocol CommentCellDelegate {
     func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
     func commentHeightChanged()
     // images: key is ImageTag
-    func imagesClicked(images: [String : UIImage])
+    func imagesClicked(images: [(imageId: String, UIImage)], cell: ServiceCommentTableViewCell)
 }

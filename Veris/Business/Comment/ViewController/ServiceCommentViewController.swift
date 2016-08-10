@@ -34,6 +34,9 @@ class ServiceCommentViewController: AbsCommentViewController {
         
         loadUI()
         IQKeyboardManager.sharedManager().enable = false
+
+
+
      //   loadStarsDes()
     }
     

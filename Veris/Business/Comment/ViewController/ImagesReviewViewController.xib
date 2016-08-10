@@ -13,30 +13,24 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="64" width="600" height="536"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4Q-rN-IEI">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4Q-rN-IEI">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="c7W-mz-03W"/>
+                    </connections>
                 </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lA7-sh-3xB">
-                    <rect key="frame" x="0.0" y="548" width="600" height="52"/>
-                    <color key="backgroundColor" red="0.058823529409999999" green="0.039215686270000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="52" id="CoM-as-RFt"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.058823529411764705" green="0.039215686274509803" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="lA7-sh-3xB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="A1B-aT-x1v"/>
-                <constraint firstAttribute="bottom" secondItem="lA7-sh-3xB" secondAttribute="bottom" id="A6c-2a-7xp"/>
                 <constraint firstAttribute="trailing" secondItem="d4Q-rN-IEI" secondAttribute="trailing" id="HVV-5K-M4E"/>
                 <constraint firstItem="d4Q-rN-IEI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kal-Ax-yjg"/>
-                <constraint firstAttribute="trailing" secondItem="lA7-sh-3xB" secondAttribute="trailing" id="TIz-PH-Tig"/>
                 <constraint firstItem="d4Q-rN-IEI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pqa-w9-JaP"/>
                 <constraint firstAttribute="bottom" secondItem="d4Q-rN-IEI" secondAttribute="bottom" id="uOX-Ep-X2O"/>
             </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="-298" y="411"/>
         </view>
     </objects>

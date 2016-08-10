@@ -24,9 +24,11 @@
 
 import Foundation
 
-struct AIWishModel: JSONJoy {
-
-    init(_ decoder: JSONDecoder) {
+class AIWishModel: JSONJoy {
+    
+    
+    
+    required init(_ decoder: JSONDecoder) {
 
     }
 

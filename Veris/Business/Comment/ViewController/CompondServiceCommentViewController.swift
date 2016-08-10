@@ -19,8 +19,6 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private var commentManager: CommentManager!
 
     @IBOutlet weak var serviceTableView: UITableView!
-    @IBOutlet weak var checkbox: CheckboxButton!
-    @IBOutlet weak var submit: UIButton!
 
     class func loadFromXib() -> CompondServiceCommentViewController {
         let vc = CompondServiceCommentViewController(nibName: "CompondServiceCommentViewController", bundle: nil)
@@ -32,9 +30,6 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         setupNavigationBar()
         
         commentManager = DefaultCommentManager()
-
-        checkbox.layer.cornerRadius = 4
-        submit.layer.cornerRadius = submit.height / 2
 
         serviceTableView.rowHeight = UITableViewAutomaticDimension
         serviceTableView.estimatedRowHeight = 270
@@ -68,7 +63,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
 
 
-    @IBAction func submitComments(sender: UIButton) {
+    func submitComments() {
         
         
         
@@ -112,19 +107,20 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
     
     private func setupNavigationBar() {
-        extendedLayoutIncludesOpaqueBars = true
-        
+//        edgesForExtendedLayout = .Top
+
         let backButton = UIButton()
         backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
         backButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
         
         let followButton = UIButton()
-        followButton.setTitle("提交", forState: .Normal)
-        followButton.titleLabel?.font = UIFont.systemFontOfSize(42.displaySizeFrom1242DesignSize())
-        followButton.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.6), forState: .Normal)
+        followButton.setTitle("CompondServiceCommentViewController.submit".localized, forState: .Normal)
+        followButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
+        followButton.setTitleColor(UIColor(hexString: "#0f86e8"), forState: .Normal)
         followButton.backgroundColor = UIColor.clearColor()
         followButton.layer.cornerRadius = 12.displaySizeFrom1242DesignSize()
         followButton.setSize(CGSize(width: 196.displaySizeFrom1242DesignSize(), height: 80.displaySizeFrom1242DesignSize()))
+        backButton.addTarget(self, action: #selector(CompondServiceCommentViewController.submitComments), forControlEvents: .TouchUpInside)
         
         let appearance = UINavigationBarAppearance()
         appearance.leftBarButtonItems = [backButton]
@@ -137,6 +133,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
+        appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "CompondServiceCommentViewController.title".localized)
         setNavigationBarAppearance(navigationBarAppearance: appearance)
     }
     
@@ -155,10 +152,10 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private func loadServiceComments() {
         comments = [ServiceCommentViewModel]()
         
-        for i in 0 ..< 1 {
+        for i in 0 ..< 2 {
             let model = ServiceCommentViewModel()
             model.serviceId = "\(i)"
-            model.commentEditable = i % 2 != 1
+            model.commentEditable = i % 2 != 0
             comments.append(model)
         }
         
@@ -204,6 +201,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                 if let model = findLocalModel(comment.serviceId) {
                     model.isAppend = !comment.commentEditable
                     comment.loaclModel = model
+                } else {
+                    comment.loaclModel = ServiceCommentLocalSavedModel()
+                    comment.loaclModel?.serviceId = comment.serviceId
                 }
             }
         }
@@ -272,7 +272,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private func addImagesToCell(images: [ImageInfo], cell: ServiceCommentTableViewCell) {
         for imageInfo in images {
             if let im = imageInfo.image {
-                cell.addAsyncUploadImage(im, id: createImageId(imageInfo), complate: { [weak self] (id, url, error) in
+                cell.addAsyncUploadImage(im, imageId: createImageId(imageInfo), complate: { [weak self] (id, url, error) in
                     if let u = url {
                         self?.commentManager.notifyImageUploadResult(id!, url: u)
                     }  
@@ -281,11 +281,12 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         }
     }
     
-    private func presentImagesReviewController(images: [String : UIImage]) {
+    private func presentImagesReviewController(images: [(imageId: String, UIImage)]) {
         let vc = ImagesReviewViewController.loadFromXib()
+        vc.delegate = self
         vc.images = images
-        let n = UINavigationController(rootViewController: vc)
         
+        let n = UINavigationController(rootViewController: vc)
         presentViewController(n, animated: true, completion: nil)
     }
 }
@@ -369,8 +370,40 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         serviceTableView.reloadData()
     }
     
-    func imagesClicked(images: [String : UIImage]) {
+    func imagesClicked(images: [(imageId: String, UIImage)], cell: ServiceCommentTableViewCell) {
+        currentOperateCell = cell.tag
+        
         presentImagesReviewController(images)
+    }
+}
+
+extension CompondServiceCommentViewController: ImagesReviewDelegate {
+    func deleteImages(imageIds: [String]) {
+        
+        func deleteLocalData() {
+            guard let local = comments[currentOperateCell].loaclModel else {
+                return
+            }
+            
+            if imageIds.count == 0 {
+                return
+            }
+            
+            local.imageInfos = local.imageInfos.filter { (model) -> Bool in
+                return !imageIds.contains(model.imageId)
+            }
+            
+            commentManager.saveCommentModelToLocal(local.serviceId, model: local)
+        }
+        
+        func deleteCellImages() {
+            if let cell = cellsMap[currentOperateCell] as? ServiceCommentTableViewCell {
+                cell.deleteImages(imageIds)
+            }
+        }
+        
+        deleteLocalData()
+        deleteCellImages()
     }
 }
 

@@ -366,23 +366,18 @@ struct AIApplication {
 
         //MARK: 注册
         case register
-        
         //MARK: 登陆
         case login
-        
         // 复合服务评论
         case compondComment
         // 复合服务评论
         case commentSpec
         // 提交评论
         case saveComment
-        
         // 服务优势介绍
         case preview
-        
         // 产品详情
         case detail
-        
         // 2.6.6 所有推荐（为您推荐）
         case allRecommends
         // 2.6.7 服务者介绍
@@ -400,8 +395,12 @@ struct AIApplication {
         
         // 图像识别
         case uploadAndIdentify
-
-        
+        // 许愿提交
+        case makewish
+        // 许愿查询
+        case wishpreview
+        // 添加收藏
+        case favoriteadd
         
         var description: String {
 
@@ -473,6 +472,9 @@ struct AIApplication {
             case .filterServices: return AIApplication.KURL_DebugURL + "/search/filterServices"
             case .getRecommendedServices: return AIApplication.KURL_DebugURL + "/search/getRecommendedServices"
             case .uploadAndIdentify: return "http://171.221.254.231:3001/uploadAndIdentify"
+            case .makewish: return AIApplication.KURL_DebugURL + "/wish/submitWish"
+            case .wishpreview: return AIApplication.KURL_DebugURL + "/wish/queryWishList"
+            case .favoriteadd: return AIApplication.KURL_DebugURL + "/favorite/add"
             }
         }
     }
