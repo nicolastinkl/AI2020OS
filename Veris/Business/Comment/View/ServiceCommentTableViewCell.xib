@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -96,28 +97,46 @@
                             <constraint firstAttribute="height" id="2WB-kR-eEn"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXu-CS-BiX" userLabel="CheckBox" customClass="CheckboxButton" customModule="Veris" customModuleProvider="target">
-                        <rect key="frame" x="240" y="221" width="30" height="30"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXu-CS-BiX" userLabel="checkbox" customClass="CheckboxButton" customModule="Veris" customModuleProvider="target">
+                        <rect key="frame" x="241" y="226" width="21" height="21"/>
+                        <color key="backgroundColor" red="0.71372549019999998" green="0.73333333329999995" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="lXu-CS-BiX" secondAttribute="height" multiplier="1:1" id="Xks-Kf-4Wd"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="checkLineWidth">
-                                <real key="value" value="0.0"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
+                                <color key="value" red="0.12941176469999999" green="0.2156862745" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-cW-dJS" userLabel="anonymous">
+                        <rect key="frame" x="270" y="226" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="CompondServiceCommentViewController.append"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="Uqg-cW-dJS" firstAttribute="leading" secondItem="lXu-CS-BiX" secondAttribute="trailing" constant="8" id="180-cY-suS"/>
                     <constraint firstItem="GsB-aE-nrk" firstAttribute="top" secondItem="7YW-ax-ngK" secondAttribute="bottom" constant="20" id="8ge-lw-TzI"/>
                     <constraint firstItem="Qxg-Vh-rxo" firstAttribute="trailing" secondItem="Iaz-ax-E45" secondAttribute="trailing" id="9KF-LK-lfC"/>
                     <constraint firstItem="Iaz-ax-E45" firstAttribute="top" secondItem="oUy-xX-H03" secondAttribute="bottom" constant="16" id="BQq-Ek-Ct3"/>
                     <constraint firstAttribute="bottomMargin" secondItem="7YW-ax-ngK" secondAttribute="bottom" priority="999" constant="60" id="BUS-0H-Sud"/>
                     <constraint firstItem="oUy-xX-H03" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" priority="999" constant="8" id="BlD-EQ-Het"/>
+                    <constraint firstItem="lXu-CS-BiX" firstAttribute="centerY" secondItem="GsB-aE-nrk" secondAttribute="centerY" id="Gz2-AR-C6a"/>
                     <constraint firstItem="gSL-h2-ZvC" firstAttribute="leading" secondItem="oUy-xX-H03" secondAttribute="trailing" constant="5" id="HdZ-67-A8J"/>
+                    <constraint firstItem="lXu-CS-BiX" firstAttribute="top" secondItem="GsB-aE-nrk" secondAttribute="top" id="IYe-SZ-iBj"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Iaz-ax-E45" secondAttribute="trailing" id="KBA-Yo-bgY"/>
                     <constraint firstItem="lXu-CS-BiX" firstAttribute="top" secondItem="Lbx-Ya-0Bq" secondAttribute="top" id="KKB-em-gh0"/>
+                    <constraint firstItem="lXu-CS-BiX" firstAttribute="height" secondItem="GsB-aE-nrk" secondAttribute="height" id="KPh-W5-lQd"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="lXu-CS-BiX" secondAttribute="trailing" constant="50" id="LAG-bv-Jd9"/>
                     <constraint firstItem="7YW-ax-ngK" firstAttribute="top" secondItem="Qxg-Vh-rxo" secondAttribute="bottom" constant="5" id="Lat-DA-ivV"/>
                     <constraint firstItem="7YW-ax-ngK" firstAttribute="leading" secondItem="AA3-rZ-vu2" secondAttribute="leading" id="Mip-gi-pvk"/>
                     <constraint firstItem="lXu-CS-BiX" firstAttribute="height" secondItem="Lbx-Ya-0Bq" secondAttribute="height" id="N2h-h1-mol"/>
@@ -133,20 +152,35 @@
                     <constraint firstItem="AA3-rZ-vu2" firstAttribute="trailing" secondItem="Iaz-ax-E45" secondAttribute="trailing" id="ee8-Uq-9yi"/>
                     <constraint firstItem="GsB-aE-nrk" firstAttribute="leading" secondItem="Iaz-ax-E45" secondAttribute="leading" id="ewP-Tj-lyR"/>
                     <constraint firstItem="Qxg-Vh-rxo" firstAttribute="top" secondItem="AA3-rZ-vu2" secondAttribute="bottom" constant="5" id="faM-ya-381"/>
+                    <constraint firstItem="Uqg-cW-dJS" firstAttribute="centerY" secondItem="lXu-CS-BiX" secondAttribute="centerY" id="gcc-6U-qBU"/>
                     <constraint firstItem="q5n-Qs-AxA" firstAttribute="centerY" secondItem="gSL-h2-ZvC" secondAttribute="centerY" id="kb4-Z3-Rm3"/>
                     <constraint firstItem="gSL-h2-ZvC" firstAttribute="centerY" secondItem="oUy-xX-H03" secondAttribute="centerY" id="mfS-2V-jaI"/>
+                    <constraint firstItem="lXu-CS-BiX" firstAttribute="height" secondItem="GsB-aE-nrk" secondAttribute="height" multiplier="0.7" id="qb1-ZZ-TvG"/>
                     <constraint firstItem="lXu-CS-BiX" firstAttribute="leading" secondItem="Lbx-Ya-0Bq" secondAttribute="leading" id="ueG-Nx-lA6"/>
                     <constraint firstAttribute="bottomMargin" secondItem="GsB-aE-nrk" secondAttribute="bottom" constant="10" id="w2r-AJ-F4e"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Uqg-cW-dJS" secondAttribute="trailing" id="wrH-yS-lD4"/>
                     <constraint firstAttribute="trailingMargin" secondItem="q5n-Qs-AxA" secondAttribute="trailing" constant="14" id="y69-O2-yBS"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="IYe-SZ-iBj"/>
+                        <exclude reference="KKB-em-gh0"/>
+                        <exclude reference="KPh-W5-lQd"/>
+                        <exclude reference="LAG-bv-Jd9"/>
+                        <exclude reference="N2h-h1-mol"/>
+                        <exclude reference="ueG-Nx-lA6"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="anonymousLabel" destination="Uqg-cW-dJS" id="nMh-9b-XIC"/>
                 <outlet property="appendComment" destination="7YW-ax-ngK" id="BpE-wQ-l8x"/>
                 <outlet property="appendCommentBottomMargin" destination="BUS-0H-Sud" id="yXY-yV-GSo"/>
                 <outlet property="appendCommentButton" destination="Lbx-Ya-0Bq" id="LrR-Uq-3Fu"/>
                 <outlet property="appendCommentHeight" destination="2WB-kR-eEn" id="iJ2-WY-ZTW"/>
                 <outlet property="bottomStrokeLine" destination="Qxg-Vh-rxo" id="g0j-85-gRb"/>
+                <outlet property="checkbox" destination="lXu-CS-BiX" id="ihQ-XT-4Ys"/>
                 <outlet property="firstComment" destination="AA3-rZ-vu2" id="yc6-ro-QDo"/>
                 <outlet property="imageButton" destination="GsB-aE-nrk" id="I2x-HV-g7S"/>
                 <outlet property="imageButtonSpace" destination="8ge-lw-TzI" id="iCB-vZ-kNO"/>
