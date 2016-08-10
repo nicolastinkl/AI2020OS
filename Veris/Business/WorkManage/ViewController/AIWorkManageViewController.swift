@@ -20,9 +20,10 @@ class AIWorkManageViewController: AIBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        makeMainShowButton()
+
         setupNavigationBar()
         makeTableView()
+        makeMainShowButton()
     }
 
 
@@ -41,7 +42,7 @@ class AIWorkManageViewController: AIBaseViewController {
         mainButton.layer.cornerRadius = height / 2
         mainButton.clipsToBounds = true
         mainButton.backgroundColor = AITools.colorWithR(15, g: 110, b: 197)
-        mainButton.addTarget(self, action: #selector(gotoWorkInfoViewController), forControlEvents: UIControlEvents.TouchUpInside)
+        mainButton.addTarget(self, action: #selector(self.gotoWorkInfoViewController), forControlEvents: UIControlEvents.TouchUpInside)
 
         self.view.addSubview(mainButton)
     }
