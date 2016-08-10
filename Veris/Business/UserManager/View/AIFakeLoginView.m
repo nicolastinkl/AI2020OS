@@ -159,7 +159,7 @@
     AIFakeUser *seller = [[AIFakeUser alloc] initWithFrame:CGRectMake(kMargin, y, size.width, size.height) icon:image selectedAction:^(AIFakeUser *user) {
         [wf handlerUser:user];
     }];
-    seller.userID = @"200000002501";
+    seller.userID = kSeller1;
     seller.userType = FakeUserSeller;
     [self addSubview:seller];
     [self handlerDefaultUser:seller];

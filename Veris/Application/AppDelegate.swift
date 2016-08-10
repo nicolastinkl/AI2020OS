@@ -217,7 +217,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	}
 	
 	func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-		AILog("\(error.userInfo)")
+		AILog("DeviceToken error : \(error.userInfo)")
 	}
 	
 	func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject: AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
@@ -235,7 +235,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
 		
 		AVOSCloud.handleRemoteNotificationsWithDeviceToken(deviceToken)
-		AILog("DeviceToken OK")
+		AILog("DeviceToken is :  \(deviceToken)")
         
 	}
     

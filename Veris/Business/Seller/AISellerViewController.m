@@ -298,15 +298,13 @@
 #pragma mark - Main Action
 
 - (void)showMyWallet {
-    // 演示屏蔽
-//    AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
-//    [self presentViewController:fundManageViewController animated:YES completion:nil];
+    AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
+    [self presentViewController:fundManageViewController animated:YES completion:nil];
 }
 
 - (void)showMyWork {
-    // 演示屏蔽
-//    AIWorkManageViewController *workManageViewController = [[AIWorkManageViewController alloc] init];
-//    [self presentViewController:workManageViewController animated:YES completion:nil];
+    AIWorkManageViewController *workManageViewController = [[AIWorkManageViewController alloc] init];
+    [self presentViewController:workManageViewController animated:YES completion:nil];
 }
 
 #pragma mark - Go Back
