@@ -26,7 +26,6 @@ class AIWorkManageViewController: AIBaseViewController {
     }
 
 
-
     //MARK: Main Button
 
 
@@ -56,7 +55,8 @@ class AIWorkManageViewController: AIBaseViewController {
 
     //MARK: 到工作机会首页
     func gotoWorkInfoViewController() {
-
+        let vc = AIWorkOpportunityIndexViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 
