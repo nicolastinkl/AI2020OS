@@ -152,22 +152,24 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private func loadServiceComments() {
         comments = [ServiceCommentViewModel]()
         
-        for i in 0 ..< 2 {
+        for i in 0 ..< 1 {
             let model = ServiceCommentViewModel()
             model.serviceId = "\(i)"
             model.commentEditable = i % 2 != 1
             comments.append(model)
         }
         
-//        view.showLoading()
+        view.showLoading()
 
         
 //        let ser = HttpCommentService()
 //        
-//        ser.getCompondComment(serviceID, success: { (responseData) in
+//        ser.getCompondComment("1", userType: 1, serviceId: serviceID, success: { (responseData) in
 //            self.view.hideLoading()
 //            let re = responseData
 //            print("getCompondComment success:\(re)")
+//            
+//            self.comments = self.convertCompondModelToCommentList(re)
 //
 //        }) { (errType, errDes) in
 //            
@@ -175,6 +177,70 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 //            
 //            AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
 //        }
+    }
+    
+    private func convertCompondModelToCommentList(model: CompondComment) -> [ServiceCommentViewModel] {
+        var result = [ServiceCommentViewModel]()
+        
+        func pickFirstAndAppdenComment(model: ServiceCommentViewModel, comments: [SingleComment]) {
+            var index = 0
+            
+            for comment in comments {
+                if index == 0 {
+                    model.firstComment = comment
+                } else if index == 1 {
+                    model.appendComment = comment
+                } else {
+                    break
+                }
+                index += 1
+            }
+        }
+        
+        let mainServiceComment = ServiceCommentViewModel()
+        mainServiceComment.serviceId = model.service_id
+        mainServiceComment.thumbnailUrl = model.service_thumbnail_url
+        mainServiceComment.serviceName = model.service_name
+        let value = model.grade_value ?? "0"
+        mainServiceComment.stars = CGFloat((value as NSString).floatValue)
+        
+        if let comments = model.comments as? [SingleComment] {
+            pickFirstAndAppdenComment(mainServiceComment, comments: comments)
+        }
+        
+        result.append(mainServiceComment)
+        
+        guard let subList = model.sub_service_list as? [ServiceComment] else {
+            return result
+        }
+    
+        for subService in subList {
+            let subServiceComment = ServiceCommentViewModel()
+            subServiceComment.serviceId = subService.service_id
+            subServiceComment.thumbnailUrl = subService.service_thumbnail_url
+            subServiceComment.serviceName = subService.service_name
+            let value = subService.grade_value ?? "0"
+            subServiceComment.stars = CGFloat((value as NSString).floatValue)
+            
+            if let comments = subService.comments as? [SingleComment] {
+                pickFirstAndAppdenComment(subServiceComment, comments: comments)
+            }
+            
+            result.append(mainServiceComment)
+                
+        }
+        
+        return result
+    }
+    
+    private func findSubCommentViewModel(serviceId: String) -> ServiceCommentViewModel? {
+        for model in comments {
+            if model.serviceId == serviceId {
+                return model
+            }
+        }
+        
+        return nil
     }
     
     private func loadAndMergeModelFromLocal() {
@@ -370,7 +436,7 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         serviceTableView.reloadData()
     }
     
-    func imagesClicked(images: [(imageId :String, UIImage)], cell: ServiceCommentTableViewCell) {
+    func imagesClicked(images: [(imageId: String, UIImage)], cell: ServiceCommentTableViewCell) {
         currentOperateCell = cell.tag
         
         presentImagesReviewController(images)
@@ -413,9 +479,12 @@ class ServiceCommentViewModel {
     // 是否是已经完成的评论
     var submitted = false
     var serviceId = ""
+    var thumbnailUrl = ""
+    var serviceName = ""
+    var stars: CGFloat = 0
     var loaclModel: ServiceCommentLocalSavedModel?
-    var firstComment: ServiceComment?
-    var appendComment: ServiceComment?
+    var firstComment: SingleComment?
+    var appendComment: SingleComment?
 }
 
 protocol CommentCellProtocol {

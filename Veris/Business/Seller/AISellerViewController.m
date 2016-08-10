@@ -299,8 +299,6 @@
 
 - (void)showMyWallet {
     // 演示屏蔽
-
-
     AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:fundManageViewController];
     [self presentViewController:nav animated:YES completion:nil];
