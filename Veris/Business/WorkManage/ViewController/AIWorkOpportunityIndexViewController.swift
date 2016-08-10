@@ -6,7 +6,7 @@
 //  Copyright © 2016 ___ASIAINFO___. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class AIWorkOpportunityIndexViewController: UIView {
 
