@@ -20,9 +20,10 @@ class AIWorkManageViewController: AIBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        makeMainShowButton()
+
         setupNavigationBar()
         makeTableView()
+        makeMainShowButton()
     }
 
 
@@ -42,7 +43,7 @@ class AIWorkManageViewController: AIBaseViewController {
         mainButton.layer.cornerRadius = height / 2
         mainButton.clipsToBounds = true
         mainButton.backgroundColor = AITools.colorWithR(15, g: 110, b: 197)
-        mainButton.addTarget(self, action: #selector(gotoWorkInfoViewController), forControlEvents: UIControlEvents.TouchUpInside)
+        mainButton.addTarget(self, action: #selector(self.gotoWorkInfoViewController), forControlEvents: UIControlEvents.TouchUpInside)
 
         self.view.addSubview(mainButton)
     }
@@ -56,9 +57,9 @@ class AIWorkManageViewController: AIBaseViewController {
 
     //MARK: 到工作机会首页
     func gotoWorkInfoViewController() {
-       
         let workInfoVC = UIStoryboard(name:  AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIWorkManageStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIWorkInfoViewController) as! AIWorkInfoViewController
         self.presentViewController(workInfoVC, animated: true, completion: nil)
+
     }
 
 
