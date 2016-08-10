@@ -25,13 +25,7 @@
 @protocol SingleComment
 @end
 
-@interface SingleComment : JSONModel
 
-@property (strong, nonatomic) NSString<Optional> * service_name;
-@property (strong, nonatomic) NSString<Optional> * service_icon;
-@property (strong, nonatomic) NSArray<StarDesc, Optional> * stars;
-
-@end
 
 @protocol CommentPhoto
 @end
@@ -51,10 +45,10 @@
 @property (strong, nonatomic) NSString<Optional> * service_id;
 @property (strong, nonatomic) NSString<Optional> * service_name;
 @property (strong, nonatomic) NSString<Optional> * spec_id;
-@property (strong, nonatomic) NSString<Optional> * service_icon;
-@property (strong, nonatomic) NSString<Optional> * rating_level;
-@property (strong, nonatomic) NSString<Optional> * text;
-@property (strong, nonatomic) NSArray<CommentPhoto, Optional> * photos;
+@property (strong, nonatomic) NSString<Optional> * service_thumbnail_url;
+@property (strong, nonatomic) NSString<Optional> * grade_value;
+@property (strong, nonatomic) NSNumber<Optional> * createDate;
+@property (strong, nonatomic) NSArray<SingleComment, Optional> * comments;
 
 @end
 
@@ -63,9 +57,21 @@
 
 @interface CompondComment : JSONModel
 
+@property (strong, nonatomic) NSString<Optional> * service_id;
 @property (strong, nonatomic) NSString<Optional> * service_name;
-@property (strong, nonatomic) NSString<Optional> * service_icon;
-@property (strong, nonatomic) NSArray<ServiceComment, Optional> * sub_services;
+@property (strong, nonatomic) NSString<Optional> * spec_id;
+@property (strong, nonatomic) NSString<Optional> * service_thumbnail_url;
+@property (strong, nonatomic) NSString<Optional> * grade_value;
+@property (strong, nonatomic) NSNumber<Optional> * createDate;
+@property (strong, nonatomic) NSArray<SingleComment, Optional> * comments;
+@property (strong, nonatomic) NSArray<ServiceComment, Optional> * sub_service_list;
+
+@end
+
+@interface SingleComment : JSONModel
+
+@property (strong, nonatomic) NSString<Optional> * text;
+@property (strong, nonatomic) NSArray<CommentPhoto, Optional> * photos;
 
 @end
 

@@ -12,7 +12,7 @@ class AIBaseCommentView: UIView {
 
     //MARK:Vars
 
-    var commentModel:AIBaseCommentModel?
+    var commentModel: AIBaseCommentModel?
 
 
     //MARK: func

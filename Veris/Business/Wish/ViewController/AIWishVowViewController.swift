@@ -61,7 +61,7 @@ class AIWishVowViewController: UIViewController {
         }
     }
     
-    func queryWishs(){
+    func queryWishs() {
         AIWishServices.requestQueryWishs { (objc, error) in
             
         }
@@ -94,14 +94,13 @@ class AIWishVowViewController: UIViewController {
             let number = self.payContent.text
             let d = Double(number) ?? 0
             view.showLoading()
-            AIWishServices.requestMakeWishs(d, wish: stext
-                , complate: { (obj, error)  in
+            AIWishServices.requestMakeWishs(d, wish: stext, complate: { (obj, error)  in
                     self.view.hideLoading()
                     if let _ = obj {
                         AIAlertView().showSuccess("提示", subTitle: "提交成功")
                         self.payContent.text = "  0 Euro"
                         self.wishContent.text = "  Your Could write down your wish here or select from blew."
-                    }else{
+                    } else {
                         AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")
                     }
             })

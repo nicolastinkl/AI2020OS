@@ -22,6 +22,8 @@ class ServiceCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var appendCommentHeight: NSLayoutConstraint!
     @IBOutlet weak var imageButtonSpace: NSLayoutConstraint!
     @IBOutlet weak var appendCommentBottomMargin: NSLayoutConstraint!
+    @IBOutlet weak var checkbox: CheckboxButton!
+    @IBOutlet weak var anonymousLabel: UILabel!
     
     private var hasAppendHeight: CGFloat!
     private var commentAreaHeight: CGFloat!
@@ -110,7 +112,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
         serviceName.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
         firstComment.hint.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
         firstComment.inputTextView.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
-        appendComment.inputTextView.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
+        appendComment.inputTextView.font = AITools.myriadSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
         
         firstComment.imageCollection.delegate = self
         appendComment.imageCollection.delegate = self
@@ -121,6 +123,9 @@ class ServiceCommentTableViewCell: UITableViewCell {
         
         hasAppendHeight = height
         commentAreaHeight = firstComment.height
+        
+        checkbox.layer.cornerRadius = 4
+        anonymousLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(40))
     }
 
     override func layoutSubviews() {
@@ -253,7 +258,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
     
     private func getImageUrls(isAppend: Bool) -> [(url: NSURL, imageId: String?)] {
         var urls = [(url: NSURL, imageId: String?)]()
-        var serviceComment: ServiceComment?
+        var serviceComment: SingleComment?
         
         serviceComment = isAppend ? model?.appendComment : model?.firstComment
         
@@ -368,6 +373,9 @@ private class CommentEditableState: AbsCommentState {
         
         cell.appendCommentButton.hidden = true
         cell.starRateView.userInteractionEnabled = true
+        
+        cell.checkbox.hidden = false
+        cell.anonymousLabel.hidden = false
     }
 
     override func addImage(image: UIImage, imageId: String? = nil) {
@@ -392,9 +400,9 @@ private class CommentEditableState: AbsCommentState {
     
     override func getSubmitData() -> ServiceComment? {
         let comment = ServiceComment()
-        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
-        comment.service_id = cell.model!.serviceId
-        comment.text = cell.firstComment.inputTextView.text
+//        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
+//        comment.service_id = cell.model!.serviceId
+//        comment.text = cell.firstComment.inputTextView.text
         return comment
     }
     
@@ -429,6 +437,9 @@ private class CommentFinshedState: AbsCommentState {
         cell.appendCommentButton.hidden = false
         cell.imageButton.hidden = true
         cell.starRateView.userInteractionEnabled = false
+        
+        cell.checkbox.hidden = true
+        cell.anonymousLabel.hidden = true
     }
     
     override func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)]) {
@@ -462,6 +473,9 @@ private class AppendEditingState: AbsCommentState {
         Async.main(after: 0.1, block: { [weak self] in
             self?.cell.appendComment.inputTextView.becomeFirstResponder()
         })
+        
+        cell.checkbox.hidden = true
+        cell.anonymousLabel.hidden = true
     }
     
     override func addImage(image: UIImage, imageId: String?) {
@@ -482,9 +496,9 @@ private class AppendEditingState: AbsCommentState {
     
     override func getSubmitData() -> ServiceComment? {
         let comment = ServiceComment()
-        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
-        comment.service_id = cell.model!.serviceId
-        comment.text = cell.appendComment.inputTextView.text
+//        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
+//        comment.service_id = cell.model!.serviceId
+//        comment.text = cell.appendComment.inputTextView.text
         return comment
     }
     
@@ -527,6 +541,9 @@ private class DoneState: AbsCommentState {
         let appendImages = cell.getImageUrls(true)
         
         cell.appendComment.imageCollection.addAsyncDownloadImages(appendImages, holdImage: cell.holdImage)
+        
+        cell.checkbox.hidden = true
+        cell.anonymousLabel.hidden = true
     }
 }
 

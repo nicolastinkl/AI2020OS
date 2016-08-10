@@ -189,21 +189,21 @@ class DefaultCommentManager: CommentManager {
     }
     
     func submitComments(userID: String, userType: Int, commentList: [ServiceComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-        let list = mergeCommentsData(commentList)
-        
-        let service = HttpCommentService()
-        
-        service.submitComments(userID, userType: userType, commentList: list, success: { (responseData) in
-            var serviceIds = [String]()
-            for c in commentList {
-                serviceIds.append(c.service_id)
-            }
-            
-            self.deleteCommentModel(serviceIds)
-            
-            success(responseData: responseData)
-            
-            }, fail: fail)
+//        let list = mergeCommentsData(commentList)
+//        
+//        let service = HttpCommentService()
+//        
+//        service.submitComments(userID, userType: userType, commentList: list, success: { (responseData) in
+//            var serviceIds = [String]()
+//            for c in commentList {
+//                serviceIds.append(c.service_id)
+//            }
+//            
+//            self.deleteCommentModel(serviceIds)
+//            
+//            success(responseData: responseData)
+//            
+//            }, fail: fail)
     }
     
     private func createSearchKey(serviceId: String) -> String {
@@ -266,20 +266,9 @@ class DefaultCommentManager: CommentManager {
     func mergeCommentsData(newCommentList: [ServiceComment]) -> [ServiceComment] {
         var list = [ServiceComment]()
         
-//        if let localList = localModelList {
-//            for localComment in localList {
-//                if findNewComment(localComment.serviceId) == nil {
-//                    let c = ServiceComment()
-//                    c.service_id = localComment.
-//                    list.append(<#T##newElement: Element##Element#>)
-//                }
-//            }
+//        for comment in newCommentList {
+//            list.append(mergeComment(comment, local: findLocalComment(comment.service_id)?.model))
 //        }
-        
-        
-        for comment in newCommentList {
-            list.append(mergeComment(comment, local: findLocalComment(comment.service_id)?.model))
-        }
         
         return list
     }
@@ -309,47 +298,47 @@ class DefaultCommentManager: CommentManager {
         return nil
     }
     
-    private func mergeComment(newComment: ServiceComment, local: ServiceCommentLocalSavedModel?) -> ServiceComment {
-        if newComment.photos == nil {
-            newComment.photos = [CommentPhoto]()
-        }
-        
-        let result = ServiceComment()
-        
-        result.rating_level = newComment.rating_level
-        result.service_id = newComment.service_id
-        result.spec_id = newComment.spec_id
-        result.text = newComment.text
-        result.photos = newComment.photos
-        
-        func isInPhotos(url: String, comment: ServiceComment) -> Bool {
-            for photo in comment.photos as! [CommentPhoto] {
-                guard let u = photo.url else {
-                    continue
-                }
-                
-                if u == url {
-                    return true
-                }
-            }
-            
-            return false
-        }
-        
-        if let l = local {
-            for info in l.imageInfos {
-                guard let u = info.url else {
-                    continue
-                }
-                
-                if !isInPhotos(u.absoluteString, comment: result) {
-                    let p = CommentPhoto()
-                    p.url = u.absoluteString
-                    result.photos.append(p)
-                }
-            }
-        }
-  
-        return result
-    }
+//    private func mergeComment(newComment: ServiceComment, local: ServiceCommentLocalSavedModel?) -> ServiceComment {
+//        if newComment.photos == nil {
+//            newComment.photos = [CommentPhoto]()
+//        }
+//        
+//        let result = ServiceComment()
+//        
+//        result.rating_level = newComment.rating_level
+//        result.service_id = newComment.service_id
+//        result.spec_id = newComment.spec_id
+//        result.text = newComment.text
+//        result.photos = newComment.photos
+//        
+//        func isInPhotos(url: String, comment: ServiceComment) -> Bool {
+//            for photo in comment.photos as! [CommentPhoto] {
+//                guard let u = photo.url else {
+//                    continue
+//                }
+//                
+//                if u == url {
+//                    return true
+//                }
+//            }
+//            
+//            return false
+//        }
+//        
+//        if let l = local {
+//            for info in l.imageInfos {
+//                guard let u = info.url else {
+//                    continue
+//                }
+//                
+//                if !isInPhotos(u.absoluteString, comment: result) {
+//                    let p = CommentPhoto()
+//                    p.url = u.absoluteString
+//                    result.photos.append(p)
+//                }
+//            }
+//        }
+//  
+//        return result
+//    }
 }

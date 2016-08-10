@@ -10,7 +10,7 @@
                 <outlet property="datePicker" destination="p0n-id-nJd" id="Bt2-5N-h8Z"/>
                 <outlet property="determineButton" destination="wwm-1u-JYM" id="rVt-kj-a4b"/>
                 <outlet property="timeLabel" destination="GlW-jh-OF3" id="Kl4-s7-ql1"/>
-                <outlet property="view" destination="yih-1P-Cli" id="cHN-Qf-l5Y"/>
+                <outlet property="view" destination="yih-1P-Cli" id="fZf-Sv-hv0"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
