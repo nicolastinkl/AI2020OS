@@ -307,6 +307,10 @@
     // 演示屏蔽
 //    AIWorkManageViewController *workManageViewController = [[AIWorkManageViewController alloc] init];
 //    [self presentViewController:workManageViewController animated:YES completion:nil];
+//    let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIContestSuccessViewController) as! AIContestSuccessViewController
+    AIWorkInfoViewController *workInfoViewController = (AIWorkInfoViewController *)[[UIStoryboard storyboardWithName: @"AIWorkManageStoryboard" bundle: nil] instantiateViewControllerWithIdentifier: @"AIWorkInfoViewController"];
+    [self presentViewController:workInfoViewController animated:YES completion:nil];
+    //AIWorkInfoViewController *workInfoViewController = [[UIStoryboard alloc] init: st]
 }
 
 #pragma mark - Go Back

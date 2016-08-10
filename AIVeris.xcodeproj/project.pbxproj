@@ -44,6 +44,7 @@
 		12D764A11D0D46AA002B001B /* AILoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D764A01D0D46AA002B001B /* AILoginStoryboard.storyboard */; };
 		12DFC0C31D47581600025D4F /* AICommonBusinessModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC0C21D47581600025D4F /* AICommonBusinessModels.m */; };
 		12FBCB8B1D581B0300E333D6 /* AIWorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCB8A1D581B0300E333D6 /* AIWorkInfoViewController.swift */; };
+		12FBCB8D1D59CB1600E333D6 /* AIWorkQualificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCB8C1D59CB1600E333D6 /* AIWorkQualificationView.swift */; };
 		16E7F5C2B86F7A124E6FB458 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */; };
 		81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
 		81433CD11CFBE5A700347C29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339281CFBE5A600347C29 /* AppDelegate.swift */; };
@@ -830,6 +831,7 @@
 		12DFC0C11D4711EA00025D4F /* AICommonBusinessModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AICommonBusinessModels.h; sourceTree = "<group>"; };
 		12DFC0C21D47581600025D4F /* AICommonBusinessModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICommonBusinessModels.m; sourceTree = "<group>"; };
 		12FBCB8A1D581B0300E333D6 /* AIWorkInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkInfoViewController.swift; sourceTree = "<group>"; };
+		12FBCB8C1D59CB1600E333D6 /* AIWorkQualificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkQualificationView.swift; sourceTree = "<group>"; };
 		156E8DB358B5989BFE7F032F /* Pods-VerisTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.release.xcconfig"; sourceTree = "<group>"; };
 		459E2FAC4C1547F753408EF1 /* Pods-AIVeris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.release.xcconfig"; sourceTree = "<group>"; };
 		486E1A2D1E30B64C2A263F10 /* Pods-AIVeris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.debug.xcconfig"; sourceTree = "<group>"; };
@@ -3995,6 +3997,7 @@
 				935E58D11D5315D900252B83 /* AIWorkDetailView.swift */,
 				935E58D21D5315D900252B83 /* AIWorkDetailView.xib */,
 				935E58D31D5315D900252B83 /* AIWorkManageHeaderView.swift */,
+				12FBCB8C1D59CB1600E333D6 /* AIWorkQualificationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5275,6 +5278,7 @@
 				81433E021CFBE5A700347C29 /* GBSlideOutToUnlockView.m in Sources */,
 				81FAFBF01D4716F800DD3477 /* TaskResultCommitViewController.swift in Sources */,
 				FBAE7FD91D115428002FF522 /* AISellingProgressBar.m in Sources */,
+				12FBCB8D1D59CB1600E333D6 /* AIWorkQualificationView.swift in Sources */,
 				81B195691D474A960086EB83 /* AIUtilityTools.swift in Sources */,
 				81433E261CFBE5A700347C29 /* AICollContentViewController.swift in Sources */,
 				81433EA51CFBE5A700347C29 /* AINetEngine.m in Sources */,

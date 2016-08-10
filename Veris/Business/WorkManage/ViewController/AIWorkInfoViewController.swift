@@ -9,11 +9,31 @@
 import UIKit
 
 class AIWorkInfoViewController: UIViewController {
+    
+    
+    @IBOutlet weak var title2Icon: UIImageView!
+    @IBOutlet weak var title1Icon: UIImageView!
+    @IBOutlet weak var jobDesContainerView: AIWorkDetailView!
+    @IBOutlet weak var Qualification: UIButton!
+    @IBOutlet weak var jobDescTitleLabel: UIButton!
+    @IBOutlet weak var serviceIconView: UIImageView!
+    @IBOutlet weak var commitButton: UIButton!
+    
+    
+    @IBAction func commitAction(sender: UIButton) {
+        switchTabsTo(2)
+    }
+    
+    static let title1IconOff = UIImage(named: "work_1_off")
+    static let title1IconOn = UIImage(named: "work_1_on")
+    static let title2IconOff = UIImage(named: "work_2_off")
+    static let title2IconOn = UIImage(named: "work_2_on")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        setupViews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +41,25 @@ class AIWorkInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setupViews() {
+        //commitButton
+        commitButton.layer.cornerRadius = 180.displaySizeFrom1242DesignSize() / 2
+        commitButton.layer.masksToBounds = true
+        commitButton.setTitle("Next", forState: UIControlState.Normal)
     }
-    */
 
+    func switchTabsTo(step: Int) {
+        if step == 1 {
+            title1Icon.image = AIWorkInfoViewController.title1IconOn
+            title2Icon.image = AIWorkInfoViewController.title2IconOff
+            jobDescTitleLabel.selected = true
+            Qualification.selected = false
+        } else {
+            title1Icon.image = AIWorkInfoViewController.title1IconOff
+            title2Icon.image = AIWorkInfoViewController.title2IconOn
+            jobDescTitleLabel.selected = false
+            Qualification.selected = true
+
+        }
+    }
 }
