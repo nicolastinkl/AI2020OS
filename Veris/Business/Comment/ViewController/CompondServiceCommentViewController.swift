@@ -12,7 +12,7 @@ import Cartography
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
-    var serviceIDs: [String]!
+    var serviceID: String!
     var comments: [ServiceCommentViewModel]!
     private var currentOperateCell = -1
     private var cellsMap = [Int: UITableViewCell]()
@@ -159,15 +159,17 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             comments.append(model)
         }
         
-//        view.showLoading()
-//
-//        
+        view.showLoading()
+
+        
 //        let ser = HttpCommentService()
 //        
-//        ser.getCompondComment(serviceID, success: { (responseData) in
+//        ser.getCompondComment("1", userType: 1, serviceId: serviceID, success: { (responseData) in
 //            self.view.hideLoading()
 //            let re = responseData
 //            print("getCompondComment success:\(re)")
+//            
+//            self.comments = self.convertCompondModelToCommentList(re)
 //
 //        }) { (errType, errDes) in
 //            
@@ -178,29 +180,55 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
     
     private func convertCompondModelToCommentList(model: CompondComment) -> [ServiceCommentViewModel] {
-        let result = [ServiceCommentViewModel]()
+        var result = [ServiceCommentViewModel]()
         
-//        guard let commentList = model.sub_services as? [ServiceComment] else {
-//            return result
-//        }
-//        
-//        
-//        
-//        for comment in commentList {
-//            var sub: ServiceCommentViewModel! = findSubCommentViewModel(comment.service_id)
-//            
-//            if sub == nil {
-//                sub = ServiceCommentViewModel()
-//                sub.serviceId = comment.service_id
-//            }
-//            
-//            if sub.firstComment == nil {
-//           //     sub.firstComment
-//            }
-//                
-//        }
-//        
-//        result.
+        func pickFirstAndAppdenComment(model: ServiceCommentViewModel, comments: [SingleComment]) {
+            var index = 0
+            
+            for comment in comments {
+                if index == 0 {
+                    model.firstComment = comment
+                } else if index == 1 {
+                    model.appendComment = comment
+                } else {
+                    break
+                }
+                index += 1
+            }
+        }
+        
+        let mainServiceComment = ServiceCommentViewModel()
+        mainServiceComment.serviceId = model.service_id
+        mainServiceComment.thumbnailUrl = model.service_thumbnail_url
+        mainServiceComment.serviceName = model.service_name
+        let value = model.grade_value ?? "0"
+        mainServiceComment.stars = CGFloat((value as NSString).floatValue)
+        
+        if let comments = model.comments as? [SingleComment] {
+            pickFirstAndAppdenComment(mainServiceComment, comments: comments)
+        }
+        
+        result.append(mainServiceComment)
+        
+        guard let subList = model.sub_service_list as? [ServiceComment] else {
+            return result
+        }
+    
+        for subService in subList {
+            let subServiceComment = ServiceCommentViewModel()
+            subServiceComment.serviceId = subService.service_id
+            subServiceComment.thumbnailUrl = subService.service_thumbnail_url
+            subServiceComment.serviceName = subService.service_name
+            let value = subService.grade_value ?? "0"
+            subServiceComment.stars = CGFloat((value as NSString).floatValue)
+            
+            if let comments = subService.comments as? [SingleComment] {
+                pickFirstAndAppdenComment(subServiceComment, comments: comments)
+            }
+            
+            result.append(mainServiceComment)
+                
+        }
         
         return result
     }
@@ -451,6 +479,9 @@ class ServiceCommentViewModel {
     // 是否是已经完成的评论
     var submitted = false
     var serviceId = ""
+    var thumbnailUrl = ""
+    var serviceName = ""
+    var stars: CGFloat = 0
     var loaclModel: ServiceCommentLocalSavedModel?
     var firstComment: SingleComment?
     var appendComment: SingleComment?
