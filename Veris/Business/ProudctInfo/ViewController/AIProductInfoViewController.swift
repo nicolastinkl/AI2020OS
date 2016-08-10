@@ -181,7 +181,7 @@ class AIProductInfoViewController: UIViewController {
 		}
 	}
 
-    func favoriteAction(){
+    func favoriteAction() {
         view.showLoading()
         
         AIProdcutinfoService.addFavoriteServiceInfo("") { (obj, error) in

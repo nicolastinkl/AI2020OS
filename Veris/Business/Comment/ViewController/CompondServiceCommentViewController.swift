@@ -408,7 +408,7 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         serviceTableView.reloadData()
     }
     
-    func imagesClicked(images: [(imageId :String, UIImage)], cell: ServiceCommentTableViewCell) {
+    func imagesClicked(images: [(imageId: String, UIImage)], cell: ServiceCommentTableViewCell) {
         currentOperateCell = cell.tag
         
         presentImagesReviewController(images)
