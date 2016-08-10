@@ -258,7 +258,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
     
     private func getImageUrls(isAppend: Bool) -> [(url: NSURL, imageId: String?)] {
         var urls = [(url: NSURL, imageId: String?)]()
-        var serviceComment: ServiceComment?
+        var serviceComment: SingleComment?
         
         serviceComment = isAppend ? model?.appendComment : model?.firstComment
         
@@ -400,9 +400,9 @@ private class CommentEditableState: AbsCommentState {
     
     override func getSubmitData() -> ServiceComment? {
         let comment = ServiceComment()
-        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
-        comment.service_id = cell.model!.serviceId
-        comment.text = cell.firstComment.inputTextView.text
+//        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
+//        comment.service_id = cell.model!.serviceId
+//        comment.text = cell.firstComment.inputTextView.text
         return comment
     }
     
@@ -496,9 +496,9 @@ private class AppendEditingState: AbsCommentState {
     
     override func getSubmitData() -> ServiceComment? {
         let comment = ServiceComment()
-        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
-        comment.service_id = cell.model!.serviceId
-        comment.text = cell.appendComment.inputTextView.text
+//        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
+//        comment.service_id = cell.model!.serviceId
+//        comment.text = cell.appendComment.inputTextView.text
         return comment
     }
     

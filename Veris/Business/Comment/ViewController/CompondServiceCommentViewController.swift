@@ -12,7 +12,7 @@ import Cartography
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
-    var serviceID: String!
+    var serviceIDs: [String]!
     var comments: [ServiceCommentViewModel]!
     private var currentOperateCell = -1
     private var cellsMap = [Int: UITableViewCell]()
@@ -152,16 +152,16 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private func loadServiceComments() {
         comments = [ServiceCommentViewModel]()
         
-        for i in 0 ..< 2 {
+        for i in 0 ..< 1 {
             let model = ServiceCommentViewModel()
             model.serviceId = "\(i)"
-            model.commentEditable = i % 2 != 0
+            model.commentEditable = i % 2 != 1
             comments.append(model)
         }
         
 //        view.showLoading()
-
-        
+//
+//        
 //        let ser = HttpCommentService()
 //        
 //        ser.getCompondComment(serviceID, success: { (responseData) in
@@ -175,6 +175,44 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 //            
 //            AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
 //        }
+    }
+    
+    private func convertCompondModelToCommentList(model: CompondComment) -> [ServiceCommentViewModel] {
+        let result = [ServiceCommentViewModel]()
+        
+//        guard let commentList = model.sub_services as? [ServiceComment] else {
+//            return result
+//        }
+//        
+//        
+//        
+//        for comment in commentList {
+//            var sub: ServiceCommentViewModel! = findSubCommentViewModel(comment.service_id)
+//            
+//            if sub == nil {
+//                sub = ServiceCommentViewModel()
+//                sub.serviceId = comment.service_id
+//            }
+//            
+//            if sub.firstComment == nil {
+//           //     sub.firstComment
+//            }
+//                
+//        }
+//        
+//        result.
+        
+        return result
+    }
+    
+    private func findSubCommentViewModel(serviceId: String) -> ServiceCommentViewModel? {
+        for model in comments {
+            if model.serviceId == serviceId {
+                return model
+            }
+        }
+        
+        return nil
     }
     
     private func loadAndMergeModelFromLocal() {
@@ -414,8 +452,8 @@ class ServiceCommentViewModel {
     var submitted = false
     var serviceId = ""
     var loaclModel: ServiceCommentLocalSavedModel?
-    var firstComment: ServiceComment?
-    var appendComment: ServiceComment?
+    var firstComment: SingleComment?
+    var appendComment: SingleComment?
 }
 
 protocol CommentCellProtocol {
