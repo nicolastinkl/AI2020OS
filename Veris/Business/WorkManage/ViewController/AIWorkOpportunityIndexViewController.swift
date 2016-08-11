@@ -9,6 +9,14 @@
 import UIKit
 
 class AIWorkOpportunityIndexViewController: UIViewController {
+    
+    @IBOutlet weak var headerView: AIWorkManageHeaderView!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        headerView.delegate = self
+    }
 	
 	@IBAction func backButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -17,4 +25,10 @@ class AIWorkOpportunityIndexViewController: UIViewController {
 	}
 	@IBAction func rightButtonPressed(sender: AnyObject) {
 	}
+}
+
+extension AIWorkOpportunityIndexViewController: AIWorkManageHeaderViewDelegate {
+    func headerView(headerView: AIWorkManageHeaderView, didClickAtIndex index: Int) {
+        // did at index
+    }
 }

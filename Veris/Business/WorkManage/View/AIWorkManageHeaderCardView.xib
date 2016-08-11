@@ -7,18 +7,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIWorkManageHeaderCardView" customModule="Veris" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="203" height="320"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIWorkManageHeaderCardView" customModule="Veris" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="135" height="242"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wm-fake-card" translatesAutoresizingMaskIntoConstraints="NO" id="Zjr-ut-gdm">
-                    <rect key="frame" x="0.0" y="0.0" width="203" height="320"/>
+                    <rect key="frame" x="0.0" y="0.0" width="135" height="242"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pH2-ZQ-4Zq">
-                    <rect key="frame" x="1" y="0.0" width="202" height="320"/>
+                    <rect key="frame" x="0.0" y="0.0" width="135" height="242"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sE7-Ny-FOc">
-                            <rect key="frame" x="14" y="243" width="154" height="60"/>
+                            <rect key="frame" x="15" y="165" width="154" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbQ-Md-07f">
                                     <rect key="frame" x="0.0" y="0.0" width="23" height="60"/>
@@ -53,18 +53,16 @@
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.50842372308944672" green="0.45137032970804203" blue="1" alpha="0.25898731203007519" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="sE7-Ny-FOc" firstAttribute="leading" secondItem="pH2-ZQ-4Zq" secondAttribute="leading" constant="14" id="S0Z-IO-WQR"/>
-                        <constraint firstAttribute="width" constant="202" id="i6H-EW-gLZ"/>
-                        <constraint firstAttribute="bottom" secondItem="sE7-Ny-FOc" secondAttribute="bottom" constant="17" id="yxU-0b-s3f"/>
-                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="sE7-Ny-FOc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="7Tq-k7-1fB"/>
                 <constraint firstAttribute="trailing" secondItem="pH2-ZQ-4Zq" secondAttribute="trailing" id="KHf-cT-Z09"/>
                 <constraint firstItem="Zjr-ut-gdm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="L3O-3p-zKX"/>
                 <constraint firstAttribute="bottom" secondItem="Zjr-ut-gdm" secondAttribute="bottom" id="OiU-4p-Aly"/>
+                <constraint firstItem="pH2-ZQ-4Zq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VfJ-VD-6qT"/>
+                <constraint firstAttribute="bottom" secondItem="sE7-Ny-FOc" secondAttribute="bottom" constant="17" id="czH-g6-ogk"/>
                 <constraint firstAttribute="trailing" secondItem="Zjr-ut-gdm" secondAttribute="trailing" id="dqk-jD-WMh"/>
                 <constraint firstItem="Zjr-ut-gdm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dwy-my-dRB"/>
                 <constraint firstAttribute="bottom" secondItem="pH2-ZQ-4Zq" secondAttribute="bottom" id="qNn-I6-Hfo"/>
@@ -74,11 +72,13 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="filterView" destination="pH2-ZQ-4Zq" id="Xql-3b-MyA"/>
+                <outlet property="imageView" destination="Zjr-ut-gdm" id="1CX-sH-7IY"/>
+                <outlet property="leftLabel" destination="vbQ-Md-07f" id="fir-kt-PVs"/>
             </connections>
             <point key="canvasLocation" x="51.5" y="320"/>
         </view>
     </objects>
     <resources>
-        <image name="wm-fake-card" width="202" height="319"/>
+        <image name="wm-fake-card" width="135" height="213"/>
     </resources>
 </document>
