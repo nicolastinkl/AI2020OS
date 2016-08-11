@@ -165,8 +165,8 @@ class ImagesCollectionView: UIView {
     func addAssetImages(urls: [(url: NSURL, imageId: String?)]) {
         for urlItem in urls {
             let imageView = createImageView(urlItem.imageId)
-            imageView.loadFromAsset(urlItem.url)
             images.append(imageView)
+            imageView.loadFromAsset(urlItem.url)      
         }
         
         setNeedsUpdateConstraints()

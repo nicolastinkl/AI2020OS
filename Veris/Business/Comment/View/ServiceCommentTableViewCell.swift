@@ -232,8 +232,6 @@ class ServiceCommentTableViewCell: UITableViewCell {
                 s = CommentFinshedState(cell: self)
             case .AppendEditing:
                 s = AppendEditingState(cell: self)
-//            case .AppendEdited:
-//                s = AppendEditedState(cell: self)
             case .Done:
                 s = DoneState(cell: self)
             }
