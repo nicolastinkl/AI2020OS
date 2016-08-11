@@ -189,21 +189,7 @@ class DefaultCommentManager: CommentManager {
     }
     
     func submitComments(userID: String, userType: Int, commentList: [ServiceComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-//        let list = mergeCommentsData(commentList)
-//        
-//        let service = HttpCommentService()
-//        
-//        service.submitComments(userID, userType: userType, commentList: list, success: { (responseData) in
-//            var serviceIds = [String]()
-//            for c in commentList {
-//                serviceIds.append(c.service_id)
-//            }
-//            
-//            self.deleteCommentModel(serviceIds)
-//            
-//            success(responseData: responseData)
-//            
-//            }, fail: fail)
+        
     }
     
     private func createSearchKey(serviceId: String) -> String {
