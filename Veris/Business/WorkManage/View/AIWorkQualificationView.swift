@@ -28,7 +28,7 @@ class AIWorkQualificationView: UIView {
         setupViews()
     }
     
-    func setupViews(){
+    func setupViews() {
         setRoundCorner(switchButton)
     }
     
