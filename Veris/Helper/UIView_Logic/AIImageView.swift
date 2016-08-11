@@ -105,6 +105,11 @@ public class AIImageView: UIImageView {
                 //SDWebImageOptions.ContinueInBackground
                 if url?.URLString.length > 10 {
                     self.cacheURL = url
+                    if SDWebImageManager.sharedManager().cachedImageExistsForURL(url) {
+                        let cacheImage = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(url!.absoluteString)
+                        image = cacheImage
+                        return
+                    }
                     self.sd_setImageWithURL(url!, placeholderImage: placeholderImage, options: SDWebImageOptions.ContinueInBackground, progress: { (start, end) in
                         progress.progress = CGFloat(start) / CGFloat(end)
                     }) { (image, error, cacheType, url) in

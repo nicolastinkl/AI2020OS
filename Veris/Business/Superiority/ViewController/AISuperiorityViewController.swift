@@ -184,16 +184,27 @@ class AISuperiorityViewController: UIViewController {
                 // MARK: Loading Data Views
                 self.initDatawithViews()
             }
-        }
-        
+        } 
         
     }
     
     func favoriteAction() {
         view.showLoading()
         
-        AIProdcutinfoService.addFavoriteServiceInfo("") { (obj, error) in
+        AIProdcutinfoService.addFavoriteServiceInfo("11") { (obj, error) in
             self.view.hideLoading()
+            if let res = obj as? String {
+                // MARK: Loading Data Views
+                if res == "1"{
+                    self.view.subviews.forEach({ (sview) in
+                        if sview is AINavigationBar {
+                            (sview as! AINavigationBar).setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+                        }
+                    })
+                }else{
+                    AIAlertView().showError("收藏失败", subTitle: "")
+                }
+            }
         }
     }
     

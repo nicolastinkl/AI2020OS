@@ -12,7 +12,7 @@ class AIWorkManageViewController: AIBaseViewController {
 
     //MARK:
 
-    var tableView: UITableView?
+    var tableView: UITableView!
 
 
     //MARK: Functions
@@ -25,7 +25,6 @@ class AIWorkManageViewController: AIBaseViewController {
         makeTableView()
         makeMainShowButton()
     }
-
 
 
     //MARK: Main Button
@@ -57,10 +56,14 @@ class AIWorkManageViewController: AIBaseViewController {
 
     //MARK: 到工作机会首页
     func gotoWorkInfoViewController() {
-        let workInfoVC = UIStoryboard(name:  AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIWorkManageStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIWorkInfoViewController) as! AIWorkInfoViewController
-        self.navigationController?.pushViewController(workInfoVC, animated: true)
-        //self.presentViewController(workInfoVC, animated: true, completion: nil)
 
+//        let workInfoVC = UIStoryboard(name:  AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIWorkManageStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIWorkInfoViewController) as! AIWorkInfoViewController
+//        self.navigationController?.pushViewController(workInfoVC, animated: true)
+
+
+
+        let vc = AIWorkOpportunityIndexViewController()
+        presentViewController(vc, animated: true, completion: nil)
     }
 
 
@@ -68,12 +71,12 @@ class AIWorkManageViewController: AIBaseViewController {
 
     func makeTableView() {
         tableView = UITableView(frame: self.view.bounds, style: .Grouped)
-        tableView?.dataSource = self
-        tableView?.delegate = self
-        tableView?.separatorColor = UIColor.clearColor()
-        tableView?.backgroundColor = UIColor.clearColor()
-        tableView?.separatorStyle = .None
-        tableView?.showsVerticalScrollIndicator = false
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorColor = UIColor.clearColor()
+        tableView.backgroundColor = UIColor.clearColor()
+        tableView.separatorStyle = .None
+        tableView.showsVerticalScrollIndicator = false
         self.view.addSubview(tableView!)
     }
 

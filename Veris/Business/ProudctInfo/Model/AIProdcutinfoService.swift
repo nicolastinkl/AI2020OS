@@ -37,20 +37,22 @@ struct AIProdcutinfoService {
 
     /// 处理收藏添加
     static func addFavoriteServiceInfo(serviceId: String, complate: ((AnyObject?, String?) -> Void)) {
-        let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
-        let message = AIMessage()
-        let body: NSDictionary = [
-            "service_id": serviceId,
-            "user_id":userId
-        ]
-        
-        message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
+//        let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
+        let message = AIMessageWrapper.addFavoriteService(11)
         message.url = AIApplication.AIApplicationServerURL.favoriteadd.description as String
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
-                let model = AIProdcutinfoModel(JSONDecoder(responseJSON))
-                complate(model, nil)
+                if let d = responseJSON as? NSDictionary {
+                    if let i = d["result"] as? Int {
+                        if i == 1 {
+                            complate("1", nil)
+                        }else{
+                            complate(nil, "0")
+                        }
+                    }
+                }
+                
             } else {
                 complate(nil, "data is null")
             }

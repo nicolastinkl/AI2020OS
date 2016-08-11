@@ -8,6 +8,13 @@
 
 import UIKit
 
-class AIWorkOpportunityIndexViewController: UIView {
-
+class AIWorkOpportunityIndexViewController: UIViewController {
+	
+	@IBAction func backButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+	}
+	@IBAction func cameraButtonPressed(sender: AnyObject) {
+	}
+	@IBAction func rightButtonPressed(sender: AnyObject) {
+	}
 }

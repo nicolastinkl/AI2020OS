@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AssetsLibrary
 
 class AssetUtils {
     class func assetExists(url: NSURL) -> Bool {
