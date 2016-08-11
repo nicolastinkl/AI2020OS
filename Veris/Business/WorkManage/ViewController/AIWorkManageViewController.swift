@@ -12,7 +12,7 @@ class AIWorkManageViewController: AIBaseViewController {
 
     //MARK:
 
-    var tableView: UITableView?
+    var tableView: UITableView!
 
 
     //MARK: Functions
@@ -65,12 +65,12 @@ class AIWorkManageViewController: AIBaseViewController {
 
     func makeTableView() {
         tableView = UITableView(frame: self.view.bounds, style: .Grouped)
-        tableView?.dataSource = self
-        tableView?.delegate = self
-        tableView?.separatorColor = UIColor.clearColor()
-        tableView?.backgroundColor = UIColor.clearColor()
-        tableView?.separatorStyle = .None
-        tableView?.showsVerticalScrollIndicator = false
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorColor = UIColor.clearColor()
+        tableView.backgroundColor = UIColor.clearColor()
+        tableView.separatorStyle = .None
+        tableView.showsVerticalScrollIndicator = false
         self.view.addSubview(tableView!)
     }
 
