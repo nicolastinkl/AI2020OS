@@ -43,3 +43,34 @@ class AIWorkManageHeaderView: UIView {
 		}
 	}
 }
+
+class AIWorkManageHeaderCardView: UIView {
+    var color: UIColor? {
+        didSet {
+            
+        }
+    }
+    var leftText: String? {
+        didSet {
+            
+        }
+    }
+    var titleText: String? {
+        didSet {
+            
+        }
+    }
+    var subTitle: String? {
+        didSet {
+            
+        }
+    }
+    var imageView: UIImageView! {
+        didSet {
+            
+        }
+    }
+    
+    
+    
+}
