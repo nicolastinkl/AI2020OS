@@ -152,7 +152,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private func loadServiceComments() {
         comments = [ServiceCommentViewModel]()
         
-        for i in 0 ..< 20 {
+        for i in 0 ..< 5 {
             let model = ServiceCommentViewModel()
             model.serviceId = "\(i)"
             model.commentEditable = i % 2 != 1
@@ -401,7 +401,7 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
 //            comments[indexPath.row].cellState = cell.setModel(comments[indexPath.row])     
 //        }
 
-        resetCellUI(cell, indexPath: indexPath)
+    //    resetCellUI(cell, indexPath: indexPath)
         
      //   cellsMap[indexPath.row] = cell
 
@@ -410,33 +410,12 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
     
 
     private func resetCellUI(cell: ServiceCommentTableViewCell, indexPath: NSIndexPath) {
-     //   cell.clearImages()
         
         if let state = comments[indexPath.row].cellState {
-       //     let urls = getImageUrls(indexPath.row)
-      //      cell.addAsyncDownloadImages(urls)
             
             cell.resetState(state)
         }
     }
-    
-//    private func getImageUrls(row: Int) -> [NSURL] {
-//        var urls = [NSURL]()
-//        
-//        if let ims = comments[row].loaclModel?.imageInfos {
-//            for info in ims {
-//                guard let u = info.url else {
-//                    continue
-//                }
-//                
-//                if info.isSuccessUploaded {
-//                    urls.append(u)
-//                }
-//            }
-//        }
-//        
-//        return urls
-//    }
 }
 
 extension CompondServiceCommentViewController: CommentCellDelegate {
