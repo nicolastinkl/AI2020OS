@@ -152,7 +152,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private func loadServiceComments() {
         comments = [ServiceCommentViewModel]()
         
-        for i in 0 ..< 3 {
+        for i in 0 ..< 20 {
             let model = ServiceCommentViewModel()
             model.serviceId = "\(i)"
             model.commentEditable = i % 2 != 1
@@ -367,9 +367,9 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         var cell: ServiceCommentTableViewCell!
         
         // 不复用cell
-        if let c = cellsMap[indexPath.row] {
-            return c
-        }
+//        if let c = cellsMap[indexPath.row] {
+//            return c
+//        }
 
         if indexPath.row == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier("TopServiceCell") as!ServiceCommentTableViewCell
@@ -477,7 +477,7 @@ class ServiceCommentViewModel {
     var cellState: CommentStateEnum!
     var commentEditable = false
     // 是否是已经完成的评论
-    var submitted = false
+    var isDone = false
     var serviceId = ""
     var thumbnailUrl = ""
     var serviceName = ""
