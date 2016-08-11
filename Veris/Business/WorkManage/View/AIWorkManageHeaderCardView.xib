@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIWorkManageHeaderCardView" customModule="Veris" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="203" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -72,6 +72,9 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="filterView" destination="pH2-ZQ-4Zq" id="Xql-3b-MyA"/>
+            </connections>
             <point key="canvasLocation" x="51.5" y="320"/>
         </view>
     </objects>
