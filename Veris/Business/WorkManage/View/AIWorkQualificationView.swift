@@ -19,7 +19,7 @@ class AIWorkQualificationView: UIView {
     
     var items: [Int] = []
     //MARK: -> Constants
-    let 
+    
     
     //MARK: -> overrides
     required init?(coder aDecoder: NSCoder) {
