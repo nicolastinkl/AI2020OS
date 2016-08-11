@@ -8,10 +8,14 @@
 
 import UIKit
 
+protocol AIWorkManageHeaderViewDelegate: NSObjectProtocol {
+	func headerView(headerView: AIWorkManageHeaderView, didClickAtIndex index: Int)
+}
+
 class AIWorkManageHeaderView: UIView {
 	
-	var closeWidth: CGFloat = 100
-	var openWidth: CGFloat = 202
+	var openWidth: CGFloat = 135
+    weak var delegate: AIWorkManageHeaderViewDelegate?
     
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
@@ -26,7 +30,15 @@ class AIWorkManageHeaderView: UIView {
 		UIColor(hexString: "#b32b1d", alpha: 0.7),
 	]
 	
-	private var index = 0
+	private var index = 0 {
+		didSet {
+//            cardViews.forEach { (card) in
+//                card.imageView.contentMode = .Right
+//            }
+//            let card = cardViews[index]
+//            card.imageView.contentMode = .Left
+		}
+	}
 	
 	private var cardViews: [AIWorkManageHeaderCardView] = []
 	
@@ -35,6 +47,8 @@ class AIWorkManageHeaderView: UIView {
 		for i in 0...4 {
 			let card = AIWorkManageHeaderCardView.initFromNib() as! AIWorkManageHeaderCardView
 			card.filterColor = filterColors[i]
+//			card.leftText = "\(i + 1)"
+			
 			let tap = UITapGestureRecognizer(target: self, action: #selector(AIWorkManageHeaderView.cardViewTapped(_:)))
 			card.addGestureRecognizer(tap)
 			card.tag = i
@@ -60,7 +74,11 @@ class AIWorkManageHeaderView: UIView {
 	
 	func cardViewTapped(tap: UITapGestureRecognizer) {
 		let i = tap.view!.tag
-		setIndex(i, animated: true)
+		if index == i {
+            delegate?.headerView(self, didClickAtIndex: i)
+		} else {
+			setIndex(i, animated: true)
+		}
 	}
 	
 	override func updateConstraints() {
@@ -77,26 +95,42 @@ class AIWorkManageHeaderView: UIView {
 	
 	// MARK: - helper
 	func cardLeft(cardIndex i: Int) -> CGFloat {
-		if i <= index {
-			return CGFloat(i) * closeWidth
-		} else {
-			return openWidth + CGFloat(index) * closeWidth
+		var result: CGFloat = 0
+		if i > 0 {
+			for j in 0..<i {
+				result += cardWidth(cardIndex: j)
+			}
 		}
+		return result
 	}
 	
 	func cardWidth(cardIndex i: Int) -> CGFloat {
 		if i == index {
 			return openWidth
 		} else {
-			return closeWidth
+			return closeWidth(cardIndex: i)
 		}
+	}
+	
+	// hehe shichangbu
+	func closeWidth(cardIndex i: Int) -> CGFloat {
+		let results = [
+			300,
+			300,
+			246,
+			169,
+			122,
+		]
+		
+		return results[i].displaySizeFrom1242DesignSize()
 	}
 }
 
 class AIWorkManageHeaderCardView: UIView {
-    
-    @IBOutlet weak var filterView: UIView!
-    
+	
+	@IBOutlet weak var filterView: UIView!
+	@IBOutlet weak var leftLabel: UILabel!
+	@IBOutlet weak var imageView: UIImageView!
 	var filterColor: UIColor? {
 		didSet {
 			filterView?.backgroundColor = filterColor
@@ -104,7 +138,7 @@ class AIWorkManageHeaderCardView: UIView {
 	}
 	var leftText: String? {
 		didSet {
-			
+			leftLabel.text = leftText
 		}
 	}
 	var titleText: String? {
@@ -117,9 +151,5 @@ class AIWorkManageHeaderCardView: UIView {
 			
 		}
 	}
-	var imageView: UIImageView! {
-		didSet {
-			
-		}
-	}
+	
 }

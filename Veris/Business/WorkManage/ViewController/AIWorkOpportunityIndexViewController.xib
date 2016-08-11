@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIWorkOpportunityIndexViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="headerView" destination="yhX-l3-TGP" id="Yvw-cf-FGa"/>
                 <outlet property="view" destination="iN0-l3-epB" id="iLW-0u-FzE"/>
             </connections>
         </placeholder>
@@ -16,10 +17,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhX-l3-TGP" customClass="AIWorkManageHeaderView" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="210"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="242"/>
                     <color key="backgroundColor" red="0.66345050059999999" green="0.65288446730000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="210" id="md3-L8-49h"/>
+                        <constraint firstAttribute="height" constant="242" id="md3-L8-49h"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMa-Lw-ter" userLabel="navigationBar">
