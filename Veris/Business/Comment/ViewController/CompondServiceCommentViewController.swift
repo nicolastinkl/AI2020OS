@@ -152,14 +152,14 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private func loadServiceComments() {
         comments = [ServiceCommentViewModel]()
         
-        for i in 0 ..< 1 {
+        for i in 0 ..< 3 {
             let model = ServiceCommentViewModel()
             model.serviceId = "\(i)"
             model.commentEditable = i % 2 != 1
             comments.append(model)
         }
         
-        view.showLoading()
+//        view.showLoading()
 
         
 //        let ser = HttpCommentService()
@@ -201,10 +201,10 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         mainServiceComment.serviceId = model.service_id
         mainServiceComment.thumbnailUrl = model.service_thumbnail_url
         mainServiceComment.serviceName = model.service_name
-        let value = model.grade_value ?? "0"
+        let value = model.rating_level ?? "0"
         mainServiceComment.stars = CGFloat((value as NSString).floatValue)
         
-        if let comments = model.comments as? [SingleComment] {
+        if let comments = model.comment_list as? [SingleComment] {
             pickFirstAndAppdenComment(mainServiceComment, comments: comments)
         }
         
@@ -219,10 +219,10 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             subServiceComment.serviceId = subService.service_id
             subServiceComment.thumbnailUrl = subService.service_thumbnail_url
             subServiceComment.serviceName = subService.service_name
-            let value = subService.grade_value ?? "0"
+            let value = subService.rating_level ?? "0"
             subServiceComment.stars = CGFloat((value as NSString).floatValue)
             
-            if let comments = subService.comments as? [SingleComment] {
+            if let comments = subService.comment_list as? [SingleComment] {
                 pickFirstAndAppdenComment(subServiceComment, comments: comments)
             }
             
