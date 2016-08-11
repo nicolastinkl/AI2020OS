@@ -75,15 +75,6 @@ class ServiceCommentTableViewCell: UITableViewCell {
     func setModel(model: ServiceCommentViewModel) -> CommentStateEnum {
         self.model = model
         
-        func hasLocalContent() -> Bool {
-            if let local = model.loaclModel {
-                if (local.text != nil && local.text! != "") || local.imageInfos.count > 0 {
-                    return true
-                }
-            }
-            
-            return false
-        }
         
         if model.commentEditable {
             state = getState(.CommentEditable)
@@ -481,6 +472,8 @@ private class CommentFinshedState: AbsCommentState {
 // 编辑追加评价中。（展开追加评价）
 private class AppendEditingState: AbsCommentState {
     override func updateUI() {
+        cell.clearImages()
+        
         cell.firstComment.userInteractionEnabled = false
         cell.appendComment.userInteractionEnabled = true
         
@@ -535,6 +528,8 @@ private class DoneState: AbsCommentState {
     private var finished = false
     
     override func updateUI() {
+        cell.clearImages()
+        
         cell.firstComment.userInteractionEnabled = false
         cell.appendComment.userInteractionEnabled = false
         
