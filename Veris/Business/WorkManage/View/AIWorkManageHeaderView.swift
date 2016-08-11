@@ -25,15 +25,23 @@ class AIWorkManageHeaderView: UIView {
 	
 	var closeWidth: CGFloat = 100
 	var openWidth: CGFloat = 200
+	var index = 0 {
+		didSet {
+			updateConstraints()
+			layoutIfNeeded()
+		}
+	}
 	
-	var cardViews = [UIView]()
+	var cardViews: [AIWorkManageHeaderCardView] = []
 	
 	func setup() {
-        backgroundColor = UIColor.clearColor()
+		backgroundColor = UIColor.clearColor()
 		for i in 0...4 {
-			let card = UIView()
-			card.backgroundColor = filterColors[i]
+			let card = AIWorkManageHeaderCardView.initFromNib() as! AIWorkManageHeaderCardView
+			card.color = filterColors[i]
+			card.tag = i
 			addSubview(card)
+			cardViews.append(card)
 			
 			card.snp_makeConstraints(closure: { (make) in
 				make.leading.equalTo(CGFloat(i) * closeWidth)
@@ -42,35 +50,43 @@ class AIWorkManageHeaderView: UIView {
 			})
 		}
 	}
+	
+	override func updateConstraints() {
+		super.updateConstraints()
+        cardViews.forEach { (card) in
+            let i = card.tag
+            card.snp_updateConstraints(closure: { (make) in
+                make.
+            })
+        }
+	}
 }
 
 class AIWorkManageHeaderCardView: UIView {
-    var color: UIColor? {
-        didSet {
-            
-        }
-    }
-    var leftText: String? {
-        didSet {
-            
-        }
-    }
-    var titleText: String? {
-        didSet {
-            
-        }
-    }
-    var subTitle: String? {
-        didSet {
-            
-        }
-    }
-    var imageView: UIImageView! {
-        didSet {
-            
-        }
-    }
-    
-    
-    
+	var color: UIColor? {
+		didSet {
+			
+		}
+	}
+	var leftText: String? {
+		didSet {
+			
+		}
+	}
+	var titleText: String? {
+		didSet {
+			
+		}
+	}
+	var subTitle: String? {
+		didSet {
+			
+		}
+	}
+	var imageView: UIImageView! {
+		didSet {
+			
+		}
+	}
+	
 }
