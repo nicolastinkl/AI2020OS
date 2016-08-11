@@ -617,6 +617,7 @@
 		847D29A11D546424009E26B8 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29A01D546424009E26B8 /* UIImageViewExtension.swift */; };
 		847D29A31D547C5F009E26B8 /* ImagesReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D29A21D547C5F009E26B8 /* ImagesReviewViewController.xib */; };
 		847D29A51D548C77009E26B8 /* ImagesReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D29A41D548C77009E26B8 /* ImagesReviewViewController.swift */; };
+		847D29A71D5B2DB6009E26B8 /* AssetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D299E1D542B59009E26B8 /* AssetUtils.swift */; };
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
@@ -4871,6 +4872,7 @@
 				847D29891D484EF9009E26B8 /* ServiceCommentModel.swift in Sources */,
 				847D29861D475228009E26B8 /* ImageInfoModel.swift in Sources */,
 				847D298D1D49E4AF009E26B8 /* ProposalService.swift in Sources */,
+				847D29A71D5B2DB6009E26B8 /* AssetUtils.swift in Sources */,
 				847D299C1D51E817009E26B8 /* CommentSpecTest.swift in Sources */,
 				84717F2A1D348F9200AE7E9A /* CommentModel.m in Sources */,
 				84717F291D348C5700AE7E9A /* CommentService.swift in Sources */,
