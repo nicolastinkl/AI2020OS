@@ -10,4 +10,9 @@ import Foundation
 
 class AIWishTextWishsView: UIView {
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
 }

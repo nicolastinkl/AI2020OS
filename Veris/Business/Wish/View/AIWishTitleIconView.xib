@@ -19,7 +19,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much you would like to pay for it?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t83-iz-W2F">
-                    <rect key="frame" x="42" y="8" width="361" height="26"/>
+                    <rect key="frame" x="50" y="0.0" width="500" height="42"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="334" id="106-65-3I3"/>
                         <constraint firstAttribute="width" constant="361" id="RUI-iG-WTF"/>
@@ -32,24 +32,82 @@
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="106-65-3I3"/>
+                            <exclude reference="RUI-iG-WTF"/>
                             <exclude reference="UeY-MM-Jh3"/>
+                            <exclude reference="Y8A-vR-qha"/>
                         </mask>
                     </variation>
                 </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdy-2g-5Dc" customClass="DesignableButton" customModule="Spring">
+                    <rect key="frame" x="530" y="6" width="62" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="62" id="GeB-zv-JNB"/>
+                        <constraint firstAttribute="height" constant="30" id="nrc-t8-2sw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Read All">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGG-ur-duu" customClass="DesignableView" customModule="Spring">
+                    <rect key="frame" x="30" y="8" width="7" height="7"/>
+                    <color key="backgroundColor" red="0.34901960784313724" green="0.79607843137254897" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="7" id="bXI-U9-LCz"/>
+                        <constraint firstAttribute="width" constant="7" id="cRR-h6-4ce"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="3.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="Vdy-2g-5Dc" secondAttribute="trailing" constant="8" id="2zC-dm-NUx"/>
                 <constraint firstItem="t83-iz-W2F" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="AJD-eC-WW8"/>
                 <constraint firstItem="t83-iz-W2F" firstAttribute="leading" secondItem="qAb-qm-4KX" secondAttribute="trailing" constant="8" id="Cew-Xy-cF1"/>
+                <constraint firstItem="t83-iz-W2F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Gmm-iE-yha"/>
+                <constraint firstItem="Vdy-2g-5Dc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="KQK-rr-mFr"/>
+                <constraint firstItem="t83-iz-W2F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="N7s-GZ-hQm"/>
+                <constraint firstItem="pGG-ur-duu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="StL-3i-9cZ"/>
                 <constraint firstItem="qAb-qm-4KX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="T7R-Jp-D8x"/>
+                <constraint firstItem="pGG-ur-duu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Tqu-2p-VXp"/>
+                <constraint firstAttribute="trailing" secondItem="t83-iz-W2F" secondAttribute="trailing" constant="50" id="UMI-Pt-GTG"/>
+                <constraint firstItem="Vdy-2g-5Dc" firstAttribute="leading" secondItem="pGG-ur-duu" secondAttribute="trailing" constant="493" id="YNY-0T-JiG"/>
+                <constraint firstAttribute="bottom" secondItem="t83-iz-W2F" secondAttribute="bottom" id="c8p-ui-NXK"/>
+                <constraint firstItem="t83-iz-W2F" firstAttribute="leading" secondItem="pGG-ur-duu" secondAttribute="trailing" constant="5" id="nfA-pS-eBX"/>
                 <constraint firstItem="qAb-qm-4KX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qgo-jr-QH9"/>
+                <constraint firstItem="Vdy-2g-5Dc" firstAttribute="leading" secondItem="t83-iz-W2F" secondAttribute="trailing" id="tCP-Fg-e9I"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Cew-Xy-cF1"/>
+                    <exclude reference="nfA-pS-eBX"/>
+                    <exclude reference="YNY-0T-JiG"/>
+                    <exclude reference="tCP-Fg-e9I"/>
+                </mask>
+            </variation>
             <connections>
+                <outlet property="button" destination="Vdy-2g-5Dc" id="bau-x2-6TJ"/>
+                <outlet property="greenPoint" destination="pGG-ur-duu" id="jdb-Jv-lBa"/>
                 <outlet property="icon" destination="qAb-qm-4KX" id="Z33-Zy-frd"/>
                 <outlet property="title" destination="t83-iz-W2F" id="QVb-g9-tJc"/>
             </connections>
-            <point key="canvasLocation" x="344" y="381"/>
+            <point key="canvasLocation" x="120" y="260"/>
         </view>
     </objects>
     <resources>

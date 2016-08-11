@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please write down anything you want to add." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="791-lF-eHg" customClass="DesignableTextField" customModule="Spring">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Please write down anything you want to add." textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="791-lF-eHg" customClass="DesignableTextField" customModule="Spring">
                     <rect key="frame" x="13" y="16" width="574" height="54"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="54" id="SZn-I5-A9E"/>
