@@ -17,13 +17,13 @@ struct AIWishServices {
         let message = AIMessage()
         //获取本地语言类型推算币种类型
         print(Localize.currentLanguage())
-        let body: NSDictionary = [
+        let body: NSDictionary = ["data":[
             "wish_desc": wish,
             "user_id":userId,
             "money_amount":money,
             "money_type":"CNY",
             "money_unit":""
-        ]
+        ],"desc":["data_mode":"0","digest":""]]
         
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         message.url = AIApplication.AIApplicationServerURL.makewish.description as String
@@ -44,10 +44,7 @@ struct AIWishServices {
     static func requestQueryWishs(complate: ((AnyObject?, String?) -> Void)) {
         let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
         let message = AIMessage()
-        let body: NSDictionary = [
-            "user_id":userId
-        ]
-        
+        let body: NSDictionary = ["data":["user_id":userId],"desc":["data_mode":"0","digest":""]]
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         message.url = AIApplication.AIApplicationServerURL.wishpreview.description as String
         

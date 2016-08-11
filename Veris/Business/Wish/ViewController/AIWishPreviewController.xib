@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIWishPreviewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="scrollview" destination="gil-n3-nPW" id="QUB-Ew-ZFU"/>
                 <outlet property="view" destination="iN0-l3-epB" id="7HT-RY-D7O"/>
             </connections>
         </placeholder>
@@ -49,8 +50,8 @@
                             </userDefinedRuntimeAttributes>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="RRX-RH-XuT"/>
                                     <exclude reference="342-aJ-RNm"/>
+                                    <exclude reference="RRX-RH-XuT"/>
                                 </mask>
                             </variation>
                         </button>
@@ -63,18 +64,25 @@
                         <constraint firstItem="bN1-bp-YVN" firstAttribute="centerY" secondItem="N6u-Iz-0M0" secondAttribute="centerY" id="RMb-ml-ht3"/>
                     </constraints>
                 </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gil-n3-nPW">
+                    <rect key="frame" x="0.0" y="54" width="600" height="455"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="w8o-jv-tHA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="24m-AB-DPu"/>
                 <constraint firstItem="N6u-Iz-0M0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8Xi-YB-xrh"/>
+                <constraint firstItem="gil-n3-nPW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="54" id="9aw-Ak-0yc"/>
                 <constraint firstAttribute="trailing" secondItem="N6u-Iz-0M0" secondAttribute="trailing" id="LDW-ga-VWO"/>
+                <constraint firstAttribute="trailing" secondItem="gil-n3-nPW" secondAttribute="trailing" id="XM8-Q5-iMC"/>
+                <constraint firstItem="gil-n3-nPW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Zqz-rn-oQe"/>
                 <constraint firstAttribute="bottom" secondItem="w8o-jv-tHA" secondAttribute="bottom" id="djk-2n-mJ9"/>
+                <constraint firstItem="N6u-Iz-0M0" firstAttribute="top" secondItem="gil-n3-nPW" secondAttribute="bottom" constant="-1" id="m3q-Lw-gr0"/>
                 <constraint firstAttribute="bottom" secondItem="N6u-Iz-0M0" secondAttribute="bottom" id="rke-T5-Kxd"/>
                 <constraint firstAttribute="trailing" secondItem="w8o-jv-tHA" secondAttribute="trailing" id="se6-38-dCX"/>
                 <constraint firstItem="w8o-jv-tHA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wpJ-S9-wXq"/>
             </constraints>
-            <point key="canvasLocation" x="365" y="343"/>
+            <point key="canvasLocation" x="124" y="351"/>
         </view>
     </objects>
     <resources>

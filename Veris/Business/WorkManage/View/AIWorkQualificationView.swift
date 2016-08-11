@@ -27,8 +27,8 @@ class AIWorkQualificationView: UIView {
         super.awakeFromNib()
         setupViews()
     }
-    
-    func setupViews(){
+
+    func setupViews() {
         setRoundCorner(switchButton)
     }
     
