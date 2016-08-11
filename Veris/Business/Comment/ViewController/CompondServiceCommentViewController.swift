@@ -436,6 +436,30 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         
         presentImagesReviewController(images)
     }
+    
+    func textViewDidEndEditing(textView: UITextView, cell: ServiceCommentTableViewCell) {
+        guard let text = textView.text else {
+            return
+        }
+        
+        if text.isEmpty {
+            return
+        }
+        
+        currentOperateIndex = cell.tag
+        
+        guard let local = comments[currentOperateIndex].loaclModel else {
+            return
+        }
+        
+        if text == local.text {
+            return
+        }
+        
+        local.text = text
+        
+        commentManager.saveCommentModelToLocal(local.serviceId, model: local)    
+    }
 }
 
 extension CompondServiceCommentViewController: ImagesReviewDelegate {

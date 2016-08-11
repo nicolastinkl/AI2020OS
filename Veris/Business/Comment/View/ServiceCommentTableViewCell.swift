@@ -116,7 +116,9 @@ class ServiceCommentTableViewCell: UITableViewCell {
         appendComment.inputTextView.font = AITools.myriadSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
         
         firstComment.imageCollection.delegate = self
+        firstComment.textViewDelegate = self
         appendComment.imageCollection.delegate = self
+        appendComment.textViewDelegate = self
         
         appendCommentButton.layer.cornerRadius = appendCommentButton.height / 2
         appendCommentButton.layer.borderWidth = 1
@@ -381,6 +383,11 @@ private class CommentEditableState: AbsCommentState {
             addAssetImages(imagesUrl)
         }
         
+        if let text = cell.model?.loaclModel?.text {
+            cell.firstComment.inputTextView.text = text
+            cell.firstComment.hideHint()
+        }
+        
         cell.appendCommentButton.hidden = true
         cell.starRateView.userInteractionEnabled = true
         
@@ -440,6 +447,11 @@ private class CommentFinshedState: AbsCommentState {
         
         if let imagesUrl = cell.getAssetUrls() {
             addAssetImages(imagesUrl)
+        }
+        
+        if let text = cell.model?.loaclModel?.text {
+            cell.appendComment.inputTextView.text = text
+            cell.appendComment.hideHint()
         }
         
         let expanded = cell.hasLocalContent()
@@ -598,9 +610,17 @@ extension ServiceCommentTableViewCell: ImagesCollectionProtocol {
     }
 }
 
-protocol CommentCellDelegate {
+extension ServiceCommentTableViewCell: UITextViewDelegate {
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        cellDelegate?.textViewDidEndEditing(textView, cell: self)
+    }
+}
+
+protocol CommentCellDelegate: NSObjectProtocol {
     func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
     func commentHeightChanged()
     // images: key is ImageTag
     func imagesClicked(images: [(imageId: String, UIImage)], cell: ServiceCommentTableViewCell)
+    func textViewDidEndEditing(textView: UITextView, cell: ServiceCommentTableViewCell)
 }
