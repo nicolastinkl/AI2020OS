@@ -152,14 +152,14 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private func loadServiceComments() {
         comments = [ServiceCommentViewModel]()
         
-        for i in 0 ..< 1 {
+        for i in 0 ..< 5 {
             let model = ServiceCommentViewModel()
             model.serviceId = "\(i)"
             model.commentEditable = i % 2 != 1
             comments.append(model)
         }
         
-        view.showLoading()
+        //view.showLoading()
 
         
 //        let ser = HttpCommentService()

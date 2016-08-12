@@ -12,7 +12,7 @@ class AIWorkManageViewController: AIBaseViewController {
 
     //MARK:
 
-    var tableView: UITableView!
+    var mainTableView: UITableView!
 
 
     //MARK: Functions
@@ -64,14 +64,14 @@ class AIWorkManageViewController: AIBaseViewController {
     //MARK: 构造表格
 
     func makeTableView() {
-        tableView = UITableView(frame: self.view.bounds, style: .Grouped)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.separatorColor = UIColor.clearColor()
-        tableView.backgroundColor = UIColor.clearColor()
-        tableView.separatorStyle = .None
-        tableView.showsVerticalScrollIndicator = false
-        self.view.addSubview(tableView!)
+        mainTableView = UITableView(frame: self.view.bounds, style: .Grouped)
+        mainTableView.dataSource = self
+        mainTableView.delegate = self
+        mainTableView.separatorColor = UIColor.clearColor()
+        mainTableView.backgroundColor = UIColor.clearColor()
+        mainTableView.separatorStyle = .None
+        mainTableView.showsVerticalScrollIndicator = false
+        self.view.addSubview(mainTableView)
     }
 
 
@@ -94,7 +94,7 @@ extension AIWorkManageViewController: UITableViewDataSource {
         let cell = AIJobTableViewCell(style: .Default, reuseIdentifier: reuseIdentifier)
         cell.backgroundColor = UIColor.clearColor()
         let model = AIJobSurveyModel()
-        model.jobIcon = ""
+        model.jobIcon = "http://img5.imgtn.bdimg.com/it/u=4115455389,1829632566&fm=11&gp=0.jpg"
         model.jobDescription = "Private Transport"
 
         cell.resetCellModel(model)
@@ -107,18 +107,26 @@ extension AIWorkManageViewController: UITableViewDataSource {
 
 extension AIWorkManageViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100
     }
 
-//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 30.displaySizeFrom1242DesignSize()
-//    }
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+        if section == 0 {
+            return 200.displaySizeFrom1242DesignSize()
+        } else {
+            return 30.displaySizeFrom1242DesignSize()
+        }
+
+    }
 
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
+
+        
+        return 1
     }
 }
