@@ -35,10 +35,10 @@
                                         </visualEffectView>
                                     </subviews>
                                 </view>
-                                <blurEffect style="light"/>
+                                <blurEffect style="dark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBl-fd-pzu" userLabel="icon_container_view">
-                                <rect key="frame" x="0.0" y="21" width="600" height="64"/>
+                                <rect key="frame" x="0.0" y="67" width="600" height="64"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="work_detail_bg" translatesAutoresizingMaskIntoConstraints="NO" id="rsQ-ia-Buq">
                                         <rect key="frame" x="0.0" y="27" width="600" height="10"/>
@@ -59,7 +59,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yei-7k-JdY">
-                                <rect key="frame" x="0.0" y="85" width="600" height="65"/>
+                                <rect key="frame" x="0.0" y="131" width="600" height="65"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="work_1_on" translatesAutoresizingMaskIntoConstraints="NO" id="79s-o3-HlK">
                                         <rect key="frame" x="40" y="22" width="18" height="17"/>
@@ -75,6 +75,9 @@
                                         <state key="selected">
                                             <color key="titleColor" red="1" green="0.82352941180000006" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="stepOneAction:" destination="a7I-ow-3Zm" eventType="touchUpInside" id="sfa-J5-6Db"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="work_2_off" translatesAutoresizingMaskIntoConstraints="NO" id="CpB-Cc-Pm5">
                                         <rect key="frame" x="423" y="22" width="18" height="18"/>
@@ -89,6 +92,9 @@
                                         <state key="selected">
                                             <color key="titleColor" red="1" green="0.82352941180000006" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="stepTwoAction:" destination="a7I-ow-3Zm" eventType="touchUpInside" id="psa-93-0gh"/>
+                                        </connections>
                                     </button>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHr-dc-2kt">
                                         <rect key="frame" x="0.0" y="63" width="600" height="2"/>
@@ -129,40 +135,59 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IvE-Hg-qRG" userLabel="JobDescriptionView" customClass="AIWorkDetailView" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="150" width="600" height="371"/>
+                                <rect key="frame" x="0.0" y="196" width="600" height="325"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7t-gV-nyD" userLabel="QualificationView" customClass="AIWorkQualificationView" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="115" width="600" height="371"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s7t-gV-nyD" userLabel="QualificationView" customClass="AIWorkQualificationView" customModule="Veris" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="196" width="600" height="325"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IBl-fd-pzu" secondAttribute="trailing" id="2Gv-Wf-eSD"/>
+                            <constraint firstItem="IBl-fd-pzu" firstAttribute="top" secondItem="J3B-8G-ZLp" secondAttribute="topMargin" constant="67" id="2og-gK-mzh"/>
+                            <constraint firstItem="K7v-Q5-9Te" firstAttribute="top" secondItem="o0H-Ym-vnt" secondAttribute="bottom" id="Bi1-6X-wAq"/>
                             <constraint firstAttribute="bottomMargin" secondItem="K7v-Q5-9Te" secondAttribute="bottom" id="ENd-LJ-tfb"/>
+                            <constraint firstItem="s7t-gV-nyD" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leading" id="Jk2-8h-HkL"/>
                             <constraint firstItem="K7v-Q5-9Te" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leading" id="N1i-YW-dvf"/>
                             <constraint firstAttribute="trailing" secondItem="yei-7k-JdY" secondAttribute="trailing" id="OJU-Ri-8VT"/>
                             <constraint firstItem="yei-7k-JdY" firstAttribute="top" secondItem="IBl-fd-pzu" secondAttribute="bottom" id="Phe-ny-wOb"/>
                             <constraint firstItem="IBl-fd-pzu" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leading" id="Rzf-Ha-kBX"/>
+                            <constraint firstAttribute="trailing" secondItem="s7t-gV-nyD" secondAttribute="trailing" id="YWZ-2p-NDI"/>
+                            <constraint firstItem="K7v-Q5-9Te" firstAttribute="top" secondItem="J3B-8G-ZLp" secondAttribute="topMargin" id="Zfn-ED-Kqj"/>
                             <constraint firstItem="IvE-Hg-qRG" firstAttribute="top" secondItem="yei-7k-JdY" secondAttribute="bottom" id="aGB-Vi-34C"/>
+                            <constraint firstItem="s7t-gV-nyD" firstAttribute="top" secondItem="yei-7k-JdY" secondAttribute="bottom" id="bqN-JQ-b2C"/>
                             <constraint firstAttribute="trailing" secondItem="K7v-Q5-9Te" secondAttribute="trailing" id="eBb-qQ-clQ"/>
                             <constraint firstItem="IBl-fd-pzu" firstAttribute="top" secondItem="J3B-8G-ZLp" secondAttribute="topMargin" constant="21" id="em8-1M-Qpq"/>
                             <constraint firstItem="yei-7k-JdY" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leading" id="fT9-cB-CaQ"/>
                             <constraint firstAttribute="trailing" secondItem="IvE-Hg-qRG" secondAttribute="trailing" id="fam-FU-cNS"/>
                             <constraint firstAttribute="topMargin" secondItem="K7v-Q5-9Te" secondAttribute="top" id="gtL-Ky-iBh"/>
                             <constraint firstItem="Vas-M9-hP6" firstAttribute="centerX" secondItem="J3B-8G-ZLp" secondAttribute="centerXWithinMargins" id="hU6-L0-g56"/>
+                            <constraint firstItem="Vas-M9-hP6" firstAttribute="top" secondItem="s7t-gV-nyD" secondAttribute="bottom" constant="5" id="iwe-Ix-inG"/>
+                            <constraint firstItem="IBl-fd-pzu" firstAttribute="top" secondItem="J3B-8G-ZLp" secondAttribute="topMargin" constant="40" id="l5C-b3-KC2"/>
+                            <constraint firstItem="IBl-fd-pzu" firstAttribute="top" secondItem="o0H-Ym-vnt" secondAttribute="bottom" constant="20" id="lvn-pJ-p4r"/>
                             <constraint firstItem="Vas-M9-hP6" firstAttribute="top" secondItem="IvE-Hg-qRG" secondAttribute="bottom" constant="5" id="m4B-Dj-B2B"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Vas-M9-hP6" secondAttribute="bottom" constant="13" id="qOh-KP-96A"/>
                             <constraint firstItem="IvE-Hg-qRG" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leading" id="vBb-0f-MWV"/>
                             <constraint firstItem="Vas-M9-hP6" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leadingMargin" constant="13" id="w0r-d8-SBN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Bi1-6X-wAq"/>
+                                <exclude reference="gtL-Ky-iBh"/>
+                                <exclude reference="em8-1M-Qpq"/>
+                                <exclude reference="l5C-b3-KC2"/>
+                                <exclude reference="lvn-pJ-p4r"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="Qualification" destination="pO6-SP-FNz" id="Mfb-3B-yyB"/>
                         <outlet property="commitButton" destination="Vas-M9-hP6" id="1YE-vp-vNa"/>
                         <outlet property="jobDesContainerView" destination="IvE-Hg-qRG" id="acT-UN-JB7"/>
                         <outlet property="jobDescTitleLabel" destination="3YF-FX-enR" id="T21-sA-wDS"/>
+                        <outlet property="qualificationView" destination="s7t-gV-nyD" id="DgA-4D-9Sm"/>
                         <outlet property="serviceIconView" destination="MqE-Ja-tyD" id="RpW-oT-RDo"/>
                         <outlet property="title1Icon" destination="79s-o3-HlK" id="qcq-de-hxw"/>
                         <outlet property="title2Icon" destination="CpB-Cc-Pm5" id="1l5-4o-MHe"/>

@@ -99,12 +99,17 @@ public class AIImageView: UIImageView {
         if let showProgress = showProgress {
             if showProgress {
                 
-                let newFrame = CGRectMake(0, 0, self.width, self.height)                
-                let progress = AIProgressWebHoldView(frame: newFrame)
-                self.addSubview(progress)
                 //SDWebImageOptions.ContinueInBackground
                 if url?.URLString.length > 10 {
                     self.cacheURL = url
+                    if SDWebImageManager.sharedManager().cachedImageExistsForURL(url) {
+                        let cacheImage = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(url!.absoluteString)
+                        image = cacheImage
+                        return
+                    }
+                    let newFrame = CGRectMake(0, 0, self.width, self.height)
+                    let progress = AIProgressWebHoldView(frame: newFrame)
+                    self.addSubview(progress)
                     self.sd_setImageWithURL(url!, placeholderImage: placeholderImage, options: SDWebImageOptions.ContinueInBackground, progress: { (start, end) in
                         progress.progress = CGFloat(start) / CGFloat(end)
                     }) { (image, error, cacheType, url) in

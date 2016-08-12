@@ -50,5 +50,9 @@
  */
 + (AIMessage *) submitOrderServiceWithServiceArrays:(NSArray *)services;
 
+/*说明：添加收藏服务
+ *  @author Tinkl
+ */
++ (AIMessage *) addFavoriteService:(NSInteger)proposal_spec_id;
 
 @end

@@ -358,7 +358,7 @@ class AITimelineContentContainerView: UIView {
             default: break
             }
         }
-        AILog("totalHeight : \(totalHeight)")
+//        AILog("totalHeight : \(totalHeight)")
         return totalHeight
     }
 

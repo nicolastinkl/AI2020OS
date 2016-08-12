@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIWorkManageHeaderCardView" customModule="Veris" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="135" height="242"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wm-fake-card" translatesAutoresizingMaskIntoConstraints="NO" id="Zjr-ut-gdm">
+                    <rect key="frame" x="0.0" y="0.0" width="135" height="242"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pH2-ZQ-4Zq">
+                    <rect key="frame" x="0.0" y="0.0" width="135" height="242"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sE7-Ny-FOc">
+                            <rect key="frame" x="15" y="165" width="154" height="60"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbQ-Md-07f">
+                                    <rect key="frame" x="0.0" y="0.0" width="23" height="60"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paramedic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abu-JW-3wL">
+                                    <rect key="frame" x="27" y="0.0" width="119" height="31"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="25.333330154418945"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35,428 Requests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWv-ya-zCG">
+                                    <rect key="frame" x="27" y="45" width="119" height="15"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Abu-JW-3wL" firstAttribute="leading" secondItem="vbQ-Md-07f" secondAttribute="trailing" constant="4" id="1Iy-yH-M7W"/>
+                                <constraint firstItem="QWv-ya-zCG" firstAttribute="bottom" secondItem="vbQ-Md-07f" secondAttribute="bottom" id="3yM-7Z-GVl"/>
+                                <constraint firstItem="QWv-ya-zCG" firstAttribute="leading" secondItem="Abu-JW-3wL" secondAttribute="leading" id="FUY-NY-Kcv"/>
+                                <constraint firstItem="vbQ-Md-07f" firstAttribute="leading" secondItem="sE7-Ny-FOc" secondAttribute="leading" id="Kdy-Nk-4eY"/>
+                                <constraint firstAttribute="trailing" secondItem="Abu-JW-3wL" secondAttribute="trailing" constant="8" id="S7R-m9-tct"/>
+                                <constraint firstAttribute="bottom" secondItem="vbQ-Md-07f" secondAttribute="bottom" id="XNP-Dg-3JS"/>
+                                <constraint firstItem="Abu-JW-3wL" firstAttribute="top" secondItem="vbQ-Md-07f" secondAttribute="top" id="asq-Ge-Mx7"/>
+                                <constraint firstItem="vbQ-Md-07f" firstAttribute="top" secondItem="sE7-Ny-FOc" secondAttribute="top" id="qJ0-34-iRU"/>
+                                <constraint firstAttribute="trailing" secondItem="QWv-ya-zCG" secondAttribute="trailing" constant="8" id="xT6-jU-znX"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.50842372308944672" green="0.45137032970804203" blue="1" alpha="0.25898731203007519" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="sE7-Ny-FOc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="7Tq-k7-1fB"/>
+                <constraint firstItem="vbQ-Md-07f" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="F2I-9t-laz"/>
+                <constraint firstAttribute="trailing" secondItem="pH2-ZQ-4Zq" secondAttribute="trailing" id="KHf-cT-Z09"/>
+                <constraint firstItem="Zjr-ut-gdm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="L3O-3p-zKX"/>
+                <constraint firstAttribute="bottom" secondItem="Zjr-ut-gdm" secondAttribute="bottom" id="OiU-4p-Aly"/>
+                <constraint firstItem="pH2-ZQ-4Zq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VfJ-VD-6qT"/>
+                <constraint firstAttribute="bottom" secondItem="sE7-Ny-FOc" secondAttribute="bottom" constant="17" id="czH-g6-ogk"/>
+                <constraint firstAttribute="trailing" secondItem="Zjr-ut-gdm" secondAttribute="trailing" id="dqk-jD-WMh"/>
+                <constraint firstItem="Zjr-ut-gdm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dwy-my-dRB"/>
+                <constraint firstAttribute="bottom" secondItem="pH2-ZQ-4Zq" secondAttribute="bottom" id="qNn-I6-Hfo"/>
+                <constraint firstItem="pH2-ZQ-4Zq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="z3D-To-vfd"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="F2I-9t-laz"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="filterView" destination="pH2-ZQ-4Zq" id="Xql-3b-MyA"/>
+                <outlet property="imageView" destination="Zjr-ut-gdm" id="1CX-sH-7IY"/>
+                <outlet property="leftLabel" destination="vbQ-Md-07f" id="fir-kt-PVs"/>
+                <outlet property="leftLabelCenterConstraint" destination="F2I-9t-laz" id="aKa-Xb-HAZ"/>
+                <outlet property="leftLabelPinLeftConstraint" destination="7Tq-k7-1fB" id="yUd-dj-zW4"/>
+                <outlet property="subTitleLabel" destination="QWv-ya-zCG" id="MA6-lW-f5r"/>
+                <outlet property="titleLabel" destination="Abu-JW-3wL" id="Ko4-5s-NOq"/>
+            </connections>
+            <point key="canvasLocation" x="51.5" y="320"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="wm-fake-card" width="135" height="213"/>
+    </resources>
+</document>

@@ -56,6 +56,7 @@ struct AIApplication {
             static let AIAlertStoryboard            = "AIAlertStoryboard"
             static let TaskExecuteStoryboard        = "TaskExecuteStoryboard"
             static let AIServiceExecuteStoryboard   = "AIServiceExecuteStoryboard"
+            static let AIWorkManageStoryboard       = "AIWorkManageStoryboard"
 
         }
 
@@ -88,6 +89,7 @@ struct AIApplication {
             static let AIRegistViewController = "AIRegistViewController"
             static let AIChangePasswordViewController = "AIChangePasswordViewController"
             static let AICustomerServiceExecuteViewController = "AICustomerServiceExecuteViewController"
+            static let AIWorkInfoViewController = "AIWorkInfoViewController"
         }
 
         /*!
