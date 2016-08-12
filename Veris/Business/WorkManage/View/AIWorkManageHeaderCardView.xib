@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="135" height="242"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wm-fake-card" translatesAutoresizingMaskIntoConstraints="NO" id="Zjr-ut-gdm">
+                <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wm-fake-card" translatesAutoresizingMaskIntoConstraints="NO" id="Zjr-ut-gdm">
                     <rect key="frame" x="0.0" y="0.0" width="135" height="242"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pH2-ZQ-4Zq">
@@ -58,6 +58,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="sE7-Ny-FOc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="7Tq-k7-1fB"/>
+                <constraint firstItem="vbQ-Md-07f" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="F2I-9t-laz"/>
                 <constraint firstAttribute="trailing" secondItem="pH2-ZQ-4Zq" secondAttribute="trailing" id="KHf-cT-Z09"/>
                 <constraint firstItem="Zjr-ut-gdm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="L3O-3p-zKX"/>
                 <constraint firstAttribute="bottom" secondItem="Zjr-ut-gdm" secondAttribute="bottom" id="OiU-4p-Aly"/>
@@ -70,10 +71,19 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="F2I-9t-laz"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="filterView" destination="pH2-ZQ-4Zq" id="Xql-3b-MyA"/>
                 <outlet property="imageView" destination="Zjr-ut-gdm" id="1CX-sH-7IY"/>
                 <outlet property="leftLabel" destination="vbQ-Md-07f" id="fir-kt-PVs"/>
+                <outlet property="leftLabelCenterConstraint" destination="F2I-9t-laz" id="aKa-Xb-HAZ"/>
+                <outlet property="leftLabelPinLeftConstraint" destination="7Tq-k7-1fB" id="yUd-dj-zW4"/>
+                <outlet property="subTitleLabel" destination="QWv-ya-zCG" id="MA6-lW-f5r"/>
+                <outlet property="titleLabel" destination="Abu-JW-3wL" id="Ko4-5s-NOq"/>
             </connections>
             <point key="canvasLocation" x="51.5" y="320"/>
         </view>

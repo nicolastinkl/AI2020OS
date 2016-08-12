@@ -55,11 +55,12 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
 
     override func photoImageButtonClicked(button: UIImageView, buttonParentCell: UIView) {
-        super.photoImageButtonClicked(button, buttonParentCell: buttonParentCell)
-
+        
         if let cell = buttonParentCell as? ServiceCommentTableViewCell {
             recordcurrentOperateIndex(cell)
         }
+        
+        super.photoImageButtonClicked(button, buttonParentCell: buttonParentCell)
     }
 
 
@@ -152,7 +153,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     private func loadServiceComments() {
         comments = [ServiceCommentViewModel]()
         
-        for i in 0 ..< 20 {
+        for i in 0 ..< 1 {
             let model = ServiceCommentViewModel()
             model.serviceId = "\(i)"
             model.commentEditable = i % 2 != 1
@@ -266,7 +267,10 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             for comment in comments {
                 if let model = findLocalModel(comment.serviceId) {
                     model.isAppend = !comment.commentEditable
-                    comment.loaclModel = model
+                    if let copy = model.copy() as? ServiceCommentLocalSavedModel {
+                        comment.loaclModel = copy
+                    }
+                    
                 } else {
                     comment.loaclModel = ServiceCommentLocalSavedModel()
                     comment.loaclModel?.serviceId = comment.serviceId
@@ -278,16 +282,15 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
     override func imagesPicked(images: [ImageInfo]) {
         if let cell = getcurrentOperateCell() {
-
-            let row = cell.tag
-            
-            guard let cell = serviceTableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? ServiceCommentTableViewCell else {
-                return
-            }
             
             recordImagesInfoToDataSource(images, cell: cell)
             
             addImagesToCell(images, cell: cell)
+            
+            comments[cell.tag].alreadySelectedPhotosNumber = cell.getAlreadySelectedPhotosNumber()
+            if cell.getAlreadySelectedPhotosNumber() >= 10 {
+                cell.imageButton.hidden = true
+            }
         }
     }
     
@@ -369,6 +372,18 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         let n = UINavigationController(rootViewController: vc)
         presentViewController(n, animated: true, completion: nil)
     }
+    
+    override func getSelectablePhotoNumber() -> Int {
+        if currentOperateIndex == -1 {
+            return -1
+        }
+        
+        guard let cell = getcurrentOperateCell() else {
+            return -1
+        }
+        
+        return AbsCommentViewController.maxPhotosNumber - cell.getAlreadySelectedPhotosNumber()
+    }
 }
 
 extension CompondServiceCommentViewController: UITableViewDataSource, UITableViewDelegate {
@@ -401,7 +416,7 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
 //            comments[indexPath.row].cellState = cell.setModel(comments[indexPath.row])     
 //        }
 
-        resetCellUI(cell, indexPath: indexPath)
+    //    resetCellUI(cell, indexPath: indexPath)
         
      //   cellsMap[indexPath.row] = cell
 
@@ -410,33 +425,12 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
     
 
     private func resetCellUI(cell: ServiceCommentTableViewCell, indexPath: NSIndexPath) {
-     //   cell.clearImages()
         
         if let state = comments[indexPath.row].cellState {
-       //     let urls = getImageUrls(indexPath.row)
-      //      cell.addAsyncDownloadImages(urls)
             
             cell.resetState(state)
         }
     }
-    
-//    private func getImageUrls(row: Int) -> [NSURL] {
-//        var urls = [NSURL]()
-//        
-//        if let ims = comments[row].loaclModel?.imageInfos {
-//            for info in ims {
-//                guard let u = info.url else {
-//                    continue
-//                }
-//                
-//                if info.isSuccessUploaded {
-//                    urls.append(u)
-//                }
-//            }
-//        }
-//        
-//        return urls
-//    }
 }
 
 extension CompondServiceCommentViewController: CommentCellDelegate {
@@ -456,6 +450,30 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         currentOperateIndex = cell.tag
         
         presentImagesReviewController(images)
+    }
+    
+    func textViewDidEndEditing(textView: UITextView, cell: ServiceCommentTableViewCell) {
+        guard let text = textView.text else {
+            return
+        }
+        
+        if text.isEmpty {
+            return
+        }
+        
+        currentOperateIndex = cell.tag
+        
+        guard let local = comments[currentOperateIndex].loaclModel else {
+            return
+        }
+        
+        if text == local.text {
+            return
+        }
+        
+        local.text = text
+        
+        commentManager.saveCommentModelToLocal(local.serviceId, model: local)    
     }
 }
 
@@ -486,6 +504,12 @@ extension CompondServiceCommentViewController: ImagesReviewDelegate {
         
         deleteLocalData()
         deleteCellImages()
+        
+        if let cell = getcurrentOperateCell() {
+            if cell.getAlreadySelectedPhotosNumber() < 10 {
+                cell.imageButton.hidden = false
+            }
+        }     
     }
 }
 
@@ -501,6 +525,7 @@ class ServiceCommentViewModel {
     var loaclModel: ServiceCommentLocalSavedModel?
     var firstComment: SingleComment?
     var appendComment: SingleComment?
+    var alreadySelectedPhotosNumber = 0
 }
 
 protocol CommentCellProtocol {

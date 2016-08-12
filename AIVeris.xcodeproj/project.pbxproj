@@ -4058,7 +4058,6 @@
 				935E58D21D5315D900252B83 /* AIWorkDetailView.xib */,
 				935E58D31D5315D900252B83 /* AIWorkManageHeaderView.swift */,
 				FB5D3FF51D5C1B0D00211A8E /* AIWorkManageHeaderCardView.xib */,
-				813861021D5B0BFD0050C0D0 /* AIJobTableViewCell.swift */,
 				12FBCB8C1D59CB1600E333D6 /* AIWorkQualificationView.swift */,
 				12FBCB901D5ACBB100E333D6 /* AIWorkQualificationView.xib */,
 				813861021D5B0BFD0050C0D0 /* AIJobTableViewCell.swift */,
@@ -4583,6 +4582,7 @@
 			attributes = {
 				KnownAssetTags = (
 					New,
+					"f ",
 				);
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0730;

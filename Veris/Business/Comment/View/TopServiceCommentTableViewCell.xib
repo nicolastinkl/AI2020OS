@@ -39,6 +39,7 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="string" keyPath="backgroundStarImage" value="Hollow_Star"/>
                             <userDefinedRuntimeAttribute type="string" keyPath="foregroundStarImage" value="Comment_Star"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowIncompleteStar" value="NO"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A7n-mZ-4Oq" userLabel="ServiceIcon">

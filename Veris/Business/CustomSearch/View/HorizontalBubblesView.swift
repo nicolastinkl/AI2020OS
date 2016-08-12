@@ -41,6 +41,7 @@ class HorizontalBubblesView: UIView {
 			model.bubbleSize = Int(bubbleWidth) / 2
 			let bubbleView = AIBubble(center: .zero, model: model, type: model.bubbleType, index: 0)
 			bubbleView.tag = i
+            bubbleView.userInteractionEnabled = true
 			addSubview(bubbleView)
 			let tap = UITapGestureRecognizer(target: self, action: #selector(HorizontalBubblesView.tapped(_:)))
 			bubbleView.addGestureRecognizer(tap)
