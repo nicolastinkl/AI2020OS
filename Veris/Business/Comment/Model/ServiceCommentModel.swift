@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ServiceCommentLocalSavedModel: NSObject, NSCoding {
+class ServiceCommentLocalSavedModel: NSObject, NSCoding, NSCopying {
     var imageInfos = [ImageInfoModel]()
     var serviceId = ""
     var text: String?
@@ -32,6 +32,16 @@ class ServiceCommentLocalSavedModel: NSObject, NSCoding {
         serviceId = aDecoder.decodeObjectForKey("serviceId") as! String
         imageInfos = aDecoder.decodeObjectForKey("imageInfos") as! NSArray as! [ImageInfoModel]
         text = aDecoder.decodeObjectForKey("text") as? String
+    }
+    
+    func copyWithZone(zone: NSZone) -> AnyObject {
+        let copy = ServiceCommentLocalSavedModel()
+        copy.imageInfos = imageInfos
+        copy.serviceId = serviceId
+        copy.text = text
+        copy.changed = changed
+        copy.isAppend = isAppend
+        return copy
     }
 }
 

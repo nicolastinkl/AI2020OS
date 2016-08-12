@@ -10,6 +10,9 @@ import UIKit
 import MobileCoreServices
 
 class AbsCommentViewController: UIViewController {
+    
+    static let maxPhotosNumber = 10
+    
     func imagesPicked(images: [ImageInfo]) {
         
     }
@@ -48,23 +51,17 @@ extension AbsCommentViewController: UINavigationControllerDelegate {
 
 extension AbsCommentViewController: CommentDistrictDelegate {
     func photoImageButtonClicked(button: UIImageView, buttonParentCell: UIView) {
-        let alert = UIAlertController(title: nil, message: "AbsCommentViewController.selectSrc".localized, preferredStyle: .ActionSheet)
-
-        let actionCamera = UIAlertAction(title: "Camera".localized,
-                                         style: .Default) { (UIAlertAction) in
-            BuildInCameraUtils.startCameraControllerFromViewController(self, delegate: self)
-        }
-        
-        func openAlbum() {
-            let vc = AIAssetsPickerController.initFromNib()
-            vc.delegate = self
-            vc.maximumNumberOfSelection = 10
-            let navi = UINavigationController(rootViewController: vc)
-            navi.navigationBarHidden = true
-            self.presentViewController(navi, animated: true, completion: nil)
-        }
         
         openAlbum()
+        
+//        let alert = UIAlertController(title: nil, message: "AbsCommentViewController.selectSrc".localized, preferredStyle: .ActionSheet)
+//
+//        let actionCamera = UIAlertAction(title: "Camera".localized,
+//                                         style: .Default) { (UIAlertAction) in
+//            BuildInCameraUtils.startCameraControllerFromViewController(self, delegate: self)
+//        }
+   
+        
 
    //     let actionPhotosAlbum = UIAlertAction(title: "Gallery".localized, style: .Default) { (UIAlertAction) in
    //         openAlbum()
@@ -83,7 +80,25 @@ extension AbsCommentViewController: CommentDistrictDelegate {
 //        presentViewController(alert, animated: true, completion: nil)
     }
     
+    func openAlbum() {
+        let vc = AIAssetsPickerController.initFromNib()
+        vc.delegate = self
+        let number = getSelectablePhotoNumber()
+        
+        if number == -1 {
+            return
+        }
+        
+        vc.maximumNumberOfSelection = number
+        let navi = UINavigationController(rootViewController: vc)
+        navi.navigationBarHidden = true
+        self.presentViewController(navi, animated: true, completion: nil)
+    }
     
+    // override this method to make sure the most photos could select, if number -1, means can't select photos
+    func getSelectablePhotoNumber() -> Int {
+        return 10
+    }
 }
 
 extension AbsCommentViewController: UIImagePickerControllerDelegate {
