@@ -9,26 +9,37 @@
 import UIKit
 
 class AIWorkOpportunityIndexViewController: UIViewController {
-    
-    @IBOutlet weak var headerView: AIWorkManageHeaderView!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        headerView.delegate = self
-    }
+	
+	@IBOutlet weak var headerView: AIWorkManageHeaderView!
+	
+	var once = false
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		headerView.delegate = self
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		if once == false {
+			headerView.setIndex(0)
+			once = true
+		}
+	}
 	
 	@IBAction func backButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+		dismissViewControllerAnimated(true, completion: nil)
 	}
+    
 	@IBAction func cameraButtonPressed(sender: AnyObject) {
 	}
+    
 	@IBAction func rightButtonPressed(sender: AnyObject) {
 	}
 }
 
 extension AIWorkOpportunityIndexViewController: AIWorkManageHeaderViewDelegate {
-    func headerView(headerView: AIWorkManageHeaderView, didClickAtIndex index: Int) {
-        // did at index
-    }
+	func headerView(headerView: AIWorkManageHeaderView, didClickAtIndex index: Int) {
+		// did at index
+	}
 }

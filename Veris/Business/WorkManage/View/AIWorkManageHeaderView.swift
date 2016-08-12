@@ -58,8 +58,8 @@ class AIWorkManageHeaderView: UIView {
 			addSubview(space)
 			cardSpaceViews.append(space)
 		}
-        
-        setIndex(0)
+		
+		setIndex(0)
 	}
 	
 	func setIndex(index: Int, animated: Bool = false) {
@@ -77,8 +77,8 @@ class AIWorkManageHeaderView: UIView {
 			updateConstraints()
 			setNeedsLayout()
 			UIView.animateWithDuration(0.25, animations: {
-				self.layoutIfNeeded()
 				updateLastTwoCard()
+				self.layoutIfNeeded()
 			})
 		} else {
 			updateLastTwoCard()
@@ -178,12 +178,8 @@ class AIWorkManageHeaderCardView: UIView {
 		didSet {
 			titleLabel?.alpha = smallLabelsVisible ? 1 : 0
 			subTitleLabel?.alpha = smallLabelsVisible ? 1 : 0
+            leftLabelPinLeftConstraint?.active = smallLabelsVisible
+            leftLabelCenterConstraint?.active = !smallLabelsVisible
 		}
-	}
-	
-	override func updateConstraints() {
-		super.updateConstraints()
-		leftLabelPinLeftConstraint?.active = smallLabelsVisible
-		leftLabelCenterConstraint?.active = !smallLabelsVisible
 	}
 }
