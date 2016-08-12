@@ -56,8 +56,14 @@ class AIWorkManageViewController: AIBaseViewController {
 
     //MARK: 到工作机会首页
     func gotoWorkInfoViewController() {
+
+//        let workInfoVC = UIStoryboard(name:  AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIWorkManageStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIWorkInfoViewController) as! AIWorkInfoViewController
+//        self.navigationController?.pushViewController(workInfoVC, animated: true)
+
+
+
         let vc = AIWorkOpportunityIndexViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        presentViewController(vc, animated: true, completion: nil)
     }
 
 

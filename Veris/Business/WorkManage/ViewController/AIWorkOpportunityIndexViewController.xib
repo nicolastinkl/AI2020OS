@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIWorkOpportunityIndexViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="headerView" destination="yhX-l3-TGP" id="Yvw-cf-FGa"/>
                 <outlet property="view" destination="iN0-l3-epB" id="iLW-0u-FzE"/>
             </connections>
         </placeholder>
@@ -16,18 +17,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhX-l3-TGP" customClass="AIWorkManageHeaderView" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="210"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="242"/>
                     <color key="backgroundColor" red="0.66345050059999999" green="0.65288446730000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="210" id="md3-L8-49h"/>
+                        <constraint firstAttribute="height" constant="242" id="md3-L8-49h"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMa-Lw-ter" userLabel="navigationBar">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAi-sk-Eom">
-                            <rect key="frame" x="17" y="22" width="13" height="24"/>
+                            <rect key="frame" x="0.0" y="22" width="46" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="GHy-7K-VAB"/>
+                                <constraint firstAttribute="width" constant="46" id="Ooh-WC-98A"/>
+                            </constraints>
                             <state key="normal" image="wm-back"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="xvr-q7-ax6"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQY-aY-8CZ" userLabel="searchTextFieldContainer">
                             <rect key="frame" x="46" y="13" width="502" height="42"/>
@@ -35,6 +43,9 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqo-dd-PSV">
                                     <rect key="frame" x="466" y="9" width="26" height="24"/>
                                     <state key="normal" image="wm-camera"/>
+                                    <connections>
+                                        <action selector="cameraButtonPressed:" destination="-1" eventType="touchUpInside" id="XRv-RF-go2"/>
+                                    </connections>
                                 </button>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FKo-Zy-48E">
                                     <rect key="frame" x="31" y="9" width="435" height="24"/>
@@ -66,14 +77,17 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf5-QP-6bc">
                             <rect key="frame" x="561" y="23" width="26" height="22"/>
                             <state key="normal" image="wm-search2"/>
+                            <connections>
+                                <action selector="rightButtonPressed:" destination="-1" eventType="touchUpInside" id="adR-Yo-a2h"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="IAi-sk-Eom" firstAttribute="leading" secondItem="CMa-Lw-ter" secondAttribute="leading" constant="17" id="1MA-ne-Eaf"/>
+                        <constraint firstItem="IAi-sk-Eom" firstAttribute="leading" secondItem="CMa-Lw-ter" secondAttribute="leading" id="1MA-ne-Eaf"/>
                         <constraint firstItem="bQY-aY-8CZ" firstAttribute="top" secondItem="CMa-Lw-ter" secondAttribute="top" constant="13" id="C1L-xd-D3u"/>
                         <constraint firstItem="bQY-aY-8CZ" firstAttribute="centerY" secondItem="CMa-Lw-ter" secondAttribute="centerY" id="EGa-mH-DSr"/>
                         <constraint firstItem="Bf5-QP-6bc" firstAttribute="leading" secondItem="bQY-aY-8CZ" secondAttribute="trailing" constant="13" id="RLy-YZ-KCW"/>
-                        <constraint firstItem="bQY-aY-8CZ" firstAttribute="leading" secondItem="IAi-sk-Eom" secondAttribute="trailing" constant="16" id="Z3N-OX-Ywi"/>
+                        <constraint firstItem="bQY-aY-8CZ" firstAttribute="leading" secondItem="IAi-sk-Eom" secondAttribute="trailing" id="Z3N-OX-Ywi"/>
                         <constraint firstItem="Bf5-QP-6bc" firstAttribute="centerY" secondItem="CMa-Lw-ter" secondAttribute="centerY" id="ezq-C5-Zqc"/>
                         <constraint firstItem="IAi-sk-Eom" firstAttribute="centerY" secondItem="CMa-Lw-ter" secondAttribute="centerY" id="fNT-Ka-OPS"/>
                         <constraint firstAttribute="trailing" secondItem="Bf5-QP-6bc" secondAttribute="trailing" constant="13" id="hdL-5Q-2hO"/>

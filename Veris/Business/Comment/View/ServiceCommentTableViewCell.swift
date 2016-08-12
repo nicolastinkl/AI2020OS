@@ -75,9 +75,10 @@ class ServiceCommentTableViewCell: UITableViewCell {
     func setModel(model: ServiceCommentViewModel) -> CommentStateEnum {
         self.model = model
         
+        
         if model.commentEditable {
             state = getState(.CommentEditable)
-        } else if !model.submitted {
+        } else if !model.isDone {
             state = getState(.CommentFinshed)
         } else {
             state = getState(.Done)
@@ -115,7 +116,9 @@ class ServiceCommentTableViewCell: UITableViewCell {
         appendComment.inputTextView.font = AITools.myriadSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
         
         firstComment.imageCollection.delegate = self
+        firstComment.textViewDelegate = self
         appendComment.imageCollection.delegate = self
+        appendComment.textViewDelegate = self
         
         appendCommentButton.layer.cornerRadius = appendCommentButton.height / 2
         appendCommentButton.layer.borderWidth = 1
@@ -192,6 +195,17 @@ class ServiceCommentTableViewCell: UITableViewCell {
         state?.deleteImages(imageIds)
     }
     
+    func hasLocalContent() -> Bool {
+        if let local = model?.loaclModel {
+            if (local.text != nil && local.text! != "") || local.imageInfos.count > 0 {
+                return true
+            }
+        }
+        
+        return false
+    }
+
+    
     private func appendCommentAreaHidden(hidden: Bool) {
         appendComment.hidden = hidden
         appendCommentButton.hidden = hidden
@@ -220,8 +234,6 @@ class ServiceCommentTableViewCell: UITableViewCell {
                 s = CommentFinshedState(cell: self)
             case .AppendEditing:
                 s = AppendEditingState(cell: self)
-//            case .AppendEdited:
-//                s = AppendEditedState(cell: self)
             case .Done:
                 s = DoneState(cell: self)
             }
@@ -371,6 +383,11 @@ private class CommentEditableState: AbsCommentState {
             addAssetImages(imagesUrl)
         }
         
+        if let text = cell.model?.loaclModel?.text {
+            cell.firstComment.inputTextView.text = text
+            cell.firstComment.hideHint()
+        }
+        
         cell.appendCommentButton.hidden = true
         cell.starRateView.userInteractionEnabled = true
         
@@ -431,12 +448,19 @@ private class CommentFinshedState: AbsCommentState {
         if let imagesUrl = cell.getAssetUrls() {
             addAssetImages(imagesUrl)
         }
+        
+        if let text = cell.model?.loaclModel?.text {
+            cell.appendComment.inputTextView.text = text
+            cell.appendComment.hideHint()
+        }
+        
+        let expanded = cell.hasLocalContent()
   
         cell.firstComment.finishComment()
-        cell.appendCommentHeight.constant = 0
-        cell.appendCommentButton.hidden = false
-        cell.imageButton.hidden = true
-        cell.starRateView.userInteractionEnabled = false
+        cell.appendCommentHeight.constant = expanded ? cell.firstComment.height : 0
+        cell.appendCommentButton.hidden = expanded
+        cell.imageButton.hidden = !expanded
+        cell.starRateView.userInteractionEnabled = expanded
         
         cell.checkbox.hidden = true
         cell.anonymousLabel.hidden = true
@@ -458,6 +482,8 @@ private class CommentFinshedState: AbsCommentState {
 // 编辑追加评价中。（展开追加评价）
 private class AppendEditingState: AbsCommentState {
     override func updateUI() {
+        cell.clearImages()
+        
         cell.firstComment.userInteractionEnabled = false
         cell.appendComment.userInteractionEnabled = true
         
@@ -465,10 +491,6 @@ private class AppendEditingState: AbsCommentState {
         cell.appendCommentButton.hidden = true
         cell.imageButton.hidden = false
         cell.starRateView.userInteractionEnabled = true
-        
-        let firstImages = cell.getImageUrls(false)
-        
-        cell.appendComment.imageCollection.addAsyncDownloadImages(firstImages, holdImage: cell.holdImage)
         
         Async.main(after: 0.1, block: { [weak self] in
             self?.cell.appendComment.inputTextView.becomeFirstResponder()
@@ -516,6 +538,8 @@ private class DoneState: AbsCommentState {
     private var finished = false
     
     override func updateUI() {
+        cell.clearImages()
+        
         cell.firstComment.userInteractionEnabled = false
         cell.appendComment.userInteractionEnabled = false
         
@@ -586,9 +610,17 @@ extension ServiceCommentTableViewCell: ImagesCollectionProtocol {
     }
 }
 
-protocol CommentCellDelegate {
+extension ServiceCommentTableViewCell: UITextViewDelegate {
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        cellDelegate?.textViewDidEndEditing(textView, cell: self)
+    }
+}
+
+protocol CommentCellDelegate: NSObjectProtocol {
     func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
     func commentHeightChanged()
     // images: key is ImageTag
     func imagesClicked(images: [(imageId: String, UIImage)], cell: ServiceCommentTableViewCell)
+    func textViewDidEndEditing(textView: UITextView, cell: ServiceCommentTableViewCell)
 }

@@ -86,10 +86,23 @@ class StarRateView: UIView {
         let tapPoint = sender.locationInView(self)
         let offset = tapPoint.x
         let realStarScore: CGFloat = offset / bounds.size.width
-
-        let starScore: CGFloat = allowIncompleteStar ? realStarScore : CGFloat(ceilf(Float(realStarScore)))
+        
+        let starScore: CGFloat = allowIncompleteStar ? realStarScore : calcCompleteScore(realStarScore)
 
         setScorePercent(starScore)
+    }
+    
+    private func calcCompleteScore(realScore: CGFloat) -> CGFloat {
+        let floatScroe = Float(realScore * 10)
+        
+        // 向上取整
+        var intScore = Int(floatScroe) + 1
+        
+        if intScore % 2 == 1 {
+            intScore += 1
+        }
+        
+        return CGFloat(intScore) / 10
     }
 
     override func layoutSubviews() {
