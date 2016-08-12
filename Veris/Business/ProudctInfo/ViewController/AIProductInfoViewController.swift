@@ -301,7 +301,7 @@ class AIProductInfoViewController: UIViewController {
 			} else {
 				tag.setTitle("方案C", forState: UIControlState.Normal)
 			}
-			
+			tag.addTarget(self, action: #selector(AIProductInfoViewController.showDetailView(_:)), forControlEvents: UIControlEvents.TouchDown)
 		}
 		
 		tagsView.setLeft(10)
@@ -322,7 +322,7 @@ class AIProductInfoViewController: UIViewController {
 			tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
 			
 			tag.setTitle("自由定制", forState: UIControlState.Normal)
-			tag.addTarget(self, action: #selector(AIProductInfoViewController.showDetailView), forControlEvents: UIControlEvents.TouchUpInside)
+            tag.addTarget(self, action: #selector(AIProductInfoViewController.showDetailView(_:)), forControlEvents: UIControlEvents.TouchDown)
 			tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Highlighted)
 			tag.layer.masksToBounds = true
 			let lineView = UIView()
@@ -554,7 +554,7 @@ class AIProductInfoViewController: UIViewController {
     }
     
     // MARK: - DIY ACTION
-    func showDetailView() {
+    func showDetailView(sender: AnyObject) {
         let model = AIBuyerBubbleModel()
         model.proposal_id = 3525
         model.proposal_name = "Pregnancy Care"

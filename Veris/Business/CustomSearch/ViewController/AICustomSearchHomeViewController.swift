@@ -376,7 +376,9 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
 extension AICustomSearchHomeViewController: HorizontalBubblesViewDelegate {
     func bubblesView(bubblesView: HorizontalBubblesView, didClickBubbleViewAtIndex index: Int) {
         let model = bubblesView.bubbleModels[index]
-        AILog(model)
+        let vc = AIWishPreviewController.initFromNib()
+        vc.model = model
+        showTransitionStyleCrossDissolveView(vc)         
 //        let vc = AISuperiorityViewController.initFromNib()
 //        vc.serviceModel = model
 //        showTransitionStyleCrossDissolveView(vc)
