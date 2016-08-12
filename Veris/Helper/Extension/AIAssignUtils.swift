@@ -108,6 +108,13 @@ extension CGFloat {
     }
 }
 
+extension Double {
+    func displaySizeFrom1242DesignSize() -> CGFloat {
+        let result = AITools.displaySizeFrom1242DesignSize(CGFloat(self))
+        return result
+    }
+}
+
 extension Dictionary {
 	
 	func valuesForKeysMap(keys: [Key]) -> [Value?] {
