@@ -479,6 +479,29 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         
         commentManager.saveCommentModelToLocal(local.serviceId, model: local)    
     }
+    
+    private func submitCommentsValide() -> Bool {
+        for comment in comments {
+            if !isFirstCommentFinished(comment) {
+                AIAlertView().showInfo("还有未完成的评论，不能提交", subTitle: "不能提交")
+                return false
+            }
+        }
+        
+        return false
+    }
+    
+    private func isFirstCommentFinished(comment: ServiceCommentViewModel) -> Bool {
+        if comment.cellState == CommentStateEnum.CommentEditable {
+            let model = comment.loaclModel!
+            
+            if model.starValue < 0.01 || model.text == nil || model.text!.isEmpty {
+                return false
+            }
+        }
+        
+        return true
+    }
 }
 
 extension CompondServiceCommentViewController: ImagesReviewDelegate {

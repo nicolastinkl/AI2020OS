@@ -38,4 +38,18 @@ class IconLabel: UIView {
             return label.text
         }
     }
+    
+    override func intrinsicContentSize() -> CGSize {
+        var size = super.intrinsicContentSize()
+        
+        var height = icon.height
+        
+        if label.height > height {
+            height = label.height
+        }
+        
+        size.height = height
+        
+        return size
+    }
 }
