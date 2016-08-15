@@ -32,8 +32,9 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DAG-LK-jVh" secondAttribute="bottom" id="98C-AK-t9S"/>
                 <constraint firstItem="DAG-LK-jVh" firstAttribute="top" secondItem="VIH-WK-ORW" secondAttribute="top" id="CN3-7j-T4F"/>
-                <constraint firstAttribute="bottom" secondItem="VIH-WK-ORW" secondAttribute="bottom" constant="5" id="Ndq-JF-OD9"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VIH-WK-ORW" secondAttribute="bottom" constant="5" id="Ndq-JF-OD9"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DAG-LK-jVh" secondAttribute="trailing" constant="20" symbolic="YES" id="PGy-dj-eOp"/>
                 <constraint firstItem="DAG-LK-jVh" firstAttribute="leading" secondItem="VIH-WK-ORW" secondAttribute="trailing" constant="7" id="ZA0-1J-XnV"/>
                 <constraint firstItem="DAG-LK-jVh" firstAttribute="centerY" secondItem="VIH-WK-ORW" secondAttribute="centerY" id="gng-Cv-iqr"/>
