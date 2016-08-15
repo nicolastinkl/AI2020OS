@@ -68,7 +68,7 @@ class AIWishPreviewController: UIViewController {
         
         let QuestionTitle1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         QuestionTitle1.icon.image = UIImage(named: "AI_Wish_Make_comment")
-        QuestionTitle1.title.text = "See what they say about the wish"
+        QuestionTitle1.title.text = "See what they say about it"
         QuestionTitle1.title.font = AITools.myriadBoldWithSize(20)
         addNewSubView(QuestionTitle1, preView: DescriptionLabel)
         QuestionTitle1.setHeight(53)
