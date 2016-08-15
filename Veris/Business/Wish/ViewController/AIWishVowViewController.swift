@@ -34,7 +34,7 @@ class AIWishVowViewController: UIViewController {
 
     @IBOutlet weak var payContent: DesignableTextView!
     @IBOutlet weak var wishContent: DesignableTextView!
-    
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var scrollview: UIScrollView!
     
     private var preCacheView: UIView?
@@ -42,6 +42,7 @@ class AIWishVowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        refereshButtonStatus(false)
         // Register Audio Tools Notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
         
@@ -62,6 +63,17 @@ class AIWishVowViewController: UIViewController {
         Async.background(after: 0.1) { 
             self.queryWishs()
         }
+    }
+    
+    func refereshButtonStatus(enble: Bool){
+        if enble {
+            self.submitButton.backgroundColor = UIColor(hexString: "#0E79CC", alpha: 0.8)
+            self.submitButton.enabled = true
+        }else{
+            self.submitButton.backgroundColor = UIColor.grayColor()
+            self.submitButton.enabled = false
+        }
+        
     }
     
     func queryWishs(){
@@ -171,9 +183,19 @@ class AIWishVowViewController: UIViewController {
             AIWishServices.requestMakeWishs(d, wish: stext, complate: { (obj, error)  in
                     self.view.hideLoading()
                     if let _ = obj {
-                        AIAlertView().showSuccess("提示", subTitle: "提交成功")
+                        // 退出当前界面 然后通知主页刷新
+                        // AIAlertView().showSuccess("提示", subTitle: "提交成功")
                         self.payContent.text = "  0 Euro"
                         self.wishContent.text = "  Your Could write down your wish here or select from blew."
+                        
+                        let model = AIBuyerBubbleModel()
+                        model.order_times = 1
+                        model.proposal_id_new = 1
+                        model.proposal_name = stext
+                        model.proposal_price = number
+                        model.service_list = []
+                        NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
+                        self.dismissViewControllerAnimated(true, completion: nil)
                     } else {
                         AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")
                     }
@@ -181,4 +203,15 @@ class AIWishVowViewController: UIViewController {
         }
     }
     
+}
+
+
+extension AIWishVowViewController: UITextViewDelegate{
+    func textViewDidChange(textView: UITextView) {
+        if payContent.text.length > 0 && wishContent.text.length > 0  {
+            refereshButtonStatus(true)
+        }else{
+            refereshButtonStatus(false)
+        }
+    }
 }

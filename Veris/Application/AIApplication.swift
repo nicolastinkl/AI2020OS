@@ -224,6 +224,10 @@ struct AIApplication {
         
         // 关闭所有VC
         static let dissMissPresentViewController    = "dissMissPresentViewController"
+        
+        //许愿详情提交成功后给主界面数据刷新
+        static let WishVowViewControllerNOTIFY = "WishVowViewControllerNOTIFY"
+        
     }
 
     // MARK: System theme's color

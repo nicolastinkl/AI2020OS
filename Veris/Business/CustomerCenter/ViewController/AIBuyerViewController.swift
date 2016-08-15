@@ -210,6 +210,14 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshReLoginAction), name: "UserLoginTimeNotification", object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("WishVowViewControllerNOTIFY"), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
+    }
+    
+    /// 刷新Bubble List数据
+    func WishVowViewControllerNOTIFY(notify: NSNotification){
+        if let model = notify.object {
+            
+        }
         
     }
     
