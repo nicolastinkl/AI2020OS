@@ -669,6 +669,12 @@ extension ServiceCommentTableViewCell: UITextViewDelegate {
     }
 }
 
+extension ServiceCommentTableViewCell: StarRateViewDelegate {
+    func scroePercentDidChange(starView: StarRateView, newScorePercent: CGFloat) {
+        model?.loaclModel?.starValue = newScorePercent
+    }
+}
+
 protocol CommentCellDelegate: NSObjectProtocol {
     func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
     func commentHeightChanged()

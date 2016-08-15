@@ -667,7 +667,7 @@
 - (void)makeTimestamp
 {
     CGFloat y = CGRectGetMaxY(_iconContainer.frame) + kMargin5/2;
-    UIImage *image = [UIImage imageNamed:@"Seller_Location"];
+    UIImage *image = [UIImage imageNamed:@"Seller_Clock"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.frame = CGRectMake(kMargin10, y + (kStampHeight/2 - kSmallImageSize)/2, kSmallImageSize, kSmallImageSize);
     [_boardView addSubview:imageView];
