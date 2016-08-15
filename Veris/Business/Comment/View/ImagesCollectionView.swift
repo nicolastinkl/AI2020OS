@@ -12,6 +12,7 @@ class ImagesCollectionView: UIView {
 
     var images: [AIImageView]!
     var delegate: ImagesCollectionProtocol?
+    private static let noLimitRow = 0
     
     private var row = 0
     private var column = 0
@@ -44,7 +45,14 @@ class ImagesCollectionView: UIView {
         }
     }
     
-    @IBInspectable var lines: Int = 0 { // 0 means no limit
+    @IBInspectable var lines: Int = noLimitRow { // 0 means no limit
+        didSet {
+            setNeedsUpdateConstraints()
+            setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable var botomToTop: Bool = false {
         didSet {
             setNeedsUpdateConstraints()
             setNeedsLayout()
@@ -88,6 +96,10 @@ class ImagesCollectionView: UIView {
         var offsetY: CGFloat = 0
         var row = 0
         
+        if botomToTop {
+            offsetY = height - imageHeight
+        }
+        
         if lines < 0 {
             lines = 0
         }
@@ -105,14 +117,22 @@ class ImagesCollectionView: UIView {
             
             if index == colunm - 1 {
                 offsetX = 0
-                offsetY += (verticalSpace + image.height)
+                
+                if botomToTop {
+                    offsetY -= (verticalSpace + image.height)
+                } else {
+                    offsetY += (verticalSpace + image.height)
+                }
+                
                 index = 0
                 
                 row += 1
                 
-                if lines > 0 && row == lines {
-                    break
-                }
+                if lines != ImagesCollectionView.noLimitRow {
+                    if lines > 0 && row == lines {
+                        break
+                    }
+                }    
             }
             
             index += 1

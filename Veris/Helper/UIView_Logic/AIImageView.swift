@@ -160,27 +160,30 @@ public class AIImageView: UIImageView {
             let file = AVFile(data: data)
             file.saveInBackgroundWithBlock({ (finish, error) in
                 
-                if finish {
-                    
-                    UIView.animateWithDuration(0.3, animations: {
-                        progressView.alpha = 1
-                        }, completion: { (complate) in
-                            progressView.removeFromSuperview()
-                    })
-                    
-                    if error != nil {
-                        self.userInteractionEnabled = true
-                        // add try button
-                        let button = UIButton(frame: .zero)
-                        button.setImage(UIImage(named: "retryImagedownload"), forState: UIControlState.Normal)
-                        self.addSubview(button)
-                        button.setWidth(self.width)
-                        button.setHeight(self.height)
-                        button.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
-                        button.addTarget(self, action: #selector(AIImageView.imageUploadRetry(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-                        
-                    }
-                    complate?(id: id, NSURL(string: file.url), error)
+                UIView.animateWithDuration(0.3, animations: {
+                    progressView.alpha = 1
+                    }, completion: { (complate) in
+                        progressView.removeFromSuperview()
+                })
+                
+                var url: NSURL!
+                
+                if file.url != nil {
+                    url = NSURL(string: file.url)
+                }
+                
+                complate?(id: id, url, error)
+                
+                if !finish || error != nil {
+                    self.userInteractionEnabled = true
+                    // add try button
+                    let button = UIButton(frame: .zero)
+                    button.setImage(UIImage(named: "retryImagedownload"), forState: UIControlState.Normal)
+                    self.addSubview(button)
+                    button.setWidth(self.width)
+                    button.setHeight(self.height)
+                    button.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
+                    button.addTarget(self, action: #selector(AIImageView.imageUploadRetry(_:)), forControlEvents: UIControlEvents.TouchUpInside)      
                 }
                 
                 }, progressBlock: { (progress) in
@@ -201,7 +204,11 @@ public class AIImageView: UIImageView {
         }
     }
     
-    var imageId: String?
+    var imageId: String? {
+        didSet {
+            AILog("imageId:" + "\(imageId)")
+        }
+    }
     
 }
 
