@@ -169,7 +169,7 @@ class AIPaymentViewController: UIViewController {
     
     /// 评价事件
     @IBAction func commitPayAction() {
-        let vc = CompondServiceCommentViewController.loadFromXib()
+        let vc = CompondServiceCommentViewController.initFromNib()
         
         let nav = UINavigationController(rootViewController: vc)
         presentViewController(nav, animated: true, completion: nil)

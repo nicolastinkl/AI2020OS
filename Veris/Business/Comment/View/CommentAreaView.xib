@@ -27,7 +27,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rmF-RW-rwk" userLabel="InputComment">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="450"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="textColor" red="0.99607843137254903" green="0.99607843137254903" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -37,17 +37,17 @@
                     </connections>
                 </textView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Wq-9r-EQw" customClass="ImagesCollectionView" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="555" width="600" height="45"/>
+                    <rect key="frame" x="0.0" y="455" width="600" height="145"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" priority="750" constant="45" id="FTG-Vw-Kls"/>
+                        <constraint firstAttribute="height" priority="750" constant="145" id="FTG-Vw-Kls"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
-                            <real key="value" value="40"/>
+                            <real key="value" value="65"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
-                            <real key="value" value="40"/>
+                            <real key="value" value="65"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="verticalSpace">
                             <real key="value" value="2"/>
@@ -56,8 +56,9 @@
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="lines">
-                            <integer key="value" value="1"/>
+                            <integer key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="botomToTop" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>

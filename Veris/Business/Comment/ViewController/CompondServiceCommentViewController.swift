@@ -32,7 +32,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         commentManager = DefaultCommentManager()
 
         serviceTableView.rowHeight = UITableViewAutomaticDimension
-        serviceTableView.estimatedRowHeight = 270
+        serviceTableView.estimatedRowHeight = 400
 
         serviceTableView.registerNib(UINib(nibName: "ServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "SubServiceCell")
         serviceTableView.registerNib(UINib(nibName: "TopServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "TopServiceCell")
@@ -133,7 +133,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                 return (47.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
             }
         }
-        appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
+        appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor(hexString: "#0f0c2c"), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
         appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "CompondServiceCommentViewController.title".localized)
         setNavigationBarAppearance(navigationBarAppearance: appearance)
     }
@@ -156,7 +156,13 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         for i in 0 ..< 5 {
             let model = ServiceCommentViewModel()
             model.serviceId = "\(i)"
-            model.commentEditable = i % 2 != 1
+            
+            if i % 2 != 1 {
+                model.cellState = .CommentEditable
+            } else {
+                model.cellState = .CommentFinshed
+            }
+            
             comments.append(model)
         }
         
@@ -263,10 +269,11 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             
             for comment in comments {
                 if let model = findLocalModel(comment.serviceId) {
-                    model.isAppend = !comment.commentEditable
-                    if let copy = model.copy() as? ServiceCommentLocalSavedModel {
-                        comment.loaclModel = copy
-                    }
+                    model.isAppend = comment.cellState != .CommentEditable
+                    comment.loaclModel = model
+//                    if let copy = model.copy() as? ServiceCommentLocalSavedModel {
+//                        comment.loaclModel = copy
+//                    }
                     
                 } else {
                     comment.loaclModel = ServiceCommentLocalSavedModel()
@@ -302,14 +309,14 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             if info.url == nil {
                 saveImageToAlbum(serviceId, info: info, index: row)
             } else {
-                let imageInfo = ImageInfoModel()
+//                let imageInfo = ImageInfoModel()
+//                
+//                imageInfo.imageId = createImageId(info)
+//                imageInfo.url = info.url!
+//                imageInfo.uploadFinished = false
+//                comments[row].loaclModel?.imageInfos.append(imageInfo)
                 
-                imageInfo.imageId = createImageId(info)
-                imageInfo.url = info.url!
-                imageInfo.uploadFinished = false
-                comments[row].loaclModel?.imageInfos.append(imageInfo)
-                
-                commentManager.recordUploadImage(serviceId, imageId: imageInfo.imageId, url: info.url!)
+                commentManager.recordUploadImage(serviceId, imageId: createImageId(info), url: info.url!)
             }
         }
     }
@@ -512,9 +519,6 @@ extension CompondServiceCommentViewController: ImagesReviewDelegate {
 
 class ServiceCommentViewModel {
     var cellState: CommentStateEnum!
-    var commentEditable = false
-    // 是否是已经完成的评论
-    var isDone = false
     var serviceId = ""
     var thumbnailUrl = ""
     var serviceName = ""
