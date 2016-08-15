@@ -101,19 +101,19 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
     }
     
     func carousel(carousel: iCarousel, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
-        if (option == .Spacing) {
+        if option == .Spacing {
             return value * 0.9
         }
-        if (option == iCarouselOption.Count) {
+        if option == iCarouselOption.Count {
             return 3
         }
-        if (option == iCarouselOption.Radius) {
+        if option == iCarouselOption.Radius {
             return value * 2
         }
-        if (option == iCarouselOption.FadeMax) {
+        if option == iCarouselOption.FadeMax {
             return 1
         }
-        if (option == iCarouselOption.FadeMinAlpha) {
+        if option == iCarouselOption.FadeMinAlpha {
             return 0.5
         }
         return value
@@ -121,13 +121,13 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
 }
 
 extension UIButton {
-    func setRoundBorder(){
+    func setRoundBorder() {
         self.layer.borderColor = UIColor.whiteColor().CGColor
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 5
     }
     
-    func setButtonWidth(){
+    func setButtonWidth() {
         let title = self.titleForState(UIControlState.Normal)
         let font = self.titleLabel?.font
         let buttonWidth = title!.sizeWithFont(font!, forWidth: 1000)

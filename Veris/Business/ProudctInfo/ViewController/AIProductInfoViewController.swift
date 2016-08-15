@@ -193,7 +193,7 @@ class AIProductInfoViewController: UIViewController {
                     if let navi = self.navi as? AINavigationBar {
                             navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
                     }
-                }else{
+                } else {
                     AIAlertView().showError("收藏失败", subTitle: "")
                 }
             }

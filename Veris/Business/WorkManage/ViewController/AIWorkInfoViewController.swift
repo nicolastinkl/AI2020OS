@@ -84,9 +84,8 @@ class AIWorkInfoViewController: UIViewController {
         }
     }
     
-    func makeNavigationItem(){
+    func makeNavigationItem() {
+        
         setupNavigationBarLikeLogin(title: "Hospital Chaperone", needCloseButton: false)
     }
 }
-
-

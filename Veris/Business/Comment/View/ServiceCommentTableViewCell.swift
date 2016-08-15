@@ -174,6 +174,10 @@ class ServiceCommentTableViewCell: UITableViewCell {
         appendComment.imageCollection.clearImages()
     }
     
+    func getAlreadySelectedPhotosNumber() -> Int {
+        return state.getAlreadySelectedPhotosNumber()
+    }
+    
     var isEditingAppendComment: Bool {
         get {
             return state is AppendEditingState
@@ -324,6 +328,7 @@ protocol CommentState: class {
     func getSubmitData() -> ServiceComment?
     func addAssetImages(url: [(url: NSURL, imageId: String?)])
     func deleteImages(imageIds: [String])
+    func getAlreadySelectedPhotosNumber() -> Int
 }
 
 private class AbsCommentState: CommentState {
@@ -369,6 +374,10 @@ private class AbsCommentState: CommentState {
     func deleteImages(imageIds: [String]) {
         
     }
+    
+    func getAlreadySelectedPhotosNumber() -> Int {
+        return 0
+    }
 }
 
 // 评论可编辑
@@ -386,6 +395,12 @@ private class CommentEditableState: AbsCommentState {
         if let text = cell.model?.loaclModel?.text {
             cell.firstComment.inputTextView.text = text
             cell.firstComment.hideHint()
+        }
+        
+        if cell.firstComment.imageCollection.images.count >= AbsCommentViewController.maxPhotosNumber {
+            cell.imageButton.hidden = true
+        } else {
+            cell.imageButton.hidden = false
         }
         
         cell.appendCommentButton.hidden = true
@@ -430,6 +445,10 @@ private class CommentEditableState: AbsCommentState {
     override func deleteImages(imageIds: [String]) {
         cell.firstComment.imageCollection.deleteImages(imageIds)
     }
+    
+    override func getAlreadySelectedPhotosNumber() -> Int {
+        return cell.firstComment.imageCollection.images.count
+    }
 }
 
 // 已提交过评价
@@ -449,6 +468,12 @@ private class CommentFinshedState: AbsCommentState {
             addAssetImages(imagesUrl)
         }
         
+        if cell.firstComment.imageCollection.images.count >= AbsCommentViewController.maxPhotosNumber {
+            cell.appendComment.hidden = true
+        } else {
+            cell.appendComment.hidden = false
+        }
+        
         if let text = cell.model?.loaclModel?.text {
             cell.appendComment.inputTextView.text = text
             cell.appendComment.hideHint()
@@ -461,40 +486,6 @@ private class CommentFinshedState: AbsCommentState {
         cell.appendCommentButton.hidden = expanded
         cell.imageButton.hidden = !expanded
         cell.starRateView.userInteractionEnabled = expanded
-        
-        cell.checkbox.hidden = true
-        cell.anonymousLabel.hidden = true
-    }
-    
-    override func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)]) {
-        cell.appendComment.imageCollection.addAsyncDownloadImages(urls, holdImage: cell.holdImage)
-    }
-    
-    override func addAssetImages(urls: [(url: NSURL, imageId: String?)]) {
-        cell.appendComment.imageCollection.addAssetImages(urls)
-    }
-    
-    override func deleteImages(imageIds: [String]) {
-        cell.appendComment.imageCollection.deleteImages(imageIds)
-    }
-}
-
-// 编辑追加评价中。（展开追加评价）
-private class AppendEditingState: AbsCommentState {
-    override func updateUI() {
-        cell.clearImages()
-        
-        cell.firstComment.userInteractionEnabled = false
-        cell.appendComment.userInteractionEnabled = true
-        
-        cell.appendCommentHeight.constant = cell.firstComment.height
-        cell.appendCommentButton.hidden = true
-        cell.imageButton.hidden = false
-        cell.starRateView.userInteractionEnabled = true
-        
-        Async.main(after: 0.1, block: { [weak self] in
-            self?.cell.appendComment.inputTextView.becomeFirstResponder()
-        })
         
         cell.checkbox.hidden = true
         cell.anonymousLabel.hidden = true
@@ -518,9 +509,9 @@ private class AppendEditingState: AbsCommentState {
     
     override func getSubmitData() -> ServiceComment? {
         let comment = ServiceComment()
-//        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
-//        comment.service_id = cell.model!.serviceId
-//        comment.text = cell.appendComment.inputTextView.text
+        //        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
+        //        comment.service_id = cell.model!.serviceId
+        //        comment.text = cell.appendComment.inputTextView.text
         return comment
     }
     
@@ -530,6 +521,32 @@ private class AppendEditingState: AbsCommentState {
     
     override func deleteImages(imageIds: [String]) {
         cell.appendComment.imageCollection.deleteImages(imageIds)
+    }
+    
+    override func getAlreadySelectedPhotosNumber() -> Int {
+        return cell.appendComment.imageCollection.images.count
+    }
+}
+
+// 编辑追加评价中。（展开追加评价）
+private class AppendEditingState: CommentFinshedState {
+    override func updateUI() {
+        cell.clearImages()
+        
+        cell.firstComment.userInteractionEnabled = false
+        cell.appendComment.userInteractionEnabled = true
+        
+        cell.appendCommentHeight.constant = cell.firstComment.height
+        cell.appendCommentButton.hidden = true
+        cell.imageButton.hidden = false
+        cell.starRateView.userInteractionEnabled = true
+        
+        Async.main(after: 0.1, block: { [weak self] in
+            self?.cell.appendComment.inputTextView.becomeFirstResponder()
+        })
+        
+        cell.checkbox.hidden = true
+        cell.anonymousLabel.hidden = true
     }
 }
 
