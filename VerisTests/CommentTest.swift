@@ -46,7 +46,7 @@ class CommentTest: SBOSSTestCase {
     func testGetCompondComment() {
         let readyExpectation = expectationWithDescription("done")
         
-        service.getCompondComment("1", userType: 1, serviceId: "1", success: { (responseData) in
+        service.getCompondComment("10012", userType: 1, serviceId: "900001001008", success: { (responseData) in
             
             let re = responseData
             print("getCompondComment success:\(re)")
@@ -104,5 +104,20 @@ class CommentTest: SBOSSTestCase {
         waitForExpectationsWithTimeout(5, handler: { error in
             XCTAssertNil(error, "Error")
         })
+    }
+    
+    func testNumberSort() {
+        var numbers = [NSNumber]()
+        
+        numbers.append(NSNumber(int: 2))
+        numbers.append(NSNumber(int: 1))
+        
+        let newNumbers = numbers.sort { (firstNumber, secondNumber) -> Bool in
+            let result = firstNumber.compare(secondNumber)
+            
+            return result == NSComparisonResult.OrderedAscending
+        }
+        
+        XCTAssertTrue(newNumbers[0].intValue == 1)
     }
 }
