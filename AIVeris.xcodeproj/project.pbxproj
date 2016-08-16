@@ -764,6 +764,8 @@
 		FB6261FE1D45FAC9003CF604 /* NSUserDefaults+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB734EEC1D45BD4500FD808A /* NSUserDefaults+Object.swift */; };
 		FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */; };
 		FB6600FE1D1246A9004667E2 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */; };
+		FB664CE91D619B2000E88A2F /* AISearchServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB664CE81D619B2000E88A2F /* AISearchServiceModel.m */; };
+		FB664CEE1D61ABF400E88A2F /* AIProviderDetailJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB664CED1D61ABF400E88A2F /* AIProviderDetailJSONModel.m */; };
 		FB67FA501D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB67FA4F1D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift */; };
 		FB7003FF1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7003FE1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift */; };
 		FB703ADE1D24B7BF00229A08 /* SwiftWebViewBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */; };
@@ -1883,6 +1885,10 @@
 		FB6600F81D123C01004667E2 /* AISellerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellerCollectionViewCell.h; sourceTree = "<group>"; };
 		FB6600F91D123C01004667E2 /* AISellerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellerCollectionViewCell.m; sourceTree = "<group>"; };
 		FB6600FD1D1246A9004667E2 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
+		FB664CE71D619B2000E88A2F /* AISearchServiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISearchServiceModel.h; sourceTree = "<group>"; };
+		FB664CE81D619B2000E88A2F /* AISearchServiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISearchServiceModel.m; sourceTree = "<group>"; };
+		FB664CEC1D61ABF400E88A2F /* AIProviderDetailJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIProviderDetailJSONModel.h; sourceTree = "<group>"; };
+		FB664CED1D61ABF400E88A2F /* AIProviderDetailJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIProviderDetailJSONModel.m; sourceTree = "<group>"; };
 		FB67FA4F1D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkOpportunityIndexViewController.swift; sourceTree = "<group>"; };
 		FB7003FE1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-CustomizeNavigationBar.swift"; sourceTree = "<group>"; };
 		FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SwiftWebViewBridge.js; sourceTree = "<group>"; };
@@ -2588,6 +2594,8 @@
 				81433A301CFBE5A700347C29 /* AIDeleteActionDelegate.swift */,
 				933763011CFD7040006B997D /* AIModelSerice.swift */,
 				FB2373231D4F75B500A8B38A /* AIProviderDetailService.swift */,
+				FB664CEC1D61ABF400E88A2F /* AIProviderDetailJSONModel.h */,
+				FB664CED1D61ABF400E88A2F /* AIProviderDetailJSONModel.m */,
 				FB2373271D4F78F300A8B38A /* AIProductQAService.swift */,
 			);
 			path = Model;
@@ -4378,6 +4386,8 @@
 				93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */,
 				FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */,
 				FB58838C1D51C7930080588B /* AISearchHomeService.swift */,
+				FB664CE71D619B2000E88A2F /* AISearchServiceModel.h */,
+				FB664CE81D619B2000E88A2F /* AISearchServiceModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5255,6 +5265,7 @@
 				81B6005C1D25169E0052ADC8 /* AIDefines.swift in Sources */,
 				81433E4E1CFBE5A700347C29 /* UIViewController+AIPopup.swift in Sources */,
 				FB2373241D4F75B500A8B38A /* AIProviderDetailService.swift in Sources */,
+				FB664CE91D619B2000E88A2F /* AISearchServiceModel.m in Sources */,
 				8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */,
 				81433DFD1CFBE5A700347C29 /* DependOnNodeCell.swift in Sources */,
 				81433E611CFBE5A700347C29 /* FLEXFieldEditorViewController.m in Sources */,
@@ -5310,6 +5321,7 @@
 				81433EA41CFBE5A700347C29 /* AIMessageWrapper.m in Sources */,
 				81433DF61CFBE5A700347C29 /* AIEventTimerView.swift in Sources */,
 				847D29941D4B4CA7009E26B8 /* AppUtils.swift in Sources */,
+				FB664CEE1D61ABF400E88A2F /* AIProviderDetailJSONModel.m in Sources */,
 				81433E6B1CFBE5A700347C29 /* FLEXMultiColumnTableView.m in Sources */,
 				81433E151CFBE5A700347C29 /* PKYStepper.m in Sources */,
 				81433E771CFBE5A700347C29 /* FLEXGlobalsTableViewController.m in Sources */,

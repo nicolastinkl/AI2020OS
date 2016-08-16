@@ -9,14 +9,20 @@
 import UIKit
 
 class AIProviderDetailService: NSObject {
-	func queryProvider(provider_id: String, success: (AnyObject) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-        //2.6.7 服务者介绍
+	func queryProvider(provider_id: String, success: (AIProviderDetailJSONModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+		// 2.6.7 服务者介绍
 		let message = AIMessage()
-        message.url = AIApplication.AIApplicationServerURL.queryProvider.description
+		message.url = AIApplication.AIApplicationServerURL.queryProvider.description
 		let body = ["data": ["provider_id": provider_id], "desc": ["data_mode": "0", "digest": ""]]
 		message.body = NSMutableDictionary(dictionary: body)
 		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-			success(response)
+			
+			if let model = try?AIProviderDetailJSONModel(dictionary: response as! [NSObject: AnyObject]) {
+				success(model)
+			} else {
+				// handle error
+//				fail(errType: error, errDes: errorDes ?? "")
+			}
 		}) { (error: AINetError, errorDes: String!) -> Void in
 			fail(errType: error, errDes: errorDes ?? "")
 		}
