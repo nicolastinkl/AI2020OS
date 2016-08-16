@@ -39,7 +39,6 @@
                 <constraint firstAttribute="bottom" secondItem="dr5-nD-oXr" secondAttribute="bottom" id="tee-BS-2fo"/>
                 <constraint firstItem="dr5-nD-oXr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zZI-V3-i41"/>
             </constraints>
-            <nil key="simulatedTopBarMetrics"/>
         </view>
     </objects>
     <resources>

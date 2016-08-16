@@ -75,14 +75,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
     func setModel(model: ServiceCommentViewModel) -> CommentStateEnum {
         self.model = model
         
-        
-        if model.commentEditable {
-            state = getState(.CommentEditable)
-        } else if !model.isDone {
-            state = getState(.CommentFinshed)
-        } else {
-            state = getState(.Done)
-        }
+        state = getState(model.cellState)
         
         state.updateUI()
         
@@ -201,8 +194,14 @@ class ServiceCommentTableViewCell: UITableViewCell {
     
     func hasLocalContent() -> Bool {
         if let local = model?.loaclModel {
-            if (local.text != nil && local.text! != "") || local.imageInfos.count > 0 {
+            if local.text != nil && local.text! != "" {
                 return true
+            }
+            
+            if let urls = getAssetUrls() {
+                if urls.count > 0 {
+                    return true
+                }
             }
         }
         
@@ -265,7 +264,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
                     urls = [(url: NSURL, imageId: String?)]()
                 }
                 
-                urls.append((u, info.serviceId))
+                urls.append((u, info.imageId))
             }
         }
         
@@ -469,9 +468,9 @@ private class CommentFinshedState: AbsCommentState {
         }
         
         if cell.firstComment.imageCollection.images.count >= AbsCommentViewController.maxPhotosNumber {
-            cell.appendComment.hidden = true
+            cell.imageButton.hidden = true
         } else {
-            cell.appendComment.hidden = false
+            cell.imageButton.hidden = false
         }
         
         if let text = cell.model?.loaclModel?.text {
@@ -529,7 +528,7 @@ private class CommentFinshedState: AbsCommentState {
 }
 
 // 编辑追加评价中。（展开追加评价）
-private class AppendEditingState: CommentFinshedState {
+private class AppendEditingState: AbsCommentState {
     override func updateUI() {
         cell.clearImages()
         
@@ -547,6 +546,42 @@ private class AppendEditingState: CommentFinshedState {
         
         cell.checkbox.hidden = true
         cell.anonymousLabel.hidden = true
+    }
+    
+    override func addImage(image: UIImage, imageId: String?) {
+        cell.appendComment.imageCollection.addImage(image, imageId: imageId)
+    }
+    
+    override func addImages(images: [(image: UIImage, imageId: String?)]) {
+        cell.appendComment.imageCollection.addImages(images)
+    }
+    
+    override func addAsyncUploadImages(images: [(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)]) {
+        cell.appendComment.imageCollection.addAsyncUploadImages(images)
+    }
+    
+    override func addAsyncUploadImage(image: UIImage, imageId: String? = nil, complate: AIImageView.UploadComplate? = nil) {
+        cell.appendComment.imageCollection.addAsyncUploadImage(image, imageId: imageId, complate: complate)
+    }
+    
+    override func getSubmitData() -> ServiceComment? {
+        let comment = ServiceComment()
+        //        comment.rating_level = CommentUtils.convertPercentToStarValue(cell.starRateView.scorePercent)
+        //        comment.service_id = cell.model!.serviceId
+        //        comment.text = cell.appendComment.inputTextView.text
+        return comment
+    }
+    
+    override func addAssetImages(url: [(url: NSURL, imageId: String?)]) {
+        cell.appendComment.imageCollection.addAssetImages(url)
+    }
+    
+    override func deleteImages(imageIds: [String]) {
+        cell.appendComment.imageCollection.deleteImages(imageIds)
+    }
+    
+    override func getAlreadySelectedPhotosNumber() -> Int {
+        return cell.appendComment.imageCollection.images.count
     }
 }
 
@@ -631,6 +666,12 @@ extension ServiceCommentTableViewCell: UITextViewDelegate {
     
     func textViewDidEndEditing(textView: UITextView) {
         cellDelegate?.textViewDidEndEditing(textView, cell: self)
+    }
+}
+
+extension ServiceCommentTableViewCell: StarRateViewDelegate {
+    func scroePercentDidChange(starView: StarRateView, newScorePercent: CGFloat) {
+        model?.loaclModel?.starValue = newScorePercent
     }
 }
 

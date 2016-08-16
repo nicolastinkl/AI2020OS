@@ -12,6 +12,7 @@ class ServiceCommentLocalSavedModel: NSObject, NSCoding, NSCopying {
     var imageInfos = [ImageInfoModel]()
     var serviceId = ""
     var text: String?
+    var starValue: CGFloat = 0
     var changed = false
     var isAppend = false
     
