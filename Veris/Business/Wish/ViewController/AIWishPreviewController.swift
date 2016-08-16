@@ -68,7 +68,7 @@ class AIWishPreviewController: UIViewController {
         
         let QuestionTitle1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         QuestionTitle1.icon.image = UIImage(named: "AI_Wish_Make_comment")
-        QuestionTitle1.title.text = "See what they say about the wish"
+        QuestionTitle1.title.text = "See what they say about it"
         QuestionTitle1.title.font = AITools.myriadBoldWithSize(20)
         addNewSubView(QuestionTitle1, preView: DescriptionLabel)
         QuestionTitle1.setHeight(53)
@@ -130,7 +130,7 @@ class AIWishPreviewController: UIViewController {
         
         let QuestionTitle2 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         QuestionTitle2.icon.image = UIImage(named: "AI_Wish_Make_insterest")
-        QuestionTitle2.title.text = "Tell us the price you are willing to pay"
+        QuestionTitle2.title.text = "The price you are willing to pay"
         QuestionTitle2.title.font = AITools.myriadBoldWithSize(20)
         addNewSubView(QuestionTitle2, preView: textField!)
         QuestionTitle2.setHeight(53)
@@ -139,8 +139,7 @@ class AIWishPreviewController: UIViewController {
         // Average
         let wishAverage = AIWishAverageView.initFromNib()
         addNewSubView(wishAverage!)
-        wishAverage?.backgroundColor = UIColor(hexString: "#ffffff", alpha: 0.1)
-        
+        wishAverage?.backgroundColor = UIColor(hexString: "#ffffff", alpha: 0.1)        
     }
     
     func addNewSubView(cview: UIView){

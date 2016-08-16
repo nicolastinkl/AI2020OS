@@ -34,6 +34,12 @@ class TaskDetailViewController: UIViewController {
         
     }
     
+    class func initFromStoryboard() -> TaskDetailViewController {
+        let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
+        return vc
+    }
+
+    
     func buildNavigationTitleLabel() {
         let NAVIGATION_TITLE = AITools.myriadSemiCondensedWithSize(80 / 3)
         let frame = CGRect(x: 0, y: 0, width: 100, height: 44)
@@ -52,29 +58,30 @@ class TaskDetailViewController: UIViewController {
     func backAction(button: UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(true)
     }
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
     private func showAuthorization() {
         promptAuthorization.hidden = false
         authorizationBg.hidden = false
+        waitingIcon.hidden = false
+        waitingMask.hidden = false
     }
     
     private func hideAuthorization() {
         promptAuthorization.hidden = true
         authorizationBg.hidden = true
+        waitingIcon.hidden = true
+        waitingMask.hidden = true
     }
     
-    @IBAction func startWorkAction(sender: AnyObject) {
-        let taskResultCommitlVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskResultCommitViewController) as! TaskResultCommitViewController
+    @IBAction func bottomButtonAction(sender: AnyObject) {
+        openTaskCommitViewController()
+    }
+    
+    private func openTaskCommitViewController() {
+        let taskResultCommitlVC = TaskResultCommitViewController.initFromStoryboard()
         
-        self.navigationController?.pushViewController(taskResultCommitlVC, animated: true)
-        
+        let nav = UINavigationController(rootViewController: taskResultCommitlVC)
+        presentViewController(nav, animated: true, completion: nil)
     }
     
 

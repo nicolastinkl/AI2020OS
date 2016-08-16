@@ -48,6 +48,8 @@ class AICustomSearchHomeViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToAllView), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
 	}
     
     func fetchData() {
@@ -68,9 +70,13 @@ class AICustomSearchHomeViewController: UIViewController {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
+    func popToAllView(){
+        self.dismissViewControllerAnimated(false, completion: nil)
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
     /**
      处理语音识别数据搜索
-     
      */
     func listeningAudioTools(notify: NSNotification) {
         if let result = notify.userInfo {

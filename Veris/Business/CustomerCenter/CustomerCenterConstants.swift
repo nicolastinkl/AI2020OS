@@ -31,6 +31,10 @@ struct CustomerCenterConstants {
     
     struct textContent {
         static let confirmButton = "确认完成"
+        static let confirmButtonComment = "评价"
+        static let confirmButtonShowComment = "查看评价"
+        static let acceptAuthButton = "授权"
+        static let refuseAuthButton = "忽略"
     }
     
     struct defaultImages {

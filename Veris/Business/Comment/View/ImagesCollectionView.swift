@@ -12,6 +12,7 @@ class ImagesCollectionView: UIView {
 
     var images: [AIImageView]!
     var delegate: ImagesCollectionProtocol?
+    private static let noLimitRow = 0
     
     private var row = 0
     private var column = 0
@@ -44,7 +45,14 @@ class ImagesCollectionView: UIView {
         }
     }
     
-    @IBInspectable var lines: Int = 0 { // 0 means no limit
+    @IBInspectable var lines: Int = noLimitRow { // 0 means no limit
+        didSet {
+            setNeedsUpdateConstraints()
+            setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable var botomToTop: Bool = false {
         didSet {
             setNeedsUpdateConstraints()
             setNeedsLayout()
@@ -88,35 +96,57 @@ class ImagesCollectionView: UIView {
         var offsetY: CGFloat = 0
         var row = 0
         
-        if lines < 0 {
-            lines = 0
+        func caculateFirstImageY() {
+            if botomToTop {
+                offsetY = height - imageHeight
+                let totleRow = CGFloat(caculateRow())
+                
+                offsetY = height - imageHeight * totleRow - verticalSpace * (totleRow - 1)
+            } else {
+                offsetY = 0
+            }
         }
         
-        for image in images {
-            image.frame.origin.x = offsetX
-            image.frame.origin.y = offsetY
-            
-            if self != image.superview {
-                addSubview(image)
+        func layoutFromTopToBottom() {
+            if lines < 0 {
+                lines = 0
             }
             
-            offsetX += image.size.width
-            offsetX += horizontalSpace
-            
-            if index == colunm - 1 {
-                offsetX = 0
-                offsetY += (verticalSpace + image.height)
-                index = 0
+            for image in images {
+                image.frame.origin.x = offsetX
+                image.frame.origin.y = offsetY
                 
-                row += 1
-                
-                if lines > 0 && row == lines {
-                    break
+                if self != image.superview {
+                    addSubview(image)
                 }
+                
+                offsetX += image.size.width
+                offsetX += horizontalSpace
+                
+                if index == colunm - 1 {
+                    offsetX = 0
+                    
+                    offsetY += (verticalSpace + image.height)
+                    
+                    index = 0
+                    
+                    row += 1
+                    
+                    if lines != ImagesCollectionView.noLimitRow {
+                        if lines > 0 && row == lines {
+                            break
+                        }
+                    }
+                } 
+                index += 1
             }
-            
-            index += 1
+
         }
+        
+        
+        
+        caculateFirstImageY()
+        layoutFromTopToBottom()
     }
     
     func addImage(image: UIImage, imageId: String? = nil) {

@@ -1583,8 +1583,8 @@
 		81FAFBC21D4716F700DD3477 /* AIDottedLineLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIDottedLineLabelView.swift; sourceTree = "<group>"; };
 		81FAFBC31D4716F700DD3477 /* AIIconLabeVerticallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIconLabeVerticallView.swift; sourceTree = "<group>"; };
 		81FAFC001D47427300DD3477 /* AIServiceExcuteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIServiceExcuteViewModel.swift; sourceTree = "<group>"; };
-		81FAFC031D47427300DD3477 /* ServiceQRCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceQRCodeView.swift; sourceTree = "<group>"; };
-		81FAFC041D47427300DD3477 /* ServiceQRCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceQRCodeView.xib; sourceTree = "<group>"; };
+		81FAFC031D47427300DD3477 /* ServiceQRCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceQRCodeView.swift; path = ../../RequirementAnalysis/View/ServiceQRCodeView.swift; sourceTree = "<group>"; };
+		81FAFC041D47427300DD3477 /* ServiceQRCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ServiceQRCodeView.xib; path = ../../RequirementAnalysis/View/ServiceQRCodeView.xib; sourceTree = "<group>"; };
 		81FAFC121D47458000DD3477 /* AIContestSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIContestSuccessViewController.swift; sourceTree = "<group>"; };
 		8412C7621D2A6429003F34AF /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		842936911D17870D00795C57 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
@@ -3777,6 +3777,8 @@
 				81FAFBC11D4716F700DD3477 /* AICustomerBannerView.xib */,
 				81FAFBC21D4716F700DD3477 /* AIDottedLineLabelView.swift */,
 				81FAFBC31D4716F700DD3477 /* AIIconLabeVerticallView.swift */,
+				81FAFC031D47427300DD3477 /* ServiceQRCodeView.swift */,
+				81FAFC041D47427300DD3477 /* ServiceQRCodeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3802,8 +3804,6 @@
 		81FAFC021D47427300DD3477 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				81FAFC031D47427300DD3477 /* ServiceQRCodeView.swift */,
-				81FAFC041D47427300DD3477 /* ServiceQRCodeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

@@ -210,7 +210,15 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshReLoginAction), name: "UserLoginTimeNotification", object: nil)
         
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.WishVowViewControllerNOTIFY(_:)), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
+    }
+    
+    /// 刷新Bubble List数据
+    func WishVowViewControllerNOTIFY(notify: NSNotification){
+        if let model = notify.object as? AIBuyerBubbleModel {
+            self.dataSourcePop.append(model)
+              self.makeBubbleView()
+        }
     }
     
     func refreshReLoginAction() {
@@ -234,7 +242,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             ws!.tableView.headerBeginRefreshing()
         }
     }
- 
 
     func setupUIWithCurrentLanguage() {
 
@@ -274,7 +281,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     func loadData() {
 
         self.tableView.hideErrorView()
-
 
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let listData: ProposalOrderListModel? = appDelegate.buyerListData

@@ -146,7 +146,7 @@ class AILoginService: NSObject {
 	}
 	
 	/**
-	 <#Description#>
+	 注册用户
 
 	 - parameter userCode: <#userCode description#>
 	 - parameter success:  <#success description#>
@@ -188,7 +188,8 @@ class AILoginService: NSObject {
 	 - parameter fail:        <#fail description#>
 	 */
 	func resetPassword(smsCode: String, newPassword: String, success: () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-		AVUser.resetPasswordWithSmsCode(smsCode, newPassword: newPassword) { (bol, error) in
+        let password = newPassword.md5()
+		AVUser.resetPasswordWithSmsCode(smsCode, newPassword: password) { (bol, error) in
 			if bol {
 				success()
 			} else {
