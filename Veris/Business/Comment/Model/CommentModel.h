@@ -62,7 +62,6 @@
 @property (strong, nonatomic) NSString<Optional> * spec_id;
 @property (strong, nonatomic) NSString<Optional> * service_thumbnail_url;
 @property (strong, nonatomic) NSString<Optional> * rating_level;
-@property (strong, nonatomic) NSNumber<Optional> * createDate;
 @property (strong, nonatomic) NSArray<SingleComment, Optional> * comment_list;
 @property (strong, nonatomic) NSArray<ServiceComment, Optional> * sub_service_list;
 
@@ -70,6 +69,7 @@
 
 @interface SingleComment : JSONModel
 
+@property (strong, nonatomic) NSNumber<Optional> * createDate;
 @property (strong, nonatomic) NSString<Optional> * text;
 @property (strong, nonatomic) NSArray<CommentPhoto, Optional> * photos;
 

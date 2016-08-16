@@ -198,3 +198,9 @@
 "AbsCommentViewController.selectSrc" = "选择图片来源";
 "Camera" = "相机";
 "Gallery" = "相册";
+
+/*
+ * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard
+ */
+
+"TaskExecute.turnInQuest" = "提交任务";
