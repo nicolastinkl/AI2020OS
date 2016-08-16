@@ -654,6 +654,10 @@
 		933BC8431D002434005E1789 /* AIWishVowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC83C1D002434005E1789 /* AIWishVowViewController.xib */; };
 		933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */; };
 		933BC84B1D00252D005E1789 /* AIProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */; };
+		9352BC741D62B347003CD476 /* AIWishTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9352BC731D62B347003CD476 /* AIWishTopView.swift */; };
+		9352BC761D62B35B003CD476 /* AIWishTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9352BC751D62B35B003CD476 /* AIWishTopView.xib */; };
+		9352BC781D630E42003CD476 /* AIAlertWishInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9352BC771D630E42003CD476 /* AIAlertWishInputView.swift */; };
+		9352BC7A1D630E54003CD476 /* AIAlertWishInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9352BC791D630E54003CD476 /* AIAlertWishInputView.xib */; };
 		9354DDE01D598494000C7E0C /* AIWishServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9354DDDF1D598494000C7E0C /* AIWishServices.swift */; };
 		9354DDE21D59BAB4000C7E0C /* AIWishPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9354DDE11D59BAB4000C7E0C /* AIWishPreviewController.swift */; };
 		9354DDE41D59BACA000C7E0C /* AIWishPreviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9354DDE31D59BACA000C7E0C /* AIWishPreviewController.xib */; };
@@ -1666,6 +1670,10 @@
 		933BC83C1D002434005E1789 /* AIWishVowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishVowViewController.xib; sourceTree = "<group>"; };
 		933BC8481D00252D005E1789 /* AIProductInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductInfoViewController.swift; sourceTree = "<group>"; };
 		933BC8491D00252D005E1789 /* AIProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductInfoViewController.xib; sourceTree = "<group>"; };
+		9352BC731D62B347003CD476 /* AIWishTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishTopView.swift; sourceTree = "<group>"; };
+		9352BC751D62B35B003CD476 /* AIWishTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishTopView.xib; sourceTree = "<group>"; };
+		9352BC771D630E42003CD476 /* AIAlertWishInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAlertWishInputView.swift; sourceTree = "<group>"; };
+		9352BC791D630E54003CD476 /* AIAlertWishInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAlertWishInputView.xib; sourceTree = "<group>"; };
 		9354DDDF1D598494000C7E0C /* AIWishServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishServices.swift; sourceTree = "<group>"; };
 		9354DDE11D59BAB4000C7E0C /* AIWishPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishPreviewController.swift; sourceTree = "<group>"; };
 		9354DDE31D59BACA000C7E0C /* AIWishPreviewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishPreviewController.xib; sourceTree = "<group>"; };
@@ -3969,6 +3977,8 @@
 				938008671D5B2C5800FAD140 /* AIWishTextWishsView.xib */,
 				9380086B1D5B2DFB00FAD140 /* AIWishAverageView.swift */,
 				938008691D5B2DF300FAD140 /* AIWishAverageView.xib */,
+				9352BC731D62B347003CD476 /* AIWishTopView.swift */,
+				9352BC751D62B35B003CD476 /* AIWishTopView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3980,6 +3990,8 @@
 				933BC83C1D002434005E1789 /* AIWishVowViewController.xib */,
 				9354DDE11D59BAB4000C7E0C /* AIWishPreviewController.swift */,
 				9354DDE31D59BACA000C7E0C /* AIWishPreviewController.xib */,
+				9352BC771D630E42003CD476 /* AIAlertWishInputView.swift */,
+				9352BC791D630E54003CD476 /* AIAlertWishInputView.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4704,6 +4716,7 @@
 				81433D211CFBE5A700347C29 /* BottomServiceContainer.xib in Resources */,
 				933BC84B1D00252D005E1789 /* AIProductInfoViewController.xib in Resources */,
 				81433D481CFBE5A700347C29 /* AITextMessageView.xib in Resources */,
+				9352BC761D62B35B003CD476 /* AIWishTopView.xib in Resources */,
 				81433EC11CFBE5A700347C29 /* LaunchScreen.storyboard in Resources */,
 				81433E361CFBE5A700347C29 /* AITimePickerViewController.xib in Resources */,
 				81433D1E1CFBE5A700347C29 /* AIIconTextView.xib in Resources */,
@@ -4733,6 +4746,7 @@
 				81433DF91CFBE5A700347C29 /* AISinglePickerView.xib in Resources */,
 				81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */,
 				81433D121CFBE5A700347C29 /* AIOrderCellEShopSubView.xib in Resources */,
+				9352BC7A1D630E54003CD476 /* AIAlertWishInputView.xib in Resources */,
 				122E7BDF1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib in Resources */,
 				81433D881CFBE5A700347C29 /* UIPopView.xib in Resources */,
 				93C289C61D178A27003F0473 /* AISuperiorityIconTextView.xib in Resources */,
@@ -5039,6 +5053,7 @@
 				81433D631CFBE5A700347C29 /* AIStartEndTimeView.swift in Sources */,
 				813861011D5B0A590050C0D0 /* AIJobSurveyModel.swift in Sources */,
 				81433E431CFBE5A700347C29 /* JSSAlertView-Extension.swift in Sources */,
+				9352BC781D630E42003CD476 /* AIAlertWishInputView.swift in Sources */,
 				93A0ABDE1D12AD6200562090 /* JSONAPI.m in Sources */,
 				9392B5821D1CD9F10007F241 /* DataVerifier.m in Sources */,
 				81433D3F1CFBE5A700347C29 /* AIDetailTopMenuView.swift in Sources */,
@@ -5097,6 +5112,7 @@
 				81433D471CFBE5A700347C29 /* AITextMessageView.swift in Sources */,
 				81433D7D1CFBE5A700347C29 /* AIBuyerTableCellView.swift in Sources */,
 				81433D561CFBE5A700347C29 /* AILocationSelectHeadView.swift in Sources */,
+				9352BC741D62B347003CD476 /* AIWishTopView.swift in Sources */,
 				81433E531CFBE5A700347C29 /* FLEXArgumentInputDateView.m in Sources */,
 				C95179DD1D40D34400446498 /* AIProvideIView.swift in Sources */,
 				8175A8041CFD2710006F2C8F /* UIImageView+WebCache.m in Sources */,

@@ -15,10 +15,19 @@ class AIWishPreviewController: UIViewController {
     
     @IBOutlet weak var scrollview: UIScrollView!
     
+    @IBOutlet weak var contentScrollview: UIScrollView!
     var model: AIBuyerBubbleModel?
     
     var preCacheView: UIView?
+    var preContentCacheView: UIView?
     
+    @IBOutlet weak var textView: UIView!
+    @IBOutlet weak var priceTitle: UIView!
+    @IBOutlet weak var view_price: UIView!
+    @IBOutlet weak var textpriceConstraint: NSLayoutConstraint!
+    private var preWishView: AIWishTitleIconView?
+    
+    @IBOutlet weak var priceConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
                 
@@ -47,23 +56,27 @@ class AIWishPreviewController: UIViewController {
         // Description
         
         let dbgView = UIView()
-        dbgView.setHeight(100)
+        dbgView.setHeight(82)
         addNewSubView(dbgView, preView: UIView())
         dbgView.backgroundColor = UIColor(hexString: "#000000", alpha: 0.15)
         
-        let DescriptionLabel = UILabel()
-        DescriptionLabel.font = AITools.myriadLightWithSize(20)
-        DescriptionLabel.text = "Find anywhere good camera, a good photogra-pher. There are currently 12 people and you have the same desire, the there are 8 people dream come true!"
-        DescriptionLabel.textAlignment = .Left
-        DescriptionLabel.lineBreakMode = .ByCharWrapping
-        DescriptionLabel.textColor = UIColor.whiteColor()
-        DescriptionLabel.setHeight(100)
-        DescriptionLabel.numberOfLines = 5
-        dbgView.addSubview(DescriptionLabel)
-        let dWidth = UIScreen.mainScreen().bounds.width - 50*2
-        DescriptionLabel.setWidth(dWidth)
-        DescriptionLabel.setLeft(50)
+//        let DescriptionLabel = UILabel()
+//        DescriptionLabel.font = AITools.myriadLightWithSize(20)
+//        DescriptionLabel.text = "Find anywhere good camera, a good photogra-pher. There are currently 12 people and you have the same desire, the there are 8 people dream come true!"
+//        DescriptionLabel.textAlignment = .Left
+//        DescriptionLabel.lineBreakMode = .ByCharWrapping
+//        DescriptionLabel.textColor = UIColor.whiteColor()
+//        DescriptionLabel.setHeight(100)
+//        DescriptionLabel.numberOfLines = 5
+//        dbgView.addSubview(DescriptionLabel)
+//        let dWidth = UIScreen.mainScreen().bounds.width - 50*2
+//        DescriptionLabel.setWidth(dWidth)
+//        DescriptionLabel.setLeft(50)
         
+        let DescriptionLabel = AIWishTopView.initFromNib()!
+        dbgView.addSubview(DescriptionLabel)
+        DescriptionLabel.setWidth(UIScreen.mainScreen().bounds.width)
+        DescriptionLabel.setHeight(82)
         // Question Title
         
         let QuestionTitle1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
@@ -71,29 +84,31 @@ class AIWishPreviewController: UIViewController {
         QuestionTitle1.title.text = "See what they say about it"
         QuestionTitle1.title.font = AITools.myriadBoldWithSize(20)
         addNewSubView(QuestionTitle1, preView: DescriptionLabel)
-        QuestionTitle1.setHeight(53)
+        QuestionTitle1.setHeight(42)
         QuestionTitle1.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 0)
-        
         // Add Read All Button
         QuestionTitle1.button.hidden = false
-        QuestionTitle1.button.addTarget(self, action: #selector(AIWishPreviewController.readAllAction), forControlEvents: UIControlEvents.TouchUpInside)
+        QuestionTitle1.button.addTarget(self, action: #selector(AIWishPreviewController.readallAction), forControlEvents: UIControlEvents.TouchUpInside)
+        preWishView = QuestionTitle1;
         
         // Top Scope
         let topScope = UIView()
         topScope.setHeight(10)
-        addNewSubView(topScope)
+        addNewSubViewContent(topScope)
         
         let imgTop = UIImageView(image: UIImage(named: "AI_Wish_Make_top"))
         imgTop.setWidth(13)
         imgTop.setHeight(11)
         topScope.addSubview(imgTop)
-        imgTop.setTop(15)
+        imgTop.setTop(13)
         imgTop.setLeft(15)
         
         // Answer List
         let AnswerList = ["Best to provider some commeon not to buy expensvie qure Trial ",
                           "Often go to the field,more concerned about their own shipping equipment , the best you can always hire some professional equipment",
-                          "Professional photographers can hope to teach experience, and can have specific guideance"]
+                          "Professional photographers can hope to teach experience, and can have specific guideance","Best to provider some commeon not to buy expensvie qure Trial ",
+                          "Professional photographers can hope to teach experience, and can have specific guideance","Best to provider some commeon not to buy expensvie qure Trial ",
+                          "Professional photographers can hope to teach experience, and can have specific guideance","Best to provider some commeon not to buy expensvie qure Trial "]
         
         for string in AnswerList {
             let QuestionTitleX = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
@@ -105,41 +120,77 @@ class AIWishPreviewController: UIViewController {
             QuestionTitleX.title.lineBreakMode = .ByCharWrapping
             QuestionTitleX.title.numberOfLines = 100
             let sHeight = string.sizeWithFont(AITools.myriadLightWithSize(48/3), forWidth: QuestionTitleX.title.width).height
-            addNewSubView(QuestionTitleX)
+            addNewSubViewContent(QuestionTitleX)
             QuestionTitleX.setHeight(10 + sHeight)
         }
         
         // Down Scope
         let downScope = UIView()
         downScope.setHeight(10)
-        addNewSubView(downScope)
+        addNewSubViewContent(downScope)
         
         let imgDown = UIImageView(image: UIImage(named: "AI_Wish_Make_down"))
         imgDown.setWidth(13)
         imgDown.setHeight(11)
         downScope.addSubview(imgDown)
         imgDown.setTop(-15)
-        imgDown.setLeft(UIScreen.mainScreen().bounds.width - 55)
+        imgDown.setLeft(UIScreen.mainScreen().bounds.width - 27)
         
         // TextField
         let textField = AIWishTextWishsView.initFromNib()
-        addNewSubView(textField!)
+        self.textView.addSubview(textField!)
+        textField?.snp_makeConstraints(closure: { (make) in
+            //make.edges.equalTo(self.textView)
+            make.leftMargin.equalTo(0)
+            make.rightMargin.equalTo(0)
+            make.topMargin.equalTo(0)
+            make.height.equalTo(85)//固定高度
+        })
+        
         textField?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 0)
-        
-        // will to Pay 
-        
+        // will to Pay
         let QuestionTitle2 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         QuestionTitle2.icon.image = UIImage(named: "AI_Wish_Make_insterest")
         QuestionTitle2.title.text = "The price you are willing to pay"
         QuestionTitle2.title.font = AITools.myriadBoldWithSize(20)
-        addNewSubView(QuestionTitle2, preView: textField!)
-        QuestionTitle2.setHeight(53)
-//        QuestionTitle2.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 0)
+//        QuestionTitle2.setHeight(53)
+        QuestionTitle2.backgroundColor = UIColor.clearColor()
+        self.priceTitle.addSubview(QuestionTitle2)
+        QuestionTitle2.snp_makeConstraints(closure: { (make) in
+            make.edges.equalTo(self.priceTitle)
+        })
         
-        // Average
         let wishAverage = AIWishAverageView.initFromNib()
-        addNewSubView(wishAverage!)
-        wishAverage?.backgroundColor = UIColor(hexString: "#ffffff", alpha: 0.1)        
+        wishAverage?.backgroundColor = UIColor(hexString: "#ffffff", alpha: 0.1)
+        self.view_price.addSubview(wishAverage!)
+        wishAverage?.snp_makeConstraints(closure: { (make) in
+            make.edges.equalTo(self.view_price)
+        })
+    }
+    
+    func readallAction(){
+        preWishView?.button.setTitle("Flod up", forState: UIControlState.Normal)
+        preWishView?.button.removeTarget(self, action: #selector(AIWishPreviewController.readallAction), forControlEvents: UIControlEvents.TouchUpInside)
+        preWishView?.button.addTarget(self, action: #selector(AIWishPreviewController.expendAction), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        SpringAnimation.spring(0.5) {
+            self.textpriceConstraint.constant = 90
+            self.priceConstraint.constant = 0
+            self.view_price.hidden = true
+        }
+    }
+    
+    func expendAction(){
+        preWishView?.button.setTitle("Read all", forState: UIControlState.Normal)
+        preWishView?.button.removeTarget(self, action: #selector(AIWishPreviewController.expendAction), forControlEvents: UIControlEvents.TouchUpInside)
+        preWishView?.button.addTarget(self, action: #selector(AIWishPreviewController.readallAction), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        
+        SpringAnimation.spring(0.5) {
+            self.textpriceConstraint.constant = 160
+            self.priceConstraint.constant = 132
+            self.view_price.hidden = false
+        }
     }
     
     func addNewSubView(cview: UIView){
@@ -154,12 +205,26 @@ class AIWishPreviewController: UIViewController {
         cview.backgroundColor = color
         scrollview.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
         preCacheView = cview
+    }
+    
+    /// Scrollview
+    func addNewSubViewContent(cview: UIView){
+        if let _ = preContentCacheView {
+            addNewSubViewContent(cview, preView: preContentCacheView!)
+        }else{
+            addNewSubViewContent(cview, preView: UIView())
+        }
         
     }
     
-    // Action
-    
-    func readAllAction(){
-    
+    func addNewSubViewContent(cview: UIView, preView: UIView , color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
+        contentScrollview.addSubview(cview)
+        let width = UIScreen.mainScreen().bounds.size.width
+        cview.setWidth(width)
+        cview.setTop(preView.top + preView.height+space)
+        cview.backgroundColor = color
+        contentScrollview.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
+        preContentCacheView = cview
     }
+    
 }
