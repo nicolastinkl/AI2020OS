@@ -99,7 +99,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupViews()
-        loadDataFake()
+        loadData()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -110,7 +110,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if serviceInstsView == nil && orderInfoModel != nil && orderInfoModel?.serviceInsts != nil {
+        if serviceInstsView == nil && orderInfoModel != nil && orderInfoModel?.serviceInsts?.count > 0 {
             buildServiceInstsView()
         }
     }
@@ -222,12 +222,17 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
             weakSelf?.messageBadge.badgeValue = viewModel.unReadMessageNumber!
             weakSelf?.noticeBadge.badgeValue = viewModel.unConfirmMessageNumber!
             //刷新时间线表格
-            interfaceHandler.queryCustomerTimelineList(orderId, serviceInstIds: [], filterType: 1, success: { (viewModel) in
+            var serviceInstIds = Array<String>()
+            for serviceInst in viewModel.serviceInsts! {
+                serviceInstIds.append("\(serviceInst.serviceInstId)")
+            }
+            interfaceHandler.queryCustomerTimelineList(orderId, serviceInstIds: serviceInstIds, filterType: 1, success: { (viewModel) in
                 weakSelf?.timelineTableView.headerEndRefreshing()
                 weakSelf?.timelineModels.removeAll()
                 weakSelf?.timelineModels = viewModel
                 weakSelf?.timelineTableView.reloadData()
             }) { (errType, errDes) in
+                weakSelf?.timelineTableView.headerEndRefreshing()
                 AIAlertView().showError("刷新失败", subTitle: errDes)
             }
         }) { (errType, errDes) in

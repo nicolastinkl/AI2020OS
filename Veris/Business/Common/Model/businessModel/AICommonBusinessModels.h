@@ -39,9 +39,9 @@
 @protocol AIGPSBusiModel @end
 
 @interface AIGPSBusiModel : JSONModel
-@property (nonatomic, strong) NSNumber<Optional> *longtitude;
+@property (nonatomic, strong) NSNumber<Optional> *longitude;
 @property (nonatomic, strong) NSNumber<Optional> *latitude;
-@property (nonatomic, strong) NSString<Optional> *loc_type;
+@property (nonatomic, strong) NSString<Optional> *type;
 @end
 
 /**
@@ -52,7 +52,7 @@
 
 @interface AITimelineContentBusiModel : JSONModel
 @property (nonatomic, strong) NSString<Optional> *type;
-@property (nonatomic, strong) NSString<Optional> *url;
+@property (nonatomic, strong) NSString<Optional> *content;
 @property (nonatomic, strong) AIGPSBusiModel<Optional> *map;
 @end
 
@@ -68,6 +68,8 @@
 @property (nonatomic, strong) NSString<Optional> *procedure_inst_type;
 @property (nonatomic, strong) NSString<Optional> *procedure_inst_type_value;
 @property (nonatomic, strong) NSNumber<Optional> *time_value;
+//TODO:评论状态，应该是订单状态，需要修改
+@property (nonatomic, strong) NSNumber<Optional> *comment_status;
 @property (nonatomic, strong) NSArray<AITimelineContentBusiModel, Optional> *attchments;
 @end
 

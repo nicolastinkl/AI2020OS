@@ -25,12 +25,12 @@ class AICustomerServiceExecuteHandler: NSObject {
      - parameter success:       <#success description#>
      - parameter fail:          <#fail description#>
      */
-    func queryCustomerServiceExecute(serviceInstId: NSString, success: (viewModel: AICustomerOrderDetailTopViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func queryCustomerServiceExecute(orderId: NSString, success: (viewModel: AICustomerOrderDetailTopViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         let message = AIMessage()
-        let body = ["data": ["service_inst_id": serviceInstId], "desc": ["data_mode": "0", "digest": ""]]
+        let body = ["data": ["order_id": orderId], "desc": ["data_mode": "0", "digest": ""]]
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
-        message.url = AIApplication.AIApplicationServerURL.queryBusinessInfo.description as String
+        message.url = AIApplication.AIApplicationServerURL.queryTimeLine.description as String
         
         weak var weakSelf = self
         
@@ -56,10 +56,11 @@ class AICustomerServiceExecuteHandler: NSObject {
      */
     func parseCustomerServiceExecuteToViewModel(busiModel: AICustomerServiceInstBusiModel, success: (viewModel: AICustomerOrderDetailTopViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let viewModel = AICustomerOrderDetailTopViewModel()
-        guard let priceModel = busiModel.price?.price_show,
-            serviceName = busiModel.name,
-            serviceIcon = busiModel.icon,
-            iconServiceInsts = busiModel.sub_service as? [AIServiceInstBusiModel]
+        guard let orderModel = busiModel.order,
+            priceModel = orderModel.price?.price_show,
+            serviceName = orderModel.name,
+            serviceIcon = orderModel.icon,
+            iconServiceInsts = busiModel.sub_services as? [AIServiceInstBusiModel]
         else {
             fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
             return
@@ -76,11 +77,11 @@ class AICustomerServiceExecuteHandler: NSObject {
             let serviceInst = IconServiceIntModel(serviceInstId: Int(serviceInstId)!, serviceIcon: serviceIcon, serviceInstStatus: ServiceInstStatus.Assigned, executeProgress: Int(executeProgress))
             serviceInsts.append(serviceInst)
         }
-        viewModel.unConfirmMessageNumber = Int(busiModel.un_confirms ?? 0)
-        viewModel.unReadMessageNumber = Int(busiModel.un_read_messages ?? 0)
+        viewModel.unConfirmMessageNumber = Int(orderModel.un_confirms ?? 0)
+        viewModel.unReadMessageNumber = Int(orderModel.un_read_messages ?? 0)
         viewModel.serviceName = serviceName
         viewModel.serviceIcon = serviceIcon
-        viewModel.completion = Float(busiModel.progress ?? 0)
+        viewModel.completion = Float(orderModel.progress ?? 0)
         viewModel.price = priceModel
         viewModel.serviceInsts = serviceInsts
         success(viewModel: viewModel)
@@ -97,11 +98,11 @@ class AICustomerServiceExecuteHandler: NSObject {
     func queryCustomerTimelineList(orderId: NSString, serviceInstIds: NSArray, filterType: NSNumber, success: (viewModel: [AITimelineViewModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         let message = AIMessage()
-        let body = ["data": ["service_inst_id": serviceInstIds, "order_id": orderId, "filter_type": filterType],
+        let body = ["data": ["service_inst_ids": serviceInstIds, "order_id": orderId, "filter_type": filterType, "page_number": 1, "page_size": 100],
                     "desc": ["data_mode": "0", "digest": ""]
         ]
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
-        message.url = AIApplication.AIApplicationServerURL.queryBusinessInfo.description as String
+        message.url = AIApplication.AIApplicationServerURL.queryTimeLineDetail.description as String
         
         weak var weakSelf = self
         
@@ -127,8 +128,9 @@ class AICustomerServiceExecuteHandler: NSObject {
         for timeline: AITimelineBusiModel in timelineArray {
             guard let itemId = timeline.procedure_inst_id,
                 layoutType = timeline.procedure_inst_type,
-                desc = timeline.procedure_inst_desc,
+                desc = timeline.procedure_inst_name,
                 timeValue = timeline.time_value,
+                commentStatus = timeline.comment_status,
                 contentsBusiModel = timeline.attchments as? [AITimelineContentBusiModel]
             else {
                 fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
@@ -138,24 +140,25 @@ class AICustomerServiceExecuteHandler: NSObject {
             let viewModel = AITimelineViewModel()
             viewModel.itemId = itemId
             viewModel.layoutType = AITimelineLayoutTypeEnum(rawValue: Int(layoutType)!)
+            viewModel.operationType = AITimelineOperationTypeEnum(rawValue: Int(commentStatus))
             viewModel.desc = desc
             viewModel.timeModel = timestampToTimeViewModel(timeValue)
             //时间线内容
             var contents = [AITimeContentViewModel]()
             for contentBusiModel: AITimelineContentBusiModel in contentsBusiModel {
-                guard let contentType = contentBusiModel.type,
-                    contentUrl = contentBusiModel.url
+                guard let contentType = contentBusiModel.type
                 else {
                     fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
                     return
                 }
+                let contentUrl = contentBusiModel.content
                 let content = AITimeContentViewModel(contentType: AITimelineContentTypeEnum(rawValue: Int(contentType)!)!, contentUrl: contentUrl)
                 //如果有gps信息的话
                 if let gpsBusiModel = contentBusiModel.map {
                     let gpsViewModel = AIGPSViewModel()
-                    gpsViewModel.locType = gpsBusiModel.loc_type
+                    gpsViewModel.locType = gpsBusiModel.type
                     gpsViewModel.latitude = Double(gpsBusiModel.latitude)
-                    gpsViewModel.longitude = Double(gpsBusiModel.longtitude)
+                    gpsViewModel.longitude = Double(gpsBusiModel.longitude)
                     content.location = gpsViewModel
                 }
                 contents.append(content)

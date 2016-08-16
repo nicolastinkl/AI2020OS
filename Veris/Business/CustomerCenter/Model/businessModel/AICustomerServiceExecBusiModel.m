@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "AICustomerServiceExecBusiModel.h"
 
+@implementation AICustomerOrderBusiModel
+
+@end
+
 @implementation AICustomerServiceInstBusiModel
 
 @end

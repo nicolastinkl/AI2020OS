@@ -405,6 +405,10 @@ struct AIApplication {
         case wishpreview
         // 添加收藏
         case favoriteadd
+        // 查询服务执行详情
+        case queryTimeLine
+        // 查询时间线内容
+        case queryTimeLineDetail
         
         var description: String {
 
@@ -480,6 +484,10 @@ struct AIApplication {
             case .makewish: return AIApplication.KURL_DebugURL + "/wish/submitWish"
             case .wishpreview: return AIApplication.KURL_DebugURL + "/wish/queryWishList"
             case .favoriteadd: return AIApplication.KURL_DebugURL + "/favorite/add"
+                
+            //服务执行相关接口
+            case .queryTimeLine: return AIApplication.KURL_DebugURL + "/order/queryTimeLine"
+            case .queryTimeLineDetail: return AIApplication.KURL_DebugURL + "/order/queryTimeLineDetail"
             }
         }
     }

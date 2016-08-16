@@ -132,7 +132,8 @@ class AITimelineContentContainerView: UIView {
             //需要确认按钮的
             case .ConfirmServiceComplete, .ConfirmOrderComplete:
                 let confirmButton = UIButton()
-                confirmButton.setTitle(CustomerCenterConstants.textContent.confirmButton, forState: UIControlState.Normal)
+                
+                confirmButton.setTitle(getButtonText(viewModel), forState: UIControlState.Normal)
                 confirmButton.titleLabel?.font = CustomerCenterConstants.Fonts.TimelineButton
                 let backImage = UIColor(hex: "#0f86e8").imageWithColor()
                 confirmButton.setBackgroundImage(backImage, forState: UIControlState.Normal)
@@ -284,6 +285,21 @@ class AITimelineContentContainerView: UIView {
             }
         }
         return mapView
+    }
+    
+    //根据操作类型决定按钮文字
+    private func getButtonText(viewModel: AITimelineViewModel) -> String {
+        var buttonText = ""
+        //判断决定按钮文字
+        switch viewModel.operationType! {
+        case .unConfirm:
+            buttonText = CustomerCenterConstants.textContent.confirmButton
+        case .confirmed:
+            buttonText = CustomerCenterConstants.textContent.confirmButtonComment
+        case .commentted:
+            buttonText = CustomerCenterConstants.textContent.confirmButtonShowComment
+        }
+        return buttonText
     }
     // MARK: -> event methods
     func confirmServiceCompleteAction(sender: UIButton) {
