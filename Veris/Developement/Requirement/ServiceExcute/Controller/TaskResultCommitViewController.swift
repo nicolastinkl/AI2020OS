@@ -31,10 +31,12 @@ class TaskResultCommitViewController: UIViewController {
         let cameraTap = UITapGestureRecognizer(target: self, action: cameraSelector)
         cameraIcon.addGestureRecognizer(cameraTap)
     }
+    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
+    class func initFromStoryboard() -> TaskResultCommitViewController {
+        
+        let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskResultCommitViewController) as! TaskResultCommitViewController
+        return vc
     }
     
     @IBAction func questButtonClicked(sender: AnyObject) {
