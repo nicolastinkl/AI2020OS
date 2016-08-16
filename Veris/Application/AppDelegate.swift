@@ -104,6 +104,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         #endif
     }
     
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        #if DEBUG
+            FLEXManager.sharedManager().toggleExplorer()
+        #endif
+    }
+    
 
     /**
      config Umeng.
