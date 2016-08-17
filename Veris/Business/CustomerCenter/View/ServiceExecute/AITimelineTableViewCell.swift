@@ -26,12 +26,17 @@ class AITimelineTableViewCell: UITableViewCell {
     var needComputeHeight = true
     var timelineContentView: AITimelineContentContainerView?
     
+    
+    
     // MARK: -> static constants
     static let cellWidth = UIScreen.mainScreen().bounds.width - AITools.displaySizeFrom1242DesignSize(220)
     static let baseTimelineContentLabelHeight: CGFloat = 40
     static let cellMargin: CGFloat = 20
     static let subViewMargin: CGFloat = 11
     static let baseButtonsHeight: CGFloat = 26
+    static let defaultImageHeight: CGFloat = 118
+    static let defaultMapHeight: CGFloat = 130
+    static let voiceHeight: CGFloat = 22
 
     // MARK: -> override methods
     override func awakeFromNib() {
@@ -95,10 +100,18 @@ class AITimelineTableViewCell: UITableViewCell {
         var totalHeight: CGFloat = 0
         switch viewModel.layoutType! {
         case AITimelineLayoutTypeEnum.Normal:
-            totalHeight = baseTimelineContentLabelHeight + cellMargin
+            totalHeight =  cellMargin
         case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
-            totalHeight = baseTimelineContentLabelHeight + subViewMargin + baseButtonsHeight + cellMargin
+            totalHeight =  subViewMargin + baseButtonsHeight + cellMargin
         default: break
+        }
+        //内容高度估算
+        for content in viewModel.contents! {
+            switch content.contentType! {
+            case .Image: totalHeight += defaultImageHeight
+            case .LocationMap: totalHeight += defaultMapHeight
+            case .Voice: totalHeight += voiceHeight
+            }
         }
         if viewModel.timeModel?.shouldShowDate == true {
             totalHeight += 45.displaySizeFrom1242DesignSize()

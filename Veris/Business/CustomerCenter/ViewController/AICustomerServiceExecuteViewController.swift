@@ -26,19 +26,18 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     var orderInfoContentView: AITimelineTopView?
     var orderInfoModel: AICustomerOrderDetailTopViewModel?
     var timelineModels: [AITimelineViewModel] = []
+    var filterModels: [AIPopupChooseModel]!
     //订单信息是否已加载标志
     var orderInfoIsLoad = false
     var cellHeightArray: Array<CGFloat>!
+    var selectedServiceInstIds: Array<String> = []
+    var selectedFilterType = 2
+    var g_orderId = "100000029231"
     
-    let messageBadge = GIBadgeView()
-    let noticeBadge = GIBadgeView()
 
     // MARK: -> Public class methods
 
     // MARK: -> Public init methods
-
-
-
 
     // MARK: -> Public protocol <#protocol name#>
 
@@ -50,7 +49,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     @IBOutlet weak var serviceIconContainerView: UIView!
     @IBOutlet weak var timelineTableView: UITableView!
     @IBOutlet weak var orderInfoView: UIView!
-
+    let messageBadge = GIBadgeView()
+    let noticeBadge = GIBadgeView()
 
 
     // MARK: -> Interface Builder actions
@@ -63,14 +63,17 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
             buttonAll.selected = true
             buttonMessage.selected = false
             buttonNeedReply.selected = false
+            selectedFilterType = 1
         case 2:
             buttonAll.selected = false
             buttonMessage.selected = true
             buttonNeedReply.selected = false
+            selectedFilterType = 2
         case 3:
             buttonAll.selected = false
             buttonMessage.selected = false
             buttonNeedReply.selected = true
+            selectedFilterType = 3
         default:
             break
         }
@@ -78,11 +81,25 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     }
 
     @IBAction func contactAction(sender: UIButton) {
+        let alert = JSSAlertView()
+        alert.info( self, title: "13888888888", text: "", buttonText: "Call", cancelButtonText: "Cancel")
+        alert.defaultColor = UIColorFromHex(0xe7ebf5, alpha: 1)
+        alert.addAction {
+            UIApplication.sharedApplication().openURL(NSURL(string: "tel:13888888888")!)
+        }
     }
 
 
     @IBAction func filterPopAction(sender: UIButton) {
-
+        let vc = AITimelineFilterViewController()
+        vc.popupChooseDelegate = self
+        vc.loadData(filterModels)
+        vc.view.frame = CGRect(x: 0, y: 0, width: view.width, height: 0)
+        let height = vc.popupChooseView.getFrameHeight()
+        vc.view.frame.size.height = height
+        presentPopupViewController(vc, animated: true, onClickCancelArea : {
+            () -> Void in
+        })
     }
 
 
@@ -99,7 +116,9 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupViews()
+        timelineTableView.headerBeginRefreshing()
         loadData()
+        loadStaticData()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -110,9 +129,10 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if serviceInstsView == nil && orderInfoModel != nil && orderInfoModel?.serviceInsts?.count > 0 {
+        if serviceInstsView == nil {
             buildServiceInstsView()
         }
+        
     }
 
     // MARK: -> Public methods
@@ -140,7 +160,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         weak var weakSelf = self
         timelineTableView.addHeaderWithCallback { 
             () -> Void in
-            weakSelf?.loadData()
+            weakSelf?.refreshTimelineData()
         }
         timelineTableView.addHeaderRefreshEndCallback { 
             () -> Void in
@@ -165,17 +185,23 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     }
 
     func buildServiceInstsView() {
-        
-        if let models = orderInfoModel?.serviceInsts {
-
-            let frame = serviceIconContainerView.bounds
-            serviceInstsView = AIVerticalScrollView(frame: frame, needCheckAll : false)
-            serviceInstsView.userInteractionEnabled = true
-            serviceInstsView.myDelegate = self
-            serviceInstsView.showsVerticalScrollIndicator = false
-            serviceIconContainerView.addSubview(serviceInstsView)
-            serviceInstsView.loadData(models)
-        }
+        let frame = serviceIconContainerView.bounds
+        serviceInstsView = AIVerticalScrollView(frame: frame, needCheckAll : false)
+        serviceInstsView.userInteractionEnabled = true
+        serviceInstsView.myDelegate = self
+        serviceInstsView.showsVerticalScrollIndicator = false
+        serviceIconContainerView.addSubview(serviceInstsView)
+    }
+    
+    func loadStaticData() {
+        //过滤弹出框model
+        filterModels = [AIPopupChooseModel(itemId: "1", itemTitle: "Delivery / arrival notification", itemIcon: "http://171.221.254.231:3000/upload/requirement/filter-notification-off.png", itemIconHighlight: "http://171.221.254.231:3000/upload/requirement/filter-notification-on.png", isSelect: false),
+                        AIPopupChooseModel(itemId: "1", itemTitle: "Map", itemIcon: "http://171.221.254.231:3000/upload/requirement/filter-map-off.png", itemIconHighlight: "http://171.221.254.231:3000/upload/requirement/filter-map-on.png", isSelect: false),
+                        AIPopupChooseModel(itemId: "1", itemTitle: "Authorization information", itemIcon: "http://171.221.254.231:3000/upload/requirement/filter-auth-off.png", itemIconHighlight: "http://171.221.254.231:3000/upload/requirement/filter-auth-on.png", isSelect: false),
+                        AIPopupChooseModel(itemId: "1", itemTitle: "Service orders", itemIcon: "http://171.221.254.231:3000/upload/requirement/filter-serviceoder-off.png", itemIconHighlight: "http://171.221.254.231:3000/upload/requirement/filter-serviceoder-on.png", isSelect: false),
+                        AIPopupChooseModel(itemId: "1", itemTitle: "Order information", itemIcon: "http://171.221.254.231:3000/upload/requirement/filter-order-off.png", itemIconHighlight: "http://171.221.254.231:3000/upload/requirement/filter-order-on.png", isSelect: false),
+                        AIPopupChooseModel(itemId: "1", itemTitle: "Send message", itemIcon: "http://171.221.254.231:3000/upload/requirement/filter-sendmessage-off.png", itemIconHighlight: "http://171.221.254.231:3000/upload/requirement/filter-sendmessage-on.png", isSelect: false),
+                        AIPopupChooseModel(itemId: "1", itemTitle: "Service remind", itemIcon: "http://171.221.254.231:3000/upload/requirement/filter-remaind-off.png", itemIconHighlight: "http://171.221.254.231:3000/upload/requirement/filter-remaind-on.png", isSelect: false)]
     }
 
     func loadDataFake() {
@@ -211,25 +237,26 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     
     func loadData() {
         let interfaceHandler = AICustomerServiceExecuteHandler.sharedInstance
-        let compServiceInstId = "111"
-        let orderId = "1111"
-        
         
         //刷新订单信息和消息数据
         weak var weakSelf = self
-        interfaceHandler.queryCustomerServiceExecute(compServiceInstId, success: { (viewModel) in
+        interfaceHandler.queryCustomerServiceExecute(g_orderId, success: { (viewModel) in
             weakSelf?.orderInfoContentView?.model = viewModel
+            weakSelf?.orderInfoModel = viewModel
             weakSelf?.messageBadge.badgeValue = viewModel.unReadMessageNumber!
             weakSelf?.noticeBadge.badgeValue = viewModel.unConfirmMessageNumber!
+            //加载子服务View
+            self.serviceInstsView.loadData(viewModel.serviceInsts!)
+            //self.buildServiceInstsView()
             //刷新时间线表格
             var serviceInstIds = Array<String>()
             for serviceInst in viewModel.serviceInsts! {
                 serviceInstIds.append("\(serviceInst.serviceInstId)")
             }
-            interfaceHandler.queryCustomerTimelineList(orderId, serviceInstIds: serviceInstIds, filterType: 1, success: { (viewModel) in
+            interfaceHandler.queryCustomerTimelineList(self.g_orderId, serviceInstIds: serviceInstIds, filterType: 1, success: { (viewModel) in
                 weakSelf?.timelineTableView.headerEndRefreshing()
                 weakSelf?.timelineModels.removeAll()
-                weakSelf?.timelineModels = viewModel
+                weakSelf?.timelineModels = weakSelf!.handleViewModels(viewModel)
                 weakSelf?.timelineTableView.reloadData()
             }) { (errType, errDes) in
                 weakSelf?.timelineTableView.headerEndRefreshing()
@@ -241,9 +268,24 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         }
     }
     
+    func refreshTimelineData() {
+        let interfaceHandler = AICustomerServiceExecuteHandler.sharedInstance
+        weak var weakSelf = self
+        interfaceHandler.queryCustomerTimelineList(g_orderId, serviceInstIds: selectedServiceInstIds, filterType: selectedFilterType, success: { (viewModel) in
+            
+            weakSelf?.timelineModels.removeAll()
+            weakSelf?.timelineModels = weakSelf!.handleViewModels(viewModel)
+            //weakSelf?.timelineTableView.reloadData()
+            weakSelf?.timelineTableView.headerEndRefreshing()
+        }) { (errType, errDes) in
+            weakSelf?.timelineTableView.headerEndRefreshing()
+            AIAlertView().showError("刷新失败", subTitle: errDes)
+        }
+    }
+    
     //TODO: 过滤时间线
     func filterTimeline() {
-        
+        timelineTableView.headerBeginRefreshing()
     }
 
     // MARK: -> util methods
@@ -268,10 +310,28 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
 }
 
-extension AICustomerServiceExecuteViewController : OrderAndBuyerInfoViewDelegate, VerticalScrollViewDelegate {
+extension AICustomerServiceExecuteViewController : OrderAndBuyerInfoViewDelegate, VerticalScrollViewDelegate, AIPopupChooseViewDelegate {
 
     func viewCellDidSelect(verticalScrollView: AIVerticalScrollView, index: Int, cellView: UIView) {
-
+        selectedServiceInstIds.removeAll()
+        for selectModel in verticalScrollView.getSelectedModels() {
+            selectedServiceInstIds.append("\(selectModel.serviceInstId)")
+        }
+        filterTimeline()
+    }
+    
+    func didConfirm(view: AIPopupChooseBaseView, itemModels: [AIPopupChooseModel]) {
+        self.dismissPopupViewController(true, completion: nil)
+        
+        //权限设置的保存在这里处理
+//        if view.businessType == PopupBusinessType.LimitConfig {
+//            submitPermissionConfig(itemModels)
+//        }
+        AILog(AIBaseViewModel.printArrayModelContent(itemModels))
+    }
+    
+    func didCancel(view: AIPopupChooseBaseView) {
+        self.dismissPopupViewController(true, completion: nil)
     }
 }
 
@@ -313,12 +373,14 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let timeLineItem = timelineModels[indexPath.row]
-        if timeLineItem.layoutType != AITimelineLayoutTypeEnum.Now {
-            if let timelineCell = cell as? AITimelineTableViewCell {
-                if let mapView = timelineCell.viewWithTag(AIMapView.viewTag) as? BMKMapView {
-                    mapView.viewWillDisappear()
-                    mapView.delegate = nil
+        if timelineModels.count > indexPath.row {
+            let timeLineItem = timelineModels[indexPath.row]
+            if timeLineItem.layoutType != AITimelineLayoutTypeEnum.Now {
+                if let timelineCell = cell as? AITimelineTableViewCell {
+                    if let mapView = timelineCell.viewWithTag(AIMapView.viewTag) as? BMKMapView {
+                        mapView.viewWillDisappear()
+                        mapView.delegate = nil
+                    }
                 }
             }
         }
@@ -355,9 +417,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     }
 
     func containerImageDidLoad(viewModel viewModel: AITimelineViewModel, containterHeight: CGFloat) {
-        
-        getHeight(viewModel, containerHeight: containterHeight)
-        let indexPath = NSIndexPath(forRow: Int(viewModel.itemId!)!, inSection: 0)
+        let indexPath = NSIndexPath(forRow: viewModel.index!, inSection: 0)
         //AILog("\(viewModel.itemId!) : \(indexPath.row)")
         //如果cell在visible状态，才reload，否则不reload
         if let visibleIndexPathArray = timelineTableView.indexPathsForVisibleRows?.filter({ (visibleIndexPath) -> Bool in
@@ -370,6 +430,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
 //                    viewModel.cellHeight = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
 //                    
 //                }
+                getHeight(viewModel, containerHeight: containterHeight)
                 self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
             }
         }
@@ -420,7 +481,10 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             nowTimelineViewModel.cellHeight = 44
             newTimelineModels.append(nowTimelineViewModel)
         }
-        
+        //给model编号，后面获取index用
+        for (index, newTimelineModel) in newTimelineModels.enumerate() {
+            newTimelineModel.index = index
+        }
         return newTimelineModels
     }
     
