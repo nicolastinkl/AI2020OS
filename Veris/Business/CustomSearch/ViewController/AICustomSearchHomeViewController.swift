@@ -53,7 +53,7 @@ class AICustomSearchHomeViewController: UIViewController {
 //                make.width.equalTo(view.snp_width)
                 make.trailing.leading.equalTo(view)
                 make.height.equalTo(42)
-                make.bottomMargin.equalTo(-42)
+                make.bottomMargin.equalTo(42)
             })
             audioView.button.addTarget(self, action: #selector(AICustomSearchHomeViewController.audioAction), forControlEvents: UIControlEvents.TouchUpInside)
         }
@@ -84,7 +84,11 @@ class AICustomSearchHomeViewController: UIViewController {
             print(keyboardHeight)
             if keyboardHeight > 0 {
                 if let audioView = audioView {
-                audioView.setTop(keyboardHeight-42)
+                    SpringAnimation.spring(0.3, animations: { 
+                        audioView.setTop(self.view.height - keyboardHeight-42)
+                    })
+                    
+                }
             }
         }
     }
@@ -92,7 +96,7 @@ class AICustomSearchHomeViewController: UIViewController {
     func keyboardDidHide(notification : NSNotification?){
         if let _ = notification {
             if let audioView = audioView {
-                audioView.setTop(view.height-42)
+                audioView.setTop(view.height+42)
             }
             
         }
