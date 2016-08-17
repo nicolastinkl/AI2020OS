@@ -63,17 +63,19 @@ class AISearchHomeService: NSObject {
 		}
 	}
 	
-	func getRecommendedServices(user_id: Int, user_type: Int, success: (AnyObject) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+	func getRecommendedServices(user_id: Int, user_type: Int, success: ([AISearchServiceModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 		let message = AIMessage()
 //    2.2.4 商品推荐
-		message.url = AIApplication.AIApplicationServerURL.filterServices.description
+		message.url = AIApplication.AIApplicationServerURL.getRecommendedServices.description
 		let body = ["data": [
 			"user_type": user_type,
 			"user_id": user_id,
 			], "desc": ["data_mode": "0", "digest": ""]]
 		message.body = NSMutableDictionary(dictionary: body)
 		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-			success(response)
+			let array = response as! [AnyObject]
+			let result = AISearchServiceModel.arrayOfModelsFromDictionaries(array) as NSArray as! [AISearchServiceModel]
+			success(result)
 		}) { (error: AINetError, errorDes: String!) -> Void in
 			fail(errType: error, errDes: errorDes ?? "")
 		}

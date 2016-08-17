@@ -27,6 +27,7 @@
 @interface AIPriceBusiModel : JSONModel
 @property (nonatomic, strong) NSNumber<Optional> *unit;
 @property (nonatomic, strong) NSNumber<Optional> *billing_mode;
+@property (nonatomic, strong) NSNumber<Optional> *price;
 @property (nonatomic, strong) NSString<Optional> *price_show;
 @end
 

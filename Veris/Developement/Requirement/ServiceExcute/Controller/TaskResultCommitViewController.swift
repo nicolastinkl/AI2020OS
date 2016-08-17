@@ -24,17 +24,19 @@ class TaskResultCommitViewController: UIViewController {
         super.viewDidLoad()
 
         questButton.layer.cornerRadius = questButton.height / 2
-        
+        setBottomButtonEnabel(false)
         
         let cameraSelector =
             #selector(TaskResultCommitViewController.cameraAction(_:))
         let cameraTap = UITapGestureRecognizer(target: self, action: cameraSelector)
         cameraIcon.addGestureRecognizer(cameraTap)
     }
+    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
+    class func initFromStoryboard() -> TaskResultCommitViewController {
+        
+        let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskResultCommitViewController) as! TaskResultCommitViewController
+        return vc
     }
     
     @IBAction func questButtonClicked(sender: AnyObject) {
@@ -65,6 +67,14 @@ class TaskResultCommitViewController: UIViewController {
         
         presentViewController(alert, animated: true, completion: nil)
 
+    }
+    
+    private func setBottomButtonEnabel(enable: Bool) {
+        let color = enable ? UIColor(hex: "0F86E8") : UIColor(hexString: "#393879", alpha: 0.6)
+        let textColor = enable ? UIColor.whiteColor() : UIColor(hexString: "#1a1a58")
+        questButton.backgroundColor = color
+        questButton.setTitleColor(textColor, forState: .Normal)
+        
     }
 }
 

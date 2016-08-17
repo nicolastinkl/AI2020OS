@@ -84,9 +84,9 @@ class AIBaseViewController: UIViewController {
 
         navigatonBarAppearance!.itemPositionForIndexAtPosition = { index, position in
             if position == .Left {
-                return (47.displaySizeFrom1242DesignSize(), 55.displaySizeFrom1242DesignSize())
+                return (30.displaySizeFrom1242DesignSize(), 55.displaySizeFrom1242DesignSize())
             } else {
-                return (47.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
+                return (30.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
             }
         }
 

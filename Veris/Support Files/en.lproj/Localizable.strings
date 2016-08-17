@@ -202,3 +202,10 @@
 "AbsCommentViewController.selectSrc" = "Select Source";
 "Camera" = "Camera";
 "Gallery" = "Gallery";
+
+
+/*
+ * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard
+ */
+
+ "TaskExecute.turnInQuest" = "Turn In Quest";

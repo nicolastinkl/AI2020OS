@@ -30,7 +30,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	
 	// MARK: Private
 	
-	private var dataSource: [AISearchResultItemModel] = []
+	private var dataSource: [AISearchServiceModel] = []
     
     var bubbleModels = [AIBuyerBubbleModel]()
     
@@ -41,8 +41,8 @@ class AICustomSearchHomeViewController: UIViewController {
 		
         setupTableView()
         setupFilterView()
-        setupBubbleView()
         setupSearchView()
+        fetchData()
         
         // Register Audio Tools Notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
@@ -51,6 +51,20 @@ class AICustomSearchHomeViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToAllView), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
 	}
+    
+    func fetchData() {
+        let service = AISearchHomeService()
+        let user_id = 100000000208
+        let user_type = 1
+        
+        service.getRecommendedServices(user_id, user_type: user_type, success: { [weak self] (models) in
+            self?.bubbleModels = AIBuyerBubbleModel.convertFrom(models)
+            self?.setupBubbleView()
+            }) { (errType, errDes) in
+                
+        }
+        
+    }
     
     func popToRootView() {
         self.dismissViewControllerAnimated(false, completion: nil)
@@ -132,17 +146,8 @@ class AICustomSearchHomeViewController: UIViewController {
             "Newest Arrivals"
         ]
 	}
-    
-    func fakeBubbleModels() {
-        if let presentingViewController = presentingViewController as? AIUINavigationController {
-            if let buyerVC = presentingViewController.viewControllers.first as? AIBuyerViewController {
-                bubbleModels = buyerVC.dataSourcePop
-            }
-        }
-    }
-    
+
 	func setupBubbleView() {
-        fakeBubbleModels()
         let bubblesView = HorizontalBubblesView(bubbleModels: bubbleModels)
         bubblesView.delegate = self
         bubbleContainerView.addSubview(bubblesView)
@@ -209,28 +214,28 @@ class AICustomSearchHomeViewController: UIViewController {
 		view.endEditing(true)
 		resultHoldView.hidden = false
 		holdView.hidden = true
-		if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
-			let data: NSData? = NSData(contentsOfFile: path)
-			if let dataJSON = data {
-				do {
-					let model = try AISearchResultModel(data: dataJSON)
-					
-					do {
-						try model.results?.forEach({ (item) in
-							let resultItem = try AISearchResultItemModel(dictionary: item as [NSObject: AnyObject])
-							dataSource.append(resultItem)
-						})
-					} catch { }
-					
-					if dataSource.count > 0 {
-						tableView.reloadData()
-					}
-				} catch {
-					AILog("AIOrderPreListModel JSON Parse err.")
-					
-				}
-			}
-		}
+//		if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
+//			let data: NSData? = NSData(contentsOfFile: path)
+//			if let dataJSON = data {
+//				do {
+//					let model = try AISearchResultModel(data: dataJSON)
+//					
+//					do {
+//						try model.results?.forEach({ (item) in
+//							let resultItem = try AISearchResultItemModel(dictionary: item as [NSObject: AnyObject])
+//							dataSource.append(resultItem)
+//						})
+//					} catch { }
+//					
+//					if dataSource.count > 0 {
+//						tableView.reloadData()
+//					}
+//				} catch {
+//					AILog("AIOrderPreListModel JSON Parse err.")
+//					
+//				}
+//			}
+//		}
 	}
 	
 	func endSearching() {
@@ -274,14 +279,14 @@ extension AICustomSearchHomeViewController: UITableViewDelegate, UITableViewData
 	
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
-		let model: AISearchResultItemModel = dataSource[indexPath.row]
+		let model: AISearchServiceModel = dataSource[indexPath.row]
 		let vc = AISuperiorityViewController.initFromNib()
 		vc.serviceModel = model
 		showTransitionStyleCrossDissolveView(vc)
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let model: AISearchResultItemModel = dataSource[indexPath.row]
+		let model: AISearchServiceModel = dataSource[indexPath.row]
 		let cell = AICustomSearchHomeCell.initFromNib() as? AICustomSearchHomeCell
 		cell?.initData(model)
 		cell?.backgroundColor = UIColor.clearColor()
@@ -347,34 +352,13 @@ extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDel
 extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
     func searchHistoryIconView(iconView: AISearchHistoryIconView, didClickAtIndex index: Int) {
         // fake
-        if let model = fakeData() {
-            let vc = AISuperiorityViewController.initFromNib()
-            vc.serviceModel = model
-            showTransitionStyleCrossDissolveView(vc)
-        }
+        let vc = AISuperiorityViewController.initFromNib()
+        vc.serviceModel = fakeData()
+        showTransitionStyleCrossDissolveView(vc)
     }
     
-    func fakeData() -> AISearchResultItemModel? {
-        var result: AISearchResultItemModel?
-        if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
-            let data: NSData? = NSData(contentsOfFile: path)
-            if let dataJSON = data {
-                do {
-                    let model = try AISearchResultModel(data: dataJSON)
-                    
-                    do {
-                        try model.results?.forEach({ (item) in
-                            let resultItem = try AISearchResultItemModel(dictionary: item as [NSObject: AnyObject])
-                            result = resultItem
-                        })
-                    } catch { }
-                    
-                } catch {
-                    AILog("AIOrderPreListModel JSON Parse err.")
-                }
-            }
-        }
-        return result
+    func fakeData() -> AISearchServiceModel? {
+        return nil
     }
 }
 

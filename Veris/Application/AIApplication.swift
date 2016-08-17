@@ -470,7 +470,7 @@ struct AIApplication {
                 
             //服务评论接口
             case .serviceComment: return AIApplication.KURL_ReleaseURL + "/comments/queryServiceComments"
-            case .compondComment: return AIApplication.KURL_ReleaseURL + "/comments/queryUserComments"
+            case .compondComment: return AIApplication.KURL_ReleaseURL + "/comments/queryCompServiceComments"
             case .commentSpec: return AIApplication.KURL_ReleaseURL + "/comments/queryCommentSpecification"
             case .saveComment: return AIApplication.KURL_ReleaseURL + "/comments/saveComments"
                 
