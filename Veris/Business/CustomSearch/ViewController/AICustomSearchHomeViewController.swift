@@ -28,6 +28,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bubbleContainerView: UIView!
 	
+    private var audioView = AIAudioSearchButtonView.initFromNib()
 	// MARK: Private
 	
 	private var dataSource: [AISearchServiceModel] = []
@@ -39,10 +40,23 @@ class AICustomSearchHomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+        /// init
         setupTableView()
         setupFilterView()
         setupSearchView()
         fetchData()
+        
+        // init 
+        if let audioView = audioView as? AIAudioSearchButtonView{
+            view.addSubview(audioView)
+            audioView.snp_makeConstraints(closure: { (make) in
+//                make.width.equalTo(view.snp_width)
+                make.trailing.leading.equalTo(view)
+                make.height.equalTo(42)
+                make.bottomMargin.equalTo(-42)
+            })
+            audioView.button.addTarget(self, action: #selector(AICustomSearchHomeViewController.audioAction), forControlEvents: UIControlEvents.TouchUpInside)
+        }
         
         // Register Audio Tools Notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
@@ -50,7 +64,43 @@ class AICustomSearchHomeViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToAllView), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
+        //view.addRightButtonOnKeyboardWithImage(UIImage(named: "AI_Wish_Make_audio")!, target: self, action: #selector(AICustomSearchHomeViewController.audioAction), titleText: "SSS")
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidHide(_:)), name: UIKeyboardDidHideNotification, object: nil)
 	}
+    
+    
+    func keyboardDidShow(notification : NSNotification?){
+        
+        // change keyboard height
+        
+        if let userInfo = notification?.userInfo {
+            
+            // step 1: get keyboard height
+            let keyboardRectValue: NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
+            let keyboardRect: CGRect = keyboardRectValue.CGRectValue()
+            let keyboardHeight: CGFloat = min(CGRectGetHeight(keyboardRect), CGRectGetWidth(keyboardRect))
+            print(keyboardHeight)
+            if keyboardHeight > 0 {
+                if let audioView = audioView {
+                audioView.setTop(keyboardHeight-42)
+            }
+        }
+    }
+    
+    func keyboardDidHide(notification : NSNotification?){
+        if let _ = notification {
+            if let audioView = audioView {
+                audioView.setTop(view.height-42)
+            }
+            
+        }
+    }
+    
+    func audioAction(){
+        showTransitionStyleCrossDissolveView(AIAudioSearchViewController.initFromNib())
+    }
     
     func fetchData() {
         let service = AISearchHomeService()
@@ -108,7 +158,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	}
 	
 	@IBAction func showListAction(any: AnyObject) {
-		showTransitionStyleCrossDissolveView(AIAudioSearchViewController.initFromNib())
+		
 	}
 	
 	func setupTableView() {

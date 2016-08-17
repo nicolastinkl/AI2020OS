@@ -658,6 +658,8 @@
 		9352BC761D62B35B003CD476 /* AIWishTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9352BC751D62B35B003CD476 /* AIWishTopView.xib */; };
 		9352BC781D630E42003CD476 /* AIAlertWishInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9352BC771D630E42003CD476 /* AIAlertWishInputView.swift */; };
 		9352BC7A1D630E54003CD476 /* AIAlertWishInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9352BC791D630E54003CD476 /* AIAlertWishInputView.xib */; };
+		9352BC7C1D64583A003CD476 /* AIAudioSearchButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9352BC7B1D64583A003CD476 /* AIAudioSearchButtonView.swift */; };
+		9352BC7E1D645849003CD476 /* AIAudioSearchButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9352BC7D1D645849003CD476 /* AIAudioSearchButtonView.xib */; };
 		9354DDE01D598494000C7E0C /* AIWishServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9354DDDF1D598494000C7E0C /* AIWishServices.swift */; };
 		9354DDE21D59BAB4000C7E0C /* AIWishPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9354DDE11D59BAB4000C7E0C /* AIWishPreviewController.swift */; };
 		9354DDE41D59BACA000C7E0C /* AIWishPreviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9354DDE31D59BACA000C7E0C /* AIWishPreviewController.xib */; };
@@ -1676,6 +1678,8 @@
 		9352BC751D62B35B003CD476 /* AIWishTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishTopView.xib; sourceTree = "<group>"; };
 		9352BC771D630E42003CD476 /* AIAlertWishInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAlertWishInputView.swift; sourceTree = "<group>"; };
 		9352BC791D630E54003CD476 /* AIAlertWishInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAlertWishInputView.xib; sourceTree = "<group>"; };
+		9352BC7B1D64583A003CD476 /* AIAudioSearchButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAudioSearchButtonView.swift; sourceTree = "<group>"; };
+		9352BC7D1D645849003CD476 /* AIAudioSearchButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAudioSearchButtonView.xib; sourceTree = "<group>"; };
 		9354DDDF1D598494000C7E0C /* AIWishServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishServices.swift; sourceTree = "<group>"; };
 		9354DDE11D59BAB4000C7E0C /* AIWishPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWishPreviewController.swift; sourceTree = "<group>"; };
 		9354DDE31D59BACA000C7E0C /* AIWishPreviewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWishPreviewController.xib; sourceTree = "<group>"; };
@@ -3725,6 +3729,8 @@
 				93C8C9A71D14034A00F1DFCF /* AICustomSearchHomeCell.swift */,
 				93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */,
 				FB5934181D59BAD500CBE237 /* HorizontalBubblesView.swift */,
+				9352BC7B1D64583A003CD476 /* AIAudioSearchButtonView.swift */,
+				9352BC7D1D645849003CD476 /* AIAudioSearchButtonView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4733,6 +4739,7 @@
 				81433D601CFBE5A700347C29 /* AIShoppingListView.xib in Resources */,
 				8175A7DF1CFD2710006F2C8F /* MJRefresh.bundle in Resources */,
 				93C81F8C1D2B5D0400D84D46 /* AIServerProviderView.xib in Resources */,
+				9352BC7E1D645849003CD476 /* AIAudioSearchButtonView.xib in Resources */,
 				847D29A31D547C5F009E26B8 /* ImagesReviewViewController.xib in Resources */,
 				93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */,
 				81433E381CFBE5A700347C29 /* BuyerRequirmentMessageViewController.xib in Resources */,
@@ -4968,6 +4975,7 @@
 				81433CF31CFBE5A700347C29 /* AIRequirmentModel.swift in Sources */,
 				81433D4C1CFBE5A700347C29 /* UICustomsTags.swift in Sources */,
 				81433D751CFBE5A700347C29 /* AIPriceView.swift in Sources */,
+				9352BC7C1D64583A003CD476 /* AIAudioSearchButtonView.swift in Sources */,
 				81433D2C1CFBE5A700347C29 /* ServiceContainerView.swift in Sources */,
 				9380086C1D5B2DFB00FAD140 /* AIWishAverageView.swift in Sources */,
 				81433E5A1CFBE5A700347C29 /* FLEXArgumentInputStructView.m in Sources */,
