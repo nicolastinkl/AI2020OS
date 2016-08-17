@@ -67,17 +67,18 @@ class AICustomSearchHomeCell: UITableViewCell {
 		
 	}
 	
-	func initData(model: AISearchResultItemModel) {
+	func initData(model: AISearchServiceModel) {
 		imageview.setImgURL(NSURL(string: ""), placeholderImage: smallPlace())
-		nameLabel.text = model.service_name as String
-		nameTwiceLabel.text = String(format: " - %@", model.service_second_name)
-		desLabel.text = model.service_description as String
-		let priceString = String(format: "€%@", model.service_price as String)
-		priceLabel.text = priceString
-		let likeString = String(format: " %d", model.service_likes)
-		let hotString = String(format: " %d", model.service_browse)
-		likeButton.setTitle(likeString, forState: .Normal)
-		hotButton.setTitle(hotString, forState: .Normal)
+		nameLabel.text = model.name as String
+		nameTwiceLabel.text = String(format: " - %@", model.desc)
+        //TODO: bibo 调试
+//		desLabel.text = model.service_description as String
+//		let priceString = String(format: "€%@", model.price.price_show as String)
+//		priceLabel.text = priceString
+//		let likeString = String(format: " %d", model.service_likes)
+//		let hotString = String(format: " %d", model.service_browse)
+//		likeButton.setTitle(likeString, forState: .Normal)
+//		hotButton.setTitle(hotString, forState: .Normal)
 		
 	}
 }

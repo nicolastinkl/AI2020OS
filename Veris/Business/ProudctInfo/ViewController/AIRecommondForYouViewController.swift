@@ -8,7 +8,8 @@ import UIKit
 
 class AIRecommondForYouViewController: UIViewController {
 	var tableView: UITableView!
-	private var dataSource: [AISearchResultItemModel] = []
+	var service_id: String!
+	private var dataSource: [AISearchServiceModel] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -22,22 +23,12 @@ class AIRecommondForYouViewController: UIViewController {
 	}
 	
 	func setupData() {
-		if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
-			let data: NSData? = NSData(contentsOfFile: path)
-			if let dataJSON = data {
-				do {
-					let model = try AISearchResultModel(data: dataJSON)
-					
-					do {
-						try model.results?.forEach({ (item) in
-							let resultItem = try AISearchResultItemModel(dictionary: item as [NSObject: AnyObject])
-							dataSource.append(resultItem)
-						})
-					} catch { }
-				} catch {
-					AILog("AIOrderPreListModel JSON Parse err.")
-				}
-			}
+		let service = AIRecommondForYouService()
+		service.allRecomends(service_id, success: { [weak self] models in
+			self?.dataSource = models
+			self?.tableView.reloadData()
+		}) { (errType, errDes) in
+			// error
 		}
 	}
 	
@@ -47,8 +38,8 @@ class AIRecommondForYouViewController: UIViewController {
 		tableView.backgroundColor = UIColor.clearColor()
 		tableView.delegate = self
 		tableView.dataSource = self
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.estimatedRowHeight = 100
 		view.addSubview(tableView)
 		tableView.registerNib(UINib(nibName: "AIRecommondForYouCell", bundle: nil), forCellReuseIdentifier: "cell")
 		tableView.snp_makeConstraints { (make) in
@@ -65,7 +56,7 @@ extension AIRecommondForYouViewController: UITableViewDataSource {
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let model: AISearchResultItemModel = dataSource[indexPath.row]
+		let model: AISearchServiceModel = dataSource[indexPath.row]
 		let cell = AICustomSearchHomeCell.initFromNib() as? AICustomSearchHomeCell
 		cell?.initData(model)
 		cell?.backgroundColor = UIColor.clearColor()
@@ -76,11 +67,11 @@ extension AIRecommondForYouViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension AIRecommondForYouViewController: UITableViewDelegate {
 	
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let model: AISearchResultItemModel = dataSource[indexPath.row]
-        let vc = AISuperiorityViewController.initFromNib()
-        vc.serviceModel = model
-        showTransitionStyleCrossDissolveView(vc)
-    }
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		tableView.deselectRowAtIndexPath(indexPath, animated: true)
+		let model: AISearchServiceModel = dataSource[indexPath.row]
+		let vc = AISuperiorityViewController.initFromNib()
+		vc.serviceModel = model
+		showTransitionStyleCrossDissolveView(vc)
+	}
 }

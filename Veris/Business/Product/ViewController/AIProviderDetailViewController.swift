@@ -16,28 +16,40 @@ class AIProviderDetailViewController: UIViewController {
 	@IBOutlet var halfWhiteLabels: [UILabel]!
 	@IBOutlet var bubbleContainerView: UIView!
 	
+	var provider_id: String!
+	
 	var bubbleModels = [AIBuyerBubbleModel]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupUI()
 		setupNavigationItems()
+		fetchData()
 		setupBubbleView()
 	}
 	
+	func fetchData() {
+		let service = AIProviderDetailService()
+		service.queryProvider(provider_id, success: { (model) in
+			
+		}) { (errType, errDes) in
+			
+		}
+	}
+	
 	func fakeBubbleModels() {
-        if let presentingViewController = presentingViewController as? AIUINavigationController {
-            if let buyerVC = presentingViewController.viewControllers.first as? AIBuyerViewController {
-                bubbleModels = buyerVC.dataSourcePop
-            }
-        }
+		if let presentingViewController = presentingViewController as? AIUINavigationController {
+			if let buyerVC = presentingViewController.viewControllers.first as? AIBuyerViewController {
+				bubbleModels = buyerVC.dataSourcePop
+			}
+		}
 	}
 	
 	func setupBubbleView() {
 		fakeBubbleModels()
-        let bubblesView = HorizontalBubblesView(bubbleModels: bubbleModels)
-        bubblesView.delegate = self
-        bubbleContainerView.addSubview(bubblesView)
+		let bubblesView = HorizontalBubblesView(bubbleModels: bubbleModels)
+		bubblesView.delegate = self
+		bubbleContainerView.addSubview(bubblesView)
 	}
 	func setupUI() {
 		clearViews.forEach { (v) in
@@ -90,11 +102,11 @@ class AIProviderDetailViewController: UIViewController {
 }
 
 extension AIProviderDetailViewController: HorizontalBubblesViewDelegate {
-    func bubblesView(bubblesView: HorizontalBubblesView, didClickBubbleViewAtIndex index: Int) {
-        let model = bubblesView.bubbleModels[index]
-        AILog(model)
-        //        let vc = AISuperiorityViewController.initFromNib()
-        //        vc.serviceModel = model
-        //        showTransitionStyleCrossDissolveView(vc)
-    }
+	func bubblesView(bubblesView: HorizontalBubblesView, didClickBubbleViewAtIndex index: Int) {
+		let model = bubblesView.bubbleModels[index]
+//		AILog(model)
+//		 let vc = AISuperiorityViewController.initFromNib()
+//		 vc.serviceModel = model
+//		 showTransitionStyleCrossDissolveView(vc)
+	}
 }

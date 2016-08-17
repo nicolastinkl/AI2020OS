@@ -166,6 +166,8 @@
 
 // Common Model
 #import "AICommonBusinessModels.h"
+#import "AISearchServiceModel.h"
+#import "AIProviderDetailJSONModel.h"
 
 #import <CommonCrypto/CommonHMAC.h>
 #import "MBFingerTipWindow.h"
