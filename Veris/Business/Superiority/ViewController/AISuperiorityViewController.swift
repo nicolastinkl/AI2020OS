@@ -45,7 +45,7 @@ class AISuperiorityViewController: UIViewController {
     
     private var leftOffSet: CGFloat = 13
 
-    var serviceModel: AISearchResultItemModel?
+    var serviceModel: AISearchServiceModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -201,7 +201,7 @@ class AISuperiorityViewController: UIViewController {
                             (sview as! AINavigationBar).setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
                         }
                     })
-                }else{
+                } else {
                     AIAlertView().showError("收藏失败", subTitle: "")
                 }
             }

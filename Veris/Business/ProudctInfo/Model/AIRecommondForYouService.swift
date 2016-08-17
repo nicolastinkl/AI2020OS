@@ -9,16 +9,24 @@
 import UIKit
 
 class AIRecommondForYouService: NSObject {
-    func allRecomends(service_id: String, success: () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+	func allRecomends(service_id: String, success: ([AISearchServiceModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 //        2.6.6 所有推荐（为您推荐）
-        let message = AIMessage()
-        message.url = AIApplication.AIApplicationServerURL.allRecommends.description
-        let body = ["data": ["service_id": service_id], "desc": ["data_mode": "0", "digest": ""]]
-        message.body = NSMutableDictionary(dictionary: body)
-        AINetEngine.defaultEngine().postMessage(message, success: {(response) -> Void in
-            success()
-        }) {(error: AINetError, errorDes: String!) -> Void in
-            fail(errType: error, errDes: errorDes ?? "")
-        }
-    }
+		let message = AIMessage()
+		message.url = AIApplication.AIApplicationServerURL.allRecommends.description
+		let body = ["data": ["service_id": service_id], "desc": ["data_mode": "0", "digest": ""]]
+		message.body = NSMutableDictionary(dictionary: body)
+		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+			AILog(response)
+			let array = response["recommend_list"] as! [NSDictionary]
+			var result: [AISearchServiceModel] = []
+			for dic in array {
+				if let model = try?AISearchServiceModel(dictionary: dic as [NSObject : AnyObject]) {
+					result.append(model)
+				}
+			}
+			success(result)
+		}) { (error: AINetError, errorDes: String!) -> Void in
+			fail(errType: error, errDes: errorDes ?? "")
+		}
+	}
 }

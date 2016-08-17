@@ -415,6 +415,10 @@ struct AIApplication {
         case wishpreview
         // 添加收藏
         case favoriteadd
+        // 查询服务执行详情
+        case queryTimeLine
+        // 查询时间线内容
+        case queryTimeLineDetail
         
         var description: String {
 
@@ -466,7 +470,7 @@ struct AIApplication {
                 
             //服务评论接口
             case .serviceComment: return AIApplication.KURL_ReleaseURL + "/comments/queryServiceComments"
-            case .compondComment: return AIApplication.KURL_ReleaseURL + "/comments/queryUserComments"
+            case .compondComment: return AIApplication.KURL_ReleaseURL + "/comments/queryCompServiceComments"
             case .commentSpec: return AIApplication.KURL_ReleaseURL + "/comments/queryCommentSpecification"
             case .saveComment: return AIApplication.KURL_ReleaseURL + "/comments/saveComments"
                 
@@ -480,9 +484,15 @@ struct AIApplication {
             case .filterServices: return AIApplication.KURL_ReleaseURL + "/search/filterServices"
             case .getRecommendedServices: return AIApplication.KURL_ReleaseURL + "/search/getRecommendedServices"
             case .uploadAndIdentify: return "http://171.221.254.231:3001/uploadAndIdentify"
+
             case .makewish: return AIApplication.KURL_ReleaseURL + "/wish/submitWish"
             case .wishpreview: return AIApplication.KURL_ReleaseURL + "/wish/queryWishList"
             case .favoriteadd: return AIApplication.KURL_ReleaseURL + "/favorite/add"
+                
+            //服务执行相关接口
+            case .queryTimeLine: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLine"
+            case .queryTimeLineDetail: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLineDetail"
+
             }
         }
     }

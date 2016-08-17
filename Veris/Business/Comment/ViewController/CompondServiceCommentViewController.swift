@@ -15,7 +15,6 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     var serviceID: String!
     var comments: [ServiceCommentViewModel]!
     private var currentOperateIndex = -1
- //   private var cellsMap = [Int: UITableViewCell]()
     private var commentManager: CommentManager!
 
     @IBOutlet weak var serviceTableView: UITableView!
@@ -38,7 +37,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         serviceTableView.registerNib(UINib(nibName: "TopServiceCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "TopServiceCell")
         
         loadServiceComments()
-        loadAndMergeModelFromLocal()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -151,45 +150,52 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
     
     private func loadServiceComments() {
-        comments = [ServiceCommentViewModel]()
-        
-        for i in 0 ..< 5 {
-            let model = ServiceCommentViewModel()
-            model.serviceId = "\(i)"
-            
-            if i % 2 != 1 {
-                model.cellState = .CommentEditable
-            } else {
-                model.cellState = .CommentFinshed
-            }
-            
-            comments.append(model)
-        }
-        
-//        let ser = HttpCommentService()
+//        comments = [ServiceCommentViewModel]()
 //        
-//        ser.getCompondComment("1", userType: 1, serviceId: serviceID, success: { (responseData) in
-//            self.view.hideLoading()
-//            let re = responseData
-//            print("getCompondComment success:\(re)")
+//        for i in 0 ..< 5 {
+//            let model = ServiceCommentViewModel()
+//            model.serviceId = "\(i)"
 //            
-//            self.comments = self.convertCompondModelToCommentList(re)
-//
-//        }) { (errType, errDes) in
+//            if i % 2 != 1 {
+//                model.cellState = .CommentEditable
+//            } else {
+//                model.cellState = .CommentFinshed
+//            }
 //            
-//            self.view.hideLoading()
-//            
-//            AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
+//            comments.append(model)
 //        }
+//      loadAndMergeModelFromLocal()
+        
+        let ser = HttpCommentService()
+        
+        ser.getCompondComment("10012", userType: 1, serviceId: "900001001008", success: { (responseData) in
+            self.view.hideLoading()
+            let re = responseData
+            
+            self.comments = self.convertCompondModelToCommentList(re)
+            self.loadAndMergeModelFromLocal()
+            self.serviceTableView.reloadData()
+        }) { (errType, errDes) in
+            
+            self.view.hideLoading()
+            
+            AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
+        }
     }
     
     private func convertCompondModelToCommentList(model: CompondComment) -> [ServiceCommentViewModel] {
         var result = [ServiceCommentViewModel]()
         
         func pickFirstAndAppdenComment(model: ServiceCommentViewModel, comments: [SingleComment]) {
+            
+            let tempComments = comments.sort { (firstComment, secondComment) -> Bool in
+                let result: NSComparisonResult = firstComment.createDate.compare(secondComment.createDate)
+                return result == NSComparisonResult.OrderedAscending
+            }
+            
             var index = 0
             
-            for comment in comments {
+            for comment in tempComments {
                 if index == 0 {
                     model.firstComment = comment
                 } else if index == 1 {
@@ -201,6 +207,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         
+        
         let mainServiceComment = ServiceCommentViewModel()
         mainServiceComment.serviceId = model.service_id
         mainServiceComment.thumbnailUrl = model.service_thumbnail_url
@@ -210,6 +217,14 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         
         if let comments = model.comment_list as? [SingleComment] {
             pickFirstAndAppdenComment(mainServiceComment, comments: comments)
+        }
+        
+        if mainServiceComment.appendComment != nil {
+            mainServiceComment.cellState = .Done
+        } else if mainServiceComment.firstComment != nil {
+            mainServiceComment.cellState = .CommentFinshed
+        } else {
+            mainServiceComment.cellState = .CommentEditable
         }
         
         result.append(mainServiceComment)
@@ -230,7 +245,15 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                 pickFirstAndAppdenComment(subServiceComment, comments: comments)
             }
             
-            result.append(mainServiceComment)
+            if subServiceComment.appendComment != nil {
+                subServiceComment.cellState = .Done
+            } else if subServiceComment.firstComment != nil {
+                subServiceComment.cellState = .CommentFinshed
+            } else {
+                subServiceComment.cellState = .CommentEditable
+            }
+            
+            result.append(subServiceComment)
                 
         }
         
@@ -392,6 +415,10 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
 extension CompondServiceCommentViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if comments == nil {
+            return 0
+        }
+        
         return comments.count
     }
 

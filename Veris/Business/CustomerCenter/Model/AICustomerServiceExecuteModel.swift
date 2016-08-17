@@ -11,6 +11,7 @@ import Foundation
 class AITimelineViewModel: AIBaseViewModel {
     var itemId: String?
     var layoutType: AITimelineLayoutTypeEnum?
+    var operationType: AITimelineOperationTypeEnum?
     var timeModel: AIDateTimeViewModel?
     var desc: String?
     var contents: [AITimeContentViewModel]?
@@ -23,6 +24,7 @@ class AITimelineViewModel: AIBaseViewModel {
         let timelineViewModel = AITimelineViewModel()
         timelineViewModel.itemId = itemId
         timelineViewModel.layoutType = AITimelineLayoutTypeEnum.ConfirmServiceComplete
+        timelineViewModel.operationType = AITimelineOperationTypeEnum(rawValue: 2)
         timelineViewModel.desc = "陪护人员已完成挂号任务"
         let timeModel = AIDateTimeViewModel()
         timeModel.date = "7-11"
@@ -37,6 +39,7 @@ class AITimelineViewModel: AIBaseViewModel {
     class func createFakeDataOrderComplete(itemId: String) -> AITimelineViewModel {
         let timelineViewModel = AITimelineViewModel()
         timelineViewModel.itemId = itemId
+        timelineViewModel.operationType = AITimelineOperationTypeEnum(rawValue: 2)
         timelineViewModel.layoutType = AITimelineLayoutTypeEnum.ConfirmOrderComplete
         timelineViewModel.desc = "订单服务已完成"
         let timeModel = AIDateTimeViewModel()
@@ -95,7 +98,7 @@ class AITimeContentViewModel: AIBaseViewModel {
     var contentType: AITimelineContentTypeEnum?
     var contentUrl: String?
     var location: AIGPSViewModel?
-    init(contentType: AITimelineContentTypeEnum, contentUrl: String) {
+    init(contentType: AITimelineContentTypeEnum, contentUrl: String?) {
         self.contentType = contentType
         self.contentUrl = contentUrl
     }
@@ -115,7 +118,7 @@ class AICustomerOrderDetailTopViewModel: AIBaseViewModel {
 
 // MARK: -> enums
 enum AITimelineLayoutTypeEnum: Int {
-    case Normal = 1, Authoration, ConfirmServiceComplete, ConfirmOrderComplete, Now
+    case Normal = 3, Authoration = 1, ConfirmServiceComplete = 2, ConfirmOrderComplete = 4, Now = 5
 }
 
 enum AITimelineContentTypeEnum: Int {
@@ -124,4 +127,9 @@ enum AITimelineContentTypeEnum: Int {
 
 enum AITimelineFilterTypeEnum: Int {
     case showAll = 1, showNotice, showAction
+}
+
+//按钮操作类型  1.未确认，2，已确认，3.已评论
+enum AITimelineOperationTypeEnum: Int {
+    case unConfirm = 0, confirmed, commentted
 }
