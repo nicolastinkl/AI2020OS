@@ -327,11 +327,13 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     func confirmServiceButtonDidClick(viewModel viewModel: AITimelineViewModel) {
         let vc = parentViewController
         self.dismissPopupViewController(true) { [weak vc] in
-            let commentVC = AISingalServiceCommnentViewController()
-            let navi = UINavigationController(rootViewController: commentVC)
-                //ServiceCommentViewController.loadFromXib()
-            navi.view.frame = self.view.bounds
-            vc?.showTransitionStyleCrossDissolveView(navi)
+//            let commentVC = AISingalServiceCommnentViewController()
+//            let navi = UINavigationController(rootViewController: commentVC)
+
+
+            let commentVC = ServiceCommentViewController.loadFromXib()
+            commentVC.view.frame = self.view.bounds
+            vc?.showTransitionStyleCrossDissolveView(commentVC)
 //            vc?.presentPopupViewController(commentVC, animated: true)
         }
     }
