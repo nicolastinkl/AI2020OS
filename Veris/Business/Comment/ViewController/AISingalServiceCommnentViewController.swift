@@ -8,12 +8,14 @@
 
 import UIKit
 
-class AISingalServiceCommnentViewController: UIViewController {
+class AISingalServiceCommnentViewController: AIBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+        setupNavigationBar()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +34,12 @@ class AISingalServiceCommnentViewController: UIViewController {
     }
     */
 
+
+    //MARK: Configure NavigationBar
+    override func setupNavigationBar() {
+
+        let backButton = goBackButtonWithImage("comment-back")
+        navigatonBarAppearance?.leftBarButtonItems = [backButton]
+        setNavigationBarAppearance(navigationBarAppearance: navigatonBarAppearance!)
+    }
 }
