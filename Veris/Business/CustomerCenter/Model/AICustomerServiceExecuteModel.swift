@@ -17,6 +17,8 @@ class AITimelineViewModel: AIBaseViewModel {
     var contents: [AITimeContentViewModel]?
     //用于tableViewCell的高度
     var cellHeight: CGFloat = 0
+    //队列中的index
+    var index: Int?
     //里面内容的高度，可能会单独使用
     var contentContainerHeight: CGFloat = 0
     

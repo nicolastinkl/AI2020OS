@@ -42,7 +42,14 @@ class AIVerticalScrollView: UIScrollView {
 	}
 	
 	func loadData(models: [IconServiceIntModel]) {
+        self.models?.removeAll()
+        self.models = nil
 		self.models = models
+        //先清空数据再重新加载
+        iconViews.removeAll()
+        for subView in self.subviews {
+            subView.removeFromSuperview()
+        }
 		if needCheckAll {
 			buildCheckAllView()
 		}
