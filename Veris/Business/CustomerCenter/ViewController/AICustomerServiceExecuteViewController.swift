@@ -32,7 +32,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     var cellHeightArray: Array<CGFloat>!
     var selectedServiceInstIds: Array<String> = []
     var selectedFilterType = 2
-    var g_orderId = "1111"
+    var g_orderId = "100000029231"
     
 
     // MARK: -> Public class methods
@@ -237,11 +237,10 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     
     func loadData() {
         let interfaceHandler = AICustomerServiceExecuteHandler.sharedInstance
-        let compServiceInstId = "111"
         
         //刷新订单信息和消息数据
         weak var weakSelf = self
-        interfaceHandler.queryCustomerServiceExecute(compServiceInstId, success: { (viewModel) in
+        interfaceHandler.queryCustomerServiceExecute(g_orderId, success: { (viewModel) in
             weakSelf?.orderInfoContentView?.model = viewModel
             weakSelf?.orderInfoModel = viewModel
             weakSelf?.messageBadge.badgeValue = viewModel.unReadMessageNumber!
