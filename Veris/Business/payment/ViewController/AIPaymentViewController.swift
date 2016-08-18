@@ -184,7 +184,7 @@ class AIPaymentViewController: UIViewController {
     
     func initData() {
         view.showLoading()
-        AIPayInfoServices.reqeustOrderInfo("123", success: { (model) in
+        AIPayInfoServices.reqeustOrderInfo("100000031769", success: { (model) in
                 self.view.hideLoading()
                 self.dataModel = model as? AIPayInfoModel
                 self.tableView.reloadData()

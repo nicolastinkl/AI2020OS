@@ -13,9 +13,10 @@ class AIPayInfoServices: NSObject {
     
     //请求订单信息
     static func reqeustOrderInfo(order: String, success: (AnyObject?) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.queryPayment.description
-        let body = ["data": ["order": order], "desc": ["data_mode": "0", "digest": ""]]
+        let body = ["data": ["order": order,"user_id":userId], "desc": ["data_mode": "0", "digest": ""]]
         message.body = NSMutableDictionary(dictionary: body)
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             if let responseJSON: AnyObject = response {
