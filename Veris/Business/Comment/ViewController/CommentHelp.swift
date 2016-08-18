@@ -23,14 +23,14 @@ class CommentUtils {
         }
     }
     
-    class func convertPercentToStarValue(percent: CGFloat) -> String {
+    class func convertPercentToStarValue(percent: CGFloat) -> CGFloat {
         guard let _ = starDes else {
-            return "\(percent)"
+            return percent
         }
         
         let value = convertPercentToValue(percent)
         
-        return "\(value)"
+        return value
     }
     
     class func getStarValueDes(percent: CGFloat) -> String {
