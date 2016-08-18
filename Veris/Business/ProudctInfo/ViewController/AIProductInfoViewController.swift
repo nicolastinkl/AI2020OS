@@ -44,6 +44,8 @@ class AIProductInfoViewController: UIViewController {
 	private var navi = AINavigationBar.initFromNib()
 	
 	private let topImage = AIImageView()
+    
+    private var dataModel: AIProdcutinfoModel?
 	
     // MARK: - Init Function
 	/**
@@ -71,9 +73,14 @@ class AIProductInfoViewController: UIViewController {
     
     func requestData() {
         view.showLoading()
-        AIProdcutinfoService.requestServiceInfo("", userId: "") { (response, error) in
+        AIProdcutinfoService.requestServiceInfo("12") { (response, error) in
             self.view.hideLoading()
-            self.initScrollViewData()
+            if let model = response as? AIProdcutinfoModel{
+                self.dataModel = model
+                self.initScrollViewData()
+            }else{
+                AIAlertView().showError("获取数据失败", subTitle: "")
+            }
         }
     }
     
@@ -191,7 +198,7 @@ class AIProductInfoViewController: UIViewController {
                 // MARK: Loading Data Views
                 if res == "1" {
                     if let navi = self.navi as? AINavigationBar {
-                            navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+                        navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
                     }
                 } else {
                     AIAlertView().showError("收藏失败", subTitle: "")
@@ -212,7 +219,7 @@ class AIProductInfoViewController: UIViewController {
 
    // MARK: - Init ScrollData
 	func initScrollViewData() {
-
+        
 		/**
 		 定制的TitleView
 		 */
@@ -235,7 +242,7 @@ class AIProductInfoViewController: UIViewController {
 			
 			tView.addSubview(titleLabel)
 			tView.addSubview(desLabel)
-			titleLabel.frame = CGRectMake(0, 0, 100, heightLabel)
+			titleLabel.frame = CGRectMake(0, 0, 140, heightLabel)
 			desLabel.frame = CGRectMake(80, 0, 180, heightLabel)
 			
 			let imageview = UIImageView()
@@ -248,18 +255,18 @@ class AIProductInfoViewController: UIViewController {
 		}
 		
 		// Setup 1 : Top UIImageView.
-		topImage.setImgURL(NSURL(string: "http://7xq9bx.com1.z0.glb.clouddn.com/AI_ProductInfo_Home_%E6%9C%8D%E5%8A%A1%E7%A4%BA%E6%84%8F%E5%9B%BE.8.8.png"), placeholderImage: smallPlace())
+		topImage.setImgURL(NSURL(string: dataModel?.image ?? ""), placeholderImage: smallPlace())
 		topImage.setHeight(imageScalingFactor)
 		topImage.contentMode = UIViewContentMode.ScaleAspectFill
 		addNewSubView(topImage, preView: UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
 		
 		// Setup 2: title Info View.
-		let titleLabel = getTitleLabelView("孕检无忧", desctiption: "", showRight: false)
+		let titleLabel = getTitleLabelView(dataModel?.name ?? "", desctiption: "", showRight: false)
 		addNewSubView(titleLabel, preView: topImage)
 		titleLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
 		
 		let desLabel = AILabel()
-		desLabel.text = "最后还是要提一下，“过早的优化是万恶之源”，在需求未定，性能问题不明显时，没必要尝试做优化，而要尽量正确的实现功能。做性能优化时，也最好是走修改代码 -> Profile -> 修改代码这样一个流程，优先解决最值得优化的地方。"
+		desLabel.text = dataModel?.desc ?? ""
 		desLabel.setHeight(60)
 		desLabel.numberOfLines = 0
 		desLabel.lineBreakMode = .ByCharWrapping
@@ -268,7 +275,7 @@ class AIProductInfoViewController: UIViewController {
 		addNewSubView(desLabel, preView: titleLabel)
 		
 		let priceLabel = AILabel()
-		priceLabel.text = "$ 184.0"
+		priceLabel.text = "\(dataModel?.price?.price_show ?? "")"
 		priceLabel.setHeight(112 / 3)
 		priceLabel.font = AITools.myriadBoldWithSize(52 / 3)
 		priceLabel.textColor = UIColor(hexString: "#e7c400")
@@ -277,32 +284,32 @@ class AIProductInfoViewController: UIViewController {
 		
 		let tagsView = UIView()
 		tagsView.setHeight(165 / 3)
-		
-		for index in 0...1 {
-			// add tag view.
-			let tag = DesignableButton()
-			tag.borderColor = UIColor.whiteColor()
-			tag.borderWidth = 0.5
-			tag.cornerRadius = 14
-			tagsView.addSubview(tag)
-			tag.titleLabel?.textColor = UIColor.whiteColor()
-			tag.titleLabel?.font = UIFont.systemFontOfSize(13)
-			let widthButton: CGFloat = 223 / 3
-			tag.frame = CGRectMake(CGFloat(index) * (widthButton + 10), 14, widthButton, 80 / 3)
-			tag.layer.masksToBounds = true
-			tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-			
-			tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Highlighted)
-			
-			if index == 0 {
-				tag.setTitle("方案A", forState: UIControlState.Normal)
-			} else if index == 1 {
-				tag.setTitle("方案B", forState: UIControlState.Normal)
-			} else {
-				tag.setTitle("方案C", forState: UIControlState.Normal)
-			}
-			tag.addTarget(self, action: #selector(AIProductInfoViewController.showDetailView(_:)), forControlEvents: UIControlEvents.TouchDown)
-		}
+        let countPackage = dataModel?.package?.count ?? 0
+        var index = 0
+        dataModel?.package?.forEach({ (model) in
+            // add tag view.
+            let tag = DesignableButton()
+            tag.borderColor = UIColor.whiteColor()
+            tag.borderWidth = 0.5
+            tag.cornerRadius = 14
+            tagsView.addSubview(tag)
+            tag.titleLabel?.textColor = UIColor.whiteColor()
+            tag.titleLabel?.font = UIFont.systemFontOfSize(13)
+            let widthButton: CGFloat = 223 / 3
+            tag.frame = CGRectMake(CGFloat(index) * (widthButton + 10), 14, widthButton, 80 / 3)
+            tag.layer.masksToBounds = true
+            tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            
+            tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Highlighted)
+            if let arr = dataModel?.package {
+                let modelp: AIProductInfoPackageModel = arr[index]
+                tag.setTitle(modelp.name, forState: UIControlState.Normal)
+                tag.tag = modelp.pid ?? 0
+                tag.addTarget(self, action: #selector(AIProductInfoViewController.showDetailView(_:)), forControlEvents: UIControlEvents.TouchDown)
+                index = index + 1
+            }
+        })
+        
 		
 		tagsView.setLeft(10)
 		
@@ -405,26 +412,29 @@ class AIProductInfoViewController: UIViewController {
         
         let bubbleViewContain = UIView()
         bubbleViewContain.setHeight(0)
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let bubbleModels = appDelegate.dataSourcePop
-        if bubbleModels.count > 0 {
-            for i in 0..<min(4, bubbleModels.count) {
-                let model: AIBuyerBubbleModel! = bubbleModels[i]
-                let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
-                let space = AITools.displaySizeFrom1242DesignSize(15)
-                let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
-                model.bubbleSize = Int(bubbleWidth)/2
-                let bubbleView = AIBubble(center: .zero, model: model, type: model.bubbleType, index: 0)
-                bubbleViewContain.addSubview(bubbleView)
-                bubbleView.tag = i
-                let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
-                bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + space), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
-                
+        if let remodel = dataModel?.recommendation {
+            if remodel.count > 0 {
+                var i = 0
+                remodel.forEach({ (modelJSON) in
+                    let model: AIBuyerBubbleModel! = AIBuyerBubbleModel()
+                    model.proposal_name = modelJSON.name ?? ""
+                    model.proposal_id = modelJSON.rid ?? 0
+                    model.proposal_price = modelJSON.price?.price_show ?? ""
+                    let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
+                    let space = AITools.displaySizeFrom1242DesignSize(15)
+                    let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
+                    model.bubbleSize = Int(bubbleWidth)/2
+                    let bubbleView = AIBubble(center: .zero, model: model, type: model.bubbleType, index: 0)
+                    bubbleViewContain.addSubview(bubbleView)
+                    bubbleView.tag = i
+                    let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
+                    bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + space), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
+                    i = i + 1
+                })
+                bubbleViewContain.setHeight(125)
             }
-            
-            bubbleViewContain.setHeight(125)
         }
+        
         addNewSubView(bubbleViewContain, preView: pLabel44)
         
         // Setup 5:
@@ -435,7 +445,7 @@ class AIProductInfoViewController: UIViewController {
         pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
         let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
         addNewSubView(hView4!, preView: pLabel)
-        hView4?.fillDataWithModel()
+        hView4?.fillDataWithModel(dataModel?.provider)
         let lineView3 = addSplitView()
         hView4?.image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.targetProInfoAction(_:))))
         
@@ -447,7 +457,7 @@ class AIProductInfoViewController: UIViewController {
         addNewSubView(holdSpaceView, preView: pcLabel)
         holdSpaceView.setHeight(44/3)
         let bottomImage = AIImageView()
-        bottomImage.setImgURL(NSURL(string:"http://7xq9bx.com1.z0.glb.clouddn.com/AI_ProductInfo_Home_%E5%95%86%E5%93%81%E4%BB%8B%E7%BB%8D%E5%8C%BA%E5%9F%9F.8.8.png"), placeholderImage: smallPlace())
+        bottomImage.setImgURL(NSURL(string:dataModel?.desc_image ?? ""), placeholderImage: smallPlace())
         bottomImage.setHeight(675)
         bottomImage.backgroundColor = UIColor(hexString: "#6AB92E", alpha: 0.7)
         bottomImage.contentMode = UIViewContentMode.ScaleAspectFill
@@ -482,34 +492,41 @@ class AIProductInfoViewController: UIViewController {
         
         var viw: UIView = preView
         
-        // 处理数据填充
-        if let wish: AIProposalServiceDetail_WishModel = AIProposalServiceDetail_WishModel() {
+        if let customNot = dataModel?.customer_note {
             
-//            内分泌失调 焦虑  疲惫  睡眠质量差  低落
-            let labelModel_1 = AIProposalServiceDetailLabelModel()
-            labelModel_1.content = "易怒"
-            labelModel_1.label_id = 1
-            labelModel_1.selected_flag = 0
-            labelModel_1.selected_num = 2
+            let wish = AIProposalServiceDetail_WishModel()
+            var array1 = Array<AIProposalServiceDetailLabelModel>()
+            var array2 = Array<AIProposalServiceDetailHopeModel>()
+            if let taglist = customNot.tag_list {
+                taglist.forEach({ (model) in
+                    let labelModel_1 = AIProposalServiceDetailLabelModel()
+                    labelModel_1.content = model.name ?? ""
+                    labelModel_1.label_id = model.tag_id ?? 0
+                    labelModel_1.selected_flag = model.is_chosen ?? 0
+                    labelModel_1.selected_num = model.chosen_times ?? 0
+                    array1.append(labelModel_1)
+                })
+            }
             
-            let labelModel_2 = AIProposalServiceDetailLabelModel()
-            labelModel_2.content = "内分泌失调"
-            labelModel_2.label_id = 2
-            labelModel_2.selected_flag = 0
-            labelModel_2.selected_num = 21
+            if let notelist = customNot.note_list {
+                notelist.forEach({ (model) in
+                    let m = AIProposalServiceDetailHopeModel()
+                    m.hope_id = model.nid ?? 0
+                    m.text = model.content ?? ""
+                    m.type = model.type ?? ""
+                    m.audio_url = model.content ?? ""
+                    m.time = model.create_time?.toInt() ?? 0
+                    array2.append(m)
+                })
+            }
             
-            let labelModel_3 = AIProposalServiceDetailLabelModel()
-            labelModel_3.content = "焦虑"
-            labelModel_3.label_id = 3
-            labelModel_3.selected_flag = 1
-            labelModel_3.selected_num = 121
-            
-            wish.label_list = [labelModel_1, labelModel_2, labelModel_3, labelModel_2, labelModel_1]
-            wish.hope_list = []
+            wish.label_list = array1
+            wish.hope_list = array2
             let providerView = AIProviderView.currentView()
             addNewSubView(providerView, preView: viw)
             viw = providerView
-            providerView.content.text = "请选择符合您情况的标签"
+            providerView.title.text = customNot.wish_name ?? ""
+            providerView.content.text = customNot.wish_desc ?? ""
             if wish.label_list != nil || (wish.hope_list != nil) {
                 if wish.hope_list.count > 0 || wish.label_list.count > 0 {
                     let custView = AICustomView.currentView()
@@ -523,6 +540,7 @@ class AIProductInfoViewController: UIViewController {
                     }
                 }
             }
+            
         }
         if view == preView {
             return nil

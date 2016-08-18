@@ -103,7 +103,7 @@ class AIProviderDetailViewController: UIViewController {
 
 extension AIProviderDetailViewController: HorizontalBubblesViewDelegate {
 	func bubblesView(bubblesView: HorizontalBubblesView, didClickBubbleViewAtIndex index: Int) {
-		let model = bubblesView.bubbleModels[index]
+//		let model = bubblesView.bubbleModels[index]
 //		AILog(model)
 //		 let vc = AISuperiorityViewController.initFromNib()
 //		 vc.serviceModel = model
