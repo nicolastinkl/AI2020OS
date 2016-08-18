@@ -59,7 +59,7 @@ class CommentTest: SBOSSTestCase {
             
         }
         
-        waitForExpectationsWithTimeout(5, handler: { error in
+        waitForExpectationsWithTimeout(500, handler: { error in
             XCTAssertNil(error, "Error")
         })
     }
@@ -85,10 +85,10 @@ class CommentTest: SBOSSTestCase {
     func testSubmitComments() {
         let readyExpectation = expectationWithDescription("done")
         
-        let serviceComment = ServiceComment()
+        let serviceComment = SingleComment()
         serviceComment.service_id = "1"
         serviceComment.spec_id = "2623"
-//        serviceComment.rating_level = "9"
+        serviceComment.rating_level = 9
 //        serviceComment.text = "Good."
         
         service.submitComments("1", userType: 1, commentList: [serviceComment], success: { (responseData) in
