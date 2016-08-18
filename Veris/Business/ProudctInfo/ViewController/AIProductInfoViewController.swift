@@ -591,6 +591,7 @@ class AIProductInfoViewController: UIViewController {
     
     func providerDetailPressed() {
         let vc = AIProviderDetailViewController.initFromNib()
+//        vc.provider_id = 
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     }
@@ -598,6 +599,7 @@ class AIProductInfoViewController: UIViewController {
     func recommondForYouPressed() {
         // 为您推荐
         let vc = AIRecommondForYouViewController()
+//        vc.service_id = 
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     }

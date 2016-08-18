@@ -70,7 +70,7 @@ class AICustomSearchHomeViewController: UIViewController {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
-    func popToAllView(){
+    func popToAllView() {
         self.dismissViewControllerAnimated(false, completion: nil)
         self.dismissViewControllerAnimated(false, completion: nil)
     }
@@ -148,8 +148,9 @@ class AICustomSearchHomeViewController: UIViewController {
 	}
 
 	func setupBubbleView() {
-        let bubblesView = HorizontalBubblesView(bubbleModels: bubbleModels)
+        let bubblesView = GridBubblesView(bubbleModels: bubbleModels)
         bubblesView.delegate = self
+        bubblesView.setY(AITools.displaySizeFrom1242DesignSize(87))
         bubbleContainerView.addSubview(bubblesView)
 	}
 	func setupSearchView() {
@@ -363,8 +364,8 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
 }
 
 
-extension AICustomSearchHomeViewController: HorizontalBubblesViewDelegate {
-    func bubblesView(bubblesView: HorizontalBubblesView, didClickBubbleViewAtIndex index: Int) {
+extension AICustomSearchHomeViewController: GridBubblesViewDelegate {
+    func bubblesView(bubblesView: GridBubblesView, didClickBubbleViewAtIndex index: Int) {
         let model = bubblesView.bubbleModels[index]
         let vc = AIWishPreviewController.initFromNib()
         vc.model = model
