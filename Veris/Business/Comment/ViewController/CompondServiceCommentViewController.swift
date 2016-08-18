@@ -65,6 +65,26 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 
     func submitComments() {
         
+        if !submitCommentsValide() {
+            return
+        }
+        
+        let submitList = getSubmitComments()
+        
+        if submitList.count > 0 {
+            commentManager.submitComments("1", userType: 1, commentList: submitList, success: { (responseData) in
+                if responseData.result {
+                    AIAlertView().showInfo("提交成功", subTitle: "提交成功")
+                } else {
+                    AIAlertView().showInfo("提交失败", subTitle: "提交失败")
+                }
+                }) { (errType, errDes) in
+                    AIAlertView().showInfo("提交失败", subTitle: "提交失败")
+            }
+            
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+        
         
         
 //        if !commentManager.isAllImagesUploaded() {
@@ -120,7 +140,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         followButton.backgroundColor = UIColor.clearColor()
         followButton.layer.cornerRadius = 12.displaySizeFrom1242DesignSize()
         followButton.setSize(CGSize(width: 196.displaySizeFrom1242DesignSize(), height: 80.displaySizeFrom1242DesignSize()))
-        backButton.addTarget(self, action: #selector(CompondServiceCommentViewController.submitComments), forControlEvents: .TouchUpInside)
+        followButton.addTarget(self, action: #selector(CompondServiceCommentViewController.submitComments), forControlEvents: .TouchUpInside)
         
         let appearance = UINavigationBarAppearance()
         appearance.leftBarButtonItems = [backButton]
@@ -168,6 +188,8 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         
         let ser = HttpCommentService()
         
+        view.showLoading()
+        
         ser.getCompondComment("10012", userType: 1, serviceId: "900001001008", success: { (responseData) in
             self.view.hideLoading()
             let re = responseData
@@ -212,8 +234,8 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         mainServiceComment.serviceId = model.service_id
         mainServiceComment.thumbnailUrl = model.service_thumbnail_url
         mainServiceComment.serviceName = model.service_name
-        let value = model.rating_level ?? "0"
-        mainServiceComment.stars = CGFloat((value as NSString).floatValue)
+        mainServiceComment.stars = model.rating_level
+
         
         if let comments = model.comment_list as? [SingleComment] {
             pickFirstAndAppdenComment(mainServiceComment, comments: comments)
@@ -225,6 +247,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             mainServiceComment.cellState = .CommentFinshed
         } else {
             mainServiceComment.cellState = .CommentEditable
+            if mainServiceComment.stars < 0.01 {
+                mainServiceComment.stars = 1
+            }
         }
         
         result.append(mainServiceComment)
@@ -238,8 +263,8 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             subServiceComment.serviceId = subService.service_id
             subServiceComment.thumbnailUrl = subService.service_thumbnail_url
             subServiceComment.serviceName = subService.service_name
-            let value = subService.rating_level ?? "0"
-            subServiceComment.stars = CGFloat((value as NSString).floatValue)
+            let value = subService.rating_level ?? 0
+            subServiceComment.stars = CGFloat(value)
             
             if let comments = subService.comment_list as? [SingleComment] {
                 pickFirstAndAppdenComment(subServiceComment, comments: comments)
@@ -483,6 +508,12 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         presentImagesReviewController(images)
     }
     
+    func scroePercentDidChange(newScorePercent: CGFloat, cell: ServiceCommentTableViewCell) {
+        currentOperateIndex = cell.tag
+        
+        comments[currentOperateIndex].stars = newScorePercent
+    }
+    
     func textViewDidEndEditing(textView: UITextView, cell: ServiceCommentTableViewCell) {
         guard let text = textView.text else {
             return
@@ -507,6 +538,8 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         commentManager.saveCommentModelToLocal(local.serviceId, model: local)    
     }
     
+    
+    //MARK: submit logic
     private func submitCommentsValide() -> Bool {
         for comment in comments {
             if !isFirstCommentFinished(comment) {
@@ -528,6 +561,42 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         }
         
         return true
+    }
+    
+    private func getSubmitComments() -> [SingleComment] {
+        
+        var submitList = [SingleComment]()
+        
+        for comment in comments {
+            if comment.cellState == CommentStateEnum.Done {
+                continue
+            }
+            
+            submitList.append(convertViewModelToSingleComment(comment))
+        }
+        
+        return submitList
+    }
+    
+    private func convertViewModelToSingleComment(model: ServiceCommentViewModel) -> SingleComment {
+        let comment = SingleComment()
+        
+        comment.rating_level = CommentUtils.convertPercentToStarValue(model.stars)
+        comment.service_id = model.serviceId
+        comment.text = model.loaclModel?.text ?? ""
+        comment.photos = [CommentPhoto]()
+        
+        guard let images = model.loaclModel?.imageInfos else {
+            return comment
+        }
+        
+        for img in images {
+            let photo = CommentPhoto()
+            photo.url = img.url?.absoluteString
+            comment.photos.append(photo)
+        }
+        
+        return comment
     }
 }
 

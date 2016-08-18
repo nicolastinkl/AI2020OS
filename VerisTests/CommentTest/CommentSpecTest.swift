@@ -60,7 +60,7 @@ class CommentSpecTest: XCTestCase {
     func testConvertPercentToStarValue() {
         let value = CommentUtils.convertPercentToStarValue(0.3)
         
-        XCTAssertEqual(value, "3.0")
+        XCTAssertEqual(value, 3.0)
     }
 
     func testGetStarValueDes() {
