@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIWishTopView" customModule="Veris" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="82"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To find a proper camera and a good photographer." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0x-IJ-Niz">
+                    <rect key="frame" x="50" y="17" width="500" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="361" id="IlD-8c-UZn"/>
+                        <constraint firstAttribute="height" constant="21" id="O9b-Ye-6n0"/>
+                        <constraint firstAttribute="height" constant="26" id="nzZ-pH-QtP"/>
+                        <constraint firstAttribute="width" constant="334" id="pop-cg-B7l"/>
+                        <constraint firstAttribute="height" constant="26" id="sh3-1k-jWt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="IlD-8c-UZn"/>
+                            <exclude reference="O9b-Ye-6n0"/>
+                            <exclude reference="nzZ-pH-QtP"/>
+                            <exclude reference="pop-cg-B7l"/>
+                        </mask>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 wished" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgy-sM-I6s">
+                    <rect key="frame" x="76" y="43" width="153" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="153" id="3Yu-ic-CpK"/>
+                        <constraint firstAttribute="height" constant="21" id="55l-l2-AGG"/>
+                        <constraint firstAttribute="width" constant="361" id="CdD-pH-ojS"/>
+                        <constraint firstAttribute="height" constant="31" id="OsV-dO-Lke"/>
+                        <constraint firstAttribute="height" constant="26" id="bHy-cD-4mH"/>
+                        <constraint firstAttribute="width" constant="334" id="elE-ki-9C8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="55l-l2-AGG"/>
+                            <exclude reference="CdD-pH-ojS"/>
+                            <exclude reference="bHy-cD-4mH"/>
+                            <exclude reference="elE-ki-9C8"/>
+                        </mask>
+                    </variation>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Wish_Make_wish" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-XZ-v0C">
+                    <rect key="frame" x="50" y="48" width="18" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="18" id="T0K-Mn-2hk"/>
+                        <constraint firstAttribute="height" constant="21" id="u97-Kf-KNe"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 more to " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-ZK-99A">
+                    <rect key="frame" x="290" y="43" width="300" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="361" id="MAR-Hi-ZBO"/>
+                        <constraint firstAttribute="height" constant="31" id="R9S-T8-AxE"/>
+                        <constraint firstAttribute="width" constant="334" id="dWr-SH-Prt"/>
+                        <constraint firstAttribute="width" constant="300" id="dcE-r3-owx"/>
+                        <constraint firstAttribute="height" constant="26" id="hes-uT-nI4"/>
+                        <constraint firstAttribute="height" constant="21" id="mBe-vL-7YM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="mBe-vL-7YM"/>
+                            <exclude reference="MAR-Hi-ZBO"/>
+                            <exclude reference="hes-uT-nI4"/>
+                            <exclude reference="dWr-SH-Prt"/>
+                        </mask>
+                    </variation>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Wish_Make_wish" translatesAutoresizingMaskIntoConstraints="NO" id="gzd-0R-nfS">
+                    <rect key="frame" x="264" y="48" width="18" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="DYV-0i-rXI"/>
+                        <constraint firstAttribute="width" constant="18" id="tzD-tE-i1d"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="lxi-XZ-v0C" firstAttribute="top" secondItem="X0x-IJ-Niz" secondAttribute="bottom" constant="5" id="6tp-Et-Fu6"/>
+                <constraint firstItem="X0x-IJ-Niz" firstAttribute="leading" secondItem="lxi-XZ-v0C" secondAttribute="trailing" constant="-18" id="7M1-KJ-kj2"/>
+                <constraint firstItem="L8q-ZK-99A" firstAttribute="leading" secondItem="gzd-0R-nfS" secondAttribute="trailing" constant="8" id="DVF-Vc-bmV"/>
+                <constraint firstItem="Rgy-sM-I6s" firstAttribute="top" secondItem="X0x-IJ-Niz" secondAttribute="bottom" id="F2o-2R-F4d"/>
+                <constraint firstItem="gzd-0R-nfS" firstAttribute="leading" secondItem="Rgy-sM-I6s" secondAttribute="trailing" constant="35" id="FII-mT-oHg"/>
+                <constraint firstItem="Rgy-sM-I6s" firstAttribute="top" secondItem="X0x-IJ-Niz" secondAttribute="bottom" constant="8" id="K3J-uL-wJd"/>
+                <constraint firstAttribute="trailing" secondItem="X0x-IJ-Niz" secondAttribute="trailing" constant="50" id="KvW-qM-wR2"/>
+                <constraint firstItem="X0x-IJ-Niz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="Lrx-1f-Cv4"/>
+                <constraint firstItem="L8q-ZK-99A" firstAttribute="top" secondItem="X0x-IJ-Niz" secondAttribute="bottom" id="Mgk-tE-cGB"/>
+                <constraint firstItem="X0x-IJ-Niz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="VqU-qd-aUY"/>
+                <constraint firstItem="X0x-IJ-Niz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="cgh-wF-w0h"/>
+                <constraint firstItem="gzd-0R-nfS" firstAttribute="top" secondItem="X0x-IJ-Niz" secondAttribute="bottom" constant="5" id="cw9-Fx-yqp"/>
+                <constraint firstItem="Rgy-sM-I6s" firstAttribute="leading" secondItem="lxi-XZ-v0C" secondAttribute="trailing" constant="8" id="jja-8m-i4F"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="K3J-uL-wJd"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="42" y="546"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="AI_Wish_Make_wish" width="18" height="21"/>
+    </resources>
+</document>

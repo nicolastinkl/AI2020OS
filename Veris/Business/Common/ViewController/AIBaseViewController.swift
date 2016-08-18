@@ -91,7 +91,8 @@ class AIBaseViewController: UIViewController {
         }
 
         navigatonBarAppearance!.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
-
+        let font = AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize())
+        navigatonBarAppearance!.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 40.displaySizeFrom1242DesignSize(), font: font, textColor: UIColor.whiteColor(), text: "")
     }
 
     //MARK:
@@ -102,9 +103,11 @@ class AIBaseViewController: UIViewController {
     //MARK: 提供默认的返回按钮
 
     func goBackButtonWithImage(name: String) -> UIButton {
+        let image = UIImage(named: name)
+        let height = (image?.size.height)!
         let button = UIButton(type: .Custom)
-        button.frame = CGRect(x: 0, y: 0, width: 80, height: 44)
-        button.setImage(UIImage(named: name), forState: .Normal)
+        button.frame = CGRect(x: 0, y: 0, width: 80, height: height)
+        button.setImage(image, forState: .Normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 60)
         button.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
 

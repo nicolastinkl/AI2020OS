@@ -14,9 +14,9 @@ class AIFundManageViewController: AIBaseViewController {
         super.viewDidLoad()
         //makeBackButton()
         // Do any additional setup after loading the view.
-
-        setupNavigationBar()
         self.title = "My Job"
+        setupNavigationBar()
+
     }
 
     override func didReceiveMemoryWarning() {
