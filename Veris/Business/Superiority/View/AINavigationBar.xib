@@ -31,7 +31,7 @@
                         <constraint firstItem="Gvs-55-dU6" firstAttribute="leading" secondItem="1Nf-cD-H5k" secondAttribute="leading" id="PiQ-XV-3hf"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZP-g5-iYW">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZP-g5-iYW">
                     <rect key="frame" x="107" y="6" width="385" height="33"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="385" id="GC2-ca-csR"/>
@@ -124,7 +124,7 @@
                 <outlet property="titleLabel" destination="JZP-g5-iYW" id="iht-4f-1hf"/>
                 <outlet property="videoButton" destination="RpV-BP-Pz3" id="n2T-uY-nkh"/>
             </connections>
-            <point key="canvasLocation" x="114" y="418"/>
+            <point key="canvasLocation" x="109" y="260"/>
         </view>
     </objects>
     <resources>

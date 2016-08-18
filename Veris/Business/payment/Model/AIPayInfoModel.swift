@@ -54,7 +54,6 @@ class AIPayInfoModel: JSONJoy {
                 paymentItem.append(pro)
             }
         }
-        
         total_fee = decoder["total_fee"].string ?? ""
         deduct_fee = decoder["deduct_fee"].string ?? ""
         pay_fee = decoder["pay_fee"].string ?? ""

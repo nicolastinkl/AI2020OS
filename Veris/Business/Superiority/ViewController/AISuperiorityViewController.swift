@@ -188,22 +188,20 @@ class AISuperiorityViewController: UIViewController {
                     //未收藏
                     self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
                 }else{
-                    self.naviBar?.setRightIcon1Action(UIImage(named: "AI_ProductInfo_Home_Favirtor")!)
+                    self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
                 }
             }
-        } 
-        
+        }         
     }
     
     func favoriteAction() {
         view.showLoading()
-        
         AIProdcutinfoService.addFavoriteServiceInfo("11") { (obj, error) in
             self.view.hideLoading()
             if let res = obj as? String {
                 // MARK: Loading Data Views
                 if res == "1"{
-                    self.naviBar?.setRightIcon1Action(UIImage(named: "AI_ProductInfo_Home_Favirtor")!)
+                    self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
                 } else {
                     AIAlertView().showError("收藏失败", subTitle: "")
                 }

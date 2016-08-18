@@ -198,7 +198,7 @@ class AIProductInfoViewController: UIViewController {
                 // MARK: Loading Data Views
                 if res == "1" {
                     if let navi = self.navi as? AINavigationBar {
-                        navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+                        navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok_pro")!)
                     }
                 } else {
                     AIAlertView().showError("收藏失败", subTitle: "")
