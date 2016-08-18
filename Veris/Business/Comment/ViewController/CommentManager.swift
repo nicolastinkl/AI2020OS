@@ -250,7 +250,7 @@ class DefaultCommentManager: CommentManager {
     // newCommentList: 本次要提交的新的评价列表
     // 返回: 合并过后的评价列表
     func mergeCommentsData(newCommentList: [ServiceComment]) -> [ServiceComment] {
-        var list = [ServiceComment]()
+        let list = [ServiceComment]()
         
 //        for comment in newCommentList {
 //            list.append(mergeComment(comment, local: findLocalComment(comment.service_id)?.model))

@@ -105,7 +105,7 @@ extension UIViewController {
 	func presentPopupViewController(viewControllerToPresent: UIViewController, duration: Double = Constants.animationTime, useBlurForPopup: Bool = false, animated: Bool, completion: (() -> Void)? = nil, onClickCancelArea: (() -> Void)? = nil) {
 		if self is UINavigationController {
 		} else {
-			if let navigationController = navigationController {
+			if let navigationController = parentViewController as? UINavigationController {
 				navigationController.presentPopupViewController(viewControllerToPresent, duration: duration, useBlurForPopup: useBlurForPopup, animated: animated, completion: completion, onClickCancelArea: onClickCancelArea)
 				return
 			}

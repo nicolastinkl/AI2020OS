@@ -10,13 +10,31 @@ import UIKit
 
 class AIProviderDetailViewController: UIViewController {
 	
+	// config
 	@IBOutlet var clearViews: [UIView]!
 	@IBOutlet var halfWhiteClearViews: [UIView]!
 	@IBOutlet var whiteLabels: [UILabel]!
 	@IBOutlet var halfWhiteLabels: [UILabel]!
-	@IBOutlet var bubbleContainerView: UIView!
 	
-	var provider_id: String!
+	// UI
+	@IBOutlet weak var numberLabel: UILabel!
+	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var rateLabel: UILabel!
+	@IBOutlet var qualificationLabels: [UILabel]!
+	@IBOutlet weak var descLabel: UILabel!
+	@IBOutlet weak var avatarImageView: UIImageView!
+	
+	@IBOutlet var bubbleContainerView: UIView!
+    @IBOutlet weak var allServicesLabel: UILabel!
+	
+	var bubbleView: GridBubblesView!
+	
+	var provider_id: String! = "1" // fake
+	var model: AIProviderDetailJSONModel? {
+		didSet {
+			updateUI()
+		}
+	}
 	
 	var bubbleModels = [AIBuyerBubbleModel]()
 	
@@ -28,28 +46,49 @@ class AIProviderDetailViewController: UIViewController {
 		setupBubbleView()
 	}
 	
+	func updateUI() {
+		nameLabel.text = model?.name
+		numberLabel.text = String(format: "%d", model?.total_serviced ?? 0)
+		rateLabel.text = model?.good_rate
+		avatarImageView.sd_setImageWithURL(NSURL(string: model?.icon ?? ""), placeholderImage: UIImage(named: "Avatorbibo"))
+		qualificationLabels.forEach { (l) in
+			l.text = ""
+		}
+		
+		if let qualificationList = model?.qualification_list as? [String] {
+			for (i, q) in qualificationList.enumerate() {
+				qualificationLabels[i].text = q
+			}
+		}
+		
+		descLabel.text = model?.desc
+		
+		if let serviceList = model?.service_list as? [AISearchServiceModel] {
+			bubbleView.bubbleModels = AIBuyerBubbleModel.convertFrom(serviceList)
+		}
+	}
+	
 	func fetchData() {
 		let service = AIProviderDetailService()
-		service.queryProvider(provider_id, success: { (model) in
-			
+        view.showLoading()
+		service.queryProvider(provider_id, success: { [weak self] model in
+            self?.view.hideLoading()
+			self?.model = model
 		}) { (errType, errDes) in
 			
 		}
 	}
 	
-	func fakeBubbleModels() {
-		if let presentingViewController = presentingViewController as? AIUINavigationController {
-			if let buyerVC = presentingViewController.viewControllers.first as? AIBuyerViewController {
-				bubbleModels = buyerVC.dataSourcePop
-			}
-		}
-	}
-	
 	func setupBubbleView() {
-		fakeBubbleModels()
-		let bubblesView = HorizontalBubblesView(bubbleModels: bubbleModels)
-		bubblesView.delegate = self
-		bubbleContainerView.addSubview(bubblesView)
+		bubbleView = GridBubblesView(bubbleModels: [])
+//		bubbleView.delegate = self
+		bubbleContainerView.addSubview(bubbleView)
+		
+		bubbleView.snp_makeConstraints(closure: { (make) in
+			make.leading.trailing.equalTo(bubbleContainerView)
+            make.bottom.equalTo(bubbleContainerView).offset(-110.displaySizeFrom1242DesignSize())
+            make.top.equalTo(allServicesLabel.snp_bottom).offset(56.displaySizeFrom1242DesignSize())
+		})
 	}
 	func setupUI() {
 		clearViews.forEach { (v) in
@@ -67,6 +106,7 @@ class AIProviderDetailViewController: UIViewController {
 		halfWhiteLabels.forEach { (l) in
 			l.textColor = UIColor(hexString: "#ffffff", alpha: 0.6)
 		}
+		
 	}
 	
 	func setupNavigationItems() {
@@ -101,12 +141,12 @@ class AIProviderDetailViewController: UIViewController {
 	}
 }
 
-extension AIProviderDetailViewController: HorizontalBubblesViewDelegate {
-	func bubblesView(bubblesView: HorizontalBubblesView, didClickBubbleViewAtIndex index: Int) {
-		let model = bubblesView.bubbleModels[index]
+//extension AIProviderDetailViewController: HorizontalBubblesViewDelegate {
+//	func bubblesView(bubblesView: HorizontalBubblesView, didClickBubbleViewAtIndex index: Int) {
+//		let model = bubblesView.bubbleModels[index]
 //		AILog(model)
 //		 let vc = AISuperiorityViewController.initFromNib()
 //		 vc.serviceModel = model
 //		 showTransitionStyleCrossDissolveView(vc)
-	}
-}
+//	}
+//}

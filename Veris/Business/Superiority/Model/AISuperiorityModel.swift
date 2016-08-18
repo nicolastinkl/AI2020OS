@@ -49,6 +49,7 @@ class AISuperiorityModel: JSONJoy {
     var icon: String?
     var type: String?
     var desc: String?
+    var collected: Int = 0
     var advantage: [String]?  // 服务优势List
     var price: AIPricePublicModel?
     var serviceExecList: [AISuperiorityIconModel]?
@@ -62,11 +63,11 @@ class AISuperiorityModel: JSONJoy {
             icon = decoderDic["icon"]?.string ?? ""
             type = decoderDic["type"]?.string ?? ""
             desc = decoderDic["desc"]?.string ?? ""
+            collected = decoder["collected"].integer ?? 0
             decoderDic["advantage"]?.getArray(&advantage)
             if let pr = decoderDic["price"] {
                 price = AIPricePublicModel(pr)
             }
-            
             guard let process = decoder["process"].array else {return}
             var collect = [AISuperiorityIconModel]()
             for addrDecoder in process {

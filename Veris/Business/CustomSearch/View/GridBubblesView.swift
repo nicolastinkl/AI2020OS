@@ -26,30 +26,38 @@ extension AIBuyerBubbleModel {
 			bubble.proposal_id = model.id
 			bubble.proposal_name = model.name
 			bubble.proposal_price = model.price?.price_show
-			bubble.service_list = (model.sub_service_list as! [AISearchServiceModel]).map({ (service) -> AIProposalServiceModel in
-				let result = AIProposalServiceModel()
-				result.service_id = service.id
-				result.service_thumbnail_icon = service.icon
-				return result
-			})
+			if let sub_service_list = model.sub_service_list {
+				bubble.service_list = (sub_service_list as! [AISearchServiceModel]).map({ (service) -> AIProposalServiceModel in
+					let result = AIProposalServiceModel()
+					result.service_id = service.id
+					result.service_thumbnail_icon = service.icon
+					return result
+				})
+			}
 			result.append(bubble)
 		}
 		return result
 	}
 }
 
-@objc protocol HorizontalBubblesViewDelegate: NSObjectProtocol {
-	optional func bubblesView(bubblesView: HorizontalBubblesView, didClickBubbleViewAtIndex index: Int)
+@objc protocol GridBubblesViewDelegate: NSObjectProtocol {
+	optional func bubblesView(bubblesView: GridBubblesView, didClickBubbleViewAtIndex index: Int)
 }
 
-class HorizontalBubblesView: UIView {
-	var bubbleModels: [AIBuyerBubbleModel] = []
-	weak var delegate: HorizontalBubblesViewDelegate?
+class GridBubblesView: UIView {
+	var bubbleModels: [AIBuyerBubbleModel]! {
+		didSet {
+			updateUI()
+		}
+	}
+	
+	private var bubbles: [AIBubble] = []
+	weak var delegate: GridBubblesViewDelegate?
 	
 	convenience init(bubbleModels: [AIBuyerBubbleModel]) {
 		self.init(frame: .zero)
 		self.bubbleModels = bubbleModels
-		setup()
+		updateUI()
 	}
 	
 	override init(frame: CGRect) {
@@ -60,28 +68,54 @@ class HorizontalBubblesView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func setup() {
-		let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
-		let space = AITools.displaySizeFrom1242DesignSize(15)
-		let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
-		let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
+	let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
+	let space = AITools.displaySizeFrom1242DesignSize(15)
+//	let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
+    let bubbleY: CGFloat = 0
+	
+	func updateUI() {
 		
-		for i in 0..<min(4, bubbleModels.count) {
+		bubbles.forEach { (v) in
+			v.removeFromSuperview()
+		}
+		bubbles.removeAll()
+		
+		let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
+		let bubbleSize = Int(bubbleWidth) / 2
+		let totalCount = bubbleModels.count
+		
+		for i in 0..<totalCount {
 			let model: AIBuyerBubbleModel! = bubbleModels[i]
-			model.bubbleSize = Int(bubbleWidth) / 2
+			model.bubbleSize = bubbleSize
 			let bubbleView = AIBubble(center: .zero, model: model, type: model.bubbleType, index: 0)
 			bubbleView.tag = i
 			bubbleView.userInteractionEnabled = true
 			addSubview(bubbleView)
-			let tap = UITapGestureRecognizer(target: self, action: #selector(HorizontalBubblesView.tapped(_:)))
+			bubbles.append(bubbleView)
+			let tap = UITapGestureRecognizer(target: self, action: #selector(GridBubblesView.tapped(_:)))
 			bubbleView.addGestureRecognizer(tap)
-			bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + space), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
+			
+			let column = i % 4
+			let row = i / 4
+			bubbleView.frame = CGRect(x: marginLeft + CGFloat(column) * (bubbleWidth + space), y: bubbleY + CGFloat(row) * (bubbleWidth + space), width: bubbleWidth, height: bubbleWidth)
 		}
-		frame = CGRect(x: 0, y: 0, width: screenWidth, height: bubbleWidth + bubbleY)
+		
+		let totalRow = (totalCount / 4) + (((totalCount % 4) > 0) ? 1 : 0)
+		
+		frame = CGRect(x: 0, y: 0, width: screenWidth, height: CGFloat(totalRow) * (bubbleWidth + space) + bubbleY)
+        invalidateIntrinsicContentSize()
 	}
 	
 	func tapped(tap: UITapGestureRecognizer) {
 		let index = tap.view!.tag
 		delegate?.bubblesView?(self, didClickBubbleViewAtIndex: index)
+	}
+	
+	override func intrinsicContentSize() -> CGSize {
+		let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
+		let totalCount = bubbleModels.count
+		let totalRow = (totalCount / 4) + (((totalCount % 4) > 0) ? 1 : 0)
+		let result = CGSize(width: screenWidth, height: CGFloat(totalRow) * (bubbleWidth + space) + bubbleY)
+		return result
 	}
 }

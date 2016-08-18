@@ -11,6 +11,7 @@
 
 @interface AIProviderDetailJSONModel : JSONModel
 @property (nonatomic, strong) NSString<Optional> *good_rate;
+@property (nonatomic, strong) NSString<Optional> *desc;
 @property (nonatomic, strong) NSString<Optional> *icon;
 @property (nonatomic, strong) NSString<Optional> *name;
 @property (nonatomic, strong) NSArray<Optional> *qualification_list;

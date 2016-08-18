@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIAudioSearchButtonView" customModule="Veris" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="42"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qj-AA-sF2" customClass="DesignableButton" customModule="Spring">
+                    <rect key="frame" x="143" y="4" width="314" height="34"/>
+                    <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="314" id="5Xe-CD-FFU"/>
+                        <constraint firstAttribute="height" constant="34" id="W3F-HI-ZhK"/>
+                    </constraints>
+                    <state key="normal" title=" 按住 说出你要的宝贝" image="AI_Wish_Black_Make_audio">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.67450980392156867" green="0.70196078431372544" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="6qj-AA-sF2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="D6H-2B-9Ie"/>
+                <constraint firstAttribute="trailing" secondItem="6qj-AA-sF2" secondAttribute="trailing" constant="143" id="F8w-7E-7Es"/>
+                <constraint firstItem="6qj-AA-sF2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="NVJ-9B-iuU"/>
+                <constraint firstItem="6qj-AA-sF2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="143" id="WSk-Ce-OaM"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="F8w-7E-7Es"/>
+                    <exclude reference="WSk-Ce-OaM"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="button" destination="6qj-AA-sF2" id="lXr-lX-rHI"/>
+            </connections>
+            <point key="canvasLocation" x="213" y="420"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="AI_Wish_Black_Make_audio" width="14" height="22"/>
+    </resources>
+</document>
