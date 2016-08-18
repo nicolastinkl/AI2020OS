@@ -8,12 +8,12 @@ import UIKit
 
 class AIRecommondForYouViewController: UIViewController {
 	var tableView: UITableView!
-	var service_id: String!
+	var service_id: String! = "900001001004" //fake
 	private var dataSource: [AISearchServiceModel] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setupData()
+		fetchData()
 		setupTableView()
 		setupNavigationItems()
 	}
@@ -22,7 +22,7 @@ class AIRecommondForYouViewController: UIViewController {
 		setupNavigationBarLikeQA(title: "为您推荐")
 	}
 	
-	func setupData() {
+	func fetchData() {
 		let service = AIRecommondForYouService()
 		service.allRecomends(service_id, success: { [weak self] models in
 			self?.dataSource = models

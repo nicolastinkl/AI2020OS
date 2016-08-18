@@ -16,14 +16,10 @@ class AIRecommondForYouService: NSObject {
 		let body = ["data": ["service_id": service_id], "desc": ["data_mode": "0", "digest": ""]]
 		message.body = NSMutableDictionary(dictionary: body)
 		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-			AILog(response)
-			let array = response["recommend_list"] as! [NSDictionary]
-			var result: [AISearchServiceModel] = []
-			for dic in array {
-				if let model = try?AISearchServiceModel(dictionary: dic as [NSObject : AnyObject]) {
-					result.append(model)
-				}
-			}
+			
+			let array = response["recommend_list"] as! [AnyObject]
+			let result: [AISearchServiceModel] = AISearchServiceModel.arrayOfModelsFromDictionaries(array) as NSArray as! [AISearchServiceModel]
+			
 			success(result)
 		}) { (error: AINetError, errorDes: String!) -> Void in
 			fail(errType: error, errDes: errorDes ?? "")
