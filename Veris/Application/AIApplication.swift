@@ -419,6 +419,8 @@ struct AIApplication {
         case queryTimeLine
         // 查询时间线内容
         case queryTimeLineDetail
+        // 查询支付订单
+        case queryPayment
         
         var description: String {
 
@@ -492,7 +494,7 @@ struct AIApplication {
             //服务执行相关接口
             case .queryTimeLine: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLine"
             case .queryTimeLineDetail: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLineDetail"
-
+            case .queryPayment: return AIApplication.KURL_ReleaseURL + "/payment/queryPayment"
             }
         }
     }
