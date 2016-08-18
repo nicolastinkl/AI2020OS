@@ -14,7 +14,7 @@ protocol CommentService: NSObjectProtocol {
     func getCompondComment(userId: String, userType: Int, serviceId: String, success: (responseData: CompondComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func queryCommentSpecification(success: (responseData: [StarDesc]) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     // 提交评论。userType：1 – customer, 2 - provider
-    func submitComments(userID: String, userType: Int, commentList: [ServiceComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func submitComments(userID: String, userType: Int, commentList: [SingleComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
 class HttpCommentService: NSObject {}
@@ -53,7 +53,7 @@ extension HttpCommentService: CommentService {
         let url = AIApplication.AIApplicationServerURL.compondComment.description
         message.url = url
         
-        let data: [String: AnyObject] = ["service_id": serviceId, "user_id": userId, "userType": userType]
+        let data: [String: AnyObject] = ["service_id": serviceId, "user_id": userId, "user_type": userType]
         message.body = BDKTools.createRequestBody(data)
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
@@ -105,7 +105,7 @@ extension HttpCommentService: CommentService {
     }
     
     // 提交评论。userType：1 – customer, 2 - provider
-    func submitComments(userID: String, userType: Int, commentList: [ServiceComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func submitComments(userID: String, userType: Int, commentList: [SingleComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
         let url = AIApplication.AIApplicationServerURL.saveComment.description
         message.url = url

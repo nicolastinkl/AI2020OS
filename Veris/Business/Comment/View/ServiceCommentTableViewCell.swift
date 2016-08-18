@@ -391,6 +391,8 @@ private class CommentEditableState: AbsCommentState {
             addAssetImages(imagesUrl)
         }
         
+        cell.firstComment.inputTextView.text = nil
+        
         if let text = cell.model?.loaclModel?.text {
             cell.firstComment.inputTextView.text = text
             cell.firstComment.hideHint()
@@ -472,6 +474,8 @@ private class CommentFinshedState: AbsCommentState {
         } else {
             cell.imageButton.hidden = false
         }
+        
+        cell.firstComment.inputTextView.text = cell.model?.firstComment?.text
         
         if let text = cell.model?.loaclModel?.text {
             cell.appendComment.inputTextView.text = text
@@ -608,6 +612,9 @@ private class DoneState: AbsCommentState {
         cell.appendCommentButton?.removeFromSuperview()
         cell.imageButton?.removeFromSuperview()
         
+        cell.firstComment.inputTextView.text = cell.model?.firstComment?.text
+        cell.appendComment.inputTextView.text = cell.model?.appendComment?.text
+        
         cell.cellDelegate?.commentHeightChanged()
         
         let firstImages = cell.getImageUrls(false)
@@ -670,8 +677,9 @@ extension ServiceCommentTableViewCell: UITextViewDelegate {
 }
 
 extension ServiceCommentTableViewCell: StarRateViewDelegate {
+    
     func scroePercentDidChange(starView: StarRateView, newScorePercent: CGFloat) {
-        model?.loaclModel?.starValue = newScorePercent
+        cellDelegate?.scroePercentDidChange(newScorePercent, cell: self)
     }
 }
 
@@ -681,4 +689,5 @@ protocol CommentCellDelegate: NSObjectProtocol {
     // images: key is ImageTag
     func imagesClicked(images: [(imageId: String, UIImage)], cell: ServiceCommentTableViewCell)
     func textViewDidEndEditing(textView: UITextView, cell: ServiceCommentTableViewCell)
+    func scroePercentDidChange(newScorePercent: CGFloat, cell: ServiceCommentTableViewCell)
 }

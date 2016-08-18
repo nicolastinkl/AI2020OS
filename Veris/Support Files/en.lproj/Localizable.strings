@@ -192,7 +192,7 @@
  * ./Veris/Business/Comment/ViewController/CompondServiceCommentViewController.xib
  */
 
-"CompondServiceCommentViewController.submit" = "sumit";
+"CompondServiceCommentViewController.submit" = "submit";
 "CompondServiceCommentViewController.anonymous" = "Anonymous comment";
 "CompondServiceCommentViewController.append" = "追加评价";
 "CompondServiceCommentViewController.title" = "评价";
