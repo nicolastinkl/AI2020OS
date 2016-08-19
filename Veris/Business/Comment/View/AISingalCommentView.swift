@@ -15,20 +15,22 @@ class AISingalCommentView: UIView {
 
     //MARK: Constants
     let placeHolder = "Please tell us how you fell about this experience. This will be of great help for others."
-
+    let ReadOnlyTag = 1999
     //MARK: Properties
     var lCommentModel: AICommentModel!
     var serviceOverview: AIServiceOverview!
     var commentStar: AIChooseStarLevelView!
-    var line: AILine!
+    var firstLine: AILine!
     var textView: UITextView!
+    var commentTextView: UITextView!
     var textViewPlaceHolder: UITextView!
     var toolView: UIView!
     var imagePickerButton: UIButton!
     var checkBoxButton: UIButton!
-    var endLine: AILine?
-    var seperatorLine: AILine?
+    var endLine: AILine!
+    var seperatorLine: AILine!
     var addtionalCommentButton: UIButton?
+    var hasDefaultComment: Bool!
 
     //MARK: init
 
@@ -50,7 +52,9 @@ class AISingalCommentView: UIView {
         makeCommentStars()
         let y = CGRectGetMaxY(commentStar.frame) + 82.displaySizeFrom1242DesignSize()
         makeLine(y)
-        if lCommentModel.comments != nil || lCommentModel.commentPictures != nil {
+
+        hasDefaultComment = lCommentModel.comments != nil || lCommentModel.commentPictures != nil
+        if hasDefaultComment == true {
             makeDefaultCommentView()
         } else {
             makeTextView()
@@ -93,22 +97,50 @@ class AISingalCommentView: UIView {
 
     func makeLine(startY: CGFloat) {
         let x = 40.displaySizeFrom1242DesignSize()
-        let y = CGRectGetMaxY(commentStar.frame) + 82.displaySizeFrom1242DesignSize()
         let width = self.width - x*2
         let height: CGFloat = 1
         let frame = CGRect(x: x, y: startY, width: width, height: height)
 
-        line = AILine(frame: frame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7), dotted: true)
-        self.addSubview(line)
+        firstLine = AILine(frame: frame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7), dotted: true)
+        self.addSubview(firstLine)
     }
 
     func makeDefaultCommentView() {
+        if lCommentModel.comments != nil {
+            makeDefaultCommentTextView()
+        }
+
+        if lCommentModel.commentPictures != nil {
+            makeDefaultCommentPictureView()
+        }
+    }
+
+
+    func makeDefaultCommentTextView() {
+        let x = 40.displaySizeFrom1242DesignSize()
+        let y = CGRectGetMaxY(firstLine.frame) + 21.displaySizeFrom1242DesignSize()
+        let width = self.width - x*2
+        let font = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+        let textSize = lCommentModel.comments?.sizeWithFont(font, forWidth: width)
+        let maxHeight = 228.displaySizeFrom1242DesignSize()
+        let height: CGFloat = textSize?.height > maxHeight ? maxHeight : (textSize?.height)!
+        let frame = CGRect(x: x, y: y, width: width, height: height)
+        commentTextView = UITextView(frame: frame)
+        commentTextView.backgroundColor = UIColor.clearColor()
+
+        commentTextView.font = font
+        commentTextView.textColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 1)
+        commentTextView.tag = ReadOnlyTag
+        self.addSubview(commentTextView)
+    }
+
+    func makeDefaultCommentPictureView() {
 
     }
 
     func makeTextView() {
         let x = 40.displaySizeFrom1242DesignSize()
-        let y = CGRectGetMaxY(line.frame) + 21.displaySizeFrom1242DesignSize()
+        let y = CGRectGetMaxY(firstLine.frame) + 21.displaySizeFrom1242DesignSize()
         let width = self.width - x*2
         let height: CGFloat = 228.displaySizeFrom1242DesignSize()
         let frame = CGRect(x: x, y: y, width: width, height: height)
@@ -163,5 +195,13 @@ extension AISingalCommentView: UITextViewDelegate {
             textView.text = (currentText as NSString).substringToIndex(500)
         }
 
+    }
+
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        if textView.tag == ReadOnlyTag {
+            return false
+        } else {
+            return true
+        }
     }
 }
