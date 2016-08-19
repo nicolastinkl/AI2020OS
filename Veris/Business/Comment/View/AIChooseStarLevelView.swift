@@ -10,16 +10,26 @@ import UIKit
 
 class AIChooseStarLevelView: UIView {
 
-    let HorizontalMargin = AITools.displaySizeFrom1080DesignSize(50)
-    let VerticalMargin = AITools.displaySizeFrom1080DesignSize(50)
-    let StarSize = AITools.displaySizeFrom1080DesignSize(103)
+
+    //MARK: Input
+
+    struct StarInfo {
+        var Width: CGFloat!
+        var Height: CGFloat!
+        var Margin: CGFloat!
+    }
+
+    //MARK: Properties
+
     var defaultStarLevel = 0
     var shouldChangeStarLevel = true
     var stars = [UIButton]()
+    var lStarInfo: StarInfo!
     //MARK: func
 
-    init(frame: CGRect, starLevel: Int) {
+    init(frame: CGRect, starInfo: StarInfo, starLevel: Int) {
         super.init(frame: frame)
+        lStarInfo = starInfo
         makeStars(starLevel)
     }
 
@@ -29,9 +39,9 @@ class AIChooseStarLevelView: UIView {
 
     func makeStars(level: Int) {
         defaultStarLevel = level > 5 ? 5 : level
-        var x = HorizontalMargin / 2
-        let y = VerticalMargin / 2
-        var frame = CGRect(x: x, y: y, width: StarSize, height: StarSize)
+        var x: CGFloat = 0
+        let y: CGFloat = 0
+        var frame = CGRect(x: x, y: y, width: lStarInfo.Width, height: lStarInfo.Height)
 
         for index in 1 ... 5 {
             let star = makeSignalStar(frame)
@@ -39,11 +49,11 @@ class AIChooseStarLevelView: UIView {
             star.selected = index <= defaultStarLevel
             star.tag = index
             stars.append(star)
-            x += StarSize + HorizontalMargin
+            x += lStarInfo.Width + lStarInfo.Margin
             frame.origin.x = x
         }
 
-        reframeByWidth(x - HorizontalMargin / 2)
+        reframeByWidth(x - lStarInfo.Margin)
     }
 
 
@@ -81,7 +91,7 @@ class AIChooseStarLevelView: UIView {
     func reframeByWidth(width: CGFloat) {
         var newFrame = self.frame
         newFrame.size.width = width
-        newFrame.size.height = VerticalMargin + StarSize
+        newFrame.size.height = lStarInfo.Height
         self.frame = newFrame
     }
 

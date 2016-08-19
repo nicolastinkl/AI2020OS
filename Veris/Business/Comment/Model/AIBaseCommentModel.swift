@@ -8,14 +8,15 @@
 
 import UIKit
 
-class AIBaseCommentModel: NSObject {
+class AICommentModel: NSObject {
 
     var serviceIconURL: NSURL?
     var serviceName: String?
-    var starLevel: String?
+    var starLevel: NSNumber?
     var comments: String?
     var commentPictures: [String]?
     var isAnonymous: Bool?
+    var serviceModel: AICommentSeviceModel?
 }
 
 

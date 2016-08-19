@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class AISingalServiceCommnentViewController: AIBaseViewController {
 
@@ -25,6 +26,7 @@ class AISingalServiceCommnentViewController: AIBaseViewController {
 
         setupNavigationBar()
         makeTitle()
+        makeSubviews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,8 +38,16 @@ class AISingalServiceCommnentViewController: AIBaseViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        AILog("\(CGRectGetHeight((self.navigationController?.navigationBar.bounds)!))")
+        //IQKeyboardManager.sharedManager().enable = false
     }
+
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        //IQKeyboardManager.sharedManager().enable = true
+    }
+
+
     /*
     // MARK: - Navigation
 
@@ -67,7 +77,7 @@ class AISingalServiceCommnentViewController: AIBaseViewController {
         button.setTitle("submit", forState: UIControlState.Normal)
         button.titleLabel?.textAlignment = .Right
         button.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
-        button.titleLabel?.textColor = AITools.colorWithHexString("0f86e8")
+        button.setTitleColor(AITools.colorWithHexString("0f86e8"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(submitAction), forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }
@@ -81,6 +91,25 @@ class AISingalServiceCommnentViewController: AIBaseViewController {
         titleLabel.textAlignment = .Center
 
         self.navigationItem.titleView = titleLabel
+
+    }
+
+    func makeSubviews() {
+        let x: CGFloat = 0
+        let y: CGFloat = 64
+        let width = CGRectGetWidth(self.view.frame)
+        let height = 842.displaySizeFrom1242DesignSize()
+        let frame = CGRect(x: x, y: y, width: width, height: height)
+
+        let commentModel = AICommentModel()
+        let serviceModel = AICommentSeviceModel()
+        serviceModel.serviceIcon = "http://img5.imgtn.bdimg.com/it/u=4115455389,1829632566&fm=11&gp=0.jpg"
+        serviceModel.serviceName = "Effoldless Beauty Pregnancy Care"
+        commentModel.serviceModel = serviceModel
+        commentModel.starLevel = 5
+
+        let signalComment = AISingalCommentView(frame: frame, commentModel: commentModel)
+        self.view.addSubview(signalComment)
 
     }
 
