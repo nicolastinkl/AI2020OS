@@ -43,12 +43,12 @@ class AIPayListInfoCellView: UITableViewCell {
 		
 	}
 	
-	func setCellContent(item: AIPayInfoModel, isExpanded: Bool) {
+	func setCellContent(item: AIPaymentItemModel, isExpanded: Bool) {
 		
-		self.payName.text = item.servicename ?? ""
-		self.payPrice.text = "\(item.price ?? 0)元"
+		self.payName.text = item.name ?? ""
+		self.payPrice.text = "\(item.amout ?? "")元"
 		
-		self.arrowDirectIcon.image = item.childList?.count > 0 ? UIImage(named: "AI_Search_Home_right") : nil
+		self.arrowDirectIcon.image = item.details.count > 0 ? UIImage(named: "AI_Search_Home_right") : nil
 		
 		if isExpanded == false {
 			/*let animation = CABasicAnimation()
@@ -64,42 +64,39 @@ class AIPayListInfoCellView: UITableViewCell {
 		} else {
 			let expendListView = UIView()
 			var topOffset: CGFloat = 0
-			if let m = item.childList {
-				for model in m {
-					let name = UILabel()
-					name.text = model.servicename ?? ""
-					let price = UILabel()
-					price.text = "\(model.price ?? 0)元"
-					
-					expendListView.addSubview(name)
-					expendListView.addSubview(price)
-					
-					name.textColor = UIColor(hexString: "#fefefe", alpha: 0.76)
-					price.textColor = UIColor(hexString: "#fefefe", alpha: 0.76)
-					
-					name.font = AITools.myriadLightWithSize(40 / 3)
-					price.font = AITools.myriadLightWithSize(40 / 3)
-					
-					name.textAlignment = .Left
-					price.textAlignment = .Right
-					
-					name.setWidth(100)
-					name.setHeight(30)
-					
-					price.setWidth(60)
-					price.setHeight(30)
-					
-					let offs = UIScreen.mainScreen().bounds.size.width / 2.07
-					
-					price.setLeft(offs)
-					
-					name.setTop(topOffset)
-					price.setTop(topOffset)
-					
-					topOffset += 30
-					
-				}
-			}
+            for model in item.details {
+                let name = UILabel()
+                name.text = model.name ?? ""
+                let price = UILabel()
+                price.text = "\(model.amout ?? "")元"
+                
+                expendListView.addSubview(name)
+                expendListView.addSubview(price)
+                
+                name.textColor = UIColor(hexString: "#fefefe", alpha: 0.76)
+                price.textColor = UIColor(hexString: "#fefefe", alpha: 0.76)
+                
+                name.font = AITools.myriadLightWithSize(40 / 3)
+                price.font = AITools.myriadLightWithSize(40 / 3)
+                
+                name.textAlignment = .Left
+                price.textAlignment = .Right
+                
+                name.setWidth(100)
+                name.setHeight(30)
+                
+                price.setWidth(60)
+                price.setHeight(30)
+                
+                let offs = UIScreen.mainScreen().bounds.size.width / 2.07
+                
+                price.setLeft(offs)
+                
+                name.setTop(topOffset)
+                price.setTop(topOffset)
+                
+                topOffset += 30
+            }
 			
 			expendConstrint.constant = topOffset
 			

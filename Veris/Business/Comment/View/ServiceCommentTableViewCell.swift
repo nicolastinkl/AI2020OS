@@ -9,6 +9,8 @@
 import UIKit
 
 class ServiceCommentTableViewCell: UITableViewCell {
+    
+    private static let commentAreaMaxHeight: CGFloat = 242
 
     @IBOutlet weak var imageButton: UIImageView!
     @IBOutlet weak var serviceIcon: UIImageView!
@@ -26,7 +28,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var anonymousLabel: UILabel!
     
     private var hasAppendHeight: CGFloat!
-    private var commentAreaHeight: CGFloat!
+  //  private var commentAreaHeight: CGFloat!
     
     var delegate: CommentDistrictDelegate?
     var cellDelegate: CommentCellDelegate?
@@ -58,11 +60,6 @@ class ServiceCommentTableViewCell: UITableViewCell {
         return CommentStateEnum.Done
     }
     
-    func resetState(state: CommentStateEnum) {
-        let s = getState(state)
-        resetState(s)
-    }
-    
     private func resetState(state: CommentState) {
         if let s = self.state {
             if s.dynamicType != state.dynamicType {
@@ -80,6 +77,12 @@ class ServiceCommentTableViewCell: UITableViewCell {
         state.updateUI()
         
         return getState()
+    }
+    
+    func resetModel(model: ServiceCommentViewModel) {
+        self.model = model
+        
+        state.updateUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -118,7 +121,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
         appendCommentButton.layer.borderColor = UIColor(hex: "FFFFFFAA").CGColor
         
         hasAppendHeight = height
-        commentAreaHeight = firstComment.height
+   //     commentAreaHeight = firstComment.height
         
         checkbox.layer.cornerRadius = 4
         anonymousLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(40))
@@ -391,6 +394,8 @@ private class CommentEditableState: AbsCommentState {
             addAssetImages(imagesUrl)
         }
         
+        cell.firstComment.inputTextView.text = nil
+        
         if let text = cell.model?.loaclModel?.text {
             cell.firstComment.inputTextView.text = text
             cell.firstComment.hideHint()
@@ -473,6 +478,8 @@ private class CommentFinshedState: AbsCommentState {
             cell.imageButton.hidden = false
         }
         
+        cell.firstComment.inputTextView.text = cell.model?.firstComment?.text
+        
         if let text = cell.model?.loaclModel?.text {
             cell.appendComment.inputTextView.text = text
             cell.appendComment.hideHint()
@@ -481,7 +488,7 @@ private class CommentFinshedState: AbsCommentState {
         let expanded = cell.hasLocalContent()
   
         cell.firstComment.finishComment()
-        cell.appendCommentHeight.constant = expanded ? cell.firstComment.height : 0
+        cell.appendCommentHeight.constant = expanded ? ServiceCommentTableViewCell.commentAreaMaxHeight : 0
         cell.appendCommentButton.hidden = expanded
         cell.imageButton.hidden = !expanded
         cell.starRateView.userInteractionEnabled = expanded
@@ -535,7 +542,7 @@ private class AppendEditingState: AbsCommentState {
         cell.firstComment.userInteractionEnabled = false
         cell.appendComment.userInteractionEnabled = true
         
-        cell.appendCommentHeight.constant = cell.firstComment.height
+        cell.appendCommentHeight.constant = ServiceCommentTableViewCell.commentAreaMaxHeight
         cell.appendCommentButton.hidden = true
         cell.imageButton.hidden = false
         cell.starRateView.userInteractionEnabled = true
@@ -608,6 +615,9 @@ private class DoneState: AbsCommentState {
         cell.appendCommentButton?.removeFromSuperview()
         cell.imageButton?.removeFromSuperview()
         
+        cell.firstComment.inputTextView.text = cell.model?.firstComment?.text
+        cell.appendComment.inputTextView.text = cell.model?.appendComment?.text
+        
         cell.cellDelegate?.commentHeightChanged()
         
         let firstImages = cell.getImageUrls(false)
@@ -670,8 +680,9 @@ extension ServiceCommentTableViewCell: UITextViewDelegate {
 }
 
 extension ServiceCommentTableViewCell: StarRateViewDelegate {
+    
     func scroePercentDidChange(starView: StarRateView, newScorePercent: CGFloat) {
-        model?.loaclModel?.starValue = newScorePercent
+        cellDelegate?.scroePercentDidChange(newScorePercent, cell: self)
     }
 }
 
@@ -681,4 +692,5 @@ protocol CommentCellDelegate: NSObjectProtocol {
     // images: key is ImageTag
     func imagesClicked(images: [(imageId: String, UIImage)], cell: ServiceCommentTableViewCell)
     func textViewDidEndEditing(textView: UITextView, cell: ServiceCommentTableViewCell)
+    func scroePercentDidChange(newScorePercent: CGFloat, cell: ServiceCommentTableViewCell)
 }

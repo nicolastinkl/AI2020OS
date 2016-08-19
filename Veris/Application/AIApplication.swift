@@ -23,8 +23,8 @@ struct AIApplication {
 
 
     #if DEBUG
-    internal static let KURL_ReleaseURL = "http://localhost:3006" // zx debug ip
-//    internal static let KURL_ReleaseURL = "http://171.221.254.231:2999/nsboss"
+//    internal static let KURL_ReleaseURL = "http://localhost:3006" // zx debug ip
+    internal static let KURL_ReleaseURL = "http://171.221.254.231:2999/nsboss"
     #else
     internal static let KURL_ReleaseURL = "http://171.221.254.231:2999/nsboss" // RELEASE 服务器根地址
     #endif
@@ -420,6 +420,8 @@ struct AIApplication {
         case queryTimeLine
         // 查询时间线内容
         case queryTimeLineDetail
+        // 查询支付订单
+        case queryPayment
         
         var description: String {
 
@@ -493,7 +495,7 @@ struct AIApplication {
             //服务执行相关接口
             case .queryTimeLine: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLine"
             case .queryTimeLineDetail: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLineDetail"
-
+            case .queryPayment: return AIApplication.KURL_ReleaseURL + "/payment/queryPayment"
             }
         }
     }

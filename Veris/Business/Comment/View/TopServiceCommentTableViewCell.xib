@@ -84,18 +84,23 @@
                             <constraint firstAttribute="height" priority="999" constant="1" id="npc-E6-GSZ"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cn9-zZ-dPP" userLabel="firstComment" customClass="CommentAreaView" customModule="Veris" customModuleProvider="target">
+                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="290" placeholderIntrinsicHeight="242" translatesAutoresizingMaskIntoConstraints="NO" id="cn9-zZ-dPP" userLabel="firstComment" customClass="CommentAreaView" customModule="Veris" customModuleProvider="target">
                         <rect key="frame" x="22" y="58" width="290" height="242"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="242" id="UAB-So-82W"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="242" id="UAB-So-82W"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UAB-So-82W"/>
+                            </mask>
+                        </variation>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jar-dt-7oB" userLabel="appendComment" customClass="CommentAreaView" customModule="Veris" customModuleProvider="target">
                         <rect key="frame" x="22" y="311" width="290" height="0.0"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" id="8Dg-HP-nlq"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" id="8Dg-HP-nlq"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6C-Yf-t7S" userLabel="checkbox" customClass="CheckboxButton" customModule="Veris" customModuleProvider="target">
@@ -182,6 +187,7 @@
                     <mask key="constraints">
                         <exclude reference="C2Y-Vb-FA8"/>
                         <exclude reference="vU4-aP-i6n"/>
+                        <exclude reference="ahV-Nf-hoW"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

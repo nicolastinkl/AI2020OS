@@ -391,11 +391,13 @@ class AICustomSearchHomeResultFilterBarMenuView: UIView {
 				})
 				let button = menuButtons[selectedIndex]
 				button.selected = true
-            } else {
-                // deselect
-                let button = menuButtons[oldValue]
-                button.selected = false
-            }
+			} else {
+				// deselect
+				if oldValue != -1 {
+					let button = menuButtons[oldValue]
+					button.selected = false
+				}
+			}
 		}
 	}
 	

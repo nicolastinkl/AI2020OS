@@ -81,7 +81,7 @@ class AIProviderDetailViewController: UIViewController {
 	
 	func setupBubbleView() {
 		bubbleView = GridBubblesView(bubbleModels: [])
-		bubbleView.delegate = self
+//		bubbleView.delegate = self
 		bubbleContainerView.addSubview(bubbleView)
 		
 		bubbleView.snp_makeConstraints(closure: { (make) in
@@ -141,12 +141,12 @@ class AIProviderDetailViewController: UIViewController {
 	}
 }
 
-extension AIProviderDetailViewController: GridBubblesViewDelegate {
-	func bubblesView(bubblesView: GridBubblesView, didClickBubbleViewAtIndex index: Int) {
-		let model = bubblesView.bubbleModels[index]
+//extension AIProviderDetailViewController: HorizontalBubblesViewDelegate {
+//	func bubblesView(bubblesView: HorizontalBubblesView, didClickBubbleViewAtIndex index: Int) {
+//		let model = bubblesView.bubbleModels[index]
 //		AILog(model)
 //		 let vc = AISuperiorityViewController.initFromNib()
 //		 vc.serviceModel = model
 //		 showTransitionStyleCrossDissolveView(vc)
-	}
-}
+//	}
+//}

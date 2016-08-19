@@ -12,14 +12,14 @@ import Foundation
 struct AIProdcutinfoService {
     
     /// 请求产品详情数据
-    static func requestServiceInfo(serviceId: String, userId: String, complate: ((AnyObject?, String?) -> Void)) {
+    static func requestServiceInfo(serviceId: String, complate: ((AnyObject?, String?) -> Void)) {
         
         let message = AIMessage()
-        let body: NSDictionary = [
+        let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
+        let body: NSDictionary = ["data": [
             "service_id": serviceId,
             "user_id":userId
-        ]
-        
+            ], "desc": ["data_mode": "0", "digest": ""]]
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         message.url = AIApplication.AIApplicationServerURL.detail.description as String
         
@@ -47,7 +47,7 @@ struct AIProdcutinfoService {
                     if let i = d["result"] as? Int {
                         if i == 1 {
                             complate("1", nil)
-                        }else{
+                        } else {
                             complate(nil, "0")
                         }
                     }
