@@ -32,8 +32,8 @@ class CommentAreaView: UIView {
         inputTextView.userInteractionEnabled = false
     }
     
-    func hideHint() {
-        hint.hidden = true
+    func hideHint(hide: Bool) {
+        hint.hidden = hide
     }
     
     override func intrinsicContentSize() -> CGSize {
@@ -49,13 +49,13 @@ class CommentAreaView: UIView {
 
 extension CommentAreaView: UITextViewDelegate {
     func textViewDidBeginEditing(textView: UITextView) {
-        hideHint()
+        hideHint(true)
         textViewDelegate?.textViewDidBeginEditing?(inputTextView)
     }
     
     func textViewDidEndEditing(textView: UITextView) {
         if textView.text.isEmpty {
-            hint.hidden = false
+            hideHint(false)
         }
         
         textViewDelegate?.textViewDidEndEditing?(inputTextView)
