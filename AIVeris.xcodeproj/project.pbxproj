@@ -626,6 +626,8 @@
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
+		8484D8341D66EBBB001F1A54 /* TestCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8484D8331D66EBBB001F1A54 /* TestCommentViewController.xib */; };
+		8484D8361D66EBF9001F1A54 /* TestCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8351D66EBF9001F1A54 /* TestCommentViewController.swift */; };
 		84970C211D654E0D006612B2 /* AIProviderDetailServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */; };
 		8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
@@ -1645,6 +1647,8 @@
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 		848316A51D3344AA00082D38 /* BDKTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BDKTools.swift; sourceTree = "<group>"; };
+		8484D8331D66EBBB001F1A54 /* TestCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCommentViewController.xib; sourceTree = "<group>"; };
+		8484D8351D66EBF9001F1A54 /* TestCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCommentViewController.swift; sourceTree = "<group>"; };
 		8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
@@ -3737,7 +3741,6 @@
 				9304551B1D125312007AFC0C /* AIWaterView.swift */,
 				93C8C9A71D14034A00F1DFCF /* AICustomSearchHomeCell.swift */,
 				93C8C9A91D14035B00F1DFCF /* AICustomSearchHomeCell.xib */,
-				FB5934181D59BAD500CBE237 /* HorizontalBubblesView.swift */,
 				9352BC7B1D64583A003CD476 /* AIAudioSearchButtonView.swift */,
 				9352BC7D1D645849003CD476 /* AIAudioSearchButtonView.xib */,
 				FB5934181D59BAD500CBE237 /* GridBubblesView.swift */,
@@ -4352,6 +4355,8 @@
 				846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */,
 				847D29951D4F2CA7009E26B8 /* CommentManager.swift */,
 				813860F41D59789D0050C0D0 /* AISingalServiceCommnentViewController.swift */,
+				8484D8331D66EBBB001F1A54 /* TestCommentViewController.xib */,
+				8484D8351D66EBF9001F1A54 /* TestCommentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4720,6 +4725,7 @@
 				8457004D1D012D7D00512597 /* CommentDistrictView.xib in Resources */,
 				12FBCB911D5ACBB100E333D6 /* AIWorkQualificationView.xib in Resources */,
 				81433D511CFBE5A700347C29 /* AIConfirmOrderCellView.xib in Resources */,
+				8484D8341D66EBBB001F1A54 /* TestCommentViewController.xib in Resources */,
 				1265F62D1D4F755200130ECF /* AIWorkManageStoryboard.storyboard in Resources */,
 				93C8C9AA1D14035B00F1DFCF /* AICustomSearchHomeCell.xib in Resources */,
 				93A0AB9C1D12AA1B00562090 /* AIPaymentViewController.xib in Resources */,
@@ -5500,6 +5506,7 @@
 				81433DAA1CFBE5A700347C29 /* AITimelineCellBaseView.swift in Sources */,
 				C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */,
 				81433D1C1CFBE5A700347C29 /* AccommodationService.swift in Sources */,
+				8484D8361D66EBF9001F1A54 /* TestCommentViewController.swift in Sources */,
 				936B32A51D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift in Sources */,
 				933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */,
 				81433E231CFBE5A700347C29 /* YLProgressBar.m in Sources */,
