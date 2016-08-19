@@ -214,7 +214,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     /// 刷新Bubble List数据
-    func WishVowViewControllerNOTIFY(notify: NSNotification){
+    func WishVowViewControllerNOTIFY(notify: NSNotification) {
         if let model = notify.object as? AIBuyerBubbleModel {
             self.dataSourcePop.append(model)
               self.makeBubbleView()

@@ -22,50 +22,100 @@ protocol AICustomSearchHomeResultFilterBarDelegate: NSObjectProtocol {
 class AICustomSearchHomeResultFilterBar: UIView {
 	
 	weak var delegate: AICustomSearchHomeResultFilterBarDelegate?
-	
 	private var filterButtons: [ImagePositionButton] = []
+	
+	var requestParams: [String: AnyObject] {
+		var result: [String: AnyObject] = [:]
+		if let filterModel = filterModel {
+			let filterIndex = indexOf(type: .Filter)
+			if filterIndex != -1 {
+				result["catalog_id"] = (filterModel.catalogs[filterIndex] as! AISearchFilterCatalog).id
+			}
+			let sortIndex = indexOf(type: .Sort)
+			if sortIndex != -1 {
+				result["sort_by"] = sortRequestValues[sortIndex]
+			}
+			
+			let priceIndex = indexOf(type: .Price)
+			if priceIndex != -1 {
+				result["price_area"] = (filterModel.prices[priceIndex] as! AISearchFilterPrice).toDictionary()
+			} else {
+				result["price_area"] = [
+					"min": "0",
+					"max": "+"
+				]
+			}
+		}
+		
+		AILog(result)
+		return result
+	}
+	
+	var filterModel: AISearchFilterModel? {
+		didSet {
+			setSelectedIndex(-1, forType: .Sort)
+			setSelectedIndex(-1, forType: .Price)
+			setSelectedIndex(-1, forType: .Filter)
+			updateMenuViews()
+		}
+	}
 	
 	// 半透明的黑色背景
 	private lazy var dimView: UIView = { [unowned self] in
 		let result = UIView()
+		result.backgroundColor = UIColor(hexString: "#120f25", alpha: 0.8)
+		result.hidden = true
 		result.layer.shadowColor = UIColor.blackColor().CGColor
 		result.layer.shadowOffset = CGSize(width: 0, height: -3)
-		result.layer.shadowRadius = 5
 		result.layer.shadowOpacity = 0.3
-		result.hidden = true
+		result.layer.shadowRadius = 5
 		let tap = UITapGestureRecognizer(target: self, action: #selector(AICustomSearchHomeResultFilterBar.dimViewTapped))
 		result.addGestureRecognizer(tap)
 		return result
 	}()
-    
-    func setSelectedIndex(index: Int, forType type: FilterType) {
-        let m = menuView(type: type)
-        m.selectedIndex = index
-    }
+	
+	func setSelectedIndex(index: Int, forType type: FilterType) {
+		let m = menuView(type: type)
+		m.selectedIndex = index
+	}
 	
 	var filterButtonTitles: [String] = ["Sort by", "Price", "Filter"] {
 		didSet {
-            setupFilterButtons()
+			setupFilterButtons()
 		}
 	}
 	
-	var filterTitles: [String]? {
-		didSet {
-			updateMenuViews()
+	var filterTitles: [String] {
+		if let catalogs = filterModel?.catalogs as? [AISearchFilterCatalog] {
+			return catalogs.map { $0.name }
 		}
+		return []
 	}
-	var priceTitles: [String]? {
-		didSet {
-			updateMenuViews()
+	var priceTitles: [String] {
+		if let prices = filterModel?.prices as? [AISearchFilterPrice] {
+			return prices.map { $0.min + " " + $0.max }
 		}
+		return []
 	}
-	var sortTitles: [String]? {
-		didSet {
-			updateMenuViews()
-		}
+	var sortTitles: [String] {
+		return [
+			"Price: Low to High",
+			"Price: High to Low",
+			"Avg.Custom Review",
+			"Newest Arrivals"
+		]
 	}
 	
-    /// 控制menuView 和menuContainerView top的距离
+	var sortRequestValues: [String] {
+		return [
+			"priceAscend",
+			"priceDescend",
+			"avgCustomerReview",
+			"newestArrivals"
+		]
+	}
+	
+	/// 控制menuView 和menuContainerView top的距离
 	var menuViewTopSpace: CGFloat = 0 {
 		didSet {
 			if let menuContainerView = menuContainerView {
@@ -76,13 +126,11 @@ class AICustomSearchHomeResultFilterBar: UIView {
 		}
 	}
 	
-    
-    /// dimView 的 containerView
+	/// dimView 的 containerView
 	var menuContainerView: UIView? {
 		didSet {
 			if let menuContainerView = menuContainerView {
 				dimView.removeFromSuperview()
-				dimView.backgroundColor = UIColor(hexString: "#120f25", alpha: 0.8)
 				menuContainerView.addSubview(dimView)
 				dimView.snp_makeConstraints(closure: { (make) in
 					make.edges.equalTo(menuContainerView)
@@ -114,22 +162,24 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	}
 	
 	func setupFilterButtons() {
-        filterButtons.forEach { (b) in
-            b.removeFromSuperview()
-        }
-        filterButtons.removeAll()
+		filterButtons.forEach { (b) in
+			b.removeFromSuperview()
+		}
+		filterButtons.removeAll()
 		
 		for i in 0..<filterButtonTitles.count {
 			let button = ImagePositionButton()
 			filterButtons.append(button)
+			
 			button.addTarget(self, action: #selector(AICustomSearchHomeResultFilterBar.filterButtonPressed(_:)), forControlEvents: .TouchUpInside)
 			button.setImage(UIImage(named: "search-down"), forState: .Normal)
-			button.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
-			button.titlePosition = .Left
 			button.setTitle(filterButtonTitles[i], forState: .Normal)
 			button.spacing = 6
 			button.tag = i + 100
+			button.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
+			button.titlePosition = .Left
 			button.updateImageInset()
+			
 			addSubview(button)
 			
 			// setup constraint
@@ -181,6 +231,7 @@ class AICustomSearchHomeResultFilterBar: UIView {
 			dimView.addSubview(result)
 			result.snp_makeConstraints(closure: { (make) in
 				make.top.leading.trailing.equalTo(dimView)
+				make.bottom.lessThanOrEqualTo(dimView)
 			})
 			return result
 		}
@@ -209,13 +260,22 @@ class AICustomSearchHomeResultFilterBar: UIView {
 		}
 		menuView(type: type).hidden = false
 	}
+	
+	func indexOf(type type: FilterType) -> Int {
+		let result = menuView(type: type)
+		return result.selectedIndex
+	}
 }
 
 extension AICustomSearchHomeResultFilterBar: AICustomSearchHomeResultFilterBarMenuViewDelegate {
 	func customSearchHomeResultFilterBarMenuView(menuView: AICustomSearchHomeResultFilterBarMenuView, menuButtonDidClickAtIndex index: Int) {
 		let type = FilterType(rawValue: menuView.tag)!
+		if menuView.selectedIndex == index {
+			menuView.selectedIndex = -1 // deselect
+		} else {
+			menuView.selectedIndex = index
+		}
 		delegate?.customSearchHomeResultFilterBar(self, didSelectType: type, index: index)
-		menuView.selectedIndex = index
 	}
 }
 
@@ -227,7 +287,7 @@ protocol AICustomSearchHomeResultFilterBarMenuViewDelegate: NSObjectProtocol {
 class AICustomSearchHomeResultFilterBarMenuView: UIView {
 	
 	weak var delegate: AICustomSearchHomeResultFilterBarMenuViewDelegate?
-	
+	private var scrollView: UIScrollView!
 	var menuButtons: [UIButton] = []
 	
 	let buttonHeight = AITools.displaySizeFrom1242DesignSize(142)
@@ -255,6 +315,12 @@ class AICustomSearchHomeResultFilterBarMenuView: UIView {
 		bgImageView.snp_makeConstraints { (make) in
 			make.edges.equalTo(self)
 		}
+		
+		scrollView = UIScrollView()
+		addSubview(scrollView)
+		scrollView.snp_makeConstraints { (make) in
+			make.edges.equalTo(self)
+		}
 	}
 	
 	func updateUI() {
@@ -279,9 +345,9 @@ class AICustomSearchHomeResultFilterBarMenuView: UIView {
 		button.setTitleColor(UIColor(hexString: "#ffffff"), forState: .Normal)
 		let selectedBackgroundImage = UIImage.withColor(UIColor(hexString: "#b2a5f1", alpha: 0.20))
 		button.setBackgroundImage(selectedBackgroundImage, forState: .Selected)
-        if selectedIndex == index {
-            button.selected = true
-        }
+		if selectedIndex == index {
+			button.selected = true
+		}
 		
 		// setup seperator line
 		let line = UIView()
@@ -296,18 +362,18 @@ class AICustomSearchHomeResultFilterBarMenuView: UIView {
 		button.tag = index
 		button.addTarget(self, action: #selector(AICustomSearchHomeResultFilterBarMenuView.buttonPressed(_:)), forControlEvents: .TouchUpInside)
 		menuButtons.append(button)
-		addSubview(button)
+		scrollView.addSubview(button)
 		button.snp_makeConstraints { (make) in
 			make.leading.trailing.equalTo(self)
 			make.height.equalTo(buttonHeight)
 			if index == 0 {
-				make.top.equalTo(self)
+				make.top.equalTo(scrollView)
 			} else {
 				make.top.equalTo(buttonHeight * CGFloat(index))
 			}
 			
 			if index == titles.count - 1 {
-				make.bottom.equalTo(self)
+				make.bottom.equalTo(scrollView)
 			}
 		}
 	}
@@ -318,13 +384,22 @@ class AICustomSearchHomeResultFilterBarMenuView: UIView {
 	
 	var selectedIndex: Int = -1 {
 		didSet {
+			// if selectedIndex 被前面的 range 包含
 			if 0..<menuButtons.count ~= selectedIndex {
 				menuButtons.forEach({ (b) in
 					b.selected = false
 				})
 				let button = menuButtons[selectedIndex]
 				button.selected = true
-			}
+            } else {
+                // deselect
+                let button = menuButtons[oldValue]
+                button.selected = false
+            }
 		}
+	}
+	
+	override func intrinsicContentSize() -> CGSize {
+		return CGSize(width: UIViewNoIntrinsicMetric, height: CGFloat(titles.count) * buttonHeight)
 	}
 }

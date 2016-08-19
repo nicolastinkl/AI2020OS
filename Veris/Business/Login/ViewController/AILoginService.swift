@@ -104,18 +104,18 @@ class AILoginService: NSObject {
 			"username": userCode,
 			"password": password.md5()
 		]
-		
-		message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
-		message.url = AIApplication.AIApplicationServerURL.login.description as String
-		
-		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-			
-			if let responseJSON: AnyObject = response {
-				#if DEBUG
-                success(userId: "")
+        
+        message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
+        message.url = AIApplication.AIApplicationServerURL.login.description as String
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            if let responseJSON: AnyObject = response {
+                #if DEBUG
+                    success(userId: "")
                 #endif
                 
-				let dic = responseJSON as! [NSString: AnyObject]
+                let dic = responseJSON as! [NSString: AnyObject]
                 
                 if let cid = dic["customer_id"] as? String, pid = dic["provider_id"] as? String, hurl = dic["head_url"] as? String {
                     
@@ -125,11 +125,16 @@ class AILoginService: NSObject {
                     NSUserDefaults.standardUserDefaults().synchronize()
                 }
                 
-				if let userId = dic["user_id"] as? String {
-					success(userId: userId)
-				} else {
-					fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
-				}
+                if let userId = dic["user_id"] as? String {
+                    let user = AIUser()
+                    user.id = userId.toInt()!
+                    if let hurl = dic["head_url"] as? String {
+                        user.headURL = hurl
+                    }
+                    success(userId: userId)
+                } else {
+                    fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+                }
 				
 			} else {
 				fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)

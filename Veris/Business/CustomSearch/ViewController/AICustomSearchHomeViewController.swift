@@ -12,7 +12,6 @@ import Cartography
 import AIAlertView
 import SnapKit
 
-
 class AICustomSearchHomeViewController: UIViewController {
 	
 	// MARK: Private
@@ -20,77 +19,88 @@ class AICustomSearchHomeViewController: UIViewController {
 	@IBOutlet weak var searchText: UITextField!
 	var recentlySearchTag: AISearchHistoryLabels!
 	var everyOneSearchTag: AISearchHistoryLabels!
-	var iconView: AISearchHistoryIconView!
+	var browseHistoryView: AISearchHistoryIconView!
 	
 	@IBOutlet weak var holdView: UIView!
 	@IBOutlet weak var resultFilterBar: AICustomSearchHomeResultFilterBar!
 	@IBOutlet weak var resultHoldView: UIView!
 	@IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var bubbleContainerView: UIView!
+	@IBOutlet weak var bubbleContainerView: UIView!
+    
+    var recentlySearchTexts: [String]?
+    var everyOneSearchTexts: [String]?
+    var browseHistory: [AISearchServiceModel]?
 	
 	// MARK: Private
 	
 	private var dataSource: [AISearchServiceModel] = []
-    
-    var bubbleModels = [AIBuyerBubbleModel]()
-    
+	
+	var bubbleModels = [AIBuyerBubbleModel]()
+	
 	// MARK: Method Init
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-        setupTableView()
-        setupFilterView()
-        setupSearchView()
-        fetchData()
-        
-        // Register Audio Tools Notification
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToAllView), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
+		setupTableView()
+		setupFilterView()
+        setupWishButton()
+		fetchData()
+		
+		// Register Audio Tools Notification
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToAllView), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
 	}
-    
-    func fetchData() {
-        let service = AISearchHomeService()
-        let user_id = 100000000208
-        let user_type = 1
-        
-        service.getRecommendedServices(user_id, user_type: user_type, success: { [weak self] (models) in
-            self?.bubbleModels = AIBuyerBubbleModel.convertFrom(models)
-            self?.setupBubbleView()
-            }) { (errType, errDes) in
-                
-        }
-        
-    }
-    
-    func popToRootView() {
-        self.dismissViewControllerAnimated(false, completion: nil)
-    }
-    
-    func popToAllView() {
-        self.dismissViewControllerAnimated(false, completion: nil)
-        self.dismissViewControllerAnimated(false, completion: nil)
-    }
-    
-    /**
+	
+	func fetchData() {
+		let service = AISearchHomeService()
+		
+		service.getRecommendedServices({ [weak self](models) in
+			self?.bubbleModels = AIBuyerBubbleModel.convertFrom(models)
+			self?.setupBubbleView()
+		}) { (errType, errDes) in
+		}
+		
+        self.view.showLoading()
+        service.recentlySearch({ [weak self] (recentlySearchTexts: [String], everyOneSearchTexts: [String], browseHistory: [AISearchServiceModel]) in
+            self?.view.hideLoading()
+            self?.recentlySearchTexts = recentlySearchTexts
+            self?.everyOneSearchTexts = everyOneSearchTexts
+            self?.browseHistory = browseHistory
+            self?.setupRecentlySearchView()
+        }) {[weak self] (errType, errDes) in
+            self?.view.hideLoading()
+		}
+	}
+	
+	func popToRootView() {
+		self.dismissViewControllerAnimated(false, completion: nil)
+	}
+	
+	func popToAllView() {
+		self.dismissViewControllerAnimated(false, completion: nil)
+		self.dismissViewControllerAnimated(false, completion: nil)
+	}
+	
+	/**
      处理语音识别数据搜索
      */
-    func listeningAudioTools(notify: NSNotification) {
-        if let result = notify.userInfo {
-            let string = result["Results"] as? String
-            Async.main({ 
-                self.searchText.text = string ?? ""
-                self.searching()
-                self.tableView.hidden = false
-                self.holdView.hidden = true
-            })
-            
-        }
-    }    
-    
+	func listeningAudioTools(notify: NSNotification) {
+		if let result = notify.userInfo {
+			let string = result["Results"] as? String
+			Async.main({
+				self.searchText.text = string ?? ""
+				self.searching()
+				self.tableView.hidden = false
+				self.holdView.hidden = true
+			})
+			
+		}
+	}
+	
 	// MARK: Action
 	
 	func makeAWishAction() {
@@ -104,7 +114,6 @@ class AICustomSearchHomeViewController: UIViewController {
 		let navi = UINavigationController(rootViewController: vc)
 		navi.navigationBarHidden = true
 		self.presentViewController(navi, animated: true, completion: nil)
-		
 	}
 	
 	@IBAction func showListAction(any: AnyObject) {
@@ -115,68 +124,21 @@ class AICustomSearchHomeViewController: UIViewController {
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 100
 	}
-    
+	
 	func setupFilterView() {
-        resultFilterBar.menuContainerView = view
-        resultFilterBar.menuViewTopSpace = AITools.displaySizeFrom1242DesignSize(198+122)
-        resultFilterBar.delegate = self
-        resultFilterBar.setSelectedIndex(0, forType: .Sort)
-        resultFilterBar.setSelectedIndex(0, forType: .Price)
-        resultFilterBar.setSelectedIndex(0, forType: .Filter)
-        
-        resultFilterBar.sortTitles = [
-            "Transport",
-            "Paramedic",
-            "Medication",
-            "Other"
-        ]
-        
-        resultFilterBar.priceTitles = [
-            "€ 0 - € 5",
-            "€ 5 - € 30",
-            "€ 30 - € 60",
-            "€ 60 - € 100",
-            "€ 100 or more"
-        ]
-        
-        resultFilterBar.filterTitles = [
-            "Price: Low to High",
-            "Price: High to Low",
-            "Avg.Custom Review",
-            "Newest Arrivals"
-        ]
+		resultFilterBar.menuContainerView = view
+		resultFilterBar.menuViewTopSpace = AITools.displaySizeFrom1242DesignSize(198 + 122)
+		resultFilterBar.delegate = self
 	}
-
+	
 	func setupBubbleView() {
-        let bubblesView = GridBubblesView(bubbleModels: bubbleModels)
-        bubblesView.delegate = self
-        bubblesView.setY(AITools.displaySizeFrom1242DesignSize(87))
-        bubbleContainerView.addSubview(bubblesView)
+		let bubblesView = GridBubblesView(bubbleModels: bubbleModels)
+		bubblesView.delegate = self
+		bubblesView.setY(AITools.displaySizeFrom1242DesignSize(87))
+		bubbleContainerView.addSubview(bubblesView)
 	}
-	func setupSearchView() {
-		
-		// Make Test Data View
-		recentlySearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 20, width: screenWidth, height: 200), title: "You recently searched", labels: ["Pregnat", "Travel", "Europe", "Outdoors"])
-		recentlySearchTag.delegate = self
-		holdView.addSubview(recentlySearchTag)
-		everyOneSearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 0, width: screenWidth, height: 200), title: "Everyone is searching", labels: ["Ordering", "Baby Carriage", "Children's clothing"])
-		everyOneSearchTag.delegate = self
-		everyOneSearchTag.setY(recentlySearchTag.bottom + AITools.displaySizeFrom1242DesignSize(83))
-		holdView.addSubview(everyOneSearchTag)
-		
-		iconView = AISearchHistoryIconView(items: [
-			(image: "search-icon0", title: "Shangeri-La Hotel"),
-			(image: "search-icon1", title: "Origus"),
-			(image: "search-icon2", title: "Pregnacy"),
-			(image: "search-icon3", title: "Photography classroom"),
-			], width: screenWidth)
-        
-        iconView.delegate = self
-		
-		iconView.setY(everyOneSearchTag.bottom + AITools.displaySizeFrom1242DesignSize(109))
-		
-		holdView.addSubview(iconView)
-		
+    
+    func setupWishButton() {
 		// Make Wish Button
 		let wishButton = UIButton(type: UIButtonType.Custom)
 		wishButton.setTitle("   Make a Wish", forState: UIControlState.Normal)
@@ -202,6 +164,24 @@ class AICustomSearchHomeViewController: UIViewController {
 			wishProxy.centerY == wishProxy.superview!.centerY - 1
 			wishProxy.centerX == wishProxy.superview!.centerX + 60
 		}
+    }
+	func setupRecentlySearchView() {
+		
+		// Make Test Data View
+		recentlySearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 20, width: screenWidth, height: 200), title: "You recently searched", labels: recentlySearchTexts)
+		recentlySearchTag.delegate = self
+		holdView.addSubview(recentlySearchTag)
+		everyOneSearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 0, width: screenWidth, height: 200), title: "Everyone is searching", labels: everyOneSearchTexts)
+		everyOneSearchTag.delegate = self
+		everyOneSearchTag.setY(recentlySearchTag.bottom + AITools.displaySizeFrom1242DesignSize(83))
+		holdView.addSubview(everyOneSearchTag)
+		
+        if let browseHistory = browseHistory {
+            browseHistoryView = AISearchHistoryIconView(items: browseHistory, width: screenWidth)
+            browseHistoryView.delegate = self
+            browseHistoryView.setY(everyOneSearchTag.bottom + AITools.displaySizeFrom1242DesignSize(109))
+            holdView.addSubview(browseHistoryView)
+        }
 	}
 	
 	@IBAction func backButtonPressed(sender: AnyObject) {
@@ -213,30 +193,20 @@ class AICustomSearchHomeViewController: UIViewController {
 	
 	func searching() {
 		view.endEditing(true)
-		resultHoldView.hidden = false
-		holdView.hidden = true
-//		if let path = NSBundle.mainBundle().pathForResource("searchJson", ofType: "json") {
-//			let data: NSData? = NSData(contentsOfFile: path)
-//			if let dataJSON = data {
-//				do {
-//					let model = try AISearchResultModel(data: dataJSON)
-//					
-//					do {
-//						try model.results?.forEach({ (item) in
-//							let resultItem = try AISearchResultItemModel(dictionary: item as [NSObject: AnyObject])
-//							dataSource.append(resultItem)
-//						})
-//					} catch { }
-//					
-//					if dataSource.count > 0 {
-//						tableView.reloadData()
-//					}
-//				} catch {
-//					AILog("AIOrderPreListModel JSON Parse err.")
-//					
-//				}
-//			}
-//		}
+		view.showLoading()
+		let service = AISearchHomeService()
+		service.searchServiceCondition(searchText.text ?? "", page_size: 10, page_number: 1, success: { [weak self](model) in
+			self?.view.hideLoading()
+			self?.resultHoldView.hidden = false
+			self?.holdView.hidden = true
+			self?.resultFilterBar.filterModel = model
+            
+            self?.dataSource = model.service_list as! [AISearchServiceModel]
+            self?.tableView.reloadData()
+            
+		}) { [weak self](errType, errDes) in
+			self?.view.hideLoading()
+		}
 	}
 	
 	func endSearching() {
@@ -345,33 +315,33 @@ extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
 }
 
 extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDelegate {
-    func customSearchHomeResultFilterBar(filterBar: AICustomSearchHomeResultFilterBar, didSelectType type: FilterType, index: Int) {
-        filterBar.hideMenu()
-    }
+	func customSearchHomeResultFilterBar(filterBar: AICustomSearchHomeResultFilterBar, didSelectType type: FilterType, index: Int) {
+		filterBar.hideMenu()
+        view.showLoading()
+		let service = AISearchHomeService()
+		service.filterServices(searchText.text ?? "", page_size: 1000, page_number: 1, filterModel: resultFilterBar.requestParams, success: { [weak self] (res) in
+            self?.view.hideLoading()
+            self?.dataSource = res
+            self?.tableView.reloadData()
+		}) {[weak self] (errType, errDes) in
+            self?.view.hideLoading()
+		}
+	}
 }
 
 extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
-    func searchHistoryIconView(iconView: AISearchHistoryIconView, didClickAtIndex index: Int) {
-        // fake
-        let vc = AISuperiorityViewController.initFromNib()
-        vc.serviceModel = fakeData()
-        showTransitionStyleCrossDissolveView(vc)
-    }
-    
-    func fakeData() -> AISearchServiceModel? {
-        return nil
-    }
+	func searchHistoryIconView(iconView: AISearchHistoryIconView, didClickAtIndex index: Int) {
+		let vc = AISuperiorityViewController.initFromNib()
+		vc.serviceModel = browseHistory![index]
+		showTransitionStyleCrossDissolveView(vc)
+	}
 }
 
-
 extension AICustomSearchHomeViewController: GridBubblesViewDelegate {
-    func bubblesView(bubblesView: GridBubblesView, didClickBubbleViewAtIndex index: Int) {
-        let model = bubblesView.bubbleModels[index]
-        let vc = AIWishPreviewController.initFromNib()
-        vc.model = model
-        showTransitionStyleCrossDissolveView(vc)         
-//        let vc = AISuperiorityViewController.initFromNib()
-//        vc.serviceModel = model
-//        showTransitionStyleCrossDissolveView(vc)
-    }
+	func bubblesView(bubblesView: GridBubblesView, didClickBubbleViewAtIndex index: Int) {
+		let model = bubblesView.bubbleModels[index]
+		let vc = AIWishPreviewController.initFromNib()
+		vc.model = model
+		showTransitionStyleCrossDissolveView(vc)
+	}
 }

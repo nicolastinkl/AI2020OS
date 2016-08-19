@@ -25,3 +25,38 @@
 @property (nonatomic, strong) NSArray<Optional, AISearchServiceModel> *sub_service_list;
 @property (nonatomic, strong) NSArray<Optional> *sub_icons;
 @end
+
+
+/**
+ *  搜索Filter Price模型
+ */
+#pragma mark - 搜索Filter Price模型
+@protocol AISearchFilterPrice @end
+@interface AISearchFilterPrice : JSONModel
+
+@property (nonatomic, strong) NSString *max;
+@property (nonatomic, strong) NSString *min;
+@end
+
+/**
+ *  搜索Filter Catalog模型
+ */
+#pragma mark - 搜索Filter Catalog模型
+@protocol AISearchFilterCatalog @end
+@interface AISearchFilterCatalog : JSONModel
+@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, strong) NSString *name;
+@end
+
+/**
+ *  搜索Filter模型
+ */
+#pragma mark - 搜索Filter模型
+@protocol AISearchFilterModel @end
+
+@interface AISearchFilterModel : JSONModel
+@property (nonatomic, strong) NSArray<Optional, AISearchFilterCatalog> *catalogs;
+@property (nonatomic, strong) NSArray<Optional, AISearchFilterPrice> *prices;
+@property (nonatomic, strong) NSString *sort_by;
+@property (nonatomic, strong) NSArray<Optional, AISearchServiceModel> *service_list;
+@end

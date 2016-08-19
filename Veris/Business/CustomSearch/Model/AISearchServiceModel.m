@@ -9,3 +9,6 @@
 #import "AISearchServiceModel.h"
 
 @implementation AISearchServiceModel @end
+@implementation AISearchFilterModel @end
+@implementation AISearchFilterCatalog @end
+@implementation AISearchFilterPrice @end

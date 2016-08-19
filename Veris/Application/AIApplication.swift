@@ -23,8 +23,8 @@ struct AIApplication {
 
 
     #if DEBUG
-//    internal static let KURL_ReleaseURL = "http://localhost:3006" // zx debug ip
-    internal static let KURL_ReleaseURL = "http://171.221.254.231:2999/nsboss"
+    internal static let KURL_ReleaseURL = "http://localhost:3006" // zx debug ip
+//    internal static let KURL_ReleaseURL = "http://171.221.254.231:2999/nsboss"
     #else
     internal static let KURL_ReleaseURL = "http://171.221.254.231:2999/nsboss" // RELEASE 服务器根地址
     #endif
