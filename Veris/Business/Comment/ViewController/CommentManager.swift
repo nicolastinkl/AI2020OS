@@ -136,6 +136,7 @@ class DefaultCommentManager: CommentManager {
             info.imageId = imageId
             info.url = url
             info.uploadFinished = false
+            info.isCurrentCreate = true
             service.imageInfos.append(info)
             
             s.saveCommentModelToLocal(serviceId, model: service)

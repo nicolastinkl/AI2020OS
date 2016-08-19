@@ -9,6 +9,8 @@
 import UIKit
 
 class ServiceCommentTableViewCell: UITableViewCell {
+    
+    private static let commentAreaMaxHeight: CGFloat = 242
 
     @IBOutlet weak var imageButton: UIImageView!
     @IBOutlet weak var serviceIcon: UIImageView!
@@ -26,7 +28,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var anonymousLabel: UILabel!
     
     private var hasAppendHeight: CGFloat!
-    private var commentAreaHeight: CGFloat!
+  //  private var commentAreaHeight: CGFloat!
     
     var delegate: CommentDistrictDelegate?
     var cellDelegate: CommentCellDelegate?
@@ -58,11 +60,6 @@ class ServiceCommentTableViewCell: UITableViewCell {
         return CommentStateEnum.Done
     }
     
-    func resetState(state: CommentStateEnum) {
-        let s = getState(state)
-        resetState(s)
-    }
-    
     private func resetState(state: CommentState) {
         if let s = self.state {
             if s.dynamicType != state.dynamicType {
@@ -80,6 +77,12 @@ class ServiceCommentTableViewCell: UITableViewCell {
         state.updateUI()
         
         return getState()
+    }
+    
+    func resetModel(model: ServiceCommentViewModel) {
+        self.model = model
+        
+        state.updateUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -118,7 +121,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
         appendCommentButton.layer.borderColor = UIColor(hex: "FFFFFFAA").CGColor
         
         hasAppendHeight = height
-        commentAreaHeight = firstComment.height
+   //     commentAreaHeight = firstComment.height
         
         checkbox.layer.cornerRadius = 4
         anonymousLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(40))
@@ -485,7 +488,7 @@ private class CommentFinshedState: AbsCommentState {
         let expanded = cell.hasLocalContent()
   
         cell.firstComment.finishComment()
-        cell.appendCommentHeight.constant = expanded ? cell.firstComment.height : 0
+        cell.appendCommentHeight.constant = expanded ? ServiceCommentTableViewCell.commentAreaMaxHeight : 0
         cell.appendCommentButton.hidden = expanded
         cell.imageButton.hidden = !expanded
         cell.starRateView.userInteractionEnabled = expanded
@@ -539,7 +542,7 @@ private class AppendEditingState: AbsCommentState {
         cell.firstComment.userInteractionEnabled = false
         cell.appendComment.userInteractionEnabled = true
         
-        cell.appendCommentHeight.constant = cell.firstComment.height
+        cell.appendCommentHeight.constant = ServiceCommentTableViewCell.commentAreaMaxHeight
         cell.appendCommentButton.hidden = true
         cell.imageButton.hidden = false
         cell.starRateView.userInteractionEnabled = true
