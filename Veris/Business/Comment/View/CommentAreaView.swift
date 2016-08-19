@@ -19,6 +19,8 @@ class CommentAreaView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initSelfFromXib()
+        
+        imageCollection.sizeDelegate = self
     }
     
     override func awakeFromNib() {
@@ -33,6 +35,16 @@ class CommentAreaView: UIView {
     func hideHint() {
         hint.hidden = true
     }
+    
+    override func intrinsicContentSize() -> CGSize {
+        var size = CGSize(width: bounds.width, height: bounds.height)
+        let imageCollectionSize = imageCollection.intrinsicContentSize()
+        
+        size.height = imageCollectionSize.height + inputTextView.height + 5
+        
+        return size
+    }
+
 }
 
 extension CommentAreaView: UITextViewDelegate {
@@ -47,5 +59,11 @@ extension CommentAreaView: UITextViewDelegate {
         }
         
         textViewDelegate?.textViewDidEndEditing?(inputTextView)
+    }
+}
+
+extension CommentAreaView: ViewSizeChanged {
+    func sizeChange(view: UIView) {
+        invalidateIntrinsicContentSize()
     }
 }

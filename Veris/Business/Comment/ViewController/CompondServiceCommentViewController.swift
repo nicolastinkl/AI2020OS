@@ -170,39 +170,48 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
     
     private func loadServiceComments() {
-//        comments = [ServiceCommentViewModel]()
-//        
-//        for i in 0 ..< 5 {
-//            let model = ServiceCommentViewModel()
-//            model.serviceId = "\(i)"
-//            
-//            if i % 2 != 1 {
-//                model.cellState = .CommentEditable
-//            } else {
-//                model.cellState = .CommentFinshed
-//            }
-//            
-//            comments.append(model)
-//        }
-//      loadAndMergeModelFromLocal()
+
         
-        let ser = HttpCommentService()
-        
-        view.showLoading()
-        
-        ser.getCompondComment("10012", userType: 1, serviceId: "900001001008", success: { (responseData) in
-            self.view.hideLoading()
-            let re = responseData
+        func fakeLoad() {
+            comments = [ServiceCommentViewModel]()
+    
+            for i in 0 ..< 8 {
+                let model = ServiceCommentViewModel()
+                model.serviceId = "\(i)"
+    
+                if i % 2 != 1 {
+                    model.cellState = .CommentEditable
+                } else {
+                    model.cellState = .CommentFinshed
+                }
+                
+                comments.append(model)
+            }
             
-            self.comments = self.convertCompondModelToCommentList(re)
-            self.loadAndMergeModelFromLocal()
-            self.serviceTableView.reloadData()
-        }) { (errType, errDes) in
-            
-            self.view.hideLoading()
-            
-            AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
+            loadAndMergeModelFromLocal()
         }
+        
+        func netLoad() {
+            let ser = HttpCommentService()
+            
+            view.showLoading()
+            
+            ser.getCompondComment("10012", userType: 1, serviceId: "900001001008", success: { (responseData) in
+                self.view.hideLoading()
+                let re = responseData
+                
+                self.comments = self.convertCompondModelToCommentList(re)
+                self.loadAndMergeModelFromLocal()
+                self.serviceTableView.reloadData()
+            }) { (errType, errDes) in
+                
+                self.view.hideLoading()
+                
+                AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
+            }
+        }
+        
+        fakeLoad()
     }
     
     private func convertCompondModelToCommentList(model: CompondComment) -> [ServiceCommentViewModel] {
@@ -343,6 +352,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             if cell.getAlreadySelectedPhotosNumber() >= 10 {
                 cell.imageButton.hidden = true
             }
+            
+            serviceTableView.beginUpdates()
+            serviceTableView.endUpdates()
         }
     }
     
@@ -356,14 +368,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         for info in infos {
             if info.url == nil {
                 saveImageToAlbum(serviceId, info: info, index: row)
-            } else {
-//                let imageInfo = ImageInfoModel()
-//                
-//                imageInfo.imageId = createImageId(info)
-//                imageInfo.url = info.url!
-//                imageInfo.uploadFinished = false
-//                comments[row].loaclModel?.imageInfos.append(imageInfo)
-                
+            } else {       
                 commentManager.recordUploadImage(serviceId, imageId: createImageId(info), url: info.url!)
             }
         }
@@ -405,6 +410,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
     
     private func addImagesToCell(images: [ImageInfo], cell: ServiceCommentTableViewCell) {
+        
+        
+        
         for imageInfo in images {
             if let im = imageInfo.image {
                 cell.addAsyncUploadImage(im, imageId: createImageId(imageInfo), complate: { [weak self] (id, url, error) in
@@ -414,6 +422,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                 })
             }
         }
+        
+        serviceTableView.beginUpdates()
+        serviceTableView.endUpdates()
     }
     
     private func presentImagesReviewController(images: [(imageId: String, UIImage)]) {
@@ -467,25 +478,8 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         cell.tag = indexPath.row
         
         comments[indexPath.row].cellState = cell.setModel(comments[indexPath.row])
-        
-//        if comments[indexPath.row].cellState == nil {
-//            comments[indexPath.row].cellState = cell.setModel(comments[indexPath.row])     
-//        }
-
-    //    resetCellUI(cell, indexPath: indexPath)
-        
-     //   cellsMap[indexPath.row] = cell
 
         return cell
-    }
-    
-
-    private func resetCellUI(cell: ServiceCommentTableViewCell, indexPath: NSIndexPath) {
-        
-        if let state = comments[indexPath.row].cellState {
-            
-            cell.resetState(state)
-        }
     }
 }
 
@@ -620,9 +614,14 @@ extension CompondServiceCommentViewController: ImagesReviewDelegate {
         }
         
         func deleteCellImages() {
+            serviceTableView.beginUpdates()
             if let cell = getcurrentOperateCell() {
                 cell.deleteImages(imageIds)
             }
+            
+            
+            serviceTableView.endUpdates()
+            serviceTableView.reloadData()
         }
         
         deleteLocalData()
