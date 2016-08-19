@@ -52,6 +52,7 @@ class ImageInfoModel: NSObject, NSCoding {
     var isSuccessUploaded = false
     var uploadFinished = true
     var serviceId: String?
+    var isCurrentCreate = false
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(imageId, forKey: "imageId")
