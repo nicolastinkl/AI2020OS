@@ -94,7 +94,7 @@ class AIProductProviderViewControler: UIViewController {
         pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
         let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
         addNewSubView(hView4!, preView: pLabel)
-        hView4?.fillDataWithModel()
+//        hView4?.fillDataWithModel()
         let lineView3 = addSplitView()
         
         // Setup 4:

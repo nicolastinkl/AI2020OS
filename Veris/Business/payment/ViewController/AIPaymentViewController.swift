@@ -58,7 +58,7 @@ class AIPaymentViewController: UIViewController {
     
     var expandedIndexPaths: [NSIndexPath] = [NSIndexPath]()
 
-
+    var dataModel: AIPayInfoModel?
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -80,19 +80,8 @@ class AIPaymentViewController: UIViewController {
         
         topNaviView.hidden = true
         
-        Async.main(after: 0.3) { 
-            /**
-             Init SubView
-             */
-            self.layoutSubView()
-            
-            /**
-             Init TableView
-             */
-            self.initTableView()
-        }
         
-        showNotifyPayStatus()
+        //showNotifyPayStatus()
         
         
     }
@@ -184,36 +173,40 @@ class AIPaymentViewController: UIViewController {
         tableView.registerClass(AIPayListInfoCellView.self, forCellReuseIdentifier: "CellID")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.reloadData()
+        if let fview = AIPayAmountView.initFromNib() as? AIPayAmountView{
+            tableView.tableFooterView?.addSubview(fview)
+            fview.totalAmount1.text = "\(dataModel?.total_fee ?? "")元"
+            fview.totalAmount2.text = "\(dataModel?.deduct_fee ?? "")元"
+            fview.totalAmount3.text = "\(dataModel?.pay_fee ?? "")元"
+        }
+        
     }
     
     func initData() {
-        
-        var model22 = AIPayInfoModel()
-        model22.price = 15
-        model22.servicename = "春雨医生报告"
-        
-        var model1 = AIPayInfoModel()
-        model1.price = 432.5
-        model1.servicename = "全程陪护"
-        dataSource.append(model1)
-        
-        
-        var model2 = AIPayInfoModel()
-        model2.price = 23
-        model2.servicename = "神州专车"
-        dataSource.append(model2)
+        view.showLoading()
+        AIPayInfoServices.reqeustOrderInfo("100000031769", success: { (model) in
+                self.view.hideLoading()
+                self.dataModel = model as? AIPayInfoModel
+                self.tableView.reloadData()
+            
+            Async.main(after: 0.3) {
+                /**
+                 Init SubView
+                 */
+                self.layoutSubView()
                 
-        var model3 = AIPayInfoModel()
-        model3.price = 30
-        model3.servicename = "春雨医生"
-        model3.childList = [model22, model22]
-        dataSource.append(model3)
+                /**
+                 Init TableView
+                 */
+                self.initTableView()
+            }
+            
+            }) { (errType, errDes) in
+                self.view.hideLoading()
+                AIAlertView().showError("网络请求失败", subTitle: "")
+        }
         
         
-        
-        dataSource.append(model2)
-        
-        self.tableView.reloadData()
     }
 
 
@@ -242,7 +235,7 @@ class AIPaymentViewController: UIViewController {
         
         /// Layout
         
-        providerName.text = "孕检无忧"
+        providerName.text = dataModel?.servicename ?? ""
         
         let starRateView = StarRateView(frame: CGRect(x: 0, y: 5, width: 60, height: 11), numberOfStars: 5, foregroundImage: "star_rating_results_highlight", backgroundImage: "star_rating_results_normal")
         
@@ -259,7 +252,7 @@ class AIPaymentViewController: UIViewController {
         providerLevel.addSubview(label)
         
         let zanlabel = UILabel()
-        zanlabel.text = "12345单"
+        zanlabel.text = dataModel?.totalorders ?? ""
         zanlabel.font = AITools.myriadLightWithSize(40/3)
         zanlabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.6)
         zanlabel.frame = CGRectMake(label.right, 1, 80, 20)
@@ -316,10 +309,11 @@ class AIPaymentViewController: UIViewController {
     @IBAction func callPhone(sender: AnyObject) {
         
         let alert = JSSAlertView()
-        alert.info( self, title: "13888888888", text: "", buttonText: "Call", cancelButtonText: "Cancel")
+        
+        alert.info( self, title: dataModel?.providerphone ?? "", text: "", buttonText: "Call", cancelButtonText: "Cancel")
         alert.defaultColor = UIColorFromHex(0xe7ebf5, alpha: 1)
         alert.addAction { 
-            UIApplication.sharedApplication().openURL(NSURL(string: "tel:13888888888")!)
+            UIApplication.sharedApplication().openURL(NSURL(string: "tel:\(self.dataModel?.providerphone ?? "")")!)
         }
     }
     
@@ -405,7 +399,7 @@ class StrokeLineView: UIView {
 extension AIPaymentViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return dataModel?.paymentItem.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -415,7 +409,7 @@ extension AIPaymentViewController: UITableViewDelegate, UITableViewDataSource {
         if cell.arrowDirectIcon == nil {
             cell = AIPayListInfoCellView.initFromNib() as! AIPayListInfoCellView
         }
-        let item = dataSource[indexPath.row]
+        let item: AIPaymentItemModel = (dataModel?.paymentItem[indexPath.row])!
         cell.setCellContent(item, isExpanded: self.expandedIndexPaths.contains(indexPath))
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         cell.backgroundColor = UIColor.clearColor()
@@ -467,7 +461,7 @@ extension AIPaymentViewController: UITableViewDelegate, UITableViewDataSource {
             //self.tableView.dequeueReusableCellWithIdentifier("CellID") as? AIPayListInfoCellView
         }
         
-        let item = self.dataSource[indexPath.row]
+        let item: AIPaymentItemModel = (dataModel?.paymentItem[indexPath.row])!
         StaticStruct.sizingCell?.setCellContent(item, isExpanded: self.expandedIndexPaths.contains(indexPath))
         StaticStruct.sizingCell?.setNeedsUpdateConstraints()
         StaticStruct.sizingCell?.updateConstraintsIfNeeded()

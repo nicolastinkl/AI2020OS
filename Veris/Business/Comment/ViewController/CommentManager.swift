@@ -17,7 +17,7 @@ protocol CommentManager {
     func recordUploadImage(serviceId: String, imageId: String, url: NSURL)
     func notifyImageUploadResult(imageId: String, url: NSURL?)
     func isAllImagesUploaded() -> Bool
-    func submitComments(userID: String, userType: Int, commentList: [ServiceComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func submitComments(userID: String, userType: Int, commentList: [SingleComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
 class DefaultCommentManager: CommentManager {
@@ -188,8 +188,25 @@ class DefaultCommentManager: CommentManager {
         return true
     }
     
-    func submitComments(userID: String, userType: Int, commentList: [ServiceComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-        
+    func submitComments(userID: String, userType: Int, commentList: [SingleComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        let service = HttpCommentService()
+        service.submitComments(userID, userType: userType, commentList: commentList, success: { (responseData) in
+            let re = responseData
+ 
+            if re.result {
+                var serviceIds = [String]()
+                
+                for comment in commentList {
+                    serviceIds.append(comment.service_id)
+                }
+                
+                self.deleteCommentModel(serviceIds)
+            }
+            
+        }) { (errType, errDes) in
+
+
+        }
     }
     
     private func createSearchKey(serviceId: String) -> String {
@@ -250,7 +267,7 @@ class DefaultCommentManager: CommentManager {
     // newCommentList: 本次要提交的新的评价列表
     // 返回: 合并过后的评价列表
     func mergeCommentsData(newCommentList: [ServiceComment]) -> [ServiceComment] {
-        var list = [ServiceComment]()
+        let list = [ServiceComment]()
         
 //        for comment in newCommentList {
 //            list.append(mergeComment(comment, local: findLocalComment(comment.service_id)?.model))

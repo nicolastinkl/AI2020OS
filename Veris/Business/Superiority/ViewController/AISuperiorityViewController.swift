@@ -180,27 +180,28 @@ class AISuperiorityViewController: UIViewController {
         
         AISuperiorityService.requestSuperiority("12") { (response, error) in
             self.view.hideLoading()
-            if let _ = response {
+            if let res = response {
+                let model: AISuperiorityModel = res as! AISuperiorityModel
                 // MARK: Loading Data Views
                 self.initDatawithViews()
+                if model.collected == 0 {
+                    //未收藏
+                    self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+                }else{
+                    self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
+                }
             }
-        } 
-        
+        }         
     }
     
     func favoriteAction() {
         view.showLoading()
-        
         AIProdcutinfoService.addFavoriteServiceInfo("11") { (obj, error) in
             self.view.hideLoading()
             if let res = obj as? String {
                 // MARK: Loading Data Views
                 if res == "1"{
-                    self.view.subviews.forEach({ (sview) in
-                        if sview is AINavigationBar {
-                            (sview as! AINavigationBar).setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
-                        }
-                    })
+                    self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
                 } else {
                     AIAlertView().showError("收藏失败", subTitle: "")
                 }
@@ -227,6 +228,8 @@ class AISuperiorityViewController: UIViewController {
             navi.titleLabel.text = "孕检无忧"
             navi.videoButton.addTarget(self, action: #selector(shareAction), forControlEvents: UIControlEvents.TouchUpInside)
             navi.commentButton.addTarget(self, action: #selector(favoriteAction), forControlEvents: UIControlEvents.TouchUpInside)
+            naviBar = navi
+            
         }
     }
 

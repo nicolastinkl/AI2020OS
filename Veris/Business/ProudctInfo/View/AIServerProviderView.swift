@@ -37,11 +37,14 @@ class AIServerProviderView: UIView {
         super.awakeFromNib()
     }
     
-    func fillDataWithModel() {
-        name.text = "孙雪珍贵"
-        des.text = "中国著名妇产科专家，现任北京XXX主任，现任北京XXX主任，现任北京XXX主任，现任北京XXX主任. 毕业于宜宾理工学院"
-        image.image = UIImage(named: "se_customer_icon")
-        image.userInteractionEnabled = true
+    func fillDataWithModel(model: AIPublicProviderModel?) {
+        if let model = model {
+            name.text = model.name ?? ""
+            des.text = model.desc ?? ""
+            image.sd_setImageWithURL(NSURL(string: model.icon ?? ""), placeholderImage: smallPlace())
+            image.userInteractionEnabled = true
+        }
+        
     }
     
     

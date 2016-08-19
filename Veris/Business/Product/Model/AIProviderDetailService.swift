@@ -16,8 +16,11 @@ class AIProviderDetailService: NSObject {
 		let body = ["data": ["provider_id": provider_id], "desc": ["data_mode": "0", "digest": ""]]
 		message.body = NSMutableDictionary(dictionary: body)
 		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-			
-			if let model = try?AIProviderDetailJSONModel(dictionary: response as! [NSObject: AnyObject]) {
+			let responseDic = response as! [NSObject: AnyObject]
+			if let model = try?AIProviderDetailJSONModel(dictionary: responseDic["provider_info"] as! [NSObject: AnyObject]) {
+				if let service_list = responseDic["service_list"] as? [AnyObject] {
+                    model.service_list =  AISearchServiceModel.arrayOfModelsFromDictionaries(service_list) as NSArray as! [AISearchServiceModel]
+				}
 				success(model)
 			} else {
 				// handle error

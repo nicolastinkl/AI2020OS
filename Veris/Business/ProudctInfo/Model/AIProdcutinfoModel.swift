@@ -22,7 +22,7 @@ class AIProdcutinfoModel: JSONJoy {
     
     var customer_note: AIProductInfoCustomerNote?
     
-    var recommendation: AIProductRecommendationModel?
+    var recommendation: [AIProductRecommendationModel]?
     
     var provider: AIPublicProviderModel?
     
@@ -35,13 +35,32 @@ class AIProdcutinfoModel: JSONJoy {
             desc = bdecoder["desc"]?.string ?? ""
             image = bdecoder["image"]?.string ?? ""
             desc_image = bdecoder["desc_image"]?.string ?? ""
+            //package
+            package = Array<AIProductInfoPackageModel>()
+            if let rmlist = bdecoder["package"]?.array {
+                for dec in rmlist {
+                    let pro = AIProductInfoPackageModel(dec)
+                    package?.append(pro)
+                }
+            }
+            if let json  = bdecoder["price"] {
+                price = AIPricePublicModel(json)
+            }
         }
+        
+        
         
         //customer_note
         customer_note = AIProductInfoCustomerNote(decoder["customer_note"])
         
         //recommendation
-        recommendation = AIProductRecommendationModel(decoder["recommendation"])
+        recommendation = Array<AIProductRecommendationModel>()
+        if let rmlist = decoder["recommendation"].array {
+            for dec in rmlist {
+                let pro = AIProductRecommendationModel(dec)
+                recommendation?.append(pro)
+            }
+        }
         
         //provider
         provider = AIPublicProviderModel(decoder["provider"])
