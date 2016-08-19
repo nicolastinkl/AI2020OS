@@ -74,8 +74,7 @@ class AITimelineContentContainerView: UIView {
     
     //MARK: -> private methods
     func buildImageContainerView() {
-        var lastView: UIView?
-        var curView: UIView?
+        var containerSubViews = [UIView]()
         guard let viewModel = viewModel else {return}
         //清空subView
         for subView in imageContainerView.subviews {
@@ -89,35 +88,30 @@ class AITimelineContentContainerView: UIView {
                 switch timeContentModel.contentType! {
                 case AITimelineContentTypeEnum.Image:
                     let imageView = buildImageContentView(timeContentModel.contentUrl!)
-                    curView = imageView
+                    containerSubViews.append(imageView)
                 case AITimelineContentTypeEnum.LocationMap:
                     let mapView = buildMapContentView()
                     mapView.setupView()
-                    curView = mapView
+                    containerSubViews.append(mapView)
                 case AITimelineContentTypeEnum.Voice:
                     let voiceView = buildVoiceContentView(timeContentModel.contentUrl!, time: 2)
-                    curView = voiceView
+                    containerSubViews.append(voiceView)
                     
                 }
-                guard let curView = curView else {return}
                 if index == 0 {
-                    curView.snp_makeConstraints(closure: { (make) in
-                        make.top.equalTo(curView.superview!)
+                    containerSubViews[0].snp_makeConstraints(closure: { (make) in
+                        make.top.equalTo(containerSubViews[0].superview!)
                     })
                 } else {
                     //两个subview之间的间隔
                     imageContainerViewHeight += AITimelineTableViewCell.subViewMargin
-                    if let lastView = lastView {
-                        curView.snp_makeConstraints(closure: { (make) in
-                            make.top.equalTo(lastView.snp_bottom).offset(10)
-                        })
-                        
-                    }
+                    
+                    containerSubViews[index].snp_makeConstraints(closure: { (make) in
+                        make.top.equalTo(containerSubViews[index - 1].snp_bottom).offset(AITimelineTableViewCell.subViewMargin)
+                    })
                 }
-                lastView = curView
             }
         }
-        
     }
     
     func buildButtonContainerView() {
@@ -210,7 +204,7 @@ class AITimelineContentContainerView: UIView {
         self.imageContainerView.addSubview(imageView)
         imageView.snp_makeConstraints { (make) in
             make.leading.trailing.equalTo(self.imageContainerView)
-            make.height.equalTo(40)
+            make.height.equalTo(defaultImageHeight)
         }
         //加载图片以后根据图片高度决定约束高度
         //通过在这里赋值形成一个强引用
@@ -223,12 +217,14 @@ class AITimelineContentContainerView: UIView {
             }
             let imageHeight = self?.getCompressedImageHeight(image)
             if let imageHeight = imageHeight {
-                self?.imageContainerViewHeight += imageHeight
-                imageView.snp_updateConstraints { (make) in
-                    make.height.equalTo(imageHeight)
-                }
+                
+                
                 if self?.viewModel?.cellHeight == 0 {
                     if let delegate = self?.delegate {
+                        self?.imageContainerViewHeight += imageHeight
+                        imageView.snp_updateConstraints { (make) in
+                            make.height.equalTo(imageHeight)
+                        }
                         //因为第二次进入从缓存加载图片太快，cell的第一次load还没完成就触发reload，结果展现就错乱了
                         //暂时通过加延迟的方式解决
                         Async.main(after: 0.1, block: {

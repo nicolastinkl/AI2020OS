@@ -90,11 +90,11 @@ class SubServiceCardView: UIView {
         }
         
         if let node = serviceData.node {
-            nodeName.text = node.title
+            nodeName.text = node.procedure_inst_name
       //      nodeDate.text = node.time
-            nodeState.text = node.state
+            nodeState.text = node.status
             
-            if let url = node.provider_icon {
+            if let url = serviceData.provider_icon {
                 personIcon.asyncLoadImage(url)
             }
         }

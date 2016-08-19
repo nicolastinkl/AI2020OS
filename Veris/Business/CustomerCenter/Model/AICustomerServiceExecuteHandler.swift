@@ -142,7 +142,7 @@ class AICustomerServiceExecuteHandler: NSObject {
             viewModel.layoutType = AITimelineLayoutTypeEnum(rawValue: Int(layoutType)!)
             viewModel.operationType = AITimelineOperationTypeEnum(rawValue: Int(commentStatus))
             viewModel.desc = desc
-            viewModel.timeModel = timestampToTimeViewModel(timeValue)
+            viewModel.timeModel = AIDateTimeViewModel.timestampToTimeViewModel(timeValue)
             //时间线内容
             var contents = [AITimeContentViewModel]()
             for contentBusiModel: AITimelineContentBusiModel in contentsBusiModel {
@@ -170,15 +170,5 @@ class AICustomerServiceExecuteHandler: NSObject {
     }
     
     //MARK: -> 工具方法
-    func timestampToTimeViewModel(timeValue: NSNumber) -> AIDateTimeViewModel {
-        let doubleValue = timeValue.doubleValue
-        let date = NSDate(timeIntervalSince1970: doubleValue)
-        let timeViewModel = AIDateTimeViewModel()
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MM月dd日"
-        timeViewModel.date = dateFormatter.stringFromDate(date)
-        dateFormatter.dateFormat = "HH:mm"
-        timeViewModel.time = dateFormatter.stringFromDate(date)
-        return timeViewModel
-    }
+    
 }

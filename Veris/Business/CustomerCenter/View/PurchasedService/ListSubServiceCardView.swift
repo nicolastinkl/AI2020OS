@@ -62,9 +62,9 @@ class ListSubServiceCardView: UIView {
         cardList.append(subService)
     }
     
-    func loadData(model: ProposalOrderModel) {
+    func loadData(viewModel: ProposalOrderViewModel) {
         
-        guard let dataList = model.service else {
+        guard let dataList = viewModel.model.service else {
             return
         }
         
@@ -72,15 +72,20 @@ class ListSubServiceCardView: UIView {
             return
         }
         
+        
         modelList = dataList as! [ServiceOrderModel]
         
-        buildFakeContentViewModel()
+        //add by Shawn at 0819
+        if let timelineViewModels = viewModel.timelineViewModels {
+            buildContentViewModel(timelineViewModels)
+        }
+        
         
         
         for i in 0 ..< dataList.count {
             let card = SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView
             
-            card.loadData(modelList[i], proposalData: model)
+            card.loadData(modelList[i], proposalData: viewModel.model)
 
             let timelineContainerView = AITimelineContentContainerView(viewModel: timelineModels[i], delegate: nil)
             let caculateHeight = timelineContainerView.getCaculateHeight()
@@ -94,6 +99,11 @@ class ListSubServiceCardView: UIView {
         for i in 1...8 {
             timelineModels.append(AITimelineViewModel.createFakeData("\(i)"))
         }
+    }
+    
+    func buildContentViewModel(timelineViewModels: [AITimelineViewModel]) {
+        timelineModels.removeAll()
+        timelineModels = timelineViewModels
     }
 
 }

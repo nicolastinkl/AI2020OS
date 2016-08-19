@@ -9,6 +9,7 @@
 #import "JSONModel.h"
 #import <UIKit/UIKit.h>
 #import "AIProposalServiceCellModel.h"
+#import "AICommonBusinessModels.h"
 
 //NS_ASSUME_NONNULL_BEGIN
 //NS_ASSUME_NONNULL_END
@@ -131,9 +132,11 @@
 // 服务名称
 @property (nonatomic, strong) NSString<Optional> *name;
 // 第一个节点
-@property (nonatomic, strong) ServiceNodeModel<Optional> *node;
-
-
+@property (nonatomic, strong) AITimelineBusiModel<Optional> *node;
+// 服务者图标
+@property (nonatomic, strong) NSString<Optional> *provider_icon;
+// 服务者电话
+@property (nonatomic, strong) NSString<Optional> *provider_nbr;
 @end
 
 

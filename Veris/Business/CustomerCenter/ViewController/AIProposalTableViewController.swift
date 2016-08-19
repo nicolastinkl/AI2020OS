@@ -218,10 +218,10 @@ class AIProposalTableViewController: UIViewController {
         return servicesViewContainer
     }
     
-    private func buildSuvServiceCard(model: ProposalOrderModel) -> ListSubServiceCardView {
+    private func buildSuvServiceCard(viewModel: ProposalOrderViewModel) -> ListSubServiceCardView {
         let list = ListSubServiceCardView(frame: CGRect(x: 0, y: 0, width: tableView.width, height: 50))
-        if let _ = model.service as? [ServiceOrderModel] {
-            list.loadData(model)
+        if let _ = viewModel.model.service as? [ServiceOrderModel] {
+            list.loadData(viewModel)
         }
         
         return list
@@ -301,11 +301,12 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
             cell.mainView = folderCellView
         }
         
-        if cell.getView("expanded") == nil {
-            cell.addCandidateView("expanded", subView: buildSuvServiceCard(dataSource[indexPath.row].model))
-        }
         
         if dataSource[indexPath.row].isExpanded {
+            //改为点展开才构造展开的view
+            if cell.getView("expanded") == nil {
+                cell.addCandidateView("expanded", subView: buildSuvServiceCard(dataSource[indexPath.row]))
+            }
             cell.showView("expanded")
             cell.isBottomRoundCorner = true
             cell.isTopRoundCorner = true
