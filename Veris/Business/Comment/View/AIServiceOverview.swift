@@ -49,9 +49,12 @@ class AIServiceOverview: UIView {
     func makeServiceIcon() {
 
         let imageName = serviceModel.serviceIcon ?? "default"
-        let image = UIImage(named: imageName)
-        serviceIcon = UIImageView(image: image)
-        serviceIcon.frame = CGRect(x: 0, y: 0, width: iconSize, height: iconSize)
+        let url = NSURL(string: imageName)
+        let frame = CGRect(x: 0, y: 0, width: iconSize, height: iconSize)
+        serviceIcon = UIImageView(frame: frame)
+        serviceIcon.frame = frame
+        serviceIcon.backgroundColor = UIColor.redColor()
+        serviceIcon.sd_setImageWithURL(url, placeholderImage: nil)
         self.addSubview(serviceIcon)
     }
 
