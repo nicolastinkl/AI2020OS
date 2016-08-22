@@ -12,6 +12,8 @@ class ImagesCollectionView: UIView {
 
     var images: [AIImageView]!
     var delegate: ImagesCollectionProtocol?
+    var sizeDelegate: ViewSizeChanged?
+    
     private static let noLimitRow = 0
     
     private var row = 0
@@ -71,6 +73,7 @@ class ImagesCollectionView: UIView {
     }
     
     private func initSelf() {
+        clipsToBounds = true
         images = [AIImageView]()
     }
 
@@ -84,6 +87,10 @@ class ImagesCollectionView: UIView {
         }
         
         size.height = (imageHeight + verticalSpace) * CGFloat(row) - verticalSpace
+        
+        if size.height < 0 {
+            size.height = 0
+        }
         
         return size
     }
@@ -151,9 +158,11 @@ class ImagesCollectionView: UIView {
     
     func addImage(image: UIImage, imageId: String? = nil) {
         appendImage(image)
-        
+        invalidateIntrinsicContentSize()
         setNeedsUpdateConstraints()
         setNeedsLayout()
+        
+        sizeDelegate?.sizeChange(self)
     }
     
     func addImages(images: [(image: UIImage, imageId: String?)]) {
@@ -161,8 +170,11 @@ class ImagesCollectionView: UIView {
             appendImage(imageItem.image, imageId: imageItem.imageId)
         }
         
+        invalidateIntrinsicContentSize()
         setNeedsUpdateConstraints()
         setNeedsLayout()
+        
+        sizeDelegate?.sizeChange(self)
     }
     
     func addAsyncUploadImages(images: [(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)]) {
@@ -170,15 +182,21 @@ class ImagesCollectionView: UIView {
             appendAsyncUploadImage(image.image, imageId: image.imageId, complate: image.complate)
         }
         
+        invalidateIntrinsicContentSize()
         setNeedsUpdateConstraints()
         setNeedsLayout()
+        
+        sizeDelegate?.sizeChange(self)
     }
     
     func addAsyncUploadImage(image: UIImage, imageId: String? = nil, complate: AIImageView.UploadComplate? = nil) {
         appendAsyncUploadImage(image, imageId: imageId, complate: complate)
         
+        invalidateIntrinsicContentSize()
         setNeedsUpdateConstraints()
         setNeedsLayout()
+        
+        sizeDelegate?.sizeChange(self)
     }
     
     func addAsyncDownloadImages(urls: [(url: NSURL, imageId: String?)], holdImage: UIImage? = nil) {
@@ -188,8 +206,11 @@ class ImagesCollectionView: UIView {
             images.append(imageView)
         }
         
+        invalidateIntrinsicContentSize()
         setNeedsUpdateConstraints()
         setNeedsLayout()
+        
+        sizeDelegate?.sizeChange(self)
     }
     
     func addAssetImages(urls: [(url: NSURL, imageId: String?)]) {
@@ -199,8 +220,11 @@ class ImagesCollectionView: UIView {
             imageView.loadFromAsset(urlItem.url)      
         }
         
+        invalidateIntrinsicContentSize()
         setNeedsUpdateConstraints()
         setNeedsLayout()
+        
+        sizeDelegate?.sizeChange(self)
     }
     
     private func appendImage(image: UIImage, imageId: String? = nil) {
@@ -225,8 +249,11 @@ class ImagesCollectionView: UIView {
         
         images.removeAll()
         
+        invalidateIntrinsicContentSize()
         setNeedsUpdateConstraints()
         setNeedsLayout()
+        
+        sizeDelegate?.sizeChange(self)
     }
     
     func deleteImages(imageIds: [String]) {
@@ -248,8 +275,11 @@ class ImagesCollectionView: UIView {
         
         images = keepedImages
         
+        invalidateIntrinsicContentSize()
         setNeedsUpdateConstraints()
         setNeedsLayout()
+        
+        sizeDelegate?.sizeChange(self)
         
     }
     
@@ -301,4 +331,8 @@ class ImagesCollectionView: UIView {
 
 protocol ImagesCollectionProtocol {
     func imageClicked(image: UIImage?, imageId: String?)
+}
+
+protocol ViewSizeChanged {
+    func sizeChange(view: UIView)
 }

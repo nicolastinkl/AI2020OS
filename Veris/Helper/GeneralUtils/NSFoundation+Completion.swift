@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
 	var length: Int {
 		return characters.count
 	}
@@ -18,7 +18,7 @@ extension String {
     }
 }
 
-extension SequenceType {
+public extension SequenceType {
 	public func reject(@noescape exludesElement: (Self.Generator.Element) throws -> Bool) rethrows -> [Self.Generator.Element] {
 		return try filter(exludesElement)
 	}
@@ -28,6 +28,14 @@ extension SequenceType {
 	}
 }
 
-extension Array {
+public extension Array {
 
+}
+
+public extension Dictionary {
+    mutating func addEntriesFromDictionary(dictionary: Dictionary) {
+        for (key, value) in dictionary {
+            self.updateValue(value, forKey:key)
+        }
+    }
 }

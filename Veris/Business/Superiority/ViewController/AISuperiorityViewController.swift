@@ -209,7 +209,7 @@ class AISuperiorityViewController: UIViewController {
                 if model.collected == 0 {
                     //未收藏
                     self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
-                }else{
+                } else {
                     self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
                 }
             }

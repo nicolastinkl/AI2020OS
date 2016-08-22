@@ -84,18 +84,23 @@
                             <constraint firstAttribute="height" priority="999" constant="1" id="tMw-ek-ria"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA3-rZ-vu2" userLabel="firstComment" customClass="CommentAreaView" customModule="Veris" customModuleProvider="target">
+                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="290" placeholderIntrinsicHeight="242" translatesAutoresizingMaskIntoConstraints="NO" id="AA3-rZ-vu2" userLabel="firstComment" customClass="CommentAreaView" customModule="Veris" customModuleProvider="target">
                         <rect key="frame" x="22" y="58" width="290" height="242"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="242" id="ds9-HY-3bH"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ds9-HY-3bH"/>
+                            </mask>
+                        </variation>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YW-ax-ngK" userLabel="appendComment" customClass="CommentAreaView" customModule="Veris" customModuleProvider="target">
                         <rect key="frame" x="22" y="311" width="290" height="0.0"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" id="2WB-kR-eEn"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" id="2WB-kR-eEn"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXu-CS-BiX" userLabel="checkbox" customClass="CheckboxButton" customModule="Veris" customModuleProvider="target">
@@ -164,6 +169,7 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="BUS-0H-Sud"/>
                         <exclude reference="IYe-SZ-iBj"/>
                         <exclude reference="KKB-em-gh0"/>
                         <exclude reference="KPh-W5-lQd"/>

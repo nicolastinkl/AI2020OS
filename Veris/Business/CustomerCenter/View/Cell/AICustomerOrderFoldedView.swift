@@ -65,7 +65,8 @@ class AICustomerOrderFoldedView: UIView {
             if services.count > 0 {
                 if let node = services[0].node {
            //         taskSchedulTimeLabel.text = node.time
-                    taskNameLabel.text = node.title
+                    //mod by Shawn at 20160818
+                    taskNameLabel.text = node.procedure_inst_name
                 }
             }
         }
