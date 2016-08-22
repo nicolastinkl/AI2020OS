@@ -49,9 +49,12 @@ class AIMapView: UIView {
     }
     
     func releaseView() {
-        _mapView.viewWillDisappear()
-        _mapView.delegate = nil
-        locationService.delegate = nil
+        if _mapView != nil {
+            _mapView.viewWillDisappear()
+            _mapView.delegate = nil
+            locationService.delegate = nil
+        }
+        
     }
     
     //加载一个目标坐标点
