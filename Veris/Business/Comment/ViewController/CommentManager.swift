@@ -32,7 +32,7 @@ class DefaultCommentManager: CommentManager {
             var newModel: ServiceCommentLocalSavedModel?
                 
             let valideImages = model.imageInfos.filter { (info) -> Bool in
-                guard let url = info.url else {
+                guard let url = info.localUrl else {
                     return false
                 }
                 
@@ -134,7 +134,7 @@ class DefaultCommentManager: CommentManager {
             let info = ImageInfoModel()
             
             info.imageId = imageId
-            info.url = url
+            info.localUrl = url
             info.uploadFinished = false
             info.isCurrentCreate = true
             service.imageInfos.append(info)
@@ -161,8 +161,7 @@ class DefaultCommentManager: CommentManager {
                 
                 if url != nil {
                     imageInfo.isSuccessUploaded = true
-                    // 只保存本地文件url
-               //     imageInfo.url = u
+                    imageInfo.webUrl = url
                 } else {
                     imageInfo.isSuccessUploaded = false
                 }

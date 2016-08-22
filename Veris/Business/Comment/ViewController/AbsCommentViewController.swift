@@ -12,6 +12,7 @@ import MobileCoreServices
 class AbsCommentViewController: UIViewController {
     
     static let maxPhotosNumber = 10
+    static let minTextNumber = 15
     
     func imagesPicked(images: [ImageInfo]) {
         
