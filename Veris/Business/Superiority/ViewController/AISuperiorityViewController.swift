@@ -158,8 +158,9 @@ class AISuperiorityViewController: UIViewController {
         var height: CGFloat = 10
         var preView: UIView?
         var leftOffset: CGFloat = 0
-        for i in 0...4 {
-            if let iconText = AISuperiorityIconTextView.initFromNib() {
+        let textArray = ["专车接送（去程）","挂号","专业陪护","专车接送（返程）"]
+        for i in 0...3 {
+            if let iconText = AISuperiorityIconTextView.initFromNib() as? AISuperiorityIconTextView{
                 let offSet: CGFloat = 50.0 + CGFloat(arc4random() % 20)
                 iconText.setTop(height)
                 height = offSet + iconText.top
@@ -169,7 +170,7 @@ class AISuperiorityViewController: UIViewController {
                     iconText.setLeft(leftOffset)
                 }
                 serverIcons.addSubview(iconText)
-                
+                iconText.content.text = textArray[i]
                 if let pre = preView {
                     let cureModel = CurveModel()
                     cureModel.startX = pre.frame.origin.x + 20
