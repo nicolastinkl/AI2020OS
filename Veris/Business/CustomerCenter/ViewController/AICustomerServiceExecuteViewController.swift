@@ -257,7 +257,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
                 weakSelf?.timelineTableView.headerEndRefreshing()
                 weakSelf?.timelineModels.removeAll()
                 weakSelf?.timelineModels = weakSelf!.handleViewModels(viewModel)
-                weakSelf?.timelineTableView.reloadData()
+                //weakSelf?.timelineTableView.reloadData()
             }) { (errType, errDes) in
                 weakSelf?.timelineTableView.headerEndRefreshing()
                 AIAlertView().showError("刷新失败", subTitle: errDes)
