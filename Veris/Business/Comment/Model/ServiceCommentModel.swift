@@ -48,26 +48,30 @@ class ServiceCommentLocalSavedModel: NSObject, NSCoding, NSCopying {
 
 class ImageInfoModel: NSObject, NSCoding {
     var imageId = ""
-    var url: NSURL?
+    var localUrl: NSURL?
+    var webUrl: NSURL?
     var isSuccessUploaded = false
     var uploadFinished = true
     var serviceId: String?
+    var isCurrentCreate = false
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(imageId, forKey: "imageId")
-        aCoder.encodeObject(url, forKey: "url")
+        aCoder.encodeObject(localUrl, forKey: "url")
+        aCoder.encodeObject(webUrl, forKey: "webUrl")
         aCoder.encodeBool(isSuccessUploaded, forKey: "isSuccessUploaded")
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init()
         imageId = aDecoder.decodeObjectForKey("imageId") as! String
-        url = aDecoder.decodeObjectForKey("url") as? NSURL
+        localUrl = aDecoder.decodeObjectForKey("url") as? NSURL
+        webUrl = aDecoder.decodeObjectForKey("webUrl") as? NSURL
         isSuccessUploaded = aDecoder.decodeBoolForKey("isSuccessUploaded")
     }
     
     init(url: NSURL?) {
-        self.url = url
+        self.localUrl = url
     }
     
     override init() {

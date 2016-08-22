@@ -75,10 +75,10 @@ class AIProductInfoViewController: UIViewController {
         view.showLoading()
         AIProdcutinfoService.requestServiceInfo("12") { (response, error) in
             self.view.hideLoading()
-            if let model = response as? AIProdcutinfoModel{
+            if let model = response as? AIProdcutinfoModel {
                 self.dataModel = model
                 self.initScrollViewData()
-            }else{
+            } else {
                 AIAlertView().showError("获取数据失败", subTitle: "")
             }
         }

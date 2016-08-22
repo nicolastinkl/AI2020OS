@@ -170,39 +170,49 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
     
     private func loadServiceComments() {
-//        comments = [ServiceCommentViewModel]()
-//        
-//        for i in 0 ..< 5 {
-//            let model = ServiceCommentViewModel()
-//            model.serviceId = "\(i)"
-//            
-//            if i % 2 != 1 {
-//                model.cellState = .CommentEditable
-//            } else {
-//                model.cellState = .CommentFinshed
-//            }
-//            
-//            comments.append(model)
-//        }
-//      loadAndMergeModelFromLocal()
+
         
-        let ser = HttpCommentService()
-        
-        view.showLoading()
-        
-        ser.getCompondComment("10012", userType: 1, serviceId: "900001001008", success: { (responseData) in
-            self.view.hideLoading()
-            let re = responseData
+        func fakeLoad() {
+            comments = [ServiceCommentViewModel]()
+    
+            for i in 0 ..< 8 {
+                let model = ServiceCommentViewModel()
+                model.serviceId = "\(i)"
+    
+                if i % 2 != 1 {
+                    model.cellState = .CommentEditable
+                } else {
+                    model.cellState = .CommentFinshed
+                }
+                
+                comments.append(model)
+            }
             
-            self.comments = self.convertCompondModelToCommentList(re)
-            self.loadAndMergeModelFromLocal()
-            self.serviceTableView.reloadData()
-        }) { (errType, errDes) in
-            
-            self.view.hideLoading()
-            
-            AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
+            loadAndMergeModelFromLocal()
         }
+        
+        func netLoad() {
+            let ser = HttpCommentService()
+            
+            view.showLoading()
+            
+            ser.getCompondComment("10012", userType: 1, serviceId: "900001001008", success: { (responseData) in
+                self.view.hideLoading()
+                let re = responseData
+                
+                self.comments = self.convertCompondModelToCommentList(re)
+                self.loadAndMergeModelFromLocal()
+                self.serviceTableView.reloadData()
+            }) { (errType, errDes) in
+                
+                self.view.hideLoading()
+                
+                AIAlertView().showError("AIErrorRetryView.loading".localized, subTitle: "")
+            }
+        }
+        
+     //   fakeLoad()
+        netLoad()
     }
     
     private func convertCompondModelToCommentList(model: CompondComment) -> [ServiceCommentViewModel] {
@@ -234,7 +244,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         mainServiceComment.serviceId = model.service_id
         mainServiceComment.thumbnailUrl = model.service_thumbnail_url
         mainServiceComment.serviceName = model.service_name
-        mainServiceComment.stars = model.rating_level
+        mainServiceComment.stars = CommentUtils.convertStarValueToPercent(model.rating_level)
 
         
         if let comments = model.comment_list as? [SingleComment] {
@@ -263,8 +273,10 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             subServiceComment.serviceId = subService.service_id
             subServiceComment.thumbnailUrl = subService.service_thumbnail_url
             subServiceComment.serviceName = subService.service_name
-            let value = subService.rating_level ?? 0
-            subServiceComment.stars = CGFloat(value)
+            subServiceComment.stars = CommentUtils.convertStarValueToPercent(subService.rating_level)
+            if subServiceComment.stars < 0.01 {
+                subServiceComment.stars = 1
+            }
             
             if let comments = subService.comment_list as? [SingleComment] {
                 pickFirstAndAppdenComment(subServiceComment, comments: comments)
@@ -343,6 +355,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             if cell.getAlreadySelectedPhotosNumber() >= 10 {
                 cell.imageButton.hidden = true
             }
+            
+            serviceTableView.beginUpdates()
+            serviceTableView.endUpdates()
         }
     }
     
@@ -356,14 +371,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         for info in infos {
             if info.url == nil {
                 saveImageToAlbum(serviceId, info: info, index: row)
-            } else {
-//                let imageInfo = ImageInfoModel()
-//                
-//                imageInfo.imageId = createImageId(info)
-//                imageInfo.url = info.url!
-//                imageInfo.uploadFinished = false
-//                comments[row].loaclModel?.imageInfos.append(imageInfo)
-                
+            } else {       
                 commentManager.recordUploadImage(serviceId, imageId: createImageId(info), url: info.url!)
             }
         }
@@ -394,7 +402,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                     let imageInfo = ImageInfoModel()
                     
                     imageInfo.imageId = s.createImageId(info)
-                    imageInfo.url = info.url!
+                    imageInfo.localUrl = info.url!
                     imageInfo.uploadFinished = false
                     s.comments[index].loaclModel?.imageInfos.append(imageInfo)
                     
@@ -405,6 +413,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
     
     private func addImagesToCell(images: [ImageInfo], cell: ServiceCommentTableViewCell) {
+        
+        
+        
         for imageInfo in images {
             if let im = imageInfo.image {
                 cell.addAsyncUploadImage(im, imageId: createImageId(imageInfo), complate: { [weak self] (id, url, error) in
@@ -414,6 +425,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                 })
             }
         }
+        
+        serviceTableView.beginUpdates()
+        serviceTableView.endUpdates()
     }
     
     private func presentImagesReviewController(images: [(imageId: String, UIImage)]) {
@@ -467,25 +481,8 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         cell.tag = indexPath.row
         
         comments[indexPath.row].cellState = cell.setModel(comments[indexPath.row])
-        
-//        if comments[indexPath.row].cellState == nil {
-//            comments[indexPath.row].cellState = cell.setModel(comments[indexPath.row])     
-//        }
-
-    //    resetCellUI(cell, indexPath: indexPath)
-        
-     //   cellsMap[indexPath.row] = cell
 
         return cell
-    }
-    
-
-    private func resetCellUI(cell: ServiceCommentTableViewCell, indexPath: NSIndexPath) {
-        
-        if let state = comments[indexPath.row].cellState {
-            
-            cell.resetState(state)
-        }
     }
 }
 
@@ -548,16 +545,26 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
             }
         }
         
-        return false
+        return true
     }
     
     private func isFirstCommentFinished(comment: ServiceCommentViewModel) -> Bool {
         if comment.cellState == CommentStateEnum.CommentEditable {
-            let model = comment.loaclModel!
-            
-            if model.starValue < 0.01 || model.text == nil || model.text!.isEmpty {
-                return false
-            }
+            return isCommentFinished(comment)
+        }
+        
+        return true
+    }
+    
+    private func isCommentFinished(comment: ServiceCommentViewModel) -> Bool {
+        let model = comment.loaclModel!
+        
+        if comment.stars < 0.01 || model.text == nil || model.text!.isEmpty {
+            return false
+        }
+        
+        if model.text!.length < AbsCommentViewController.minTextNumber {
+            return false
         }
         
         return true
@@ -569,6 +576,10 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         
         for comment in comments {
             if comment.cellState == CommentStateEnum.Done {
+                continue
+            }
+            
+            if !isCommentFinished(comment) {
                 continue
             }
             
@@ -592,7 +603,7 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         
         for img in images {
             let photo = CommentPhoto()
-            photo.url = img.url?.absoluteString
+            photo.url = img.webUrl?.absoluteString
             comment.photos.append(photo)
         }
         
@@ -620,9 +631,14 @@ extension CompondServiceCommentViewController: ImagesReviewDelegate {
         }
         
         func deleteCellImages() {
+            serviceTableView.beginUpdates()
             if let cell = getcurrentOperateCell() {
                 cell.deleteImages(imageIds)
             }
+            
+            
+            serviceTableView.endUpdates()
+            serviceTableView.reloadData()
         }
         
         deleteLocalData()
@@ -641,7 +657,7 @@ class ServiceCommentViewModel {
     var serviceId = ""
     var thumbnailUrl = ""
     var serviceName = ""
-    var stars: CGFloat = 0
+    var stars: CGFloat = 1
     var loaclModel: ServiceCommentLocalSavedModel?
     var firstComment: SingleComment?
     var appendComment: SingleComment?

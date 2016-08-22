@@ -87,6 +87,18 @@ class AIDateTimeViewModel: AIBaseViewModel {
     var time: String?
     var isNow = false
     var shouldShowDate = false
+    
+    class func timestampToTimeViewModel(timeValue: NSNumber) -> AIDateTimeViewModel {
+        let doubleValue = timeValue.doubleValue
+        let date = NSDate(timeIntervalSince1970: doubleValue)
+        let timeViewModel = AIDateTimeViewModel()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM月dd日"
+        timeViewModel.date = dateFormatter.stringFromDate(date)
+        dateFormatter.dateFormat = "HH:mm"
+        timeViewModel.time = dateFormatter.stringFromDate(date)
+        return timeViewModel
+    }
 }
 
 /// 地图坐标模型

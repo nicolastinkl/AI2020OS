@@ -173,7 +173,7 @@ class AIPaymentViewController: UIViewController {
         tableView.registerClass(AIPayListInfoCellView.self, forCellReuseIdentifier: "CellID")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.reloadData()
-        if let fview = AIPayAmountView.initFromNib() as? AIPayAmountView{
+        if let fview = AIPayAmountView.initFromNib() as? AIPayAmountView {
             tableView.tableFooterView?.addSubview(fview)
             fview.totalAmount1.text = "\(dataModel?.total_fee ?? "")元"
             fview.totalAmount2.text = "\(dataModel?.deduct_fee ?? "")元"

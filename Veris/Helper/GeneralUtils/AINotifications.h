@@ -12,4 +12,5 @@
 
 #define kDefault_UserID                       @"Default_UserID"
 #define kDefault_UserType                     @"Default_UserType"
+#define kDefault_UserHeadURL                     @"Default_UserHeadURL"
 #define kDefault_ServerURLStatus                       @"kDefault_ServerURLStatus"

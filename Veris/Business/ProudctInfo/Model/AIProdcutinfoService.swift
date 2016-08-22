@@ -47,7 +47,7 @@ struct AIProdcutinfoService {
                     if let i = d["result"] as? Int {
                         if i == 1 {
                             complate("1", nil)
-                        }else{
+                        } else {
                             complate(nil, "0")
                         }
                     }

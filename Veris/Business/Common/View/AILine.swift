@@ -45,16 +45,16 @@ class AILine: UIView {
             CGContextSetLineCap(context, .Round)  //设置线条终点形状
         }
 
-        CGContextSetStrokeColorWithColor(context, lineColor.CGColor);
-        CGContextSetLineWidth(context, CGRectGetHeight(rect));
+        CGContextSetStrokeColorWithColor(context, lineColor.CGColor)
+        CGContextSetLineWidth(context, CGRectGetHeight(rect))
 
         if isDotted == false {
-            CGContextStrokeRectWithWidth(context, rect, CGRectGetWidth(rect));
+            CGContextStrokeRectWithWidth(context, rect, CGRectGetWidth(rect))
         }
 
-        CGContextMoveToPoint(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
-        CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect));
-        CGContextStrokePath(context);
+        CGContextMoveToPoint(context, CGRectGetMinX(rect), CGRectGetMinY(rect))
+        CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect))
+        CGContextStrokePath(context)
     }
 
 

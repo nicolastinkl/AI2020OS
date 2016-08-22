@@ -13,15 +13,12 @@
 #import "AINotifications.h"
 #import "AIFakeUser.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "Veris-Swift.h"
 
-
-#define kMargin 20
-#define kBuyer1Tag 100
-#define kSeller1Tag 200
-#define kSellerDavidTag 300
-#define kBuyer1         @"100000002410"
-#define kSeller1        @"200000002501"
-#define kSellerDavid    @"200000002501"
+#define kMargin           20
+#define kCustomer1_id     100000002410
+#define kProvider1_id     200000002501
+#define kProviderDavid    200000001635
 
 
 @interface AIFakeLoginView ()
@@ -43,8 +40,8 @@
     
     if (self) {
         [self makeBackground];
-        [self makeBuyerArea];
-        [self makeSellerArea];
+        [self makeProviderArea];
+        [self makeCustomerArea];
         [self makeDefaultUser];
     }
     
@@ -53,12 +50,14 @@
 
 - (void)makeDefaultUser
 {
-    NSString *userID = [[NSUserDefaults standardUserDefaults] objectForKey:kDefault_UserID];
+    AIUser *user = [AIUser currentUser];
     
-    if ([userID isEqualToString:kBuyer1]) {
+    NSInteger userID = user.id;
+    
+    if (userID == kCustomer1_id) {
         _buyerTitleImageView.highlighted = YES;
     }
-    else if ([userID isEqualToString:kSeller1])
+    else if (userID == kProvider1_id)
     {
         _sellerTitleImageView.highlighted = YES;
     }
@@ -117,7 +116,7 @@
 }
 
 
-- (void)makeBuyerArea
+- (void)makeProviderArea
 {
     CGFloat y = kMargin;
     
@@ -132,14 +131,14 @@
     AIFakeUser *buyer = [[AIFakeUser alloc] initWithFrame:CGRectMake(kMargin, y, size.width, size.height) icon:image selectedAction:^(AIFakeUser *user) {
         [wf handlerUser:user];
     }];
-    buyer.userID = @"100000002410";
-    buyer.userType = FakeUserBuyer;
+    buyer.userID = kCustomer1_id;
+    buyer.userType = AIUserTypeCustomer;
     [self handlerDefaultUser:buyer];
     [self addSubview:buyer];
 
 }
 
-- (void)makeSellerArea
+- (void)makeCustomerArea
 {
     __weak typeof(self) wf = self;
     CGFloat y = CGRectGetHeight(self.frame) / 2;
@@ -151,20 +150,20 @@
     _sellerTitleImageView = [self makeImageViewAtPoint:CGPointMake(0, y) imageName:@"FakeLogin_SellerTitle" hlImageName:@"FakeLogin_SellerTitleL"];
     y += kMargin * 2 + CGRectGetHeight(_sellerTitleImageView.frame);
     
-    // Seller
-    
+    // Provider
     UIImage *image = [UIImage imageNamed:@"FakeLogin_Seller"];
     CGSize size = [AITools imageDisplaySizeFrom1080DesignSize:image.size];
     
     AIFakeUser *seller = [[AIFakeUser alloc] initWithFrame:CGRectMake(kMargin, y, size.width, size.height) icon:image selectedAction:^(AIFakeUser *user) {
         [wf handlerUser:user];
     }];
-    seller.userID = kSeller1;
-    seller.userType = FakeUserSeller;
+    seller.userID = kProvider1_id;
+    seller.userType = AIUserTypeCustomer;
     [self addSubview:seller];
     [self handlerDefaultUser:seller];
-    // David
     
+    
+    // David
     CGFloat x = CGRectGetMaxX(seller.frame) + kMargin;
     
     image = [UIImage imageNamed:@"FakeLogin_David"];
@@ -173,8 +172,8 @@
     seller = [[AIFakeUser alloc] initWithFrame:CGRectMake(x, y, size.width, size.height) icon:image selectedAction:^(AIFakeUser *user) {
         [wf handlerUser:user];
     }];
-    seller.userID = @"200000001635";
-    seller.userType = FakeUserSeller;
+    seller.userID = kProviderDavid; //fake user
+    seller.userType = AIUserTypeProvider;
     [self handlerDefaultUser:seller];
     [self addSubview:seller];
     
@@ -185,13 +184,13 @@
 
 #pragma mark - Actions
 
-- (void)makeStatusWithUserType:(FakeUserType)type
+- (void)makeStatusWithUserType:(AIUserType)type
 {
-    if (type == FakeUserBuyer) {
+    if (type == AIUserTypeCustomer) {
         _buyerTitleImageView.highlighted = YES;
         _sellerTitleImageView.highlighted = NO;
     }
-    else if (type == FakeUserSeller)
+    else if (type == AIUserTypeProvider)
     {
         _buyerTitleImageView.highlighted = NO;
         _sellerTitleImageView.highlighted = YES;
@@ -201,9 +200,12 @@
 
 - (void)handlerDefaultUser:(AIFakeUser *)user
 {
-    NSString *defaultID = [[NSUserDefaults standardUserDefaults] objectForKey:kDefault_UserID];
     
-    if ([user.userID isEqualToString:defaultID]) {
+    AIUser *currentUser = [AIUser currentUser];
+    
+    NSInteger userID = currentUser.id;
+    
+    if (user.userID == userID) {
         self.currentUser = user;
         [user setSelected:YES];
         [self makeStatusWithUserType:user.userType];
@@ -221,26 +223,27 @@
         // 配置频道
         AVInstallation *installation = [AVInstallation currentInstallation];
 
-        if (user.userType == FakeUserSeller) {
-            [installation setObject:user.userID forKey:@"ProviderIdentifier"];
+        AIUser *currentUser = [AIUser currentUser];
+        currentUser.id = user.userID;
+        
+        if (user.userType == AIUserTypeCustomer) {
+            [installation setObject:@(user.userID) forKey:@"ProviderIdentifier"];
             [installation addUniqueObject:@"ProviderChannel" forKey:@"channels"];
-            [[NSUserDefaults standardUserDefaults] setObject:@"100" forKey:kDefault_UserType];
+            currentUser.type = AIUserTypeCustomer;
         }
         else
         {
-            [installation setObject:@"123" forKey:@"ProviderIdentifier"];
+            [installation setObject:@"" forKey:@"ProviderIdentifier"];
             [installation removeObject:@"ProviderChannel" forKey:@"channels"];
-            [[NSUserDefaults standardUserDefaults] setObject:@"101" forKey:kDefault_UserType];
+            currentUser.type = AIUserTypeProvider;
         }
         
         [installation saveInBackground];
         
-        
         // 保存到本地
-        [[NSUserDefaults standardUserDefaults] setObject:user.userID forKey:kDefault_UserID];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        [currentUser save];
         
-        NSString *query = [NSString stringWithFormat:@"0&0&%@&0", user.userID];
+        NSString *query = [NSString stringWithFormat:@"0&0&%ld&0", user.userID];
         [[AINetEngine defaultEngine] removeCommonHeaders];
         [[AINetEngine defaultEngine] configureCommonHeaders:@{@"HttpQuery" : query}];
         
@@ -249,12 +252,5 @@
     
     [self hideSelf];
 }
-
-/*
- 
- 
- */
-
-
 
 @end

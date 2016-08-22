@@ -626,6 +626,8 @@
 		8483169F1D33374200082D38 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483169E1D33374200082D38 /* CommentService.swift */; };
 		848316A41D333B3E00082D38 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848316A31D333B3E00082D38 /* CommentModel.m */; };
 		848316A61D3344AA00082D38 /* BDKTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848316A51D3344AA00082D38 /* BDKTools.swift */; };
+		8484D8341D66EBBB001F1A54 /* TestCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8484D8331D66EBBB001F1A54 /* TestCommentViewController.xib */; };
+		8484D8361D66EBF9001F1A54 /* TestCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8351D66EBF9001F1A54 /* TestCommentViewController.swift */; };
 		84970C211D654E0D006612B2 /* AIProviderDetailServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */; };
 		8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
@@ -744,7 +746,6 @@
 		93E4C4021D20E478007EB116 /* AIAssetsPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E4C4011D20E478007EB116 /* AIAssetsPickerController.xib */; };
 		93E8469B1D2A0FB400CD4BD0 /* AIUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */; };
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
-		93FD2FDD1D13DA7E00B88355 /* AISearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */; };
 		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
 		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
 		C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */; };
@@ -763,6 +764,7 @@
 		FB2373281D4F78F300A8B38A /* AIProductQAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373271D4F78F300A8B38A /* AIProductQAService.swift */; };
 		FB2E41ED1D461821001DDB5D /* MBFingerTipWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */; };
 		FB3DCCD81D4A02A30090DEA6 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */; };
+		FB49E9D61D65914100EF67F7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49E9D51D65914100EF67F7 /* User.swift */; };
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB58838D1D51C7930080588B /* AISearchHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB58838C1D51C7930080588B /* AISearchHomeService.swift */; };
 		FB5934191D59BAD500CBE237 /* GridBubblesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5934181D59BAD500CBE237 /* GridBubblesView.swift */; };
@@ -1645,6 +1647,8 @@
 		848316A21D333B1C00082D38 /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848316A31D333B3E00082D38 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 		848316A51D3344AA00082D38 /* BDKTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BDKTools.swift; sourceTree = "<group>"; };
+		8484D8331D66EBBB001F1A54 /* TestCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCommentViewController.xib; sourceTree = "<group>"; };
+		8484D8351D66EBF9001F1A54 /* TestCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCommentViewController.swift; sourceTree = "<group>"; };
 		8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
@@ -1864,7 +1868,6 @@
 		93E4C4011D20E478007EB116 /* AIAssetsPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAssetsPickerController.xib; sourceTree = "<group>"; };
 		93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUIButton.swift; sourceTree = "<group>"; };
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
-		93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchResultModel.swift; sourceTree = "<group>"; };
 		93FD2FDE1D13E7A400B88355 /* searchJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchJson.json; sourceTree = "<group>"; };
 		A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C95179D61D40C73600446498 /* AICommentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoModel.swift; sourceTree = "<group>"; };
@@ -1895,6 +1898,7 @@
 		FB2E41EB1D461821001DDB5D /* MBFingerTipWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFingerTipWindow.h; sourceTree = "<group>"; };
 		FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFingerTipWindow.m; sourceTree = "<group>"; };
 		FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = Debug/CardDeepLinkKit.framework; sourceTree = "<group>"; };
+		FB49E9D51D65914100EF67F7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryIconView.swift; sourceTree = "<group>"; };
 		FB58838C1D51C7930080588B /* AISearchHomeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHomeService.swift; sourceTree = "<group>"; };
 		FB5934181D59BAD500CBE237 /* GridBubblesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridBubblesView.swift; sourceTree = "<group>"; };
@@ -2949,6 +2953,7 @@
 			children = (
 				81433B151CFBE5A700347C29 /* AIFakeUser.h */,
 				81433B161CFBE5A700347C29 /* AIFakeUser.m */,
+				FB49E9D51D65914100EF67F7 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4351,6 +4356,8 @@
 				846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */,
 				847D29951D4F2CA7009E26B8 /* CommentManager.swift */,
 				813860F41D59789D0050C0D0 /* AISingalServiceCommnentViewController.swift */,
+				8484D8331D66EBBB001F1A54 /* TestCommentViewController.xib */,
+				8484D8351D66EBF9001F1A54 /* TestCommentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4414,7 +4421,6 @@
 		93EC4A691D05564E007F599E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				93FD2FDC1D13DA7E00B88355 /* AISearchResultModel.swift */,
 				FB7A4E1E1D1D2BA300DBE07E /* AIImageRecongizeService.swift */,
 				FB58838C1D51C7930080588B /* AISearchHomeService.swift */,
 				FB664CE71D619B2000E88A2F /* AISearchServiceModel.h */,
@@ -4636,7 +4642,7 @@
 					};
 					93D5A3481B709C1C00DDB158 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = T2362RFKT6;
+						DevelopmentTeam = 388D56L7YB;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
 								enabled = 0;
@@ -4719,6 +4725,7 @@
 				8457004D1D012D7D00512597 /* CommentDistrictView.xib in Resources */,
 				12FBCB911D5ACBB100E333D6 /* AIWorkQualificationView.xib in Resources */,
 				81433D511CFBE5A700347C29 /* AIConfirmOrderCellView.xib in Resources */,
+				8484D8341D66EBBB001F1A54 /* TestCommentViewController.xib in Resources */,
 				1265F62D1D4F755200130ECF /* AIWorkManageStoryboard.storyboard in Resources */,
 				93C8C9AA1D14035B00F1DFCF /* AICustomSearchHomeCell.xib in Resources */,
 				93A0AB9C1D12AA1B00562090 /* AIPaymentViewController.xib in Resources */,
@@ -5042,7 +5049,6 @@
 				81433E5C1CFBE5A700347C29 /* FLEXArgumentInputTextView.m in Sources */,
 				938008661D5B2C4C00FAD140 /* AIWishTextWishsView.swift in Sources */,
 				9392B5851D1CD9F10007F241 /* openssl_wrapper.m in Sources */,
-				93FD2FDD1D13DA7E00B88355 /* AISearchResultModel.swift in Sources */,
 				12873EE71D20C0BA00C3AF9A /* LoginConstants.swift in Sources */,
 				8175A7EE1CFD2710006F2C8F /* OAStackViewDistributionStrategy.m in Sources */,
 				81433CEF1CFBE5A700347C29 /* AIBaseModel.swift in Sources */,
@@ -5178,6 +5184,7 @@
 				8175A7DB1CFD2710006F2C8F /* JSONModelClassProperty.m in Sources */,
 				8175A7D51CFD2710006F2C8F /* DDHTimerControl.mm in Sources */,
 				81433D9E1CFBE5A700347C29 /* AIPopupChooseBaseView.swift in Sources */,
+				FB49E9D61D65914100EF67F7 /* User.swift in Sources */,
 				81433D991CFBE5A700347C29 /* AIErrorRetryView.swift in Sources */,
 				9352BC821D656134003CD476 /* AIPayAmountView.swift in Sources */,
 				8175A7C11CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m in Sources */,
@@ -5499,6 +5506,7 @@
 				81433DAA1CFBE5A700347C29 /* AITimelineCellBaseView.swift in Sources */,
 				C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */,
 				81433D1C1CFBE5A700347C29 /* AccommodationService.swift in Sources */,
+				8484D8361D66EBF9001F1A54 /* TestCommentViewController.swift in Sources */,
 				936B32A51D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift in Sources */,
 				933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */,
 				81433E231CFBE5A700347C29 /* YLProgressBar.m in Sources */,
@@ -5618,7 +5626,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;
@@ -5883,7 +5891,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;

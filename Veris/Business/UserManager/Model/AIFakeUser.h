@@ -7,21 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef NS_ENUM(NSInteger, FakeUserType) {
-    FakeUserSeller = 100,
-    FakeUserBuyer,
-};
-
+#import "Veris-Swift.h"
 
 @class AIFakeUser;
 typedef void(^UserSelectedAction)(AIFakeUser *user);
 
 @interface AIFakeUser : UIView
 
-@property (nonatomic, strong) NSString *userID;
+@property (nonatomic, assign) NSInteger userID;
 
-@property (nonatomic, assign) FakeUserType userType;
+@property (nonatomic, assign) AIUserType userType;
 
 
 - (instancetype)initWithFrame:(CGRect)frame icon:(UIImage *)icon selectedAction:(UserSelectedAction) action;
