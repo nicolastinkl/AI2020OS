@@ -107,7 +107,11 @@ class AISingalServiceCommnentViewController: AIBaseViewController {
         serviceModel.serviceName = "Effoldless Beauty Pregnancy Care"
         commentModel.serviceModel = serviceModel
         commentModel.starLevel = 5
+        commentModel.comments = "This service is very good! I like it very much! Please tell the beautyful seller's cellphone, I want to thank her face to face!"
 
+        let imageName = "http://img.mshishang.com/pics/2016/0718/20160718043725872.jpeg"
+        commentModel.commentPictures = [imageName, imageName, imageName, imageName, imageName, imageName, imageName]
+        
         let signalComment = AISingalCommentView(frame: frame, commentModel: commentModel)
         self.view.addSubview(signalComment)
 
