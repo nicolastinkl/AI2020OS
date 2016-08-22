@@ -104,24 +104,45 @@ class AISuperiorityViewController: UIViewController {
         titleLabel.text = "听说你还为孕检\n操碎了心？"
 
         // List Superiority Desciption.
-        var preCellView: UIView?
-        for index in 0...3 {
-            if let aisCell = AISuperiorityCellView.initFromNib() as? AISuperiorityCellView {
-                aisCell.labelDesciption.text = "一键启动符合服务"
-                if index > 0 {
-                    addNewSubView(aisCell, preView: preCellView!, color: UIColor.clearColor(), space: 48/3)
-                } else {
-                    addNewSubView(aisCell, preView: titleLabel)
-                }
-                preCellView = aisCell
-            }
+//        var preCellView: UIView?
+//        for index in 0...3 {
+//            if let aisCell = AISuperiorityCellView.initFromNib() as? AISuperiorityCellView {
+//                aisCell.labelDesciption.text = "一键启动符合服务"
+//                if index > 0 {
+//                    addNewSubView(aisCell, preView: preCellView!, color: UIColor.clearColor(), space: 48/3)
+//                } else {
+//                    addNewSubView(aisCell, preView: titleLabel)
+//                }
+//                preCellView = aisCell
+//            }
+//        }
+//        
+//        
+        
+        if let aisCell = AISuperiorityCellView.initFromNib() as? AISuperiorityCellView {
+            aisCell.labelDesciption.text = "一键启动符合服务"
+            addNewSubView(aisCell)
+            aisCell.setHeight(32)
         }
+        
+        if let aisCell = AISuperiorityCellView.initFromNib() as? AISuperiorityCellView {
+            aisCell.labelDesciption.text = "7*24小时随时待命"
+            addNewSubView(aisCell)
+            aisCell.setHeight(32)
+        }
+        
+        if let aisCell = AISuperiorityCellView.initFromNib() as? AISuperiorityCellView {
+            aisCell.labelDesciption.text = "孕期检查的一站式服务"
+            addNewSubView(aisCell)
+            aisCell.setHeight(32)
+        }
+        
 
         // Price Label.
         let priceLabel = AILabel()
-        priceLabel.text = "¢ 184.0 +"
+        priceLabel.text = "€ 184.0 +"
         priceLabel.setHeight(44/3)
-        addNewSubView(priceLabel, preView: preCellView!, color: UIColor.clearColor(), space: 69/3)
+        addNewSubView(priceLabel, preView: preCacheView!, color: UIColor.clearColor(), space: 69/3)
         priceLabel.font = UIFont.boldSystemFontOfSize(60/3)
         priceLabel.textColor = UIColor(hexString: "e7c400")
 
@@ -137,8 +158,9 @@ class AISuperiorityViewController: UIViewController {
         var height: CGFloat = 10
         var preView: UIView?
         var leftOffset: CGFloat = 0
-        for i in 0...4 {
-            if let iconText = AISuperiorityIconTextView.initFromNib() {
+        let textArray = ["专车接送（去程）","挂号","专业陪护","专车接送（返程）"]
+        for i in 0...3 {
+            if let iconText = AISuperiorityIconTextView.initFromNib() as? AISuperiorityIconTextView{
                 let offSet: CGFloat = 50.0 + CGFloat(arc4random() % 20)
                 iconText.setTop(height)
                 height = offSet + iconText.top
@@ -148,7 +170,7 @@ class AISuperiorityViewController: UIViewController {
                     iconText.setLeft(leftOffset)
                 }
                 serverIcons.addSubview(iconText)
-                
+                iconText.content.text = textArray[i]
                 if let pre = preView {
                     let cureModel = CurveModel()
                     cureModel.startX = pre.frame.origin.x + 20
@@ -242,6 +264,10 @@ class AISuperiorityViewController: UIViewController {
         UMSocialSnsService.presentSnsIconSheetView(self, appKey: AIApplication.UMengAppID, shareText: "ZhuangBi With Me & Fly With Me", shareImage: nil, shareToSnsNames: [UMShareToWechatSession, UMShareToWechatTimeline, UMShareToSina, UMShareToQQ, UMShareToQzone], delegate: self)
     }
 
+    func addNewSubView(cview: UIView){
+        addNewSubView(cview, preView: preCacheView!)
+    }
+    
     func addNewSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
         cview.alpha = 0
         scrollview.addSubview(cview)

@@ -26,7 +26,7 @@ class AIWishPreviewController: UIViewController {
     @IBOutlet weak var view_price: UIView!
     @IBOutlet weak var textpriceConstraint: NSLayoutConstraint!
     private var preWishView: AIWishTitleIconView?
-    
+    private var prePosition: CGPoint = CGPointMake(0, 0)
     @IBOutlet weak var priceConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +82,7 @@ class AIWishPreviewController: UIViewController {
         let QuestionTitle1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         QuestionTitle1.icon.image = UIImage(named: "AI_Wish_Make_comment")
         QuestionTitle1.title.text = "See what they say about it"
-        QuestionTitle1.title.font = AITools.myriadBoldWithSize(20)
+        QuestionTitle1.title.font = AITools.myriadLightSemiCondensedWithSize(20)
         addNewSubView(QuestionTitle1, preView: DescriptionLabel)
         QuestionTitle1.setHeight(42)
         QuestionTitle1.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 0)
@@ -152,7 +152,7 @@ class AIWishPreviewController: UIViewController {
         let QuestionTitle2 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         QuestionTitle2.icon.image = UIImage(named: "AI_Wish_Make_insterest")
         QuestionTitle2.title.text = "The price you are willing to pay"
-        QuestionTitle2.title.font = AITools.myriadBoldWithSize(20)
+        QuestionTitle2.title.font = AITools.myriadLightSemiCondensedWithSize(20)
 //        QuestionTitle2.setHeight(53)
         QuestionTitle2.backgroundColor = UIColor.clearColor()
         self.priceTitle.addSubview(QuestionTitle2)
@@ -227,4 +227,5 @@ class AIWishPreviewController: UIViewController {
         preContentCacheView = cview
     }
     
+
 }

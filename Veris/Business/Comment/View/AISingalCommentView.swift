@@ -32,6 +32,9 @@ class AISingalCommentView: UIView {
     var addtionalCommentButton: UIButton?
     var hasDefaultComment: Bool!
 
+    var commentPictureView: AICommentPictures!
+    var pictureView: AICommentPictures!
+
     //MARK: init
 
 
@@ -108,34 +111,61 @@ class AISingalCommentView: UIView {
     func makeDefaultCommentView() {
         if lCommentModel.comments != nil {
             makeDefaultCommentTextView()
+            reSizeSelfAfterDisplayCommentsView(commentTextView)
         }
 
         if lCommentModel.commentPictures != nil {
             makeDefaultCommentPictureView()
+            reSizeSelfAfterDisplayCommentsView(commentPictureView)
         }
+
+
     }
 
 
+    func reSizeSelfAfterDisplayCommentsView(view: UIView) {
+        var frame = self.frame
+        let height = CGRectGetMaxY(view.frame) + 42.displaySizeFrom1242DesignSize()
+        frame.size.height = height
+        self.frame = frame
+    }
+
     func makeDefaultCommentTextView() {
+        let margin = 21.displaySizeFrom1242DesignSize()
         let x = 40.displaySizeFrom1242DesignSize()
-        let y = CGRectGetMaxY(firstLine.frame) + 21.displaySizeFrom1242DesignSize()
+        let y = CGRectGetMaxY(firstLine.frame) + margin
         let width = self.width - x*2
         let font = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         let textSize = lCommentModel.comments?.sizeWithFont(font, forWidth: width)
         let maxHeight = 228.displaySizeFrom1242DesignSize()
-        let height: CGFloat = textSize?.height > maxHeight ? maxHeight : (textSize?.height)!
+        let height: CGFloat = ((textSize?.height)! + margin*2) > maxHeight ? maxHeight : ((textSize?.height)! + margin*2)
         let frame = CGRect(x: x, y: y, width: width, height: height)
         commentTextView = UITextView(frame: frame)
         commentTextView.backgroundColor = UIColor.clearColor()
-
+        commentTextView.text = lCommentModel.comments
         commentTextView.font = font
         commentTextView.textColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 1)
         commentTextView.tag = ReadOnlyTag
+        //commentTextView.scrollEnabled = height == maxHeight
         self.addSubview(commentTextView)
     }
 
     func makeDefaultCommentPictureView() {
+        let x = 40.displaySizeFrom1242DesignSize()
+        var y = CGRectGetMaxY(firstLine.frame) + 30.displaySizeFrom1242DesignSize()
+        if let textView = commentTextView {
+            y = CGRectGetMaxY(textView.frame) + 10.displaySizeFrom1242DesignSize()
+        }
 
+        let width = self.width - x*2
+        let height: CGFloat = 220.displaySizeFrom1242DesignSize()
+        let frame = CGRect(x: x, y: y, width: width, height: height)
+
+        commentPictureView = AICommentPictures(frame: frame, pictures: lCommentModel.commentPictures!)
+
+        self.addSubview(commentPictureView)
+
+        
     }
 
     func makeTextView() {
