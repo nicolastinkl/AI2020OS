@@ -175,7 +175,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         func fakeLoad() {
             comments = [ServiceCommentViewModel]()
     
-            for i in 0 ..< 8 {
+            for i in 0 ..< 1 {
                 let model = ServiceCommentViewModel()
                 model.serviceId = "\(i)"
     
@@ -189,6 +189,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
             
             loadAndMergeModelFromLocal()
+            serviceTableView.reloadData()
         }
         
         func netLoad() {
@@ -211,7 +212,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         
-     //   fakeLoad()
+    //    fakeLoad()
         netLoad()
     }
     
@@ -331,14 +332,12 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                 if let model = findLocalModel(comment.serviceId) {
                     model.isAppend = comment.cellState != .CommentEditable
                     comment.loaclModel = model
-//                    if let copy = model.copy() as? ServiceCommentLocalSavedModel {
-//                        comment.loaclModel = copy
-//                    }
-                    
                 } else {
                     comment.loaclModel = ServiceCommentLocalSavedModel()
                     comment.loaclModel?.serviceId = comment.serviceId
                 }
+                
+                comment.imageViews = createLocalImageViews(comment)
             }
         }
         
@@ -414,17 +413,46 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     
     private func addImagesToCell(images: [ImageInfo], cell: ServiceCommentTableViewCell) {
         
+        var imageList = [AIImageView]()
         
-        
-        for imageInfo in images {
-            if let im = imageInfo.image {
-                cell.addAsyncUploadImage(im, imageId: createImageId(imageInfo), complate: { [weak self] (id, url, error) in
-                    if let u = url {
-                        self?.commentManager.notifyImageUploadResult(id!, url: u)
-                    }  
-                })
+        for info in images {
+            let id = createImageId(info)
+            let imageView = createImageView(id)
+            imageView.image = info.image
+            
+            let complate: AIImageView.UploadComplate = {
+                [weak self] (id, url, error) in
+                if let u = url {
+                    self?.commentManager.notifyImageUploadResult(id!, url: u)
+                }
             }
+            
+            imageView.uploadImage(id, complate: complate)
+            imageList.append(imageView)
         }
+        
+        cell.addImages(imageList)
+        
+        let index = cell.tag
+        comments[index].imageViews.appendContentsOf(imageList)
+     
+//        var uploadList: [(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)] = []
+//        
+//        for imageInfo in images {
+//            if let im = imageInfo.image {
+//                
+//                let complate: AIImageView.UploadComplate = {
+//                    [weak self] (id, url, error) in
+//                    if let u = url {
+//                        self?.commentManager.notifyImageUploadResult(id!, url: u)
+//                    }
+//                }
+//                
+//                uploadList.append((im, createImageId(imageInfo), complate))
+//            }
+//        }
+//        
+//        cell.addAsyncUploadImages(uploadList)
         
         serviceTableView.beginUpdates()
         serviceTableView.endUpdates()
@@ -450,6 +478,33 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         
         return AbsCommentViewController.maxPhotosNumber - cell.getAlreadySelectedPhotosNumber()
     }
+    
+    private func createLocalImageViews(model: ServiceCommentViewModel) -> [AIImageView] {
+        var images = [AIImageView]()
+        
+        if let imagesUrl = ServiceCommentTableViewCell.getAssetUrls(model) {
+            for urlItem in imagesUrl {
+                let imageView = createImageView(urlItem.imageId)
+                images.append(imageView)
+                imageView.loadFromAsset(urlItem.url)
+            }
+        }
+        
+        return images
+    }
+    
+    private func createImageView(imageId: String?) -> AIImageView {
+        let imageView = AIImageView(frame: CGRect(x: 0, y: 0, width: 65, height: 65))
+        imageView.userInteractionEnabled = true
+        
+        if let id = imageId {
+            imageView.imageId = id
+        } else {
+            imageView.imageId = "\(NSDate().timeIntervalSince1970)"
+        }
+        
+        return imageView
+    }
 }
 
 extension CompondServiceCommentViewController: UITableViewDataSource, UITableViewDelegate {
@@ -457,6 +512,8 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         if comments == nil {
             return 0
         }
+        
+    //    return 1
         
         return comments.count
     }
@@ -481,11 +538,14 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         cell.tag = indexPath.row
         
         comments[indexPath.row].cellState = cell.setModel(comments[indexPath.row])
+        
+   //     AILog("row \(indexPath.row) height:\(cell.height)")
 
         return cell
     }
 }
 
+//MARK: CommentCellDelegate
 extension CompondServiceCommentViewController: CommentCellDelegate {
     func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView) {
         if let cell = buttonParentCell as? ServiceCommentTableViewCell {
@@ -609,8 +669,11 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         
         return comment
     }
+    
+    
 }
 
+//MARK: ImagesReviewDelegate
 extension CompondServiceCommentViewController: ImagesReviewDelegate {
     func deleteImages(imageIds: [String]) {
         
@@ -631,13 +694,20 @@ extension CompondServiceCommentViewController: ImagesReviewDelegate {
         }
         
         func deleteCellImages() {
-            serviceTableView.beginUpdates()
-            if let cell = getcurrentOperateCell() {
-                cell.deleteImages(imageIds)
+            if currentOperateIndex < 0 {
+                return
             }
             
+            let keepedImages = comments[currentOperateIndex].imageViews.filter { (imageView) -> Bool in
+                if imageView.imageId == nil {
+                    return false
+                }
+                
+                return !imageIds.contains(imageView.imageId!)
+            }
             
-            serviceTableView.endUpdates()
+            comments[currentOperateIndex].imageViews = keepedImages
+            
             serviceTableView.reloadData()
         }
         
@@ -662,6 +732,7 @@ class ServiceCommentViewModel {
     var firstComment: SingleComment?
     var appendComment: SingleComment?
     var alreadySelectedPhotosNumber = 0
+    var imageViews = [AIImageView]()
 }
 
 protocol CommentCellProtocol {
