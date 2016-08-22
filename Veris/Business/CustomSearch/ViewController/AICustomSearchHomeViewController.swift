@@ -370,7 +370,7 @@ extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDel
 		filterBar.hideMenu()
         view.showLoading()
 		let service = AISearchHomeService()
-		service.filterServices(searchText.text ?? "", page_size: 1000, page_number: 1, filterModel: resultFilterBar.requestParams, success: { [weak self] (res) in
+		service.filterServices(searchText.text ?? "", page_size: 10, page_number: 1, filterModel: resultFilterBar.requestParams, success: { [weak self] (res) in
             self?.view.hideLoading()
             self?.dataSource = res
             self?.tableView.reloadData()
