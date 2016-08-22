@@ -27,13 +27,10 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	var requestParams: [String: AnyObject] {
 		var result: [String: AnyObject] = [:]
 		if let filterModel = filterModel {
-			let filterIndex = indexOf(type: .Filter)
-			if filterIndex != -1 {
-				result["catalog_id"] = (filterModel.catalogs[filterIndex] as! AISearchFilterCatalog).id
-			}
+			
 			let sortIndex = indexOf(type: .Sort)
 			if sortIndex != -1 {
-				result["sort_by"] = sortRequestValues[sortIndex]
+				result["catalog_id"] = (filterModel.catalogs[sortIndex] as! AISearchFilterCatalog).id
 			}
 			
 			let priceIndex = indexOf(type: .Price)
@@ -44,6 +41,12 @@ class AICustomSearchHomeResultFilterBar: UIView {
 					"min": "0",
 					"max": "+"
 				]
+			}
+			
+			let filterIndex = indexOf(type: .Filter)
+			if filterIndex != -1 {
+				// 服务器字段叫sort_by
+				result["sort_by"] = sortRequestValues[filterIndex]
 			}
 		}
 		
