@@ -194,7 +194,7 @@ class AISuperiorityViewController: UIViewController {
     func initDataWithModel() {
         
         if let serviceModel = serviceModel {
-            AISuperiorityService.requestSuperiority(String(serviceModel.id)) { (response, error) in
+            AISuperiorityService.requestSuperiority(String(serviceModel.sid)) { (response, error) in
                 self.view.hideLoading()
                 if let res = response {
                     let model: AISuperiorityModel = res as! AISuperiorityModel
@@ -214,7 +214,7 @@ class AISuperiorityViewController: UIViewController {
     func favoriteAction() {
         view.showLoading()
         if let serviceModel = serviceModel {
-            AIProdcutinfoService.addFavoriteServiceInfo(String(serviceModel.id)) { (obj, error) in
+            AIProdcutinfoService.addFavoriteServiceInfo(String(serviceModel.sid)) { (obj, error) in
                 self.view.hideLoading()
                 if let res = obj as? String {
                     // MARK: Loading Data Views
