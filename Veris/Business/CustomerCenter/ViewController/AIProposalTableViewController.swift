@@ -28,7 +28,6 @@ import Foundation
 class AIProposalTableViewController: UIViewController {
  
     var dataSource  = [ProposalOrderViewModel]()
-    var tableViewCellCache = NSMutableDictionary()    
     var lastSelectedIndexPath: NSIndexPath?
     var didRefresh: Bool?
     
@@ -165,7 +164,6 @@ class AIProposalTableViewController: UIViewController {
     func parseListData(listData: ProposalOrderListModel?) {
         
         if let data = listData {
-            tableViewCellCache.removeAllObjects()
             dataSource.removeAll()
             tableView.reloadData()
             for proposal in data.order_list {
@@ -189,11 +187,6 @@ class AIProposalTableViewController: UIViewController {
         
         lastSelectedIndexPath = indexPath
         
-        if let cacheCell: AITableFoldedCellHolder = tableViewCellCache[indexPath.row] as! AITableFoldedCellHolder? {
-            if cellNeedRebuild(cacheCell) {
-                tableViewCellCache[indexPath.row] = buildTableViewCell(indexPath)
-            }
-        }
         //mod by Shawn at 0822, reload之前先清除map对象，只能有一个实例
         AIMapView.sharedInstance.releaseView()
         tableView.reloadData()
@@ -282,7 +275,7 @@ class AIProposalTableViewController: UIViewController {
     
 }
 
-extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSource, AIFoldedCellViewDelegate {
+extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -307,7 +300,9 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         if dataSource[indexPath.row].isExpanded {
             //改为点展开才构造展开的view, 每次构造cell都重新生成expandView
             //if cell.getView("expanded") == nil {
-                cell.addCandidateView("expanded", subView: buildSuvServiceCard(dataSource[indexPath.row]))
+                let serviceListCard = buildSuvServiceCard(dataSource[indexPath.row])
+                serviceListCard.delegate = self
+                cell.addCandidateView("expanded", subView: serviceListCard)
             //}
             cell.showView("expanded")
             cell.isBottomRoundCorner = true
@@ -327,28 +322,29 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
-    func statusButtonDidClick(proposalModel: ProposalOrderModel) {
-
-        
-        let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
-       
-//        if let navigationController = self.navigationController {
-//            navigationController.pushViewController(serviceExecVC, animated: true)
-//        } else {
-
-            //弹出前先收起订单列表
-            let parentVC = self.parentViewController as! AIBuyerViewController
-            parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)
-            let TopMargin: CGFloat = 15.3
-            serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
-            self.presentPopupViewController(serviceExecVC, animated: true)
-        //}
-        
-    }
+    
     
 }
 
-
+extension AIProposalTableViewController: SubServiceCardViewDelegate, AIFoldedCellViewDelegate {
+    func statusButtonDidClick(proposalModel: ProposalOrderModel) {
+        
+        
+        let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
+        
+        //        if let navigationController = self.navigationController {
+        //            navigationController.pushViewController(serviceExecVC, animated: true)
+        //        } else {
+        
+        //弹出前先收起订单列表
+        let parentVC = parentViewController as! AIBuyerViewController
+        parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)
+        let TopMargin: CGFloat = 15.3
+        serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
+        presentPopupViewController(serviceExecVC, animated: true)
+        //}
+    }
+}
 
 extension AIProposalTableViewController : DimentionChangable, ProposalExpandedDelegate {
     func heightChanged(changedView: UIView, beforeHeight: CGFloat, afterHeight: CGFloat) {

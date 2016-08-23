@@ -27,15 +27,14 @@ class SubServiceCardView: UIView {
     @IBOutlet weak var addtionView: UIView!
     @IBOutlet weak var seperator: UIView!
     
+    var delegate: SubServiceCardViewDelegate?
+    
     private var serviceModel: ServiceOrderModel!
     private var proposalModel: ProposalOrderModel?
  
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder) 
         
-   //     initSelfFromXib()
-        
-   //     initSubView()
     }
     
     override func awakeFromNib() {
@@ -50,6 +49,12 @@ class SubServiceCardView: UIView {
 
     func callBtnTap(sender: UITapGestureRecognizer) {
         
+    }
+    
+    @IBAction func statusButtonAction(sender: AnyObject) {
+        if let mode = proposalModel {
+            delegate?.statusButtonDidClick(mode)
+        }
     }
     
     func setContentView(view: UIView, height: CGFloat) {
@@ -134,4 +139,8 @@ class SubServiceCardView: UIView {
 
     }
     
+}
+
+protocol SubServiceCardViewDelegate {
+    func statusButtonDidClick(proposalModel: ProposalOrderModel)
 }
