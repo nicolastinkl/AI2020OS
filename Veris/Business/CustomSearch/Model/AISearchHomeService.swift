@@ -21,8 +21,8 @@ class AISearchHomeService: NSObject {
 		message.body = NSMutableDictionary(dictionary: body)
 		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
 			let responseDic = response as! [NSObject: AnyObject]
-			let recentlySearchTexts = responseDic["recently_seach_key"] as! [String]
-			let everyOneSearchTexts = responseDic["everyone_seach_key"] as! [String]
+			let recentlySearchTexts = responseDic["recently_search_key"] as! [String]
+			let everyOneSearchTexts = responseDic["everyone_search_key"] as! [String]
 			let array = responseDic["browser_history"] as! [AnyObject]
 			let result = AISearchServiceModel.arrayOfModelsFromDictionaries(array) as NSArray as! [AISearchServiceModel]
 			success(recentlySearchTexts: recentlySearchTexts, everyOneSearchTexts: everyOneSearchTexts, browseHistory: result)

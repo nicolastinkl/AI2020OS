@@ -47,7 +47,7 @@
 		12FBCB8D1D59CB1600E333D6 /* AIWorkQualificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCB8C1D59CB1600E333D6 /* AIWorkQualificationView.swift */; };
 		12FBCB911D5ACBB100E333D6 /* AIWorkQualificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12FBCB901D5ACBB100E333D6 /* AIWorkQualificationView.xib */; };
 		16E7F5C2B86F7A124E6FB458 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */; };
-		813860F51D59789D0050C0D0 /* AISingalServiceCommnentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860F41D59789D0050C0D0 /* AISingalServiceCommnentViewController.swift */; };
+		813860F51D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */; };
 		813860F71D5979030050C0D0 /* AIChooseStarLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860F61D5979030050C0D0 /* AIChooseStarLevelView.swift */; };
 		813860FB1D597D020050C0D0 /* AIBaseCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860FA1D597D020050C0D0 /* AIBaseCommentModel.swift */; };
 		813860FF1D5AC4E20050C0D0 /* AIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860FE1D5AC4E20050C0D0 /* AIBaseViewController.swift */; };
@@ -875,7 +875,7 @@
 		503E6327D0C6936333F981D4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5293440786150C2B14661D8C /* Pods_VerisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VerisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E080193263E9011ADC252AB /* Pods-VerisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.debug.xcconfig"; sourceTree = "<group>"; };
-		813860F41D59789D0050C0D0 /* AISingalServiceCommnentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingalServiceCommnentViewController.swift; sourceTree = "<group>"; };
+		813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleServiceCommnentViewController.swift; sourceTree = "<group>"; };
 		813860F61D5979030050C0D0 /* AIChooseStarLevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChooseStarLevelView.swift; sourceTree = "<group>"; };
 		813860FA1D597D020050C0D0 /* AIBaseCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBaseCommentModel.swift; sourceTree = "<group>"; };
 		813860FE1D5AC4E20050C0D0 /* AIBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBaseViewController.swift; sourceTree = "<group>"; };
@@ -4355,7 +4355,7 @@
 				846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */,
 				846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */,
 				847D29951D4F2CA7009E26B8 /* CommentManager.swift */,
-				813860F41D59789D0050C0D0 /* AISingalServiceCommnentViewController.swift */,
+				813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */,
 				8484D8331D66EBBB001F1A54 /* TestCommentViewController.xib */,
 				8484D8351D66EBF9001F1A54 /* TestCommentViewController.swift */,
 			);
@@ -5267,7 +5267,7 @@
 				81433D5C1CFBE5A700347C29 /* AIServiceRouteView.swift in Sources */,
 				81433D1D1CFBE5A700347C29 /* AIIconTextView.swift in Sources */,
 				935E58DC1D5315D900252B83 /* AIWorkManageHeaderView.swift in Sources */,
-				813860F51D59789D0050C0D0 /* AISingalServiceCommnentViewController.swift in Sources */,
+				813860F51D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift in Sources */,
 				81433DA01CFBE5A700347C29 /* AIRACClosureTableViewDataSource.swift in Sources */,
 				FB2373281D4F78F300A8B38A /* AIProductQAService.swift in Sources */,
 				8175A7F11CFD2710006F2C8F /* OBShapedImageView.m in Sources */,
