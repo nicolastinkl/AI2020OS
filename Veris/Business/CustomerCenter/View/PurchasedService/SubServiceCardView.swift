@@ -95,7 +95,12 @@ class SubServiceCardView: UIView {
             nodeState.text = node.status
             
             if let url = serviceData.provider_icon {
-                personIcon.asyncLoadImage(url)
+                personIcon.asyncLoadImage(url, placeHoldImg: "contact_icon")
+
+            }
+            
+            if node.procedure_inst_desc != nil {
+                additionDescription.text = node.procedure_inst_desc
             }
         }
     }

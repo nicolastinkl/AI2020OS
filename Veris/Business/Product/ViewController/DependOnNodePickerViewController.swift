@@ -334,8 +334,8 @@ class CycleImageView: UIImageView {
 		}
 	}
 
-	override func asyncLoadImage(imgUrl: String) {
-		imageView.asyncLoadImage(imgUrl)
+	override func asyncLoadImage(imgUrl: String, placeHoldImg: String? = nil) {
+        imageView.asyncLoadImage(imgUrl, placeHoldImg: placeHoldImg)
 	}
 
 	override func layoutSubviews() {
