@@ -15,6 +15,21 @@ class ListSubServiceCardView: UIView {
     private var modelList: [ServiceOrderModel]!
     var timelineModels: [AITimelineViewModel] = []
     var bottomConstraint: Constraint!
+    var delegate: SubServiceCardViewDelegate? {
+        didSet {
+            guard let d = delegate else {
+                return
+            }
+            
+            for view in subviews {
+                guard let sub = view as? SubServiceCardView else {
+                    continue
+                }
+                
+                sub.delegate = d
+            }
+        }
+    }
     
     func setSubServicesForTest(serviceCount: Int) {
         guard serviceCount > 0 else {

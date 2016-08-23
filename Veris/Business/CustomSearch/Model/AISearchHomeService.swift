@@ -30,7 +30,7 @@ class AISearchHomeService: NSObject {
             } else {
                 fail(errType: AINetError.Failed, errDes: "no data")
             }
-			
+			 
 			
 		}) { (error: AINetError, errorDes: String!) -> Void in
 			fail(errType: error, errDes: errorDes ?? "")

@@ -50,17 +50,8 @@ class AISuperiorityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // MARK: Init
-        self.initLayoutViews()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        view.showLoading()
-        Async.main(after: 0.15) {
-            // MARK: Layout
-            self.initDataWithModel()
-            
-        }
+        initLayoutViews()
+        initDataWithModel()
     }
     
     @IBAction func targetServiceDetail(any: AnyObject) {
@@ -160,9 +151,9 @@ class AISuperiorityViewController: UIViewController {
         var height: CGFloat = 10
         var preView: UIView?
         var leftOffset: CGFloat = 0
-        let textArray = ["专车接送（去程）","挂号","专业陪护","专车接送（返程）"]
+        let textArray = ["专车接送（去程）", "挂号", "专业陪护", "专车接送（返程）"]
         for i in 0...3 {
-            if let iconText = AISuperiorityIconTextView.initFromNib() as? AISuperiorityIconTextView{
+            if let iconText = AISuperiorityIconTextView.initFromNib() as? AISuperiorityIconTextView {
                 let offSet: CGFloat = 50.0 + CGFloat(arc4random() % 20)
                 iconText.setTop(height)
                 height = offSet + iconText.top
@@ -202,32 +193,36 @@ class AISuperiorityViewController: UIViewController {
 
     func initDataWithModel() {
         
-        AISuperiorityService.requestSuperiority("\(serviceModel?.sid)") { (response, error) in
-            self.view.hideLoading()
-            if let res = response {
-                let model: AISuperiorityModel = res as! AISuperiorityModel
-                // MARK: Loading Data Views
-                self.initDatawithViews()
-                if model.collected == 0 {
-                    //未收藏
-                    self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
-                } else {
-                    self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
+        if let serviceModel = serviceModel {
+            AISuperiorityService.requestSuperiority(String(serviceModel.id)) { (response, error) in
+                self.view.hideLoading()
+                if let res = response {
+                    let model: AISuperiorityModel = res as! AISuperiorityModel
+                    // MARK: Loading Data Views
+                    self.initDatawithViews()
+                    if model.collected == 0 {
+                        //未收藏
+                        self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+                    } else {
+                        self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
+                    }
                 }
             }
-        }         
+        }
     }
     
     func favoriteAction() {
         view.showLoading()
-        AIProdcutinfoService.addFavoriteServiceInfo("\(serviceModel?.sid)") { (obj, error) in
-            self.view.hideLoading()
-            if let res = obj as? String {
-                // MARK: Loading Data Views
-                if res == "1"{
-                    self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
-                } else {
-                    AIAlertView().showError("收藏失败", subTitle: "")
+        if let serviceModel = serviceModel {
+            AIProdcutinfoService.addFavoriteServiceInfo(String(serviceModel.id)) { (obj, error) in
+                self.view.hideLoading()
+                if let res = obj as? String {
+                    // MARK: Loading Data Views
+                    if res == "1"{
+                        self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
+                    } else {
+                        AIAlertView().showError("收藏失败", subTitle: "")
+                    }
                 }
             }
         }
