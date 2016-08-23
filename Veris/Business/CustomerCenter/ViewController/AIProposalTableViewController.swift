@@ -298,9 +298,10 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         if cell.mainView == nil {
             let folderCellView = AICustomerOrderFoldedView.currentView()
             folderCellView.delegate = self
-            folderCellView.loadData(dataSource[indexPath.row].model)
             cell.mainView = folderCellView
         }
+        
+        (cell.mainView as! AICustomerOrderFoldedView).loadData(dataSource[indexPath.row].model)
         
         
         if dataSource[indexPath.row].isExpanded {
