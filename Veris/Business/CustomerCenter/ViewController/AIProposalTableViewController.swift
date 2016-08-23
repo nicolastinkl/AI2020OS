@@ -130,8 +130,6 @@ class AIProposalTableViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 20
         
-        tableView.registerClass(AITableFoldedCellHolder.self, forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITableFoldedCellHolder)
-        
         tableView.registerClass(SwitchedTableViewCell.self, forCellReuseIdentifier: "SwitchedTableViewCell")
         
         self.view.addSubview(tableView)
@@ -193,23 +191,9 @@ class AIProposalTableViewController: UIViewController {
         
     }
     
-    
-    
     func proposalToVieModel(model: ProposalOrderModel) -> ProposalOrderViewModel {
         let p = ProposalOrderViewModel(model: model)
         return p
-    }
-    
-    func buildExpandCellView(indexPath: NSIndexPath) -> ProposalExpandedView {
-        let proposalModel = dataSource[indexPath.row].model!
-        let viewWidth = tableView.frame.size.width
-        let servicesViewContainer = ProposalExpandedView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: PurchasedViewDimention.PROPOSAL_HEAD_HEIGHT))
-        servicesViewContainer.proposalOrder = proposalModel
-        servicesViewContainer.dimentionListener = self
-        servicesViewContainer.delegate = self
-        
-        servicesViewContainer.tag = indexPath.row
-        return servicesViewContainer
     }
     
     private func buildSuvServiceCard(viewModel: ProposalOrderViewModel) -> ListSubServiceCardView {
@@ -230,39 +214,7 @@ class AIProposalTableViewController: UIViewController {
             view.layer.opacity = 1
         }
     }
-    
-    
-    private func cellNeedRebuild(cell: AITableFoldedCellHolder) -> Bool {
-        var needRebuild = false
-        
-        if let expanedView = cell.expanedView {
-            needRebuild = expanedView.serviceOrderNumberIsChanged
-        }
-        
-        return needRebuild
-    }
-    
-    private func buildTableViewCell(indexPath: NSIndexPath) -> AITableFoldedCellHolder {
-        let proposalModel = dataSource[indexPath.row].model!
-        
-        let cell = AITableFoldedCellHolder()
-        cell.tag = indexPath.row
-        let folderCellView = AIFolderCellView.currentView()
-        folderCellView.loadData(proposalModel)
-        folderCellView.frame = cell.contentView.bounds
-        cell.foldedView = folderCellView
-        cell.contentView.addSubview(folderCellView)
-        
-        let expandedCellView = buildExpandCellView(indexPath)
-        cell.expanedView = expandedCellView
-        cell.contentView.addSubview(expandedCellView)
-        cell.selectionStyle = .None
-        cell.backgroundColor = UIColor.clearColor()
-        cell.contentView.layer.cornerRadius = 15
-        
-        return cell
-    }
-    
+  
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         rowSelectAction(indexPath)
