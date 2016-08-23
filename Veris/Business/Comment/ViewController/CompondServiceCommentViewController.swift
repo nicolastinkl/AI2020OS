@@ -74,12 +74,12 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         if submitList.count > 0 {
             commentManager.submitComments("1", userType: 1, commentList: submitList, success: { (responseData) in
                 if responseData.result {
-                    AIAlertView().showInfo("提交成功", subTitle: "提交成功")
+                    NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.LONG)
                 } else {
-                    AIAlertView().showInfo("提交失败", subTitle: "提交失败")
+                    NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.LONG)
                 }
                 }) { (errType, errDes) in
-                    AIAlertView().showInfo("提交失败", subTitle: "提交失败")
+                    NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.LONG)
             }
             
             dismissViewControllerAnimated(true, completion: nil)
@@ -91,43 +91,10 @@ class CompondServiceCommentViewController: AbsCommentViewController {
 //            AIAlertView().showInfo("正在上传图片，不能提交", subTitle: "正在上传图片，不能提交")
 //            return
 //        }
-//        
-//        var submitList = [ServiceComment]()
-//        
-//        for item in cellsMap {
-//            guard let cell = item.1 as? ServiceCommentTableViewCell else {
-//                continue
-//            }
-//            
-//            if let comment = cell.getSubmitData() {
-//                if !CommentUtils.isStarValueValid(comment.rating_level) {
-//                    AIAlertView().showInfo("评分不能为空，不能提交", subTitle: "评分不能为空，不能提交")
-//                    return
-//                } else {
-//                    submitList.append(comment)
-//                }
-//            }
-//        }
-//        
-//        if submitList.count == 0 {
-//            return
-//        }
-//        
-//        commentManager.submitComments("1", userType: 1, commentList: submitList, success: { (responseData) in
-//            if responseData.result {
-//                AIAlertView().showInfo("提交成功", subTitle: "提交成功")
-//            } else {
-//                AIAlertView().showInfo("提交失败", subTitle: "提交失败")
-//            }
-//            }) { (errType, errDes) in
-//                AIAlertView().showInfo("提交失败", subTitle: "提交失败")
-//        }
-//        
-//        serviceTableView.reloadData()
+
     }
     
     private func setupNavigationBar() {
-//        edgesForExtendedLayout = .Top
 
         let backButton = UIButton()
         backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
@@ -435,24 +402,6 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         
         let index = cell.tag
         comments[index].imageViews.appendContentsOf(imageList)
-     
-//        var uploadList: [(image: UIImage, imageId: String?, complate: AIImageView.UploadComplate?)] = []
-//        
-//        for imageInfo in images {
-//            if let im = imageInfo.image {
-//                
-//                let complate: AIImageView.UploadComplate = {
-//                    [weak self] (id, url, error) in
-//                    if let u = url {
-//                        self?.commentManager.notifyImageUploadResult(id!, url: u)
-//                    }
-//                }
-//                
-//                uploadList.append((im, createImageId(imageInfo), complate))
-//            }
-//        }
-//        
-//        cell.addAsyncUploadImages(uploadList)
         
         serviceTableView.beginUpdates()
         serviceTableView.endUpdates()
@@ -521,11 +470,6 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         var cell: ServiceCommentTableViewCell!
-        
-        // 不复用cell
-//        if let c = cellsMap[indexPath.row] {
-//            return c
-//        }
 
         if indexPath.row == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier("TopServiceCell") as!ServiceCommentTableViewCell
@@ -538,8 +482,6 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         cell.tag = indexPath.row
         
         comments[indexPath.row].cellState = cell.setModel(comments[indexPath.row])
-        
-   //     AILog("row \(indexPath.row) height:\(cell.height)")
 
         return cell
     }
@@ -600,7 +542,7 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
     private func submitCommentsValide() -> Bool {
         for comment in comments {
             if !isFirstCommentFinished(comment) {
-                AIAlertView().showInfo("还有未完成的评论，不能提交", subTitle: "不能提交")
+                NBMaterialToast.showWithText(view, text: "CompondServiceCommentViewController.cantsubmit".localized, duration: NBLunchDuration.LONG)
                 return false
             }
         }
