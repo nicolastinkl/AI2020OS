@@ -194,7 +194,8 @@ class AIProposalTableViewController: UIViewController {
                 tableViewCellCache[indexPath.row] = buildTableViewCell(indexPath)
             }
         }
-        
+        //mod by Shawn at 0822, reload之前先清除map对象，只能有一个实例
+        AIMapView.sharedInstance.releaseView()
         tableView.reloadData()
         
     }
@@ -303,10 +304,10 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         
         
         if dataSource[indexPath.row].isExpanded {
-            //改为点展开才构造展开的view
-            if cell.getView("expanded") == nil {
+            //改为点展开才构造展开的view, 每次构造cell都重新生成expandView
+            //if cell.getView("expanded") == nil {
                 cell.addCandidateView("expanded", subView: buildSuvServiceCard(dataSource[indexPath.row]))
-            }
+            //}
             cell.showView("expanded")
             cell.isBottomRoundCorner = true
             cell.isTopRoundCorner = true
