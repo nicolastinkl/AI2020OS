@@ -60,21 +60,24 @@ class AICustomSearchHomeCell: UITableViewCell {
 		let wavyImage = UIImage(named: "wavy_lines")?.stretchableImageWithLeftCapWidth(1, topCapHeight: 0)
 		let wavyColor = UIColor(patternImage: wavyImage!)
 		wavyLineView.backgroundColor = wavyColor
-        
-        likeButton.userInteractionEnabled = false
-        hotButton.userInteractionEnabled = false
-        rateView.userInteractionEnabled = false
+		
+		likeButton.userInteractionEnabled = false
+		hotButton.userInteractionEnabled = false
+		rateView.userInteractionEnabled = false
 		
 	}
 	
 	func initData(model: AISearchServiceModel) {
 		imageview.setImgURL(NSURL(string: ""), placeholderImage: smallPlace())
-		nameLabel.text = model.name as String
+		nameLabel.text = model.name
 		nameTwiceLabel.text = String(format: " - %@", model.desc)
-        //TODO: bibo 调试
-//		desLabel.text = model.service_description as String
-//		let priceString = String(format: "€%@", model.price.price_show as String)
-//		priceLabel.text = priceString
+		desLabel.text = model.desc
+		if let price = model.price.price, unit = model.price.unit {
+			let priceString = String(format: "%@%@", unit, price)
+			priceLabel.text = priceString
+		} else {
+			priceLabel.text = ""
+		}
 //		let likeString = String(format: " %d", model.service_likes)
 //		let hotString = String(format: " %d", model.service_browse)
 //		likeButton.setTitle(likeString, forState: .Normal)

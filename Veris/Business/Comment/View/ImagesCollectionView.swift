@@ -227,6 +227,31 @@ class ImagesCollectionView: UIView {
         sizeDelegate?.sizeChange(self)
     }
     
+    func addImages(views: [AIImageView]) {
+        
+        func handleImageView(imageView: AIImageView) -> AIImageView {
+            
+            imageView.frame = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
+
+            imageView.userInteractionEnabled = true
+            
+            let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(ImagesCollectionView.imageAction(_:)))
+            imageView.addGestureRecognizer(tapGuesture)
+     
+            return imageView
+        }
+        
+        for image in views {
+            images.append(handleImageView(image))
+        }
+        
+        invalidateIntrinsicContentSize()
+        setNeedsUpdateConstraints()
+        setNeedsLayout()
+        
+        sizeDelegate?.sizeChange(self)
+    }
+    
     private func appendImage(image: UIImage, imageId: String? = nil) {
         let imageView = createImageView(imageId)
         imageView.image = image

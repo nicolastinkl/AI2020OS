@@ -186,14 +186,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: - 构造列表区域
     func makeTableView () {
-
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 20
-
-        tableView.registerClass(AITableFoldedCellHolder.self, forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITableFoldedCellHolder)
-
-        tableView.registerNib(UINib(nibName: "ExpandableTableViewCell", bundle: nil), forCellReuseIdentifier: "ExpandableTableViewCell")
-
         view.addSubview(tableView)
 
         tableView.tableHeaderView = bubbleViewContainer
@@ -342,9 +334,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             tableView.reloadData()
             tableView.removeFromSuperview()
 
-            tableView.registerClass(AITableFoldedCellHolder.self, forCellReuseIdentifier: AIApplication.MainStoryboard.CellIdentifiers.AITableFoldedCellHolder)
-
-            self.view.insertSubview(tableView, belowSubview: self.topBar)
+            view.insertSubview(tableView, belowSubview: self.topBar)
 
             tableView.tableHeaderView = self.bubbleViewContainer
             tableView.headerBeginRefreshing()

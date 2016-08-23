@@ -206,7 +206,7 @@ public class AIImageView: UIImageView {
     
     var imageId: String? {
         didSet {
-            AILog("imageId:" + "\(imageId)")
+      //      AILog("imageId:" + "\(imageId)")
         }
     }
     

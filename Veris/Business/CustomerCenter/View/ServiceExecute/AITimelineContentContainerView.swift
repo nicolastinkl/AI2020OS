@@ -210,21 +210,19 @@ class AITimelineContentContainerView: UIView {
         //通过在这里赋值形成一个强引用
         let cacheModel = viewModel!
         
-        
         imageView.sd_setImageWithURL(NSURL(string: url ), placeholderImage: CustomerCenterConstants.defaultImages.timelineImage, options: SDWebImageOptions.RetryFailed) {[weak self] (image, error, cacheType, url) in
             if image == nil {
                 return
             }
-            let imageHeight = self?.getCompressedImageHeight(image)
-            if let imageHeight = imageHeight {
-                
-                
-                if self?.viewModel?.cellHeight == 0 {
-                    if let delegate = self?.delegate {
-                        self?.imageContainerViewHeight += imageHeight
-                        imageView.snp_updateConstraints { (make) in
-                            make.height.equalTo(imageHeight)
-                        }
+            //实现了代理，才能触发reload，才需要重新计算高度，否则里面都不需要执行
+            if let delegate = self?.delegate {
+                let imageHeight = self?.getCompressedImageHeight(image)
+                if let imageHeight = imageHeight {
+                    self?.imageContainerViewHeight += imageHeight
+                    imageView.snp_updateConstraints { (make) in
+                        make.height.equalTo(imageHeight)
+                    }
+                    if self?.viewModel?.cellHeight == 0 {
                         //因为第二次进入从缓存加载图片太快，cell的第一次load还没完成就触发reload，结果展现就错乱了
                         //暂时通过加延迟的方式解决
                         Async.main(after: 0.1, block: {
@@ -270,16 +268,16 @@ class AITimelineContentContainerView: UIView {
             make.leading.trailing.equalTo(self.imageContainerView)
             make.height.equalTo(defaultMapHeight)
         }
-        if viewModel?.cellHeight == 0 {
-            if let delegate = delegate {
-                //因为第二次进入从缓存加载图片太快，cell的第一次load还没完成就触发reload，结果展现就错乱了
-                //暂时通过加延迟的方式解决
-                Async.main(after: 0.1, block: {
-                    let height = self.getHeight()
-                        delegate.containerImageDidLoad(viewModel: self.viewModel!, containterHeight: height)
-                })
-            }
-        }
+//        if viewModel?.cellHeight == 0 {
+//            if let delegate = delegate {
+//                //因为第二次进入从缓存加载图片太快，cell的第一次load还没完成就触发reload，结果展现就错乱了
+//                //暂时通过加延迟的方式解决
+//                Async.main(after: 0.1, block: {
+//                    let height = self.getHeight()
+//                        delegate.containerImageDidLoad(viewModel: self.viewModel!, containterHeight: height)
+//                })
+//            }
+//        }
         return mapView
     }
     

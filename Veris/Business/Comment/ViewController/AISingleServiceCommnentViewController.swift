@@ -1,5 +1,5 @@
 //
-//  AISingalServiceCommnentViewController.swift
+//  AISingleServiceCommnentViewController
 //  AIVeris
 //
 //  Created by 王坜 on 16/8/9.
@@ -9,7 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-class AISingalServiceCommnentViewController: AIBaseViewController {
+class AISingleServiceCommnentViewController: AIBaseViewController {
 
     //MARK: Properties
 

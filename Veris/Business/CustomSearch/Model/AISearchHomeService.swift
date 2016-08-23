@@ -21,11 +21,16 @@ class AISearchHomeService: NSObject {
 		message.body = NSMutableDictionary(dictionary: body)
 		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
 			let responseDic = response as! [NSObject: AnyObject]
-			let recentlySearchTexts = responseDic["recently_seach_key"] as! [String]
-			let everyOneSearchTexts = responseDic["everyone_seach_key"] as! [String]
-			let array = responseDic["browser_history"] as! [AnyObject]
-			let result = AISearchServiceModel.arrayOfModelsFromDictionaries(array) as NSArray as! [AISearchServiceModel]
-			success(recentlySearchTexts: recentlySearchTexts, everyOneSearchTexts: everyOneSearchTexts, browseHistory: result)
+            if response != nil && responseDic.count > 0 {
+                let recentlySearchTexts = responseDic["recently_search_key"] as! [String]
+                let everyOneSearchTexts = responseDic["everyone_search_key"] as! [String]
+                let array = responseDic["browser_history"] as! [AnyObject]
+                let result = AISearchServiceModel.arrayOfModelsFromDictionaries(array) as NSArray as! [AISearchServiceModel]
+                success(recentlySearchTexts: recentlySearchTexts, everyOneSearchTexts: everyOneSearchTexts, browseHistory: result)
+            } else {
+                fail(errType: AINetError.Failed, errDes: "no data")
+            }
+			 
 			
 		}) { (error: AINetError, errorDes: String!) -> Void in
 			fail(errType: error, errDes: errorDes ?? "")
@@ -33,7 +38,7 @@ class AISearchHomeService: NSObject {
 	}
 	
 //   2.2.2 商品搜索并带出过滤条件
-	func searchServiceCondition(search_key: String, page_size: Int, page_number: Int, success: (AISearchFilterModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+	func searchServiceCondition(search_key: String, page_size: Int, page_number: Int, success: AISearchFilterModel -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 		
 		let user = AIUser.currentUser()
 		let user_type = AIUserType.Customer.rawValue

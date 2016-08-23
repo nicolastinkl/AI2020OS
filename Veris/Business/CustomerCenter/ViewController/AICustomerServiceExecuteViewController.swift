@@ -257,7 +257,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
                 weakSelf?.timelineTableView.headerEndRefreshing()
                 weakSelf?.timelineModels.removeAll()
                 weakSelf?.timelineModels = weakSelf!.handleViewModels(viewModel)
-                weakSelf?.timelineTableView.reloadData()
+                //weakSelf?.timelineTableView.reloadData()
             }) { (errType, errDes) in
                 weakSelf?.timelineTableView.headerEndRefreshing()
                 AIAlertView().showError("刷新失败", subTitle: errDes)
@@ -389,7 +389,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     func confirmServiceButtonDidClick(viewModel viewModel: AITimelineViewModel) {
         let vc = parentViewController
         self.dismissPopupViewController(true) { [weak vc] in
-            let commentVC = AISingalServiceCommnentViewController()
+            let commentVC = AISingleServiceCommnentViewController()
             let navi = UINavigationController(rootViewController: commentVC)
             navi.view.frame = self.view.bounds
             vc?.showTransitionStyleCrossDissolveView(navi)

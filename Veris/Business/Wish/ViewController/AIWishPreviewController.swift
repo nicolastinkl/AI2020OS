@@ -10,6 +10,7 @@ import Foundation
 
 import Spring
 import Cartography
+import AIAlertView
 
 class AIWishPreviewController: UIViewController {
     
@@ -17,20 +18,18 @@ class AIWishPreviewController: UIViewController {
     
     @IBOutlet weak var contentScrollview: UIScrollView!
     var model: AIBuyerBubbleModel?
-    
     var preCacheView: UIView?
     var preContentCacheView: UIView?
-    
+    var textFeild: DesignableTextField?
     @IBOutlet weak var textView: UIView!
     @IBOutlet weak var priceTitle: UIView!
     @IBOutlet weak var view_price: UIView!
     @IBOutlet weak var textpriceConstraint: NSLayoutConstraint!
     private var preWishView: AIWishTitleIconView?
-    
+    private var prePosition: CGPoint = CGPointMake(0, 0)
     @IBOutlet weak var priceConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
-                
         if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
             view.addSubview(navi)
             navi.holderViewController = self
@@ -51,10 +50,9 @@ class AIWishPreviewController: UIViewController {
     }
     
     /// 初始化处理
-    func initSubViews(){
+    func initSubViews() {
         
         // Description
-        
         let dbgView = UIView()
         dbgView.setHeight(82)
         addNewSubView(dbgView, preView: UIView())
@@ -82,14 +80,14 @@ class AIWishPreviewController: UIViewController {
         let QuestionTitle1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         QuestionTitle1.icon.image = UIImage(named: "AI_Wish_Make_comment")
         QuestionTitle1.title.text = "See what they say about it"
-        QuestionTitle1.title.font = AITools.myriadBoldWithSize(20)
+        QuestionTitle1.title.font = AITools.myriadLightSemiCondensedWithSize(20)
         addNewSubView(QuestionTitle1, preView: DescriptionLabel)
         QuestionTitle1.setHeight(42)
         QuestionTitle1.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 0)
         // Add Read All Button
         QuestionTitle1.button.hidden = false
         QuestionTitle1.button.addTarget(self, action: #selector(AIWishPreviewController.readallAction), forControlEvents: UIControlEvents.TouchUpInside)
-        preWishView = QuestionTitle1;
+        preWishView = QuestionTitle1
         
         // Top Scope
         let topScope = UIView()
@@ -146,13 +144,17 @@ class AIWishPreviewController: UIViewController {
             make.topMargin.equalTo(0)
             make.height.equalTo(85)//固定高度
         })
+        if let newt = textField as? AIWishTextWishsView {
+            textFeild = newt.textfeild
+        }
+        
         
         textField?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 0)
         // will to Pay
         let QuestionTitle2 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         QuestionTitle2.icon.image = UIImage(named: "AI_Wish_Make_insterest")
         QuestionTitle2.title.text = "The price you are willing to pay"
-        QuestionTitle2.title.font = AITools.myriadBoldWithSize(20)
+        QuestionTitle2.title.font = AITools.myriadLightSemiCondensedWithSize(20)
 //        QuestionTitle2.setHeight(53)
         QuestionTitle2.backgroundColor = UIColor.clearColor()
         self.priceTitle.addSubview(QuestionTitle2)
@@ -227,4 +229,51 @@ class AIWishPreviewController: UIViewController {
         preContentCacheView = cview
     }
     
+    @IBAction func subitAction(sender: AnyObject) {
+        if let stext = self.textFeild?.text  {
+            let number: Double = 123
+            view.showLoading()
+            AIWishServices.requestMakeWishs(number, wish: stext, complate: { (obj, error)  in
+                self.view.hideLoading()
+                if let _ = obj {
+                    
+                    // 退出当前界面 然后通知主页刷新
+                    // AIAlertView().showSuccess("提示", subTitle: "提交成功")
+                    if let alertView = AIAlertWishInputView.initFromNib() as? AIAlertWishInputView{
+                        self.view.addSubview(alertView)
+                        alertView.alpha = 0
+                        alertView.snp_makeConstraints(closure: { (make) in
+                            make.edges.equalTo(self.view)
+                        })
+                        SpringAnimation.springEaseIn(0.5, animations: {
+                            alertView.alpha = 1
+                        })
+                        alertView.buttonSubmit.addTarget(self, action: #selector(AIWishVowViewController.realSubmitAction), forControlEvents: UIControlEvents.TouchUpInside)
+                    }
+                    
+                } else {
+                    AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")
+                }
+            })
+        }
+    
+    }
+    
+    func realSubmitAction(){
+        let number = "123"
+        let stext = self.textFeild?.text ?? ""
+        
+        let model = AIBuyerBubbleModel()
+        model.order_times = 1
+        model.proposal_id_new = 1
+        model.proposal_name = stext
+        model.proposal_price = number
+        model.service_list = []
+        model.service_id = 1
+        NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
+        
+    }
+    
+    
+
 }
