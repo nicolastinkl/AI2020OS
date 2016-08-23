@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -12,19 +12,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全程陪护" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJX-Do-umm">
-                    <rect key="frame" x="67" y="10" width="359" height="26"/>
+                    <rect key="frame" x="67" y="10" width="362" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26" id="Eth-Qq-zrz"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQc-hI-BJs">
-                    <rect key="frame" x="429" y="10" width="93" height="26"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="93" id="Ufo-Lk-ea0"/>
-                        <constraint firstAttribute="height" constant="26" id="jiX-nr-fIq"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,6 +34,16 @@
                         <constraint firstAttribute="height" id="RI6-py-mKh"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQc-hI-BJs">
+                    <rect key="frame" x="429" y="10" width="93" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="93" id="Ufo-Lk-ea0"/>
+                        <constraint firstAttribute="height" constant="26" id="jiX-nr-fIq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -56,7 +56,7 @@
                 <constraint firstAttribute="bottom" secondItem="UG9-nB-6Z4" secondAttribute="bottom" id="ck9-ad-LdP"/>
                 <constraint firstItem="kJX-Do-umm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="dEr-DR-vrh"/>
                 <constraint firstAttribute="trailing" secondItem="8Tb-Y6-wbx" secondAttribute="trailing" constant="66" id="g3g-Vh-Rm2"/>
-                <constraint firstItem="NQc-hI-BJs" firstAttribute="leading" secondItem="kJX-Do-umm" secondAttribute="trailing" constant="3" id="vS8-KZ-lhf"/>
+                <constraint firstItem="NQc-hI-BJs" firstAttribute="leading" secondItem="kJX-Do-umm" secondAttribute="trailing" id="vS8-KZ-lhf"/>
                 <constraint firstItem="UG9-nB-6Z4" firstAttribute="top" secondItem="kJX-Do-umm" secondAttribute="bottom" constant="1" id="wrs-mq-bZE"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -67,7 +67,7 @@
                 <outlet property="payName" destination="kJX-Do-umm" id="eik-yj-QOa"/>
                 <outlet property="payPrice" destination="NQc-hI-BJs" id="jeg-I2-Asb"/>
             </connections>
-            <point key="canvasLocation" x="470" y="372.5"/>
+            <point key="canvasLocation" x="420" y="652.5"/>
         </view>
     </objects>
     <resources>

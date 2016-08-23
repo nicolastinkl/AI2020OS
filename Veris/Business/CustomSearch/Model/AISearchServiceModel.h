@@ -16,7 +16,7 @@
 @protocol AISearchServiceModel @end
 
 @interface AISearchServiceModel : JSONModel
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, assign) NSInteger sid;
 @property (nonatomic, strong) NSString<Optional> *name;
 @property (nonatomic, strong) NSString<Optional> *icon;
 @property (nonatomic, strong) NSString<Optional> *desc;

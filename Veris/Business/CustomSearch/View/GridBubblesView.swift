@@ -23,13 +23,13 @@ extension AIBuyerBubbleModel {
 			bubble.borderColor = borderColor[i]
 			
 			let model = serviceModels[i]
-			bubble.proposal_id = model.id
+			bubble.proposal_id = model.sid
 			bubble.proposal_name = model.name
 			bubble.proposal_price = model.price?.price_show
 			if let sub_service_list = model.sub_service_list {
 				bubble.service_list = (sub_service_list as! [AISearchServiceModel]).map({ (service) -> AIProposalServiceModel in
 					let result = AIProposalServiceModel()
-					result.service_id = service.id
+					result.service_id = service.sid
 					result.service_thumbnail_icon = service.icon
 					return result
 				})

@@ -64,7 +64,9 @@ class AISuperiorityViewController: UIViewController {
     }
     
     @IBAction func targetServiceDetail(any: AnyObject) {
-        showTransitionStyleCrossDissolveView(AIProductInfoViewController.initFromNib())
+        let pvc  = AIProductInfoViewController.initFromNib()
+        pvc.sid = serviceModel?.sid ?? 0
+        showTransitionStyleCrossDissolveView(pvc)
     }
 
     func initDatawithViews() {
@@ -200,7 +202,7 @@ class AISuperiorityViewController: UIViewController {
 
     func initDataWithModel() {
         
-        AISuperiorityService.requestSuperiority("12") { (response, error) in
+        AISuperiorityService.requestSuperiority("\(serviceModel?.sid)") { (response, error) in
             self.view.hideLoading()
             if let res = response {
                 let model: AISuperiorityModel = res as! AISuperiorityModel
@@ -218,7 +220,7 @@ class AISuperiorityViewController: UIViewController {
     
     func favoriteAction() {
         view.showLoading()
-        AIProdcutinfoService.addFavoriteServiceInfo("11") { (obj, error) in
+        AIProdcutinfoService.addFavoriteServiceInfo("\(serviceModel?.sid)") { (obj, error) in
             self.view.hideLoading()
             if let res = obj as? String {
                 // MARK: Loading Data Views
@@ -264,7 +266,7 @@ class AISuperiorityViewController: UIViewController {
         UMSocialSnsService.presentSnsIconSheetView(self, appKey: AIApplication.UMengAppID, shareText: "ZhuangBi With Me & Fly With Me", shareImage: nil, shareToSnsNames: [UMShareToWechatSession, UMShareToWechatTimeline, UMShareToSina, UMShareToQQ, UMShareToQzone], delegate: self)
     }
 
-    func addNewSubView(cview: UIView){
+    func addNewSubView(cview: UIView) {
         addNewSubView(cview, preView: preCacheView!)
     }
     

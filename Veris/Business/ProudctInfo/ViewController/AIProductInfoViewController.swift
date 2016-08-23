@@ -44,7 +44,7 @@ class AIProductInfoViewController: UIViewController {
 	private var navi = AINavigationBar.initFromNib()
 	
 	private let topImage = AIImageView()
-    
+    var sid: Int = 0
     private var dataModel: AIProdcutinfoModel?
 	
     // MARK: - Init Function
@@ -73,7 +73,7 @@ class AIProductInfoViewController: UIViewController {
     
     func requestData() {
         view.showLoading()
-        AIProdcutinfoService.requestServiceInfo("12") { (response, error) in
+        AIProdcutinfoService.requestServiceInfo("\(sid)") { (response, error) in
             self.view.hideLoading()
             if let model = response as? AIProdcutinfoModel {
                 self.dataModel = model
@@ -192,7 +192,7 @@ class AIProductInfoViewController: UIViewController {
         view.showLoading()
         
         
-        AIProdcutinfoService.addFavoriteServiceInfo("11") { (obj, error) in
+        AIProdcutinfoService.addFavoriteServiceInfo("\(sid)") { (obj, error) in
             self.view.hideLoading()
             if let res = obj as? String {
                 // MARK: Loading Data Views
