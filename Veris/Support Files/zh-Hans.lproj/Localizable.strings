@@ -193,11 +193,14 @@
 "CompondServiceCommentViewController.anonymous" = "匿名评价";
 "CompondServiceCommentViewController.append" = "追加评价";
 "CompondServiceCommentViewController.title" = "评价";
+"CompondServiceCommentViewController.cantsubmit" = "还有未完成的评论，不能提交";
 
 
 "AbsCommentViewController.selectSrc" = "选择图片来源";
 "Camera" = "相机";
 "Gallery" = "相册";
+"SubmitSuccess" = "提交成功";
+"SubmitFailed" = "提交失败";
 
 /*
  * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard

@@ -196,13 +196,15 @@
 "CompondServiceCommentViewController.anonymous" = "Anonymous comment";
 "CompondServiceCommentViewController.append" = "追加评价";
 "CompondServiceCommentViewController.title" = "评价";
+"CompondServiceCommentViewController.cantsubmit" = "还有未完成的评论，不能提交";
 
 
 
 "AbsCommentViewController.selectSrc" = "Select Source";
 "Camera" = "Camera";
 "Gallery" = "Gallery";
-
+"SubmitSuccess" = "Submit Success";
+"SubmitFailed" = "Submit Failed";
 
 /*
  * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard
