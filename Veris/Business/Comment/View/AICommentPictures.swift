@@ -116,6 +116,8 @@ class AICommentPictures: UIView {
         if let lastImageView = displayPictures.last {
             let height = CGRectGetMaxY(lastImageView.frame)
             frame.size.height = height
+        } else {
+            frame.size.height = 0
         }
 
         self.frame = frame

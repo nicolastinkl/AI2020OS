@@ -104,10 +104,10 @@ class AISingalServiceCommnentViewController: AIBaseViewController {
         let commentModel = AICommentModel()
         let serviceModel = AICommentSeviceModel()
         serviceModel.serviceIcon = "http://img5.imgtn.bdimg.com/it/u=4115455389,1829632566&fm=11&gp=0.jpg"
-        serviceModel.serviceName = "Effoldless Beauty Pregnancy Care"
+        serviceModel.serviceName = "Effoldless Beauty Pregnancy Care. Effoldless Beauty Pregnancy Care."
         commentModel.serviceModel = serviceModel
         commentModel.starLevel = 5
-        commentModel.comments = "This service is very good! I like it very much! Please tell the beautyful seller's cellphone, I want to thank her face to face!"
+        commentModel.comments = "This service is very good! I like it very much! Please tell the beautyful seller's cellphone, I want to thank her face to face!This service is very good! I like it very much! Please tell the beautyful seller's cellphone, I want to thank her face to face!This service is very good! I like it very much! Please tell the beautyful seller's cellphone, I want to thank her face to face!"
 
         let imageName = "http://img.mshishang.com/pics/2016/0718/20160718043725872.jpeg"
         commentModel.commentPictures = [imageName, imageName, imageName, imageName, imageName, imageName, imageName]

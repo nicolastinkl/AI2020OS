@@ -17,8 +17,27 @@ class AISingalCommentView: UIView {
     let placeHolder = "Please tell us how you fell about this experience. This will be of great help for others."
     let ReadOnlyTag = 1999
     //MARK: Properties
+
+    var lastView: UIView!
+    var freshView: UIView!
+
+
+
+    // last
+
+    var lastServiceOverview: AIServiceOverview!
+    var lastCommentTextView: UITextView!
+    var lastCommentPictureView: AICommentPictures!
+    var lastAddtionalCommentButton: UIButton!
+
+    var lastSeperatorLine: UIView!
+    // fresh
+
+    //
+
     var lCommentModel: AICommentModel!
     var serviceOverview: AIServiceOverview!
+
     var commentStar: AIChooseStarLevelView!
     var firstLine: AILine!
     var textView: UITextView!
@@ -29,7 +48,7 @@ class AISingalCommentView: UIView {
     var checkBoxButton: UIButton!
     var endLine: AILine!
     var seperatorLine: AILine!
-    var addtionalCommentButton: UIButton?
+    var addtionalCommentButton: UIButton!
     var hasDefaultComment: Bool!
 
     var commentPictureView: AICommentPictures!
@@ -51,10 +70,15 @@ class AISingalCommentView: UIView {
     //MARK: func
 
     func makeSubViews() {
+        hasDefaultComment = lCommentModel.comments != nil || lCommentModel.commentPictures != nil
+        makeLastCommentView()
+        makeFreshCommentView()
+        /*
         makeServiceOverview()
         makeCommentStars()
         let y = CGRectGetMaxY(commentStar.frame) + 82.displaySizeFrom1242DesignSize()
-        makeLine(y)
+        let width = CGRectGetWidth(self.frame) - 63.displaySizeFrom1242DesignSize()
+        makeLine(y, width: width)
 
         hasDefaultComment = lCommentModel.comments != nil || lCommentModel.commentPictures != nil
         if hasDefaultComment == true {
@@ -62,9 +86,207 @@ class AISingalCommentView: UIView {
         } else {
             makeTextView()
         }
+         */
+    }
+
+    //MARK: 生成默认评价
+
+    func makeLastCommentView() {
+        // Conditions
+
+        if hasDefaultComment == false {
+            return
+        }
+
+        //
+        let frame = CGRect(x: 0, y: 0, width: CGRectGetWidth(self.frame), height: 100)
+        lastView = UIView(frame: frame)
+        self.addSubview(lastView)
+
+        // SubViews
+
+        makeLastServiceInfoView()
+        makeLastStarsView()
+        makeLastCommentTextView()
+        makeLastPircureView()
+        makeLastAddtionalButtonView()
+    }
+
+    func makeLastServiceInfoView() {
+        let x = 63.displaySizeFrom1242DesignSize()
+        var y = 63.displaySizeFrom1242DesignSize()
+        var width = CGRectGetWidth(self.frame) - x*2 - 305.displaySizeFrom1242DesignSize()
+        let height = 75.displaySizeFrom1242DesignSize()
+        var frame = CGRect(x: x, y: y, width: width, height: height)
+        lastServiceOverview =  AIServiceOverview(frame: frame, service: lCommentModel.serviceModel!, type: ServiceOverviewType.ServiceOverviewTypeSingalLast)
+        lastView.addSubview(lastServiceOverview)
+
+        // add line 
+        y = CGRectGetMaxY(lastServiceOverview.frame) + 55.displaySizeFrom1242DesignSize()
+        width = CGRectGetWidth(self.frame) - x*2
+        frame = CGRect(x: x, y: y, width: width, height: 1)
+        let line = AILine(frame: frame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7), dotted: true)
+        lastView.addSubview(line)
+
 
     }
 
+
+
+    func makeLastStarsView() {
+
+        let x = CGRectGetWidth(self.frame) - 305.displaySizeFrom1242DesignSize() - 63.displaySizeFrom1242DesignSize()
+        let y = 63.displaySizeFrom1242DesignSize() + (75.displaySizeFrom1242DesignSize() - 51.displaySizeFrom1242DesignSize())/2
+        let width = 305.displaySizeFrom1242DesignSize()
+        let height = 51.displaySizeFrom1242DesignSize()
+        let frame = CGRect(x: x, y: y, width: width, height: height)
+
+        var starInfo = AIChooseStarLevelView.StarInfo()
+        starInfo.Height = 51.displaySizeFrom1242DesignSize()
+        starInfo.Width = 54.displaySizeFrom1242DesignSize()
+        starInfo.Margin = 9.displaySizeFrom1242DesignSize()
+
+        commentStar = AIChooseStarLevelView(frame: frame, starInfo: starInfo, starLevel: (lCommentModel.starLevel?.integerValue)!)
+        lastView.addSubview(commentStar)
+    }
+
+    func makeLastCommentTextView() {
+
+        if lCommentModel.comments == nil {
+            return
+        }
+
+        let margin = 21.displaySizeFrom1242DesignSize()
+        let x = 63.displaySizeFrom1242DesignSize()
+        let y = CGRectGetMaxY(lastServiceOverview.frame) + 55.displaySizeFrom1242DesignSize() + margin
+        let width = self.width - x*2
+        let font = AITools.myriadSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
+        let textSize = lCommentModel.comments?.sizeWithFont(font, forWidth: width)
+        let maxHeight = 228.displaySizeFrom1242DesignSize()
+        let height: CGFloat = ((textSize?.height)! + margin*2) > maxHeight ? maxHeight : ((textSize?.height)! + margin*2)
+        let frame = CGRect(x: x, y: y, width: width, height: height)
+        lastCommentTextView = UITextView(frame: frame)
+        lastCommentTextView.backgroundColor = UIColor.clearColor()
+        lastCommentTextView.text = lCommentModel.comments
+        lastCommentTextView.font = font
+        lastCommentTextView.textColor = AITools.colorWithR(0xfe, g: 0xfe, b: 0xfe, a: 1)
+        lastCommentTextView.tag = ReadOnlyTag
+        lastCommentTextView.editable = false
+        makeTextViewLineSpaceForTextView(lastCommentTextView)
+        lastView.addSubview(lastCommentTextView)
+
+    }
+
+
+
+    func makeLastPircureView() {
+
+        if lCommentModel.commentPictures == nil {
+            return
+        }
+
+        let x = 63.displaySizeFrom1242DesignSize()
+        var y = CGRectGetMaxY(lastServiceOverview.frame) + 21.displaySizeFrom1242DesignSize() + 1
+        if let _ = lastCommentTextView {
+            y = CGRectGetMaxY(lastCommentTextView.frame) + 21.displaySizeFrom1242DesignSize()
+        }
+
+        let width = self.width - x*2
+        let height: CGFloat = 220.displaySizeFrom1242DesignSize()
+        let frame = CGRect(x: x, y: y, width: width, height: height)
+
+        lastCommentPictureView = AICommentPictures(frame: frame, pictures: lCommentModel.commentPictures!)
+
+        lastView.addSubview(lastCommentPictureView)
+    }
+
+    func makeLastAddtionalButtonView() {
+        var yoffset: CGFloat = 0
+        if lCommentModel.commentPictures != nil {
+            yoffset = CGRectGetMaxY(lastCommentPictureView.frame)
+        } else {
+            yoffset = CGRectGetMaxY(lastCommentTextView.frame)
+        }
+
+        let x = CGRectGetWidth(self.frame) - 300.displaySizeFrom1242DesignSize()
+        let y = yoffset + 21.displaySizeFrom1242DesignSize()
+        let width = 240.displaySizeFrom1242DesignSize()
+        let height: CGFloat = 90.displaySizeFrom1242DesignSize()
+        var frame = CGRect(x: x, y: y, width: width, height: height)
+
+        lastAddtionalCommentButton = AIViews.baseButtonWithFrame(frame, normalTitle: "追加评论")
+        lastAddtionalCommentButton.layer.cornerRadius = 4
+        lastAddtionalCommentButton.layer.borderColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7).CGColor
+        lastAddtionalCommentButton.layer.borderWidth = 1
+        lastAddtionalCommentButton.layer.masksToBounds = true
+        lastAddtionalCommentButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(40.displaySizeFrom1242DesignSize())
+        lastAddtionalCommentButton.titleLabel?.textColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7)
+        lastAddtionalCommentButton.addTarget(self, action: #selector(addtionalComment), forControlEvents: UIControlEvents.TouchUpInside)
+        lastView.addSubview(lastAddtionalCommentButton)
+        reSizeSelfAfterDisplayCommentsView(lastAddtionalCommentButton)
+
+        // Add Line
+        let lineFrame = CGRect(x: 0, y: CGRectGetMaxY(lastAddtionalCommentButton.frame) + 25.displaySizeFrom1242DesignSize(), width: CGRectGetWidth(lastView.frame), height: 1)
+        lastSeperatorLine = AILine(frame: lineFrame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7), dotted: false)
+        lastView.addSubview(lastSeperatorLine)
+
+        // Set Frame
+        frame = lastView.frame
+        frame.size.height = CGRectGetMaxY(lineFrame)
+        lastView.frame = frame
+
+        frame = self.frame
+        frame.size.height = CGRectGetMaxY(lastView.frame)
+        self.frame = frame
+
+    }
+
+    //MARK: 生成新增评价
+    func makeFreshCommentView() {
+        if lCommentModel.commentPictures != nil {
+
+        } else {
+
+        }
+    }
+
+    func makeFreshServiceInfo() {
+
+    }
+
+    func makeFreshStarsView() {
+
+    }
+
+    func makeFreshCommentTextView() {
+
+    }
+
+    func makeFreshPictureView() {
+
+    }
+
+    func makeFreshChoosePictureView() {
+
+    }
+
+    //MARK: Actions
+
+    func makeTextViewLineSpaceForTextView(textView: UITextView) {
+
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10.displaySizeFrom1242DesignSize()
+        let attributes = [NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName : AITools.colorWithR(0xfe, g: 0xfe, b: 0xfe, a: 1), NSFontAttributeName : AITools.myriadSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())]
+        textView.attributedText = NSAttributedString(string: textView.text, attributes: attributes)
+        textView.textAlignment = .Left
+        textView.contentInset = UIEdgeInsetsMake(-5, -3, -5, -3)
+    }
+
+    func resizeHeight(height: CGFloat, forView: UIView) {
+        var frame = forView.frame
+        frame.size.height = height
+        forView.frame = frame
+    }
 
     func makeServiceOverview() {
         let x = 42.displaySizeFrom1242DesignSize()
@@ -72,7 +294,7 @@ class AISingalCommentView: UIView {
         let width = CGRectGetWidth(self.frame) - x*2
         let height = 142.displaySizeFrom1242DesignSize()
         let frame = CGRect(x: x, y: y, width: width, height: height)
-        serviceOverview = AIServiceOverview(frame: frame, service: lCommentModel.serviceModel!)
+        serviceOverview = AIServiceOverview(frame: frame, service: lCommentModel.serviceModel!, type: ServiceOverviewType.ServiceOverviewTypeSingalLast)
         self.addSubview(serviceOverview)
     }
 
@@ -98,14 +320,13 @@ class AISingalCommentView: UIView {
         commentStar.frame = frame
     }
 
-    func makeLine(startY: CGFloat) {
+    func makeLine(startY: CGFloat, width: CGFloat) {
         let x = 40.displaySizeFrom1242DesignSize()
-        let width = self.width - x*2
         let height: CGFloat = 1
         let frame = CGRect(x: x, y: startY, width: width, height: height)
 
-        firstLine = AILine(frame: frame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7), dotted: true)
-        self.addSubview(firstLine)
+        let line = AILine(frame: frame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7), dotted: true)
+        self.addSubview(line)
     }
 
     func makeDefaultCommentView() {
@@ -119,9 +340,41 @@ class AISingalCommentView: UIView {
             reSizeSelfAfterDisplayCommentsView(commentPictureView)
         }
 
+        makeAddtionalComment()
 
     }
 
+
+    func makeAddtionalComment() {
+
+        var yoffset: CGFloat = 0
+        if lCommentModel.commentPictures != nil {
+            yoffset = CGRectGetMaxY(commentPictureView.frame)
+        } else {
+            yoffset = CGRectGetMaxY(commentTextView.frame)
+        }
+
+        let x = CGRectGetWidth(self.frame) - 280.displaySizeFrom1242DesignSize()
+        let y = yoffset + 21.displaySizeFrom1242DesignSize()
+        let width = 240.displaySizeFrom1242DesignSize()
+        let height: CGFloat = 90.displaySizeFrom1242DesignSize()
+        let frame = CGRect(x: x, y: y, width: width, height: height)
+
+        addtionalCommentButton = AIViews.baseButtonWithFrame(frame, normalTitle: "追加评论")
+        addtionalCommentButton.layer.cornerRadius = 4
+        addtionalCommentButton.layer.borderColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7).CGColor
+        addtionalCommentButton.layer.borderWidth = 1
+        addtionalCommentButton.layer.masksToBounds = true
+        addtionalCommentButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(38.displaySizeFrom1242DesignSize())
+        addtionalCommentButton.titleLabel?.textColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7)
+        addtionalCommentButton.addTarget(self, action: #selector(addtionalComment), forControlEvents: UIControlEvents.TouchUpInside)
+        self.addSubview(addtionalCommentButton)
+        reSizeSelfAfterDisplayCommentsView(addtionalCommentButton)
+    }
+
+    func addtionalComment() {
+
+    }
 
     func reSizeSelfAfterDisplayCommentsView(view: UIView) {
         var frame = self.frame
@@ -146,6 +399,7 @@ class AISingalCommentView: UIView {
         commentTextView.font = font
         commentTextView.textColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 1)
         commentTextView.tag = ReadOnlyTag
+        commentTextView.editable = false
         //commentTextView.scrollEnabled = height == maxHeight
         self.addSubview(commentTextView)
     }
