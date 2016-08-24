@@ -11,6 +11,7 @@ import Spring
 import Cartography
 import AIAlertView
 import SnapKit
+import IQKeyboardManagerSwift
 
 class AICustomSearchHomeViewController: UIViewController {
 	
@@ -39,6 +40,16 @@ class AICustomSearchHomeViewController: UIViewController {
 	var bubbleModels = [AIBuyerBubbleModel]()
 	
 	// MARK: Method Init
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        IQKeyboardManager.sharedManager().enable = false
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        IQKeyboardManager.sharedManager().enable = true
+    }
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -49,13 +60,9 @@ class AICustomSearchHomeViewController: UIViewController {
 		fetchData()
 		
         if let audioView = audioView as? AIAudioSearchButtonView {
-            view.addSubview(audioView)
-            audioView.snp_makeConstraints(closure: { (make) in
-                make.trailing.leading.equalTo(view)
-                make.height.equalTo(42)
-                make.bottomMargin.equalTo(42)
-            })
-            audioView.button.addTarget(self, action: #selector(AICustomSearchHomeViewController.audioAction), forControlEvents: UIControlEvents.TouchUpInside)
+            audioView.setHeight(42)
+            audioView.button.addTarget(self, action: #selector(AICustomSearchHomeViewController.audioAction), forControlEvents: UIControlEvents.TouchDown)
+            searchText.inputAccessoryView = audioView
         }
         
         // Register Audio Tools Notification
@@ -64,9 +71,6 @@ class AICustomSearchHomeViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToAllView), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidHide(_:)), name: UIKeyboardDidHideNotification, object: nil)
 	}
 	
 	func fetchData() {
@@ -98,37 +102,6 @@ class AICustomSearchHomeViewController: UIViewController {
 		self.dismissViewControllerAnimated(false, completion: nil)
 		self.dismissViewControllerAnimated(false, completion: nil)
 	}
-    
-    func keyboardDidShow(notification: NSNotification?) {
-        
-        // change keyboard height
-        
-        if let userInfo = notification?.userInfo {
-            
-            // step 1: get keyboard height
-            let keyboardRectValue: NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
-            let keyboardRect: CGRect = keyboardRectValue.CGRectValue()
-            let keyboardHeight: CGFloat = min(CGRectGetHeight(keyboardRect), CGRectGetWidth(keyboardRect))
-            print(keyboardHeight)
-            if keyboardHeight > 0 {
-                if let audioView = audioView {
-                    SpringAnimation.spring(0.3, animations: { 
-                        audioView.setTop(self.view.height - keyboardHeight-42)
-                    })
-                    
-                }
-            }
-        }
-    }
-    
-    func keyboardDidHide(notification: NSNotification?) {
-        if let _ = notification {
-            if let audioView = audioView {
-                audioView.setTop(view.height+42)
-            }
-            
-        }
-    }
     
     func audioAction() {
         showTransitionStyleCrossDissolveView(AIAudioSearchViewController.initFromNib())
