@@ -220,13 +220,16 @@ class AICustomSearchHomeViewController: UIViewController {
 		view.showLoading()
 		let service = AISearchHomeService()
 		service.searchServiceCondition(searchText.text ?? "", page_size: 10, page_number: 1, success: { [weak self](model) in
-			self?.view.hideLoading()
+			
+            self?.view.hideLoading()
 			self?.resultHoldView.hidden = false
-			self?.holdView.hidden = true
-			self?.resultFilterBar.filterModel = model
+			self?.holdView.hidden = true            
+            self?.resultFilterBar.filterModel = model
             
-            self?.dataSource = model.service_list as! [AISearchServiceModel]
-            self?.tableView.reloadData()
+            if model.service_list != nil {
+                self?.dataSource = model.service_list as! [AISearchServiceModel]
+                self?.tableView.reloadData()
+            }
             
 		}) { [weak self](errType, errDes) in
 			self?.view.hideLoading()

@@ -48,15 +48,15 @@ class AIPayInfoModel: JSONJoy {
         servicestars = decoder["servicestars"].string ?? ""
         providerphone = decoder["providerphone"].string ?? ""
         totalorders = decoder["total_orders"].string ?? ""
-        if let array = decoder["total_orders"].array {
+        if let array = decoder["payment_items"].array {
             for dec in array {
                 let pro = AIPaymentItemModel(dec)
                 paymentItem.append(pro)
             }
         }
-        total_fee = decoder["total_fee"].string ?? ""
-        deduct_fee = decoder["deduct_fee"].string ?? ""
-        pay_fee = decoder["pay_fee"].string ?? ""
+        total_fee = "\(decoder["total_fee"].double ?? 0)"
+        deduct_fee = "\(decoder["deduct_fee"].double ?? 0)"
+        pay_fee = "\(decoder["pay_fee"].double ?? 0)"
     }
 }
 
@@ -67,8 +67,8 @@ struct AIPaymentItemModel: JSONJoy {
     var details = Array<AIPaymentItemModel>()
 
     init(_ decoder: JSONDecoder) {
-        name = decoder["name"].string ?? ""
-        amout = decoder["amout"].string ?? ""
+        name = decoder["name"].string ?? decoder["item"].string ?? ""
+        amout = "\(decoder["amout"].double ?? 0)"
         
         if let array = decoder["details"].array {
             for dec in array {

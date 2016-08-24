@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import Spring
 
 class AIWishTextWishsView: UIView {
     
+    @IBOutlet weak var textfeild: DesignableTextField!
     override func awakeFromNib() {
         super.awakeFromNib()
         

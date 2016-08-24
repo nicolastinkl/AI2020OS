@@ -174,17 +174,16 @@ class AIPaymentViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.reloadData()
         if let fview = AIPayAmountView.initFromNib() as? AIPayAmountView {
-            tableView.tableFooterView?.addSubview(fview)
+            tableView.tableFooterView = fview
             fview.totalAmount1.text = "\(dataModel?.total_fee ?? "")元"
             fview.totalAmount2.text = "\(dataModel?.deduct_fee ?? "")元"
             fview.totalAmount3.text = "\(dataModel?.pay_fee ?? "")元"
         }
-        
     }
     
     func initData() {
         view.showLoading()
-        AIPayInfoServices.reqeustOrderInfo("100000031769", orderitemid: "100000066505",success: { (model) in
+        AIPayInfoServices.reqeustOrderInfo("100000031769", orderitemid: "100000066505", success: { (model) in
                 self.view.hideLoading()
                 self.dataModel = model as? AIPayInfoModel
                 self.tableView.reloadData()

@@ -8,7 +8,16 @@
 
 #import "AISearchServiceModel.h"
 
-@implementation AISearchServiceModel @end
+@implementation AISearchServiceModel
++(JSONKeyMapper*)keyMapper
+{
+    // 这里就采用了KVC的方式来取值...
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"id": @"sid"
+                                                       
+                                                       }];
+}
+@end
 @implementation AISearchFilterModel @end
 @implementation AISearchFilterCatalog @end
 @implementation AISearchFilterPrice @end

@@ -491,10 +491,13 @@ extension UITableViewCell {
 }
 
 extension UIImageView {
-	func asyncLoadImage(imgUrl: String) {
-		
-		self.sd_setImageWithURL(NSURL(string: "\(imgUrl)"))
-		
+    func asyncLoadImage(imgUrl: String, placeHoldImg: String? = nil) {
+        
+        if let hold = placeHoldImg {
+            sd_setImageWithURL(NSURL(string: imgUrl), placeholderImage: UIImage(named: hold))
+        } else {
+            sd_setImageWithURL(NSURL(string: imgUrl))
+        }	
 	}
 }
 
