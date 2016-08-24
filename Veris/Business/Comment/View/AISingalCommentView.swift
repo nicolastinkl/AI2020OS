@@ -8,10 +8,8 @@
 
 import UIKit
 
-
-@objc protocol AISingalCommentViewDelegate {
-    optional func didAddCommentText(text: String)
-    optional func didAddCommentPicture(pictureURL: String)
+ protocol AISingalCommentViewDelegate {
+    func shoudShowImagePicker()
 }
 
 
@@ -19,7 +17,7 @@ class AISingalCommentView: UIView {
 
     //MARK: Public
 
-
+    var delegate: AISingalCommentViewDelegate?
     //MARK: Constants
     let placeHolder = "Please tell us how you fell about this experience. This will be of great help for others."
     let ReadOnlyTag = 1999
@@ -44,8 +42,8 @@ class AISingalCommentView: UIView {
     var freshSeperatorLine: AILine!
     var freshCommentTextView: UITextView!
     var freshCommentPictureView: AICommentPictures!
-    var freshAnonymousView: UIView!
     var freshChoosePictureButton: UIButton!
+    var freshToolView: UIView!
     var freshCheckBox: UIButton!
     var freshAnonymousLabel: UPLabel!
 
@@ -73,7 +71,7 @@ class AISingalCommentView: UIView {
 
     //MARK: func
 
-    func makeSubViews() {
+    private func makeSubViews() {
         hasDefaultComment = lCommentModel.comments != nil || lCommentModel.commentPictures != nil
         makeLastCommentView()
         makeFreshCommentView()
@@ -81,7 +79,7 @@ class AISingalCommentView: UIView {
 
     //MARK: 生成默认评价
 
-    func makeLastCommentView() {
+    private func makeLastCommentView() {
         // Conditions
 
         if hasDefaultComment == false {
@@ -102,7 +100,7 @@ class AISingalCommentView: UIView {
         makeLastAddtionalButtonView()
     }
 
-    func makeLastServiceInfoView() {
+    private func makeLastServiceInfoView() {
         let x = 63.displaySizeFrom1242DesignSize()
         var y = 63.displaySizeFrom1242DesignSize()
         var width = CGRectGetWidth(self.frame) - x*2 - 305.displaySizeFrom1242DesignSize()
@@ -123,7 +121,7 @@ class AISingalCommentView: UIView {
 
 
 
-    func makeLastStarsView() {
+    private func makeLastStarsView() {
 
         let x = CGRectGetWidth(self.frame) - 305.displaySizeFrom1242DesignSize() - 63.displaySizeFrom1242DesignSize()
         let y = 63.displaySizeFrom1242DesignSize() + (75.displaySizeFrom1242DesignSize() - 51.displaySizeFrom1242DesignSize())/2
@@ -141,7 +139,7 @@ class AISingalCommentView: UIView {
         lastView.addSubview(lastCommentStar)
     }
 
-    func makeLastCommentTextView() {
+    private func makeLastCommentTextView() {
 
         if lCommentModel.comments == nil {
             return
@@ -170,7 +168,7 @@ class AISingalCommentView: UIView {
 
 
 
-    func makeLastPircureView() {
+    private func makeLastPircureView() {
 
         if lCommentModel.commentPictures == nil {
             return
@@ -191,7 +189,7 @@ class AISingalCommentView: UIView {
         lastView.addSubview(lastCommentPictureView)
     }
 
-    func makeLastAddtionalButtonView() {
+    private func makeLastAddtionalButtonView() {
         var yoffset: CGFloat = 0
         if lCommentModel.commentPictures != nil {
             yoffset = CGRectGetMaxY(lastCommentPictureView.frame)
@@ -233,7 +231,7 @@ class AISingalCommentView: UIView {
     }
 
     //MARK: 生成新增评价
-    func makeFreshCommentView() {
+    private func makeFreshCommentView() {
 
         // Make Base View
         let yoffset: CGFloat = hasDefaultComment == true ? CGRectGetMaxY(lastAddtionalCommentButton.frame) : 0
@@ -262,7 +260,7 @@ class AISingalCommentView: UIView {
         makeFreshChoosePictureView()
     }
 
-    func makeFreshServiceInfo() {
+    private func makeFreshServiceInfo() {
 
         if hasDefaultComment == true {
             return
@@ -277,7 +275,7 @@ class AISingalCommentView: UIView {
         freshView.addSubview(freshServiceOverview)
     }
 
-    func makeFreshStarsView() {
+    private func makeFreshStarsView() {
         if hasDefaultComment == true {
             return
         }
@@ -305,7 +303,7 @@ class AISingalCommentView: UIView {
 
     }
 
-    func makeFreshSeperatorLine() {
+    private func makeFreshSeperatorLine() {
 
         if hasDefaultComment == true {
             return
@@ -321,7 +319,7 @@ class AISingalCommentView: UIView {
         freshView.addSubview(freshSeperatorLine)
     }
 
-    func makeFreshCommentTextView() {
+    private func makeFreshCommentTextView() {
 
         let x = 40.displaySizeFrom1242DesignSize()
         let y = CGRectGetMaxY(freshSeperatorLine.frame) + 21.displaySizeFrom1242DesignSize()
@@ -349,7 +347,7 @@ class AISingalCommentView: UIView {
 
     }
 
-    func makeFreshPictureView() {
+    private func makeFreshPictureView() {
         let x = 40.displaySizeFrom1242DesignSize()
         var y = CGRectGetMaxY(freshSeperatorLine.frame) + 30.displaySizeFrom1242DesignSize()
         if let textView = freshCommentTextView {
@@ -361,50 +359,52 @@ class AISingalCommentView: UIView {
         let frame = CGRect(x: x, y: y, width: width, height: height)
 
         freshCommentPictureView = AICommentPictures(frame: frame, pictures: [String]())
-
+        freshCommentPictureView.delegate = self
         freshView.addSubview(freshCommentPictureView)
     }
 
-    func makeFreshChoosePictureView() {
+    private func makeFreshChoosePictureView() {
         let x = 40.displaySizeFrom1242DesignSize()
         let y = CGRectGetMaxY(freshCommentPictureView.frame) + 30.displaySizeFrom1242DesignSize()
         let width = freshView.width - x*2
-        let height: CGFloat = 0
+        let height: CGFloat = 90.displaySizeFrom1242DesignSize()
         let frame = CGRect(x: x, y: y, width: width, height: height)
-        freshAnonymousView = UIView(frame: frame)
+        freshToolView = UIView(frame: frame)
+        freshView.addSubview(freshToolView)
+
 
         // Picture Button
         var size: CGFloat = 90.displaySizeFrom1242DesignSize()
 
-        freshChoosePictureButton = AIViews.baseButtonWithFrame(CGRect(x: x, y: y, width: size, height: size), normalTitle: "")
+        freshChoosePictureButton = AIViews.baseButtonWithFrame(CGRect(x: 0, y: 0, width: size, height: size), normalTitle: "")
         freshChoosePictureButton.setImage(UIImage(named: "Image_picker"), forState: .Normal)
         freshChoosePictureButton.setImage(UIImage(named: "Image_picker"), forState: .Highlighted)
         freshChoosePictureButton.addTarget(self, action: #selector(choosePictureActtion), forControlEvents: UIControlEvents.TouchUpInside)
-        freshView.addSubview(freshChoosePictureButton)
+        freshToolView.addSubview(freshChoosePictureButton)
         // CheckBox
         let annonymousString = "Stay anonymous"
         let font = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         let stringSize = annonymousString.sizeWithFont(font, forWidth: 200)
         size = 50.displaySizeFrom1242DesignSize()
 
-        let boxX = CGRectGetWidth(freshView.frame) - 40.displaySizeFrom1242DesignSize() - stringSize.width - 19.displaySizeFrom1242DesignSize() - size
-        let boxY = y + 20.displaySizeFrom1242DesignSize()
-        freshCheckBox = AIViews.baseButtonWithFrame(CGRect(x: boxX, y: boxY, width: size, height: size), normalTitle: "")
+        let boxX = CGRectGetWidth(freshToolView.frame) - stringSize.width - 19.displaySizeFrom1242DesignSize() - size
+
+        freshCheckBox = AIViews.baseButtonWithFrame(CGRect(x: boxX, y: 0, width: size, height: size), normalTitle: "")
         freshCheckBox.setImage(UIImage(named: "Image_picker"), forState: .Normal)
         freshCheckBox.setImage(UIImage(named: "Image_picker"), forState: .Highlighted)
         freshCheckBox.addTarget(self, action: #selector(choosePictureActtion), forControlEvents: UIControlEvents.TouchUpInside)
-        freshView.addSubview(freshCheckBox)
+        freshToolView.addSubview(freshCheckBox)
         freshCheckBox.hidden = hasDefaultComment
         // Anonymous
 
-        let labelFrame = CGRect(x: CGRectGetMaxX(freshCheckBox.frame) + 19.displaySizeFrom1242DesignSize(), y: boxY, width: stringSize.width, height: size)
+        let labelFrame = CGRect(x: CGRectGetMaxX(freshCheckBox.frame) + 19.displaySizeFrom1242DesignSize(), y: 0, width: stringSize.width, height: size)
         freshAnonymousLabel = AIViews.normalLabelWithFrame(labelFrame, text: annonymousString, fontSize: 48.displaySizeFrom1242DesignSize(), color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7))
         freshAnonymousLabel.hidden = hasDefaultComment
-        freshView.addSubview(freshAnonymousLabel)
+        freshToolView.addSubview(freshAnonymousLabel)
 
         // Set Frame
         var newFrame = freshView.frame
-        newFrame.size.height = CGRectGetMaxY(freshChoosePictureButton.frame)
+        newFrame.size.height = CGRectGetMaxY(freshToolView.frame)
         freshView.frame = newFrame
 
         newFrame = self.frame
@@ -415,11 +415,11 @@ class AISingalCommentView: UIView {
 
     //MARK: Actions
 
-    func choosePictureActtion() {
-
+    @objc private func choosePictureActtion() {
+        self.delegate?.shoudShowImagePicker()
     }
 
-    func makeTextViewLineSpaceForTextView(textView: UITextView) {
+    private func makeTextViewLineSpaceForTextView(textView: UITextView) {
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 10.displaySizeFrom1242DesignSize()
@@ -430,21 +430,21 @@ class AISingalCommentView: UIView {
     }
 
 
-    func showFreshView() {
+    private func showFreshView() {
         lastSeperatorLine.hidden = true
         lastAddtionalCommentButton.hidden = true
         freshView.hidden = false
 
     }
 
-    func hideFreshView() {
+    private func hideFreshView() {
         lastSeperatorLine.hidden = false
         lastAddtionalCommentButton.hidden = false
         freshView.hidden = true
     }
 
 
-    func addtionalComment() {
+    @objc private func addtionalComment() {
         didShowAddtionalCommentView = !didShowAddtionalCommentView
 
         if didShowAddtionalCommentView == true {
@@ -454,13 +454,21 @@ class AISingalCommentView: UIView {
         }
     }
 
-    func reSizeSelfAfterDisplayCommentsView(view: UIView) {
+    private func reSizeSelfAfterDisplayCommentsView(view: UIView) {
         var frame = self.frame
         let height = CGRectGetMaxY(view.frame) + 42.displaySizeFrom1242DesignSize()
         frame.size.height = height
         self.frame = frame
     }
 
+    //MARK: Public
+
+    func shouldAppendPicture(pictures: [AnyObject]) {
+        let offset = freshCommentPictureView.appendPictures(pictures)
+        var frame = self.frame
+        frame.size.height += offset
+        self.frame = frame
+    }
 
 
 }
@@ -491,5 +499,18 @@ extension AISingalCommentView: UITextViewDelegate {
         } else {
             return true
         }
+    }
+}
+
+extension AISingalCommentView: AICommentPicturesDelegate {
+
+    func didSelectedPictures(pictures: [UIImageView], index: Int) {
+
+    }
+
+    func didChangedHeight(heightOffset: CGFloat) {
+        var frame = freshToolView.frame
+        frame.origin.y += heightOffset
+        freshToolView.frame = frame
     }
 }

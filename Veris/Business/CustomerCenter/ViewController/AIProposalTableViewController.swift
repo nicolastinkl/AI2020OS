@@ -105,6 +105,7 @@ class AIProposalTableViewController: UIViewController {
                 
                 weakSelf!.didRefresh = false
                 weakSelf!.tableView.reloadData()
+                weakSelf!.tableView.headerEndRefreshing()
         })
     }
     

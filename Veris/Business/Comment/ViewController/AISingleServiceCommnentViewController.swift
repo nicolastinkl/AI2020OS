@@ -15,7 +15,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
     var submitButton: UIButton!
 
-
+    var singalServiceCommentView: AISingalCommentView!
 
 
     //MARK: Functions
@@ -104,7 +104,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         let commentModel = AICommentModel()
         let serviceModel = AICommentSeviceModel()
         serviceModel.serviceIcon = "http://img5.imgtn.bdimg.com/it/u=4115455389,1829632566&fm=11&gp=0.jpg"
-        serviceModel.serviceName = "Effoldless Beauty Pregnancy Care. Effoldless Beauty Pregnancy Care."
+        serviceModel.serviceName = "Effoldless Beauty Pregnancy Care"
         commentModel.serviceModel = serviceModel
         commentModel.starLevel = 5
         commentModel.comments = "This service is very good! I like it very much! Please tell the beautyful seller's cellphone, I want to thank her face to face!This service is very good! I like it very much! Please tell the beautyful seller's cellphone, I want to thank her face to face!This service is very good! I like it very much! Please tell the beautyful seller's cellphone, I want to thank her face to face!"
@@ -112,14 +112,84 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         let imageName = "http://img.mshishang.com/pics/2016/0718/20160718043725872.jpeg"
         commentModel.commentPictures = [imageName, imageName, imageName, imageName, imageName, imageName, imageName]
         
-        let signalComment = AISingalCommentView(frame: frame, commentModel: commentModel)
-        self.view.addSubview(signalComment)
+        singalServiceCommentView = AISingalCommentView(frame: frame, commentModel: commentModel)
+        singalServiceCommentView.delegate = self
+
+        self.view.addSubview(singalServiceCommentView)
 
     }
 
     //MARK: Actions
 
     func submitAction() {
+
+    }
+
+
+    func openAlbum() {
+        let vc = AIAssetsPickerController.initFromNib()
+        vc.delegate = self
+
+
+        vc.maximumNumberOfSelection = 10
+        let navi = UINavigationController(rootViewController: vc)
+        navi.navigationBarHidden = true
+        self.presentViewController(navi, animated: true, completion: nil)
+    }
+}
+
+
+extension AISingleServiceCommnentViewController: AISingalCommentViewDelegate {
+    func shoudShowImagePicker() {
+        openAlbum()
+    }
+
+
+    func commentViewShouldAppendPicutres(pictures: [AnyObject]) {
+
+    }
+}
+
+
+extension AISingleServiceCommnentViewController: AIAssetsPickerControllerDelegate {
+    /**
+     完成选择
+
+     1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
+     2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
+
+        var pictures = [UIImage]()
+
+        for asset in assets {
+            if let item = asset as? ALAsset {
+                let image = UIImage(CGImage: item.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+                pictures.append(image)
+            }
+        }
+
+        self.singalServiceCommentView.shouldAppendPicture(pictures as [AnyObject])
+    }
+
+    /**
+     取消选择
+     */
+    func assetsPickerControllerDidCancel() {
+
+    }
+
+    /**
+     选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+
+    }
+
+    /**
+     取消选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
 
     }
 }
