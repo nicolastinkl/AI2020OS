@@ -38,7 +38,7 @@ class AIWishVowViewController: UIViewController {
     @IBOutlet weak var scrollview: UIScrollView!
     
     private var preCacheView: UIView?
-    
+    private var currentAlertView: AIAlertWishInputView?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -76,7 +76,7 @@ class AIWishVowViewController: UIViewController {
         
     }
     
-    func queryWishs(){
+    func queryWishs() {
         AIWishServices.requestQueryWishs { (objc, error) in
             
         }
@@ -87,7 +87,7 @@ class AIWishVowViewController: UIViewController {
     }
     
     
-    func refereshBubble(){
+    func refereshBubble() {
         let title1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         title1.icon.image = UIImage(named: "AI_Wish_Make_instrst")
         title1.title.text = "Recommended Wish"
@@ -128,7 +128,7 @@ class AIWishVowViewController: UIViewController {
  
     }
     
-    func prewishAction(send: UITapGestureRecognizer){
+    func prewishAction(send: UITapGestureRecognizer) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let bubbleModels = appDelegate.dataSourcePop
         if let s = send.view {
@@ -173,20 +173,20 @@ class AIWishVowViewController: UIViewController {
         
     }
     
-    func realSubmitAction(){
-         let number = self.payContent.text
-         let stext = self.wishContent.text
-         self.payContent.text = "  0 Euro"
-         self.wishContent.text = "  Your Could write down your wish here or select from blew."
-         
-         let model = AIBuyerBubbleModel()
-         model.order_times = 1
-         model.proposal_id_new = 1
-         model.proposal_name = stext
-         model.proposal_price = number
-         model.service_list = []
-         model.service_id = 1
+    func realSubmitAction() {
+        
+        if let text = currentAlertView?.textInputView.text {
+            let number = self.payContent.text
+            let model = AIBuyerBubbleModel()
+            model.order_times = 1
+            model.proposal_id_new = 1
+            model.proposal_name = text
+            model.proposal_price = number
+            model.service_list = []
+            model.service_id = 1
         NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
+        }
+        
  
     }
     
@@ -218,6 +218,7 @@ class AIWishVowViewController: UIViewController {
                             SpringAnimation.springEaseIn(0.5, animations: {
                                 alertView.alpha = 1
                             })
+                            self.currentAlertView = alertView
                             alertView.buttonSubmit.addTarget(self, action: #selector(AIWishVowViewController.realSubmitAction), forControlEvents: UIControlEvents.TouchUpInside)
                         }
                         
