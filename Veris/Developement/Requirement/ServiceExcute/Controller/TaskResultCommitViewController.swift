@@ -30,6 +30,12 @@ class TaskResultCommitViewController: UIViewController {
             #selector(TaskResultCommitViewController.cameraAction(_:))
         let cameraTap = UITapGestureRecognizer(target: self, action: cameraSelector)
         cameraIcon.addGestureRecognizer(cameraTap)
+        
+        
+        let textAndAudioSelector =
+            #selector(TaskResultCommitViewController.showTextAndAudioEditor(_:))
+        let textAndAudioTap = UITapGestureRecognizer(target: self, action: textAndAudioSelector)
+        writeIcon.addGestureRecognizer(textAndAudioTap)
     }
     
 
@@ -45,6 +51,11 @@ class TaskResultCommitViewController: UIViewController {
     
     func cameraAction(sender: UIGestureRecognizer) {
         startImagePickController()
+    }
+    
+    func showTextAndAudioEditor(sender: UIGestureRecognizer) {
+        let vc = UINavigationController(rootViewController: TextAndAudioInputViewController.initFromNib())
+        presentViewController(vc, animated: true, completion: nil)
     }
     
     private func startImagePickController() {

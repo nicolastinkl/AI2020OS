@@ -205,9 +205,12 @@
 "Gallery" = "Gallery";
 "SubmitSuccess" = "Submit Success";
 "SubmitFailed" = "Submit Failed";
+"Cancel" = "Cancel";
+"Save" = "Save";
 
 /*
  * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard
  */
 
- "TaskExecute.turnInQuest" = "Turn In Quest";
+"TaskExecute.turnInQuest" = "Turn In Quest";
+"Note.inputHint" = "Please leave a note here.";

@@ -598,6 +598,7 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         comment.service_id = model.serviceId
         comment.text = model.loaclModel?.text ?? ""
         comment.photos = [CommentPhoto]()
+        comment.spec_id = "2201"
         
         guard let images = model.loaclModel?.imageInfos else {
             return comment
