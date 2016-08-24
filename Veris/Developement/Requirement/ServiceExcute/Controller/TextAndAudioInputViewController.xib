@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextAndAudioInputViewController" customModule="Veris" customModuleProvider="target">
+            <connections>
+                <outlet property="audioBottomConstraint" destination="bjW-T8-7vw" id="zrX-Zm-FT4"/>
+                <outlet property="audioImage" destination="vjt-gL-9MB" id="FMI-tE-Bba"/>
+                <outlet property="textView" destination="zfQ-49-GBn" id="jod-l2-eAa"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_bg" translatesAutoresizingMaskIntoConstraints="NO" id="njU-dc-EY0">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zfQ-49-GBn" userLabel="Text">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="518"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="microphone" translatesAutoresizingMaskIntoConstraints="NO" id="vjt-gL-9MB" userLabel="Audio">
+                    <rect key="frame" x="20" y="544" width="36" height="36"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="njU-dc-EY0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4aT-Ik-17k"/>
+                <constraint firstAttribute="trailing" secondItem="zfQ-49-GBn" secondAttribute="trailing" id="AfD-WP-hLn"/>
+                <constraint firstItem="vjt-gL-9MB" firstAttribute="top" secondItem="zfQ-49-GBn" secondAttribute="bottom" constant="26" id="Nih-GG-dR8"/>
+                <constraint firstItem="njU-dc-EY0" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="ZYT-r2-jhe"/>
+                <constraint firstAttribute="bottom" secondItem="vjt-gL-9MB" secondAttribute="bottom" constant="20" id="bjW-T8-7vw"/>
+                <constraint firstItem="zfQ-49-GBn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dXG-tR-z6h"/>
+                <constraint firstItem="zfQ-49-GBn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g1E-2V-ufI"/>
+                <constraint firstItem="vjt-gL-9MB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="jLn-0H-zgC"/>
+                <constraint firstItem="njU-dc-EY0" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="spL-ST-wiY"/>
+                <constraint firstItem="njU-dc-EY0" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="yXa-W2-iqE"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="microphone" width="36" height="36"/>
+        <image name="star_bg" width="414" height="736"/>
+    </resources>
+</document>
