@@ -593,7 +593,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         topBar?.addSubview(moreButton)
     }
 
-    func backToFirstPage () {
+    func backToFirstPage() {
         AIOpeningView.instance().show()
     }
 
