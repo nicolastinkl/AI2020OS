@@ -237,7 +237,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="88" placeholderIntrinsicHeight="78" image="pen" translatesAutoresizingMaskIntoConstraints="NO" id="Chn-Aj-sbn" userLabel="WriteIcon">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="88" placeholderIntrinsicHeight="78" image="pen" translatesAutoresizingMaskIntoConstraints="NO" id="Chn-Aj-sbn" userLabel="WriteIcon">
                                 <rect key="frame" x="256" y="190" width="88" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="88" id="Bvr-a7-ctD"/>
@@ -336,7 +336,7 @@
     </scenes>
     <resources>
         <image name="Seller_Clock" width="15" height="15"/>
-        <image name="camera_yellow" width="73" height="73"/>
+        <image name="camera_yellow" width="62" height="62"/>
         <image name="center_big_checkmark" width="129" height="99"/>
         <image name="dottedLine2" width="292" height="1"/>
         <image name="hourglass" width="44" height="49"/>

@@ -201,9 +201,12 @@
 "Gallery" = "相册";
 "SubmitSuccess" = "提交成功";
 "SubmitFailed" = "提交失败";
+"Cancel" = "取消";
+"Save" = "保存";
 
 /*
  * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard
  */
 
 "TaskExecute.turnInQuest" = "提交任务";
+"Note.inputHint" = "请留言。";
