@@ -393,7 +393,6 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             let navi = UINavigationController(rootViewController: commentVC)
             navi.view.frame = self.view.bounds
             vc?.showTransitionStyleCrossDissolveView(navi)
-//            vc?.presentPopupViewController(commentVC, animated: true)
         }
     }
     func confirmOrderButtonDidClick(viewModel viewModel: AITimelineViewModel) {
