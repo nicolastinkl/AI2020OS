@@ -11,6 +11,7 @@
 #import "Constant.h"
 #import "AFNetworking.h"
 #import "JSONHTTPClient.h"
+#import "AINetEngine.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
 /**
@@ -46,7 +47,7 @@ NSString * const WXPartnerId = @"1218670701";
 
 
 NSString *AccessTokenKey = @"access_token";
-NSString *PrePayIdKey = @"prepayid";
+NSString *PrePayIdKey = @"prepay_id";
 NSString *errcodeKey = @"errcode";
 NSString *errmsgKey = @"errmsg";
 NSString *expiresInKey = @"expires_in";
@@ -105,7 +106,56 @@ NSString *expiresInKey = @"expires_in";
 {
     payModel = model;
     cNotify_url = notify;
-    [self getAccessToken];
+//    [self getAccessToken];
+    self.timeStamp = [self genTimeStamp];
+    self.nonceStr = [self genNonceStr]; // traceId 由开发者自定义，可用于订单的查询与跟踪，建议根据支付用户信息生成此id
+    self.traceId = [self genTraceId];
+    [SVProgressHUD show];
+    __weak WXPayClient *weakSelf = self;
+    NSMutableDictionary* headers = [JSONHTTPClient requestHeaders];
+    headers[@"Content-Type"] = @"application/json";
+    headers[@"HttpQuery"] = @"0&0&100000002410&23432";
+    NSDictionary * requestJson = @{@"desc":@{@"data_mode":@(0),@"digest":@""},@"data":@{@"payor_user_id":@(100000002410),@"payee_user_id":@(200000002501),@"bill_id":@(200000408),@"body":@"body",@"detail":@"detail",@"fee_type":@"CNY",@"total_fee":@(1)}};
+    
+    AIMessage*  message = [[AIMessage alloc] init];
+    [message.body addEntriesFromDictionary:requestJson];
+    message.url = @"http://171.221.254.231:2999/nsboss/wechat/submitUnifiedorder";
+    [[AINetEngine defaultEngine] postMessage:message success:^(id responseObject) {
+        if (responseObject != nil) {
+            NSString * payment_id = responseObject[@"payment_id"]; //保存payment_id检查是否支付成功
+            NSString *prePayId = responseObject[PrePayIdKey];
+            if (prePayId) {
+                [SVProgressHUD dismiss];
+                // 调起微信支付
+                PayReq *request   = [[PayReq alloc] init];
+                request.partnerId = WXPartnerId;
+                request.prepayId  = prePayId;
+                request.package   = @"Sign=WXPay";      // 文档为 `Request.package = _package;` , 但如果填写上面生成的 `package` 将不能支付成功
+                request.nonceStr  = weakSelf.nonceStr;
+                request.timeStamp = [weakSelf.timeStamp intValue];
+                
+                // 构造参数列表
+                NSMutableDictionary *params = [NSMutableDictionary dictionary];
+                [params setObject:WXAppId forKey:@"appid"];
+                [params setObject:WXAppKey forKey:@"appkey"];
+                [params setObject:request.nonceStr forKey:@"noncestr"];
+                [params setObject:request.package forKey:@"package"];
+                [params setObject:request.partnerId forKey:@"partnerid"];
+                [params setObject:request.prepayId forKey:@"prepayid"];
+                [params setObject:weakSelf.timeStamp forKey:@"timestamp"];
+                request.sign = [weakSelf genSign:params];
+                
+                // 在支付之前，如果应用没有注册到微信，应该先调用 [WXApi registerApp:appId] 将应用注册到微信
+                [WXApi sendReq:request];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
+            }
+            
+        }
+    } fail:^(AINetError error, NSString *errorDes) {
+        [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
+    }];
+    
 }
 
 #pragma mark - 生成各种参数
@@ -138,35 +188,7 @@ NSString *expiresInKey = @"expires_in";
 
 -(NSString *) getproductNameWithIndex:(NSInteger) type
 {
-    switch (type) {
-        case 1:
-            return  @"充值";
-            break;
-        case 2:
-            return @"快件超期";
-            break;
-        case 3:
-            return @"租用";
-            break;
-        case 4:
-            return @"租用超期";
-            break;
-        case 5:
-            return @"存放";
-            break;
-        case 6:
-            return @"存放超期";
-            break;
-        case 7:
-            return @"寄件";
-            break;
-        case 8:
-            return @"权限升级";
-            break;
-            
-        default:
-            break;
-    }
+    
     return @"";
 	
     

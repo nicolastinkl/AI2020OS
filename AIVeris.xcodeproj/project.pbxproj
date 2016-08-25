@@ -753,6 +753,7 @@
 		C95179DF1D40D36700446498 /* AIProvideIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DE1D40D36700446498 /* AIProvideIView.xib */; };
 		C95179E11D41B41600446498 /* AIAptitudeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179E01D41B41600446498 /* AIAptitudeView.swift */; };
 		C95179E31D41B47000446498 /* AIAptitudeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179E21D41B47000446498 /* AIAptitudeView.xib */; };
+		C9C298D01D6D905A00E34766 /* AIAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C298CF1D6D905A00E34766 /* AIAlertView.framework */; };
 		FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
@@ -1875,6 +1876,7 @@
 		C95179DE1D40D36700446498 /* AIProvideIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProvideIView.xib; sourceTree = "<group>"; };
 		C95179E01D41B41600446498 /* AIAptitudeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAptitudeView.swift; sourceTree = "<group>"; };
 		C95179E21D41B47000446498 /* AIAptitudeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAptitudeView.xib; sourceTree = "<group>"; };
+		C9C298CF1D6D905A00E34766 /* AIAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AIAlertView.framework; path = "../../../Library/Developer/Xcode/DerivedData/AIVeris-bispjrgyvuzileblnxwqhatxzked/Build/Products/Debug-iphoneos/AIAlertView.framework"; sourceTree = "<group>"; };
 		C9D4A6621D6BEDA000FEDED7 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		FB0181001D0D125400213DF8 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
@@ -1960,6 +1962,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9C298D01D6D905A00E34766 /* AIAlertView.framework in Frameworks */,
 				81B195761D4764BC0086EB83 /* VideoToolbox.framework in Frameworks */,
 				844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */,
 				1234F9A91D351C530009FB4F /* BaiduMapAPI_Base.framework in Frameworks */,
@@ -2096,6 +2099,7 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9C298CF1D6D905A00E34766 /* AIAlertView.framework */,
 				847D29801D47504C009E26B8 /* AVKit.framework */,
 				847D297C1D474FA2009E26B8 /* AssetsLibrary.framework */,
 				1234F99D1D349FFA0009FB4F /* CoreLocation.framework */,
@@ -5880,7 +5884,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "ce93ab1d-d319-4879-8658-7827c2524214";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5897,7 +5901,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;
