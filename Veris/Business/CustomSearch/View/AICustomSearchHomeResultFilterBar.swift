@@ -96,7 +96,11 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	}
 	var priceTitles: [String] {
 		if let prices = filterModel?.prices as? [AISearchFilterPrice] {
-			return prices.map { $0.min ?? "" + " " + $0.max ?? "" }
+			if prices.count == 1 && prices[0].min == nil {
+				return []
+			} else {
+				return prices.filter { $0.min.length > 0 }.map { $0.min ?? "" + " " + $0.max ?? "" }
+			}
 		}
 		return []
 	}
