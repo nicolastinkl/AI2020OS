@@ -1044,7 +1044,7 @@ extension AIServiceContentViewController: AICustomAudioNotesViewDelegate, AIAudi
 			})
 			
 		} else {
-			AIAlertView().showInfo("AIServiceContentViewController.record".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle: "AIAudioMessageView.close".localized, duration: 3)
+			AIAlertView().showInfo("AIServiceContentViewController.recordTooShort".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle: "AIAudioMessageView.close".localized, duration: 3)
 		}
 		
 		if let c = currentAudioView {

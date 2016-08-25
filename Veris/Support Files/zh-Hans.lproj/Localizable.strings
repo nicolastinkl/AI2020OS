@@ -42,7 +42,7 @@
 "AIMusicTherapyView.helpful" = "有用的评论";
 
 //
-"AIServiceContentViewController.record" = "说话时间太短";
+"AIServiceContentViewController.recordTooShort" = "说话时间太短";
 "AIServiceContentViewController.wishDeleteError" = "删除失败";
 
 //
@@ -210,3 +210,6 @@
 
 "TaskExecute.turnInQuest" = "提交任务";
 "Note.inputHint" = "请留言。";
+"AudioRecoderViewController.error" = "录制时发生错误";
+"AudioRecoderViewController.recordForbiden" = "录音被禁止";
+"AudioRecoderViewController.pressHint" = "按下录音，松开结束";
