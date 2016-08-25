@@ -63,7 +63,7 @@ class AIProposalTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.interactivePopGestureRecognizer?.enabled = false
         /**
          Structure UITableView
          */
@@ -82,9 +82,9 @@ class AIProposalTableViewController: UIViewController {
     func refreshAfterNewOrder() {
         
         weak var ws = self
-        Async.main(after: 0.2) { () -> Void in
-            ws!.tableView.headerBeginRefreshing()
-        }
+        // 取消延迟显示
+        ws!.clearPropodalData()
+        ws!.tableView.headerBeginRefreshing()
     }
     
     func loadingData() {
@@ -97,14 +97,12 @@ class AIProposalTableViewController: UIViewController {
             if let weakSelf = weakSelf {
                 weakSelf.didRefresh = true
                 weakSelf.parseListData(responseData)
-                weakSelf.tableView.reloadData()
                 weakSelf.tableView.headerEndRefreshing()
             }
             
             }, fail: { (errType, errDes) -> Void in
                 
                 weakSelf!.didRefresh = false
-                weakSelf!.tableView.reloadData()
                 weakSelf!.tableView.headerEndRefreshing()
         })
     }
@@ -145,7 +143,6 @@ class AIProposalTableViewController: UIViewController {
         }
         tableView.addHeaderWithCallback { () -> Void in
             if let weakSelf = weakSelf {
-                weakSelf.clearPropodalData()
                 weakSelf.loadingData()
             }
             
@@ -163,8 +160,7 @@ class AIProposalTableViewController: UIViewController {
     func parseListData(listData: ProposalOrderListModel?) {
         
         if let data = listData {
-            dataSource.removeAll()
-            tableView.reloadData()
+            clearPropodalData()
             for proposal in data.order_list {
                 let model = proposalToVieModel(proposal as! ProposalOrderModel)
                 
