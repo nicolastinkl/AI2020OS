@@ -503,7 +503,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
                     self.view.transform =  CGAffineTransformMakeScale(self.curBubbleScale!, self.curBubbleScale!)
                     self.view.center = self.curBubbleCenter!
                     }, completion: { (complate) -> Void in
-   
+
                         self.view.transform =  CGAffineTransformMakeScale(1, 1)
                         self.view.center = self.originalViewCenter!
                         self.view.userInteractionEnabled = true
