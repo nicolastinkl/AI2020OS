@@ -20,7 +20,10 @@ class AICommentPictures: UIView {
 
 
     init(frame: CGRect, pictures: [String]) {
-        super.init(frame: frame)
+
+        var lframe = frame
+        lframe.size.height = 0
+        super.init(frame: lframe)
         appendPictures(pictures)
     }
 
@@ -57,10 +60,10 @@ class AICommentPictures: UIView {
 
 
 
-    func appendPictures(pictures: [AnyObject]) {
+    func appendPictures(pictures: [AnyObject]) -> CGFloat {
 
         if pictures.count == 0 {
-            return
+            return 0
         }
 
         var index: Int = displayPictureNames.count
@@ -104,24 +107,25 @@ class AICommentPictures: UIView {
             }
         }
 
-        reframeSelf()
+        return reframeSelf()
 
     }
 
 
-    func reframeSelf() {
+    func reframeSelf() -> CGFloat {
 
         var frame = self.frame
-
+        var heightOffset: CGFloat = 0
         if let lastImageView = displayPictures.last {
             let height = CGRectGetMaxY(lastImageView.frame)
-            frame.size.height = height
-        } else {
-            frame.size.height = 0
+            heightOffset = height - frame.size.height
         }
 
+        frame.size.height += heightOffset
         self.frame = frame
-        self.delegate?.didChangedHeight(height)
+        self.delegate?.didChangedHeight(heightOffset)
+
+        return heightOffset
     }
 
     func imageTapAction(tapGesture: UITapGestureRecognizer) {
@@ -155,6 +159,6 @@ class AICommentPictures: UIView {
 @objc protocol AICommentPicturesDelegate {
     func didSelectedPictures(pictures: [UIImageView], index: Int)
 
-    func didChangedHeight(height: CGFloat)
+    func didChangedHeight(heightOffset: CGFloat)
 
 }

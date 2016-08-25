@@ -262,6 +262,7 @@
     
     AINetError netError = [self netErrorFromNSError:error];
     if (fail && netError != AINetErrorCancelled) {
+        AIOCLog(@"--NetError--【%@】", [error localizedDescription])
         fail(netError, [error localizedDescription]);
     }
 }

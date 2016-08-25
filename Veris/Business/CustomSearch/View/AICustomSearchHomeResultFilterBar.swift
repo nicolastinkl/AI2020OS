@@ -96,7 +96,7 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	}
 	var priceTitles: [String] {
 		if let prices = filterModel?.prices as? [AISearchFilterPrice] {
-			return prices.map { $0.min + " " + $0.max }
+			return prices.map { $0.min ?? "" + " " + $0.max ?? "" }
 		}
 		return []
 	}
