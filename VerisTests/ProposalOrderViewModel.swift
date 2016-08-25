@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class ProposalOrderViewModel {
@@ -14,6 +15,7 @@ class ProposalOrderViewModel {
     var model: ProposalOrderModel!
     //订单展开内容viewModel
     var timelineViewModels: [AITimelineViewModel]?
+    var proposalState: ProposalStateViewModel?
     
     init() {
         
@@ -22,6 +24,7 @@ class ProposalOrderViewModel {
     init(model: ProposalOrderModel) {
         self.model = model
         parseAITimelineViewModel()
+        parseProposalModel()
     }
     
     func parseAITimelineViewModel() {
@@ -72,4 +75,46 @@ class ProposalOrderViewModel {
             timelineViewModels?.append(viewModel)
         }
     }
+    
+    func parseProposalModel() {
+        if model.state != nil {
+            let proposalState = ProposalStateViewModel(stateId: model.state)
+            self.proposalState = proposalState
+        } else {
+            AILog("proposalState format error! \(model.state)")
+        }
+    }
+}
+
+/*
+ 
+ */
+class ProposalStateViewModel: AIBaseViewModel {
+    var stateId: String?
+    var stateName: String?
+    var color: UIColor?
+    
+    init(stateId: String) {
+        self.stateId = stateId
+        switch stateId {
+        case "1":
+            stateName = "  On Schedule       "
+            color = ProposalStateColorValue.OnSchedule
+        case "2":
+            stateName = "  Action Required       "
+            color = ProposalStateColorValue.ActionRequired
+        case "3":
+            stateName = "  Delayed       "
+            color = ProposalStateColorValue.Delayed
+        default:
+            stateName = "  On Schedule       "
+            color = ProposalStateColorValue.OnSchedule
+        }
+    }
+}
+
+struct ProposalStateColorValue {
+    static let ActionRequired = UIColor(hexString: "#45aaff", alpha: 0.8)
+    static let OnSchedule = UIColor(hexString: "#ffffff", alpha: 0.8)
+    static let Delayed = UIColor(hexString: "#ff8e1f", alpha: 0.8)
 }
