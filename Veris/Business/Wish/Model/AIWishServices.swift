@@ -23,7 +23,7 @@ struct AIWishServices {
             "money_amount":money,
             "money_type":"CNY",
             "money_unit":""
-        ],"desc":["data_mode":"0","digest":""]]
+        ], "desc":["data_mode":"0","digest":""]]
         
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         message.url = AIApplication.AIApplicationServerURL.makewish.description as String

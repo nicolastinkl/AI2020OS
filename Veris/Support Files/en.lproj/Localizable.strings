@@ -42,7 +42,7 @@
 "AIMusicTherapyView.helpful" = "Helpful Reviews";
 
 //
-"AIServiceContentViewController.record" = "Record is too short.";
+"AIServiceContentViewController.recordTooShort" = "Didn't get that.";
 "AIServiceContentViewController.wishDeleteError" = "Delete Failed";
 
 //
@@ -214,3 +214,6 @@
 
 "TaskExecute.turnInQuest" = "Turn In Quest";
 "Note.inputHint" = "Please leave a note here.";
+"AudioRecoderViewController.error" = "An error occurred while recording";
+"AudioRecoderViewController.recordForbiden" = "audio recording is forbiden";
+"AudioRecoderViewController.pressHint" = "Press and hold to record a voice note";

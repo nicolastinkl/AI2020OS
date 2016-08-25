@@ -47,6 +47,27 @@ class AIProductInfoViewController: UIViewController {
     var sid: Int = 0
     private var dataModel: AIProdcutinfoModel?
 	
+    private var currentAudioView: AIAudioInputView?
+    
+    var curTextField: UITextField?
+    
+    var curAudioView: AIAudioMessageView?
+    // 缓存输入信息
+    private var inputMessageCache: String = ""
+    var serviceContentType: AIServiceContentType = .None
+    private var audioView_AudioRecordView: AIAudioRecordView?
+    private var scrollViewSubviews = [UIView]()
+    
+    // MARK: 取消键盘
+    
+    func shouldHideKeyboard () {
+        if curTextField != nil {
+            curTextField?.resignFirstResponder()
+            curTextField = nil
+        }
+    }
+    
+    
     // MARK: - Init Function
 	/**
 	 Init
@@ -295,17 +316,17 @@ class AIProductInfoViewController: UIViewController {
             tagsView.addSubview(tag)
             tag.titleLabel?.textColor = UIColor.whiteColor()
             tag.titleLabel?.font = UIFont.systemFontOfSize(13)
-            let widthButton: CGFloat = 223 / 3
+            let len = model.name?.length ?? 1
+            let widthButton: CGFloat = CGFloat(len * 9)
             tag.frame = CGRectMake(CGFloat(index) * (widthButton + 10), 14, widthButton, 80 / 3)
             tag.layer.masksToBounds = true
             tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             
-            tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Highlighted)
             if let arr = dataModel?.package {
                 let modelp: AIProductInfoPackageModel = arr[index]
                 tag.setTitle(modelp.name, forState: UIControlState.Normal)
                 tag.tag = modelp.pid ?? 0
-                tag.addTarget(self, action: #selector(AIProductInfoViewController.showDetailView(_:)), forControlEvents: UIControlEvents.TouchDown)
+                tag.addTarget(self, action: #selector(AIProductInfoViewController.changeButtonState(_:)), forControlEvents: UIControlEvents.TouchDown)
                 index = index + 1
             }
         })
@@ -571,6 +592,14 @@ class AIProductInfoViewController: UIViewController {
         return splitView
     }
     
+    // MARK: - Change state
+    func changeButtonState(sender: AnyObject) {
+        if let button = sender as? DesignableButton {
+            button.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Normal)
+            button.borderColor = UIColor(hexString: "#0f86e8")
+        }
+    }
+    
     // MARK: - DIY ACTION
     func showDetailView(sender: AnyObject) {
         let model = AIBuyerBubbleModel()
@@ -646,19 +675,38 @@ class AIProductInfoViewController: UIViewController {
 	 
 }
 
-// MARK: - Extension
-extension AIProductInfoViewController: UIScrollViewDelegate {
-	
-	func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-	}
-	
-}
-
+// MARK: - Extension 
 
 extension AIProductInfoViewController: AICustomAudioNotesViewShowAudioDelegate {
     
+    // show audio view...
     func showAudioView(type: Int) {
+        // type 0 : audio  1: text
+        let childView = AIAudioInputView.currentView()
+        childView.alpha = 0
+        self.view.addSubview(childView)
+        
+        childView.delegateAudio = self
+        childView.textInput.delegate = self
+        childView.inputTextView.delegate = self
+        currentAudioView = childView
+        
+        constrain(childView) { (cview) -> () in
+            cview.leading == cview.superview!.leading
+            cview.trailing == cview.superview!.trailing
+            cview.top == cview.superview!.top
+            cview.bottom == cview.superview!.bottom
+        }
+        SpringAnimation.spring(0.5) { () -> Void in
+            childView.inputTextView.text = self.inputMessageCache
+            childView.alpha = 1
+        }
+        
+        if type == 1 {
+            childView.changeModel(1)
+        } else {
+            childView.changeModel(0)
+        }
         
     }
 }
@@ -672,4 +720,366 @@ extension AIProductInfoViewController: UMSocialUIDelegate {
         }
     }
 
+}
+
+extension AIProductInfoViewController: UITextFieldDelegate, UIScrollViewDelegate {
+    
+    // MARK: ScrollDelegate
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        if curTextField != nil {
+            shouldHideKeyboard()
+        }
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        curTextField = textField
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        
+        // scrollView.userInteractionEnabled = false
+        return serviceContentType != .None
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        return textField.text?.length < 198
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // add a new View Model
+        let newText = AITextMessageView.currentView()
+        if let cview = preCacheView {
+            newText.content.text = textField.text
+            let newSize = textField.text?.sizeWithFont(AITools.myriadLightSemiCondensedWithSize(36 / 2.5), forWidth: self.view.width - 50)
+            newText.setHeight(30 + newSize!.height)
+            addNewSubView(newText, preView: cview)
+            scrollViewBottom()
+            newText.delegate = self
+            
+            if let c = currentAudioView {
+                c.closeThisView()
+            }
+        }
+        textField.resignFirstResponder()
+        textField.text = ""
+        
+        return true
+    }
+}
+
+extension AIProductInfoViewController: AICustomAudioNotesViewDelegate, AIAudioMessageViewDelegate {
+    
+    // AIAudioMessageViewDelegate
+    func willPlayRecording(audioView: AIAudioMessageView) {
+        curAudioView?.stopPlay()
+        curAudioView = audioView
+    }
+    
+    func didEndPlayRecording(audioView: AIAudioMessageView) {
+        curAudioView = nil
+    }
+    
+    /**
+     开始录音处理
+     */
+    func willStartRecording() {
+        audioView_AudioRecordView?.hidden = false
+    }
+    
+    // 更新Meters 图片处理
+    func updateMetersImage(lowPass: Double) {
+        var imageName: String = "RecordingSignal001"
+        if lowPass >= 0.8 {
+            imageName = "RecordingSignal008"
+        } else if lowPass >= 0.7 {
+            imageName = "RecordingSignal007"
+        } else if lowPass >= 0.6 {
+            imageName = "RecordingSignal006"
+        } else if lowPass >= 0.5 {
+            imageName = "RecordingSignal005"
+        } else if lowPass >= 0.4 {
+            imageName = "RecordingSignal004"
+        } else if lowPass >= 0.3 {
+            imageName = "RecordingSignal003"
+        } else if lowPass >= 0.2 {
+            imageName = "RecordingSignal002"
+        } else if lowPass >= 0.1 {
+            imageName = "RecordingSignal001"
+        } else {
+            imageName = "RecordingSignal001"
+        }
+        
+        audioView_AudioRecordView?.passImageView.image = UIImage(named: imageName)
+    }
+    
+    // 结束录音添加view到scrollview
+    func endRecording(audioModel: AIProposalServiceDetailHopeModel) {
+        
+        audioView_AudioRecordView?.hidden = true
+        if audioModel.time > 1000 {
+            // add a new View Model
+            let audio1 = AIAudioMessageView.currentView()
+            audio1.audioDelegate = self
+            addNewSubView(audio1, preView: preCacheView!)
+            audio1.fillData(audioModel)
+            audio1.deleteDelegate = self
+            scrollViewBottom()
+            
+            audio1.loadingView.startAnimating()
+            audio1.loadingView.hidden = false
+            
+            // upload
+            let wishid = self.dataModel?.customer_note?.wish_id ?? 0
+            let message = AIMessageWrapper.addWishNoteWithWishID(wishid, type: "Voice", content: audioModel.audio_url, duration: audioModel.time)
+            message.url = AIApplication.AIApplicationServerURL.addWishListNote.description
+            audio1.messageCache = message
+            weak var weakSelf = self
+            AIRemoteRequestQueue().asyncRequset(audio1, message: message, successRequst: { (subView, response) -> Void in
+                if let eView = subView as? AIAudioMessageView {
+                    
+                    eView.loadingView.stopAnimating()
+                    eView.loadingView.hidden = true
+                    eView.errorButton.hidden = true
+                    
+                    let NoteId = response["NoteId"] as? NSNumber
+                    eView.noteID = NoteId?.integerValue ?? 0
+                }
+                
+                weakSelf!.view.dismissLoading()
+                
+                }, fail: { (errorView, error) -> Void in
+                    if let eView = errorView as? AIAudioMessageView {
+                        eView.loadingView.stopAnimating()
+                        eView.loadingView.hidden = true
+                        eView.errorButton.hidden = false
+                    }
+                    
+                    weakSelf!.view.dismissLoading()
+                    AIAlertView().showInfo("AIErrorRetryView.NetError".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle: "AIAudioMessageView.close".localized, duration: 3)
+            })
+            
+        } else {
+            AIAlertView().showInfo("AIServiceContentViewController.record".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle: "AIAudioMessageView.close".localized, duration: 3)
+        }
+        
+        if let c = currentAudioView {
+            c.closeThisView()
+        }
+    }
+    
+    // 即将结束录音
+    func willEndRecording() {
+        
+    }
+    
+    func cacheMessage(message: String?) {
+        if let meg = message {
+            self.inputMessageCache = meg
+        }
+    }
+    
+    // 录音发生错误
+    func endRecordingWithError(error: String) {
+        
+    }
+    
+    func scrollViewBottom() {
+        let bottomPoint = CGPointMake(0, self.scrollview.contentSize.height - self.scrollview.bounds.size.height)
+        self.scrollview.setContentOffset(bottomPoint, animated: true)
+    }
+    
+}
+
+
+
+
+extension AIProductInfoViewController: AIDeleteActionDelegate {
+    
+    func retrySendRequestAction(cell: UIView?) {
+        if let audio1 = cell as? AIAudioMessageView {
+            if let m = audio1.messageCache {
+                AIRemoteRequestQueue().asyncRequset(audio1, message: m, successRequst: { (subView, response) -> Void in
+                    if let eView = subView as? AIAudioMessageView {
+                        eView.loadingView.stopAnimating()
+                        eView.loadingView.hidden = true
+                        eView.errorButton.hidden = true
+                        
+                        let NoteId = response["NoteId"] as? NSNumber
+                        eView.noteID = NoteId?.integerValue ?? 0
+                    }
+                    
+                    }, fail: { (errorView, error) -> Void in
+                        if let eView = errorView as? AIAudioMessageView {
+                            eView.loadingView.stopAnimating()
+                            eView.loadingView.hidden = true
+                            eView.errorButton.hidden = false
+                        }
+                })
+            }
+            
+        }
+        
+    }
+    
+    func deleteAnimation (cell: UIView?) {
+        SpringAnimation.springWithCompletion(0.3, animations: { () -> Void in
+            
+            cell?.alpha = 0
+            // 刷新UI
+            let height = cell?.height ?? 0
+            AILog("delete view: \(height)")
+            let top = cell?.top
+            
+            let newListSubViews = self.scrollview.subviews.filter({ (subview) -> Bool in
+                return subview.top > top
+            })
+            
+            for nsubView in newListSubViews {
+                nsubView.setTop(nsubView.top - height)
+            }
+            
+            var contentSizeOld = self.scrollview.contentSize
+            AILog(contentSizeOld.height)
+            contentSizeOld.height -= height
+            self.scrollview.contentSize = contentSizeOld
+            
+        }) { (complate) -> Void in
+            cell?.removeFromSuperview()
+        }
+        
+    }
+    
+    func deleteAction(cell: UIView?) {
+        
+        let noteView = cell as? AIWishMessageView
+        view.userInteractionEnabled = false
+        view.showLoading()
+        let message = AIMessageWrapper.deleteWishNoteWithWishID((noteView?.wishID)!, noteID: (noteView?.noteID)!)
+        message.url = AIApplication.AIApplicationServerURL.delWishListNote.description
+        
+        weak var weakSelf = self
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            AILog(response)
+            weakSelf!.deleteAnimation(cell)
+            weakSelf!.view.hideLoading()
+            weakSelf!.view.userInteractionEnabled = true
+            }, fail: { (errorType: AINetError, errorStr: String!) -> Void in
+                weakSelf!.view.hideLoading()
+                weakSelf!.view.userInteractionEnabled = true
+                AIAlertView().showInfo("AIAudioMessageView.info".localized, subTitle: "AIServiceContentViewController.wishDeleteError".localized, closeButtonTitle: "AIAudioMessageView.close".localized, duration: 3)
+                
+        })
+        
+    }
+}
+
+
+extension AIProductInfoViewController: UITextViewDelegate {
+    
+    func textViewDidChange(textView: UITextView) {
+        if textView.text.length > 160 {
+            let str = NSString(string: textView.text)
+            let newStr = str.substringToIndex(160)
+            textView.text = newStr
+        }
+        
+        if let s = currentAudioView {
+            
+            if textView.contentSize.height < 100 {
+                s.inputHeightConstraint.constant = 5 + textView.contentSize.height
+            } else {
+                s.inputHeightConstraint.constant = 5 + 97
+            }
+            textView.scrollRangeToVisible(NSRange(location: 0, length: 0))
+        }
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        
+        if serviceContentType == .None {
+            return false
+        }
+        
+        if "\n" == text {
+            textView.resignFirstResponder()
+            self.inputMessageCache = "" // 清空
+            // add a new View Model
+            let newText = AITextMessageView.currentView()
+            newText.content.text = textView.text
+            let newSize = textView.text?.sizeWithFont(AITools.myriadLightSemiCondensedWithSize(36 / 2.5), forWidth: self.view.width - 50)
+            newText.setHeight(25 + newSize!.height) // 30
+            // addNewSubView(newText, preView: cview)
+            addNewSubView(newText, preView: preCacheView!)
+            scrollViewBottom()
+            
+            newText.delegate = self
+            
+            if let c = currentAudioView {
+                c.closeThisView()
+            }
+            
+            // add
+            self.view.userInteractionEnabled = false
+            view.showLoading()
+            weak var weakSelf = self
+            let wishID = self.dataModel?.customer_note?.wish_id ?? 0
+            let message = AIMessageWrapper.addWishNoteWithWishID(wishID, type: "Text", content: newText.content.text, duration: 0)
+            message.url = AIApplication.AIApplicationServerURL.addWishListNote.description
+            newText.wishID = wishID
+            AIRemoteRequestQueue().asyncRequset(newText, message: message, successRequst: { (subView, response) -> Void in
+                if let eView = subView as? AITextMessageView {
+                    weakSelf!.view.hideLoading()
+                    let NoteId = response["NoteId"] as? String ?? "0"
+                    eView.noteID = Int(NoteId) ?? 0
+                }
+                weakSelf!.view.userInteractionEnabled = true
+                
+                }, fail: { (errorView, error) -> Void in
+                    weakSelf!.view.hideLoading()
+                    AIAlertView().showInfo("AIErrorRetryView.NetError".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle: "AIAudioMessageView.close".localized, duration: 3)
+                    weakSelf!.view.userInteractionEnabled = true
+            })
+            return false
+        }
+        
+        return true
+    }
+    
+    func serviceParamsViewHeightChanged(notification: NSNotification) {
+        if let obj = notification.object as? Dictionary<String, AnyObject> {
+            let view = obj["view"] as! UIView
+            if let _ = scrollview.subviews.indexOf(view) {
+                let offset = obj["offset"] as! CGFloat
+                moveViewsBelow(view, offset: offset)
+            }
+        }
+    }
+    
+    func moveViewsBelow(view: UIView, offset: CGFloat) {
+        let validateViews = scrollViewSubviews
+        let anchor = validateViews.indexOf(view)! + 1
+        
+        // move
+        
+        for index: Int in anchor ..< scrollViewSubviews.count {
+            let sview: UIView = scrollViewSubviews[index]
+            if let v = sview as? AIMusicTherapyView {
+                AILog(v)
+            }
+            var frame = sview.frame
+            frame.origin.y += offset
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+                sview.frame = frame
+            })
+            
+        }
+        
+        var s = scrollview.contentSize
+        s.height = CGRectGetMaxY(scrollview.subviews.last!.frame)
+        scrollview.contentSize = s
+    }
 }

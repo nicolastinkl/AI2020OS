@@ -50,16 +50,7 @@ class AIProposalTableViewController: UIViewController {
     let kCellHeight: CGFloat = 120.0
     let kItemSpace: CGFloat = -30.0
     let kAIProposalCellIdentifierss = "kAIProposalCellIdentifier"
-        
-    private lazy var collectionView: UICollectionView = {
-        let coll = UICollectionView(frame: UIScreen.mainScreen().bounds, collectionViewLayout: StickyCollectionViewFlowLayout())
-        coll.delegate = self
-        coll.dataSource = self
-        coll.backgroundColor = UIColor.clearColor()
-        coll.showsHorizontalScrollIndicator = false
-        return coll
-        
-    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,7 +129,6 @@ class AIProposalTableViewController: UIViewController {
         tableView.addHeaderRefreshEndCallback { () -> Void in
             if let weakSelf = weakSelf {
                 weakSelf.tableView.reloadData()
-                weakSelf.collectionView.reloadData()
             }
         }
         tableView.addHeaderWithCallback { () -> Void in
@@ -243,7 +233,7 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
             cell.mainView = folderCellView
         }
         
-        (cell.mainView as! AICustomerOrderFoldedView).loadData(dataSource[indexPath.row].model)
+        (cell.mainView as! AICustomerOrderFoldedView).loadData(dataSource[indexPath.row])
         
         
         if dataSource[indexPath.row].isExpanded {
@@ -304,50 +294,6 @@ extension AIProposalTableViewController : DimentionChangable, ProposalExpandedDe
         let indexPath = NSIndexPath(forRow: proposalView.tag, inSection: 0)
         rowSelectAction(indexPath)
     }
-}
-
-extension AIProposalTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView.dynamicType == UICollectionView.self {
-            if scrollView.contentOffset.y < 0 {
-                //Throw UIGesture To SuperView.
-//                superVC?.didRecognizePanGesture(scrollView.panGestureRecognizer)
-                
-            } else {
-//                self.collectionView.scrollEnabled = true
-            }
-        }
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kAIProposalCellIdentifierss, forIndexPath: indexPath) as! AIProposalCollCell
-        
-        if cell.backingView.subviews.count == 1 {
-            let folderCellView = AICustomerOrderFoldedView.currentView()
-            folderCellView.delegate = self
-            folderCellView.loadData(dataSource[indexPath.row].model!)
-            cell.backingView.addSubview(folderCellView)
-            folderCellView.pinToTopEdgeOfSuperview()
-            folderCellView.pinToLeftEdgeOfSuperview()
-            folderCellView.pinToRightEdgeOfSuperview()
-            folderCellView.sizeToHeight(97)
-        }
-    
-        return cell
-    }
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(CGRectGetWidth(view.bounds), kCellHeight)
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: NSInteger) -> CGFloat {
-        return kItemSpace
-    }
-
 }
 
 
