@@ -34,8 +34,8 @@
 @protocol AISearchFilterPrice @end
 @interface AISearchFilterPrice : JSONModel
 
-@property (nonatomic, strong) NSString *max;
-@property (nonatomic, strong) NSString *min;
+@property (nonatomic, strong) NSString<Optional> *max;
+@property (nonatomic, strong) NSString<Optional> *min;
 @end
 
 /**
