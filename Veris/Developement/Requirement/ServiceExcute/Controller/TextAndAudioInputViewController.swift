@@ -53,7 +53,7 @@ class TextAndAudioInputViewController: UIViewController {
             return
         }
         
-        let keyboardHeight = keyboardRect.size.height;
+        let keyboardHeight = keyboardRect.size.height
         
         guard let optionsValue = info[UIKeyboardAnimationCurveUserInfoKey] as? UInt else {
             return
