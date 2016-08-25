@@ -35,4 +35,5 @@
 
 - (void)payProduct:(MDPayTypeModel * ) model withNotify:(NSString *) notify;
 
+
 @end
