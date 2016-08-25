@@ -629,6 +629,8 @@
 		8484D8491D6C2CF3001F1A54 /* UIFont+Roboto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8401D6C2CF3001F1A54 /* UIFont+Roboto.swift */; };
 		8484D84C1D6D3A2F001F1A54 /* TextAndAudioInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D84A1D6D3A2F001F1A54 /* TextAndAudioInputViewController.swift */; };
 		8484D84D1D6D3A2F001F1A54 /* TextAndAudioInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8484D84B1D6D3A2F001F1A54 /* TextAndAudioInputViewController.xib */; };
+		8484D8521D6E841D001F1A54 /* AudioRecoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8501D6E841D001F1A54 /* AudioRecoderViewController.swift */; };
+		8484D8531D6E841D001F1A54 /* AudioRecoderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8484D8511D6E841D001F1A54 /* AudioRecoderViewController.xib */; };
 		84970C211D654E0D006612B2 /* AIProviderDetailServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */; };
 		8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
@@ -1650,6 +1652,8 @@
 		8484D8401D6C2CF3001F1A54 /* UIFont+Roboto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Roboto.swift"; sourceTree = "<group>"; };
 		8484D84A1D6D3A2F001F1A54 /* TextAndAudioInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAndAudioInputViewController.swift; sourceTree = "<group>"; };
 		8484D84B1D6D3A2F001F1A54 /* TextAndAudioInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextAndAudioInputViewController.xib; sourceTree = "<group>"; };
+		8484D8501D6E841D001F1A54 /* AudioRecoderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecoderViewController.swift; sourceTree = "<group>"; };
+		8484D8511D6E841D001F1A54 /* AudioRecoderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioRecoderViewController.xib; sourceTree = "<group>"; };
 		8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
@@ -2140,6 +2144,7 @@
 		814339221CFBE4DF00347C29 /* Veris */ = {
 			isa = PBXGroup;
 			children = (
+				8484D84E1D6E8391001F1A54 /* Commen */,
 				81FAFB851D45B17500DD3477 /* Developement */,
 				8175A7211CFD2710006F2C8F /* 3rdLibrary */,
 				814339251CFBE5A600347C29 /* Application */,
@@ -3924,6 +3929,23 @@
 			path = NBMaterialDialog;
 			sourceTree = "<group>";
 		};
+		8484D84E1D6E8391001F1A54 /* Commen */ = {
+			isa = PBXGroup;
+			children = (
+				8484D84F1D6E83BC001F1A54 /* Audio */,
+			);
+			path = Commen;
+			sourceTree = "<group>";
+		};
+		8484D84F1D6E83BC001F1A54 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				8484D8501D6E841D001F1A54 /* AudioRecoderViewController.swift */,
+				8484D8511D6E841D001F1A54 /* AudioRecoderViewController.xib */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		930455121D124E71007AFC0C /* XunfeiLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -4698,6 +4720,7 @@
 				81433D3E1CFBE5A700347C29 /* AICustomView.xib in Resources */,
 				81433D321CFBE5A700347C29 /* TopServiceContainer.xib in Resources */,
 				933BC83E1D002434005E1789 /* AINavigationBar.xib in Resources */,
+				8484D8531D6E841D001F1A54 /* AudioRecoderViewController.xib in Resources */,
 				81433E1F1CFBE5A700347C29 /* SwitchServiceView.xib in Resources */,
 				81433D971CFBE5A700347C29 /* AIAssignServiceView.xib in Resources */,
 				1273444D1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib in Resources */,
@@ -5030,6 +5053,7 @@
 				81433E601CFBE5A700347C29 /* FLEXFieldEditorView.m in Sources */,
 				81433D791CFBE5A700347C29 /* AIServiceParamView.swift in Sources */,
 				81433D611CFBE5A700347C29 /* AIShoppingListViewCell.swift in Sources */,
+				8484D8521D6E841D001F1A54 /* AudioRecoderViewController.swift in Sources */,
 				81433E6F1CFBE5A700347C29 /* FLEXTableLeftCell.m in Sources */,
 				81433CF81CFBE5A700347C29 /* AISingleLineTagView.swift in Sources */,
 				9392B5841D1CD9F10007F241 /* NSDataEx.m in Sources */,
