@@ -212,7 +212,7 @@ class AISingalCommentView: UIView {
         lastAddtionalCommentButton.titleLabel?.textColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7)
         lastAddtionalCommentButton.addTarget(self, action: #selector(addtionalComment), forControlEvents: UIControlEvents.TouchUpInside)
         lastView.addSubview(lastAddtionalCommentButton)
-        reSizeSelfAfterDisplayCommentsView(lastAddtionalCommentButton)
+        reSizeSelfAfterDisplayLastCommentsView(lastAddtionalCommentButton)
 
         // Add Line
         let lineFrame = CGRect(x: 0, y: CGRectGetMaxY(lastAddtionalCommentButton.frame) + 25.displaySizeFrom1242DesignSize(), width: CGRectGetWidth(lastView.frame), height: 1)
@@ -454,7 +454,7 @@ class AISingalCommentView: UIView {
         }
     }
 
-    private func reSizeSelfAfterDisplayCommentsView(view: UIView) {
+    private func reSizeSelfAfterDisplayLastCommentsView(view: UIView) {
         var frame = self.frame
         let height = CGRectGetMaxY(view.frame) + 42.displaySizeFrom1242DesignSize()
         frame.size.height = height
@@ -463,11 +463,19 @@ class AISingalCommentView: UIView {
 
     //MARK: Public
 
-    func shouldAppendPicture(pictures: [AnyObject]) {
-        let offset = freshCommentPictureView.appendPictures(pictures)
+    func changeFrameAfterAddPicture(offset: CGFloat) {
         var frame = self.frame
         frame.size.height += offset
         self.frame = frame
+
+        frame = freshView.frame
+        frame.size.height += offset
+        freshView.frame = frame
+    }
+
+    func shouldAppendPicture(pictures: [AnyObject]) {
+        let offset = freshCommentPictureView.appendPictures(pictures)
+        changeFrameAfterAddPicture(offset)
     }
 
 

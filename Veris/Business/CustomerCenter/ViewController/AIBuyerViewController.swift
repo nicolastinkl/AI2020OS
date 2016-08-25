@@ -484,31 +484,29 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             unowned let detailViewController = createBuyerDetailViewController(model)
 
             detailViewController.view.alpha = 0
-
-            // Start CABasicAnimation.
-
-            // Get the animation curve and duration
-            let animationCurve: UIViewAnimationCurve = UIViewAnimationCurve.EaseIn
-            let animationDuration: NSTimeInterval = 0.5
-            // Animate view size synchronously with the appearance of the keyboard.
-            UIView.beginAnimations(nil, context: nil)
-            UIView.setAnimationDuration(animationDuration)
-            UIView.setAnimationCurve(animationCurve)
-            UIView.setAnimationBeginsFromCurrentState(true)
-            self.view.transform =  CGAffineTransformMakeScale(self.curBubbleScale!, self.curBubbleScale!)
-            self.view.center = self.curBubbleCenter!
-            UIView.commitAnimations()
-
+            let detailScale: CGFloat = bubble.radius * 2 / CGRectGetWidth(self.view.frame)
+            
             // self.presentViewController在真机iPhone5上会crash...
 
-
             self.presentViewController(detailViewController, animated: false) { () -> Void in
+                
+                detailViewController.view.alpha = 1
+                detailViewController.view.transform =  CGAffineTransformMakeScale(detailScale, detailScale)
+                detailViewController.view.center = realPoint
                 // 开始动画
-                SpringAnimation.springEaseIn(0.3, animations: {
-                    detailViewController.view.alpha = 1
-                    detailViewController.view.transform = CGAffineTransformMakeScale(1, 1)
+                
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    
+                    detailViewController.view.transform =  CGAffineTransformMakeScale(1, 1)
                     detailViewController.view.center = self.originalViewCenter!
-                    self.view.userInteractionEnabled = true
+                    
+                    self.view.transform =  CGAffineTransformMakeScale(self.curBubbleScale!, self.curBubbleScale!)
+                    self.view.center = self.curBubbleCenter!
+                    }, completion: { (complate) -> Void in
+
+                        self.view.transform =  CGAffineTransformMakeScale(1, 1)
+                        self.view.center = self.originalViewCenter!
+                        self.view.userInteractionEnabled = true
                 })
             }
 
