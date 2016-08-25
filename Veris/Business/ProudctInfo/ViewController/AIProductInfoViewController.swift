@@ -295,17 +295,17 @@ class AIProductInfoViewController: UIViewController {
             tagsView.addSubview(tag)
             tag.titleLabel?.textColor = UIColor.whiteColor()
             tag.titleLabel?.font = UIFont.systemFontOfSize(13)
-            let widthButton: CGFloat = 223 / 3
+            let len = model.name?.length ?? 1
+            let widthButton: CGFloat = CGFloat(len * 9)
             tag.frame = CGRectMake(CGFloat(index) * (widthButton + 10), 14, widthButton, 80 / 3)
             tag.layer.masksToBounds = true
             tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             
-            tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Highlighted)
             if let arr = dataModel?.package {
                 let modelp: AIProductInfoPackageModel = arr[index]
                 tag.setTitle(modelp.name, forState: UIControlState.Normal)
                 tag.tag = modelp.pid ?? 0
-                tag.addTarget(self, action: #selector(AIProductInfoViewController.showDetailView(_:)), forControlEvents: UIControlEvents.TouchDown)
+                tag.addTarget(self, action: #selector(AIProductInfoViewController.changeButtonState(_:)), forControlEvents: UIControlEvents.TouchDown)
                 index = index + 1
             }
         })
@@ -569,6 +569,14 @@ class AIProductInfoViewController: UIViewController {
             splitView.backgroundColor = UIColor(hexString: "#372D49", alpha: 0.8)
         }
         return splitView
+    }
+    
+    // MARK: - Change state
+    func changeButtonState(sender: AnyObject) {
+        if let button = sender as? DesignableButton {
+            button.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Normal)
+            button.borderColor = UIColor(hexString: "#0f86e8")
+        }
     }
     
     // MARK: - DIY ACTION
