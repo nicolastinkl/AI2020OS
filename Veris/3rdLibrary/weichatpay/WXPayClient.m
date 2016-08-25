@@ -47,7 +47,7 @@ NSString * const WXPartnerId = @"1218670701";
 
 
 NSString *AccessTokenKey = @"access_token";
-NSString *PrePayIdKey = @"prepayid";
+NSString *PrePayIdKey = @"prepay_id";
 NSString *errcodeKey = @"errcode";
 NSString *errmsgKey = @"errmsg";
 NSString *expiresInKey = @"expires_in";
@@ -107,9 +107,10 @@ NSString *expiresInKey = @"expires_in";
     payModel = model;
     cNotify_url = notify;
 //    [self getAccessToken];
-    
+    self.timeStamp = [self genTimeStamp];
+    self.nonceStr = [self genNonceStr]; // traceId 由开发者自定义，可用于订单的查询与跟踪，建议根据支付用户信息生成此id
+    self.traceId = [self genTraceId];
     [SVProgressHUD show];
-    NSString *getAccessTokenUrl = @"http%3a%2f%2f171.221.254.231%3a2999%2fnsboss%2fwechat%2fsubmitUnifiedorder";
     __weak WXPayClient *weakSelf = self;
     NSMutableDictionary* headers = [JSONHTTPClient requestHeaders];
     headers[@"Content-Type"] = @"application/json";
@@ -121,6 +122,7 @@ NSString *expiresInKey = @"expires_in";
     message.url = @"http://171.221.254.231:2999/nsboss/wechat/submitUnifiedorder";
     [[AINetEngine defaultEngine] postMessage:message success:^(id responseObject) {
         if (responseObject != nil) {
+            NSString * payment_id = responseObject[@"payment_id"]; //保存payment_id检查是否支付成功
             NSString *prePayId = responseObject[PrePayIdKey];
             if (prePayId) {
                 [SVProgressHUD dismiss];
