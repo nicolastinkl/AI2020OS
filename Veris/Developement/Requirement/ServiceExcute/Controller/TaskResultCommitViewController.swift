@@ -15,6 +15,7 @@ class TaskResultCommitViewController: UIViewController {
     @IBOutlet weak var writeIcon: UIImageView!
     @IBOutlet weak var cameraIcon: UIImageView!
     @IBOutlet weak var questButton: UIButton!
+    @IBOutlet weak var soundPlayButton: SoundPlayButton!
     
     @IBOutlet weak var line1: UIView!
     @IBOutlet weak var line2: UIView!
@@ -36,8 +37,23 @@ class TaskResultCommitViewController: UIViewController {
             #selector(TaskResultCommitViewController.showTextAndAudioEditor(_:))
         let textAndAudioTap = UITapGestureRecognizer(target: self, action: textAndAudioSelector)
         writeIcon.addGestureRecognizer(textAndAudioTap)
+        
+        let longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(TaskResultCommitViewController.soundLongPressAction(_:)))
+        longPressGes.minimumPressDuration = 0.3
+        soundPlayButton.addGestureRecognizer(longPressGes)
     }
     
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
+        if action == #selector(TaskResultCommitViewController.deletePressed(_:)) {
+            return true
+        }
+        
+        return false
+    }
 
     class func initFromStoryboard() -> TaskResultCommitViewController {
         
@@ -56,6 +72,27 @@ class TaskResultCommitViewController: UIViewController {
     func showTextAndAudioEditor(sender: UIGestureRecognizer) {
         let vc = UINavigationController(rootViewController: TextAndAudioInputViewController.initFromNib())
         presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    func soundLongPressAction(longPressRecognizer: UILongPressGestureRecognizer) {
+        
+        let meunController = UIMenuController.sharedMenuController()
+        
+        if meunController.menuVisible {
+            return
+        }
+        
+        becomeFirstResponder()
+        
+        meunController.setTargetRect(soundPlayButton.frame, inView: view)
+        
+        let item = UIMenuItem(title: "Delete", action: #selector(TaskResultCommitViewController.deletePressed(_:)))
+        meunController.menuItems = [item]
+        meunController.setMenuVisible(true, animated: true)
+    }
+    
+    func deletePressed(menuController: UIMenuController) {
+        menuController.menuFrame
     }
     
     private func startImagePickController() {
