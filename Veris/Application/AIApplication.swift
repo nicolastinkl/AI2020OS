@@ -175,7 +175,8 @@ struct AIApplication {
     struct Notification {
         static let UIAIASINFOWillShowBarNotification    = "UIAIASINFOWillShowBarNotification"
         static let UIAIASINFOWillhiddenBarNotification  = "UIAIASINFOWillhiddenBarNotification"
-        static let UIAIASINFOLoginNotification          = "UIAIASINFOLoginNotification"
+        // 用户登录成功之后重新刷新主界面的数据
+        static let UIAIASINFOLoginNotification          = "UIAIASINFOLoginDidLoginSuccessNotification"
         
         // 会话过期重新登录
         static let UIRELoginNotification                = "UIRELoginNotification"
@@ -201,7 +202,6 @@ struct AIApplication {
         static let AIRequireContentViewControllerCellWrappNotificationName    = "AIRequireContentViewControllerCellWrappNotificationName"
 
         static let AIRequirementViewShowAssignToastNotificationName    = "AIRequirementViewShowAssignToastNotificationName"
-
 
         //服务执行页选择一个服务实例的通知 add by liux at 20160330
         static let AIRequirementSelectServiceInstNotificationName = "AIRequirementSelectServiceInstNotificationName"
