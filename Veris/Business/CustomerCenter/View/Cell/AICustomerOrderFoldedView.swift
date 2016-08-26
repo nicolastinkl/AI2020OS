@@ -54,9 +54,11 @@ class AICustomerOrderFoldedView: UIView {
         taskNameLabel.font = CustomerCenterConstants.Fonts.CustomerOrderTaskName
     }
     
-    func loadData(proposalModel: ProposalOrderModel) {
-        self.proposalModel = proposalModel
-        
+    func loadData(proposalViewModel: ProposalOrderViewModel) {
+        self.proposalModel = proposalViewModel.model
+        let proposalStateViewModel = proposalViewModel.proposalState!
+        statusButton.setTitle(proposalStateViewModel.stateName, forState: UIControlState.Normal)
+        statusColorView.backgroundColor = proposalStateViewModel.color
         proposalName.text = proposalModel.name
         noticeBadgeLabel.text = "\(proposalModel.messages)"
         taskStatusLabel.text = proposalModel.state
