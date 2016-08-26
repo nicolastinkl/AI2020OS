@@ -40,7 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 		
 		// WeChat Pay
 		
-		WXApi.registerApp(WX_APPID, withDescription: "AIVers")
+        if WXApi.registerApp(WX_APPID, withDescription: "AIVers") {
+            print("wx api register OK")
+        }
 		
 		// 处理讯飞语音初始化
 		AIAppInit().initWithXUNFEI()
@@ -118,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         //设置友盟社会化组件appkey
         UMSocialData.setAppKey("5784b6a767e58e5d1b003373")
         //设置微信AppId、appSecret，分享url
-        UMSocialWechatHandler.setWXAppId("wxdc1e388c3822c80b", appSecret: "a393c1527aaccb95f3a4c88d6d1455f6", url: "http://www.umeng.com/social")
+        //UMSocialWechatHandler.setWXAppId("wxdc1e388c3822c80b", appSecret: "a393c1527aaccb95f3a4c88d6d1455f6", url: "http://www.umeng.com/social")
         //设置手机QQ 的AppId，Appkey，和分享URL，需要#import "UMSocialQQHandler.h"
         UMSocialQQHandler.setQQWithAppId("100424468", appKey: "c7394704798a158208a74ab60104f0ba", url: "http://www.umeng.com/social")
 
