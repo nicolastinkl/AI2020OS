@@ -105,8 +105,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
 
     @IBAction func navigationBackAction(sender: AnyObject) {
-        //self.dismissViewControllerAnimated(true, completion: nil)
-        self.dismissPopupViewController(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
+        //self.dismissPopupViewController(true, completion: nil)
     }
 
 
@@ -387,23 +387,16 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     }
     
     func confirmServiceButtonDidClick(viewModel viewModel: AITimelineViewModel) {
-        let vc = parentViewController
-        self.dismissPopupViewController(true) { [weak vc] in
-            let commentVC = AISingleServiceCommnentViewController()
-            let navi = UINavigationController(rootViewController: commentVC)
-            navi.view.frame = self.view.bounds
-            vc?.showTransitionStyleCrossDissolveView(navi)
-        }
+        let commentVC = AISingleServiceCommnentViewController()
+        let navi = UINavigationController(rootViewController: commentVC)
+        navi.view.frame = self.view.bounds
+        self.showTransitionStyleCrossDissolveView(navi)
     }
     func confirmOrderButtonDidClick(viewModel viewModel: AITimelineViewModel) {
-        let vc = parentViewController
-        self.dismissPopupViewController(true) { [weak vc] in
-            //打开支付页面
-            let popupVC = AIPaymentViewController.initFromNib()
-            popupVC.view.frame = self.view.bounds
-            vc?.showTransitionStyleCrossDissolveView(popupVC)
-//            vc?.presentPopupViewController(popupVC, animated: true)
-        }
+        //打开支付页面
+        let popupVC = AIPaymentViewController.initFromNib()
+        popupVC.view.frame = self.view.bounds
+        self.showTransitionStyleCrossDissolveView(popupVC)
     }
     func refuseButtonDidClick(viewModel viewModel: AITimelineViewModel) {
         AIAlertView().showInfo("忽略授权请求!", subTitle: "")
