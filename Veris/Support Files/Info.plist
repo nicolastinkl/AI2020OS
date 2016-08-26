@@ -28,16 +28,6 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>weixinshare</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>wxdc1e388c3822c80b</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
 			<string>QQshare</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
@@ -78,7 +68,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>weixinpay</string>
+			<string>AIVeris</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wx483dafc09117a3d0</string>

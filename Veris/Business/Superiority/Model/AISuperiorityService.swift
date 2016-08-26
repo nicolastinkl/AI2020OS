@@ -14,8 +14,8 @@ struct AISuperiorityService {
     static func requestSuperiority(serviceId: String, complate: ((AnyObject?, String?) -> Void)) {
      
         let message = AIMessage()
-        
-        let body: NSDictionary = ["data": ["service_id": serviceId], "desc": ["data_mode": "0", "digest": ""]]
+        let userId = NSUserDefaults.standardUserDefaults().objectForKey("Default_UserID") as? String
+        let body: NSDictionary = ["data": ["service_id": serviceId,"userId": userId ?? ""], "desc": ["data_mode": "0", "digest": ""]]
         
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         message.url = AIApplication.AIApplicationServerURL.preview.description as String
