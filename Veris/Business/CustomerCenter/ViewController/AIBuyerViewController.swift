@@ -18,7 +18,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     var dataSource  = [ProposalOrderViewModel]()
     var dataSourcePop = [AIBuyerBubbleModel]()
     var tableViewCellCache = NSMutableDictionary()
-
+    var popTableViewPanGesture: UIPanGestureRecognizer!
     var bubbles: AIBubblesView!
 
     var curBubbleCenter: CGPoint?
@@ -94,8 +94,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         setupLanguageNotification()
 
         setupUIWithCurrentLanguage()
-
-        initMakePopTableView()
         
         if AILoginUtil.isLogin() {
             self.tableView.headerBeginRefreshing()
@@ -108,6 +106,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+
+        addPopTableViewPanGesture()
         Async.main(after: 0.3) {
             if self.popTableView.subviews.count == 0 {
                 //let navigationViewController = UINavigationController(rootViewController: self.proposalTableViewController)
@@ -119,6 +119,11 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             
         }
     }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        removePopTableViewPanGesture()
+    }
     
     // MARK: -> Internal methods
     func addSubViewController(viewController: UIViewController, toView: UIView? = nil) {
@@ -128,13 +133,18 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         viewController.view.pinToEdgesOfSuperview()
     }
     
-    func initMakePopTableView() {
-        
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(AIBuyerViewController.didRecognizePanGesture(_:)))
-        pan.delegate = self
-        view.addGestureRecognizer(pan)
+    func addPopTableViewPanGesture() {
+
+        popTableViewPanGesture = UIPanGestureRecognizer(target: self, action: #selector(AIBuyerViewController.didRecognizePanGesture(_:)))
+        popTableViewPanGesture.delegate = self
+        view.addGestureRecognizer(popTableViewPanGesture)
     }
-    
+
+    func removePopTableViewPanGesture() {
+        view.removeGestureRecognizer(popTableViewPanGesture)
+    }
+
+
     /**
      滑动手势
      */
@@ -179,6 +189,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         // Settings Pan Disabled.
         
         proposalTableViewController.tableView.userInteractionEnabled = false
+
         SpringAnimation.spring(0.5) {
             window.setY(self.offsetableWindowYOffset)
         }

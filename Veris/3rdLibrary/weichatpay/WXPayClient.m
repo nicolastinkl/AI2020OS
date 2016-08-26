@@ -106,7 +106,8 @@ NSString *expiresInKey = @"expires_in";
 {
     payModel = model;
     cNotify_url = notify;
-//    [self getAccessToken];
+    [self getAccessToken];
+    /*
     self.timeStamp = [self genTimeStamp];
     self.nonceStr = [self genNonceStr]; // traceId 由开发者自定义，可用于订单的查询与跟踪，建议根据支付用户信息生成此id
     self.traceId = [self genTraceId];
@@ -123,6 +124,7 @@ NSString *expiresInKey = @"expires_in";
     [[AINetEngine defaultEngine] postMessage:message success:^(id responseObject) {
         if (responseObject != nil) {
             NSString * payment_id = responseObject[@"payment_id"]; //保存payment_id检查是否支付成功
+            NSLog(@"payment_id:%@",payment_id);
             NSString *prePayId = responseObject[PrePayIdKey];
             if (prePayId) {
                 [SVProgressHUD dismiss];
@@ -144,7 +146,7 @@ NSString *expiresInKey = @"expires_in";
                 [params setObject:request.prepayId forKey:@"prepayid"];
                 [params setObject:weakSelf.timeStamp forKey:@"timestamp"];
                 request.sign = [weakSelf genSign:params];
-                
+                NSLog(@"params : \n %@",params);
                 // 在支付之前，如果应用没有注册到微信，应该先调用 [WXApi registerApp:appId] 将应用注册到微信
                 [WXApi sendReq:request];
             }else{
@@ -155,7 +157,7 @@ NSString *expiresInKey = @"expires_in";
     } fail:^(AINetError error, NSString *errorDes) {
         [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
     }];
-    
+    */
 }
 
 #pragma mark - 生成各种参数
@@ -189,7 +191,7 @@ NSString *expiresInKey = @"expires_in";
 -(NSString *) getproductNameWithIndex:(NSInteger) type
 {
     
-    return @"";
+    return @"NO";
 	
     
 }
@@ -335,7 +337,6 @@ NSString *expiresInKey = @"expires_in";
         NSString *accessToken = dict[AccessTokenKey];
         if (accessToken) {
             AIOCLog(@"--- AccessToken: %@", accessToken);
-            
             __strong WXPayClient *strongSelf = weakSelf;
             [strongSelf getPrepayId:accessToken];
         } else {
@@ -367,7 +368,7 @@ NSString *expiresInKey = @"expires_in";
             return;
         }else{
             AIOCLog(@"dict %@",dict);
-            NSString *prePayId = dict[PrePayIdKey];
+            NSString *prePayId = dict[@"prepayid"];
             if (prePayId) {
                 AIOCLog(@"--- PrePayId: %@", prePayId);
                 
