@@ -198,7 +198,8 @@ class AILoginService: NSObject {
 			if bol {
 				success()
 			} else {
-				fail(errType: AINetError.Failed, errDes: error.description)
+                let userInfo: [String : AnyObject] = error.userInfo as! [String : AnyObject]
+				fail(errType: AINetError.Failed, errDes: userInfo["error"] as! String)
 			}
 		}
 	}
@@ -208,7 +209,8 @@ class AILoginService: NSObject {
 			if bol {
 				success()
 			} else {
-				fail(errType: AINetError.Failed, errDes: error.description)
+                let userInfo: [String : AnyObject] = error.userInfo as! [String : AnyObject]
+				fail(errType: AINetError.Failed, errDes: userInfo["error"] as! String)
 			}
 		}
 	}

@@ -429,7 +429,8 @@ extension SwiftWebViewBridge {
         do {
             jsonData = try NSJSONSerialization.dataWithJSONObject(message, options: NSJSONWritingOptions())
         } catch let error as NSError {
-            self.swvb_printLog(.ERROR(error.description))
+            let userInfo: [String : AnyObject] = error.userInfo as! [String : AnyObject]
+            self.swvb_printLog(.ERROR(userInfo["error"] as! String))
             return nil
         }
         
@@ -444,7 +445,8 @@ extension SwiftWebViewBridge {
                 let jsonObj = try NSJSONSerialization.JSONObjectWithData(serilizedData, options: .AllowFragments)
                 return jsonObj
             } catch let error as NSError {
-                self.swvb_printLog(.ERROR(error.description))
+                let userInfo: [String : AnyObject] = error.userInfo as! [String : AnyObject]
+                self.swvb_printLog(.ERROR(userInfo["error"] as! String))
                 return nil
             }
         }
