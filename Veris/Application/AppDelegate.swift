@@ -173,8 +173,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
 		
 		AILog("openURL:\(url.absoluteString)")
-	// DeepLink
-	router.handleURL(url) { (complte, error) in
+        // DeepLink
+        router.handleURL(url) { (complte, error) in
             AILog("info : \(complte) \(error) ")
         }
 
@@ -218,10 +218,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 			default:
 				strMsg = "支付失败，请您重新支付!"
 				AILog("retcode = \(resp.errCode), retstr = \(resp.errStr)")
+                let alert = UIAlertView(title: "支付结果", message: strMsg, delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
 			}
 		}
-		let alert = UIAlertView(title: "支付结果", message: strMsg, delegate: nil, cancelButtonTitle: "OK")
-		alert.show()
+		
 	}
 	
 	func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
