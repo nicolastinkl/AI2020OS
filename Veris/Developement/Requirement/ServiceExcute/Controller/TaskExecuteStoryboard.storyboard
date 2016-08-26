@@ -237,7 +237,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="88" placeholderIntrinsicHeight="78" image="pen" translatesAutoresizingMaskIntoConstraints="NO" id="Chn-Aj-sbn" userLabel="WriteIcon">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="88" placeholderIntrinsicHeight="78" image="camera_yellow" translatesAutoresizingMaskIntoConstraints="NO" id="Chn-Aj-sbn" userLabel="CameraIcon">
                                 <rect key="frame" x="256" y="190" width="88" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="88" id="Bvr-a7-ctD"/>
@@ -250,7 +250,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="92" placeholderIntrinsicHeight="85" image="camera_yellow" translatesAutoresizingMaskIntoConstraints="NO" id="9dj-Mt-82x" userLabel="CameraIcon">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="92" placeholderIntrinsicHeight="85" image="pen" translatesAutoresizingMaskIntoConstraints="NO" id="9dj-Mt-82x" userLabel="WriteIcon">
                                 <rect key="frame" x="254" y="329" width="92" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="85" id="f22-qc-RJl"/>
@@ -292,6 +292,13 @@
                                     <constraint firstAttribute="width" constant="1" id="nu0-oB-koK"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="OZl-nm-E9t" customClass="SoundPlayButton" customModule="Veris" customModuleProvider="target">
+                                <rect key="frame" x="180" y="329" width="240" height="23"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="3hm-xp-paW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.019607843140000001" green="0.066666666669999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -309,24 +316,27 @@
                             <constraint firstItem="Chn-Aj-sbn" firstAttribute="top" secondItem="e9p-rO-vhn" secondAttribute="bottom" id="d0h-Q8-y9A"/>
                             <constraint firstItem="Chn-Aj-sbn" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="eIr-vr-vFN"/>
                             <constraint firstItem="rKG-Of-V5V" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="eMj-oI-Uqk"/>
+                            <constraint firstItem="OZl-nm-E9t" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="ehF-jc-1U5"/>
                             <constraint firstItem="rPc-GB-9H5" firstAttribute="width" secondItem="kxo-KP-55y" secondAttribute="width" id="enU-HJ-uK1"/>
                             <constraint firstItem="rPc-GB-9H5" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="grU-K6-Kac"/>
                             <constraint firstItem="e9p-rO-vhn" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="i7a-N9-qDE"/>
                             <constraint firstItem="9dj-Mt-82x" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="jf1-JO-RnT"/>
                             <constraint firstItem="nhw-Pv-wfH" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="rlg-AM-htW"/>
+                            <constraint firstItem="OZl-nm-E9t" firstAttribute="top" secondItem="9dj-Mt-82x" secondAttribute="top" id="u8c-aS-KbS"/>
                             <constraint firstItem="4bE-eG-McB" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="vSa-MZ-35n"/>
                             <constraint firstItem="ozz-4V-lQu" firstAttribute="top" secondItem="Chn-Aj-sbn" secondAttribute="bottom" id="veb-pK-ao6"/>
                             <constraint firstItem="rPc-GB-9H5" firstAttribute="centerY" secondItem="kxo-KP-55y" secondAttribute="centerY" id="xgh-7E-EId"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraIcon" destination="9dj-Mt-82x" id="Uxs-ta-abd"/>
+                        <outlet property="cameraIcon" destination="Chn-Aj-sbn" id="seJ-Gq-SFu"/>
                         <outlet property="checkIcon" destination="rKG-Of-V5V" id="7Dt-TF-IGG"/>
                         <outlet property="line1" destination="e9p-rO-vhn" id="oXx-fe-bww"/>
                         <outlet property="line2" destination="ozz-4V-lQu" id="JEN-bc-B2Y"/>
                         <outlet property="line3" destination="4bE-eG-McB" id="44Z-K0-4Xq"/>
                         <outlet property="questButton" destination="nhw-Pv-wfH" id="iE6-NL-nUp"/>
-                        <outlet property="writeIcon" destination="Chn-Aj-sbn" id="cpw-zx-imf"/>
+                        <outlet property="soundPlayButton" destination="OZl-nm-E9t" id="X9D-aj-EhO"/>
+                        <outlet property="writeIcon" destination="9dj-Mt-82x" id="gdJ-zw-AfB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAI-nK-1hk" userLabel="First Responder" sceneMemberID="firstResponder"/>
