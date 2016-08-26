@@ -106,8 +106,8 @@ NSString *expiresInKey = @"expires_in";
 {
     payModel = model;
     cNotify_url = notify;
-    [self getAccessToken];
-    /*
+//    [self getAccessToken];
+    
     self.timeStamp = [self genTimeStamp];
     self.nonceStr = [self genNonceStr]; // traceId 由开发者自定义，可用于订单的查询与跟踪，建议根据支付用户信息生成此id
     self.traceId = [self genTraceId];
@@ -139,14 +139,14 @@ NSString *expiresInKey = @"expires_in";
                 // 构造参数列表
                 NSMutableDictionary *params = [NSMutableDictionary dictionary];
                 [params setObject:WXAppId forKey:@"appid"];
-                [params setObject:WXAppKey forKey:@"appkey"];
+                //[params setObject:WXAppKey forKey:@"appkey"];
                 [params setObject:request.nonceStr forKey:@"noncestr"];
                 [params setObject:request.package forKey:@"package"];
                 [params setObject:request.partnerId forKey:@"partnerid"];
                 [params setObject:request.prepayId forKey:@"prepayid"];
                 [params setObject:weakSelf.timeStamp forKey:@"timestamp"];
                 request.sign = [weakSelf genSign:params];
-                NSLog(@"params : \n %@",params);
+                
                 // 在支付之前，如果应用没有注册到微信，应该先调用 [WXApi registerApp:appId] 将应用注册到微信
                 [WXApi sendReq:request];
             }else{
@@ -157,7 +157,7 @@ NSString *expiresInKey = @"expires_in";
     } fail:^(AINetError error, NSString *errorDes) {
         [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
     }];
-    */
+    
 }
 
 #pragma mark - 生成各种参数
@@ -286,9 +286,17 @@ NSString *expiresInKey = @"expires_in";
     }
     NSString *signString = [[sign copy] substringWithRange:NSMakeRange(0, sign.length - 1)];
     
-    NSString *result = [CommonUtil sha1:signString];
-    AIOCLog(@"--- Gen sign: %@", result);
-    return result;
+    // Step 1 : 老方法:
+    //NSString *result = [CommonUtil sha1:signString];
+    
+    // Step 2 : 最新文档使用的方法:
+    NSString * newStr = [NSString stringWithFormat:@"%@&key=%@",signString,WXPartnerKey];
+    NSString *result = [CommonUtil md5:newStr];
+    
+    
+    
+    AIOCLog(@"--- Gen sign: %@", [result uppercaseString]);
+    return [result uppercaseString];
 }
 
 - (NSMutableData *)getProductArgs
