@@ -50,20 +50,11 @@ class AIProposalTableViewController: UIViewController {
     let kCellHeight: CGFloat = 120.0
     let kItemSpace: CGFloat = -30.0
     let kAIProposalCellIdentifierss = "kAIProposalCellIdentifier"
-        
-    private lazy var collectionView: UICollectionView = {
-        let coll = UICollectionView(frame: UIScreen.mainScreen().bounds, collectionViewLayout: StickyCollectionViewFlowLayout())
-        coll.delegate = self
-        coll.dataSource = self
-        coll.backgroundColor = UIColor.clearColor()
-        coll.showsHorizontalScrollIndicator = false
-        return coll
-        
-    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.interactivePopGestureRecognizer?.enabled = false
         /**
          Structure UITableView
          */
@@ -82,9 +73,9 @@ class AIProposalTableViewController: UIViewController {
     func refreshAfterNewOrder() {
         
         weak var ws = self
-        Async.main(after: 0.2) { () -> Void in
-            ws!.tableView.headerBeginRefreshing()
-        }
+        // 取消延迟显示
+        ws!.clearPropodalData()
+        ws!.tableView.headerBeginRefreshing()
     }
     
     func loadingData() {
@@ -97,14 +88,12 @@ class AIProposalTableViewController: UIViewController {
             if let weakSelf = weakSelf {
                 weakSelf.didRefresh = true
                 weakSelf.parseListData(responseData)
-                weakSelf.tableView.reloadData()
                 weakSelf.tableView.headerEndRefreshing()
             }
             
             }, fail: { (errType, errDes) -> Void in
                 
                 weakSelf!.didRefresh = false
-                weakSelf!.tableView.reloadData()
                 weakSelf!.tableView.headerEndRefreshing()
         })
     }
@@ -140,12 +129,10 @@ class AIProposalTableViewController: UIViewController {
         tableView.addHeaderRefreshEndCallback { () -> Void in
             if let weakSelf = weakSelf {
                 weakSelf.tableView.reloadData()
-                weakSelf.collectionView.reloadData()
             }
         }
         tableView.addHeaderWithCallback { () -> Void in
             if let weakSelf = weakSelf {
-                weakSelf.clearPropodalData()
                 weakSelf.loadingData()
             }
             
@@ -163,8 +150,7 @@ class AIProposalTableViewController: UIViewController {
     func parseListData(listData: ProposalOrderListModel?) {
         
         if let data = listData {
-            dataSource.removeAll()
-            tableView.reloadData()
+            clearPropodalData()
             for proposal in data.order_list {
                 let model = proposalToVieModel(proposal as! ProposalOrderModel)
                 
@@ -247,7 +233,7 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
             cell.mainView = folderCellView
         }
         
-        (cell.mainView as! AICustomerOrderFoldedView).loadData(dataSource[indexPath.row].model)
+        (cell.mainView as! AICustomerOrderFoldedView).loadData(dataSource[indexPath.row])
         
         
         if dataSource[indexPath.row].isExpanded {
@@ -285,17 +271,13 @@ extension AIProposalTableViewController: SubServiceCardViewDelegate, AIFoldedCel
         
         let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
         
-        //        if let navigationController = self.navigationController {
-        //            navigationController.pushViewController(serviceExecVC, animated: true)
-        //        } else {
-        
         //弹出前先收起订单列表
         let parentVC = parentViewController as! AIBuyerViewController
         parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)
-        let TopMargin: CGFloat = 15.3
-        serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
-        presentPopupViewController(serviceExecVC, animated: true)
-        //}
+//        let TopMargin: CGFloat = 15.3
+//        serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
+//        presentPopupViewController(serviceExecVC, animated: true)
+        parentVC.showTransitionStyleCrossDissolveView(serviceExecVC)
     }
 }
 
@@ -308,50 +290,6 @@ extension AIProposalTableViewController : DimentionChangable, ProposalExpandedDe
         let indexPath = NSIndexPath(forRow: proposalView.tag, inSection: 0)
         rowSelectAction(indexPath)
     }
-}
-
-extension AIProposalTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView.dynamicType == UICollectionView.self {
-            if scrollView.contentOffset.y < 0 {
-                //Throw UIGesture To SuperView.
-//                superVC?.didRecognizePanGesture(scrollView.panGestureRecognizer)
-                
-            } else {
-//                self.collectionView.scrollEnabled = true
-            }
-        }
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kAIProposalCellIdentifierss, forIndexPath: indexPath) as! AIProposalCollCell
-        
-        if cell.backingView.subviews.count == 1 {
-            let folderCellView = AICustomerOrderFoldedView.currentView()
-            folderCellView.delegate = self
-            folderCellView.loadData(dataSource[indexPath.row].model!)
-            cell.backingView.addSubview(folderCellView)
-            folderCellView.pinToTopEdgeOfSuperview()
-            folderCellView.pinToLeftEdgeOfSuperview()
-            folderCellView.pinToRightEdgeOfSuperview()
-            folderCellView.sizeToHeight(97)
-        }
-    
-        return cell
-    }
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(CGRectGetWidth(view.bounds), kCellHeight)
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: NSInteger) -> CGFloat {
-        return kItemSpace
-    }
-
 }
 
 

@@ -16,5 +16,4 @@ class AIWishTextWishsView: UIView {
         super.awakeFromNib()
         
     }
-    
 }

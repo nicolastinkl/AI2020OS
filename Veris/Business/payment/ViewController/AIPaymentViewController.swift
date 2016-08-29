@@ -322,7 +322,7 @@ class AIPaymentViewController: UIViewController {
             SVProgressHUD.showWithStatus("正在处理...", maskType: SVProgressHUDMaskType.Gradient)
             let model = MDPayTypeModel()
             model.fee = 11
-            model.for_id = "123"
+            model.for_id = "\(arc4random()%1000 + 400)"
             model.order_type  = 1
             model.pay_type = 1
             model.sign_str = ""

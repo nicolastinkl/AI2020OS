@@ -122,7 +122,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
     //MARK: Actions
 
     func submitAction() {
-
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 

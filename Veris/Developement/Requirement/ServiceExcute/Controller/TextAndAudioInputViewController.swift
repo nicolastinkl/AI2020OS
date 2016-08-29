@@ -31,7 +31,7 @@ class TextAndAudioInputViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TextAndAudioInputViewController.keyboardWillDisappear), name: UIKeyboardWillHideNotification, object: nil)
         
         let audioSelector =
-            #selector(TextAndAudioInputViewController.showAudio(_:))
+            #selector(TextAndAudioInputViewController.showAudioRecorder(_:))
         let audioTap = UITapGestureRecognizer(target: self, action: audioSelector)
         audioImage.addGestureRecognizer(audioTap)
     }
@@ -53,7 +53,7 @@ class TextAndAudioInputViewController: UIViewController {
             return
         }
         
-        let keyboardHeight = keyboardRect.size.height;
+        let keyboardHeight = keyboardRect.size.height
         
         guard let optionsValue = info[UIKeyboardAnimationCurveUserInfoKey] as? UInt else {
             return
@@ -93,8 +93,8 @@ class TextAndAudioInputViewController: UIViewController {
             }, completion: nil)
     }
     
-    func showAudio(sender: UIGestureRecognizer) {
-        let vc = AIAudioSearchViewController.initFromNib()
+    func showAudioRecorder(sender: UIGestureRecognizer) {
+        let vc = AudioRecoderViewController.initFromNib()
         vc.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         vc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         presentViewController(vc, animated: true, completion: nil)

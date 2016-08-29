@@ -132,7 +132,7 @@ extension UIViewController {
 					subview.height == viewControllerToPresent.view.frame.size.height
 					self.bottomConstraint = subview.bottom == superView.bottom + viewControllerToPresent.view.frame.size.height
 				})
-				
+
 				self.view.layoutIfNeeded()
 			}
 			if animated {

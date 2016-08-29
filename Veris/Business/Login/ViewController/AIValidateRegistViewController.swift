@@ -94,7 +94,8 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
                     if bol {
                         self.handleValidationButton()
                     } else {
-                        AIAlertView().showError("Request validation code failed", subTitle: error.description)
+                        let userInfo: [String : AnyObject] = error.userInfo as! [String : AnyObject]
+                        AIAlertView().showError("Send Error", subTitle: userInfo["error"] as! String)
                         self.hideButtonLoading(self.validationButton, title: LoginConstants.textContent.validateButtonDefault)
                     }
                 })

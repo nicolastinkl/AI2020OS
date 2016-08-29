@@ -107,6 +107,7 @@ NSString *expiresInKey = @"expires_in";
     payModel = model;
     cNotify_url = notify;
 //    [self getAccessToken];
+    
     self.timeStamp = [self genTimeStamp];
     self.nonceStr = [self genNonceStr]; // traceId 由开发者自定义，可用于订单的查询与跟踪，建议根据支付用户信息生成此id
     self.traceId = [self genTraceId];
@@ -123,6 +124,7 @@ NSString *expiresInKey = @"expires_in";
     [[AINetEngine defaultEngine] postMessage:message success:^(id responseObject) {
         if (responseObject != nil) {
             NSString * payment_id = responseObject[@"payment_id"]; //保存payment_id检查是否支付成功
+            NSLog(@"payment_id:%@",payment_id);
             NSString *prePayId = responseObject[PrePayIdKey];
             if (prePayId) {
                 [SVProgressHUD dismiss];
@@ -137,7 +139,7 @@ NSString *expiresInKey = @"expires_in";
                 // 构造参数列表
                 NSMutableDictionary *params = [NSMutableDictionary dictionary];
                 [params setObject:WXAppId forKey:@"appid"];
-                [params setObject:WXAppKey forKey:@"appkey"];
+                //[params setObject:WXAppKey forKey:@"appkey"];
                 [params setObject:request.nonceStr forKey:@"noncestr"];
                 [params setObject:request.package forKey:@"package"];
                 [params setObject:request.partnerId forKey:@"partnerid"];
@@ -189,7 +191,7 @@ NSString *expiresInKey = @"expires_in";
 -(NSString *) getproductNameWithIndex:(NSInteger) type
 {
     
-    return @"";
+    return @"NO";
 	
     
 }
@@ -284,9 +286,17 @@ NSString *expiresInKey = @"expires_in";
     }
     NSString *signString = [[sign copy] substringWithRange:NSMakeRange(0, sign.length - 1)];
     
-    NSString *result = [CommonUtil sha1:signString];
-    AIOCLog(@"--- Gen sign: %@", result);
-    return result;
+    // Step 1 : 老方法:
+    //NSString *result = [CommonUtil sha1:signString];
+    
+    // Step 2 : 最新文档使用的方法:
+    NSString * newStr = [NSString stringWithFormat:@"%@&key=%@",signString,WXPartnerKey];
+    NSString *result = [CommonUtil md5:newStr];
+    
+    
+    
+    AIOCLog(@"--- Gen sign: %@", [result uppercaseString]);
+    return [result uppercaseString];
 }
 
 - (NSMutableData *)getProductArgs
@@ -335,7 +345,6 @@ NSString *expiresInKey = @"expires_in";
         NSString *accessToken = dict[AccessTokenKey];
         if (accessToken) {
             AIOCLog(@"--- AccessToken: %@", accessToken);
-            
             __strong WXPayClient *strongSelf = weakSelf;
             [strongSelf getPrepayId:accessToken];
         } else {
@@ -367,7 +376,7 @@ NSString *expiresInKey = @"expires_in";
             return;
         }else{
             AIOCLog(@"dict %@",dict);
-            NSString *prePayId = dict[PrePayIdKey];
+            NSString *prePayId = dict[@"prepayid"];
             if (prePayId) {
                 AIOCLog(@"--- PrePayId: %@", prePayId);
                 

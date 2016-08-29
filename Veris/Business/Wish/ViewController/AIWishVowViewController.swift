@@ -65,11 +65,11 @@ class AIWishVowViewController: UIViewController {
         }
     }
     
-    func refereshButtonStatus(enble: Bool){
+    func refereshButtonStatus(enble: Bool) {
         if enble {
             self.submitButton.backgroundColor = UIColor(hexString: "#0E79CC", alpha: 0.8)
             self.submitButton.enabled = true
-        }else{
+        } else {
             self.submitButton.backgroundColor = UIColor.grayColor()
             self.submitButton.enabled = false
         }
@@ -209,7 +209,7 @@ class AIWishVowViewController: UIViewController {
                        
                         // 退出当前界面 然后通知主页刷新
                         // AIAlertView().showSuccess("提示", subTitle: "提交成功")
-                        if let alertView = AIAlertWishInputView.initFromNib() as? AIAlertWishInputView{
+                        if let alertView = AIAlertWishInputView.initFromNib() as? AIAlertWishInputView {
                             self.view.addSubview(alertView)
                             alertView.alpha = 0
                             alertView.snp_makeConstraints(closure: { (make) in
@@ -232,11 +232,11 @@ class AIWishVowViewController: UIViewController {
 }
 
 
-extension AIWishVowViewController: UITextViewDelegate{
+extension AIWishVowViewController: UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
-        if payContent.text.length > 0 && wishContent.text.length > 0  {
+        if payContent.text.length > 0 && wishContent.text.length > 0 {
             refereshButtonStatus(true)
-        }else{
+        } else {
             refereshButtonStatus(false)
         }
     }
