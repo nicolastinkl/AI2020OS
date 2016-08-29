@@ -623,9 +623,8 @@ class AIProductInfoViewController: UIViewController {
     
     func configOrderAction() {
         let model = AIProposalInstModel()
-        model.proposal_id = 3525
-        model.proposal_name = "Pregnancy Care"
-        
+        model.proposal_id = dataModel?.proposal_inst_id ?? 0
+        model.proposal_name = dataModel?.name ?? ""
         if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
             vc.dataSource  = model
             showTransitionStyleCrossDissolveView(vc)
