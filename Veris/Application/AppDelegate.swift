@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 		
 		// Override point for customization after application launch.
 		// self.window = AACustomWindow(frame: UIScreen.mainScreen().bounds)
-		configDefaultUser()
+		//configDefaultUser() //废弃
 		initNetEngine()
 		
 		// 设置状态栏隐藏

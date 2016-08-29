@@ -44,7 +44,7 @@ struct AIWishServices {
     static func requestQueryWishs(complate: ((AnyObject?, String?) -> Void)) {
         let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
         let message = AIMessage()
-        let body: NSDictionary = ["data":["user_id":userId],"desc":["data_mode":"0","digest":""]]
+        let body: NSDictionary = ["data" : ["user_id":userId], "desc" : ["data_mode" : "0", "digest" : ""]]
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         message.url = AIApplication.AIApplicationServerURL.wishpreview.description as String
         

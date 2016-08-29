@@ -175,6 +175,7 @@
         NSDictionary *dic = @{ @"data": @{ @"order_state": @"0", @"order_role": @"2" },
                                @"desc": @{ @"data_mode": @"0", @"digest": @"" } };
 
+        
         AIMessage *message = [[AIMessage alloc] init];
         //AIMessage *message = [weakSelf getServiceListWithUserID:123123123 role:2];
         [message.body addEntriesFromDictionary:dic];
