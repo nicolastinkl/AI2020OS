@@ -21,7 +21,7 @@
 
 #define kURL_GetServiceList                 [NSString stringWithFormat:@"%@%@",kURL_Base, @"/getservicelist"]  //TEST..
 
-#define kURL_QuerySellerOrderList            [NSString stringWithFormat:@"%@%@",kURL_Base, @"/querySellerOrderList"]
+#define kURL_QuerySellerOrderList            [NSString stringWithFormat:@"%@%@",kURL_Base, @"/order/querySellerOrderList"]
 
 // 关键字(字段名)
 #define kKey_ServiceID     @"serviceID"
