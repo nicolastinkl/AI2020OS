@@ -22,107 +22,14 @@ class AIProductCommentsViewController: UIViewController {
 		setupNavigtionItems()
 		setupFilterBar()
         setupTableView()
-        setupData()
+        fetchData()
 	}
 	
 	func setupNavigtionItems() {
 		setupNavigationBarLikeQA(title: "Comments")
 	}
 	
-	func setupData() {
-		
-        localCode { 
-            var commentModel = AICommentInfoModel()
-            commentModel.commentid = 2
-            commentModel.descripation = ""
-            commentModel.images =  ["http://oc3j76nok.bkt.clouddn.com/%E8%AF%84%E4%BB%B7%E5%9B%BE%E7%89%873.png",
-                "http://oc3j76nok.bkt.clouddn.com/%E8%AF%84%E4%BB%B7%E5%9B%BE%E7%89%872.png",
-                "http://oc3j76nok.bkt.clouddn.com/%E8%AF%84%E4%BB%B7%E5%9B%BE%E7%89%871.png",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2H%7BC17WUNL%2503%291%605ANKYL6.jpg",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl7711C941-BD7C-47A3-97EA-192AD2B63B87.png",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklSamsung-Galaxy-Gear-Smartwatch%20%E5%89%AF%E6%9C%AC.PNG",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_4.pic.jpg",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_64ADD30A-2F22-4E39-8FF0-DCE5ADFCC9B9.png",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_9.pic.jpg",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_EC78563D-64FF-4F15-B1C5-2495931006C3.png",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_Placehold@2x.png"]
-            commentModel.level = 3
-            commentModel.providename = "xxxxxxxxxx"
-            commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
-            commentModel.time = 12313
-            
-            self.comments.append(commentModel)
-            
-        }
-        
-        
-        localCode {
-            var commentModel = AICommentInfoModel()
-            commentModel.commentid = 2
-            commentModel.descripation = ""
-            commentModel.images =  ["http://7q5dv2.com1.z0.glb.clouddn.com/Kelvin%20-%20Bootstrap%203%20Resume%20Theme.png",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl1.pic.jpg",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2D57E5A9-8BCE-4A3E-8C9C-E84C40825D89.png",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2H%7BC17WUNL%2503%291%605ANKYL6.jpg",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl7711C941-BD7C-47A3-97EA-192AD2B63B87.png",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklSamsung-Galaxy-Gear-Smartwatch%20%E5%89%AF%E6%9C%AC.PNG",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_4.pic.jpg"]
-            commentModel.level = 3
-            commentModel.providename = "xxxxxxxxxx"
-            commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
-            commentModel.time = 12313
-            
-            self.comments.append(commentModel)
-        }
-        
-        
-        //3
-        
-        localCode {
-            var commentModel = AICommentInfoModel()
-            commentModel.commentid = 2
-            commentModel.descripation = ""
-            commentModel.images =  ["http://7q5dv2.com1.z0.glb.clouddn.com/Kelvin%20-%20Bootstrap%203%20Resume%20Theme.png",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl1.pic.jpg",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2D57E5A9-8BCE-4A3E-8C9C-E84C40825D89.png",
-                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2H%7BC17WUNL%2503%291%605ANKYL6.jpg"]
-            commentModel.level = 3
-            commentModel.providename = "xxxxxxxxxx"
-            commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
-            commentModel.time = 12313
-            
-            self.comments.append(commentModel)
-        }
-        
-        
-        
-        localCode {
-            var commentModel = AICommentInfoModel()
-            commentModel.commentid = 2
-            commentModel.descripation = ""
-            commentModel.images =  []
-            commentModel.level = 3
-            commentModel.providename = "xxxxxxxxxx"
-            commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
-            commentModel.time = 12313
-            
-            self.comments.append(commentModel)
-        }
-        
-        localCode {
-            var commentModel = AICommentInfoModel()
-            commentModel.commentid = 2
-            commentModel.descripation = ""
-            commentModel.images =  []
-            commentModel.level = 3
-            commentModel.providename = "xxxxxxxxxx"
-            commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link,Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
-            commentModel.time = 12313
-            
-            self.comments.append(commentModel)
-        }
-        
-        
+	func fetchData() {
         
 	}
 	

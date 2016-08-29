@@ -792,6 +792,7 @@
 		FB7E6A801D2A0B8F000E2615 /* ImagePositionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E6A7F1D2A0B8F000E2615 /* ImagePositionButton.swift */; };
 		FB87DDEC1D582A5200798B5A /* NSFoundation+Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB87DDEB1D582A5200798B5A /* NSFoundation+Completion.swift */; };
 		FB8D126F1D210BC200101EEE /* AIProductQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D126E1D210BC200101EEE /* AIProductQAViewController.swift */; };
+		FB989FBA1D73D5B200DD33BC /* AIProductAllCommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB989FB91D73D5B200DD33BC /* AIProductAllCommentsService.swift */; };
 		FBAE7FC41D115188002FF522 /* EvernoteTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */; };
 		FBAE7FD51D115428002FF522 /* AIOrderTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC91D115428002FF522 /* AIOrderTableModel.m */; };
 		FBAE7FD61D115428002FF522 /* AISellerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FCB1D115428002FF522 /* AISellerCell.m */; };
@@ -1929,6 +1930,7 @@
 		FB7E6A7F1D2A0B8F000E2615 /* ImagePositionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePositionButton.swift; sourceTree = "<group>"; };
 		FB87DDEB1D582A5200798B5A /* NSFoundation+Completion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFoundation+Completion.swift"; sourceTree = "<group>"; };
 		FB8D126E1D210BC200101EEE /* AIProductQAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductQAViewController.swift; sourceTree = "<group>"; };
+		FB989FB91D73D5B200DD33BC /* AIProductAllCommentsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductAllCommentsService.swift; sourceTree = "<group>"; };
 		FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvernoteTransition.swift; sourceTree = "<group>"; };
 		FBAE7FC81D115428002FF522 /* AIOrderTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOrderTableModel.h; sourceTree = "<group>"; };
 		FBAE7FC91D115428002FF522 /* AIOrderTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIOrderTableModel.m; sourceTree = "<group>"; };
@@ -2362,6 +2364,7 @@
 				8143397F1CFBE5A600347C29 /* AITransformManager.swift */,
 				814339811CFBE5A600347C29 /* ProposalService.swift */,
 				1265F6281D47841400130ECF /* AICustomerServiceExecuteHandler.swift */,
+				FB989FB91D73D5B200DD33BC /* AIProductAllCommentsService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5180,6 +5183,7 @@
 				81B195751D474A960086EB83 /* TBScreenCapture.m in Sources */,
 				81FAFBEE1D4716F800DD3477 /* TaskDetailViewController.swift in Sources */,
 				8175A7ED1CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.m in Sources */,
+				FB989FBA1D73D5B200DD33BC /* AIProductAllCommentsService.swift in Sources */,
 				81433D221CFBE5A700347C29 /* BottomServiceContainerView.swift in Sources */,
 				FBAE7FD61D115428002FF522 /* AISellerCell.m in Sources */,
 				122E7BDE1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift in Sources */,
