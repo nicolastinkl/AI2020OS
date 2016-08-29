@@ -58,6 +58,8 @@ class AIProductInfoViewController: UIViewController {
     private var audioView_AudioRecordView: AIAudioRecordView?
     private var scrollViewSubviews = [UIView]()
     
+    private let redColor: String = "#b32b1d"
+    
     // MARK: 取消键盘
     
     func shouldHideKeyboard () {
@@ -493,7 +495,6 @@ class AIProductInfoViewController: UIViewController {
         let audioView = AICustomAudioNotesView.currentView()
         addNewSubView(audioView, preView: provideView!)
         audioView.delegateShowAudio = self
-        
     }
     
     func showCommentView() {
@@ -828,7 +829,7 @@ extension AIProductInfoViewController: AICustomAudioNotesViewDelegate, AIAudioMe
             audio1.fillData(audioModel)
             audio1.deleteDelegate = self
             scrollViewBottom()
-            
+            audio1.backgroundColor = UIColor(hex: redColor)
             audio1.loadingView.startAnimating()
             audio1.loadingView.hidden = false
             
@@ -1014,6 +1015,7 @@ extension AIProductInfoViewController: UITextViewDelegate {
             newText.setHeight(25 + newSize!.height) // 30
             // addNewSubView(newText, preView: cview)
             addNewSubView(newText, preView: preCacheView!)
+            newText.backgroundColor = UIColor(hex: redColor)
             scrollViewBottom()
             
             newText.delegate = self
@@ -1082,4 +1084,5 @@ extension AIProductInfoViewController: UITextViewDelegate {
         s.height = CGRectGetMaxY(scrollview.subviews.last!.frame)
         scrollview.contentSize = s
     }
+    
 }
