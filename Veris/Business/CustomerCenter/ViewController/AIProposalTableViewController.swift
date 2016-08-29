@@ -271,17 +271,13 @@ extension AIProposalTableViewController: SubServiceCardViewDelegate, AIFoldedCel
         
         let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
         
-        //        if let navigationController = self.navigationController {
-        //            navigationController.pushViewController(serviceExecVC, animated: true)
-        //        } else {
-        
         //弹出前先收起订单列表
         let parentVC = parentViewController as! AIBuyerViewController
         parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)
-        let TopMargin: CGFloat = 15.3
-        serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
-        presentPopupViewController(serviceExecVC, animated: true)
-        //}
+//        let TopMargin: CGFloat = 15.3
+//        serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
+//        presentPopupViewController(serviceExecVC, animated: true)
+        parentVC.showTransitionStyleCrossDissolveView(serviceExecVC)
     }
 }
 

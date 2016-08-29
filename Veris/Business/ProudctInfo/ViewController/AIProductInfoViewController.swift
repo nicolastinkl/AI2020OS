@@ -242,6 +242,16 @@ class AIProductInfoViewController: UIViewController {
 
    // MARK: - Init ScrollData
 	func initScrollViewData() {
+        //处理是否收藏
+        if let navinew = navi as? AINavigationBar {
+            
+            if dataModel?.collected == false {
+                //未收藏
+                navinew.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+            } else {
+                navinew.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
+            }
+        }
         
 		/**
 		 定制的TitleView
@@ -265,7 +275,7 @@ class AIProductInfoViewController: UIViewController {
 			
 			tView.addSubview(titleLabel)
 			tView.addSubview(desLabel)
-			titleLabel.frame = CGRectMake(0, 0, 140, heightLabel)
+			titleLabel.frame = CGRectMake(0, 0, 300, heightLabel)
 			desLabel.frame = CGRectMake(80, 0, 180, heightLabel)
 			
 			let imageview = UIImageView()
@@ -323,7 +333,9 @@ class AIProductInfoViewController: UIViewController {
             tag.frame = CGRectMake(CGFloat(index) * (widthButton + 10), 14, widthButton, 80 / 3)
             tag.layer.masksToBounds = true
             tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-            
+            if model.collected {
+                changeButtonState(tag)
+            }
             if let arr = dataModel?.package {
                 let modelp: AIProductInfoPackageModel = arr[index]
                 tag.setTitle(modelp.name, forState: UIControlState.Normal)
@@ -368,44 +380,33 @@ class AIProductInfoViewController: UIViewController {
 		
 		let lineView1 = addSplitView()
 		
-		// Setup 3:
-		let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
-		addNewSubView(commond, preView: lineView1)
-		commond.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
-		commond.userInteractionEnabled = true
-        commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))
+		// 评论数据
+        if let commentModel = dataModel?.commentLast {
+            // Setup 3:
+            let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
+            addNewSubView(commond, preView: lineView1)
+            commond.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
+            commond.userInteractionEnabled = true
+            commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))
+            
+            var commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
+            
+            commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
+            addNewSubView(commentView!, preView: commond)
+            commentView?.initSubviews()
+            commentView?.setWidth(UIScreen.mainScreen().bounds.width)
+            commentView?.fillDataWithModel(commentModel)
+            commentView?.setHeight(commentView?.getheight() ?? 0)
+            commentView?.bgView.hidden = true
+            // Add Normal Answer Button
+            commentView?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
+        }else{
+            tagsView.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
+        }
         
-        
-        var commentModel = AICommentInfoModel()
-        commentModel.commentid = 2
-        commentModel.descripation = ""
-        commentModel.images =  ["http://7q5dv2.com1.z0.glb.clouddn.com/Kelvin%20-%20Bootstrap%203%20Resume%20Theme.png",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl1.pic.jpg",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2D57E5A9-8BCE-4A3E-8C9C-E84C40825D89.png",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2H%7BC17WUNL%2503%291%605ANKYL6.jpg",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl7711C941-BD7C-47A3-97EA-192AD2B63B87.png",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklSamsung-Galaxy-Gear-Smartwatch%20%E5%89%AF%E6%9C%AC.PNG",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_4.pic.jpg",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_64ADD30A-2F22-4E39-8FF0-DCE5ADFCC9B9.png",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_9.pic.jpg",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_EC78563D-64FF-4F15-B1C5-2495931006C3.png",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_Placehold@2x.png"]
-        commentModel.level = 3
-        commentModel.providename = "xxxxxxxxxx"
-        commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
-        commentModel.time = 12313
-		let commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
-		addNewSubView(commentView!, preView: commond)
-        commentView?.initSubviews()
-        commentView?.setWidth(UIScreen.mainScreen().bounds.width)
-		commentView?.fillDataWithModel(commentModel)
-		commentView?.setHeight(commentView?.getheight() ?? 0)
-        commentView?.bgView.hidden = true
-		// Add Normal Answer Button
-        commentView?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
 		
 		let answerView = UIView()
-		addNewSubView(answerView, preView: commentView!)
+		addNewSubView(answerView, preView: preCacheView!)
 		answerView.setHeight(245 / 3)
 		
 		let aButton = DesignableButton()
@@ -604,8 +605,8 @@ class AIProductInfoViewController: UIViewController {
     // MARK: - DIY ACTION
     func showDetailView(sender: AnyObject) {
         let model = AIBuyerBubbleModel()
-        model.proposal_id = 3525
-        model.proposal_name = "Pregnancy Care"
+        model.proposal_id = dataModel?.proposal_inst_id ?? 0
+        model.proposal_name = dataModel?.name ?? ""
         let viewsss = createBuyerDetailViewController(model)
         showTransitionStyleCrossDissolveView(viewsss)
     }
@@ -622,9 +623,8 @@ class AIProductInfoViewController: UIViewController {
     
     func configOrderAction() {
         let model = AIProposalInstModel()
-        model.proposal_id = 3525
-        model.proposal_name = "Pregnancy Care"
-        
+        model.proposal_id = dataModel?.proposal_inst_id ?? 0
+        model.proposal_name = dataModel?.name ?? ""
         if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
             vc.dataSource  = model
             showTransitionStyleCrossDissolveView(vc)
