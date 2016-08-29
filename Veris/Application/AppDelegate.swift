@@ -128,8 +128,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         UMSocialSinaSSOHandler.openNewSinaSSOWithAppKey("3921700954", secret: "04b48b094faeb16683c32669824ebdad", redirectURL: "http://sns.whalecloud.com/sina2/callback")
     }
 
-
-
     func setupBaiduMap() {
         _mapManager = BMKMapManager()
         // 如果要关注网络及授权验证事件，请设定generalDelegate参数

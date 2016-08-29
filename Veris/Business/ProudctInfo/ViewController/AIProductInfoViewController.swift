@@ -621,7 +621,10 @@ class AIProductInfoViewController: UIViewController {
         return viewController
     }
     
+    //跳转订单确认界面
     func configOrderAction() {
+        
+        
         let model = AIProposalInstModel()
         model.proposal_id = dataModel?.proposal_inst_id ?? 0
         model.proposal_name = dataModel?.name ?? ""
