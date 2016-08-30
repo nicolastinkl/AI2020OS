@@ -36,8 +36,7 @@ class AILoginViewController: UIViewController {
             loginService.login(userIdTextField.text!, password: passwordTextField.text!, success: { (userId) in
                 self.view.userInteractionEnabled = true
                 self.hideButtonLoading(self.loginButton, title: title)
-                AILoginUtil.handleUserLogin(userId)
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.showMainViewController() // 切换到主页
                 }, fail: { (errType, errDes) in
                     self.view.userInteractionEnabled = true
                     self.hideButtonLoading(self.loginButton, title: title)
@@ -50,7 +49,14 @@ class AILoginViewController: UIViewController {
             self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.WrongIdOrPassword.rawValue)
         }
     }
-    
+
+    //MARK: 新增-切换到主页，替代原来的dismiss方法
+    func showMainViewController() {
+        let root = AIRootViewController()
+        let mainRootViewController = UINavigationController(rootViewController: root)
+        mainRootViewController.navigationBarHidden = true
+        UIApplication.sharedApplication().keyWindow?.rootViewController = mainRootViewController
+    }
     
     @IBAction func forgotPasswordAction(sender: UIButton) {
         
@@ -70,8 +76,8 @@ class AILoginViewController: UIViewController {
         setupViews()
         
         #if DEBUG
-            userIdTextField.text = "13541086766"
-            passwordTextField.text = "223223"
+            userIdTextField.text = "18030481985"
+            passwordTextField.text = "123456"
             loginButton.enabled = true
             
 //            let im = AIImageView(frame: CGRectMake(100, 450, 100, 100))

@@ -66,8 +66,6 @@ class AIProposalTableViewController: UIViewController {
         if AILoginUtil.isLogin() {
             self.tableView.headerBeginRefreshing()
         }
-    
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
     }
     
     func refreshAfterNewOrder() {

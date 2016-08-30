@@ -111,26 +111,12 @@ class AILoginService: NSObject {
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
             if let responseJSON: AnyObject = response {
-                #if DEBUG
-                    success(userId: "")
-                #endif
-                
+
                 let dic = responseJSON as! [NSString: AnyObject]
-                
-                if let cid = dic["customer_id"] as? String, pid = dic["provider_id"] as? String, hurl = dic["head_url"] as? String {
-                    
-                    NSUserDefaults.standardUserDefaults().setObject(cid, forKey: AILoginUtil.KEY_CUSTOM_ID)
-                    NSUserDefaults.standardUserDefaults().setObject(pid, forKey: AILoginUtil.KEY_PROVIDER_ID)
-                    NSUserDefaults.standardUserDefaults().setObject(hurl, forKey: AILoginUtil.KEY_HEADURL_STRING)
-                    NSUserDefaults.standardUserDefaults().synchronize()
-                }
-                
+
                 if let userId = dic["user_id"] as? String {
-                    let user = AIUser()
-                    user.id = userId.toInt()!
-                    if let hurl = dic["head_url"] as? String {
-                        user.headURL = hurl
-                    }
+                    // 登录成功，存储关键信息
+                    AILocalStore.storageLoginInfo(dic)
                     success(userId: userId)
                 } else {
                     fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
@@ -147,7 +133,7 @@ class AILoginService: NSObject {
 	}
 	
 	func logout(success: (userId: String) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-		
+        AILocalStore.logout()
 	}
 	
 	/**

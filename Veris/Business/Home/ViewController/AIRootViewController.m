@@ -36,9 +36,6 @@
      */
     [self makeChildViewControllers];
     [self startOpenningAnimation];
- 
-    
-    [self handleLoginAction];
 }
 
 -(BOOL)prefersStatusBarHidden{
@@ -123,12 +120,6 @@
     
 }
 
-- (void)handleLoginAction
-{
-    if (![AILoginUtil isLogin]){
-         self.loginAction = [[LoginAction alloc] initWithViewController:self completion:nil];
-    }
-   
-}
+
 
 @end

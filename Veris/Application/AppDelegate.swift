@@ -73,8 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 			}
 		})
 		
-		showRootViewControllerReal()
-
+        //MARK: Share
         configUmengShare()
     
 	// DeepLink
@@ -90,7 +89,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
                 NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIDeepLinkupdateDeepLinkView, object: queryParameters)
             }
         }, route: "cddpl://.*")
-        
+
+        showLoginViewController()
+
 		return true
 		
 	}
@@ -288,19 +289,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshReLoginAction), name: "UserLoginTimeNotification", object: nil)
     }
 
-    func refreshReLoginAction() {
-//        let loginA = LoginAction(viewController: nil) {
-//            NSUserDefaults.standardUserDefaults().removeObjectForKey("Default_UserID")
-//            NSUserDefaults.standardUserDefaults().removeObjectForKey("Default_UserType")
-//            NSUserDefaults.standardUserDefaults().removeObjectForKey("KEY_USER_ID")
-//            NSUserDefaults.standardUserDefaults().synchronize()
-//        }
-//
-//        loginA.didLogin {
-//            AIAlertView().showError("提示", subTitle: "登录过期,请重新登录!")
-//        }
 
+
+
+
+    func refreshReLoginAction() {
+        AILocalStore.logout()
+        AIAlertView().showNotice("Oops！", subTitle: "登录超时,请重新登录~", closeButtonTitle: nil, duration: 2, colorStyle: 0x727375, colorTextButton: 0xFFFFFF)
+        let loginRootViewController = createLoginRootViewController()
+        self.window!.rootViewController = loginRootViewController
     }
+
+
+    func createLoginRootViewController() -> UINavigationController {
+        let storyBoard: UIStoryboard = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil)
+        let loginVC = storyBoard.instantiateInitialViewController() as! AILoginViewController
+        let loginRootViewController = UINavigationController(rootViewController: loginVC)
+
+        return loginRootViewController
+    }
+
+
+    func showLoginViewController() {
+
+        // 创建Root
+        self.window = MBFingerTipWindow(frame: UIScreen.mainScreen().bounds)
+
+        // 创建导航控制器
+        let loginRootViewController = createLoginRootViewController()
+
+        self.window?.rootViewController = loginRootViewController
+        self.window?.makeKeyAndVisible()
+    }
+
 
     //MARK: 配置默认用户
 	func configDefaultUser () {
@@ -370,20 +391,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	}
 
 
-	
-	func showRootViewControllerReal() {
-		// 创建Root
-		self.window = MBFingerTipWindow(frame: UIScreen.mainScreen().bounds)
-//        if let window = window as? MBFingerTipWindow {
-//            window.alwaysShowTouches = true
-//        }
-		let root = AIRootViewController()
-		// 创建导航控制器
-		let nav = UINavigationController(rootViewController: root)
-		nav.navigationBarHidden = true
-		self.window?.rootViewController = nav
-		self.window?.makeKeyAndVisible()
-	}
+
 	
 }
 extension AppDelegate: BMKGeneralDelegate {
