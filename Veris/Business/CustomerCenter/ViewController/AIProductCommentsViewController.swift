@@ -9,9 +9,9 @@
 import UIKit
 
 class AIProductCommentsViewController: UIViewController {
-    
-    
-	var comments: [AICommentInfoModel] = Array<AICommentInfoModel>()
+	var service_id: Int!
+	
+	var comments: [AIProductComment] = []
 	var tableView: UITableView!
 	var filterBar: AIFilterBar!
 	
@@ -21,16 +21,27 @@ class AIProductCommentsViewController: UIViewController {
 		view.backgroundColor = UIColor.clearColor()
 		setupNavigtionItems()
 		setupFilterBar()
-        setupTableView()
-        fetchData()
+		setupTableView()
+		fetchNumbers()
+		fetchComments()
 	}
 	
 	func setupNavigtionItems() {
 		setupNavigationBarLikeQA(title: "Comments")
 	}
 	
-	func fetchData() {
+    func fetchNumbers() {
         
+    }
+    
+    
+	func fetchComments() {
+		let service = AIProductAllCommentsService()
+		service.queryAllComments(service_id, filter_type: filterBar.selectedIndex + 1, page_size: 20, page_number: 1, success: { [weak self](res) in
+			self?.comments = res
+			self?.tableView.reloadData()
+		}) { (errType, errDes) in
+		}
 	}
 	
 	func setupFilterBar() {
@@ -52,6 +63,7 @@ class AIProductCommentsViewController: UIViewController {
 		
 		filterBar = AIFilterBar(titles: titles, subtitles: subtitles)
 		filterBar.selectedIndex = 0
+        filterBar.delegate = self
 		view.addSubview(filterBar)
 		filterBar.snp_makeConstraints { (make) in
 			make.top.leading.trailing.equalTo(view)
@@ -65,7 +77,7 @@ class AIProductCommentsViewController: UIViewController {
 		tableView.dataSource = self
 		tableView.backgroundColor = UIColor.clearColor()
 		tableView.tableFooterView = UIView()
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+		tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 		view.addSubview(tableView)
 		
 		tableView.registerClass(AIProductCommentCell.self, forCellReuseIdentifier: "cell")
@@ -83,18 +95,18 @@ extension AIProductCommentsViewController: UITableViewDataSource {
 	}
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		var cells = tableView.dequeueReusableCellWithIdentifier("cell") as? AIProductCommentCell
-        
-        guard (cells) != nil else {
-            cells = AIProductCommentCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-            return cells!
-        }
-        cells?.setup(comments[indexPath.row])
+		
+		guard (cells) != nil else {
+			cells = AIProductCommentCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+			return cells!
+		}
+		cells?.setup(comments[indexPath.row])
 		return cells ?? UITableViewCell()
 	}
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return AIProductCommentCell.getheight(comments[indexPath.row])
-    }
+	
+	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		return AIProductCommentCell.getheight(comments[indexPath.row])
+	}
 }
 
 // MARK: - UITableViewDelegate
@@ -103,6 +115,12 @@ extension AIProductCommentsViewController: UITableViewDelegate {
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		
 	}
+}
+
+extension AIProductCommentsViewController: AIFilterBarDelegate {
+    func filterBar(filterBar: AIFilterBar, didSelectIndex: Int) {
+        fetchComments()
+    }
 }
 
 protocol AIFilterBarDelegate: NSObjectProtocol {
@@ -114,7 +132,7 @@ class AIFilterBar: UIView {
 	var subtitles: [String]
 	private var buttons: [FilterBarButton] = []
 	weak var delegate: AIFilterBarDelegate?
-	var selectedIndex = -1 {
+	var selectedIndex = 0 {
 		didSet {
 			updateUI()
 		}
@@ -137,7 +155,7 @@ class AIFilterBar: UIView {
 		setup()
 	}
 	
-    func setup() {
+	func setup() {
 		let count = titles.count
 		for i in 0..<count {
 			let title = titles[i]
@@ -247,22 +265,21 @@ class AIFilterBar: UIView {
 }
 
 class AIProductCommentCell: UITableViewCell {
-    
-    
+	
 	var commentInfoView: AICommentInfoView!
-    
+	
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
-		//setup()
-        
-        selectionStyle = .None
-        backgroundColor = UIColor.clearColor()
-        commentInfoView = AICommentInfoView.initFromNib() as! AICommentInfoView
-        contentView.addSubview(commentInfoView)
-        commentInfoView.initSubviews()
-        commentInfoView.snp_makeConstraints { (make) in
-            make.edges.equalTo(contentView)
-        }
+		// setup()
+		
+		selectionStyle = .None
+		backgroundColor = UIColor.clearColor()
+		commentInfoView = AICommentInfoView.initFromNib() as! AICommentInfoView
+		contentView.addSubview(commentInfoView)
+		commentInfoView.initSubviews()
+		commentInfoView.snp_makeConstraints { (make) in
+			make.edges.equalTo(contentView)
+		}
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -273,38 +290,38 @@ class AIProductCommentCell: UITableViewCell {
 		return true
 	}
 	
-    class func getheight(model: AICommentInfoModel) -> CGFloat {
-        
-        let offSetWidth: CGFloat = 5
-        
-        var selfHeight: CGFloat = 34.0
-        let imageViewWidth: CGFloat = 70
-        
-        // count text
-        selfHeight +=
-            model.descripation?.sizeWithFont(AITools.myriadBoldWithSize(13), forWidth: UIScreen.mainScreen().bounds.width).height ?? 0
-        
-        if let urls = model.images {
-
-            let intPers = Int(UIScreen.mainScreen().bounds.width/imageViewWidth)
-            let pers = CGFloat(urls.count) / CGFloat(intPers)
-            let persInt = Int(urls.count) / intPers
-            if pers > CGFloat(persInt) {
-                selfHeight += (imageViewWidth + offSetWidth) * (CGFloat)(persInt + 1)
-            } else {
-                selfHeight += (imageViewWidth + offSetWidth) * (CGFloat)(persInt)
-            }
-            
-        } else {
-            selfHeight += 0
-        }
-        
-        selfHeight += 40
-        return selfHeight
-        
-    }
-    
-    func setup(model: AICommentInfoModel) {
-        commentInfoView.fillDataWithModel(model)
+	class func getheight(model: AIProductComment) -> CGFloat {
+		
+		let offSetWidth: CGFloat = 5
+		
+		var selfHeight: CGFloat = 34.0
+		let imageViewWidth: CGFloat = 70
+		
+		// count text
+		selfHeight +=
+			model.comment?.sizeWithFont(AITools.myriadBoldWithSize(13), forWidth: UIScreen.mainScreen().bounds.width).height ?? 0
+		
+		if let urls = model.photos {
+			
+			let intPers = Int(UIScreen.mainScreen().bounds.width / imageViewWidth)
+			let pers = CGFloat(urls.count) / CGFloat(intPers)
+			let persInt = Int(urls.count) / intPers
+			if pers > CGFloat(persInt) {
+				selfHeight += (imageViewWidth + offSetWidth) * (CGFloat)(persInt + 1)
+			} else {
+				selfHeight += (imageViewWidth + offSetWidth) * (CGFloat)(persInt)
+			}
+			
+		} else {
+			selfHeight += 0
+		}
+		
+		selfHeight += 40
+		return selfHeight
+		
+	}
+	
+	func setup(model: AIProductComment) {
+		commentInfoView.fillDataWithModel(model)
 	}
 }

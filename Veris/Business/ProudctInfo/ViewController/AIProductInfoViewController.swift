@@ -376,10 +376,9 @@ class AIProductInfoViewController: UIViewController {
         commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))
         
         
-        var commentModel = AICommentInfoModel()
-        commentModel.commentid = 2
-        commentModel.descripation = ""
-        commentModel.images =  ["http://7q5dv2.com1.z0.glb.clouddn.com/Kelvin%20-%20Bootstrap%203%20Resume%20Theme.png",
+        let commentModel = AIProductComment()
+        commentModel.comment = ""
+        commentModel.photos =  ["http://7q5dv2.com1.z0.glb.clouddn.com/Kelvin%20-%20Bootstrap%203%20Resume%20Theme.png",
                                 "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl1.pic.jpg",
                                 "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2D57E5A9-8BCE-4A3E-8C9C-E84C40825D89.png",
                                 "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2H%7BC17WUNL%2503%291%605ANKYL6.jpg",
@@ -390,9 +389,11 @@ class AIProductInfoViewController: UIViewController {
                                 "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_9.pic.jpg",
                                 "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_EC78563D-64FF-4F15-B1C5-2495931006C3.png",
                                 "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_Placehold@2x.png"]
-        commentModel.level = 3
-        commentModel.providename = "xxxxxxxxxx"
-        commentModel.descripation = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
+        commentModel.rating_level = "3"
+        let customer = AIProductCommentCustomer()
+        customer.name = "xxxxxxxxxx"
+        commentModel.customer = customer
+        commentModel.comment = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
         commentModel.time = 12313
 		let commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
 		addNewSubView(commentView!, preView: commond)
@@ -499,6 +500,7 @@ class AIProductInfoViewController: UIViewController {
     
     func showCommentView() {
         let vc = AIProductCommentsViewController()
+        vc.service_id = sid
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     
@@ -639,7 +641,7 @@ class AIProductInfoViewController: UIViewController {
     
     func providerDetailPressed() {
         let vc = AIProviderDetailViewController.initFromNib()
-//        vc.provider_id = 
+        vc.provider_id = dataModel!.provider!.id!
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     }
@@ -647,13 +649,14 @@ class AIProductInfoViewController: UIViewController {
     func recommondForYouPressed() {
         // 为您推荐
         let vc = AIRecommondForYouViewController()
-//        vc.service_id = 
+        vc.service_id = dataModel!.serviceID!
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     }
     
 	func qaButtonPressed() {
         let vc = AIProductQAViewController()
+        vc.service_id = sid
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
 //        presentViewController(nav, animated: true, completion: nil)

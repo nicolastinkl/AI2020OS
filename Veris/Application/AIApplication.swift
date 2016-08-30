@@ -484,7 +484,7 @@ struct AIApplication {
             case .searchServiceCondition: return AIApplication.KURL_ReleaseURL + "/search/searchServiceCondition"
             case .filterServices: return AIApplication.KURL_ReleaseURL + "/search/filterServices"
             case .getRecommendedServices: return AIApplication.KURL_ReleaseURL + "/search/getRecommendedServices"
-            case .queryAllComments: return AIApplication.KURL_ReleaseURL + "/comp/comments/queryAllComments"
+            case .queryAllComments: return AIApplication.KURL_ReleaseURL + "/comments/queryAllComments"
             case .uploadAndIdentify: return "http://171.221.254.231:3001/uploadAndIdentify"
 
             case .makewish: return AIApplication.KURL_ReleaseURL + "/wish/submitWish"

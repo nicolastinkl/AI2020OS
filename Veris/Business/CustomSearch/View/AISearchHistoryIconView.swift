@@ -85,7 +85,7 @@ class AISearchHistoryIconView: UIView {
 			let frame = CGRect(x: labelWidth * CGFloat(i), y: 0, width: labelWidth, height: labelHeight)
 			let iconLabel = VerticalIconLabel(frame: frame)
 			iconLabel.imageWidth = imageWidth
-            iconLabel.imageView.clipsToBounds = true
+			iconLabel.imageView.clipsToBounds = true
 			iconLabel.imageView.layer.cornerRadius = imageWidth / 2
 			iconLabel.label.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(28))
 			iconLabel.imageSpaceToLabel = AITools.displaySizeFrom1242DesignSize(34)

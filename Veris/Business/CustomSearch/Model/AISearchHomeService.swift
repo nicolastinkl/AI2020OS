@@ -36,6 +36,18 @@ class AISearchHomeService: NSObject {
 			fail(errType: error, errDes: errorDes ?? "")
 		}
 	}
+    
+    func createBrowserHistory(service_id: Int) {
+        let user = AIUser.currentUser()
+        let user_id = user.id
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.recentlySearch.description
+        let body = ["data": ["role_type": 1, "user_id": user_id, "service_id": service_id], "desc": ["data_mode": "0", "digest": ""]]
+        message.body = NSMutableDictionary(dictionary: body)
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+        }) { (error: AINetError, errorDes: String!) -> Void in
+        }
+    }
 	
 //   2.2.2 商品搜索并带出过滤条件
 	func searchServiceCondition(search_key: String, page_size: Int, page_number: Int, success: AISearchFilterModel -> Void, fail: (errType: AINetError, errDes: String) -> Void) {

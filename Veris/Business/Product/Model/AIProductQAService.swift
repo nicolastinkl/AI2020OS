@@ -9,7 +9,8 @@
 import UIKit
 
 class AIProductQAService: NSObject {
-	func allQuestions(service_id: String, user_id: String, success: ([[String: String]]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+	func allQuestions(service_id: Int, success: ([[String: String]]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        let user_id = AIUser.currentUser().id
 		// 2.6.4 所有问题（常见问题）
 		let message = AIMessage()
 		message.url = AIApplication.AIApplicationServerURL.allQuestions.description

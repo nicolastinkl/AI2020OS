@@ -9,7 +9,7 @@
 import UIKit
 
 class AIRecommondForYouService: NSObject {
-	func allRecomends(service_id: String, success: ([AISearchServiceModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+	func allRecomends(service_id: Int, success: ([AISearchServiceModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 //        2.6.6 所有推荐（为您推荐）
 		let message = AIMessage()
 		message.url = AIApplication.AIApplicationServerURL.allRecommends.description

@@ -9,27 +9,26 @@
 import Foundation
 
 struct AISuperiorityService {
-    
-    /// 服务首页数据接口
-    static func requestSuperiority(serviceId: String, complate: ((AnyObject?, String?) -> Void)) {
-     
+	
+	/// 服务首页数据接口
+	static func requestSuperiority(serviceId: String, complate: ((AnyObject?, String?) -> Void)) {
         let message = AIMessage()
-        let userId = NSUserDefaults.standardUserDefaults().objectForKey("Default_UserID") as? String
-        let body: NSDictionary = ["data": ["service_id": serviceId,"userId": userId ?? ""], "desc": ["data_mode": "0", "digest": ""]]
-        
-        message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
-        message.url = AIApplication.AIApplicationServerURL.preview.description as String
-        
-        AINetEngine.defaultEngine().postMessage(message, success: { (response) in
-            if let responseJSON: AnyObject = response {
-                let model = AISuperiorityModel(JSONDecoder(responseJSON))
-                complate(model, nil)
-            } else {
-                complate(nil, "data is null")
-            }
-            }) { (error, des) in
-            complate(nil, des)
-        }
-    }
-    
+		let userId = AIUser.currentUser().id
+		let body: NSDictionary = ["data": ["service_id": serviceId, "userId": userId], "desc": ["data_mode": "0", "digest": ""]]
+		
+		message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
+		message.url = AIApplication.AIApplicationServerURL.preview.description as String
+		
+		AINetEngine.defaultEngine().postMessage(message, success: { (response) in
+			if let responseJSON: AnyObject = response {
+				let model = AISuperiorityModel(JSONDecoder(responseJSON))
+				complate(model, nil)
+			} else {
+				complate(nil, "data is null")
+			}
+		}) { (error, des) in
+			complate(nil, des)
+		}
+	}
+	
 }
