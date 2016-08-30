@@ -21,7 +21,6 @@
 @property (nonatomic, strong) UIViewController *leftDirectionViewController;
 @property (nonatomic, strong) UIViewController *rightDirectionViewController;
 
-@property (nonatomic, strong) LoginAction *loginAction;
 
 @end
 

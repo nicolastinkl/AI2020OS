@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         }, route: "cddpl://.*")
 
         showLoginViewController()
-
+        handleLoacalNotifications()
 		return true
 		
 	}
@@ -284,11 +284,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     //MARK: Notificaion Handlers
 
     func handleLoacalNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshReLoginAction), name: "UserLoginTimeNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshReLoginAction), name: AIApplication.Notification.UserLoginTimeOutNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(logOut), name: AIApplication.Notification.UserLoginOutNotification, object: nil)
     }
-
-
-
 
 
     func refreshReLoginAction() {
@@ -298,6 +296,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         self.window!.rootViewController = loginRootViewController
     }
 
+    func logOut() {
+        AILocalStore.logout()
+        AIAlertView().showNotice("真的要退出吗？亲~", subTitle: "", closeButtonTitle: nil, duration: 2, colorStyle: 0x727375, colorTextButton: 0xFFFFFF)
+        let loginRootViewController = createLoginRootViewController()
+        self.window!.rootViewController = loginRootViewController
+    }
 
     func createLoginRootViewController() -> UINavigationController {
         let storyBoard: UIStoryboard = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil)
