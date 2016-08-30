@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import CardDeepLinkKit
+import AIAlertView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
@@ -279,6 +280,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	}
 
 
+    //MARK: Notificaion Handlers
+
+    func handleLoacalNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshReLoginAction), name: "UserLoginTimeNotification", object: nil)
+    }
+
+    func refreshReLoginAction() {
+//        let loginA = LoginAction(viewController: nil) {
+//            NSUserDefaults.standardUserDefaults().removeObjectForKey("Default_UserID")
+//            NSUserDefaults.standardUserDefaults().removeObjectForKey("Default_UserType")
+//            NSUserDefaults.standardUserDefaults().removeObjectForKey("KEY_USER_ID")
+//            NSUserDefaults.standardUserDefaults().synchronize()
+//        }
+//
+//        loginA.didLogin {
+//            AIAlertView().showError("提示", subTitle: "登录过期,请重新登录!")
+//        }
+
+    }
 
     //MARK: 配置默认用户
 	func configDefaultUser () {

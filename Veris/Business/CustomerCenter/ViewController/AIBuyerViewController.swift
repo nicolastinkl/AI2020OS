@@ -209,9 +209,9 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshReLoginAction), name: AIApplication.Notification.UIRELoginNotification, object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshReLoginAction), name: AIApplication.Notification.UIRELoginNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshReLoginAction), name: "UserLoginTimeNotification", object: nil)
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.WishVowViewControllerNOTIFY(_:)), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
     }
@@ -224,19 +224,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func refreshReLoginAction() {
-        let loginA = LoginAction(viewController: self) { 
-            NSUserDefaults.standardUserDefaults().removeObjectForKey("Default_UserID")
-            NSUserDefaults.standardUserDefaults().removeObjectForKey("Default_UserType")
-            NSUserDefaults.standardUserDefaults().removeObjectForKey("KEY_USER_ID")
-            NSUserDefaults.standardUserDefaults().synchronize()
-        }
-        
-        loginA.didLogin { 
-            AIAlertView().showError("提示", subTitle: "登录过期,请重新登录!")
-        }
-        
-    }
+    
 
     func refreshAfterNewOrder () {
 

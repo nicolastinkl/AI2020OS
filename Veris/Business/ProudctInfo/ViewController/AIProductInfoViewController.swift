@@ -400,7 +400,7 @@ class AIProductInfoViewController: UIViewController {
             commentView?.bgView.hidden = true
             // Add Normal Answer Button
             commentView?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
-        }else{
+        } else {
             tagsView.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
         }
         

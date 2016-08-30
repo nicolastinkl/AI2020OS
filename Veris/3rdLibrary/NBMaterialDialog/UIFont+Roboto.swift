@@ -29,11 +29,11 @@ private class FontLoader {
 public extension UIFont {
     public class func robotoMediumOfSize(fontSize: CGFloat) -> UIFont {
         struct Static {
-            static var onceToken : dispatch_once_t = 0
+            static var onceToken: dispatch_once_t = 0
         }
 
         let name = "Roboto-Medium"
-        if (UIFont.fontNamesForFamilyName(name).count == 0) {
+        if UIFont.fontNamesForFamilyName(name).count == 0 {
             dispatch_once(&Static.onceToken) {
                 FontLoader.loadFont(name)
             }
@@ -44,11 +44,11 @@ public extension UIFont {
 
     public class func robotoRegularOfSize(fontSize: CGFloat) -> UIFont {
         struct Static {
-            static var onceToken : dispatch_once_t = 0
+            static var onceToken: dispatch_once_t = 0
         }
 
         let name = "Roboto-Regular"
-        if (UIFont.fontNamesForFamilyName(name).count == 0) {
+        if UIFont.fontNamesForFamilyName(name).count == 0 {
             dispatch_once(&Static.onceToken) {
                 FontLoader.loadFont(name)
             }
