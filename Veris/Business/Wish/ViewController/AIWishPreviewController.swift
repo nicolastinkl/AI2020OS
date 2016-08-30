@@ -105,9 +105,9 @@ class AIWishPreviewController: UIViewController {
         // Answer List
         let AnswerList = ["Best to provider some commeon not to buy expensvie qure Trial ",
                           "Often go to the field,more concerned about their own shipping equipment , the best you can always hire some professional equipment",
-                          "Professional photographers can hope to teach experience, and can have specific guideance","Best to provider some commeon not to buy expensvie qure Trial ",
-                          "Professional photographers can hope to teach experience, and can have specific guideance","Best to provider some commeon not to buy expensvie qure Trial ",
-                          "Professional photographers can hope to teach experience, and can have specific guideance","Best to provider some commeon not to buy expensvie qure Trial "]
+                          "Professional photographers can hope to teach experience, and can have specific guideance", "Best to provider some commeon not to buy expensvie qure Trial ",
+                           "Professional photographers can hope to teach experience, and can have specific guideance", "Best to provider some commeon not to buy expensvie qure Trial ",
+                           "Professional photographers can hope to teach experience, and can have specific guideance", "Best to provider some commeon not to buy expensvie qure Trial "]
         
         for string in AnswerList {
             let QuestionTitleX = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView

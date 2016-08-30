@@ -27,13 +27,13 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-public enum NBLunchDuration : NSTimeInterval {
+public enum NBLunchDuration: NSTimeInterval {
     case SHORT = 1.0
     case MEDIUM = 2.0
     case LONG = 3.5
 }
 
-@objc public class NBMaterialToast : UIView {
+@objc public class NBMaterialToast: UIView {
     private let kHorizontalMargin: CGFloat = 16.0
     private let kVerticalBottomMargin: CGFloat = 16.0
 

@@ -105,7 +105,7 @@ struct AIProductRecommendationModel: JSONJoy {
     var order_time: String?
     var price: AIPricePublicModel?
     var sub_icons: [String]?
-    init(){}
+    init() {}
     init(_ decoder: JSONDecoder) {
         name = decoder["name"].string ?? ""
         rid = decoder["id"].integer ?? 0
