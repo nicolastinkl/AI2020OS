@@ -11,7 +11,7 @@ import UIKit
 class AIProviderDetailViewController: UIViewController {
     
     var provider_id: Int!
-	
+    var service_name: String = ""
 	// config
 	@IBOutlet var clearViews: [UIView]!
 	@IBOutlet var halfWhiteClearViews: [UIView]!

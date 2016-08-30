@@ -250,7 +250,7 @@ class AISuperiorityViewController: UIViewController {
             
             navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
             navi.setRightIcon2Action(UIImage(named: "AINavigationBar_send")!)
-            navi.titleLabel.text = "孕检无忧"
+            navi.titleLabel.text = serviceModel?.name
             navi.videoButton.addTarget(self, action: #selector(shareAction), forControlEvents: UIControlEvents.TouchUpInside)
             navi.commentButton.addTarget(self, action: #selector(favoriteAction), forControlEvents: UIControlEvents.TouchUpInside)
             naviBar = navi
