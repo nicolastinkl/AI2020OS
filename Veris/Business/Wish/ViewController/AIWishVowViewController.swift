@@ -76,8 +76,14 @@ class AIWishVowViewController: UIViewController {
         
     }
     
+    /// 查询最火和推荐心愿
     func queryWishs() {
-        AIWishServices.requestQueryWishs { (objc, error) in
+        
+        AIWishServices.requestHotQueryWishs { (objc, error) in
+            
+        }
+        
+        AIWishServices.requestRecommandQueryWishs { (objc, error) in
             
         }
         

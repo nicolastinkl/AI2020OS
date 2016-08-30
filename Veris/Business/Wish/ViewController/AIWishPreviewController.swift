@@ -192,14 +192,15 @@ class AIWishPreviewController: UIViewController {
         if averageMenoy >= averageTotalMenoy {
             
             preAverageView?.userInteractionEnabled = false
-            self.preAverageView?.button.snp_removeConstraints()
             
+            self.preAverageView?.button.snp_removeConstraints()            
             self.preAverageView?.button.snp_makeConstraints(closure: { (make) in
                 make.center.equalTo((self.preAverageView?.totalButton.snp_center)!)
                 make.width.height.equalTo(76)
             })
+            
             SpringAnimation.springEaseIn(0.5, animations: {
-                 self.preAverageView?.layoutIfNeeded()
+                 self.preAverageView?.button.layoutIfNeeded()
             })
         }
     }

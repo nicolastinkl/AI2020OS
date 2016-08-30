@@ -40,14 +40,30 @@ struct AIWishServices {
         }
     }
     
-    /// 许愿单查询
-    static func requestQueryWishs(complate: ((AnyObject?, String?) -> Void)) {
-        let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
+    /// 许愿单Hot查询
+    static func requestHotQueryWishs(complate: ((AnyObject?, String?) -> Void)) {
         let message = AIMessage()
-        let body: NSDictionary = ["data" : ["user_id":userId], "desc" : ["data_mode" : "0", "digest" : ""]]
+        message.url = AIApplication.AIApplicationServerURL.wishhot.description as String
+        let body: NSDictionary = ["data":"", "desc":["data_mode":"0","digest":""]]
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
-        message.url = AIApplication.AIApplicationServerURL.wishpreview.description as String
-        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) in
+            if let responseJSON: AnyObject = response {
+                let model = AIWishModel(JSONDecoder(responseJSON))
+                complate(model, nil)
+            } else {
+                complate(nil, "data is null")
+            }
+        }) { (error, des) in
+            complate(nil, des)
+        }
+    }
+    
+    /// 许愿单Recommand查询
+    static func requestRecommandQueryWishs(complate: ((AnyObject?, String?) -> Void)) {
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.wishrecommand.description as String
+        let body: NSDictionary = ["data":"", "desc":["data_mode":"0","digest":""]]
+        message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
                 let model = AIWishModel(JSONDecoder(responseJSON))
