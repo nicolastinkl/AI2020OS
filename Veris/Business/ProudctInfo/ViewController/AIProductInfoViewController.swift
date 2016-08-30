@@ -381,7 +381,7 @@ class AIProductInfoViewController: UIViewController {
 		let lineView1 = addSplitView()
 		
 		// 评论数据
-        if let commentModel = dataModel?.commentLast {
+        if (dataModel?.commentLast) != nil {
             // Setup 3:
             let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
             addNewSubView(commond, preView: lineView1)
