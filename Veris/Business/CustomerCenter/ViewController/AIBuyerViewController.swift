@@ -209,7 +209,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshReLoginAction), name: AIApplication.Notification.UIRELoginNotification, object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshReLoginAction), name: AIApplication.Notification.UIRELoginNotification, object: nil)
         
         
         
