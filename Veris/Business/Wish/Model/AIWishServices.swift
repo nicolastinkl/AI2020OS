@@ -23,7 +23,7 @@ struct AIWishServices {
             "money_amount":money,
             "money_type":"CNY",
             "money_unit":""
-        ], "desc":["data_mode":"0","digest":""]]
+        ], "desc":["data_mode":"0", "digest":""]]
         
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         message.url = AIApplication.AIApplicationServerURL.makewish.description as String
@@ -44,7 +44,7 @@ struct AIWishServices {
     static func requestHotQueryWishs(complate: ((AnyObject?, String?) -> Void)) {
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.wishhot.description as String
-        let body: NSDictionary = ["data":"", "desc":["data_mode":"0","digest":""]]
+        let body: NSDictionary = ["data":"", "desc":["data_mode":"0", "digest":""]]
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
@@ -62,7 +62,7 @@ struct AIWishServices {
     static func requestRecommandQueryWishs(complate: ((AnyObject?, String?) -> Void)) {
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.wishrecommand.description as String
-        let body: NSDictionary = ["data":"", "desc":["data_mode":"0","digest":""]]
+        let body: NSDictionary = ["data":"", "desc":["data_mode":"0", "digest":""]]
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
