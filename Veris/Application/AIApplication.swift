@@ -420,7 +420,10 @@ struct AIApplication {
         case queryTimeLineDetail
         // 查询支付订单
         case queryPayment
-        
+        // 许愿查询 最热
+        case wishhot
+        // 许愿查询 推荐
+        case wishrecommand
         var description: String {
 
             switch self {
@@ -495,6 +498,8 @@ struct AIApplication {
             case .queryTimeLine: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLine"
             case .queryTimeLineDetail: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLineDetail"
             case .queryPayment: return AIApplication.KURL_ReleaseURL + "/payment/queryPayment"
+            case .wishhot: return AIApplication.KURL_ReleaseURL + "/queryHotWishList"
+            case .wishrecommand: return AIApplication.KURL_ReleaseURL + "/queryInterestingWishList"
             }
         }
     }

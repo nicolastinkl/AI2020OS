@@ -15,8 +15,9 @@ class AIProdcutinfoModel: JSONJoy {
     var image: String?
     var desc: String?
     var desc_image: String?
-    
+    var proposal_inst_id: Int?
     var price: AIPricePublicModel?
+    var collected: Bool = false
     
     var package: [AIProductInfoPackageModel]?
     
@@ -25,6 +26,8 @@ class AIProdcutinfoModel: JSONJoy {
     var recommendation: [AIProductRecommendationModel]?
     
     var provider: AIPublicProviderModel?
+    
+    var commentLast: AICommentInfoModel?
     
     required init(_ decoder: JSONDecoder) {
         
@@ -35,6 +38,10 @@ class AIProdcutinfoModel: JSONJoy {
             desc = bdecoder["desc"]?.string ?? ""
             image = bdecoder["image"]?.string ?? ""
             desc_image = bdecoder["desc_image"]?.string ?? ""
+            proposal_inst_id = bdecoder["proposal_inst_id"]?.integer ?? 0
+            serviceID = bdecoder["proposal_inst_id"]?.integer ?? 0
+            collected = bdecoder["collected"]?.bool ?? false
+            
             //package
             package = Array<AIProductInfoPackageModel>()
             if let rmlist = bdecoder["package"]?.array {
@@ -99,7 +106,7 @@ struct AIProductRecommendationModel: JSONJoy {
     var order_time: String?
     var price: AIPricePublicModel?
     var sub_icons: [String]?
-    
+    init() {}
     init(_ decoder: JSONDecoder) {
         name = decoder["name"].string ?? ""
         rid = decoder["id"].integer ?? 0
@@ -193,9 +200,10 @@ struct AIProductInfoPackageModel: JSONJoy {
     
     var pid: Int?
     var name: String?
-    
+    var collected: Bool = false
     init(_ decoder: JSONDecoder) {
         pid = decoder["id"].integer ?? 0
         name = decoder["name"].string ?? ""
+        collected = decoder["collected"].bool
     }
 }

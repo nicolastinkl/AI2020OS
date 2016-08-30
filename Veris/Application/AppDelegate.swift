@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import CardDeepLinkKit
+import AIAlertView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
@@ -52,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 		
 		// Override point for customization after application launch.
 		// self.window = AACustomWindow(frame: UIScreen.mainScreen().bounds)
-		configDefaultUser()
+		//configDefaultUser() //废弃
 		initNetEngine()
 		
 		// 设置状态栏隐藏
@@ -127,8 +128,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和新浪微博后台设置的回调地址一致。http://open.weibo.com/developers/identity/edit
         UMSocialSinaSSOHandler.openNewSinaSSOWithAppKey("3921700954", secret: "04b48b094faeb16683c32669824ebdad", redirectURL: "http://sns.whalecloud.com/sina2/callback")
     }
-
-
 
     func setupBaiduMap() {
         _mapManager = BMKMapManager()
@@ -281,6 +280,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	}
 
 
+    //MARK: Notificaion Handlers
+
+    func handleLoacalNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshReLoginAction), name: "UserLoginTimeNotification", object: nil)
+    }
+
+    func refreshReLoginAction() {
+//        let loginA = LoginAction(viewController: nil) {
+//            NSUserDefaults.standardUserDefaults().removeObjectForKey("Default_UserID")
+//            NSUserDefaults.standardUserDefaults().removeObjectForKey("Default_UserType")
+//            NSUserDefaults.standardUserDefaults().removeObjectForKey("KEY_USER_ID")
+//            NSUserDefaults.standardUserDefaults().synchronize()
+//        }
+//
+//        loginA.didLogin {
+//            AIAlertView().showError("提示", subTitle: "登录过期,请重新登录!")
+//        }
+
+    }
 
     //MARK: 配置默认用户
 	func configDefaultUser () {

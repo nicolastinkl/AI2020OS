@@ -242,6 +242,16 @@ class AIProductInfoViewController: UIViewController {
 
    // MARK: - Init ScrollData
 	func initScrollViewData() {
+        //处理是否收藏
+        if let navinew = navi as? AINavigationBar {
+            
+            if dataModel?.collected == false {
+                //未收藏
+                navinew.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+            } else {
+                navinew.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
+            }
+        }
         
 		/**
 		 定制的TitleView
@@ -265,7 +275,7 @@ class AIProductInfoViewController: UIViewController {
 			
 			tView.addSubview(titleLabel)
 			tView.addSubview(desLabel)
-			titleLabel.frame = CGRectMake(0, 0, 140, heightLabel)
+			titleLabel.frame = CGRectMake(0, 0, 300, heightLabel)
 			desLabel.frame = CGRectMake(80, 0, 180, heightLabel)
 			
 			let imageview = UIImageView()
@@ -323,7 +333,9 @@ class AIProductInfoViewController: UIViewController {
             tag.frame = CGRectMake(CGFloat(index) * (widthButton + 10), 14, widthButton, 80 / 3)
             tag.layer.masksToBounds = true
             tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-            
+            if model.collected {
+                changeButtonState(tag)
+            }
             if let arr = dataModel?.package {
                 let modelp: AIProductInfoPackageModel = arr[index]
                 tag.setTitle(modelp.name, forState: UIControlState.Normal)
@@ -368,13 +380,29 @@ class AIProductInfoViewController: UIViewController {
 		
 		let lineView1 = addSplitView()
 		
-		// Setup 3:
-		let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
-		addNewSubView(commond, preView: lineView1)
-		commond.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
-		commond.userInteractionEnabled = true
-        commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))
-        
+		// 评论数据
+        if let commentModel = dataModel?.commentLast {
+            // Setup 3:
+            let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
+            addNewSubView(commond, preView: lineView1)
+            commond.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
+            commond.userInteractionEnabled = true
+            commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))
+            
+            var commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
+            
+            commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
+            addNewSubView(commentView!, preView: commond)
+            commentView?.initSubviews()
+            commentView?.setWidth(UIScreen.mainScreen().bounds.width)
+            commentView?.fillDataWithModel(commentModel)
+            commentView?.setHeight(commentView?.getheight() ?? 0)
+            commentView?.bgView.hidden = true
+            // Add Normal Answer Button
+            commentView?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
+        } else {
+            tagsView.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
+        }
         
         let commentModel = AIProductComment()
         commentModel.comment = ""
@@ -406,7 +434,7 @@ class AIProductInfoViewController: UIViewController {
         commentView?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
 		
 		let answerView = UIView()
-		addNewSubView(answerView, preView: commentView!)
+		addNewSubView(answerView, preView: preCacheView!)
 		answerView.setHeight(245 / 3)
 		
 		let aButton = DesignableButton()
@@ -606,8 +634,8 @@ class AIProductInfoViewController: UIViewController {
     // MARK: - DIY ACTION
     func showDetailView(sender: AnyObject) {
         let model = AIBuyerBubbleModel()
-        model.proposal_id = 3525
-        model.proposal_name = "Pregnancy Care"
+        model.proposal_id = dataModel?.proposal_inst_id ?? 0
+        model.proposal_name = dataModel?.name ?? ""
         let viewsss = createBuyerDetailViewController(model)
         showTransitionStyleCrossDissolveView(viewsss)
     }
@@ -622,11 +650,13 @@ class AIProductInfoViewController: UIViewController {
         return viewController
     }
     
+    //跳转订单确认界面
     func configOrderAction() {
-        let model = AIProposalInstModel()
-        model.proposal_id = 3525
-        model.proposal_name = "Pregnancy Care"
         
+        
+        let model = AIProposalInstModel()
+        model.proposal_id = dataModel?.proposal_inst_id ?? 0
+        model.proposal_name = dataModel?.name ?? ""
         if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
             vc.dataSource  = model
             showTransitionStyleCrossDissolveView(vc)
@@ -657,6 +687,7 @@ class AIProductInfoViewController: UIViewController {
 	func qaButtonPressed() {
         let vc = AIProductQAViewController()
         vc.service_id = sid
+
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
 //        presentViewController(nav, animated: true, completion: nil)

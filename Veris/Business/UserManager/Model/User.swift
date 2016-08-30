@@ -36,7 +36,8 @@ class AIUser: NSObject {
 	
 	func save() {
 		let defaults = NSUserDefaults.standardUserDefaults()
-		defaults.setObject(id, forKey: kDefault_UserID)
+        let stringID = "\(id)"
+		defaults.setObject(stringID, forKey: kDefault_UserID) // UserID的类型是String,与上面的函数冲突
 		defaults.setObject(type.rawValue, forKey: kDefault_UserType)
 		defaults.synchronize()
 	}
