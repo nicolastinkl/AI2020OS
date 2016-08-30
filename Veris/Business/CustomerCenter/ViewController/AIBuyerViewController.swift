@@ -510,7 +510,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }
 
-    func  createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
+    func createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
 
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
 
@@ -525,7 +525,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         return viewController
     }
 
-    class func  createBuyerDetailViewController() -> AIBuyerDetailViewController {
+    class func createBuyerDetailViewController() -> AIBuyerDetailViewController {
 
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
 

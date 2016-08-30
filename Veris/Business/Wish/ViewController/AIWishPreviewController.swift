@@ -192,14 +192,15 @@ class AIWishPreviewController: UIViewController {
         if averageMenoy >= averageTotalMenoy {
             
             preAverageView?.userInteractionEnabled = false
-            self.preAverageView?.button.snp_removeConstraints()
             
+            self.preAverageView?.button.snp_removeConstraints()            
             self.preAverageView?.button.snp_makeConstraints(closure: { (make) in
                 make.center.equalTo((self.preAverageView?.totalButton.snp_center)!)
                 make.width.height.equalTo(76)
             })
+            
             SpringAnimation.springEaseIn(0.5, animations: {
-                 self.preAverageView?.layoutIfNeeded()
+                 self.preAverageView?.button.layoutIfNeeded()
             })
         }
     }
@@ -211,7 +212,7 @@ class AIWishPreviewController: UIViewController {
         }
     }
     
-    func readallAction(){
+    func readallAction() {
         preWishView?.button.setTitle("Flod up", forState: UIControlState.Normal)
         preWishView?.button.removeTarget(self, action: #selector(AIWishPreviewController.readallAction), forControlEvents: UIControlEvents.TouchUpInside)
         preWishView?.button.addTarget(self, action: #selector(AIWishPreviewController.expendAction), forControlEvents: UIControlEvents.TouchUpInside)
@@ -225,7 +226,7 @@ class AIWishPreviewController: UIViewController {
         })
     }
     
-    func expendAction(){
+    func expendAction() {
         preWishView?.button.setTitle("Read all", forState: UIControlState.Normal)
         preWishView?.button.removeTarget(self, action: #selector(AIWishPreviewController.expendAction), forControlEvents: UIControlEvents.TouchUpInside)
         preWishView?.button.addTarget(self, action: #selector(AIWishPreviewController.readallAction), forControlEvents: UIControlEvents.TouchUpInside)
@@ -239,11 +240,11 @@ class AIWishPreviewController: UIViewController {
         })
     }
     
-    func addNewSubView(cview: UIView){
+    func addNewSubView(cview: UIView) {
         addNewSubView(cview, preView: preCacheView!)
     }
     
-    func addNewSubView(cview: UIView, preView: UIView , color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
+    func addNewSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
         scrollview.addSubview(cview)
         let width = UIScreen.mainScreen().bounds.size.width
         cview.setWidth(width)
@@ -254,16 +255,16 @@ class AIWishPreviewController: UIViewController {
     }
     
     /// Scrollview
-    func addNewSubViewContent(cview: UIView){
+    func addNewSubViewContent(cview: UIView) {
         if let _ = preContentCacheView {
             addNewSubViewContent(cview, preView: preContentCacheView!)
-        }else{
+        } else {
             addNewSubViewContent(cview, preView: UIView())
         }
         
     }
     
-    func addNewSubViewContent(cview: UIView, preView: UIView , color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
+    func addNewSubViewContent(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
         contentScrollview.addSubview(cview)
         let width = UIScreen.mainScreen().bounds.size.width
         cview.setWidth(width)
@@ -313,7 +314,7 @@ class AIWishPreviewController: UIViewController {
     
     }
     
-    func realSubmitAction(){
+    func realSubmitAction() {
         let number = "123"
         let stext = self.textFeild?.text ?? ""
         

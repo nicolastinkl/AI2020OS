@@ -8,6 +8,6 @@
 
 #import "AIProviderDetailJSONModel.h"
 
-@implementation AIProviderDetailJSONModel
-
-@end
+@implementation AIProviderDetailJSONModel @end
+@implementation AIProductCommentCustomer @end
+@implementation AIProductComment @end

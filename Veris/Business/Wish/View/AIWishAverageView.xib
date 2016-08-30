@@ -67,8 +67,10 @@
                     <rect key="frame" x="219" y="40" width="52" height="52"/>
                     <color key="backgroundColor" red="0.047058823529411764" green="0.57647058823529407" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="52" id="Gka-yb-wwL"/>
                         <constraint firstAttribute="width" constant="52" id="c5T-nD-ovc"/>
                         <constraint firstAttribute="height" constant="52" id="fvX-qN-E8g"/>
+                        <constraint firstAttribute="width" constant="52" id="ghW-O0-m3f"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                     <state key="normal" title="23">
@@ -85,12 +87,20 @@
                             <real key="value" value="26"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="c5T-nD-ovc"/>
+                            <exclude reference="fvX-qN-E8g"/>
+                        </mask>
+                    </variation>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="u8S-dh-vqI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-55" id="0qb-xQ-XOV"/>
                 <constraint firstItem="c9w-Dt-ljh" firstAttribute="leading" secondItem="sMc-tD-BMK" secondAttribute="trailing" id="3hm-zy-v6d"/>
                 <constraint firstItem="Brd-iX-Ygi" firstAttribute="leading" secondItem="c9w-Dt-ljh" secondAttribute="trailing" id="5Yf-fd-SL0"/>
+                <constraint firstItem="u8S-dh-vqI" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FdG-XY-EVs"/>
                 <constraint firstItem="c9w-Dt-ljh" firstAttribute="leading" secondItem="u8S-dh-vqI" secondAttribute="trailing" constant="-9" id="HfK-2H-vr4"/>
                 <constraint firstItem="u8S-dh-vqI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-55" id="Hiq-dC-8vS"/>
                 <constraint firstAttribute="bottom" secondItem="DxO-JV-Tle" secondAttribute="bottom" constant="5" id="MhB-eP-62D"/>
@@ -106,6 +116,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="Hiq-dC-8vS"/>
+                    <exclude reference="xYE-vx-8uy"/>
                     <exclude reference="3hm-zy-v6d"/>
                     <exclude reference="HfK-2H-vr4"/>
                     <exclude reference="5Yf-fd-SL0"/>

@@ -51,7 +51,8 @@ class AISuperiorityViewController: UIViewController {
         super.viewDidLoad()
         // MARK: Init
         initLayoutViews()
-        initDataWithModel()
+        fetchData()
+        markServiceVisited()
     }
     
     @IBAction func targetServiceDetail(any: AnyObject) {
@@ -191,8 +192,13 @@ class AISuperiorityViewController: UIViewController {
 
     }
 
-    func initDataWithModel() {
-        
+    func markServiceVisited() {
+        if let sid = serviceModel?.sid {
+            AISearchHomeService().createBrowserHistory(sid)
+        }
+    }
+    
+    func fetchData() {
         if let serviceModel = serviceModel {
             AISuperiorityService.requestSuperiority(String(serviceModel.sid)) { (response, error) in
                 self.view.hideLoading()

@@ -311,10 +311,10 @@ extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
 		AIImageRecongizeService().getImageInfo(image) { [weak self](res, error) in
 			self?.view.hideLoading()
 			if error == nil {
-				AILog(res)
 				self?.searchText.text = res
 				self?.searching()
 			} else {
+                AIAlertView().showError("error", subTitle: "图片解析失败")
 				// handle error
 			}
 		}
