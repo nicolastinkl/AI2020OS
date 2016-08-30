@@ -33,7 +33,7 @@ class AIProdcutinfoModel: JSONJoy {
         
         //base_info
         if let bdecoder = decoder["base_info"].dictionary {
-            
+            serviceID = bdecoder["serviceID"]?.integer ?? 0
             name = bdecoder["name"]?.string ?? ""
             desc = bdecoder["desc"]?.string ?? ""
             image = bdecoder["image"]?.string ?? ""
@@ -78,7 +78,7 @@ class AIProdcutinfoModel: JSONJoy {
 
 struct AIPublicProviderModel: JSONJoy {
     
-    
+    var id: Int?
     var name: String?
     var icon: String?
     var desc: String?
@@ -87,6 +87,7 @@ struct AIPublicProviderModel: JSONJoy {
     var service_level: String?
     
     init(_ decoder: JSONDecoder) {
+        id = decoder["id"].integer ?? 0
         name = decoder["name"].string ?? ""
         desc = decoder["desc"].string ?? ""
         icon = decoder["icon"].string ?? ""

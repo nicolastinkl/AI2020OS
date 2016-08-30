@@ -28,6 +28,9 @@ class AIWishPreviewController: UIViewController {
     private var preWishView: AIWishTitleIconView?
     private var prePosition: CGPoint = CGPointMake(0, 0)
     @IBOutlet weak var priceConstraint: NSLayoutConstraint!
+    private var averageMenoy: Int = 0
+    private var averageTotalMenoy: Int = 0
+    private var preAverageView: AIWishAverageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +55,8 @@ class AIWishPreviewController: UIViewController {
     
     /// 初始化处理
     func initSubViews() {
-        
+        averageMenoy = 22
+        averageTotalMenoy = 200
         // Description
         let dbgView = UIView()
         dbgView.setHeight(82)
@@ -163,44 +167,84 @@ class AIWishPreviewController: UIViewController {
             make.edges.equalTo(self.priceTitle)
         })
         
-        let wishAverage = AIWishAverageView.initFromNib()
+        let wishAverage = AIWishAverageView.initFromNib() as?  AIWishAverageView
         wishAverage?.backgroundColor = UIColor(hexString: "#ffffff", alpha: 0.1)
         self.view_price.addSubview(wishAverage!)
         wishAverage?.snp_makeConstraints(closure: { (make) in
             make.edges.equalTo(self.view_price)
         })
+        preAverageView = wishAverage
+        preAverageView?.button.setTitle(String(averageMenoy), forState: UIControlState.Normal)
+        preAverageView?.totalButton.setTitle(String(averageTotalMenoy), forState: UIControlState.Normal)
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(AIWishPreviewController.subAverage))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        wishAverage?.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(AIWishPreviewController.addAverage))
+        swipeRight.direction = .Right
+        wishAverage?.addGestureRecognizer(swipeRight)
+        
     }
     
-    func readallAction(){
+    func addAverage() {
+        averageMenoy += 10
+        preAverageView?.button.setTitle(String(averageMenoy), forState: UIControlState.Normal)
+        if averageMenoy >= averageTotalMenoy {
+            
+            preAverageView?.userInteractionEnabled = false
+            
+            self.preAverageView?.button.snp_removeConstraints()            
+            self.preAverageView?.button.snp_makeConstraints(closure: { (make) in
+                make.center.equalTo((self.preAverageView?.totalButton.snp_center)!)
+                make.width.height.equalTo(76)
+            })
+            
+            SpringAnimation.springEaseIn(0.5, animations: {
+                 self.preAverageView?.button.layoutIfNeeded()
+            })
+        }
+    }
+    
+    func subAverage() {
+        if averageMenoy > 10 {
+            averageMenoy -= 10
+            preAverageView?.button.setTitle(String(averageMenoy), forState: UIControlState.Normal)
+        }
+    }
+    
+    func readallAction() {
         preWishView?.button.setTitle("Flod up", forState: UIControlState.Normal)
         preWishView?.button.removeTarget(self, action: #selector(AIWishPreviewController.readallAction), forControlEvents: UIControlEvents.TouchUpInside)
         preWishView?.button.addTarget(self, action: #selector(AIWishPreviewController.expendAction), forControlEvents: UIControlEvents.TouchUpInside)
         
-        SpringAnimation.spring(0.5) {
-            self.textpriceConstraint.constant = 90
-            self.priceConstraint.constant = 0
+        self.textpriceConstraint.constant = 90
+        self.priceConstraint.constant = 0
+        
+        SpringAnimation.springEaseIn(0.5, animations: {
+            self.view.layoutIfNeeded()
             self.view_price.hidden = true
-        }
+        })
     }
     
-    func expendAction(){
+    func expendAction() {
         preWishView?.button.setTitle("Read all", forState: UIControlState.Normal)
         preWishView?.button.removeTarget(self, action: #selector(AIWishPreviewController.expendAction), forControlEvents: UIControlEvents.TouchUpInside)
         preWishView?.button.addTarget(self, action: #selector(AIWishPreviewController.readallAction), forControlEvents: UIControlEvents.TouchUpInside)
         
+        self.textpriceConstraint.constant = 160
+        self.priceConstraint.constant = 132
         
-        SpringAnimation.spring(0.5) {
-            self.textpriceConstraint.constant = 160
-            self.priceConstraint.constant = 132
+        SpringAnimation.springEaseIn(0.5, animations: {
             self.view_price.hidden = false
-        }
+            self.view.layoutIfNeeded()
+        })
     }
     
-    func addNewSubView(cview: UIView){
+    func addNewSubView(cview: UIView) {
         addNewSubView(cview, preView: preCacheView!)
     }
     
-    func addNewSubView(cview: UIView, preView: UIView , color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
+    func addNewSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
         scrollview.addSubview(cview)
         let width = UIScreen.mainScreen().bounds.size.width
         cview.setWidth(width)
@@ -211,16 +255,16 @@ class AIWishPreviewController: UIViewController {
     }
     
     /// Scrollview
-    func addNewSubViewContent(cview: UIView){
+    func addNewSubViewContent(cview: UIView) {
         if let _ = preContentCacheView {
             addNewSubViewContent(cview, preView: preContentCacheView!)
-        }else{
+        } else {
             addNewSubViewContent(cview, preView: UIView())
         }
         
     }
     
-    func addNewSubViewContent(cview: UIView, preView: UIView , color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
+    func addNewSubViewContent(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
         contentScrollview.addSubview(cview)
         let width = UIScreen.mainScreen().bounds.size.width
         cview.setWidth(width)
@@ -270,7 +314,7 @@ class AIWishPreviewController: UIViewController {
     
     }
     
-    func realSubmitAction(){
+    func realSubmitAction() {
         let number = "123"
         let stext = self.textFeild?.text ?? ""
         

@@ -8,7 +8,7 @@ import UIKit
 
 class AIRecommondForYouViewController: UIViewController {
 	var tableView: UITableView!
-	var service_id: String! = "900001001004" //fake
+	var service_id: Int!
 	private var dataSource: [AISearchServiceModel] = []
 	
 	override func viewDidLoad() {

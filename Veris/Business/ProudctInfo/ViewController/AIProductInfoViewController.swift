@@ -381,7 +381,7 @@ class AIProductInfoViewController: UIViewController {
 		let lineView1 = addSplitView()
 		
 		// 评论数据
-        if let commentModel = dataModel?.commentLast {
+        if (dataModel?.commentLast) != nil {
             // Setup 3:
             let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
             addNewSubView(commond, preView: lineView1)
@@ -395,7 +395,7 @@ class AIProductInfoViewController: UIViewController {
             addNewSubView(commentView!, preView: commond)
             commentView?.initSubviews()
             commentView?.setWidth(UIScreen.mainScreen().bounds.width)
-            commentView?.fillDataWithModel(commentModel)
+//            commentView?.fillDataWithModel(commentModel)
             commentView?.setHeight(commentView?.getheight() ?? 0)
             commentView?.bgView.hidden = true
             // Add Normal Answer Button
@@ -403,7 +403,6 @@ class AIProductInfoViewController: UIViewController {
         } else {
             tagsView.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
         }
-        
 		
 		let answerView = UIView()
 		addNewSubView(answerView, preView: preCacheView!)
@@ -500,6 +499,7 @@ class AIProductInfoViewController: UIViewController {
     
     func showCommentView() {
         let vc = AIProductCommentsViewController()
+        vc.service_id = sid
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     
@@ -621,7 +621,10 @@ class AIProductInfoViewController: UIViewController {
         return viewController
     }
     
+    //跳转订单确认界面
     func configOrderAction() {
+        
+        
         let model = AIProposalInstModel()
         model.proposal_id = dataModel?.proposal_inst_id ?? 0
         model.proposal_name = dataModel?.name ?? ""
@@ -639,7 +642,7 @@ class AIProductInfoViewController: UIViewController {
     
     func providerDetailPressed() {
         let vc = AIProviderDetailViewController.initFromNib()
-//        vc.provider_id = 
+        vc.provider_id = dataModel!.provider!.id!
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     }
@@ -647,13 +650,15 @@ class AIProductInfoViewController: UIViewController {
     func recommondForYouPressed() {
         // 为您推荐
         let vc = AIRecommondForYouViewController()
-//        vc.service_id = 
+        vc.service_id = dataModel!.serviceID!
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     }
     
 	func qaButtonPressed() {
         let vc = AIProductQAViewController()
+        vc.service_id = sid
+
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
 //        presentViewController(nav, animated: true, completion: nil)

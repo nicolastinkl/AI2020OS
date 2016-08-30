@@ -73,8 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 			}
 		})
 		
-		showRootViewControllerReal()
-
+        //MARK: Share
         configUmengShare()
     
 	// DeepLink
@@ -90,7 +89,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
                 NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIDeepLinkupdateDeepLinkView, object: queryParameters)
             }
         }, route: "cddpl://.*")
-        
+
+        showLoginViewController()
+        handleLoacalNotifications()
 		return true
 		
 	}
@@ -128,8 +129,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和新浪微博后台设置的回调地址一致。http://open.weibo.com/developers/identity/edit
         UMSocialSinaSSOHandler.openNewSinaSSOWithAppKey("3921700954", secret: "04b48b094faeb16683c32669824ebdad", redirectURL: "http://sns.whalecloud.com/sina2/callback")
     }
-
-
 
     func setupBaiduMap() {
         _mapManager = BMKMapManager()
@@ -285,22 +284,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     //MARK: Notificaion Handlers
 
     func handleLoacalNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshReLoginAction), name: "UserLoginTimeNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshReLoginAction), name: AIApplication.Notification.UserLoginTimeOutNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(logOut), name: AIApplication.Notification.UserLoginOutNotification, object: nil)
     }
+
 
     func refreshReLoginAction() {
-//        let loginA = LoginAction(viewController: nil) {
-//            NSUserDefaults.standardUserDefaults().removeObjectForKey("Default_UserID")
-//            NSUserDefaults.standardUserDefaults().removeObjectForKey("Default_UserType")
-//            NSUserDefaults.standardUserDefaults().removeObjectForKey("KEY_USER_ID")
-//            NSUserDefaults.standardUserDefaults().synchronize()
-//        }
-//
-//        loginA.didLogin {
-//            AIAlertView().showError("提示", subTitle: "登录过期,请重新登录!")
-//        }
-
+        AILocalStore.logout()
+        AIAlertView().showNotice("Oops！", subTitle: "登录超时,请重新登录~", closeButtonTitle: nil, duration: 2, colorStyle: 0x727375, colorTextButton: 0xFFFFFF)
+        let loginRootViewController = createLoginRootViewController()
+        self.window!.rootViewController = loginRootViewController
     }
+
+    func logOut() {
+        AILocalStore.logout()
+        AIAlertView().showNotice("真的要退出吗？亲~", subTitle: "", closeButtonTitle: nil, duration: 2, colorStyle: 0x727375, colorTextButton: 0xFFFFFF)
+        let loginRootViewController = createLoginRootViewController()
+        self.window!.rootViewController = loginRootViewController
+    }
+
+    func createLoginRootViewController() -> UINavigationController {
+        let storyBoard: UIStoryboard = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil)
+        let loginVC = storyBoard.instantiateInitialViewController() as! AILoginViewController
+        let loginRootViewController = UINavigationController(rootViewController: loginVC)
+
+        return loginRootViewController
+    }
+
+
+    func showLoginViewController() {
+
+        // 创建Root
+        self.window = MBFingerTipWindow(frame: UIScreen.mainScreen().bounds)
+
+        // 创建导航控制器
+        let loginRootViewController = createLoginRootViewController()
+
+        self.window?.rootViewController = loginRootViewController
+        self.window?.makeKeyAndVisible()
+    }
+
 
     //MARK: 配置默认用户
 	func configDefaultUser () {
@@ -370,20 +393,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	}
 
 
-	
-	func showRootViewControllerReal() {
-		// 创建Root
-		self.window = MBFingerTipWindow(frame: UIScreen.mainScreen().bounds)
-//        if let window = window as? MBFingerTipWindow {
-//            window.alwaysShowTouches = true
-//        }
-		let root = AIRootViewController()
-		// 创建导航控制器
-		let nav = UINavigationController(rootViewController: root)
-		nav.navigationBarHidden = true
-		self.window?.rootViewController = nav
-		self.window?.makeKeyAndVisible()
-	}
+
 	
 }
 extension AppDelegate: BMKGeneralDelegate {

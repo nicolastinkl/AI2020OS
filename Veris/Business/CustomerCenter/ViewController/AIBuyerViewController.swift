@@ -206,12 +206,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     func setupLanguageNotification() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.setupUIWithCurrentLanguage), name: LCLLanguageChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
-        
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshReLoginAction), name: AIApplication.Notification.UIRELoginNotification, object: nil)
-        
-        
+
+
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.WishVowViewControllerNOTIFY(_:)), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
     }
@@ -514,7 +510,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }
 
-    func  createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
+    func createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
 
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
 
@@ -529,7 +525,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         return viewController
     }
 
-    class func  createBuyerDetailViewController() -> AIBuyerDetailViewController {
+    class func createBuyerDetailViewController() -> AIBuyerDetailViewController {
 
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
 

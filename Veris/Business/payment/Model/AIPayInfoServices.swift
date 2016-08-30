@@ -17,7 +17,7 @@ class AIPayInfoServices: NSObject {
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.queryPayment.description
         
-        let body = ["data" : ["order_id" : order, "order_item_id" : orderitemid, "user_id" : userId], "desc" : ["data_mode" : "0",  "digest" : ""]]
+        let body = ["data" : ["order_id" : order, "order_item_id" : orderitemid, "user_id" : userId], "desc" : ["data_mode" : "0", "digest" : ""]]
         message.body = NSMutableDictionary(dictionary: body)
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             if let responseJSON: AnyObject = response {

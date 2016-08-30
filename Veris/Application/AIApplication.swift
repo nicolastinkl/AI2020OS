@@ -230,6 +230,14 @@ struct AIApplication {
         
         //许愿详情提交成功后给主界面数据刷新
         static let WishVowViewControllerNOTIFY = "WishVowViewControllerNOTIFY"
+
+
+
+        // 登录通知
+
+        static let UserLoginTimeOutNotification = "UserLoginTimeOutNotification"
+
+        static let UserLoginOutNotification = "UserLoginOutNotification"
         
     }
 
@@ -420,7 +428,10 @@ struct AIApplication {
         case queryTimeLineDetail
         // 查询支付订单
         case queryPayment
-        
+        // 许愿查询 最热
+        case wishhot
+        // 许愿查询 推荐
+        case wishrecommand
         var description: String {
 
             switch self {
@@ -484,7 +495,7 @@ struct AIApplication {
             case .searchServiceCondition: return AIApplication.KURL_ReleaseURL + "/search/searchServiceCondition"
             case .filterServices: return AIApplication.KURL_ReleaseURL + "/search/filterServices"
             case .getRecommendedServices: return AIApplication.KURL_ReleaseURL + "/search/getRecommendedServices"
-            case .queryAllComments: return AIApplication.KURL_ReleaseURL + "/comp/comments/queryAllComments"
+            case .queryAllComments: return AIApplication.KURL_ReleaseURL + "/comments/queryAllComments"
             case .uploadAndIdentify: return "http://171.221.254.231:3001/uploadAndIdentify"
 
             case .makewish: return AIApplication.KURL_ReleaseURL + "/wish/submitWish"
@@ -495,6 +506,8 @@ struct AIApplication {
             case .queryTimeLine: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLine"
             case .queryTimeLineDetail: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLineDetail"
             case .queryPayment: return AIApplication.KURL_ReleaseURL + "/payment/queryPayment"
+            case .wishhot: return AIApplication.KURL_ReleaseURL + "/queryHotWishList"
+            case .wishrecommand: return AIApplication.KURL_ReleaseURL + "/queryInterestingWishList"
             }
         }
     }

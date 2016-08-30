@@ -9,7 +9,7 @@
 import UIKit
 
 class AIProviderDetailService: NSObject {
-	func queryProvider(provider_id: String, success: (AIProviderDetailJSONModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+	func queryProvider(provider_id: Int, success: (AIProviderDetailJSONModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 		// 2.6.7 服务者介绍
 		let message = AIMessage()
 		message.url = AIApplication.AIApplicationServerURL.queryProvider.description

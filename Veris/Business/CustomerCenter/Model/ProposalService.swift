@@ -245,11 +245,11 @@ class BDKProposalService: MockProposalService {
             AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
 
                 do {
-
-                    let dic = response as! [NSObject : AnyObject]
-                    let model = try AIProposalInstModel(dictionary: dic)
-                    success(responseData: model)
-
+                    if response is NSDictionary {
+                        let dic = response as! [NSObject : AnyObject]
+                        let model = try AIProposalInstModel(dictionary: dic)
+                        success(responseData: model)
+                    }
                 } catch {
                     fail(errType: AINetError.Format, errDes: "QueryCustomerProposalDetail Reponse JSON Parse error.")
                 }

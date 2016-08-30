@@ -14,11 +14,11 @@ protocol AISearchHistoryIconViewDelegate: NSObjectProtocol {
 
 class AISearchHistoryIconView: UIView {
 	weak var delegate: AISearchHistoryIconViewDelegate?
-    var items: [AISearchServiceModel]! {
-        didSet {
-            updateUI()
-        }
-    }
+	var items: [AISearchServiceModel]! {
+		didSet {
+			updateUI()
+		}
+	}
 	
 	private var titleLabel: UILabel!
 	private var iconContainerView: UIView!
@@ -38,7 +38,7 @@ class AISearchHistoryIconView: UIView {
 		self.frame = CGRect(x: 0, y: 0, width: width, height: Constants.height)
 		self._width = width
 		self.items = items
-        setup()
+		setup()
 		updateUI()
 	}
 	
@@ -49,8 +49,8 @@ class AISearchHistoryIconView: UIView {
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-    
-    private func setup() {
+	
+	private func setup() {
 		// setup title label
 		titleLabel = UILabel()
 		titleLabel.text = "Recently browsed"
@@ -59,31 +59,34 @@ class AISearchHistoryIconView: UIView {
 		titleLabel.sizeToFit()
 		titleLabel.setLeft(10)
 		addSubview(titleLabel)
-        
+		
 		// setup icon container view
 		let _height = Constants.height
 		iconContainerView = UIView()
 		iconContainerView.backgroundColor = UIColor (red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)
 		iconContainerView.frame = CGRect(x: 0, y: titleLabel.bottom + Constants.titleLabelSpace, width: _width, height: _height - titleLabel.height - Constants.titleLabelSpace)
 		addSubview(iconContainerView)
-    }
+	}
 	
 	private func updateUI() {
-        // clean all icon labels
-        iconLabels.forEach { (l) in
-            l.removeFromSuperview()
-        }
-        iconLabels.removeAll()
-        
+		// clean all icon labels
+		iconLabels.forEach { (l) in
+			l.removeFromSuperview()
+		}
+		iconLabels.removeAll()
+		
 		let _height = Constants.height
 		// setup icon labels
 		let labelWidth = _width / 4
 		let labelHeight = _height - Constants.titleLabelFontSize
+		let imageWidth = AITools.displaySizeFrom1242DesignSize(194)
 		
 		for (i, item) in items.enumerate() {
 			let frame = CGRect(x: labelWidth * CGFloat(i), y: 0, width: labelWidth, height: labelHeight)
 			let iconLabel = VerticalIconLabel(frame: frame)
-			iconLabel.imageWidth = AITools.displaySizeFrom1242DesignSize(194)
+			iconLabel.imageWidth = imageWidth
+			iconLabel.imageView.clipsToBounds = true
+			iconLabel.imageView.layer.cornerRadius = imageWidth / 2
 			iconLabel.label.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(28))
 			iconLabel.imageSpaceToLabel = AITools.displaySizeFrom1242DesignSize(34)
 			iconLabel.tag = i

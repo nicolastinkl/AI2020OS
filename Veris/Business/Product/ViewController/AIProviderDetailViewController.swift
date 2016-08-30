@@ -9,7 +9,9 @@
 import UIKit
 
 class AIProviderDetailViewController: UIViewController {
-	
+    
+    var provider_id: Int!
+    var service_name: String = ""
 	// config
 	@IBOutlet var clearViews: [UIView]!
 	@IBOutlet var halfWhiteClearViews: [UIView]!
@@ -29,7 +31,6 @@ class AIProviderDetailViewController: UIViewController {
 	
 	var bubbleView: GridBubblesView!
 	
-	var provider_id: String! = "1" // fake
 	var model: AIProviderDetailJSONModel? {
 		didSet {
 			updateUI()

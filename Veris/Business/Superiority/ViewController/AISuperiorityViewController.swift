@@ -51,7 +51,8 @@ class AISuperiorityViewController: UIViewController {
         super.viewDidLoad()
         // MARK: Init
         initLayoutViews()
-        initDataWithModel()
+        fetchData()
+        markServiceVisited()
     }
     
     @IBAction func targetServiceDetail(any: AnyObject) {
@@ -191,8 +192,13 @@ class AISuperiorityViewController: UIViewController {
 
     }
 
-    func initDataWithModel() {
-        
+    func markServiceVisited() {
+        if let sid = serviceModel?.sid {
+            AISearchHomeService().createBrowserHistory(sid)
+        }
+    }
+    
+    func fetchData() {
         if let serviceModel = serviceModel {
             AISuperiorityService.requestSuperiority(String(serviceModel.sid)) { (response, error) in
                 self.view.hideLoading()
@@ -244,7 +250,7 @@ class AISuperiorityViewController: UIViewController {
             
             navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
             navi.setRightIcon2Action(UIImage(named: "AINavigationBar_send")!)
-            navi.titleLabel.text = "孕检无忧"
+            navi.titleLabel.text = serviceModel?.name
             navi.videoButton.addTarget(self, action: #selector(shareAction), forControlEvents: UIControlEvents.TouchUpInside)
             navi.commentButton.addTarget(self, action: #selector(favoriteAction), forControlEvents: UIControlEvents.TouchUpInside)
             naviBar = navi

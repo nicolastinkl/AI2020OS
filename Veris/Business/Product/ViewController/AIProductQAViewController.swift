@@ -9,6 +9,7 @@
 import UIKit
 
 class AIProductQAViewController: UIViewController {
+    var service_id: Int!
 	
 	var tableView: UITableView!
 	var items: [[String: String]] = []
@@ -33,7 +34,7 @@ class AIProductQAViewController: UIViewController {
 	
 	func setupData() {
 		let service = AIProductQAService()
-		service.allQuestions("900001001002", user_id: "100000000208", success: { [weak self] response in
+		service.allQuestions(service_id, success: { [weak self] response in
             self?.items = response
             self?.tableView.reloadData()
 		}) { (errType, errDes) in
