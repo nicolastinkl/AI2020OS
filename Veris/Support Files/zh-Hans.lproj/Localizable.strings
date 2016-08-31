@@ -210,6 +210,8 @@
 
 "TaskExecute.turnInQuest" = "提交任务";
 "Note.inputHint" = "请留言。";
+"TaskResultCommitViewController.title" = "服务详情";
 "AudioRecoderViewController.error" = "录制时发生错误";
 "AudioRecoderViewController.recordForbiden" = "录音被禁止";
 "AudioRecoderViewController.pressHint" = "按下录音，松开结束";
+"TaskResultCommitViewController.hint" = "上传一张照片，并留下一条记录，以确定完成了你的任务";

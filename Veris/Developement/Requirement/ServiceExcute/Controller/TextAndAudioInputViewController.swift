@@ -15,6 +15,9 @@ class TextAndAudioInputViewController: UIViewController {
     @IBOutlet weak var audioBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var hint: UILabel!
     
+    var delegate: TextAndAudioInputDelegate?
+    var text: String?
+    
     private var bottomSpace: CGFloat = 0
     
     override func viewDidLoad() {
@@ -34,6 +37,10 @@ class TextAndAudioInputViewController: UIViewController {
             #selector(TextAndAudioInputViewController.showAudioRecorder(_:))
         let audioTap = UITapGestureRecognizer(target: self, action: audioSelector)
         audioImage.addGestureRecognizer(audioTap)
+        
+        if let t = text {
+            textView.text = t
+        }
     }
     
     func keyboardWillAppear(notification: NSNotification) {
@@ -136,7 +143,12 @@ class TextAndAudioInputViewController: UIViewController {
     }
     
     func save() {
-        
+        if let text = textView.text {
+            if !text.isEmpty {
+                delegate?.textInput(text)
+                dismiss()
+            }
+        }
     }
 
 }
@@ -156,4 +168,8 @@ extension TextAndAudioInputViewController: UITextViewDelegate {
             hint.hidden = false
         }
     }
+}
+
+protocol TextAndAudioInputDelegate {
+    func textInput(text: String)
 }
