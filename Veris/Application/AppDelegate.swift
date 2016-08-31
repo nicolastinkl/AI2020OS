@@ -292,6 +292,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     func refreshReLoginAction() {
 
         let alertView = AIAlertView()
+        alertView.showCloseButton = false
         alertView.addButton("确定") {
             AILocalStore.logout()
             let loginRootViewController = self.createLoginRootViewController()

@@ -546,6 +546,8 @@
             break;
     }
 
+    nextViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
+
     [self.navigationController pushViewController:nextViewController animated:YES];
 }
 
