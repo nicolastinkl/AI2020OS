@@ -309,7 +309,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
             let loginRootViewController = self.createLoginRootViewController()
             self.window!.rootViewController = loginRootViewController
         }
-        alertView.showNotice("真的要退出吗？亲~", subTitle: "", closeButtonTitle: "取消", duration: 0, colorStyle: 0x727375, colorTextButton: 0xFFFFFF)
+        alertView.showNotice("真的要退出吗？亲~", subTitle: "", closeButtonTitle: "取消", duration: 0, colorStyle: 0xC1272D, colorTextButton: 0xFFFFFF)
     }
 
     func createLoginRootViewController() -> UINavigationController {

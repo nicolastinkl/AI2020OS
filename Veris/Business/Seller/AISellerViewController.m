@@ -60,6 +60,8 @@
     [self.tableView headerBeginRefreshing];
 }
 
+
+
 - (void)viewTapped {
 #if DEBUG
     AIRequirementViewController *requirementVC = [UIStoryboard storyboardWithName:@"UIRrequirementStoryboard" bundle:nil].instantiateInitialViewController;
@@ -107,6 +109,13 @@
             [_tableHeaderList addObject:sort];
         }
 
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
         [tableModel.orderList addObject:model];
     }
 }
@@ -461,10 +470,10 @@
     AIProposalServiceModel *serviceModel = [[AIProposalServiceModel alloc] init];
     serviceModel.service_id = model.service.service_id;
 
-    model.service_type = @"0";
-    if ([model.service_type  isEqualToString:@"0"]) { // 单一服务
-        [self showSingalServiceStatusViewControllerWithStatus:model.service_status];
-    }else if ([model.service_type  isEqualToString:@"1"]){ // 复合服务
+    model.service.service_type = @"0";
+    if ([model.service.service_type  isEqualToString:@"0"]) { // 单一服务
+        [self showSingalServiceStatusViewControllerWithStatus:model.service.service_status];
+    }else if ([model.service.service_type  isEqualToString:@"1"]){ // 复合服务
         AIRequirementViewController *requirementVC = [UIStoryboard storyboardWithName:@"UIRrequirementStoryboard" bundle:nil].instantiateInitialViewController;
         requirementVC.orderPreModel = model;
 
