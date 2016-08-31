@@ -330,6 +330,6 @@ class AIProductCommentCell: UITableViewCell {
 	}
 	
 	func setup(model: AIProductComment) {
-		commentInfoView.fillDataWithModel(model)
+		//commentInfoView.fillDataWithModel(model)
 	}
 }
