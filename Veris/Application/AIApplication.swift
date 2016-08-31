@@ -432,6 +432,12 @@ struct AIApplication {
         case wishhot
         // 许愿查询 推荐
         case wishrecommand
+        
+        
+        // 提交服务执行结果
+        case submitServiceNodeResult
+        
+        
         var description: String {
 
             switch self {
@@ -508,6 +514,7 @@ struct AIApplication {
             case .queryPayment: return AIApplication.KURL_ReleaseURL + "/payment/queryPayment"
             case .wishhot: return AIApplication.KURL_ReleaseURL + "/queryHotWishList"
             case .wishrecommand: return AIApplication.KURL_ReleaseURL + "/queryInterestingWishList"
+            case .submitServiceNodeResult: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/submitServiceNodeResult"
             }
         }
     }

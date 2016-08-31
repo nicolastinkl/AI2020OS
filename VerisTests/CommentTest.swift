@@ -59,7 +59,7 @@ class CommentTest: SBOSSTestCase {
             
         }
         
-        waitForExpectationsWithTimeout(500, handler: { error in
+        waitForExpectationsWithTimeout(5, handler: { error in
             XCTAssertNil(error, "Error")
         })
     }
