@@ -206,12 +206,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     func setupLanguageNotification() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.setupUIWithCurrentLanguage), name: LCLLanguageChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
-        
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshReLoginAction), name: AIApplication.Notification.UIRELoginNotification, object: nil)
-        
-        
+
+
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.WishVowViewControllerNOTIFY(_:)), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
     }

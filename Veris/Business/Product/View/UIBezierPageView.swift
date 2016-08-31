@@ -89,15 +89,18 @@ internal class UIBezierPageView: UIView {
         let leftArray = self.subviews.sort({$0.left < $1.left})
         var indexItem: Int = 0
         for item in model {
-            let img = leftArray[indexItem] as? UIImageView
-            if item.param_setting_flag != 0 {
-                img?.image = UIImage(named: "selectSettings")
-            } else {
-                img?.image = UIImage(named: "selectwhiteSettings")
+            if indexItem < leftArray.count {
+                let img = leftArray[indexItem] as? UIImageView
+                if item.param_setting_flag != 0 {
+                    img?.image = UIImage(named: "selectSettings")
+                } else {
+                    img?.image = UIImage(named: "selectwhiteSettings")
+                }
+                img?.tag = 10 + indexItem
+                img?.associatedName = "\(item.service_id)"
+                indexItem = indexItem + 1
             }
-            img?.tag = 10 + indexItem
-            img?.associatedName = "\(item.service_id)"
-            indexItem = indexItem + 1
+            
         }
 
     }

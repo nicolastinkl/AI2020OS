@@ -76,19 +76,32 @@ class TaskResultCommitViewController: UIViewController {
     
     func soundLongPressAction(longPressRecognizer: UILongPressGestureRecognizer) {
         
-        let meunController = UIMenuController.sharedMenuController()
-        
-        if meunController.menuVisible {
+        if longPressRecognizer.state != UIGestureRecognizerState.Began {
             return
         }
         
-        becomeFirstResponder()
+        let point = longPressRecognizer.locationInView(view)
+        let popOver = MenuPopOverView()
+        popOver.backgroundColor = UIColor(hexString: "f2f8fe", alpha: 0.75)
+        popOver.popOverBackgroundColor = UIColor.clearColor()
+        popOver.popOverTextColor = UIColor(hex: "0e79cc")
+        popOver.popOverDividerColor = UIColor(hex: "0e79cc")
         
-        meunController.setTargetRect(soundPlayButton.frame, inView: view)
+        popOver.presentPopoverFromRect(CGRect(x: point.x, y: soundPlayButton.frame.minY, width: 0, height: 0), inView: view, menuStrings: ["Retake", "Delete"])
         
-        let item = UIMenuItem(title: "Delete", action: #selector(TaskResultCommitViewController.deletePressed(_:)))
-        meunController.menuItems = [item]
-        meunController.setMenuVisible(true, animated: true)
+//        let meunController = UIMenuController.sharedMenuController()
+//        
+//        if meunController.menuVisible {
+//            return
+//        }
+//        
+//        becomeFirstResponder()
+//        
+//        meunController.setTargetRect(soundPlayButton.frame, inView: view)
+//        
+//        let item = UIMenuItem(title: "Delete", action: #selector(TaskResultCommitViewController.deletePressed(_:)))
+//        meunController.menuItems = [item]
+//        meunController.setMenuVisible(true, animated: true)
     }
     
     func deletePressed(menuController: UIMenuController) {

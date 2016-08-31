@@ -96,8 +96,26 @@ struct AILocalStore {
         return userDefaults.stringForKey(accessTokenKey)
     }
 
+    //MARK: 处理登录信息
     static func logout() {
         self.deleteAccessToken()
+        userDefaults.removeObjectForKey(AILoginUtil.KEY_CUSTOM_ID)
+        userDefaults.removeObjectForKey(AILoginUtil.KEY_PROVIDER_ID)
+        userDefaults.removeObjectForKey(AILoginUtil.KEY_HEADURL_STRING)
+        userDefaults.removeObjectForKey(AILoginUtil.KEY_USER_ID)
+
+        userDefaults.synchronize()
+    }
+
+    static func storageLoginInfo(info: [NSString: AnyObject]) {
+        if let cid = info["customer_id"] as? String, pid = info["provider_id"] as? String, hurl = info["head_url"] as? String, userid = info["user_id"] as? String {
+            userDefaults.setObject(cid, forKey: AILoginUtil.KEY_CUSTOM_ID)
+            userDefaults.setObject(pid, forKey: AILoginUtil.KEY_PROVIDER_ID)
+            userDefaults.setObject(hurl, forKey: AILoginUtil.KEY_HEADURL_STRING)
+            userDefaults.setObject(userid, forKey: AILoginUtil.KEY_USER_ID)
+
+            userDefaults.synchronize()
+        }
     }
 
     // MARK: Helper

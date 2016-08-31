@@ -381,7 +381,7 @@ class AIProductInfoViewController: UIViewController {
 		let lineView1 = addSplitView()
 		
 		// 评论数据
-        if let commentModel = dataModel?.commentLast {
+        if (dataModel?.commentLast) != nil {
             // Setup 3:
             let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
             addNewSubView(commond, preView: lineView1)
@@ -395,7 +395,7 @@ class AIProductInfoViewController: UIViewController {
             addNewSubView(commentView!, preView: commond)
             commentView?.initSubviews()
             commentView?.setWidth(UIScreen.mainScreen().bounds.width)
-            commentView?.fillDataWithModel(commentModel)
+//            commentView?.fillDataWithModel(commentModel)
             commentView?.setHeight(commentView?.getheight() ?? 0)
             commentView?.bgView.hidden = true
             // Add Normal Answer Button
@@ -403,35 +403,6 @@ class AIProductInfoViewController: UIViewController {
         } else {
             tagsView.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
         }
-        
-        let commentModel = AIProductComment()
-        commentModel.comment = ""
-        commentModel.photos =  ["http://7q5dv2.com1.z0.glb.clouddn.com/Kelvin%20-%20Bootstrap%203%20Resume%20Theme.png",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl1.pic.jpg",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2D57E5A9-8BCE-4A3E-8C9C-E84C40825D89.png",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl2H%7BC17WUNL%2503%291%605ANKYL6.jpg",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinkl7711C941-BD7C-47A3-97EA-192AD2B63B87.png",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklSamsung-Galaxy-Gear-Smartwatch%20%E5%89%AF%E6%9C%AC.PNG",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_4.pic.jpg",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_64ADD30A-2F22-4E39-8FF0-DCE5ADFCC9B9.png",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_9.pic.jpg",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_EC78563D-64FF-4F15-B1C5-2495931006C3.png",
-                                "http://7q5dv2.com1.z0.glb.clouddn.com/tinklUpload_Placehold@2x.png"]
-        commentModel.rating_level = "3"
-        let customer = AIProductCommentCustomer()
-        customer.name = "xxxxxxxxxx"
-        commentModel.customer = customer
-        commentModel.comment = "Using automatic tunneling, sends IPv6 packets encapsulated inIPv4 to IPv6 destinations with IPv4-compatible addresses thatare located off-link"
-        commentModel.time = 12313
-		let commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
-		addNewSubView(commentView!, preView: commond)
-        commentView?.initSubviews()
-        commentView?.setWidth(UIScreen.mainScreen().bounds.width)
-		commentView?.fillDataWithModel(commentModel)
-		commentView?.setHeight(commentView?.getheight() ?? 0)
-        commentView?.bgView.hidden = true
-		// Add Normal Answer Button
-        commentView?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
 		
 		let answerView = UIView()
 		addNewSubView(answerView, preView: preCacheView!)
