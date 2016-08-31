@@ -90,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
             }
         }, route: "cddpl://.*")
 
-        showLoginViewController()
+        showRootViewController()
         handleLoacalNotifications()
 		return true
 		
@@ -290,17 +290,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
 
     func refreshReLoginAction() {
-        AILocalStore.logout()
-        AIAlertView().showNotice("Oops！", subTitle: "登录超时,请重新登录~", closeButtonTitle: nil, duration: 2, colorStyle: 0x727375, colorTextButton: 0xFFFFFF)
-        let loginRootViewController = createLoginRootViewController()
-        self.window!.rootViewController = loginRootViewController
+
+        let alertView = AIAlertView()
+        alertView.showCloseButton = false
+        alertView.addButton("确定") {
+            AILocalStore.logout()
+            let loginRootViewController = self.createLoginRootViewController()
+            self.window!.rootViewController = loginRootViewController
+        }
+        alertView.showError("Oops！", subTitle: "登录超时,请重新登录~")
     }
 
     func logOut() {
-        AILocalStore.logout()
-        AIAlertView().showNotice("真的要退出吗？亲~", subTitle: "", closeButtonTitle: nil, duration: 2, colorStyle: 0x727375, colorTextButton: 0xFFFFFF)
-        let loginRootViewController = createLoginRootViewController()
-        self.window!.rootViewController = loginRootViewController
+
+        let alertView = AIAlertView()
+        alertView.addButton("确定") {
+            AILocalStore.logout()
+            let loginRootViewController = self.createLoginRootViewController()
+            self.window!.rootViewController = loginRootViewController
+        }
+        alertView.showNotice("真的要退出吗？亲~", subTitle: "", closeButtonTitle: "取消", duration: 0, colorStyle: 0x727375, colorTextButton: 0xFFFFFF)
     }
 
     func createLoginRootViewController() -> UINavigationController {
@@ -324,6 +333,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         self.window?.makeKeyAndVisible()
     }
 
+    func showMainViewController() {
+        let root = AIRootViewController()
+        let mainRootViewController = UINavigationController(rootViewController: root)
+        mainRootViewController.navigationBarHidden = true
+
+        self.window = MBFingerTipWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = mainRootViewController
+        self.window?.makeKeyAndVisible()
+    }
+
+    func showRootViewController() {
+
+        if AILocalStore.didUserLogIn() == true {
+            showLoginViewController()
+        } else {
+            showMainViewController()
+        }
+    }
 
     //MARK: 配置默认用户
 	func configDefaultUser () {

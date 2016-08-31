@@ -34,6 +34,7 @@
      *  初始化处理
      */
     [self makeChildViewControllers];
+
     [self startOpenningAnimation];
 }
 

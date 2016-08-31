@@ -230,7 +230,7 @@
              msgRelogin = returnResponseObject[@"msg"];
             
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"UserLoginTimeNotification" object:msgRelogin];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UserLoginTimeOutNotification" object:msgRelogin];
     } else {
 
         if (des != nil) {
@@ -263,7 +263,7 @@
     AINetError netError = [self netErrorFromNSError:error];
     if (fail && netError != AINetErrorCancelled) {
         AIOCLog(@"--NetError--【%@】", [error localizedDescription]);
-        fail(netError, [error localizedDescription]);
+        fail(netError, @"网络错误,请重试.");
     }
 }
 
