@@ -329,7 +329,7 @@ class AIProductInfoViewController: UIViewController {
             tag.titleLabel?.textColor = UIColor.whiteColor()
             tag.titleLabel?.font = UIFont.systemFontOfSize(13)
             let len = model.name?.length ?? 1
-            let widthButton: CGFloat = CGFloat(len * 9)
+            let widthButton: CGFloat = CGFloat(len * 9) + 25
             tag.frame = CGRectMake(CGFloat(index) * (widthButton + 10), 14, widthButton, 80 / 3)
             tag.layer.masksToBounds = true
             tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -490,8 +490,9 @@ class AIProductInfoViewController: UIViewController {
         addNewSubView(holdSpaceView, preView: pcLabel)
         holdSpaceView.setHeight(44/3)
         let bottomImage = AIImageView()
-        var imageHeight: CGFloat = 0
-        bottomImage.setImageWithURL(NSURL(string:dataModel?.desc_image ?? ""), placeholderImage: smallPlace()) { (image, error, type) in
+        //var imageHeight: CGFloat = 0
+        bottomImage.setImageWithURL(NSURL(string:dataModel?.desc_image ?? ""))
+       /* bottomImage.setImageWithURL(NSURL(string:dataModel?.desc_image ?? ""), placeholderImage: smallPlace()) { (image, error, type) in
             if image != nil {
                 let heightInPoints = image.size.height
                 let heightInPixels = heightInPoints * image.scale
@@ -499,25 +500,24 @@ class AIProductInfoViewController: UIViewController {
                 
 //                let widthInPoints = image.size.width
 //                let widthInPixels = widthInPoints * image.scale
-                Async.main({
-                    bottomImage.setHeight(imageHeight)
-                    bottomImage.backgroundColor = UIColor(hexString: "#6AB92E", alpha: 0.7)
-                    bottomImage.contentMode = UIViewContentMode.ScaleAspectFill
-                    bottomImage.clipsToBounds = true
-                    self.addNewSubView(bottomImage, preView: holdSpaceView)
-                    bottomImage.setWidth(self.scrollview.width)
-                })
+
             }
-        }
+        }*/
+        
+        bottomImage.setHeight(1700)
+        bottomImage.backgroundColor = UIColor(hexString: "#6AB92E", alpha: 0.7)
+        bottomImage.contentMode = UIViewContentMode.ScaleAspectFill
+        bottomImage.clipsToBounds = true
+        self.addNewSubView(bottomImage, preView: holdSpaceView)
         
         // Setup 7: Provider Info
         
-//        let provideView = addCustomView(bottomImage)
-//        
-//        // Setup 8: Audio
-//        let audioView = AICustomAudioNotesView.currentView()
-//        addNewSubView(audioView, preView: provideView!)
-//        audioView.delegateShowAudio = self
+        let provideView = addCustomView(bottomImage)
+        
+        // Setup 8: Audio
+        let audioView = AICustomAudioNotesView.currentView()
+        addNewSubView(audioView, preView: provideView!)
+        audioView.delegateShowAudio = self
     }
     
     func showCommentView() {
