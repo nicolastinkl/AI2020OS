@@ -89,7 +89,7 @@ class DefaultCommentManagerTest: XCTestCase {
     
     private func saveData() {
         let image = ImageInfoModel()
-        image.url = NSURL(fileURLWithPath: "12345")
+        image.localUrl = NSURL(fileURLWithPath: "12345")
         image.imageId = "9"
         image.isSuccessUploaded = true
         

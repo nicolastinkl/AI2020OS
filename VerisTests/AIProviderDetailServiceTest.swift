@@ -19,7 +19,7 @@ class AIProviderDetailServiceTest: SBOSSTestCase {
 	func testQueryProvider() {
 		let readyExpectation = expectationWithDescription("done")
 		
-		service.queryProvider("1", success: { responseData in
+		service.queryProvider(1, success: { responseData in
 			let re = responseData
 			print("queryProvider success:\(re)")
 			XCTAssert(true)

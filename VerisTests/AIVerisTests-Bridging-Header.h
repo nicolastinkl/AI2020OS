@@ -16,6 +16,13 @@
 
 // Comment
 #import "CommentModel.h"
+
 // Proposal
 #import "ProposalModel.h"
 #import "AIBuyerBubbleModel.h"
+
+// ServiceExcute
+#import "ExcuteModel.h"
+
+#import "AIProviderDetailJSONModel.h"
+#import "AISearchServiceModel.h"
