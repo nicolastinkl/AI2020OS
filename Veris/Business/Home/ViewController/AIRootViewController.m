@@ -8,6 +8,7 @@
 
 #import "AIRootViewController.h"
 #import "AISellerViewController.h"
+#import "AISellserAnimationView.h"
 #import "Veris-Swift.h"
 
 @interface AIRootViewController ()
@@ -90,10 +91,13 @@
         case 2: // 2:down
         {
             if (_currentViewController == self.downDirectionViewController) {
+
+                [AISellserAnimationView startAnimationOnSellerViewController:(AISellerViewController *)_currentViewController];
                 return;
             }
             [self transitionFromViewController:_currentViewController toViewController:self.downDirectionViewController duration:0 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:^(BOOL finished) {
                 _currentViewController = self.downDirectionViewController;
+
             }];
         }
             break;

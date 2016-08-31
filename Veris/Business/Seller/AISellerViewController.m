@@ -60,6 +60,8 @@
     [self.tableView headerBeginRefreshing];
 }
 
+
+
 - (void)viewTapped {
 #if DEBUG
     AIRequirementViewController *requirementVC = [UIStoryboard storyboardWithName:@"UIRrequirementStoryboard" bundle:nil].instantiateInitialViewController;
@@ -107,6 +109,13 @@
             [_tableHeaderList addObject:sort];
         }
 
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
         [tableModel.orderList addObject:model];
     }
 }
