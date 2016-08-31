@@ -57,7 +57,6 @@
     [self makeTableView];
     [self makeBottomBar];
     [self addRefreshActions];
-
     [self.tableView headerBeginRefreshing];
 }
 
@@ -67,8 +66,6 @@
     [self.navigationController pushViewController:requirementVC animated:YES];
 #endif
 }
-
-
 
 
 

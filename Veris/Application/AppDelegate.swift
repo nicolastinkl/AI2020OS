@@ -346,9 +346,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     func showRootViewController() {
 
         if AILocalStore.didUserLogIn() == true {
-            showLoginViewController()
-        } else {
             showMainViewController()
+
+        } else {
+            showLoginViewController()
         }
     }
 
