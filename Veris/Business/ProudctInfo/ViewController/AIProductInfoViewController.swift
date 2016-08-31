@@ -496,23 +496,28 @@ class AIProductInfoViewController: UIViewController {
                 let heightInPoints = image.size.height
                 let heightInPixels = heightInPoints * image.scale
                 imageHeight = heightInPixels
-                //let widthI nPoints = image.size.width
-                //let widthInPixels = widthInPoints * image.scale
+                
+//                let widthInPoints = image.size.width
+//                let widthInPixels = widthInPoints * image.scale
+                Async.main({
+                    bottomImage.setHeight(imageHeight)
+                    bottomImage.backgroundColor = UIColor(hexString: "#6AB92E", alpha: 0.7)
+                    bottomImage.contentMode = UIViewContentMode.ScaleAspectFill
+                    bottomImage.clipsToBounds = true
+                    self.addNewSubView(bottomImage, preView: holdSpaceView)
+                    bottomImage.setWidth(self.scrollview.width)
+                })
             }
         }
-        bottomImage.setHeight(imageHeight)
-        bottomImage.backgroundColor = UIColor(hexString: "#6AB92E", alpha: 0.7)
-        bottomImage.contentMode = UIViewContentMode.ScaleAspectFill
-        bottomImage.clipsToBounds = true
-        self.addNewSubView(bottomImage, preView: holdSpaceView)
+        
         // Setup 7: Provider Info
         
-        let provideView = addCustomView(bottomImage)
-        
-        // Setup 8: Audio
-        let audioView = AICustomAudioNotesView.currentView()
-        addNewSubView(audioView, preView: provideView!)
-        audioView.delegateShowAudio = self
+//        let provideView = addCustomView(bottomImage)
+//        
+//        // Setup 8: Audio
+//        let audioView = AICustomAudioNotesView.currentView()
+//        addNewSubView(audioView, preView: provideView!)
+//        audioView.delegateShowAudio = self
     }
     
     func showCommentView() {
