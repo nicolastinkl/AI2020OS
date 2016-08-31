@@ -247,7 +247,7 @@ class AIProductInfoViewController: UIViewController {
             
             if dataModel?.collected == false {
                 //未收藏
-                navinew.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+                navinew.setRightIcon1Action(UIImage(named: "AI_ProductInfo_Home_Favirtor")!)
             } else {
                 navinew.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
             }
@@ -333,9 +333,17 @@ class AIProductInfoViewController: UIViewController {
             tag.frame = CGRectMake(CGFloat(index) * (widthButton + 10), 14, widthButton, 80 / 3)
             tag.layer.masksToBounds = true
             tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            
+            
             if model.collected {
-                changeButtonState(tag)
+                tag.associatedName = "1"
+                tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Normal)
+                tag.borderColor = UIColor(hexString: "#0f86e8")
+            }else{
+                tag.associatedName = "0"
+                changeButtonNormalState(tag)
             }
+            
             if let arr = dataModel?.package {
                 let modelp: AIProductInfoPackageModel = arr[index]
                 tag.setTitle(modelp.name, forState: UIControlState.Normal)
@@ -380,22 +388,23 @@ class AIProductInfoViewController: UIViewController {
 		
 		let lineView1 = addSplitView()
 		
-		// 评论数据
-        if (dataModel?.commentLast) != nil {
-            // Setup 3:
-            let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
-            addNewSubView(commond, preView: lineView1)
-            commond.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
-            commond.userInteractionEnabled = true
-            commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))
-            
+		// 评论数据 
+      
+        // Setup 3:
+        let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
+        addNewSubView(commond, preView: lineView1)
+        commond.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
+        commond.userInteractionEnabled = true
+        commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))
+        
+        
+        if let _ = dataModel?.commentLast {
             var commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
-            
             commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
             addNewSubView(commentView!, preView: commond)
             commentView?.initSubviews()
             commentView?.setWidth(UIScreen.mainScreen().bounds.width)
-//            commentView?.fillDataWithModel(commentModel)
+            //            commentView?.fillDataWithModel(commentModel)
             commentView?.setHeight(commentView?.getheight() ?? 0)
             commentView?.bgView.hidden = true
             // Add Normal Answer Button
@@ -403,6 +412,7 @@ class AIProductInfoViewController: UIViewController {
         } else {
             tagsView.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
         }
+       
 		
 		let answerView = UIView()
 		addNewSubView(answerView, preView: preCacheView!)
@@ -480,13 +490,21 @@ class AIProductInfoViewController: UIViewController {
         addNewSubView(holdSpaceView, preView: pcLabel)
         holdSpaceView.setHeight(44/3)
         let bottomImage = AIImageView()
-        bottomImage.setImgURL(NSURL(string:dataModel?.desc_image ?? ""), placeholderImage: smallPlace())
-        bottomImage.setHeight(675)
+        var imageHeight: CGFloat = 0
+        bottomImage.setImageWithURL(NSURL(string:dataModel?.desc_image ?? ""), placeholderImage: smallPlace()) { (image, error, type) in
+            if image != nil {
+                let heightInPoints = image.size.height
+                let heightInPixels = heightInPoints * image.scale
+                imageHeight = heightInPixels
+                //let widthI nPoints = image.size.width
+                //let widthInPixels = widthInPoints * image.scale
+            }
+        }
+        bottomImage.setHeight(imageHeight)
         bottomImage.backgroundColor = UIColor(hexString: "#6AB92E", alpha: 0.7)
         bottomImage.contentMode = UIViewContentMode.ScaleAspectFill
         bottomImage.clipsToBounds = true
-        addNewSubView(bottomImage, preView: holdSpaceView)
-
+        self.addNewSubView(bottomImage, preView: holdSpaceView)
         // Setup 7: Provider Info
         
         let provideView = addCustomView(bottomImage)
@@ -597,8 +615,26 @@ class AIProductInfoViewController: UIViewController {
     // MARK: - Change state
     func changeButtonState(sender: AnyObject) {
         if let button = sender as? DesignableButton {
-            button.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Normal)
-            button.borderColor = UIColor(hexString: "#0f86e8")
+            if let tagCon = button.associatedName?.toInt() {
+                if tagCon == 1 {
+                    button.associatedName = "0"
+                    changeButtonNormalState(button)
+                }else{
+                    button.associatedName = "1"
+                    button.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Normal)
+                    button.borderColor = UIColor(hexString: "#0f86e8")
+                    
+                }
+                
+            }
+            
+        }
+    }
+    
+    func changeButtonNormalState(sender: AnyObject) {
+        if let button = sender as? DesignableButton {
+            button.setBackgroundImage(nil, forState: UIControlState.Normal)
+            button.borderColor = UIColor.whiteColor()
         }
     }
     
