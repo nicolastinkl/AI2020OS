@@ -115,18 +115,23 @@ class AICommentInfoView: UIView {
         return commentImages.top + constant + 10
     }
     
-    func fillDataWithModel(model: AIProductComment) {
+    func fillDataWithModel(model: AICommentInfoModel) {
         
         commentImages.subviews.forEach { (imageview) in
             imageview.hidden = true
         }
-        let photos: [[String: String]] = model.photos as? [[String: String]] ?? []
+        let photos: [String] = model.images ?? [] //model.photos as? [[String: String]] ?? []
         
         let imageViewWidth: CGFloat = 70
         var index = 0
         for photo in photos {
-            if let imageview = commentImages.subviews[index] as? AIImageView, url = photo["url"] {
+            /*if let imageview = commentImages.subviews[index] as? AIImageView, url = photo["url"] {
                 imageview.setURL(NSURL(string: url), placeholderImage: smallPlace(), showProgress: true)
+                imageview.hidden = false
+            }*/
+            
+            if let imageview = commentImages.subviews[index] as? AIImageView {
+                imageview.setURL(NSURL(string: photo), placeholderImage: smallPlace(), showProgress: true)
                 imageview.hidden = false
             }
             index += 1
@@ -147,18 +152,18 @@ class AICommentInfoView: UIView {
         //评论图片
         commentDate.font = AITools.myriadCondWithSize(13)
         commentDate.text = "\(model.time ?? 0)"
-        commentName.text = model.customer.name ?? ""
-        commentContent.text = model.comment ?? ""
+        commentName.text = model.providename ?? ""
+        commentContent.text = model.descripation ?? ""
         
         if let label = commentlike.viewWithTag(2) as? UILabel {
-            label.text = "\(model.supportingCount)"
+            label.text = "\(model.like)"
         }
         if let label = commentlike.viewWithTag(4) as? UILabel {
-            label.text = "\(model.replyingCount)"
+            label.text = "\(model.commentcount)"
         }
         
         if let star = commentControls.viewWithTag(1) as? StarRateView {
-            star.scorePercent = CGFloat((model.rating_level as NSString).floatValue) / 10
+            star.scorePercent = CGFloat(model.level) / 10
         }
 
     }

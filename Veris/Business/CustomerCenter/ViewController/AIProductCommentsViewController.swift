@@ -14,16 +14,20 @@ class AIProductCommentsViewController: UIViewController {
 	var comments: [AIProductComment] = []
 	var tableView: UITableView!
 	var filterBar: AIFilterBar!
+	var commentsNumbers = [
+		"0",
+		"0",
+		"0",
+		"0",
+		"0",
+	]
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		edgesForExtendedLayout = .None
 		view.backgroundColor = UIColor.clearColor()
 		setupNavigtionItems()
-		setupFilterBar()
-		setupTableView()
 		fetchNumbers()
-		fetchComments()
 	}
 	
 	func setupNavigtionItems() {
@@ -32,7 +36,10 @@ class AIProductCommentsViewController: UIViewController {
 	
 	func fetchNumbers() {
 		AIProductAllCommentsService().queryRatingStatistics(service_id, success: { [weak self](res) in
-			self?.filterBar.titles = res
+			self?.commentsNumbers = res
+			self?.setupFilterBar()
+			self?.setupTableView()
+			self?.fetchComments()
 		}) { (errType, errDes) in
 		}
 	}
@@ -55,15 +62,7 @@ class AIProductCommentsViewController: UIViewController {
 			"晒图"
 		]
 		
-		let subtitles = [
-			"23455",
-			"14585",
-			"0",
-			"85",
-			"21885",
-		]
-		
-		filterBar = AIFilterBar(titles: titles, subtitles: subtitles)
+		filterBar = AIFilterBar(titles: titles, subtitles: commentsNumbers)
 		filterBar.selectedIndex = 0
 		filterBar.delegate = self
 		view.addSubview(filterBar)
@@ -130,8 +129,16 @@ protocol AIFilterBarDelegate: NSObjectProtocol {
 }
 
 class AIFilterBar: UIView {
-	var titles: [String]
-	var subtitles: [String]
+	var titles: [String] {
+		didSet {
+			updateUI()
+		}
+	}
+	var subtitles: [String] {
+		didSet {
+			updateUI()
+		}
+	}
 	private var buttons: [FilterBarButton] = []
 	weak var delegate: AIFilterBarDelegate?
 	var selectedIndex = 0 {
@@ -171,8 +178,8 @@ class AIFilterBar: UIView {
 		}
 		
 		var previousButton: FilterBarButton!
-		
-		for (i, button) in buttons.enumerate() {
+        
+        for (i, button) in buttons.enumerate() {
 			button.snp_makeConstraints(closure: { (make) in
 				if i == 0 {
 					make.leading.top.bottom.equalTo(self)
@@ -272,7 +279,6 @@ class AIProductCommentCell: UITableViewCell {
 	
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
-		// setup()
 		
 		selectionStyle = .None
 		backgroundColor = UIColor.clearColor()
@@ -324,6 +330,6 @@ class AIProductCommentCell: UITableViewCell {
 	}
 	
 	func setup(model: AIProductComment) {
-		commentInfoView.fillDataWithModel(model)
+		//commentInfoView.fillDataWithModel(model)
 	}
 }

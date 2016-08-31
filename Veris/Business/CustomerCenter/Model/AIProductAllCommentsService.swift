@@ -15,7 +15,7 @@ class AIProductAllCommentsService: NSObject {
      - date: 16-08-31 09:08:09
      
      - parameter service_id:  service_id description
-     - parameter filter_type: filter_type description
+     - parameter filter_type: 1: 全部, 2: 好评,3:中评,4:,差评5:带图
      - parameter page_size:   page_size description
      - parameter page_number: page_number description
      - parameter success:     success description
@@ -67,13 +67,22 @@ class AIProductAllCommentsService: NSObject {
 		
 		message.body = NSMutableDictionary(dictionary: body)
 		AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-			if let responseDic = response as? [NSObject: AnyObject] {
-				if let commentGrade = responseDic["commentGrade"] as? [String], bluePrint = responseDic["bluePrint"] as? String {
-					var result = [String]()
-					result.appendContentsOf(commentGrade)
-					result.append(bluePrint)
-					success(result)
+			
+			if let responseDic = response as? [NSObject: Int] {
+				var result = [Int]()
+				let keys = [
+					"count",
+					"good",
+					"middle",
+					"low",
+					"blueprint"
+				]
+				
+				for i in 0...keys.count - 1 {
+					result.append(responseDic[keys[i]]!)
 				}
+				
+				success(result.map { $0.toString() })
 			} else {
 			}
 		}) { (error: AINetError, errorDes: String!) -> Void in

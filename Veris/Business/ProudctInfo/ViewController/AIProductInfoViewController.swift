@@ -33,9 +33,9 @@ import SnapKit
 class AIProductInfoViewController: UIViewController {
 	
     // MARK: - Propites
-	private let defaultTableViewHeaderMargin: CGFloat = 413.0
+	private let defaultTableViewHeaderMargin: CGFloat = 184//413.0
     
-	private let imageScalingFactor: CGFloat = 413.0
+	private let imageScalingFactor: CGFloat = 184//413.0
 	
 	@IBOutlet weak var scrollview: UIScrollView!
 	
@@ -240,7 +240,21 @@ class AIProductInfoViewController: UIViewController {
         UMSocialSnsService.presentSnsIconSheetView(self, appKey: AIApplication.UMengAppID, shareText: "ZhuangBi With Me & Fly With Me", shareImage: nil, shareToSnsNames: [UMShareToWechatSession, UMShareToWechatTimeline, UMShareToSina, UMShareToQQ, UMShareToQzone], delegate: self)
     }
 
-   // MARK: - Init ScrollData
+    private lazy var galleryView: AIGalleryView = {
+        let gView = AIGalleryView(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 184))
+        return gView
+    }()
+    
+    private func addGalleryView() {
+        // Add gallery View        
+        scrollview.addSubview(galleryView)
+        scrollViewSubviews.append(galleryView)
+        let imageArray = dataModel?.intro_urls ?? [String]()
+        galleryView.imageModelArray = imageArray
+        galleryView.setTop(5)
+    }
+    
+    // MARK: - Init ScrollData
 	func initScrollViewData() {
         //处理是否收藏
         if let navinew = navi as? AINavigationBar {
@@ -288,14 +302,19 @@ class AIProductInfoViewController: UIViewController {
 		}
 		
 		// Setup 1 : Top UIImageView.
-		topImage.setImgURL(NSURL(string: dataModel?.image ?? ""), placeholderImage: smallPlace())
-		topImage.setHeight(imageScalingFactor)
-		topImage.contentMode = UIViewContentMode.ScaleAspectFill
-		addNewSubView(topImage, preView: UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
+//		topImage.setImgURL(NSURL(string: dataModel?.image ?? ""), placeholderImage: smallPlace())
+//		topImage.setHeight(imageScalingFactor)
+//		topImage.contentMode = UIViewContentMode.ScaleAspectFill
+//		addNewSubView(topImage, preView: UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
+        
+        addNewSubView(galleryView, preView: UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
+        let imageArray = dataModel?.intro_urls ?? ["http://tse3.mm.bing.net/th?id=OIP.Ma65ba536a2e6bb096726be3701507c3co0&w=104&h=149&c=7&rs=1&qlt=90&o=4&pid=1.1","http://tse4.mm.bing.net/th?id=OIP.Mc525a3687ccd072a8d84057cb6922e4fo0&w=210&h=131&c=7&rs=1&qlt=90&o=4&pid=1.1"]
+        galleryView.imageModelArray = imageArray
+        galleryView.setTop(0)
 		
 		// Setup 2: title Info View.
 		let titleLabel = getTitleLabelView(dataModel?.name ?? "", desctiption: "", showRight: false)
-		addNewSubView(titleLabel, preView: topImage)
+		addNewSubView(titleLabel, preView: galleryView)
 		titleLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
 		
 		let desLabel = AILabel()
@@ -398,13 +417,13 @@ class AIProductInfoViewController: UIViewController {
         commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))
         
         
-        if let _ = dataModel?.commentLast {
+        if let commentModel = dataModel?.commentLast {
             var commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
             commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
             addNewSubView(commentView!, preView: commond)
             commentView?.initSubviews()
             commentView?.setWidth(UIScreen.mainScreen().bounds.width)
-            //            commentView?.fillDataWithModel(commentModel)
+            commentView?.fillDataWithModel(commentModel)
             commentView?.setHeight(commentView?.getheight() ?? 0)
             commentView?.bgView.hidden = true
             // Add Normal Answer Button
