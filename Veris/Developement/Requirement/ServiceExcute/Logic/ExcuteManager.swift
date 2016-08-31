@@ -8,6 +8,17 @@
 
 import Foundation
 
+enum NodeResultType: String {
+    case text = "Text"
+    case voice = "Voice"
+    case picture = "Picture"
+}
+
+enum ResultCode: Int {
+    case fail = 0
+    case success = 1
+}
+
 protocol ExcuteManager {
     func submitServiceNodeResult(nodeId: Int, resultList: [NodeResultContent], success: (responseData: RequestCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }

@@ -25,9 +25,6 @@ class ExcuteManagerTest: XCTestCase {
     func testSubmitServiceNodeResult() {
         let readyExpectation = expectationWithDescription("done")
         
-        let serviceNode = ServiceNodeResult()
-        serviceNode.procedure_inst_id = 602
-        
         let node = NodeResultContent()
         node.note_type = "Text"
         node.note_content = "Test"
