@@ -405,6 +405,8 @@ struct AIApplication {
         case getRecommendedServices
         // 2.11.5 查询某个服务所有的评论列表
         case queryAllComments
+        // 3.8.5 查询评论统计信息
+        case queryRatingStatistics
         
         // 图像识别
         case uploadAndIdentify
@@ -488,6 +490,8 @@ struct AIApplication {
             case .filterServices: return AIApplication.KURL_ReleaseURL + "/search/filterServices"
             case .getRecommendedServices: return AIApplication.KURL_ReleaseURL + "/search/getRecommendedServices"
             case .queryAllComments: return AIApplication.KURL_ReleaseURL + "/comments/queryAllComments"
+            case .queryRatingStatistics: return AIApplication.KURL_ReleaseURL + "/comments/queryRatingStatistics"
+                
             case .uploadAndIdentify: return "http://171.221.254.231:3001/uploadAndIdentify"
 
             case .makewish: return AIApplication.KURL_ReleaseURL + "/wish/submitWish"
