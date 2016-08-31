@@ -474,13 +474,17 @@
     if ([model.service.service_type  isEqualToString:@"0"]) { // 单一服务
         [self showSingalServiceStatusViewControllerWithStatus:model.service.service_status];
     }else if ([model.service.service_type  isEqualToString:@"1"]){ // 复合服务
-        AIRequirementViewController *requirementVC = [UIStoryboard storyboardWithName:@"UIRrequirementStoryboard" bundle:nil].instantiateInitialViewController;
-        requirementVC.orderPreModel = model;
-
-        [self.navigationController pushViewController:requirementVC animated:YES];
+        [self showRequirementViewControllerWithModel:model];
     }
 
 }
+
+- (void)showRequirementViewControllerWithModel:(AIOrderPreModel *)model {
+    AIRequirementViewController *requirementVC = [UIStoryboard storyboardWithName:@"UIRrequirementStoryboard" bundle:nil].instantiateInitialViewController;
+    requirementVC.orderPreModel = model;
+    [self.navigationController pushViewController:requirementVC animated:YES];
+}
+
 
 - (void)showSingalServiceStatusViewControllerWithStatus:(NSString *)status {
     NSInteger statusInt = status.integerValue;
