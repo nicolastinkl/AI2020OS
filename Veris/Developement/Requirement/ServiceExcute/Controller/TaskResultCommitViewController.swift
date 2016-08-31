@@ -16,13 +16,28 @@ class TaskResultCommitViewController: UIViewController {
     @IBOutlet weak var cameraIcon: UIImageView!
     @IBOutlet weak var questButton: UIButton!
     @IBOutlet weak var soundPlayButton: SoundPlayButton!
+    @IBOutlet weak var hint: UILabel!
     
     @IBOutlet weak var line1: UIView!
     @IBOutlet weak var line2: UIView!
     @IBOutlet weak var line3: UIView!
     
+    @IBOutlet weak var note: UILabel!
+    
+    @IBOutlet weak var photoHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var photoWidthConstraint: NSLayoutConstraint!
+    
+    var nodeId: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNavigationBar()
+        
+        hint.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+        note.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+        
+        note.roundCorner(2)
 
         questButton.layer.cornerRadius = questButton.height / 2
         setBottomButtonEnabel(false)
@@ -35,8 +50,11 @@ class TaskResultCommitViewController: UIViewController {
         
         let textAndAudioSelector =
             #selector(TaskResultCommitViewController.showTextAndAudioEditor(_:))
-        let textAndAudioTap = UITapGestureRecognizer(target: self, action: textAndAudioSelector)
+        var textAndAudioTap = UITapGestureRecognizer(target: self, action: textAndAudioSelector)
         writeIcon.addGestureRecognizer(textAndAudioTap)
+        
+        textAndAudioTap = UITapGestureRecognizer(target: self, action: textAndAudioSelector)
+        note.addGestureRecognizer(textAndAudioTap)
         
         let longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(TaskResultCommitViewController.soundLongPressAction(_:)))
         longPressGes.minimumPressDuration = 0.3
@@ -62,16 +80,25 @@ class TaskResultCommitViewController: UIViewController {
     }
     
     @IBAction func questButtonClicked(sender: AnyObject) {
-
+        submitResult()
     }
     
     func cameraAction(sender: UIGestureRecognizer) {
-        startImagePickController()
+        openAlbum()
     }
     
     func showTextAndAudioEditor(sender: UIGestureRecognizer) {
-        let vc = UINavigationController(rootViewController: TextAndAudioInputViewController.initFromNib())
-        presentViewController(vc, animated: true, completion: nil)
+        let vc = TextAndAudioInputViewController.initFromNib()
+        vc.delegate = self
+        
+        if !note.hidden {
+            if let t = note.text {
+                vc.text = t
+            }
+        }
+        
+        let nc = UINavigationController(rootViewController: vc)
+        presentViewController(nc, animated: true, completion: nil)
     }
     
     func soundLongPressAction(longPressRecognizer: UILongPressGestureRecognizer) {
@@ -108,33 +135,56 @@ class TaskResultCommitViewController: UIViewController {
         menuController.menuFrame
     }
     
-    private func startImagePickController() {
+    private func setupNavigationBar() {
         
-        let alert = UIAlertController(title: nil, message: "选择图片来源", preferredStyle: .ActionSheet)
-        
-        let actionCamera = UIAlertAction(title: "相机", style: .Default) { (UIAlertAction) in
-            BuildInCameraUtils.startCameraControllerFromViewController(self, delegate: self)
-        }
-        
-        let actionPhotosAlbum = UIAlertAction(title: "相册", style: .Default) { (UIAlertAction) in
-            BuildInCameraUtils.startMediaBrowserFromViewController(self, delegate: self)
-        }
-        
-        let actionCancel = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
-        
-        alert.addAction(actionCamera)
-        alert.addAction(actionPhotosAlbum)
-        alert.addAction(actionCancel)
-        
-        presentViewController(alert, animated: true, completion: nil)
+        let backButton = UIButton()
+        backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
+        backButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
 
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.leftBarButtonItems = [backButton]
+
+        appearance.itemPositionForIndexAtPosition = { index, position in
+            if position == .Left {
+                return (47.displaySizeFrom1242DesignSize(), 55.displaySizeFrom1242DesignSize())
+            } else {
+                return (47.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
+            }
+        }
+        appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor(hexString: "#0f0c2c"), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
+        appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "TaskResultCommitViewController.title".localized)
+        setNavigationBarAppearance(navigationBarAppearance: appearance)
     }
+    
+//    private func startImagePickController() {
+//        
+//        let alert = UIAlertController(title: nil, message: "选择图片来源", preferredStyle: .ActionSheet)
+//        
+//        let actionCamera = UIAlertAction(title: "相机", style: .Default) { (UIAlertAction) in
+//            BuildInCameraUtils.startCameraControllerFromViewController(self, delegate: self)
+//        }
+//        
+//        let actionPhotosAlbum = UIAlertAction(title: "相册", style: .Default) { (UIAlertAction) in
+//            BuildInCameraUtils.startMediaBrowserFromViewController(self, delegate: self)
+//        }
+//        
+//        let actionCancel = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+//        
+//        alert.addAction(actionCamera)
+//        alert.addAction(actionPhotosAlbum)
+//        alert.addAction(actionCancel)
+//        
+//        presentViewController(alert, animated: true, completion: nil)
+//
+//    }
     
     private func setBottomButtonEnabel(enable: Bool) {
         let color = enable ? UIColor(hex: "0F86E8") : UIColor(hexString: "#393879", alpha: 0.6)
         let textColor = enable ? UIColor.whiteColor() : UIColor(hexString: "#1a1a58")
         questButton.backgroundColor = color
         questButton.setTitleColor(textColor, forState: .Normal)
+        questButton.enabled = enable
         
     }
     
@@ -142,12 +192,21 @@ class TaskResultCommitViewController: UIViewController {
         let manager = BDKExcuteManager()
         
         let node = NodeResultContent()
-        node.note_type = NodeResultType.text.rawValue
-        node.note_content = "Test"
+        
+        if !note.hidden {
+            if let t = note.text {
+                node.note_type = NodeResultType.text.rawValue
+                node.note_content = t
+            }
+        } 
         
         view.showLoading()
         
-        manager.submitServiceNodeResult(601, resultList: [node], success: { (responseData) in
+        if nodeId == nil {
+            nodeId = 602
+        }
+        
+        manager.submitServiceNodeResult(nodeId!, resultList: [node], success: { (responseData) in
             
             self.view.dismissLoading()
             
@@ -163,6 +222,78 @@ class TaskResultCommitViewController: UIViewController {
                 
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
         }
+    }
+    
+    private func openAlbum() {
+        let vc = AIAssetsPickerController.initFromNib()
+        vc.delegate = self
+        vc.maximumNumberOfSelection = 1
+        
+        let navi = UINavigationController(rootViewController: vc)
+        navi.navigationBarHidden = true
+        self.presentViewController(navi, animated: true, completion: nil)
+    }
+    
+    private func changeQuestButtonState() {
+        if !note.hidden {
+            if let _ = note.text {
+                setBottomButtonEnabel(true)
+            }
+        }
+    }
+}
+
+extension TaskResultCommitViewController: AIAssetsPickerControllerDelegate {
+    /**
+     完成选择
+     
+     1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
+     2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
+        //   UIImageWriteToSavedPhotosAlbum(UIImage, AnyObject?, Selector, UnsafeMutablePointer<Void>)
+        
+        var photos = [ImageInfo]()
+        
+        for asset in assets {
+            if let item = asset as? ALAsset {
+                let image = UIImage(CGImage: item.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+                let url = item.defaultRepresentation().url()
+                
+                photos.append(ImageInfo(image: image, url: url))
+                
+                // for test condition of url is nil
+                //     photos.append(ImageInfo(image: UIImage(named: "limit01-on")!, url: nil))
+            }
+        }
+        
+        if photos.count > 0 {
+            if !self.view.constraints.contains(photoHeightConstraint) {
+                self.view.addConstraints([photoHeightConstraint, photoWidthConstraint])
+            }
+
+            cameraIcon.image = photos[0].image
+        }
+    }
+    
+    /**
+     取消选择
+     */
+    func assetsPickerControllerDidCancel() {
+        
+    }
+    
+    /**
+     选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    /**
+     取消选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        
     }
 }
 
@@ -197,72 +328,22 @@ extension TaskResultCommitViewController: UIImagePickerControllerDelegate {
         }
         
         picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+extension TaskResultCommitViewController: TextAndAudioInputDelegate {
+    func textInput(text: String) {
+        writeIcon.hidden = true
         
-        /*
-         // Get the image metadata
-         UIImagePickerControllerSourceType pickerType = picker.sourceType;
-         if(pickerType == UIImagePickerControllerSourceTypeCamera)
-         {
-         NSDictionary *imageMetadata = [info objectForKey:
-         UIImagePickerControllerMediaMetadata];
-         // Get the assets library
-         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-         ALAssetsLibraryWriteImageCompletionBlock imageWriteCompletionBlock =
-         ^(NSURL *newURL, NSError *error) {
-         if (error) {
-         NSLog( @"Error writing image with metadata to Photo Library: %@", error );
-         } else {
-         NSLog( @"Wrote image with metadata to Photo Library");
-         }
-         };
-         
-         // Save the new image (original or edited) to the Camera Roll
-         [library writeImageToSavedPhotosAlbum:[imageToSave CGImage]
-         metadata:imageMetadata
-         completionBlock:imageWriteCompletionBlock];
-         }
-        */
+        note.hidden = false
+        note.text = text
         
-        
-        /*
-         NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
-         UIImage *originalImage, *editedImage, *imageToSave;
-         
-         // Handle a still image capture
-         if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
-         == kCFCompareEqualTo) {
-         
-         editedImage = (UIImage *) [info objectForKey:
-         UIImagePickerControllerEditedImage];
-         originalImage = (UIImage *) [info objectForKey:
-         UIImagePickerControllerOriginalImage];
-         
-         if (editedImage) {
-         imageToSave = editedImage;
-         } else {
-         imageToSave = originalImage;
-         }
-         
-         // Save the new image (original or edited) to the Camera Roll
-         UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
-         }
-         
-         // Handle a movie capture
-         if (CFStringCompare ((CFStringRef) mediaType, kUTTypeMovie, 0)
-         == kCFCompareEqualTo) {
-         
-         NSString *moviePath = [[info objectForKey:
-         UIImagePickerControllerMediaURL] path];
-         
-         if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum (moviePath)) {
-         UISaveVideoAtPathToSavedPhotosAlbum (
-         moviePath, nil, nil, nil);
-         }
-         }
-        */
+        changeQuestButtonState()
     }
 }
 
 extension TaskResultCommitViewController: UINavigationControllerDelegate {
     
 }
+
+

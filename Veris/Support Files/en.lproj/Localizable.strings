@@ -214,6 +214,8 @@
 
 "TaskExecute.turnInQuest" = "Turn In Quest";
 "Note.inputHint" = "Please leave a note here.";
+"TaskResultCommitViewController.title" = "Services Details";
 "AudioRecoderViewController.error" = "An error occurred while recording";
 "AudioRecoderViewController.recordForbiden" = "audio recording is forbiden";
 "AudioRecoderViewController.pressHint" = "Press and hold to record a voice note";
+"TaskResultCommitViewController.hint" = "Upload a photo and leave a note below to indicate the completion of your tasks";
