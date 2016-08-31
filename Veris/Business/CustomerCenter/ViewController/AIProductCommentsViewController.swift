@@ -30,11 +30,13 @@ class AIProductCommentsViewController: UIViewController {
 		setupNavigationBarLikeQA(title: "Comments")
 	}
 	
-    func fetchNumbers() {
-        
-    }
-    
-    
+	func fetchNumbers() {
+		AIProductAllCommentsService().queryRatingStatistics(service_id, success: { [weak self](res) in
+			self?.filterBar.titles = res
+		}) { (errType, errDes) in
+		}
+	}
+	
 	func fetchComments() {
 		let service = AIProductAllCommentsService()
 		service.queryAllComments(service_id, filter_type: filterBar.selectedIndex + 1, page_size: 20, page_number: 1, success: { [weak self](res) in
@@ -63,7 +65,7 @@ class AIProductCommentsViewController: UIViewController {
 		
 		filterBar = AIFilterBar(titles: titles, subtitles: subtitles)
 		filterBar.selectedIndex = 0
-        filterBar.delegate = self
+		filterBar.delegate = self
 		view.addSubview(filterBar)
 		filterBar.snp_makeConstraints { (make) in
 			make.top.leading.trailing.equalTo(view)
@@ -118,9 +120,9 @@ extension AIProductCommentsViewController: UITableViewDelegate {
 }
 
 extension AIProductCommentsViewController: AIFilterBarDelegate {
-    func filterBar(filterBar: AIFilterBar, didSelectIndex: Int) {
-        fetchComments()
-    }
+	func filterBar(filterBar: AIFilterBar, didSelectIndex: Int) {
+		fetchComments()
+	}
 }
 
 protocol AIFilterBarDelegate: NSObjectProtocol {
