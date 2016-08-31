@@ -633,6 +633,7 @@
 		8484D8531D6E841D001F1A54 /* AudioRecoderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8484D8511D6E841D001F1A54 /* AudioRecoderViewController.xib */; };
 		8484D8551D6FD177001F1A54 /* SoundPlayButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8484D8541D6FD177001F1A54 /* SoundPlayButton.xib */; };
 		8484D8571D6FD70E001F1A54 /* SoundPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8561D6FD70E001F1A54 /* SoundPlayButton.swift */; };
+		8484D85A1D703514001F1A54 /* MenuPopOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8591D703514001F1A54 /* MenuPopOverView.swift */; };
 		84970C211D654E0D006612B2 /* AIProviderDetailServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */; };
 		8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
@@ -1659,6 +1660,7 @@
 		8484D8511D6E841D001F1A54 /* AudioRecoderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioRecoderViewController.xib; sourceTree = "<group>"; };
 		8484D8541D6FD177001F1A54 /* SoundPlayButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoundPlayButton.xib; sourceTree = "<group>"; };
 		8484D8561D6FD70E001F1A54 /* SoundPlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayButton.swift; sourceTree = "<group>"; };
+		8484D8591D703514001F1A54 /* MenuPopOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuPopOverView.swift; sourceTree = "<group>"; };
 		8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
@@ -3442,6 +3444,7 @@
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				8484D8581D7034D6001F1A54 /* MenuPopOverView */,
 				8484D8371D6C2CF3001F1A54 /* NBMaterialDialog */,
 				FB2E41EA1D461821001DDB5D /* MBFingerTipWindow */,
 				1234F9A41D351C530009FB4F /* BaiduMap */,
@@ -3953,6 +3956,14 @@
 				8484D8561D6FD70E001F1A54 /* SoundPlayButton.swift */,
 			);
 			path = Audio;
+			sourceTree = "<group>";
+		};
+		8484D8581D7034D6001F1A54 /* MenuPopOverView */ = {
+			isa = PBXGroup;
+			children = (
+				8484D8591D703514001F1A54 /* MenuPopOverView.swift */,
+			);
+			path = MenuPopOverView;
 			sourceTree = "<group>";
 		};
 		930455121D124E71007AFC0C /* XunfeiLib */ = {
@@ -5077,6 +5088,7 @@
 				84512D4F1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift in Sources */,
 				81433E161CFBE5A700347C29 /* PriceAndStepperView.swift in Sources */,
 				81433E471CFBE5A700347C29 /* UIImage+Resize.m in Sources */,
+				8484D85A1D703514001F1A54 /* MenuPopOverView.swift in Sources */,
 				8175A7C61CFD2710006F2C8F /* AFHTTPRequestOperation.m in Sources */,
 				81433DAB1CFBE5A700347C29 /* AITimePickerView.swift in Sources */,
 				81433E0C1CFBE5A700347C29 /* JumpNumberLabel.swift in Sources */,

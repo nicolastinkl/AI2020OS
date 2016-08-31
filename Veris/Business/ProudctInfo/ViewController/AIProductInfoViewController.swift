@@ -388,7 +388,7 @@ class AIProductInfoViewController: UIViewController {
 		
 		let lineView1 = addSplitView()
 		
-		// 评论数据
+		// 评论数据 
       
         // Setup 3:
         let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")

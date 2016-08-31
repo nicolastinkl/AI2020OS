@@ -66,8 +66,6 @@ class AIProposalTableViewController: UIViewController {
         if AILoginUtil.isLogin() {
             self.tableView.headerBeginRefreshing()
         }
-    
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFOLoginNotification, object: nil)
     }
     
     func refreshAfterNewOrder() {
@@ -269,8 +267,8 @@ extension AIProposalTableViewController: SubServiceCardViewDelegate, AIFoldedCel
     func statusButtonDidClick(proposalModel: ProposalOrderModel) {
         
         
-        let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController)
-        
+        let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController) as! AICustomerServiceExecuteViewController
+        serviceExecVC.g_orderId = proposalModel.id
         //弹出前先收起订单列表
         let parentVC = parentViewController as! AIBuyerViewController
         parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)

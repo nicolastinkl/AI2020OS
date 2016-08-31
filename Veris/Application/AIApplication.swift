@@ -230,6 +230,14 @@ struct AIApplication {
         
         //许愿详情提交成功后给主界面数据刷新
         static let WishVowViewControllerNOTIFY = "WishVowViewControllerNOTIFY"
+
+
+
+        // 登录通知
+
+        static let UserLoginTimeOutNotification = "UserLoginTimeOutNotification"
+
+        static let UserLoginOutNotification = "UserLoginOutNotification"
         
     }
 
