@@ -33,9 +33,9 @@ class AIConfirmOrderViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
 
     @IBOutlet weak var confirmButton: UIButton!
-
+    
     @IBOutlet weak var tableView: UITableView!
-
+    
     @IBOutlet weak var priceLabel: UILabel!
 
     var heightDic: [String:CGFloat] = Dictionary<String, CGFloat>()
@@ -76,13 +76,11 @@ class AIConfirmOrderViewController: UIViewController {
             //Reqest Networking.
             reqestData()
         }
-        
     }
     
     func reqestData() {
         view.showLoading()
         BDKProposalService().queryCustomerProposalDetail(dataSource?.proposal_id ?? 0, success: { [weak self](responseData) in
-            
             if let strongSelf = self {
                 strongSelf.dataSource = responseData
                 strongSelf.tableView.reloadData()
