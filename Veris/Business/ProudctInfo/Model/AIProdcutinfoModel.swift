@@ -18,6 +18,7 @@ class AIProdcutinfoModel: JSONJoy {
     var proposal_inst_id: Int?
     var price: AIPricePublicModel?
     var collected: Bool = false
+    var intro_urls: [String]?
     
     var package: [AIProductInfoPackageModel]?
     
@@ -53,6 +54,8 @@ class AIProdcutinfoModel: JSONJoy {
             if let json  = bdecoder["price"] {
                 price = AIPricePublicModel(json)
             }
+            
+            bdecoder["intro_urls"]?.getArray(&intro_urls)
         }
         
         
@@ -68,6 +71,9 @@ class AIProdcutinfoModel: JSONJoy {
                 recommendation?.append(pro)
             }
         }
+        
+        //comment
+        commentLast = AICommentInfoModel(decoder["judgement"])
         
         //provider
         provider = AIPublicProviderModel(decoder["provider"])
