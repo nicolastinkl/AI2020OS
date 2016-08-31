@@ -50,7 +50,7 @@ class AIProductInfoViewController: UIViewController {
     private var currentAudioView: AIAudioInputView?
     
     var curTextField: UITextField?
-    
+    private var singleButton: DesignableButton?
     var curAudioView: AIAudioMessageView?
     // 缓存输入信息
     private var inputMessageCache: String = ""
@@ -355,6 +355,7 @@ class AIProductInfoViewController: UIViewController {
             
             
             if model.collected {
+                singleButton = tag
                 tag.associatedName = "1"
                 tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Normal)
                 tag.borderColor = UIColor(hexString: "#0f86e8")
@@ -639,6 +640,16 @@ class AIProductInfoViewController: UIViewController {
     // MARK: - Change state
     func changeButtonState(sender: AnyObject) {
         if let button = sender as? DesignableButton {
+            if singleButton! == button {
+                //点击相同的按钮
+                // GO
+            }else{
+                //点击不同的按钮
+                // return
+                changeButtonNormalState(singleButton!)
+                singleButton = button
+            }
+            
             if let tagCon = button.associatedName?.toInt() {
                 if tagCon == 1 {
                     button.associatedName = "0"

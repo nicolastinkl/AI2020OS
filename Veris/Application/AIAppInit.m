@@ -66,7 +66,6 @@
     
     if (_iFlySpeechRecognizer != nil) {
         IATConfig *instance = [IATConfig sharedInstance];
-        
         //设置最长录音时间
         [_iFlySpeechRecognizer setParameter:instance.speechTimeout forKey:[IFlySpeechConstant SPEECH_TIMEOUT]];
         //设置后端点
