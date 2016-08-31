@@ -58,9 +58,7 @@
     [self makeBottomBar];
     [self addRefreshActions];
     [self setupLanguageNotification];
-
-    //Chaged UserID.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataAfterUserChanged) name:kShouldUpdataUserDataNotification object:nil];
+    [self.tableView headerBeginRefreshing];
 }
 
 - (void)viewTapped {
@@ -70,34 +68,7 @@
 #endif
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self preProcess];
-    [AISellserAnimationView startAnimationOnSellerViewController:self];
-}
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)handleUserChangeEvent {
-    [_tableDictionary removeAllObjects];
-    [_tableHeaderList removeAllObjects];
-    self.sellerInfoList = nil;
-    [self.tableView reloadData];
-
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    appDelegate.sellerData = nil;
-
-    [self.tableView headerBeginRefreshing];
-}
-
-- (void)reloadDataAfterUserChanged {
-    __weak typeof(self) ws = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [ws handleUserChangeEvent];
-    });
-}
 
 - (void)setupLanguageNotification {
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupUIWithCurrentLanguage) name:@"LCLLanguageChangeNotification" object:nil];
@@ -107,23 +78,6 @@
     //TODO: reload data with current language
 }
 
-- (void)preProcess {
-    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-
-    if (delegate.sellerData) {
-        self.listModel = [[AIOrderPreListModel alloc] initWithDictionary:delegate.sellerData error:nil];
-
-        if (self.listModel != nil && self.listModel.order_list.count > 0) {
-            [self.tableView reloadData];
-            [self.tableView headerEndRefreshing];
-            [AISellserAnimationView startAnimationOnSellerViewController:self];
-        } else {
-            [self.tableView headerBeginRefreshing];
-        }
-    } else {
-        [self.tableView headerBeginRefreshing];
-    }
-}
 
 - (AIMessage *)getServiceListWithUserID:(NSInteger)userID role:(NSInteger)role {
     AIMessage *message = [AIMessage message];
@@ -517,7 +471,7 @@
     AIProposalServiceModel *serviceModel = [[AIProposalServiceModel alloc] init];
     serviceModel.service_id = model.service.service_id;
 
-    model.service_type = @"1";
+    model.service_type = @"0";
     if ([model.service_type  isEqualToString:@"0"]) { // 单一服务
         [self showSingalServiceStatusViewControllerWithStatus:model.service_status];
     }else if ([model.service_type  isEqualToString:@"1"]){ // 复合服务
