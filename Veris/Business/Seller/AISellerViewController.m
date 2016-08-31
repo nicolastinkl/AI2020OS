@@ -57,7 +57,7 @@
     [self makeTableView];
     [self makeBottomBar];
     [self addRefreshActions];
-    [self setupLanguageNotification];
+
     [self.tableView headerBeginRefreshing];
 }
 
@@ -70,13 +70,6 @@
 
 
 
-- (void)setupLanguageNotification {
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupUIWithCurrentLanguage) name:@"LCLLanguageChangeNotification" object:nil];
-}
-
-- (void)setupUIWithCurrentLanguage {
-    //TODO: reload data with current language
-}
 
 
 - (AIMessage *)getServiceListWithUserID:(NSInteger)userID role:(NSInteger)role {
