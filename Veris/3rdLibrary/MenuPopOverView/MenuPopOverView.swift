@@ -134,7 +134,7 @@ class MenuPopOverView: UIView {
         
         //Check to see if the centered xOrigin value puts the box outside of the normal range.
         if xOrigin < topViewBounds.minX + popOverViewPadding {
-            xOrigin = topViewBounds.minX + popOverViewPadding;
+            xOrigin = topViewBounds.minX + popOverViewPadding
         } else if xOrigin + contentWidth > topViewBounds.maxX - popOverViewPadding {
             //Check to see if the positioning puts the box out of the window towards the left
             xOrigin = topViewBounds.maxX - popOverViewPadding - contentWidth
@@ -246,28 +246,28 @@ class MenuPopOverView: UIView {
         //In this case, the arrow is located between LT2 and RT1
         if isArrowUp {
             // Move to left point of Arrow and draw Arrow
-            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x - arrowHeight, yMin);
-            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x, arrowPoint.y);
-            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x + arrowHeight, yMin);
+            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x - arrowHeight, yMin)
+            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x, arrowPoint.y)
+            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x + arrowHeight, yMin)
         }
         
         // Move to RT2
-        CGPathAddArcToPoint(bubblePath, nil, xMax, yMin, xMax, yMin + radius, radius);
+        CGPathAddArcToPoint(bubblePath, nil, xMax, yMin, xMax, yMin + radius, radius)
         // Move to RB2
-        CGPathAddArcToPoint(bubblePath, nil, xMax, yMax, xMax - radius, yMax, radius);
+        CGPathAddArcToPoint(bubblePath, nil, xMax, yMax, xMax - radius, yMax, radius)
         
         if !isArrowUp {
             //Move to right point of Arrow and draw Arrow
-            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x + arrowHeight, yMax);
-            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x, arrowPoint.y);
-            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x - arrowHeight, yMax);
+            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x + arrowHeight, yMax)
+            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x, arrowPoint.y)
+            CGPathAddLineToPoint(bubblePath, nil, arrowPoint.x - arrowHeight, yMax)
         }
         
         // Move to LB2
-        CGPathAddArcToPoint(bubblePath, nil, xMin, yMax, xMin, yMax - radius, radius);
-        CGPathCloseSubpath(bubblePath);
+        CGPathAddArcToPoint(bubblePath, nil, xMin, yMax, xMin, yMax - radius, radius)
+        CGPathCloseSubpath(bubblePath)
         
-        CGContextSaveGState(context);
+        CGContextSaveGState(context)
         
         let maskLayer = CAShapeLayer()
         maskLayer.frame = bounds
@@ -492,10 +492,10 @@ class MenuPopOverView: UIView {
         for btn in buttons {
             var bf = btn.frame
             
-            bf.origin.x = currentX;
-            bf.size.width += incrementWidth;
-            btn.frame = bf;
-            currentX += bf.size.width;
+            bf.origin.x = currentX
+            bf.size.width += incrementWidth
+            btn.frame = bf
+            currentX += bf.size.width
             
             if btn != buttons.last {
                 let div = CGRect(x: currentX, y: bf.origin.y, width: dividerWidth, height: bf.height)
@@ -512,8 +512,8 @@ class MenuPopOverView: UIView {
         let res = UIButton(frame: CGRect(x: 0, y: 0, width: MenuPopOverView.kRightButtonWidth, height: buttonHeight))
         
         res.enabled = false
-        res.backgroundColor = popOverBackgroundColor;
-        res.titleLabel?.font = textFont;
+        res.backgroundColor = popOverBackgroundColor
+        res.titleLabel?.font = textFont
         res.setTitleColor(popOverTextColor, forState: .Normal)
         res.titleLabel?.textAlignment = .Center
         

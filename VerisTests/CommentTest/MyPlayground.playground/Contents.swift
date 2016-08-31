@@ -19,11 +19,11 @@ for _ in 0...9 {
     let random = 1 + arc4random()%35
     print("开奖号码： \(random)")
     
-    let array = [gamer1,gamer2,gamer3,gamer4,gamer5,gamer6,gamer7,gamer8,gamer9,gamer10]
+    let array = [gamer1, gamer2, gamer3, gamer4, gamer5, gamer6, gamer7, gamer8, gamer9, gamer10]
     
     if array.contains(random ) {
         print("有人中奖 \(random)")
-    }else{
+    } else {
         print("无人中奖")
     }
 }

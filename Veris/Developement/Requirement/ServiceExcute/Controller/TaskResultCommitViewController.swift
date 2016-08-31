@@ -345,5 +345,3 @@ extension TaskResultCommitViewController: TextAndAudioInputDelegate {
 extension TaskResultCommitViewController: UINavigationControllerDelegate {
     
 }
-
-

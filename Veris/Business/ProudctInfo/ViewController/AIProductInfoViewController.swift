@@ -308,7 +308,7 @@ class AIProductInfoViewController: UIViewController {
 //		addNewSubView(topImage, preView: UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
         
         addNewSubView(galleryView, preView: UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
-        let imageArray = dataModel?.intro_urls ?? ["http://tse3.mm.bing.net/th?id=OIP.Ma65ba536a2e6bb096726be3701507c3co0&w=104&h=149&c=7&rs=1&qlt=90&o=4&pid=1.1","http://tse4.mm.bing.net/th?id=OIP.Mc525a3687ccd072a8d84057cb6922e4fo0&w=210&h=131&c=7&rs=1&qlt=90&o=4&pid=1.1"]
+        let imageArray = dataModel?.intro_urls ?? ["http://tse3.mm.bing.net/th?id=OIP.Ma65ba536a2e6bb096726be3701507c3co0&w=104&h=149&c=7&rs=1&qlt=90&o=4&pid=1.1", "http://tse4.mm.bing.net/th?id=OIP.Mc525a3687ccd072a8d84057cb6922e4fo0&w=210&h=131&c=7&rs=1&qlt=90&o=4&pid=1.1"]
         galleryView.imageModelArray = imageArray
         galleryView.setTop(0)
 		
@@ -359,7 +359,7 @@ class AIProductInfoViewController: UIViewController {
                 tag.associatedName = "1"
                 tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Normal)
                 tag.borderColor = UIColor(hexString: "#0f86e8")
-            }else{
+            } else {
                 tag.associatedName = "0"
                 changeButtonNormalState(tag)
             }
@@ -511,7 +511,7 @@ class AIProductInfoViewController: UIViewController {
         holdSpaceView.setHeight(44/3)
         let bottomImage = AIImageView()
         //var imageHeight: CGFloat = 0
-        bottomImage.setImageWithURL(NSURL(string:dataModel?.desc_image ?? ""))
+        bottomImage.sd_setImageWithURL(NSURL(string:dataModel?.desc_image ?? ""))
        /* bottomImage.setImageWithURL(NSURL(string:dataModel?.desc_image ?? ""), placeholderImage: smallPlace()) { (image, error, type) in
             if image != nil {
                 let heightInPoints = image.size.height
@@ -643,7 +643,7 @@ class AIProductInfoViewController: UIViewController {
             if singleButton! == button {
                 //点击相同的按钮
                 // GO
-            }else{
+            } else {
                 //点击不同的按钮
                 // return
                 changeButtonNormalState(singleButton!)
@@ -654,7 +654,7 @@ class AIProductInfoViewController: UIViewController {
                 if tagCon == 1 {
                     button.associatedName = "0"
                     changeButtonNormalState(button)
-                }else{
+                } else {
                     button.associatedName = "1"
                     button.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Normal)
                     button.borderColor = UIColor(hexString: "#0f86e8")

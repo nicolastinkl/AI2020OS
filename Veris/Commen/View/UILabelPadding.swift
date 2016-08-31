@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UILabelPadding : UILabel {
+class UILabelPadding: UILabel {
     
     private var padding = UIEdgeInsetsZero
     

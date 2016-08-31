@@ -122,7 +122,7 @@ class AudioRecoderViewController: UIViewController {
     
     private func getAudioFileName() -> String {
         
-        let tempDir = NSTemporaryDirectory();
+        let tempDir = NSTemporaryDirectory()
         let fileName = "\(Int(NSDate().timeIntervalSince1970))" + "_sound.caf"
         let soundFilePath = tempDir + fileName
         
