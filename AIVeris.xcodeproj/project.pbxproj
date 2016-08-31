@@ -634,6 +634,11 @@
 		8484D8551D6FD177001F1A54 /* SoundPlayButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8484D8541D6FD177001F1A54 /* SoundPlayButton.xib */; };
 		8484D8571D6FD70E001F1A54 /* SoundPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8561D6FD70E001F1A54 /* SoundPlayButton.swift */; };
 		8484D85A1D703514001F1A54 /* MenuPopOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8591D703514001F1A54 /* MenuPopOverView.swift */; };
+		8484D85D1D7681EA001F1A54 /* ExcuteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484D85C1D7681EA001F1A54 /* ExcuteModel.m */; };
+		8484D8611D768873001F1A54 /* ExcuteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8601D768873001F1A54 /* ExcuteManager.swift */; };
+		8484D8641D76AB79001F1A54 /* ExcuteManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8631D76AB79001F1A54 /* ExcuteManagerTest.swift */; };
+		8484D8651D76ABCE001F1A54 /* ExcuteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8601D768873001F1A54 /* ExcuteManager.swift */; };
+		8484D8671D76ADEE001F1A54 /* AIProviderDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373231D4F75B500A8B38A /* AIProviderDetailService.swift */; };
 		84970C211D654E0D006612B2 /* AIProviderDetailServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */; };
 		8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
@@ -1661,6 +1666,10 @@
 		8484D8541D6FD177001F1A54 /* SoundPlayButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoundPlayButton.xib; sourceTree = "<group>"; };
 		8484D8561D6FD70E001F1A54 /* SoundPlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayButton.swift; sourceTree = "<group>"; };
 		8484D8591D703514001F1A54 /* MenuPopOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuPopOverView.swift; sourceTree = "<group>"; };
+		8484D85C1D7681EA001F1A54 /* ExcuteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExcuteModel.m; sourceTree = "<group>"; };
+		8484D85E1D768206001F1A54 /* ExcuteModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExcuteModel.h; sourceTree = "<group>"; };
+		8484D8601D768873001F1A54 /* ExcuteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcuteManager.swift; sourceTree = "<group>"; };
+		8484D8631D76AB79001F1A54 /* ExcuteManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcuteManagerTest.swift; sourceTree = "<group>"; };
 		8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
@@ -3793,6 +3802,8 @@
 		81FAFBBA1D4716F700DD3477 /* ServiceExcute */ = {
 			isa = PBXGroup;
 			children = (
+				8484D85F1D76883B001F1A54 /* Logic */,
+				8484D85B1D768191001F1A54 /* Model */,
 				81FAFBBB1D4716F700DD3477 /* Controller */,
 				81FAFBBF1D4716F700DD3477 /* View */,
 			);
@@ -3893,6 +3904,7 @@
 		84717F1D1D3483E300AE7E9A /* VerisTests */ = {
 			isa = PBXGroup;
 			children = (
+				8484D8621D76AB54001F1A54 /* ServiceExcuteTest */,
 				847D299A1D51E7F6009E26B8 /* CommentTest */,
 				84717F1E1D3483E300AE7E9A /* VerisTests.swift */,
 				84717F201D3483E300AE7E9A /* Info.plist */,
@@ -3964,6 +3976,31 @@
 				8484D8591D703514001F1A54 /* MenuPopOverView.swift */,
 			);
 			path = MenuPopOverView;
+			sourceTree = "<group>";
+		};
+		8484D85B1D768191001F1A54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8484D85C1D7681EA001F1A54 /* ExcuteModel.m */,
+				8484D85E1D768206001F1A54 /* ExcuteModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8484D85F1D76883B001F1A54 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				8484D8601D768873001F1A54 /* ExcuteManager.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		8484D8621D76AB54001F1A54 /* ServiceExcuteTest */ = {
+			isa = PBXGroup;
+			children = (
+				8484D8631D76AB79001F1A54 /* ExcuteManagerTest.swift */,
+			);
+			path = ServiceExcuteTest;
 			sourceTree = "<group>";
 		};
 		930455121D124E71007AFC0C /* XunfeiLib */ = {
@@ -5005,6 +5042,7 @@
 				84970C211D654E0D006612B2 /* AIProviderDetailServiceTest.swift in Sources */,
 				84717F2C1D348FC900AE7E9A /* BDKTools.swift in Sources */,
 				847D297A1D474F27009E26B8 /* Localize.swift in Sources */,
+				8484D8641D76AB79001F1A54 /* ExcuteManagerTest.swift in Sources */,
 				847D29981D50350C009E26B8 /* DefaultCommentManagerTest.swift in Sources */,
 				847D29891D484EF9009E26B8 /* ServiceCommentModel.swift in Sources */,
 				847D29861D475228009E26B8 /* ImageInfoModel.swift in Sources */,
@@ -5018,7 +5056,9 @@
 				847D29901D49FFA6009E26B8 /* AIApplication.swift in Sources */,
 				FB6261FE1D45FAC9003CF604 /* NSUserDefaults+Object.swift in Sources */,
 				84717F2D1D348FE400AE7E9A /* AINetEngine.m in Sources */,
+				8484D8671D76ADEE001F1A54 /* AIProviderDetailService.swift in Sources */,
 				84717F271D3489D100AE7E9A /* CommentTest.swift in Sources */,
+				8484D8651D76ABCE001F1A54 /* ExcuteManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5248,6 +5288,7 @@
 				8175A7EB1CFD2710006F2C8F /* OAStackView.m in Sources */,
 				81433DA61CFBE5A700347C29 /* AITaskDataModel.swift in Sources */,
 				81433E7E1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m in Sources */,
+				8484D85D1D7681EA001F1A54 /* ExcuteModel.m in Sources */,
 				8175A7EC1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m in Sources */,
 				81FAFB891D45B18900DD3477 /* Requirement.swift in Sources */,
 				84F2E5BA1D17D02E009E0C72 /* SubServiceCardView.swift in Sources */,
@@ -5304,6 +5345,7 @@
 				813860FF1D5AC4E20050C0D0 /* AIBaseViewController.swift in Sources */,
 				8175A7EF1CFD2710006F2C8F /* OATransformLayer.m in Sources */,
 				8484D8571D6FD70E001F1A54 /* SoundPlayButton.swift in Sources */,
+				8484D8611D768873001F1A54 /* ExcuteManager.swift in Sources */,
 				8175A7CA1CFD2710006F2C8F /* AFSecurityPolicy.m in Sources */,
 				12933BD91D191CD4008A1693 /* AICustomerServiceExecuteModel.swift in Sources */,
 				8175A7E11CFD2710006F2C8F /* MJRefreshConst.m in Sources */,

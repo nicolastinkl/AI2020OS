@@ -39,3 +39,9 @@ public extension Dictionary {
         }
     }
 }
+
+public extension Int {
+    public func toString() -> String {
+        return String(self)
+    }
+}
