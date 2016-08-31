@@ -224,39 +224,23 @@ class BDKProposalService: MockProposalService {
         let message = AIMessage()
 
         message.url = AIApplication.AIApplicationServerURL.findCustomerProposalDetail.description
-
         let body = ["data":["proposal_id": proposalId], "desc":["data_mode":"0", "digest":""]]
         message.body = NSMutableDictionary(dictionary: body)
 
-        if proposalId == 2692000 {
-            if let path = NSBundle.mainBundle().pathForResource("AIEvent_Planning", ofType: "json") {
-                let data: NSData? = NSData(contentsOfFile: path)
-                if let dataJSON = data {
-                    do {
-                        let model = try AIProposalInstModel(data: dataJSON)
-                        success(responseData: model)
-                    } catch {
-                        AILog("AIOrderPreListModel JSON Parse err.")
-                        fail(errType: AINetError.Format, errDes: "AIOrderPreListModel JSON Parse error.")
-                    }
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            do {
+                if response is NSDictionary {
+                    let dic = response as! [NSObject : AnyObject]
+                    let model = try AIProposalInstModel(dictionary: dic)
+                    success(responseData: model)
                 }
+            } catch {
+                fail(errType: AINetError.Format, errDes: "QueryCustomerProposalDetail Reponse JSON Parse error.")
             }
-        } else {
-            AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-
-                do {
-                    if response is NSDictionary {
-                        let dic = response as! [NSObject : AnyObject]
-                        let model = try AIProposalInstModel(dictionary: dic)
-                        success(responseData: model)
-                    }
-                } catch {
-                    fail(errType: AINetError.Format, errDes: "QueryCustomerProposalDetail Reponse JSON Parse error.")
-                }
-
-                }) { (error: AINetError, errorDes: String!) -> Void in
-                    fail(errType: error, errDes: errorDes)
-            }
+            
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes)
         }
     }
 

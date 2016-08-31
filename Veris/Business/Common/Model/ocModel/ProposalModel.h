@@ -342,6 +342,7 @@ typedef NS_ENUM(NSInteger, ParamSettingFlag) {
  */
 @protocol AIProposalInstModel @end
 
+@class AIProposalServiceDetail_WishModel;
 @interface AIProposalInstModel : JSONModel
 
 @property (assign, nonatomic) NSInteger proposal_id;
@@ -354,7 +355,7 @@ typedef NS_ENUM(NSInteger, ParamSettingFlag) {
 @property (strong, nonatomic) NSString<Optional> * proposal_origin;
 @property (strong, nonatomic) NSString<Optional> * order_total_price;
 //@property (nonatomic, strong) AIProposalProvider<Optional> * proposal_provider;
-
+@property (nonatomic, strong) AIProposalServiceDetail_WishModel<Optional> * wish_list;       // ok
 @end
 
 //==================================== AIProposalServiceDetailModel =============================================
