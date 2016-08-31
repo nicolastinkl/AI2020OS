@@ -137,6 +137,33 @@ class TaskResultCommitViewController: UIViewController {
         questButton.setTitleColor(textColor, forState: .Normal)
         
     }
+    
+    func submitResult() {
+        let manager = BDKExcuteManager()
+        
+        let node = NodeResultContent()
+        node.note_type = NodeResultType.text.rawValue
+        node.note_content = "Test"
+        
+        view.showLoading()
+        
+        manager.submitServiceNodeResult(601, resultList: [node], success: { (responseData) in
+            
+            self.view.dismissLoading()
+            
+            if responseData.result_code == ResultCode.success.rawValue {
+                NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
+            } else {
+                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+            }   
+            
+            }) { (errType, errDes) in
+             
+                self.view.dismissLoading()
+                
+                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+        }
+    }
 }
 
 extension TaskResultCommitViewController: UIImagePickerControllerDelegate {

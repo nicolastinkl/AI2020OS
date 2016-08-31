@@ -183,6 +183,11 @@
 
 @property (nonatomic, strong) AIProgressModel<Optional> *service_progress;   // 服务执行的进度
 
+//新增订单执行
+
+@property (nonatomic, strong) NSString<Optional> *service_status;
+
+@property (nonatomic, strong) NSString<Optional> *service_type;
 
 @end
 

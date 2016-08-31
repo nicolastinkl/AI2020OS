@@ -118,6 +118,10 @@ struct AILocalStore {
         }
     }
 
+    static func didUserLogIn() -> Bool {
+        return (userDefaults.objectForKey(AILoginUtil.KEY_USER_ID) != nil)
+    }
+
     // MARK: Helper
 
     static private func arrayForKey(key: String, containsId id: Int) -> Bool {
