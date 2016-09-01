@@ -75,7 +75,7 @@ class AISuperiorityModel: JSONJoy {
                 collect.append(AISuperiorityIconModel(addrDecoder))
             }
             serviceExecList = collect
-        }else{
+        } else { 
             icon = decoder["image"].string ?? ""
             proposal_inst_id = decoder["proposal_inst_id"].integer ?? 0
             collected = decoder["collected"].integer ?? 0
