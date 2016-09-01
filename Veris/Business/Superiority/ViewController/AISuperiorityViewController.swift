@@ -219,8 +219,9 @@ class AISuperiorityViewController: UIViewController {
     
     func favoriteAction() {
         view.showLoading()
+        //AIProdcutinfoService.addFavoriteServiceInfo(String(serviceModel.sid))
         if let serviceModel = serviceModel {
-            AIProdcutinfoService.addFavoriteServiceInfo(String(serviceModel.sid)) { (obj, error) in
+             AIProdcutinfoService.addFavoriteServiceInfo(String(serviceModel.sid), proposal_spec_id: "") { (obj, error) in
                 self.view.hideLoading()
                 if let res = obj as? String {
                     // MARK: Loading Data Views

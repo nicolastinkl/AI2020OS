@@ -214,8 +214,7 @@ class AIProductInfoViewController: UIViewController {
     func favoriteAction() {
         view.showLoading()
         
-        
-        AIProdcutinfoService.addFavoriteServiceInfo("\(sid)") { (obj, error) in
+        AIProdcutinfoService.addFavoriteServiceInfo("\(dataModel?.serviceID ?? 0)", proposal_spec_id: "\(dataModel?.proposal_inst_id ?? 0)") { (obj, error) in
             self.view.hideLoading()
             if let res = obj as? String {
                 // MARK: Loading Data Views
@@ -228,6 +227,7 @@ class AIProductInfoViewController: UIViewController {
                 }
             }
         }
+       
         
     }
 
