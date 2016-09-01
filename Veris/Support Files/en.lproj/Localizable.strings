@@ -207,6 +207,7 @@
 "SubmitFailed" = "Submit Failed";
 "Cancel" = "Cancel";
 "Save" = "Save";
+"GetDataFailed" = "Failed to get data";
 
 /*
  * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard
@@ -219,3 +220,8 @@
 "AudioRecoderViewController.recordForbiden" = "audio recording is forbiden";
 "AudioRecoderViewController.pressHint" = "Press and hold to record a voice note";
 "TaskResultCommitViewController.hint" = "Upload a photo and leave a note below to indicate the completion of your tasks";
+"TaskResultCommitViewController.upload" = "Upload";
+"TaskDetailViewController.waitingAuthoriztion" = "Waiting for Authorization";
+"TaskDetailViewController.requestAuthoriztion" = "Request Authoriztion";
+"TaskDetailViewController.start" = "Start";
+"TaskDetailViewController.complete" = "Complete";

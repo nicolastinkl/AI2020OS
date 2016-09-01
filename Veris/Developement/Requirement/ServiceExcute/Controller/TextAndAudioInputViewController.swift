@@ -102,9 +102,11 @@ class TextAndAudioInputViewController: UIViewController {
     
     func showAudioRecorder(sender: UIGestureRecognizer) {
         let vc = AudioRecoderViewController.initFromNib()
-        vc.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        vc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        presentViewController(vc, animated: true, completion: nil)
+        presentPopupViewController(vc, useBlurForPopup: false, animated: true)
+//        let nv = UINavigationController(rootViewController: vc)
+//        vc.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+//        vc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+//        presentViewController(nv, animated: true, completion: nil)
     }
     
     private func setupNavigationBar() {

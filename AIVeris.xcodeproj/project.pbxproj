@@ -640,6 +640,7 @@
 		8484D8651D76ABCE001F1A54 /* ExcuteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8601D768873001F1A54 /* ExcuteManager.swift */; };
 		8484D8671D76ADEE001F1A54 /* AIProviderDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373231D4F75B500A8B38A /* AIProviderDetailService.swift */; };
 		8484D8751D76CCA2001F1A54 /* UILabelPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8741D76CCA2001F1A54 /* UILabelPadding.swift */; };
+		8484D8781D76D9EF001F1A54 /* UploadFileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484D8771D76D9EF001F1A54 /* UploadFileUtils.swift */; };
 		84970C211D654E0D006612B2 /* AIProviderDetailServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */; };
 		8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
@@ -1672,6 +1673,7 @@
 		8484D8601D768873001F1A54 /* ExcuteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcuteManager.swift; sourceTree = "<group>"; };
 		8484D8631D76AB79001F1A54 /* ExcuteManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcuteManagerTest.swift; sourceTree = "<group>"; };
 		8484D8741D76CCA2001F1A54 /* UILabelPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelPadding.swift; sourceTree = "<group>"; };
+		8484D8771D76D9EF001F1A54 /* UploadFileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadFileUtils.swift; sourceTree = "<group>"; };
 		8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
@@ -3956,6 +3958,7 @@
 		8484D84E1D6E8391001F1A54 /* Commen */ = {
 			isa = PBXGroup;
 			children = (
+				8484D8761D76D9BB001F1A54 /* Utils */,
 				8484D8731D76CC95001F1A54 /* View */,
 				8484D84F1D6E83BC001F1A54 /* Audio */,
 			);
@@ -4012,6 +4015,14 @@
 				8484D8741D76CCA2001F1A54 /* UILabelPadding.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8484D8761D76D9BB001F1A54 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8484D8771D76D9EF001F1A54 /* UploadFileUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		930455121D124E71007AFC0C /* XunfeiLib */ = {
@@ -5265,6 +5276,7 @@
 				847D29881D484BF3009E26B8 /* ServiceCommentModel.swift in Sources */,
 				81433E4C1CFBE5A700347C29 /* UIImageUtils.swift in Sources */,
 				81433E5B1CFBE5A700347C29 /* FLEXArgumentInputSwitchView.m in Sources */,
+				8484D8781D76D9EF001F1A54 /* UploadFileUtils.swift in Sources */,
 				81433E481CFBE5A700347C29 /* UIView+Toast.m in Sources */,
 				845700581D015FD600512597 /* ServiceCommentTableViewCell.swift in Sources */,
 				81433DA41CFBE5A700347C29 /* AIServiceSearchView.swift in Sources */,
