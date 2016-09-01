@@ -425,7 +425,7 @@ class AIProductInfoViewController: UIViewController {
             commentView?.initSubviews()
             commentView?.setWidth(UIScreen.mainScreen().bounds.width)
             commentView?.fillDataWithModel(commentModel)
-            commentView?.setHeight((commentView?.getheight() ?? 0) + hcom)
+            commentView?.setHeight((commentView?.getheight() ?? 0) + hcom - 30)
             commentView?.bgView.hidden = true
             // Add Normal Answer Button
             commentView?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
@@ -499,7 +499,7 @@ class AIProductInfoViewController: UIViewController {
         let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
         addNewSubView(hView4!, preView: pLabel)
         hView4?.fillDataWithModel(dataModel?.provider)
-        let lineView3 = addSplitView() 
+        let lineView3 = addSplitView()
         
         // Setup 6:
         let pcLabel = getTitleLabelView("商品介绍")
