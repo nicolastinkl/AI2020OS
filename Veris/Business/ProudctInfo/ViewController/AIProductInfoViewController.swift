@@ -415,17 +415,17 @@ class AIProductInfoViewController: UIViewController {
         addNewSubView(commond, preView: lineView1)
         commond.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
         commond.userInteractionEnabled = true
-        commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))
-        
-        
+        commond.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.showCommentView)))         
         if let commentModel = dataModel?.commentLast {
+            let content = commentModel.descripation ?? ""
+            let hcom = content.sizeWithFont(UIFont.systemFontOfSize(14), forWidth: UIScreen.mainScreen().bounds.width).height
             var commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
             commentView = AICommentInfoView.initFromNib() as? AICommentInfoView
             addNewSubView(commentView!, preView: commond)
             commentView?.initSubviews()
             commentView?.setWidth(UIScreen.mainScreen().bounds.width)
             commentView?.fillDataWithModel(commentModel)
-            commentView?.setHeight(commentView?.getheight() ?? 0)
+            commentView?.setHeight((commentView?.getheight() ?? 0) + hcom)
             commentView?.bgView.hidden = true
             // Add Normal Answer Button
             commentView?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
@@ -499,8 +499,7 @@ class AIProductInfoViewController: UIViewController {
         let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
         addNewSubView(hView4!, preView: pLabel)
         hView4?.fillDataWithModel(dataModel?.provider)
-        let lineView3 = addSplitView()
-        hView4?.image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.targetProInfoAction(_:))))
+        let lineView3 = addSplitView() 
         
         // Setup 6:
         let pcLabel = getTitleLabelView("商品介绍")

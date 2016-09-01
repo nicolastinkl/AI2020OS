@@ -40,8 +40,8 @@ class AICommentInfoView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
+        commentDate.font = AITools.myriadLightWithSize(14)
+        //commentContent.font = AITools.myriadLightWithSize(14)
     }
     
     func initSubviews() {
@@ -149,9 +149,13 @@ class AICommentInfoView: UIView {
         self.setNeedsUpdateConstraints()
         constant = viewControlrsConstraint.constant
         
+        let dateFormat = NSDateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let destDateString = dateFormat.stringFromDate(NSDate(timeIntervalSinceNow: model.time ?? 0))
+         
         //评论图片
         commentDate.font = AITools.myriadCondWithSize(13)
-        commentDate.text = "\(model.time ?? 0)"
+        commentDate.text = destDateString
         commentName.text = model.providename ?? ""
         commentContent.text = model.descripation ?? ""
         

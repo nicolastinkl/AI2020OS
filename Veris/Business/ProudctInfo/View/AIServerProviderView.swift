@@ -35,12 +35,16 @@ class AIServerProviderView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        image.layer.cornerRadius = image.width/2
+        image.layer.masksToBounds = true
     }
     
     func fillDataWithModel(model: AIPublicProviderModel?) {
         if let model = model {
             name.text = model.name ?? ""
             des.text = model.desc ?? ""
+            number.text = "服务人数：\(model.service_times ?? "")"
+            radio.text = "服务好评度\(model.good_rate ?? "")"
             image.sd_setImageWithURL(NSURL(string: model.icon ?? ""), placeholderImage: smallPlace())
             image.userInteractionEnabled = true
         }
