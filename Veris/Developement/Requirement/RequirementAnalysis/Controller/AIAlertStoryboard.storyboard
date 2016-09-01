@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SYw-ty-fif">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SYw-ty-fif">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -338,7 +338,7 @@
                                     <constraint firstAttribute="height" constant="20" id="u6Y-g3-eaA"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7l-13-FDR" userLabel="OrderInfoView" customClass="AIIconLabelVerticalContainerView" customModule="Veris" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V7l-13-FDR" userLabel="OrderInfoView" customClass="AIIconLabelVerticalContainerView" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="36" y="262" width="342" height="232"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -349,19 +349,21 @@
                                         <exclude reference="0aG-fJ-qx5"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="descLabel" destination="8rg-UC-rH4" id="23J-0N-Ifa"/>
+                                </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rg-UC-rH4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rg-UC-rH4">
                                 <rect key="frame" x="37" y="514" width="340" height="51"/>
-                                <string key="text">According to the Beijing young girl service the whole pregnancy assistant, including parenting activities, prenatal care, buy shuttle service etc.</string>
                                 <fontDescription key="fontDescription" name="MyriadPro-LightSemiCn" family="Myriad Pro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yinhaoUp" translatesAutoresizingMaskIntoConstraints="NO" id="6ht-xR-oNe">
-                                <rect key="frame" x="12" y="514" width="20" height="16"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="yinhaoUp" translatesAutoresizingMaskIntoConstraints="NO" id="6ht-xR-oNe">
+                                <rect key="frame" x="12" y="514" width="13" height="10"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yinhaoDown" translatesAutoresizingMaskIntoConstraints="NO" id="GaG-et-4Oi">
-                                <rect key="frame" x="383" y="548" width="19" height="17"/>
+                                <rect key="frame" x="390" y="554" width="12" height="11"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVW-Rz-Yz6" customClass="DesignableButton" customModule="Spring">
                                 <rect key="frame" x="30" y="628" width="354" height="60"/>
@@ -604,7 +606,7 @@
         <image name="se_customer_number" width="16" height="16"/>
         <image name="se_grab_background" width="414" height="736"/>
         <image name="se_service_icon_434" width="144" height="144"/>
-        <image name="yinhaoDown" width="19" height="17"/>
-        <image name="yinhaoUp" width="20" height="16"/>
+        <image name="yinhaoDown" width="12" height="11"/>
+        <image name="yinhaoUp" width="13" height="10"/>
     </resources>
 </document>

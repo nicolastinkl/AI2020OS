@@ -14,6 +14,7 @@ class TextAndAudioInputViewController: UIViewController {
     @IBOutlet weak var audioImage: UIImageView!
     @IBOutlet weak var audioBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var hint: UILabel!
+    @IBOutlet weak var soundPlayButton: SoundPlayButton!
     
     var delegate: TextAndAudioInputDelegate?
     var text: String?
@@ -102,7 +103,8 @@ class TextAndAudioInputViewController: UIViewController {
     
     func showAudioRecorder(sender: UIGestureRecognizer) {
         let vc = AudioRecoderViewController.initFromNib()
-        presentPopupViewController(vc, useBlurForPopup: false, animated: true)
+        vc.delegate = self
+        presentPopupViewController(vc, useBlurForPopup: false, useClearForPopup: true, animated: false)
 //        let nv = UINavigationController(rootViewController: vc)
 //        vc.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
 //        vc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
@@ -169,6 +171,25 @@ extension TextAndAudioInputViewController: UITextViewDelegate {
         if textView.text.isEmpty {
             hint.hidden = false
         }
+    }
+}
+
+extension TextAndAudioInputViewController: AudioRecorderDelegate {
+    func audioRecorderDidFinishRecording(successfully: Bool, audioFileUrl: String?, recordingTimeLong: NSTimeInterval) {
+        
+        if let url = audioFileUrl {
+            soundPlayButton.hidden = false
+            soundPlayButton.audioUrl = NSURL(fileURLWithPath: url)
+            soundPlayButton.soundTimeInterval = recordingTimeLong
+            
+            hint.hidden = true
+        }
+        
+        dismissPopupViewController(false, completion: nil)
+    }
+    
+    func audioRecorderEncodeErrorDidOccur(error: NSError?) {
+        
     }
 }
 

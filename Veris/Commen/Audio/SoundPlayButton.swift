@@ -23,22 +23,23 @@ class SoundPlayButton: UIView {
                 return
             }
             
-            guard let data = NSData(contentsOfURL: url) else {
-                return
-            }
 
             do {
-                audioPlayer = try AVAudioPlayer(data: data)
-                
-                caculteSoundWidthAndReLayout()
+                audioPlayer = try AVAudioPlayer(contentsOfURL: url)
                 
             } catch {
-                
+                print("")
             }
         }
     }
     
-    private var minSoundWidth: CGFloat = 0
+    var soundTimeInterval: NSTimeInterval = 0 {
+        didSet {
+            caculteSoundWidthAndReLayout()
+        }
+    }
+    
+    private var minSoundWidth: CGFloat = 30
     private var maxSoundWidth: CGFloat = 200
     private var maxCaculateDuration: NSTimeInterval = 60
     private var isPlaying = false
@@ -111,14 +112,14 @@ class SoundPlayButton: UIView {
         
         var duration = audioPlayer!.duration
         
-        timeLabel.text = "\(duration)" + "\""
+        timeLabel.text = "\(Int(duration))" + "\""
         
         if duration > maxCaculateDuration {
             duration = maxCaculateDuration
         }
         
         
-        let width = CGFloat(duration) * ((maxSoundWidth - minSoundWidth) / CGFloat(maxCaculateDuration))
+        let width = CGFloat(duration) * ((maxSoundWidth - minSoundWidth) / CGFloat(maxCaculateDuration)) + minSoundWidth
         
         playButtonWidthConstraint.constant = width
         

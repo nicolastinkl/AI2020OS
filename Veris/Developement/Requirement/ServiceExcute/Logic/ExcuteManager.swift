@@ -33,6 +33,7 @@ enum ProcedureStatus: Int {
 protocol ExcuteManager {
     func submitServiceNodeResult(nodeId: Int, resultList: [NodeResultContent], success: (responseData: RequestCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func queryProcedureInstInfo(procedureId: Int, userId: Int, success: (responseData: Procedure) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func updateServiceNodeStatus(procedureId: Int, status: ProcedureStatus, success: (responseData: RequestCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
 
@@ -63,6 +64,37 @@ class BDKExcuteManager: ExcuteManager {
             fail(errType: error, errDes: errorDes ?? "")
         }
     }
+
+
+    //MARK: 抢单结果信息查询
+    func queryQaingDanResultInfo(ServiceInstanceID: Int, success: (resultModel: AIQiangDanResultModel) -> Void, fail: net_fail_block) {
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.queryQiangDanResult.description
+        let data: [String: AnyObject] = ["service_instance_id": ServiceInstanceID]
+        message.body = BDKTools.createRequestBody(data)
+
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+
+            do {
+                guard let dic = response as? [NSObject : AnyObject] else {
+                    fail(AINetError.Format, AIErrors.AINetErrors.ResponseFormatError)
+                    return
+                }
+                let model = try AIQiangDanResultModel(dictionary: dic)
+                success(resultModel: model)
+            } catch {
+                fail(AINetError.Format, AIErrors.AINetErrors.ResponseFormatError)
+            }
+
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(error, errorDes ?? AIErrors.AINetErrors.NetError)
+        }
+
+    }
+
+
+
+
     
     func queryProcedureInstInfo(serviceId: Int, userId: Int, success: (responseData: Procedure) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
@@ -90,6 +122,34 @@ class BDKExcuteManager: ExcuteManager {
         }) { (error: AINetError, errorDes: String!) -> Void in
             fail(errType: error, errDes: errorDes ?? "")
         }
+    }
+    
+    func updateServiceNodeStatus(procedureId: Int, status: ProcedureStatus, success: (responseData: RequestCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
+        let message = AIMessage()
+        let url = AIApplication.AIApplicationServerURL.updateServiceNodeStatus.description
+        message.url = url
+        
+        let data: [String: AnyObject] = ["procedure_inst_id": procedureId, "status": status.rawValue]
+        message.body = BDKTools.createRequestBody(data)
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            do {
+                guard let dic = response as? [NSObject : AnyObject] else {
+                    fail(errType: AINetError.Format, errDes: "updateServiceNodeStatus JSON Parse Error...")
+                    return
+                }
+                let model = try RequestCode(dictionary: dic)
+                success(responseData: model)
+            } catch {
+                fail(errType: AINetError.Format, errDes: "updateServiceNodeStatus JSON Parse Error...")
+            }
+            
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes ?? "")
+        }
     }
 }
+
+

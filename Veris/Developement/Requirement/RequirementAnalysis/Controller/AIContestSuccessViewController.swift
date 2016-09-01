@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AIAlertView
 
 class AIContestSuccessViewController: UIViewController {
 
@@ -15,7 +16,9 @@ class AIContestSuccessViewController: UIViewController {
     @IBOutlet weak var orderInfoView: AIIconLabelVerticalContainerView!
     @IBOutlet weak var seperateViewUser: AIDottedLineLabelView!
     @IBOutlet weak var customerBannerView: AICustomerBannerView!
-    
+
+
+    internal var serviceInstanceID: Int?
 
     
     override func viewDidLoad() {
@@ -58,7 +61,24 @@ class AIContestSuccessViewController: UIViewController {
     
 
     func loadData() {
-        
+
+        let manager = BDKExcuteManager()
+        manager.queryQaingDanResultInfo(111, success: { (resultModel) in
+            if let model: AIQiangDanResultModel = resultModel {
+                self.orderInfoView.descLabel.text = "According to the Beijing young girl service the whole pregnancy assistant, including parenting activities, prenatal care, buy shuttle service etc."
+                    //model.service_process.service_desc
+                //
+                self.orderInfoViewLoadFakeData(model)
+            }
+            }) { (error, errorDesc) in
+                AIAlertView().showError(errorDesc, subTitle: "")
+        }
+    }
+
+    /* 暂时废弃,等待后台配置以后再打开此功能
+
+     */
+    func orderInfoViewLoadFakeData(model: AIQiangDanResultModel) {
         let orderInfosModel = [AIIconLabelViewModel(labelText: "November 3, 2015", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png"), AIIconLabelViewModel(labelText: "Haidian District Garden Road, Beijing, 49", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png"), AIIconLabelViewModel(labelText: "Accompany pregnant woman to produce a check, queue,take a number, buy foodGeneration of pregnant women", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png")]
         orderInfoView.loadData(orderInfosModel)
     }
