@@ -9,7 +9,7 @@
 import UIKit
 import AIAlertView
 
-class AIContestSuccessViewController: UIViewController {
+@objc class AIContestSuccessViewController: UIViewController {
 
     
     @IBOutlet weak var seperateViewNeeds: AIDottedLineLabelView!
@@ -18,7 +18,7 @@ class AIContestSuccessViewController: UIViewController {
     @IBOutlet weak var customerBannerView: AICustomerBannerView!
 
 
-    internal var serviceInstanceID: Int?
+    var serviceInstanceID: Int = 0
 
     
     override func viewDidLoad() {

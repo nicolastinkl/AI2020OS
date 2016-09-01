@@ -108,15 +108,6 @@
 
             [_tableHeaderList addObject:sort];
         }
-
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
     }
 }
 
@@ -504,7 +495,7 @@
     }
 
     AIContestSuccessViewController *successViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
-    //successViewController.serviceInstanceID = model.service.service_instance_id;
+    successViewController.serviceInstanceID = model.service.service_instance_id;
     [self.navigationController pushViewController:nextViewController animated:YES];
 }
 
