@@ -80,10 +80,10 @@
     return message;
 }
 
-+ (AIMessage *) addFavoriteService:(NSInteger)proposal_spec_id{
++ (AIMessage *) addFavoriteService:(NSString *)proposal_spec_id ServiceID:(NSString *)sid {
     AIMessage *message = [AIMessage message];
     
-    NSDictionary *body = @{@"data":@{@"proposal_spec_id":@(proposal_spec_id)},@"desc":@{@"data_mode":@"0",@"digest":@""}};
+    NSDictionary *body = @{@"data":@{@"proposal_spec_id":proposal_spec_id,@"proposal_id":[NSString stringWithFormat:@"%@",sid]},@"desc":@{@"data_mode":@"0",@"digest":@""}};
     
     [message.body addEntriesFromDictionary:body];
     
