@@ -104,7 +104,7 @@ class TextAndAudioInputViewController: UIViewController {
     func showAudioRecorder(sender: UIGestureRecognizer) {
         let vc = AudioRecoderViewController.initFromNib()
         vc.delegate = self
-        presentPopupViewController(vc, useBlurForPopup: false, animated: true)
+        presentPopupViewController(vc, useBlurForPopup: false, useClearForPopup: true, animated: false)
 //        let nv = UINavigationController(rootViewController: vc)
 //        vc.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
 //        vc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
@@ -185,7 +185,7 @@ extension TextAndAudioInputViewController: AudioRecorderDelegate {
             hint.hidden = true
         }
         
-        dismissPopupViewController(true, completion: nil)
+        dismissPopupViewController(false, completion: nil)
     }
     
     func audioRecorderEncodeErrorDidOccur(error: NSError?) {
