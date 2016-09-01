@@ -41,7 +41,7 @@ class AISearchHomeService: NSObject {
         let user = AIUser.currentUser()
         let user_id = user.id
         let message = AIMessage()
-        message.url = AIApplication.AIApplicationServerURL.recentlySearch.description
+        message.url = AIApplication.AIApplicationServerURL.createBrowserHistory.description
         let body = ["data": ["role_type": 1, "user_id": user_id, "service_id": service_id], "desc": ["data_mode": "0", "digest": ""]]
         message.body = NSMutableDictionary(dictionary: body)
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in

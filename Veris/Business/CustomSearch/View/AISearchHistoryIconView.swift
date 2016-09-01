@@ -94,7 +94,7 @@ class AISearchHistoryIconView: UIView {
 			let tap = UITapGestureRecognizer(target: self, action: #selector(AISearchHistoryIconView.iconLabelTapped(_:)))
 			iconLabel.addGestureRecognizer(tap)
 			if let imageURL = NSURL(string: item.icon) {
-				iconLabel.imageView.asyncLoadImage(imageURL.absoluteString)
+				iconLabel.imageView.asyncLoadImage(imageURL.absoluteString, placeHoldImg: "defaultIcon")
 			}
 			iconContainerView.addSubview(iconLabel)
 		}

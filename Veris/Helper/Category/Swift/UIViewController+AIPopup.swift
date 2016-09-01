@@ -98,11 +98,12 @@ extension UIViewController {
 	 - parameter viewControllerToPresent: viewControllerToPresent
 	 - parameter duration:                控制动画时间默认0.25秒 可空
 	 - parameter useBlurForPopup:         是否模糊 可空
+	 - parameter useClearForPopup:       是否适用透明背景，优先级比useBlurForPopup 高 default is false
 	 - parameter animated:                是否动画
 	 - parameter completion:              completion handler 可空
 	 - parameter onClickCancelArea:       模糊区域点击 handler 可空
 	 */
-	func presentPopupViewController(viewControllerToPresent: UIViewController, duration: Double = Constants.animationTime, useBlurForPopup: Bool = false, animated: Bool, completion: (() -> Void)? = nil, onClickCancelArea: (() -> Void)? = nil) {
+    func presentPopupViewController(viewControllerToPresent: UIViewController, duration: Double = Constants.animationTime, useBlurForPopup: Bool = false, useClearForPopup: Bool = false, animated: Bool, completion: (() -> Void)? = nil, onClickCancelArea: (() -> Void)? = nil) {
 		if self is UINavigationController {
 		} else {
 			if let navigationController = navigationController {
@@ -119,7 +120,7 @@ extension UIViewController {
 			popupViewController!.view.autoresizingMask = .None
 			addChildViewController(viewControllerToPresent)
 			
-			addMaskView(useBlurForPopup: useBlurForPopup)
+			addMaskView(useBlurForPopup: useBlurForPopup, useClearForPopup: useClearForPopup)
 			
 			let blurView = objc_getAssociatedObject(self, &AssociatedKeys.blurViewKey) as! UIView
 			viewControllerToPresent.beginAppearanceTransition(true, animated: animated)
@@ -154,7 +155,9 @@ extension UIViewController {
 				UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
 					self.bottomConstraint?.constant = 0
 					viewControllerToPresent.view.alpha = finalAlpha
-					blurView.alpha = useBlurForPopup == true ? 1 : 0.5
+                    if !useClearForPopup {
+                        blurView.alpha = useBlurForPopup == true ? 1 : 0.5
+                    }
 					
 					self.view.layoutIfNeeded()
 					}, completion: { (success) -> Void in
@@ -251,15 +254,18 @@ extension UIViewController {
 		)
 	}
 	
-	func addMaskView(useBlurForPopup useBlurForPopup: Bool) {
+    func addMaskView(useBlurForPopup useBlurForPopup: Bool, useClearForPopup: Bool = false) {
 		let fadeView = UIImageView()
 		fadeView.frame = UIScreen.mainScreen().bounds
 		
-		if useBlurForPopup == true {
+        if useClearForPopup {
+            fadeView.backgroundColor = UIColor.clearColor()
+        } else if useBlurForPopup == true {
 			fadeView.image = getBlurredImage(getScreenImage())
 		} else {
 			fadeView.backgroundColor = UIColor.blackColor()
 		}
+        
 		fadeView.alpha = 0
 		fadeView.userInteractionEnabled = true
 		view.addSubview(fadeView)
