@@ -405,6 +405,7 @@ struct AIApplication {
         case allQuestions
         // 2.2.1 最近搜索
         case recentlySearch
+        case createBrowserHistory
         // 2.2.2 商品搜索并带出过滤条件
         case searchServiceCondition
         // 2.2.3 商品搜索结果过滤
@@ -440,6 +441,11 @@ struct AIApplication {
 
         case queryQiangDanResult
         case submitServiceNodeResult
+
+        // 服务步骤节点详情
+        case queryProcedureInstInfo
+        // 更新服务节点执行状态
+        case updateServiceNodeStatus
 
         
         
@@ -503,6 +509,7 @@ struct AIApplication {
             case .queryProvider: return AIApplication.KURL_ReleaseURL + "/service/queryProvider"
             case .allQuestions: return AIApplication.KURL_ReleaseURL + "/service/allQuestions"
             case .recentlySearch: return AIApplication.KURL_ReleaseURL + "/search/recentlySearch"
+            case .createBrowserHistory: return AIApplication.KURL_ReleaseURL + "/search/createBrowserHistory"
             case .searchServiceCondition: return AIApplication.KURL_ReleaseURL + "/search/searchServiceCondition"
             case .filterServices: return AIApplication.KURL_ReleaseURL + "/search/filterServices"
             case .getRecommendedServices: return AIApplication.KURL_ReleaseURL + "/search/getRecommendedServices"
@@ -523,6 +530,8 @@ struct AIApplication {
             case .wishrecommand: return AIApplication.KURL_ReleaseURL + "/queryInterestingWishList"
             case .submitServiceNodeResult: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/submitServiceNodeResult"
             case .queryQiangDanResult: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/queryScrambleOrderResult"
+            case .queryProcedureInstInfo: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/queryProcedureInstInfo"
+            case .updateServiceNodeStatus: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/updateServiceNodeStatus"
             }
         }
     }

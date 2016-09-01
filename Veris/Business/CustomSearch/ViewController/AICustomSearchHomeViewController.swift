@@ -85,7 +85,12 @@ class AICustomSearchHomeViewController: UIViewController {
         self.view.showLoading()
         service.recentlySearch({ [weak self] (recentlySearchTexts: [String], everyOneSearchTexts: [String], browseHistory: [AISearchServiceModel]) in
             self?.view.hideLoading()
-            self?.recentlySearchTexts = recentlySearchTexts
+           
+            if recentlySearchTexts.count > 10 {
+                self?.recentlySearchTexts = Array(recentlySearchTexts[0..<9])
+            } else {
+                self?.recentlySearchTexts = recentlySearchTexts
+            }
             self?.everyOneSearchTexts = everyOneSearchTexts
             self?.browseHistory = browseHistory
             self?.setupRecentlySearchView()
@@ -192,10 +197,10 @@ class AICustomSearchHomeViewController: UIViewController {
 	func setupRecentlySearchView() {
 		
 		// Make Test Data View
-		recentlySearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 20, width: screenWidth, height: 200), title: "You recently searched", labels: recentlySearchTexts)
+		recentlySearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 20, width: screenWidth - 20, height: 200), title: "You recently searched", labels: recentlySearchTexts)
 		recentlySearchTag.delegate = self
 		holdView.addSubview(recentlySearchTag)
-		everyOneSearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 0, width: screenWidth, height: 200), title: "Everyone is searching", labels: everyOneSearchTexts)
+		everyOneSearchTag = AISearchHistoryLabels(frame: CGRect(x: 10, y: 0, width: screenWidth - 20, height: 200), title: "Everyone is searching", labels: everyOneSearchTexts)
 		everyOneSearchTag.delegate = self
 		everyOneSearchTag.setY(recentlySearchTag.bottom + AITools.displaySizeFrom1242DesignSize(83))
 		holdView.addSubview(everyOneSearchTag)
@@ -359,6 +364,7 @@ extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDel
 extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
 	func searchHistoryIconView(iconView: AISearchHistoryIconView, didClickAtIndex index: Int) {
 		let vc = AISuperiorityViewController.initFromNib()
+//        vc.viewed = true
 		vc.serviceModel = browseHistory![index]
 		showTransitionStyleCrossDissolveView(vc)
 	}

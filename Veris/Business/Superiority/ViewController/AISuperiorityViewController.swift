@@ -32,6 +32,8 @@ import SnapKit
 /// 服务优势介绍视图
 class AISuperiorityViewController: UIViewController {
 
+    /// 服务是否浏览过
+    var viewed = false
 
     @IBOutlet weak var scrollview: UIScrollView!
 
@@ -52,7 +54,7 @@ class AISuperiorityViewController: UIViewController {
         // MARK: Init
         initLayoutViews()
         fetchData()
-        markServiceVisited()
+        createBrowserHistory()
     }
     
     @IBAction func targetServiceDetail(any: AnyObject) {
@@ -192,7 +194,7 @@ class AISuperiorityViewController: UIViewController {
 
     }
 
-    func markServiceVisited() {
+    func createBrowserHistory() {
         if let sid = serviceModel?.sid {
             AISearchHomeService().createBrowserHistory(sid)
         }

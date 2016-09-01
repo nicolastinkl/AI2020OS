@@ -16,3 +16,12 @@
 
 @implementation RequestCode
 @end
+
+@implementation Procedure
+@end
+
+@implementation NodeInfo
+@end
+
+@implementation NodeParam
+@end
