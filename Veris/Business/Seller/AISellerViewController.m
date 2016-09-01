@@ -478,7 +478,7 @@
 
 
 - (void)showSingalServiceStatusViewControllerWithModel:(AIOrderPreModel *)model {
-    NSInteger statusInt = model.service.service_status.integerValue;
+    NSInteger statusInt = model.service.service_instance_status;
 
     UIViewController *nextViewController = nil;
     switch (statusInt) {

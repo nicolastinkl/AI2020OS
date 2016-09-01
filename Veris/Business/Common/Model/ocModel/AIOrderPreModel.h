@@ -108,7 +108,7 @@
 @property (nonatomic, strong) NSString<Optional> *service_name;
 //新增订单执行
 @property (nonatomic, assign) NSInteger service_instance_id;
-@property (nonatomic, strong) NSString<Optional> *service_status;
+@property (nonatomic, assign) NSInteger service_instance_status;
 
 @property (nonatomic, strong) NSString<Optional> *service_type;
 
