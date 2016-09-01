@@ -432,8 +432,7 @@ class AIProductInfoViewController: UIViewController {
         } else {
             tagsView.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
         }
-       
-		
+        
 		let answerView = UIView()
 		addNewSubView(answerView, preView: preCacheView!)
 		answerView.setHeight(245 / 3)
