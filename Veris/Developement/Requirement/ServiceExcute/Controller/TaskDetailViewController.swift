@@ -79,10 +79,12 @@ class TaskDetailViewController: UIViewController {
         
         manager.queryProcedureInstInfo(serviceId, userId: AIUser.currentUser().id, success: { (responseData) in
             
+            self.view.hideLoading()
             self.procedure = responseData
             self.setupUI(responseData)
             
             }) { (errType, errDes) in
+                self.view.hideLoading()
                 NBMaterialToast.showWithText(self.view, text: "GetDataFailed".localized, duration: NBLunchDuration.SHORT)
         }
     }
@@ -146,7 +148,7 @@ class TaskDetailViewController: UIViewController {
         if let p = procedure {
             switch p.procedure_status {
             case ProcedureStatus.noStart.rawValue:
-                pushService()
+                updateServiceStatus()
             case ProcedureStatus.excuting.rawValue:
                 openTaskCommitViewController()
             default:
@@ -156,8 +158,28 @@ class TaskDetailViewController: UIViewController {
         }
     }
     
-    private func pushService() {
+    private func updateServiceStatus() {
+        let manager = BDKExcuteManager()
         
+        view.showLoading()
+        
+        manager.updateServiceNodeStatus(procedure!.procedure_inst_id.integerValue, status: ProcedureStatus.excuting, success: { (responseData) in
+            
+            self.view.hideLoading()
+            
+            if responseData.result_code == ResultCode.success.rawValue {
+                NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
+            } else {
+                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+            }
+            
+            }) { (errType, errDes) in
+                
+                self.view.hideLoading()
+                
+                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+                
+        }
     }
     
     private func openTaskCommitViewController() {
