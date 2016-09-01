@@ -98,7 +98,7 @@ extension UIViewController {
 	 - parameter viewControllerToPresent: viewControllerToPresent
 	 - parameter duration:                控制动画时间默认0.25秒 可空
 	 - parameter useBlurForPopup:         是否模糊 可空
-	 - parameter useClearForPopup:       是否适用透明背景，优先级比useBlurForPopup 高 default is false
+	 - parameter useClearForPopup:        是否使用透明背景，优先级比useBlurForPopup 高 default is false
 	 - parameter animated:                是否动画
 	 - parameter completion:              completion handler 可空
 	 - parameter onClickCancelArea:       模糊区域点击 handler 可空
