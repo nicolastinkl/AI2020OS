@@ -27,7 +27,9 @@ class TaskResultCommitViewController: UIViewController {
     @IBOutlet weak var photoHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var photoWidthConstraint: NSLayoutConstraint!
     
-    var nodeId: Int?
+    var procedureId: Int?
+    
+    private var hasImage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,7 @@ class TaskResultCommitViewController: UIViewController {
         note.roundCorner(2)
 
         questButton.layer.cornerRadius = questButton.height / 2
-        setBottomButtonEnabel(false)
+        TaskDetailViewController.setBottomButtonEnabel(questButton, enable: false)
         
         let cameraSelector =
             #selector(TaskResultCommitViewController.cameraAction(_:))
@@ -50,13 +52,14 @@ class TaskResultCommitViewController: UIViewController {
         
         let textAndAudioSelector =
             #selector(TaskResultCommitViewController.showTextAndAudioEditor(_:))
-        var textAndAudioTap = UITapGestureRecognizer(target: self, action: textAndAudioSelector)
+        let textAndAudioTap = UITapGestureRecognizer(target: self, action: textAndAudioSelector)
         writeIcon.addGestureRecognizer(textAndAudioTap)
         
-        textAndAudioTap = UITapGestureRecognizer(target: self, action: textAndAudioSelector)
-        note.addGestureRecognizer(textAndAudioTap)
+        var longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(TaskResultCommitViewController.longPressAction(_:)))
+        longPressGes.minimumPressDuration = 0.3
+        note.addGestureRecognizer(longPressGes)
         
-        let longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(TaskResultCommitViewController.soundLongPressAction(_:)))
+        longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(TaskResultCommitViewController.longPressAction(_:)))
         longPressGes.minimumPressDuration = 0.3
         soundPlayButton.addGestureRecognizer(longPressGes)
     }
@@ -101,7 +104,7 @@ class TaskResultCommitViewController: UIViewController {
         presentViewController(nc, animated: true, completion: nil)
     }
     
-    func soundLongPressAction(longPressRecognizer: UILongPressGestureRecognizer) {
+    func longPressAction(longPressRecognizer: UILongPressGestureRecognizer) {
         
         if longPressRecognizer.state != UIGestureRecognizerState.Began {
             return
@@ -114,7 +117,10 @@ class TaskResultCommitViewController: UIViewController {
         popOver.popOverTextColor = UIColor(hex: "0e79cc")
         popOver.popOverDividerColor = UIColor(hex: "0e79cc")
         
-        popOver.presentPopoverFromRect(CGRect(x: point.x, y: soundPlayButton.frame.minY, width: 0, height: 0), inView: view, menuStrings: ["Retake", "Delete"])
+        let itemRetake = PopMenuItem(title: "Retake", action: #selector(TaskResultCommitViewController.retakePressed(_:)), target: self)
+        let itemDelete = PopMenuItem(title: "Delete", action: #selector(TaskResultCommitViewController.deletePressed(_:)), target: self)
+        
+        popOver.presentPopoverFromRect(CGRect(x: point.x, y: soundPlayButton.frame.minY, width: 0, height: 0), inView: view, menuItems: [itemRetake, itemDelete])
         
 //        let meunController = UIMenuController.sharedMenuController()
 //        
@@ -131,8 +137,19 @@ class TaskResultCommitViewController: UIViewController {
 //        meunController.setMenuVisible(true, animated: true)
     }
     
-    func deletePressed(menuController: UIMenuController) {
-        menuController.menuFrame
+    func deletePressed(button: UIButton) {
+        if !note.hidden {
+            note.text = nil
+            note.hidden = true
+        } else {
+            soundPlayButton.hidden = true
+        }
+        
+        writeIcon.hidden = false
+    }
+    
+    func retakePressed(button: UIButton) {
+
     }
     
     private func setupNavigationBar() {
@@ -179,16 +196,21 @@ class TaskResultCommitViewController: UIViewController {
 //
 //    }
     
-    private func setBottomButtonEnabel(enable: Bool) {
-        let color = enable ? UIColor(hex: "0F86E8") : UIColor(hexString: "#393879", alpha: 0.6)
-        let textColor = enable ? UIColor.whiteColor() : UIColor(hexString: "#1a1a58")
-        questButton.backgroundColor = color
-        questButton.setTitleColor(textColor, forState: .Normal)
-        questButton.enabled = enable
-        
-    }
+    
     
     func submitResult() {
+        
+        Async.background({
+            if self.hasImage && self.cameraIcon.image != nil {
+                guard let url = self.uploadImage() else {
+                    NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+                    return
+                }
+            }
+        })
+        
+        
+        
         let manager = BDKExcuteManager()
         
         let node = NodeResultContent()
@@ -202,11 +224,11 @@ class TaskResultCommitViewController: UIViewController {
         
         view.showLoading()
         
-        if nodeId == nil {
-            nodeId = 602
+        if procedureId == nil {
+            procedureId = 602
         }
         
-        manager.submitServiceNodeResult(nodeId!, resultList: [node], success: { (responseData) in
+        manager.submitServiceNodeResult(procedureId!, resultList: [node], success: { (responseData) in
             
             self.view.dismissLoading()
             
@@ -224,6 +246,12 @@ class TaskResultCommitViewController: UIViewController {
         }
     }
     
+    private func uploadImage() -> String? {
+        let utils = LeanCloudUploadFileUtils()
+        
+        return utils.uploadImage(cameraIcon.image!)
+    }
+    
     private func openAlbum() {
         let vc = AIAssetsPickerController.initFromNib()
         vc.delegate = self
@@ -237,7 +265,7 @@ class TaskResultCommitViewController: UIViewController {
     private func changeQuestButtonState() {
         if !note.hidden {
             if let _ = note.text {
-                setBottomButtonEnabel(true)
+                TaskDetailViewController.setBottomButtonEnabel(questButton, enable: true)
             }
         }
     }
@@ -271,7 +299,8 @@ extension TaskResultCommitViewController: AIAssetsPickerControllerDelegate {
             if !self.view.constraints.contains(photoHeightConstraint) {
                 self.view.addConstraints([photoHeightConstraint, photoWidthConstraint])
             }
-
+            
+            hasImage = true
             cameraIcon.image = photos[0].image
         }
     }

@@ -203,6 +203,7 @@
 "SubmitFailed" = "提交失败";
 "Cancel" = "取消";
 "Save" = "保存";
+"GetDataFailed" = "获取数据失败";
 
 /*
  * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard
@@ -215,3 +216,8 @@
 "AudioRecoderViewController.recordForbiden" = "录音被禁止";
 "AudioRecoderViewController.pressHint" = "按下录音，松开结束";
 "TaskResultCommitViewController.hint" = "上传一张照片，并留下一条记录，以确定完成了你的任务";
+"TaskResultCommitViewController.upload" = "上传";
+"TaskDetailViewController.waitingAuthoriztion" = "等待授权";
+"TaskDetailViewController.requestAuthoriztion" = "需要授权";
+"TaskDetailViewController.start" = "推进服务";
+"TaskDetailViewController.complete" = "完成";

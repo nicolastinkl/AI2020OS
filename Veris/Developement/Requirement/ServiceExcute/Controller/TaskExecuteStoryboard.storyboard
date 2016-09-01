@@ -39,7 +39,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="Task"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVg-tx-vBz" userLabel="CheckIn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVg-tx-vBz" userLabel="NodeTitle">
                                 <rect key="frame" x="253" y="143" width="94" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,7 +81,7 @@
                                 <rect key="frame" x="38" y="294" width="524" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please check in for Ms. Customer A with the QR code above" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-4s-4DV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please check in for Ms. Customer A with the QR code above" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-4s-4DV" userLabel="NodeDesc">
                                 <rect key="frame" x="38" y="458" width="524" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,11 +116,14 @@
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waiting_authorization_bg" translatesAutoresizingMaskIntoConstraints="NO" id="eD3-38-jiq" userLabel="AuthorizationBg">
                                 <rect key="frame" x="-1" y="258" width="601" height="74"/>
                             </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for Authorization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mv-E5-vD5">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mv-E5-vD5">
                                 <rect key="frame" x="206" y="273" width="189" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99607843137254903" green="0.99607843137254903" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="TaskDetailViewController.waitingAuthoriztion"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hourglass" translatesAutoresizingMaskIntoConstraints="NO" id="idB-bx-XNu" userLabel="WaitingIcon">
                                 <rect key="frame" x="278" y="183" width="44" height="49"/>
@@ -193,12 +196,12 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="QRCodeImage" destination="tTF-Fa-Q4p" id="fKR-jk-n3T"/>
+                        <outlet property="QRCodeImage" destination="tTF-Fa-Q4p" id="J6d-Lc-LJL"/>
                         <outlet property="authorizationBg" destination="eD3-38-jiq" id="fkO-nG-JET"/>
                         <outlet property="bottomButton" destination="yUq-Wr-ny2" id="il8-Xt-YPq"/>
-                        <outlet property="checkInLabel" destination="zVg-tx-vBz" id="33P-mG-KHZ"/>
+                        <outlet property="nodeDesc" destination="4Sc-4s-4DV" id="ajG-XQ-Z4s"/>
+                        <outlet property="nodeTitleLabel" destination="zVg-tx-vBz" id="dWw-v9-mrP"/>
                         <outlet property="promptAuthorization" destination="7mv-E5-vD5" id="L43-yH-DSh"/>
-                        <outlet property="promptCheckIn" destination="4Sc-4s-4DV" id="rmO-xY-1uu"/>
                         <outlet property="serviceLocation" destination="M5J-Hx-FKW" id="Xhf-tn-Uc7"/>
                         <outlet property="serviceTime" destination="hbR-bV-AFI" id="AXT-zI-fd1"/>
                         <outlet property="waitingIcon" destination="idB-bx-XNu" id="j6i-vD-tv1"/>
@@ -267,6 +270,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="ailButtonNormalTitle" value="TaskResultCommitViewController.upload"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="questButtonClicked:" destination="1GN-eQ-Iij" eventType="touchUpInside" id="uJg-oP-cvQ"/>
                                 </connections>
