@@ -330,6 +330,19 @@ class AIProductCommentCell: UITableViewCell {
 	}
 	
 	func setup(model: AIProductComment) {
-		//commentInfoView.fillDataWithModel(model)
+        var newModel = AICommentInfoModel()
+        newModel.commentcount = model.replyingCount
+        newModel.commentid = model.customer_id
+        newModel.descripation = model.comment
+        newModel.providename = model.customer.name
+        newModel.provideurl = model.customer.portrait_icon
+        newModel.like = model.supporting_count
+        if (model.rating_level != nil) {
+            newModel.level = model.rating_level.toInt() ?? 0
+        }else{
+            newModel.level = 0
+        }
+        
+		commentInfoView.fillDataWithModel(newModel)
 	}
 }

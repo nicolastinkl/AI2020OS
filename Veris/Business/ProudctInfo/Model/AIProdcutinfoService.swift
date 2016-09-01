@@ -36,15 +36,14 @@ struct AIProdcutinfoService {
     }
 
     /// 处理收藏添加
-    static func addFavoriteServiceInfo(serviceId: String, complate: ((AnyObject?, String?) -> Void)) {
-//        let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
-        let message = AIMessageWrapper.addFavoriteService(11)
+    static func addFavoriteServiceInfo(serviceId: String, proposal_spec_id: String, complate: ((AnyObject?, String?) -> Void)) {
+        let message = AIMessageWrapper.addFavoriteService(proposal_spec_id, serviceID: serviceId)
         message.url = AIApplication.AIApplicationServerURL.favoriteadd.description as String
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
                 if let d = responseJSON as? NSDictionary {
-                    if let i = d["result"] as? Int {
+                    if let i = d["result_code"] as? Int {
                         if i == 1 {
                             complate("1", nil)
                         } else {
