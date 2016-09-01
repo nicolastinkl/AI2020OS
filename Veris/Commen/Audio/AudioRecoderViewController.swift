@@ -24,6 +24,8 @@ class AudioRecoderViewController: UIViewController {
     var currentAudioUrl: String = ""
     private var isCancalRecord: Bool = false
     private var isPermission = false
+    private var recordingTimeLong: NSTimeInterval = 0
+    private var saveButton: UIButton!
     
     var delegate: AudioRecorderDelegate?
     
@@ -32,6 +34,8 @@ class AudioRecoderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+   //     setupNavigationBar()
 
         pressHint.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         message.font = AITools.myriadLightSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
@@ -54,6 +58,41 @@ class AudioRecoderViewController: UIViewController {
     
     @IBAction func recordTouchUp(sender: AnyObject) {
         stopRecording()
+    }
+    
+    private func setupNavigationBar() {
+        
+        let cancelButton = UIButton()
+        cancelButton.setTitle("Cancel".localized, forState: .Normal)
+        cancelButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
+        cancelButton.setTitleColor(UIColor(hexString: "#ffffff"), forState: .Normal)
+        cancelButton.backgroundColor = UIColor.clearColor()
+        cancelButton.layer.cornerRadius = 12.displaySizeFrom1242DesignSize()
+        cancelButton.setSize(CGSize(width: 196.displaySizeFrom1242DesignSize(), height: 80.displaySizeFrom1242DesignSize()))
+        cancelButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
+        
+        saveButton = UIButton()
+        saveButton.setTitle("Save".localized, forState: .Normal)
+        saveButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
+        saveButton.setTitleColor(UIColor(hexString: "#ffffff"), forState: .Normal)
+        saveButton.layer.cornerRadius = 12.displaySizeFrom1242DesignSize()
+        saveButton.setSize(CGSize(width: 196.displaySizeFrom1242DesignSize(), height: 86.displaySizeFrom1242DesignSize()))
+        saveButton.addTarget(self, action: #selector(TextAndAudioInputViewController.save), forControlEvents: .TouchUpInside)
+        savaButtonEnable(false)
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.leftBarButtonItems = [cancelButton]
+        appearance.rightBarButtonItems = [saveButton]
+        appearance.itemPositionForIndexAtPosition = { index, position in
+            if position == .Left {
+                return (47.displaySizeFrom1242DesignSize(), 55.displaySizeFrom1242DesignSize())
+            } else {
+                return (47.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
+            }
+        }
+        appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor(hexString: "#0f0c2c"), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
+        appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "AICustomAudioNotesView.note".localized)
+        setNavigationBarAppearance(navigationBarAppearance: appearance)
     }
     
     func soundWave() {
@@ -103,6 +142,8 @@ class AudioRecoderViewController: UIViewController {
                 return
             }
             
+            recordingTimeLong = 0
+            
             recorder!.delegate = self
             
             recorder!.prepareToRecord()
@@ -138,6 +179,8 @@ class AudioRecoderViewController: UIViewController {
         if time < AudioRecoderViewController.minRecordingTime {
             isCancalRecord = true
             message.text = "AIServiceContentViewController.recordTooShort".localized
+        } else {
+            savaButtonEnable(true)
         }
         
         if let rder = recorder {
@@ -158,9 +201,9 @@ class AudioRecoderViewController: UIViewController {
     }
     
     func handleRecordTime(time: NSTimer) {
-        let long = getRecordingTimeInterval()
+        recordingTimeLong = getRecordingTimeInterval()
         
-        if long > AudioRecoderViewController.maxRecordingTime {
+        if recordingTimeLong > AudioRecoderViewController.maxRecordingTime {
             stopRecording()
             message.text = "".localized
         }
@@ -173,6 +216,13 @@ class AudioRecoderViewController: UIViewController {
     private func getRecordingTimeInterval() -> NSTimeInterval {
         return  getCurrentTime() - startTime
     }
+    
+    private func savaButtonEnable(enable: Bool) {
+        let color = enable ?  UIColor(hex: "0F86E8") : UIColor(hexString: "#6b6f76", alpha: 0.5)
+        saveButton?.backgroundColor = color
+        
+        saveButton?.enabled = enable
+    }
 }
 
 extension AudioRecoderViewController: AVAudioRecorderDelegate {
@@ -183,7 +233,7 @@ extension AudioRecoderViewController: AVAudioRecorderDelegate {
         
         let url: String? = flag ? currentAudioUrl : nil
         
-        delegate?.audioRecorderDidFinishRecording(flag, audioFileUrl: url)
+        delegate?.audioRecorderDidFinishRecording(flag, audioFileUrl: url, recordingTimeLong: recordingTimeLong)
     }
     
     func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder,
@@ -201,6 +251,6 @@ extension AudioRecoderViewController: AVAudioRecorderDelegate {
 }
 
 protocol AudioRecorderDelegate {
-    func audioRecorderDidFinishRecording(successfully: Bool, audioFileUrl: String?)
+    func audioRecorderDidFinishRecording(successfully: Bool, audioFileUrl: String?, recordingTimeLong: NSTimeInterval)
     func audioRecorderEncodeErrorDidOccur(error: NSError?)
 }

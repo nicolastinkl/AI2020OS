@@ -36,6 +36,8 @@ class MenuPopOverView: UIView {
     var textFont = UIFont.systemFontOfSize(14.0)
     var popOverBorderColor: UIColor?
     
+    var menItems: [PopMenuItem]?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -46,8 +48,8 @@ class MenuPopOverView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func presentPopoverFromRect(rect: CGRect, inView: UIView, menuStrings: [String]) {
-        if menuStrings.count == 0 {
+    func presentPopoverFromRect(rect: CGRect, inView: UIView, menuItems: [PopMenuItem]) {
+        if menuItems.count == 0 {
             return
         }
         
@@ -55,7 +57,7 @@ class MenuPopOverView: UIView {
         buttonContainer.backgroundColor = UIColor.clearColor()
         buttonContainer.clipsToBounds = true
         
-        for s in menuStrings {
+        for s in menuItems {
             buttons.append(createButton(s))
         }
         
@@ -301,8 +303,8 @@ class MenuPopOverView: UIView {
         }
     }
     
-    private func createButton(title: String) -> UIButton {
-        let text = title as NSString
+    private func createButton(menuItem: PopMenuItem) -> UIButton {
+        let text = menuItem.title as NSString
         let textSize = text.sizeWithAttributes([NSFontAttributeName: textFont])
         
         let textButton = UIButton(frame: CGRect(x: 0, y: 0, width: round(textSize.width + 2 * MenuPopOverView.kTextEdgeInsets), height: buttonHeight))
@@ -311,7 +313,10 @@ class MenuPopOverView: UIView {
         textButton.titleLabel?.font = textFont
         textButton.setTitleColor(popOverTextColor, forState: .Normal)
         textButton.titleLabel?.textAlignment = .Center
-        textButton.setTitle(title, forState: .Normal)
+        textButton.setTitle(menuItem.title, forState: .Normal)
+        
+        textButton.addTarget(menuItem.target, action: menuItem.action, forControlEvents: .TouchUpInside)
+        textButton.addTarget(self, action: #selector(MenuPopOverView.buttonPressed(_:)), forControlEvents: .TouchUpInside)
         
         return textButton
     }
@@ -525,4 +530,23 @@ class MenuPopOverView: UIView {
         
         return res
     }
+    
+    func buttonPressed(button: UIButton) {
+        dismiss(true)
+    }
+}
+
+class PopMenuItem {
+    
+    var title: String
+    var action: Selector
+    var target: AnyObject?
+    
+    init(title: String, action: Selector, target: AnyObject?) {
+        self.title = title
+        self.action = action
+        self.target = target
+    }
+    
+    
 }
