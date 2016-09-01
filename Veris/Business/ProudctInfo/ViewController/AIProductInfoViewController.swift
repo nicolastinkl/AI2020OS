@@ -638,15 +638,18 @@ class AIProductInfoViewController: UIViewController {
     // MARK: - Change state
     func changeButtonState(sender: AnyObject) {
         if let button = sender as? DesignableButton {
-            if singleButton! == button {
-                //点击相同的按钮
-                // GO
-            } else {
-                //点击不同的按钮
-                // return
-                changeButtonNormalState(singleButton!)
-                singleButton = button
+            if let sib = singleButton {
+                if sib == button {
+                    //点击相同的按钮
+                    // GO
+                } else {
+                    //点击不同的按钮
+                    // return
+                    changeButtonNormalState(singleButton!)
+                    singleButton = button
+                }
             }
+            
             
             if let tagCon = button.associatedName?.toInt() {
                 if tagCon == 1 {

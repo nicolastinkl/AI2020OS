@@ -78,7 +78,7 @@ class AILoginViewController: UIViewController {
         #if DEBUG
 //            userIdTextField.text = "18030481985"
 //            passwordTextField.text = "123456"
-//            loginButton.enabled = true            
+//            loginButton.enabled = true
 //            let im = AIImageView(frame: CGRectMake(100, 450, 100, 100))
 //            self.view.addSubview(im)
 //            im.setURL(NSURL(string: "http://7xq9bx.com1.z0.glb.clouddn.com/AI_ProductInfo_Home_%E6%9C%8D%E5%8A%A1%E7%A4%BA%E6%84%8F%E5%9B%BE.png"), placeholderImage: nil, showProgress: true)
