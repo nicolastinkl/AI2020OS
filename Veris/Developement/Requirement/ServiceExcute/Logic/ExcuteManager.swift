@@ -93,7 +93,7 @@ class BDKExcuteManager: ExcuteManager {
     }
 
 
-}
+
 
     
     func queryProcedureInstInfo(serviceId: Int, userId: Int, success: (responseData: Procedure) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
@@ -151,4 +151,5 @@ class BDKExcuteManager: ExcuteManager {
         }
     }
 }
+
 
