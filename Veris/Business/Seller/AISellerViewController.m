@@ -109,14 +109,14 @@
             [_tableHeaderList addObject:sort];
         }
 
-        [tableModel.orderList addObject:model];
-        [tableModel.orderList addObject:model];
-        [tableModel.orderList addObject:model];
-        [tableModel.orderList addObject:model];
-        [tableModel.orderList addObject:model];
-        [tableModel.orderList addObject:model];
-        [tableModel.orderList addObject:model];
-        [tableModel.orderList addObject:model];
+//        [tableModel.orderList addObject:model];
+//        [tableModel.orderList addObject:model];
+//        [tableModel.orderList addObject:model];
+//        [tableModel.orderList addObject:model];
+//        [tableModel.orderList addObject:model];
+//        [tableModel.orderList addObject:model];
+//        [tableModel.orderList addObject:model];
+//        [tableModel.orderList addObject:model];
     }
 }
 
@@ -472,7 +472,7 @@
 
     model.service.service_type = @"0";
     if ([model.service.service_type  isEqualToString:@"0"]) { // 单一服务
-        [self showSingalServiceStatusViewControllerWithStatus:model.service.service_status];
+        [self showSingalServiceStatusViewControllerWithModel:model];
     }else if ([model.service.service_type  isEqualToString:@"1"]){ // 复合服务
         [self showRequirementViewControllerWithModel:model];
     }
@@ -486,8 +486,8 @@
 }
 
 
-- (void)showSingalServiceStatusViewControllerWithStatus:(NSString *)status {
-    NSInteger statusInt = status.integerValue;
+- (void)showSingalServiceStatusViewControllerWithModel:(AIOrderPreModel *)model {
+    NSInteger statusInt = model.service.service_status.integerValue;
 
     UIViewController *nextViewController = nil;
     switch (statusInt) {
@@ -503,8 +503,8 @@
             break;
     }
 
-    nextViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
-
+    AIContestSuccessViewController *successViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
+    //successViewController.serviceInstanceID = model.service.service_instance_id;
     [self.navigationController pushViewController:nextViewController animated:YES];
 }
 
