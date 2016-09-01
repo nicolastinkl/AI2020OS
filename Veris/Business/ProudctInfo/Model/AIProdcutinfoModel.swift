@@ -55,7 +55,12 @@ class AIProdcutinfoModel: JSONJoy {
                 price = AIPricePublicModel(json)
             }
             
-            bdecoder["intro_urls"]?.getArray(&intro_urls)
+            intro_urls = Array<String>()
+            if let arrayNew = bdecoder["intro_urls"]?.array {
+                for item in arrayNew {
+                    intro_urls?.append(item["service_intro_url"].string ?? "")
+                }
+            }
         }
         
         
