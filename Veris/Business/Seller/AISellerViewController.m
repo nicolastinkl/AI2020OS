@@ -105,9 +105,10 @@
             tableModel.sortTime = sort;
             tableModel.nameTitle = model.proposal_name;
             [_tableDictionary setObject:tableModel forKey:sort];
-
             [_tableHeaderList addObject:sort];
         }
+
+        [tableModel.orderList addObject:model];
     }
 }
 
@@ -148,12 +149,15 @@
 
             dispatch_main_async_safe(^{
                 [weakSelf.tableView reloadData];
+                AIOCLog(@"reloadData--")
                 [weakSelf.tableView headerEndRefreshing];
             });
         } fail:^(AINetError error, NSString *errorDes) {
             dispatch_main_async_safe(^{
                 [weakSelf.tableView headerEndRefreshing];
                 [weakSelf.tableView showErrorContentView];
+
+                AIOCLog(@"rheaderEndRefreshing")
             });
         }];
     }];
