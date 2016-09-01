@@ -9,6 +9,8 @@
 #import "JSONModel.h"
 #import "ExcuteModel.h"
 #import <UIKit/UIKit.h>
+#import "AICustomerModel.h"
+
 
 @protocol NodeResultContent
 @end
@@ -40,3 +42,5 @@
 @property (nonatomic, assign) NSInteger result_code;
 
 @end
+
+

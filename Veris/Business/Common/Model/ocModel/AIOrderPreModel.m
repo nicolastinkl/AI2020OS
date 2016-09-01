@@ -8,19 +8,7 @@
 
 #import "AIOrderPreModel.h"
 
-@implementation AICustomerModel
 
-/*
-+(JSONKeyMapper*)keyMapper
-{
-    // 这里就采用了KVC的方式来取值...
-    return [[JSONKeyMapper alloc] initWithDictionary:@{
-                                                       @"user_portrait_icon.param_value": @"user_portrait_icon"
-                                                       
-                                                       }];
-}*/
-
-@end
 
 
 @implementation AIServiceModel

@@ -437,7 +437,10 @@ struct AIApplication {
         
         
         // 提交服务执行结果
+
+        case queryQiangDanResult
         case submitServiceNodeResult
+
         
         
         var description: String {
@@ -519,6 +522,7 @@ struct AIApplication {
             case .wishhot: return AIApplication.KURL_ReleaseURL + "/queryHotWishList"
             case .wishrecommand: return AIApplication.KURL_ReleaseURL + "/queryInterestingWishList"
             case .submitServiceNodeResult: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/submitServiceNodeResult"
+            case .queryQiangDanResult: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/queryScrambleOrderResult"
             }
         }
     }

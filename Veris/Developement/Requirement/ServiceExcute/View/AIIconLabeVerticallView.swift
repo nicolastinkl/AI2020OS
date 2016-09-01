@@ -10,7 +10,7 @@ import UIKit
 
 class AIIconLabelVerticalContainerView: UIView {
 
-
+    @IBOutlet var descLabel: UILabel!
     var models: [AIIconLabelViewModel]?
     
     

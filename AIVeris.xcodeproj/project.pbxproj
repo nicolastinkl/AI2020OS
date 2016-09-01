@@ -547,6 +547,10 @@
 		81BB86771CFE894200899B58 /* AICustomSearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */; };
 		81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */; };
 		81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */; };
+		81D325E71D7816680069F9B7 /* AICustomerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D325E61D7816680069F9B7 /* AICustomerModel.m */; };
+		81D325EA1D7819490069F9B7 /* AIAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D325E91D7819490069F9B7 /* AIAddressModel.m */; };
+		81D325ED1D781AB00069F9B7 /* AIQiangDanResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D325EC1D781AB00069F9B7 /* AIQiangDanResultModel.m */; };
+		81D325F01D7822630069F9B7 /* AIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D325EF1D7822630069F9B7 /* AIErrors.swift */; };
 		81F414321D351B8A008DC280 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F414311D351B8A008DC280 /* libsqlite3.0.tbd */; };
 		81FAFB891D45B18900DD3477 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAFB881D45B18900DD3477 /* Requirement.swift */; };
 		81FAFBEE1D4716F800DD3477 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAFBBC1D4716F700DD3477 /* TaskDetailViewController.swift */; };
@@ -1593,6 +1597,14 @@
 		81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomSearchHomeViewController.swift; sourceTree = "<group>"; };
 		81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryLabels.swift; sourceTree = "<group>"; };
 		81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		81D325E51D7816680069F9B7 /* AICustomerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICustomerModel.h; sourceTree = "<group>"; };
+		81D325E61D7816680069F9B7 /* AICustomerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICustomerModel.m; sourceTree = "<group>"; };
+		81D325E81D7819490069F9B7 /* AIAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAddressModel.h; sourceTree = "<group>"; };
+		81D325E91D7819490069F9B7 /* AIAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAddressModel.m; sourceTree = "<group>"; };
+		81D325EB1D781AB00069F9B7 /* AIQiangDanResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIQiangDanResultModel.h; sourceTree = "<group>"; };
+		81D325EC1D781AB00069F9B7 /* AIQiangDanResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIQiangDanResultModel.m; sourceTree = "<group>"; };
+		81D325EE1D781B3E0069F9B7 /* AIOCJsonModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOCJsonModels.h; sourceTree = "<group>"; };
+		81D325EF1D7822630069F9B7 /* AIErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIErrors.swift; sourceTree = "<group>"; };
 		81F414311D351B8A008DC280 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		81FAFB881D45B18900DD3477 /* Requirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
 		81FAFBBC1D4716F700DD3477 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
@@ -2184,6 +2196,7 @@
 				9304550F1D124DE5007AFC0C /* AIAppInit.h */,
 				930455101D124DE5007AFC0C /* AIAppInit.m */,
 				847D29931D4B4CA7009E26B8 /* AppUtils.swift */,
+				81D325EF1D7822630069F9B7 /* AIErrors.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -2282,6 +2295,11 @@
 				814339511CFBE5A600347C29 /* ProposalProtocal.swift */,
 				814339521CFBE5A600347C29 /* ServiceOrderDetailModel.h */,
 				814339531CFBE5A600347C29 /* ServiceOrderDetailModel.m */,
+				81D325E51D7816680069F9B7 /* AICustomerModel.h */,
+				81D325E61D7816680069F9B7 /* AICustomerModel.m */,
+				81D325E81D7819490069F9B7 /* AIAddressModel.h */,
+				81D325E91D7819490069F9B7 /* AIAddressModel.m */,
+				81D325EE1D781B3E0069F9B7 /* AIOCJsonModels.h */,
 			);
 			path = ocModel;
 			sourceTree = "<group>";
@@ -3986,6 +4004,8 @@
 			children = (
 				8484D85C1D7681EA001F1A54 /* ExcuteModel.m */,
 				8484D85E1D768206001F1A54 /* ExcuteModel.h */,
+				81D325EB1D781AB00069F9B7 /* AIQiangDanResultModel.h */,
+				81D325EC1D781AB00069F9B7 /* AIQiangDanResultModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5504,6 +5524,7 @@
 				8175A7BB1CFD2710006F2C8F /* AIUINavigationController.m in Sources */,
 				12933BD41D17E71B008A1693 /* AITimelineTableViewCell.swift in Sources */,
 				81433E441CFBE5A700347C29 /* JSSAlertView.swift in Sources */,
+				81D325EA1D7819490069F9B7 /* AIAddressModel.m in Sources */,
 				81433E461CFBE5A700347C29 /* UIImage+Effect.m in Sources */,
 				81433D841CFBE5A700347C29 /* AIPopHoldView.swift in Sources */,
 				81FAFC0A1D47427300DD3477 /* AIServiceExcuteViewModel.swift in Sources */,
@@ -5583,6 +5604,7 @@
 				8484D8481D6C2CF3001F1A54 /* UIColor+Hex.swift in Sources */,
 				9354DDE21D59BAB4000C7E0C /* AIWishPreviewController.swift in Sources */,
 				FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */,
+				81D325ED1D781AB00069F9B7 /* AIQiangDanResultModel.m in Sources */,
 				1265F6291D47841400130ECF /* AICustomerServiceExecuteHandler.swift in Sources */,
 				81433D9B1CFBE5A700347C29 /* AILimitListView.swift in Sources */,
 				81433E631CFBE5A700347C29 /* FLEXMethodCallingViewController.m in Sources */,
@@ -5640,6 +5662,7 @@
 				81433E751CFBE5A700347C29 /* FLEXFileBrowserSearchOperation.m in Sources */,
 				81433E301CFBE5A700347C29 /* AITaskInputViewController.swift in Sources */,
 				8175A7E31CFD2710006F2C8F /* MJRefreshHeaderView.m in Sources */,
+				81D325F01D7822630069F9B7 /* AIErrors.swift in Sources */,
 				8175A7E51CFD2710006F2C8F /* UIScrollView+MJRefresh.m in Sources */,
 				1234F9A01D34A0320009FB4F /* AIMapView.swift in Sources */,
 				81433CEE1CFBE5A700347C29 /* PriceItem.swift in Sources */,
@@ -5660,6 +5683,7 @@
 				81433DA31CFBE5A700347C29 /* AIRotateView.swift in Sources */,
 				81433D851CFBE5A700347C29 /* MDCFocalPointView.m in Sources */,
 				81433D821CFBE5A700347C29 /* AIOrderDescView.swift in Sources */,
+				81D325E71D7816680069F9B7 /* AICustomerModel.m in Sources */,
 				81433D341CFBE5A700347C29 /* TransportService.swift in Sources */,
 				81433D8A1CFBE5A700347C29 /* ProposalExpandedView.swift in Sources */,
 			);
