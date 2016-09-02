@@ -212,7 +212,6 @@ class AIProductInfoViewController: UIViewController {
 	}
 
     func favoriteAction() {
-        
         //查看哪个选中
         var ssid = 0
         if let button = singleButton {

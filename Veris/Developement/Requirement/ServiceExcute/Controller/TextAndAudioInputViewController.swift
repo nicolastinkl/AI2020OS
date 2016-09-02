@@ -115,7 +115,7 @@ class TextAndAudioInputViewController: UIViewController {
     
     private func setupNavigationBar() {
         
-        extendedLayoutIncludesOpaqueBars = true
+     //   extendedLayoutIncludesOpaqueBars = true
         
         let cancelButton = UIButton()
         cancelButton.setTitle("Cancel".localized, forState: .Normal)
@@ -174,10 +174,17 @@ class TextAndAudioInputViewController: UIViewController {
 
 extension TextAndAudioInputViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-//        JSSAlertView().comfirm(self, title: name, text: text, onComfirm: { () -> Void in
-//            
-//        })
-        return true
+        
+        var replace = false
+        
+        JSSAlertView().comfirm(self, title: "", text: "TextAndAudioInputViewController.replaceConfirm".localized, onComfirm: { () -> Void in
+            
+            self.soundPlayButton.hidden = true
+            self.setSaveButtonEnabel(false)
+            replace = true
+        })
+        
+        return replace
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
