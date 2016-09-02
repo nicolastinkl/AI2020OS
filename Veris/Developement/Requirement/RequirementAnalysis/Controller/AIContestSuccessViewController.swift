@@ -84,16 +84,16 @@ import AIAlertView
     func loadData() {
 
         let manager = BDKExcuteManager()
-        self.view.showLoading()
+        self.showLoading()
         manager.queryQaingDanResultInfo(serviceInstanceID, success: { (resultModel) in
             if let model: AIQiangDanResultModel = resultModel {
                 self.fillRealData(model)
                 //self.orderInfoViewLoadFakeData(model)
 
-                self.view.hideLoading()
+                self.dismissLoading()
             }
             }) { (error, errorDesc) in
-                self.view.hideLoading()
+                self.dismissLoading()
                 AIAlertView().showError(errorDesc, subTitle: "")
                 self.qiangDanResultModel = nil
         }
@@ -104,7 +104,7 @@ import AIAlertView
         self.qiangDanResultModel = model
         self.orderInfoView.descLabel.text = model.service_process.service_desc
         customerBannerView.userNameLabel.text = model.customer.user_name
-        customerBannerView.userIconImageView.sd_setImageWithURL(NSURL(string: model.customer.user_portrait_icon), placeholderImage: UIImage(named: "Avatorbibo"))
+        customerBannerView.userIconImageView.sd_setImageWithURL(NSURL(string: model.customer.user_portrait_icon), placeholderImage: UIImage(named: "se_customer_icon"))
         customerBannerView.userPhoneString = model.customer.user_phone
         customerBannerView.customerDescLabel.text = ""//"怀孕9周"
     }
@@ -125,7 +125,6 @@ import AIAlertView
         if let _ = qiangDanResultModel {
             let taskDetailVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
             taskDetailVC.serviceId = serviceInstanceID
-            taskDetailVC.userModel = qiangDanResultModel?.customer
                 self.navigationController?.pushViewController(taskDetailVC, animated: true)
         }
 

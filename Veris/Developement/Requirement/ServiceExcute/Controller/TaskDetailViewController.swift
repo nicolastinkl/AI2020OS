@@ -26,7 +26,15 @@ class TaskDetailViewController: UIViewController {
     var userModel: AICustomerModel!
     
     private var procedure: Procedure?
-    
+
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.opaque = false
+        self.navigationController?.navigationBarHidden = false
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
