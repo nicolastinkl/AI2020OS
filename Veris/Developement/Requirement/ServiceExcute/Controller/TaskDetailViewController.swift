@@ -23,6 +23,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var waitingMask: UIVisualEffectView!
     
     var serviceId: Int! = 100000000202
+    var userModel: AICustomerModel!
     
     private var procedure: Procedure?
     
