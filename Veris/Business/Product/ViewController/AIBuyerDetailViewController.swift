@@ -901,8 +901,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
             }
             //MARK:fake card data
             if let model = current_service_list![indexPath.row] as? AIProposalServiceModel {
-                if model.service_id == 900001001002 {
-
+                if model.service_desc == "孕检挂号" {
                     // Cache Current CellView.
                     let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: indexPath.section)) as! AIBueryDetailCell
                     let modelCellM = cell.currentModel
@@ -915,8 +914,8 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
 
                     return
                 }
-
-                let bid = "900001001007"
+                /*
+                let bid = "900001004205"
                 if model.service_id == bid.toInt() {
 
                     // Show View.
@@ -924,11 +923,19 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                     Card.sharedInstance.showInView(self.view, serviceId: "1", userInfo: ["title": model.service_desc, "name": "Uber", "url": "\(model.service_thumbnail_icon)"])
 
                     return
-                }
+                }*/
                 let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIPageBueryViewController) as! AIPageBueryViewController
                 viewController.delegate = self
                 viewController.proposalId = dataSource.proposal_id
-                viewController.bubbleModelArray = serviceList as? [AIProposalServiceModel]
+                
+                //remove 孕检挂号
+                var newModel = Array<AIProposalServiceModel>()
+                serviceList?.forEach({ (model) in
+                    if model.service_desc != "孕检挂号" {
+                        newModel.append(model as! AIProposalServiceModel)
+                    }
+                })                
+                viewController.bubbleModelArray = newModel
                 viewController.selectCurrentIndex = indexPath.row
                 showTransitionStyleCrossDissolveView(viewController)
                 // Send Anchor
