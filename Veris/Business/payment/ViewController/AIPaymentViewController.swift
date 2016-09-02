@@ -59,6 +59,7 @@ class AIPaymentViewController: UIViewController {
     var expandedIndexPaths: [NSIndexPath] = [NSIndexPath]()
 
     var dataModel: AIPayInfoModel?
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -115,7 +116,7 @@ class AIPaymentViewController: UIViewController {
         
         let priceLabel = UILabel()
         priceLabel.textAlignment = .Center
-        priceLabel.text = "123元"
+        priceLabel.text = dataModel?.proposal_price ?? ""
         
         priceLabel.font = AITools.myriadBoldWithSize(140/3)
         priceLabel.textColor = UIColor(white: 1, alpha: 0.7)
@@ -321,11 +322,16 @@ class AIPaymentViewController: UIViewController {
         if WXApi.isWXAppInstalled() {
             SVProgressHUD.showWithStatus("正在处理...", maskType: SVProgressHUDMaskType.Gradient)
             let model = MDPayTypeModel()
-            model.fee = 11
+            model.fee = Double(dataModel?.pay_fee?.toInt() ?? 0)
             model.for_id = "\(arc4random()%1000 + 400)"
             model.order_type  = 1
             model.pay_type = 1
             model.sign_str = ""
+            model.body = dataModel?.servicename ?? ""
+            model.detail = dataModel?.servicename ?? ""
+            model.payeeuserid = AILoginUtil.currentLocalUserID() ?? ""
+            model.userid = AILoginUtil.currentLocalUserID() ?? ""
+            
             WXPayClient.shareInstance().payProduct(model, withNotify: AlipayNotifyURL)
             
         } else {

@@ -116,7 +116,7 @@ NSString *expiresInKey = @"expires_in";
     NSMutableDictionary* headers = [JSONHTTPClient requestHeaders];
     headers[@"Content-Type"] = @"application/json";
     headers[@"HttpQuery"] = @"0&0&100000002410&23432";
-    NSDictionary * requestJson = @{@"desc":@{@"data_mode":@(0),@"digest":@""},@"data":@{@"payor_user_id":@(100000002410),@"payee_user_id":@(200000002501),@"bill_id":@(200000408),@"body":@"body",@"detail":@"detail",@"fee_type":@"CNY",@"total_fee":@(1)}};
+    NSDictionary * requestJson = @{@"desc":@{@"data_mode":@(0),@"digest":@""},@"data":@{@"payor_user_id":model.userid,@"payee_user_id":model.payeeuserid,@"bill_id":@(200000408),@"body":model.body,@"detail":model.detail,@"fee_type":@"CNY",@"total_fee":@(1)}};
     
     AIMessage*  message = [[AIMessage alloc] init];
     [message.body addEntriesFromDictionary:requestJson];
