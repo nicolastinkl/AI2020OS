@@ -458,13 +458,13 @@ class AIBuyerDetailViewController: UIViewController {
 		let vc = AIServiceContentViewController()
 		vc.serviceContentType = AIServiceContentType.MusicTherapy
 		showTransitionStyleCrossDissolveView(vc)
-		
 	}
 	
 	func initController() {
 		
 		let name = bubbleModel?.proposal_name ?? ""
 		self.backButton.setTitle(name, forState: UIControlState.Normal)
+        
 		self.moneyLabel.text = dataSource?.order_total_price
 		
 		self.numberLabel.text = "\(dataSource?.order_times ?? 0)"
