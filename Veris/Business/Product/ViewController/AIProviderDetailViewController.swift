@@ -9,9 +9,11 @@
 import UIKit
 
 class AIProviderDetailViewController: UIViewController {
-    
-    var provider_id: Int!
-    var service_name: String = ""
+	
+	var provider_id: Int!
+	// 服务端，javamaster要求传两种id
+	var id: Int!
+	var service_name: String = ""
 	// config
 	@IBOutlet var clearViews: [UIView]!
 	@IBOutlet var halfWhiteClearViews: [UIView]!
@@ -27,7 +29,7 @@ class AIProviderDetailViewController: UIViewController {
 	@IBOutlet weak var avatarImageView: UIImageView!
 	
 	@IBOutlet var bubbleContainerView: UIView!
-    @IBOutlet weak var allServicesLabel: UILabel!
+	@IBOutlet weak var allServicesLabel: UILabel!
 	
 	var bubbleView: GridBubblesView!
 	
@@ -46,11 +48,11 @@ class AIProviderDetailViewController: UIViewController {
 		fetchData()
 		setupBubbleView()
 	}
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        avatarImageView.layer.cornerRadius = avatarImageView.height / 2
-    }
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		avatarImageView.layer.cornerRadius = avatarImageView.height / 2
+	}
 	
 	func updateUI() {
 		nameLabel.text = model?.name
@@ -61,9 +63,9 @@ class AIProviderDetailViewController: UIViewController {
 			l.text = ""
 		}
 		
-		if let qualificationList = model?.qualification_list as? [String] {
+        if let qualificationList = model?.qualification_list as? [[String: AnyObject]] {
 			for (i, q) in qualificationList.enumerate() {
-				qualificationLabels[i].text = q
+				qualificationLabels[i].text = q["name"] as? String
 			}
 		}
 		
@@ -76,9 +78,9 @@ class AIProviderDetailViewController: UIViewController {
 	
 	func fetchData() {
 		let service = AIProviderDetailService()
-        view.showLoading()
-		service.queryProvider(provider_id, success: { [weak self] model in
-            self?.view.hideLoading()
+		view.showLoading()
+		service.queryProvider(provider_id, id: id, success: { [weak self] model in
+			self?.view.hideLoading()
 			self?.model = model
 		}) { (errType, errDes) in
 			
@@ -92,8 +94,8 @@ class AIProviderDetailViewController: UIViewController {
 		
 		bubbleView.snp_makeConstraints(closure: { (make) in
 			make.leading.trailing.equalTo(bubbleContainerView)
-            make.bottom.equalTo(bubbleContainerView).offset(-110.displaySizeFrom1242DesignSize())
-            make.top.equalTo(allServicesLabel.snp_bottom).offset(56.displaySizeFrom1242DesignSize())
+			make.bottom.equalTo(bubbleContainerView).offset(-110.displaySizeFrom1242DesignSize())
+			make.top.equalTo(allServicesLabel.snp_bottom).offset(56.displaySizeFrom1242DesignSize())
 		})
 	}
 	func setupUI() {
@@ -113,7 +115,7 @@ class AIProviderDetailViewController: UIViewController {
 			l.textColor = UIColor(hexString: "#ffffff", alpha: 0.6)
 		}
 		
-        avatarImageView.clipsToBounds = true
+		avatarImageView.clipsToBounds = true
 	}
 	
 	func setupNavigationItems() {

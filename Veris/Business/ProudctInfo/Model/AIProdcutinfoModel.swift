@@ -88,7 +88,9 @@ class AIProdcutinfoModel: JSONJoy {
 
 struct AIPublicProviderModel: JSONJoy {
     
+    
     var id: Int?
+    var provider_id: Int?
     var name: String?
     var icon: String?
     var desc: String?
@@ -98,6 +100,7 @@ struct AIPublicProviderModel: JSONJoy {
     
     init(_ decoder: JSONDecoder) {
         id = decoder["id"].integer ?? 0
+        provider_id = decoder["provider_id"].integer ?? 0
         name = decoder["name"].string ?? ""
         desc = decoder["desc"].string ?? ""
         icon = decoder["icon"].string ?? ""
