@@ -212,9 +212,16 @@ class AIProductInfoViewController: UIViewController {
 	}
 
     func favoriteAction() {
+        
+        //查看哪个选中
+        var ssid = 0
+        if let button = singleButton {
+            ssid = button.tag
+        }
+        
         view.showLoading()
         
-        AIProdcutinfoService.addFavoriteServiceInfo("\(dataModel?.serviceID ?? 0)", proposal_spec_id: "\(dataModel?.proposal_inst_id ?? 0)") { (obj, error) in
+        AIProdcutinfoService.addFavoriteServiceInfo(String(dataModel?.proposal_inst_id ?? 0), proposal_spec_id: ssid == 0 ? "" : String(ssid)) { (obj, error) in
             self.view.hideLoading()
             if let res = obj as? String {
                 // MARK: Loading Data Views
@@ -353,12 +360,11 @@ class AIProductInfoViewController: UIViewController {
             tag.layer.masksToBounds = true
             tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             
-            
             if model.collected {
-                singleButton = tag
                 tag.associatedName = "1"
                 tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Normal)
                 tag.borderColor = UIColor(hexString: "#0f86e8")
+                singleButton = tag
             } else {
                 tag.associatedName = "0"
                 changeButtonNormalState(tag)
@@ -714,7 +720,7 @@ class AIProductInfoViewController: UIViewController {
     
     func providerDetailPressed() {
         let vc = AIProviderDetailViewController.initFromNib()
-        vc.provider_id = dataModel!.provider!.id!
+        vc.provider_id = dataModel!.provider!.id ?? 0
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     }
@@ -722,7 +728,7 @@ class AIProductInfoViewController: UIViewController {
     func recommondForYouPressed() {
         // 为您推荐
         let vc = AIRecommondForYouViewController()
-        vc.service_id = dataModel!.serviceID!
+        vc.service_id = sid
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     }

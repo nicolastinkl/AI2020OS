@@ -326,7 +326,6 @@ class AIProductCommentCell: UITableViewCell {
 		
 		selfHeight += 40
 		return selfHeight
-		
 	}
 	
 	func setup(model: AIProductComment) {
@@ -339,10 +338,9 @@ class AIProductCommentCell: UITableViewCell {
         newModel.like = model.supporting_count
         if (model.rating_level != nil) {
             newModel.level = model.rating_level.toInt() ?? 0
-        }else{
+        } else {
             newModel.level = 0
         }
-        
 		commentInfoView.fillDataWithModel(newModel)
 	}
 }

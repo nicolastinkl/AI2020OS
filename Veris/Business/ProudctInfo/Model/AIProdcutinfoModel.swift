@@ -10,7 +10,7 @@ import Foundation
 
 class AIProdcutinfoModel: JSONJoy {
  
-    var serviceID: Int?
+    //var serviceID: Int?
     var name: String?
     var image: String?
     var desc: String?
@@ -34,13 +34,12 @@ class AIProdcutinfoModel: JSONJoy {
         
         //base_info
         if let bdecoder = decoder["base_info"].dictionary {
-            serviceID = bdecoder["serviceID"]?.integer ?? 0
+            
             name = bdecoder["name"]?.string ?? ""
             desc = bdecoder["desc"]?.string ?? ""
             image = bdecoder["image"]?.string ?? ""
             desc_image = bdecoder["desc_image"]?.string ?? ""
             proposal_inst_id = bdecoder["proposal_inst_id"]?.integer ?? 0
-            serviceID = bdecoder["proposal_inst_id"]?.integer ?? 0
             collected = bdecoder["collected"]?.bool ?? false
             
             //package
