@@ -330,13 +330,14 @@ class AIProductCommentCell: UITableViewCell {
 	
 	func setup(model: AIProductComment) {
         var newModel = AICommentInfoModel()
+        newModel.images = model.photos as? [[String: String]]
         newModel.commentcount = model.replyingCount
         newModel.commentid = model.customer_id
         newModel.descripation = model.comment
         newModel.providename = model.customer.name
         newModel.provideurl = model.customer.portrait_icon
         newModel.like = model.supporting_count
-        if (model.rating_level != nil) {
+        if model.rating_level != nil {
             newModel.level = model.rating_level.toInt() ?? 0
         } else {
             newModel.level = 0
