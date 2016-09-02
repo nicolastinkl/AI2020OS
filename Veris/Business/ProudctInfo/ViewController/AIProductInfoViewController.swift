@@ -707,6 +707,7 @@ class AIProductInfoViewController: UIViewController {
         model.proposal_name = dataModel?.name ?? ""
         if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
             vc.dataSource  = model
+            vc.customNoteModel = dataModel?.customer_note
             showTransitionStyleCrossDissolveView(vc)
         }
         

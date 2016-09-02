@@ -27,6 +27,10 @@
 @property (nonatomic, assign) double                fee;
 @property (nonatomic, strong) NSString<Optional>    *sign_str;
 
+@property (nonatomic, strong) NSString<Optional>    *body;
+@property (nonatomic, strong) NSString<Optional>    *detail;
+@property (nonatomic, strong) NSString<Optional>    *userid;
+@property (nonatomic, strong) NSString<Optional>    *payeeuserid;
 @end
 
 @interface WXPayClient : NSObject

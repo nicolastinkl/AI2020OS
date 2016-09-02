@@ -33,7 +33,7 @@ class AIPayInfoModel: JSONJoy {
     var providerphone: String?
     var totalorders: String?
     var price: Double?
-
+    var proposal_price: String?
     var total_fee: String?
     var deduct_fee: String?
     var pay_fee: String?
@@ -48,6 +48,7 @@ class AIPayInfoModel: JSONJoy {
         servicestars = decoder["servicestars"].string ?? ""
         providerphone = decoder["providerphone"].string ?? ""
         totalorders = decoder["total_orders"].string ?? ""
+        proposal_price = decoder["proposal_price"].string ?? ""
         if let array = decoder["payment_items"].array {
             for dec in array {
                 let pro = AIPaymentItemModel(dec)
