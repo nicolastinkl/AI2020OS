@@ -274,7 +274,7 @@ class TaskResultCommitViewController: UIViewController {
             
             manager.submitServiceNodeResult(serviceId, procedureId: procedureId!, resultList: [picNode, textOrVoiceNode], success: { (responseData: (hasNextNode: Bool, resultCode: ResultCode)) in
                 
-                self.view.dismissLoading()
+                self.dismissLoading()
                 
                 if responseData.resultCode == ResultCode.success {
                     self.delegate?.hasNextNode(responseData.hasNextNode)
@@ -285,7 +285,7 @@ class TaskResultCommitViewController: UIViewController {
                 
             }) { (errType, errDes) in
                 
-                self.view.dismissLoading()
+                self.dismissLoading()
                 
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
             }
@@ -301,7 +301,7 @@ class TaskResultCommitViewController: UIViewController {
                 guard let url = self.uploadImage() else {
                     NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
                     
-                    self.view.dismissLoading()
+                    self.dismissLoading()
                     return
                 }
                 
@@ -311,7 +311,7 @@ class TaskResultCommitViewController: UIViewController {
                     guard let url = self.uploadAudio() else {
                         NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
                         
-                        self.view.dismissLoading()
+                        self.dismissLoading()
                         return
 
                     }
