@@ -125,7 +125,6 @@ import AIAlertView
         if let _ = qiangDanResultModel {
             let taskDetailVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
             taskDetailVC.serviceId = serviceInstanceID
-            taskDetailVC.userModel = qiangDanResultModel?.customer
                 self.navigationController?.pushViewController(taskDetailVC, animated: true)
         }
 

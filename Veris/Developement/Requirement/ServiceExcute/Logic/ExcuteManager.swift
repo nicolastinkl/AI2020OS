@@ -31,20 +31,20 @@ enum ProcedureStatus: Int {
 }
 
 protocol ExcuteManager {
-    func submitServiceNodeResult(nodeId: Int, resultList: [NodeResultContent], success: (responseData: (hasNextNode: Bool, resultCode: ResultCode)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
-    func queryProcedureInstInfo(procedureId: Int, userId: Int, success: (responseData: Procedure) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func submitServiceNodeResult(serviceId: Int, procedureId: Int, resultList: [NodeResultContent], success: (responseData: (hasNextNode: Bool, resultCode: ResultCode)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func queryProcedureInstInfo(serviceId: Int, userId: Int, success: (responseData: (customer: AICustomerModel, procedure: Procedure)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func updateServiceNodeStatus(procedureId: Int, status: ProcedureStatus, success: (responseData: RequestCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
 
 class BDKExcuteManager: ExcuteManager {
-    func submitServiceNodeResult(procedureId: Int, resultList: [NodeResultContent], success: (responseData: (hasNextNode: Bool, resultCode: ResultCode)) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func submitServiceNodeResult(serviceId: Int, procedureId: Int, resultList: [NodeResultContent], success: (responseData: (hasNextNode: Bool, resultCode: ResultCode)) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         let message = AIMessage()
         let url = AIApplication.AIApplicationServerURL.submitServiceNodeResult.description
         message.url = url
         
-        let data: [String: AnyObject] = ["procedure_inst_id": procedureId, "note_list": NodeResultContent.arrayOfDictionariesFromModels(resultList)]
+        let data: [String: AnyObject] = ["service_instance_id": serviceId, "procedure_inst_id": procedureId, "note_list": NodeResultContent.arrayOfDictionariesFromModels(resultList)]
         message.body = BDKTools.createRequestBody(data)
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
@@ -104,14 +104,14 @@ class BDKExcuteManager: ExcuteManager {
 
 
     
-    func queryProcedureInstInfo(serviceId: Int, userId: Int, success: (responseData: Procedure) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func queryProcedureInstInfo(serviceId: Int, userId: Int, success: (responseData: (customer: AICustomerModel, procedure: Procedure)) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         
         let message = AIMessage()
         let url = AIApplication.AIApplicationServerURL.queryProcedureInstInfo.description
         message.url = url
         
-        let data: [String: AnyObject] = ["service_inst_id": serviceId, "user_id": userId]
+        let data: [String: AnyObject] = ["service_instance_id": serviceId, "user_id": userId]
         message.body = BDKTools.createRequestBody(data)
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
@@ -121,8 +121,20 @@ class BDKExcuteManager: ExcuteManager {
                     fail(errType: AINetError.Format, errDes: "queryProcedureInstInfo JSON Parse Error...")
                     return
                 }
-                let model = try Procedure(dictionary: dic)
-                success(responseData: model)
+                
+                guard let p = dic["procedure"] as? [NSObject : AnyObject] else {
+                    fail(errType: AINetError.Format, errDes: "queryProcedureInstInfo JSON Parse Error...")
+                    return
+                }
+                
+                guard let c = dic["customer"] as? [NSObject : AnyObject] else {
+                    fail(errType: AINetError.Format, errDes: "queryProcedureInstInfo JSON Parse Error...")
+                    return
+                }
+                
+                let procedure = try Procedure(dictionary: p)
+                let customer = try AICustomerModel(dictionary: c)
+                success(responseData: (customer, procedure))
             } catch {
                 fail(errType: AINetError.Format, errDes: "queryProcedureInstInfo JSON Parse Error...")
             }

@@ -69,7 +69,7 @@
 // 用户授权判断 0-不需要用户授权 1-需要用户授权
 @property (strong, nonatomic) NSNumber<Optional> * permission_type;
 // 服务步骤节点状态 0 – 未开始 1 – 执行中 2 – 执行完成
-@property (strong, nonatomic) NSNumber<Optional> * procedure_status;
+@property (strong, nonatomic) NSNumber<Optional> * status;
 @property (strong, nonatomic) NodeInfo<Optional> * node_info;
 @property (strong, nonatomic) NSArray<NodeParam, Optional> * param_list;
 
