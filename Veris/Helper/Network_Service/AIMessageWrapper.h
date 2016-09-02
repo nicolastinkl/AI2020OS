@@ -53,6 +53,6 @@
 /*说明：添加收藏服务
  *  @author Tinkl
  */
-+ (AIMessage *) addFavoriteService:(NSInteger)proposal_spec_id;
++ (AIMessage *) addFavoriteService:(NSString *)proposal_spec_id ServiceID:(NSString *)sid;
 
 @end

@@ -64,6 +64,37 @@ class BDKExcuteManager: ExcuteManager {
             fail(errType: error, errDes: errorDes ?? "")
         }
     }
+
+
+    //MARK: 抢单结果信息查询
+    func queryQaingDanResultInfo(ServiceInstanceID: Int, success: (resultModel: AIQiangDanResultModel) -> Void, fail: net_fail_block) {
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.queryQiangDanResult.description
+        let data: [String: AnyObject] = ["service_instance_id": ServiceInstanceID]
+        message.body = BDKTools.createRequestBody(data)
+
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+
+            do {
+                guard let dic = response as? [NSObject : AnyObject] else {
+                    fail(AINetError.Format, AIErrors.AINetErrors.ResponseFormatError)
+                    return
+                }
+                let model = try AIQiangDanResultModel(dictionary: dic)
+                success(resultModel: model)
+            } catch {
+                fail(AINetError.Format, AIErrors.AINetErrors.ResponseFormatError)
+            }
+
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(error, errorDes ?? AIErrors.AINetErrors.NetError)
+        }
+
+    }
+
+
+
+
     
     func queryProcedureInstInfo(serviceId: Int, userId: Int, success: (responseData: Procedure) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
@@ -120,3 +151,5 @@ class BDKExcuteManager: ExcuteManager {
         }
     }
 }
+
+
