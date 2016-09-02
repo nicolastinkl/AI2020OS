@@ -21,6 +21,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var promptAuthorization: UILabel!
     @IBOutlet weak var waitingIcon: UIImageView!
     @IBOutlet weak var waitingMask: UIVisualEffectView!
+    @IBOutlet weak var customerView: AICustomerBannerView!
     
     var serviceId: Int! = 100000000202
     var userModel: AICustomerModel!
@@ -38,7 +39,16 @@ class TaskDetailViewController: UIViewController {
         
         buildNavigationTitleLabel()
         
+        setupCustomerView()
+        
         loadData()
+    }
+    
+    private func setupCustomerView() {
+        customerView.userNameLabel.text = userModel.user_name
+        customerView.userIconImageView.sd_setImageWithURL(NSURL(string: userModel.user_portrait_icon), placeholderImage: UIImage(named: "Avatorbibo"))
+        customerView.userPhoneString = userModel.user_phone
+        customerView.customerDescLabel.text = ""
     }
     
     class func initFromStoryboard() -> TaskDetailViewController {
