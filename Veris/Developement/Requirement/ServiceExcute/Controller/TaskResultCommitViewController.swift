@@ -28,6 +28,7 @@ class TaskResultCommitViewController: UIViewController {
     @IBOutlet weak var photoWidthConstraint: NSLayoutConstraint!
     
     var procedureId: Int?
+    var delegate: TeskResultCommitDelegate?
     
     private var hasImage = false
     
@@ -83,7 +84,7 @@ class TaskResultCommitViewController: UIViewController {
     }
     
     @IBAction func questButtonClicked(sender: AnyObject) {
-        submitResult()
+        updateServiceStatus()
     }
     
     func cameraAction(sender: UIGestureRecognizer) {
@@ -216,10 +217,32 @@ class TaskResultCommitViewController: UIViewController {
 //        presentViewController(alert, animated: true, completion: nil)
 //
 //    }
+    private func updateServiceStatus() {
+        let manager = BDKExcuteManager()
+        
+        view.showLoading()
+        
+        manager.updateServiceNodeStatus(procedureId!, status: ProcedureStatus.complete, success: { (responseData) in
+            
+            self.view.hideLoading()
+            
+            if responseData.result_code == ResultCode.success.rawValue {
+                self.submitResult()
+            } else {
+                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+            }
+            
+        }) { (errType, errDes) in
+            
+            self.view.hideLoading()
+            
+            NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+            
+        }
+    }
     
     
-    
-    func submitResult() {
+    private func submitResult() {
         
         var audioUrl: String!
         var imageUrl: String!
@@ -249,12 +272,13 @@ class TaskResultCommitViewController: UIViewController {
                 procedureId = 602
             }
             
-            manager.submitServiceNodeResult(procedureId!, resultList: [picNode, textOrVoiceNode], success: { (responseData) in
+            manager.submitServiceNodeResult(procedureId!, resultList: [picNode, textOrVoiceNode], success: { (responseData: (hasNextNode: Bool, resultCode: ResultCode)) in
                 
                 self.view.dismissLoading()
                 
-                if responseData.result_code == ResultCode.success.rawValue {
-                    NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
+                if responseData.resultCode == ResultCode.success {
+                    self.delegate?.hasNextNode(responseData.hasNextNode)
+                    self.dismiss()
                 } else {
                     NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
                 }
@@ -467,4 +491,8 @@ extension TaskResultCommitViewController: ImagesReviewDelegate {
 
 extension TaskResultCommitViewController: UINavigationControllerDelegate {
     
+}
+
+protocol TeskResultCommitDelegate {
+    func hasNextNode(hasNextNode: Bool)
 }

@@ -23,6 +23,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var waitingMask: UIVisualEffectView!
     
     var serviceId: Int! = 100000000202
+    var userModel: AICustomerModel!
     
     private var procedure: Procedure?
     
@@ -187,10 +188,19 @@ class TaskDetailViewController: UIViewController {
     private func openTaskCommitViewController() {
         let taskResultCommitlVC = TaskResultCommitViewController.initFromStoryboard()
         taskResultCommitlVC.procedureId = procedure!.procedure_inst_id.integerValue
+        taskResultCommitlVC.delegate = self
         
         let nav = UINavigationController(rootViewController: taskResultCommitlVC)
         presentViewController(nav, animated: true, completion: nil)
     }
-    
+}
 
+extension TaskDetailViewController: TeskResultCommitDelegate {
+    func hasNextNode(hasNextNode: Bool) {
+        if hasNextNode {
+            loadData()
+        } else {
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+    }
 }

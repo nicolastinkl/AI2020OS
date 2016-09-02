@@ -31,14 +31,14 @@ enum ProcedureStatus: Int {
 }
 
 protocol ExcuteManager {
-    func submitServiceNodeResult(nodeId: Int, resultList: [NodeResultContent], success: (responseData: RequestCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func submitServiceNodeResult(nodeId: Int, resultList: [NodeResultContent], success: (responseData: (hasNextNode: Bool, resultCode: ResultCode)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func queryProcedureInstInfo(procedureId: Int, userId: Int, success: (responseData: Procedure) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func updateServiceNodeStatus(procedureId: Int, status: ProcedureStatus, success: (responseData: RequestCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
 
 class BDKExcuteManager: ExcuteManager {
-    func submitServiceNodeResult(procedureId: Int, resultList: [NodeResultContent], success: (responseData: RequestCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func submitServiceNodeResult(procedureId: Int, resultList: [NodeResultContent], success: (responseData: (hasNextNode: Bool, resultCode: ResultCode)) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         let message = AIMessage()
         let url = AIApplication.AIApplicationServerURL.submitServiceNodeResult.description
@@ -54,8 +54,16 @@ class BDKExcuteManager: ExcuteManager {
                     fail(errType: AINetError.Format, errDes: "submitServiceNodeResult JSON Parse Error...")
                     return
                 }
-                let model = try RequestCode(dictionary: dic)
-                success(responseData: model)
+                
+                guard
+                    let hasNextNode = dic["process_flag"] as? Bool,
+                    let c = dic["result_code"] as? Int else {
+                        fail(errType: AINetError.Format, errDes: "submitServiceNodeResult JSON Parse Error...")
+                        return
+                }
+                
+                let result = (hasNextNode, ResultCode(rawValue: c)!)
+                success(responseData: result)
             } catch {
                 fail(errType: AINetError.Format, errDes: "submitServiceNodeResult JSON Parse Error...")
             }
