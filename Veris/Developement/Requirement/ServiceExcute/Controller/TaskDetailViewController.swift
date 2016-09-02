@@ -23,7 +23,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var waitingMask: UIVisualEffectView!
     @IBOutlet weak var customerView: AICustomerBannerView!
     
-    var serviceId: Int! = 100000012986
+    var serviceId: Int!
     
     private var procedure: Procedure?
 
@@ -97,8 +97,8 @@ class TaskDetailViewController: UIViewController {
         
         let manager = BDKExcuteManager()
         
-        let userId = 100000002410
-  //      let userId = AIUser.currentUser().id
+    //    let userId = 100000002410
+        let userId = AIUser.currentUser().id
         manager.queryProcedureInstInfo(serviceId, userId: userId, success: { (responseData) in
             
             self.dismissLoading()
