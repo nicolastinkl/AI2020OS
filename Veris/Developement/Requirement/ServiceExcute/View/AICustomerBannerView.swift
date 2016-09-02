@@ -40,7 +40,7 @@ class AICustomerBannerView: UIView {
 
         if let _ = userPhoneString, _ = delegate {
             let alert = JSSAlertView()
-            alert.info( delegate!, title: userPhoneString!, text: "", buttonText: "Call", cancelButtonText: "Cancel")
+            alert.info( delegate!, title: userPhoneString!, text: "", buttonText: "拨打", cancelButtonText: "取消")
             alert.defaultColor = UIColorFromHex(0xe7ebf5, alpha: 1)
             alert.addAction {
                 UIApplication.sharedApplication().openURL(NSURL(string: "tel:\(self.userPhoneString!)")!)

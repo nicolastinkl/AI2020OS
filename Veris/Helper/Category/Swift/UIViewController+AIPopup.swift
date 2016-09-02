@@ -45,7 +45,9 @@ extension UIViewController {
 		static let animationTime: Double = 0.25
 		static let statusBarSize: CGFloat = 22
 	}
-	
+
+
+
 	// MARK: - public
 	var popupViewController: UIViewController? {
 		
@@ -321,6 +323,18 @@ extension UIViewController {
 		UIGraphicsEndImageContext()
 		return screenshot
 	}
+
+
+    // MARK: Loading
+
+    func showLoading() {
+        UIApplication.sharedApplication().keyWindow!.showLoading()
+    }
+
+    func dismissLoading() {
+        UIApplication.sharedApplication().keyWindow!.hideLoading()
+    }
+
 }
 
 public extension UIImage {

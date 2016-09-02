@@ -23,11 +23,18 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var waitingMask: UIVisualEffectView!
     @IBOutlet weak var customerView: AICustomerBannerView!
     
-    var serviceId: Int! = 100000000202
-    var userModel: AICustomerModel!
+    var serviceId: Int!
     
     private var procedure: Procedure?
-    
+
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.opaque = false
+        self.navigationController?.navigationBarHidden = false
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,12 +46,12 @@ class TaskDetailViewController: UIViewController {
         
         buildNavigationTitleLabel()
         
-        setupCustomerView()
+        
         
         loadData()
     }
     
-    private func setupCustomerView() {
+    private func setupCustomerView(userModel: AICustomerModel) {
         customerView.userNameLabel.text = userModel.user_name
         customerView.userIconImageView.sd_setImageWithURL(NSURL(string: userModel.user_portrait_icon), placeholderImage: UIImage(named: "Avatorbibo"))
         customerView.userPhoneString = userModel.user_phone
@@ -72,7 +79,7 @@ class TaskDetailViewController: UIViewController {
         let titleLabel = UILabel(frame: frame)
         titleLabel.font = NAVIGATION_TITLE
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.text = "Service detail"
+        titleLabel.text = "服务细节"
         self.navigationItem.titleView = titleLabel
         let backImage = UIImage(named: "se_back")
         
@@ -86,19 +93,22 @@ class TaskDetailViewController: UIViewController {
     }
     
     private func loadData() {
-        view.showLoading()
+        showLoading()
         
         let manager = BDKExcuteManager()
         
-        manager.queryProcedureInstInfo(serviceId, userId: AIUser.currentUser().id, success: { (responseData) in
+    //    let userId = 100000002410
+        let userId = AIUser.currentUser().id
+        manager.queryProcedureInstInfo(serviceId, userId: userId, success: { (responseData) in
             
-            self.view.hideLoading()
-            self.procedure = responseData
-            self.setupUI(responseData)
+            self.dismissLoading()
+            self.procedure = responseData.procedure
+            self.setupUI(self.procedure!)
+            self.setupCustomerView(responseData.customer)
             
             }) { (errType, errDes) in
-                self.view.hideLoading()
-                NBMaterialToast.showWithText(self.view, text: "GetDataFailed".localized, duration: NBLunchDuration.SHORT)
+                self.dismissLoading()
+                NBMaterialToast.showWithText(self.view, text: "获取数据失败".localized, duration: NBLunchDuration.SHORT)
         }
     }
     
@@ -110,8 +120,10 @@ class TaskDetailViewController: UIViewController {
             if params.count != 0 {
                 for index in 0 ..< params.count {
                     if index == 0 {
+                        serviceTime.hidden = false
                         serviceTime.labelContent = params[index].value
                     } else if index == 1 {
+                        serviceTime.hidden = false
                         serviceLocation.labelContent = params[index].value
                     } else {
                         break
@@ -124,13 +136,15 @@ class TaskDetailViewController: UIViewController {
             showAuthorization()
         } else {
             hideAuthorization()
-            TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: false)
             
-            switch procedure.procedure_status {
+            
+            switch procedure.status {
             case ProcedureStatus.noStart.rawValue:
                 bottomButton.setTitle("TaskDetailViewController.start".localized, forState: .Normal)
+                TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
             case ProcedureStatus.excuting.rawValue:
-                bottomButton.setTitle("TaskDetailViewController.comlete".localized, forState: .Normal)
+                bottomButton.setTitle("TaskDetailViewController.complete".localized, forState: .Normal)
+                TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
             case ProcedureStatus.excuting.rawValue:
                 bottomButton.hidden = true
             default:
@@ -159,7 +173,7 @@ class TaskDetailViewController: UIViewController {
     
     @IBAction func bottomButtonAction(sender: AnyObject) {
         if let p = procedure {
-            switch p.procedure_status {
+            switch p.status {
             case ProcedureStatus.noStart.rawValue:
                 updateServiceStatus()
             case ProcedureStatus.excuting.rawValue:
@@ -174,21 +188,24 @@ class TaskDetailViewController: UIViewController {
     private func updateServiceStatus() {
         let manager = BDKExcuteManager()
         
-        view.showLoading()
+        showLoading()
         
         manager.updateServiceNodeStatus(procedure!.procedure_inst_id.integerValue, status: ProcedureStatus.excuting, success: { (responseData) in
             
-            self.view.hideLoading()
+            self.dismissLoading()
             
             if responseData.result_code == ResultCode.success.rawValue {
                 NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
+                
+                self.procedure?.status = ProcedureStatus.excuting.rawValue
+                self.bottomButton.setTitle("TaskDetailViewController.complete".localized, forState: .Normal)
             } else {
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
             }
             
             }) { (errType, errDes) in
                 
-                self.view.hideLoading()
+                self.dismissLoading()
                 
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
                 
@@ -198,6 +215,7 @@ class TaskDetailViewController: UIViewController {
     private func openTaskCommitViewController() {
         let taskResultCommitlVC = TaskResultCommitViewController.initFromStoryboard()
         taskResultCommitlVC.procedureId = procedure!.procedure_inst_id.integerValue
+        taskResultCommitlVC.serviceId = serviceId
         taskResultCommitlVC.delegate = self
         
         let nav = UINavigationController(rootViewController: taskResultCommitlVC)
