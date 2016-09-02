@@ -76,7 +76,7 @@ import AIAlertView
     
     func backAction(button: UIBarButtonItem) {
 
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     

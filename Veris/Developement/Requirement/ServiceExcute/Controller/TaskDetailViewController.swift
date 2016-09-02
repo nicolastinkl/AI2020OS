@@ -79,7 +79,7 @@ class TaskDetailViewController: UIViewController {
         let titleLabel = UILabel(frame: frame)
         titleLabel.font = NAVIGATION_TITLE
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.text = "Service detail"
+        titleLabel.text = "服务细节"
         self.navigationItem.titleView = titleLabel
         let backImage = UIImage(named: "se_back")
         
@@ -108,7 +108,7 @@ class TaskDetailViewController: UIViewController {
             
             }) { (errType, errDes) in
                 self.dismissLoading()
-                NBMaterialToast.showWithText(self.view, text: "GetDataFailed".localized, duration: NBLunchDuration.SHORT)
+                NBMaterialToast.showWithText(self.view, text: "获取数据失败".localized, duration: NBLunchDuration.SHORT)
         }
     }
     
