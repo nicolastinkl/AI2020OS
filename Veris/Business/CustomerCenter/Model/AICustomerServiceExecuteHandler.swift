@@ -130,12 +130,12 @@ class AICustomerServiceExecuteHandler: NSObject {
                 layoutType = timeline.procedure_inst_type,
                 desc = timeline.procedure_inst_name,
                 timeValue = timeline.time_value,
-                commentStatus = timeline.comment_status,
-                contentsBusiModel = timeline.attchments as? [AITimelineContentBusiModel]
+                commentStatus = timeline.comment_status
             else {
                 fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
                 return
             }
+            let contentsBusiModel = timeline.attchments as? [AITimelineContentBusiModel]
             //创建viewModel
             let viewModel = AITimelineViewModel()
             viewModel.itemId = itemId
@@ -145,24 +145,27 @@ class AICustomerServiceExecuteHandler: NSObject {
             viewModel.timeModel = AIDateTimeViewModel.timestampToTimeViewModel(timeValue)
             //时间线内容
             var contents = [AITimeContentViewModel]()
-            for contentBusiModel: AITimelineContentBusiModel in contentsBusiModel {
-                guard let contentType = contentBusiModel.type
-                else {
-                    fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
-                    return
+            if let contentsBusiModel = contentsBusiModel {
+                for contentBusiModel: AITimelineContentBusiModel in contentsBusiModel {
+                    guard let contentType = contentBusiModel.type
+                        else {
+                            fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+                            return
+                    }
+                    let contentUrl = contentBusiModel.content
+                    let content = AITimeContentViewModel(contentType: AITimelineContentTypeEnum(rawValue: Int(contentType)!)!, contentUrl: contentUrl)
+                    //如果有gps信息的话
+                    if let gpsBusiModel = contentBusiModel.map {
+                        let gpsViewModel = AIGPSViewModel()
+                        gpsViewModel.locType = gpsBusiModel.type
+                        gpsViewModel.latitude = Double(gpsBusiModel.latitude)
+                        gpsViewModel.longitude = Double(gpsBusiModel.longitude)
+                        content.location = gpsViewModel
+                    }
+                    contents.append(content)
                 }
-                let contentUrl = contentBusiModel.content
-                let content = AITimeContentViewModel(contentType: AITimelineContentTypeEnum(rawValue: Int(contentType)!)!, contentUrl: contentUrl)
-                //如果有gps信息的话
-                if let gpsBusiModel = contentBusiModel.map {
-                    let gpsViewModel = AIGPSViewModel()
-                    gpsViewModel.locType = gpsBusiModel.type
-                    gpsViewModel.latitude = Double(gpsBusiModel.latitude)
-                    gpsViewModel.longitude = Double(gpsBusiModel.longitude)
-                    content.location = gpsViewModel
-                }
-                contents.append(content)
             }
+            
             viewModel.contents = contents
             viewModels.append(viewModel)
         }

@@ -41,6 +41,8 @@ class AIConfirmOrderViewController: UIViewController {
     var heightDic: [String:CGFloat] = Dictionary<String, CGFloat>()
 
     var dataSource: AIProposalInstModel?
+    
+    var customNoteModel: AIProductInfoCustomerNote?
 
     private var current_service_list: NSArray? {
         get {
@@ -62,20 +64,26 @@ class AIConfirmOrderViewController: UIViewController {
          */
         ConfigTableView()
         
-        /**
-         Init.
-         */
-        InitData()
 
         /**
          Data Referesh.
          */
         if current_service_list?.count > 0 {
             tableView.reloadData()
+            Async.main(after: 0.1, block: {
+                self.initDataRefersh()
+            })
         } else {
             //Reqest Networking.
             reqestData()
         }
+    }
+    
+    func initDataRefersh() {
+        /**
+         Init.
+         */
+        InitData()
     }
     
     func reqestData() {
@@ -85,6 +93,9 @@ class AIConfirmOrderViewController: UIViewController {
                 strongSelf.dataSource = responseData
                 strongSelf.tableView.reloadData()
                 strongSelf.view.hideLoading()
+                Async.main(after: 0.1, block: { 
+                    strongSelf.initDataRefersh()
+                })
             }
             }) { (errType, errDes) in
                 self.view.hideLoading()
@@ -107,7 +118,7 @@ class AIConfirmOrderViewController: UIViewController {
 
         let name = dataSource?.proposal_name ?? ""
         self.backButton.setTitle(name, forState: UIControlState.Normal)
-
+        
         if NSString(string: name).containsString("AIBuyerDetailViewController.pregnancy".localized) {
 
             // 处理字体
@@ -122,13 +133,65 @@ class AIConfirmOrderViewController: UIViewController {
         self.priceLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
 
         let footView = UIView()
+        
+        footView.setWidth(UIScreen.mainScreen().bounds.width)
         let providerView =  AIProviderView.currentView()
         providerView.content.text = ""
-        footView.addSubview(providerView)
         providerView.setTop(17.3)
-        footView.setHeight(17.3 + providerView.height)
-        providerView.setWidth(self.view.width)
+        providerView.setWidth(UIScreen.mainScreen().bounds.width)
+        footView.setHeight(17.3 + providerView.height + 200)
+        footView.addSubview(providerView)
         tableView.tableFooterView = footView
+        
+        if let customNot = self.customNoteModel {
+            
+            let wish = AIProposalServiceDetail_WishModel()
+            var array1 = Array<AIProposalServiceDetailLabelModel>()
+            var array2 = Array<AIProposalServiceDetailHopeModel>()
+            if let taglist = customNot.tag_list {
+                taglist.forEach({ (model) in
+                    let labelModel_1 = AIProposalServiceDetailLabelModel()
+                    labelModel_1.content = model.name ?? ""
+                    labelModel_1.label_id = model.tag_id ?? 0
+                    labelModel_1.selected_flag = model.is_chosen ?? 0
+                    labelModel_1.selected_num = model.chosen_times ?? 0
+                    array1.append(labelModel_1)
+                })
+            }
+            
+            if let notelist = customNot.note_list {
+                notelist.forEach({ (model) in
+                    let m = AIProposalServiceDetailHopeModel()
+                    m.hope_id = model.nid ?? 0
+                    m.text = model.content ?? ""
+                    m.type = model.type ?? ""
+                    m.audio_url = model.content ?? ""
+                    m.time = model.create_time?.toInt() ?? 0
+                    array2.append(m)
+                })
+            }
+            
+            wish.label_list = array1
+            wish.hope_list = array2
+            providerView.title.text = customNot.wish_name ?? ""
+            providerView.content.text = customNot.wish_desc ?? ""
+            if wish.label_list != nil || (wish.hope_list != nil) {
+                if wish.hope_list.count > 0 || wish.label_list.count > 0 {
+                    let custView = AICustomView.currentView()
+                    let heisss = 200 + wish.label_list.count * 16
+                    custView.setHeight(CGFloat(heisss))
+                    //addNewSubView(custView, preView: viw)
+                    custView.setWidth(UIScreen.mainScreen().bounds.width+5)
+                    footView.addSubview(custView)
+                    custView.setTop(providerView.top + providerView.height)
+                    custView.wish_id = 1
+                    if let labelList = wish.label_list as? [AIProposalServiceDetailLabelModel] {
+                        custView.fillTags(labelList, isNormal: true)
+                    }
+                }
+            }
+            
+        }
 
         let bgFootView = UIView()
         bgFootView.backgroundColor = UIColor(hexString: "#0F0A2E", alpha: 1)
