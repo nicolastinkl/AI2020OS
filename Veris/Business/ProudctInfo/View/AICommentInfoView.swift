@@ -104,8 +104,8 @@ class AICommentInfoView: UIView {
             imageview.contentMode = UIViewContentMode.ScaleAspectFill
             commentImages.addSubview(imageview)
             imageview.clipsToBounds = true
-            //imageview.setURL(NSURL(string: url), placeholderImage: smallPlace(), showProgress: true)
-            imageview.hidden = true
+//            imageview.setURL(NSURL(string: url), placeholderImage: smallPlace(), showProgress: true)
+//            imageview.hidden = true
             offWidth += imageview.width
         }
     }
@@ -118,9 +118,9 @@ class AICommentInfoView: UIView {
     func fillDataWithModel(model: AICommentInfoModel) {
         
         commentImages.subviews.forEach { (imageview) in
-            imageview.hidden = true
+//            imageview.hidden = true
         }
-        let photos: [String] = model.images ?? [] //model.photos as? [[String: String]] ?? []
+        let photos: [[String: String]] = model.images ?? [] //model.photos as? [[String: String]] ?? []
         
         let imageViewWidth: CGFloat = 70
         var index = 0
@@ -131,7 +131,7 @@ class AICommentInfoView: UIView {
             }*/
             
             if let imageview = commentImages.subviews[index] as? AIImageView {
-                imageview.setURL(NSURL(string: photo), placeholderImage: smallPlace(), showProgress: true)
+                imageview.setURL(NSURL(string: photo["url"]!), placeholderImage: smallPlace(), showProgress: true)
                 imageview.hidden = false
             }
             index += 1

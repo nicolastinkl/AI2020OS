@@ -103,8 +103,8 @@ public class AIImageView: UIImageView {
                 if url?.URLString.length > 10 {
                     self.cacheURL = url
                     if SDWebImageManager.sharedManager().cachedImageExistsForURL(url) {
-                        let cacheImage = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(url!.absoluteString)
-                        image = cacheImage
+                        let cacheKey = SDWebImageManager.sharedManager().cacheKeyForURL(url)
+                        image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(cacheKey)
                         return
                     }
                     let newFrame = CGRectMake(0, 0, self.width, self.height)

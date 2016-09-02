@@ -373,8 +373,9 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
 extension AICustomSearchHomeViewController: GridBubblesViewDelegate {
 	func bubblesView(bubblesView: GridBubblesView, didClickBubbleViewAtIndex index: Int) {
 		let model = bubblesView.bubbleModels[index]
-		let vc = AIWishPreviewController.initFromNib()
-		vc.model = model
+        
+		let vc = AIProductInfoViewController.initFromNib()
+		vc.sid = model.proposal_id
 		showTransitionStyleCrossDissolveView(vc)
 	}
 }

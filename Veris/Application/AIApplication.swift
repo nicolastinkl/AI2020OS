@@ -528,10 +528,10 @@ struct AIApplication {
             case .queryPayment: return AIApplication.KURL_ReleaseURL + "/payment/queryPayment"
             case .wishhot: return AIApplication.KURL_ReleaseURL + "/queryHotWishList"
             case .wishrecommand: return AIApplication.KURL_ReleaseURL + "/queryInterestingWishList"
-            case .submitServiceNodeResult: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/submitServiceNodeResult"
+            case .submitServiceNodeResult: return AIApplication.KURL_ReleaseURL + "/serviceProcess/submitServiceNodeResult"
             case .queryQiangDanResult: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/queryScrambleOrderResult"
-            case .queryProcedureInstInfo: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/queryProcedureInstInfo"
-            case .updateServiceNodeStatus: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/updateServiceNodeStatus"
+            case .queryProcedureInstInfo: return AIApplication.KURL_ReleaseURL + "/serviceProcess/queryProcedureInstInfo"
+            case .updateServiceNodeStatus: return AIApplication.KURL_ReleaseURL + "/serviceProcess/updateServiceNodeStatus"
             }
         }
     }

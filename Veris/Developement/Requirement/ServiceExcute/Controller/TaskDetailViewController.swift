@@ -21,9 +21,9 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var promptAuthorization: UILabel!
     @IBOutlet weak var waitingIcon: UIImageView!
     @IBOutlet weak var waitingMask: UIVisualEffectView!
+    @IBOutlet weak var customerView: AICustomerBannerView!
     
-    var serviceId: Int! = 100000000202
-    var userModel: AICustomerModel!
+    var serviceId: Int! = 100000012986
     
     private var procedure: Procedure?
 
@@ -46,7 +46,16 @@ class TaskDetailViewController: UIViewController {
         
         buildNavigationTitleLabel()
         
+        
+        
         loadData()
+    }
+    
+    private func setupCustomerView(userModel: AICustomerModel) {
+        customerView.userNameLabel.text = userModel.user_name
+        customerView.userIconImageView.sd_setImageWithURL(NSURL(string: userModel.user_portrait_icon), placeholderImage: UIImage(named: "Avatorbibo"))
+        customerView.userPhoneString = userModel.user_phone
+        customerView.customerDescLabel.text = ""
     }
     
     class func initFromStoryboard() -> TaskDetailViewController {
@@ -88,11 +97,14 @@ class TaskDetailViewController: UIViewController {
         
         let manager = BDKExcuteManager()
         
-        manager.queryProcedureInstInfo(serviceId, userId: AIUser.currentUser().id, success: { (responseData) in
+        let userId = 100000002410
+  //      let userId = AIUser.currentUser().id
+        manager.queryProcedureInstInfo(serviceId, userId: userId, success: { (responseData) in
             
             self.view.hideLoading()
-            self.procedure = responseData
-            self.setupUI(responseData)
+            self.procedure = responseData.procedure
+            self.setupUI(self.procedure!)
+            self.setupCustomerView(responseData.customer)
             
             }) { (errType, errDes) in
                 self.view.hideLoading()
@@ -108,8 +120,10 @@ class TaskDetailViewController: UIViewController {
             if params.count != 0 {
                 for index in 0 ..< params.count {
                     if index == 0 {
+                        serviceTime.hidden = false
                         serviceTime.labelContent = params[index].value
                     } else if index == 1 {
+                        serviceTime.hidden = false
                         serviceLocation.labelContent = params[index].value
                     } else {
                         break
@@ -122,13 +136,15 @@ class TaskDetailViewController: UIViewController {
             showAuthorization()
         } else {
             hideAuthorization()
-            TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: false)
             
-            switch procedure.procedure_status {
+            
+            switch procedure.status {
             case ProcedureStatus.noStart.rawValue:
                 bottomButton.setTitle("TaskDetailViewController.start".localized, forState: .Normal)
+                TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
             case ProcedureStatus.excuting.rawValue:
-                bottomButton.setTitle("TaskDetailViewController.comlete".localized, forState: .Normal)
+                bottomButton.setTitle("TaskDetailViewController.complete".localized, forState: .Normal)
+                TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
             case ProcedureStatus.excuting.rawValue:
                 bottomButton.hidden = true
             default:
@@ -157,7 +173,7 @@ class TaskDetailViewController: UIViewController {
     
     @IBAction func bottomButtonAction(sender: AnyObject) {
         if let p = procedure {
-            switch p.procedure_status {
+            switch p.status {
             case ProcedureStatus.noStart.rawValue:
                 updateServiceStatus()
             case ProcedureStatus.excuting.rawValue:
@@ -196,6 +212,7 @@ class TaskDetailViewController: UIViewController {
     private func openTaskCommitViewController() {
         let taskResultCommitlVC = TaskResultCommitViewController.initFromStoryboard()
         taskResultCommitlVC.procedureId = procedure!.procedure_inst_id.integerValue
+        taskResultCommitlVC.serviceId = serviceId
         taskResultCommitlVC.delegate = self
         
         let nav = UINavigationController(rootViewController: taskResultCommitlVC)

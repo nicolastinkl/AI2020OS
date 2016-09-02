@@ -32,7 +32,7 @@ class AIProdcutinfoModel: JSONJoy {
     
     required init(_ decoder: JSONDecoder) {
         
-        //base_info
+        // base_info
         if let bdecoder = decoder["base_info"].dictionary {
             
             name = bdecoder["name"]?.string ?? ""

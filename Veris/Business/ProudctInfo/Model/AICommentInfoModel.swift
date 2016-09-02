@@ -30,7 +30,7 @@ struct AICommentInfoModel: JSONJoy {
     
     var descripation: String?
     
-    var images: [String]?
+    var images: [[String: String]]?
     
     var level: Int = 0
     

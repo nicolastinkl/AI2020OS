@@ -52,7 +52,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="Details"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="365" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="hbR-bV-AFI" userLabel="TimeIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="365" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="hbR-bV-AFI" userLabel="TimeIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="118" y="212" width="365" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -69,7 +69,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-Hx-FKW" userLabel="LocationIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-Hx-FKW" userLabel="LocationIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="90" y="242" width="420" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -208,6 +208,7 @@
                         <outlet property="QRCodeImage" destination="tTF-Fa-Q4p" id="J6d-Lc-LJL"/>
                         <outlet property="authorizationBg" destination="eD3-38-jiq" id="fkO-nG-JET"/>
                         <outlet property="bottomButton" destination="yUq-Wr-ny2" id="il8-Xt-YPq"/>
+                        <outlet property="customerView" destination="Up8-Rb-dvv" id="bma-eH-PJT"/>
                         <outlet property="nodeDesc" destination="4Sc-4s-4DV" id="ajG-XQ-Z4s"/>
                         <outlet property="nodeTitleLabel" destination="zVg-tx-vBz" id="dWw-v9-mrP"/>
                         <outlet property="promptAuthorization" destination="7mv-E5-vD5" id="L43-yH-DSh"/>
