@@ -12,9 +12,14 @@ import Cartography
 
 class ClosureWrapper {
 	var closure: (() -> Void)?
+	var boolClosure: ((UIViewController) -> Bool)?
 	
 	init(_ closure: (() -> Void)?) {
 		self.closure = closure
+	}
+	
+	init(boolClosure boolClosure: ((UIViewController) -> Bool)?) {
+		self.boolClosure = boolClosure
 	}
 }
 
@@ -34,6 +39,7 @@ extension UIViewController {
 		static var blurViewKey = "blurViewKey"
 		static var bottomConstraintKey = "bottomConstraintKey"
 		static var onClickCancelArea = "onClickCancelArea"
+		static var shouldDismissOnClickCancelArea = "shouldDismissOnClickCancelArea"
 	}
 	private struct Constants {
 		static let animationTime: Double = 0.25
@@ -92,6 +98,15 @@ extension UIViewController {
 		}
 	}
 	
+	var shouldDismissOnClickCancelArea: ((UIViewController) -> Bool)? {
+		set {
+			objc_setAssociatedObject(self, &AssociatedKeys.shouldDismissOnClickCancelArea, ClosureWrapper(boolClosure: newValue), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+		}
+		
+		get {
+			return (objc_getAssociatedObject(self, &AssociatedKeys.shouldDismissOnClickCancelArea) as? ClosureWrapper)?.boolClosure
+		}
+	}
 	/**
 	 模糊化present viewcontroller
 
@@ -101,21 +116,23 @@ extension UIViewController {
 	 - parameter useClearForPopup:        是否使用透明背景，优先级比useBlurForPopup 高 default is false
 	 - parameter animated:                是否动画
 	 - parameter completion:              completion handler 可空
+	 - parameter shouldDismissOnClickCancelArea:       是否处理默认行为，如果返回true，就是默认dismiss行为之前加入自定义行为，如果返回false，就是点击空白区域不dimiss，执行shouldDismissOnClickCancelArea里的代码
 	 - parameter onClickCancelArea:       模糊区域点击 handler 可空
 	 */
-	func presentPopupViewController(viewControllerToPresent: UIViewController, duration: Double = Constants.animationTime, useBlurForPopup: Bool = false, useClearForPopup: Bool = false, animated: Bool, completion: (() -> Void)? = nil, onClickCancelArea: (() -> Void)? = nil) {
+	func presentPopupViewController(viewControllerToPresent: UIViewController, duration: Double = Constants.animationTime, useBlurForPopup: Bool = false, useClearForPopup: Bool = false, animated: Bool, completion: (() -> Void)? = nil, shouldDismissOnClickCancelArea: ((UIViewController) -> Bool)? = nil, onClickCancelArea: (() -> Void)? = nil) {
 		if self is UINavigationController {
 			
 		} else {
 			if let navigationController = navigationController {
 //			if let navigationController = parentViewController as? UINavigationController {
-				navigationController.presentPopupViewController(viewControllerToPresent, duration: duration, useBlurForPopup: useBlurForPopup, useClearForPopup: useClearForPopup, animated: animated, completion: completion, onClickCancelArea: onClickCancelArea)
+				navigationController.presentPopupViewController(viewControllerToPresent, duration: duration, useBlurForPopup: useBlurForPopup, useClearForPopup: useClearForPopup, animated: animated, completion: completion, shouldDismissOnClickCancelArea: shouldDismissOnClickCancelArea, onClickCancelArea: onClickCancelArea)
 				return
 			}
 		}
 		
 		if popupViewController == nil {
 			self.onClickCancelArea = onClickCancelArea
+			self.shouldDismissOnClickCancelArea = shouldDismissOnClickCancelArea
 			popupViewController = viewControllerToPresent
 			popupViewController!.view.autoresizesSubviews = false
 			popupViewController!.view.autoresizingMask = .None
@@ -274,7 +291,13 @@ extension UIViewController {
 	
 	func blurViewDidTapped() {
 		view.endEditing(true)
-		dismissPopupViewController(true, completion: onClickCancelArea)
+		if let shouldDismissOnClickCancelArea = shouldDismissOnClickCancelArea {
+			if shouldDismissOnClickCancelArea(self) {
+				dismissPopupViewController(true, completion: onClickCancelArea)
+			}
+		} else {
+			dismissPopupViewController(true, completion: onClickCancelArea)
+		}
 	}
 	
 	func getBlurredImage(imageToBlur: UIImage) -> UIImage {
