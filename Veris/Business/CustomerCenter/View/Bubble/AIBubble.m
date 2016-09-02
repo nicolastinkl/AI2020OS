@@ -70,7 +70,7 @@ typedef enum  {
     if (self) {
         
         _bubbleModel = [model copy];
-        _bubbleType = type;
+        _bubbleType = _bubbleModel.proposal_type;
         if (model.service_id > 0) {
             self.hadRecommend = YES;
             self.hasSmallBubble = YES;

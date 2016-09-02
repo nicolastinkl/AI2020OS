@@ -392,7 +392,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         weak var wf = self
         bubbles.addGestureBubbleAction {(bubbleModel, bubble) -> Void in
 
-            if bubbleModel.bubbleType == 2 {
+            if bubbleModel.proposal_type == 2 {
                 wf!.showAddNewBubble(bubble, model: bubbleModel)
             } else {
                 wf!.showBuyerDetailWithBubble(bubble, model: bubbleModel)

@@ -103,7 +103,7 @@
     }
 
     AIBuyerBubbleModel* modelAdd = [[AIBuyerBubbleModel alloc] init];
-    modelAdd.bubbleType = 2;
+    modelAdd.proposal_type = 2;
     [self.bubbleModels addObject:modelAdd];
 
     self.hierarchyDic = [[NSMutableDictionary alloc] init];
@@ -609,9 +609,6 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
     [_bubbleModels enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         AIBuyerBubbleModel *model  = obj;
         NSUInteger i = idx;
-        if (i == 0) {
-            model.bubbleType = 3;
-        }
         // 构造bubble
 
         if (model.service_list.count >= 6){
@@ -622,7 +619,7 @@ void MyCGPathApplierFunc (void *info, const CGPathElement *element) {
             model.bubbleSize = [AIBubble smaBubbleRadius];
         }
 
-        AIBubble *bubble = [[AIBubble alloc] initWithCenter:CGPointZero model:model type:model.bubbleType Index:indexView];
+        AIBubble *bubble = [[AIBubble alloc] initWithCenter:CGPointZero model:model type:model.proposal_type Index:indexView];
 
         indexView += 1;
         // 计算bubble的center
