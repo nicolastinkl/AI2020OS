@@ -9,6 +9,8 @@
 #import "JSONModel.h"
 #import "ExcuteModel.h"
 #import <UIKit/UIKit.h>
+#import "AICustomerModel.h"
+
 
 @protocol NodeResultContent
 @end
@@ -51,6 +53,7 @@
 @end
 
 
+
 @interface NodeInfo : JSONModel
 
 @property (strong, nonatomic) NSString<Optional> * node_title;
@@ -80,3 +83,4 @@
 @property (strong, nonatomic) NSString<Optional> * value;
 
 @end
+
