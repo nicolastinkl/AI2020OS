@@ -516,7 +516,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         var vc: UIViewController!
         if model.proposal_type == 1 { // shoucang
             let pvc = AIProductInfoViewController.initFromNib()
-            pvc.sid = model.proposal_id ?? 0
+            pvc.sid = model.service_id ?? 0
             vc = pvc
         } else if model.proposal_type == 2 { // tuijian
 
