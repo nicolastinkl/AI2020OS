@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AIAlertView
 
 class TextAndAudioInputViewController: UIViewController {
 
@@ -114,6 +115,8 @@ class TextAndAudioInputViewController: UIViewController {
     
     private func setupNavigationBar() {
         
+     //   extendedLayoutIncludesOpaqueBars = true
+        
         let cancelButton = UIButton()
         cancelButton.setTitle("Cancel".localized, forState: .Normal)
         cancelButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
@@ -170,6 +173,20 @@ class TextAndAudioInputViewController: UIViewController {
 }
 
 extension TextAndAudioInputViewController: UITextViewDelegate {
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        
+        var replace = false
+        
+        JSSAlertView().comfirm(self, title: "", text: "TextAndAudioInputViewController.replaceConfirm".localized, onComfirm: { () -> Void in
+            
+            self.soundPlayButton.hidden = true
+            self.setSaveButtonEnabel(false)
+            replace = true
+        })
+        
+        return replace
+    }
+    
     func textViewDidBeginEditing(textView: UITextView) {
         hint.hidden = true
     }

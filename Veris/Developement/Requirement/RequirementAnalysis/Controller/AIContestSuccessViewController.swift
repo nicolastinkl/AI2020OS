@@ -20,10 +20,21 @@ import AIAlertView
 
     var serviceInstanceID: Int = 0
 
+    //MARK: Life Cycle
+
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.opaque = false
+        self.navigationController?.navigationBarHidden = false
+    }
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor.clearColor()
+        extendedLayoutIncludesOpaqueBars = true
         // Do any additional setup after loading the view.
         buildNavigationTitleLabel()
         customerBannerView.loadData()
@@ -36,7 +47,12 @@ import AIAlertView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+
+
+
+    //MARK: Other Functions
+
 
     func buildNavigationTitleLabel() {
 
@@ -51,11 +67,13 @@ import AIAlertView
         let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AIContestSuccessViewController.backAction(_:)))
         leftButtonItem.tintColor = UIColor.lightGrayColor()
         self.navigationItem.leftBarButtonItem = leftButtonItem
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
     }
     
     func backAction(button: UIBarButtonItem) {
 
-        self.dismissPopupViewController(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     

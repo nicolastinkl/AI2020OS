@@ -46,12 +46,21 @@
 
 @implementation AISellerViewController
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
 
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
 
     [self makeBackGroundView];
     [self makeTableView];
@@ -500,7 +509,7 @@
 
     AIContestSuccessViewController *successViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
     successViewController.serviceInstanceID = model.service.service_instance_id;
-    [self.navigationController pushViewController:nextViewController animated:YES];
+    [self.navigationController pushViewController:successViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
