@@ -19,7 +19,7 @@ import AIAlertView
 
 
     var serviceInstanceID: Int = 0
-
+    var qiangDanResultModel: AIQiangDanResultModel?
     //MARK: Life Cycle
 
 
@@ -95,13 +95,13 @@ import AIAlertView
             }) { (error, errorDesc) in
                 self.view.hideLoading()
                 AIAlertView().showError(errorDesc, subTitle: "")
-
+                self.qiangDanResultModel = nil
         }
     }
 
     func fillRealData(model: AIQiangDanResultModel) {
 
-
+        self.qiangDanResultModel = model
         self.orderInfoView.descLabel.text = model.service_process.service_desc
         customerBannerView.userNameLabel.text = model.customer.user_name
         customerBannerView.userIconImageView.sd_setImageWithURL(NSURL(string: model.customer.user_portrait_icon), placeholderImage: UIImage(named: "Avatorbibo"))
@@ -121,8 +121,13 @@ import AIAlertView
 
     // MARK: - IBActions
     @IBAction func startWorkAction(sender: AnyObject) {
-        let taskDetailVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
-        
-        self.navigationController?.pushViewController(taskDetailVC, animated: true)
+
+        if let _ = qiangDanResultModel {
+            let taskDetailVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
+            taskDetailVC.serviceId = serviceInstanceID
+            taskDetailVC.userModel = qiangDanResultModel?.customer
+                self.navigationController?.pushViewController(taskDetailVC, animated: true)
+        }
+
     }
 }
