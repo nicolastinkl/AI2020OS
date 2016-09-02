@@ -100,9 +100,9 @@ class AITimelineTableViewCell: UITableViewCell {
         var totalHeight: CGFloat = 0
         switch viewModel.layoutType! {
         case AITimelineLayoutTypeEnum.Normal:
-            totalHeight =  cellMargin
+            totalHeight =  cellMargin + baseTimelineContentLabelHeight
         case .Authoration, .ConfirmOrderComplete, .ConfirmServiceComplete:
-            totalHeight =  subViewMargin + baseButtonsHeight + cellMargin
+            totalHeight =  subViewMargin + baseButtonsHeight + cellMargin + baseTimelineContentLabelHeight
         default: break
         }
         //内容高度估算
