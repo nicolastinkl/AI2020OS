@@ -103,12 +103,13 @@ extension UIViewController {
 	 - parameter completion:              completion handler 可空
 	 - parameter onClickCancelArea:       模糊区域点击 handler 可空
 	 */
-    func presentPopupViewController(viewControllerToPresent: UIViewController, duration: Double = Constants.animationTime, useBlurForPopup: Bool = false, useClearForPopup: Bool = false, animated: Bool, completion: (() -> Void)? = nil, onClickCancelArea: (() -> Void)? = nil) {
+	func presentPopupViewController(viewControllerToPresent: UIViewController, duration: Double = Constants.animationTime, useBlurForPopup: Bool = false, useClearForPopup: Bool = false, animated: Bool, completion: (() -> Void)? = nil, onClickCancelArea: (() -> Void)? = nil) {
 		if self is UINavigationController {
+			
 		} else {
 			if let navigationController = navigationController {
 //			if let navigationController = parentViewController as? UINavigationController {
-				navigationController.presentPopupViewController(viewControllerToPresent, duration: duration, useBlurForPopup: useBlurForPopup, animated: animated, completion: completion, onClickCancelArea: onClickCancelArea)
+				navigationController.presentPopupViewController(viewControllerToPresent, duration: duration, useBlurForPopup: useBlurForPopup, useClearForPopup: useClearForPopup, animated: animated, completion: completion, onClickCancelArea: onClickCancelArea)
 				return
 			}
 		}
@@ -133,19 +134,14 @@ extension UIViewController {
 					subview.height == viewControllerToPresent.view.frame.size.height
 					self.bottomConstraint = subview.bottom == superView.bottom + viewControllerToPresent.view.frame.size.height
 				})
-
+				
 				self.view.layoutIfNeeded()
 			}
 			if animated {
 				
-				var initialAlpha: CGFloat = 1
-				let finalAlpha: CGFloat = 1
+				let initialAlpha: CGFloat = 1
 				
-				if modalTransitionStyle == .CrossDissolve {
-					initialAlpha = 0
-				}
-				
-				viewControllerToPresent.view.alpha = initialAlpha
+				blurView.alpha = initialAlpha
 				view.addSubview(viewControllerToPresent.view)
 				// setup initial constraints
 				
@@ -154,10 +150,9 @@ extension UIViewController {
 				UIApplication.sharedApplication().beginIgnoringInteractionEvents()
 				UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
 					self.bottomConstraint?.constant = 0
-					viewControllerToPresent.view.alpha = finalAlpha
-                    if !useClearForPopup {
-                        blurView.alpha = useBlurForPopup == true ? 1 : 0.5
-                    }
+					if !useClearForPopup {
+						blurView.alpha = useBlurForPopup == true ? 1 : 0.5
+					}
 					
 					self.view.layoutIfNeeded()
 					}, completion: { (success) -> Void in
@@ -170,9 +165,9 @@ extension UIViewController {
 				})
 			} else { // don't animate
 				view.addSubview(viewControllerToPresent.view)
-				
 				setupInitialConstraints()
-				
+				bottomConstraint?.constant = 0
+				view.layoutIfNeeded()
 				popupViewController?.didMoveToParentViewController(self)
 				popupViewController?.endAppearanceTransition()
 				if let completion = completion {
@@ -202,16 +197,10 @@ extension UIViewController {
 		popupViewController?.willMoveToParentViewController(nil)
 		popupViewController?.beginAppearanceTransition(false, animated: animated)
 		if animated {
-			var finalAlpha: CGFloat = 1
-			if modalTransitionStyle == .CrossDissolve {
-				finalAlpha = 0
-			}
-			
 			view.layoutIfNeeded()
 			UIApplication.sharedApplication().beginIgnoringInteractionEvents()
 			UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
 				self.bottomConstraint?.constant = self.view.frame.size.height
-				self.popupViewController!.view.alpha = finalAlpha
 				blurView.alpha = 0
 				self.view.layoutIfNeeded()
 				}, completion: { (success) -> Void in
@@ -225,6 +214,15 @@ extension UIViewController {
 					completion()
 				}
 			})
+		} else {
+			popupViewController?.removeFromParentViewController()
+			popupViewController?.endAppearanceTransition()
+			popupViewController!.view.removeFromSuperview()
+			blurView.removeFromSuperview()
+			self.popupViewController = nil
+			if let completion = completion {
+				completion()
+			}
 		}
 		
 		NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillChangeFrameNotification, object: nil)
@@ -254,19 +252,18 @@ extension UIViewController {
 		)
 	}
 	
-    func addMaskView(useBlurForPopup useBlurForPopup: Bool, useClearForPopup: Bool = false) {
+	func addMaskView(useBlurForPopup useBlurForPopup: Bool, useClearForPopup: Bool = false) {
 		let fadeView = UIImageView()
 		fadeView.frame = UIScreen.mainScreen().bounds
 		
-        if useClearForPopup {
-            fadeView.backgroundColor = UIColor.clearColor()
-        } else if useBlurForPopup == true {
+		if useClearForPopup {
+			fadeView.backgroundColor = UIColor.clearColor()
+		} else if useBlurForPopup == true {
 			fadeView.image = getBlurredImage(getScreenImage())
 		} else {
 			fadeView.backgroundColor = UIColor.blackColor()
 		}
-        
-		fadeView.alpha = 0
+		
 		fadeView.userInteractionEnabled = true
 		view.addSubview(fadeView)
 		objc_setAssociatedObject(self, &AssociatedKeys.blurViewKey, fadeView, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -277,9 +274,6 @@ extension UIViewController {
 	
 	func blurViewDidTapped() {
 		view.endEditing(true)
-//        if let onClickCancelArea = onClickCancelArea {
-//            onClickCancelArea()
-//        }
 		dismissPopupViewController(true, completion: onClickCancelArea)
 	}
 	
