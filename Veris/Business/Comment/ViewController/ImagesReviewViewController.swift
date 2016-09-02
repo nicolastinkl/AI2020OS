@@ -14,6 +14,7 @@ class ImagesReviewViewController: UIViewController {
     var dataSource = [(id: String, UIImage)]()
     var deleteImages = [String]()
     var delegate: ImagesReviewDelegate?
+    var deleteConfirm = false
     private var currentIndex = 0
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -80,12 +81,17 @@ class ImagesReviewViewController: UIViewController {
             return
         }
         
-        deleteImages.append(dataSource[currentIndex].id)
+        JSSAlertView().confirm(self, title: "", text: "ImagesReviewViewController.deleteConfirm".localized, onComfirm: { () -> Void in
+            
+            self.deleteImages.append(self.dataSource[self.currentIndex].id)
+            
+            self.dataSource.removeAtIndex(self.currentIndex)
+            
+            self.updateImages()
+            self.updateTitle()
+        })
         
-        dataSource.removeAtIndex(currentIndex)
         
-        updateImages()
-        updateTitle()
     }
     
     func dismissController() {
