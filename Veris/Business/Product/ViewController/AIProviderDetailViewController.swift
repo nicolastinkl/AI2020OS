@@ -46,12 +46,17 @@ class AIProviderDetailViewController: UIViewController {
 		fetchData()
 		setupBubbleView()
 	}
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        avatarImageView.layer.cornerRadius = avatarImageView.height / 2
+    }
 	
 	func updateUI() {
 		nameLabel.text = model?.name
 		numberLabel.text = String(format: "%d", model?.total_serviced ?? 0)
 		rateLabel.text = model?.good_rate
-		avatarImageView.sd_setImageWithURL(NSURL(string: model?.icon ?? ""), placeholderImage: UIImage(named: "Avatorbibo"))
+		avatarImageView.sd_setImageWithURL(NSURL(string: model?.icon ?? ""), placeholderImage: UIImage(named: "defaultIcon"))
 		qualificationLabels.forEach { (l) in
 			l.text = ""
 		}
@@ -108,6 +113,7 @@ class AIProviderDetailViewController: UIViewController {
 			l.textColor = UIColor(hexString: "#ffffff", alpha: 0.6)
 		}
 		
+        avatarImageView.clipsToBounds = true
 	}
 	
 	func setupNavigationItems() {
