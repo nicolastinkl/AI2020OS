@@ -492,7 +492,7 @@
 
     UIViewController *nextViewController = nil;
     switch (statusInt) {
-        case 0:
+        case 0:  // 未开始
         {
             AIContestSuccessViewController *successViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
             successViewController.serviceInstanceID = model.service.service_instance_id;
@@ -501,10 +501,15 @@
 
             break;
 
-        case 1:
+        case 1: // 进行中
         {
             TaskDetailViewController *taskViewController = [[UIStoryboard storyboardWithName:@"TaskExecuteStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"TaskDetailViewController"];
             nextViewController = taskViewController;
+        }
+            break;
+        case 2: // 已完成
+        {
+
         }
             break;
 

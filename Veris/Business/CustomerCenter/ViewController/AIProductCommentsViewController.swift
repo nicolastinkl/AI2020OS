@@ -336,7 +336,7 @@ class AIProductCommentCell: UITableViewCell {
         newModel.providename = model.customer.name
         newModel.provideurl = model.customer.portrait_icon
         newModel.like = model.supporting_count
-        if (model.rating_level != nil) {
+        if model.rating_level != nil {
             newModel.level = model.rating_level.toInt() ?? 0
         } else {
             newModel.level = 0

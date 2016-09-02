@@ -14,7 +14,8 @@ class AICustomerBannerView: UIView {
     @IBOutlet weak var userIconImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var customerDescLabel: UILabel!
-    
+    var delegate: UIViewController?
+    var userPhoneString: String?
     //MARK: - Constants
     let USER_NAME_FONT = AITools.myriadSemiCondensedWithSize(60/3)
     let CUSTOMER_DESC_FONT = AITools.myriadLightSemiCondensedWithSize(48 / 3)
@@ -32,6 +33,21 @@ class AICustomerBannerView: UIView {
         super.init(frame: .zero)
         initSelfFromXib()
         configLayout()
+    }
+
+
+    @IBAction func callUser() {
+
+        if let _ = userPhoneString, _ = delegate {
+            let alert = JSSAlertView()
+            alert.info( delegate!, title: userPhoneString!, text: "", buttonText: "Call", cancelButtonText: "Cancel")
+            alert.defaultColor = UIColorFromHex(0xe7ebf5, alpha: 1)
+            alert.addAction {
+                UIApplication.sharedApplication().openURL(NSURL(string: "tel:\(self.userPhoneString!)")!)
+            }
+        }
+
+
     }
     
     func configLayout() {
