@@ -52,7 +52,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="Details"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="365" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="hbR-bV-AFI" userLabel="TimeIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="365" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="hbR-bV-AFI" userLabel="TimeIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="118" y="212" width="365" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -69,7 +69,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-Hx-FKW" userLabel="LocationIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-Hx-FKW" userLabel="LocationIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="90" y="242" width="420" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>

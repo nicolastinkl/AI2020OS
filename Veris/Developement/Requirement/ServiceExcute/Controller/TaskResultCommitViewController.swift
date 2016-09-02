@@ -28,6 +28,7 @@ class TaskResultCommitViewController: UIViewController {
     @IBOutlet weak var photoWidthConstraint: NSLayoutConstraint!
     
     var procedureId: Int?
+    var serviceId: Int!
     var delegate: TeskResultCommitDelegate?
     
     private var hasImage = false
@@ -222,13 +223,12 @@ class TaskResultCommitViewController: UIViewController {
         
         view.showLoading()
         
-        manager.updateServiceNodeStatus(procedureId!, status: ProcedureStatus.complete, success: { (responseData) in
-            
-            self.view.hideLoading()
+        manager.updateServiceNodeStatus(procedureId!, status: ProcedureStatus.complete, success: { (responseData) in       
             
             if responseData.result_code == ResultCode.success.rawValue {
                 self.submitResult()
             } else {
+                self.view.hideLoading()
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
             }
             
@@ -272,7 +272,7 @@ class TaskResultCommitViewController: UIViewController {
                 procedureId = 602
             }
             
-            manager.submitServiceNodeResult(procedureId!, resultList: [picNode, textOrVoiceNode], success: { (responseData: (hasNextNode: Bool, resultCode: ResultCode)) in
+            manager.submitServiceNodeResult(serviceId, procedureId: procedureId!, resultList: [picNode, textOrVoiceNode], success: { (responseData: (hasNextNode: Bool, resultCode: ResultCode)) in
                 
                 self.view.dismissLoading()
                 
