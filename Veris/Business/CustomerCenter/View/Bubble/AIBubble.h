@@ -12,11 +12,11 @@
 
 //由于swift 编译不过 注释掉了这个枚举
 typedef enum  {
-    
-    typeToNormal = 0,
-    typeToSignIcon = 1,//
-    typeToAdd = 2,//
-    typeToWish = 3
+
+    typeToAdd = 0,//
+    typeToNormal = 1, // shoucang
+    typeToSignIcon = 2,// tuijian
+    typeToWish = 3,  // wish
     
 }BubbleType;
 

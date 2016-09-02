@@ -103,7 +103,7 @@
     }
 
     AIBuyerBubbleModel* modelAdd = [[AIBuyerBubbleModel alloc] init];
-    modelAdd.proposal_type = 2;
+    modelAdd.proposal_type = 0;
     [self.bubbleModels addObject:modelAdd];
 
     self.hierarchyDic = [[NSMutableDictionary alloc] init];

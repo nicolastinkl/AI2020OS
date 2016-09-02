@@ -493,20 +493,27 @@
     UIViewController *nextViewController = nil;
     switch (statusInt) {
         case 0:
+        {
+            AIContestSuccessViewController *successViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
+            successViewController.serviceInstanceID = model.service.service_instance_id;
+            nextViewController = successViewController;
+        }
 
             break;
 
         case 1:
-
+        {
+            TaskDetailViewController *taskViewController = [[UIStoryboard storyboardWithName:@"TaskExecuteStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"TaskDetailViewController"];
+            nextViewController = taskViewController;
+        }
             break;
 
         default:
             break;
     }
 
-    AIContestSuccessViewController *successViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
-    successViewController.serviceInstanceID = model.service.service_instance_id;
-    [self.navigationController pushViewController:successViewController animated:YES];
+
+    [self.navigationController pushViewController:nextViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

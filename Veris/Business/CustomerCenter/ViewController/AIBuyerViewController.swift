@@ -392,7 +392,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         weak var wf = self
         bubbles.addGestureBubbleAction {(bubbleModel, bubble) -> Void in
 
-            if bubbleModel.proposal_type == 2 {
+            if bubbleModel.proposal_type == 0 {
                 wf!.showAddNewBubble(bubble, model: bubbleModel)
             } else {
                 wf!.showBuyerDetailWithBubble(bubble, model: bubbleModel)
@@ -476,7 +476,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             self.view.userInteractionEnabled = false
 
             // 处理detailViewController
-            unowned let detailViewController = createBuyerDetailViewController(model)
+            let detailViewController = createBuyerDetailViewController(model)
 
             detailViewController.view.alpha = 0
             let detailScale: CGFloat = bubble.radius * 2 / CGRectGetWidth(self.view.frame)
@@ -512,6 +512,23 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
 
+
+        var vc: UIViewController!
+        if model.proposal_type == 1 { // shoucang
+            let pvc = AIProductInfoViewController.initFromNib()
+            pvc.sid = model.proposal_id ?? 0
+            vc = pvc
+        } else if model.proposal_type == 2 { // tuijian
+
+        } else if model.proposal_type == 3 { // wish
+            let wvc = AIWishPreviewController.initFromNib()
+            wvc.model = model
+            vc = wvc
+        }
+
+
+        return vc
+        /* 废弃
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
 
         viewController.bubbleModel = model
@@ -523,6 +540,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
 
         return viewController
+        */
     }
 
     class func createBuyerDetailViewController() -> AIBuyerDetailViewController {
