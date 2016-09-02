@@ -11,6 +11,7 @@
                 <outlet property="audioImage" destination="vjt-gL-9MB" id="FMI-tE-Bba"/>
                 <outlet property="hint" destination="PVs-QQ-6T4" id="0V5-Ta-Ll6"/>
                 <outlet property="soundPlayButton" destination="IGK-23-0RW" id="2x8-Ry-JaP"/>
+                <outlet property="textMask" destination="Rry-xS-mCj" id="vk1-4B-utV"/>
                 <outlet property="textView" destination="zfQ-49-GBn" id="jod-l2-eAa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,6 +34,10 @@
                         <outlet property="delegate" destination="-1" id="Tfh-VM-FCb"/>
                     </connections>
                 </textView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rry-xS-mCj" userLabel="TextMask">
+                    <rect key="frame" x="10" y="65" width="580" height="389"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="microphone" translatesAutoresizingMaskIntoConstraints="NO" id="vjt-gL-9MB" userLabel="Audio">
                     <rect key="frame" x="20" y="480" width="36" height="36"/>
                 </imageView>
@@ -56,9 +61,12 @@
                 <constraint firstItem="PVs-QQ-6T4" firstAttribute="leading" secondItem="zfQ-49-GBn" secondAttribute="leading" constant="3" id="9e8-wv-Sit"/>
                 <constraint firstAttribute="trailing" secondItem="zfQ-49-GBn" secondAttribute="trailing" constant="10" id="AfD-WP-hLn"/>
                 <constraint firstAttribute="trailing" secondItem="njU-dc-EY0" secondAttribute="trailing" id="E61-Ti-imR"/>
+                <constraint firstItem="Rry-xS-mCj" firstAttribute="top" secondItem="zfQ-49-GBn" secondAttribute="top" id="Iat-TE-joX"/>
+                <constraint firstItem="Rry-xS-mCj" firstAttribute="leading" secondItem="zfQ-49-GBn" secondAttribute="leading" id="JcS-rp-Xls"/>
                 <constraint firstItem="vjt-gL-9MB" firstAttribute="top" secondItem="zfQ-49-GBn" secondAttribute="bottom" constant="26" id="Nih-GG-dR8"/>
                 <constraint firstItem="PVs-QQ-6T4" firstAttribute="top" secondItem="zfQ-49-GBn" secondAttribute="top" constant="10" id="TNO-bg-Phy"/>
                 <constraint firstItem="njU-dc-EY0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-64" id="V3o-47-byC"/>
+                <constraint firstItem="Rry-xS-mCj" firstAttribute="width" secondItem="zfQ-49-GBn" secondAttribute="width" id="Wxj-op-2yw"/>
                 <constraint firstItem="IGK-23-0RW" firstAttribute="top" secondItem="PVs-QQ-6T4" secondAttribute="top" id="b2K-05-7bL"/>
                 <constraint firstAttribute="bottom" secondItem="vjt-gL-9MB" secondAttribute="bottom" constant="20" id="bjW-T8-7vw"/>
                 <constraint firstItem="zfQ-49-GBn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="fIe-Mp-Lo0"/>
@@ -66,6 +74,7 @@
                 <constraint firstItem="vjt-gL-9MB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="jLn-0H-zgC"/>
                 <constraint firstItem="IGK-23-0RW" firstAttribute="leading" secondItem="PVs-QQ-6T4" secondAttribute="leading" id="lvb-HA-fPL"/>
                 <constraint firstItem="njU-dc-EY0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mGY-cv-Nrc"/>
+                <constraint firstItem="Rry-xS-mCj" firstAttribute="height" secondItem="zfQ-49-GBn" secondAttribute="height" id="qu3-CF-4NX"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
         </view>
