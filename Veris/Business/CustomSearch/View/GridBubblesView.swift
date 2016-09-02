@@ -87,7 +87,7 @@ class GridBubblesView: UIView {
 		for i in 0..<totalCount {
 			let model: AIBuyerBubbleModel! = bubbleModels[i]
 			model.bubbleSize = bubbleSize
-			let bubbleView = AIBubble(center: .zero, model: model, type: model.bubbleType, index: 0)
+			let bubbleView = AIBubble(center: .zero, model: model, type: Int(typeToNormal.rawValue), index: 0)
 			bubbleView.tag = i
 			bubbleView.userInteractionEnabled = true
 			addSubview(bubbleView)

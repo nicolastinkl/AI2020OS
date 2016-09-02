@@ -19,7 +19,7 @@ import AIAlertView
 
 
     var serviceInstanceID: Int = 0
-
+    var qiangDanResultModel: AIQiangDanResultModel?
     //MARK: Life Cycle
 
 
@@ -37,9 +37,9 @@ import AIAlertView
         extendedLayoutIncludesOpaqueBars = true
         // Do any additional setup after loading the view.
         buildNavigationTitleLabel()
-        customerBannerView.loadData()
-        seperateViewNeeds.loadData("User needs")
-        seperateViewUser.loadData("Single success")
+        seperateViewNeeds.loadData("用户需要")
+        seperateViewUser.loadData("抢单成功")
+        customerBannerView.delegate = self
         loadData()
     }
 
@@ -49,6 +49,9 @@ import AIAlertView
     }
 
 
+    //MARK: Actions
+
+    
 
 
     //MARK: Other Functions
@@ -61,7 +64,7 @@ import AIAlertView
         let titleLabel = UILabel(frame: frame)
         titleLabel.font = NAVIGATION_TITLE
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.text = "Service detail"
+        titleLabel.text = "服务细节"
         self.navigationItem.titleView = titleLabel
         let backImage = UIImage(named: "se_back")
         let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AIContestSuccessViewController.backAction(_:)))
@@ -81,17 +84,31 @@ import AIAlertView
     func loadData() {
 
         let manager = BDKExcuteManager()
-        manager.queryQaingDanResultInfo(111, success: { (resultModel) in
+        self.view.showLoading()
+        manager.queryQaingDanResultInfo(serviceInstanceID, success: { (resultModel) in
             if let model: AIQiangDanResultModel = resultModel {
-                self.orderInfoView.descLabel.text = "According to the Beijing young girl service the whole pregnancy assistant, including parenting activities, prenatal care, buy shuttle service etc."
-                    //model.service_process.service_desc
-                //
-                self.orderInfoViewLoadFakeData(model)
+                self.fillRealData(model)
+                //self.orderInfoViewLoadFakeData(model)
+
+                self.view.hideLoading()
             }
             }) { (error, errorDesc) in
+                self.view.hideLoading()
                 AIAlertView().showError(errorDesc, subTitle: "")
+                self.qiangDanResultModel = nil
         }
     }
+
+    func fillRealData(model: AIQiangDanResultModel) {
+
+        self.qiangDanResultModel = model
+        self.orderInfoView.descLabel.text = model.service_process.service_desc
+        customerBannerView.userNameLabel.text = model.customer.user_name
+        customerBannerView.userIconImageView.sd_setImageWithURL(NSURL(string: model.customer.user_portrait_icon), placeholderImage: UIImage(named: "Avatorbibo"))
+        customerBannerView.userPhoneString = model.customer.user_phone
+        customerBannerView.customerDescLabel.text = ""//"怀孕9周"
+    }
+
 
     /* 暂时废弃,等待后台配置以后再打开此功能
 
@@ -104,8 +121,13 @@ import AIAlertView
 
     // MARK: - IBActions
     @IBAction func startWorkAction(sender: AnyObject) {
-        let taskDetailVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
-        
-        self.navigationController?.pushViewController(taskDetailVC, animated: true)
+
+        if let _ = qiangDanResultModel {
+            let taskDetailVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
+            taskDetailVC.serviceId = serviceInstanceID
+            taskDetailVC.userModel = qiangDanResultModel?.customer
+                self.navigationController?.pushViewController(taskDetailVC, animated: true)
+        }
+
     }
 }

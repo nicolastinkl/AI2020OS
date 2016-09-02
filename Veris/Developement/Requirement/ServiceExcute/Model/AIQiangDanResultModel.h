@@ -27,6 +27,6 @@
 
 @property (nonatomic, strong) AIQiangDanServiceDetailModel<Optional> *service_process;
 
-@property (nonatomic, strong) AICustomerModel<Optional> *custtomer;
+@property (nonatomic, strong) AICustomerModel<Optional> *customer;
 
 @end

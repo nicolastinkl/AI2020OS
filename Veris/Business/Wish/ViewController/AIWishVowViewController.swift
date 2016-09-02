@@ -110,7 +110,7 @@ class AIWishVowViewController: UIViewController {
                 let space = AITools.displaySizeFrom1242DesignSize(15)
                 let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
                 model.bubbleSize = Int(bubbleWidth)/2
-                let bubbleView = AIBubble(center: .zero, model: model, type: model.bubbleType, index: 0)
+                let bubbleView = AIBubble(center: .zero, model: model, type: Int(typeToNormal.rawValue), index: 0)
                 bubbleViewContain.addSubview(bubbleView)
                 bubbleView.tag = i
                 let bubbleY = AITools.displaySizeFrom1242DesignSize(87)

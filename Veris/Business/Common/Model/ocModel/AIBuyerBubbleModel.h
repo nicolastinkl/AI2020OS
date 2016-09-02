@@ -23,14 +23,13 @@
 
 @end
 
-
 @interface AIBuyerBubbleModel : JSONModel
 
-@property (assign, nonatomic) NSInteger bubbleType;
 @property (assign, nonatomic) NSInteger bubbleSize;
 
 @property (assign, nonatomic) NSInteger proposal_id;
 @property (assign, nonatomic) NSInteger proposal_id_new;
+@property (assign, nonatomic) NSInteger proposal_type;
 @property (assign, nonatomic) NSInteger service_id;
 @property (assign, nonatomic) NSInteger order_times;
 

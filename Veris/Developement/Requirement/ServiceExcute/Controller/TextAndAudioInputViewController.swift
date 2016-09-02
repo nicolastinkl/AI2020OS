@@ -16,6 +16,7 @@ class TextAndAudioInputViewController: UIViewController {
     @IBOutlet weak var audioBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var hint: UILabel!
     @IBOutlet weak var soundPlayButton: SoundPlayButton!
+    @IBOutlet weak var textMask: UIView!
     
     var delegate: TextAndAudioInputDelegate?
     var text: String?
@@ -40,6 +41,11 @@ class TextAndAudioInputViewController: UIViewController {
             #selector(TextAndAudioInputViewController.showAudioRecorder(_:))
         let audioTap = UITapGestureRecognizer(target: self, action: audioSelector)
         audioImage.addGestureRecognizer(audioTap)
+        
+        let textSelector =
+            #selector(TextAndAudioInputViewController.textMaskTap(_:))
+        let textTap = UITapGestureRecognizer(target: self, action: textSelector)
+        textMask.addGestureRecognizer(textTap)
         
         if let t = text {
             textView.text = t
@@ -113,9 +119,25 @@ class TextAndAudioInputViewController: UIViewController {
 //        presentViewController(nv, animated: true, completion: nil)
     }
     
+    func textMaskTap(sender: UIGestureRecognizer) {
+        JSSAlertView().confirm(self, title: "", text: "TextAndAudioInputViewController.replaceConfirm".localized, customIcon: nil, customIconSize: nil, onComfirm: {
+
+            self.soundPlayButton.hidden = true
+            self.setSaveButtonEnabel(false)
+            self.textMask.hidden = true
+            
+            self.textView.hidden = false
+            self.textView.becomeFirstResponder()
+
+            }, onCancel: { () -> Void in
+
+                
+        })
+    }
+    
     private func setupNavigationBar() {
         
-     //   extendedLayoutIncludesOpaqueBars = true
+        extendedLayoutIncludesOpaqueBars = true
         
         let cancelButton = UIButton()
         cancelButton.setTitle("Cancel".localized, forState: .Normal)
@@ -173,19 +195,29 @@ class TextAndAudioInputViewController: UIViewController {
 }
 
 extension TextAndAudioInputViewController: UITextViewDelegate {
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        
-        var replace = false
-        
-        JSSAlertView().comfirm(self, title: "", text: "TextAndAudioInputViewController.replaceConfirm".localized, onComfirm: { () -> Void in
-            
-            self.soundPlayButton.hidden = true
-            self.setSaveButtonEnabel(false)
-            replace = true
-        })
-        
-        return replace
-    }
+//    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+//        
+//        var replace = false
+//        
+//        let queue = dispatch_get_global_queue(0, 0);
+//        let semaphore = dispatch_semaphore_create(0);
+//        
+//        JSSAlertView().confirm(self, title: "", text: "TextAndAudioInputViewController.replaceConfirm".localized, customIcon: nil, customIconSize: nil, onComfirm: {
+//            
+//            self.soundPlayButton.hidden = true
+//            self.setSaveButtonEnabel(false)
+//            replace = true
+//            dispatch_semaphore_signal(semaphore)
+//            
+//            }, onCancel: { () -> Void in
+//                
+//                dispatch_semaphore_signal(semaphore)
+//        })
+//        
+//        
+//        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+//        return replace
+//    }
     
     func textViewDidBeginEditing(textView: UITextView) {
         hint.hidden = true
@@ -215,6 +247,9 @@ extension TextAndAudioInputViewController: AudioRecorderDelegate {
             soundPlayButton.soundTimeInterval = recordingTimeLong
             
             hint.hidden = true
+            textMask.hidden = false
+            textView.hidden = true
+            textView.text = nil
             
             setSaveButtonEnabel(true)
         }

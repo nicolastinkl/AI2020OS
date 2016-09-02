@@ -158,15 +158,12 @@
 
             dispatch_main_async_safe(^{
                 [weakSelf.tableView reloadData];
-                AIOCLog(@"reloadData--")
                 [weakSelf.tableView headerEndRefreshing];
             });
         } fail:^(AINetError error, NSString *errorDes) {
             dispatch_main_async_safe(^{
                 [weakSelf.tableView headerEndRefreshing];
                 [weakSelf.tableView showErrorContentView];
-
-                AIOCLog(@"rheaderEndRefreshing")
             });
         }];
     }];
@@ -495,21 +492,33 @@
 
     UIViewController *nextViewController = nil;
     switch (statusInt) {
-        case 0:
+        case 0:  // 未开始
+        {
+            AIContestSuccessViewController *successViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
+            successViewController.serviceInstanceID = model.service.service_instance_id;
+            nextViewController = successViewController;
+        }
 
             break;
 
-        case 1:
+        case 1: // 进行中
+        {
+            TaskDetailViewController *taskViewController = [[UIStoryboard storyboardWithName:@"TaskExecuteStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"TaskDetailViewController"];
+            nextViewController = taskViewController;
+        }
+            break;
+        case 2: // 已完成
+        {
 
+        }
             break;
 
         default:
             break;
     }
 
-    AIContestSuccessViewController *successViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
-    successViewController.serviceInstanceID = model.service.service_instance_id;
-    [self.navigationController pushViewController:successViewController animated:YES];
+
+    [self.navigationController pushViewController:nextViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

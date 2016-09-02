@@ -158,6 +158,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         
         
 	}
+    
+    
+    
+    //// Open URL
+    func application(app: UIApplication, openURL url: NSURL, options: [String: AnyObject]) -> Bool {
+        application(app, openURL: url, sourceApplication: "", annotation: "")
+        return true
+    }
 	
 	/**
 	 Open URL
@@ -172,7 +180,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	
 	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
 		
-		AILog("openURL:\(url.absoluteString)")
+		AILog("openURL:\(url)")
         // DeepLink
         router.handleURL(url) { (complte, error) in
             AILog("info : \(complte) \(error) ")
@@ -408,18 +416,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         let header = ["HttpQuery": headerContent]
         AINetEngine.defaultEngine().configureCommonHeaders(header)
 	}
-	
-	func application(app: UIApplication, openURL url: NSURL, options: [String: AnyObject]) -> Bool {
-
-        let path = url.lastPathComponent
-		
-		AILog(path)
-
-        let result = UMSocialSnsService.handleOpenURL(url)
-
-        return result
-	}
-
 
 
 	

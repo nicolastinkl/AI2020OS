@@ -222,3 +222,8 @@
 "TaskDetailViewController.start" = "推进服务";
 "TaskDetailViewController.complete" = "完成";
 "TextAndAudioInputViewController.replaceConfirm" = "之前的信息将被覆盖，需要继续吗?";
+
+/*
+ * ./Veris/Business/Comment/ViewController/ImagesReviewViewController
+ */
+"ImagesReviewViewController.deleteConfirm" = "删除照片?";

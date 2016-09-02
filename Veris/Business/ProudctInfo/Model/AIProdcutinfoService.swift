@@ -43,13 +43,6 @@ struct AIProdcutinfoService {
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
                 if let d = responseJSON as? NSDictionary {
-                    if let i = d["result_code"] as? Int {
-                        if i == 1 {
-                            complate("1", nil)
-                        } else {
-                            complate(nil, "0")
-                        }
-                    }
                     if let i = d["result"] as? Int {
                         if i == 1 {
                             complate("1", nil)
@@ -57,6 +50,15 @@ struct AIProdcutinfoService {
                             complate(nil, "0")
                         }
                     }
+                     
+                    if let i = d["result_code"] as? Int {
+                        if i == 1 {
+                            complate("1", nil)
+                        } else {
+                            complate(nil, "0")
+                        }
+                    }
+                    
                 }
                 
             } else {

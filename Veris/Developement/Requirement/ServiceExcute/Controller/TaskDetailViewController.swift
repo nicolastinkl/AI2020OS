@@ -21,8 +21,10 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var promptAuthorization: UILabel!
     @IBOutlet weak var waitingIcon: UIImageView!
     @IBOutlet weak var waitingMask: UIVisualEffectView!
+    @IBOutlet weak var customerView: AICustomerBannerView!
     
     var serviceId: Int! = 100000000202
+    var userModel: AICustomerModel!
     
     private var procedure: Procedure?
     
@@ -37,7 +39,16 @@ class TaskDetailViewController: UIViewController {
         
         buildNavigationTitleLabel()
         
+        setupCustomerView()
+        
         loadData()
+    }
+    
+    private func setupCustomerView() {
+        customerView.userNameLabel.text = userModel.user_name
+        customerView.userIconImageView.sd_setImageWithURL(NSURL(string: userModel.user_portrait_icon), placeholderImage: UIImage(named: "Avatorbibo"))
+        customerView.userPhoneString = userModel.user_phone
+        customerView.customerDescLabel.text = ""
     }
     
     class func initFromStoryboard() -> TaskDetailViewController {
@@ -187,10 +198,19 @@ class TaskDetailViewController: UIViewController {
     private func openTaskCommitViewController() {
         let taskResultCommitlVC = TaskResultCommitViewController.initFromStoryboard()
         taskResultCommitlVC.procedureId = procedure!.procedure_inst_id.integerValue
+        taskResultCommitlVC.delegate = self
         
         let nav = UINavigationController(rootViewController: taskResultCommitlVC)
         presentViewController(nav, animated: true, completion: nil)
     }
-    
+}
 
+extension TaskDetailViewController: TeskResultCommitDelegate {
+    func hasNextNode(hasNextNode: Bool) {
+        if hasNextNode {
+            loadData()
+        } else {
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+    }
 }
