@@ -208,6 +208,7 @@
                         <outlet property="QRCodeImage" destination="tTF-Fa-Q4p" id="J6d-Lc-LJL"/>
                         <outlet property="authorizationBg" destination="eD3-38-jiq" id="fkO-nG-JET"/>
                         <outlet property="bottomButton" destination="yUq-Wr-ny2" id="il8-Xt-YPq"/>
+                        <outlet property="customerView" destination="Up8-Rb-dvv" id="bma-eH-PJT"/>
                         <outlet property="nodeDesc" destination="4Sc-4s-4DV" id="ajG-XQ-Z4s"/>
                         <outlet property="nodeTitleLabel" destination="zVg-tx-vBz" id="dWw-v9-mrP"/>
                         <outlet property="promptAuthorization" destination="7mv-E5-vD5" id="L43-yH-DSh"/>
