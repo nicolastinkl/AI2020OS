@@ -105,18 +105,10 @@
             tableModel.sortTime = sort;
             tableModel.nameTitle = model.proposal_name;
             [_tableDictionary setObject:tableModel forKey:sort];
-
             [_tableHeaderList addObject:sort];
         }
 
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
-//        [tableModel.orderList addObject:model];
+        [tableModel.orderList addObject:model];
     }
 }
 
@@ -157,12 +149,15 @@
 
             dispatch_main_async_safe(^{
                 [weakSelf.tableView reloadData];
+                AIOCLog(@"reloadData--")
                 [weakSelf.tableView headerEndRefreshing];
             });
         } fail:^(AINetError error, NSString *errorDes) {
             dispatch_main_async_safe(^{
                 [weakSelf.tableView headerEndRefreshing];
                 [weakSelf.tableView showErrorContentView];
+
+                AIOCLog(@"rheaderEndRefreshing")
             });
         }];
     }];
@@ -487,7 +482,7 @@
 
 
 - (void)showSingalServiceStatusViewControllerWithModel:(AIOrderPreModel *)model {
-    NSInteger statusInt = model.service.service_status.integerValue;
+    NSInteger statusInt = model.service.service_instance_status;
 
     UIViewController *nextViewController = nil;
     switch (statusInt) {
@@ -504,7 +499,7 @@
     }
 
     AIContestSuccessViewController *successViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
-    //successViewController.serviceInstanceID = model.service.service_instance_id;
+    successViewController.serviceInstanceID = model.service.service_instance_id;
     [self.navigationController pushViewController:nextViewController animated:YES];
 }
 
