@@ -91,6 +91,10 @@ class TaskResultCommitViewController: UIViewController {
     }
     
     func showTextAndAudioEditor(sender: UIGestureRecognizer) {
+        openTextAndAudioEditor()
+    }
+    
+    private func openTextAndAudioEditor() {
         let vc = TextAndAudioInputViewController.initFromNib()
         vc.delegate = self
         
@@ -149,7 +153,8 @@ class TaskResultCommitViewController: UIViewController {
     }
     
     func retakePressed(button: UIButton) {
-
+        openTextAndAudioEditor()
+        deletePressed(button)
     }
     
     private func setupNavigationBar() {
@@ -349,6 +354,8 @@ extension TaskResultCommitViewController: AIAssetsPickerControllerDelegate {
             
             hasImage = true
             cameraIcon.image = photos[0].image
+            
+            changeQuestButtonState()
         }
     }
     
