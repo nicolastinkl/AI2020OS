@@ -226,3 +226,8 @@
 "TaskDetailViewController.start" = "Start";
 "TaskDetailViewController.complete" = "Complete";
 "TextAndAudioInputViewController.replaceConfirm" = "The previous message will be replaced. Do you want to proceed?";
+
+/*
+ * ./Veris/Business/Comment/ViewController/ImagesReviewViewController
+ */
+"ImagesReviewViewController.deleteConfirm" = "Delete the photo?";

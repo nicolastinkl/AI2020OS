@@ -87,7 +87,23 @@ class TaskResultCommitViewController: UIViewController {
     }
     
     func cameraAction(sender: UIGestureRecognizer) {
-        openAlbum()
+        if hasImage {
+            let info = ("1", cameraIcon.image!)
+            presentImagesReviewController([info])
+        } else {
+            openAlbum()
+        }
+        
+    }
+    
+    private func presentImagesReviewController(images: [(imageId: String, UIImage)]) {
+        let vc = ImagesReviewViewController.loadFromXib()
+        vc.deleteConfirm = true
+        vc.delegate = self
+        vc.images = images
+        
+        let n = UINavigationController(rootViewController: vc)
+        presentViewController(n, animated: true, completion: nil)
     }
     
     func showTextAndAudioEditor(sender: UIGestureRecognizer) {
@@ -436,6 +452,16 @@ extension TaskResultCommitViewController: TextAndAudioInputDelegate {
         soundPlayButton.soundTimeInterval = recordingTimeLong
         
         changeQuestButtonState()
+    }
+}
+
+extension TaskResultCommitViewController: ImagesReviewDelegate {
+    func deleteImages(imageIds: [String]) {
+        hasImage = false
+        
+        photoHeightConstraint.active = false
+        photoWidthConstraint.active = false
+        cameraIcon.image = UIImage(named: "camera_yellow")
     }
 }
 

@@ -742,7 +742,7 @@ extension AIBuyerDetailViewController: ServiceRestoreToolBarDelegate {
                 let logoWidth = AITools.displaySizeFrom1080DesignSize(94)
                 let text = String(format: "AIBuyerDetailViewController.alert".localized, name)
                 weak var wf = self
-                JSSAlertView().comfirm(self, title: name, text: text, customIcon: logo.image, customIconSize: CGSizeMake(logoWidth, logoWidth), onComfirm: { () -> Void in                    
+                JSSAlertView().confirm(self, title: name, text: text, customIcon: logo.image, customIconSize: CGSizeMake(logoWidth, logoWidth), onComfirm: { () -> Void in
                 // Send Anchor
                 if wf!.isNowExcutingAnchor == false {
                     let anchor = AIAnchor()
