@@ -106,7 +106,8 @@ class AIProductProviderViewControler: UIViewController {
         
         let bubbleViewContain = UIView()
         bubbleViewContain.setHeight(0)
-        
+
+        /*
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let bubbleModels = appDelegate.dataSourcePop
         if bubbleModels.count > 0 {
@@ -126,6 +127,7 @@ class AIProductProviderViewControler: UIViewController {
             
             bubbleViewContain.setHeight(125)
         }
+        */
         addNewSubView(bubbleViewContain, preView: pLabel44)
         
         

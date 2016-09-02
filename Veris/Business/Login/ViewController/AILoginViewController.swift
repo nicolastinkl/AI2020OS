@@ -77,7 +77,7 @@ class AILoginViewController: UIViewController {
         
         #if DEBUG
             // 刘晓娜
-            userIdTextField.text = "15281064177"
+            userIdTextField.text = "18180441023"
             passwordTextField.text = "123456"
             loginButton.enabled = true
 //            let im = AIImageView(frame: CGRectMake(100, 450, 100, 100))

@@ -254,9 +254,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
 
     func cleanHistoryData () {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.buyerListData = nil
-        appDelegate.buyerProposalData = nil
         /**
         Clear self data.
         */
@@ -269,34 +266,18 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         self.tableView.hideErrorView()
 
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let listData: ProposalOrderListModel? = appDelegate.buyerListData
-        let proposalData: AIProposalPopListModel? = appDelegate.buyerProposalData
-        weak var weakSelf = self
-        if listData != nil && proposalData != nil {
-            Async.main(after: 0.3, block: { () -> Void in
-                weakSelf!.parseProposalData(proposalData)
-                appDelegate.buyerListData = nil
-                appDelegate.buyerProposalData = nil
-                weakSelf?.tableView.reloadData()
+        let bdk = BDKProposalService()
 
-            })
+        //气泡数据
 
-        } else {
-            let bdk = BDKProposalService()
-
-            //气泡数据
-            
-            bdk.getPoposalBubbles({ (responseData) in
-                self.didRefresh = true
-                self.parseProposalData(responseData)
+        bdk.getPoposalBubbles({ (responseData) in
+            self.didRefresh = true
+            self.parseProposalData(responseData)
+            self.tableView.headerEndRefreshing()
+            }, fail: { (errType, errDes) in
+                self.didRefresh = false
                 self.tableView.headerEndRefreshing()
-                }, fail: { (errType, errDes) in
-                    self.didRefresh = false
-                    self.tableView.headerEndRefreshing()
-            })
-  
-        }
+        })
     }
 
 
@@ -347,9 +328,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     private func clearPropodalData() {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.buyerListData = nil
-        appDelegate.buyerProposalData = nil
+
         tableViewCellCache.removeAllObjects()
         dataSourcePop = []
         dataSource.removeAll()
@@ -647,11 +626,11 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             if let pops = data.proposal_list {
                 if pops.count > 0 {
                     self.dataSourcePop = pops as! [AIBuyerBubbleModel]
-                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                    appDelegate.dataSourcePop = self.dataSourcePop
-                    self.makeBubbleView()
+
                 }
             }
+
+            self.makeBubbleView()
         }
 
     }

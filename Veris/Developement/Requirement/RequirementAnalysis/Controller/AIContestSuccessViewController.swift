@@ -18,7 +18,11 @@ import AIAlertView
     @IBOutlet weak var customerBannerView: AICustomerBannerView!
 
 
+    //
     var serviceInstanceID: Int = 0
+    var proposalID: Int = 0
+    var serviceID: Int = 0
+    var customerID: Int = 0
     var qiangDanResultModel: AIQiangDanResultModel?
     //MARK: Life Cycle
 
@@ -67,7 +71,7 @@ import AIAlertView
         titleLabel.text = "服务细节"
         self.navigationItem.titleView = titleLabel
         let backImage = UIImage(named: "se_back")
-        let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AIContestSuccessViewController.backAction(_:)))
+        let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(backAction(_:)))
         leftButtonItem.tintColor = UIColor.lightGrayColor()
         self.navigationItem.leftBarButtonItem = leftButtonItem
         self.navigationController?.navigationBar.translucent = false
@@ -85,7 +89,9 @@ import AIAlertView
 
         let manager = BDKExcuteManager()
         self.showLoading()
-        manager.queryQaingDanResultInfo(serviceInstanceID, success: { (resultModel) in
+
+        let body = ["service_instance_id": serviceInstanceID, "service_id" : serviceID, "customer_id" : customerID, "proposal_id" : proposalID]
+        manager.queryQaingDanResultInfo(body, success: { (resultModel) in
             if let model: AIQiangDanResultModel = resultModel {
                 self.fillRealData(model)
                 //self.orderInfoViewLoadFakeData(model)

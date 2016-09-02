@@ -75,11 +75,10 @@ class BDKExcuteManager: ExcuteManager {
 
 
     //MARK: 抢单结果信息查询
-    func queryQaingDanResultInfo(ServiceInstanceID: Int, success: (resultModel: AIQiangDanResultModel) -> Void, fail: net_fail_block) {
+    func queryQaingDanResultInfo(body: [String : AnyObject], success: (resultModel: AIQiangDanResultModel) -> Void, fail: net_fail_block) {
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.queryQiangDanResult.description
-        let data: [String: AnyObject] = ["service_instance_id": ServiceInstanceID]
-        message.body = BDKTools.createRequestBody(data)
+        message.body = BDKTools.createRequestBody(body)
 
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
 

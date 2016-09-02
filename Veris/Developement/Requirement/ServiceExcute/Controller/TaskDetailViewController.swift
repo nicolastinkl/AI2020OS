@@ -83,7 +83,7 @@ class TaskDetailViewController: UIViewController {
         self.navigationItem.titleView = titleLabel
         let backImage = UIImage(named: "se_back")
         
-        let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AIContestSuccessViewController.backAction(_:)))
+        let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(backAction(_:)))
         leftButtonItem.tintColor = UIColor.lightGrayColor()
         self.navigationItem.leftBarButtonItem = leftButtonItem
     }

@@ -60,7 +60,7 @@ class AIWishVowViewController: UIViewController {
             navi.backButton.setImage(UIImage(named: "scan_back"), forState: UIControlState.Normal)
         }
 
-        Async.background(after: 0.1) { 
+        Async.background(after: 0.1) {
             self.queryWishs()
         }
     }
@@ -94,6 +94,7 @@ class AIWishVowViewController: UIViewController {
     
     
     func refereshBubble() {
+        /*
         let title1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         title1.icon.image = UIImage(named: "AI_Wish_Make_instrst")
         title1.title.text = "Recommended Wish"
@@ -131,18 +132,21 @@ class AIWishVowViewController: UIViewController {
         title2.icon.image = UIImage(named: "AI_Wish_Make_hot")
         title2.title.text = "Popular Wish"
         addNewSubView(title2, preView: bubbleViewContain, space : 12)
- 
+        */
     }
     
     func prewishAction(send: UITapGestureRecognizer) {
+
+        /*
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let bubbleModels = appDelegate.dataSourcePop
+        let bubbleModels = appDelegate.dataSourcePop // 该数据已删除，历史遗留问题，如有疑问咨询王坜.
         if let s = send.view {
             let model = bubbleModels[s.tag]
             let vc = AIWishPreviewController.initFromNib() 
             vc.model = model
             showTransitionStyleCrossDissolveView(vc)
         }
+         */
     }
     
     /**

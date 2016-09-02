@@ -21,10 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	var didFinishGetBuyerProposalData: Bool = false
 	
     private lazy var router: CDDeepLinkRouter = CDDeepLinkRouter()
-	var sellerData: NSDictionary?
-    var buyerListData: ProposalOrderListModel?
-    var buyerProposalData: AIProposalPopListModel?
-    var dataSourcePop = [AIBuyerBubbleModel]()
+
     
 	let WX_APPID: String = "wx483dafc09117a3d0"
     var _mapManager: BMKMapManager?

@@ -471,7 +471,6 @@
     AIProposalServiceModel *serviceModel = [[AIProposalServiceModel alloc] init];
     serviceModel.service_id = model.service.service_id;
 
-    model.service.service_type = @"0";
     if ([model.service.service_type  isEqualToString:@"0"]) { // 单一服务
         [self showSingalServiceStatusViewControllerWithModel:model];
     }else if ([model.service.service_type  isEqualToString:@"1"]){ // 复合服务
@@ -496,6 +495,9 @@
         {
             AIContestSuccessViewController *successViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
             successViewController.serviceInstanceID = model.service.service_instance_id;
+            successViewController.proposalID = model.proposal_id;
+            successViewController.serviceID = model.service.service_id;
+            successViewController.customerID = model.customer.customer_id;
             nextViewController = successViewController;
         }
 
@@ -517,8 +519,11 @@
             break;
     }
 
+    if (nextViewController) {
+        [self.navigationController pushViewController:nextViewController animated:YES];
+    }
 
-    [self.navigationController pushViewController:nextViewController animated:YES];
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
