@@ -720,7 +720,8 @@ class AIProductInfoViewController: UIViewController {
     
     func providerDetailPressed() {
         let vc = AIProviderDetailViewController.initFromNib()
-        vc.provider_id = dataModel!.provider!.id ?? 0
+        vc.provider_id = dataModel!.provider!.provider_id ?? 0
+        vc.id = dataModel!.provider!.id ?? 0
         let nav = UINavigationController(rootViewController: vc)
         presentBlurViewController(nav, animated: true, completion: nil)
     }

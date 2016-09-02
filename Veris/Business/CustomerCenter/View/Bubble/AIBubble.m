@@ -72,8 +72,11 @@ typedef enum  {
         _bubbleModel = [model copy];
         _bubbleType = _bubbleModel.proposal_type;
         if (model.service_id > 0) {
+#warning 这里需要跟需求和后台再讨论下
+            /*
             self.hadRecommend = YES;
             self.hasSmallBubble = YES;
+             */
         }else{
             self.hadRecommend = NO;
             self.hasSmallBubble = NO;
