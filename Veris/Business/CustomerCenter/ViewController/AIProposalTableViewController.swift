@@ -147,12 +147,15 @@ class AIProposalTableViewController: UIViewController {
     
     func parseListData(listData: ProposalOrderListModel?) {
         
-        if let data = listData {
-            clearPropodalData()
-            for proposal in data.order_list {
-                let model = proposalToVieModel(proposal as! ProposalOrderModel)
-                
-                dataSource.append(model)
+        if let _ = listData {
+            if listData?.order_list.count > 0 {
+                clearPropodalData()
+                for proposal in listData!.order_list {
+                    let model = proposalToVieModel(proposal as! ProposalOrderModel)
+
+                    dataSource.append(model)
+                }
+
             }
         }
     }
