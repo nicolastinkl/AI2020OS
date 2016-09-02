@@ -181,7 +181,7 @@ class AIConfirmOrderViewController: UIViewController {
                     let heisss = 200 + wish.label_list.count * 16
                     custView.setHeight(CGFloat(heisss))
                     //addNewSubView(custView, preView: viw)
-                    custView.setWidth(UIScreen.mainScreen().bounds.width)
+                    custView.setWidth(UIScreen.mainScreen().bounds.width+5)
                     footView.addSubview(custView)
                     custView.setTop(providerView.top + providerView.height)
                     custView.wish_id = 1
