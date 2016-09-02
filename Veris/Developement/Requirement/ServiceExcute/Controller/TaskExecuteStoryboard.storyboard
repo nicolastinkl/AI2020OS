@@ -39,21 +39,21 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="Task"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVg-tx-vBz" userLabel="NodeTitle">
-                                <rect key="frame" x="253" y="123" width="94" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVg-tx-vBz" userLabel="NodeTitle">
+                                <rect key="frame" x="300" y="123" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgw-EZ-OVg" userLabel="DetailsDivider" customClass="SeparatorLineLabel" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="90" y="192" width="420" height="20"/>
+                                <rect key="frame" x="90" y="163" width="420" height="20"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="lineImage" value="dottedLine2"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="Details"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="365" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="hbR-bV-AFI" userLabel="TimeIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="118" y="212" width="365" height="25"/>
+                                <rect key="frame" x="118" y="183" width="365" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="365" id="8CQ-ay-lOW"/>
@@ -70,7 +70,7 @@
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-Hx-FKW" userLabel="LocationIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="90" y="242" width="420" height="25"/>
+                                <rect key="frame" x="90" y="213" width="420" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="Maternity&amp;Child Care Institution, Haidian District"/>
@@ -78,11 +78,11 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="495" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-Fa-Q4p" userLabel="QRCodeView" customClass="ServiceQRCodeView" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="38" y="274" width="524" height="128"/>
+                                <rect key="frame" x="38" y="245" width="524" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please check in for Ms. Customer A with the QR code above" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-4s-4DV" userLabel="NodeDesc">
-                                <rect key="frame" x="38" y="438" width="524" height="21"/>
+                                <rect key="frame" x="38" y="409" width="524" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -102,22 +102,22 @@
                                 </connections>
                             </button>
                             <visualEffectView hidden="YES" opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Urx-E7-6s3" userLabel="WaitingMask">
-                                <rect key="frame" x="-1" y="294" width="601" height="242"/>
+                                <rect key="frame" x="-1" y="265" width="601" height="271"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ynb-Mt-VaY">
-                                    <rect key="frame" x="0.0" y="0.0" width="601" height="242"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="601" height="271"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <view hidden="YES" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cQ-eR-zZQ" userLabel="Mask">
-                                <rect key="frame" x="0.0" y="294" width="600" height="242"/>
+                                <rect key="frame" x="0.0" y="265" width="600" height="271"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waiting_authorization_bg" translatesAutoresizingMaskIntoConstraints="NO" id="eD3-38-jiq" userLabel="AuthorizationBg">
-                                <rect key="frame" x="-1" y="238" width="601" height="74"/>
+                                <rect key="frame" x="-1" y="209" width="601" height="74"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mv-E5-vD5">
-                                <rect key="frame" x="300" y="253" width="0.0" height="34"/>
+                                <rect key="frame" x="300" y="224" width="0.0" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99607843137254903" green="0.99607843137254903" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -126,7 +126,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hourglass" translatesAutoresizingMaskIntoConstraints="NO" id="idB-bx-XNu" userLabel="WaitingIcon">
-                                <rect key="frame" x="278" y="163" width="44" height="49"/>
+                                <rect key="frame" x="278" y="134" width="44" height="49"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
