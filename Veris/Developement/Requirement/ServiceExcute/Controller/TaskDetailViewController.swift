@@ -196,6 +196,9 @@ class TaskDetailViewController: UIViewController {
             
             if responseData.result_code == ResultCode.success.rawValue {
                 NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
+                
+                self.procedure?.status = ProcedureStatus.excuting.rawValue
+                self.bottomButton.setTitle("TaskDetailViewController.complete".localized, forState: .Normal)
             } else {
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
             }
