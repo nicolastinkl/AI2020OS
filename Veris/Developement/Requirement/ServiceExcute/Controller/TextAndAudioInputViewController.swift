@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AIAlertView
 
 class TextAndAudioInputViewController: UIViewController {
 
@@ -18,6 +19,7 @@ class TextAndAudioInputViewController: UIViewController {
     
     var delegate: TextAndAudioInputDelegate?
     var text: String?
+    var saveButton: UIButton!
     
     private var bottomSpace: CGFloat = 0
     
@@ -113,6 +115,8 @@ class TextAndAudioInputViewController: UIViewController {
     
     private func setupNavigationBar() {
         
+        extendedLayoutIncludesOpaqueBars = true
+        
         let cancelButton = UIButton()
         cancelButton.setTitle("Cancel".localized, forState: .Normal)
         cancelButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
@@ -122,14 +126,14 @@ class TextAndAudioInputViewController: UIViewController {
         cancelButton.setSize(CGSize(width: 196.displaySizeFrom1242DesignSize(), height: 80.displaySizeFrom1242DesignSize()))
         cancelButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
         
-        let saveButton = UIButton()
+        saveButton = UIButton()
         saveButton.setTitle("Save".localized, forState: .Normal)
         saveButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
-        saveButton.setTitleColor(UIColor(hexString: "#ffffff"), forState: .Normal)
-        saveButton.backgroundColor = UIColor(hexString: "#6b6f76").colorWithAlphaComponent(0.5)
         saveButton.layer.cornerRadius = 12.displaySizeFrom1242DesignSize()
         saveButton.setSize(CGSize(width: 196.displaySizeFrom1242DesignSize(), height: 86.displaySizeFrom1242DesignSize()))
         saveButton.addTarget(self, action: #selector(TextAndAudioInputViewController.save), forControlEvents: .TouchUpInside)
+        
+        setSaveButtonEnabel(false)
         
         let appearance = UINavigationBarAppearance()
         appearance.leftBarButtonItems = [cancelButton]
@@ -147,17 +151,35 @@ class TextAndAudioInputViewController: UIViewController {
     }
     
     func save() {
-        if let text = textView.text {
+        if !soundPlayButton.hidden {
+            delegate?.audioRecoded(soundPlayButton.audioUrl!, recordingTimeLong: soundPlayButton.soundTimeInterval)
+        } else if let text = textView.text {
             if !text.isEmpty {
                 delegate?.textInput(text)
-                dismiss()
             }
         }
+        
+        dismiss()
+    }
+    
+    private func setSaveButtonEnabel(enable: Bool) {
+        let color = enable ? UIColor(hex: "0F86E8") : UIColor(hexString: "#6b6f76", alpha: 0.5)
+        let textColor = enable ? UIColor.whiteColor() : UIColor(hexString: "#1a1a58")
+        saveButton.backgroundColor = color
+        saveButton.setTitleColor(textColor, forState: .Normal)
+        saveButton.enabled = enable
     }
 
 }
 
 extension TextAndAudioInputViewController: UITextViewDelegate {
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+//        JSSAlertView().comfirm(self, title: name, text: text, onComfirm: { () -> Void in
+//            
+//        })
+        return true
+    }
+    
     func textViewDidBeginEditing(textView: UITextView) {
         hint.hidden = true
     }
@@ -170,7 +192,10 @@ extension TextAndAudioInputViewController: UITextViewDelegate {
         
         if textView.text.isEmpty {
             hint.hidden = false
+            return
         }
+        
+        setSaveButtonEnabel(true)
     }
 }
 
@@ -183,6 +208,8 @@ extension TextAndAudioInputViewController: AudioRecorderDelegate {
             soundPlayButton.soundTimeInterval = recordingTimeLong
             
             hint.hidden = true
+            
+            setSaveButtonEnabel(true)
         }
         
         dismissPopupViewController(false, completion: nil)
@@ -195,4 +222,5 @@ extension TextAndAudioInputViewController: AudioRecorderDelegate {
 
 protocol TextAndAudioInputDelegate {
     func textInput(text: String)
+    func audioRecoded(audioFileUrl: NSURL, recordingTimeLong: NSTimeInterval)
 }

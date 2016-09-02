@@ -54,6 +54,8 @@ class TaskDetailViewController: UIViewController {
     }
     
     func buildNavigationTitleLabel() {
+        extendedLayoutIncludesOpaqueBars = true
+        
         let NAVIGATION_TITLE = AITools.myriadSemiCondensedWithSize(80 / 3)
         let frame = CGRect(x: 0, y: 0, width: 100, height: 44)
         let titleLabel = UILabel(frame: frame)
