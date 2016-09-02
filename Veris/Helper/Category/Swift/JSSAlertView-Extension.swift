@@ -10,7 +10,7 @@ import UIKit
 
 extension JSSAlertView {
 	
-	func comfirm(viewController: UIViewController, title: String, text: String, customIcon: UIImage? = nil, customIconSize: CGSize? = nil, onComfirm: (() -> Void)? = nil, onCancel: (() -> Void)? = nil) {
+	func confirm(viewController: UIViewController, title: String, text: String, customIcon: UIImage? = nil, customIconSize: CGSize? = nil, onComfirm: (() -> Void)? = nil, onCancel: (() -> Void)? = nil) {
 //        let customIcon = UIImage(named: "lemon")
 		let alertview = JSSAlertView().show(viewController, title: title, text: text, buttonText: "JSSAlertView.yes".localized, cancelButtonText: "JSSAlertView.no".localized, color: UIColorFromHex(0xe7ebf5, alpha: 1), iconImage: customIcon, iconSize: customIconSize)
 		
