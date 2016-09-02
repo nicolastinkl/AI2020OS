@@ -200,56 +200,95 @@ class TaskResultCommitViewController: UIViewController {
     
     func submitResult() {
         
-        Async.background({
-            if self.hasImage && self.cameraIcon.image != nil {
-                guard let url = self.uploadImage() else {
-                    NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
-                    return
+        var audioUrl: String!
+        var imageUrl: String!
+        
+        func commitResult() {
+            let manager = BDKExcuteManager()
+            
+            let textOrVoiceNode = NodeResultContent()
+            
+            if !note.hidden {
+                if let t = note.text {
+                    textOrVoiceNode.note_type = NodeResultType.text.rawValue
+                    textOrVoiceNode.note_content = t
                 }
+            } else if !soundPlayButton.hidden {
+                textOrVoiceNode.note_type = NodeResultType.voice.rawValue
+                textOrVoiceNode.note_content = audioUrl
             }
-        })
-        
-        
-        
-        let manager = BDKExcuteManager()
-        
-        let node = NodeResultContent()
-        
-        if !note.hidden {
-            if let t = note.text {
-                node.note_type = NodeResultType.text.rawValue
-                node.note_content = t
+            
+            
+            let picNode = NodeResultContent()
+            
+            picNode.note_type = NodeResultType.picture.rawValue
+            picNode.note_content = imageUrl
+            
+            if procedureId == nil {
+                procedureId = 602
             }
-        } 
-        
-        view.showLoading()
-        
-        if procedureId == nil {
-            procedureId = 602
-        }
-        
-        manager.submitServiceNodeResult(procedureId!, resultList: [node], success: { (responseData) in
             
-            self.view.dismissLoading()
-            
-            if responseData.result_code == ResultCode.success.rawValue {
-                NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
-            } else {
-                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
-            }   
-            
+            manager.submitServiceNodeResult(procedureId!, resultList: [picNode, textOrVoiceNode], success: { (responseData) in
+                
+                self.view.dismissLoading()
+                
+                if responseData.result_code == ResultCode.success.rawValue {
+                    NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
+                } else {
+                    NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+                }
+                
             }) { (errType, errDes) in
-             
+                
                 self.view.dismissLoading()
                 
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+            }
         }
+        
+        
+        
+        view.showLoading()
+        
+        Async.background({
+            if self.hasImage && self.cameraIcon.image != nil {
+                
+                guard let url = self.uploadImage() else {
+                    NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+                    
+                    self.view.dismissLoading()
+                    return
+                }
+                
+                imageUrl = url
+                
+                if !self.soundPlayButton.hidden {
+                    guard let url = self.uploadAudio() else {
+                        NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+                        
+                        self.view.dismissLoading()
+                        return
+
+                    }
+                    
+                    audioUrl = url
+                }
+                
+                commitResult()
+            }
+        })  
     }
     
     private func uploadImage() -> String? {
         let utils = LeanCloudUploadFileUtils()
         
         return utils.uploadImage(cameraIcon.image!)
+    }
+    
+    private func uploadAudio() -> String? {
+        let utils = LeanCloudUploadFileUtils()
+        
+        return utils.uploadFile(soundPlayButton.audioUrl!)
     }
     
     private func openAlbum() {
@@ -263,11 +302,19 @@ class TaskResultCommitViewController: UIViewController {
     }
     
     private func changeQuestButtonState() {
-        if !note.hidden {
-            if let _ = note.text {
-                TaskDetailViewController.setBottomButtonEnabel(questButton, enable: true)
+        var enable = false
+        
+        if hasImage {
+            if !note.hidden {
+                if let _ = note.text {
+                    enable = true
+                }
+            } else if !soundPlayButton.hidden {
+                enable = true
             }
         }
+        
+        TaskDetailViewController.setBottomButtonEnabel(questButton, enable: enable)
     }
 }
 
@@ -366,6 +413,20 @@ extension TaskResultCommitViewController: TextAndAudioInputDelegate {
         
         note.hidden = false
         note.text = text
+        
+        soundPlayButton.hidden = true
+        
+        changeQuestButtonState()
+    }
+    
+    func audioRecoded(audioFileUrl: NSURL, recordingTimeLong: NSTimeInterval) {
+        writeIcon.hidden = true
+        note.hidden = true
+        note.text = nil
+        
+        soundPlayButton.hidden = false
+        soundPlayButton.audioUrl = audioFileUrl
+        soundPlayButton.soundTimeInterval = recordingTimeLong
         
         changeQuestButtonState()
     }
