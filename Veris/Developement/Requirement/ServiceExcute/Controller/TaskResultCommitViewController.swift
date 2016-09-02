@@ -221,20 +221,20 @@ class TaskResultCommitViewController: UIViewController {
     private func updateServiceStatus() {
         let manager = BDKExcuteManager()
         
-        view.showLoading()
+        showLoading()
         
         manager.updateServiceNodeStatus(procedureId!, status: ProcedureStatus.complete, success: { (responseData) in       
             
             if responseData.result_code == ResultCode.success.rawValue {
                 self.submitResult()
             } else {
-                self.view.hideLoading()
+                self.dismissLoading()
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
             }
             
         }) { (errType, errDes) in
             
-            self.view.hideLoading()
+            self.dismissLoading()
             
             NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
             
@@ -293,7 +293,7 @@ class TaskResultCommitViewController: UIViewController {
         
         
         
-        view.showLoading()
+        showLoading()
         
         Async.background({
             if self.hasImage && self.cameraIcon.image != nil {

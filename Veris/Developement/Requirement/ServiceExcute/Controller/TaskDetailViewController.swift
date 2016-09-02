@@ -93,7 +93,7 @@ class TaskDetailViewController: UIViewController {
     }
     
     private func loadData() {
-        view.showLoading()
+        showLoading()
         
         let manager = BDKExcuteManager()
         
@@ -101,13 +101,13 @@ class TaskDetailViewController: UIViewController {
   //      let userId = AIUser.currentUser().id
         manager.queryProcedureInstInfo(serviceId, userId: userId, success: { (responseData) in
             
-            self.view.hideLoading()
+            self.dismissLoading()
             self.procedure = responseData.procedure
             self.setupUI(self.procedure!)
             self.setupCustomerView(responseData.customer)
             
             }) { (errType, errDes) in
-                self.view.hideLoading()
+                self.dismissLoading()
                 NBMaterialToast.showWithText(self.view, text: "GetDataFailed".localized, duration: NBLunchDuration.SHORT)
         }
     }
@@ -188,11 +188,11 @@ class TaskDetailViewController: UIViewController {
     private func updateServiceStatus() {
         let manager = BDKExcuteManager()
         
-        view.showLoading()
+        showLoading()
         
         manager.updateServiceNodeStatus(procedure!.procedure_inst_id.integerValue, status: ProcedureStatus.excuting, success: { (responseData) in
             
-            self.view.hideLoading()
+            self.dismissLoading()
             
             if responseData.result_code == ResultCode.success.rawValue {
                 NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
@@ -202,7 +202,7 @@ class TaskDetailViewController: UIViewController {
             
             }) { (errType, errDes) in
                 
-                self.view.hideLoading()
+                self.dismissLoading()
                 
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
                 
