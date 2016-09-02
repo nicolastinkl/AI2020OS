@@ -14,7 +14,7 @@ class ProposalOrderViewModel {
     var isExpanded: Bool = false
     var model: ProposalOrderModel!
     //订单展开内容viewModel
-    var timelineViewModels: [AITimelineViewModel]?
+    var timelineViewModels: [String: AITimelineViewModel]?
     var proposalState: ProposalStateViewModel?
     
     init() {
@@ -28,7 +28,7 @@ class ProposalOrderViewModel {
     }
     
     func parseAITimelineViewModel() {
-        timelineViewModels = Array<AITimelineViewModel>()
+        timelineViewModels = [String: AITimelineViewModel]()
         for service: ServiceOrderModel in model.service as! [ServiceOrderModel] {
             guard let
                 timeline = service.node,
@@ -72,7 +72,7 @@ class ProposalOrderViewModel {
                 contents.append(content)
             }
             viewModel.contents = contents
-            timelineViewModels?.append(viewModel)
+            timelineViewModels?[service.id] = viewModel
         }
     }
     
