@@ -60,6 +60,8 @@ class AIProductInfoViewController: UIViewController {
     
     private let redColor: String = "#b32b1d"
     
+    private let topButton = UIButton()
+    private let editButton = UIButton()
     // MARK: 取消键盘
     
     func shouldHideKeyboard () {
@@ -112,10 +114,7 @@ class AIProductInfoViewController: UIViewController {
      */
     func configButtons() {
         
-        let topButton = UIButton()
         view.addSubview(topButton)
-        
-        let editButton = UIButton()
         view.addSubview(editButton)
         
         topButton.setImage(UIImage(named: "AI_ProductInfo_Home_Edit"), forState: UIControlState.Normal)
@@ -814,6 +813,15 @@ extension AIProductInfoViewController: UITextFieldDelegate, UIScrollViewDelegate
         if curTextField != nil {
             shouldHideKeyboard()
         }
+        //设置透明度
+        topButton.alpha = 0.5
+        editButton.alpha = 0.5
+    }
+    
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        //设置透明度
+        topButton.alpha = 1.0
+        editButton.alpha = 1.0
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
