@@ -34,7 +34,7 @@ class DefaultCommentManager: CommentManager {
                     return false
                 }
                 
-                return imageIsExist(url)
+                return imageIsExist(NSURL(string: url)!)
             }
             
             if valideImages.count != model.imageInfos.count {
@@ -132,7 +132,7 @@ class DefaultCommentManager: CommentManager {
             let info = ImageInfoModel()
             
             info.imageId = imageId
-            info.localUrl = url
+            info.localUrl = url.absoluteString
             info.uploadFinished = false
             info.isCurrentCreate = true
             service.imageInfos.append(info)
@@ -159,7 +159,7 @@ class DefaultCommentManager: CommentManager {
                 
                 if url != nil {
                     imageInfo.isSuccessUploaded = true
-                    imageInfo.webUrl = url
+                    imageInfo.webUrl = url?.absoluteString
                 } else {
                     imageInfo.isSuccessUploaded = false
                 }
