@@ -220,6 +220,7 @@ class AISuperiorityViewController: UIViewController {
     }
     
     func favoriteAction() {
+        
         view.showLoading()
         //AIProdcutinfoService.addFavoriteServiceInfo(String(serviceModel.sid))
         if let serviceModel = serviceModel {
@@ -229,9 +230,15 @@ class AISuperiorityViewController: UIViewController {
                     // MARK: Loading Data Views
                     if res == "1"{
                         self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
+                        if let naviBar = self.naviBar {
+                            naviBar.commentButton.animation = "pop"
+                            naviBar.commentButton.animate()
+                        }
                     } else {
                         AIAlertView().showError("收藏失败", subTitle: "")
                     }
+                } else {
+                    AIAlertView().showError("收藏失败", subTitle: "")
                 }
             }
         }

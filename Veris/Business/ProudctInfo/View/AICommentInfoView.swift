@@ -150,7 +150,7 @@ class AICommentInfoView: UIView {
         constant = viewControlrsConstraint.constant
         
         let dateFormat = NSDateFormatter()
-        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormat.dateFormat = "YY-MM-dd HH:mm:ss"
         let destDateString = dateFormat.stringFromDate(NSDate(timeIntervalSinceNow: model.time ?? 0))
          
         //评论图片
@@ -160,10 +160,10 @@ class AICommentInfoView: UIView {
         commentContent.text = model.descripation ?? ""
         
         if let label = commentlike.viewWithTag(2) as? UILabel {
-            label.text = "\(model.like)"
+            label.text = "\(model.commentcount)"
         }
         if let label = commentlike.viewWithTag(4) as? UILabel {
-            label.text = "\(model.commentcount)"
+            label.text = "\(model.like)"
         }
         
         if let star = commentControls.viewWithTag(1) as? StarRateView {

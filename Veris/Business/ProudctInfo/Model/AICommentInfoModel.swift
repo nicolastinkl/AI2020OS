@@ -26,6 +26,7 @@ struct AICommentInfoModel: JSONJoy {
     var time: Double?
     
     var providename: String?
+    
     var provideurl: String?
     
     var descripation: String?

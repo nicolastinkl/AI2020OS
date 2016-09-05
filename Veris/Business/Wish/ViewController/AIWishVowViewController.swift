@@ -194,9 +194,8 @@ class AIWishVowViewController: UIViewController {
             model.proposal_price = number
             model.service_list = []
             model.service_id = 1
-        NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
         }
-        
  
     }
     
@@ -208,7 +207,7 @@ class AIWishVowViewController: UIViewController {
         if let stext = self.wishContent.text {
             let number = self.payContent.text
             let d = Double(number) ?? 0
-            if d < 0 {
+            if d <= 0.0 {
                 AIAlertView().showError("提示", subTitle: "提交失败，金额输入有误")
                 return
             }
@@ -245,7 +244,14 @@ class AIWishVowViewController: UIViewController {
 extension AIWishVowViewController: UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
         if payContent.text.length > 0 && wishContent.text.length > 0 {
-            refereshButtonStatus(true)
+            //判断金额为数字
+            let number = self.payContent.text
+            let d = Double(number) ?? 0
+            if d > 0.0 {
+                refereshButtonStatus(true)
+            } else {
+                refereshButtonStatus(false)
+            }
         } else {
             refereshButtonStatus(false)
         }

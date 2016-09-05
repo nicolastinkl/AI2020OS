@@ -104,7 +104,7 @@ struct AIPublicProviderModel: JSONJoy {
         name = decoder["name"].string ?? ""
         desc = decoder["desc"].string ?? ""
         icon = decoder["icon"].string ?? ""
-        service_times = decoder["service_times"].string ?? ""
+        service_times = String(decoder["service_times"].integer ?? 0)
         good_rate = decoder["good_rate"].string ?? ""
         service_level = decoder["service_level"].string ?? ""
     }

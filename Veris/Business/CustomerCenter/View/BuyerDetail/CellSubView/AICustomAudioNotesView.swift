@@ -248,13 +248,13 @@ internal class AICustomAudioNotesView: UIView, AVAudioRecorderDelegate {
 		}
 	}
 }
-
-extension AICustomAudioNotesView: UITextFieldDelegate {
-	
-	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-		if textField.text?.length < 198 {
-			return true
-		}
-		return false
-	}
-}
+//
+//extension AICustomAudioNotesView: UITextFieldDelegate {
+//	
+//	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+//		if textField.text?.length < 198 {
+//			return true
+//		}
+//		return false
+//	}
+//}
