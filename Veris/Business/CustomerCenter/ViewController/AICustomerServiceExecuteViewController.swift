@@ -440,7 +440,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         let datetimeFormat = NSDateFormatter()
         var lastDate: NSDate!
         var isNowHandled = false
-        datetimeFormat.dateFormat = "MM-dd HH:mm"
+        datetimeFormat.dateFormat = "MM月dd日 HH:mm"
         for (index, timelineModel) in timelineModels.enumerate() {
             let timelineDateString = "\(timelineModel.timeModel!.date!) \(timelineModel.timeModel!.time!)"
             if let timelineDate = datetimeFormat.dateFromString(timelineDateString) {

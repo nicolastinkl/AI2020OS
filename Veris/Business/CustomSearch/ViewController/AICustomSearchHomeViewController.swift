@@ -120,12 +120,17 @@ class AICustomSearchHomeViewController: UIViewController {
 	func listeningAudioTools(notify: NSNotification) {
 		if let result = notify.userInfo {
 			let string = result["Results"] as? String
-			Async.main({
-				self.searchText.text = string ?? ""
-				self.searching()
-				self.tableView.hidden = false
-				self.holdView.hidden = true
-			})
+            if let strings = string {
+                var newStr: NSString = NSString(string: "\(strings)")
+                newStr = newStr.stringByReplacingOccurrencesOfString("。", withString: "")
+                newStr = newStr.stringByReplacingOccurrencesOfString("，", withString: "")
+                Async.main({
+                    self.searchText.text = newStr as String
+                    self.searching()
+                    self.tableView.hidden = false
+                    self.holdView.hidden = true
+                })
+            }
 			
 		}
 	}
