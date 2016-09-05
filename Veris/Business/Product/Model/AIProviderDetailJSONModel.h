@@ -35,9 +35,8 @@
 @property (nonatomic, assign) NSInteger customer_id;
 @property (nonatomic, strong) NSArray<Optional> *photos;
 @property (nonatomic, strong) NSString<Optional> *rating_level;
-@property (nonatomic, assign) NSInteger replyingCount;
 @property (nonatomic, assign) NSInteger replying_count;
-@property (nonatomic, assign) NSInteger supportingCount;
+
 @property (nonatomic, assign) NSInteger supporting_count;
 @property (nonatomic, assign) NSInteger time;
 @end
