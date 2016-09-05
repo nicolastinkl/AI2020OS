@@ -132,7 +132,6 @@ class TaskResultCommitViewController: UIViewController {
             return
         }
         
-        let point = longPressRecognizer.locationInView(view)
         let popOver = MenuPopOverView()
         popOver.backgroundColor = UIColor(hexString: "f2f8fe", alpha: 0.75)
         popOver.popOverBackgroundColor = UIColor.clearColor()
@@ -142,7 +141,7 @@ class TaskResultCommitViewController: UIViewController {
         let itemRetake = PopMenuItem(title: "Retake", action: #selector(TaskResultCommitViewController.retakePressed(_:)), target: self)
         let itemDelete = PopMenuItem(title: "Delete", action: #selector(TaskResultCommitViewController.deletePressed(_:)), target: self)
         
-        popOver.presentPopoverFromRect(CGRect(x: point.x, y: soundPlayButton.frame.minY, width: 0, height: 0), inView: view, menuItems: [itemRetake, itemDelete])
+        popOver.presentPopoverFromRect(soundPlayButton.frame, inView: view, menuItems: [itemRetake, itemDelete])
         
 //        let meunController = UIMenuController.sharedMenuController()
 //        
