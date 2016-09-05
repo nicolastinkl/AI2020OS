@@ -89,7 +89,7 @@ class TaskDetailViewController: UIViewController {
     }
 
     func backAction(button: UIBarButtonItem) {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     private func loadData() {
