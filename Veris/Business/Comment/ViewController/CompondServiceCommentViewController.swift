@@ -84,14 +84,6 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             
             dismissViewControllerAnimated(true, completion: nil)
         }
-        
-        
-        
-//        if !commentManager.isAllImagesUploaded() {
-//            AIAlertView().showInfo("正在上传图片，不能提交", subTitle: "正在上传图片，不能提交")
-//            return
-//        }
-
     }
     
     private func setupNavigationBar() {
