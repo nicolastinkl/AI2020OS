@@ -18,7 +18,7 @@ class ClosureWrapper {
 		self.closure = closure
 	}
 	
-	init(boolClosure boolClosure: ((UIViewController) -> Bool)?) {
+	init(boolClosure: ((UIViewController) -> Bool)?) {
 		self.boolClosure = boolClosure
 	}
 }

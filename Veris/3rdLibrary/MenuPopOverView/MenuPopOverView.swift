@@ -11,14 +11,16 @@ import UIKit
 class MenuPopOverView: UIView {
     
     private static let kTextEdgeInsets: CGFloat = 10
-    private var popOverViewPadding: CGFloat = 20
-    private var dividerWidth: CGFloat = 1
     private static let kRightButtonWidth: CGFloat = 30
     private static let kLeftButtonWidth: CGFloat = 30
+    private static let kArrowPaddingRight: CGFloat = 30
+    
     private var buttonHeight: CGFloat = 53
     private var popOverViewHeight: CGFloat = 44
     private var popOverCornerRadius: CGFloat = 8
     private var arrowHeight: CGFloat = 9.5
+    private var popOverViewPadding: CGFloat = 20
+    private var dividerWidth: CGFloat = 1
     
     private var buttons = [UIButton]()
     private var pageButtons = [[UIButton]]()
@@ -97,64 +99,61 @@ class MenuPopOverView: UIView {
         }
     }
     
+    
     private func setupLayout(rect: CGRect, inView: UIView) {
         // get the top view
         guard let topView = UIApplication.sharedApplication().keyWindow?.subviews.last else {
             return
         }
         
-        let screenBounds = currentScreenBoundsDependOnOrientation()
-        let popoverMaxWidth = screenBounds.width - 2 * popOverViewPadding
+        let popoverMaxWidth = getPopoverMaxWidth()
         
-        // determine the arrow position
+        
         let topViewBounds = topView.bounds
         let origin = topView.convertPoint(rect.origin, fromView: inView)
         let destRect = CGRect(x: origin.x, y: origin.y, width: rect.width, height: rect.height)
         let minY = destRect.minY
         let maxY = destRect.maxY
         
+        let contentWidth = contentView.width
+        
+        var frameMidPoint: CGPoint!
+        
         // 1 pixel gap
         if maxY + popOverViewHeight + 1 > topViewBounds.minY + popOverViewHeight {
             isArrowUp = false
-            arrowPoint = CGPoint(x: destRect.maxX, y: minY - 1)
         } else {
             isArrowUp = true
-            arrowPoint = CGPoint(x: destRect.midX, y: maxY + 1)
         }
         
-        let contentWidth = contentView.width
+        
         var xOrigin: CGFloat = 0
         
-        //Make sure the arrow point is within the drawable bounds for the popover.
-        if arrowPoint.x + arrowHeight > topViewBounds.width - popOverViewPadding - popOverCornerRadius {
-            arrowPoint.x = topViewBounds.width - popOverViewPadding - popOverCornerRadius - arrowHeight
-        } else if arrowPoint.x - arrowHeight < popOverViewPadding + popOverCornerRadius {
-            arrowPoint.x = popOverViewPadding + popOverCornerRadius + arrowHeight
-        }
+        let framePointAndXOrigin = getFrameMidPoint(rect, inView: inView)
         
-        xOrigin = CGFloat(floorf(Float(arrowPoint.x - contentWidth * 0.5)))
+        frameMidPoint = framePointAndXOrigin.frameMidPoint
         
-        //Check to see if the centered xOrigin value puts the box outside of the normal range.
-        if xOrigin < topViewBounds.minX + popOverViewPadding {
-            xOrigin = topViewBounds.minX + popOverViewPadding
-        } else if xOrigin + contentWidth > topViewBounds.maxX - popOverViewPadding {
-            //Check to see if the positioning puts the box out of the window towards the left
-            xOrigin = topViewBounds.maxX - popOverViewPadding - contentWidth
-        }
-            
+        xOrigin = framePointAndXOrigin.xOrigin
+        
         
         var contentFrame = CGRect.zero
 
         
         if isArrowUp {
-            boxFrame = CGRect(x: xOrigin, y: arrowPoint.y + arrowHeight, width: min(contentWidth, popoverMaxWidth), height: popOverViewHeight - arrowHeight)
-            contentFrame = CGRect(x: xOrigin, y: arrowPoint.y, width: contentWidth, height: buttonHeight)
+            boxFrame = CGRect(x: xOrigin, y: frameMidPoint.y + arrowHeight, width: min(contentWidth, popoverMaxWidth), height: popOverViewHeight - arrowHeight)
+            contentFrame = CGRect(x: xOrigin, y: frameMidPoint.y, width: contentWidth, height: buttonHeight)
         } else {
-            boxFrame = CGRect(x: xOrigin, y: arrowPoint.y - popOverViewHeight, width: min(contentWidth, popoverMaxWidth), height: popOverViewHeight - arrowHeight)
-            contentFrame = CGRect(x: xOrigin, y: arrowPoint.y - buttonHeight, width: contentWidth, height: buttonHeight)
+            boxFrame = CGRect(x: xOrigin, y: frameMidPoint.y - popOverViewHeight, width: min(contentWidth, popoverMaxWidth), height: popOverViewHeight - arrowHeight)
+            contentFrame = CGRect(x: xOrigin, y: frameMidPoint.y - buttonHeight, width: contentWidth, height: buttonHeight)
         }
         
         contentView.frame = contentFrame
+        
+        if isArrowUp {
+            arrowPoint = CGPoint(x: contentFrame.maxX - MenuPopOverView.kArrowPaddingRight, y: maxY + 1)
+        } else {
+            arrowPoint = CGPoint(x: contentFrame.maxX - MenuPopOverView.kArrowPaddingRight, y: minY - 1)
+        }
         
         //We set the anchorPoint here so the popover will "grow" out of the arrowPoint specified by the user.
         //You have to set the anchorPoint before setting the frame, because the anchorPoint property will
@@ -171,6 +170,50 @@ class MenuPopOverView: UIView {
         addGestureRecognizer(tap)
         tap.cancelsTouchesInView = false
         userInteractionEnabled = true
+    }
+    
+    private func getFrameMidPoint(rect: CGRect, inView: UIView) -> (frameMidPoint: CGPoint, xOrigin: CGFloat) {
+        
+        let topView = UIApplication.sharedApplication().keyWindow?.subviews.last
+        
+        let topViewBounds = topView!.bounds
+        let origin = topView!.convertPoint(rect.origin, fromView: inView)
+        
+        let destRect = CGRect(x: origin.x, y: origin.y, width: rect.width, height: rect.height)
+        let minY = destRect.minY
+        let maxY = destRect.maxY
+        let contentWidth = contentView.width
+        
+        var frameMidPoint: CGPoint!
+        
+        if isArrowUp {
+            frameMidPoint = CGPoint(x: destRect.midX, y: maxY + 1)
+            
+        } else {
+            frameMidPoint = CGPoint(x: destRect.midX, y: minY - 1)
+        }
+        
+        frameMidPoint = CGPoint(x: destRect.midX, y: minY - 1)
+        //Make sure the arrow point is within the drawable bounds for the popover.
+        if frameMidPoint.x + arrowHeight > topViewBounds.width - popOverViewPadding - popOverCornerRadius {
+            frameMidPoint.x = topViewBounds.width - popOverViewPadding - popOverCornerRadius - arrowHeight
+        } else if frameMidPoint.x - arrowHeight < popOverViewPadding + popOverCornerRadius {
+            frameMidPoint.x = popOverViewPadding + popOverCornerRadius + arrowHeight
+        }
+        
+        var xOrigin: CGFloat = 0
+        
+        xOrigin = CGFloat(floorf(Float(frameMidPoint.x - contentWidth * 0.5)))
+        
+        //Check to see if the centered xOrigin value puts the box outside of the normal range.
+        if xOrigin < topViewBounds.minX + popOverViewPadding {
+            xOrigin = topViewBounds.minX + popOverViewPadding
+        } else if xOrigin + contentWidth > topViewBounds.maxX - popOverViewPadding {
+            //Check to see if the positioning puts the box out of the window towards the left
+            xOrigin = topViewBounds.maxX - popOverViewPadding - contentWidth
+        }
+        
+        return (frameMidPoint, xOrigin)
     }
     
     func tapped(gesture: UITapGestureRecognizer) {
@@ -325,8 +368,7 @@ class MenuPopOverView: UIView {
         pageButtons = [[UIButton]]()
         pageIndex = 0
         
-        let screenBounds = currentScreenBoundsDependOnOrientation()
-        let popoverMaxWidth = screenBounds.size.width - 2 * popOverViewPadding
+        let popoverMaxWidth = getPopoverMaxWidth()
         
         var allButtonWidth: CGFloat = 0
         
@@ -453,6 +495,13 @@ class MenuPopOverView: UIView {
         }
         
         return currentX
+    }
+    
+    private func getPopoverMaxWidth() -> CGFloat {
+        let screenBounds = currentScreenBoundsDependOnOrientation()
+        let popoverMaxWidth = screenBounds.size.width - 2 * popOverViewPadding
+        
+        return popoverMaxWidth
     }
     
     private func currentScreenBoundsDependOnOrientation() -> CGRect {

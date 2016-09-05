@@ -48,8 +48,10 @@ class ServiceCommentLocalSavedModel: NSObject, NSCoding, NSCopying {
 
 class ImageInfoModel: NSObject, NSCoding {
     var imageId = ""
-    var localUrl: NSURL?
-    var webUrl: NSURL?
+    // 保存在本地的图片url
+    var localUrl: String?
+    // 已经上传到服务器的图片的url
+    var webUrl: String?
     var isSuccessUploaded = false
     var uploadFinished = true
     var serviceId: String?
@@ -65,12 +67,12 @@ class ImageInfoModel: NSObject, NSCoding {
     required init(coder aDecoder: NSCoder) {
         super.init()
         imageId = aDecoder.decodeObjectForKey("imageId") as! String
-        localUrl = aDecoder.decodeObjectForKey("url") as? NSURL
-        webUrl = aDecoder.decodeObjectForKey("webUrl") as? NSURL
+        localUrl = aDecoder.decodeObjectForKey("url") as? String
+        webUrl = aDecoder.decodeObjectForKey("webUrl") as? String
         isSuccessUploaded = aDecoder.decodeBoolForKey("isSuccessUploaded")
     }
     
-    init(url: NSURL?) {
+    init(url: String?) {
         self.localUrl = url
     }
     

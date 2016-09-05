@@ -246,8 +246,8 @@ class ServiceCommentTableViewCell: UITableViewCell {
                 if urls == nil {
                     urls = [(url: NSURL, imageId: String?)]()
                 }
-                
-                urls.append((u, info.imageId))
+        
+                urls.append((NSURL(string: u)!, info.imageId))
             }
         }
         

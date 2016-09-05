@@ -104,21 +104,19 @@ class AICommentInfoView: UIView {
             imageview.contentMode = UIViewContentMode.ScaleAspectFill
             commentImages.addSubview(imageview)
             imageview.clipsToBounds = true
-//            imageview.setURL(NSURL(string: url), placeholderImage: smallPlace(), showProgress: true)
-//            imageview.hidden = true
+            imageview.hidden = true
             offWidth += imageview.width
         }
     }
     
     func getheight() -> CGFloat {
-        
         return commentImages.top + constant + 10
     }
     
     func fillDataWithModel(model: AICommentInfoModel) {
         
         commentImages.subviews.forEach { (imageview) in
-//            imageview.hidden = true
+            imageview.hidden = true
         }
         let photos: [[String: String]] = model.images ?? [] //model.photos as? [[String: String]] ?? []
         

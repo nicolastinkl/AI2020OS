@@ -10,13 +10,11 @@ import Foundation
 
 protocol CommentManager {
     func loadCommentModelsFromLocal(serviceIds: [String]) -> [ServiceCommentLocalSavedModel]?
-    func getCommentModelFromLocal(serviceId: String) -> ServiceCommentLocalSavedModel? 
     func saveCommentModelToLocal(serviceId: String, model: ServiceCommentLocalSavedModel) -> Bool
     func deleteCommentModel(serviceIds: [String])
     // 记录上传图片，imageId:标识图片的id url:图片在本地的url
     func recordUploadImage(serviceId: String, imageId: String, url: NSURL)
     func notifyImageUploadResult(imageId: String, url: NSURL?)
-    func isAllImagesUploaded() -> Bool
     func submitComments(userID: String, userType: Int, commentList: [SingleComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
@@ -36,7 +34,7 @@ class DefaultCommentManager: CommentManager {
                     return false
                 }
                 
-                return imageIsExist(url)
+                return imageIsExist(NSURL(string: url)!)
             }
             
             if valideImages.count != model.imageInfos.count {
@@ -134,7 +132,7 @@ class DefaultCommentManager: CommentManager {
             let info = ImageInfoModel()
             
             info.imageId = imageId
-            info.localUrl = url
+            info.localUrl = url.absoluteString
             info.uploadFinished = false
             info.isCurrentCreate = true
             service.imageInfos.append(info)
@@ -161,7 +159,7 @@ class DefaultCommentManager: CommentManager {
                 
                 if url != nil {
                     imageInfo.isSuccessUploaded = true
-                    imageInfo.webUrl = url
+                    imageInfo.webUrl = url?.absoluteString
                 } else {
                     imageInfo.isSuccessUploaded = false
                 }
@@ -171,23 +169,7 @@ class DefaultCommentManager: CommentManager {
         
         
     }
-    
-    func isAllImagesUploaded() -> Bool {
-        if localModelList == nil {
-            return true
-        }
-        
-        for service in localModelList! {
-            for info in service.imageInfos {
-                if !info.uploadFinished {
-                    return false
-                }
-            }
-        }
-        
-        return true
-    }
-    
+
     func submitComments(userID: String, userType: Int, commentList: [SingleComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let service = HttpCommentService()
         service.submitComments(userID, userType: userType, commentList: commentList, success: { (responseData) in

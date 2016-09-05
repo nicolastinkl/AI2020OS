@@ -84,14 +84,6 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             
             dismissViewControllerAnimated(true, completion: nil)
         }
-        
-        
-        
-//        if !commentManager.isAllImagesUploaded() {
-//            AIAlertView().showInfo("正在上传图片，不能提交", subTitle: "正在上传图片，不能提交")
-//            return
-//        }
-
     }
     
     private func setupNavigationBar() {
@@ -368,7 +360,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                     let imageInfo = ImageInfoModel()
                     
                     imageInfo.imageId = s.createImageId(info)
-                    imageInfo.localUrl = info.url!
+                    imageInfo.localUrl = info.url!.absoluteString
                     imageInfo.uploadFinished = false
                     s.comments[index].loaclModel?.imageInfos.append(imageInfo)
                     
@@ -606,7 +598,7 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         
         for img in images {
             let photo = CommentPhoto()
-            photo.url = img.webUrl?.absoluteString
+            photo.url = img.webUrl
             comment.photos.append(photo)
         }
         
