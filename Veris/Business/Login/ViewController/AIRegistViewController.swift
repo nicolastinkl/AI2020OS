@@ -29,10 +29,6 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == AIApplication.MainStoryboard.StoryboardSegues.SelectRegionSegue {
@@ -44,7 +40,6 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
                 AILoginPublicValue.phoneNumber = phoneNumberTextField.text
                 phoneNumberTextField.resignFirstResponder()
             }
-
         }
     }
 
@@ -70,6 +65,8 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
         leftView.textColor = UIColor.whiteColor()
         leftView.font = LoginConstants.Fonts.textFieldInput
         phoneNumberTextField.leftView = leftView
+        phoneNumberTextField.buildCustomerPlaceholder(LoginConstants.Fonts.promptLabel, color: LoginConstants.Colors.TextFieldPlaceholder, text: LoginConstants.textContent.UserIdPlaceholder)
+
         phoneNumberTextField.addTarget(self, action: #selector(AIRegistViewController.phoneNumberInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
 
         nextStepButton.enabled = false

@@ -48,6 +48,8 @@ class AISuperiorityViewController: UIViewController {
     private var leftOffSet: CGFloat = 13
 
     var serviceModel: AISearchServiceModel?
+    
+    private var selfImage: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +65,23 @@ class AISuperiorityViewController: UIViewController {
         showTransitionStyleCrossDissolveView(pvc)
     }
 
+    func initDatawithViewsImaeg() {
+        
+        let shapLayer = CAShapeLayer()
+        shapLayer.contents = UIImage(named: "AI_Superiority_bg_mask")?.CGImage
+        var newFrame = superView.frame
+        newFrame.origin = CGPointMake(0, -13)
+        shapLayer.frame = newFrame
+        superView.layer.mask = shapLayer
+        
+        // Top ImageView.
+        let imageView = DesignableImageView()
+        imageView.setHeight(UIScreen.mainScreen().bounds.height)
+        imageView.setLeft(0)
+        addNewSubView(imageView, preView: UIView(), color: UIColor.clearColor(), space: 0)
+        imageView.sd_setImageWithURL(NSURL(string: self.selfImage)!, placeholderImage: smallPlace())        
+    }
+    
     func initDatawithViews() {
         
         // Make Mask with ScrollView.
@@ -201,13 +220,18 @@ class AISuperiorityViewController: UIViewController {
     }
     
     func fetchData() {
+        view.showLoading()
         if let serviceModel = serviceModel {
             AISuperiorityService.requestSuperiority(String(serviceModel.sid)) { (response, error) in
                 self.view.hideLoading()
                 if let res = response {
-                    let model: AISuperiorityModel = res as! AISuperiorityModel
+                    let model = res as! AISuperiorityModel
+                    self.selfImage = model.icon ?? ""
                     // MARK: Loading Data Views
-                    self.initDatawithViews()
+                    //self.initDatawithViews()
+                    Async.main({ 
+                        self.initDatawithViewsImaeg()
+                    })
                     if model.collected == 0 {
                         //未收藏
                         self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)

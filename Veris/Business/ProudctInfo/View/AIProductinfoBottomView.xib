@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIProductinfoBottomView" customModule="Veris" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="137"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YhZ-AP-CQb">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="137"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dP-DE-ubu">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                            <color key="backgroundColor" red="0.70196078431372544" green="0.16862745098039217" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="NFN-yP-q0V"/>
+                            </constraints>
+                        </view>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buyerBottomCurve" translatesAutoresizingMaskIntoConstraints="NO" id="YLi-KI-dvh" customClass="OBShapedImageView">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="57"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="57" id="ady-li-Cmc"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="xxJ-gR-8ek">
+                            <rect key="frame" x="0.0" y="57" width="600" height="0.0"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UST-5h-I57">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.17254901959999999" green="0.08235294118" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="UST-5h-I57" secondAttribute="trailing" id="0Jn-hY-EfJ"/>
+                                <constraint firstItem="UST-5h-I57" firstAttribute="top" secondItem="xxJ-gR-8ek" secondAttribute="top" id="0mq-Ka-z4i"/>
+                                <constraint firstItem="UST-5h-I57" firstAttribute="leading" secondItem="xxJ-gR-8ek" secondAttribute="leading" id="afL-cd-lJ8"/>
+                                <constraint firstAttribute="bottom" secondItem="UST-5h-I57" secondAttribute="bottom" id="eyy-sC-DnR"/>
+                                <constraint firstAttribute="height" id="m6w-3B-92Z"/>
+                            </constraints>
+                        </view>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buyerBottom" translatesAutoresizingMaskIntoConstraints="NO" id="1DF-mB-4M1">
+                            <rect key="frame" x="0.0" y="57" width="600" height="80"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="Bep-qr-l0j"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="YLi-KI-dvh" firstAttribute="top" secondItem="YhZ-AP-CQb" secondAttribute="top" id="840-cZ-X9f"/>
+                        <constraint firstItem="xxJ-gR-8ek" firstAttribute="top" secondItem="YLi-KI-dvh" secondAttribute="bottom" id="Aer-kr-4fr"/>
+                        <constraint firstItem="YLi-KI-dvh" firstAttribute="leading" secondItem="YhZ-AP-CQb" secondAttribute="leading" id="BLs-LP-Qte"/>
+                        <constraint firstAttribute="trailing" secondItem="1DF-mB-4M1" secondAttribute="trailing" id="C23-dg-014"/>
+                        <constraint firstAttribute="trailing" secondItem="4dP-DE-ubu" secondAttribute="trailing" id="JGc-DC-WZn"/>
+                        <constraint firstItem="xxJ-gR-8ek" firstAttribute="leading" secondItem="YhZ-AP-CQb" secondAttribute="leading" id="KhA-ks-zdm"/>
+                        <constraint firstAttribute="height" constant="137" id="XYq-sY-snT"/>
+                        <constraint firstItem="1DF-mB-4M1" firstAttribute="top" secondItem="xxJ-gR-8ek" secondAttribute="bottom" id="a3y-x5-goU"/>
+                        <constraint firstAttribute="trailing" secondItem="xxJ-gR-8ek" secondAttribute="trailing" id="aoB-el-WRN"/>
+                        <constraint firstItem="4dP-DE-ubu" firstAttribute="leading" secondItem="YhZ-AP-CQb" secondAttribute="leading" id="cmC-vd-yrP"/>
+                        <constraint firstItem="1DF-mB-4M1" firstAttribute="leading" secondItem="YhZ-AP-CQb" secondAttribute="leading" id="i9i-5d-2eW"/>
+                        <constraint firstAttribute="trailing" secondItem="YLi-KI-dvh" secondAttribute="trailing" id="mEi-NM-MQc"/>
+                        <constraint firstItem="4dP-DE-ubu" firstAttribute="top" secondItem="YhZ-AP-CQb" secondAttribute="top" id="pbo-YO-t72"/>
+                        <constraint firstAttribute="bottom" secondItem="1DF-mB-4M1" secondAttribute="bottom" id="tiX-v0-uO6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="YhZ-AP-CQb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CgH-sB-G4h"/>
+                <constraint firstAttribute="trailing" secondItem="YhZ-AP-CQb" secondAttribute="trailing" id="Ngk-wX-SCc"/>
+                <constraint firstAttribute="bottom" secondItem="YhZ-AP-CQb" secondAttribute="bottom" id="frH-Vp-V6I"/>
+                <constraint firstItem="YhZ-AP-CQb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="r5U-17-407"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bottomButton" destination="1DF-mB-4M1" id="uxA-Ag-fk9"/>
+            </connections>
+            <point key="canvasLocation" x="116" y="226.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="buyerBottom" width="360" height="75"/>
+        <image name="buyerBottomCurve" width="1080" height="130"/>
+    </resources>
+</document>

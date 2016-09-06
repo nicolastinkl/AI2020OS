@@ -227,3 +227,7 @@
  * ./Veris/Business/Comment/ViewController/ImagesReviewViewController
  */
 "ImagesReviewViewController.deleteConfirm" = "删除照片?";
+
+/*
+ * ./Veris/Business/Login/LoginConstants
+ */
