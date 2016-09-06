@@ -297,40 +297,26 @@ class AIWishPreviewController: UIViewController {
     
     @IBAction func subitAction(sender: AnyObject) {
         if let stext = self.textFeild?.text {
-            let number: Double = 123
+            let number: Double = Double(preAverageView?.button.titleLabel?.text?.toInt() ?? 0)
             view.showLoading()
-//            AIWishServices.requestMakeWishs(number, wish: stext, complate: { (obj, error)  in
-//                self.view.hideLoading()
-//                if let _ = obj {
+            AIWishServices.requestMakeWishs(model?.type_id ?? 0, name: model?.name ?? "", money: number, contents: stext, complate: { (obj, error) in
+                self.view.hideLoading()
+                if let _ = obj {
+                    let model = AIBuyerBubbleModel()
+                    model.order_times = self.model?.already_wish ?? 0
+                    model.proposal_id_new = 1
+                    model.proposal_name = self.model?.name ?? ""
+                    model.proposal_price = "￥\(number)"
+                    model.service_list = []
+                    model.service_id = self.model?.type_id ?? 0
+                    model.proposal_type = 3
+                    NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
+                }else{
+                    AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")
+                }
+                
+            })
             
-                    // 退出当前界面 然后通知主页刷新
-                    // AIAlertView().showSuccess("提示", subTitle: "提交成功")
-//                    if let alertView = AIAlertWishInputView.initFromNib() as? AIAlertWishInputView{
-//                        self.view.addSubview(alertView)
-//                        alertView.alpha = 0
-//                        alertView.snp_makeConstraints(closure: { (make) in
-//                            make.edges.equalTo(self.view)
-//                        })
-//                        SpringAnimation.springEaseIn(0.5, animations: {
-//                            alertView.alpha = 1
-//                        })
-//                        alertView.buttonSubmit.addTarget(self, action: #selector(AIWishVowViewController.realSubmitAction), forControlEvents: UIControlEvents.TouchUpInside)
-//                    }
-//                    
-//                    let model = AIBuyerBubbleModel()
-//                    model.order_times = 1
-//                    model.proposal_id_new = 1
-//                    model.proposal_name =  String(self.model?.name ?? "")
-//                    model.proposal_price = String(number)
-//                    model.service_list = []
-//                    model.service_id = 1
-//                    NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
-//                    
-//                    
-//                } else {
-//                    AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")
-//                }
-//            })
         }
     
     }
