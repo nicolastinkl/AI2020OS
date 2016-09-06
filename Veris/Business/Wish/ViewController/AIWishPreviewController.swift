@@ -90,6 +90,7 @@ class AIWishPreviewController: UIViewController {
         dbgView.addSubview(DescriptionLabel)
         DescriptionLabel.setWidth(UIScreen.mainScreen().bounds.width)
         DescriptionLabel.setHeight(82)
+        
         // Question Title
         
         let QuestionTitle1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView

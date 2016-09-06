@@ -51,7 +51,7 @@ class AIWishHotModel: JSONJoy {
 
 }
 
-
+/// 最新许愿model
 class AIWishHotChildModel: JSONJoy {
     
     var type_id: Int = 0
