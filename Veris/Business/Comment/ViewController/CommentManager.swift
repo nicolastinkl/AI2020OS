@@ -10,7 +10,6 @@ import Foundation
 
 protocol CommentManager {
     
-    
     func loadCommentModelsFromLocal(serviceIds: [String]) -> [ServiceCommentLocalSavedModel]?
     func saveCommentModelToLocal(serviceId: String, model: ServiceCommentLocalSavedModel) -> Bool
     func deleteCommentModel(serviceIds: [String])
@@ -337,10 +336,12 @@ class DefaultCommentManager: CommentManager {
                 }
                 
                 self.deleteCommentModel(serviceIds)
+                
+                success(responseData: re)
             }
             
         }) { (errType, errDes) in
-
+            fail(errType: errType, errDes: errDes)
 
         }
     }
@@ -362,7 +363,7 @@ class DefaultCommentManager: CommentManager {
         
         for service in list {
             for model in service.imageInfos {
-                var m = model as! ImageInfoModel
+                let m = model as! ImageInfoModel
                 if m.imageId == imageId {
                     m.serviceId = service.serviceId
                     return m
@@ -390,7 +391,7 @@ class DefaultCommentManager: CommentManager {
         
         for service in list {
             for model in service.imageInfos {
-                var m = model as! ImageInfoModel
+                let m = model as! ImageInfoModel
                 if m.imageId == imageId {
                     m.serviceId = service.serviceId
                     return service
@@ -425,48 +426,4 @@ class DefaultCommentManager: CommentManager {
         
         return nil
     }
-    
-//    private func mergeComment(newComment: ServiceComment, local: ServiceCommentLocalSavedModel?) -> ServiceComment {
-//        if newComment.photos == nil {
-//            newComment.photos = [CommentPhoto]()
-//        }
-//        
-//        let result = ServiceComment()
-//        
-//        result.rating_level = newComment.rating_level
-//        result.service_id = newComment.service_id
-//        result.spec_id = newComment.spec_id
-//        result.text = newComment.text
-//        result.photos = newComment.photos
-//        
-//        func isInPhotos(url: String, comment: ServiceComment) -> Bool {
-//            for photo in comment.photos as! [CommentPhoto] {
-//                guard let u = photo.url else {
-//                    continue
-//                }
-//                
-//                if u == url {
-//                    return true
-//                }
-//            }
-//            
-//            return false
-//        }
-//        
-//        if let l = local {
-//            for info in l.imageInfos {
-//                guard let u = info.url else {
-//                    continue
-//                }
-//                
-//                if !isInPhotos(u.absoluteString, comment: result) {
-//                    let p = CommentPhoto()
-//                    p.url = u.absoluteString
-//                    result.photos.append(p)
-//                }
-//            }
-//        }
-//  
-//        return result
-//    }
 }
