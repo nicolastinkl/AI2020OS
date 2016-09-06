@@ -284,9 +284,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                     }
                 }
                 
-                let model = ServiceCommentLocalSavedModel()
-                model.serviceId = id
-                return model
+                return nil
             }
             
             for comment in comments {
@@ -298,6 +296,12 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                     comment.loaclModel?.serviceId = comment.serviceId
                 }
                 
+                comment.imageViews = createLocalImageViews(comment)
+            }
+        } else {
+            for comment in comments {
+                comment.loaclModel = ServiceCommentLocalSavedModel()
+                comment.loaclModel?.serviceId = comment.serviceId
                 comment.imageViews = createLocalImageViews(comment)
             }
         }
