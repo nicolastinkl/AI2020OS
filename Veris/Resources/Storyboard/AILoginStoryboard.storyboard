@@ -169,7 +169,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg" translatesAutoresizingMaskIntoConstraints="NO" id="2h0-70-hPq">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mBV-ah-M8X" customClass="AILoginBaseTextField" customModule="Veris" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mBV-ah-M8X" customClass="AILoginBaseTextField" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="30" y="218" width="540" height="40"/>
                                 <color key="backgroundColor" red="0.3809413016" green="0.33375316859999998" blue="0.48276537660000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
