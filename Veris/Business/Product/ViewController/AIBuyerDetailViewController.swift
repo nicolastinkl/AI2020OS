@@ -36,7 +36,7 @@ class AIBuyerDetailViewController: UIViewController {
     var customerDialogViewController: AACustomerDialogViewController?
     var providerDialogViewController: AAProviderDialogViewController?
 	
-	private var audioAssistantModel: AudioAssiatantModel = .None
+    var audioAssistantModel: AudioAssiatantModel = .None
 	private var isNowAssisting: Bool = false
 
     private var isNowExcutingAnchor: Bool {
@@ -355,8 +355,30 @@ class AIBuyerDetailViewController: UIViewController {
 		self.bgLabel.animation = "zoomOut"
 		self.bgLabel.duration = 0.5
 		self.bgLabel.animate()
-		
+
+        handleEnableWhenAppear()
 	}
+
+    //MARK: Handle Assistance Model
+    func handleEnableWhenAppear () {
+
+        switch audioAssistantModel {
+        case .None, .Receiver: // 协助者
+            makeSubviewsEnable(true)
+            break
+        case .Sender: // 申请者
+            makeSubviewsEnable(false)
+            break
+        }
+    }
+
+    func makeSubviewsEnable(enable: Bool) {
+        for view in self.view.subviews {
+            view.userInteractionEnabled = (enable && view.tag != 1024)
+        }
+    }
+
+
 	
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
@@ -395,19 +417,18 @@ class AIBuyerDetailViewController: UIViewController {
     //MARK: Vidio Assistant
     @IBAction func startVideoAction(sender: AnyObject) {
 
-//#if DEBUG
-    if providerDialogViewController != nil {
-        presentViewController(providerDialogViewController!, animated: true, completion: nil)
-    } else {
-        if customerDialogViewController == nil {
-            let vc = AACustomerDialogViewController.initFromNib()
-            vc.proposalID = (bubbleModel?.proposal_id)!
-            vc.proposalName = (bubbleModel?.proposal_name)!
-            customerDialogViewController = vc
+        if providerDialogViewController != nil {
+            presentViewController(providerDialogViewController!, animated: true, completion: nil)
+        } else {
+            if customerDialogViewController == nil {
+                audioAssistantModel = .Sender
+                let vc = AACustomerDialogViewController.initFromNib()
+                vc.proposalID = (bubbleModel?.proposal_id)!
+                vc.proposalName = (bubbleModel?.proposal_name)!
+                customerDialogViewController = vc
+            }
+            presentViewController(customerDialogViewController!, animated: true, completion: nil)
         }
-        presentViewController(customerDialogViewController!, animated: true, completion: nil)
-    }
-//#endif
 
     }
 
