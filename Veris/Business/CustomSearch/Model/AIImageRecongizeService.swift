@@ -11,6 +11,32 @@ import Alamofire
 
 class AIImageRecongizeService: NSObject {
 	
+    static let fakeMapper = [
+        [
+			"values": [
+				"围兜",
+				"奶嘴",
+				"奶桶",
+				"小床",
+				"尿布",
+			],
+			"key": "孕"
+		],
+		
+		[
+			"values": [
+				"出租车",
+			],
+			"key": "车"
+		],
+		[
+			"values": [
+				"救护车"
+			],
+			"key": "挂号"
+		],
+	]
+	
 	func getImageInfo(image: UIImage, callback: ((String?, error: Error?) -> ())?) {
 		let data = UIImagePNGRepresentation(image)!
 		let url = AIApplication.AIApplicationServerURL.uploadAndIdentify.description

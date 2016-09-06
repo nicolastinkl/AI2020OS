@@ -238,7 +238,8 @@ struct AIApplication {
         static let UserLoginTimeOutNotification = "UserLoginTimeOutNotification"
 
         static let UserLoginOutNotification = "UserLoginOutNotification"
-        
+        // 注册通知
+        static let UserDidRegistedNotification = "UserDidRegistedNotification"
     }
 
     // MARK: System theme's color

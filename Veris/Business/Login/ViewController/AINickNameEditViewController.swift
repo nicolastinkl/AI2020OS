@@ -70,6 +70,8 @@ class AINickNameEditViewController: UIViewController {
 			self.hideButtonLoading(self.confirmButton, title: title)
 			self.navigationController?.popToRootViewControllerAnimated(true)
 			AIAlertView().showSuccess("注册成功!", subTitle: "")
+            let notification = NSNotification(name: AIApplication.Notification.UserDidRegistedNotification, object: nil)
+            NSNotificationCenter.defaultCenter().postNotification(notification)
 		}) { (errType, errDes) in
             self.hideButtonLoading(self.confirmButton, title: title)
             AIAlertView().showError("错误", subTitle: errDes)

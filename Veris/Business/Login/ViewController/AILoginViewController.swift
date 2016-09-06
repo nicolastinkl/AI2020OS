@@ -86,8 +86,15 @@ class AILoginViewController: UIViewController {
             
         #endif
         
+        setupNotifications()
     }
     
+    func setupNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AILoginViewController.handleDidRegisted(_:)), name: AIApplication.Notification.UserDidRegistedNotification, object: nil)
+    }
+    func handleDidRegisted(n: NSNotification) {
+       userIdTextField.text = AILoginPublicValue.phoneNumber
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //必须在view出现和消失是设置是否显示导航栏
