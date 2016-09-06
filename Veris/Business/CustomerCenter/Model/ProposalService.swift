@@ -187,7 +187,7 @@ class BDKProposalService: MockProposalService {
         let message = AIMessage()
 
         message.url = AIApplication.AIApplicationServerURL.queryProcOrders.description
-        let data = ["user_id":AILoginUtil.currentLocalUserID() ?? ""]
+        let data = ["user_id": AILoginUtil.currentLocalUserID() ?? ""]
         message.body = BDKTools.createRequestBody(data)
         
 //        let body = ["data":["order_role":1, "order_state": "0"], "desc":["data_mode":"0", "digest":""]]
