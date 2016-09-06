@@ -156,9 +156,9 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	}
 	
 	func updateMenuViews() {
-		updateMenuView(type: .Sort, titles: filterTitles)
+		updateMenuView(type: .Sort, titles: sortTitles)
+		updateMenuView(type: .Filter, titles: filterTitles)
 		updateMenuView(type: .Price, titles: priceTitles)
-		updateMenuView(type: .Filter, titles: sortTitles)
 	}
 	
 	func updateMenuView(type type: FilterType, titles: [String]?) {

@@ -28,6 +28,7 @@ import Spring
 import Cartography
 import AIAlertView
 import SnapKit
+import IQKeyboardManagerSwift
 
 /// 商品详情视图
 class AIProductInfoViewController: UIViewController {
@@ -62,6 +63,7 @@ class AIProductInfoViewController: UIViewController {
     
     private let topButton = UIButton()
     private let editButton = UIButton()
+    private let isStepperEditing = false
     // MARK: 取消键盘
     
     func shouldHideKeyboard () {
@@ -88,13 +90,143 @@ class AIProductInfoViewController: UIViewController {
         // Make Config Buttons.
         configButtons()
 		
+        // add addKeyboardNotifications
+        addKeyboardNotifications()
+        
 		// Make UIScrollView.
 		Async.main(after: 0.1) {
             self.requestData()			
 		}
-		
 	}
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        IQKeyboardManager.sharedManager().enable = false
+    }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        IQKeyboardManager.sharedManager().enable = true
+    }
+    
+    // MARK: 键盘事件
+    
+    func addKeyboardNotifications () {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardDidHide(_:)), name: UIKeyboardDidHideNotification, object: nil)
+        
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardDidChange(_:)), name: UIKeyboardDidChangeFrameNotification, object: nil)
+    }
+    
+    func removeKeyboardNotifications() {
+        let names = [UIKeyboardWillShowNotification,
+                     UIKeyboardDidShowNotification, UIKeyboardWillHideNotification, UIKeyboardDidHideNotification, UIKeyboardDidChangeFrameNotification]
+        let center = NSNotificationCenter.defaultCenter()
+        for name in names {
+            center.removeObserver(self, name: name, object: nil)
+        }
+    }
+    
+    func keyboardDidChange(notification: NSNotification) {
+        if self.isStepperEditing {
+            return
+        }
+        // change keyboard height
+        
+        if let userInfo = notification.userInfo {
+            
+            // step 1: get keyboard height
+            let keyboardRectValue: NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
+            let keyboardRect: CGRect = keyboardRectValue.CGRectValue()
+            let keyboardHeight: CGFloat = min(CGRectGetHeight(keyboardRect), CGRectGetWidth(keyboardRect))
+            
+            if let view1 = self.currentAudioView {
+                if keyboardHeight > 0 {
+                    let newLayoutConstraint = keyboardHeight - view1.holdViewHeigh
+                    view1.inputButtomValue.constant = newLayoutConstraint
+                }
+            }
+            
+        }
+        
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if self.isStepperEditing {
+            return
+        }
+        
+        if curTextField == nil {
+            return
+        }
+        
+        if let userInfo = notification.userInfo {
+            self.currentAudioView?.changeModel(1)
+            // step 1: get keyboard height
+            let keyboardRectValue: NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
+            let keyboardRect: CGRect = keyboardRectValue.CGRectValue()
+            let keyboardHeight: CGFloat = min(CGRectGetHeight(keyboardRect), CGRectGetWidth(keyboardRect))
+            
+//            scrollview.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0)
+//            scrollViewBottom()
+            
+            if let view1 = self.currentAudioView {
+                if keyboardHeight > 0 {
+                    let newLayoutConstraint = keyboardHeight - view1.holdViewHeigh
+                    view1.inputButtomValue.constant = newLayoutConstraint
+                }
+            }
+            // hidden
+            if let view1 = self.currentAudioView {
+                view1.audioButtonView.hidden = true
+            }
+            
+        }
+    }
+    
+    func keyboardDidShow(notification: NSNotification) {
+        if self.isStepperEditing {
+            return
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if self.isStepperEditing {
+            return
+        }
+        
+        if curTextField == nil {
+            return
+        }
+        //scrollview.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        //scrollViewBottom()
+        if let view1 = self.currentAudioView {
+            view1.audioButtonView.hidden = false
+        }
+        
+    }
+    
+    func keyboardDidHide(notification: NSNotification) {
+        
+        
+        if self.isStepperEditing {
+            return
+        }
+        
+        if curTextField == nil {
+            return
+        }
+        
+        if let view1 = self.currentAudioView {
+            view1.inputButtomValue.constant = 1
+        }
+    }
     
     func requestData() {
         view.showLoading()
@@ -188,7 +320,7 @@ class AIProductInfoViewController: UIViewController {
 	 */
 	func initLayoutViews() {
 		
-        self.scrollview.contentInset = UIEdgeInsetsMake(0, 0, 200, 0)
+        self.scrollview.contentInset = UIEdgeInsetsMake(0, 0, 300, 0)
 		/// Title.
 		if let navi = navi as? AINavigationBar {
 			view.addSubview(navi)
@@ -773,6 +905,8 @@ extension AIProductInfoViewController: AICustomAudioNotesViewShowAudioDelegate {
         childView.delegateAudio = self
         childView.textInput.delegate = self
         childView.inputTextView.delegate = self
+        curTextField = childView.textInput
+//        childView.textInput.inputAccessoryView = childView.audioInputBarView
         currentAudioView = childView
         
         constrain(childView) { (cview) -> () in
@@ -1092,10 +1226,6 @@ extension AIProductInfoViewController: UITextViewDelegate {
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        
-        if serviceContentType == .None {
-            return false
-        }
         
         if "\n" == text {
             textView.resignFirstResponder()

@@ -23,6 +23,7 @@
 // THE SOFTWARE.
 
 import Foundation
+import Spring
 
 class AINavigationBar: UIView {
 	
@@ -30,8 +31,8 @@ class AINavigationBar: UIView {
 	
 	@IBOutlet weak var bgView: UIView!
 	@IBOutlet weak var backButton: UIButton!
-	@IBOutlet weak var commentButton: UIButton!
-	@IBOutlet weak var videoButton: UIButton!
+	@IBOutlet weak var commentButton: DesignableButton!
+	@IBOutlet weak var videoButton: DesignableButton!
 	@IBOutlet weak var titleLabel: UILabel!
 	
 	override func awakeFromNib() {

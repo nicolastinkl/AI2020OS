@@ -22,7 +22,7 @@ class TestCommentViewController: UIViewController {
     }
     
     @IBAction func testAction(sender: AnyObject) {
-        let vc = TaskResultCommitViewController.initFromStoryboard()
+        let vc = CompondServiceCommentViewController.initFromNib()
         
         let nav = UINavigationController(rootViewController: vc)
         presentViewController(nav, animated: true, completion: nil)

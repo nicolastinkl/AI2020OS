@@ -75,7 +75,10 @@ class AILoginUtil: NSObject {
     }
     
     class func currentLocalUserID() -> String? {
-        return "\(NSUserDefaults.standardUserDefaults().objectForKey(KEY_USER_ID))"
+        if let user = NSUserDefaults.standardUserDefaults().objectForKey(KEY_USER_ID) {
+            return user as? String
+        }
+        return ""
     }
     
     //处理用户登陆事件， 1.存储userId到本地

@@ -30,6 +30,7 @@ internal class AIAudioInputView: UIView, AVAudioRecorderDelegate {
 	@IBOutlet weak var inputTextView: DesignableTextView!
 	@IBOutlet weak var inputButtomValue: NSLayoutConstraint!
 	
+    @IBOutlet weak var audioInputBarView: UIView!
 	// MARK: -> Internal property
 	private var recorder: AVAudioRecorder? // 这里不能够weak
 	private var lowPassResults: Double = 0
