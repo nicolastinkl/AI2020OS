@@ -288,6 +288,7 @@ class AIProductInfoViewController: UIViewController {
         if let navi = self.navi as? AINavigationBar {
             navi.bgView.subviews.first?.alpha = alphaSc
         }
+        
 		//animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
 		
 	}
@@ -320,7 +321,7 @@ class AIProductInfoViewController: UIViewController {
 	 */
 	func initLayoutViews() {
 		
-        self.scrollview.contentInset = UIEdgeInsetsMake(0, 0, 300, 0)
+        /// self.scrollview.contentInset = UIEdgeInsetsMake(0, 0, 300, 0)
 		/// Title.
 		if let navi = navi as? AINavigationBar {
 			view.addSubview(navi)
@@ -672,6 +673,12 @@ class AIProductInfoViewController: UIViewController {
         let audioView = AICustomAudioNotesView.currentView()
         addNewSubView(audioView, preView: provideView!)
         audioView.delegateShowAudio = self
+        
+        // Setup 9: add bottom view
+        if let bottomView = AIProductinfoBottomView.initFromNib() {
+            addNewSubView(bottomView, preView: audioView)
+        }
+        
     }
     
     func showCommentView() {
@@ -937,7 +944,6 @@ extension AIProductInfoViewController: UMSocialUIDelegate {
             AILog("share to sns name is" + "\(response.data.keys.first)")
         }
     }
-
 }
 
 extension AIProductInfoViewController: UITextFieldDelegate, UIScrollViewDelegate {
@@ -948,14 +954,30 @@ extension AIProductInfoViewController: UITextFieldDelegate, UIScrollViewDelegate
             shouldHideKeyboard()
         }
         //设置透明度
-        topButton.alpha = 0.5
-        editButton.alpha = 0.5
+//        topButton.alpha = 0.5
+//        editButton.alpha = 0.5
+    }
+    
+    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        SpringAnimation.spring(0.3) {
+            //设置透明度
+            self.topButton.alpha = 0.5
+            self.editButton.alpha = 0.5
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        SpringAnimation.spring(0.3) {
+            //设置透明度
+            self.topButton.alpha = 1.0
+            self.editButton.alpha = 1.0
+        }
     }
     
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         //设置透明度
-        topButton.alpha = 1.0
-        editButton.alpha = 1.0
+//        topButton.alpha = 1.0
+//        editButton.alpha = 1.0
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
