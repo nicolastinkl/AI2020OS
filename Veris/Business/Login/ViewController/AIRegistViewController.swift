@@ -70,6 +70,8 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
         leftView.textColor = UIColor.whiteColor()
         leftView.font = LoginConstants.Fonts.textFieldInput
         phoneNumberTextField.leftView = leftView
+        phoneNumberTextField.buildCustomerPlaceholder(LoginConstants.Fonts.promptLabel, color: LoginConstants.Colors.TextFieldPlaceholder, text: LoginConstants.textContent.UserIdPlaceholder)
+
         phoneNumberTextField.addTarget(self, action: #selector(AIRegistViewController.phoneNumberInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
 
         nextStepButton.enabled = false

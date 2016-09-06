@@ -41,6 +41,7 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
     }
 
     func setupViews() {
+        passwordTextField.buildCustomerPlaceholder(LoginConstants.Fonts.promptLabel, color: LoginConstants.Colors.TextFieldPlaceholder, text: LoginConstants.textContent.SetPasswordPlaceholder)
         passwordTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
 
         confirmButton.enabled = false

@@ -130,3 +130,13 @@ extension UIViewController {
         view.userInteractionEnabled = true
     }
 }
+
+// MARK: -> 扩展自定义设置placeholder的方法，传入自定义的字体和颜色
+extension UITextField {
+    func buildCustomerPlaceholder(font: UIFont, color: UIColor, text: String) {
+        let attrPlaceholder = NSMutableAttributedString(string: text)
+        attrPlaceholder.addAttribute(NSForegroundColorAttributeName, value: color, range: NSMakeRange(0, attrPlaceholder.length))
+        attrPlaceholder.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(0, attrPlaceholder.length))
+        self.attributedPlaceholder = attrPlaceholder
+    }
+}
