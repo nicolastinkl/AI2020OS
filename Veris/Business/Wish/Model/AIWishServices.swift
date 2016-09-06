@@ -12,17 +12,16 @@ import Foundation
 struct AIWishServices {
     
     /// 提交许愿单
-    static func requestMakeWishs(money: Double, wish: String, complate: ((AnyObject?, String?) -> Void)) {
-        let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
+    static func requestMakeWishs(typeID: Int, name: String, money: Double, contents: String, complate: ((AnyObject?, String?) -> Void)) {
         let message = AIMessage()
         //获取本地语言类型推算币种类型
-        print(Localize.currentLanguage())
+        //print(Localize.currentLanguage())
         let body: NSDictionary = ["data":[
-            "wish_desc": wish,
-            "user_id":userId,
+            "contents": contents,
+            "name":name,
+            "type_id":typeID,
             "money_amount":money,
-            "money_type":"CNY",
-            "money_unit":""
+            "money_unit":"￥"
         ], "desc":["data_mode":"0", "digest":""]]
         
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
@@ -30,8 +29,8 @@ struct AIWishServices {
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
-                let model = AISuperiorityModel(JSONDecoder(responseJSON))
-                complate(model, nil)
+//                let model = AISuperiorityModel(JSONDecoder(responseJSON))
+                complate(responseJSON, nil)
             } else {
                 complate(nil, "data is null")
             }
@@ -41,7 +40,7 @@ struct AIWishServices {
     }
     
     /// 许愿单Hot查询
-    static func requestHotQueryWishs(keyword: String,complate: ((AnyObject?, String?) -> Void)) {
+    static func requestHotQueryWishs(keyword: String, complate: ((AnyObject?, String?) -> Void)) {
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.wishhotAndWishrecommand.description as String
         let body: NSDictionary = ["data":["keyword": keyword], "desc":["data_mode":"0", "digest":""]]

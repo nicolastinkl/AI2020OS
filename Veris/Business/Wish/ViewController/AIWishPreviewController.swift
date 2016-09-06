@@ -12,26 +12,36 @@ import Spring
 import Cartography
 import AIAlertView
 
+//心愿预览
 class AIWishPreviewController: UIViewController {
     
+    /// Views
     @IBOutlet weak var scrollview: UIScrollView!
-    
     @IBOutlet weak var contentScrollview: UIScrollView!
-    var model: AIBuyerBubbleModel?
-    var preCacheView: UIView?
-    var preContentCacheView: UIView?
-    var textFeild: DesignableTextField?
     @IBOutlet weak var textView: UIView!
     @IBOutlet weak var priceTitle: UIView!
     @IBOutlet weak var view_price: UIView!
+    
+    /// Constraint
     @IBOutlet weak var textpriceConstraint: NSLayoutConstraint!
+    @IBOutlet weak var priceConstraint: NSLayoutConstraint!
+    
+    /// Vars
+    
+    var model: AIWishHotChildModel?
+    var preCacheView: UIView?
+    var preContentCacheView: UIView?
+    var textFeild: DesignableTextField?
+    
     private var preWishView: AIWishTitleIconView?
     private var prePosition: CGPoint = CGPointMake(0, 0)
-    @IBOutlet weak var priceConstraint: NSLayoutConstraint!
     private var averageMenoy: Int = 0
     private var averageTotalMenoy: Int = 0
     private var preAverageView: AIWishAverageView?
     
+    /**
+     Main Init
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
@@ -44,7 +54,7 @@ class AIWishPreviewController: UIViewController {
                 layout.height == 44.0 + 10.0
             })
             navi.titleLabel.font = AITools.myriadCondWithSize(24)
-            navi.titleLabel.text = model?.proposal_name
+            navi.titleLabel.text = model?.name
             navi.backButton.setImage(UIImage(named: "scan_back"), forState: UIControlState.Normal)
         }
         
@@ -278,10 +288,10 @@ class AIWishPreviewController: UIViewController {
         if let stext = self.textFeild?.text {
             let number: Double = 123
             view.showLoading()
-            AIWishServices.requestMakeWishs(number, wish: stext, complate: { (obj, error)  in
-                self.view.hideLoading()
-                if let _ = obj {
-                    
+//            AIWishServices.requestMakeWishs(number, wish: stext, complate: { (obj, error)  in
+//                self.view.hideLoading()
+//                if let _ = obj {
+            
                     // 退出当前界面 然后通知主页刷新
                     // AIAlertView().showSuccess("提示", subTitle: "提交成功")
 //                    if let alertView = AIAlertWishInputView.initFromNib() as? AIAlertWishInputView{
@@ -296,20 +306,20 @@ class AIWishPreviewController: UIViewController {
 //                        alertView.buttonSubmit.addTarget(self, action: #selector(AIWishVowViewController.realSubmitAction), forControlEvents: UIControlEvents.TouchUpInside)
 //                    }
 //                    
-                    let model = AIBuyerBubbleModel()
-                    model.order_times = 1
-                    model.proposal_id_new = 1
-                    model.proposal_name =  String(self.model?.proposal_name ?? "")
-                    model.proposal_price = String(number)
-                    model.service_list = []
-                    model.service_id = 1
-                    NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
-                    
-                    
-                } else {
-                    AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")
-                }
-            })
+//                    let model = AIBuyerBubbleModel()
+//                    model.order_times = 1
+//                    model.proposal_id_new = 1
+//                    model.proposal_name =  String(self.model?.name ?? "")
+//                    model.proposal_price = String(number)
+//                    model.service_list = []
+//                    model.service_id = 1
+//                    NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
+//                    
+//                    
+//                } else {
+//                    AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")
+//                }
+//            })
         }
     
     }

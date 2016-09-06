@@ -515,7 +515,7 @@ struct AIApplication {
                 
             case .uploadAndIdentify: return "http://171.221.254.231:3001/uploadAndIdentify"
 
-            case .makewish: return AIApplication.KURL_ReleaseURL + "/wish/submitWish"
+            case .makewish: return AIApplication.KURL_ReleaseURL + "/wish/saveWishRecord"
             case .wishpreview: return AIApplication.KURL_ReleaseURL + "/wish/queryWishList"
             case .favoriteadd: return AIApplication.KURL_ReleaseURL + "/favorite/add"
                 
