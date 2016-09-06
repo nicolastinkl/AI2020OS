@@ -143,11 +143,13 @@ class AILoginService: NSObject {
 	 - parameter success:  <#success description#>
 	 - parameter fail:     <#fail description#>
 	 */
-	func registUser(userCode: String, password: String, success: (userId: String) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func registUser(userCode: String, password: String, nickname: String, headurl: String, success: (userId: String) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 		let message = AIMessage()
 		let body: NSDictionary = [
 			"username": userCode,
-			"password": password.md5()
+			"password": password.md5(),
+            "nickname": nickname,
+            "headurl": headurl
         ]
 		message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
 		message.url = AIApplication.AIApplicationServerURL.register.description as String
@@ -158,9 +160,11 @@ class AILoginService: NSObject {
 				let dic = responseJSON as! [NSString: AnyObject]
 				if let userId = dic["user_id"] as? String {
 					success(userId: userId)
-				} else {
-					success(userId: "")
-				}
+                } else if let userId = dic["user_id"] as? Int {
+					success(userId: userId.toString())
+                } else {
+                    success(userId: "")
+                }
 			} else {
                 fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
 			}
