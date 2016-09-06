@@ -41,32 +41,14 @@ struct AIWishServices {
     }
     
     /// 许愿单Hot查询
-    static func requestHotQueryWishs(complate: ((AnyObject?, String?) -> Void)) {
+    static func requestHotQueryWishs(keyword: String,complate: ((AnyObject?, String?) -> Void)) {
         let message = AIMessage()
-        message.url = AIApplication.AIApplicationServerURL.wishhot.description as String
-        let body: NSDictionary = ["data":"", "desc":["data_mode":"0", "digest":""]]
+        message.url = AIApplication.AIApplicationServerURL.wishhotAndWishrecommand.description as String
+        let body: NSDictionary = ["data":["keyword": keyword], "desc":["data_mode":"0", "digest":""]]
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
-                let model = AIWishModel(JSONDecoder(responseJSON))
-                complate(model, nil)
-            } else {
-                complate(nil, "data is null")
-            }
-        }) { (error, des) in
-            complate(nil, des)
-        }
-    }
-    
-    /// 许愿单Recommand查询
-    static func requestRecommandQueryWishs(complate: ((AnyObject?, String?) -> Void)) {
-        let message = AIMessage()
-        message.url = AIApplication.AIApplicationServerURL.wishrecommand.description as String
-        let body: NSDictionary = ["data":"", "desc":["data_mode":"0", "digest":""]]
-        message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
-        AINetEngine.defaultEngine().postMessage(message, success: { (response) in
-            if let responseJSON: AnyObject = response {
-                let model = AIWishModel(JSONDecoder(responseJSON))
+                let model = AIWishHotModel(JSONDecoder(responseJSON))
                 complate(model, nil)
             } else {
                 complate(nil, "data is null")
