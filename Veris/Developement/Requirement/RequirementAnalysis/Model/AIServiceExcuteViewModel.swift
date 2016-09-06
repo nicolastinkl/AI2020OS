@@ -39,12 +39,20 @@ class AIGrabOrderDetailViewModel: AIBaseViewModel {
     }
     
     class func getInstanceByJSONModel(jsonModel: AIGrabOrderDetailModel) -> AIGrabOrderDetailViewModel {
-        let viewModel = AIGrabOrderDetailViewModel(serviceName: jsonModel.service_name, serviceThumbnailIcon: jsonModel.service_thumbnail_icon, serviceIntroContent: jsonModel.service_intro_content, customerName: jsonModel.customer.user_name, customerIcon: jsonModel.customer.customized_portrait_url)
+        let viewModel = AIGrabOrderDetailViewModel(serviceName: jsonModel.service.service_name, serviceThumbnailIcon: jsonModel.service.service_thumbnail_icon, serviceIntroContent: jsonModel.service.service_intro, customerName: jsonModel.customer.user_name, customerIcon: jsonModel.customer.user_portrait_icon)
         var customerParamArray = Array<AIIconLabelViewModel>()
-        for paramModel: AIGrabOrderParamModel in jsonModel.contents as! [AIGrabOrderParamModel] {
-            let iconLabelViewModel = AIIconLabelViewModel(labelText: paramModel.content, iconUrl: paramModel.icon)
-            customerParamArray.append(iconLabelViewModel)
-        }
+        let orderParamDic = jsonModel.order as NSDictionary
+        let phoneValue = String(orderParamDic.valueForKey("phone")!)
+        let addressValue = String(orderParamDic.valueForKey("address")!)
+        let iconLabelViewModel1 = AIIconLabelViewModel(labelText: phoneValue, iconUrl: "")
+        let iconLabelViewModel2 = AIIconLabelViewModel(labelText: addressValue, iconUrl: "")
+        customerParamArray.append(iconLabelViewModel1)
+        customerParamArray.append(iconLabelViewModel2)
+        viewModel.customerParamArray = customerParamArray
+//        for paramModel: AIGrabOrderParamModel in jsonModel.contents as! [AIGrabOrderParamModel] {
+//            let iconLabelViewModel = AIIconLabelViewModel(labelText: paramModel.content, iconUrl: paramModel.icon)
+//            customerParamArray.append(iconLabelViewModel)
+//        }
         return viewModel
     }
 }

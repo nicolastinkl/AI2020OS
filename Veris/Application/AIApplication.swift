@@ -238,7 +238,8 @@ struct AIApplication {
         static let UserLoginTimeOutNotification = "UserLoginTimeOutNotification"
 
         static let UserLoginOutNotification = "UserLoginOutNotification"
-        
+        // 注册通知
+        static let UserDidRegistedNotification = "UserDidRegistedNotification"
     }
 
     // MARK: System theme's color
@@ -486,8 +487,8 @@ struct AIApplication {
 
 
             //抢单接口
-            case .grabOrder: return AIApplication.KURL_ReleaseURL + "/grabOrder"
-            case .queryGrabOrderDetail: return AIApplication.KURL_ReleaseURL + "/queryGrabOrderDetail"
+            case .grabOrder: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/submitScrambleOrder"
+            case .queryGrabOrderDetail: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/queryScrambleOrderInfo"
             case .initTask: return AIApplication.KURL_ReleaseURL + "/initTask"
                 
             //登陆注册接口
