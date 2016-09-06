@@ -11,48 +11,51 @@ import AIAlertView
 import SVProgressHUD
 
 class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDelegate {
+	
+	@IBOutlet weak var validateInfoLabel: AIAnimatedPromptLabel!
+	@IBOutlet weak var confirmButton: AIChangeStatusButton!
+	@IBOutlet weak var passwordTextField: AILoginPasswordTextField!
+	
+	var loginService = AILoginService()
+	
 
-    @IBOutlet weak var validateInfoLabel: AIAnimatedPromptLabel!
-    @IBOutlet weak var confirmButton: AIChangeStatusButton!
-    @IBOutlet weak var passwordTextField: AILoginPasswordTextField!
-    
-    var loginService = AILoginService()
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        setupViews()
-        handleLoginType()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    func handleLoginType() {
-        if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
-            self.setupLoginNavigationBar("Forgot Password")
-        } else {
-            self.setupLoginNavigationBar("Enter Password")
-        }
-    }
-
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		// Do any additional setup after loading the view.
+		setupViews()
+		handleLoginType()
+	}
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
+	
+	func handleLoginType() {
+		if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
+			confirmButton.setTitle("Confirm", forState: .Normal)
+			self.setupLoginNavigationBar("Forgot Password")
+		} else {
+			confirmButton.setTitle("Next", forState: .Normal)
+			self.setupLoginNavigationBar("Enter Password")
+		}
+	}
+	
     func setupViews() {
+        passwordTextField.buildCustomerPlaceholder(LoginConstants.Fonts.promptLabel, color: LoginConstants.Colors.TextFieldPlaceholder, text: LoginConstants.textContent.SetPasswordPlaceholder)
         passwordTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
-
+        
         confirmButton.enabled = false
-
+        
         //修复navigationController侧滑关闭失效的问题
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
-
+    
     func passwordInputAction(target: UITextField) {
         confirmButton.enabled = AILoginUtil.validatePassword(passwordTextField.text)
     }
-
+    
     @IBAction func confirmAction(sender: AnyObject) {
         let phoneNumber = AILoginPublicValue.phoneNumber ?? ""
         let smsCode = AILoginPublicValue.smsCode ?? ""
@@ -68,12 +71,14 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
         if AILoginUtil.validatePassword(passwordTextField.text) {
             if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
                 
-                loginService.registUser(phoneNumber, password: passwordTextField.text!, success: { (userId) in
+                loginService.registUser(phoneNumber, password: passwordTextField.text!, success: { [unowned self](userId) in
                     //TODO: 暂时的提示
                     self.hideButtonLoading(self.confirmButton, title: title)
-                    AIAlertView().showSuccess("注册成功!", subTitle: "")
+//                    AIAlertView().showSuccess("注册成功!", subTitle: "")
                     //跳回登陆页面
-                    self.navigationController?.popToRootViewControllerAnimated(true)
+//                    self.navigationController?.popToRootViewControllerAnimated(true)
+                    let vc = AINickNameEditViewController.initFromStoryboard(AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, storyboardID: nil)
+                    self.navigationController?.pushViewController(vc, animated: true)
                     }, fail: { (errType, errDes) in
                         self.hideButtonLoading(self.confirmButton, title: title)
                         self.validateInfoLabel.showPrompt(errDes)
@@ -90,7 +95,7 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
                 })
             }
         }
-
+        
     }
 
 }

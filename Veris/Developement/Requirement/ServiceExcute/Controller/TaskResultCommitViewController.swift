@@ -78,11 +78,11 @@ class TaskResultCommitViewController: UIViewController {
         return false
     }
 
-    class func initFromStoryboard() -> TaskResultCommitViewController {
-        
-        let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskResultCommitViewController) as! TaskResultCommitViewController
-        return vc
-    }
+//    class func initFromStoryboard() -> TaskResultCommitViewController {
+//        
+//        let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskResultCommitViewController) as! TaskResultCommitViewController
+//        return vc
+//    }
     
     @IBAction func questButtonClicked(sender: AnyObject) {
         updateServiceStatus()

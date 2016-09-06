@@ -98,7 +98,7 @@ class TaskDetailViewController: UIViewController {
         let manager = BDKExcuteManager()
         
     //    let userId = 100000002410
-        let userId = AIUser.currentUser().id
+        let userId = AILoginUtil.currentLocalUserID()?.toInt() ?? 0
         manager.queryProcedureInstInfo(serviceId, userId: userId, success: { (responseData) in
             
             self.dismissLoading()
@@ -213,7 +213,7 @@ class TaskDetailViewController: UIViewController {
     }
     
     private func openTaskCommitViewController() {
-        let taskResultCommitlVC = TaskResultCommitViewController.initFromStoryboard()
+        let taskResultCommitlVC = TaskResultCommitViewController.initFromStoryboard(AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, storyboardID: nil)
         taskResultCommitlVC.procedureId = procedure!.procedure_inst_id.integerValue
         taskResultCommitlVC.serviceId = serviceId
         taskResultCommitlVC.delegate = self

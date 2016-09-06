@@ -28,7 +28,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         super.viewDidLoad()
         setupNavigationBar()
         
-        commentManager = DefaultCommentManager()
+        commentManager = FileCommentManager()
 
         serviceTableView.rowHeight = UITableViewAutomaticDimension
         serviceTableView.estimatedRowHeight = 400
@@ -74,7 +74,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         if submitList.count > 0 {
             commentManager.submitComments("1", userType: 1, commentList: submitList, success: { (responseData) in
                 if responseData.result {
-                    NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.LONG)
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.LONG)
                 }
@@ -82,7 +82,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                     NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.LONG)
             }
             
-            dismissViewControllerAnimated(true, completion: nil)
+            
         }
     }
     
@@ -284,7 +284,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                     }
                 }
                 
-                return nil
+                let model = ServiceCommentLocalSavedModel()
+                model.serviceId = id
+                return model
             }
             
             for comment in comments {

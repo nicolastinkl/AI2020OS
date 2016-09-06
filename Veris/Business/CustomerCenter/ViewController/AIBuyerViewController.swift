@@ -509,19 +509,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         vc.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
 
         return vc
-        /* 废弃
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
-
-        viewController.bubbleModel = model
-
-        viewController.delegate = self
-
-        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-
-
-        return viewController
-        */
     }
 
     class func createBuyerDetailViewController() -> AIBuyerDetailViewController {

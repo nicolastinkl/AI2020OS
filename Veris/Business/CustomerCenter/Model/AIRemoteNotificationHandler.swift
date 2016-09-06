@@ -157,6 +157,7 @@ struct AIRemoteNotificationParameters {
                 buyerDetailViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
                 buyerDetailViewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
                 buyerDetailViewController.isLaunchForAssistant = true
+                buyerDetailViewController.audioAssistantModel = .Receiver
                 buyerDetailViewController.roomNumber = String(format: "%d", roomNumber)
 
                 topVC.presentViewController(buyerDetailViewController, animated: false, completion: {

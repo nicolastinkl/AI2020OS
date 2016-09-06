@@ -46,6 +46,24 @@ extension UIViewController {
 		let name = NSStringFromClass(classForCoder()).componentsSeparatedByString(".").last
 		return self.init(nibName: name, bundle: nil)
 	}
+    
+    /**
+     通过Storyboard初始化UIViewController
+     - parameter storyboardName: 默认值: Main
+     - parameter storyboardID:   默认值: className
+     
+     - returns: UIViewController实例
+     */
+    class func initFromStoryboard(storyboardName: String = "Main", storyboardID: String? = nil) -> Self {
+        return instantiateFromStoryboardHelper(storyboardName, storyboardID: storyboardID)
+    }
+    
+    private class func instantiateFromStoryboardHelper<T>(storyboardName: String, storyboardID: String? = nil) -> T {
+        let className = NSStringFromClass(classForCoder()).componentsSeparatedByString(".").last!
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let controller = storyboard.instantiateViewControllerWithIdentifier(storyboardID ?? className) as! T
+        return controller
+    }
 
 	func viewDidLoadForChangeTitleColor() {
 		self.viewDidLoadForChangeTitleColor()

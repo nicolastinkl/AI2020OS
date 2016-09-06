@@ -15,7 +15,7 @@ class AILoginUtil: NSObject {
     static let KEY_CUSTOM_ID = "KEY_CUSTOM_ID"
     static let KEY_PROVIDER_ID = "KEY_PROVIDER_ID"
     static let KEY_HEADURL_STRING = "KEY_HEADURL_STRING"
-
+    static let KEY_USER_NAME_STRING = "KEY_USER_NAME_STRING"
     // MARK: -验证密码是否符合规范
     //密码位数为6-20位，可包含以下类别：
     //英文字母（从 A 到 Z以及从 a 到 z ）
@@ -128,5 +128,15 @@ extension UIViewController {
     func hideButtonLoading(button: UIButton, title: String) {
         button.hideActioningLoading(title)
         view.userInteractionEnabled = true
+    }
+}
+
+// MARK: -> 扩展自定义设置placeholder的方法，传入自定义的字体和颜色
+extension UITextField {
+    func buildCustomerPlaceholder(font: UIFont, color: UIColor, text: String) {
+        let attrPlaceholder = NSMutableAttributedString(string: text)
+        attrPlaceholder.addAttribute(NSForegroundColorAttributeName, value: color, range: NSMakeRange(0, attrPlaceholder.length))
+        attrPlaceholder.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(0, attrPlaceholder.length))
+        self.attributedPlaceholder = attrPlaceholder
     }
 }
