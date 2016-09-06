@@ -374,7 +374,7 @@ class AIBuyerDetailViewController: UIViewController {
 
     func makeSubviewsEnable(enable: Bool) {
         for view in self.view.subviews {
-            view.userInteractionEnabled = (enable && view.tag != 1024)
+            view.userInteractionEnabled = (enable && view != navigationView)
         }
     }
 
