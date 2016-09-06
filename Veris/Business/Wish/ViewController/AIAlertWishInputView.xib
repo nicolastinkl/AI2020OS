@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wn1-yn-pUQ" customClass="DesignableView" customModule="Spring">
-                    <rect key="frame" x="140" y="193" width="321" height="213"/>
+                    <rect key="frame" x="140" y="143.5" width="321" height="213"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please name you wish." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8k-xc-dXN">
                             <rect key="frame" x="13" y="27" width="295" height="28"/>
@@ -20,7 +20,7 @@
                                 <constraint firstAttribute="height" constant="28" id="frq-8s-9Bk"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="My Wish" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZ6-aF-q8v" customClass="DesignableTextField" customModule="Spring">
@@ -103,7 +103,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaB-aM-DHL">
-                    <rect key="frame" x="411" y="140" width="51" height="46"/>
+                    <rect key="frame" x="411" y="90.5" width="51" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="3Jc-dV-0AP"/>
                         <constraint firstAttribute="width" constant="51" id="DU1-pi-aGT"/>
@@ -114,7 +114,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufN-Gu-Zho">
-                    <rect key="frame" x="434" y="180" width="1" height="13"/>
+                    <rect key="frame" x="434" y="130.5" width="1" height="13"/>
                     <color key="backgroundColor" red="0.90588235294117647" green="0.92156862745098034" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="HQ2-rD-11F"/>
@@ -132,7 +132,7 @@
                 <constraint firstItem="Wn1-yn-pUQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="IXn-5e-yYe"/>
                 <constraint firstItem="Wn1-yn-pUQ" firstAttribute="top" secondItem="ufN-Gu-Zho" secondAttribute="bottom" id="MII-up-IhY"/>
                 <constraint firstItem="Wn1-yn-pUQ" firstAttribute="top" secondItem="NaB-aM-DHL" secondAttribute="bottom" constant="7" id="ST0-qW-YWV"/>
-                <constraint firstItem="Wn1-yn-pUQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Sca-Yz-ss6"/>
+                <constraint firstItem="Wn1-yn-pUQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-50" id="Sca-Yz-ss6"/>
             </constraints>
             <connections>
                 <outlet property="buttonSubmit" destination="YkT-4V-Rvv" id="BqJ-eb-j3C"/>

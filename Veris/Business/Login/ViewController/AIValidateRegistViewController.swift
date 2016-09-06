@@ -47,8 +47,6 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
 
     @IBAction func nextStepAction(sender: DesignableButton) {
         
-        
-        
         let validateCode = identifyTextField.text
         let phoneNumber = AILoginPublicValue.phoneNumber
         
@@ -68,7 +66,11 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
             AVOSCloud.verifySmsCode(validateCode, mobilePhoneNumber: phoneNumber) { (bol, error) in
                 self.hideButtonLoading(self.nextStepButton, title: title)
                 if bol {
-                    let changePasswordVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIChangePasswordViewController)
+                    
+//                    let changePasswordVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIChangePasswordViewController)
+                    
+                    let changePasswordVC = AIChangePasswordViewController.initFromStoryboard(AIApplication.MainStoryboard.MainStoryboardIdentifiers.AILoginStoryboard, storyboardID: nil)
+                    
                     self.navigationController?.pushViewController(changePasswordVC, animated: true)
                 } else {
                     self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.WrongSMSCode.rawValue)
@@ -89,6 +91,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
             promoteLabel.text = "\(LoginConstants.textContent.validationPrompt) \(phoneNumber)"
             showButtonLoading(validationButton)
             
+            NSHomeDirectory()
             if AILoginPublicValue.loginType == LoginConstants.LoginType.Register {
                 AVOSCloud.requestSmsCodeWithPhoneNumber(phoneNumber, callback: { (bol, error) in
                     if bol {
@@ -203,5 +206,6 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
     }
 
     func validateCodeInputAction(sender: UITextField) {
-        nextStepButton.enabled = AILoginUtil.validateCode(identifyTextField.text)    }
+        nextStepButton.enabled = AILoginUtil.validateCode(identifyTextField.text)
+    }
 }

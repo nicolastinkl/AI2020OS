@@ -100,15 +100,50 @@ struct AILocalStore {
     static func logout() {
         self.deleteAccessToken()
         userDefaults.removeObjectForKey(AILoginUtil.KEY_USER_ID)
-
+        userDefaults.removeObjectForKey(AILoginUtil.KEY_USER_NAME_STRING)
+        userDefaults.removeObjectForKey(AILoginUtil.KEY_CUSTOM_ID)
+        userDefaults.removeObjectForKey(AILoginUtil.KEY_PROVIDER_ID)
+        userDefaults.removeObjectForKey(AILoginUtil.KEY_HEADURL_STRING)
         userDefaults.synchronize()
+
+        /// Handle Provider Notification
+        let installation = AVInstallation.currentInstallation()
+        installation.setObject("000", forKey: "ProviderIdentifier")
+        installation.addUniqueObject("000", forKey: "channels")
+        installation.saveInBackground()
     }
 
     static func storageLoginInfo(info: [NSString: AnyObject]) {
-        if let userid = info["user_id"] as? String {
-            userDefaults.setObject(userid, forKey: AILoginUtil.KEY_USER_ID)
-            userDefaults.synchronize()
+
+        if let user_id = info["user_id"] as? String {
+            userDefaults.setObject(user_id, forKey: AILoginUtil.KEY_USER_ID)
         }
+
+        if let user_name = info["user_name"] as? String {
+            userDefaults.setObject(user_name, forKey: AILoginUtil.KEY_USER_NAME_STRING)
+        }
+
+        if let customer_id = info["customer_id"] as? String {
+            userDefaults.setObject(customer_id, forKey: AILoginUtil.KEY_CUSTOM_ID)
+        }
+
+
+        if let provider_id = info["provider_id"] as? String {
+            userDefaults.setObject(provider_id, forKey: AILoginUtil.KEY_PROVIDER_ID)
+
+            /// Handle Provider Notification
+            let installation = AVInstallation.currentInstallation()
+            installation.setObject("provider_id", forKey: "ProviderIdentifier")
+            installation.addUniqueObject("ProviderChannel", forKey: "channels")
+            installation.saveInBackground()
+        }
+
+        if let head_url = info["head_url"] as? String {
+            userDefaults.setObject(head_url, forKey: AILoginUtil.KEY_HEADURL_STRING)
+        }
+
+        userDefaults.synchronize()
+
     }
 
     static func didUserLogIn() -> Bool {

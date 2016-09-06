@@ -28,61 +28,11 @@ class DefaultCommentManagerTest: XCTestCase {
         XCTAssertEqual(list?.count, 1)
         
         XCTAssertEqual(list?.first?.text, "text")
-    }
-    
-    func testMergeSameServiceIdData() {
         
-        loadData()
+        let images = list!.first!.imageInfos
+        let firstImage = images.firstObject as! ImageInfoModel
         
-//        let newModel = ServiceComment()
-//        newModel.service_id = "1"
-//        
-//        var photos = [CommentPhoto]()
-//        var photo = CommentPhoto()
-//
-//        photo.url = NSURL(fileURLWithPath: "123456").absoluteString
-//        photos.append(photo)
-//        
-//        newModel.photos = photos
-//        
-//        let list = commentManager.mergeCommentsData([newModel])
-//        
-//        XCTAssertEqual(list.count, 1)
-//        
-//        let m = list[0].photos as! [CommentPhoto]
-//        
-//        XCTAssertEqual(m[0].url, NSURL(fileURLWithPath: "123456").absoluteString)
-//        XCTAssertEqual(m[1].url, NSURL(fileURLWithPath: "12345").absoluteString)
-    }
-    
-    func testMergeDiffServiceIdData() {
-        
-        loadData()
-        
-//        let newModel = ServiceComment()
-//        newModel.service_id = "2"
-//        
-//        var photos = [CommentPhoto]()
-//        var photo = CommentPhoto()
-//        photo.url = NSURL(fileURLWithPath: "12345").absoluteString
-//        photos.append(photo)
-//        
-//        photo = CommentPhoto()
-//        photo.url = NSURL(fileURLWithPath: "123456").absoluteString
-//        photos.append(photo)
-//        
-//        newModel.photos = photos
-//        
-//        let list = commentManager.mergeCommentsData([newModel])
-//        
-//        XCTAssertEqual(list.count, 1)
-//        
-//        let m = list[0].photos as! [CommentPhoto]
-//        
-//        XCTAssertEqual(list[0].service_id, "2")
-//        
-//        XCTAssertEqual(m[0].url, NSURL(fileURLWithPath: "12345").absoluteString)
-//        XCTAssertEqual(m[1].url, NSURL(fileURLWithPath: "123456").absoluteString)
+        XCTAssertEqual(firstImage.localUrl, "assets-library://asset/asset.JPG?id=2539C955-9ED6-43D6-B067-4F5E6B9730DB&ext=JPG")
     }
     
     func testSaveImage() {
@@ -105,9 +55,17 @@ class DefaultCommentManagerTest: XCTestCase {
         }
     }
     
-    private func saveData() {
+    func testDeleteData() {
+        commentManager.deleteCommentModel(["1"])
+        
+        let models = commentManager.loadCommentModelsFromLocal(["1"])
+        
+        XCTAssertTrue(models == nil)
+    }
+    
+    func saveData() {
         let image = ImageInfoModel()
-        image.localUrl = "12345"
+        image.localUrl = "assets-library://asset/asset.JPG?id=2539C955-9ED6-43D6-B067-4F5E6B9730DB&ext=JPG"
         image.imageId = "9"
         image.isSuccessUploaded = true
         
@@ -115,6 +73,7 @@ class DefaultCommentManagerTest: XCTestCase {
         model.serviceId = "1"
         model.text = "text"
         model.imageInfos = [image]
+        
         
         XCTAssertTrue(commentManager.saveCommentModelToLocal(model.serviceId, model: model))
         

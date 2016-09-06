@@ -88,7 +88,7 @@ struct AIApplication {
             static let AIContestSuccessViewController = "AIContestSuccessViewController"
             static let AIServiceRouteViewController     = "AIServiceRouteViewController"
             static let TaskDetailViewController = "TaskDetailViewController"
-            static let TaskResultCommitViewController = "TaskResultCommitViewController"
+//            static let TaskResultCommitViewController = "TaskResultCommitViewController"
             static let AILocationSearchViewController = "AILocationSearchViewController"
             static let AIConfirmOrderViewController = "AIConfirmOrderViewController"
             //add by liux at 20160615
@@ -238,7 +238,8 @@ struct AIApplication {
         static let UserLoginTimeOutNotification = "UserLoginTimeOutNotification"
 
         static let UserLoginOutNotification = "UserLoginOutNotification"
-        
+        // 注册通知
+        static let UserDidRegistedNotification = "UserDidRegistedNotification"
     }
 
     // MARK: System theme's color
@@ -431,11 +432,8 @@ struct AIApplication {
         case queryTimeLineDetail
         // 查询支付订单
         case queryPayment
-        // 许愿查询 最热
-        case wishhot
-        // 许愿查询 推荐
-        case wishrecommand
-        
+        // 许愿查询 最热 & 推荐
+        case wishhotAndWishrecommand
         
         // 提交服务执行结果
 
@@ -518,7 +516,7 @@ struct AIApplication {
                 
             case .uploadAndIdentify: return "http://171.221.254.231:3001/uploadAndIdentify"
 
-            case .makewish: return AIApplication.KURL_ReleaseURL + "/wish/submitWish"
+            case .makewish: return AIApplication.KURL_ReleaseURL + "/wish/saveWishRecord"
             case .wishpreview: return AIApplication.KURL_ReleaseURL + "/wish/queryWishList"
             case .favoriteadd: return AIApplication.KURL_ReleaseURL + "/favorite/add"
                 
@@ -526,8 +524,7 @@ struct AIApplication {
             case .queryTimeLine: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLine"
             case .queryTimeLineDetail: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLineDetail"
             case .queryPayment: return AIApplication.KURL_ReleaseURL + "/payment/queryPayment"
-            case .wishhot: return AIApplication.KURL_ReleaseURL + "/queryHotWishList"
-            case .wishrecommand: return AIApplication.KURL_ReleaseURL + "/queryInterestingWishList"
+            case .wishhotAndWishrecommand: return AIApplication.KURL_ReleaseURL + "/wish/queryWishList"
             case .submitServiceNodeResult: return AIApplication.KURL_ReleaseURL + "/serviceProcess/submitServiceNodeResult"
             case .queryQiangDanResult: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/queryScrambleOrderResult"
             case .queryProcedureInstInfo: return AIApplication.KURL_ReleaseURL + "/serviceProcess/queryProcedureInstInfo"

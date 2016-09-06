@@ -486,14 +486,12 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
                 })
             }
 
-
         }// end
 
     }
 
     func createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
-
-
+        
         var vc: UIViewController!
         if model.proposal_type == 1 { // shoucang
             let pvc = AIProductInfoViewController.initFromNib()
@@ -503,7 +501,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         } else if model.proposal_type == 3 { // wish
             let wvc = AIWishPreviewController.initFromNib()
-            wvc.model = model
+            //wvc.model = model
             vc = wvc
         }
 
@@ -511,19 +509,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         vc.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
 
         return vc
-        /* 废弃
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
-
-        viewController.bubbleModel = model
-
-        viewController.delegate = self
-
-        viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-
-
-        return viewController
-        */
     }
 
     class func createBuyerDetailViewController() -> AIBuyerDetailViewController {
