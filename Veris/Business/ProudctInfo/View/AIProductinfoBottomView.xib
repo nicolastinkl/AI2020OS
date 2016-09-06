@@ -80,6 +80,9 @@
                 <constraint firstItem="YhZ-AP-CQb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="r5U-17-407"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bottomButton" destination="1DF-mB-4M1" id="uxA-Ag-fk9"/>
+            </connections>
             <point key="canvasLocation" x="116" y="226.5"/>
         </view>
     </objects>

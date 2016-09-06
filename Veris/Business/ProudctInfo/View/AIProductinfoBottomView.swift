@@ -10,4 +10,5 @@ import Foundation
 
 class AIProductinfoBottomView: UIView {
     
+    @IBOutlet weak var bottomButton: UIImageView!
 }

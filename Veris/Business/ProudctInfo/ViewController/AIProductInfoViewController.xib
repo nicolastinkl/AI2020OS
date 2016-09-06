@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIProductInfoViewController" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="scrollview" destination="iH5-o7-Ffp" id="ipT-Tp-oZg"/>
+                <outlet property="tapGes" destination="AmW-do-R8p" id="ei6-vL-wfF"/>
                 <outlet property="view" destination="kgd-tX-Y0E" id="8IO-Dh-mWN"/>
             </connections>
         </placeholder>
@@ -86,7 +87,7 @@
         </view>
         <tapGestureRecognizer id="AmW-do-R8p">
             <connections>
-                <action selector="showOrderAction:" destination="-1" id="tma-vf-fZ7"/>
+                <action selector="showOrderAction:" destination="-1" id="vwc-ek-99n"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
