@@ -144,6 +144,7 @@
 
 // Comment
 #import "CommentModel.h"
+#import "CommentLocalModel.h"
 
 // BaiduMap
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>

@@ -16,6 +16,7 @@
 
 // Comment
 #import "CommentModel.h"
+#import "CommentLocalModel.h"
 
 // Proposal
 #import "ProposalModel.h"
@@ -26,3 +27,4 @@
 
 #import "AIProviderDetailJSONModel.h"
 #import "AISearchServiceModel.h"
+#import "AIQiangDanResultModel.h"

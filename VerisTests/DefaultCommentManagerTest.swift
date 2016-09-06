@@ -22,14 +22,12 @@ class DefaultCommentManagerTest: XCTestCase {
     func testLoadCommentModels() {
         
         loadData()
-//        let list = commentManager.localModelList
-//        XCTAssertNotNil(list)
-//        
-//        let comment = list![0].imageInfos[0]
-//        
-//        XCTAssertEqual(comment.url!.path, "/12345")
-//        XCTAssertEqual(comment.isSuccessUploaded, true)
-//        XCTAssertEqual(comment.imageId, "9")
+        let list = commentManager.localModelList
+        XCTAssertNotNil(list)
+        
+        XCTAssertEqual(list?.count, 1)
+        
+        XCTAssertEqual(list?.first?.text, "text")
     }
     
     func testMergeSameServiceIdData() {
@@ -87,17 +85,41 @@ class DefaultCommentManagerTest: XCTestCase {
 //        XCTAssertEqual(m[1].url, NSURL(fileURLWithPath: "123456").absoluteString)
     }
     
+    func testSaveImage() {
+        
+        let image = ImageInfoModel()
+        image.localUrl = "12345"
+        image.imageId = "9"
+        image.isSuccessUploaded = true
+        
+        let defa = NSUserDefaults.standardUserDefaults()
+        
+        let data = NSKeyedArchiver.archivedDataWithRootObject(image)
+        defa.setObject(data, forKey: "image")
+        
+        defa.synchronize()
+        
+        if let data = defa.objectForKey("image") as? NSData {
+            let im = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! ImageInfoModel
+            XCTAssertEqual(im.localUrl, "12345")
+        }
+    }
+    
     private func saveData() {
         let image = ImageInfoModel()
-        image.localUrl = NSURL(fileURLWithPath: "12345")
+        image.localUrl = "12345"
         image.imageId = "9"
         image.isSuccessUploaded = true
         
         let model = ServiceCommentLocalSavedModel()
         model.serviceId = "1"
+        model.text = "text"
         model.imageInfos = [image]
         
         XCTAssertTrue(commentManager.saveCommentModelToLocal(model.serviceId, model: model))
+        
+    //    NSLog("%@", NSUserDefaults.standardUserDefaults().dictionaryRepresentation())
+        
     }
     
     private func loadData() {
