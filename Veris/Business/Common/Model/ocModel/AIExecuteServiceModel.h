@@ -8,6 +8,7 @@
 
 #import "JSONModel.h"
 #import "AIOrderManagementModels.h"
+#import "AICommonBusinessModels.h"
 
 #pragma mark - AIGrabOrderDetailModel 抢单订单详情
 
@@ -25,11 +26,9 @@
 
 @interface AIGrabOrderDetailModel : JSONModel
 
-@property(nonatomic,strong) NSString<Optional> *service_thumbnail_icon;
-@property(nonatomic,strong) NSString<Optional> *service_name;
-@property(nonatomic,strong) NSString<Optional> *service_intro_content;
+@property(nonatomic,strong) AIServiceSpecBusiModel<Optional> *service;
 @property(nonatomic,strong) AICustomer<Optional> *customer;
-@property(nonatomic, strong) NSArray<Optional, AIGrabOrderParamModel> *contents;
+@property(nonatomic, strong) NSDictionary<Optional> *order;
 
 @end
 
@@ -48,7 +47,7 @@
 
 @interface AIGrabOrderResultModel : JSONModel
 
-@property(nonatomic,strong) NSNumber<Optional> *result;
-@property(nonatomic,strong) AIGrabOrderUserNeedsModel<Optional> *customer;
+@property(nonatomic,strong) NSNumber<Optional> *result_code;
+//@property(nonatomic,strong) AIGrabOrderUserNeedsModel<Optional> *customer;
 
 @end

@@ -47,7 +47,9 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     var timerEndDate: NSDate!
     var timer: NSTimer?
     
-    var serviceInstId: String?
+    //外部传入的入参
+    var in_serviceInstId: String? = "100000011039"
+    var in_serviceSpecId: String? = "100000000202"
     
     let TIMER_TEXT_FONT = AITools.myriadSemiCondensedWithSize(70 / 3)
     
@@ -58,7 +60,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         
         initViews()
         //网络请求
-        //requestDataInterface()
+        requestDataInterface()
     }
     
     override func viewDidLayoutSubviews() {
@@ -78,11 +80,11 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         }
         
         //TODO: 等BDK完成后调用
-        //requestGrabOrderInterface()
+        requestGrabOrderInterface()
         
-        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIContestSuccessViewController) as! AIContestSuccessViewController
-        
-        self.navigationController?.pushViewController(viewController, animated: true)
+//        let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIContestSuccessViewController) as! AIContestSuccessViewController
+//        
+//        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func arvatarDidTapped(sender: AnyObject) {
@@ -126,8 +128,11 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
      数据请求
      */
     func requestDataInterface() {
-    
-        AIServiceExecuteRequester.defaultHandler().queryGrabOrderDetail("1", success: { (businessInfo) in
+        guard let in_serviceSpecId = in_serviceSpecId else {
+            AIAlertView().showError("入参缺失", subTitle: "in_serviceSpecId")
+            return
+        }
+        AIServiceExecuteRequester.defaultHandler().queryGrabOrderDetail(serviceSpecId: in_serviceSpecId, success: { (businessInfo) in
             self.loadData(businessInfo)
             }) { (errType, errDes) in
                 AIAlertView().showError("error", subTitle: "网络请求失败")
@@ -136,8 +141,12 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     
 
     func requestGrabOrderInterface() {
+        guard let in_serviceInstId = in_serviceInstId else {
+            AIAlertView().showError("入参缺失", subTitle: "in_serviceInstId")
+            return
+        }
         let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
-        AIServiceExecuteRequester.defaultHandler().grabOrder(serviceInstId: serviceInstId!, providerId: userId, success: { (businessInfo) in
+        AIServiceExecuteRequester.defaultHandler().grabOrder(serviceInstId: in_serviceInstId, providerId: userId, success: { (businessInfo) in
             let result = businessInfo.grabResult
             if result == GrabResultEnum.Success {
                 let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIContestSuccessViewController) as! AIContestSuccessViewController
@@ -177,20 +186,18 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     }
 
     
-    static func showGladOrderView() {
-        let viewAlert = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIGladOrderViewController) as! AIGladOrderViewController
+    static func showAlertView() {
+        
+        let viewAlert = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateInitialViewController()// .instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifie
         
         if let rootVc = UIApplication.sharedApplication().keyWindow?.rootViewController {
-            AILog("\(rootVc.dynamicType)")
-            
             if rootVc.isKindOfClass(UINavigationController.self) {
                 //rootVc.pop
             } else {
                 
             }
-            rootVc.presentPopupViewController(viewAlert, animated: true)
+            rootVc.presentPopupViewController(viewAlert!, animated: true)
         }
-        
     }
     
 }

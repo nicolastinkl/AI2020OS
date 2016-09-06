@@ -489,8 +489,8 @@ struct AIApplication {
 
 
             //抢单接口
-            case .grabOrder: return AIApplication.KURL_ReleaseURL + "/grabOrder"
-            case .queryGrabOrderDetail: return AIApplication.KURL_ReleaseURL + "/queryGrabOrderDetail"
+            case .grabOrder: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/submitScrambleOrder"
+            case .queryGrabOrderDetail: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/queryScrambleOrderInfo"
             case .initTask: return AIApplication.KURL_ReleaseURL + "/initTask"
                 
             //登陆注册接口

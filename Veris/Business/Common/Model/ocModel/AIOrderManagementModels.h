@@ -26,6 +26,8 @@
 
 @property (nonatomic, strong) NSString<Optional> *customized_portrait_url;
 
+@property (nonatomic, strong) NSString<Optional> *user_portrait_icon;
+
 @property (nonatomic, strong) NSString<Optional> *user_name;
 
 @property (nonatomic, strong) NSString<Optional> *user_phone;
