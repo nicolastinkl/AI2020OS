@@ -39,7 +39,7 @@ class DefaultCommentManager: CommentManager {
             
             if valideImages.count != model.imageInfos.count {
                 newModel = model
-                newModel!.imageInfos = valideImages
+                newModel!.imageInfos = NSMutableArray(array: valideImages)
             }
             
             return newModel
@@ -92,6 +92,7 @@ class DefaultCommentManager: CommentManager {
         let defa = NSUserDefaults.standardUserDefaults()
         
         let data = NSKeyedArchiver.archivedDataWithRootObject(model)
+    //    let m = NSKeyedUnarchiver.unarchiveObjectWithData(data)
         defa.setObject(data, forKey: createSearchKey(serviceId))
         return defa.synchronize()
     }
@@ -135,7 +136,7 @@ class DefaultCommentManager: CommentManager {
             info.localUrl = url.absoluteString
             info.uploadFinished = false
             info.isCurrentCreate = true
-            service.imageInfos.append(info)
+            service.imageInfos.addObject(info)
             
             s.saveCommentModelToLocal(serviceId, model: service)
         }
@@ -208,9 +209,10 @@ class DefaultCommentManager: CommentManager {
         
         for service in list {
             for model in service.imageInfos {
-                if model.imageId == imageId {
-                    model.serviceId = service.serviceId
-                    return model
+                var m = model as! ImageInfoModel
+                if m.imageId == imageId {
+                    m.serviceId = service.serviceId
+                    return m
                 }
             }
         }
@@ -221,7 +223,7 @@ class DefaultCommentManager: CommentManager {
     private func findImageInfo(imageId: String, localModel: ServiceCommentLocalSavedModel) -> ImageInfoModel? {
         for model in localModel.imageInfos {
             if model.imageId == imageId {
-                return model
+                return model as? ImageInfoModel
             }
         }
         
@@ -235,8 +237,9 @@ class DefaultCommentManager: CommentManager {
         
         for service in list {
             for model in service.imageInfos {
-                if model.imageId == imageId {
-                    model.serviceId = service.serviceId
+                var m = model as! ImageInfoModel
+                if m.imageId == imageId {
+                    m.serviceId = service.serviceId
                     return service
                 }
             }

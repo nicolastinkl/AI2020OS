@@ -60,6 +60,7 @@ class AIProductInfoViewController: UIViewController {
     private var scrollViewSubviews = [UIView]()
     
     private let redColor: String = "#b32b1d"
+    @IBOutlet var tapGes: UITapGestureRecognizer!
     
     private let topButton = UIButton()
     private let editButton = UIButton()
@@ -288,6 +289,7 @@ class AIProductInfoViewController: UIViewController {
         if let navi = self.navi as? AINavigationBar {
             navi.bgView.subviews.first?.alpha = alphaSc
         }
+        
 		//animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
 		
 	}
@@ -320,7 +322,7 @@ class AIProductInfoViewController: UIViewController {
 	 */
 	func initLayoutViews() {
 		
-        self.scrollview.contentInset = UIEdgeInsetsMake(0, 0, 300, 0)
+        /// self.scrollview.contentInset = UIEdgeInsetsMake(0, 0, 300, 0)
 		/// Title.
 		if let navi = navi as? AINavigationBar {
 			view.addSubview(navi)
@@ -358,6 +360,8 @@ class AIProductInfoViewController: UIViewController {
                 if res == "1" {
                     if let navi = self.navi as? AINavigationBar {
                         navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok_pro")!)
+                        navi.commentButton.animation = "pop"
+                        navi.commentButton.animate()
                     }
                 } else {
                     AIAlertView().showError("收藏失败", subTitle: "")
@@ -672,6 +676,13 @@ class AIProductInfoViewController: UIViewController {
         let audioView = AICustomAudioNotesView.currentView()
         addNewSubView(audioView, preView: provideView!)
         audioView.delegateShowAudio = self
+        
+        // Setup 9: add bottom view
+        if let bottomView = AIProductinfoBottomView.initFromNib() {
+            addNewSubView(bottomView, preView: audioView)
+            (bottomView as? AIProductinfoBottomView)?.bottomButton.addGestureRecognizer(tapGes)
+        }
+        
     }
     
     func showCommentView() {
@@ -937,7 +948,6 @@ extension AIProductInfoViewController: UMSocialUIDelegate {
             AILog("share to sns name is" + "\(response.data.keys.first)")
         }
     }
-
 }
 
 extension AIProductInfoViewController: UITextFieldDelegate, UIScrollViewDelegate {
@@ -947,15 +957,35 @@ extension AIProductInfoViewController: UITextFieldDelegate, UIScrollViewDelegate
         if curTextField != nil {
             shouldHideKeyboard()
         }
-        //设置透明度
-        topButton.alpha = 0.5
-        editButton.alpha = 0.5
+        SpringAnimation.spring(0.3) {
+            //设置透明度
+            self.topButton.alpha = 0.5
+            self.editButton.alpha = 0.5
+        }
+    }
+    
+    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        SpringAnimation.spring(0.3) {
+            //设置透明度
+            self.topButton.alpha = 0.5
+            self.editButton.alpha = 0.5
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        SpringAnimation.spring(0.3) {
+            //设置透明度
+            self.topButton.alpha = 1.0
+            self.editButton.alpha = 1.0
+        }
     }
     
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         //设置透明度
-        topButton.alpha = 1.0
-        editButton.alpha = 1.0
+        SpringAnimation.spring(0.3) {
+            self.topButton.alpha = 1.0
+            self.editButton.alpha = 1.0
+        }
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {

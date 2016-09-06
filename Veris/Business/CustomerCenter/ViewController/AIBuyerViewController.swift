@@ -392,6 +392,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
 
+
+
     private func recreateBubbleView() {
         bubbles.removeFromSuperview()
         bubbles = nil
@@ -414,7 +416,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         return scaledPoint
     }
 
-    //MARK: Add New Bubble
+    //MARK: Bubble Action
     func showAddNewBubble(bubble: AIBubble, model: AIBuyerBubbleModel) {
         showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController.initFromNib())
     }
@@ -505,6 +507,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             vc = wvc
         }
 
+        vc.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        vc.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
 
         return vc
         /* 废弃
@@ -588,8 +592,20 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func moreButtonAction() {
+        //testComment()
         self.makeBubbleView()
     }
+
+
+    //MARK: Test Comment
+
+    func testComment() {
+        let commentVC = AISingleServiceCommnentViewController()
+        let navi = UINavigationController(rootViewController: commentVC)
+        navi.view.frame = self.view.bounds
+        self.showTransitionStyleCrossDissolveView(navi)
+    }
+    ///////////////////
 
     func startSearch() {
         showTransitionStyleCrossDissolveView(AICustomSearchHomeViewController.initFromNib())

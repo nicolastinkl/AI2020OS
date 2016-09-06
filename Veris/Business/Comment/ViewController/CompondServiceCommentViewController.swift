@@ -362,7 +362,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                     imageInfo.imageId = s.createImageId(info)
                     imageInfo.localUrl = info.url!.absoluteString
                     imageInfo.uploadFinished = false
-                    s.comments[index].loaclModel?.imageInfos.append(imageInfo)
+                    s.comments[index].loaclModel?.imageInfos.addObject(imageInfo)
                     
                     s.commentManager.recordUploadImage(serviceId, imageId: s.createImageId(info), url: info.url!)
                 }
@@ -520,8 +520,10 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
             return
         }
         
-        if text == local.text {
-            return
+        if let t = local.text {
+            if text == t {
+                return
+            }
         }
         
         local.text = text
@@ -621,9 +623,12 @@ extension CompondServiceCommentViewController: ImagesReviewDelegate {
                 return
             }
             
-            local.imageInfos = local.imageInfos.filter { (model) -> Bool in
-                return !imageIds.contains(model.imageId)
+            let tempInfos = local.imageInfos.filter { (model) -> Bool in
+                let  m = model as! ImageInfoModel
+                return !imageIds.contains(m.imageId)
             }
+            
+            local.imageInfos = NSMutableArray(array: tempInfos)
             
             commentManager.saveCommentModelToLocal(local.serviceId, model: local)
         }
