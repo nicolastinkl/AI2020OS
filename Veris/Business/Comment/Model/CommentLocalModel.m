@@ -66,7 +66,6 @@
         _serviceId = [aDecoder decodeObjectForKey:@"serviceId"];
         _text = [aDecoder decodeObjectForKey:@"text"];
         
-        
     }
     return self;
 }

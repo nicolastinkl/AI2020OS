@@ -28,7 +28,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         super.viewDidLoad()
         setupNavigationBar()
         
-        commentManager = DefaultCommentManager()
+        commentManager = FileCommentManager()
 
         serviceTableView.rowHeight = UITableViewAutomaticDimension
         serviceTableView.estimatedRowHeight = 400
@@ -284,7 +284,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                     }
                 }
                 
-                return nil
+                let model = ServiceCommentLocalSavedModel()
+                model.serviceId = id
+                return model
             }
             
             for comment in comments {
