@@ -29,7 +29,7 @@ class ExcuteManagerTest: XCTestCase {
         node.note_type = "Text"
         node.note_content = "Test"
        
-        manager.submitServiceNodeResult(602, resultList: [node], success: { (responseData) in
+        manager.submitServiceNodeResult(602, procedureId: 1, resultList: [node], success: { (responseData) in
             
             let re = responseData
             print("submitServiceNodeResult success:\(re)")
