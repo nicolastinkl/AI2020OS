@@ -184,6 +184,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
         validationButtonWidthConstrant.constant = fontSize.width + 20
         //identifyTextField
         identifyTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
+        identifyTextField.keyboardType = UIKeyboardType.NumberPad
         identifyTextField.buildCustomerPlaceholder(LoginConstants.Fonts.promptLabel, color: LoginConstants.Colors.TextFieldPlaceholder, text: LoginConstants.textContent.EnterValidateCodePlaceholder)
         identifyTextField.addTarget(self, action: #selector(AIValidateRegistViewController.validateCodeInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
         //navigation
