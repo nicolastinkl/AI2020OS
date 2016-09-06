@@ -507,11 +507,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="8" right="0.0"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_logo_big" translatesAutoresizingMaskIntoConstraints="NO" id="iRR-cr-mau">
-                                <rect key="frame" x="247" y="144" width="107" height="101"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1X-5K-gzs" userLabel="AppNameView">
-                                <rect key="frame" x="266" y="265" width="70" height="18"/>
+                                <rect key="frame" x="266" y="311" width="70" height="18"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_logo_veris" translatesAutoresizingMaskIntoConstraints="NO" id="7Tn-Kv-1rN">
                                         <rect key="frame" x="0.0" y="0.0" width="46" height="17"/>
@@ -521,9 +518,9 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgx-Kt-w05">
-                                        <rect key="frame" x="52" y="2" width="18" height="16"/>
+                                        <rect key="frame" x="51" y="2" width="17" height="16"/>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                         <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -531,7 +528,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="2O1-rR-bPx"/>
-                                    <constraint firstAttribute="trailing" secondItem="tgx-Kt-w05" secondAttribute="trailing" id="8lt-OB-M4D"/>
+                                    <constraint firstAttribute="trailing" secondItem="tgx-Kt-w05" secondAttribute="trailing" constant="2" id="8lt-OB-M4D"/>
                                     <constraint firstAttribute="width" constant="70" id="Q7n-n0-c2C"/>
                                     <constraint firstItem="7Tn-Kv-1rN" firstAttribute="leading" secondItem="c1X-5K-gzs" secondAttribute="leading" id="VxC-Ds-7ho"/>
                                     <constraint firstItem="7Tn-Kv-1rN" firstAttribute="top" secondItem="c1X-5K-gzs" secondAttribute="top" id="dtQ-4e-td6"/>
@@ -545,10 +542,10 @@
                                 </variation>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yUn-6n-0Nj" customClass="AILoginBaseTextField" customModule="Veris">
-                                <rect key="frame" x="30" y="313" width="540" height="40"/>
+                                <rect key="frame" x="30" y="378" width="540" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.16592974290780146" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="A2Z-zt-RdP"/>
+                                    <constraint firstAttribute="height" constant="44" id="A2Z-zt-RdP"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -563,10 +560,10 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JCb-3X-Ltq" customClass="AILoginPasswordTextField" customModule="Veris">
-                                <rect key="frame" x="30" y="368" width="540" height="40"/>
+                                <rect key="frame" x="30" y="437" width="540" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.16592974290780146" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="yIf-gf-uJj"/>
+                                    <constraint firstAttribute="height" constant="44" id="yIf-gf-uJj"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -581,7 +578,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fh-2z-biJ" customClass="AIChangeStatusButton" customModule="Veris">
-                                <rect key="frame" x="30" y="423" width="540" height="40"/>
+                                <rect key="frame" x="30" y="496" width="540" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.16592974290780146" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -599,7 +596,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odU-Do-fdG" userLabel="ThirdLoginView">
-                                <rect key="frame" x="50" y="490" width="500" height="40"/>
+                                <rect key="frame" x="50" y="433" width="500" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0di-0Y-BaM" userLabel="thirdLogin1">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -626,7 +623,7 @@
                                         <state key="normal" image="login_type_alipay"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DoV-Xw-4tK" userLabel="thirdLogin4">
-                                        <rect key="frame" x="153" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="154" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="TUl-aM-j09"/>
                                             <constraint firstAttribute="width" constant="40" id="l5c-vW-1X7"/>
@@ -692,7 +689,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5J-qP-eAp">
-                                <rect key="frame" x="455" y="471" width="115" height="30"/>
+                                <rect key="frame" x="455" y="548" width="115" height="30"/>
                                 <state key="normal" title="Forget password">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -701,7 +698,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong ID or  password!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoS-2q-vf8" customClass="AIAnimatedPromptLabel" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="229" y="521" width="142" height="27"/>
+                                <rect key="frame" x="229" y="598" width="142" height="27"/>
                                 <color key="backgroundColor" red="0.12549019607843137" green="0.11764705882352941" blue="0.1764705882352941" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="oZt-I8-eg0"/>
@@ -711,6 +708,9 @@
                                 <color key="textColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_logo_big" translatesAutoresizingMaskIntoConstraints="NO" id="iRR-cr-mau">
+                                <rect key="frame" x="247" y="182" width="107" height="101"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -723,12 +723,12 @@
                             <constraint firstItem="dZz-nB-3Sz" firstAttribute="leading" secondItem="bOS-eK-Ees" secondAttribute="leading" id="Gpr-QM-t4K"/>
                             <constraint firstAttribute="bottom" secondItem="dZz-nB-3Sz" secondAttribute="bottom" id="I1x-qC-M67"/>
                             <constraint firstItem="vjo-UG-k1U" firstAttribute="top" secondItem="qNR-9y-FPi" secondAttribute="bottom" constant="10" id="Idj-0w-WZL"/>
-                            <constraint firstItem="c1X-5K-gzs" firstAttribute="top" secondItem="iRR-cr-mau" secondAttribute="bottom" constant="20" id="IyV-I3-bas"/>
+                            <constraint firstItem="c1X-5K-gzs" firstAttribute="top" secondItem="iRR-cr-mau" secondAttribute="bottom" constant="28" id="IyV-I3-bas"/>
                             <constraint firstItem="PoS-2q-vf8" firstAttribute="centerX" secondItem="bOS-eK-Ees" secondAttribute="centerX" id="NKt-AC-HaK"/>
                             <constraint firstItem="qNR-9y-FPi" firstAttribute="centerX" secondItem="bOS-eK-Ees" secondAttribute="centerX" id="QRU-Bk-Fmx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JCb-3X-Ltq" secondAttribute="trailing" constant="10" id="R0A-0t-Ig4"/>
                             <constraint firstItem="y5J-qP-eAp" firstAttribute="top" secondItem="9fh-2z-biJ" secondAttribute="bottom" constant="8" id="Tqa-Su-LaF"/>
-                            <constraint firstItem="yUn-6n-0Nj" firstAttribute="top" secondItem="c1X-5K-gzs" secondAttribute="bottom" constant="30" id="Wwi-2p-XCI"/>
+                            <constraint firstItem="yUn-6n-0Nj" firstAttribute="top" secondItem="c1X-5K-gzs" secondAttribute="bottom" constant="49" id="Wwi-2p-XCI"/>
                             <constraint firstItem="dZz-nB-3Sz" firstAttribute="top" secondItem="bOS-eK-Ees" secondAttribute="top" id="XtG-IB-u8b"/>
                             <constraint firstItem="PoS-2q-vf8" firstAttribute="top" secondItem="9fh-2z-biJ" secondAttribute="bottom" constant="58" id="Y3P-YG-SLB"/>
                             <constraint firstItem="iRR-cr-mau" firstAttribute="centerX" secondItem="bOS-eK-Ees" secondAttribute="centerX" id="YV3-fz-by4"/>
@@ -738,8 +738,8 @@
                             <constraint firstItem="c1X-5K-gzs" firstAttribute="leading" secondItem="bOS-eK-Ees" secondAttribute="leading" constant="232" id="iZf-WQ-JSf"/>
                             <constraint firstItem="9fh-2z-biJ" firstAttribute="top" secondItem="JCb-3X-Ltq" secondAttribute="bottom" constant="15" id="kN0-oq-HdY"/>
                             <constraint firstItem="JCb-3X-Ltq" firstAttribute="leading" secondItem="bOS-eK-Ees" secondAttribute="leadingMargin" constant="10" id="ocD-Uj-oBV"/>
-                            <constraint firstItem="vjo-UG-k1U" firstAttribute="top" secondItem="odU-Do-fdG" secondAttribute="bottom" constant="70" id="oy5-1U-A4f"/>
-                            <constraint firstItem="iRR-cr-mau" firstAttribute="top" secondItem="EkK-h0-jjE" secondAttribute="bottom" constant="80" id="syl-b8-rsf"/>
+                            <constraint firstItem="vjo-UG-k1U" firstAttribute="top" secondItem="odU-Do-fdG" secondAttribute="bottom" constant="127" id="oy5-1U-A4f"/>
+                            <constraint firstItem="iRR-cr-mau" firstAttribute="top" secondItem="EkK-h0-jjE" secondAttribute="bottom" constant="118" id="syl-b8-rsf"/>
                             <constraint firstItem="9fh-2z-biJ" firstAttribute="leading" secondItem="JCb-3X-Ltq" secondAttribute="leading" id="tqe-3E-02I"/>
                             <constraint firstItem="9fh-2z-biJ" firstAttribute="height" secondItem="JCb-3X-Ltq" secondAttribute="height" id="vb2-L5-8r7"/>
                             <constraint firstItem="yUn-6n-0Nj" firstAttribute="leading" secondItem="bOS-eK-Ees" secondAttribute="leadingMargin" constant="10" id="wl6-ru-hMB"/>

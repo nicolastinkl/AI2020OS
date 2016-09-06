@@ -9,7 +9,7 @@
 import UIKit
 import Spring
 import SVProgressHUD
-
+import IQKeyboardManagerSwift
 
 class AILoginViewController: UIViewController {
     
@@ -77,9 +77,9 @@ class AILoginViewController: UIViewController {
         
         #if DEBUG
             // 刘晓娜
-            userIdTextField.text = "18180441023"
-            passwordTextField.text = "123456"
-            loginButton.enabled = true
+//            userIdTextField.text = "18180441023"
+//            passwordTextField.text = "123456"
+//            loginButton.enabled = true
 //            let im = AIImageView(frame: CGRectMake(100, 450, 100, 100))
 //            self.view.addSubview(im)
 //            im.setURL(NSURL(string: "http://7xq9bx.com1.z0.glb.clouddn.com/AI_ProductInfo_Home_%E6%9C%8D%E5%8A%A1%E7%A4%BA%E6%84%8F%E5%9B%BE.png"), placeholderImage: nil, showProgress: true)
@@ -92,12 +92,15 @@ class AILoginViewController: UIViewController {
         super.viewWillAppear(animated)
         //必须在view出现和消失是设置是否显示导航栏
         self.navigationController?.navigationBarHidden = true
+        //这个界面不需要躲键盘
+        IQKeyboardManager.sharedManager().enable = false
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         //必须在view出现和消失是设置是否显示导航栏
         self.navigationController?.navigationBarHidden = false
+        IQKeyboardManager.sharedManager().enable = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -122,21 +125,32 @@ class AILoginViewController: UIViewController {
         userIdTextField.delegate = self
         userIdTextField.keyboardType = UIKeyboardType.DecimalPad
         userIdTextField.returnKeyType = UIReturnKeyType.Done
+        userIdTextField.attributedPlaceholder = buildUserIdAttributePlaceholder()
         userIdTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
         //passwordTextField
         passwordTextField.delegate = self
+        passwordTextField.buildCustomerPlaceholder(LoginConstants.Fonts.promptLabel, color: LoginConstants.Colors.TextFieldPlaceholder, text: LoginConstants.textContent.passwordPlaceholder)
         passwordTextField.addTarget(self, action: #selector(AILoginViewController.passwordInputAction(_:)), forControlEvents: UIControlEvents.EditingChanged)
         //loginButton
         loginButton.enabled = false
-        //validateInfoLabel
-//        validateInfoLabelWidthConstraint.constant = 0
-//        validateInfoLabel.layer.cornerRadius = 8
-//        validateInfoLabel.font = LoginConstants.Fonts.validateResult
-//        validateInfoLabel.layer.masksToBounds = true
     }
     
     func passwordInputAction(target: UITextField) {
         loginButton.enabled = AILoginUtil.validatePassword(passwordTextField.text) && AILoginUtil.validatePhoneNumber(userIdTextField.text)
+    }
+    
+    private func buildUserIdAttributePlaceholder() -> NSAttributedString {
+        let attrPlaceholder = NSMutableAttributedString(string: LoginConstants.textContent.UserIdPlaceholder)
+        let textAttachment = NSTextAttachment(data: nil, ofType: nil)
+        textAttachment.image = UIImage(named: "login_logo_small")
+        textAttachment.bounds = CGRect(x: 0, y: 0, width: 64.displaySizeFrom1242DesignSize(), height: 61.displaySizeFrom1242DesignSize())
+        let textAttachementString = NSAttributedString(attachment: textAttachment)
+        attrPlaceholder.insertAttributedString(textAttachementString, atIndex: 0)
+        //通过这个调整垂直对齐的高度
+        attrPlaceholder.addAttribute(NSBaselineOffsetAttributeName, value: 4.0, range: NSMakeRange(1, attrPlaceholder.length - 1))
+        attrPlaceholder.addAttribute(NSForegroundColorAttributeName, value: LoginConstants.Colors.TextFieldPlaceholder, range: NSMakeRange(1, attrPlaceholder.length - 1))
+        attrPlaceholder.addAttribute(NSFontAttributeName, value: LoginConstants.Fonts.promptLabel, range: NSMakeRange(0, attrPlaceholder.length))
+        return attrPlaceholder
     }
 }
 

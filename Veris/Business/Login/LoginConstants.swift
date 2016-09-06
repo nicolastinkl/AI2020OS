@@ -13,6 +13,7 @@ struct LoginConstants {
         static let TextFieldInput = UIColor.whiteColor()
         static let TextFieldBackground = UIColor(hexString: "#ebe7ff", alpha: 0.15)
         static let TextFieldBorder = UIColor(hexString: "#a99ece", alpha: 0.8)
+        static let TextFieldPlaceholder = UIColor(hexString: "#ffffff", alpha: 0.6)
     }
     
     struct Fonts {
@@ -28,6 +29,10 @@ struct LoginConstants {
         static let validationPrompt = "Validation code has been sent to "
         static let validateButtonDefault = "Send Validation Code"
         static let nextStep = "Next Step"
+        static let UserIdPlaceholder = " Phone number"
+        static let passwordPlaceholder = " Password"
+        static let EnterValidateCodePlaceholder = " Enter Validate Code"
+        static let SetPasswordPlaceholder = " Set your password"
     }
     
     struct defaultImages {

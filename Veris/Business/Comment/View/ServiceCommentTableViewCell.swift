@@ -242,7 +242,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
                 continue
             }
             
-            if info.isSuccessUploaded {
+            if info.isSuccessUploaded! {
                 if urls == nil {
                     urls = [(url: NSURL, imageId: String?)]()
                 }

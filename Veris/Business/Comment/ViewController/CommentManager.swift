@@ -9,6 +9,8 @@
 import Foundation
 
 protocol CommentManager {
+    
+    
     func loadCommentModelsFromLocal(serviceIds: [String]) -> [ServiceCommentLocalSavedModel]?
     func saveCommentModelToLocal(serviceId: String, model: ServiceCommentLocalSavedModel) -> Bool
     func deleteCommentModel(serviceIds: [String])
@@ -18,11 +20,160 @@ protocol CommentManager {
     func submitComments(userID: String, userType: Int, commentList: [SingleComment], success: (responseData: RequestResult) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
+class FileCommentManager: DefaultCommentManager {
+    private static let fileName = "commentLocalModel"
+    
+    var modelMap: [String: ServiceCommentLocalSavedModel]!
+    
+    override func saveCommentModelToLocal(serviceId: String, model: ServiceCommentLocalSavedModel) -> Bool {
+
+        modelMap = loadModelMap()
+        
+        if modelMap == nil {
+           modelMap = [String: ServiceCommentLocalSavedModel]()
+        }
+        
+        modelMap[serviceId] = model
+        
+        return saveModelMap()
+    }
+    
+    override func getCommentModelFromLocal(serviceId: String) -> ServiceCommentLocalSavedModel? {
+        if modelMap == nil { // first load data
+            modelMap = loadModelMap()
+        }
+        
+        if modelMap == nil {
+            return nil
+        }
+
+        return modelMap[serviceId]
+    }
+    
+    override func deleteCommentModel(serviceIds: [String]) {
+        if modelMap == nil { // first load data
+            modelMap = loadModelMap()
+        }
+        
+        if modelMap == nil {
+            return
+        }
+        
+        for id in serviceIds {
+            modelMap[id] = nil
+        }
+    }
+    
+    override func clearLocalModels() {
+        guard let fileFilePath = getModelFilePath() else {
+            return
+        }
+        
+        do {
+            try NSFileManager.defaultManager().removeItemAtPath(fileFilePath.path!)       
+        } catch {
+            
+        }
+    }
+    
+    private func getModelFilePath() -> NSURL? {
+        guard let docUrl = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last else {
+            return nil
+        }
+        
+        return docUrl.URLByAppendingPathComponent(FileCommentManager.fileName)
+    }
+    
+    private func loadModelMap() -> [String: ServiceCommentLocalSavedModel]? {
+        guard let fileFilePath = getModelFilePath() else {
+            return nil
+        }
+        
+        if !NSFileManager.defaultManager().fileExistsAtPath(fileFilePath.path!) {
+            return nil
+        }
+        
+        guard let data = NSFileManager.defaultManager().contentsAtPath(fileFilePath.path!) else {
+            return nil
+        }
+        
+        guard let dic = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? NSDictionary else {
+            return nil
+        }
+        
+        if modelMap == nil {
+            modelMap = [String: ServiceCommentLocalSavedModel]()
+        }
+        
+        for (key, value) in dic {
+            modelMap[key as! String] = value as? ServiceCommentLocalSavedModel
+        }
+        
+        return modelMap
+    }
+    
+    private func saveModelMap() -> Bool {
+        
+        guard let fileFilePath = getModelFilePath() else {
+            return false
+        }
+        
+        let data = NSKeyedArchiver.archivedDataWithRootObject(modelMap)
+        
+        do {
+            
+            try data.writeToURL(fileFilePath, options: NSDataWritingOptions.AtomicWrite)
+            return true
+            
+        } catch {
+            return false
+        }
+    }
+}
+
+class CommentLocalMapModel {
+    var modelMap: [String: ServiceCommentLocalSavedModel]!
+}
+
 class DefaultCommentManager: CommentManager {
+    
+    static let commentVersion = 1
     
     private static let idPrefix = "CommentViewModel_"
     
     var localModelList: [ServiceCommentLocalSavedModel]?
+    
+    init() {
+        let defa = NSUserDefaults.standardUserDefaults()
+        
+        if let data = defa.objectForKey("CommentVersion") as? NSData {
+            if let oldVersion = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? Int {
+                if oldVersion != DefaultCommentManager.commentVersion {
+                    clearLocalModels()
+                    
+                    let data = NSKeyedArchiver.archivedDataWithRootObject(DefaultCommentManager.commentVersion)
+                    defa.setObject(data, forKey: "CommentVersion")
+                }
+            }
+        } else {
+            let data = NSKeyedArchiver.archivedDataWithRootObject(DefaultCommentManager.commentVersion)
+            defa.setObject(data, forKey: "CommentVersion")
+        }
+    }
+    
+    func clearLocalModels() {
+        let defa = NSUserDefaults.standardUserDefaults()
+        
+        let keys = defa.dictionaryRepresentation().keys
+        
+        for key in keys {
+            if key.hasPrefix(DefaultCommentManager.idPrefix) {
+                defa.removeObjectForKey(key)
+            }
+        }
+        
+        defa.synchronize()
+    }
     
     func loadCommentModelsFromLocal(serviceIds: [String]) -> [ServiceCommentLocalSavedModel]? {
         
@@ -39,11 +190,13 @@ class DefaultCommentManager: CommentManager {
             
             if valideImages.count != model.imageInfos.count {
                 newModel = model
-                newModel!.imageInfos = valideImages
+                newModel!.imageInfos = NSMutableArray(array: valideImages)
             }
             
             return newModel
         }
+        
+        localModelList?.removeAll()
         
         for id in serviceIds {
             if let model = getCommentModelFromLocal(id) {
@@ -70,9 +223,7 @@ class DefaultCommentManager: CommentManager {
         if let data = defa.objectForKey(key) as? NSData {
             return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? ServiceCommentLocalSavedModel
         } else {
-            let m = ServiceCommentLocalSavedModel()
-            m.serviceId = serviceId
-            return m
+            return nil
         }
     }
     
@@ -92,6 +243,7 @@ class DefaultCommentManager: CommentManager {
         let defa = NSUserDefaults.standardUserDefaults()
         
         let data = NSKeyedArchiver.archivedDataWithRootObject(model)
+    //    let m = NSKeyedUnarchiver.unarchiveObjectWithData(data)
         defa.setObject(data, forKey: createSearchKey(serviceId))
         return defa.synchronize()
     }
@@ -105,6 +257,8 @@ class DefaultCommentManager: CommentManager {
                 localModelList?.removeAtIndex(m.index)
             }
         }
+        
+        defa.synchronize()
     }
     
     // 记录上传图片，imageId:标识图片的id url:图片在本地的url
@@ -135,7 +289,7 @@ class DefaultCommentManager: CommentManager {
             info.localUrl = url.absoluteString
             info.uploadFinished = false
             info.isCurrentCreate = true
-            service.imageInfos.append(info)
+            service.imageInfos.addObject(info)
             
             s.saveCommentModelToLocal(serviceId, model: service)
         }
@@ -208,9 +362,10 @@ class DefaultCommentManager: CommentManager {
         
         for service in list {
             for model in service.imageInfos {
-                if model.imageId == imageId {
-                    model.serviceId = service.serviceId
-                    return model
+                var m = model as! ImageInfoModel
+                if m.imageId == imageId {
+                    m.serviceId = service.serviceId
+                    return m
                 }
             }
         }
@@ -221,7 +376,7 @@ class DefaultCommentManager: CommentManager {
     private func findImageInfo(imageId: String, localModel: ServiceCommentLocalSavedModel) -> ImageInfoModel? {
         for model in localModel.imageInfos {
             if model.imageId == imageId {
-                return model
+                return model as? ImageInfoModel
             }
         }
         
@@ -235,27 +390,15 @@ class DefaultCommentManager: CommentManager {
         
         for service in list {
             for model in service.imageInfos {
-                if model.imageId == imageId {
-                    model.serviceId = service.serviceId
+                var m = model as! ImageInfoModel
+                if m.imageId == imageId {
+                    m.serviceId = service.serviceId
                     return service
                 }
             }
         }
         
         return nil
-    }
-    
-    // 将本次要提交的评价数据和以前已经编辑过，保存在本地，但还未提交的评价数据进行合并。
-    // newCommentList: 本次要提交的新的评价列表
-    // 返回: 合并过后的评价列表
-    func mergeCommentsData(newCommentList: [ServiceComment]) -> [ServiceComment] {
-        let list = [ServiceComment]()
-        
-//        for comment in newCommentList {
-//            list.append(mergeComment(comment, local: findLocalComment(comment.service_id)?.model))
-//        }
-        
-        return list
     }
     
     private func findLocalComment(serviceId: String) -> (index: Int, model: ServiceCommentLocalSavedModel)? {
