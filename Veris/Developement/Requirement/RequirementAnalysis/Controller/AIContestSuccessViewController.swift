@@ -41,8 +41,8 @@ import AIAlertView
         extendedLayoutIncludesOpaqueBars = true
         // Do any additional setup after loading the view.
         buildNavigationTitleLabel()
-        seperateViewNeeds.loadData("用户需要")
-        seperateViewUser.loadData("抢单成功")
+        seperateViewNeeds.loadData("AIContestSuccessViewController.UserNeeds".localized)
+        seperateViewUser.loadData("AIContestSuccessViewController.Congratulations".localized)
         customerBannerView.delegate = self
         loadData()
     }
@@ -68,7 +68,7 @@ import AIAlertView
         let titleLabel = UILabel(frame: frame)
         titleLabel.font = NAVIGATION_TITLE
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.text = "服务细节"
+        titleLabel.text = "AIContestSuccessViewController.NavigationBarTitle".localized
         self.navigationItem.titleView = titleLabel
         let backImage = UIImage(named: "se_back")
         let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(backAction(_:)))

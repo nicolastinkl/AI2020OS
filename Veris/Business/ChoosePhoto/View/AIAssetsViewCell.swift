@@ -111,7 +111,7 @@ class AIAssetsFootViewCell: UICollectionReusableView {
     }
     
     func setNumberOfPhotos(photos: Int) {
-        sectionLabel.text = "照片\(photos)张"
+        sectionLabel.text = String(format: "AIAssetsViewCell.NumberFormat".localized, arguments: [photos])
     }
     
 }
