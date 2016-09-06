@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6D1-7f-yrB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6D1-7f-yrB">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -31,18 +31,18 @@
                                         <rect key="frame" x="0.0" y="1" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bl4-Xu-Gar" id="QxL-df-kGf">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CMY-pg-BcG">
-                                                    <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
+                                                    <rect key="frame" x="15" y="12" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BrO-OZ-hOa">
-                                                    <rect key="frame" x="529" y="12" width="56" height="19.5"/>
+                                                    <rect key="frame" x="529" y="12" width="56" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
@@ -108,7 +108,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghs-5x-sqy" customClass="AIChangeStatusButton" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="30" y="139" width="540" height="44"/>
-                                <state key="normal" title="Confirm">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -153,6 +153,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rLU-sX-PsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2041" y="1806"/>
+        </scene>
+        <!--Nick Name Edit View Controller-->
+        <scene sceneID="ogY-6z-LfL">
+            <objects>
+                <viewController storyboardIdentifier="AINickNameEditViewController" id="G4B-Ka-nZ7" customClass="AINickNameEditViewController" customModule="Veris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l1R-uB-zJE"/>
+                        <viewControllerLayoutGuide type="bottom" id="b1X-Xj-8yo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="ChangePasswordViewController" id="Ypq-Ee-sxK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg" translatesAutoresizingMaskIntoConstraints="NO" id="2h0-70-hPq">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mBV-ah-M8X" customClass="AILoginBaseTextField" customModule="Veris" customModuleProvider="target">
+                                <rect key="frame" x="30" y="218" width="540" height="40"/>
+                                <color key="backgroundColor" red="0.3809413016" green="0.33375316859999998" blue="0.48276537660000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4xo-GX-uJc"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWm-Oh-Dlm" customClass="AIChangeStatusButton" customModule="Veris" customModuleProvider="target">
+                                <rect key="frame" x="30" y="276" width="540" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="tmL-2x-JjR"/>
+                                </constraints>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmAction:" destination="wES-Bn-yMP" eventType="touchUpInside" id="b8A-dQ-QUb"/>
+                                    <action selector="confirmButtonPressed:" destination="G4B-Ka-nZ7" eventType="touchUpInside" id="o2O-Uf-Wyp"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultHeadImage" translatesAutoresizingMaskIntoConstraints="NO" id="K6g-W4-4NM" customClass="AIImageView" customModule="Veris" customModuleProvider="target">
+                                <rect key="frame" x="249" y="67" width="103" height="103"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="103" id="1uR-9p-ueo"/>
+                                    <constraint firstAttribute="height" constant="103" id="eHs-61-mfp"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2h0-70-hPq" secondAttribute="trailing" id="9n4-Vy-gPu"/>
+                            <constraint firstItem="xWm-Oh-Dlm" firstAttribute="top" secondItem="mBV-ah-M8X" secondAttribute="bottom" constant="18" id="Qt8-AW-GoR"/>
+                            <constraint firstItem="2h0-70-hPq" firstAttribute="top" secondItem="Ypq-Ee-sxK" secondAttribute="top" id="T5c-QC-fTn"/>
+                            <constraint firstItem="K6g-W4-4NM" firstAttribute="centerX" secondItem="Ypq-Ee-sxK" secondAttribute="centerX" id="USm-Eg-zbj"/>
+                            <constraint firstItem="xWm-Oh-Dlm" firstAttribute="centerX" secondItem="Ypq-Ee-sxK" secondAttribute="centerX" id="hFP-32-8o5"/>
+                            <constraint firstItem="xWm-Oh-Dlm" firstAttribute="width" secondItem="mBV-ah-M8X" secondAttribute="width" id="hlH-Dl-nHq"/>
+                            <constraint firstItem="K6g-W4-4NM" firstAttribute="top" secondItem="l1R-uB-zJE" secondAttribute="bottom" constant="47" id="mFI-30-See"/>
+                            <constraint firstItem="mBV-ah-M8X" firstAttribute="centerX" secondItem="2h0-70-hPq" secondAttribute="centerX" id="mLF-5a-QhI"/>
+                            <constraint firstItem="mBV-ah-M8X" firstAttribute="leading" secondItem="Ypq-Ee-sxK" secondAttribute="leadingMargin" constant="10" id="rDT-OG-gNE"/>
+                            <constraint firstItem="2h0-70-hPq" firstAttribute="leading" secondItem="Ypq-Ee-sxK" secondAttribute="leading" id="vHC-Qr-kSC"/>
+                            <constraint firstItem="mBV-ah-M8X" firstAttribute="top" secondItem="K6g-W4-4NM" secondAttribute="bottom" constant="48" id="xha-eH-Sot"/>
+                            <constraint firstAttribute="bottom" secondItem="2h0-70-hPq" secondAttribute="bottom" id="ynf-NU-ykn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="xWm-Oh-Dlm" id="7YD-w4-jAM"/>
+                        <outlet property="headImageView" destination="K6g-W4-4NM" id="ert-Jm-vwl"/>
+                        <outlet property="nickNameTextField" destination="mBV-ah-M8X" id="jNn-aB-jpc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mro-Rg-tcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2694" y="1806"/>
         </scene>
         <!--Regist View Controller-->
         <scene sceneID="Bpt-2S-sEZ">
@@ -248,7 +320,6 @@
                             <constraint firstAttribute="trailing" secondItem="du0-ZP-0ZP" secondAttribute="trailing" id="9bT-bm-fdS"/>
                             <constraint firstAttribute="bottom" secondItem="du0-ZP-0ZP" secondAttribute="bottom" id="D1I-i2-INF"/>
                             <constraint firstItem="0xs-9k-Rf0" firstAttribute="leading" secondItem="OXo-sE-VUa" secondAttribute="leadingMargin" constant="10" id="GQr-Sy-6uA"/>
-                            <constraint firstItem="0xs-9k-Rf0" firstAttribute="top" secondItem="fFO-XD-ifa" secondAttribute="bottom" constant="37" id="H1B-Hj-Ryq"/>
                             <constraint firstItem="Etk-et-NsO" firstAttribute="top" secondItem="fFO-XD-ifa" secondAttribute="bottom" constant="40" id="HvZ-wy-LK6"/>
                             <constraint firstItem="L47-do-Rfl" firstAttribute="top" secondItem="0xs-9k-Rf0" secondAttribute="bottom" constant="15" id="JIF-TF-caY"/>
                             <constraint firstItem="Ecj-Ps-Z8V" firstAttribute="leading" secondItem="L47-do-Rfl" secondAttribute="leading" id="MS1-mr-CYa"/>
@@ -260,11 +331,6 @@
                             <constraint firstItem="du0-ZP-0ZP" firstAttribute="leading" secondItem="OXo-sE-VUa" secondAttribute="leading" id="sFq-D4-fVE"/>
                             <constraint firstItem="L47-do-Rfl" firstAttribute="width" secondItem="0xs-9k-Rf0" secondAttribute="width" id="yDS-06-sul"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="H1B-Hj-Ryq"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="nextStepButton" destination="Ecj-Ps-Z8V" id="EtJ-Yu-7HP"/>
@@ -543,7 +609,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="login_type_qq"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Pd-kS-tYJ" userLabel="thirdLogin2">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Pd-kS-tYJ" userLabel="thirdLogin2">
                                         <rect key="frame" x="306" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="i6e-PK-Xcd"/>
@@ -567,15 +633,15 @@
                                         </constraints>
                                         <state key="normal" image="login_type_wechat"/>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFE-q3-Uje" userLabel="gapView3">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFE-q3-Uje" userLabel="gapView3">
                                         <rect key="frame" x="346" y="0.0" width="114" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-oV-eqv" userLabel="gapView1">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-oV-eqv" userLabel="gapView1">
                                         <rect key="frame" x="40" y="0.0" width="114" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYO-hm-0aH" userLabel="gapView2">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mYO-hm-0aH" userLabel="gapView2">
                                         <rect key="frame" x="194" y="0.0" width="113" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -722,6 +788,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="defaultHeadImage" width="103" height="103"/>
         <image name="login_bg" width="414" height="736"/>
         <image name="login_logo_big" width="107" height="101"/>
         <image name="login_logo_veris" width="46" height="17"/>

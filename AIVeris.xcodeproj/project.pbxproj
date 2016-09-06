@@ -807,6 +807,7 @@
 		FB7DA9831D3C87BC00DEAC9F /* AIRecommondForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DA9821D3C87BC00DEAC9F /* AIRecommondForYouViewController.swift */; };
 		FB7E6A801D2A0B8F000E2615 /* ImagePositionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E6A7F1D2A0B8F000E2615 /* ImagePositionButton.swift */; };
 		FB87DDEC1D582A5200798B5A /* NSFoundation+Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB87DDEB1D582A5200798B5A /* NSFoundation+Completion.swift */; };
+		FB891D151D7E6294006D0F55 /* AINickNameEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB891D141D7E6294006D0F55 /* AINickNameEditViewController.swift */; };
 		FB8D126F1D210BC200101EEE /* AIProductQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D126E1D210BC200101EEE /* AIProductQAViewController.swift */; };
 		FB989FBA1D73D5B200DD33BC /* AIProductAllCommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB989FB91D73D5B200DD33BC /* AIProductAllCommentsService.swift */; };
 		FBAE7FC41D115188002FF522 /* EvernoteTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */; };
@@ -1964,6 +1965,7 @@
 		FB7DA9821D3C87BC00DEAC9F /* AIRecommondForYouViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRecommondForYouViewController.swift; sourceTree = "<group>"; };
 		FB7E6A7F1D2A0B8F000E2615 /* ImagePositionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePositionButton.swift; sourceTree = "<group>"; };
 		FB87DDEB1D582A5200798B5A /* NSFoundation+Completion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFoundation+Completion.swift"; sourceTree = "<group>"; };
+		FB891D141D7E6294006D0F55 /* AINickNameEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AINickNameEditViewController.swift; sourceTree = "<group>"; };
 		FB8D126E1D210BC200101EEE /* AIProductQAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductQAViewController.swift; sourceTree = "<group>"; };
 		FB989FB91D73D5B200DD33BC /* AIProductAllCommentsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductAllCommentsService.swift; sourceTree = "<group>"; };
 		FBAE7FC31D115188002FF522 /* EvernoteTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvernoteTransition.swift; sourceTree = "<group>"; };
@@ -2101,6 +2103,7 @@
 				12D764991D0D469A002B001B /* AILoginViewController.swift */,
 				12D7649A1D0D469A002B001B /* AILoginService.swift */,
 				12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */,
+				FB891D141D7E6294006D0F55 /* AINickNameEditViewController.swift */,
 				12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */,
 			);
 			path = ViewController;
@@ -5163,6 +5166,7 @@
 				81433D9F1CFBE5A700347C29 /* AIRACClosureTableViewCell.swift in Sources */,
 				81433CF41CFBE5A700347C29 /* BuyerOrderModel.swift in Sources */,
 				93E4C4001D20E40D007EB116 /* AIAssetsPickerController.swift in Sources */,
+				FB891D151D7E6294006D0F55 /* AINickNameEditViewController.swift in Sources */,
 				81433CF01CFBE5A700347C29 /* AIInterfaceTest.swift in Sources */,
 				9354DDE01D598494000C7E0C /* AIWishServices.swift in Sources */,
 				81433E411CFBE5A700347C29 /* CATransform3D.swift in Sources */,
@@ -6022,7 +6026,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ce93ab1d-d319-4879-8658-7827c2524214";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

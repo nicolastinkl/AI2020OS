@@ -88,7 +88,7 @@ struct AIApplication {
             static let AIContestSuccessViewController = "AIContestSuccessViewController"
             static let AIServiceRouteViewController     = "AIServiceRouteViewController"
             static let TaskDetailViewController = "TaskDetailViewController"
-            static let TaskResultCommitViewController = "TaskResultCommitViewController"
+//            static let TaskResultCommitViewController = "TaskResultCommitViewController"
             static let AILocationSearchViewController = "AILocationSearchViewController"
             static let AIConfirmOrderViewController = "AIConfirmOrderViewController"
             //add by liux at 20160615
