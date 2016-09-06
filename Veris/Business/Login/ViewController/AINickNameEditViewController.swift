@@ -29,6 +29,7 @@ class AINickNameEditViewController: UIViewController {
 		leftView.textColor = UIColor.whiteColor()
 		leftView.font = LoginConstants.Fonts.textFieldInput
 	}
+    
 	func setupImageView() {
 		let tap = UITapGestureRecognizer(target: self, action: #selector(AINickNameEditViewController.headImageTapped))
 		headImageView.userInteractionEnabled = true
@@ -45,4 +46,52 @@ class AINickNameEditViewController: UIViewController {
 		navigationController?.popToRootViewControllerAnimated(true)
 		AIAlertView().showSuccess("注册成功!", subTitle: "")
 	}
+}
+
+extension AINickNameEditViewController: AIAssetsPickerControllerDelegate {
+    /**
+     完成选择
+     
+     1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
+     2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
+        //   UIImageWriteToSavedPhotosAlbum(UIImage, AnyObject?, Selector, UnsafeMutablePointer<Void>)
+        
+        var photos = [ImageInfo]()
+        
+        for asset in assets {
+            if let item = asset as? ALAsset {
+                let image = UIImage(CGImage: item.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+                let url = item.defaultRepresentation().url()
+                
+                photos.append(ImageInfo(image: image, url: url))
+                
+                // for test condition of url is nil
+                //     photos.append(ImageInfo(image: UIImage(named: "limit01-on")!, url: nil))
+            }
+        }
+        
+//        imagesPicked(photos)
+    }
+    
+    /**
+     取消选择
+     */
+    func assetsPickerControllerDidCancel() {
+        
+    }
+    
+    /**
+     选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    /**
+     取消选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
 }
