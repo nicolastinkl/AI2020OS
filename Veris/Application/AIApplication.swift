@@ -433,9 +433,9 @@ struct AIApplication {
         case queryPayment
         // 许愿查询 最热 & 推荐
         case wishhotAndWishrecommand
-        
+        // 许愿纪录
+        case queryWishRecordList
         // 提交服务执行结果
-
         case queryQiangDanResult
         case submitServiceNodeResult
 
@@ -518,7 +518,7 @@ struct AIApplication {
             case .makewish: return AIApplication.KURL_ReleaseURL + "/wish/saveWishRecord"
             case .wishpreview: return AIApplication.KURL_ReleaseURL + "/wish/queryWishList"
             case .favoriteadd: return AIApplication.KURL_ReleaseURL + "/favorite/add"
-                
+            case .queryWishRecordList: return AIApplication.KURL_ReleaseURL + "/wish/queryWishRecordList"
             //服务执行相关接口
             case .queryTimeLine: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLine"
             case .queryTimeLineDetail: return AIApplication.KURL_ReleaseURL + "/order/queryTimeLineDetail"

@@ -58,15 +58,24 @@ class AIWishPreviewController: UIViewController {
             navi.backButton.setImage(UIImage(named: "scan_back"), forState: UIControlState.Normal)
         }
         
+        // Reqeust network's queryWishRecordList
         Async.main(after: 0.3) {
-            self.initSubViews()
+            self.initData()
+        }
+    }
+    
+    func initData() {
+        AIWishServices.requestListQueryWishs(self.model?.type_id ?? 0) { (obj, error) in
+            if let resultArray = obj as? [String] {
+                self.initSubViews(resultArray)
+            }
         }
     }
     
     /// 初始化处理
-    func initSubViews() {
-        averageMenoy = 22
-        averageTotalMenoy = 200
+    func initSubViews(cotentsArray: [String]) {
+        averageMenoy = Int(model?.money_avg ?? 0)
+        averageTotalMenoy = Int(model?.money_adv ?? 0)
         // Description
         let dbgView = UIView()
         dbgView.setHeight(82)
@@ -86,10 +95,13 @@ class AIWishPreviewController: UIViewController {
 //        DescriptionLabel.setWidth(dWidth)
 //        DescriptionLabel.setLeft(50)
         
-        let DescriptionLabel = AIWishTopView.initFromNib()!
+        let DescriptionLabel = AIWishTopView.initFromNib() as! AIWishTopView
         dbgView.addSubview(DescriptionLabel)
         DescriptionLabel.setWidth(UIScreen.mainScreen().bounds.width)
         DescriptionLabel.setHeight(82)
+        DescriptionLabel.contentText.text = model?.contents
+        DescriptionLabel.wishText.text = "\(model?.already_wish ?? 0) wished"
+        DescriptionLabel.moreText.text = "\(model?.target_wish ?? 0) more to "
         
         // Question Title
         
@@ -118,12 +130,7 @@ class AIWishPreviewController: UIViewController {
         imgTop.setLeft(15)
         
         // Answer List
-        let AnswerList = ["Best to provider some commeon not to buy expensvie qure Trial ",
-                          "Often go to the field,more concerned about their own shipping equipment , the best you can always hire some professional equipment",
-                          "Professional photographers can hope to teach experience, and can have specific guideance", "Best to provider some commeon not to buy expensvie qure Trial ",
-                           "Professional photographers can hope to teach experience, and can have specific guideance", "Best to provider some commeon not to buy expensvie qure Trial ",
-                           "Professional photographers can hope to teach experience, and can have specific guideance", "Best to provider some commeon not to buy expensvie qure Trial "]
-        
+        let AnswerList = cotentsArray
         for string in AnswerList {
             let QuestionTitleX = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
             QuestionTitleX.greenPoint.hidden = false
@@ -194,6 +201,9 @@ class AIWishPreviewController: UIViewController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(AIWishPreviewController.addAverage))
         swipeRight.direction = .Right
         wishAverage?.addGestureRecognizer(swipeRight)
+        
+        wishAverage?.button.setTitle("\(model?.money_avg ?? 0)", forState: UIControlState.Normal)
+        wishAverage?.totalButton.setTitle("\(model?.money_adv ?? 0)", forState: UIControlState.Normal)
         
     }
     
