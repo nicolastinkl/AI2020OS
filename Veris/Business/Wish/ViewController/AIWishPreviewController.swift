@@ -204,8 +204,8 @@ class AIWishPreviewController: UIViewController {
         swipeRight.direction = .Right
         wishAverage?.addGestureRecognizer(swipeRight)
         
-        wishAverage?.button.setTitle("\(model?.money_avg ?? 0)", forState: UIControlState.Normal)
-        wishAverage?.totalButton.setTitle("\(model?.money_adv ?? 0)", forState: UIControlState.Normal)
+        wishAverage?.button.setTitle("\(Int(model?.money_avg ?? 0))", forState: UIControlState.Normal)
+        wishAverage?.totalButton.setTitle("\(Int(model?.money_adv ?? 0))", forState: UIControlState.Normal)
         
     }
     
@@ -299,6 +299,10 @@ class AIWishPreviewController: UIViewController {
     
     @IBAction func subitAction(sender: AnyObject) {
         if let stext = self.textFeild?.text {
+            if stext.length <= 0 {
+                AIAlertView().showError("Please write down anything you want to add.", subTitle: "")
+                return
+            }
             let number: Double = Double(preAverageView?.button.titleLabel?.text?.toInt() ?? 0)
             view.showLoading()
             AIWishServices.requestMakeWishs(model?.type_id ?? 0, name: model?.name ?? "", money: number, contents: stext, complate: { (obj, error) in
@@ -312,8 +316,13 @@ class AIWishPreviewController: UIViewController {
                     model.service_list = []
                     model.service_id = self.model?.type_id ?? 0
                     model.proposal_type = 3
+                    if model.service_id == 0 {
                     NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
-                }else{
+                    }
+                    self.dismissViewControllerAnimated(false, completion: nil)
+                    self.dismissViewControllerAnimated(false, completion: nil)
+                    
+                } else {
                     AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")
                 }
             })

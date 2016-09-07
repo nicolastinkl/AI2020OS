@@ -4791,7 +4791,7 @@
 					};
 					93D5A3481B709C1C00DDB158 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = T2362RFKT6;
+						DevelopmentTeam = K585X4B55X;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
 								enabled = 0;

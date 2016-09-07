@@ -66,7 +66,7 @@ class AIProductInfoViewController: UIViewController {
     private let editButton = UIButton()
     private let isStepperEditing = false
     private var cacheNote: AIProposalServiceDetail_WishModel?
-    
+    private var bottomViewCache: UIView?
     // MARK: 取消键盘
     
     func shouldHideKeyboard () {
@@ -83,7 +83,6 @@ class AIProductInfoViewController: UIViewController {
 	 */
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		// Add ContentOffSet Listen.
 		configureObserver()
 		
@@ -239,9 +238,17 @@ class AIProductInfoViewController: UIViewController {
                 self.dataModel = model
                 self.initScrollViewData()
             } else {
-                AIAlertView().showError("获取数据失败", subTitle: "")
+                self.view.showErrorView()
             }
         }
+    }
+    
+    /**
+     重新请求数据
+     */
+    func retryNetworkingAction() {
+        
+        requestData()
     }
     
     /**
@@ -251,7 +258,8 @@ class AIProductInfoViewController: UIViewController {
         
         view.addSubview(topButton)
         view.addSubview(editButton)
-        
+        self.editButton.hidden = true
+        self.topButton.hidden = true
         topButton.setImage(UIImage(named: "AI_ProductInfo_Home_Edit"), forState: UIControlState.Normal)
         editButton.setImage(UIImage(named: "AI_ProductInfo_Home_Top"), forState: UIControlState.Normal)
         
@@ -290,6 +298,14 @@ class AIProductInfoViewController: UIViewController {
         let alphaSc = (scrollOffset / defaultTableViewHeaderMargin)
         if let navi = self.navi as? AINavigationBar {
             navi.bgView.subviews.first?.alpha = alphaSc
+        }
+        
+        if alphaSc >= 1 {
+            self.editButton.hidden = false
+            self.topButton.hidden = false
+        }else{
+            self.editButton.hidden = true
+            self.topButton.hidden = true
         }
         
 		//animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
@@ -719,9 +735,10 @@ class AIProductInfoViewController: UIViewController {
         // Setup 9: Audio And Text Data
         addNoteList()
         
-        // Setup 10: add bottom view
+        // Setup 10: add bottom view but don't cache this view.
         if let bottomView = AIProductinfoBottomView.initFromNib() {
             addNewSubView(bottomView, preView: preCacheView!)
+            bottomViewCache = bottomView
             (bottomView as? AIProductinfoBottomView)?.bottomButton.addGestureRecognizer(tapGes)
         }
     }
@@ -847,6 +864,17 @@ class AIProductInfoViewController: UIViewController {
             return nil
         }
         return viw
+    }
+    
+    /**
+     copy from old View Controller. not have cache view
+     */
+    func addNewNoCacheSubView(cview: UIView, preView: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
+        scrollview.addSubview(cview)
+        cview.setWidth(self.view.width)
+        cview.setTop(preView.top + preView.height+space)
+        cview.backgroundColor = color
+        scrollview.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
     }
     
     /**
@@ -1104,7 +1132,7 @@ extension AIProductInfoViewController: UITextFieldDelegate, UIScrollViewDelegate
             addNewSubView(newText, preView: cview)
             scrollViewBottom()
             newText.delegate = self
-            
+            refereshBottomView(newText)
             if let c = currentAudioView {
                 c.closeThisView()
             }
@@ -1113,6 +1141,14 @@ extension AIProductInfoViewController: UITextFieldDelegate, UIScrollViewDelegate
         textField.text = ""
         
         return true
+    }
+    
+    /*
+     刷新位置信息
+     */
+    func refereshBottomView(prview: UIView) {
+        prview.setTop(prview.top-(self.bottomViewCache?.height)!)
+        self.bottomViewCache?.setTop((self.bottomViewCache?.top)! + prview.height)
     }
 }
 
@@ -1176,7 +1212,7 @@ extension AIProductInfoViewController: AICustomAudioNotesViewDelegate, AIAudioMe
             audio1.backgroundColor = UIColor(hex: redColor)
             audio1.loadingView.startAnimating()
             audio1.loadingView.hidden = false
-            
+            refereshBottomView(audio1)
             // upload
             let wishid = self.dataModel?.customer_note?.wish_id ?? 0
             let message = AIMessageWrapper.addWishNoteWithWishID(wishid, type: "Voice", content: audioModel.audio_url, duration: audioModel.time)
@@ -1357,7 +1393,7 @@ extension AIProductInfoViewController: UITextViewDelegate {
             addNewSubView(newText, preView: preCacheView!)
             newText.backgroundColor = UIColor(hex: redColor)
             scrollViewBottom()
-            
+            refereshBottomView(newText)
             newText.delegate = self
             
             if let c = currentAudioView {
