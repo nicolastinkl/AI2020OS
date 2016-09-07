@@ -501,7 +501,11 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         } else if model.proposal_type == 3 { // wish
             let wvc = AIWishPreviewController.initFromNib()
-            //wvc.model = model
+            let newModel = AIWishHotChildModel()
+            newModel.type_id = model.proposal_id
+            newModel.name = model.proposal_name
+            newModel.already_wish = model.order_times
+            wvc.model = newModel
             vc = wvc
         }
 
