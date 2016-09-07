@@ -11,6 +11,46 @@ import Alamofire
 
 class AIImageRecongizeService: NSObject {
 	
+	static let fakeMapper = [
+		[
+			"inputs": [
+				"围兜",
+				"奶嘴",
+				"奶桶",
+				"小床",
+				"尿布",
+			],
+			"output": "孕"
+		],
+		
+		[
+			"inputs": [
+				"出租车",
+			],
+			"output": "车"
+		],
+		[
+			"inputs": [
+				"救护车"
+			],
+			"output": "挂号"
+		],
+	]
+	
+	static func resultConvertFromFakeMapper(input: String) -> String {
+        var result = input
+        for item in fakeMapper {
+            let inputs = item["inputs"] as! [String]
+            if inputs.contains(input) {
+                result = item["output"] as! String
+                AILog("转换成功")
+                AILog(result)
+                break
+            }
+        }
+        return result
+	}
+	
 	func getImageInfo(image: UIImage, callback: ((String?, error: Error?) -> ())?) {
 		let data = UIImagePNGRepresentation(image)!
 		let url = AIApplication.AIApplicationServerURL.uploadAndIdentify.description
@@ -35,7 +75,8 @@ class AIImageRecongizeService: NSObject {
 									let firstItem = objectList.firstObject as! NSDictionary
 									if let name = firstItem["name"] as? String {
 										if let result = name.componentsSeparatedByString(" ").first {
-											callback?(result, error: nil)
+                                            let fakeResult = AIImageRecongizeService.resultConvertFromFakeMapper(result)
+											callback?(fakeResult, error: nil)
 										} else {
 											failblock()
 										}
@@ -59,4 +100,5 @@ class AIImageRecongizeService: NSObject {
 				}
 		})
 	}
+	
 }

@@ -114,6 +114,7 @@ class AILoginUtil: NSObject {
 class AILoginPublicValue {
     static var loginType: LoginConstants.LoginType?
     static var phoneNumber: String?
+    static var password: String?
     //短信验证码
     static var smsCode: String?
 }

@@ -486,14 +486,12 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
                 })
             }
 
-
         }// end
 
     }
 
     func createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
-
-
+        
         var vc: UIViewController!
         if model.proposal_type == 1 { // shoucang
             let pvc = AIProductInfoViewController.initFromNib()
@@ -503,7 +501,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         } else if model.proposal_type == 3 { // wish
             let wvc = AIWishPreviewController.initFromNib()
-            wvc.model = model
+            //wvc.model = model
             vc = wvc
         }
 

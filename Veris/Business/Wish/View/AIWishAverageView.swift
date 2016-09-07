@@ -9,10 +9,11 @@
 import Foundation
 import Spring
 class AIWishAverageView: UIView {
- 
+    
     @IBOutlet weak var button: DesignableButton!
     
     @IBOutlet weak var totalButton: DesignableButton!
+    
     /* 随着手触摸点移动button
     private var prePosition: CGPoint = CGPointMake(0, 0)
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

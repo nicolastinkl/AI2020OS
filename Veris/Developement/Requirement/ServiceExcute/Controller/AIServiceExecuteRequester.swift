@@ -66,7 +66,7 @@ class AIServiceExecuteRequester: NSObject {
     }
     
     func parseGrabOrderResultToViewModel(originalRequirements: AIGrabOrderResultModel, success: (businessInfo: AIGrabOrderSuccessViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-        let result = originalRequirements.result.integerValue
+        let result = originalRequirements.result_code.integerValue
         let businessInfo = AIGrabOrderSuccessViewModel(grabResult: result)
         businessInfo.setOrderInfoByJSONModel(originalRequirements)
         success(businessInfo: businessInfo)
@@ -79,9 +79,9 @@ class AIServiceExecuteRequester: NSObject {
      customID	    买家id
      proposalID      方案ID
      */
-    func queryGrabOrderDetail(serviceInstId: String, success: (businessInfo: AIGrabOrderDetailViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func queryGrabOrderDetail(serviceSpecId serviceSpecId: String, success: (businessInfo: AIGrabOrderDetailViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
-        let body  = ["data" : ["service_inst_id" : serviceInstId ], "desc":["data_mode" : "0", "digest" : ""]]
+        let body  = ["data" : ["service_spec_id" : serviceSpecId ], "desc":["data_mode" : "0", "digest" : ""]]
         
         message.body.addEntriesFromDictionary(body as [NSObject : AnyObject])
         message.url = AIApplication.AIApplicationServerURL.queryGrabOrderDetail.description as String

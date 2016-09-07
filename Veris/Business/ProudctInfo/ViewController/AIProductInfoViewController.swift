@@ -605,6 +605,11 @@ class AIProductInfoViewController: UIViewController {
         let bubbleViewContain = UIView()
         bubbleViewContain.setHeight(0)
         if let remodel = dataModel?.recommendation {
+            
+            let deepColor = ["ca9e82", "936d4c", "aa6e28", "574d71", "7e3d60", "438091", "ad2063", "5f257d", "162c18", "B10000", "4a5679", "6b4a1d", "1b1a3a", "aa6e28", "6a8e5c", "", "", "", ""]
+            let undertoneColor = ["5198ac", "ae9277", "cdaf13", "696a9a", "c3746a", "6c929f", "cf4e5a", "9c417c", "32542c", "F25A68", "7e6479", "aa822a", "81476a", "cdaf13", "93a44b", "", "", "", ""]
+            let borderColor = ["9bd6f2", "f8b989", "fee34a", "8986c2", "f88d8e", "6db8d5", "ef6d83", "cd53e1", "528319", "F25A68", "8986c2", "e6ad44", "c474ac", "fee34a", "93bd78", "", "", "", ""]
+            
             if remodel.count > 0 {
                 var i = 0
                 remodel.forEach({ (modelJSON) in
@@ -612,6 +617,11 @@ class AIProductInfoViewController: UIViewController {
                     model.proposal_name = modelJSON.name ?? ""
                     model.proposal_id = modelJSON.rid ?? 0
                     model.proposal_price = modelJSON.price?.price_show ?? ""
+                    
+                    model.deepColor = deepColor[i]
+                    model.undertoneColor = undertoneColor[i]
+                    model.borderColor = borderColor[i]
+                    
                     let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
                     let space = AITools.displaySizeFrom1242DesignSize(15)
                     let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
@@ -843,7 +853,6 @@ class AIProductInfoViewController: UIViewController {
     //跳转订单确认界面
     func configOrderAction() {
         
-        
         let model = AIProposalInstModel()
         model.proposal_id = dataModel?.proposal_inst_id ?? 0
         model.proposal_name = dataModel?.name ?? ""
@@ -852,7 +861,6 @@ class AIProductInfoViewController: UIViewController {
             vc.customNoteModel = dataModel?.customer_note
             showTransitionStyleCrossDissolveView(vc)
         }
-        
     }
    
     // MARK: - Action Event Touch Up Inside
