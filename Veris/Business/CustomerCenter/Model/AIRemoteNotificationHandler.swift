@@ -163,8 +163,6 @@ struct AIRemoteNotificationParameters {
                 topVC.presentViewController(buyerDetailViewController, animated: false, completion: {
                     let vc = AAProviderDialogViewController.initFromNib()
                     vc.roomNumber = roomNumber
-                    vc.proposalID = proposalID
-                    vc.proposalName = proposalName
                     buyerDetailViewController.providerDialogViewController = vc
                     buyerDetailViewController.presentViewController(vc, animated: true, completion: nil)
                 })

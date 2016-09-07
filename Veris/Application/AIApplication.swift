@@ -240,6 +240,10 @@ struct AIApplication {
         static let UserLoginOutNotification = "UserLoginOutNotification"
         // 注册通知
         static let UserDidRegistedNotification = "UserDidRegistedNotification"
+
+        // 收藏成功
+        static let DidUserCollectSuccess = "DidUserCollectSuccess"
+        static let DidUserCollectCancel = "DidUserCollectCancel"
     }
 
     // MARK: System theme's color
@@ -417,6 +421,7 @@ struct AIApplication {
         case queryAllComments
         // 3.8.5 查询评论统计信息
         case queryRatingStatistics
+        case getOpenTokToken
         
         // 图像识别
         case uploadAndIdentify
@@ -444,6 +449,12 @@ struct AIApplication {
         case queryProcedureInstInfo
         // 更新服务节点执行状态
         case updateServiceNodeStatus
+        // 消费者授权操作
+        case customerAuthorize
+        // 消费者确认子服务/订单完成
+        case confirmOrderComplete
+        // 请求用户授权
+        case submitRequestAuthorization
 
         
         
@@ -513,6 +524,7 @@ struct AIApplication {
             case .getRecommendedServices: return AIApplication.KURL_ReleaseURL + "/search/getRecommendedServices"
             case .queryAllComments: return AIApplication.KURL_ReleaseURL + "/comments/queryAllComments"
             case .queryRatingStatistics: return AIApplication.KURL_ReleaseURL + "/comments/queryRatingStatistics"
+            case .getOpenTokToken: return AIApplication.KURL_ReleaseURL + "/remoteAssistant/getOpenTokToken"
                 
             case .uploadAndIdentify: return "http://171.221.254.231:3001/uploadAndIdentify"
 
@@ -529,6 +541,9 @@ struct AIApplication {
             case .queryQiangDanResult: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/queryScrambleOrderResult"
             case .queryProcedureInstInfo: return AIApplication.KURL_ReleaseURL + "/serviceProcess/queryProcedureInstInfo"
             case .updateServiceNodeStatus: return AIApplication.KURL_ReleaseURL + "/serviceProcess/updateServiceNodeStatus"
+            case .customerAuthorize: return AIApplication.KURL_ReleaseURL + "/order/authorize"
+            case .confirmOrderComplete: return AIApplication.KURL_ReleaseURL + "/order/confirm"
+            case .submitRequestAuthorization: return AIApplication.KURL_ReleaseURL + "/serviceProcess/submitRequestAuthorization"
             }
         }
     }
