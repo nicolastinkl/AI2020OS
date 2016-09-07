@@ -65,6 +65,8 @@ class AIProductInfoViewController: UIViewController {
     private let topButton = UIButton()
     private let editButton = UIButton()
     private let isStepperEditing = false
+    private let cacheFaviDictionary = Dictionary<String,String>()
+    
     // MARK: 取消键盘
     
     func shouldHideKeyboard () {
@@ -350,25 +352,52 @@ class AIProductInfoViewController: UIViewController {
         if let button = singleButton {
             ssid = button.tag
         }
-        
-        view.showLoading()
-        
-        AIProdcutinfoService.addFavoriteServiceInfo(String(dataModel?.proposal_inst_id ?? 0), proposal_spec_id: ssid == 0 ? "" : String(ssid)) { (obj, error) in
-            self.view.hideLoading()
-            if let res = obj as? String {
-                // MARK: Loading Data Views
-                if res == "1" {
-                    if let navi = self.navi as? AINavigationBar {
-                        navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok_pro")!)
-                        navi.commentButton.animation = "pop"
-                        navi.commentButton.animate()
-                    }
+        func refershFaviButtonStatus(isFavi: Bool) {
+            if let navi = self.navi as? AINavigationBar {
+                
+                if isFavi {
+                    navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok_pro")!)
                 } else {
-                    AIAlertView().showError("收藏失败", subTitle: "")
+                    navi.setRightIcon1Action(UIImage(named: "AI_ProductInfo_Home_Favirtor")!)
                 }
+                
+                navi.commentButton.animation = "pop"
+                navi.commentButton.animate()
             }
         }
-       
+        
+        // 判断是否已经收藏
+        view.showLoading()
+        if let bol = dataModel?.collected {
+            if bol {
+                AIProdcutinfoService.removeFavoriteServiceInfo(String(dataModel?.proposal_inst_id ?? 0), complate: { (obj, error) in
+                    self.view.hideLoading()
+                    if let res = obj as? String {
+                        // MARK: Loading Data Views
+                        if res == "1" {
+                            self.dataModel?.collected = false
+                            refershFaviButtonStatus(false)
+                        } else {
+                            AIAlertView().showError("取消收藏失败", subTitle: "")
+                        }
+                    }
+                })
+            } else {
+                AIProdcutinfoService.addFavoriteServiceInfo(String(dataModel?.proposal_inst_id ?? 0), proposal_spec_id: ssid == 0 ? "" : String(ssid)) { (obj, error) in
+                    self.view.hideLoading()
+                    if let res = obj as? String {
+                        // MARK: Loading Data Views
+                        if res == "1" {
+                            self.dataModel?.collected = true
+                            refershFaviButtonStatus(true)
+                        } else {
+                            AIAlertView().showError("收藏失败", subTitle: "")
+                        }
+                    }
+                }
+                
+            }
+        }
         
     }
 
@@ -404,7 +433,7 @@ class AIProductInfoViewController: UIViewController {
                 //未收藏
                 navinew.setRightIcon1Action(UIImage(named: "AI_ProductInfo_Home_Favirtor")!)
             } else {
-                navinew.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
+                navinew.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok_pro")!)
             }
         }
         
