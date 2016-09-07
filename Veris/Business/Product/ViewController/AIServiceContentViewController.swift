@@ -840,7 +840,7 @@ internal class AIServiceContentViewController: UIViewController {
 				}
 				
 			}
-		}
+		}//end
 	}
 	
 	/**
