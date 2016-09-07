@@ -83,7 +83,6 @@ class AIProductInfoViewController: UIViewController {
 	 */
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		// Add ContentOffSet Listen.
 		configureObserver()
 		
@@ -259,7 +258,8 @@ class AIProductInfoViewController: UIViewController {
         
         view.addSubview(topButton)
         view.addSubview(editButton)
-        
+        self.editButton.hidden = true
+        self.topButton.hidden = true
         topButton.setImage(UIImage(named: "AI_ProductInfo_Home_Edit"), forState: UIControlState.Normal)
         editButton.setImage(UIImage(named: "AI_ProductInfo_Home_Top"), forState: UIControlState.Normal)
         
@@ -298,6 +298,14 @@ class AIProductInfoViewController: UIViewController {
         let alphaSc = (scrollOffset / defaultTableViewHeaderMargin)
         if let navi = self.navi as? AINavigationBar {
             navi.bgView.subviews.first?.alpha = alphaSc
+        }
+        
+        if alphaSc >= 1 {
+            self.editButton.hidden = false
+            self.topButton.hidden = false
+        }else{
+            self.editButton.hidden = true
+            self.topButton.hidden = true
         }
         
 		//animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)

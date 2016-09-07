@@ -236,13 +236,18 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.removeHeader()
         weak var weakSelf = self
         tableView.addHeaderWithCallback { () -> Void in
-
-            weakSelf!.clearPropodalData()
-            weakSelf!.loadData()
+            if let StrongSelf = weakSelf {
+                StrongSelf.clearPropodalData()
+                StrongSelf.loadData()
+            }
+            
         }
 
         tableView.addHeaderRefreshEndCallback { () -> Void in
-            weakSelf!.tableView.reloadData()
+            if let StrongSelf = weakSelf {
+                StrongSelf.tableView.reloadData()
+            }
+            
 
         }
 

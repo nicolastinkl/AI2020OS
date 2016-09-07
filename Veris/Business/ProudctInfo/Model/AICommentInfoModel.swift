@@ -46,7 +46,7 @@ struct AICommentInfoModel: JSONJoy {
         providename = decoder["customer_name"].string ?? ""
         provideurl = decoder["customer_icon"].string ?? ""
         descripation = decoder["desc"].string ?? ""
-        level = (decoder["good_rate"].string ?? "0").toInt() ?? 0
+        level = decoder["good_rate"].integer ?? 0
         
         like = decoder["stars"].integer ?? 0
         commentcount = decoder["thumbs"].integer ?? 0

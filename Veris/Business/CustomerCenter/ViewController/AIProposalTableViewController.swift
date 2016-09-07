@@ -122,6 +122,7 @@ class AIProposalTableViewController: UIViewController {
         
         self.view.addSubview(tableView)
         
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0)
         
         weak var weakSelf = self
         tableView.addHeaderRefreshEndCallback { () -> Void in
