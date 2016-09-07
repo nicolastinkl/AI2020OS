@@ -20,8 +20,25 @@ enum ResultCode: Int {
 }
 
 enum PermissionType: Int {
-    case unneed = 0
-    case needPermision = 1
+    case jurisdiction = 0
+    case confirm = 1
+    case read
+}
+
+enum JurisdictionStatus: Int {
+    case notAuthorized = 0
+    case alreadyAuthorized = 1
+    case noNeed = 2
+}
+
+enum ConfirmStatus: Int {
+    case notConfirm = 0
+    case alreadyConfirm = 1
+}
+
+enum ReadStatus: Int {
+    case notRead = 0
+    case alreadyRead = 1
 }
 
 enum ProcedureStatus: Int {
@@ -34,6 +51,7 @@ protocol ExcuteManager {
     func submitServiceNodeResult(serviceId: Int, procedureId: Int, resultList: [NodeResultContent], success: (responseData: (hasNextNode: Bool, resultCode: ResultCode)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func queryProcedureInstInfo(serviceId: Int, userId: Int, success: (responseData: (customer: AICustomerModel, procedure: Procedure)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func updateServiceNodeStatus(procedureId: Int, status: ProcedureStatus, success: (responseData: RequestCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func submitRequestAuthorization(serviceId: Int, customerId: Int, providerId: Int, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
 
@@ -162,7 +180,40 @@ class BDKExcuteManager: ExcuteManager {
                 let model = try RequestCode(dictionary: dic)
                 success(responseData: model)
             } catch {
-                fail(errType: AINetError.Format, errDes: "updateServiceNodeStatus JSON Parse Error...")
+                fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
+            }
+            
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes ?? "")
+        }
+    }
+    
+    func submitRequestAuthorization(serviceId: Int, customerId: Int, providerId: Int, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        
+        let message = AIMessage()
+        let url = AIApplication.AIApplicationServerURL.submitRequestAuthorization.description
+        message.url = url
+        
+        let data: [String: AnyObject] = ["service_instance_id": serviceId, "provider_id": providerId, "provider_id": customerId]
+        message.body = BDKTools.createRequestBody(data)
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            do {
+                guard let dic = response as? [NSObject : AnyObject] else {
+                    fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
+                    return
+                }
+                
+                guard let c = dic["result_code"] as? Int else {
+                        fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
+                        return
+                }
+                
+                success(responseData: ResultCode(rawValue: c)!)
+                
+            } catch {
+                fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
             }
             
         }) { (error: AINetError, errorDes: String!) -> Void in
