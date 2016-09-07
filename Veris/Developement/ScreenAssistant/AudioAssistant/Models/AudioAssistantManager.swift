@@ -197,7 +197,9 @@ class AudioAssistantManager: NSObject {
                 self._session?.connectWithToken(token, error: nil)
             }
             }) { (error, message) in
-                
+                if let didFailHandler = didFailHandler {
+                    didFailHandler(OTError())
+                }
         }
 	}
 	

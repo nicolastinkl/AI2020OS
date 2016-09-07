@@ -540,6 +540,7 @@ class AIBuyerDetailViewController: UIViewController {
 	
 	@IBAction func closeThisViewController() {
 		delegate?.closeAIBDetailViewController()
+        AudioAssistantManager.sharedInstance.disconnectFromToAudioAssiastantRoom()
 		dismissViewControllerAnimated(false, completion: nil)
 	}
 	
