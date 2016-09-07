@@ -416,7 +416,7 @@ class AIBuyerDetailViewController: UIViewController {
     /**
      Video Button Click
      */
-    //MARK: Vidio Assistant
+    //MARK: 语音协助
     @IBAction func startVideoAction(sender: AnyObject) {
 
         if providerDialogViewController != nil {
@@ -425,8 +425,7 @@ class AIBuyerDetailViewController: UIViewController {
             if customerDialogViewController == nil {
                 audioAssistantModel = .Sender
                 let vc = AACustomerDialogViewController.initFromNib()
-                vc.proposalID = (bubbleModel?.proposal_id)!
-                vc.proposalName = (bubbleModel?.proposal_name)!
+                vc.proposalModel = dataSource
                 customerDialogViewController = vc
             }
             presentViewController(customerDialogViewController!, animated: true, completion: nil)

@@ -240,6 +240,10 @@ struct AIApplication {
         static let UserLoginOutNotification = "UserLoginOutNotification"
         // 注册通知
         static let UserDidRegistedNotification = "UserDidRegistedNotification"
+
+        // 收藏成功
+        static let DidUserCollectSuccess = "DidUserCollectSuccess"
+        static let DidUserCollectCancel = "DidUserCollectCancel"
     }
 
     // MARK: System theme's color
