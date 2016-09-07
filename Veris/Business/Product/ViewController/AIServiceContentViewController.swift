@@ -10,6 +10,7 @@ import UIKit
 import Cartography
 import Spring
 import AIAlertView
+import IQKeyboardManagerSwift
 
 public enum AIServiceContentType: Int {
 	case None = 100, MusicTherapy, Escort
@@ -105,6 +106,7 @@ internal class AIServiceContentViewController: UIViewController {
 	
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
+        IQKeyboardManager.sharedManager().enable = true
 		shouldHideKeyboard()
 		// 切换视图的时候停止播放录音
 		curAudioView?.stopPlay()
@@ -145,6 +147,12 @@ internal class AIServiceContentViewController: UIViewController {
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.serviceParamsViewHeightChanged(_:)), name: "kServiceParamsViewHeightChanged", object: nil)
 	}
 	
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        IQKeyboardManager.sharedManager().enable = false
+    }
+    
+    
 	// 缓存输入信息
 	private var inputMessageCache: String = ""
 	
@@ -317,12 +325,12 @@ internal class AIServiceContentViewController: UIViewController {
 			
 			scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0)
 			scrollViewBottom()
-//            if let view1 = self.currentAudioView {
-//                if keyboardHeight > 0 {
-////                    let newLayoutConstraint = keyboardHeight - view1.holdViewHeigh
-////                    view1.inputButtomValue.constant = newLayoutConstraint
-//                }
-//            }
+            if let view1 = self.currentAudioView {
+                if keyboardHeight > 0 {
+                    let newLayoutConstraint = keyboardHeight - view1.holdViewHeigh
+                    view1.inputButtomValue.constant = newLayoutConstraint
+                }
+            }
             
 			// hidden
 			if let view1 = self.currentAudioView {
@@ -879,7 +887,7 @@ extension AIServiceContentViewController: AICustomAudioNotesViewShowAudioDelegat
 		childView.textInput.delegate = self
 		childView.inputTextView.delegate = self
 		currentAudioView = childView
-		
+		curTextField = childView.textInput
 		constrain(childView) { (cview) -> () in
 			cview.leading == cview.superview!.leading
 			cview.trailing == cview.superview!.trailing
