@@ -421,6 +421,7 @@ struct AIApplication {
         case queryAllComments
         // 3.8.5 查询评论统计信息
         case queryRatingStatistics
+        case getOpenTokToken
         
         // 图像识别
         case uploadAndIdentify
@@ -517,6 +518,7 @@ struct AIApplication {
             case .getRecommendedServices: return AIApplication.KURL_ReleaseURL + "/search/getRecommendedServices"
             case .queryAllComments: return AIApplication.KURL_ReleaseURL + "/comments/queryAllComments"
             case .queryRatingStatistics: return AIApplication.KURL_ReleaseURL + "/comments/queryRatingStatistics"
+            case .getOpenTokToken: return AIApplication.KURL_ReleaseURL + "/remoteAssistant/getOpenTokToken"
                 
             case .uploadAndIdentify: return "http://171.221.254.231:3001/uploadAndIdentify"
 

@@ -232,12 +232,13 @@ class AISuperiorityViewController: UIViewController {
                     Async.main({ 
                         self.initDatawithViewsImaeg()
                     })
+                    /*
                     if model.collected == 0 {
                         //未收藏
                         self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
                     } else {
                         self.naviBar?.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
-                    }
+                    }*/
                 }
             }
         }
@@ -282,11 +283,13 @@ class AISuperiorityViewController: UIViewController {
                 layout.height == 44.0 + 10.0
             })
             
-            navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+
             navi.setRightIcon2Action(UIImage(named: "AINavigationBar_send")!)
             navi.titleLabel.text = serviceModel?.name
             navi.videoButton.addTarget(self, action: #selector(shareAction), forControlEvents: UIControlEvents.TouchUpInside)
-            navi.commentButton.addTarget(self, action: #selector(favoriteAction), forControlEvents: UIControlEvents.TouchUpInside)
+//            注释 收藏按钮
+//            navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator")!)
+//            navi.commentButton.addTarget(self, action: #selector(favoriteAction), forControlEvents: UIControlEvents.TouchUpInside)
             naviBar = navi
             
         }

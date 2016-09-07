@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	
     private lazy var router: CDDeepLinkRouter = CDDeepLinkRouter()
 
-    
 	let WX_APPID: String = "wx483dafc09117a3d0"
     var _mapManager: BMKMapManager?
 	
@@ -107,8 +106,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     
     override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
         #if DEBUG
-            //FLEXManager.sharedManager().toggleExplorer()
-            AIAlertViewController.showAlertView()
+            FLEXManager.sharedManager().toggleExplorer()
+//            AIAlertViewController.showAlertView()
+            let i = AVInstallation.currentInstallation()
+            i.removeObjectForKey(AIRemoteNotificationParameters.ProviderIdentifier)
+            i.setObject(1234, forKey: AIRemoteNotificationParameters.ProviderIdentifier)
+            i.saveInBackground()
         #endif
     }
     

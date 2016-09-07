@@ -49,9 +49,9 @@ class AudioAssistantManager: NSObject {
 	
 	static let sharedInstance = AudioAssistantManager()
 	static let fakeRoomNumber = "89897384"
-    var connectionId: String? {
-       return _session?.connection?.connectionId
-    }
+	var connectionId: String? {
+		return _session?.connection?.connectionId
+	}
 	
 	private var _session: OTSession?
 	private var _publisher: OTPublisherKit?
@@ -171,7 +171,9 @@ class AudioAssistantManager: NSObject {
 	}
 	
 	func sendAnchor(anchor: AIAnchor) {
+
         anchor.connectionId = connectionId
+
 		let string = anchor.toJSONString()
 		sendString(string, type: .Anchor)
 	}
@@ -181,29 +183,22 @@ class AudioAssistantManager: NSObject {
 		_roomNumber = roomNumber
 		_didFailHandler = didFailHandler
 		_sessionDidConnectHandler = sessionDidConnectHandler
-		let roomURLString = String(format: "http://104.18.58.238/%@.json", roomNumber)
-		print(String("https://opentokrtc.com/%@.json", roomNumber))
-		let roomURL = NSURL(string: roomURLString)!
-		let request = NSMutableURLRequest(URL: roomURL, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10)
-		request.HTTPMethod = "GET"
-		request.addValue("opentokrtc.com", forHTTPHeaderField: "Host")
 		
-		NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { [unowned self](response, data, error) in
-			if error != nil {
-				print("Error, \(error?.localizedDescription), \(roomURLString)")
-				self.connectionToAudioAssiastantRoom(roomNumber: roomNumber, sessionDidConnectHandler: sessionDidConnectHandler)
-			} else {
-				if let roomInfo = try?NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary {
-					if let roomInfo = roomInfo {
-						let apiKey = roomInfo["apiKey"] as! String
-						let token = roomInfo["token"] as! String
-						let sessionId = roomInfo["sid"] as! String
-						self._session = OTSession(apiKey: apiKey, sessionId: sessionId, delegate: self)
-						self._session?.connectWithToken(token, error: nil)
-					}
-				}
-			}
-		}
+		let message = AIMessage()
+		let data: [String: AnyObject] = ["room_id": roomNumber]
+		message.body = BDKTools.createRequestBody(data)
+        message.url = AIApplication.AIApplicationServerURL.getOpenTokToken.description
+        AINetEngine.defaultEngine().postMessage(message, success: { (roomInfo) in
+            if let roomInfo = roomInfo {
+                let apiKey = roomInfo["apiKey"] as! String
+                let token = roomInfo["token"] as! String
+                let sessionId = roomInfo["sid"] as! String
+                self._session = OTSession(apiKey: apiKey, sessionId: sessionId, delegate: self)
+                self._session?.connectWithToken(token, error: nil)
+            }
+            }) { (error, message) in
+                
+        }
 	}
 	
 	func disconnectFromToAudioAssiastantRoom() {
