@@ -90,4 +90,13 @@
     return message;
 }
 
++ (AIMessage *) removeFavoriteService:(NSString *)proposal_inst_id {
+    AIMessage *message = [AIMessage message];
+    NSDictionary *body = @{@"data":@{@"proposal_inst_id":proposal_inst_id},@"desc":@{@"data_mode":@"0",@"digest":@""}};
+    
+    [message.body addEntriesFromDictionary:body];
+    
+    return message;
+}
+
 @end

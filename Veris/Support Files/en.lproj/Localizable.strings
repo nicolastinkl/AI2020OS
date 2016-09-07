@@ -231,3 +231,54 @@
  * ./Veris/Business/Comment/ViewController/ImagesReviewViewController
  */
 "ImagesReviewViewController.deleteConfirm" = "Delete the photo?";
+
+
+
+//MARK: AIContestSuccessViewController
+
+"AIContestSuccessViewController.NavigationBarTitle" = "Details";
+
+"AIContestSuccessViewController.UserNeeds" = "User Needs";
+
+"AIContestSuccessViewController.Congratulations" = "Congratulations!";
+
+
+//MARK: AISingleServiceCommnentViewController
+
+"AISingleServiceCommnentViewController.Submit" = "Submit";
+
+"AISingleServiceCommnentViewController.Review" = "Review";
+
+
+//MARK: AIAssetsViewCell
+
+"AIAssetsViewCell.NumberFormat" = "Photos %d";
+
+// AIAudioSearchViewController
+
+"AIAudioSearchViewController.SetupError" = "Audio Error, Try it later.";
+
+
+// AIPaymentViewController
+
+"AIPaymentViewController.Success" = "Pay Success!";
+
+
+// AIServerProviderView
+
+"AIServerProviderView.ServiceCustomerFormat" = "Service %s";
+
+"AIServerProviderView.ServiceRateFormat" = "Rate %s";
+
+
+
+
+
+
+
+
+
+
+
+
+

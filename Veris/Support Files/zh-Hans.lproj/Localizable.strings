@@ -231,3 +231,39 @@
 /*
  * ./Veris/Business/Login/LoginConstants
  */
+
+
+
+//MARK: AIContestSuccessViewController
+
+"AIContestSuccessViewController.NavigationBarTitle" = "服务细节";
+
+"AIContestSuccessViewController.UserNeeds" = "用户需求";
+
+"AIContestSuccessViewController.Congratulations" = "抢单成功!";
+
+
+//MARK: AISingleServiceCommnentViewController
+
+"AISingleServiceCommnentViewController.Submit" = "提交";
+
+"AISingleServiceCommnentViewController.Review" = "查看";
+
+//MARK: AIAssetsViewCell
+
+"AIAssetsViewCell.NumberFormat" = "照片%d张";
+
+// AIAudioSearchViewController
+
+"AIAudioSearchViewController.SetupError" = "启动识别服务失败，请稍后重试";
+
+// AIPaymentViewController
+
+"AIPaymentViewController.Success" = "支付成功!";
+
+// AIServerProviderView
+
+"AIServerProviderView.ServiceCustomerFormat" = "服务人数 %s";
+
+"AIServerProviderView.ServiceRateFormat" = "服务好评度 %s";
+

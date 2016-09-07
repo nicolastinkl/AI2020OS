@@ -55,4 +55,9 @@
  */
 + (AIMessage *) addFavoriteService:(NSString *)proposal_spec_id ServiceID:(NSString *)sid;
 
+/*说明：移除收藏服务
+ *  @author Tinkl
+ */
++ (AIMessage *) removeFavoriteService:(NSString *)proposal_spec_id;
+
 @end

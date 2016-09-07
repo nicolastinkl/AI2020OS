@@ -69,4 +69,29 @@ struct AIProdcutinfoService {
         }
     }
     
+    
+    /**
+     remove
+     
+     - parameter serviceId:        <#serviceId description#>
+     - parameter proposal_spec_id: <#proposal_spec_id description#>
+     - parameter complate:         <#complate description#>
+     */
+    static func removeFavoriteServiceInfo(proposal_inst_id: String, complate: ((AnyObject?, String?) -> Void)) {
+        let message = AIMessageWrapper.removeFavoriteService(proposal_inst_id)
+        message.url = AIApplication.AIApplicationServerURL.favoriteadd.description as String
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) in
+            if let responseJSON: AnyObject = response {
+                if let _ = responseJSON as? NSDictionary {
+                    complate("1",nil)
+                } else {
+                    complate(nil, "data is null")
+                }
+            }
+            }) { (error, des) in
+                complate(nil, des)
+            }
+    }
+    
 }
