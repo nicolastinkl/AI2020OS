@@ -444,6 +444,8 @@ struct AIApplication {
         case queryProcedureInstInfo
         // 更新服务节点执行状态
         case updateServiceNodeStatus
+        // 请求用户授权
+        case submitRequestAuthorization
 
         
         
@@ -529,6 +531,7 @@ struct AIApplication {
             case .queryQiangDanResult: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/queryScrambleOrderResult"
             case .queryProcedureInstInfo: return AIApplication.KURL_ReleaseURL + "/serviceProcess/queryProcedureInstInfo"
             case .updateServiceNodeStatus: return AIApplication.KURL_ReleaseURL + "/serviceProcess/updateServiceNodeStatus"
+            case .submitRequestAuthorization: return AIApplication.KURL_ReleaseURL + "/serviceProcess/submitRequestAuthorization"
             }
         }
     }
