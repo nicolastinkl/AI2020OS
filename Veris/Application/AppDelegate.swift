@@ -107,7 +107,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     
     override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
         #if DEBUG
-            FLEXManager.sharedManager().toggleExplorer()
+            //FLEXManager.sharedManager().toggleExplorer()
+            AIAlertViewController.showAlertView()
         #endif
     }
     

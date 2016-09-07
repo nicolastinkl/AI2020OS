@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString<Optional> *user_name;
 @property (nonatomic, strong) NSString<Optional> *user_phone;
 @property (nonatomic, strong) NSNumber<Optional> *user_id;
+@property (nonatomic, strong) NSString<Optional> *user_portrait_icon;
 @end
 
 /**
@@ -77,14 +78,24 @@
 /**
  *  服务规格信息
  */
-#pragma mark - 服务规格信息
-@protocol AIServiceInfoBusiModel @end
+#pragma mark - offering规格信息，需要改成AIOfferingInfoBusiModel
+@protocol AIOfferingInfoBusiModel @end
 
-@interface AIServiceInfoBusiModel : JSONModel
+@interface AIOfferingInfoBusiModel : JSONModel
 @property (nonatomic, strong) NSString<Optional> *service_catalog;
 @property (nonatomic, strong) NSString<Optional> *service_progress;
 @property (nonatomic, strong) NSNumber<Optional> *service_id;
 @property (nonatomic, strong) NSString<Optional> *service_price;
+@property (nonatomic, strong) NSString<Optional> *service_thumbnail_icon;
+@property (nonatomic, strong) NSString<Optional> *service_intro;
+@end
+
+#pragma mark - 后端的服务模型
+@protocol AIServiceSpecBusiModel @end
+
+@interface AIServiceSpecBusiModel : JSONModel
+@property (nonatomic, strong) NSNumber<Optional> *service_spec_id;
+@property (nonatomic, strong) NSString<Optional> *service_name;
 @property (nonatomic, strong) NSString<Optional> *service_thumbnail_icon;
 @property (nonatomic, strong) NSString<Optional> *service_intro;
 @end

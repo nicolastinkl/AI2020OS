@@ -58,15 +58,24 @@ class AIWishPreviewController: UIViewController {
             navi.backButton.setImage(UIImage(named: "scan_back"), forState: UIControlState.Normal)
         }
         
+        // Reqeust network's queryWishRecordList
         Async.main(after: 0.3) {
-            self.initSubViews()
+            self.initData()
+        }
+    }
+    
+    func initData() {
+        AIWishServices.requestListQueryWishs(self.model?.type_id ?? 0) { (obj, error) in
+            if let resultArray = obj as? [String] {
+                self.initSubViews(resultArray)
+            }
         }
     }
     
     /// 初始化处理
-    func initSubViews() {
-        averageMenoy = 22
-        averageTotalMenoy = 200
+    func initSubViews(cotentsArray: [String]) {
+        averageMenoy = Int(model?.money_avg ?? 0)
+        averageTotalMenoy = Int(model?.money_adv ?? 0)
         // Description
         let dbgView = UIView()
         dbgView.setHeight(82)
@@ -86,10 +95,14 @@ class AIWishPreviewController: UIViewController {
 //        DescriptionLabel.setWidth(dWidth)
 //        DescriptionLabel.setLeft(50)
         
-        let DescriptionLabel = AIWishTopView.initFromNib()!
+        let DescriptionLabel = AIWishTopView.initFromNib() as! AIWishTopView
         dbgView.addSubview(DescriptionLabel)
         DescriptionLabel.setWidth(UIScreen.mainScreen().bounds.width)
         DescriptionLabel.setHeight(82)
+        DescriptionLabel.contentText.text = model?.contents
+        DescriptionLabel.wishText.text = "\(model?.already_wish ?? 0) wished"
+        DescriptionLabel.moreText.text = "\(model?.target_wish ?? 0) more to "
+        
         // Question Title
         
         let QuestionTitle1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
@@ -117,12 +130,7 @@ class AIWishPreviewController: UIViewController {
         imgTop.setLeft(15)
         
         // Answer List
-        let AnswerList = ["Best to provider some commeon not to buy expensvie qure Trial ",
-                          "Often go to the field,more concerned about their own shipping equipment , the best you can always hire some professional equipment",
-                          "Professional photographers can hope to teach experience, and can have specific guideance", "Best to provider some commeon not to buy expensvie qure Trial ",
-                           "Professional photographers can hope to teach experience, and can have specific guideance", "Best to provider some commeon not to buy expensvie qure Trial ",
-                           "Professional photographers can hope to teach experience, and can have specific guideance", "Best to provider some commeon not to buy expensvie qure Trial "]
-        
+        let AnswerList = cotentsArray
         for string in AnswerList {
             let QuestionTitleX = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
             QuestionTitleX.greenPoint.hidden = false
@@ -193,6 +201,9 @@ class AIWishPreviewController: UIViewController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(AIWishPreviewController.addAverage))
         swipeRight.direction = .Right
         wishAverage?.addGestureRecognizer(swipeRight)
+        
+        wishAverage?.button.setTitle("\(model?.money_avg ?? 0)", forState: UIControlState.Normal)
+        wishAverage?.totalButton.setTitle("\(model?.money_adv ?? 0)", forState: UIControlState.Normal)
         
     }
     
@@ -286,40 +297,26 @@ class AIWishPreviewController: UIViewController {
     
     @IBAction func subitAction(sender: AnyObject) {
         if let stext = self.textFeild?.text {
-            let number: Double = 123
+            let number: Double = Double(preAverageView?.button.titleLabel?.text?.toInt() ?? 0)
             view.showLoading()
-//            AIWishServices.requestMakeWishs(number, wish: stext, complate: { (obj, error)  in
-//                self.view.hideLoading()
-//                if let _ = obj {
+            AIWishServices.requestMakeWishs(model?.type_id ?? 0, name: model?.name ?? "", money: number, contents: stext, complate: { (obj, error) in
+                self.view.hideLoading()
+                if let _ = obj {
+                    let model = AIBuyerBubbleModel()
+                    model.order_times = self.model?.already_wish ?? 0
+                    model.proposal_id_new = 1
+                    model.proposal_name = self.model?.name ?? ""
+                    model.proposal_price = "￥\(number)"
+                    model.service_list = []
+                    model.service_id = self.model?.type_id ?? 0
+                    model.proposal_type = 3
+                    NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
+                }else{
+                    AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")
+                }
+                
+            })
             
-                    // 退出当前界面 然后通知主页刷新
-                    // AIAlertView().showSuccess("提示", subTitle: "提交成功")
-//                    if let alertView = AIAlertWishInputView.initFromNib() as? AIAlertWishInputView{
-//                        self.view.addSubview(alertView)
-//                        alertView.alpha = 0
-//                        alertView.snp_makeConstraints(closure: { (make) in
-//                            make.edges.equalTo(self.view)
-//                        })
-//                        SpringAnimation.springEaseIn(0.5, animations: {
-//                            alertView.alpha = 1
-//                        })
-//                        alertView.buttonSubmit.addTarget(self, action: #selector(AIWishVowViewController.realSubmitAction), forControlEvents: UIControlEvents.TouchUpInside)
-//                    }
-//                    
-//                    let model = AIBuyerBubbleModel()
-//                    model.order_times = 1
-//                    model.proposal_id_new = 1
-//                    model.proposal_name =  String(self.model?.name ?? "")
-//                    model.proposal_price = String(number)
-//                    model.service_list = []
-//                    model.service_id = 1
-//                    NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
-//                    
-//                    
-//                } else {
-//                    AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")
-//                }
-//            })
         }
     
     }

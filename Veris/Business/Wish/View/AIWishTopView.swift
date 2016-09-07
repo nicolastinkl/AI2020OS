@@ -10,4 +10,9 @@ import Foundation
 
 class AIWishTopView: UIView {
     
+    @IBOutlet weak var contentText: UILabel!
+    
+    @IBOutlet weak var wishText: UILabel!
+    
+    @IBOutlet weak var moreText: UILabel!
 }

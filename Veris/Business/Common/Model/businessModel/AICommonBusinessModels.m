@@ -18,6 +18,9 @@
 @implementation AIOrderInfoBusiModel
 @end
 
+@implementation AIServiceSpecBusiModel
+@end
+
 @implementation AIGPSBusiModel
 @end
 
@@ -27,7 +30,7 @@
 @implementation AITimelineBusiModel
 @end
 
-@implementation AIServiceInfoBusiModel
+@implementation AIOfferingInfoBusiModel
 @end
 
 @implementation AIServiceInstBusiModel

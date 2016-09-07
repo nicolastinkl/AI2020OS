@@ -57,4 +57,29 @@ struct AIWishServices {
         }
     }
     
+    
+    /// 许愿纪录
+    static func requestListQueryWishs(typeID : Int, complate: ((AnyObject?, String?) -> Void)) {
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.queryWishRecordList.description as String
+        let body: NSDictionary = ["data":["type_id": typeID], "desc":["data_mode":"0", "digest":""]]
+        message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) in
+            if let responseJSON: AnyObject = response {
+                //let model = AIWishHotModel(JSONDecoder(responseJSON))
+                var contentArray = Array<String>()
+                if let dc = JSONDecoder(responseJSON).array {
+                    for decode in dc {
+                        contentArray.append("\(decode["contents"].string ?? "")")
+                    }
+                }                
+                complate(contentArray, nil)
+            } else {
+                complate(nil, "data is null")
+            }
+        }) { (error, des) in
+            complate(nil, des)
+        }
+    }
+    
 }
