@@ -74,7 +74,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
     func makeSubmitButton() -> UIButton {
         let button = UIButton(type: .Custom)
         button.frame = CGRect(x: 0, y: 0, width: 80, height: 24)
-        button.setTitle("submit", forState: UIControlState.Normal)
+        button.setTitle("AISingleServiceCommnentViewController.Submit".localized, forState: UIControlState.Normal)
         button.titleLabel?.textAlignment = .Right
         button.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
         button.setTitleColor(AITools.colorWithHexString("0f86e8"), forState: UIControlState.Normal)
@@ -87,7 +87,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         let y = 60.displaySizeFrom1242DesignSize()
         let height = 72.displaySizeFrom1242DesignSize()
         let frame = CGRect(x: 0, y: y, width: 200, height: height)
-        let titleLabel = AIViews.normalLabelWithFrame(frame, text: "Review", fontSize: height, color: UIColor.whiteColor())
+        let titleLabel = AIViews.normalLabelWithFrame(frame, text: "AISingleServiceCommnentViewController.Review".localized, fontSize: height, color: UIColor.whiteColor())
         titleLabel.textAlignment = .Center
 
         self.navigationItem.titleView = titleLabel
