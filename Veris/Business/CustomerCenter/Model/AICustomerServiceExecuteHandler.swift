@@ -12,6 +12,7 @@ class AICustomerServiceExecuteHandler: NSObject {
     
     struct AINetErrorDescription {
         static let FormatError = "BusinessModel data error."
+        static let businessError = "Backend data error."
     }
     
     //单例变量
@@ -171,6 +172,71 @@ class AICustomerServiceExecuteHandler: NSObject {
         }
         success(viewModel: viewModels)
     }
+    
+    //MARK: -> 提交授权结果
+    /**
+     查询消费者时间线列表
+     */
+    func customerAuthorize(procedureInstId: NSString, action: NSString, success: (resultCode: String) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        
+        let message = AIMessage()
+        let body = ["data": ["procedure_inst_id": procedureInstId, "action": action],
+                    "desc": ["data_mode": "0", "digest": ""]
+        ]
+        message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
+        message.url = AIApplication.AIApplicationServerURL.customerAuthorize.description as String
+        
+        //weak var weakSelf = self
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            do {
+                let dic = response as! [NSObject: AnyObject]
+                if let resultCode = dic["result"] as? String {
+                    if resultCode == "1"{
+                        success(resultCode: resultCode)
+                    }
+                }
+                fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+            } catch {
+                fail(errType: AINetError.Format, errDes: AINetErrorDescription.businessError)
+            }
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes)
+        }
+    }
+    
+    //MARK: -> 提交订单确认结果
+    /**
+     查询消费者时间线列表
+     */
+    func confirmOrderComplete(procedureInstId: NSString, action: NSString, success: (resultCode: String) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        
+        let message = AIMessage()
+        let body = ["data": ["procedure_inst_id": procedureInstId, "action": action],
+                    "desc": ["data_mode": "0", "digest": ""]
+        ]
+        message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
+        message.url = AIApplication.AIApplicationServerURL.confirmOrderComplete.description as String
+        
+        //weak var weakSelf = self
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            do {
+                let dic = response as! [NSObject: AnyObject]
+                if let resultCode = dic["result"] as? String {
+                    if resultCode == "1"{
+                        success(resultCode: resultCode)
+                    }
+                }
+                fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+            } catch {
+                fail(errType: AINetError.Format, errDes: AINetErrorDescription.businessError)
+            }
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes)
+        }
+    }
+
     
     //MARK: -> 工具方法
     

@@ -444,6 +444,10 @@ struct AIApplication {
         case queryProcedureInstInfo
         // 更新服务节点执行状态
         case updateServiceNodeStatus
+        // 消费者授权操作
+        case customerAuthorize
+        // 消费者确认子服务/订单完成
+        case confirmOrderComplete
 
         
         
@@ -529,6 +533,8 @@ struct AIApplication {
             case .queryQiangDanResult: return AIApplication.KURL_ReleaseURL + "/scrambleOrder/queryScrambleOrderResult"
             case .queryProcedureInstInfo: return AIApplication.KURL_ReleaseURL + "/serviceProcess/queryProcedureInstInfo"
             case .updateServiceNodeStatus: return AIApplication.KURL_ReleaseURL + "/serviceProcess/updateServiceNodeStatus"
+            case .customerAuthorize: return AIApplication.KURL_ReleaseURL + "/order/authorize"
+            case .confirmOrderComplete: return AIApplication.KURL_ReleaseURL + "/order/confirm"
             }
         }
     }

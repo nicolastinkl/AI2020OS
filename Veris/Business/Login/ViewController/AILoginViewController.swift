@@ -19,6 +19,8 @@ class AILoginViewController: UIViewController {
     @IBOutlet weak var appNameCenterXConstraint: NSLayoutConstraint!
     @IBOutlet weak var appNameViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoImageTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var appNameUserIdMarginConstraint: NSLayoutConstraint!
     @IBOutlet weak var userIdTextField: AILoginBaseTextField!
     @IBOutlet weak var passwordTextField: AILoginPasswordTextField!
     @IBOutlet weak var logoImageCenterXConstraint: NSLayoutConstraint!
@@ -174,6 +176,7 @@ extension AILoginViewController : UITextFieldDelegate {
             self.logoImageCenterXConstraint.constant = -170
             self.appNameCenterXConstraint.constant = 80
             self.appNameViewTopConstraint.constant = -55
+            self.appNameUserIdMarginConstraint.constant = 89
             self.view.layoutIfNeeded()
             self.logoImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4)
         }
@@ -181,10 +184,11 @@ extension AILoginViewController : UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
         SpringAnimation.spring(0.5) {
-            self.logoImageTopConstraint.constant = 80
+            self.logoImageTopConstraint.constant = 118
             self.logoImageCenterXConstraint.constant = 0
             self.appNameCenterXConstraint.constant = 0
             self.appNameViewTopConstraint.constant = 0
+            self.appNameUserIdMarginConstraint.constant = 49
             self.view.layoutIfNeeded()
             self.logoImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1)
         }
