@@ -197,8 +197,8 @@ struct AIProductInfoCustomerNote: JSONJoy {
             }
         }
         
-        if let taglist = decoder["note_list"].array {
-            for dec in taglist {
+        if let notelist = decoder["note_list"].array {
+            for dec in notelist {
                 let pro = AIProductInfoNoteListModel(dec)
                 note_list?.append(pro)
             }

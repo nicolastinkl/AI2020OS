@@ -65,6 +65,8 @@ class AIProductInfoViewController: UIViewController {
     private let topButton = UIButton()
     private let editButton = UIButton()
     private let isStepperEditing = false
+    private var cacheNote: AIProposalServiceDetail_WishModel?
+    
     // MARK: 取消键盘
     
     func shouldHideKeyboard () {
@@ -350,25 +352,52 @@ class AIProductInfoViewController: UIViewController {
         if let button = singleButton {
             ssid = button.tag
         }
-        
-        view.showLoading()
-        
-        AIProdcutinfoService.addFavoriteServiceInfo(String(dataModel?.proposal_inst_id ?? 0), proposal_spec_id: ssid == 0 ? "" : String(ssid)) { (obj, error) in
-            self.view.hideLoading()
-            if let res = obj as? String {
-                // MARK: Loading Data Views
-                if res == "1" {
-                    if let navi = self.navi as? AINavigationBar {
-                        navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok_pro")!)
-                        navi.commentButton.animation = "pop"
-                        navi.commentButton.animate()
-                    }
+        func refershFaviButtonStatus(isFavi: Bool) {
+            if let navi = self.navi as? AINavigationBar {
+                
+                if isFavi {
+                    navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok_pro")!)
                 } else {
-                    AIAlertView().showError("收藏失败", subTitle: "")
+                    navi.setRightIcon1Action(UIImage(named: "AI_ProductInfo_Home_Favirtor")!)
                 }
+                
+                navi.commentButton.animation = "pop"
+                navi.commentButton.animate()
             }
         }
-       
+        
+        // 判断是否已经收藏
+        view.showLoading()
+        if let bol = dataModel?.collected {
+            if bol {
+                AIProdcutinfoService.removeFavoriteServiceInfo(String(dataModel?.proposal_inst_id ?? 0), complate: { (obj, error) in
+                    self.view.hideLoading()
+                    if let res = obj as? String {
+                        // MARK: Loading Data Views
+                        if res == "1" {
+                            self.dataModel?.collected = false
+                            refershFaviButtonStatus(false)
+                        } else {
+                            AIAlertView().showError("取消收藏失败", subTitle: "")
+                        }
+                    }
+                })
+            } else {
+                AIProdcutinfoService.addFavoriteServiceInfo(String(dataModel?.proposal_inst_id ?? 0), proposal_spec_id: ssid == 0 ? "" : String(ssid)) { (obj, error) in
+                    self.view.hideLoading()
+                    if let res = obj as? String {
+                        // MARK: Loading Data Views
+                        if res == "1" {
+                            self.dataModel?.collected = true
+                            refershFaviButtonStatus(true)
+                        } else {
+                            AIAlertView().showError("收藏失败", subTitle: "")
+                        }
+                    }
+                }
+                
+            }
+        }
         
     }
 
@@ -404,7 +433,7 @@ class AIProductInfoViewController: UIViewController {
                 //未收藏
                 navinew.setRightIcon1Action(UIImage(named: "AI_ProductInfo_Home_Favirtor")!)
             } else {
-                navinew.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok")!)
+                navinew.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok_pro")!)
             }
         }
         
@@ -686,13 +715,61 @@ class AIProductInfoViewController: UIViewController {
         let audioView = AICustomAudioNotesView.currentView()
         addNewSubView(audioView, preView: provideView!)
         audioView.delegateShowAudio = self
+       
+        // Setup 9: Audio And Text Data
+        addNoteList()
         
-        // Setup 9: add bottom view
+        // Setup 10: add bottom view
         if let bottomView = AIProductinfoBottomView.initFromNib() {
-            addNewSubView(bottomView, preView: audioView)
+            addNewSubView(bottomView, preView: preCacheView!)
             (bottomView as? AIProductinfoBottomView)?.bottomButton.addGestureRecognizer(tapGes)
         }
-        
+    }
+    
+    func addNoteList() {
+        // 处理语音 文本数据
+        // 处理数据填充
+        if let wish = cacheNote {
+            if let hopeList = wish.hope_list as? [AIProposalServiceDetailHopeModel] {
+                var perViews: UIView?
+                for item in hopeList {
+                    if item == hopeList.first {
+                        perViews = preCacheView
+                    }
+                    
+                    if item.type == "Text" {
+                        // text.
+                        let newText = AITextMessageView.currentView()
+                        newText.content.text = item.text ?? ""
+                        let newSize = item.text?.sizeWithFont(AITools.myriadLightSemiCondensedWithSize(36 / 2.5), forWidth: self.view.width - 50)
+                        newText.setHeight(30 + newSize!.height)
+                        newText.wishID = wish.wish_id
+                        newText.noteID = item.hope_id
+                        addNewSubView(newText, preView: perViews!)
+                        newText.delegate = self
+                        perViews = newText
+                        newText.backgroundColor = UIColor(hex: redColor)
+                        
+                    } else if item.type == "Voice" {
+                        // audio.
+                        let audio1 = AIAudioMessageView.currentView()
+                        audio1.audioDelegate = self
+                        audio1.deleteDelegate = self
+                        addNewSubView(audio1, preView: perViews!)
+                        audio1.wishID = wish.wish_id
+                        audio1.noteID = item.hope_id
+                        audio1.fillData(item)
+                        audio1.loadingView.hidden = true
+                        audio1.backgroundColor = UIColor(hex: redColor)
+                        perViews = audio1
+                    }
+                }
+                if let s = perViews {
+                    self.preCacheView = s
+                }
+                
+            }
+        }//end
     }
     
     func showCommentView() {
@@ -716,13 +793,15 @@ class AIProductInfoViewController: UIViewController {
         if let customNot = dataModel?.customer_note {
             
             let wish = AIProposalServiceDetail_WishModel()
+            wish.wish_id = customNot.wish_id ?? 0
+            wish.intro = customNot.wish_name ?? ""
             var array1 = Array<AIProposalServiceDetailLabelModel>()
             var array2 = Array<AIProposalServiceDetailHopeModel>()
             if let taglist = customNot.tag_list {
                 taglist.forEach({ (model) in
                     let labelModel_1 = AIProposalServiceDetailLabelModel()
                     labelModel_1.content = model.name ?? ""
-                    labelModel_1.label_id = model.tag_id ?? 0
+                    labelModel_1.label_id = model.instance_id ?? 0
                     labelModel_1.selected_flag = model.is_chosen ?? 0
                     labelModel_1.selected_num = model.chosen_times ?? 0
                     array1.append(labelModel_1)
@@ -743,6 +822,7 @@ class AIProductInfoViewController: UIViewController {
             
             wish.label_list = array1
             wish.hope_list = array2
+            cacheNote = wish
             let providerView = AIProviderView.currentView()
             addNewSubView(providerView, preView: viw)
             viw = providerView
@@ -755,7 +835,7 @@ class AIProductInfoViewController: UIViewController {
                     custView.setHeight(CGFloat(heisss))
                     addNewSubView(custView, preView: viw)
                     viw = custView
-                    custView.wish_id = 1
+                    custView.wish_id = wish.wish_id
                     if let labelList = wish.label_list as? [AIProposalServiceDetailLabelModel] {
                         custView.fillTags(labelList, isNormal: true)
                     }

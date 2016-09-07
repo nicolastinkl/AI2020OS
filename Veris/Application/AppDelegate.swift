@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	
     private lazy var router: CDDeepLinkRouter = CDDeepLinkRouter()
 
-    
 	let WX_APPID: String = "wx483dafc09117a3d0"
     var _mapManager: BMKMapManager?
 	
