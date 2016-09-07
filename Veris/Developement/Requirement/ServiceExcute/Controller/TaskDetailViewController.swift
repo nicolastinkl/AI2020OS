@@ -132,13 +132,37 @@ class TaskDetailViewController: UIViewController {
             }
         }
         
-        if procedure.permission_type == PermissionType.needPermision.rawValue {
-            showAuthorization()
+        let permissionType = procedure.permission_type.integerValue
+        
+        if permissionType == PermissionType.jurisdiction.rawValue {
+            if let jurisdictionStatus = JurisdictionStatus(rawValue: procedure.permission_value.integerValue) {
+                switch jurisdictionStatus {
+                case .notAuthorized:
+                    showAuthorization()
+                default:
+                    hideAuthorization()
+                    afterAuthorizationSetupUI()
+                }
+            }
+        } else if permissionType == PermissionType.confirm.rawValue {
+            if let confirmStatus = ConfirmStatus(rawValue: procedure.permission_value.integerValue) {
+                switch confirmStatus {
+                case .notConfirm:
+                    showAuthorization()
+                default:
+                    hideAuthorization()
+                    afterAuthorizationSetupUI()
+                }
+            }
         } else {
             hideAuthorization()
-            
-            
-            switch procedure.status {
+            afterAuthorizationSetupUI()
+        }
+    }
+    
+    private func afterAuthorizationSetupUI() {
+        if let p = procedure {
+            switch p.status {
             case ProcedureStatus.noStart.rawValue:
                 bottomButton.setTitle("TaskDetailViewController.start".localized, forState: .Normal)
                 TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
@@ -152,6 +176,7 @@ class TaskDetailViewController: UIViewController {
                 
             }
         }
+        
     }
     
     private func showAuthorization() {
@@ -162,6 +187,24 @@ class TaskDetailViewController: UIViewController {
         
         TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: false)
         bottomButton.setTitle("TaskDetailViewController.requestAuthoriztion".localized, forState: .Normal)
+        
+        
+        guard let p = procedure else {
+            return
+        }
+        
+        let permissionType = p.permission_type.integerValue
+        
+        if permissionType == PermissionType.jurisdiction.rawValue {
+            if let jurisdictionStatus = JurisdictionStatus(rawValue: p.permission_value.integerValue) {
+                switch jurisdictionStatus {
+                case .notAuthorized:
+                    TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
+                default:
+                    TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: false)
+                }
+            }
+        }
     }
     
     private func hideAuthorization() {
@@ -169,10 +212,19 @@ class TaskDetailViewController: UIViewController {
         authorizationBg.hidden = true
         waitingIcon.hidden = true
         waitingMask.hidden = true
+        
+        TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
     }
     
     @IBAction func bottomButtonAction(sender: AnyObject) {
-        if let p = procedure {
+        
+        guard let p = procedure else {
+            return
+        }
+        
+        let permissionType = p.permission_type.integerValue
+        
+        func alreadyAuthorized() {
             switch p.status {
             case ProcedureStatus.noStart.rawValue:
                 updateServiceStatus()
@@ -182,6 +234,49 @@ class TaskDetailViewController: UIViewController {
                 break
                 
             }
+        }
+        
+        if permissionType == PermissionType.jurisdiction.rawValue {
+            if let jurisdictionStatus = JurisdictionStatus(rawValue: p.permission_value.integerValue) {
+                switch jurisdictionStatus {
+                case .notAuthorized:
+                    submitAuthorization()
+                default:
+                    alreadyAuthorized()
+                }            }
+        } else if permissionType == PermissionType.confirm.rawValue {
+            if let confirmStatus = ConfirmStatus(rawValue: p.permission_value.integerValue) {
+                switch confirmStatus {
+                case .notConfirm:
+                    submitAuthorization()
+                default:
+                    alreadyAuthorized()
+                }
+            }
+        } else {
+            alreadyAuthorized()
+        }
+    }
+    
+    private func submitAuthorization() {
+        let manager = BDKExcuteManager()
+        
+        showLoading()
+        
+        manager.submitRequestAuthorization(serviceId, customerId: 1, providerId: 1, success: { (responseData) in
+            
+            self.dismissLoading()
+            switch responseData {
+            case .success:
+                NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
+            default:
+                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+            }
+            
+            }) { (errType, errDes) in
+                
+                self.dismissLoading()
+                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
         }
     }
     

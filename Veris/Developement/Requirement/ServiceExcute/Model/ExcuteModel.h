@@ -66,8 +66,16 @@
 @interface Procedure : JSONModel
 
 @property (strong, nonatomic) NSNumber<Optional> * procedure_inst_id;
-// 用户授权判断 0-不需要用户授权 1-需要用户授权
+// 用户授权判断 1-权限标志 2-确认标志 3-只读服务节点标志
 @property (strong, nonatomic) NSNumber<Optional> * permission_type;
+// permission_value的值根据permission_type值的不同，含义不同
+/*
+permission_type值	permission_value描述
+1	0 – 未授权， 1 – 已授权， 2 – 忽略
+2	0 – 未确认， 1 – 已确认
+3	0 – 未读，   1 – 已读
+ */
+@property (strong, nonatomic) NSNumber<Optional> * permission_value;
 // 服务步骤节点状态 0 – 未开始 1 – 执行中 2 – 执行完成
 @property (strong, nonatomic) NSNumber<Optional> * status;
 @property (strong, nonatomic) NodeInfo<Optional> * node_info;
