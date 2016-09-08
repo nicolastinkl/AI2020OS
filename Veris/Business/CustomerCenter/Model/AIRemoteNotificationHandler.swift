@@ -108,6 +108,11 @@ struct AIRemoteNotificationParameters {
             return false
         }
 
+        var data = [String : AnyObject]()
+        #if DEBUG
+        data.addEntriesFromDictionary(["_profile" : "dev"])
+        #endif
+        data.addEntriesFromDictionary(notification)
 
         // Create our Installation query
         let pushQuery = AVInstallation.query()
@@ -115,7 +120,7 @@ struct AIRemoteNotificationParameters {
         // Send push notification to query
         let push = AVPush()
         push.setQuery(pushQuery) // Set our Installation query
-        push.setData(notification)
+        push.setData(data)
         push.sendPushInBackground()
 
         return true
@@ -164,6 +169,7 @@ struct AIRemoteNotificationParameters {
                 topVC.presentViewController(buyerDetailViewController, animated: false, completion: {
                     let vc = AAProviderDialogViewController.initFromNib()
                     vc.roomNumber = roomNumber
+                    vc.delegate = buyerDetailViewController
                     buyerDetailViewController.providerDialogViewController = vc
                     buyerDetailViewController.presentViewController(vc, animated: true, completion: nil)
                 })
