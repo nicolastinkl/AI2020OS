@@ -79,7 +79,7 @@ class AISuperiorityViewController: UIViewController {
         imageView.setHeight(UIScreen.mainScreen().bounds.height)
         imageView.setLeft(0)
         addNewSubView(imageView, preView: UIView(), color: UIColor.clearColor(), space: 0)
-        imageView.sd_setImageWithURL(NSURL(string: self.selfImage)!, placeholderImage: smallPlace())
+        imageView.sd_setImageWithURL(NSURL(string: self.selfImage)!, placeholderImage: nil)
     }
     
     func initDatawithViews() {
@@ -269,7 +269,6 @@ class AISuperiorityViewController: UIViewController {
         }
     }
     
-
     func initLayoutViews() {
 
         /// Title.
@@ -280,10 +279,9 @@ class AISuperiorityViewController: UIViewController {
                 layout.left == layout.superview!.left
                 layout.top == layout.superview!.top
                 layout.right == layout.superview!.right
-                layout.height == 44.0 + 10.0
+                layout.height == 44.0 + 10.0 + 17
             })
-            
-
+            navi.bgView.hidden = true
             navi.setRightIcon2Action(UIImage(named: "AINavigationBar_send")!)
             navi.titleLabel.text = serviceModel?.name
             navi.videoButton.addTarget(self, action: #selector(shareAction), forControlEvents: UIControlEvents.TouchUpInside)

@@ -17,6 +17,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="effectBgView" translatesAutoresizingMaskIntoConstraints="NO" id="UgJ-nb-Ov4">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
                 <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0f-IX-8YH">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTQ-E9-dSz">
@@ -25,7 +28,7 @@
                     </view>
                     <blurEffect style="light"/>
                 </visualEffectView>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qy-Nz-MxQ">
+                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qy-Nz-MxQ">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="m0w-eH-jgX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -68,7 +71,6 @@
                     </variation>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="5Qy-Nz-MxQ" secondAttribute="bottom" id="0g0-If-Uyd"/>
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="110-Ik-X1s"/>
@@ -77,9 +79,13 @@
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="OAc-YL-GSP"/>
                 <constraint firstAttribute="trailing" secondItem="gcb-5F-OXg" secondAttribute="trailing" id="PNh-to-nc6"/>
                 <constraint firstItem="5Qy-Nz-MxQ" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="R4b-Ie-z9R"/>
+                <constraint firstAttribute="bottom" secondItem="UgJ-nb-Ov4" secondAttribute="bottom" id="UMx-Se-wkK"/>
+                <constraint firstItem="UgJ-nb-Ov4" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="Z9Y-vR-fFU"/>
                 <constraint firstAttribute="trailing" secondItem="w0f-IX-8YH" secondAttribute="trailing" id="dLN-NA-D9B"/>
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="ecc-f6-tlq"/>
                 <constraint firstAttribute="trailing" secondItem="5Qy-Nz-MxQ" secondAttribute="trailing" id="frQ-yp-v9B"/>
+                <constraint firstItem="UgJ-nb-Ov4" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="j6q-o1-2Qh"/>
+                <constraint firstAttribute="trailing" secondItem="UgJ-nb-Ov4" secondAttribute="trailing" id="nA3-j2-SwP"/>
                 <constraint firstItem="5Qy-Nz-MxQ" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="rk6-Xf-h09"/>
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="uh5-Iw-2bm"/>
             </constraints>
@@ -91,4 +97,7 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="effectBgView" width="138" height="245"/>
+    </resources>
 </document>

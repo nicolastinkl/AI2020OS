@@ -349,7 +349,7 @@ class AIProductInfoViewController: UIViewController {
 				layout.left == layout.superview!.left
 				layout.top == layout.superview!.top
 				layout.right == layout.superview!.right
-				layout.height == 44.0 + 10.0
+				layout.height == 44.0 + 10.0 + 17
 			})
             
             navi.backButton.setImage(UIImage(named: "AI_ProductInfo_Home_Back"), forState: UIControlState.Normal)
@@ -691,7 +691,7 @@ class AIProductInfoViewController: UIViewController {
         addNewSubView(pLabel, preView: bubbleViewContain)
         pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
         let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
-        addNewSubView(hView4!, preView: pLabel)
+        addNewSubView(hView4!, preView: pLabel, color: UIColor.clearColor(), space: 10)
         hView4?.fillDataWithModel(dataModel?.provider)
         let lineView3 = addSplitView()
         
@@ -936,6 +936,7 @@ class AIProductInfoViewController: UIViewController {
         if let button = sender as? DesignableButton {
             button.setBackgroundImage(nil, forState: UIControlState.Normal)
             button.borderColor = UIColor.whiteColor()
+            button.associatedName = "0"
         }
     }
     
