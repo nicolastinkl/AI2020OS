@@ -43,8 +43,9 @@ class AIServerProviderView: UIView {
         if let model = model {
             name.text = model.name ?? ""
             des.text = model.desc ?? ""
-            number.text = String(format: "AIServerProviderView.ServiceCustomerFormat", arguments: [model.service_times ?? ""])
-            radio.text = String(format: "AIServerProviderView.ServiceRateFormat", arguments: [model.good_rate ?? ""])
+            number.text = String(format: "AIServerProviderView.ServiceCustomerFormat".localized, model.service_times ?? "")
+            let str = "AIServerProviderView.ServiceRateFormat".localized
+            radio.text = String(format: str, model.good_rate ?? "")
 
             image.sd_setImageWithURL(NSURL(string: model.icon ?? ""), placeholderImage: smallPlace())
             image.userInteractionEnabled = true

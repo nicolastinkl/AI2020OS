@@ -33,9 +33,9 @@
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 wished" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgy-sM-I6s">
-                    <rect key="frame" x="76" y="43" width="153" height="31"/>
+                    <rect key="frame" x="76" y="43" width="100" height="31"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="153" id="3Yu-ic-CpK"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="3Yu-ic-CpK"/>
                         <constraint firstAttribute="height" constant="21" id="55l-l2-AGG"/>
                         <constraint firstAttribute="width" constant="361" id="CdD-pH-ojS"/>
                         <constraint firstAttribute="height" constant="31" id="OsV-dO-Lke"/>
@@ -62,7 +62,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 more to " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-ZK-99A">
-                    <rect key="frame" x="290" y="43" width="300" height="31"/>
+                    <rect key="frame" x="237" y="43" width="300" height="31"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="361" id="MAR-Hi-ZBO"/>
                         <constraint firstAttribute="height" constant="31" id="R9S-T8-AxE"/>
@@ -84,7 +84,7 @@
                     </variation>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Wish_Make_wish" translatesAutoresizingMaskIntoConstraints="NO" id="gzd-0R-nfS">
-                    <rect key="frame" x="264" y="48" width="18" height="21"/>
+                    <rect key="frame" x="211" y="48" width="18" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="DYV-0i-rXI"/>
                         <constraint firstAttribute="width" constant="18" id="tzD-tE-i1d"/>
