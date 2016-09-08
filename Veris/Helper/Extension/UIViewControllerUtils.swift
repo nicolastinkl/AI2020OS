@@ -54,7 +54,7 @@ extension UIViewController {
      
      - returns: UIViewController实例
      */
-    class func initFromStoryboard(storyboardName: String = "Main", storyboardID: String? = nil) -> Self {
+    class func initFromStoryboard(storyboardName: String, storyboardID: String? = nil) -> Self {
         return instantiateFromStoryboardHelper(storyboardName, storyboardID: storyboardID)
     }
     

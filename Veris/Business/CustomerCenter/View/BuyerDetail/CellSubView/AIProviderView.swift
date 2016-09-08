@@ -25,7 +25,9 @@ class AIProviderView: UIView {
 
         selfView.title.font = AITools.myriadSemiCondensedWithSize(63/PurchasedViewDimention.CONVERT_FACTOR)
         selfView.content.font = AITools.myriadLightSemiCondensedWithSize(42/PurchasedViewDimention.CONVERT_FACTOR)
-
+        if let headURL = AILocalStore.headURL {
+            selfView.avator.sd_setImageWithURL(NSURL(string: headURL), placeholderImage: UIImage(named: "se_customer_icon"))
+        }
         return selfView
     }
 

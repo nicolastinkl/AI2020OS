@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -21,7 +21,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="effectBgView" translatesAutoresizingMaskIntoConstraints="NO" id="Xr1-Rs-A9y">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0f-IX-8YH">
+                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0f-IX-8YH">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTQ-E9-dSz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -50,7 +50,7 @@
                             </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iH5-o7-Ffp">
-                            <rect key="frame" x="0.0" y="54" width="600" height="546"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         </scrollView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -59,10 +59,16 @@
                         <constraint firstItem="Uk4-p7-9sv" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" id="TN7-lD-zcT"/>
                         <constraint firstItem="Uk4-p7-9sv" firstAttribute="top" secondItem="gcb-5F-OXg" secondAttribute="top" id="UNC-Uy-dUI"/>
                         <constraint firstAttribute="bottom" secondItem="iH5-o7-Ffp" secondAttribute="bottom" id="W8G-XH-Q5n"/>
+                        <constraint firstItem="iH5-o7-Ffp" firstAttribute="top" secondItem="gcb-5F-OXg" secondAttribute="top" id="mRi-QI-qP9"/>
                         <constraint firstItem="iH5-o7-Ffp" firstAttribute="top" secondItem="Uk4-p7-9sv" secondAttribute="bottom" id="uA6-fL-oDG"/>
                         <constraint firstAttribute="trailing" secondItem="iH5-o7-Ffp" secondAttribute="trailing" id="wEA-4a-7TD"/>
                         <constraint firstAttribute="trailing" secondItem="Uk4-p7-9sv" secondAttribute="trailing" id="yxi-Jl-lxs"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="uA6-fL-oDG"/>
+                        </mask>
+                    </variation>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7H-H6-6Ps">
                     <rect key="frame" x="512" y="557" width="70" height="30"/>
@@ -79,7 +85,6 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="x7H-H6-6Ps" secondAttribute="bottom" constant="13" id="069-0j-4Q5"/>
                 <constraint firstItem="w0f-IX-8YH" firstAttribute="leading" secondItem="kgd-tX-Y0E" secondAttribute="leading" id="110-Ik-X1s"/>
@@ -108,6 +113,6 @@
     </objects>
     <resources>
         <image name="AI_Superiority_bg" width="414" height="713"/>
-        <image name="effectBgView" width="308" height="485"/>
+        <image name="effectBgView" width="138" height="245"/>
     </resources>
 </document>

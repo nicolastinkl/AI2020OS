@@ -119,6 +119,7 @@ class AIWishVowViewController: UIViewController {
         let bubbleViewContain = UIView()
         bubbleViewContain.setHeight(0)
         let modelHotCount = wishModel.recommended_wish_list?.count
+        var rwidth: CGFloat = 0
         if modelHotCount > 0 {
             var i = 0
             for hotModel in wishModel.recommended_wish_list! {
@@ -147,14 +148,22 @@ class AIWishVowViewController: UIViewController {
                 bubbleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIWishVowViewController.prewishReComAction(_:))))
                 i += 1
             }
+            rwidth = CGFloat(98 * (i + 1))
             bubbleViewContain.setHeight(125)
         }
-        addNewSubView(bubbleViewContain, preView: title1, space : 0)
+        let bubbleScrollViewReCmt = UIScrollView()
+        bubbleScrollViewReCmt.showsVerticalScrollIndicator = false
+        bubbleScrollViewReCmt.showsHorizontalScrollIndicator = false
+        bubbleScrollViewReCmt.contentSize = CGSizeMake(rwidth, 125)
+        bubbleViewContain.setWidth(rwidth)
+        bubbleScrollViewReCmt.setHeight(125)
+        bubbleScrollViewReCmt.addSubview(bubbleViewContain)
+        addNewSubView(bubbleScrollViewReCmt, preView: title1, space : 0)
         
         let title2 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         title2.icon.image = UIImage(named: "AI_Wish_Make_hot")
         title2.title.text = "Popular Wish"
-        addNewSubView(title2, preView: bubbleViewContain, space : 12)
+        addNewSubView(title2, preView: bubbleScrollViewReCmt, space : 12)
         
         
         /**
@@ -163,6 +172,7 @@ class AIWishVowViewController: UIViewController {
         let bubbleViewContainHot = UIView()
         bubbleViewContainHot.setHeight(0)
         let modelHotHotCount = wishModel.hot_wish_list?.count
+        var hwidth: CGFloat = 0
         if modelHotHotCount > 0 {
             var i = 0
             for hotModel in wishModel.hot_wish_list! {
@@ -191,9 +201,19 @@ class AIWishVowViewController: UIViewController {
                 bubbleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIWishVowViewController.prewishHotAction(_:))))
                 i += 1
             }
+            hwidth = CGFloat(98 * (i + 1))
             bubbleViewContainHot.setHeight(125)
         }
-        addNewSubView(bubbleViewContainHot, preView: title2, space : 0)
+        
+        let bubbleScrollViewHot = UIScrollView()
+        bubbleScrollViewHot.showsVerticalScrollIndicator = false
+        bubbleScrollViewHot.showsHorizontalScrollIndicator = false
+        bubbleScrollViewHot.contentSize = CGSizeMake(hwidth, 125)
+        bubbleViewContainHot.setWidth(hwidth)
+        bubbleScrollViewHot.setHeight(125)
+        bubbleScrollViewHot.addSubview(bubbleViewContainHot)
+        
+        addNewSubView(bubbleScrollViewHot, preView: title2, space : 0)
         
     }
     

@@ -59,6 +59,9 @@ struct AIRemoteNotificationParameters {
         }
         dispatch_once(&AISingleton.predicate, {
             AISingleton.instance = AIRemoteNotificationHandler()
+            #if DEBUG
+            AVPush.setProductionMode(false)
+            #endif
             })
         return AISingleton.instance!
     }
@@ -108,14 +111,14 @@ struct AIRemoteNotificationParameters {
             return false
         }
 
-
+        let data: [String : AnyObject] = ["paramList" : notification]
         // Create our Installation query
         let pushQuery = AVInstallation.query()
         pushQuery.whereKey(AIRemoteNotificationParameters.UserIdentifier, equalTo: toUser)
         // Send push notification to query
         let push = AVPush()
         push.setQuery(pushQuery) // Set our Installation query
-        push.setData(notification)
+        push.setData(data)
         push.sendPushInBackground()
 
         return true
@@ -135,8 +138,7 @@ struct AIRemoteNotificationParameters {
         //如果是抢单通知
         let key = AIRemoteNotificationKeys.NotificationType
         let paramDic: Dictionary = userinfo["paramList"] as! Dictionary<String, AnyObject>
-        let msgDic: Dictionary = userinfo["aps"] as! Dictionary<String, AnyObject>
-        print("\(msgDic)")
+
         if let value = paramDic[key] as? String {
             if value == AIRemoteNotificationParameters.GrabOrderType {
                 UIViewController.showAlertViewController()
@@ -167,6 +169,7 @@ struct AIRemoteNotificationParameters {
                 topVC.presentViewController(buyerDetailViewController, animated: false, completion: {
                     let vc = AAProviderDialogViewController.initFromNib()
                     vc.roomNumber = roomNumber
+                    vc.delegate = buyerDetailViewController
                     buyerDetailViewController.providerDialogViewController = vc
                     buyerDetailViewController.presentViewController(vc, animated: true, completion: nil)
                 })
