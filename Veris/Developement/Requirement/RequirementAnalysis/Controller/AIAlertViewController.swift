@@ -162,8 +162,8 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
             AIAlertView().showError("入参缺失", subTitle: "in_serviceInstId")
             return
         }
-        let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
-        AIServiceExecuteRequester.defaultHandler().grabOrder(serviceInstId: in_serviceInstId, providerId: userId, success: { (businessInfo) in
+        //let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
+        AIServiceExecuteRequester.defaultHandler().grabOrder(serviceInstId: in_serviceInstId, success: { (businessInfo) in
             let result = businessInfo.grabResult
             if result == GrabResultEnum.Success {
                 let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIContestSuccessViewController) as! AIContestSuccessViewController
