@@ -97,7 +97,8 @@ struct AILocalStore {
     }
     
     static var userId: Int {
-       return userDefaults.objectForKey(AILoginUtil.KEY_USER_ID) as! Int
+        let luserID: String = userDefaults.objectForKey(AILoginUtil.KEY_USER_ID) as! String
+       return luserID.toInt()!
     }
 
     static var headURL: String? {

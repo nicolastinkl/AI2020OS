@@ -16,7 +16,7 @@ import SwiftyJSON
     //获取proposal气泡列表
     func getPoposalBubbles(success: (responseData: AIProposalPopListModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     //获取proposal详情
-    func queryCustomerProposalDetail(proposalId: Int, success : (responseData: AIProposalInstModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func queryCustomerProposalDetail(params: [String : AnyObject], success : (responseData: AIProposalInstModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
 class MockProposalService: NSObject {
@@ -56,7 +56,7 @@ extension MockProposalService : ProposalService {
         }
     }
 
-    @objc func queryCustomerProposalDetail(proposalId: Int, success : (responseData: AIProposalInstModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    @objc func queryCustomerProposalDetail(params: [String : AnyObject], success : (responseData: AIProposalInstModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         if let path = NSBundle.mainBundle().pathForResource("BusinessTravel", ofType: "json") {
             let data: NSData? = NSData(contentsOfFile: path)
 
@@ -219,11 +219,11 @@ class BDKProposalService: MockProposalService {
     - parameter fail:    <#fail description#>
     - parameter errDes:  <#errDes description#>
     */
-    override func queryCustomerProposalDetail(proposalId: Int, success : (responseData: AIProposalInstModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    override func queryCustomerProposalDetail(params: [String : AnyObject], success : (responseData: AIProposalInstModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
 
         message.url = AIApplication.AIApplicationServerURL.findCustomerProposalDetail.description
-        let body = ["data":["proposal_id": proposalId], "desc":["data_mode":"0", "digest":""]]
+        let body = ["data" : params, "desc" : ["data_mode" : "0", "digest" : ""]]
         message.body = NSMutableDictionary(dictionary: body)
 
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in

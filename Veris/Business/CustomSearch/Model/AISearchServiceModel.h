@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSString<Optional> *name;
 @property (nonatomic, strong) NSString<Optional> *icon;
 @property (nonatomic, strong) NSString<Optional> *desc;
+@property (nonatomic, strong) NSString<Optional> *like;
+@property (nonatomic, strong) NSString<Optional> *hot;
 @property (nonatomic, strong) NSString<Optional> *order_time;
 @property (nonatomic, strong) AIPriceBusiModel<Optional> *price;
 @property (nonatomic, strong) NSArray<Optional, AISearchServiceModel> *sub_service_list;

@@ -38,6 +38,8 @@ class AIBuyerDetailViewController: UIViewController {
 	
     var audioAssistantModel: AudioAssiatantModel = .None
     var isNowAssisting: Bool = false
+    var queryType: Int = -1
+    var queryUserID: Int = -1
 
     var isNowExcutingAnchor: Bool {
         get {
@@ -552,7 +554,7 @@ class AIBuyerDetailViewController: UIViewController {
 	func openDeletedTableView(animated: Bool) {
         // Send Anchor
         
-        if audioAssistantModel == .Sender {
+        if audioAssistantModel == .Receiver {
             let anchor = AIAnchor()
             anchor.type = AIAnchorType.Touch
             anchor.step = AIAnchorStep.After
@@ -570,7 +572,7 @@ class AIBuyerDetailViewController: UIViewController {
 	func closeDeletedTableView(animated: Bool) {
         // Send Anchor
         
-        if audioAssistantModel == .Sender {
+        if audioAssistantModel == .Receiver {
             let anchor = AIAnchor()
             anchor.type = AIAnchorType.Touch
             anchor.step = AIAnchorStep.After
@@ -655,8 +657,13 @@ class AIBuyerDetailViewController: UIViewController {
 				
 				cView.updateConstraints()
 			}
-			
-			BDKProposalService().queryCustomerProposalDetail(m.proposal_id, success: { [weak self](responseData) -> Void in
+
+            var params: [String : AnyObject] = ["proposal_id" : m.proposal_id]
+            if queryUserID != -1 && queryType == -1 {
+                params = ["proposal_id" : m.proposal_id, "query_type" : queryType, "query_userid" : queryUserID]
+            }
+
+			BDKProposalService().queryCustomerProposalDetail(params, success: { [weak self](responseData) -> Void in
 				
 				if let viewController = self {
 					// 清空已删除
@@ -716,7 +723,7 @@ extension AIBuyerDetailViewController: ServiceRestoreToolBarDelegate {
 	// MARK: - ServiceRestoreToolBarDelegate
 	func serviceRestoreToolBar(serviceRestoreToolBar: ServiceRestoreToolBar, didClickLogoAtIndex index: Int) {
         // Send Anchor
-        if audioAssistantModel == .Sender {
+        if audioAssistantModel == .Receiver {
             let anchor = AIAnchor()
             anchor.type = AIAnchorType.Touch
             anchor.step = AIAnchorStep.After
@@ -744,7 +751,7 @@ extension AIBuyerDetailViewController: ServiceRestoreToolBarDelegate {
                 weak var wf = self
                 JSSAlertView().confirm(self, title: name, text: text, customIcon: logo.image, customIconSize: CGSizeMake(logoWidth, logoWidth), onComfirm: { () -> Void in
                 // Send Anchor
-                if self.audioAssistantModel == .Sender {
+                if self.audioAssistantModel == .Receiver {
                     let anchor = AIAnchor()
                     anchor.type = AIAnchorType.Touch
                     anchor.step = AIAnchorStep.After
@@ -766,7 +773,7 @@ extension AIBuyerDetailViewController: ServiceRestoreToolBarDelegate {
 	
 	func serviceRestoreToolBarDidClickBlankArea(serviceRestoreToolBar: ServiceRestoreToolBar) {
         // Send Anchor
-        if audioAssistantModel == .Sender {
+        if audioAssistantModel == .Receiver {
             let anchor = AIAnchor()
             anchor.type = AIAnchorType.Touch
             anchor.className = instanceClassName()
@@ -938,7 +945,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                 viewController.selectCurrentIndex = indexPath.row
                 showTransitionStyleCrossDissolveView(viewController)
                 // Send Anchor
-                if audioAssistantModel == .Sender {
+                if audioAssistantModel == .Receiver {
                     let anchor = AIAnchor()
                     anchor.type = AIAnchorType.Touch
                     anchor.step = AIAnchorStep.After
@@ -956,7 +963,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
 
             }
             // Send Anchor
-            if audioAssistantModel == .Sender {
+            if audioAssistantModel == .Receiver {
                 let anchor = AIAnchor()
                 anchor.type = AIAnchorType.Touch
                 anchor.step = AIAnchorStep.After
@@ -980,7 +987,7 @@ extension AIBuyerDetailViewController: AIBueryDetailCellDetegate {
 		
         // Send Anchor
         
-        if audioAssistantModel == .Sender {
+        if audioAssistantModel == .Receiver {
             let anchor = AIAnchor()
             anchor.type = AIAnchorType.Normal
             anchor.className = instanceClassName()
@@ -1041,7 +1048,7 @@ extension AIBuyerDetailViewController: AISuperSwipeableCellDelegate {
 	func cellDidClose(cell: UITableViewCell!) {
 		self.openCell = false
         // Send Anchor
-        if audioAssistantModel == .Sender {
+        if audioAssistantModel == .Receiver {
             let anchor = AIAnchor()
             anchor.type = AIAnchorType.Normal
             anchor.className = instanceClassName()
@@ -1067,7 +1074,7 @@ extension AIBuyerDetailViewController: AISuperSwipeableCellDelegate {
 		curretCell = cell as? AIBueryDetailCell
 //        self.tableView.userInteractionEnabled = false
         // Send Anchor
-        if audioAssistantModel == .Sender {
+        if audioAssistantModel == .Receiver {
             let anchor = AIAnchor()
             anchor.type = AIAnchorType.Normal
             anchor.step = AIAnchorStep.After
@@ -1097,7 +1104,7 @@ extension AIBuyerDetailViewController: SettingClickDelegate {
 			BDKProposalService().updateParamSettingState(customerId: userIdInt, serviceId: model.service_id, proposalId: (self.bubbleModel?.proposal_id)!, roleId: model.role_id, flag: parentView.isSetted, success: { () -> Void in
 				AILog("success")
                 // Send Anchor
-                if wf!.audioAssistantModel == .Sender {
+                if wf!.audioAssistantModel == .Receiver {
                     let anchor = AIAnchor()
                     anchor.type = AIAnchorType.Touch
                     anchor.step = AIAnchorStep.After
@@ -1142,7 +1149,7 @@ extension AIBuyerDetailViewController: UIScrollViewDelegate {
 	}
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         // Send Anchor
-        if self.audioAssistantModel == .Sender {
+        if self.audioAssistantModel == .Receiver {
             let anchor = AIAnchor()
             anchor.type = AIAnchorType.Normal
             anchor.step = AIAnchorStep.After
@@ -1155,8 +1162,6 @@ extension AIBuyerDetailViewController: UIScrollViewDelegate {
             anchor.selector = "scrollViewDidEndDecelerating"
             AudioAssistantManager.sharedInstance.sendAnchor(anchor)
         }
-
-
     }
 }
 
@@ -1250,14 +1255,22 @@ extension AIBuyerDetailViewController : AnchorProcess {
 
 extension AIBuyerDetailViewController: AIDialogDelegate {
     func dialogDidFinished() {
-        audioAssistantModel = .None
+        cleanQueryData()
         handleEnableWhenAppear()
     }
 
+    func cleanQueryData() {
+        queryType = -1
+        queryUserID = -1
+        audioAssistantModel = .None
+    }
+
     func dialogDidError() {
+        cleanQueryData()
         let alertView = AIAlertView()
         alertView.showCloseButton = false
         alertView.addButton("确定") {
+            
             self.customerDialogViewController?.dismissViewControllerAnimated(true, completion: nil)
         }
         alertView.showError("Oops！", subTitle: "拨号失败~")

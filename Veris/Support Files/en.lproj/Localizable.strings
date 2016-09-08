@@ -286,8 +286,13 @@
 
 
 
-
-
+/*
+ * ./Veris/Business/CustomSearch
+ */
+"CustomSearch.sortBy" = "Sort by";
+"CustomSearch.price" = "Price";
+"CustomSearch.filter" = "Filter";
+"CustomSearch.makeWish" = "   Make a Wish";
 
 
 

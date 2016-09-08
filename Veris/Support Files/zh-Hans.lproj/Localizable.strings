@@ -274,3 +274,11 @@
 "LoginConstants.passwordPlaceholder" = "确认完成";
 "LoginConstants.EnterValidateCodePlaceholder" = "确认完成";
 "LoginConstants.SetPasswordPlaceholder" = "确认完成";
+
+/*
+ * ./Veris/Business/CustomSearch
+ */
+"CustomSearch.sortBy" = "分类";
+"CustomSearch.price" = "价格";
+"CustomSearch.filter" = "过滤";
+"CustomSearch.makeWish" = "   许愿";

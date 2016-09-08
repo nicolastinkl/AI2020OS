@@ -170,18 +170,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         application(app, openURL: url, sourceApplication: "", annotation: "")
         return true
     }
-	
-	/**
-	 Open URL
 
-	 - parameter application:       <#application description#>
-	 - parameter url:               <#url description#>
-	 - parameter sourceApplication: <#sourceApplication description#>
-	 - parameter annotation:        <#annotation description#>
-
-	 - returns: <#return value description#>
-	 */
-	
 	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
 		
 		AILog("openURL:\(url)")
@@ -300,7 +289,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(logOut), name: AIApplication.Notification.UserLoginOutNotification, object: nil)
     }
 
-    func handleRemoteNotifications(app app: UIApplication ,launchOptions: [NSObject: AnyObject]?){
+    func handleRemoteNotifications(app app: UIApplication, launchOptions: [NSObject: AnyObject]?) {
         if let launchOptions = launchOptions {
             if let remoteUserInfo = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey] {
                 application(app, didReceiveRemoteNotification: remoteUserInfo as! [NSObject : AnyObject], fetchCompletionHandler: { (result) in
