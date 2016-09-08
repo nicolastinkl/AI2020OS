@@ -215,4 +215,39 @@ class BDKExcuteManager: ExcuteManager {
             fail(errType: error, errDes: errorDes ?? "")
         }
     }
+    
+    /**
+     启动服务流程实例
+     
+     - parameter serviceInstId: <#serviceInstId description#>
+     - parameter success:       <#success description#>
+     - parameter fail:          <#fail description#>
+     */
+    func startServiceProcess(serviceInstId: Int, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        let message = AIMessage()
+        let url = AIApplication.AIApplicationServerURL.startServiceProcess.description
+        message.url = url
+        
+        let data: [String: AnyObject] = ["service_instance_id": serviceInstId]
+        message.body = BDKTools.createRequestBody(data)
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            guard let dic = response as? [NSObject : AnyObject] else {
+                fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
+                return
+            }
+            
+            guard let c = dic["result_code"] as? Int else {
+                fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
+                return
+            }
+            
+            success(responseData: ResultCode(rawValue: c)!)
+            
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes ?? "")
+        }
+
+    }
 }
