@@ -265,12 +265,12 @@
  * ./Veris/Business/Login/LoginConstants
  */
 
-"LoginConstants.confirmButton" = "确认完成"
-"LoginConstants.forgotPasswordPrompt" = "确认完成"
-"LoginConstants.validationPrompt" = "确认完成"
-"LoginConstants.validateButtonDefault" = "确认完成"
-"LoginConstants.nextStep" = "确认完成"
-"LoginConstants.UserIdPlaceholder" = "确认完成"
-"LoginConstants.passwordPlaceholder" = "确认完成"
-"LoginConstants.EnterValidateCodePlaceholder" = "确认完成"
-"LoginConstants.SetPasswordPlaceholder" = "确认完成"
+"LoginConstants.confirmButton" = "确认完成";
+"LoginConstants.forgotPasswordPrompt" = "确认完成";
+"LoginConstants.validationPrompt" = "确认完成";
+"LoginConstants.validateButtonDefault" = "确认完成";
+"LoginConstants.nextStep" = "确认完成";
+"LoginConstants.UserIdPlaceholder" = "确认完成";
+"LoginConstants.passwordPlaceholder" = "确认完成";
+"LoginConstants.EnterValidateCodePlaceholder" = "确认完成";
+"LoginConstants.SetPasswordPlaceholder" = "确认完成";
