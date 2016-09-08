@@ -23,7 +23,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var waitingMask: UIVisualEffectView!
     @IBOutlet weak var customerView: AICustomerBannerView!
     
-    var serviceId: Int!
+    var serviceId: Int = 0
     var providerId: Int = 0
     
     private var procedure: Procedure?
