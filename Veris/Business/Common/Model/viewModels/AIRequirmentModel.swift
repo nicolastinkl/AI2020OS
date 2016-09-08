@@ -66,6 +66,10 @@ class AssignServiceInstModel: AIBaseViewModel {
     var serviceInstStatus: ServiceInstStatus!
     var providerUserId: Int!
     var limits: [AILimitModel]?
+    //add by liux at 20160910 增加字段
+    var serviceSpecId: String?
+    var isScrambleOrder: String?
+    var offeringId: String?
 
     override init() {
         ratingLevel = 10
@@ -91,6 +95,10 @@ class AssignServiceInstModel: AIBaseViewModel {
                 assignServiceInst.serviceName = serviceInstJSONModel.relservice_name
                 assignServiceInst.ratingLevel = serviceInstJSONModel.service_rating_level?.floatValue
                 assignServiceInst.providerUserId = Int(serviceInstJSONModel.reluser_id)
+                //add by liux at 20160910 增加字段
+                assignServiceInst.serviceSpecId = serviceInstJSONModel.relservice_spec_id
+                assignServiceInst.isScrambleOrder = serviceInstJSONModel.is_scramble_order
+                assignServiceInst.offeringId = String(serviceInstJSONModel.relservice_id)
                 let jsonModelProgress = serviceInstJSONModel.relservice_progress as NSDictionary
                 if jsonModelProgress.objectForKey("status") != nil {
                     let statusInt = jsonModelProgress.objectForKey("status") as! Int
