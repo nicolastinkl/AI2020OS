@@ -45,13 +45,24 @@ class AIProductCommentsViewController: UIViewController {
 	}
 	
 	func fetchComments() {
+        view.showLoading()
 		let service = AIProductAllCommentsService()
 		service.queryAllComments(service_id, filter_type: filterBar.selectedIndex + 1, page_size: 20, page_number: 1, success: { [weak self](res) in
+            self?.view.hideLoading()
 			self?.comments = res
 			self?.tableView.reloadData()
 		}) { (errType, errDes) in
+            self.view.hideLoading()
+            self.view.showErrorView()
 		}
 	}
+    
+    /**
+     重新请求数据
+     */
+    func retryNetworkingAction() {
+        fetchComments()
+    }
 	
 	func setupFilterBar() {
 		let titles = [
@@ -309,7 +320,6 @@ class AIProductCommentCell: UITableViewCell {
 			model.comment?.sizeWithFont(AITools.myriadBoldWithSize(15), forWidth: UIScreen.mainScreen().bounds.width).height ?? 0
 		
 		if let urls = model.photos {
-			
 			let intPers = Int(UIScreen.mainScreen().bounds.width / imageViewWidth)
 			let pers = CGFloat(urls.count) / CGFloat(intPers)
 			let persInt = Int(urls.count) / intPers

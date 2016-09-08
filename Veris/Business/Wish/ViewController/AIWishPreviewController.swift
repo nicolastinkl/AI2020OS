@@ -70,10 +70,17 @@ class AIWishPreviewController: UIViewController {
             self.view.hideLoading()
             if let resultArray = obj as? [String] {
                 self.initSubViews(resultArray)
+            } else {
+                  self.view.showErrorView()
             }
         }
     }
-    
+    /**
+     重新请求数据
+     */
+    func retryNetworkingAction() {        
+        initData()
+    }
     /// 初始化处理
     func initSubViews(cotentsArray: [String]) {
         averageMenoy = Int(model?.money_avg ?? 0)

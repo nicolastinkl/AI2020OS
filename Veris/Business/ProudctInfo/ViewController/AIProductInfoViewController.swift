@@ -248,8 +248,7 @@ class AIProductInfoViewController: UIViewController {
     /**
      重新请求数据
      */
-    func retryNetworkingAction() {
-        
+    func retryNetworkingAction() {        
         requestData()
     }
     
@@ -598,7 +597,7 @@ class AIProductInfoViewController: UIViewController {
 		// 评论数据 
       
         // Setup 3:
-        let commond = getTitleLabelView("商品评价", desctiption: "好评率50%")
+        let commond = getTitleLabelView("商品评价", desctiption: "")
         addNewSubView(commond, preView: lineView1)
         commond.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
         commond.userInteractionEnabled = true
