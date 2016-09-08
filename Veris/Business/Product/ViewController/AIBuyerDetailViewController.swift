@@ -160,11 +160,37 @@ class AIBuyerDetailViewController: UIViewController {
 		// Add Pull To Referesh..
 		tableView.addHeaderWithCallback { [weak self]() -> Void in
 			if let strongSelf = self {
+                // Send Anchor
+                if strongSelf.audioAssistantModel == .Receiver {
+                    let anchor = AIAnchor()
+                    anchor.type = AIAnchorType.Normal
+                    anchor.step = AIAnchorStep.After
+                    anchor.rootViewControllerName = strongSelf.instanceClassName()
+                    anchor.className = strongSelf.instanceClassName()
+                    anchor.selector = "addHeaderWithCallback"
+                    AudioAssistantManager.sharedInstance.sendAnchor(anchor)
+                }
 				// init Data
 				strongSelf.initData()
 			}
 		}
-		
+
+        tableView.addHeaderRefreshEndCallback { [weak self]() -> Void in
+            // Send Anchor
+            if let strongSelf = self {
+                // Send Anchor
+                if strongSelf.audioAssistantModel == .Receiver {
+                    let anchor = AIAnchor()
+                    anchor.type = AIAnchorType.Normal
+                    anchor.step = AIAnchorStep.After
+                    anchor.rootViewControllerName = strongSelf.instanceClassName()
+                    anchor.className = strongSelf.instanceClassName()
+                    anchor.selector = "addHeaderRefreshEndCallback"
+                    AudioAssistantManager.sharedInstance.sendAnchor(anchor)
+                }
+            }
+        }
+
 		// Default request frist networking from asiainfo server.
 		self.tableView.headerBeginRefreshing()
 
@@ -1249,6 +1275,10 @@ extension AIBuyerDetailViewController : AnchorProcess {
             } else {
                 deletedTableView.setContentOffset(CGPointMake(anchor.scrollOffsetX!, anchor.scrollOffsetY!), animated: true)
             }
+        } else if anchor.selector == "addHeaderWithCallback" {
+            tableView.headerBeginRefreshing()
+        } else if anchor.selector == "addHeaderRefreshEndCallback" {
+            tableView.headerEndRefreshing()
         }
     }
 }
