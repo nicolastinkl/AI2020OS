@@ -19,6 +19,8 @@ struct AIRemoteNotificationKeys {
     static let NotificationType = "NotificationType"                                // 通知类型
     static let ProposalID = "ProposalID"
     static let ProposalName = "ProposalName"
+    static let QueryType = "QueryType"
+    static let QueryUserID = "QueryUserID"
 }
 
 
@@ -111,7 +113,7 @@ struct AIRemoteNotificationParameters {
             return false
         }
 
-        let data: [String : AnyObject] = ["paramList" : notification]
+        let data: [String : AnyObject] = ["paramList" : notification, AIRemoteNotificationKeys.MessageKey: "您有一个远程协助请求"]
         // Create our Installation query
         let pushQuery = AVInstallation.query()
         pushQuery.whereKey(AIRemoteNotificationParameters.UserIdentifier, equalTo: toUser)
@@ -143,14 +145,15 @@ struct AIRemoteNotificationParameters {
             if value == AIRemoteNotificationParameters.GrabOrderType {
                 UIViewController.showAlertViewController(paramDic)
                 
-                
             } else if value == AIRemoteNotificationParameters.AudioAssistantType {
                 // 语音协助的 接受
                 let topVC = topViewController()
 
-                let roomNumber = userinfo[AIRemoteNotificationParameters.AudioAssistantRoomNumber] as! String
-                let proposalID = userinfo[AIRemoteNotificationKeys.ProposalID] as! Int
-                let proposalName = userinfo[AIRemoteNotificationKeys.ProposalName] as! String
+                let roomNumber = paramDic[AIRemoteNotificationParameters.AudioAssistantRoomNumber] as! String
+                let proposalID = paramDic[AIRemoteNotificationKeys.ProposalID] as! Int
+                let proposalName = paramDic[AIRemoteNotificationKeys.ProposalName] as! String
+                let queryType = paramDic[AIRemoteNotificationKeys.QueryType] as! Int
+                let queryUserID = paramDic[AIRemoteNotificationKeys.QueryUserID] as! Int
 
                 AudioAssistantManager.sharedInstance.connectionStatus = .Dialing
 
@@ -165,6 +168,8 @@ struct AIRemoteNotificationParameters {
                 buyerDetailViewController.isLaunchForAssistant = true
                 buyerDetailViewController.audioAssistantModel = .Receiver
                 buyerDetailViewController.roomNumber = String(format: "%d", roomNumber)
+                buyerDetailViewController.queryUserID = queryUserID
+                buyerDetailViewController.queryType = queryType
 
                 topVC.presentViewController(buyerDetailViewController, animated: false, completion: {
                     let vc = AAProviderDialogViewController.initFromNib()

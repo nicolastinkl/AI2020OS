@@ -26,7 +26,7 @@ extension AIBuyerBubbleModel {
 			bubble.proposal_id = model.sid
 			bubble.proposal_name = model.name
 			bubble.proposal_price = model.price?.price_show
-//                               model.proposal_price = modelJSON.price?.price_show ?? "" 
+//                               model.proposal_price = modelJSON.price?.price_show ?? ""
 			if let sub_service_list = model.sub_service_list {
 				bubble.service_list = (sub_service_list as! [AISearchServiceModel]).map({ (service) -> AIProposalServiceModel in
 					let result = AIProposalServiceModel()
@@ -35,10 +35,16 @@ extension AIBuyerBubbleModel {
 					return result
 				})
 			}
-            let selfIcon = AIProposalServiceModel()
-            selfIcon.service_id = model.sid
-            selfIcon.service_thumbnail_icon = model.icon
-            bubble.service_list.insert(selfIcon, atIndex: 0)
+			if model.icon != nil {
+				let selfIcon = AIProposalServiceModel()
+				selfIcon.service_id = model.sid
+				selfIcon.service_thumbnail_icon = model.icon
+				if bubble.service_list != nil {
+					bubble.service_list.insert(selfIcon, atIndex: 0)
+				} else {
+					bubble.service_list = [selfIcon]
+				}
+			}
 			result.append(bubble)
 		}
 		return result
@@ -50,7 +56,7 @@ extension AIBuyerBubbleModel {
 }
 
 class GridBubblesView: UIView {
-    
+	
 	var bubbleModels: [AIBuyerBubbleModel]! {
 		didSet {
 			updateUI()
@@ -76,7 +82,7 @@ class GridBubblesView: UIView {
 	
 	let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
 	let space = AITools.displaySizeFrom1242DesignSize(15)
-    let bubbleY: CGFloat = 0
+	let bubbleY: CGFloat = 0
 	
 	func updateUI() {
 		
@@ -108,7 +114,7 @@ class GridBubblesView: UIView {
 		let totalRow = (totalCount / 4) + (((totalCount % 4) > 0) ? 1 : 0)
 		
 		frame = CGRect(x: 0, y: 0, width: screenWidth, height: CGFloat(totalRow) * (bubbleWidth + space) + bubbleY)
-        invalidateIntrinsicContentSize()
+		invalidateIntrinsicContentSize()
 	}
 	
 	func tapped(tap: UITapGestureRecognizer) {
