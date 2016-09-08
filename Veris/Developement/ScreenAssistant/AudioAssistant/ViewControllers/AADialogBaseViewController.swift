@@ -8,12 +8,20 @@
 
 import UIKit
 
+
+protocol AIDialogDelegate {
+    func dialogDidFinished()
+    func dialogDidError()
+}
+
+
 class AADialogBaseViewController: UIViewController {
 	
 	var roomNumber: String!
 	@IBOutlet weak var dialogToolBar: DialogToolBar!
 	@IBOutlet weak var zoomButton: UIButton!
 
+    var delegate: AIDialogDelegate?
     var proposalModel: AIProposalInstModel?
 	
 	var status: AudioAssistantManagerConnectionStatus = .NotConnected {

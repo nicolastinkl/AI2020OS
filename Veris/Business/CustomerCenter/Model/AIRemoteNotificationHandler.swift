@@ -111,7 +111,6 @@ struct AIRemoteNotificationParameters {
             return false
         }
 
-
         // Create our Installation query
         let pushQuery = AVInstallation.query()
         pushQuery.whereKey(AIRemoteNotificationParameters.UserIdentifier, equalTo: toUser)
@@ -137,11 +136,14 @@ struct AIRemoteNotificationParameters {
 
         //如果是抢单通知
         let key = AIRemoteNotificationKeys.NotificationType
+        let paramDic: Dictionary = userinfo["paramList"] as! Dictionary<String, AnyObject>
         let msgDic: Dictionary = userinfo["aps"] as! Dictionary<String, AnyObject>
         print("\(msgDic)")
-        if let value = userinfo[key] as? String {
+        if let value = paramDic[key] as? String {
             if value == AIRemoteNotificationParameters.GrabOrderType {
                 UIViewController.showAlertViewController()
+                //let paramDic: Dictionary = userinfo["paramList"] as! Dictionary<String, String>
+                
             } else if value == AIRemoteNotificationParameters.AudioAssistantType {
                 // 语音协助的 接受
                 let topVC = topViewController()
@@ -167,6 +169,7 @@ struct AIRemoteNotificationParameters {
                 topVC.presentViewController(buyerDetailViewController, animated: false, completion: {
                     let vc = AAProviderDialogViewController.initFromNib()
                     vc.roomNumber = roomNumber
+                    vc.delegate = buyerDetailViewController
                     buyerDetailViewController.providerDialogViewController = vc
                     buyerDetailViewController.presentViewController(vc, animated: true, completion: nil)
                 })

@@ -49,6 +49,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     var timer: NSTimer?
     
     //外部传入的入参
+    var in_paramDic: Dictionary<String,String>?
     var in_serviceInstId: String? = "100000011039"
     var in_serviceSpecId: String? = "100000000202"
     
@@ -58,7 +59,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        parseInputParams()
         initViews()
         //网络请求
         requestDataInterface()
@@ -99,6 +100,12 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         dismissPopupViewController(true, completion: nil)
     }
     
+    func parseInputParams(){
+        if let in_paramDic = in_paramDic {
+            in_serviceSpecId = in_paramDic["GrabOrderServiceSpecId"]
+            in_serviceInstId = in_paramDic["GrabOrderServiceInstId"]
+        }
+    }
 
     func initViews() {
         timerControl.color = UIColor(hex: "#49bf1f")

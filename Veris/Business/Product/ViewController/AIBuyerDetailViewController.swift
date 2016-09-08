@@ -427,6 +427,7 @@ class AIBuyerDetailViewController: UIViewController {
                 let vc = AACustomerDialogViewController.initFromNib()
                 vc.proposalModel = dataSource
                 customerDialogViewController = vc
+                customerDialogViewController?.delegate = self
             }
             presentViewController(customerDialogViewController!, animated: true, completion: nil)
         }
@@ -1244,5 +1245,21 @@ extension AIBuyerDetailViewController : AnchorProcess {
                 deletedTableView.setContentOffset(CGPointMake(anchor.scrollOffsetX!, anchor.scrollOffsetY!), animated: true)
             }
         }
+    }
+}
+
+extension AIBuyerDetailViewController: AIDialogDelegate {
+    func dialogDidFinished() {
+        audioAssistantModel = .None
+        handleEnableWhenAppear()
+    }
+
+    func dialogDidError() {
+        let alertView = AIAlertView()
+        alertView.showCloseButton = false
+        alertView.addButton("确定") {
+            self.customerDialogViewController?.dismissViewControllerAnimated(true, completion: nil)
+        }
+        alertView.showError("Oops！", subTitle: "拨号失败~")
     }
 }
