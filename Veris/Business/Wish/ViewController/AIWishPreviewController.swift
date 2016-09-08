@@ -62,6 +62,7 @@ class AIWishPreviewController: UIViewController {
         Async.main(after: 0.3) {
             self.initData()
         }
+        
     }
     
     func initData() {
@@ -71,10 +72,11 @@ class AIWishPreviewController: UIViewController {
             if let resultArray = obj as? [String] {
                 self.initSubViews(resultArray)
             } else {
-                  self.view.showErrorView()
+                self.view.showErrorView()
             }
         }
     }
+    
     /**
      重新请求数据
      */
