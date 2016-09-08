@@ -11,8 +11,6 @@
 
 
 @protocol AIBuyerBubbleProportModel
-
-
 @end
 
 @interface AIBuyerBubbleProportModel : JSONModel

@@ -81,7 +81,7 @@ class AICommentInfoView: UIView {
         commentlike.addSubview(zanlabel)
         
         
-        let starRateView = StarRateView(frame: CGRect(x: 0, y: 5, width: 66, height: 12), numberOfStars: 5, foregroundImage: "star_rating_results_highlight", backgroundImage: "star_rating_results_normal" )
+        let starRateView = StarRateView(frame: CGRect(x: 0, y: 5, width: 66, height: 12), numberOfStars: 5, foregroundImage: "Comment_Star", backgroundImage: "Hollow_Star" )
         
         starRateView.userInteractionEnabled = false
         let score: CGFloat = 0
