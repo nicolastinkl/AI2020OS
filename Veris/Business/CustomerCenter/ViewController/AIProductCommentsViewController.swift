@@ -257,7 +257,7 @@ class AIFilterBar: UIView {
 			addSubview(subtitleLabel)
 			
 			titleLabel.snp_makeConstraints { (make) in
-				make.bottom.equalTo(self.snp_centerY).offset(-4)
+				make.bottom.equalTo(self.snp_centerY).offset(0)
 				make.centerX.equalTo(self)
 			}
 			
