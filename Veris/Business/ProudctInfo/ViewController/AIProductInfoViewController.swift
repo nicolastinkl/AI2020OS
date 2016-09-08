@@ -349,7 +349,7 @@ class AIProductInfoViewController: UIViewController {
 				layout.left == layout.superview!.left
 				layout.top == layout.superview!.top
 				layout.right == layout.superview!.right
-				layout.height == 44.0 + 10.0
+				layout.height == 44.0 + 10.0 + 17
 			})
             
             navi.backButton.setImage(UIImage(named: "AI_ProductInfo_Home_Back"), forState: UIControlState.Normal)
@@ -688,7 +688,7 @@ class AIProductInfoViewController: UIViewController {
         let pLabel = getTitleLabelView("服务者介绍")
         let tap5 = UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.providerDetailPressed))
         pLabel.addGestureRecognizer(tap5)
-        addNewSubView(pLabel, preView: bubbleViewContain)
+        addNewSubView(pLabel, preView: bubbleViewContain, color: UIColor.clearColor(), space: 10)
         pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
         let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
         addNewSubView(hView4!, preView: pLabel)
@@ -936,6 +936,7 @@ class AIProductInfoViewController: UIViewController {
         if let button = sender as? DesignableButton {
             button.setBackgroundImage(nil, forState: UIControlState.Normal)
             button.borderColor = UIColor.whiteColor()
+            button.associatedName = "0"
         }
     }
     

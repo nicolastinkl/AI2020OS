@@ -37,6 +37,7 @@ class AINavigationBar: UIView {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
+        titleLabel.font = UIFont.systemFontOfSize(68/3)
 		backButton.addTarget(self, action: #selector(AINavigationBar.closeViewController), forControlEvents: UIControlEvents.TouchUpInside)
 	}
 	
