@@ -109,8 +109,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
             FLEXManager.sharedManager().toggleExplorer()
             
             let i = AVInstallation.currentInstallation()
-            i.removeObjectForKey(AIRemoteNotificationParameters.ProviderIdentifier)
-            i.setObject(1234, forKey: AIRemoteNotificationParameters.ProviderIdentifier)
+            i.removeObjectForKey(AIRemoteNotificationParameters.UserIdentifier)
+            i.setObject(1234, forKey: AIRemoteNotificationParameters.UserIdentifier)
             i.saveInBackground()
             AIAlertViewController.showAlertView()
         #endif

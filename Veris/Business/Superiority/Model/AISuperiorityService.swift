@@ -13,7 +13,7 @@ struct AISuperiorityService {
 	/// 服务首页数据接口
 	static func requestSuperiority(serviceId: String, complate: ((AnyObject?, String?) -> Void)) {
         let message = AIMessage()
-		let userId = AIUser.currentUser().id
+		let userId = AIUser.currentUser().userId
 		let body: NSDictionary = ["data": ["service_id": serviceId, "userId": userId], "desc": ["data_mode": "0", "digest": ""]]
 		
 		message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])

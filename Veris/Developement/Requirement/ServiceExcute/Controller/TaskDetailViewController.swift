@@ -24,8 +24,11 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var customerView: AICustomerBannerView!
     
     var serviceId: Int!
+    var providerId: Int = 0
     
     private var procedure: Procedure?
+    private var customer: AICustomerModel?
+    private var authorityState: AuthorityState?
 
 
     override func viewWillAppear(animated: Bool) {
@@ -46,12 +49,14 @@ class TaskDetailViewController: UIViewController {
         
         buildNavigationTitleLabel()
         
-        
-        
         loadData()
     }
     
-    private func setupCustomerView(userModel: AICustomerModel) {
+    private func setupCustomerView() {
+        guard let userModel = customer else {
+            return
+        }
+        
         customerView.userNameLabel.text = userModel.user_name
         customerView.userIconImageView.sd_setImageWithURL(NSURL(string: userModel.user_portrait_icon), placeholderImage: UIImage(named: "Avatorbibo"))
         customerView.userPhoneString = userModel.user_phone
@@ -103,8 +108,11 @@ class TaskDetailViewController: UIViewController {
             
             self.dismissLoading()
             self.procedure = responseData.procedure
-            self.setupUI(self.procedure!)
-            self.setupCustomerView(responseData.customer)
+            self.customer = responseData.customer
+            
+            self.initAuthorityState()
+            self.setupUI()
+            
             
             }) { (errType, errDes) in
                 self.dismissLoading()
@@ -112,11 +120,17 @@ class TaskDetailViewController: UIViewController {
         }
     }
     
-    private func setupUI(procedure: Procedure) {
-        nodeTitleLabel.text = procedure.node_info.node_title
-        nodeDesc.text = procedure.node_info.node_desc
+    private func setupUI() {
+        setupCustomerView()
         
-        if let params = procedure.param_list {
+        guard let p = procedure else {
+            return
+        }
+        
+        nodeTitleLabel.text = p.node_info.node_title
+        nodeDesc.text = p.node_info.node_desc
+        
+        if let params = p.param_list {
             if params.count != 0 {
                 for index in 0 ..< params.count {
                     if index == 0 {
@@ -132,31 +146,31 @@ class TaskDetailViewController: UIViewController {
             }
         }
         
-        let permissionType = procedure.permission_type.integerValue
+        authorityState?.setupAuthorityUI()
+    }
+    
+    private func initAuthorityState() {
+        guard let p = procedure else {
+            return
+        }
         
-        if permissionType == PermissionType.jurisdiction.rawValue {
-            if let jurisdictionStatus = JurisdictionStatus(rawValue: procedure.permission_value.integerValue) {
+        let permissionType = p.permission_type.integerValue
+        
+        if permissionType == ProcedureType.jurisdiction.rawValue {
+            if let jurisdictionStatus = JurisdictionStatus(rawValue: p.permission_value.integerValue) {
                 switch jurisdictionStatus {
                 case .notAuthorized:
-                    showAuthorization()
-                default:
-                    hideAuthorization()
-                    afterAuthorizationSetupUI()
+                    authorityState = NeedAuthority.getInstance(self)
+                case .alreadyAuthorized:
+                    authorityState = AlreadyAuthorized.getInstance(self)
+                case .noNeed:
+                    authorityState = NoNeedAuthority.getInstance(self)
                 }
             }
-        } else if permissionType == PermissionType.confirm.rawValue {
-            if let confirmStatus = ConfirmStatus(rawValue: procedure.permission_value.integerValue) {
-                switch confirmStatus {
-                case .notConfirm:
-                    showAuthorization()
-                default:
-                    hideAuthorization()
-                    afterAuthorizationSetupUI()
-                }
-            }
+        } else if permissionType == ProcedureType.confirm.rawValue {
+            authorityState = AlreadyAuthorized.getInstance(self)
         } else {
-            hideAuthorization()
-            afterAuthorizationSetupUI()
+            authorityState = NoNeedAuthority.getInstance(self)
         }
     }
     
@@ -187,24 +201,6 @@ class TaskDetailViewController: UIViewController {
         
         TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: false)
         bottomButton.setTitle("TaskDetailViewController.requestAuthoriztion".localized, forState: .Normal)
-        
-        
-        guard let p = procedure else {
-            return
-        }
-        
-        let permissionType = p.permission_type.integerValue
-        
-        if permissionType == PermissionType.jurisdiction.rawValue {
-            if let jurisdictionStatus = JurisdictionStatus(rawValue: p.permission_value.integerValue) {
-                switch jurisdictionStatus {
-                case .notAuthorized:
-                    TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
-                default:
-                    TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: false)
-                }
-            }
-        }
     }
     
     private func hideAuthorization() {
@@ -217,53 +213,36 @@ class TaskDetailViewController: UIViewController {
     }
     
     @IBAction func bottomButtonAction(sender: AnyObject) {
-        
+        authorityState?.bottomBtnClicked()
+    }
+    
+    func bottomBtnActionOfAlreadyAuthorized() {
         guard let p = procedure else {
             return
         }
         
-        let permissionType = p.permission_type.integerValue
-        
-        func alreadyAuthorized() {
-            switch p.status {
-            case ProcedureStatus.noStart.rawValue:
-                updateServiceStatus()
-            case ProcedureStatus.excuting.rawValue:
-                openTaskCommitViewController()
-            default:
-                break
-                
-            }
-        }
-        
-        if permissionType == PermissionType.jurisdiction.rawValue {
-            if let jurisdictionStatus = JurisdictionStatus(rawValue: p.permission_value.integerValue) {
-                switch jurisdictionStatus {
-                case .notAuthorized:
-                    submitAuthorization()
-                default:
-                    alreadyAuthorized()
-                }            }
-        } else if permissionType == PermissionType.confirm.rawValue {
-            if let confirmStatus = ConfirmStatus(rawValue: p.permission_value.integerValue) {
-                switch confirmStatus {
-                case .notConfirm:
-                    submitAuthorization()
-                default:
-                    alreadyAuthorized()
-                }
-            }
-        } else {
-            alreadyAuthorized()
+        switch p.status {
+        case ProcedureStatus.noStart.rawValue:
+            updateServiceStatus()
+        case ProcedureStatus.excuting.rawValue:
+            openTaskCommitViewController()
+        default:
+            break
+            
         }
     }
     
     private func submitAuthorization() {
+        
+        guard let c = customer else {
+            return
+        }
+        
         let manager = BDKExcuteManager()
         
         showLoading()
         
-        manager.submitRequestAuthorization(serviceId, customerId: 1, providerId: 1, success: { (responseData) in
+        manager.submitRequestAuthorization(serviceId, customerId: c.customer_id, providerId: providerId, success: { (responseData) in
             
             self.dismissLoading()
             switch responseData {
@@ -288,13 +267,16 @@ class TaskDetailViewController: UIViewController {
         manager.updateServiceNodeStatus(procedure!.procedure_inst_id.integerValue, status: ProcedureStatus.excuting, success: { (responseData) in
             
             self.dismissLoading()
-            
-            if responseData.result_code == ResultCode.success.rawValue {
+ 
+            switch responseData {
+                
+            case .success:
                 NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
                 
                 self.procedure?.status = ProcedureStatus.excuting.rawValue
                 self.bottomButton.setTitle("TaskDetailViewController.complete".localized, forState: .Normal)
-            } else {
+                
+            default:
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
             }
             
@@ -315,6 +297,95 @@ class TaskDetailViewController: UIViewController {
         
         let nav = UINavigationController(rootViewController: taskResultCommitlVC)
         presentViewController(nav, animated: true, completion: nil)
+    }
+    
+    class AuthorityState {
+        
+        let vc: TaskDetailViewController
+        
+        init(vc: TaskDetailViewController) {
+            self.vc = vc
+        }
+        
+        func setupAuthorityUI() {
+            
+        }
+        
+        func bottomBtnClicked() {
+            
+        }
+    }
+    
+    class NeedAuthority: AuthorityState {
+        
+        static private var instance: AuthorityState!
+        
+        class func getInstance(vc: TaskDetailViewController) -> AuthorityState {
+            if instance == nil {
+                instance = AuthorityState(vc: vc)
+            }
+            
+            return instance
+        }
+        override func setupAuthorityUI() {
+            vc.showAuthorization()
+            TaskDetailViewController.setBottomButtonEnabel(vc.bottomButton, enable: true)
+        }
+        
+        override func bottomBtnClicked() {
+            vc.submitAuthorization()
+        }
+    }
+    
+    class AlreadyAuthorized: AuthorityState {
+        
+        static private var instance: AuthorityState!
+        
+        class func getInstance(vc: TaskDetailViewController) -> AuthorityState {
+            if instance == nil {
+                instance = AlreadyAuthorized(vc: vc)
+            }
+            
+            return instance
+        }
+        
+        override func setupAuthorityUI() {
+            vc.hideAuthorization()
+            vc.afterAuthorizationSetupUI()
+        }
+        
+        override func bottomBtnClicked() {
+            vc.bottomBtnActionOfAlreadyAuthorized()
+        }
+    }
+    
+    class WaitingAuthorized: AuthorityState {
+        
+        static private var instance: AuthorityState!
+        
+        class func getInstance(vc: TaskDetailViewController) -> AuthorityState {
+            if instance == nil {
+                instance = WaitingAuthorized(vc: vc)
+            }
+            
+            return instance
+        }
+        
+        override func setupAuthorityUI() {
+            vc.showAuthorization()
+            TaskDetailViewController.setBottomButtonEnabel(vc.bottomButton, enable: false)
+        }
+    }
+    
+    class NoNeedAuthority: AlreadyAuthorized {
+        
+        override class func getInstance(vc: TaskDetailViewController) -> AuthorityState {
+            if instance == nil {
+                instance = NoNeedAuthority(vc: vc)
+            }
+            
+            return instance
+        }
     }
 }
 

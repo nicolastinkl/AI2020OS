@@ -16,14 +16,16 @@ import UIKit
 
 class AIUser: NSObject {
 	var type: AIUserType = .Customer
-	var id: Int = 100000002410
+	var userId: Int = 0
+    var customerId: Int = 0
+    var providerId: Int = 0
     var headURL = ""
 	
 	class func currentUser() -> AIUser {
 		let result = AIUser()
         let defaults = NSUserDefaults.standardUserDefaults()
 		if let userId = defaults.objectForKey(kDefault_UserID) as? Int {
-			result.id = userId
+			result.userId = userId
 		}
 		if let userType = defaults.objectForKey(kDefault_UserType) as? Int {
 			result.type = AIUserType(rawValue: userType)!
@@ -36,7 +38,7 @@ class AIUser: NSObject {
 	
 	func save() {
 		let defaults = NSUserDefaults.standardUserDefaults()
-        let stringID = "\(id)"
+        let stringID = userId.toString()
 		defaults.setObject(stringID, forKey: kDefault_UserID) // UserID的类型是String,与上面的函数冲突
 		defaults.setObject(type.rawValue, forKey: kDefault_UserType)
 		defaults.synchronize()
