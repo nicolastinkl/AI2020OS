@@ -747,7 +747,7 @@
 		93C289C41D178A1A003F0473 /* AISuperiorityIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C289C31D178A1A003F0473 /* AISuperiorityIconTextView.swift */; };
 		93C289C61D178A27003F0473 /* AISuperiorityIconTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C289C51D178A27003F0473 /* AISuperiorityIconTextView.xib */; };
 		93C31B3A1D504B24008DD302 /* AISuperiorityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C31B391D504B24008DD302 /* AISuperiorityService.swift */; };
-		93C31B3F1D51930D008DD302 /* AIProdcutinfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C31B3E1D51930D008DD302 /* AIProdcutinfoService.swift */; };
+		93C31B3F1D51930D008DD302 /* AIProdcutInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C31B3E1D51930D008DD302 /* AIProdcutInfoService.swift */; };
 		93C31B411D5193DC008DD302 /* AIProdcutinfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C31B401D5193DC008DD302 /* AIProdcutinfoModel.swift */; };
 		93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F2E1B9C25EC007BF506 /* UIKit.framework */; };
 		93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C33F301B9C25F8007BF506 /* Foundation.framework */; };
@@ -785,7 +785,7 @@
 		FB2373281D4F78F300A8B38A /* AIProductQAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373271D4F78F300A8B38A /* AIProductQAService.swift */; };
 		FB2E41ED1D461821001DDB5D /* MBFingerTipWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */; };
 		FB3DCCD81D4A02A30090DEA6 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */; };
-		FB49E9D61D65914100EF67F7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49E9D51D65914100EF67F7 /* User.swift */; };
+		FB49E9D61D65914100EF67F7 /* AIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49E9D51D65914100EF67F7 /* AIUser.swift */; };
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB58838D1D51C7930080588B /* AISearchHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB58838C1D51C7930080588B /* AISearchHomeService.swift */; };
 		FB5934191D59BAD500CBE237 /* GridBubblesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5934181D59BAD500CBE237 /* GridBubblesView.swift */; };
@@ -1892,7 +1892,7 @@
 		93C289C31D178A1A003F0473 /* AISuperiorityIconTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityIconTextView.swift; sourceTree = "<group>"; };
 		93C289C51D178A27003F0473 /* AISuperiorityIconTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AISuperiorityIconTextView.xib; sourceTree = "<group>"; };
 		93C31B391D504B24008DD302 /* AISuperiorityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityService.swift; sourceTree = "<group>"; };
-		93C31B3E1D51930D008DD302 /* AIProdcutinfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProdcutinfoService.swift; sourceTree = "<group>"; };
+		93C31B3E1D51930D008DD302 /* AIProdcutInfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProdcutInfoService.swift; sourceTree = "<group>"; };
 		93C31B401D5193DC008DD302 /* AIProdcutinfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProdcutinfoModel.swift; sourceTree = "<group>"; };
 		93C33F2C1B9C256F007BF506 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = text; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		93C33F2E1B9C25EC007BF506 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -1946,7 +1946,7 @@
 		FB2E41EB1D461821001DDB5D /* MBFingerTipWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFingerTipWindow.h; sourceTree = "<group>"; };
 		FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFingerTipWindow.m; sourceTree = "<group>"; };
 		FB3DCCD71D4A02A30090DEA6 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = Debug/CardDeepLinkKit.framework; sourceTree = "<group>"; };
-		FB49E9D51D65914100EF67F7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FB49E9D51D65914100EF67F7 /* AIUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUser.swift; sourceTree = "<group>"; };
 		FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHistoryIconView.swift; sourceTree = "<group>"; };
 		FB58838C1D51C7930080588B /* AISearchHomeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISearchHomeService.swift; sourceTree = "<group>"; };
 		FB5934181D59BAD500CBE237 /* GridBubblesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridBubblesView.swift; sourceTree = "<group>"; };
@@ -3008,7 +3008,7 @@
 			children = (
 				81433B151CFBE5A700347C29 /* AIFakeUser.h */,
 				81433B161CFBE5A700347C29 /* AIFakeUser.m */,
-				FB49E9D51D65914100EF67F7 /* User.swift */,
+				FB49E9D51D65914100EF67F7 /* AIUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4188,7 +4188,7 @@
 			isa = PBXGroup;
 			children = (
 				C95179D61D40C73600446498 /* AICommentInfoModel.swift */,
-				93C31B3E1D51930D008DD302 /* AIProdcutinfoService.swift */,
+				93C31B3E1D51930D008DD302 /* AIProdcutInfoService.swift */,
 				93C31B401D5193DC008DD302 /* AIProdcutinfoModel.swift */,
 				FB2373251D4F785100A8B38A /* AIRecommondForYouService.swift */,
 			);
@@ -5343,7 +5343,7 @@
 				8175A7DB1CFD2710006F2C8F /* JSONModelClassProperty.m in Sources */,
 				8175A7D51CFD2710006F2C8F /* DDHTimerControl.mm in Sources */,
 				81433D9E1CFBE5A700347C29 /* AIPopupChooseBaseView.swift in Sources */,
-				FB49E9D61D65914100EF67F7 /* User.swift in Sources */,
+				FB49E9D61D65914100EF67F7 /* AIUser.swift in Sources */,
 				81433D991CFBE5A700347C29 /* AIErrorRetryView.swift in Sources */,
 				9352BC821D656134003CD476 /* AIPayAmountView.swift in Sources */,
 				8175A7C11CFD2710006F2C8F /* UICollectionViewWaterfallLayout.m in Sources */,
@@ -5467,7 +5467,7 @@
 				FB74E0161D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.swift in Sources */,
 				81433E981CFBE5A700347C29 /* FLEXRuntimeUtility.m in Sources */,
 				81433E811CFBE5A700347C29 /* FLEXNetworkSettingsTableViewController.m in Sources */,
-				93C31B3F1D51930D008DD302 /* AIProdcutinfoService.swift in Sources */,
+				93C31B3F1D51930D008DD302 /* AIProdcutInfoService.swift in Sources */,
 				81433D281CFBE5A700347C29 /* ServiceCardDetailIcon.swift in Sources */,
 				848316A61D3344AA00082D38 /* BDKTools.swift in Sources */,
 				81433E851CFBE5A700347C29 /* FLEXNetworkObserver.m in Sources */,

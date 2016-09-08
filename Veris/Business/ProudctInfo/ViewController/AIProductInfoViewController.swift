@@ -232,7 +232,7 @@ class AIProductInfoViewController: UIViewController {
     
     func requestData() {
         view.showLoading()
-        AIProdcutinfoService.requestServiceInfo("\(sid)") { (response, error) in
+        AIProdcutInfoService.requestServiceInfo("\(sid)") { (response, error) in
             self.view.hideLoading()
             if let model = response as? AIProdcutinfoModel {
                 self.dataModel = model
@@ -303,7 +303,7 @@ class AIProductInfoViewController: UIViewController {
         if alphaSc >= 1 {
             self.editButton.hidden = false
             self.topButton.hidden = false
-        }else{
+        } else {
             self.editButton.hidden = true
             self.topButton.hidden = true
         }
@@ -386,7 +386,7 @@ class AIProductInfoViewController: UIViewController {
         view.showLoading()
         if let bol = dataModel?.collected {
             if bol {
-                AIProdcutinfoService.removeFavoriteServiceInfo(String(dataModel?.proposal_inst_id ?? 0), complate: { (obj, error) in
+                AIProdcutInfoService.removeFavoriteServiceInfo(String(dataModel?.proposal_inst_id ?? 0), complate: { (obj, error) in
                     self.view.hideLoading()
                     if let res = obj as? String {
                         // MARK: Loading Data Views
@@ -399,7 +399,7 @@ class AIProductInfoViewController: UIViewController {
                     }
                 })
             } else {
-                AIProdcutinfoService.addFavoriteServiceInfo(String(dataModel?.proposal_inst_id ?? 0), proposal_spec_id: ssid == 0 ? "" : String(ssid)) { (obj, error) in
+                AIProdcutInfoService.addFavoriteServiceInfo(String(dataModel?.proposal_inst_id ?? 0), proposal_spec_id: ssid == 0 ? "" : String(ssid)) { (obj, error) in
                     self.view.hideLoading()
                     if let res = obj as? String {
                         // MARK: Loading Data Views

@@ -52,7 +52,7 @@
 {
     AIUser *user = [AIUser currentUser];
     
-    NSInteger userID = user.id;
+    NSInteger userID = user.userId;
     
     if (userID == kCustomer1_id) {
         _buyerTitleImageView.highlighted = YES;
@@ -203,7 +203,7 @@
     
     AIUser *currentUser = [AIUser currentUser];
     
-    NSInteger userID = currentUser.id;
+    NSInteger userID = currentUser.userId;
     
     if (user.userID == userID) {
         self.currentUser = user;
@@ -224,7 +224,7 @@
         AVInstallation *installation = [AVInstallation currentInstallation];
 
         AIUser *currentUser = [AIUser currentUser];
-        currentUser.id = user.userID;
+        currentUser.userId = user.userID;
         
         if (user.userType == AIUserTypeCustomer) {
             [installation setObject:@(user.userID) forKey:@"ProviderIdentifier"];
