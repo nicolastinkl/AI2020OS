@@ -139,9 +139,7 @@ class AILoginService: NSObject {
 	/**
 	 注册用户
 
-	 - parameter userCode: <#userCode description#>
-	 - parameter success:  <#success description#>
-	 - parameter fail:     <#fail description#>
+	 - parameter userCode: 手机号码
 	 */
     func registUser(userCode: String, password: String, nickname: String, headurl: String, success: (userId: String) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 		let message = AIMessage()

@@ -13,7 +13,7 @@ import UIKit
 *
 *  本地UserDefault存储处理
 */
-struct AILocalStore {
+class AILocalStore: NSObject {
     private static let visitedStoriesKey = "visitedStoriesKey"
     private static let upvotedStoriesKey = "upvotedStoriesKey"
     private static let repliedStoriesKey = "repliedStoriesKey"
