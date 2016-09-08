@@ -80,7 +80,10 @@ struct AIRemoteNotificationParameters {
         guard notification.isEmpty != true else {
             return false
         }
-
+        
+        #if DEBUG
+        AVPush.setProductionMode(false)
+        #endif
         // Create our Installation query
         let pushQuery = AVInstallation.query()
         pushQuery.whereKey(AIRemoteNotificationKeys.Channels, equalTo: AIRemoteNotificationParameters.ProviderChannel)
