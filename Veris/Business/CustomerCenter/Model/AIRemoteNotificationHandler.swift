@@ -108,19 +108,13 @@ struct AIRemoteNotificationParameters {
             return false
         }
 
-        var data = [String : AnyObject]()
-        #if DEBUG
-        data.addEntriesFromDictionary(["_profile" : "dev"])
-        #endif
-        data.addEntriesFromDictionary(notification)
-
         // Create our Installation query
         let pushQuery = AVInstallation.query()
         pushQuery.whereKey(AIRemoteNotificationParameters.UserIdentifier, equalTo: toUser)
         // Send push notification to query
         let push = AVPush()
         push.setQuery(pushQuery) // Set our Installation query
-        push.setData(data)
+        push.setData(notification)
         push.sendPushInBackground()
 
         return true
