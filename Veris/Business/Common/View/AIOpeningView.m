@@ -204,7 +204,11 @@ typedef NS_ENUM(NSInteger, AIMovementDirection) {
 
 - (void)loginTap
 {
-  
+    // show user all info
+//    NSString *
+//    NSString *message = [NSString stringWithFormat:@"user_id: %@\nuser_name: %@\n",];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    
 }
 
 - (void)addLanguageSwitchAction {

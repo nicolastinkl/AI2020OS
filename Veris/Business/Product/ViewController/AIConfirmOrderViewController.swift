@@ -115,6 +115,7 @@ class AIConfirmOrderViewController: UIViewController {
 
         self.confirmButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(52 / PurchasedViewDimention.CONVERT_FACTOR)
         self.backButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60 / PurchasedViewDimention.CONVERT_FACTOR)
+        
         //self.priceLabel.font = AITools.myriadLightSemiCondensedWithSize(39 / PurchasedViewDimention.CONVERT_FACTOR)
 
         let name = dataSource?.proposal_name ?? ""

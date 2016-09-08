@@ -455,6 +455,8 @@ struct AIApplication {
         case confirmOrderComplete
         // 请求用户授权
         case submitRequestAuthorization
+        // 启动服务流程实例
+        case startServiceProcess
 
         
         
@@ -544,6 +546,7 @@ struct AIApplication {
             case .customerAuthorize: return AIApplication.KURL_ReleaseURL + "/order/authorize"
             case .confirmOrderComplete: return AIApplication.KURL_ReleaseURL + "/order/confirm"
             case .submitRequestAuthorization: return AIApplication.KURL_ReleaseURL + "/serviceProcess/submitRequestAuthorization"
+            case .startServiceProcess: return AIApplication.KURL_ReleaseURL + "/serviceProcess/startServiceProcess"
             }
         }
     }

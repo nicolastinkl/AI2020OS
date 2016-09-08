@@ -94,7 +94,7 @@ class AIProviderDetailViewController: UIViewController {
 		
 		bubbleView.snp_makeConstraints(closure: { (make) in
 			make.leading.trailing.equalTo(bubbleContainerView)
-			make.bottom.equalTo(bubbleContainerView).offset(-110.displaySizeFrom1242DesignSize())
+			make.bottom.lessThanOrEqualTo(bubbleContainerView).offset(-110.displaySizeFrom1242DesignSize())
 			make.top.equalTo(allServicesLabel.snp_bottom).offset(56.displaySizeFrom1242DesignSize())
 		})
 	}

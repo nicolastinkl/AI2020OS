@@ -137,12 +137,22 @@ import AIAlertView
 
     // MARK: - IBActions
     @IBAction func startWorkAction(sender: AnyObject) {
-
-        if let _ = qiangDanResultModel {
-            let taskDetailVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
-            taskDetailVC.serviceId = serviceInstanceID
+        
+        self.showLoading()
+        let manager = BDKExcuteManager()
+        manager.startServiceProcess(serviceInstanceID, success: { (responseData) in
+            if let _ = self.qiangDanResultModel {
+                self.showLoading()
+                let taskDetailVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
+                taskDetailVC.serviceId = self.serviceInstanceID
                 self.navigationController?.pushViewController(taskDetailVC, animated: true)
+            }
+            }) { (errType, errDes) in
+                self.dismissLoading()
+                AIAlertView().showError("启动工作失败", subTitle: errDes)
         }
+
+        
 
     }
 }

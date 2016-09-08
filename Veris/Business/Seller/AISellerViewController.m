@@ -506,6 +506,8 @@
         case 1: // 进行中
         {
             TaskDetailViewController *taskViewController = [[UIStoryboard storyboardWithName:@"TaskExecuteStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"TaskDetailViewController"];
+            taskViewController.serviceId = model.service.service_instance_id;
+            //taskViewController.providerId = model
             nextViewController = taskViewController;
         }
             break;
