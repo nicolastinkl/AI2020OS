@@ -45,6 +45,7 @@ extension AIBuyerBubbleModel {
 }
 
 class GridBubblesView: UIView {
+    
 	var bubbleModels: [AIBuyerBubbleModel]! {
 		didSet {
 			updateUI()
@@ -70,7 +71,6 @@ class GridBubblesView: UIView {
 	
 	let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
 	let space = AITools.displaySizeFrom1242DesignSize(15)
-//	let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
     let bubbleY: CGFloat = 0
 	
 	func updateUI() {

@@ -1,5 +1,5 @@
 //
-//  AIProdcutinfoService.swift
+//  AIProdcutInfoService.swift
 //  AIVeris
 //
 //  Created by tinkl on 8/3/16.
@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct AIProdcutinfoService {
+struct AIProdcutInfoService {
     
     /// 请求产品详情数据
     static func requestServiceInfo(serviceId: String, complate: ((AnyObject?, String?) -> Void)) {
@@ -84,7 +84,7 @@ struct AIProdcutinfoService {
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
                 if let _ = responseJSON as? NSDictionary {
-                    complate("1",nil)
+                    complate("1", nil)
                 } else {
                     complate(nil, "data is null")
                 }

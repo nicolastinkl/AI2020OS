@@ -14,7 +14,7 @@ class AISearchHomeService: NSObject {
 	func recentlySearch(success: (recentlySearchTexts: [String], everyOneSearchTexts: [String], browseHistory: [AISearchServiceModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 		let user = AIUser.currentUser()
 		let user_type = AIUserType.Customer.rawValue
-		let user_id = user.id
+		let user_id = user.userId
 		let message = AIMessage()
 		message.url = AIApplication.AIApplicationServerURL.recentlySearch.description
 		let body = ["data": ["user_type": user_type, "user_id": user_id], "desc": ["data_mode": "0", "digest": ""]]
@@ -39,7 +39,7 @@ class AISearchHomeService: NSObject {
     
     func createBrowserHistory(service_id: Int) {
         let user = AIUser.currentUser()
-        let user_id = user.id
+        let user_id = user.userId
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.createBrowserHistory.description
         let body = ["data": ["role_type": 1, "user_id": user_id, "service_id": service_id], "desc": ["data_mode": "0", "digest": ""]]
@@ -54,7 +54,7 @@ class AISearchHomeService: NSObject {
 		
 		let user = AIUser.currentUser()
 		let user_type = AIUserType.Customer.rawValue
-		let user_id = user.id
+		let user_id = user.userId
 		
 		let message = AIMessage()
 		
@@ -82,7 +82,7 @@ class AISearchHomeService: NSObject {
 		
 		let user = AIUser.currentUser()
 		let user_type = AIUserType.Customer.rawValue
-		let user_id = user.id
+		let user_id = user.userId
 		
 		let message = AIMessage()
 		message.url = AIApplication.AIApplicationServerURL.filterServices.description
@@ -116,7 +116,7 @@ class AISearchHomeService: NSObject {
 		
 		let user = AIUser.currentUser()
 		let user_type = AIUserType.Customer.rawValue
-		let user_id = user.id
+		let user_id = user.userId
 		
 		let message = AIMessage()
 		message.url = AIApplication.AIApplicationServerURL.getRecommendedServices.description
