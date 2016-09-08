@@ -42,13 +42,13 @@ class AILoginViewController: UIViewController {
                 }, fail: { (errType, errDes) in
                     self.view.userInteractionEnabled = true
                     self.hideButtonLoading(self.loginButton, title: title)
-                    self.validateInfoLabel.showPrompt(errDes)
+                    NBMaterialToast.showWithText(self.view, text: errDes.localized, duration: NBLunchDuration.MEDIUM)
             })
             
             
         } else {
             self.hideButtonLoading(self.loginButton, title: title)
-            self.validateInfoLabel.showPrompt(LoginConstants.ValidateResultCode.WrongIdOrPassword.rawValue)
+            NBMaterialToast.showWithText(self.view, text: LoginConstants.ValidateResultCode.WrongIdOrPassword.rawValue, duration: NBLunchDuration.MEDIUM)
         }
     }
 

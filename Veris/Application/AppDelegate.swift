@@ -88,6 +88,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
         showRootViewController()
         handleLoacalNotifications()
+        //处理app未启动时的抢单和远程协助请求
+        handleRemoteNotifications(app: application, launchOptions: launchOptions)
 		return true
 		
 	}
@@ -109,8 +111,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
             FLEXManager.sharedManager().toggleExplorer()
             
             let i = AVInstallation.currentInstallation()
-            i.removeObjectForKey(AIRemoteNotificationParameters.ProviderIdentifier)
-            i.setObject(1234, forKey: AIRemoteNotificationParameters.ProviderIdentifier)
+            i.removeObjectForKey(AIRemoteNotificationParameters.UserIdentifier)
+            i.setObject(1234, forKey: AIRemoteNotificationParameters.UserIdentifier)
             i.saveInBackground()
             AIAlertViewController.showAlertView()
         #endif
@@ -298,6 +300,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(logOut), name: AIApplication.Notification.UserLoginOutNotification, object: nil)
     }
 
+    func handleRemoteNotifications(app app: UIApplication ,launchOptions: [NSObject: AnyObject]?){
+        if let launchOptions = launchOptions {
+            if let remoteUserInfo = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey] {
+                application(app, didReceiveRemoteNotification: remoteUserInfo as! [NSObject : AnyObject], fetchCompletionHandler: { (result) in
+                    print("aa")
+                })
+            }
+        }
+    }
 
     func refreshReLoginAction() {
 

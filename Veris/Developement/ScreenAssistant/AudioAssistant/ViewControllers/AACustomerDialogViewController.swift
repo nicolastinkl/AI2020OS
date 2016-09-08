@@ -60,7 +60,7 @@ class AACustomerDialogViewController: AADialogBaseViewController {
 	func dial() {
 
 		let notification = [AIRemoteNotificationParameters.AudioAssistantRoomNumber: AudioAssistantManager.fakeRoomNumber, AIRemoteNotificationKeys.NotificationType: AIRemoteNotificationParameters.AudioAssistantType, AIRemoteNotificationKeys.MessageKey: "您有远程协助请求", AIRemoteNotificationKeys.ProposalID: (proposalModel?.proposal_id)!, AIRemoteNotificationKeys.ProposalName: (proposalModel?.proposal_name)!]
-		
+
 		view.showLoading()
         let user = proposalModel?.provider_id.toString()
 		AudioAssistantManager.sharedInstance.customerCallRoom(roomNumber: AudioAssistantManager.fakeRoomNumber, sessionDidConnectHandler: { [weak self] in
@@ -72,11 +72,13 @@ class AACustomerDialogViewController: AADialogBaseViewController {
                 
 			// show error
 			self?.view.hideLoading()
+            self?.delegate?.dialogDidError()
 		})
 	}
 	
 	func dialogToolBar(dialogToolBar: DialogToolBar, clickHangUpButton sender: UIButton?) {
 		AudioAssistantManager.sharedInstance.customerHangUpRoom()
+        delegate?.dialogDidFinished()
         dismissViewControllerAnimated(true, completion: { [weak self] in
            self?.shouldDial = true
         })

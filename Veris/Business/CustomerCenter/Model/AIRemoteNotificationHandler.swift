@@ -29,7 +29,7 @@ struct AIRemoteNotificationKeys {
  *
  */
 struct AIRemoteNotificationParameters {
-    static let ProviderIdentifier = "ProviderIdentifier"      // 高级定向推送给当前的Provider,用于语音协助
+    static let UserIdentifier = "UserIdentifier"      // 高级定向推送给当前的Provider,用于语音协助
     static let ProviderChannel = "ProviderChannel"            // 抢单用的频道，输入gai
     static let GrabOrderType = "GrabOrderType"
     static let GrabOrderServiceInstId = "GrabOrderServiceInstId"
@@ -108,11 +108,9 @@ struct AIRemoteNotificationParameters {
             return false
         }
 
-
         // Create our Installation query
         let pushQuery = AVInstallation.query()
-        pushQuery.whereKey(AIRemoteNotificationParameters.ProviderIdentifier, equalTo: toUser)
-
+        pushQuery.whereKey(AIRemoteNotificationParameters.UserIdentifier, equalTo: toUser)
         // Send push notification to query
         let push = AVPush()
         push.setQuery(pushQuery) // Set our Installation query
@@ -135,11 +133,14 @@ struct AIRemoteNotificationParameters {
 
         //如果是抢单通知
         let key = AIRemoteNotificationKeys.NotificationType
+        let paramDic: Dictionary = userinfo["paramList"] as! Dictionary<String, AnyObject>
         let msgDic: Dictionary = userinfo["aps"] as! Dictionary<String, AnyObject>
         print("\(msgDic)")
-        if let value = userinfo[key] as? String {
+        if let value = paramDic[key] as? String {
             if value == AIRemoteNotificationParameters.GrabOrderType {
                 UIViewController.showAlertViewController()
+                //let paramDic: Dictionary = userinfo["paramList"] as! Dictionary<String, String>
+                
             } else if value == AIRemoteNotificationParameters.AudioAssistantType {
                 // 语音协助的 接受
                 let topVC = topViewController()
@@ -165,6 +166,7 @@ struct AIRemoteNotificationParameters {
                 topVC.presentViewController(buyerDetailViewController, animated: false, completion: {
                     let vc = AAProviderDialogViewController.initFromNib()
                     vc.roomNumber = roomNumber
+                    vc.delegate = buyerDetailViewController
                     buyerDetailViewController.providerDialogViewController = vc
                     buyerDetailViewController.presentViewController(vc, animated: true, completion: nil)
                 })
@@ -209,7 +211,7 @@ struct AIRemoteNotificationParameters {
     func addNotificationForUser(user: String) {
 
         let installation = AVInstallation .currentInstallation()
-        installation.setObject(user, forKey: AIRemoteNotificationParameters.ProviderIdentifier)
+        installation.setObject(user, forKey: AIRemoteNotificationParameters.UserIdentifier)
         installation.addUniqueObject(AIRemoteNotificationParameters.ProviderChannel, forKey: AIRemoteNotificationKeys.Channels)
         installation.saveInBackground()
     }
@@ -225,7 +227,7 @@ struct AIRemoteNotificationParameters {
     func removeNotificationForUser(user: String) {
 
         let installation = AVInstallation .currentInstallation()
-        installation.setObject("123", forKey: AIRemoteNotificationParameters.ProviderIdentifier)
+        installation.setObject("123", forKey: AIRemoteNotificationParameters.UserIdentifier)
         installation.removeObject(AIRemoteNotificationParameters.ProviderChannel, forKey: AIRemoteNotificationKeys.Channels)
         installation.saveInBackground()
     }
