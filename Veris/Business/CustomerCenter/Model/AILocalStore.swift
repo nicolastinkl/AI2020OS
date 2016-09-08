@@ -108,7 +108,7 @@ struct AILocalStore {
 
         /// Handle Provider Notification
         let installation = AVInstallation.currentInstallation()
-        installation.setObject("000", forKey: "ProviderIdentifier")
+        installation.setObject("000", forKey: "UserIdentifier")
         installation.addUniqueObject("000", forKey: "channels")
         installation.saveInBackground()
     }
@@ -120,7 +120,7 @@ struct AILocalStore {
 
             /// Handle Provider Notification
             let installation = AVInstallation.currentInstallation()
-            installation.setObject(user_id, forKey: "ProviderIdentifier")
+            installation.setObject(user_id, forKey: "UserIdentifier")
             installation.addUniqueObject("ProviderChannel", forKey: "channels")
             installation.saveInBackground()
         }

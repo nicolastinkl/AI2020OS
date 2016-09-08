@@ -29,7 +29,7 @@ struct AIRemoteNotificationKeys {
  *
  */
 struct AIRemoteNotificationParameters {
-    static let ProviderIdentifier = "ProviderIdentifier"      // 高级定向推送给当前的Provider,用于语音协助
+    static let UserIdentifier = "UserIdentifier"      // 高级定向推送给当前的Provider,用于语音协助
     static let ProviderChannel = "ProviderChannel"            // 抢单用的频道，输入gai
     static let GrabOrderType = "GrabOrderType"
     static let GrabOrderServiceInstId = "GrabOrderServiceInstId"
@@ -111,7 +111,7 @@ struct AIRemoteNotificationParameters {
 
         // Create our Installation query
         let pushQuery = AVInstallation.query()
-        pushQuery.whereKey(AIRemoteNotificationParameters.ProviderIdentifier, equalTo: toUser)
+        pushQuery.whereKey(AIRemoteNotificationParameters.UserIdentifier, equalTo: toUser)
         // Send push notification to query
         let push = AVPush()
         push.setQuery(pushQuery) // Set our Installation query
@@ -208,7 +208,7 @@ struct AIRemoteNotificationParameters {
     func addNotificationForUser(user: String) {
 
         let installation = AVInstallation .currentInstallation()
-        installation.setObject(user, forKey: AIRemoteNotificationParameters.ProviderIdentifier)
+        installation.setObject(user, forKey: AIRemoteNotificationParameters.UserIdentifier)
         installation.addUniqueObject(AIRemoteNotificationParameters.ProviderChannel, forKey: AIRemoteNotificationKeys.Channels)
         installation.saveInBackground()
     }
@@ -224,7 +224,7 @@ struct AIRemoteNotificationParameters {
     func removeNotificationForUser(user: String) {
 
         let installation = AVInstallation .currentInstallation()
-        installation.setObject("123", forKey: AIRemoteNotificationParameters.ProviderIdentifier)
+        installation.setObject("123", forKey: AIRemoteNotificationParameters.UserIdentifier)
         installation.removeObject(AIRemoteNotificationParameters.ProviderChannel, forKey: AIRemoteNotificationKeys.Channels)
         installation.saveInBackground()
     }

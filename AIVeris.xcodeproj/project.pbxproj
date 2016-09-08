@@ -311,8 +311,6 @@
 		81433E391CFBE5A700347C29 /* DependOnNodePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B0B1CFBE5A700347C29 /* DependOnNodePickerViewController.swift */; };
 		81433E3A1CFBE5A700347C29 /* AIWeiboData.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B0F1CFBE5A700347C29 /* AIWeiboData.m */; };
 		81433E3B1CFBE5A700347C29 /* AIShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B121CFBE5A700347C29 /* AIShareViewController.m */; };
-		81433E3C1CFBE5A700347C29 /* AIFakeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B161CFBE5A700347C29 /* AIFakeUser.m */; };
-		81433E3D1CFBE5A700347C29 /* AIFakeLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433B191CFBE5A700347C29 /* AIFakeLoginView.m */; };
 		81433E3F1CFBE5A700347C29 /* AIUIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B1E1CFBE5A700347C29 /* AIUIDevice.swift */; };
 		81433E401CFBE5A700347C29 /* AIUIViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B1F1CFBE5A700347C29 /* AIUIViewUtils.swift */; };
 		81433E411CFBE5A700347C29 /* CATransform3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81433B201CFBE5A700347C29 /* CATransform3D.swift */; };
@@ -1209,10 +1207,6 @@
 		81433B0F1CFBE5A700347C29 /* AIWeiboData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWeiboData.m; sourceTree = "<group>"; };
 		81433B111CFBE5A700347C29 /* AIShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIShareViewController.h; sourceTree = "<group>"; };
 		81433B121CFBE5A700347C29 /* AIShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIShareViewController.m; sourceTree = "<group>"; };
-		81433B151CFBE5A700347C29 /* AIFakeUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFakeUser.h; sourceTree = "<group>"; };
-		81433B161CFBE5A700347C29 /* AIFakeUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFakeUser.m; sourceTree = "<group>"; };
-		81433B181CFBE5A700347C29 /* AIFakeLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFakeLoginView.h; sourceTree = "<group>"; };
-		81433B191CFBE5A700347C29 /* AIFakeLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFakeLoginView.m; sourceTree = "<group>"; };
 		81433B1E1CFBE5A700347C29 /* AIUIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUIDevice.swift; sourceTree = "<group>"; };
 		81433B1F1CFBE5A700347C29 /* AIUIViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIUIViewUtils.swift; sourceTree = "<group>"; };
 		81433B201CFBE5A700347C29 /* CATransform3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATransform3D.swift; sourceTree = "<group>"; };
@@ -3006,8 +3000,6 @@
 		81433B141CFBE5A700347C29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				81433B151CFBE5A700347C29 /* AIFakeUser.h */,
-				81433B161CFBE5A700347C29 /* AIFakeUser.m */,
 				FB49E9D51D65914100EF67F7 /* AIUser.swift */,
 			);
 			path = Model;
@@ -3016,8 +3008,6 @@
 		81433B171CFBE5A700347C29 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				81433B181CFBE5A700347C29 /* AIFakeLoginView.h */,
-				81433B191CFBE5A700347C29 /* AIFakeLoginView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5138,7 +5128,6 @@
 				93C61FC31D01196F0063C2BF /* ServiceCommentViewController.swift in Sources */,
 				81433EB61CFBE5A700347C29 /* UIColorUtils.swift in Sources */,
 				81433E2E1CFBE5A700347C29 /* AIServiceContentViewController.swift in Sources */,
-				81433E3D1CFBE5A700347C29 /* AIFakeLoginView.m in Sources */,
 				FB2373261D4F785100A8B38A /* AIRecommondForYouService.swift in Sources */,
 				81433D7A1CFBE5A700347C29 /* AIServiceTypes.m in Sources */,
 				9392B5831D1CD9F10007F241 /* MD5DataSigner.m in Sources */,
@@ -5282,7 +5271,6 @@
 				81433E201CFBE5A700347C29 /* UIBezierPageView.swift in Sources */,
 				81433E8B1CFBE5A700347C29 /* FLEXGlobalsTableViewControllerEntry.m in Sources */,
 				81433DA11CFBE5A700347C29 /* AIRACContentCell.swift in Sources */,
-				81433E3C1CFBE5A700347C29 /* AIFakeUser.m in Sources */,
 				8175A7C81CFD2710006F2C8F /* AFHTTPSessionManager.m in Sources */,
 				938008621D5B223D00FAD140 /* AIWishTitleIconView.swift in Sources */,
 				933BC83D1D002434005E1789 /* AINavigationBar.swift in Sources */,

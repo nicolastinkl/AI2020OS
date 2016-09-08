@@ -8,7 +8,6 @@
 
 //#import <MediaPlayer/MediaPlayer.h>
 #import "AIOpeningView.h"
-#import "AIFakeLoginView.h"
 #import "Veris-Swift.h"
 
 
@@ -203,20 +202,9 @@ typedef NS_ENUM(NSInteger, AIMovementDirection) {
     
 }
 
-
 - (void)loginTap
 {
-    AIFakeLoginView *loginView = [[AIFakeLoginView alloc] initWithFrame:self.bounds];
-    loginView.transform = CGAffineTransformMakeScale(0.25, 0.25);
-    loginView.userInteractionEnabled = NO;
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        loginView.transform = CGAffineTransformMakeScale(1, 1);
-    } completion:^(BOOL finished) {
-        loginView.userInteractionEnabled = YES;
-    }];
-    
-    
-    [self addSubview:loginView];
+  
 }
 
 - (void)addLanguageSwitchAction {
