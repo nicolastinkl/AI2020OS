@@ -91,6 +91,8 @@ class TaskDetailViewController: UIViewController {
         let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(backAction(_:)))
         leftButtonItem.tintColor = UIColor.lightGrayColor()
         self.navigationItem.leftBarButtonItem = leftButtonItem
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
     }
 
     func backAction(button: UIBarButtonItem) {
