@@ -274,7 +274,7 @@
  * ./Veris/Business/Login/LoginConstants
  */
 
-"LoginConstants.confirmButton" = "Confirm";
+"LoginConstants.confirmButton" = "确认完成";
 "LoginConstants.forgotPasswordPrompt" = "Enter phone number to reset the password.";
 "LoginConstants.validationPrompt" = "Validation code has been sent to ";
 "LoginConstants.validateButtonDefault" = "Send Validation Code";
