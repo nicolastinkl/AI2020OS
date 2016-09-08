@@ -18,6 +18,11 @@ import SnapKit
  */
 class AIChangeStatusButton: DesignableButton {
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLayout()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupLayout()
@@ -37,6 +42,12 @@ class AIChangeStatusButton: DesignableButton {
 }
 
 class AILoginBaseTextField: DesignableTextField {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLayout()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupLayout()
@@ -89,6 +100,11 @@ class AILoginPasswordTextField: AILoginBaseTextField {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setupLayout()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupLayout()
     }
     
