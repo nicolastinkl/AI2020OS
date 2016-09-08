@@ -270,8 +270,19 @@
 
 "AIServerProviderView.ServiceRateFormat" = "Rate %s";
 
+/*
+ * ./Veris/Business/Login/LoginConstants
+ */
 
-
+"LoginConstants.confirmButton" = "确认完成"
+"LoginConstants.forgotPasswordPrompt" = "Enter phone number to reset the password."
+"LoginConstants.validationPrompt" = "Validation code has been sent to "
+"LoginConstants.validateButtonDefault" = "Send Validation Code"
+"LoginConstants.nextStep" = "Next Step"
+"LoginConstants.UserIdPlaceholder" = " Phone number"
+"LoginConstants.passwordPlaceholder" = " Password"
+"LoginConstants.EnterValidateCodePlaceholder" = " Enter Validate Code"
+"LoginConstants.SetPasswordPlaceholder" = " Set your password"
 
 
 

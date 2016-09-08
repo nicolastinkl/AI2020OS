@@ -32,6 +32,8 @@ struct AIRemoteNotificationParameters {
     static let ProviderIdentifier = "ProviderIdentifier"      // 高级定向推送给当前的Provider,用于语音协助
     static let ProviderChannel = "ProviderChannel"            // 抢单用的频道，输入gai
     static let GrabOrderType = "GrabOrderType"
+    static let GrabOrderServiceInstId = "GrabOrderServiceInstId"
+    static let GrabOrderServiceSpecId = "GrabOrderServiceSpecId"
     static let AudioAssistantType = "AudioAssistantType"
     static let AudioAssistantRoomNumber = "AudioAssistantRoomNumber"
 }

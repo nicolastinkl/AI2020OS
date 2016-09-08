@@ -48,7 +48,7 @@ class AIConfirmOrderViewController: UIViewController {
         get {
             guard dataSource?.service_list == nil else {
                 let result = dataSource?.service_list.filter () {
-                    return ($0 as! AIProposalServiceModel).service_del_flag != ServiceDeletedStatus.NotDeleted.rawValue
+                    return ($0 as! AIProposalServiceModel).service_del_flag == ServiceDeletedStatus.NotDeleted.rawValue
                 }
                 return result
             }

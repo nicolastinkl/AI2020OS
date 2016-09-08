@@ -107,11 +107,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
         #if DEBUG
             FLEXManager.sharedManager().toggleExplorer()
-//            AIAlertViewController.showAlertView()
+            
             let i = AVInstallation.currentInstallation()
             i.removeObjectForKey(AIRemoteNotificationParameters.ProviderIdentifier)
             i.setObject(1234, forKey: AIRemoteNotificationParameters.ProviderIdentifier)
             i.saveInBackground()
+            AIAlertViewController.showAlertView()
         #endif
     }
     

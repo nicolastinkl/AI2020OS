@@ -236,13 +236,18 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.removeHeader()
         weak var weakSelf = self
         tableView.addHeaderWithCallback { () -> Void in
-
-            weakSelf!.clearPropodalData()
-            weakSelf!.loadData()
+            if let StrongSelf = weakSelf {
+                StrongSelf.clearPropodalData()
+                StrongSelf.loadData()
+            }
+            
         }
 
         tableView.addHeaderRefreshEndCallback { () -> Void in
-            weakSelf!.tableView.reloadData()
+            if let StrongSelf = weakSelf {
+                StrongSelf.tableView.reloadData()
+            }
+            
 
         }
 
@@ -487,7 +492,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             }
 
         }// end
-
     }
 
     func createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
@@ -502,7 +506,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         } else if model.proposal_type == 3 { // wish
             let wvc = AIWishPreviewController.initFromNib()
             let newModel = AIWishHotChildModel()
-            newModel.type_id = model.proposal_id
+            newModel.type_id = model.proposal_id_new
             newModel.name = model.proposal_name
             newModel.already_wish = model.order_times
             wvc.model = newModel

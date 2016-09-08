@@ -299,6 +299,10 @@ class AIWishPreviewController: UIViewController {
     
     @IBAction func subitAction(sender: AnyObject) {
         if let stext = self.textFeild?.text {
+            if stext.length <= 0 {
+                AIAlertView().showError("Please write down anything you want to add.", subTitle: "")
+                return
+            }
             let number: Double = Double(preAverageView?.button.titleLabel?.text?.toInt() ?? 0)
             view.showLoading()
             AIWishServices.requestMakeWishs(model?.type_id ?? 0, name: model?.name ?? "", money: number, contents: stext, complate: { (obj, error) in
@@ -314,10 +318,9 @@ class AIWishPreviewController: UIViewController {
                     model.proposal_type = 3
                     if model.service_id == 0 {
                     NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
-                    }else{
-                        self.dismissViewControllerAnimated(false, completion: nil)
-                        self.dismissViewControllerAnimated(false, completion: nil)
                     }
+                    self.dismissViewControllerAnimated(false, completion: nil)
+                    self.dismissViewControllerAnimated(false, completion: nil)
                     
                 } else {
                     AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")

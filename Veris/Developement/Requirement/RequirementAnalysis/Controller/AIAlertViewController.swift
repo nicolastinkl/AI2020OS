@@ -42,6 +42,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var customerDescView: UIView!
     @IBOutlet weak var timerControl: DDHTimerControl!
     
+    @IBOutlet weak var ignoreButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
 
     var timerEndDate: NSDate!
@@ -70,6 +71,10 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     
     
     // MARK: - IBAction
+    
+    @IBAction func IgnoreAction(sender: AnyObject) {
+        self.dismissPopupViewController(true, completion: nil)
+    }
     @IBAction func answerAction(sender: AnyObject) {
         //AIAlertViewController.showGladOrderView()
         //点抢单按钮后就不再倒计时
@@ -109,6 +114,11 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         
         customerDescView.setCornerOnTop()
         customerDescView.clipsToBounds = true
+        //ignoreButton
+        ignoreButton.layer.borderColor = UIColor(hexString: "#0e79cc").CGColor
+        ignoreButton.layer.borderWidth = 1
+        ignoreButton.layer.cornerRadius = 8
+        ignoreButton.layer.masksToBounds = true
         
         self.navigationController?.delegate = self
     }
