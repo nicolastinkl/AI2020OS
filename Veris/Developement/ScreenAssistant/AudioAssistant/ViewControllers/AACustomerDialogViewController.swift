@@ -59,7 +59,7 @@ class AACustomerDialogViewController: AADialogBaseViewController {
 	
 	func dial() {
 
-		let notification = [AIRemoteNotificationParameters.AudioAssistantRoomNumber: AudioAssistantManager.fakeRoomNumber, AIRemoteNotificationKeys.NotificationType: AIRemoteNotificationParameters.AudioAssistantType, AIRemoteNotificationKeys.MessageKey: "您有远程协助请求", AIRemoteNotificationKeys.ProposalID: (proposalModel?.proposal_id)!, AIRemoteNotificationKeys.ProposalName: (proposalModel?.proposal_name)!]
+        let notification = [AIRemoteNotificationParameters.AudioAssistantRoomNumber: AudioAssistantManager.fakeRoomNumber, AIRemoteNotificationKeys.NotificationType: AIRemoteNotificationParameters.AudioAssistantType, AIRemoteNotificationKeys.ProposalID: (proposalModel?.proposal_id)!, AIRemoteNotificationKeys.ProposalName: (proposalModel?.proposal_name)!, AIRemoteNotificationKeys.QueryType : 1, AIRemoteNotificationKeys.QueryUserID : AILocalStore.userId]
 
 		view.showLoading()
         let user = proposalModel?.provider_id.toString()

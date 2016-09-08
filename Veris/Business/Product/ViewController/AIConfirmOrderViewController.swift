@@ -88,7 +88,8 @@ class AIConfirmOrderViewController: UIViewController {
     
     func reqestData() {
         view.showLoading()
-        BDKProposalService().queryCustomerProposalDetail(dataSource?.proposal_id ?? 0, success: { [weak self](responseData) in
+        let params = ["proposal_id" : dataSource?.proposal_id ?? 0]
+        BDKProposalService().queryCustomerProposalDetail(params, success: { [weak self](responseData) in
             if let strongSelf = self {
                 strongSelf.dataSource = responseData
                 strongSelf.tableView.reloadData()
