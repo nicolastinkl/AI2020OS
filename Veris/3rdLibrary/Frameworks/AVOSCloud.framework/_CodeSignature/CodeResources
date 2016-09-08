@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/AVConstants.h</key>
 		<data>
-		vIann7zwtl3nFDK10bqmf7K983Y=
+		C5pt4ECkliUWj2rWSH6oM6oDx6I=
 		</data>
 		<key>Headers/AVFile.h</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Headers/AVOSCloud.h</key>
 		<data>
-		mYtJBeWNGKLKFh2Ehz4+MHp8OT4=
+		y1WAhXY5GlUOyO+TbUGyxhvXmWc=
 		</data>
 		<key>Headers/AVObject+Subclass.h</key>
 		<data>
@@ -78,11 +78,11 @@
 		</data>
 		<key>Headers/AVObject.h</key>
 		<data>
-		sq56xJySl2Q43Mc318J7st6KNpw=
+		y7STRB064SfME5mutMoz5TDcwu0=
 		</data>
 		<key>Headers/AVPush.h</key>
 		<data>
-		zXo3U7p5DKPevUBetZCSY8ZVW3w=
+		V1zo8/1i3Ibyd+gM7SOZaq9eHJ4=
 		</data>
 		<key>Headers/AVQuery.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Headers/AVSearchQuery.h</key>
 		<data>
-		IarqM97K9Db3vn9SOyka99swjUY=
+		arw3hE2H/yTSZoOPtwhyVvE/2sU=
 		</data>
 		<key>Headers/AVSearchSortBuilder.h</key>
 		<data>
@@ -130,7 +130,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		yCruI9BXcRTdprSs/xMQxCQLrV8=
+		lqrrdokHf4pHrPGwrihJZbbOcSg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -213,11 +213,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vIann7zwtl3nFDK10bqmf7K983Y=
+			C5pt4ECkliUWj2rWSH6oM6oDx6I=
 			</data>
 			<key>hash2</key>
 			<data>
-			aZrTq0GBGQABc9hLK9Uo447CGTVlOU/EqBAZQeZNX2o=
+			4rfHt5hcZgoyVRyrDrO9wMGYzAAiI9bOpc3hwQIBif0=
 			</data>
 		</dict>
 		<key>Headers/AVFile.h</key>
@@ -323,11 +323,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mYtJBeWNGKLKFh2Ehz4+MHp8OT4=
+			y1WAhXY5GlUOyO+TbUGyxhvXmWc=
 			</data>
 			<key>hash2</key>
 			<data>
-			nAEt/rS+YGg5bLr4uKPMfkTlkVAsV9UbryjMfgrGO+A=
+			Hlv32xm8SrGKHogimilwr1EF48RnOT6VgDixwRKdq+M=
 			</data>
 		</dict>
 		<key>Headers/AVObject+Subclass.h</key>
@@ -345,22 +345,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sq56xJySl2Q43Mc318J7st6KNpw=
+			y7STRB064SfME5mutMoz5TDcwu0=
 			</data>
 			<key>hash2</key>
 			<data>
-			T8XDPzjtByMnF9CAQ3EgTCJJ0FHopirvc7f01BDBRlw=
+			TuJzYM1/8PxEV2C7v2cTQF0PcMrUehnsDzXl+U5B7Bc=
 			</data>
 		</dict>
 		<key>Headers/AVPush.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zXo3U7p5DKPevUBetZCSY8ZVW3w=
+			V1zo8/1i3Ibyd+gM7SOZaq9eHJ4=
 			</data>
 			<key>hash2</key>
 			<data>
-			OxrciP4YDsqxqCgOaPAbJ1DpStWRV6asvHwl8M3yE6Q=
+			MZA6BAdmvvkliwksGlxCZYwsHveHIS5basnCh2eX4Z4=
 			</data>
 		</dict>
 		<key>Headers/AVQuery.h</key>
@@ -411,11 +411,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IarqM97K9Db3vn9SOyka99swjUY=
+			arw3hE2H/yTSZoOPtwhyVvE/2sU=
 			</data>
 			<key>hash2</key>
 			<data>
-			oYSr1lm4ZKt7ZdrD1CvSJL+jeoqyEHjMoyTmuuqjyWg=
+			pdTDSCkicGFTrE4KQRnIRzOndVb0UfU90b55ryBTczY=
 			</data>
 		</dict>
 		<key>Headers/AVSearchSortBuilder.h</key>
