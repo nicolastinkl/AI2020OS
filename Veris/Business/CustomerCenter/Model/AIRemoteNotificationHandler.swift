@@ -112,7 +112,6 @@ struct AIRemoteNotificationParameters {
         // Create our Installation query
         let pushQuery = AVInstallation.query()
         pushQuery.whereKey(AIRemoteNotificationParameters.ProviderIdentifier, equalTo: toUser)
-
         // Send push notification to query
         let push = AVPush()
         push.setQuery(pushQuery) // Set our Installation query

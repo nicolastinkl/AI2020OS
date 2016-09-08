@@ -117,6 +117,12 @@ struct AILocalStore {
 
         if let user_id = info["user_id"] as? String {
             userDefaults.setObject(user_id, forKey: AILoginUtil.KEY_USER_ID)
+
+            /// Handle Provider Notification
+            let installation = AVInstallation.currentInstallation()
+            installation.setObject(user_id, forKey: "ProviderIdentifier")
+            installation.addUniqueObject("ProviderChannel", forKey: "channels")
+            installation.saveInBackground()
         }
 
         if let user_name = info["user_name"] as? String {
@@ -130,12 +136,6 @@ struct AILocalStore {
 
         if let provider_id = info["provider_id"] as? String {
             userDefaults.setObject(provider_id, forKey: AILoginUtil.KEY_PROVIDER_ID)
-
-            /// Handle Provider Notification
-            let installation = AVInstallation.currentInstallation()
-            installation.setObject("provider_id", forKey: "ProviderIdentifier")
-            installation.addUniqueObject("ProviderChannel", forKey: "channels")
-            installation.saveInBackground()
         }
 
         if let head_url = info["head_url"] as? String {
