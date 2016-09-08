@@ -19,9 +19,12 @@ enum ResultCode: Int {
     case success = 1
 }
 
-enum PermissionType: Int {
+enum ProcedureType: Int {
+    // 需要授权的节点
     case jurisdiction = 0
+    // 需要用户确认的节点
     case confirm = 1
+    // 只读节点
     case read
 }
 
@@ -50,7 +53,7 @@ enum ProcedureStatus: Int {
 protocol ExcuteManager {
     func submitServiceNodeResult(serviceId: Int, procedureId: Int, resultList: [NodeResultContent], success: (responseData: (hasNextNode: Bool, resultCode: ResultCode)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func queryProcedureInstInfo(serviceId: Int, userId: Int, success: (responseData: (customer: AICustomerModel, procedure: Procedure)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
-    func updateServiceNodeStatus(procedureId: Int, status: ProcedureStatus, success: (responseData: RequestCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func updateServiceNodeStatus(procedureId: Int, status: ProcedureStatus, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func submitRequestAuthorization(serviceId: Int, customerId: Int, providerId: Int, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
@@ -67,24 +70,20 @@ class BDKExcuteManager: ExcuteManager {
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
-            do {
-                guard let dic = response as? [NSObject : AnyObject] else {
+            guard let dic = response as? [NSObject : AnyObject] else {
+                fail(errType: AINetError.Format, errDes: "submitServiceNodeResult JSON Parse Error...")
+                return
+            }
+            
+            guard
+                let hasNextNode = dic["process_flag"] as? Bool,
+                let c = dic["result_code"] as? Int else {
                     fail(errType: AINetError.Format, errDes: "submitServiceNodeResult JSON Parse Error...")
                     return
-                }
-                
-                guard
-                    let hasNextNode = dic["process_flag"] as? Bool,
-                    let c = dic["result_code"] as? Int else {
-                        fail(errType: AINetError.Format, errDes: "submitServiceNodeResult JSON Parse Error...")
-                        return
-                }
-                
-                let result = (hasNextNode, ResultCode(rawValue: c)!)
-                success(responseData: result)
-            } catch {
-                fail(errType: AINetError.Format, errDes: "submitServiceNodeResult JSON Parse Error...")
             }
+            
+            let result = (hasNextNode, ResultCode(rawValue: c)!)
+            success(responseData: result)
             
         }) { (error: AINetError, errorDes: String!) -> Void in
             fail(errType: error, errDes: errorDes ?? "")
@@ -161,7 +160,7 @@ class BDKExcuteManager: ExcuteManager {
         }
     }
     
-    func updateServiceNodeStatus(procedureId: Int, status: ProcedureStatus, success: (responseData: RequestCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func updateServiceNodeStatus(procedureId: Int, status: ProcedureStatus, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         let message = AIMessage()
         let url = AIApplication.AIApplicationServerURL.updateServiceNodeStatus.description
@@ -172,16 +171,17 @@ class BDKExcuteManager: ExcuteManager {
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
-            do {
-                guard let dic = response as? [NSObject : AnyObject] else {
-                    fail(errType: AINetError.Format, errDes: "updateServiceNodeStatus JSON Parse Error...")
-                    return
-                }
-                let model = try RequestCode(dictionary: dic)
-                success(responseData: model)
-            } catch {
-                fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
+            guard let dic = response as? [NSObject : AnyObject] else {
+                fail(errType: AINetError.Format, errDes: "updateServiceNodeStatus JSON Parse Error...")
+                return
             }
+            
+            guard let c = dic["result_code"] as? Int else {
+                fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
+                return
+            }
+            
+            success(responseData: ResultCode(rawValue: c)!)
             
         }) { (error: AINetError, errorDes: String!) -> Void in
             fail(errType: error, errDes: errorDes ?? "")
@@ -199,22 +199,17 @@ class BDKExcuteManager: ExcuteManager {
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
-            do {
-                guard let dic = response as? [NSObject : AnyObject] else {
-                    fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
-                    return
-                }
-                
-                guard let c = dic["result_code"] as? Int else {
-                        fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
-                        return
-                }
-                
-                success(responseData: ResultCode(rawValue: c)!)
-                
-            } catch {
+            guard let dic = response as? [NSObject : AnyObject] else {
                 fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
+                return
             }
+            
+            guard let c = dic["result_code"] as? Int else {
+                fail(errType: AINetError.Format, errDes: "JSON Parse Error...")
+                return
+            }
+            
+            success(responseData: ResultCode(rawValue: c)!)
             
         }) { (error: AINetError, errorDes: String!) -> Void in
             fail(errType: error, errDes: errorDes ?? "")

@@ -224,9 +224,12 @@ class TaskResultCommitViewController: UIViewController {
         
         manager.updateServiceNodeStatus(procedureId!, status: ProcedureStatus.complete, success: { (responseData) in       
             
-            if responseData.result_code == ResultCode.success.rawValue {
+            switch responseData {
+                
+            case .success:
                 self.submitResult()
-            } else {
+                
+            default:
                 self.dismissLoading()
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
             }
