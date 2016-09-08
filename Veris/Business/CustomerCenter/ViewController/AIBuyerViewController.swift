@@ -543,7 +543,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         let bgview = UIView(frame: topBar.bounds)
         topBar.addSubview(bgview)
 
-
         // calculate
 
         let top = (barHeight - imageSize) / 2
