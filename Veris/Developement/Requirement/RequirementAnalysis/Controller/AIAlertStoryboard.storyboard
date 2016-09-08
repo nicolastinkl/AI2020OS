@@ -65,9 +65,24 @@
                             </visualEffectView>
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x4E-LP-N5A">
                                 <rect key="frame" x="0.0" y="274" width="414" height="250"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60x-ki-hMz">
+                                        <rect key="frame" x="349" y="14" width="51" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="51" id="T0I-L1-yPm"/>
+                                            <constraint firstAttribute="height" constant="29" id="WsJ-Lg-PCc"/>
+                                        </constraints>
+                                        <state key="normal" title="Ignore"/>
+                                        <connections>
+                                            <action selector="IgnoreAction:" destination="0qb-9H-gNp" eventType="touchUpInside" id="OIl-GC-Cdo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="60x-ki-hMz" firstAttribute="top" secondItem="x4E-LP-N5A" secondAttribute="top" constant="14" id="5Ym-2a-eeo"/>
                                     <constraint firstAttribute="height" constant="250" id="Thc-Bg-6Qp"/>
+                                    <constraint firstAttribute="trailing" secondItem="60x-ki-hMz" secondAttribute="trailing" constant="14" id="tac-p6-m7r"/>
                                 </constraints>
                             </view>
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9b-9o-iXh" userLabel="bottmonBgackgroundView">
@@ -269,6 +284,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="customerDescView" destination="x4E-LP-N5A" id="5J3-c2-Avx"/>
+                        <outlet property="ignoreButton" destination="60x-ki-hMz" id="DAq-ZN-j5s"/>
                         <outlet property="serviceDescLabel" destination="Xcq-QJ-hDF" id="Fbs-wW-0Lx"/>
                         <outlet property="serviceIconImageView" destination="Ted-en-bR9" id="fXY-e5-XHT"/>
                         <outlet property="serviceNameLabel" destination="Gm5-Lt-BTq" id="SXk-OY-aaW"/>

@@ -29,7 +29,7 @@ struct AIWishServices {
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {                
-                complate(JSONDecoder(responseJSON)["proposal_id"].integer, nil)
+                complate(JSONDecoder(responseJSON), nil)
             } else {
                 complate(nil, "data is null")
             }

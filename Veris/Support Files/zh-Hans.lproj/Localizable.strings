@@ -228,12 +228,6 @@
  */
 "ImagesReviewViewController.deleteConfirm" = "删除照片?";
 
-/*
- * ./Veris/Business/Login/LoginConstants
- */
-
-
-
 //MARK: AIContestSuccessViewController
 
 "AIContestSuccessViewController.NavigationBarTitle" = "服务细节";
@@ -267,3 +261,16 @@
 
 "AIServerProviderView.ServiceRateFormat" = "服务好评度 %s";
 
+/*
+ * ./Veris/Business/Login/LoginConstants
+ */
+
+"LoginConstants.confirmButton" = "确认完成"
+"LoginConstants.forgotPasswordPrompt" = "确认完成"
+"LoginConstants.validationPrompt" = "确认完成"
+"LoginConstants.validateButtonDefault" = "确认完成"
+"LoginConstants.nextStep" = "确认完成"
+"LoginConstants.UserIdPlaceholder" = "确认完成"
+"LoginConstants.passwordPlaceholder" = "确认完成"
+"LoginConstants.EnterValidateCodePlaceholder" = "确认完成"
+"LoginConstants.SetPasswordPlaceholder" = "确认完成"
