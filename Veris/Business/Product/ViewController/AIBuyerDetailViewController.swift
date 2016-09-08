@@ -1264,11 +1264,12 @@ extension AIBuyerDetailViewController : AnchorProcess {
         
         if anchor.selector == "cellDidOpen" {
             let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: anchor.rowIndex!, inSection: anchor.sectionIndex!)) as! AIBueryDetailCell
-            cellDidOpen(cell)
+            cell.openCell()
 
         } else if anchor.selector == "cellDidClose" {
             let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: anchor.rowIndex!, inSection: anchor.sectionIndex!)) as! AIBueryDetailCell
-            cellDidClose(cell)
+            cell.closeCell()
+            
         } else if anchor.selector == "scrollViewDidEndDecelerating" {
             if anchor.scrollTableName == "tableView" {
                 tableView.setContentOffset(CGPointMake(anchor.scrollOffsetX!, anchor.scrollOffsetY!), animated: true)
