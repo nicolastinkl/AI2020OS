@@ -21,7 +21,9 @@ class AICollContentViewController: UIViewController {
     var cachedCells = Dictionary<Int, AITimelineCellBaseView>()
     var filterModels: [AIPopupChooseModel]!
     var curAssignServiceInst: AssignServiceInstModel?
+    //add by liux at 20160908 派单增加需要的参数
     var orderId: String?
+    var compUserId: String?
 
     //IB views
     var serviceInstView: AIAssignServiceView!
@@ -254,10 +256,11 @@ class AICollContentViewController: UIViewController {
                 submitInfo.setObject(serviceSpecId, forKey: "service_spec_id")
                 submitInfo.setObject(isScrambleOrder, forKey: "is_scramble_order")
                 submitInfo.setObject(offeringId, forKey: "service_id")
+                
                 submitServiceInstIds.append(submitInfo)
             }
         }
-        AIRequirementHandler.defaultHandler().assginTask(orderId!, taskList: submitServiceInstIds, success: { () -> Void in
+        AIRequirementHandler.defaultHandler().assginTask(orderId: orderId!, compUserId: compUserId!, taskList: submitServiceInstIds, success: { () -> Void in
             self.finishLaunchAction()
             }) { (errType, errDes) -> Void in
                 AILog("assignTask faild, errorInfo: \(errDes)")
@@ -296,6 +299,7 @@ class AICollContentViewController: UIViewController {
             }
             //add by liux at 20160909 增加需要的字段，order_id
             orderId = bussinessModel.baseJsonValue?.order_id
+            compUserId = bussinessModel.baseJsonValue?.comp_user_id
         }
 
 

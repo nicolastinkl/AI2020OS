@@ -12,7 +12,7 @@ import Cartography
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
-    var serviceID: String!
+    var serviceID = "900001004204"
     var comments: [ServiceCommentViewModel]!
     private var currentOperateIndex = -1
     private var commentManager: CommentManager!
@@ -72,13 +72,22 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         let submitList = getSubmitComments()
         
         if submitList.count > 0 {
+            
+            showLoading()
+            
             commentManager.submitComments("1", userType: 1, commentList: submitList, success: { (responseData) in
+                
+                self.dismissLoading()
+                
                 if responseData.result {
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.LONG)
                 }
                 }) { (errType, errDes) in
+                    
+                    self.dismissLoading()
+                    
                     NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.LONG)
             }
             
@@ -154,9 +163,13 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         func netLoad() {
             let ser = HttpCommentService()
             
+            guard let userId = AILoginUtil.currentLocalUserID() else {
+                return
+            }
+            
             view.showLoading()
             
-            ser.getCompondComment("10012", userType: 1, serviceId: "900001001008", success: { (responseData) in
+            ser.getCompondComment(userId, userType: 1, serviceId: serviceID, success: { (responseData) in
                 self.view.hideLoading()
                 let re = responseData
                 
