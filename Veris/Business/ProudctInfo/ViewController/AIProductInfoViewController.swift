@@ -688,10 +688,10 @@ class AIProductInfoViewController: UIViewController {
         let pLabel = getTitleLabelView("服务者介绍")
         let tap5 = UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.providerDetailPressed))
         pLabel.addGestureRecognizer(tap5)
-        addNewSubView(pLabel, preView: bubbleViewContain)
+        addNewSubView(pLabel, preView: bubbleViewContain, color: UIColor.clearColor(), space: 10)
         pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
         let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
-        addNewSubView(hView4!, preView: pLabel, color: UIColor.clearColor(), space: 10)
+        addNewSubView(hView4!, preView: pLabel)
         hView4?.fillDataWithModel(dataModel?.provider)
         let lineView3 = addSplitView()
         

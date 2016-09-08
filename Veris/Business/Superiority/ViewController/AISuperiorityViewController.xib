@@ -29,7 +29,7 @@
                     </view>
                     <blurEffect style="dark"/>
                 </visualEffectView>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Superiority_bg" translatesAutoresizingMaskIntoConstraints="NO" id="2aM-sA-BDw">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Superiority_bg" translatesAutoresizingMaskIntoConstraints="NO" id="2aM-sA-BDw">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="577"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohQ-4c-Sjf">
@@ -113,6 +113,6 @@
     </objects>
     <resources>
         <image name="AI_Superiority_bg" width="414" height="713"/>
-        <image name="effectBgView" width="308" height="485"/>
+        <image name="effectBgView" width="138" height="245"/>
     </resources>
 </document>
