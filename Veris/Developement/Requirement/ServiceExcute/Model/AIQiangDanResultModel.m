@@ -8,6 +8,10 @@
 
 #import "AIQiangDanResultModel.h"
 
+@implementation AIQiangDanServiceParamModel
+
+@end
+
 @implementation AIQiangDanResultModel
 
 @end
