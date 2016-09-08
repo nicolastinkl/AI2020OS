@@ -26,6 +26,7 @@ extension AIBuyerBubbleModel {
 			bubble.proposal_id = model.sid
 			bubble.proposal_name = model.name
 			bubble.proposal_price = model.price?.price_show
+//                               model.proposal_price = modelJSON.price?.price_show ?? "" 
 			if let sub_service_list = model.sub_service_list {
 				bubble.service_list = (sub_service_list as! [AISearchServiceModel]).map({ (service) -> AIProposalServiceModel in
 					let result = AIProposalServiceModel()
@@ -34,6 +35,10 @@ extension AIBuyerBubbleModel {
 					return result
 				})
 			}
+            let selfIcon = AIProposalServiceModel()
+            selfIcon.service_id = model.sid
+            selfIcon.service_thumbnail_icon = model.icon
+            bubble.service_list.insert(selfIcon, atIndex: 0)
 			result.append(bubble)
 		}
 		return result

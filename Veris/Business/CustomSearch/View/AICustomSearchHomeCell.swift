@@ -78,10 +78,10 @@ class AICustomSearchHomeCell: UITableViewCell {
 		} else {
 			priceLabel.text = ""
 		}
-//		let likeString = String(format: " %d", model.service_likes)
-//		let hotString = String(format: " %d", model.service_browse)
-//		likeButton.setTitle(likeString, forState: .Normal)
-//		hotButton.setTitle(hotString, forState: .Normal)
+		let likeString = String(format: " %@", model.like)
+		let hotString = String(format: " %@", model.hot)
+		likeButton.setTitle(likeString, forState: .Normal)
+		hotButton.setTitle(hotString, forState: .Normal)
 		
 	}
 }
