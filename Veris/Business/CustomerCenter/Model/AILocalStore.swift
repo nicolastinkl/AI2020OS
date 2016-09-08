@@ -108,7 +108,7 @@ struct AILocalStore {
 
         /// Handle Provider Notification
         let installation = AVInstallation.currentInstallation()
-        installation.setObject("000", forKey: "ProviderIdentifier")
+        installation.removeObjectForKey("UserIdentifier")
         installation.removeObjectForKey("channels")
         installation.saveInBackground()
     }
