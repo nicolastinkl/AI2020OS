@@ -82,7 +82,7 @@ class AICustomSearchHomeResultFilterBar: UIView {
 		m.selectedIndex = index
 	}
 	
-	var filterButtonTitles: [String] = ["Sort by", "Price", "Filter"] {
+	var filterButtonTitles: [String] = ["CustomSearch.sortBy".localized, "CustomSearch.price".localized, "CustomSearch.filter".localized] {
 		didSet {
 			setupFilterButtons()
 		}
