@@ -424,9 +424,9 @@ class AIRequirementHandler: NSObject {
 
 	 */
 	
-	func assginTask(taskList: [NSDictionary], success: () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func assginTask(orderId: String, taskList: [NSDictionary], success: () -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 		let message = AIMessage()
-		let body: NSDictionary = ["data": ["work_order_param_list": taskList], "desc": ["data_mode": "0", "digest": ""]]
+		let body: NSDictionary = ["data": ["order_id": orderId, "work_order_param_list": taskList], "desc": ["data_mode": "0", "digest": ""]]
 		message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
 		message.url = AIApplication.AIApplicationServerURL.assginTask.description as String
 		
