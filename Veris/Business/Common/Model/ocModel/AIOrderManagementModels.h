@@ -135,6 +135,10 @@
 
 @property (nonatomic, strong) NSArray<Optional> *own_right_id;
 
+//add by liux at 20160908 增加抢单相关自断
+@property (nonatomic, strong) NSString<Optional> *relservice_spec_id;
+@property (nonatomic, strong) NSString<Optional> *is_scramble_order;
+
 
 @end
 

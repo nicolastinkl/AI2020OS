@@ -21,6 +21,7 @@ class AICollContentViewController: UIViewController {
     var cachedCells = Dictionary<Int, AITimelineCellBaseView>()
     var filterModels: [AIPopupChooseModel]!
     var curAssignServiceInst: AssignServiceInstModel?
+    var orderId: String?
 
     //IB views
     var serviceInstView: AIAssignServiceView!
@@ -242,14 +243,21 @@ class AICollContentViewController: UIViewController {
     func launchAction(target: AnyObject) {
         var submitServiceInstIds = [NSDictionary]()
         for assignServiceInst in assginServiceInsts {
+            guard let serviceSpecId = assignServiceInst.serviceSpecId,
+                isScrambleOrder = assignServiceInst.isScrambleOrder,
+                offeringId = assignServiceInst.offeringId else {
+                    continue
+            }
             if assignServiceInst.serviceInstStatus == ServiceInstStatus.Init {
                 let submitInfo = NSMutableDictionary()
                 submitInfo.setObject(assignServiceInst.serviceInstId, forKey: "service_inst_id")
-                submitInfo.setObject(assignServiceInst.providerUserId, forKey: "provider_user_id")
+                submitInfo.setObject(serviceSpecId, forKey: "service_spec_id")
+                submitInfo.setObject(isScrambleOrder, forKey: "is_scramble_order")
+                submitInfo.setObject(offeringId, forKey: "service_id")
                 submitServiceInstIds.append(submitInfo)
             }
         }
-        AIRequirementHandler.defaultHandler().assginTask(submitServiceInstIds, success: { () -> Void in
+        AIRequirementHandler.defaultHandler().assginTask(orderId!, taskList: submitServiceInstIds, success: { () -> Void in
             self.finishLaunchAction()
             }) { (errType, errDes) -> Void in
                 AILog("assignTask faild, errorInfo: \(errDes)")
@@ -276,6 +284,7 @@ class AICollContentViewController: UIViewController {
 
     // MARK: - 加载数据
     func loadData() {
+        
         //权限列表
         if let bussinessModel = AIRequirementViewPublicValue.bussinessModel {
             if let assignServiceInstModels = bussinessModel.assignServiceInstModels {
@@ -285,7 +294,8 @@ class AICollContentViewController: UIViewController {
                 }
                 assginServiceInsts = [assignServiceInstModels.first ?? AssignServiceInstModel()]
             }
-
+            //add by liux at 20160909 增加需要的字段，order_id
+            orderId = bussinessModel.baseJsonValue?.order_id
         }
 
 
