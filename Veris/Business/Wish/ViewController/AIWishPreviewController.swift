@@ -299,7 +299,7 @@ class AIWishPreviewController: UIViewController {
     
     @IBAction func subitAction(sender: AnyObject) {
         if let stext = self.textFeild?.text {
-            if stext.length <= 0 {
+            if stext.length <= 0 || stext == "Please write down anything you want to add." {
                 AIAlertView().showError("Please write down anything you want to add.", subTitle: "")
                 return
             }

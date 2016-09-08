@@ -67,6 +67,8 @@ class AIProductInfoViewController: UIViewController {
     private let isStepperEditing = false
     private var cacheNote: AIProposalServiceDetail_WishModel?
     private var bottomViewCache: UIView?
+    private var cachePriceLabel: UILabel?
+    private var selectedPID: Int = 0
     // MARK: 取消键盘
     
     func shouldHideKeyboard () {
@@ -518,8 +520,8 @@ class AIProductInfoViewController: UIViewController {
 		priceLabel.font = AITools.myriadBoldWithSize(52 / 3)
 		priceLabel.textColor = UIColor(hexString: "#e7c400")
 		addNewSubView(priceLabel, preView: desLabel)
-		priceLabel.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
-		
+        priceLabel.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 40 / 3)
+		cachePriceLabel = priceLabel
 		let tagsView = UIView()
 		tagsView.setHeight(165 / 3)
         let countPackage = dataModel?.package?.count ?? 0
@@ -925,6 +927,16 @@ class AIProductInfoViewController: UIViewController {
                     button.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Normal)
                     button.borderColor = UIColor(hexString: "#0f86e8")
                     
+                    let tagPID = button.tag
+                    dataModel?.package?.forEach({ (modelPackage) in
+                        if let pid = modelPackage.pid {
+                            if pid == tagPID {
+                                //刷新价格
+                                cachePriceLabel?.text = "\(modelPackage.price?.price_show ?? "")"
+                                selectedPID =  modelPackage.pid ?? 0
+                            }
+                        }
+                    })
                 }
                 
             }
@@ -965,6 +977,7 @@ class AIProductInfoViewController: UIViewController {
         let model = AIProposalInstModel()
         model.proposal_id = dataModel?.proposal_inst_id ?? 0
         model.proposal_name = dataModel?.name ?? ""
+        //pakcage id in selectedPID.
         if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
             vc.dataSource  = model
             vc.customNoteModel = dataModel?.customer_note
