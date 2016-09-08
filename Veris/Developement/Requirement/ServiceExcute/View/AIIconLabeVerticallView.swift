@@ -107,7 +107,7 @@ class AIIconLabelVerticalView: UIView {
 //            labelView.textAlignment = NSTextAlignment.Left
 //        }
         //TODO暂时为了ui效果设置成本地图片
-        iconImageView.image = UIImage(named: "se_time_icon_big")
-        //iconImageView.sd_setImageWithURL(NSURL(string: model.iconUrl), placeholderImage: UIImage(named: "icon_price_big"))    
+        //iconImageView.image = UIImage(named: "se_time_icon_big")
+        iconImageView.sd_setImageWithURL(NSURL(string: model.iconUrl), placeholderImage: UIImage(named: "icon_price_big"))    
     }
 }

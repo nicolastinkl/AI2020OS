@@ -26,7 +26,7 @@ class ServiceCardDetailFlag: ServiceParamlView {
 	let FLAG_HEIGHT_MARGIN: CGFloat = AITools.displaySizeFrom1080DesignSize(30)
 	let FLAG_LABEL_HEIGHT: CGFloat = AITools.displaySizeFrom1080DesignSize(67)
 	let FLAG_MAX_WIDTH: CGFloat = UIScreen.mainScreen().bounds.width - 20
-	let TITLE_HEIGHT: CGFloat = AITools.displaySizeFrom1080DesignSize(36)
+    let TITLE_HEIGHT: CGFloat = 20//AITools.displaySizeFrom1080DesignSize(36)
 	// fonts
 	let FLAG_TEXT_FONT: UIFont = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(34))
 	let TITLE_TEXT_FONT: UIFont = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(42))

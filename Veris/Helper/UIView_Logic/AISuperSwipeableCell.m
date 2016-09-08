@@ -57,12 +57,12 @@ static CGFloat const kButtonWidthValue = 52.0f;
 
 - (void)openCell
 {
-    [self setConstraintsToShowAllButtons:NO notifyDelegateDidOpen:NO];
+    [self setConstraintsToShowAllButtons:NO notifyDelegateDidOpen:YES];
 }
 
 - (void)closeCell
 {
-    [self resetConstraintContstantsToZero:NO notifyDelegateDidClose:YES];
+    [self resetConstraintContstantsToZero:NO notifyDelegateDidClose:NO];
 }
   
 - (CGFloat)buttonTotalWidth
@@ -248,6 +248,10 @@ static CGFloat const kButtonWidthValue = 52.0f;
         self.buttonViewWidthConstraint.constant = kButtonWidthValue;
         self.cornerFixView.hidden = true;
         [self.delegate cellDidOpen:self];
+    } else {
+        self.buttonViewWidthConstraint.constant = kBounceValue;
+        self.cornerFixView.hidden = false;
+        [self.delegate cellDidClose:self];
     }
     
     //1

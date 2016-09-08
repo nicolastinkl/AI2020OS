@@ -156,16 +156,18 @@ extension UIViewController {
         presentViewController(menuViewController, animated: true, completion: nil)
     }
     
-    static func showAlertViewController() {
+    static func showAlertViewController(inParamDic: Dictionary<String,AnyObject>) {
         
-        let viewAlertVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateInitialViewController()
+        let navigationController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateInitialViewController() as! UINavigationController
+        let viewAlertVC = navigationController.viewControllers[0] as! AIAlertViewController
+        viewAlertVC.in_paramDic = inParamDic
         if let rootVc = UIApplication.sharedApplication().keyWindow?.rootViewController {
             if rootVc.isKindOfClass(UINavigationController.self) {
                 //rootVc.pop
             } else {
                 
             }
-            rootVc.presentPopupViewController(viewAlertVC!, animated: true)
+            rootVc.presentPopupViewController(viewAlertVC, animated: true)
         }
     }
 

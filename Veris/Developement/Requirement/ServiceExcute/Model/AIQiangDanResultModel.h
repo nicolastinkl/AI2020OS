@@ -9,6 +9,14 @@
 #import "JSONModel.h"
 #import "AICustomerModel.h"
 
+@protocol AIQiangDanServiceParamModel @end
+
+@interface AIQiangDanServiceParamModel : JSONModel
+@property (nonatomic, strong) NSString<Optional> *param_id;
+@property (nonatomic, strong) NSString<Optional> *param_name;
+@property (nonatomic, strong) NSString<Optional> *param_value;
+@property (nonatomic, strong) NSString<Optional> *param_icon;
+@end
 
 @protocol AIQiangDanServiceDetailModel
 @end
@@ -16,7 +24,7 @@
 @interface AIQiangDanServiceDetailModel : JSONModel
 
 @property (nonatomic, strong) NSString<Optional> *service_desc;
-
+@property (nonatomic, strong) NSArray<AIQiangDanServiceParamModel, Optional> *service_param_list;
 @end
 
 

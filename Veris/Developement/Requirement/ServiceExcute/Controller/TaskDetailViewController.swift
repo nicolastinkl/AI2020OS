@@ -23,7 +23,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var waitingMask: UIVisualEffectView!
     @IBOutlet weak var customerView: AICustomerBannerView!
     
-    var serviceId: Int!
+    var serviceId: Int = 0
     var providerId: Int = 0
     
     private var procedure: Procedure?
@@ -91,6 +91,8 @@ class TaskDetailViewController: UIViewController {
         let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(backAction(_:)))
         leftButtonItem.tintColor = UIColor.lightGrayColor()
         self.navigationItem.leftBarButtonItem = leftButtonItem
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
     }
 
     func backAction(button: UIBarButtonItem) {

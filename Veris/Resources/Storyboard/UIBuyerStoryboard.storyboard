@@ -576,7 +576,7 @@
                                             <constraint firstAttribute="width" constant="279" id="PxJ-67-vyo"/>
                                             <constraint firstAttribute="height" constant="42" id="ami-qi-DW4"/>
                                         </constraints>
-                                        <state key="normal" title="Place your order">
+                                        <state key="normal" title="提交订单">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -631,7 +631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kh5-VN-l2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="253" y="-634"/>
+            <point key="canvasLocation" x="373" y="-610"/>
         </scene>
         <!--Page Buery View Controller-->
         <scene sceneID="F25-Ic-djb">

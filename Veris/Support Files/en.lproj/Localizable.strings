@@ -266,9 +266,9 @@
 
 // AIServerProviderView
 
-"AIServerProviderView.ServiceCustomerFormat" = "Service %s";
+"AIServerProviderView.ServiceCustomerFormat" = "Service %@";
 
-"AIServerProviderView.ServiceRateFormat" = "Rate %s";
+"AIServerProviderView.ServiceRateFormat" = "Rate %@";
 
 /*
  * ./Veris/Business/Login/LoginConstants
