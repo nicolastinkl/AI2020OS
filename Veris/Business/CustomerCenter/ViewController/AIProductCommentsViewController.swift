@@ -301,13 +301,12 @@ class AIProductCommentCell: UITableViewCell {
 	class func getheight(model: AIProductComment) -> CGFloat {
 		
 		let offSetWidth: CGFloat = 5
-		
 		var selfHeight: CGFloat = 34.0
 		let imageViewWidth: CGFloat = 70
 		
 		// count text
 		selfHeight +=
-			model.comment?.sizeWithFont(AITools.myriadBoldWithSize(13), forWidth: UIScreen.mainScreen().bounds.width).height ?? 0
+			model.comment?.sizeWithFont(AITools.myriadBoldWithSize(15), forWidth: UIScreen.mainScreen().bounds.width).height ?? 0
 		
 		if let urls = model.photos {
 			
@@ -319,7 +318,6 @@ class AIProductCommentCell: UITableViewCell {
 			} else {
 				selfHeight += (imageViewWidth + offSetWidth) * (CGFloat)(persInt)
 			}
-			
 		} else {
 			selfHeight += 0
 		}

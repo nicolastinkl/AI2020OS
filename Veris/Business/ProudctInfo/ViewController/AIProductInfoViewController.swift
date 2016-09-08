@@ -536,7 +536,7 @@ class AIProductInfoViewController: UIViewController {
             tag.titleLabel?.textColor = UIColor.whiteColor()
             tag.titleLabel?.font = UIFont.systemFontOfSize(13)
             let len = model.name?.length ?? 1
-            let widthButton: CGFloat = CGFloat(len * 9) + 25
+            let widthButton: CGFloat = CGFloat(len * 9) + 35
             tag.frame = CGRectMake(CGFloat(index) * (widthButton + 10), 14, widthButton, 80 / 3)
             tag.layer.masksToBounds = true
             tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
