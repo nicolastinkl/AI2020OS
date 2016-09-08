@@ -38,6 +38,8 @@ class AIBuyerDetailViewController: UIViewController {
 	
     var audioAssistantModel: AudioAssiatantModel = .None
     var isNowAssisting: Bool = false
+    var queryType: Int = -1
+    var queryUserID: Int = -1
 
     var isNowExcutingAnchor: Bool {
         get {
@@ -655,8 +657,13 @@ class AIBuyerDetailViewController: UIViewController {
 				
 				cView.updateConstraints()
 			}
-			
-			BDKProposalService().queryCustomerProposalDetail(m.proposal_id, success: { [weak self](responseData) -> Void in
+
+            var params: [String : AnyObject] = ["proposal_id" : m.proposal_id]
+            if queryUserID != -1 && queryType == -1 {
+                params = ["proposal_id" : m.proposal_id, "query_type" : queryType, "query_userid" : queryUserID]
+            }
+
+			BDKProposalService().queryCustomerProposalDetail(params, success: { [weak self](responseData) -> Void in
 				
 				if let viewController = self {
 					// 清空已删除
@@ -1250,14 +1257,22 @@ extension AIBuyerDetailViewController : AnchorProcess {
 
 extension AIBuyerDetailViewController: AIDialogDelegate {
     func dialogDidFinished() {
-        audioAssistantModel = .None
+        cleanQueryData()
         handleEnableWhenAppear()
     }
 
+    func cleanQueryData() {
+        queryType = -1
+        queryUserID = -1
+        audioAssistantModel = .None
+    }
+
     func dialogDidError() {
+        cleanQueryData()
         let alertView = AIAlertView()
         alertView.showCloseButton = false
         alertView.addButton("确定") {
+            
             self.customerDialogViewController?.dismissViewControllerAnimated(true, completion: nil)
         }
         alertView.showError("Oops！", subTitle: "拨号失败~")
