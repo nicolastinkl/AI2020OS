@@ -62,6 +62,7 @@ class AIWishPreviewController: UIViewController {
         Async.main(after: 0.3) {
             self.initData()
         }
+        
     }
     
     func initData() {
@@ -70,10 +71,18 @@ class AIWishPreviewController: UIViewController {
             self.view.hideLoading()
             if let resultArray = obj as? [String] {
                 self.initSubViews(resultArray)
+            } else {
+                self.view.showErrorView()
             }
         }
     }
     
+    /**
+     重新请求数据
+     */
+    func retryNetworkingAction() {        
+        initData()
+    }
     /// 初始化处理
     func initSubViews(cotentsArray: [String]) {
         averageMenoy = Int(model?.money_avg ?? 0)
@@ -299,7 +308,7 @@ class AIWishPreviewController: UIViewController {
     
     @IBAction func subitAction(sender: AnyObject) {
         if let stext = self.textFeild?.text {
-            if stext.length <= 0 {
+            if stext.length <= 0 || stext == "Please write down anything you want to add." {
                 AIAlertView().showError("Please write down anything you want to add.", subTitle: "")
                 return
             }

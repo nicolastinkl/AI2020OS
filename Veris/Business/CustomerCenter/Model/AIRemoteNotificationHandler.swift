@@ -143,7 +143,7 @@ struct AIRemoteNotificationParameters {
 
         if let value = paramDic[key] as? String {
             if value == AIRemoteNotificationParameters.GrabOrderType {
-                UIViewController.showAlertViewController()
+                UIViewController.showAlertViewController(paramDic)
                 
             } else if value == AIRemoteNotificationParameters.AudioAssistantType {
                 // 语音协助的 接受

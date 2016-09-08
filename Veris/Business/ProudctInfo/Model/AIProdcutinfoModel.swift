@@ -214,9 +214,12 @@ struct AIProductInfoPackageModel: JSONJoy {
     var pid: Int?
     var name: String?
     var collected: Bool = false
+    var price: AIPricePublicModel?
+    
     init(_ decoder: JSONDecoder) {
         pid = decoder["id"].integer ?? 0
         name = decoder["name"].string ?? ""
         collected = decoder["collected"].bool
+        price = AIPricePublicModel(decoder["price"])
     }
 }

@@ -94,7 +94,7 @@ import AIAlertView
         manager.queryQaingDanResultInfo(body, success: { (resultModel) in
             if let model: AIQiangDanResultModel = resultModel {
                 self.fillRealData(model)
-                //self.orderInfoViewLoadFakeData(model)
+                self.orderInfoViewLoadData(model)
 
                 self.dismissLoading()
             }
@@ -119,9 +119,19 @@ import AIAlertView
     /* 暂时废弃,等待后台配置以后再打开此功能
 
      */
-    func orderInfoViewLoadFakeData(model: AIQiangDanResultModel) {
-        let orderInfosModel = [AIIconLabelViewModel(labelText: "November 3, 2015", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png"), AIIconLabelViewModel(labelText: "Haidian District Garden Road, Beijing, 49", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png"), AIIconLabelViewModel(labelText: "Accompany pregnant woman to produce a check, queue,take a number, buy foodGeneration of pregnant women", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png")]
-        orderInfoView.loadData(orderInfosModel)
+    func orderInfoViewLoadData(model: AIQiangDanResultModel) {
+//        let orderInfosModel = [AIIconLabelViewModel(labelText: "November 3, 2015", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png"), AIIconLabelViewModel(labelText: "Haidian District Garden Road, Beijing, 49", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png"), AIIconLabelViewModel(labelText: "Accompany pregnant woman to produce a check, queue,take a number, buy foodGeneration of pregnant women", iconUrl: "http://171.221.254.231:3000/upload/shoppingcart/CTQJUtkd0VWNI.png")]
+        if let orderParamsJSONModel = model.service_process.service_param_list as? [AIQiangDanServiceParamModel] {
+            var orderInfosModel = Array<AIIconLabelViewModel>()
+            for orderParamJSONModel: AIQiangDanServiceParamModel in orderParamsJSONModel {
+                let labelText = orderParamJSONModel.param_value ?? ""
+                let iconUrl = orderParamJSONModel.param_icon ?? ""
+                let orderInfoModel = AIIconLabelViewModel(labelText: labelText, iconUrl: iconUrl)
+                orderInfosModel.append(orderInfoModel)
+            }
+            orderInfoView.loadData(orderInfosModel)
+        }
+        
     }
     
 
