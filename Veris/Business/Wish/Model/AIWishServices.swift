@@ -28,9 +28,8 @@ struct AIWishServices {
         message.url = AIApplication.AIApplicationServerURL.makewish.description as String
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
-            if let responseJSON: AnyObject = response {
-//                let model = AISuperiorityModel(JSONDecoder(responseJSON))
-                complate(responseJSON, nil)
+            if let responseJSON: AnyObject = response {                
+                complate(JSONDecoder(responseJSON), nil)
             } else {
                 complate(nil, "data is null")
             }

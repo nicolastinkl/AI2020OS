@@ -68,7 +68,7 @@ class AICustomSearchHomeCell: UITableViewCell {
 	}
 	
 	func initData(model: AISearchServiceModel) {
-		imageview.setImgURL(NSURL(string: ""), placeholderImage: smallPlace())
+		imageview.setImgURL(NSURL(string: model.icon), placeholderImage: smallPlace())
 		nameLabel.text = model.name
 		nameTwiceLabel.text = String(format: " - %@", model.desc)
 		desLabel.text = model.desc

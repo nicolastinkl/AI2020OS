@@ -63,7 +63,7 @@ class AIWishHotChildModel: JSONJoy {
     var money_type: String = ""
     var money_avg: Double = 0.0
     var money_adv: Double = 0.0
-    
+    init(){}
     required init(_ decoder: JSONDecoder) {
         type_id = decoder["type_id"].integer ?? 0
         name = decoder["name"].string ?? ""

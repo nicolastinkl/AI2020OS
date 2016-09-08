@@ -100,6 +100,7 @@
     if (self) {
         _service_rating_level = -1;
         _is_expend = 0;
+        _service_del_flag = 1;
     }
     
     return self;

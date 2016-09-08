@@ -265,14 +265,17 @@ class AIWishVowViewController: UIViewController {
             self.name = text
             AIWishServices.requestMakeWishs(typeID, name: text, money: money, contents: contents, complate: { (obj, error) in
                 self.view.hideLoading()
-                if let _ = obj {
+                if let responseJson = obj as? JSONDecoder {
+                    let proposal_id = responseJson["proposal_id"].integer ?? 0
+                    let type_id = responseJson["type_id"].integer ?? 0
                     let model = AIBuyerBubbleModel()
                     model.order_times = 1
-                    model.proposal_id_new = 1
                     model.proposal_name = self.name
                     model.proposal_price = "￥\(self.money)"
+                    model.proposal_id_new = type_id
                     model.service_list = []
-                    model.service_id = self.typeID
+                    self.typeID = type_id
+                    model.service_id = proposal_id
                     model.proposal_type = 3
                     NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
                 } else {

@@ -171,12 +171,11 @@ class AudioAssistantManager: NSObject {
 	}
 	
 	func sendAnchor(anchor: AIAnchor) {
-		
-//#if DEBUG
-		anchor.connectionId = connectionId
+
+        anchor.connectionId = connectionId
+
 		let string = anchor.toJSONString()
 		sendString(string, type: .Anchor)
-//#endif
 	}
 	
 	private func connectionToAudioAssiastantRoom(roomNumber roomNumber: String, sessionDidConnectHandler: (() -> ())? = nil, didFailHandler: ((OTError) -> ())? = nil) {
@@ -198,7 +197,9 @@ class AudioAssistantManager: NSObject {
                 self._session?.connectWithToken(token, error: nil)
             }
             }) { (error, message) in
-                
+                if let didFailHandler = didFailHandler {
+                    didFailHandler(OTError())
+                }
         }
 	}
 	

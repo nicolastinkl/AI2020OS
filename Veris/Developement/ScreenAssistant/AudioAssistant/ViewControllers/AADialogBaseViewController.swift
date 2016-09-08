@@ -13,8 +13,8 @@ class AADialogBaseViewController: UIViewController {
 	var roomNumber: String!
 	@IBOutlet weak var dialogToolBar: DialogToolBar!
 	@IBOutlet weak var zoomButton: UIButton!
-	var proposalID: Int = 1000
-	var proposalName: String = "Proposal"
+
+    var proposalModel: AIProposalInstModel?
 	
 	var status: AudioAssistantManagerConnectionStatus = .NotConnected {
 		didSet {

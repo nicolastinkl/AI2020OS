@@ -240,6 +240,10 @@ struct AIApplication {
         static let UserLoginOutNotification = "UserLoginOutNotification"
         // 注册通知
         static let UserDidRegistedNotification = "UserDidRegistedNotification"
+
+        // 收藏成功
+        static let DidUserCollectSuccess = "DidUserCollectSuccess"
+        static let DidUserCollectCancel = "DidUserCollectCancel"
     }
 
     // MARK: System theme's color
@@ -449,6 +453,8 @@ struct AIApplication {
         case customerAuthorize
         // 消费者确认子服务/订单完成
         case confirmOrderComplete
+        // 请求用户授权
+        case submitRequestAuthorization
 
         
         
@@ -537,6 +543,7 @@ struct AIApplication {
             case .updateServiceNodeStatus: return AIApplication.KURL_ReleaseURL + "/serviceProcess/updateServiceNodeStatus"
             case .customerAuthorize: return AIApplication.KURL_ReleaseURL + "/order/authorize"
             case .confirmOrderComplete: return AIApplication.KURL_ReleaseURL + "/order/confirm"
+            case .submitRequestAuthorization: return AIApplication.KURL_ReleaseURL + "/serviceProcess/submitRequestAuthorization"
             }
         }
     }

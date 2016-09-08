@@ -58,14 +58,13 @@ class AACustomerDialogViewController: AADialogBaseViewController {
 	}
 	
 	func dial() {
-		var roomNumber = "\(random() % 9999)"
-		roomNumber = "\(AudioAssistantManager.fakeRoomNumber)" // test
-		
-		let notification = [AIRemoteNotificationParameters.AudioAssistantRoomNumber: roomNumber, AIRemoteNotificationKeys.NotificationType: AIRemoteNotificationParameters.AudioAssistantType, AIRemoteNotificationKeys.MessageKey: "您有远程协助请求", AIRemoteNotificationKeys.ProposalID: proposalID, AIRemoteNotificationKeys.ProposalName: proposalName]
+
+		let notification = [AIRemoteNotificationParameters.AudioAssistantRoomNumber: AudioAssistantManager.fakeRoomNumber, AIRemoteNotificationKeys.NotificationType: AIRemoteNotificationParameters.AudioAssistantType, AIRemoteNotificationKeys.MessageKey: "您有远程协助请求", AIRemoteNotificationKeys.ProposalID: (proposalModel?.proposal_id)!, AIRemoteNotificationKeys.ProposalName: (proposalModel?.proposal_name)!]
 		
 		view.showLoading()
-		AudioAssistantManager.sharedInstance.customerCallRoom(roomNumber: "\(roomNumber)", sessionDidConnectHandler: { [weak self] in
-			AIRemoteNotificationHandler.defaultHandler().sendAudioAssistantNotification(notification as! [String: AnyObject], toUser: "200000002501")
+        let user = proposalModel?.provider_id.toString()
+		AudioAssistantManager.sharedInstance.customerCallRoom(roomNumber: AudioAssistantManager.fakeRoomNumber, sessionDidConnectHandler: { [weak self] in
+			AIRemoteNotificationHandler.defaultHandler().sendAudioAssistantNotification(notification as! [String: AnyObject], toUser: user!)
             AudioAssistantManager.sharedInstance.doPublishAudio()
             self?.shouldDial = false
 			self?.view.hideLoading()
