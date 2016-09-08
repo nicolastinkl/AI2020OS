@@ -70,6 +70,7 @@ class AIWishPreviewController: UIViewController {
         AIWishServices.requestListQueryWishs(self.model?.type_id ?? 0) { (obj, error) in
             self.view.hideLoading()
             if let resultArray = obj as? [String] {
+                self.view.hideErrorView()
                 self.initSubViews(resultArray)
             } else {
                 self.view.showErrorView()
