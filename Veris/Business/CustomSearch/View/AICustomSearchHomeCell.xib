@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -35,16 +35,6 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNJ-J0-My0">
-                        <rect key="frame" x="141" y="12" width="161" height="19"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="161" id="8YE-2Z-hC8"/>
-                            <constraint firstAttribute="height" constant="19" id="OFC-V1-j7v"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tbz-WP-I6U">
@@ -153,7 +143,6 @@
                     <constraint firstItem="9uR-vV-8t3" firstAttribute="width" secondItem="VI3-Mt-m4h" secondAttribute="width" id="Dn4-QQ-bwL"/>
                     <constraint firstItem="SHf-eo-fYO" firstAttribute="centerX" secondItem="VI3-Mt-m4h" secondAttribute="centerX" id="Drj-fV-vm8"/>
                     <constraint firstAttribute="trailingMargin" secondItem="9uR-vV-8t3" secondAttribute="trailing" id="EEl-l1-4VY"/>
-                    <constraint firstItem="xNJ-J0-My0" firstAttribute="top" secondItem="k34-wo-TC9" secondAttribute="top" id="FMk-sX-TEf"/>
                     <constraint firstItem="PWL-Vx-oR8" firstAttribute="top" secondItem="9uR-vV-8t3" secondAttribute="bottom" constant="1" id="H4x-Yn-Vn6"/>
                     <constraint firstItem="D2U-ST-FEA" firstAttribute="centerX" secondItem="VI3-Mt-m4h" secondAttribute="centerX" id="Jv8-kX-hkV"/>
                     <constraint firstItem="9uR-vV-8t3" firstAttribute="leading" secondItem="VI3-Mt-m4h" secondAttribute="leadingMargin" id="Kgi-jR-ELI"/>
@@ -174,7 +163,6 @@
                     <constraint firstItem="k34-wo-TC9" firstAttribute="leading" secondItem="lQb-te-HQx" secondAttribute="trailing" constant="10" id="nqS-RE-aVW"/>
                     <constraint firstItem="SHf-eo-fYO" firstAttribute="width" secondItem="VI3-Mt-m4h" secondAttribute="width" id="rYQ-1F-AV5"/>
                     <constraint firstAttribute="bottom" secondItem="PWL-Vx-oR8" secondAttribute="bottom" constant="4" id="ryt-jy-IUS"/>
-                    <constraint firstItem="xNJ-J0-My0" firstAttribute="leading" secondItem="k34-wo-TC9" secondAttribute="trailing" constant="1" id="sWt-6A-yAv"/>
                     <constraint firstItem="D2U-ST-FEA" firstAttribute="leading" secondItem="VI3-Mt-m4h" secondAttribute="leading" id="t4d-ln-okd"/>
                     <constraint firstItem="PWL-Vx-oR8" firstAttribute="leading" secondItem="VI3-Mt-m4h" secondAttribute="leading" id="tiL-Wq-vdr"/>
                     <constraint firstItem="D2U-ST-FEA" firstAttribute="top" secondItem="VI3-Mt-m4h" secondAttribute="topMargin" id="vux-bY-bbh"/>
@@ -182,11 +170,11 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="4L3-Ir-jaU"/>
-                        <exclude reference="lNt-bw-IcF"/>
                         <exclude reference="922-69-3Bf"/>
                         <exclude reference="Jv8-kX-hkV"/>
                         <exclude reference="vux-bY-bbh"/>
+                        <exclude reference="4L3-Ir-jaU"/>
+                        <exclude reference="lNt-bw-IcF"/>
                         <exclude reference="H4x-Yn-Vn6"/>
                         <exclude reference="EEl-l1-4VY"/>
                         <exclude reference="Kgi-jR-ELI"/>
@@ -200,7 +188,6 @@
                 <outlet property="imageview" destination="lQb-te-HQx" id="k9A-gT-ifR"/>
                 <outlet property="likeButton" destination="ZbP-hR-uLS" id="i3b-MK-5BU"/>
                 <outlet property="nameLabel" destination="k34-wo-TC9" id="a5r-Zc-57i"/>
-                <outlet property="nameTwiceLabel" destination="xNJ-J0-My0" id="0Ae-Js-SDm"/>
                 <outlet property="priceLabel" destination="tuO-Ye-ac3" id="aJP-d9-FGR"/>
                 <outlet property="rateView" destination="c3B-Fr-pjd" id="f0e-us-31Q"/>
                 <outlet property="wavyLineView" destination="PWL-Vx-oR8" id="lbM-pK-JxU"/>

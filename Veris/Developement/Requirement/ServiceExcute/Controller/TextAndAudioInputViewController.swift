@@ -50,6 +50,8 @@ class TextAndAudioInputViewController: UIViewController {
         if let t = text {
             textView.text = t
         }
+        
+        textView.doneInvocation = (self, #selector(TextAndAudioInputViewController.save))
     }
     
     func keyboardWillAppear(notification: NSNotification) {

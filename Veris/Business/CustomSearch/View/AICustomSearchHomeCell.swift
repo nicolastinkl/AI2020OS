@@ -29,7 +29,6 @@ class AICustomSearchHomeCell: UITableViewCell {
 	@IBOutlet weak var imageview: AIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var desLabel: UILabel!
-	@IBOutlet weak var nameTwiceLabel: UILabel!
 	@IBOutlet weak var priceLabel: UILabel!
 	@IBOutlet weak var likeButton: UIButton!
 	@IBOutlet weak var hotButton: UIButton!
@@ -45,8 +44,6 @@ class AICustomSearchHomeCell: UITableViewCell {
 		priceLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
 		desLabel.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
 		desLabel.textColor = UIColor(hexString: "#d4d5ef", alpha: 0.7)
-		nameTwiceLabel.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
-		nameTwiceLabel.textColor = UIColor(hexString: "#aba8b5")
 		
 		let buttonFont = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(36))
 		likeButton.titleLabel?.font = buttonFont
@@ -70,7 +67,6 @@ class AICustomSearchHomeCell: UITableViewCell {
 	func initData(model: AISearchServiceModel) {
 		imageview.setImgURL(NSURL(string: "\(model.icon)"), placeholderImage: smallPlace())
 		nameLabel.text = model.name
-		nameTwiceLabel.text = String(format: " - %@", model.desc)
 		desLabel.text = model.desc
 		if let price = model.price.price, unit = model.price.unit {
 			let priceString = String(format: "%@%@", unit, price)
