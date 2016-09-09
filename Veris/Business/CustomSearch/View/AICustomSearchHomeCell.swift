@@ -78,8 +78,8 @@ class AICustomSearchHomeCell: UITableViewCell {
 		} else {
 			priceLabel.text = ""
 		}
-		let likeString = String(format: " %@", model.like)
-		let hotString = String(format: " %@", model.hot)
+		let likeString = String(format: " %@", model.like ?? "0")
+		let hotString = String(format: " %@", model.hot ?? "0")
 		likeButton.setTitle(likeString, forState: .Normal)
 		hotButton.setTitle(hotString, forState: .Normal)
 		
