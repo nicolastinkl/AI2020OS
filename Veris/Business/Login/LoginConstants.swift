@@ -24,15 +24,15 @@ struct LoginConstants {
     }
     
     struct textContent {
-        static let confirmButton = "确认完成"
-        static let forgotPasswordPrompt = "Enter phone number to reset the password."
-        static let validationPrompt = "Validation code has been sent to "
-        static let validateButtonDefault = "Send Validation Code"
-        static let nextStep = "Next Step"
-        static let UserIdPlaceholder = " Phone number"
-        static let passwordPlaceholder = " Password"
-        static let EnterValidateCodePlaceholder = " Enter Validate Code"
-        static let SetPasswordPlaceholder = " Set your password"
+        static let confirmButton = "LoginConstants.confirmButton".localized
+        static let forgotPasswordPrompt = "LoginConstants.forgotPasswordPrompt".localized
+        static let validationPrompt = "LoginConstants.validationPrompt".localized
+        static let validateButtonDefault = "LoginConstants.validateButtonDefault".localized
+        static let nextStep = "LoginConstants.nextStep".localized
+        static let UserIdPlaceholder = "LoginConstants.UserIdPlaceholder".localized
+        static let passwordPlaceholder = "LoginConstants.passwordPlaceholder".localized
+        static let EnterValidateCodePlaceholder = "LoginConstants.EnterValidateCodePlaceholder".localized
+        static let SetPasswordPlaceholder = "LoginConstants.SetPasswordPlaceholder".localized
     }
     
     struct defaultImages {

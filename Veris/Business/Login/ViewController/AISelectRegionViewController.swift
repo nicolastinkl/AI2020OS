@@ -38,11 +38,11 @@ class AISelectRegionViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func loadData() {
-        let model = [RegionModel(countryNumber: "+86", regionName: "China"), RegionModel(countryNumber: "+33", regionName: "France"),
-                     RegionModel(countryNumber: "+49", regionName: "Germany"),
-                     RegionModel(countryNumber: "+61", regionName: "Australia"),
-                     RegionModel(countryNumber: "+36", regionName: "Hungary"),
-                     RegionModel(countryNumber: "+81", regionName: "Japan")]
+        let model = [RegionModel(countryNumber: "+86", regionName: "Countries.China".localized), RegionModel(countryNumber: "+33", regionName: "Countries.France".localized),
+                     RegionModel(countryNumber: "+49", regionName: "Countries.Germany".localized),
+                     RegionModel(countryNumber: "+61", regionName: "Countries.Australia".localized),
+                     RegionModel(countryNumber: "+36", regionName: "Countries.Hungary".localized),
+                     RegionModel(countryNumber: "+81", regionName: "Countries.Japan".localized)]
         self.model = model
     }
 

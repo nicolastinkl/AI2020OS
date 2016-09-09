@@ -35,10 +35,10 @@ class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDeleg
 	func handleLoginType() {
 		if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
 			confirmButton.setTitle("Confirm", forState: .Normal)
-			self.setupLoginNavigationBar("Forgot Password")
+			self.setupLoginNavigationBar("LoginConstants.forgetButton".localized)
 		} else {
 			confirmButton.setTitle("Next", forState: .Normal)
-			self.setupLoginNavigationBar("Enter Password")
+			self.setupLoginNavigationBar("LoginConstants.EnterPassword".localized)
 		}
 	}
 	
