@@ -116,14 +116,14 @@
                             </connections>
                         </textView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Wish_Make_wish" translatesAutoresizingMaskIntoConstraints="NO" id="0Og-OD-FuC">
-                            <rect key="frame" x="16" y="67" width="18" height="21"/>
+                            <rect key="frame" x="16" y="64" width="26" height="27"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="18" id="Fd5-Ae-hA7"/>
-                                <constraint firstAttribute="height" constant="21" id="FtZ-6L-KLw"/>
+                                <constraint firstAttribute="width" constant="26" id="Fd5-Ae-hA7"/>
+                                <constraint firstAttribute="height" constant="27" id="FtZ-6L-KLw"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your wish?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-dd-kVe">
-                            <rect key="frame" x="42" y="67" width="334" height="21"/>
+                            <rect key="frame" x="50" y="67" width="334" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="334" id="4Hh-sz-MBc"/>
                                 <constraint firstAttribute="height" constant="21" id="v0k-eG-8Gz"/>
@@ -133,14 +133,14 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Wish_Make_price" translatesAutoresizingMaskIntoConstraints="NO" id="aO9-OW-Fnm">
-                            <rect key="frame" x="16" y="247" width="18" height="21"/>
+                            <rect key="frame" x="16" y="244" width="26" height="27"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="18" id="KAP-Rh-vWe"/>
-                                <constraint firstAttribute="height" constant="21" id="NSc-es-xFH"/>
+                                <constraint firstAttribute="width" constant="26" id="KAP-Rh-vWe"/>
+                                <constraint firstAttribute="height" constant="27" id="NSc-es-xFH"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much you would like to pay for it?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmT-cF-TRI">
-                            <rect key="frame" x="42" y="244" width="361" height="26"/>
+                            <rect key="frame" x="50" y="244" width="361" height="26"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="334" id="3OE-9b-N9S"/>
                                 <constraint firstAttribute="width" constant="361" id="Ozt-kC-lnC"/>
@@ -250,7 +250,7 @@
                         <constraint firstItem="2fd-29-3dj" firstAttribute="top" secondItem="dGM-dd-kVe" secondAttribute="bottom" constant="14" id="BXH-Sh-HEa"/>
                         <constraint firstItem="3jP-vk-QKj" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="15" id="DMP-o8-xEh"/>
                         <constraint firstItem="82q-6H-fdR" firstAttribute="top" secondItem="2fd-29-3dj" secondAttribute="bottom" constant="150" id="Eby-iT-CyS"/>
-                        <constraint firstItem="0Og-OD-FuC" firstAttribute="top" secondItem="Uk4-p7-9sv" secondAttribute="bottom" constant="17" id="GsK-Lb-mUs"/>
+                        <constraint firstItem="0Og-OD-FuC" firstAttribute="top" secondItem="Uk4-p7-9sv" secondAttribute="bottom" constant="14" id="GsK-Lb-mUs"/>
                         <constraint firstItem="3dt-K5-wmt" firstAttribute="top" secondItem="dGM-dd-kVe" secondAttribute="bottom" constant="24" id="ID8-xr-V0M"/>
                         <constraint firstItem="uTb-h1-6bt" firstAttribute="trailing" secondItem="2fd-29-3dj" secondAttribute="trailing" constant="-13" id="JmK-Wf-WgG"/>
                         <constraint firstItem="2fd-29-3dj" firstAttribute="leading" secondItem="wmT-cF-TRI" secondAttribute="trailing" constant="-398" id="Jzr-dH-ySi"/>
@@ -258,7 +258,7 @@
                         <constraint firstItem="NFS-gw-a38" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" id="LHS-v9-Vrr"/>
                         <constraint firstAttribute="trailing" secondItem="2fd-29-3dj" secondAttribute="trailing" constant="15" id="Mor-ph-MPg"/>
                         <constraint firstItem="Mpt-78-G8Q" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="38" id="NAh-nq-FYL"/>
-                        <constraint firstItem="aO9-OW-Fnm" firstAttribute="top" secondItem="2fd-29-3dj" secondAttribute="bottom" constant="15" id="Nm0-8y-inb"/>
+                        <constraint firstItem="aO9-OW-Fnm" firstAttribute="top" secondItem="2fd-29-3dj" secondAttribute="bottom" constant="12" id="Nm0-8y-inb"/>
                         <constraint firstAttribute="trailing" secondItem="3dt-K5-wmt" secondAttribute="trailing" constant="41" id="Piw-Ln-wio"/>
                         <constraint firstAttribute="trailing" secondItem="82q-6H-fdR" secondAttribute="trailing" constant="30" id="QEL-nn-A88"/>
                         <constraint firstItem="2fd-29-3dj" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="15" id="Quv-EV-hGu"/>
@@ -310,7 +310,7 @@
     <resources>
         <image name="AI_Wish_Make_audio" width="14" height="22"/>
         <image name="AI_Wish_Make_bg" width="414" height="736"/>
-        <image name="AI_Wish_Make_price" width="18" height="21"/>
+        <image name="AI_Wish_Make_price" width="26" height="27"/>
         <image name="AI_Wish_Make_wish" width="18" height="21"/>
     </resources>
 </document>
