@@ -112,7 +112,9 @@ class AICustomSearchHomeViewController: UIViewController {
         showTransitionStyleCrossDissolveView(AIAudioSearchViewController.initFromNib())
     }
 
-
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+    }
     
     /**
      处理语音识别数据搜索

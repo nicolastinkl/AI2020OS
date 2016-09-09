@@ -19,7 +19,7 @@ class AIRecommondForYouViewController: UIViewController {
 	}
 	
 	func setupNavigationItems() {
-		setupNavigationBarLikeQA(title: "为您推荐")
+		setupNavigationBarLikeQA(title: "AIRecommondForYouViewController.recommend".localized)
 	}
 	
 	func fetchData() {
