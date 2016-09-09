@@ -205,10 +205,12 @@ typedef NS_ENUM(NSInteger, AIMovementDirection) {
 - (void)loginTap
 {
     // show user all info
-//    NSString *
-//    NSString *message = [NSString stringWithFormat:@"user_id: %@\nuser_name: %@\n",];
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
-    
+    NSInteger userId = [AILocalStore userId];
+    NSString *userName = [AILocalStore userName];
+    NSString *nickName = [AILocalStore nickName];
+    NSString *message = [NSString stringWithFormat:@"user_id: %ld\nuser_name: %@\nnick_name: %@\n", userId,userName,nickName];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    [alert show];
 }
 
 - (void)addLanguageSwitchAction {
