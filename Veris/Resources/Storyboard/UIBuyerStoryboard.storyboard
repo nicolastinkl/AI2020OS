@@ -549,7 +549,7 @@
                                 </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zJ9-nu-a5s">
-                                <rect key="frame" x="0.0" y="123" width="600" height="415"/>
+                                <rect key="frame" x="0.0" y="123" width="600" height="477"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="71" id="Qfg-kp-28s">
@@ -594,7 +594,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.34843195921985815" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="cru-fe-Z3x" firstAttribute="leading" secondItem="EVU-qY-4VM" secondAttribute="leading" constant="40" id="Hu7-z3-nyx"/>
                                     <constraint firstAttribute="trailing" secondItem="cru-fe-Z3x" secondAttribute="trailing" constant="40" id="Lx7-U3-HZw"/>
@@ -612,6 +612,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="EVU-qY-4VM" secondAttribute="trailing" constant="-20" id="OEV-Nd-Uyv"/>
                             <constraint firstItem="EVU-qY-4VM" firstAttribute="leading" secondItem="TZL-YT-EBK" secondAttribute="leadingMargin" constant="-20" id="TH5-C9-iMI"/>
                             <constraint firstItem="sKe-e2-7sD" firstAttribute="leading" secondItem="TZL-YT-EBK" secondAttribute="leadingMargin" constant="-20" id="VaB-ef-THU"/>
+                            <constraint firstItem="Ur3-1y-W1y" firstAttribute="top" secondItem="zJ9-nu-a5s" secondAttribute="bottom" id="Vvr-1T-j0T"/>
                             <constraint firstItem="Ur3-1y-W1y" firstAttribute="top" secondItem="EVU-qY-4VM" secondAttribute="bottom" id="Vxh-Sb-yHp"/>
                             <constraint firstItem="Pdr-Qh-fpC" firstAttribute="leading" secondItem="TZL-YT-EBK" secondAttribute="leadingMargin" constant="-20" id="g3w-ZL-QeS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zJ9-nu-a5s" secondAttribute="trailing" constant="-20" id="j4X-cu-GeK"/>
@@ -621,6 +622,11 @@
                             <constraint firstItem="zJ9-nu-a5s" firstAttribute="leading" secondItem="TZL-YT-EBK" secondAttribute="leadingMargin" constant="-20" id="xNL-Y7-cnb"/>
                             <constraint firstItem="sKe-e2-7sD" firstAttribute="top" secondItem="IlX-Ad-6RT" secondAttribute="bottom" constant="-20" id="zBD-w5-HZJ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7z8-TJ-gGC"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="5CU-Ur-OLn" id="v34-SR-tz9"/>

@@ -8,6 +8,7 @@
 
 import Foundation
 import Spring
+
 class AIWishAverageView: UIView {
     
     @IBOutlet weak var button: DesignableButton!

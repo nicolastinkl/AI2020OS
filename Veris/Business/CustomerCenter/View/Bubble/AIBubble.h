@@ -17,6 +17,7 @@ typedef enum  {
     typeToNormal = 1, // shoucang
     typeToSignIcon = 2,// tuijian
     typeToWish = 3,  // wish
+    typeToWishQuery = 4,  // wish Query
     
 }BubbleType;
 

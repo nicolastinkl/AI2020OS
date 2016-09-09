@@ -665,9 +665,10 @@ class AIProductInfoViewController: UIViewController {
                     model.proposal_id = modelJSON.rid ?? 0
                     model.proposal_price = modelJSON.price?.price_show ?? ""
                     
-                    model.deepColor = deepColor[i]
-                    model.undertoneColor = undertoneColor[i]
-                    model.borderColor = borderColor[i]
+                    let newi = i % 16
+                    model.deepColor = deepColor[newi]
+                    model.undertoneColor = undertoneColor[newi]
+                    model.borderColor = borderColor[newi]
                     
                     let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
                     let space = AITools.displaySizeFrom1242DesignSize(15)

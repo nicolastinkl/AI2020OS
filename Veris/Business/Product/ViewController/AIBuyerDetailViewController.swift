@@ -30,6 +30,7 @@ enum AudioAssiatantModel {
 	case Receiver
 }
 
+///
 class AIBuyerDetailViewController: UIViewController {
 	
     //MARK: For AudioAssistant
@@ -49,7 +50,7 @@ class AIBuyerDetailViewController: UIViewController {
             AIAnchorManager.defaultManager.isNowExcutingAnchor = newValue
         }
     }
-	
+    
 	//
 	
     let SIMPLE_SERVICE_VIEW_CONTAINER_TAG: Int = 233
@@ -429,7 +430,16 @@ class AIBuyerDetailViewController: UIViewController {
 		bzView.setX((self.view.width - bzView.width) / 2)
 		if let list = dataSource.service_list as? [AIProposalServiceModel] {
 			bzView.refershModelView(list)
+            
+            if list.count % 2 == 0 {
+                //偶数
+                
+            } else {
+                //奇数
+                bzView.setX(bzView.left - 9)
+            }
 		}
+        
 		buyerBottom.addSubview(bzView)
 		menuLightView = bzView
 		

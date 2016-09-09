@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -20,7 +20,7 @@
                         <constraint firstAttribute="width" constant="334" id="pop-cg-B7l"/>
                         <constraint firstAttribute="height" constant="26" id="sh3-1k-jWt"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -42,7 +42,7 @@
                         <constraint firstAttribute="height" constant="26" id="bHy-cD-4mH"/>
                         <constraint firstAttribute="width" constant="334" id="elE-ki-9C8"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -54,15 +54,15 @@
                         </mask>
                     </variation>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Wish_Make_wish" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-XZ-v0C">
-                    <rect key="frame" x="50" y="48" width="18" height="21"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wish_wished" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-XZ-v0C">
+                    <rect key="frame" x="48" y="48" width="20" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="18" id="T0K-Mn-2hk"/>
+                        <constraint firstAttribute="width" constant="20" id="T0K-Mn-2hk"/>
                         <constraint firstAttribute="height" constant="21" id="u97-Kf-KNe"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 more to " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-ZK-99A">
-                    <rect key="frame" x="237" y="43" width="300" height="31"/>
+                    <rect key="frame" x="207" y="43" width="300" height="31"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="361" id="MAR-Hi-ZBO"/>
                         <constraint firstAttribute="height" constant="31" id="R9S-T8-AxE"/>
@@ -71,7 +71,7 @@
                         <constraint firstAttribute="height" constant="26" id="hes-uT-nI4"/>
                         <constraint firstAttribute="height" constant="21" id="mBe-vL-7YM"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -84,7 +84,7 @@
                     </variation>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AI_Wish_Make_wish" translatesAutoresizingMaskIntoConstraints="NO" id="gzd-0R-nfS">
-                    <rect key="frame" x="211" y="48" width="18" height="21"/>
+                    <rect key="frame" x="181" y="48" width="18" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="DYV-0i-rXI"/>
                         <constraint firstAttribute="width" constant="18" id="tzD-tE-i1d"/>
@@ -97,7 +97,7 @@
                 <constraint firstItem="X0x-IJ-Niz" firstAttribute="leading" secondItem="lxi-XZ-v0C" secondAttribute="trailing" constant="-18" id="7M1-KJ-kj2"/>
                 <constraint firstItem="L8q-ZK-99A" firstAttribute="leading" secondItem="gzd-0R-nfS" secondAttribute="trailing" constant="8" id="DVF-Vc-bmV"/>
                 <constraint firstItem="Rgy-sM-I6s" firstAttribute="top" secondItem="X0x-IJ-Niz" secondAttribute="bottom" id="F2o-2R-F4d"/>
-                <constraint firstItem="gzd-0R-nfS" firstAttribute="leading" secondItem="Rgy-sM-I6s" secondAttribute="trailing" constant="35" id="FII-mT-oHg"/>
+                <constraint firstItem="gzd-0R-nfS" firstAttribute="leading" secondItem="Rgy-sM-I6s" secondAttribute="trailing" constant="5" id="FII-mT-oHg"/>
                 <constraint firstItem="Rgy-sM-I6s" firstAttribute="top" secondItem="X0x-IJ-Niz" secondAttribute="bottom" constant="8" id="K3J-uL-wJd"/>
                 <constraint firstAttribute="trailing" secondItem="X0x-IJ-Niz" secondAttribute="trailing" constant="50" id="KvW-qM-wR2"/>
                 <constraint firstItem="X0x-IJ-Niz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="Lrx-1f-Cv4"/>
@@ -118,10 +118,11 @@
                 <outlet property="moreText" destination="L8q-ZK-99A" id="qXz-jU-SDv"/>
                 <outlet property="wishText" destination="Rgy-sM-I6s" id="Fwg-CR-ocG"/>
             </connections>
-            <point key="canvasLocation" x="138" y="280"/>
+            <point key="canvasLocation" x="-41" y="545"/>
         </view>
     </objects>
     <resources>
-        <image name="AI_Wish_Make_wish" width="18" height="21"/>
+        <image name="AI_Wish_Make_wish" width="26" height="27"/>
+        <image name="wish_wished" width="26" height="27"/>
     </resources>
 </document>

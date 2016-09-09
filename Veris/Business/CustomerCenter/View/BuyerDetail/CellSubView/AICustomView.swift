@@ -27,7 +27,23 @@ internal class AICustomView: UIView {
 		
 		return selfView
 	}
-	
+    
+    func fillTags(models: [AIProposalServiceDetailLabelModel], isNormal: Bool , PlaceHold: Bool) {
+        if PlaceHold {
+            let model = AIProposalServiceDetailLabelModel()
+            model.content = "      "
+            model.label_id = 0
+            model.selected_flag = 0
+            model.selected_num = 0
+            var newModels = models
+            newModels.insert(model, atIndex: 0)
+            fillTags(newModels, isNormal: isNormal)
+        }else{
+            fillTags(models, isNormal: isNormal)
+        }
+        
+    }
+   
 	/**
 	 TODO: 处理数据填充和标签初始化
 	 */
@@ -66,7 +82,9 @@ internal class AICustomView: UIView {
 			}
 			tag.wish_id = self.wish_id
 			tags.addSubview(tag)
-			
+            if model.label_id == 0 && model.selected_num == 0 && model.selected_flag == 0 {
+                tag.hidden = true
+            }
 			tag.fillOfData(model) // 处理数据刷新  // add into whole array with key-value.
 			
 			tag.delegateNew = self

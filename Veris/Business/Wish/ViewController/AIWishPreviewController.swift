@@ -51,7 +51,7 @@ class AIWishPreviewController: UIViewController {
                 layout.left == layout.superview!.left
                 layout.top == layout.superview!.top
                 layout.right == layout.superview!.right
-                layout.height == 44.0 + 10.0
+                layout.height == 44.0 + 10.0 + 17
             })
             navi.titleLabel.font = AITools.myriadCondWithSize(24)
             navi.titleLabel.text = model?.name
@@ -226,15 +226,21 @@ class AIWishPreviewController: UIViewController {
             
             preAverageView?.userInteractionEnabled = false
             
-            self.preAverageView?.button.snp_removeConstraints()            
-            self.preAverageView?.button.snp_makeConstraints(closure: { (make) in
-                make.center.equalTo((self.preAverageView?.totalButton.snp_center)!)
-                make.width.height.equalTo(76)
-            })
+            self.preAverageView?.button.snp_removeConstraints()
+            
+//            self.preAverageView?.button.snp_makeConstraints(closure: { (make) in
+//                make.center.equalTo((self.preAverageView?.totalButton.snp_center)!)
+//                make.width.height.equalTo(76)
+//            })
             
             SpringAnimation.springEaseIn(0.5, animations: {
-                 self.preAverageView?.button.layoutIfNeeded()
+//                self.preAverageView?.button.layoutIfNeeded()
+                //self.preAverageView?.button.frame = self.preAverageView!.totalButton.frame
+                //self.preAverageView?.button.cornerRadius = 76/2
             })
+
+            
+            
         }
     }
     

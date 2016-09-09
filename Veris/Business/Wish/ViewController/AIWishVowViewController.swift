@@ -65,7 +65,7 @@ class AIWishVowViewController: UIViewController {
                 layout.left == layout.superview!.left
                 layout.top == layout.superview!.top
                 layout.right == layout.superview!.right
-                layout.height == 44.0 + 10.0
+                layout.height == 44.0 + 10.0 + 17
             })
             navi.titleLabel.font = AITools.myriadLightWithSize(24)
             navi.titleLabel.text = "Make a wish"
@@ -81,9 +81,11 @@ class AIWishVowViewController: UIViewController {
     func refereshButtonStatus(enble: Bool) {
         if enble {
             self.submitButton.backgroundColor = UIColor(hexString: "#0E79CC", alpha: 0.8)
+            self.submitButton.setTitleColor(UIColor(hexString: "#FFFFFF", alpha: 1), forState: UIControlState.Normal)
             self.submitButton.enabled = true
         } else {
-            self.submitButton.backgroundColor = UIColor.grayColor()
+            self.submitButton.backgroundColor = UIColor(hexString: "#2d2e58", alpha: 1)
+            self.submitButton.setTitleColor(UIColor(hexString: "#4e4f76", alpha: 1), forState: UIControlState.Normal)
             self.submitButton.enabled = false
         }
         
@@ -114,7 +116,7 @@ class AIWishVowViewController: UIViewController {
         let title1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         title1.icon.image = UIImage(named: "AI_Wish_Make_instrst")
         title1.title.text = "Recommended Wish"
-        addNewSubView(title1, preView: UIView(), space : 12)
+        addNewSubView(title1, preView: UIView(), space : 40)
         
         let bubbleViewContain = UIView()
         bubbleViewContain.setHeight(0)
@@ -128,35 +130,35 @@ class AIWishVowViewController: UIViewController {
                 model.proposal_name = hotModel.name
                 model.proposal_price = "\(hotModel.money_unit)\(hotModel.money_adv)"
                 model.order_times = hotModel.already_wish
-                
-                model.deepColor = deepColor[i]
-                model.undertoneColor = undertoneColor[i]
-                model.borderColor = borderColor[i]
-                
+                let newi = Int(arc4random() % 15)
+                model.deepColor = deepColor[newi]
+                model.undertoneColor = undertoneColor[newi]
+                model.borderColor = borderColor[newi]
                 let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
                 let space = AITools.displaySizeFrom1242DesignSize(15)
+                let spaceOffset = AITools.displaySizeFrom1242DesignSize(143)
                 let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
                 model.bubbleSize = Int(bubbleWidth)/2
-                let bubbleView = AIBubble(center: .zero, model: model, type: Int(typeToNormal.rawValue), index: 0)
+                let bubbleView = AIBubble(center: .zero, model: model, type: Int(typeToWishQuery.rawValue), index: 0)
                 bubbleViewContain.addSubview(bubbleView)
                 bubbleView.tag = i
-                let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
-                bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + space), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
+                let bubbleY: CGFloat = 0.0 // AITools.displaySizeFrom1242DesignSize(87)
+                bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + spaceOffset), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
                 bubbleView.tag = i
                 
                 bubbleView.userInteractionEnabled = true
                 bubbleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIWishVowViewController.prewishReComAction(_:))))
                 i += 1
             }
-            rwidth = CGFloat(98 * (i + 1))
-            bubbleViewContain.setHeight(125)
+            rwidth = CGFloat((98 + 143) * (i + 1))
+            bubbleViewContain.setHeight(100)
         }
         let bubbleScrollViewReCmt = UIScrollView()
         bubbleScrollViewReCmt.showsVerticalScrollIndicator = false
         bubbleScrollViewReCmt.showsHorizontalScrollIndicator = false
-        bubbleScrollViewReCmt.contentSize = CGSizeMake(rwidth, 125)
+        bubbleScrollViewReCmt.contentSize = CGSizeMake(rwidth, 100)
         bubbleViewContain.setWidth(rwidth)
-        bubbleScrollViewReCmt.setHeight(125)
+        bubbleScrollViewReCmt.setHeight(100)
         bubbleScrollViewReCmt.addSubview(bubbleViewContain)
         addNewSubView(bubbleScrollViewReCmt, preView: title1, space : 0)
         
@@ -181,36 +183,38 @@ class AIWishVowViewController: UIViewController {
                 model.proposal_name = hotModel.name
                 model.proposal_price = "\(hotModel.money_unit)\(hotModel.money_adv)"
                 model.order_times = hotModel.already_wish
-                
-                model.deepColor = deepColor[i]
-                model.undertoneColor = undertoneColor[i]
-                model.borderColor = borderColor[i]
+                model.proposal_type = 3
+                let newi = Int(arc4random() % 15)
+                model.deepColor = deepColor[newi]
+                model.undertoneColor = undertoneColor[newi]
+                model.borderColor = borderColor[newi]
                 
                 let marginLeft = AITools.displaySizeFrom1242DesignSize(34)
                 let space = AITools.displaySizeFrom1242DesignSize(15)
+                let spaceOffset = AITools.displaySizeFrom1242DesignSize(143)
                 let bubbleWidth = (screenWidth - marginLeft * 2 - space * 3) / 4
                 model.bubbleSize = Int(bubbleWidth)/2
-                let bubbleView = AIBubble(center: .zero, model: model, type: Int(typeToNormal.rawValue), index: 0)
+                let bubbleView = AIBubble(center: .zero, model: model, type: Int(typeToWishQuery.rawValue), index: 0)
                 bubbleViewContainHot.addSubview(bubbleView)
                 bubbleView.tag = i
-                let bubbleY = AITools.displaySizeFrom1242DesignSize(87)
-                bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + space), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
+                let bubbleY: CGFloat = 0.0 // AITools.displaySizeFrom1242DesignSize(87)
+                bubbleView.frame = CGRect(x: marginLeft + CGFloat(i) * (bubbleWidth + spaceOffset), y: bubbleY, width: bubbleWidth, height: bubbleWidth)
                 bubbleView.tag = i
                 
                 bubbleView.userInteractionEnabled = true
                 bubbleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIWishVowViewController.prewishHotAction(_:))))
                 i += 1
             }
-            hwidth = CGFloat(98 * (i + 1))
-            bubbleViewContainHot.setHeight(125)
+            hwidth = CGFloat((98 + 143) * (i + 1))
+            bubbleViewContainHot.setHeight(100)
         }
         
         let bubbleScrollViewHot = UIScrollView()
         bubbleScrollViewHot.showsVerticalScrollIndicator = false
         bubbleScrollViewHot.showsHorizontalScrollIndicator = false
-        bubbleScrollViewHot.contentSize = CGSizeMake(hwidth, 125)
+        bubbleScrollViewHot.contentSize = CGSizeMake(hwidth, 100)
         bubbleViewContainHot.setWidth(hwidth)
-        bubbleScrollViewHot.setHeight(125)
+        bubbleScrollViewHot.setHeight(100)
         bubbleScrollViewHot.addSubview(bubbleViewContainHot)
         
         addNewSubView(bubbleScrollViewHot, preView: title2, space : 0)
@@ -345,8 +349,9 @@ extension AIWishVowViewController: UITextViewDelegate {
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         let text = textView.text
-        if text == "  Your Could write down your wish here or select from blew." || text == "  0 Euro" {
+        if text == "Your Could write down your wish here or select from blew." || text == "0 Euro" {
             textView.text = ""
+            textView.textColor = UIColor(hex: "#FFFFFF")
         }
         return true
     }
