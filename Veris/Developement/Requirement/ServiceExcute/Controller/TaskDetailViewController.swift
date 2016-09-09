@@ -189,17 +189,17 @@ class TaskDetailViewController: UIViewController {
             if let jurisdictionStatus = JurisdictionStatus(rawValue: p.permission_value.integerValue) {
                 switch jurisdictionStatus {
                 case .notAuthorized:
-                    authorityState = NeedAuthority.getInstance(self)
+                    authorityState = NeedAuthority(vc: self)
                 case .alreadyAuthorized:
-                    authorityState = AlreadyAuthorized.getInstance(self)
+                    authorityState = AlreadyAuthorized(vc: self)
                 case .noNeed:
-                    authorityState = NoNeedAuthority.getInstance(self)
+                    authorityState = NoNeedAuthority(vc: self)
                 }
             }
         } else if permissionType == ProcedureType.confirm.rawValue {
-            authorityState = AlreadyAuthorized.getInstance(self)
+            authorityState = AlreadyAuthorized(vc: self)
         } else {
-            authorityState = NoNeedAuthority.getInstance(self)
+            authorityState = NoNeedAuthority(vc: self)
         }
     }
     
@@ -212,7 +212,7 @@ class TaskDetailViewController: UIViewController {
             case ProcedureStatus.excuting.rawValue:
                 TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
                 bottomButton.setTitle("TaskDetailViewController.complete".localized, forState: .Normal)
-            case ProcedureStatus.excuting.rawValue:
+            case ProcedureStatus.complete.rawValue:
                 bottomButton.hidden = true
             default:
                 break
@@ -347,16 +347,7 @@ class TaskDetailViewController: UIViewController {
     }
     
     class NeedAuthority: AuthorityState {
-        
-        static private var instance: AuthorityState!
-        
-        class func getInstance(vc: TaskDetailViewController) -> AuthorityState {
-            if instance == nil {
-                instance = AuthorityState(vc: vc)
-            }
-            
-            return instance
-        }
+
         override func setupAuthorityUI() {
             vc.showAuthorization()
             TaskDetailViewController.setBottomButtonEnabel(vc.bottomButton, enable: true)
@@ -368,16 +359,6 @@ class TaskDetailViewController: UIViewController {
     }
     
     class AlreadyAuthorized: AuthorityState {
-        
-        static private var instance: AuthorityState!
-        
-        class func getInstance(vc: TaskDetailViewController) -> AuthorityState {
-            if instance == nil {
-                instance = AlreadyAuthorized(vc: vc)
-            }
-            
-            return instance
-        }
         
         override func setupAuthorityUI() {
             vc.hideAuthorization()
@@ -391,16 +372,6 @@ class TaskDetailViewController: UIViewController {
     
     class WaitingAuthorized: AuthorityState {
         
-        static private var instance: AuthorityState!
-        
-        class func getInstance(vc: TaskDetailViewController) -> AuthorityState {
-            if instance == nil {
-                instance = WaitingAuthorized(vc: vc)
-            }
-            
-            return instance
-        }
-        
         override func setupAuthorityUI() {
             vc.showAuthorization()
             TaskDetailViewController.setBottomButtonEnabel(vc.bottomButton, enable: false)
@@ -409,13 +380,6 @@ class TaskDetailViewController: UIViewController {
     
     class NoNeedAuthority: AlreadyAuthorized {
         
-        override class func getInstance(vc: TaskDetailViewController) -> AuthorityState {
-            if instance == nil {
-                instance = NoNeedAuthority(vc: vc)
-            }
-            
-            return instance
-        }
     }
 }
 
