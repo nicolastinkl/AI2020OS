@@ -237,6 +237,7 @@ class AIProductInfoViewController: UIViewController {
         AIProdcutInfoService.requestServiceInfo("\(sid)") { (response, error) in
             self.view.hideLoading()
             if let model = response as? AIProdcutinfoModel {
+                self.view.hideErrorView()
                 self.dataModel = model
                 self.initScrollViewData()
             } else {

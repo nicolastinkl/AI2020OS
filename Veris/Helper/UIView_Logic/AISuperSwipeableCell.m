@@ -57,12 +57,12 @@ static CGFloat const kButtonWidthValue = 52.0f;
 
 - (void)openCell
 {
-    [self setConstraintsToShowAllButtons:NO notifyDelegateDidOpen:YES];
+    [self setConstraintsToShowAllButtons:NO notifyDelegateDidOpen:NO];
 }
 
 - (void)closeCell
 {
-    [self resetConstraintContstantsToZero:NO notifyDelegateDidClose:NO];
+    [self resetConstraintContstantsToZero:NO notifyDelegateDidClose:YES];
 }
   
 - (CGFloat)buttonTotalWidth
