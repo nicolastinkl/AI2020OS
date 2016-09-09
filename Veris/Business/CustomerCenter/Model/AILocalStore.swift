@@ -97,12 +97,20 @@ class AILocalStore: NSObject {
     }
     
     static var userId: Int {
-        let luserID: String = userDefaults.objectForKey(AILoginUtil.KEY_USER_ID) as! String
-       return luserID.toInt()!
+        let result: String = userDefaults.objectForKey(AILoginUtil.KEY_USER_ID) as! String
+       return result.toInt()!
     }
 
     static var headURL: String? {
        return userDefaults.objectForKey(AILoginUtil.KEY_HEADURL_STRING) as? String
+    }
+    
+    static var userName: String? {
+       return userDefaults.objectForKey(AILoginUtil.KEY_USER_NAME_STRING) as? String
+    }
+    
+    static var nickName: String? {
+       return userDefaults.objectForKey(AILoginUtil.KEY_USER_NICKNAME_STRING) as? String
     }
     
     //MARK: 处理登录信息
@@ -137,15 +145,10 @@ class AILocalStore: NSObject {
         if let user_name = info["user_name"] as? String {
             userDefaults.setObject(user_name, forKey: AILoginUtil.KEY_USER_NAME_STRING)
         }
-
-//        if let customer_id = info["customer_id"] as? String {
-//            userDefaults.setObject(customer_id, forKey: AILoginUtil.KEY_CUSTOM_ID)
-//        }
-//
-//
-//        if let provider_id = info["provider_id"] as? String {
-//            userDefaults.setObject(provider_id, forKey: AILoginUtil.KEY_PROVIDER_ID)
-//        }
+        
+        if let nick_name = info["nick_name"] as? String {
+            userDefaults.setObject(nick_name, forKey: AILoginUtil.KEY_USER_NICKNAME_STRING)
+        }
 
         if let head_url = info["head_url"] as? String {
             userDefaults.setObject(head_url, forKey: AILoginUtil.KEY_HEADURL_STRING)
