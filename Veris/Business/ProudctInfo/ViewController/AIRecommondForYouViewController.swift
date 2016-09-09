@@ -40,8 +40,8 @@ class AIRecommondForYouViewController: UIViewController {
 		tableView.dataSource = self
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 100
+        tableView.separatorStyle = .None
 		view.addSubview(tableView)
-		tableView.registerNib(UINib(nibName: "AIRecommondForYouCell", bundle: nil), forCellReuseIdentifier: "cell")
 		tableView.snp_makeConstraints { (make) in
 			make.edges.equalTo(view).offset(UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0))
 		}

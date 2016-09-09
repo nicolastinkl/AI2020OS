@@ -156,7 +156,7 @@ extension UIViewController {
         presentViewController(menuViewController, animated: true, completion: nil)
     }
     
-    static func showAlertViewController(inParamDic: Dictionary<String,AnyObject>) {
+    static func showAlertViewController(inParamDic: Dictionary<String, AnyObject>) {
         
         let navigationController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateInitialViewController() as! UINavigationController
         let viewAlertVC = navigationController.viewControllers[0] as! AIAlertViewController

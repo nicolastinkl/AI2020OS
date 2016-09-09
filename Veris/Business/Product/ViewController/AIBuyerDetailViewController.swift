@@ -447,6 +447,10 @@ class AIBuyerDetailViewController: UIViewController {
     //MARK: 语音协助
     @IBAction func startVideoAction(sender: AnyObject) {
 
+        if tableView.headerRefreshing {
+            return
+        }
+
         if providerDialogViewController != nil {
             presentViewController(providerDialogViewController!, animated: true, completion: nil)
         } else {
@@ -692,6 +696,7 @@ class AIBuyerDetailViewController: UIViewController {
 			BDKProposalService().queryCustomerProposalDetail(params, success: { [weak self](responseData) -> Void in
 				
 				if let viewController = self {
+
 					// 清空已删除
 					viewController.deleted_service_list.removeAllObjects()
 					viewController.serviceRestoreToolbar.serviceModels = viewController.deleted_service_list
@@ -733,7 +738,6 @@ class AIBuyerDetailViewController: UIViewController {
 				}, fail: { [weak self]
 				(errType, errDes) -> Void in
 				if let viewController = self {
-					
 					viewController.tableView.headerEndRefreshing()
 					// 处理错误警告
 				}
