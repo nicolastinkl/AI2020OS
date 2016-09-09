@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nu-1f-O8a">
-                    <rect key="frame" x="0.0" y="178" width="600" height="150"/>
+                    <rect key="frame" x="0.0" y="188" width="600" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="KbY-le-bAk"/>
                         <constraint firstAttribute="height" constant="150" id="Zwz-Wx-1v2"/>
@@ -38,7 +38,7 @@
                     </variation>
                 </scrollView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gil-n3-nPW">
-                    <rect key="frame" x="0.0" y="54" width="600" height="124"/>
+                    <rect key="frame" x="0.0" y="64" width="600" height="124"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="124" id="JUw-QA-VOX"/>
                         <constraint firstAttribute="height" constant="130" id="iiv-Pe-WBf"/>
@@ -142,7 +142,7 @@
                 <constraint firstItem="w8o-jv-tHA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="24m-AB-DPu"/>
                 <constraint firstAttribute="bottom" secondItem="N6u-Iz-0M0" secondAttribute="bottom" constant="-8" id="3es-mg-LCz"/>
                 <constraint firstItem="N6u-Iz-0M0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8Xi-YB-xrh"/>
-                <constraint firstItem="gil-n3-nPW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="54" id="9aw-Ak-0yc"/>
+                <constraint firstItem="gil-n3-nPW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="9aw-Ak-0yc"/>
                 <constraint firstItem="vyw-oH-GMz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="D8i-lD-Vz0"/>
                 <constraint firstItem="ktc-lr-GlW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EGD-dg-M4s"/>
                 <constraint firstAttribute="trailing" secondItem="N6u-Iz-0M0" secondAttribute="trailing" id="LDW-ga-VWO"/>
@@ -182,7 +182,7 @@
                     <exclude reference="rke-T5-Kxd"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-191" y="237"/>
+            <point key="canvasLocation" x="-10" y="234"/>
         </view>
     </objects>
     <resources>

@@ -131,7 +131,7 @@ class AIConfirmOrderViewController: UIViewController {
         } else {
             self.priceLabel.text = dataSource?.proposal_price
         }
-
+        
         self.priceLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
 
         let footView = UIView()
@@ -142,7 +142,7 @@ class AIConfirmOrderViewController: UIViewController {
         providerView.setTop(17.3)
         providerView.setWidth(UIScreen.mainScreen().bounds.width)
         footView.setHeight(17.3 + providerView.height + 200)
-        footView.addSubview(providerView)
+        
         tableView.tableFooterView = footView
         
         if let customNot = self.customNoteModel {
@@ -185,12 +185,15 @@ class AIConfirmOrderViewController: UIViewController {
                     //addNewSubView(custView, preView: viw)
                     custView.setWidth(UIScreen.mainScreen().bounds.width+5)
                     footView.addSubview(custView)
-                    custView.setTop(providerView.top + providerView.height)
-                    custView.wish_id = 1
+                    custView.setTop(providerView.top + providerView.height - 57)
+                    custView.wish_id = wish.wish_id
                     if let labelList = wish.label_list as? [AIProposalServiceDetailLabelModel] {
-                        custView.fillTags(labelList, isNormal: true)
+                        custView.fillTags(labelList, isNormal: true, PlaceHold: true)
                     }
                 }
+                //这里就隐藏红色背景
+                providerView.contentBgView.hidden = true
+                providerView.setHeight(providerView.height - 57)
             }
             
         }
@@ -209,6 +212,8 @@ class AIConfirmOrderViewController: UIViewController {
         line.setHeight(0.4)
         line.setTop(17)
 
+        footView.addSubview(providerView)
+        
 //        let tagView = UIView()
 //        footView.addSubview(tagView)
 //        tagView.setWidth(self.view.width)

@@ -51,7 +51,7 @@ class AIWishPreviewController: UIViewController {
                 layout.left == layout.superview!.left
                 layout.top == layout.superview!.top
                 layout.right == layout.superview!.right
-                layout.height == 44.0 + 10.0
+                layout.height == 44.0 + 10.0 + 17
             })
             navi.titleLabel.font = AITools.myriadCondWithSize(24)
             navi.titleLabel.text = model?.name

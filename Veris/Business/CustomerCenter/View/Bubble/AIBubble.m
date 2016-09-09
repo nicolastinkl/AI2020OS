@@ -96,6 +96,11 @@ typedef enum  {
                 [self initWithWish:center model:model];
             }
                 break;
+            case typeToWishQuery:
+            {
+                [self initWithWishQuery:center model:model];
+            }
+                break;
                 
             default:
                 break;
@@ -350,7 +355,66 @@ typedef enum  {
     */
 }
 
+///许愿查询
+- (void) initWithWishQuery:(CGPoint)center model:(AIBuyerBubbleModel *)model {
+    CGFloat size = model.bubbleSize*2;//[self bubbleRadiusByModel:_bubbleModel] * 2;
+    _radius = size / 2;
+    self.floatSize = size;
+    self.frame = CGRectMake(0, 0, size, size);
+    self.center = center;
+    
+    //背景
+    UIImageView * imageview = [[UIImageView alloc] init];
+    imageview.frame = self.frame;
+    imageview.alpha = kDefaultAlpha;
+    imageview.center =  CGPointMake(self.width/2, self.height/2);
+    [self addSubview:imageview];
+    
+    
+    UIPopView * popView = [UIPopView currentView];
+    //[popView fillDataWithModel:_bubbleModel];
+    popView.popTitle.text = model.proposal_name;
+    UIImageView * people = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AI_Wish_Make_wishCount"]];
+    popView.popPrice.text = [NSString stringWithFormat:@"%d",(int)model.order_times];
+    popView.popPrice.font = [UIFont systemFontOfSize:16];
+    [popView addSubview:people];
+    [people setFrame:CGRectMake(50, 102, 15, 13)];
+    popView.wishIndicator.hidden = YES;
+    popView.popBuyNumber.text = @"";
+    popView.popNumImageView.hidden = YES;
+    [self addSubview:popView];
+    
+    double BridNum = size / popView.width;
+    popView.transform =  CGAffineTransformMakeScale(BridNum, BridNum);
+    popView.center = CGPointMake(self.width/2, self.height/2);
+    self.layer.cornerRadius = size / 2;
+    self.layer.borderWidth = 1.5;
+    self.layer.masksToBounds = YES;
+    self.clipsToBounds = YES;
+    
+    
+    /** 这里是算法取颜色值*/
+    {
+        //AIOCLog(@"self.index :%d  %@",self.index,model.proposal_name);
+        NSString * colorDeep =  model.deepColor;
+        NSString * colorUnderOne = model.undertoneColor;
+        NSString * colorBorder =  model.borderColor;
+        
+        self.layer.borderColor = [UIColor colorWithHexString:colorBorder].CGColor;
+        
+        imageview.alpha=0.1;
+        imageview.image = [self buttonImageFromColors:@[[UIColor colorWithHexString:colorUnderOne],[UIColor colorWithHexString:colorDeep]] frame:imageview.frame];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:(0.5)];
+        [imageview setNeedsDisplay];
+        imageview.alpha = kDefaultAlpha;
+        [UIView commitAnimations];
+        
+    }
+}
 
+
+///首页许愿
 - (void) initWithWish:(CGPoint)center model:(AIBuyerBubbleModel *)model {
     CGFloat size = model.bubbleSize*2;//[self bubbleRadiusByModel:_bubbleModel] * 2;
     _radius = size / 2;
@@ -364,7 +428,6 @@ typedef enum  {
     imageview.alpha = kDefaultAlpha;
     imageview.center =  CGPointMake(self.width/2, self.height/2);
     [self addSubview:imageview];
-
 
     UIPopView * popView = [UIPopView currentView];
     [popView fillDataWithModel:_bubbleModel];

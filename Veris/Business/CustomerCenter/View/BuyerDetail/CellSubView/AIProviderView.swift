@@ -19,6 +19,7 @@ class AIProviderView: UIView {
     @IBOutlet weak var avator: DesignableImageView!
     @IBOutlet weak var content: UILabel!
 
+    @IBOutlet weak var contentBgView: UILabel!
     // MARK: currentView
     class func currentView() -> AIProviderView {
         let selfView = NSBundle.mainBundle().loadNibNamed("AIProviderView", owner: self, options: nil).first  as! AIProviderView

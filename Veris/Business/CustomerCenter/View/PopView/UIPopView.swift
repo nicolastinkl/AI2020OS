@@ -17,6 +17,8 @@ import Spring
     @IBOutlet weak var popPrice: UILabel!
     @IBOutlet weak var popBuyNumber: UILabel!
     @IBOutlet weak var wishIndicator: UIImageView!
+    @IBOutlet weak var popNumImageView: UIImageView!
+    
     var firstImageView: AIImageView?
 
     // MARK: currentView
