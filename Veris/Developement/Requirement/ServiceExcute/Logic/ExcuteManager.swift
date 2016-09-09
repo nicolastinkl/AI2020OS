@@ -21,11 +21,11 @@ enum ResultCode: Int {
 
 enum ProcedureType: Int {
     // 需要授权的节点
-    case jurisdiction = 0
+    case jurisdiction = 1
     // 需要用户确认的节点
-    case confirm = 1
+    case confirm = 2
     // 只读节点
-    case read
+    case read = 3
 }
 
 enum JurisdictionStatus: Int {
