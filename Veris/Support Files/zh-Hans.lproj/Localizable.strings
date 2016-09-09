@@ -219,7 +219,7 @@
 "TaskResultCommitViewController.upload" = "上传";
 "TaskDetailViewController.waitingAuthoriztion" = "等待授权";
 "TaskDetailViewController.requestAuthoriztion" = "需要授权";
-"TaskDetailViewController.start" = "推进服务";
+"TaskDetailViewController.start" = "开始服务";
 "TaskDetailViewController.complete" = "完成";
 "TextAndAudioInputViewController.replaceConfirm" = "之前的信息将被覆盖，需要继续吗?";
 
