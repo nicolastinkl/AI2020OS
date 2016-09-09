@@ -61,7 +61,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGG-ur-duu" customClass="DesignableView" customModule="Spring">
-                    <rect key="frame" x="30" y="8" width="7" height="7"/>
+                    <rect key="frame" x="35" y="8" width="7" height="7"/>
                     <color key="backgroundColor" red="0.34901960784313724" green="0.79607843137254897" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="7" id="bXI-U9-LCz"/>
@@ -82,7 +82,7 @@
                 <constraint firstItem="t83-iz-W2F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Gmm-iE-yha"/>
                 <constraint firstItem="Vdy-2g-5Dc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="KQK-rr-mFr"/>
                 <constraint firstItem="t83-iz-W2F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="N7s-GZ-hQm"/>
-                <constraint firstItem="pGG-ur-duu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="StL-3i-9cZ"/>
+                <constraint firstItem="pGG-ur-duu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35" id="StL-3i-9cZ"/>
                 <constraint firstItem="qAb-qm-4KX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="T7R-Jp-D8x"/>
                 <constraint firstItem="pGG-ur-duu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Tqu-2p-VXp"/>
                 <constraint firstAttribute="trailing" secondItem="t83-iz-W2F" secondAttribute="trailing" constant="50" id="UMI-Pt-GTG"/>
@@ -107,7 +107,7 @@
                 <outlet property="icon" destination="qAb-qm-4KX" id="Z33-Zy-frd"/>
                 <outlet property="title" destination="t83-iz-W2F" id="QVb-g9-tJc"/>
             </connections>
-            <point key="canvasLocation" x="428" y="213"/>
+            <point key="canvasLocation" x="322" y="195"/>
         </view>
     </objects>
     <resources>
