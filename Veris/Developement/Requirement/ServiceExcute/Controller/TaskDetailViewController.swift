@@ -230,6 +230,7 @@ class TaskDetailViewController: UIViewController {
         
         TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: false)
         bottomButton.setTitle("TaskDetailViewController.requestAuthoriztion".localized, forState: .Normal)
+        bottomButton.setTitle("TaskDetailViewController.requestAuthoriztion".localized, forState: .Disabled)
     }
     
     private func hideAuthorization() {

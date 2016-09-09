@@ -88,15 +88,8 @@
  * ./AISBOSS/ViewController/BuyerDetail/SimpleServiceViewContainer.xib
  */
 
-//"16.73 saved" = "16.73 saved";
 
 "SimpleServiceViewContainer.review" = "Review";
-
-//"€101.83" = "€101.83";
-
-
-
-
 
 
 
@@ -110,10 +103,6 @@
 
 
 
-
-
-
-
 /*
  * ./AISBOSS/ViewController/BuyerDetail/AICustomAudioNotesView.xib
  */
@@ -123,11 +112,6 @@
 "AICustomAudioNotesView.hold" = "Hold to Talk";
 
 "AICustomAudioNotesView.note" = "Note";
-
-
-
-
-
 
 
 /*
@@ -143,7 +127,6 @@
 
 
 
-
 /*
  * ./AISBOSS/ViewController/BuyerDetail/AIDetailTopMenuView.xib
  */
@@ -153,11 +136,6 @@
 "AIDetailTopMenuView.share" = "Share";
 
 "AIDetailTopMenuView.customization" = "Customization";
-
-
-
-
-
 
 
 /*
@@ -293,6 +271,13 @@
 "CustomSearch.price" = "Price";
 "CustomSearch.filter" = "Filter";
 "CustomSearch.makeWish" = "   Make a Wish";
+
+
+/*
+ * AIRecommondForYouViewController
+ */
+"AIRecommondForYouViewController.recommend" = "Recommend for you"
+
 
 
 
