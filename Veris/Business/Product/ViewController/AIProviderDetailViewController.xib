@@ -50,7 +50,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGC-YK-bFV">
                     <rect key="frame" x="0.0" y="-64" width="414" height="736"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" userLabel="viewContainer">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="733"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRX-Ev-rfu" userLabel="header part">
@@ -68,12 +68,12 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="bjk-Ag-wGd" secondAttribute="bottom" id="48r-Fa-L4y"/>
                                         <constraint firstItem="bjk-Ag-wGd" firstAttribute="top" secondItem="aRX-Ev-rfu" secondAttribute="top" id="R5V-I9-TCA"/>
                                         <constraint firstAttribute="trailing" secondItem="bjk-Ag-wGd" secondAttribute="trailing" id="UBG-3G-lnG"/>
                                         <constraint firstItem="zO8-fJ-Get" firstAttribute="centerX" secondItem="aRX-Ev-rfu" secondAttribute="centerX" id="haW-hW-a8s"/>
                                         <constraint firstItem="zO8-fJ-Get" firstAttribute="top" secondItem="aRX-Ev-rfu" secondAttribute="top" constant="47" id="lT9-64-yqH"/>
                                         <constraint firstItem="bjk-Ag-wGd" firstAttribute="leading" secondItem="aRX-Ev-rfu" secondAttribute="leading" id="wD2-5m-yHf"/>
-                                        <constraint firstAttribute="height" constant="149" id="zDU-ut-oYi"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcD-jb-AQt" userLabel="name part">
@@ -326,6 +326,7 @@
             </subviews>
             <constraints>
                 <constraint firstItem="NGC-YK-bFV" firstAttribute="top" secondItem="nkp-z9-KJ0" secondAttribute="top" constant="-64" id="0bA-U8-tSE"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="height" relation="greaterThanOrEqual" secondItem="nkp-z9-KJ0" secondAttribute="height" id="7Ri-tq-x0v"/>
                 <constraint firstAttribute="trailing" secondItem="NGC-YK-bFV" secondAttribute="trailing" id="HbQ-9m-NND"/>
                 <constraint firstItem="NGC-YK-bFV" firstAttribute="leading" secondItem="nkp-z9-KJ0" secondAttribute="leading" id="MGX-dK-y1U"/>
                 <constraint firstAttribute="bottom" secondItem="NGC-YK-bFV" secondAttribute="bottom" id="nfZ-11-oaj"/>
@@ -333,7 +334,7 @@
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-            <point key="canvasLocation" x="930" y="306"/>
+            <point key="canvasLocation" x="968" y="294"/>
         </view>
     </objects>
     <resources>
