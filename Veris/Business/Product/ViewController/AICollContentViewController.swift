@@ -24,6 +24,7 @@ class AICollContentViewController: UIViewController {
     //add by liux at 20160908 派单增加需要的参数
     var orderId: String?
     var compUserId: String?
+    var customerUserId: String?
 
     //IB views
     var serviceInstView: AIAssignServiceView!
@@ -260,7 +261,7 @@ class AICollContentViewController: UIViewController {
                 submitServiceInstIds.append(submitInfo)
             }
         }
-        AIRequirementHandler.defaultHandler().assginTask(orderId: orderId!, compUserId: compUserId!, taskList: submitServiceInstIds, success: { () -> Void in
+        AIRequirementHandler.defaultHandler().assginTask(orderId: orderId!, compUserId: compUserId!, customerUserId: customerUserId!, taskList: submitServiceInstIds, success: { () -> Void in
             self.finishLaunchAction()
             }) { (errType, errDes) -> Void in
                 AILog("assignTask faild, errorInfo: \(errDes)")
@@ -300,6 +301,7 @@ class AICollContentViewController: UIViewController {
             //add by liux at 20160909 增加需要的字段，order_id
             orderId = bussinessModel.baseJsonValue?.order_id
             compUserId = bussinessModel.baseJsonValue?.comp_user_id
+            customerUserId = String(bussinessModel.baseJsonValue?.customer.user_id!)
         }
 
 
