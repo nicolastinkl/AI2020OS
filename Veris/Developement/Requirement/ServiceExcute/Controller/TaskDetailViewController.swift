@@ -25,8 +25,8 @@ class TaskDetailViewController: UIViewController {
     
     private let paraIconHeight: CGFloat = 20
     
-    var serviceId: Int = 0
-    var providerId: Int = 0
+    var serviceInstanceID: Int = 0
+    var customerUserID: Int = 0
     
     private var procedure: Procedure?
     private var customer: AICustomerModel?
@@ -107,9 +107,8 @@ class TaskDetailViewController: UIViewController {
         
         let manager = BDKExcuteManager()
         
-    //    let userId = 100000002410
-        let userId = AILoginUtil.currentLocalUserID()?.toInt() ?? 0
-        manager.queryProcedureInstInfo(serviceId, userId: userId, success: { (responseData) in
+
+        manager.queryProcedureInstInfo(serviceInstanceID, userId: customerUserID, success: { (responseData) in
             
             self.dismissLoading()
             self.procedure = responseData.procedure
@@ -272,7 +271,7 @@ class TaskDetailViewController: UIViewController {
         
         showLoading()
         
-        manager.submitRequestAuthorization(serviceId, customerId: c.customer_id, providerId: providerId, success: { (responseData) in
+        manager.submitRequestAuthorization(serviceInstanceID, customerId: c.user_id, success: { (responseData) in
             
             self.dismissLoading()
             switch responseData {
@@ -322,7 +321,7 @@ class TaskDetailViewController: UIViewController {
     private func openTaskCommitViewController() {
         let taskResultCommitlVC = TaskResultCommitViewController.initFromStoryboard(AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, storyboardID: nil)
         taskResultCommitlVC.procedureId = procedure!.procedure_inst_id.integerValue
-        taskResultCommitlVC.serviceId = serviceId
+        taskResultCommitlVC.serviceId = serviceInstanceID
         taskResultCommitlVC.delegate = self
         
         let nav = UINavigationController(rootViewController: taskResultCommitlVC)

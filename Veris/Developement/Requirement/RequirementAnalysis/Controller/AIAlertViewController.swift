@@ -52,6 +52,8 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     var in_paramDic: Dictionary<String, AnyObject>?
     var in_serviceInstId: String? = "100000011039"
     var in_serviceSpecId: String? = "100000000202"
+    var in_customerUserID: String? = "100000000202"
+    var in_sereviceID: String? = "100000000202"
     
     let TIMER_TEXT_FONT = AITools.myriadSemiCondensedWithSize(70 / 3)
     
@@ -104,6 +106,8 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         if let in_paramDic = in_paramDic {
             in_serviceSpecId = anyToString(in_paramDic["GrabOrderServiceSpecId"])
             in_serviceInstId = anyToString(in_paramDic["GrabOrderServiceInstId"])
+            in_customerUserID = anyToString(in_paramDic["GrabCustomerUserId"])
+            in_sereviceID = anyToString(in_paramDic["GrabOrderServiceId"])
         }
     }
 
@@ -145,11 +149,8 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
      数据请求
      */
     func requestDataInterface() {
-        guard let in_serviceSpecId = in_serviceSpecId else {
-            AIAlertView().showError("入参缺失", subTitle: "in_serviceSpecId")
-            return
-        }
-        AIServiceExecuteRequester.defaultHandler().queryGrabOrderDetail(serviceSpecId: in_serviceSpecId, success: { (businessInfo) in
+
+        AIServiceExecuteRequester.defaultHandler().queryGrabOrderDetail(serviceSpecId: in_serviceSpecId!, serviceID: in_sereviceID!, customerUserID: in_customerUserID!, success: { (businessInfo) in
             self.loadData(businessInfo)
             }) { (errType, errDes) in
                 AIAlertView().showError("error", subTitle: "网络请求失败")
@@ -158,16 +159,15 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     
 
     func requestGrabOrderInterface() {
-        guard let in_serviceInstId = in_serviceInstId else {
-            AIAlertView().showError("入参缺失", subTitle: "in_serviceInstId")
-            return
-        }
+
         //let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
-        AIServiceExecuteRequester.defaultHandler().grabOrder(serviceInstId: in_serviceInstId, success: { (businessInfo) in
+        AIServiceExecuteRequester.defaultHandler().grabOrder(serviceInstId: in_serviceInstId!, success: { (businessInfo) in
             let result = businessInfo.grabResult
             if result == GrabResultEnum.Success {
                 let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIContestSuccessViewController) as! AIContestSuccessViewController
-                
+                viewController.serviceInstanceID = self.in_serviceInstId!.toInt()!
+                viewController.customerID = self.in_customerUserID!.toInt()!
+                viewController.serviceID = self.in_sereviceID!.toInt()!
                 self.navigationController?.pushViewController(viewController, animated: true)
             } else {
 

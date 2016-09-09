@@ -20,7 +20,6 @@ import AIAlertView
 
     //
     var serviceInstanceID: Int = 0
-    var proposalID: Int = 0
     var serviceID: Int = 0
     var customerID: Int = 0
     var qiangDanResultModel: AIQiangDanResultModel?
@@ -90,7 +89,7 @@ import AIAlertView
         let manager = BDKExcuteManager()
         self.showLoading()
 
-        let body = ["service_instance_id": serviceInstanceID, "service_id" : serviceID, "customer_id" : customerID, "proposal_id" : proposalID]
+        let body = ["service_instance_id": serviceInstanceID, "service_id" : serviceID, "customer_user_id" : customerID]
         manager.queryQaingDanResultInfo(body, success: { (resultModel) in
             if let model: AIQiangDanResultModel = resultModel {
                 self.fillRealData(model)
@@ -144,7 +143,8 @@ import AIAlertView
             if let _ = self.qiangDanResultModel {
                 self.showLoading()
                 let taskDetailVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
-                taskDetailVC.serviceId = self.serviceInstanceID
+                taskDetailVC.serviceInstanceID = self.serviceInstanceID
+                taskDetailVC.customerUserID = self.customerID
                 self.navigationController?.pushViewController(taskDetailVC, animated: true)
             }
             }) { (errType, errDes) in
