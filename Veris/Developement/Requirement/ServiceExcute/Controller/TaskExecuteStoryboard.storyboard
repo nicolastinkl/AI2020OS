@@ -52,7 +52,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="Details"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="365" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="hbR-bV-AFI" userLabel="TimeIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="365" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="hbR-bV-AFI" userLabel="Param1IconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="118" y="183" width="365" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -60,7 +60,6 @@
                                     <constraint firstAttribute="height" constant="25" id="y0o-GN-YqC"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="Seller_Clock"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="09:00-09:30, Nov 9th 2015"/>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
@@ -69,12 +68,11 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-Hx-FKW" userLabel="LocationIconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-Hx-FKW" userLabel="Param2IconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="90" y="213" width="420" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="Maternity&amp;Child Care Institution, Haidian District"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="se_address_icon"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="495" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-Fa-Q4p" userLabel="QRCodeView" customClass="ServiceQRCodeView" customModule="Veris" customModuleProvider="target">
@@ -201,9 +199,9 @@
                         <outlet property="customerView" destination="Up8-Rb-dvv" id="bma-eH-PJT"/>
                         <outlet property="nodeDesc" destination="4Sc-4s-4DV" id="ajG-XQ-Z4s"/>
                         <outlet property="nodeTitleLabel" destination="zVg-tx-vBz" id="dWw-v9-mrP"/>
+                        <outlet property="param1IconLabel" destination="hbR-bV-AFI" id="Uny-yR-WM1"/>
+                        <outlet property="param2IconLabel" destination="M5J-Hx-FKW" id="QkO-cr-la0"/>
                         <outlet property="promptAuthorization" destination="7mv-E5-vD5" id="L43-yH-DSh"/>
-                        <outlet property="serviceLocation" destination="M5J-Hx-FKW" id="Xhf-tn-Uc7"/>
-                        <outlet property="serviceTime" destination="hbR-bV-AFI" id="AXT-zI-fd1"/>
                         <outlet property="waitingIcon" destination="idB-bx-XNu" id="j6i-vD-tv1"/>
                         <outlet property="waitingMask" destination="Urx-E7-6s3" id="beR-oj-bDm"/>
                     </connections>
@@ -395,13 +393,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Seller_Clock" width="16" height="16"/>
         <image name="camera_yellow" width="62" height="62"/>
         <image name="center_big_checkmark" width="229" height="138"/>
         <image name="dottedLine2" width="292" height="1"/>
         <image name="hourglass" width="44" height="49"/>
         <image name="pen" width="73" height="73"/>
-        <image name="se_address_icon" width="16" height="16"/>
         <image name="star_bg" width="414" height="736"/>
         <image name="waiting_authorization_bg" width="414" height="74"/>
     </resources>
