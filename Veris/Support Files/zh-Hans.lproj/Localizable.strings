@@ -219,7 +219,7 @@
 "TaskResultCommitViewController.upload" = "上传";
 "TaskDetailViewController.waitingAuthoriztion" = "等待授权";
 "TaskDetailViewController.requestAuthoriztion" = "需要授权";
-"TaskDetailViewController.start" = "推进服务";
+"TaskDetailViewController.start" = "开始服务";
 "TaskDetailViewController.complete" = "完成";
 "TextAndAudioInputViewController.replaceConfirm" = "之前的信息将被覆盖，需要继续吗?";
 
@@ -257,23 +257,38 @@
 
 // AIServerProviderView
 
-"AIServerProviderView.ServiceCustomerFormat" = "服务人数 %@";
+"AIServerProviderView.ServiceCustomerFormat" = "服务人数：%@";
 
-"AIServerProviderView.ServiceRateFormat" = "服务好评度 %@";
+"AIServerProviderView.ServiceRateFormat" = "服务好评度：%@";
 
 /*
  * ./Veris/Business/Login/LoginConstants
  */
 
 "LoginConstants.confirmButton" = "确认完成";
-"LoginConstants.forgotPasswordPrompt" = "确认完成";
-"LoginConstants.validationPrompt" = "确认完成";
-"LoginConstants.validateButtonDefault" = "确认完成";
-"LoginConstants.nextStep" = "确认完成";
-"LoginConstants.UserIdPlaceholder" = "确认完成";
-"LoginConstants.passwordPlaceholder" = "确认完成";
-"LoginConstants.EnterValidateCodePlaceholder" = "确认完成";
-"LoginConstants.SetPasswordPlaceholder" = "确认完成";
+"LoginConstants.forgotPasswordPrompt" = "输入手机号码来重置密码";
+"LoginConstants.validationPrompt" = "验证码已被发送到 ";
+"LoginConstants.validateButtonDefault" = "发送验证码";
+"LoginConstants.validateButtonResend" = "重新发送";
+"LoginConstants.sec" = "秒";
+"LoginConstants.nextStep" = "下一步";
+"LoginConstants.UserIdPlaceholder" = "手机号码";
+"LoginConstants.passwordPlaceholder" = "密码";
+"LoginConstants.EnterValidateCodePlaceholder" = "输入验证码";
+"LoginConstants.SetPasswordPlaceholder" = "设置你的密码";
+"LoginConstants.registerButton" = "注册";
+"LoginConstants.forgetButton" = "忘记密码";
+"LoginConstants.loginButton" = "登录";
+"LoginConstants.countryTitle" = "国家和地区";
+"LoginConstants.EnterPassword" = "输入密码";
+"LoginConstants.SelectCountry" = "选择国家";
+
+"Countries.China" = "中国";
+"Countries.France" = "法国";
+"Countries.Germany" = "德国";
+"Countries.Australia" = "澳大利亚";
+"Countries.Hungary" = "匈牙利";
+"Countries.Japan" = "日本";
 
 /*
  * ./Veris/Business/CustomSearch

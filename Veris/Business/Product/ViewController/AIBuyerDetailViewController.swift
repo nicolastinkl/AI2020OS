@@ -497,7 +497,7 @@ class AIBuyerDetailViewController: UIViewController {
 	func initController() {
 		
 		let name = bubbleModel?.proposal_name ?? ""
-		self.backButton.setTitle(name, forState: UIControlState.Normal)
+		self.backButton.setTitle(String(format: " %@",name), forState: UIControlState.Normal)
         
 		self.moneyLabel.text = dataSource?.order_total_price
 		
@@ -529,6 +529,7 @@ class AIBuyerDetailViewController: UIViewController {
 		self.totalMoneyLabel.font = AITools.myriadSemiCondensedWithSize(61 / PurchasedViewDimention.CONVERT_FACTOR)
 		self.whereLabel.font = AITools.myriadLightSemiCondensedWithSize(42 / PurchasedViewDimention.CONVERT_FACTOR)
 		self.contentLabel.font = AITools.myriadLightSemiCondensedWithSize(42 / PurchasedViewDimention.CONVERT_FACTOR)
+        self.contentLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.6)
 	}
 	
 	// MARK: - 删除service

@@ -256,13 +256,26 @@
 "LoginConstants.forgotPasswordPrompt" = "Enter phone number to reset the password.";
 "LoginConstants.validationPrompt" = "Validation code has been sent to ";
 "LoginConstants.validateButtonDefault" = "Send Validation Code";
+"LoginConstants.validateButtonResend" = "Resend";
+"LoginConstants.sec" = "Sec";
 "LoginConstants.nextStep" = "Next Step";
 "LoginConstants.UserIdPlaceholder" = " Phone number";
 "LoginConstants.passwordPlaceholder" = " Password";
 "LoginConstants.EnterValidateCodePlaceholder" = " Enter Validate Code";
 "LoginConstants.SetPasswordPlaceholder" = " Set your password";
+"LoginConstants.registerButton" = "Register";
+"LoginConstants.forgetButton" = "Fogot Password";
+"LoginConstants.loginButton" = "Login";
+"LoginConstants.countryTitle" = "Countries and Regions";
+"LoginConstants.EnterPassword" = "Enter Password";
+"LoginConstants.SelectCountry" = "Select Country";
 
-
+"Countries.China" = "China";
+"Countries.France" = "France";
+"Countries.Germany" = "Germany";
+"Countries.Australia" = "Australia";
+"Countries.Hungary" = "Hungary";
+"Countries.Japan" = "Japan";
 
 /*
  * ./Veris/Business/CustomSearch

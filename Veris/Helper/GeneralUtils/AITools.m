@@ -341,7 +341,8 @@
     if ([self fontsWithLanguageEN]) {
         return [UIFont fontWithName:@"MyriadPro-SemiCn" size:size];
     }else{
-        return [UIFont systemFontOfSize:size * 3/4];
+        return [UIFont fontWithName:@"MyriadPro-SemiCn" size:size-5];
+        //return [UIFont systemFontOfSize:size * 3/4];
     }
 }
 
