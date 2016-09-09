@@ -54,7 +54,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.imageInfos = [[NSMutableArray alloc] init];
+        self.imageInfos = [[NSMutableArray<ImageInfoModel, Optional> alloc] init];
     }
     return self;
 }

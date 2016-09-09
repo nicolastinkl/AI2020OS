@@ -58,7 +58,7 @@ struct AIWishServices {
     
     
     /// 许愿纪录
-    static func requestListQueryWishs(typeID : Int, complate: ((AnyObject?, String?) -> Void)) {
+    static func requestListQueryWishs(typeID: Int, complate: ((AnyObject?, String?) -> Void)) {
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.queryWishRecordList.description as String
         let body: NSDictionary = ["data":["type_id": typeID], "desc":["data_mode":"0", "digest":""]]

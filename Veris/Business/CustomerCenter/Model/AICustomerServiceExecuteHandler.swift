@@ -224,8 +224,7 @@ class AICustomerServiceExecuteHandler: NSObject {
                 if resultCode == "1"{
                     success(resultCode: resultCode)
                 }
-            }
-            else {
+            } else {
                 fail(errType: AINetError.Format, errDes: AINetErrorDescription.businessError)
             }
         }) { (error: AINetError, errorDes: String!) -> Void in
