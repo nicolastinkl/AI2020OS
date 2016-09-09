@@ -15,12 +15,17 @@ extension UIViewController {
 		let backButton = UIButton()
 		backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
 		backButton.sizeToFit()
-		backButton.setWidth(backButton.width + 30)
 		backButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
+        
+        let backContainerButton = UIButton()
+        backContainerButton.frame = backButton.frame
+		backContainerButton.setWidth(backContainerButton.width + 30)
+		backContainerButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
+        backContainerButton.addSubview(backButton)
 		
 		let appearance = UINavigationBarAppearance()
 		
-		appearance.leftBarButtonItems = [backButton]
+		appearance.leftBarButtonItems = [backContainerButton]
 		if rightBarButtonItems.count > 0 {
 			appearance.rightBarButtonItems = rightBarButtonItems
 		}

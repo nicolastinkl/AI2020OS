@@ -48,7 +48,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tbz-WP-I6U">
-                        <rect key="frame" x="73" y="39" width="174" height="19"/>
+                        <rect key="frame" x="73" y="39" width="176" height="19"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3B-Fr-pjd" userLabel="Stars" customClass="StarRateView" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="5" width="55" height="10"/>
@@ -65,16 +65,16 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="foregroundStarImage" value="Comment_Star"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnu-IA-E47">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnu-IA-E47" userLabel="HotButton">
                                 <rect key="frame" x="68" y="2" width="39" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="4g8-Xv-qo3"/>
                                 </constraints>
-                                <state key="normal" title="like" image="search-like"/>
+                                <state key="normal" title="like" image="search-hot"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbP-hR-uLS">
-                                <rect key="frame" x="115" y="2" width="39" height="15"/>
-                                <state key="normal" title="hot" image="search-hot"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbP-hR-uLS" userLabel="LikeButton">
+                                <rect key="frame" x="115" y="2" width="41" height="15"/>
+                                <state key="normal" title="hot" image="search-like"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -132,20 +132,30 @@
                             <constraint firstAttribute="height" constant="1" id="O62-fc-orB"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2U-ST-FEA" userLabel="TopLine">
+                        <rect key="frame" x="0.0" y="0.0" width="597" height="1"/>
+                        <color key="backgroundColor" red="0.63137254899999995" green="0.64313725489999995" blue="0.72941176470000002" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="anf-J1-bNK"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="D2U-ST-FEA" firstAttribute="top" secondItem="VI3-Mt-m4h" secondAttribute="top" id="0Qg-Ba-aZM"/>
                     <constraint firstItem="9uR-vV-8t3" firstAttribute="top" secondItem="PWL-Vx-oR8" secondAttribute="bottom" constant="1" id="2jy-58-bI3"/>
                     <constraint firstItem="SHf-eo-fYO" firstAttribute="leading" secondItem="VI3-Mt-m4h" secondAttribute="leadingMargin" constant="170" id="4L3-Ir-jaU"/>
                     <constraint firstAttribute="trailing" secondItem="PWL-Vx-oR8" secondAttribute="trailing" id="4s0-LB-DS8"/>
                     <constraint firstItem="Tbz-WP-I6U" firstAttribute="top" secondItem="k34-wo-TC9" secondAttribute="bottom" constant="8" id="6TW-9K-w4n"/>
                     <constraint firstItem="SHf-eo-fYO" firstAttribute="top" secondItem="VI3-Mt-m4h" secondAttribute="topMargin" constant="-8" id="6lR-Wg-4rX"/>
+                    <constraint firstItem="D2U-ST-FEA" firstAttribute="width" secondItem="VI3-Mt-m4h" secondAttribute="width" id="922-69-3Bf"/>
                     <constraint firstItem="Tbz-WP-I6U" firstAttribute="leading" secondItem="lQb-te-HQx" secondAttribute="trailing" constant="10" id="B41-wt-emo"/>
                     <constraint firstItem="9uR-vV-8t3" firstAttribute="width" secondItem="VI3-Mt-m4h" secondAttribute="width" id="Dn4-QQ-bwL"/>
                     <constraint firstItem="SHf-eo-fYO" firstAttribute="centerX" secondItem="VI3-Mt-m4h" secondAttribute="centerX" id="Drj-fV-vm8"/>
                     <constraint firstAttribute="trailingMargin" secondItem="9uR-vV-8t3" secondAttribute="trailing" id="EEl-l1-4VY"/>
                     <constraint firstItem="xNJ-J0-My0" firstAttribute="top" secondItem="k34-wo-TC9" secondAttribute="top" id="FMk-sX-TEf"/>
                     <constraint firstItem="PWL-Vx-oR8" firstAttribute="top" secondItem="9uR-vV-8t3" secondAttribute="bottom" constant="1" id="H4x-Yn-Vn6"/>
+                    <constraint firstItem="D2U-ST-FEA" firstAttribute="centerX" secondItem="VI3-Mt-m4h" secondAttribute="centerX" id="Jv8-kX-hkV"/>
                     <constraint firstItem="9uR-vV-8t3" firstAttribute="leading" secondItem="VI3-Mt-m4h" secondAttribute="leadingMargin" id="Kgi-jR-ELI"/>
                     <constraint firstAttribute="bottomMargin" secondItem="9uR-vV-8t3" secondAttribute="bottom" id="KrI-55-Q2v"/>
                     <constraint firstItem="tuO-Ye-ac3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Tbz-WP-I6U" secondAttribute="trailing" constant="8" symbolic="YES" id="VoP-Nc-aEG"/>
@@ -159,18 +169,24 @@
                     <constraint firstAttribute="bottomMargin" secondItem="SHf-eo-fYO" secondAttribute="bottom" constant="-6" id="gGG-3d-2qo"/>
                     <constraint firstItem="QTE-PU-GMU" firstAttribute="leading" secondItem="VI3-Mt-m4h" secondAttribute="leading" constant="13" id="k8i-la-U2p"/>
                     <constraint firstItem="k34-wo-TC9" firstAttribute="top" secondItem="VI3-Mt-m4h" secondAttribute="top" constant="12" id="kDE-Va-0FH"/>
+                    <constraint firstAttribute="trailing" secondItem="D2U-ST-FEA" secondAttribute="trailing" id="kGk-kQ-aQ7"/>
                     <constraint firstItem="SHf-eo-fYO" firstAttribute="height" secondItem="VI3-Mt-m4h" secondAttribute="height" id="lNt-bw-IcF"/>
                     <constraint firstItem="k34-wo-TC9" firstAttribute="leading" secondItem="lQb-te-HQx" secondAttribute="trailing" constant="10" id="nqS-RE-aVW"/>
                     <constraint firstItem="SHf-eo-fYO" firstAttribute="width" secondItem="VI3-Mt-m4h" secondAttribute="width" id="rYQ-1F-AV5"/>
                     <constraint firstAttribute="bottom" secondItem="PWL-Vx-oR8" secondAttribute="bottom" constant="4" id="ryt-jy-IUS"/>
                     <constraint firstItem="xNJ-J0-My0" firstAttribute="leading" secondItem="k34-wo-TC9" secondAttribute="trailing" constant="1" id="sWt-6A-yAv"/>
+                    <constraint firstItem="D2U-ST-FEA" firstAttribute="leading" secondItem="VI3-Mt-m4h" secondAttribute="leading" id="t4d-ln-okd"/>
                     <constraint firstItem="PWL-Vx-oR8" firstAttribute="leading" secondItem="VI3-Mt-m4h" secondAttribute="leading" id="tiL-Wq-vdr"/>
+                    <constraint firstItem="D2U-ST-FEA" firstAttribute="top" secondItem="VI3-Mt-m4h" secondAttribute="topMargin" id="vux-bY-bbh"/>
                     <constraint firstItem="lQb-te-HQx" firstAttribute="leading" secondItem="VI3-Mt-m4h" secondAttribute="leading" constant="13" id="yii-Eh-Og6"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="4L3-Ir-jaU"/>
                         <exclude reference="lNt-bw-IcF"/>
+                        <exclude reference="922-69-3Bf"/>
+                        <exclude reference="Jv8-kX-hkV"/>
+                        <exclude reference="vux-bY-bbh"/>
                         <exclude reference="H4x-Yn-Vn6"/>
                         <exclude reference="EEl-l1-4VY"/>
                         <exclude reference="Kgi-jR-ELI"/>
@@ -180,9 +196,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="desLabel" destination="QTE-PU-GMU" id="suX-V8-qfd"/>
-                <outlet property="hotButton" destination="ZbP-hR-uLS" id="QiC-fi-e8g"/>
+                <outlet property="hotButton" destination="vnu-IA-E47" id="tnu-Ue-qdZ"/>
                 <outlet property="imageview" destination="lQb-te-HQx" id="k9A-gT-ifR"/>
-                <outlet property="likeButton" destination="vnu-IA-E47" id="Fj9-qu-nOV"/>
+                <outlet property="likeButton" destination="ZbP-hR-uLS" id="i3b-MK-5BU"/>
                 <outlet property="nameLabel" destination="k34-wo-TC9" id="a5r-Zc-57i"/>
                 <outlet property="nameTwiceLabel" destination="xNJ-J0-My0" id="0Ae-Js-SDm"/>
                 <outlet property="priceLabel" destination="tuO-Ye-ac3" id="aJP-d9-FGR"/>
@@ -194,6 +210,6 @@
     </objects>
     <resources>
         <image name="search-hot" width="12" height="12"/>
-        <image name="search-like" width="12" height="12"/>
+        <image name="search-like" width="14" height="12"/>
     </resources>
 </document>

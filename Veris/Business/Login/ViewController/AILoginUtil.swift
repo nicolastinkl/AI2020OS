@@ -16,6 +16,7 @@ class AILoginUtil: NSObject {
     static let KEY_PROVIDER_ID = "KEY_PROVIDER_ID"
     static let KEY_HEADURL_STRING = "KEY_HEADURL_STRING"
     static let KEY_USER_NAME_STRING = "KEY_USER_NAME_STRING"
+    static let KEY_USER_NICKNAME_STRING = "KEY_USER_NICKNAME_STRING"
     // MARK: -验证密码是否符合规范
     //密码位数为6-20位，可包含以下类别：
     //英文字母（从 A 到 Z以及从 a 到 z ）
@@ -111,7 +112,7 @@ class AILoginUtil: NSObject {
 }
 
 // MARK: -登录模块全局变量
-class AILoginPublicValue {
+class AILoginPublicValue: NSObject {
     static var loginType: LoginConstants.LoginType?
     static var phoneNumber: String?
     static var password: String?

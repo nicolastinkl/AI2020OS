@@ -76,13 +76,3 @@ class AIWishHotChildModel: JSONJoy {
         money_adv = decoder["money_adv"].double ?? 0.0
     }
 }
-
-
-
-
-
-
-
-
-
-

@@ -282,3 +282,8 @@
 "CustomSearch.price" = "价格";
 "CustomSearch.filter" = "过滤";
 "CustomSearch.makeWish" = "   许愿";
+
+/*
+ * AIRecommondForYouViewController
+ */
+"AIRecommondForYouViewController.recommend" = "为您推荐";

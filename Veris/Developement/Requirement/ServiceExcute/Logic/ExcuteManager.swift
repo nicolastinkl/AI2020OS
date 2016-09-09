@@ -76,8 +76,7 @@ class BDKExcuteManager: ExcuteManager {
             }
             
             guard
-                let hasNextNode = dic["process_flag"] as? Bool,
-                let c = dic["result_code"] as? Int else {
+                let hasNextNode = dic["process_flag"] as? Bool, c = dic["result_code"] as? Int else {
                     fail(errType: AINetError.Format, errDes: "submitServiceNodeResult JSON Parse Error...")
                     return
             }

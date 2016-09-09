@@ -49,7 +49,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     var timer: NSTimer?
     
     //外部传入的入参
-    var in_paramDic: Dictionary<String,AnyObject>?
+    var in_paramDic: Dictionary<String, AnyObject>?
     var in_serviceInstId: String? = "100000011039"
     var in_serviceSpecId: String? = "100000000202"
     
@@ -100,7 +100,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         dismissPopupViewController(true, completion: nil)
     }
     
-    func parseInputParams(){
+    func parseInputParams() {
         if let in_paramDic = in_paramDic {
             in_serviceSpecId = anyToString(in_paramDic["GrabOrderServiceSpecId"])
             in_serviceInstId = anyToString(in_paramDic["GrabOrderServiceInstId"])
