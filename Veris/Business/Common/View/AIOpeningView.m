@@ -208,7 +208,7 @@ typedef NS_ENUM(NSInteger, AIMovementDirection) {
     NSInteger userId = [AILocalStore userId];
     NSString *userName = [AILocalStore userName];
     NSString *nickName = [AILocalStore nickName];
-    NSString *message = [NSString stringWithFormat:@"user_id: %ld\nuser_name: %@\nnickName: %@\n", userId,userName,nickName];
+    NSString *message = [NSString stringWithFormat:@"user_id: %ld\nuser_name: %@\nnick_name: %@\n", userId,userName,nickName];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     [alert show];
 }
