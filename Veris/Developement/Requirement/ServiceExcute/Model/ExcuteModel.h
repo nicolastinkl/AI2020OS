@@ -89,6 +89,7 @@ permission_type值	permission_value描述
 @property (strong, nonatomic) NSNumber<Optional> * id;
 @property (strong, nonatomic) NSString<Optional> * name;
 @property (strong, nonatomic) NSString<Optional> * value;
+@property (strong, nonatomic) NSString<Optional> * icon;
 
 @end
 
