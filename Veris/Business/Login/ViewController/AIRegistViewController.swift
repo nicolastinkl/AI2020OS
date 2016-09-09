@@ -49,9 +49,9 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
 
     func handleLoginType() {
         if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
-            self.setupLoginNavigationBar("Forgot Password")
+            self.setupLoginNavigationBar("LoginConstants.forgetButton".localized)
         } else {
-            self.setupLoginNavigationBar("Register")
+            self.setupLoginNavigationBar("LoginConstants.registerButton".localized)
         }
     }
 
@@ -73,7 +73,7 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
         
         regionTitleLabel.font = LoginConstants.Fonts.textFieldInput
         regionSelectButton.titleLabel?.font = LoginConstants.Fonts.textFieldInput
-        regionSelectButton.setTitle("China >", forState: UIControlState.Normal)
+        regionSelectButton.setTitle("\("Countries.China".localized) >", forState: UIControlState.Normal)
         regionSelectContainerView.backgroundColor = LoginConstants.Colors.TextFieldBackground
         regionSelectContainerView.layer.cornerRadius = 5
         regionSelectContainerView.layer.masksToBounds = true

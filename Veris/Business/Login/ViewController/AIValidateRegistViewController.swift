@@ -13,8 +13,8 @@ import AIAlertView
 
 class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDelegate {
 
-    let buttonTitle1 = "Send Validation Code"
-    let buttonTitle2 = "Resend"
+    let buttonTitle1 = "LoginConstants.validateButtonDefault".localized
+    let buttonTitle2 = "LoginConstants.validateButtonResend".localized
     let titleFont = UIFont.systemFontOfSize(12)
 
     var timer: NSTimer?
@@ -117,7 +117,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
      处理点击发送验证码后的UI逻辑
      */
     func handleValidationButton() {
-        let curButtonTitle = "\(self.buttonTitle2)(60 Sec)"
+        let curButtonTitle = "\(self.buttonTitle2)(60 \("LoginConstants.sec".localized))"
         let fontSize = curButtonTitle.sizeWithFont(self.titleFont, forWidth: self.view.width)
         self.validationButtonWidthConstrant.constant = fontSize.width + 20
         hideButtonLoading(validationButton, title: curButtonTitle)
@@ -154,16 +154,16 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
                     self.validationButton.enabled = true
             })
         } else {
-            let curButtonTitle = "\(buttonTitle2)(\(timerInterval) Sec)"
+            let curButtonTitle = "\(buttonTitle2)(\(timerInterval) \("LoginConstants.sec".localized))"
             validationButton.setTitle(curButtonTitle, forState: UIControlState.Normal)
         }
     }
 
     func handleLoginType() {
         if AILoginPublicValue.loginType == LoginConstants.LoginType.ForgotPassword {
-            self.setupLoginNavigationBar("Forgot Password")
+            self.setupLoginNavigationBar("LoginConstants.forgetButton".localized)
         } else {
-            self.setupLoginNavigationBar("Enter Validation Code")
+            self.setupLoginNavigationBar("LoginConstants.EnterValidateCodePlaceholder".localized)
         }
     }
 

@@ -21,11 +21,11 @@ enum ResultCode: Int {
 
 enum ProcedureType: Int {
     // 需要授权的节点
-    case jurisdiction = 0
+    case jurisdiction = 1
     // 需要用户确认的节点
-    case confirm = 1
+    case confirm = 2
     // 只读节点
-    case read
+    case read = 3
 }
 
 enum JurisdictionStatus: Int {
@@ -54,7 +54,7 @@ protocol ExcuteManager {
     func submitServiceNodeResult(serviceId: Int, procedureId: Int, resultList: [NodeResultContent], success: (responseData: (hasNextNode: Bool, resultCode: ResultCode)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func queryProcedureInstInfo(serviceId: Int, userId: Int, success: (responseData: (customer: AICustomerModel, procedure: Procedure)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func updateServiceNodeStatus(procedureId: Int, status: ProcedureStatus, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
-    func submitRequestAuthorization(serviceId: Int, customerId: Int, providerId: Int, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func submitRequestAuthorization(serviceId: Int, customerId: Int, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
 
 
@@ -126,7 +126,7 @@ class BDKExcuteManager: ExcuteManager {
         let url = AIApplication.AIApplicationServerURL.queryProcedureInstInfo.description
         message.url = url
         
-        let data: [String: AnyObject] = ["service_instance_id": serviceId, "user_id": userId]
+        let data: [String: AnyObject] = ["service_instance_id": serviceId, "customer_user_id": userId]
         message.body = BDKTools.createRequestBody(data)
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
@@ -187,13 +187,13 @@ class BDKExcuteManager: ExcuteManager {
         }
     }
     
-    func submitRequestAuthorization(serviceId: Int, customerId: Int, providerId: Int, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func submitRequestAuthorization(serviceId: Int, customerId: Int, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         let message = AIMessage()
         let url = AIApplication.AIApplicationServerURL.submitRequestAuthorization.description
         message.url = url
         
-        let data: [String: AnyObject] = ["service_instance_id": serviceId, "provider_id": providerId, "provider_id": customerId]
+        let data: [String: AnyObject] = ["service_instance_id": serviceId, "provider_id": customerId]
         message.body = BDKTools.createRequestBody(data)
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in

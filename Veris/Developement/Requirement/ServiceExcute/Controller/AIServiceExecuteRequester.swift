@@ -79,9 +79,9 @@ class AIServiceExecuteRequester: NSObject {
      customID	    买家id
      proposalID      方案ID
      */
-    func queryGrabOrderDetail(serviceSpecId serviceSpecId: String, success: (businessInfo: AIGrabOrderDetailViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func queryGrabOrderDetail(serviceSpecId serviceSpecId: String, serviceID: String, customerUserID: String, success: (businessInfo: AIGrabOrderDetailViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
-        let body  = ["data" : ["service_spec_id" : serviceSpecId ], "desc":["data_mode" : "0", "digest" : ""]]
+        let body  = ["data" : ["service_spec_id" : serviceSpecId, "service_id" : serviceID, "customer_user_id" : customerUserID ], "desc":["data_mode" : "0", "digest" : ""]]
         
         message.body.addEntriesFromDictionary(body as [NSObject : AnyObject])
         message.url = AIApplication.AIApplicationServerURL.queryGrabOrderDetail.description as String

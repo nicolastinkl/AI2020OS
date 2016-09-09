@@ -502,9 +502,8 @@
         {
             AIContestSuccessViewController *successViewController = [[UIStoryboard storyboardWithName:@"AIAlertStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AIContestSuccessViewController"];
             successViewController.serviceInstanceID = model.service.service_instance_id;
-            successViewController.proposalID = model.proposal_id;
             successViewController.serviceID = model.service.service_id;
-            successViewController.customerID = model.customer.customer_id;
+            successViewController.customerID = model.customer.user_id;
             nextViewController = successViewController;
         }
 
@@ -513,8 +512,8 @@
         case 1: // 进行中
         {
             TaskDetailViewController *taskViewController = [[UIStoryboard storyboardWithName:@"TaskExecuteStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"TaskDetailViewController"];
-            taskViewController.serviceId = model.service.service_instance_id;
-            //taskViewController.providerId = model
+            taskViewController.serviceInstanceID = model.service.service_instance_id;
+            taskViewController.customerUserID = model.customer.user_id;
             nextViewController = taskViewController;
         }
             break;
