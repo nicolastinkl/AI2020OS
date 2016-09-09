@@ -80,6 +80,11 @@ class AISuperiorityViewController: UIViewController {
         imageView.setLeft(0)
         addNewSubView(imageView, preView: UIView(), color: UIColor.clearColor(), space: 0)
         imageView.sd_setImageWithURL(NSURL(string: self.selfImage)!, placeholderImage: nil)
+        
+        let holdView = UIView()
+        holdView.backgroundColor = UIColor.clearColor()
+        holdView.setHeight(50)
+        addNewSubView(holdView)
     }
     
     func initDatawithViews() {
