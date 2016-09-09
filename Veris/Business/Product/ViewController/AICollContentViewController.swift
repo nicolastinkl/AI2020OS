@@ -301,7 +301,9 @@ class AICollContentViewController: UIViewController {
             //add by liux at 20160909 增加需要的字段，order_id
             orderId = bussinessModel.baseJsonValue?.order_id
             compUserId = bussinessModel.baseJsonValue?.comp_user_id
-            customerUserId = String(bussinessModel.baseJsonValue?.customer.user_id!)
+            let intID = bussinessModel.baseJsonValue?.customer.user_id.integerValue
+            let useriD = "\(intID!)"
+            customerUserId = useriD
         }
 
 

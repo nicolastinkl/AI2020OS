@@ -224,7 +224,8 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
      */
     func anyToString(anyObject: AnyObject?) -> String? {
         if let intValue = anyObject as? Int {
-            return String(intValue)
+            return intValue.toString()
+            
         }
         if let stringValue = anyObject as? String {
             return stringValue
