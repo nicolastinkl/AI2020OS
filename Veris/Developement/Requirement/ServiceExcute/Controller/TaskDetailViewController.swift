@@ -189,7 +189,9 @@ class TaskDetailViewController: UIViewController {
             if let jurisdictionStatus = JurisdictionStatus(rawValue: p.permission_value.integerValue) {
                 switch jurisdictionStatus {
                 case .notAuthorized:
-                    authorityState = NeedAuthority(vc: self)
+               //     authorityState = NeedAuthority(vc: self)
+                    // do that for test
+                    authorityState = AlreadyAuthorized(vc: self)
                 case .alreadyAuthorized:
                     authorityState = AlreadyAuthorized(vc: self)
                 case .noNeed:
