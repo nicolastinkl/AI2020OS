@@ -32,6 +32,7 @@ class AIServerProviderView: UIView {
     @IBOutlet weak var number: UILabel!
     @IBOutlet weak var radio: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var provideRateImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

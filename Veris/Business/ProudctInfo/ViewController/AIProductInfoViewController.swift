@@ -507,7 +507,7 @@ class AIProductInfoViewController: UIViewController {
 		
 		let desLabel = AILabel()
 		desLabel.text = dataModel?.desc ?? ""
-		desLabel.setHeight(60)
+		desLabel.setHeight((desLabel.text ?? "").sizeWithFont(UIFont.systemFontOfSize(14), forWidth: self.view.width).height + 15)
 		desLabel.numberOfLines = 0
 		desLabel.lineBreakMode = .ByCharWrapping
 		desLabel.font = UIFont.systemFontOfSize(42 / 3)
@@ -627,7 +627,7 @@ class AIProductInfoViewController: UIViewController {
 		let aButton = DesignableButton()
 		answerView.addSubview(aButton)
 		
-		aButton.borderColor = UIColor(hexString: "#FFFFFF", alpha: 0.5)
+		aButton.borderColor = UIColor(hexString: "#FFFFFF", alpha: 0.3)
 		aButton.borderWidth = 1
 		aButton.cornerRadius = 5
 		aButton.titleLabel?.font = UIFont.systemFontOfSize(48 / 3)
@@ -690,7 +690,7 @@ class AIProductInfoViewController: UIViewController {
         let pLabel = getTitleLabelView("服务者介绍")
         let tap5 = UITapGestureRecognizer(target: self, action: #selector(AIProductInfoViewController.providerDetailPressed))
         pLabel.addGestureRecognizer(tap5)
-        addNewSubView(pLabel, preView: bubbleViewContain, color: UIColor.clearColor(), space: 10)
+        addNewSubView(pLabel, preView: bubbleViewContain, color: UIColor.clearColor(), space: 21)
         pLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
         let hView4 = AIServerProviderView.initFromNib() as? AIServerProviderView
         addNewSubView(hView4!, preView: pLabel)
@@ -698,32 +698,28 @@ class AIProductInfoViewController: UIViewController {
         let lineView3 = addSplitView()
         
         // Setup 6:
-        let pcLabel = getTitleLabelView("商品介绍")
+        let pcLabel = getTitleLabelView("商品介绍", desctiption: "", showRight: false)
         addNewSubView(pcLabel, preView: lineView3)
         pcLabel.backgroundColor = UIColor(hexString: "#000000", alpha: 0.3)
-        let holdSpaceView = UIView()
-        addNewSubView(holdSpaceView, preView: pcLabel)
-        holdSpaceView.setHeight(44/3)
+        
+        /*
+         let holdSpaceView = UIView()
+         addNewSubView(holdSpaceView, preView: pcLabel)
+         holdSpaceView.setHeight(44/3)
+        */
         let bottomImage = AIImageView()
         //var imageHeight: CGFloat = 0
         bottomImage.sd_setImageWithURL(NSURL(string:dataModel?.desc_image ?? ""))
-       /* bottomImage.setImageWithURL(NSURL(string:dataModel?.desc_image ?? ""), placeholderImage: smallPlace()) { (image, error, type) in
-            if image != nil {
-                let heightInPoints = image.size.height
-                let heightInPixels = heightInPoints * image.scale
-                imageHeight = heightInPixels
-                
-//                let widthInPoints = image.size.width
-//                let widthInPixels = widthInPoints * image.scale
-
-            }
-        }*/
+        if (dataModel?.name ?? "") == "孕检陪护" {
+            bottomImage.setHeight(1652)
+        } else if (dataModel?.name ?? "") == "孕检无忧" {
+            bottomImage.setHeight(3000)
+        }
         
-        bottomImage.setHeight(1700)
         bottomImage.backgroundColor = UIColor(hexString: "#6AB92E", alpha: 0.7)
         bottomImage.contentMode = UIViewContentMode.ScaleAspectFill
         bottomImage.clipsToBounds = true
-        self.addNewSubView(bottomImage, preView: holdSpaceView)
+        self.addNewSubView(bottomImage, preView: pcLabel)
         
         // Setup 7: Provider Info
         

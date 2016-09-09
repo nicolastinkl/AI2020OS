@@ -257,9 +257,9 @@
 
 // AIServerProviderView
 
-"AIServerProviderView.ServiceCustomerFormat" = "服务人数 %@";
+"AIServerProviderView.ServiceCustomerFormat" = "服务人数：%@";
 
-"AIServerProviderView.ServiceRateFormat" = "服务好评度 %@";
+"AIServerProviderView.ServiceRateFormat" = "服务好评度：%@";
 
 /*
  * ./Veris/Business/Login/LoginConstants

@@ -119,7 +119,7 @@ class AIConfirmOrderViewController: UIViewController {
         //self.priceLabel.font = AITools.myriadLightSemiCondensedWithSize(39 / PurchasedViewDimention.CONVERT_FACTOR)
 
         let name = dataSource?.proposal_name ?? ""
-        self.backButton.setTitle(name, forState: UIControlState.Normal)
+        self.backButton.setTitle(String(format: " %@",name), forState: UIControlState.Normal)
         
         if NSString(string: name).containsString("AIBuyerDetailViewController.pregnancy".localized) {
 
@@ -228,7 +228,7 @@ class AIConfirmOrderViewController: UIViewController {
     @IBAction func pleaseMyOrderAction(sender: AnyObject) {
         view.showLoading()
         AIOrderRequester().submitProposalOrder(dataSource?.proposal_id ?? 0, serviceList:current_service_list as! [AnyObject], success: { () -> Void in
-            AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
+            AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "", closeButtonTitle:nil, duration: 2)
             self.view.hideLoading()
 //            self.dismissViewControllerAnimated(false, completion: nil)
             NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
