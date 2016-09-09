@@ -95,7 +95,7 @@
     self.listModel = [[AIOrderPreListModel alloc] initWithDictionary:dic error:nil];
 }
 
-- (void)parseTableDataSource {
+- (void)cleanOldDatas {
     if (_tableDictionary) {
         [_tableDictionary removeAllObjects];
         [_tableHeaderList removeAllObjects];
@@ -103,7 +103,11 @@
         _tableDictionary = [[NSMutableDictionary alloc] init];
         _tableHeaderList = [[NSMutableArray alloc] init];
     }
+}
 
+- (void)parseTableDataSource {
+
+    [self cleanOldDatas];
     for (AIOrderPreModel *model in self.listModel.order_list) {
         NSString *sort = [NSString stringWithFormat:@"%@", model.order_sort_time];
         AIOrderTableModel *tableModel = [_tableDictionary objectForKey:sort];
@@ -144,15 +148,18 @@
                         weakSelf.listModel = [[AIOrderPreListModel alloc] initWithDictionary:response error:nil];
 
                         if (weakSelf.listModel == nil) {
+                            [weakSelf cleanOldDatas];
                             [weakSelf.tableView showErrorContentView];
                         } else {
                             [weakSelf parseTableDataSource];
                         }
                     } else {
+                        [weakSelf cleanOldDatas];
                         [weakSelf.tableView showDiyContentView:@"No Data"];
                     }
                 } else {
-                    [weakSelf.tableView showErrorContentView];
+                    [weakSelf cleanOldDatas];
+                    [weakSelf.tableView showDiyContentView:@"No Data"];
                 }
             }
 

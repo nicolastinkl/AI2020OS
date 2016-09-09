@@ -689,9 +689,12 @@ class AIBuyerDetailViewController: UIViewController {
                 params = ["proposal_id" : m.proposal_id, "query_type" : queryType, "query_userid" : queryUserID]
             }
 
+            navigationView.userInteractionEnabled = false
 			BDKProposalService().queryCustomerProposalDetail(params, success: { [weak self](responseData) -> Void in
 				
 				if let viewController = self {
+
+                    viewController.navigationView.userInteractionEnabled = true
 					// 清空已删除
 					viewController.deleted_service_list.removeAllObjects()
 					viewController.serviceRestoreToolbar.serviceModels = viewController.deleted_service_list
@@ -733,7 +736,7 @@ class AIBuyerDetailViewController: UIViewController {
 				}, fail: { [weak self]
 				(errType, errDes) -> Void in
 				if let viewController = self {
-					
+					viewController.navigationView.userInteractionEnabled = true
 					viewController.tableView.headerEndRefreshing()
 					// 处理错误警告
 				}
