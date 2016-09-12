@@ -382,12 +382,15 @@ class AIProductInfoViewController: UIViewController {
                 
                 if isFavi {
                     navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok_pro")!)
+
                 } else {
                     navi.setRightIcon1Action(UIImage(named: "AI_ProductInfo_Home_Favirtor")!)
                 }
                 
                 navi.commentButton.animation = "pop"
                 navi.commentButton.animate()
+
+                NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIRefreshBuyerCenterNotification, object: nil)
             }
         }
         
