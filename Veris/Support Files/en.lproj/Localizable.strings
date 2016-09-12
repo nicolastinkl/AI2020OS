@@ -314,5 +314,7 @@
 "AIWishPreviewController.average" = "Average";
 "AIWishPreviewController.unit" = "Euro";
 
+"AIWishPreviewController.wished" = "wished";
+"AIWishPreviewController.moreto" = "more to";
 
 

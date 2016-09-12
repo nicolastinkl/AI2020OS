@@ -114,8 +114,8 @@ class AIWishPreviewController: UIViewController {
         DescriptionLabel.setWidth(UIScreen.mainScreen().bounds.width)
         DescriptionLabel.setHeight(82)
         DescriptionLabel.contentText.text = model?.contents
-        DescriptionLabel.wishText.text = "\(model?.already_wish ?? 0) wished"
-        DescriptionLabel.moreText.text = "\(model?.target_wish ?? 0) more to "
+        DescriptionLabel.wishText.text = "\(model?.already_wish ?? 0) \("AIWishPreviewController.wished".localized)"
+        DescriptionLabel.moreText.text = "\(model?.target_wish ?? 0) \("AIWishPreviewController.moreto".localized)"
         
         // Question Title
         
@@ -234,17 +234,24 @@ class AIWishPreviewController: UIViewController {
             
             preAverageView?.userInteractionEnabled = false
             
-            self.preAverageView?.button.snp_removeConstraints()
-            
-//            self.preAverageView?.button.snp_makeConstraints(closure: { (make) in
-//                make.center.equalTo((self.preAverageView?.totalButton.snp_center)!)
-//                make.width.height.equalTo(76)
-//            })
-            
+            self.preAverageView?.button.hidden = true
+            self.preAverageView?.leftRMB.hidden = true
+            let newDesignButton = DesignableButton()
+            newDesignButton.frame = self.preAverageView!.totalButton.frame
+//            self.preAverageView?.addSubview(newDesignButton)
+            self.preAverageView?.insertSubview(newDesignButton, belowSubview: self.preAverageView!.rightRMB)
+            self.preAverageView!.rightRMB.textColor = UIColor.whiteColor()
+            newDesignButton.cornerRadius = 76/2
+            newDesignButton.borderWidth = 2
+            newDesignButton.titleLabel?.font = self.preAverageView!.totalButton.titleLabel?.font
+            newDesignButton.borderColor = UIColor.whiteColor()
+            newDesignButton.backgroundColor = UIColor(hex: "#0C93D9")
+            newDesignButton.alpha = 0
+            newDesignButton.center = (self.preAverageView!.button.center)
+            newDesignButton.setTitle(String(averageMenoy), forState: UIControlState.Normal)
             SpringAnimation.springEaseIn(0.5, animations: {
-//                self.preAverageView?.button.layoutIfNeeded()
-                //self.preAverageView?.button.frame = self.preAverageView!.totalButton.frame
-                //self.preAverageView?.button.cornerRadius = 76/2
+                newDesignButton.center = self.preAverageView!.totalButton.center
+                newDesignButton.alpha = 1
             })
 
             
