@@ -254,6 +254,7 @@
 // AIPaymentViewController
 
 "AIPaymentViewController.Success" = "支付成功!";
+"AIPaymentViewController.Title" = "支付";
 
 // AIServerProviderView
 
