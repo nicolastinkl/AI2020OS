@@ -100,7 +100,10 @@ class AICustomSearchHomeViewController: UIViewController {
 	}
 	
 	func popToRootView() {
-		self.dismissViewControllerAnimated(false, completion: nil)
+        while let p = self.parentViewController {
+            p.dismissViewControllerAnimated(false, completion: nil)
+        }
+        self.dismissViewControllerAnimated(false, completion: nil)
 	}
 	
 	func popToAllView() {

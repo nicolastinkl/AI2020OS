@@ -42,7 +42,7 @@
                                 <constraint firstAttribute="height" constant="50" id="1kc-zI-aLa"/>
                             </constraints>
                         </view>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2fd-29-3dj" customClass="DesignableTextView" customModule="Spring">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fd-29-3dj" customClass="DesignableTextView" customModule="Spring">
                             <rect key="frame" x="15" y="102" width="570" height="130"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -66,7 +66,7 @@
                                 <outlet property="delegate" destination="-1" id="Sg9-Xe-zk0"/>
                             </connections>
                         </textView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jP-vk-QKj" customClass="DesignableTextView" customModule="Spring">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jP-vk-QKj" customClass="DesignableTextView" customModule="Spring">
                             <rect key="frame" x="15" y="277" width="570" height="55"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>

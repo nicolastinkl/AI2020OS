@@ -64,7 +64,6 @@ class AIConfirmOrderViewController: UIViewController {
          */
         ConfigTableView()
         
-
         /**
          Data Referesh.
          */
@@ -233,11 +232,15 @@ class AIConfirmOrderViewController: UIViewController {
     @IBAction func pleaseMyOrderAction(sender: AnyObject) {
         view.showLoading()
         AIOrderRequester().submitProposalOrder(dataSource?.proposal_id ?? 0, serviceList:current_service_list as! [AnyObject], success: { () -> Void in
-            AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "", closeButtonTitle:nil, duration: 2)
+            
             self.view.hideLoading()
-//            self.dismissViewControllerAnimated(false, completion: nil)
+            
             NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
-            self.showPayViewAction()
+            //back to main view controller
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
+            
+            AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "", closeButtonTitle:nil, duration: 2)
+            //self.showPayViewAction()
         }) { (errType, errDes) -> Void in
             self.view.hideLoading()
             self.showPayViewAction()
@@ -246,7 +249,6 @@ class AIConfirmOrderViewController: UIViewController {
     
     func showPayViewAction() {
         let vc = AIPaymentViewController.initFromNib()
-        
         let nav = UINavigationController(rootViewController: vc)
         presentViewController(nav, animated: true, completion: nil)
     }
