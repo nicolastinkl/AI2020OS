@@ -26,6 +26,7 @@ class SoundPlayButton: UIView {
 
             do {
                 audioPlayer = try AVAudioPlayer(contentsOfURL: url)
+                audioPlayer?.delegate = self
                 
             } catch {
                 print("")
@@ -88,10 +89,17 @@ class SoundPlayButton: UIView {
         
         waveImage.startAnimating()
         audioPlayer?.volume = 1.0
-        audioPlayer?.prepareToPlay()
-        audioPlayer?.play()
         
-        isPlaying = true
+        guard let aPlayer = audioPlayer else {
+            return
+        }
+        
+        if aPlayer.prepareToPlay() {
+            if aPlayer.play() {
+                waveImage.startAnimating()
+                isPlaying = true
+            }
+        }       
     }
     
     private func stopPlay() {
@@ -100,6 +108,10 @@ class SoundPlayButton: UIView {
         }
         
         audioPlayer?.stop()
+        setStopState()
+    }
+    
+    private func setStopState() {
         waveImage.stopAnimating()
         
         isPlaying = false
@@ -126,4 +138,27 @@ class SoundPlayButton: UIView {
         setNeedsLayout()
         setNeedsDisplay()
     }
+}
+
+extension SoundPlayButton: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        setStopState()
+    }
+    
+
+    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+        setStopState()
+    }
+    
+
+    func audioPlayerBeginInterruption(player: AVAudioPlayer) {
+        setStopState()
+    }
+    
+    
+
+    func audioPlayerEndInterruption(player: AVAudioPlayer, withOptions flags: Int) {
+        setStopState()
+    }
+    
 }
