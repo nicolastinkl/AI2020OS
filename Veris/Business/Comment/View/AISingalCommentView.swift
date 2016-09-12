@@ -8,7 +8,7 @@
 
 import UIKit
 
- protocol AISingalCommentViewDelegate {
+protocol AISingalCommentViewDelegate: class {
     func shoudShowImagePicker()
 }
 
@@ -17,7 +17,7 @@ class AISingalCommentView: UIView {
 
     //MARK: Public
 
-    var delegate: AISingalCommentViewDelegate?
+    weak var delegate: AISingalCommentViewDelegate? = nil
     //MARK: Constants
     let placeHolder = "Please tell us how you fell about this experience. This will be of great help for others."
     let ReadOnlyTag = 1999

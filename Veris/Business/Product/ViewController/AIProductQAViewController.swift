@@ -9,7 +9,7 @@
 import UIKit
 
 class AIProductQAViewController: UIViewController {
-    var service_id: Int!
+	var service_id: Int!
 	
 	var tableView: UITableView!
 	var items: [[String: String]] = []
@@ -25,9 +25,9 @@ class AIProductQAViewController: UIViewController {
 	}
 	
 	func setupNavigationItems() {
-		let commentButton = UIButton()
-		commentButton.setImage(UIImage(named: "qa_comment"), forState: .Normal)
-		setupNavigationBarLikeQA(title: "常见问题", rightBarButtonItems: [commentButton]) { (index) -> (bottomPadding: CGFloat, spacing: CGFloat) in
+//		let commentButton = UIButton()
+//		commentButton.setImage(UIImage(named: "qa_comment"), forState: .Normal)
+		setupNavigationBarLikeQA(title: "常见问题", rightBarButtonItems: []) { (index) -> (bottomPadding: CGFloat, spacing: CGFloat) in
 			return (47.displaySizeFrom1242DesignSize(), 50.displaySizeFrom1242DesignSize())
 		}
 	}
@@ -35,8 +35,8 @@ class AIProductQAViewController: UIViewController {
 	func setupData() {
 		let service = AIProductQAService()
 		service.allQuestions(service_id, success: { [weak self] response in
-            self?.items = response
-            self?.tableView.reloadData()
+			self?.items = response
+			self?.tableView.reloadData()
 		}) { (errType, errDes) in
 			
 		}
@@ -46,9 +46,10 @@ class AIProductQAViewController: UIViewController {
 		tableView = UITableView(frame: .zero, style: .Grouped)
 		tableView.backgroundColor = UIColor.clearColor()
 		tableView.delegate = self
+		tableView.separatorStyle = .None
 		tableView.dataSource = self
 		tableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
-		tableView.sectionFooterHeight = 20
+		tableView.sectionFooterHeight = 4
 		tableView.sectionHeaderHeight = 0
 		view.addSubview(tableView)
 		tableView.snp_makeConstraints { (make) in
@@ -91,11 +92,17 @@ extension AIProductQAViewController: UITableViewDataSource {
 		let row = indexPath.row
 		if row == 0 {
 			let cell = tableView.dequeueReusableCellWithIdentifier("q") as! AIProductQuestionCell
-            cell.contentLabel.text = item["ask"]
+			cell.contentLabel.text = item["ask"]
 			return cell
 		} else {
 			let cell = tableView.dequeueReusableCellWithIdentifier("a") as! AIProductAnswerCell
-			cell.contentLabel.text = item["answer"]
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 5
+            
+            let attrString = NSMutableAttributedString(string: item["answer"] ?? "")
+            attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+            
+			cell.contentLabel.attributedText = attrString
 			return cell
 		}
 	}
@@ -133,12 +140,15 @@ class AIProductQACell: UITableViewCell {
 		if constraintsIsLoaded == false {
 			constraintsIsLoaded = true
 			iconView.snp_makeConstraints(closure: { (make) in
-				make.top.leading.equalTo(8)
+				make.top.equalTo(15)
+				make.leading.equalTo(13)
+                make.height.equalTo(16)
+                make.width.equalTo(16)
 			})
 			contentLabel.snp_makeConstraints(closure: { (make) in
 				make.leading.equalTo(iconView.snp_trailing).offset(8)
-				make.top.equalTo(contentView).offset(8)
-				make.trailing.bottom.equalTo(contentView).offset(-8)
+				make.top.equalTo(iconView)
+				make.trailing.bottom.equalTo(contentView).offset(-13)
 			})
 		}
 	}
@@ -154,6 +164,14 @@ class AIProductQuestionCell: AIProductQACell {
 		iconView.image = UIImage(named: "q-icon")
 		contentLabel.textColor = UIColor.whiteColor()
 		contentLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+		let lineView = UIView()
+		contentView.addSubview(lineView)
+		lineView.backgroundColor = UIColor(hexString: "#ffffff", alpha: 0.2)
+		lineView.snp_makeConstraints { (make) in
+			make.trailing.bottom.equalTo(contentView)
+			make.leading.equalTo(8)
+			make.height.equalTo(0.5)
+		}
 	}
 }
 class AIProductAnswerCell: AIProductQACell {
