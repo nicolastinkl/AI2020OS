@@ -245,7 +245,10 @@ class AIConfirmOrderViewController: UIViewController {
     }
     
     func showPayViewAction() {
-        showTransitionStyleCrossDissolveView(AIPaymentViewController.initFromNib())
+        let vc = AIPaymentViewController.initFromNib()
+        
+        let nav = UINavigationController(rootViewController: vc)
+        presentViewController(nav, animated: true, completion: nil)
     }
 
 
