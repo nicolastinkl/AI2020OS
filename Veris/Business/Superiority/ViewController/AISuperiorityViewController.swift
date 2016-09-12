@@ -53,6 +53,10 @@ class AISuperiorityViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Cache Service
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: String(serviceModel?.sid))
+        
         // MARK: Init
         initLayoutViews()
         fetchData()

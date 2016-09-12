@@ -18,7 +18,10 @@ class AIWishAverageView: UIView {
     @IBOutlet weak var averageLabel: UILabel!
     
     @IBOutlet weak var rightRMB: UILabel!
+    
     @IBOutlet weak var leftRMB: UILabel!
+    
+    @IBOutlet weak var inputPrice: UITextView!
     
     /* 随着手触摸点移动button
     private var prePosition: CGPoint = CGPointMake(0, 0)
