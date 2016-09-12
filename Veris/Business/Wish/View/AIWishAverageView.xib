@@ -168,7 +168,10 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="averageLabel" destination="DxO-JV-Tle" id="tuY-K7-1kA"/>
                 <outlet property="button" destination="u8S-dh-vqI" id="i1a-Xf-RDf"/>
+                <outlet property="leftRMB" destination="ze0-qk-gxP" id="UMb-BK-Bvl"/>
+                <outlet property="rightRMB" destination="dgd-Yx-TUw" id="IAr-f6-YcX"/>
                 <outlet property="totalButton" destination="c9w-Dt-ljh" id="omZ-lh-spH"/>
             </connections>
             <point key="canvasLocation" x="217" y="350"/>

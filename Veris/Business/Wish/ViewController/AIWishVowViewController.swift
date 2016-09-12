@@ -37,6 +37,9 @@ class AIWishVowViewController: UIViewController {
     @IBOutlet weak var wishContent: DesignableTextView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var scrollview: UIScrollView!
+    @IBOutlet weak var whatsyourwish: UILabel!
+    @IBOutlet weak var howmuchyourpayit: UILabel!
+    
     
     private var preCacheView: UIView?
     private var currentAlertView: AIAlertWishInputView?
@@ -55,6 +58,14 @@ class AIWishVowViewController: UIViewController {
         super.viewDidLoad()
 
         refereshButtonStatus(false)
+        
+        /// Init Translate
+        whatsyourwish.text = "AIWishVowViewController.whatsywish".localized
+        howmuchyourpayit.text = "AIWishVowViewController.howmushyltpayit".localized
+        wishContent.text = "AIWishVowViewController.writewish".localized
+        payContent.text = "AIWishVowViewController.writeprice".localized
+        submitButton.setTitle("AIWishVowViewController.Submit".localized, forState: UIControlState.Normal)
+        
         // Register Audio Tools Notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
         
@@ -68,7 +79,7 @@ class AIWishVowViewController: UIViewController {
                 layout.height == 44.0 + 10.0 + 17
             })
             navi.titleLabel.font = AITools.myriadLightWithSize(24)
-            navi.titleLabel.text = "Make a wish"
+            navi.titleLabel.text = "AIWishVowViewController.title".localized
             navi.backButton.setImage(UIImage(named: "scan_back"), forState: UIControlState.Normal)
         }
 
@@ -115,7 +126,7 @@ class AIWishVowViewController: UIViewController {
          */
         let title1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         title1.icon.image = UIImage(named: "AI_Wish_Make_instrst")
-        title1.title.text = "Recommended Wish"
+        title1.title.text = "AIWishVowViewController.RecommentedWish".localized
         addNewSubView(title1, preView: UIView(), space : 40)
         
         let bubbleViewContain = UIView()
@@ -164,7 +175,7 @@ class AIWishVowViewController: UIViewController {
         
         let title2 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         title2.icon.image = UIImage(named: "AI_Wish_Make_hot")
-        title2.title.text = "Popular Wish"
+        title2.title.text = "AIWishVowViewController.PoplarWish".localized
         addNewSubView(title2, preView: bubbleScrollViewReCmt, space : 12)
         
         
@@ -340,8 +351,7 @@ class AIWishVowViewController: UIViewController {
             }
             
         }
-    }
-    
+    }    
 }
 
 // MARK: - extension
@@ -349,7 +359,7 @@ extension AIWishVowViewController: UITextViewDelegate {
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         let text = textView.text
-        if text == "Your Could write down your wish here or select from blew." || text == "0 Euro" {
+        if text == "AIWishVowViewController.writewish".localized || text == "AIWishVowViewController.writeprice".localized {
             textView.text = ""
             textView.textColor = UIColor(hex: "#FFFFFF")
         }
