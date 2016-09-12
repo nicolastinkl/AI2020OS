@@ -68,7 +68,9 @@ class AIPaymentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        
+        setupNavigationBar()
+        
         /**
          Init dataSource
          */
@@ -85,6 +87,27 @@ class AIPaymentViewController: UIViewController {
         //showNotifyPayStatus()
         
         
+    }
+    
+    private func setupNavigationBar() {
+        
+        let backButton = UIButton()
+        backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
+        backButton.addTarget(self, action: #selector(AIPaymentViewController.closePayAction), forControlEvents: .TouchUpInside)
+ 
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.leftBarButtonItems = [backButton]
+        appearance.itemPositionForIndexAtPosition = { index, position in
+            if position == .Left {
+                return (47.displaySizeFrom1242DesignSize(), 55.displaySizeFrom1242DesignSize())
+            } else {
+                return (47.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
+            }
+        }
+        appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor(hexString: "#0f0c2c"), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
+        appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "AIPaymentViewController.Title".localized)
+        setNavigationBarAppearance(navigationBarAppearance: appearance)
     }
     
     func initRegisternotify() {
@@ -118,7 +141,7 @@ class AIPaymentViewController: UIViewController {
         priceLabel.textAlignment = .Center
         priceLabel.text = dataModel?.proposal_price ?? ""
         
-        priceLabel.font = AITools.myriadBoldWithSize(140/3)
+        priceLabel.font = AITools.myriadBoldWithSize(140.displaySizeFrom1242DesignSize())
         priceLabel.textColor = UIColor(white: 1, alpha: 0.7)
         bgView.addSubview(priceLabel)
         priceLabel.pinTopEdgeToTopEdgeOfItem(label_Price_info, offset: 80, priority: UILayoutPriorityRequired)
@@ -132,7 +155,7 @@ class AIPaymentViewController: UIViewController {
         commitButton.sizeToWidth(78)
         commitButton.sizeToHeight(44)
         commitButton.centerHorizontallyInSuperview()
-        commitButton.titleLabel?.font = AITools.myriadBoldWithSize(68/3)
+        commitButton.titleLabel?.font = AITools.myriadBoldWithSize(68.displaySizeFrom1242DesignSize())
         commitButton.layer.masksToBounds = true
         commitButton.borderWidth = 1
         commitButton.cornerRadius = 4
@@ -150,7 +173,7 @@ class AIPaymentViewController: UIViewController {
         
     }
     
-    @IBAction func closePayAction() {
+    func closePayAction() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
         self.dismissViewControllerAnimated(false, completion: nil)
@@ -230,14 +253,14 @@ class AIPaymentViewController: UIViewController {
         providerName.textColor = UIColor(hexString: "#fefefe")
         label_Price_info.font = AITools.myriadLightWithSize(48/3)
         label_Price_info.textColor = UIColor(hexString: "#fefefe", alpha: 0.66)
-        label_Pay_Style.font = AITools.myriadLightWithSize(48/3)
+        label_Pay_Style.font = AITools.myriadLightWithSize(48.displaySizeFrom1242DesignSize())
         label_Pay_Style.textColor = UIColor(hexString: "#fefefe", alpha: 0.66)
         
         /// Layout
         
         providerName.text = dataModel?.servicename ?? ""
         
-        let starRateView = StarRateView(frame: CGRect(x: 0, y: 5, width: 60, height: 11), numberOfStars: 5, foregroundImage: "star_rating_results_highlight", backgroundImage: "star_rating_results_normal")
+        let starRateView = StarRateView(frame: CGRect(x: 0, y: 5, width: 60, height: 11), numberOfStars: 5)
         
         starRateView.userInteractionEnabled = false
         let score: CGFloat = 5

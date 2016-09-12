@@ -21,6 +21,7 @@ class AIWishPreviewController: UIViewController {
     @IBOutlet weak var textView: UIView!
     @IBOutlet weak var priceTitle: UIView!
     @IBOutlet weak var view_price: UIView!
+    @IBOutlet weak var submitButton: UIButton!
     
     /// Constraint
     @IBOutlet weak var textpriceConstraint: NSLayoutConstraint!
@@ -44,6 +45,7 @@ class AIWishPreviewController: UIViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
+        submitButton.setTitle("AIWishVowViewController.Submit".localized, forState: UIControlState.Normal)
         if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
             view.addSubview(navi)
             navi.holderViewController = self
@@ -112,14 +114,14 @@ class AIWishPreviewController: UIViewController {
         DescriptionLabel.setWidth(UIScreen.mainScreen().bounds.width)
         DescriptionLabel.setHeight(82)
         DescriptionLabel.contentText.text = model?.contents
-        DescriptionLabel.wishText.text = "\(model?.already_wish ?? 0) wished"
-        DescriptionLabel.moreText.text = "\(model?.target_wish ?? 0) more to "
+        DescriptionLabel.wishText.text = "\(model?.already_wish ?? 0) \("AIWishPreviewController.wished".localized)"
+        DescriptionLabel.moreText.text = "\(model?.target_wish ?? 0) \("AIWishPreviewController.moreto".localized)"
         
         // Question Title
         
         let QuestionTitle1 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         QuestionTitle1.icon.image = UIImage(named: "AI_Wish_Make_comment")
-        QuestionTitle1.title.text = "See what they say about it"
+        QuestionTitle1.title.text = "AIWishPreviewController.seewhatsay".localized
         QuestionTitle1.title.font = AITools.myriadLightSemiCondensedWithSize(20)
         addNewSubView(QuestionTitle1, preView: DescriptionLabel)
         QuestionTitle1.setHeight(42)
@@ -181,6 +183,7 @@ class AIWishPreviewController: UIViewController {
         })
         if let newt = textField as? AIWishTextWishsView {
             textFeild = newt.textfeild
+            newt.textfeild.text = "AIWishPreviewController.noteyourwish".localized
         }
         
         
@@ -188,7 +191,7 @@ class AIWishPreviewController: UIViewController {
         // will to Pay
         let QuestionTitle2 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
         QuestionTitle2.icon.image = UIImage(named: "AI_Wish_Make_insterest")
-        QuestionTitle2.title.text = "The price you are willing to pay"
+        QuestionTitle2.title.text = "AIWishPreviewController.whatpriceyouwill".localized
         QuestionTitle2.title.font = AITools.myriadLightSemiCondensedWithSize(20)
 //        QuestionTitle2.setHeight(53)
         QuestionTitle2.backgroundColor = UIColor.clearColor()
@@ -204,6 +207,7 @@ class AIWishPreviewController: UIViewController {
             make.edges.equalTo(self.view_price)
         })
         preAverageView = wishAverage
+        preWishView?.button.setTitle("AIWishPreviewController.readall".localized, forState: UIControlState.Normal)
         preAverageView?.button.setTitle(String(averageMenoy), forState: UIControlState.Normal)
         preAverageView?.totalButton.setTitle(String(averageTotalMenoy), forState: UIControlState.Normal)
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(AIWishPreviewController.subAverage))
@@ -217,6 +221,10 @@ class AIWishPreviewController: UIViewController {
         wishAverage?.button.setTitle("\(Int(model?.money_avg ?? 0))", forState: UIControlState.Normal)
         wishAverage?.totalButton.setTitle("\(Int(model?.money_adv ?? 0))", forState: UIControlState.Normal)
         
+        wishAverage?.averageLabel.text = "AIWishPreviewController.average".localized
+        wishAverage?.leftRMB.text = "AIWishPreviewController.unit".localized
+        wishAverage?.rightRMB.text = "AIWishPreviewController.unit".localized
+        
     }
     
     func addAverage() {
@@ -226,17 +234,24 @@ class AIWishPreviewController: UIViewController {
             
             preAverageView?.userInteractionEnabled = false
             
-            self.preAverageView?.button.snp_removeConstraints()
-            
-//            self.preAverageView?.button.snp_makeConstraints(closure: { (make) in
-//                make.center.equalTo((self.preAverageView?.totalButton.snp_center)!)
-//                make.width.height.equalTo(76)
-//            })
-            
+            self.preAverageView?.button.hidden = true
+            self.preAverageView?.leftRMB.hidden = true
+            let newDesignButton = DesignableButton()
+            newDesignButton.frame = self.preAverageView!.totalButton.frame
+//            self.preAverageView?.addSubview(newDesignButton)
+            self.preAverageView?.insertSubview(newDesignButton, belowSubview: self.preAverageView!.rightRMB)
+            self.preAverageView!.rightRMB.textColor = UIColor.whiteColor()
+            newDesignButton.cornerRadius = 76/2
+            newDesignButton.borderWidth = 2
+            newDesignButton.titleLabel?.font = self.preAverageView!.totalButton.titleLabel?.font
+            newDesignButton.borderColor = UIColor.whiteColor()
+            newDesignButton.backgroundColor = UIColor(hex: "#0C93D9")
+            newDesignButton.alpha = 0
+            newDesignButton.center = (self.preAverageView!.button.center)
+            newDesignButton.setTitle(String(averageMenoy), forState: UIControlState.Normal)
             SpringAnimation.springEaseIn(0.5, animations: {
-//                self.preAverageView?.button.layoutIfNeeded()
-                //self.preAverageView?.button.frame = self.preAverageView!.totalButton.frame
-                //self.preAverageView?.button.cornerRadius = 76/2
+                newDesignButton.center = self.preAverageView!.totalButton.center
+                newDesignButton.alpha = 1
             })
 
             
@@ -252,7 +267,7 @@ class AIWishPreviewController: UIViewController {
     }
     
     func readallAction() {
-        preWishView?.button.setTitle("Flod up", forState: UIControlState.Normal)
+        preWishView?.button.setTitle("AIWishPreviewController.floadup".localized, forState: UIControlState.Normal)
         preWishView?.button.removeTarget(self, action: #selector(AIWishPreviewController.readallAction), forControlEvents: UIControlEvents.TouchUpInside)
         preWishView?.button.addTarget(self, action: #selector(AIWishPreviewController.expendAction), forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -266,7 +281,7 @@ class AIWishPreviewController: UIViewController {
     }
     
     func expendAction() {
-        preWishView?.button.setTitle("Read all", forState: UIControlState.Normal)
+        preWishView?.button.setTitle("AIWishPreviewController.readall".localized, forState: UIControlState.Normal)
         preWishView?.button.removeTarget(self, action: #selector(AIWishPreviewController.expendAction), forControlEvents: UIControlEvents.TouchUpInside)
         preWishView?.button.addTarget(self, action: #selector(AIWishPreviewController.readallAction), forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -315,8 +330,8 @@ class AIWishPreviewController: UIViewController {
     
     @IBAction func subitAction(sender: AnyObject) {
         if let stext = self.textFeild?.text {
-            if stext.length <= 0 || stext == "Please write down anything you want to add." {
-                AIAlertView().showError("Please write down anything you want to add.", subTitle: "")
+            if stext.length <= 0 || stext == "AIWishPreviewController.noteyourwish".localized {
+                AIAlertView().showError("AIWishPreviewController.noteyourwish".localized, subTitle: "")
                 return
             }
             let number: Double = Double(preAverageView?.button.titleLabel?.text?.toInt() ?? 0)

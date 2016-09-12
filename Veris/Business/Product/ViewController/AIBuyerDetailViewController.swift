@@ -199,7 +199,6 @@ class AIBuyerDetailViewController: UIViewController {
 		setupAnchorManager()
 	}
 
-
     //MARK: Development
 
     func setupAnchorManager() {
