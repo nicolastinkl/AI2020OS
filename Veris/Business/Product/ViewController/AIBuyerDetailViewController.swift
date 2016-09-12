@@ -59,6 +59,7 @@ class AIBuyerDetailViewController: UIViewController {
     var dataSource: AIProposalInstModel!
 	var bubbleModel: AIBuyerBubbleModel?
 	weak var delegate: AIBuyerDetailDelegate?
+    var customNoteModel: AIProductInfoCustomerNote?
 	
 	// MARK: Assistant
 	var isLaunchForAssistant: Bool = false
@@ -492,6 +493,7 @@ class AIBuyerDetailViewController: UIViewController {
 		
 		if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
 			vc.dataSource = self.dataSource
+            vc.customNoteModel = self.customNoteModel
 			showTransitionStyleCrossDissolveView(vc)
 		}
 
