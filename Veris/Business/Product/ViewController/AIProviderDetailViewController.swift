@@ -52,6 +52,7 @@ class AIProviderDetailViewController: UIViewController {
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		avatarImageView.layer.cornerRadius = avatarImageView.height / 2
+		
 	}
 	
 	func updateUI() {
@@ -63,13 +64,21 @@ class AIProviderDetailViewController: UIViewController {
 			l.text = ""
 		}
 		
-        if let qualificationList = model?.qualification_list as? [[String: AnyObject]] {
+		if let qualificationList = model?.qualification_list as? [[String: AnyObject]] {
 			for (i, q) in qualificationList.enumerate() {
 				qualificationLabels[i].text = q["name"] as? String
 			}
 		}
 		
-		descLabel.text = model?.desc
+		if let model = model {
+			let paragraphStyle = NSMutableParagraphStyle()
+			paragraphStyle.lineSpacing = 5
+			
+			let attrString = NSMutableAttributedString(string: model.desc ?? "")
+			attrString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+			
+			descLabel.attributedText = attrString
+		}
 		
 		if let serviceList = model?.service_list as? [AISearchServiceModel] {
 			bubbleView.bubbleModels = AIBuyerBubbleModel.convertFrom(serviceList)
@@ -115,6 +124,8 @@ class AIProviderDetailViewController: UIViewController {
 			l.textColor = UIColor(hexString: "#ffffff", alpha: 0.6)
 		}
 		
+		avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor
+		avatarImageView.layer.borderWidth = 2
 		avatarImageView.clipsToBounds = true
 	}
 	
