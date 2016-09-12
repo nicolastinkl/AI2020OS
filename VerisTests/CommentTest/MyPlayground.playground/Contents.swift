@@ -1,7 +1,7 @@
 //: Playground - noun: a place where people can play
 
 import UIKit
-
+/*
 var str = "Hello, playground"
 
 for _ in 0...9 {   
@@ -27,3 +27,11 @@ for _ in 0...9 {
         print("无人中奖")
     }
 }
+*/
+
+var someStr = "34－4"
+
+let s = NSString(string: someStr)
+
+let sint = s.intValue
+

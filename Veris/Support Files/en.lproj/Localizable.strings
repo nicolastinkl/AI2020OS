@@ -292,8 +292,29 @@
  */
 "AIRecommondForYouViewController.recommend" = "Recommend for you";
 
+/// 提交许愿
+"AIWishVowViewController.title" = "Make a wish";
+"AIWishVowViewController.whatsywish" = "What's your wish?";
+"AIWishVowViewController.howmushyltpayit" = "How much you would like to pay for it?";
+"AIWishVowViewController.RecommentedWish" = "Recommended Wish";
+"AIWishVowViewController.PoplarWish" = "Popular Wish";
+"AIWishVowViewController.writewish" = "Your Could write down your wish here or select from blew.";
+"AIWishVowViewController.writeprice" = "0 Euro";
+"AIWishVowViewController.Submit" = "Submit";
+"AIWishVowViewController.NameYourWish" = "Please name your wish.";
+"AIWishVowViewController.Mywish" = "My wish";
 
+/// 许愿预览 AIWishPreviewController
 
+"AIWishPreviewController.seewhatsay" = "See what they say about it";
+"AIWishPreviewController.readall" = "Read all";
+"AIWishPreviewController.floadup" = "Flod up";
+"AIWishPreviewController.noteyourwish" = "Please write down anything you want to add.";
+"AIWishPreviewController.whatpriceyouwill" = "The price you are willing to pay";
+"AIWishPreviewController.average" = "Average";
+"AIWishPreviewController.unit" = "Euro";
 
+"AIWishPreviewController.wished" = "wished";
+"AIWishPreviewController.moreto" = "more to";
 
 

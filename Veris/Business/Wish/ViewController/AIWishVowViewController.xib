@@ -7,10 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIWishVowViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="howmuchyourpayit" destination="wmT-cF-TRI" id="dfl-Ob-6Mr"/>
                 <outlet property="payContent" destination="Mpt-78-G8Q" id="hSU-s1-q1g"/>
                 <outlet property="scrollview" destination="NFS-gw-a38" id="eqy-xO-eft"/>
                 <outlet property="submitButton" destination="82q-6H-fdR" id="aEt-go-9ox"/>
                 <outlet property="view" destination="kgd-tX-Y0E" id="8IO-Dh-mWN"/>
+                <outlet property="whatsyourwish" destination="dGM-dd-kVe" id="oik-XT-Ncw"/>
                 <outlet property="wishContent" destination="3dt-K5-wmt" id="dZp-Gp-r5T"/>
             </connections>
         </placeholder>
@@ -311,6 +313,6 @@
         <image name="AI_Wish_Make_audio" width="14" height="22"/>
         <image name="AI_Wish_Make_bg" width="414" height="736"/>
         <image name="AI_Wish_Make_price" width="26" height="27"/>
-        <image name="AI_Wish_Make_wish" width="18" height="21"/>
+        <image name="AI_Wish_Make_wish" width="26" height="27"/>
     </resources>
 </document>
