@@ -88,6 +88,7 @@ class AIProductCommentsViewController: UIViewController {
 		tableView.delegate = self
 		tableView.dataSource = self
 		tableView.backgroundColor = UIColor.clearColor()
+        tableView.backgroundView = UIView()
 		tableView.tableFooterView = UIView()
 		tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 		view.addSubview(tableView)
@@ -190,17 +191,21 @@ class AIFilterBar: UIView {
 		
 		var previousButton: FilterBarButton!
         
+        let hspace = 1
+        
         for (i, button) in buttons.enumerate() {
 			button.snp_makeConstraints(closure: { (make) in
 				if i == 0 {
-					make.leading.top.bottom.equalTo(self)
+					make.top.equalTo(self)
+					make.leading.equalTo(self)
+					make.bottom.equalTo(self)
 				} else if i < buttons.count - 1 {
-					make.leading.equalTo(previousButton.snp_trailing)
+					make.leading.equalTo(previousButton.snp_trailing).offset(hspace)
 					make.width.equalTo(previousButton)
 					make.height.equalTo(previousButton)
 				} else {
 					make.trailing.equalTo(self)
-					make.leading.equalTo(previousButton.snp_trailing)
+					make.leading.equalTo(previousButton.snp_trailing).offset(hspace)
 					make.width.equalTo(previousButton)
 					make.height.equalTo(previousButton)
 				}
@@ -295,9 +300,11 @@ class AIProductCommentCell: UITableViewCell {
 		backgroundColor = UIColor.clearColor()
 		commentInfoView = AICommentInfoView.initFromNib() as! AICommentInfoView
 		contentView.addSubview(commentInfoView)
+        commentInfoView.backgroundColor = UIColor(hexString: "#ffffff", alpha: 0.1)
 		commentInfoView.initSubviews()
 		commentInfoView.snp_makeConstraints { (make) in
-			make.edges.equalTo(contentView)
+//			make.edges.equalTo(contentView).inset(UIEdgeInsets(top: 3,right:0, bottom:0, left: 0))
+            make.edges.equalTo(contentView).offset(UIEdgeInsets(top: 3, left: 0, bottom: 0, right: 0))
 		}
 	}
 	
