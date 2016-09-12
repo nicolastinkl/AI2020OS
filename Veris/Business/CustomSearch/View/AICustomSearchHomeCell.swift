@@ -30,11 +30,15 @@ class AICustomSearchHomeCell: UITableViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var desLabel: UILabel!
 	@IBOutlet weak var priceLabel: UILabel!
-	@IBOutlet weak var likeButton: UIButton!
-	@IBOutlet weak var hotButton: UIButton!
+	@IBOutlet weak var likeLabel: UILabel!
+	@IBOutlet weak var hotLabel: UILabel!
 	@IBOutlet weak var rateView: StarRateView!
 	@IBOutlet weak var wavyLineView: UIView!
-	
+    
+    override func layoutSubviews() {
+        contentView.frame = UIEdgeInsetsInsetRect(contentView.frame, UIEdgeInsetsMake(2, 0, 0, 0))
+    }
+    
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
@@ -42,15 +46,12 @@ class AICustomSearchHomeCell: UITableViewCell {
 		nameLabel.textColor = UIColor.whiteColor()
 		
 		priceLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
-		desLabel.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
+		desLabel.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(40))
 		desLabel.textColor = UIColor(hexString: "#d4d5ef", alpha: 0.7)
 		
 		let buttonFont = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(36))
-		likeButton.titleLabel?.font = buttonFont
-		hotButton.titleLabel?.font = buttonFont
-		likeButton.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.5), forState: .Normal)
-		hotButton.setTitleColor(UIColor(hexString: "#ffffff", alpha: 0.5), forState: .Normal)
-		
+        likeLabel.font = buttonFont
+        hotLabel.font = buttonFont
 		desLabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
 		priceLabel.font = AITools.myriadSemiboldSemiCnWithSize(AITools.displaySizeFrom1242DesignSize(60))
 		priceLabel.textColor = UIColor(hexString: "#e7c400")
@@ -58,8 +59,6 @@ class AICustomSearchHomeCell: UITableViewCell {
 		let wavyColor = UIColor(patternImage: wavyImage!)
 		wavyLineView.backgroundColor = wavyColor
 		
-		likeButton.userInteractionEnabled = false
-		hotButton.userInteractionEnabled = false
 		rateView.userInteractionEnabled = false
 		
 	}
@@ -67,7 +66,15 @@ class AICustomSearchHomeCell: UITableViewCell {
 	func initData(model: AISearchServiceModel) {
 		imageview.setImgURL(NSURL(string: "\(model.icon)"), placeholderImage: smallPlace())
 		nameLabel.text = model.name
-		desLabel.text = model.desc
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 5
+        
+        let attrString = NSMutableAttributedString(string: model.desc ?? "")
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        
+		desLabel.attributedText = attrString
+//        		desLabel.text = model.desc
 		if let price = model.price.price, unit = model.price.unit {
 			let priceString = String(format: "%@%@", unit, price)
 			priceLabel.text = priceString
@@ -76,8 +83,7 @@ class AICustomSearchHomeCell: UITableViewCell {
 		}
 		let likeString = String(format: " %@", model.like ?? "0")
 		let hotString = String(format: " %@", model.hot ?? "0")
-		likeButton.setTitle(likeString, forState: .Normal)
-		hotButton.setTitle(hotString, forState: .Normal)
-		
+        likeLabel.text = likeString
+        hotLabel.text = hotString
 	}
 }
