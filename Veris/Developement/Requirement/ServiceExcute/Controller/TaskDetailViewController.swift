@@ -27,6 +27,7 @@ class TaskDetailViewController: UIViewController {
     
     var serviceInstanceID: Int = 0
     var customerUserID: Int = 0
+    var serviceID: Int = 0
     
     private var procedure: Procedure?
     private var customer: AICustomerModel?
@@ -107,8 +108,7 @@ class TaskDetailViewController: UIViewController {
         
         let manager = BDKExcuteManager()
         
-
-        manager.queryProcedureInstInfo(serviceInstanceID, userId: customerUserID, success: { (responseData) in
+        manager.queryProcedureInstInfo(serviceId: serviceID, serviceInstId: serviceInstanceID, userId: customerUserID, success: { (responseData) in
             
             self.dismissLoading()
             self.procedure = responseData.procedure

@@ -163,6 +163,10 @@ class AILoginViewController: UIViewController {
 extension AILoginViewController : UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        //如果是密码框，则go就直接登录
+        if textField.isEqual(passwordTextField) {
+            loginAction(loginButton)
+        }
         return true
     }
     

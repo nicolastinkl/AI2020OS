@@ -52,7 +52,7 @@ enum ProcedureStatus: Int {
 
 protocol ExcuteManager {
     func submitServiceNodeResult(serviceId: Int, procedureId: Int, resultList: [NodeResultContent], success: (responseData: (hasNextNode: Bool, resultCode: ResultCode)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
-    func queryProcedureInstInfo(serviceId: Int, userId: Int, success: (responseData: (customer: AICustomerModel, procedure: Procedure)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
+    func queryProcedureInstInfo(serviceId serviceId: Int, serviceInstId: Int, userId: Int, success: (responseData: (customer: AICustomerModel, procedure: Procedure)) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func updateServiceNodeStatus(procedureId: Int, status: ProcedureStatus, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
     func submitRequestAuthorization(serviceId: Int, customerId: Int, success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
 }
@@ -119,14 +119,14 @@ class BDKExcuteManager: ExcuteManager {
 
 
     
-    func queryProcedureInstInfo(serviceId: Int, userId: Int, success: (responseData: (customer: AICustomerModel, procedure: Procedure)) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func queryProcedureInstInfo(serviceId serviceId: Int, serviceInstId: Int, userId: Int, success: (responseData: (customer: AICustomerModel, procedure: Procedure)) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         
         let message = AIMessage()
         let url = AIApplication.AIApplicationServerURL.queryProcedureInstInfo.description
         message.url = url
         
-        let data: [String: AnyObject] = ["service_instance_id": serviceId, "customer_user_id": userId]
+        let data: [String: AnyObject] = ["service_id": serviceId, "service_instance_id": serviceInstId, "customer_user_id": userId]
         message.body = BDKTools.createRequestBody(data)
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in

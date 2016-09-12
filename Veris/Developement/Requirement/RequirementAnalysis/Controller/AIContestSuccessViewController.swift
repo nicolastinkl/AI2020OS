@@ -145,6 +145,7 @@ import AIAlertView
                 let taskDetailVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
                 taskDetailVC.serviceInstanceID = self.serviceInstanceID
                 taskDetailVC.customerUserID = self.customerID
+                taskDetailVC.serviceID = self.serviceID
                 self.navigationController?.pushViewController(taskDetailVC, animated: true)
             }
             }) { (errType, errDes) in

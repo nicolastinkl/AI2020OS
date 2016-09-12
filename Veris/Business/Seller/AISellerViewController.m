@@ -514,6 +514,7 @@
             TaskDetailViewController *taskViewController = [[UIStoryboard storyboardWithName:@"TaskExecuteStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"TaskDetailViewController"];
             taskViewController.serviceInstanceID = model.service.service_instance_id;
             taskViewController.customerUserID = model.customer.user_id;
+            taskViewController.serviceID = model.service.service_id;
             nextViewController = taskViewController;
         }
             break;

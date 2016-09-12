@@ -387,22 +387,48 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     }
     
     func confirmServiceButtonDidClick(viewModel viewModel: AITimelineViewModel) {
-        let commentVC = AISingleServiceCommnentViewController()
-        let navi = UINavigationController(rootViewController: commentVC)
-        navi.view.frame = self.view.bounds
-        self.showTransitionStyleCrossDissolveView(navi)
-    }
+        
+        let requester = AICustomerServiceExecuteHandler.sharedInstance
+        let procedureInstId = viewModel.itemId!
+        requester.confirmOrderComplete(procedureInstId, action: "1", success: { (resultCode) in
+            AILog("confirmOrderComplete result: \(resultCode)")
+            //AIAlertView().showSuccess("同意授权成功!", subTitle: "")
+            let commentVC = AISingleServiceCommnentViewController()
+            let navi = UINavigationController(rootViewController: commentVC)
+            navi.view.frame = self.view.bounds
+            self.showTransitionStyleCrossDissolveView(navi)
+        }) { (errType, errDes) in
+            AIAlertView().showSuccess("确认完成失败!", subTitle: "")
+        }
+        
+            }
     func confirmOrderButtonDidClick(viewModel viewModel: AITimelineViewModel) {
-        //打开支付页面
-        let popupVC = AIPaymentViewController.initFromNib()
-        popupVC.view.frame = self.view.bounds
-        self.showTransitionStyleCrossDissolveView(popupVC)
+        let requester = AICustomerServiceExecuteHandler.sharedInstance
+        let procedureInstId = viewModel.itemId!
+        requester.confirmOrderComplete(procedureInstId, action: "1", success: { (resultCode) in
+            AILog("confirmOrderComplete result: \(resultCode)")
+            //打开支付页面
+            let popupVC = AIPaymentViewController.initFromNib()
+            popupVC.view.frame = self.view.bounds
+            self.showTransitionStyleCrossDissolveView(popupVC)
+        }) { (errType, errDes) in
+            AIAlertView().showSuccess("确认完成失败!", subTitle: "")
+        }
+        
     }
     func refuseButtonDidClick(viewModel viewModel: AITimelineViewModel) {
         AIAlertView().showInfo("忽略授权请求!", subTitle: "")
     }
     func acceptButtonDidClick(viewModel viewModel: AITimelineViewModel) {
-        AIAlertView().showInfo("同意授权请求!", subTitle: "")
+        let requester = AICustomerServiceExecuteHandler.sharedInstance
+        let procedureInstId = viewModel.itemId!
+        requester.customerAuthorize(procedureInstId, action: "1", success: { (resultCode) in
+            AILog("acceptAuthorize result: \(resultCode)")
+            AIAlertView().showSuccess("同意授权成功!", subTitle: "")
+        }) { (errType, errDes) in
+            AIAlertView().showSuccess("同意授权失败!", subTitle: "")
+        }
+        
     }
 
     func containerImageDidLoad(viewModel viewModel: AITimelineViewModel, containterHeight: CGFloat) {
