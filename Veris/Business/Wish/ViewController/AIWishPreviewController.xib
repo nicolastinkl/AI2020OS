@@ -11,6 +11,7 @@
                 <outlet property="priceConstraint" destination="sxU-Kn-gqF" id="uwu-8q-efe"/>
                 <outlet property="priceTitle" destination="vyw-oH-GMz" id="ITa-3T-5wW"/>
                 <outlet property="scrollview" destination="gil-n3-nPW" id="QUB-Ew-ZFU"/>
+                <outlet property="submitButton" destination="bN1-bp-YVN" id="Trf-BL-QaO"/>
                 <outlet property="textView" destination="Rg7-wZ-ayn" id="Rvv-cW-FP3"/>
                 <outlet property="textpriceConstraint" destination="DRQ-9y-Zwc" id="FR2-yl-yZp"/>
                 <outlet property="view" destination="iN0-l3-epB" id="7HT-RY-D7O"/>

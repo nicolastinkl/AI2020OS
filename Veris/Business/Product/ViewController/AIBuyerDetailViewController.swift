@@ -199,7 +199,6 @@ class AIBuyerDetailViewController: UIViewController {
 		setupAnchorManager()
 	}
 
-
     //MARK: Development
 
     func setupAnchorManager() {
@@ -230,6 +229,8 @@ class AIBuyerDetailViewController: UIViewController {
                 doctorName = ob["doctorName"]
                 departmentName = ob["departmentName"]
                 appointmentTime = ob["appointmentTime"]
+                //获取到数据后调用暂存
+                saveDeeplinkParams(ob)
             }
 
             // Get Cache Data from target Object.
@@ -261,7 +262,7 @@ class AIBuyerDetailViewController: UIViewController {
                 newModel.service_param = [ServiceCellProductParamModel1]
                 self.dataSource.service_list[cacheIndex] = newModel
 
-
+                
                 Async.main({
 
                     if let indexPath = self.selectIndexPath {
@@ -286,6 +287,75 @@ class AIBuyerDetailViewController: UIViewController {
 
         }
 
+    }
+    
+    /**
+     保存deeplink返回时选择的参数到暂存中。
+     TODO:临时实现方案，如果要做到其它参数也能暂存，需要重新考虑
+     */
+    private func saveDeeplinkParams(deeplinkData: [String:String]) {
+        let data: NSMutableDictionary = NSMutableDictionary()
+        data.setObject(dataSource.proposal_id, forKey: "proposal_id")
+        data.setObject(0, forKey: "role_id")
+        data.setObject("900001004207", forKey: "service_id")
+        let customerUserId = NSUserDefaults.standardUserDefaults().objectForKey("Default_UserID") as! String
+        data.setObject(customerUserId, forKey: "customer_id")
+        let saveData = NSMutableDictionary()
+        let service_param_list = NSMutableArray()
+        
+        let doctorName = deeplinkData["doctorName"] ?? ""
+        let departmentName = deeplinkData["departmentName"] ?? ""
+        //获取时间并转为timestamp
+        let appointmentTimeString = deeplinkData["appointmentTime"]
+        var timestamp: NSTimeInterval?
+        if let appointmentTimeString = appointmentTimeString {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let appointmentDate = dateFormatter.dateFromString(appointmentTimeString)
+            timestamp = appointmentDate!.timeIntervalSince1970
+        }
+        else{
+            timestamp = NSDate().timeIntervalSince1970
+        }
+        
+        
+        let serviceParamBaseDic = NSMutableDictionary()
+        serviceParamBaseDic.setObject("offering_param", forKey: "source")
+        serviceParamBaseDic.setObject("0", forKey: "role_id")
+        serviceParamBaseDic.setObject("900001004207", forKey: "service_id")
+        serviceParamBaseDic.setObject("25043282", forKey: "product_id")
+        serviceParamBaseDic.setObject("offering_param", forKey: "source")
+        
+        let serviceParamDoctorName = NSMutableDictionary()
+        serviceParamDoctorName.addEntriesFromDictionary(serviceParamBaseDic as [NSObject : AnyObject])
+        serviceParamDoctorName.setObject("300000011", forKey: "param_key")
+        serviceParamDoctorName.setObject(doctorName, forKey: "param_value")
+        service_param_list.addObject(serviceParamDoctorName)
+        
+        let serviceParamDepartment = NSMutableDictionary()
+        serviceParamDepartment.addEntriesFromDictionary(serviceParamBaseDic as [NSObject : AnyObject])
+        serviceParamDepartment.setObject("300000010", forKey: "param_key")
+        serviceParamDepartment.setObject(departmentName, forKey: "param_value")
+        service_param_list.addObject(serviceParamDepartment)
+        
+        let serviceParamAppointmentTime = NSMutableDictionary()
+        serviceParamAppointmentTime.addEntriesFromDictionary(serviceParamBaseDic as [NSObject : AnyObject])
+        serviceParamAppointmentTime.setObject("300000008", forKey: "param_key")
+        serviceParamAppointmentTime.setObject(timestamp!, forKey: "param_value")
+        service_param_list.addObject(serviceParamAppointmentTime)
+        
+        saveData.setObject(service_param_list, forKey: "service_param_list")
+        data.setObject(saveData, forKey: "save_data")
+        //调用暂存服务
+        let message = AIMessage()
+        message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""], "data":data])
+        message.url = AIApplication.AIApplicationServerURL.saveServiceParameters.description
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            }, fail: { (ErrorType: AINetError, error: String!) -> Void in
+                
+        })
     }
 
     func updateCustomerDialogViewControllerStatus(notification: NSNotification) {

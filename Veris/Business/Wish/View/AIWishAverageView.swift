@@ -15,6 +15,11 @@ class AIWishAverageView: UIView {
     
     @IBOutlet weak var totalButton: DesignableButton!
     
+    @IBOutlet weak var averageLabel: UILabel!
+    
+    @IBOutlet weak var rightRMB: UILabel!
+    @IBOutlet weak var leftRMB: UILabel!
+    
     /* 随着手触摸点移动button
     private var prePosition: CGPoint = CGPointMake(0, 0)
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

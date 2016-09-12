@@ -5809,7 +5809,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink/Release";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6018,7 +6018,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink/$(CONFIGURATION)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6075,7 +6075,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink/$(CONFIGURATION)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

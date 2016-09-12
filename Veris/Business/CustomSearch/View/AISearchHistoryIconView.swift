@@ -26,7 +26,7 @@ class AISearchHistoryIconView: UIView {
 	private var _width: CGFloat!
 	
 	struct Constants {
-		static let height: CGFloat = AITools.displaySizeFrom1242DesignSize(476)
+		static let height: CGFloat = AITools.displaySizeFrom1242DesignSize(408)
 		static let titleLabelSpace: CGFloat = AITools.displaySizeFrom1242DesignSize(28)
 		static let titleLabelHeight: CGFloat = AITools.displaySizeFrom1242DesignSize(28 + Constants.titleLabelFontSize)
 		static let titleLabelFontSize: CGFloat = AITools.displaySizeFrom1242DesignSize(48)
@@ -77,17 +77,18 @@ class AISearchHistoryIconView: UIView {
 		
 		let _height = Constants.height
 		// setup icon labels
-		let labelWidth = _width / 4
-		let labelHeight = _height - Constants.titleLabelFontSize
 		let imageWidth = AITools.displaySizeFrom1242DesignSize(194)
+		let labelWidth = imageWidth
+        let labelSpace = (_width - labelWidth * 4) / 5
+		let labelHeight = _height - Constants.titleLabelFontSize - Constants.titleLabelSpace
 		
 		for (i, item) in items.enumerate() {
-			let frame = CGRect(x: labelWidth * CGFloat(i), y: 0, width: labelWidth, height: labelHeight)
+			let frame = CGRect(x: (labelWidth + labelSpace) * CGFloat(i) + labelSpace, y: 0, width: labelWidth, height: labelHeight)
 			let iconLabel = VerticalIconLabel(frame: frame)
 			iconLabel.imageWidth = imageWidth
 			iconLabel.imageView.clipsToBounds = true
 			iconLabel.imageView.layer.cornerRadius = imageWidth / 2
-			iconLabel.label.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(28))
+			iconLabel.label.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(39))
 			iconLabel.imageSpaceToLabel = AITools.displaySizeFrom1242DesignSize(34)
 			iconLabel.tag = i
 			iconLabel.text = item.name
