@@ -173,6 +173,11 @@ struct AIApplication {
 
     // MARK: Notification with IM or System Push.
     struct Notification {
+        // 刷新买家中心数据
+        static let AIRefreshBuyerCenterNotification    = "AIRefreshBuyerCenterNotification"
+        // 刷新卖家中心数据
+        static let AIRefreshSellerCenterNotification   = "AIRefreshSellerCenterNotification"
+        //
         static let UIAIASINFOWillShowBarNotification    = "UIAIASINFOWillShowBarNotification"
         static let UIAIASINFOWillhiddenBarNotification  = "UIAIASINFOWillhiddenBarNotification"
         // 用户登录成功之后重新刷新主界面的数据

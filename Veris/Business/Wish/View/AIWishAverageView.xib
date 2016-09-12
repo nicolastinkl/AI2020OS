@@ -87,7 +87,7 @@
                         <constraint firstAttribute="width" constant="52" id="ghW-O0-m3f"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
-                    <state key="normal" title="23">
+                    <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -128,6 +128,17 @@
                     <color key="textColor" red="1" green="0.72941176470588232" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="33" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BbX-lX-ldw">
+                    <rect key="frame" x="217" y="44" width="56" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="JYc-0b-eb9"/>
+                        <constraint firstAttribute="height" constant="40" id="TLJ-40-zYZ"/>
+                    </constraints>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad" returnKeyType="done"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -146,10 +157,12 @@
                 <constraint firstItem="kTo-MA-5vu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YD3-Y5-lGX"/>
                 <constraint firstItem="Brd-iX-Ygi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dw9-c4-Xom"/>
                 <constraint firstAttribute="trailing" secondItem="lq6-Ns-LLs" secondAttribute="trailing" id="ghd-Df-QE3"/>
+                <constraint firstItem="u8S-dh-vqI" firstAttribute="top" secondItem="BbX-lX-ldw" secondAttribute="bottom" constant="-44" id="h5a-uf-D1S"/>
                 <constraint firstItem="lq6-Ns-LLs" firstAttribute="leading" secondItem="c9w-Dt-ljh" secondAttribute="trailing" id="j36-D7-GWB"/>
                 <constraint firstItem="c9w-Dt-ljh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ja0-aa-7WT"/>
                 <constraint firstItem="sMc-tD-BMK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="miM-jP-4MY"/>
                 <constraint firstItem="c9w-Dt-ljh" firstAttribute="leading" secondItem="kTo-MA-5vu" secondAttribute="trailing" id="na0-Pj-Wgf"/>
+                <constraint firstItem="BbX-lX-ldw" firstAttribute="leading" secondItem="u8S-dh-vqI" secondAttribute="trailing" constant="-54" id="ndh-ob-fIp"/>
                 <constraint firstItem="c9w-Dt-ljh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="njY-E1-lD8"/>
                 <constraint firstItem="kTo-MA-5vu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tNX-rQ-173"/>
                 <constraint firstItem="DxO-JV-Tle" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tQE-iX-Koh"/>
@@ -172,11 +185,12 @@
             <connections>
                 <outlet property="averageLabel" destination="DxO-JV-Tle" id="tuY-K7-1kA"/>
                 <outlet property="button" destination="u8S-dh-vqI" id="i1a-Xf-RDf"/>
+                <outlet property="inputPrice" destination="BbX-lX-ldw" id="YVY-we-INg"/>
                 <outlet property="leftRMB" destination="ze0-qk-gxP" id="UMb-BK-Bvl"/>
                 <outlet property="rightRMB" destination="dgd-Yx-TUw" id="IAr-f6-YcX"/>
                 <outlet property="totalButton" destination="c9w-Dt-ljh" id="omZ-lh-spH"/>
             </connections>
-            <point key="canvasLocation" x="217" y="350"/>
+            <point key="canvasLocation" x="-578" y="393"/>
         </view>
     </objects>
 </document>

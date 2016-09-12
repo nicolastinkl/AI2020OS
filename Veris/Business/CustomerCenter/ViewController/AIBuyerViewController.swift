@@ -91,7 +91,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         self.makeTopBar()
 
         // Add Pull To Referesh..
-        setupLanguageNotification()
+        setupLocalNotifications()
 
         setupUIWithCurrentLanguage()
         
@@ -203,13 +203,15 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }
 
-    func setupLanguageNotification() {
+    func setupLocalNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.setupUIWithCurrentLanguage), name: LCLLanguageChangeNotification, object: nil)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
-
 
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.WishVowViewControllerNOTIFY(_:)), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.refreshAfterNewOrder), name: AIApplication.Notification.AIRefreshBuyerCenterNotification, object: nil)
     }
     
     /// 刷新Bubble List数据

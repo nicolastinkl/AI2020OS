@@ -39,6 +39,7 @@ class SubServiceCardView: UIView {
     
     override func awakeFromNib() {
         initSubView()
+        //proporsalName.clipsToBounds = false
     }
     
     

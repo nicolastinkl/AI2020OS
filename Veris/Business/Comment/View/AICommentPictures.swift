@@ -15,7 +15,7 @@ class AICommentPictures: UIView {
     var displayPictureNames = [String]()
     var displayPictures = [UIImageView]()
 
-    var delegate: AICommentPicturesDelegate?
+    weak var delegate: AICommentPicturesDelegate?
     //MARK: init
 
 

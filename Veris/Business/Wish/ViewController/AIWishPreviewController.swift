@@ -206,9 +206,11 @@ class AIWishPreviewController: UIViewController {
         wishAverage?.snp_makeConstraints(closure: { (make) in
             make.edges.equalTo(self.view_price)
         })
+        wishAverage?.inputPrice.delegate = self
+        
         preAverageView = wishAverage
         preWishView?.button.setTitle("AIWishPreviewController.readall".localized, forState: UIControlState.Normal)
-        preAverageView?.button.setTitle(String(averageMenoy), forState: UIControlState.Normal)
+        //preAverageView?.button.setTitle(String(averageMenoy), forState: UIControlState.Normal)
         preAverageView?.totalButton.setTitle(String(averageTotalMenoy), forState: UIControlState.Normal)
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(AIWishPreviewController.subAverage))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
@@ -218,9 +220,9 @@ class AIWishPreviewController: UIViewController {
         swipeRight.direction = .Right
         wishAverage?.addGestureRecognizer(swipeRight)
         
-        wishAverage?.button.setTitle("\(Int(model?.money_avg ?? 0))", forState: UIControlState.Normal)
+        //wishAverage?.button.setTitle("\(Int(model?.money_avg ?? 0))", forState: UIControlState.Normal)
+        wishAverage?.inputPrice.text = "\(Int(model?.money_avg ?? 0))"
         wishAverage?.totalButton.setTitle("\(Int(model?.money_adv ?? 0))", forState: UIControlState.Normal)
-        
         wishAverage?.averageLabel.text = "AIWishPreviewController.average".localized
         wishAverage?.leftRMB.text = "AIWishPreviewController.unit".localized
         wishAverage?.rightRMB.text = "AIWishPreviewController.unit".localized
@@ -229,8 +231,13 @@ class AIWishPreviewController: UIViewController {
     
     func addAverage() {
         averageMenoy += 10
-        preAverageView?.button.setTitle(String(averageMenoy), forState: UIControlState.Normal)
-        if averageMenoy >= averageTotalMenoy {
+        preAverageView?.inputPrice.text = String(averageMenoy)
+        //preAverageView?.button.setTitle(String(averageMenoy), forState: UIControlState.Normal)
+        meger()
+    }
+    
+    func meger() {
+        if averageMenoy == averageTotalMenoy {
             
             preAverageView?.userInteractionEnabled = false
             
@@ -238,7 +245,6 @@ class AIWishPreviewController: UIViewController {
             self.preAverageView?.leftRMB.hidden = true
             let newDesignButton = DesignableButton()
             newDesignButton.frame = self.preAverageView!.totalButton.frame
-//            self.preAverageView?.addSubview(newDesignButton)
             self.preAverageView?.insertSubview(newDesignButton, belowSubview: self.preAverageView!.rightRMB)
             self.preAverageView!.rightRMB.textColor = UIColor.whiteColor()
             newDesignButton.cornerRadius = 76/2
@@ -253,16 +259,14 @@ class AIWishPreviewController: UIViewController {
                 newDesignButton.center = self.preAverageView!.totalButton.center
                 newDesignButton.alpha = 1
             })
-
-            
-            
         }
     }
     
     func subAverage() {
         if averageMenoy > 10 {
             averageMenoy -= 10
-            preAverageView?.button.setTitle(String(averageMenoy), forState: UIControlState.Normal)
+            preAverageView?.inputPrice.text = String(averageMenoy)
+            //preAverageView?.button.setTitle(String(averageMenoy), forState: UIControlState.Normal)
         }
     }
     
@@ -334,7 +338,7 @@ class AIWishPreviewController: UIViewController {
                 AIAlertView().showError("AIWishPreviewController.noteyourwish".localized, subTitle: "")
                 return
             }
-            let number: Double = Double(preAverageView?.button.titleLabel?.text?.toInt() ?? 0)
+            let number: Double = Double(averageMenoy)
             view.showLoading()
             AIWishServices.requestMakeWishs(model?.type_id ?? 0, name: model?.name ?? "", money: number, contents: stext, complate: { (obj, error) in
                 self.view.hideLoading()
@@ -361,3 +365,32 @@ class AIWishPreviewController: UIViewController {
     }
 
 }
+
+extension AIWishPreviewController: UITextViewDelegate {
+    
+    func textViewShouldEndEditing(textView: UITextView) -> Bool {
+        let text = textView.text
+        if text.isEmpty {
+            textView.text = "0"
+            averageMenoy = 0
+        } else {
+            let number = text.toInt() ?? 0
+            averageMenoy = number
+            if averageMenoy == averageTotalMenoy {
+                //处理融合动画
+                textView.hidden = true
+                meger()
+            }
+        }
+        
+        return true
+    }
+    
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        textView.text = ""
+        return true
+    }
+    
+}
+
+

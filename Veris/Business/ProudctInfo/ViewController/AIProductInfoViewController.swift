@@ -123,7 +123,14 @@ class AIProductInfoViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardDidHide(_:)), name: UIKeyboardDidHideNotification, object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
+        
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardDidChange(_:)), name: UIKeyboardDidChangeFrameNotification, object: nil)
+    }
+    
+    func popToRootView() {
+        self.dismissViewControllerAnimated(false, completion: nil)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     func removeKeyboardNotifications() {
@@ -375,12 +382,15 @@ class AIProductInfoViewController: UIViewController {
                 
                 if isFavi {
                     navi.setRightIcon1Action(UIImage(named: "AINavigationBar_faviator_ok_pro")!)
+
                 } else {
                     navi.setRightIcon1Action(UIImage(named: "AI_ProductInfo_Home_Favirtor")!)
                 }
                 
                 navi.commentButton.animation = "pop"
                 navi.commentButton.animate()
+
+                NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIRefreshBuyerCenterNotification, object: nil)
             }
         }
         
@@ -955,10 +965,11 @@ class AIProductInfoViewController: UIViewController {
         model.proposal_id = dataModel?.proposal_inst_id ?? 0
         model.proposal_name = dataModel?.name ?? ""
         let viewsss = createBuyerDetailViewController(model)
+        viewsss.customNoteModel = dataModel?.customer_note
         showTransitionStyleCrossDissolveView(viewsss)
     }
     
-    func  createBuyerDetailViewController(model: AIBuyerBubbleModel) -> UIViewController {
+    func  createBuyerDetailViewController(model: AIBuyerBubbleModel) -> AIBuyerDetailViewController {
         
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
         viewController.bubbleModel = model

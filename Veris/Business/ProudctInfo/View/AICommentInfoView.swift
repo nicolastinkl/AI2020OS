@@ -1,27 +1,3 @@
-//
-//  AICommentInfoView.swift
-//  AIVeris
-//
-// Copyright (c) 2016 ___ASIAINFO___
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-
 import Foundation
 
 /// 评论Cell信息
@@ -33,15 +9,17 @@ class AICommentInfoView: UIView {
     @IBOutlet weak var commentImages: UIView!
     @IBOutlet weak var commentControls: UIView!
     @IBOutlet weak var viewControlrsConstraint: NSLayoutConstraint!
-    @IBOutlet weak var commentlike: UIView!
+//    @IBOutlet weak var commentlike: UIView!
+    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
     
     private var constant: CGFloat = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        commentDate.font = AITools.myriadLightWithSize(14)
-        //commentContent.font = AITools.myriadLightWithSize(14)
+        commentDate.font = AITools.myriadLightSemiCondensedWithSize(12)
+        commentDate.textColor = UIColor(hexString: "#ffffff", alpha: 0.7)
     }
     
     func initSubviews() {
@@ -53,32 +31,32 @@ class AICommentInfoView: UIView {
         commentContent.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.6)
         
         //评论
-        let commentImageView = UIImageView(image: UIImage(named: "aicomment_comment")!)
-        commentlike.addSubview(commentImageView)
-        commentImageView.tag = 1
-        commentImageView.frame = CGRectMake(0, 5, 11, 11)
-        
-        let label = UILabel()
-        label.text = ""
-        label.font = UIFont.systemFontOfSize(12)
-        label.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
-        label.frame = CGRectMake(commentImageView.right + 5, 1, 30, 20)
-        label.tag = 2
-        commentlike.addSubview(label)
+//        let commentImageView = UIImageView(image: UIImage(named: "aicomment_comment")!)
+//        commentlike.addSubview(commentImageView)
+//        commentImageView.tag = 1
+//        commentImageView.frame = CGRectMake(0, 5, 11, 11)
+//        
+//        let label = UILabel()
+//        label.text = ""
+//        label.font = UIFont.systemFontOfSize(12)
+//        label.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
+//        label.frame = CGRectMake(commentImageView.right + 5, 1, 30, 20)
+//        label.tag = 2
+//        commentlike.addSubview(label)
         
         //点赞
-        let zanImageView = UIImageView(image: UIImage(named: "aicomment_like")!)
-        commentlike.addSubview(zanImageView)
-        zanImageView.tag = 3
-        zanImageView.frame = CGRectMake(label.right + 5, 5, 11, 11)
-        
-        let zanlabel = UILabel()
-        zanlabel.text = ""
-        zanlabel.font = UIFont.systemFontOfSize(12)
-        zanlabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
-        zanlabel.frame = CGRectMake(zanImageView.right + 5, 1, 40, 20)
-        zanlabel.tag = 4
-        commentlike.addSubview(zanlabel)
+//        let zanImageView = UIImageView(image: UIImage(named: "aicomment_like")!)
+//        commentlike.addSubview(zanImageView)
+//        zanImageView.tag = 3
+//        zanImageView.frame = CGRectMake(label.right + 5, 5, 11, 11)
+//        
+//        let zanlabel = UILabel()
+//        zanlabel.text = ""
+//        zanlabel.font = UIFont.systemFontOfSize(12)
+//        zanlabel.textColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
+//        zanlabel.frame = CGRectMake(zanImageView.right + 5, 1, 40, 20)
+//        zanlabel.tag = 4
+//        commentlike.addSubview(zanlabel)
         
         
         let starRateView = StarRateView(frame: CGRect(x: 0, y: 5, width: 66, height: 12), numberOfStars: 5, foregroundImage: "Comment_Star", backgroundImage: "Hollow_Star" )
@@ -152,17 +130,12 @@ class AICommentInfoView: UIView {
         let destDateString = dateFormat.stringFromDate(NSDate(timeIntervalSinceNow: model.time ?? 0))
          
         //评论图片
-        commentDate.font = AITools.myriadCondWithSize(13)
         commentDate.text = destDateString
         commentName.text = model.providename ?? ""
         commentContent.text = model.descripation ?? ""
         
-        if let label = commentlike.viewWithTag(2) as? UILabel {
-            label.text = "\(model.commentcount)"
-        }
-        if let label = commentlike.viewWithTag(4) as? UILabel {
-            label.text = "\(model.like)"
-        }
+        commentLabel.text = "\(model.commentcount)"
+        likeLabel.text = "\(model.like)"
         
         if let star = commentControls.viewWithTag(1) as? StarRateView {
             star.scorePercent = CGFloat(model.level) / 10
