@@ -180,7 +180,7 @@ class AICustomSearchHomeViewController: UIViewController {
     func setupWishButton() {
 		// Make Wish Button
 		let wishButton = UIButton(type: UIButtonType.Custom)
-		wishButton.setTitle("CustomSearch.makeWish".localized, forState: UIControlState.Normal)
+		wishButton.setTitle("AICustomSearchHomeViewController.makeWish".localized, forState: UIControlState.Normal)
 		wishButton.setImage(UIImage(named: "AI_Search_Home_WIsh"), forState: UIControlState.Normal)
 		view.addSubview(wishButton)
 		wishButton.backgroundColor = UIColor.clearColor()
@@ -233,6 +233,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	func searching() {
 		view.endEditing(true)
 		view.showLoading()
+        AVAnalytics.event("searchService", attributes: ["keyword":searchText.text ?? ""])
 		let service = AISearchHomeService()
 		service.searchServiceCondition(searchText.text ?? "", page_size: 10, page_number: 1, success: { [weak self](model) in
 			
@@ -291,11 +292,22 @@ extension AICustomSearchHomeViewController: AISearchHistoryLabelsDelegate {
 extension AICustomSearchHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
 		let model: AISearchServiceModel = dataSource[indexPath.row]
-		let vc = AISuperiorityViewController.initFromNib()
-		vc.serviceModel = model
-		showTransitionStyleCrossDissolveView(vc)
+		
+        if AILocalStore.isCacheVisited(model.sid ?? 0) {            
+            // 进入服务详情
+            let pvc  = AIProductInfoViewController.initFromNib()
+            pvc.sid = model.sid ?? 0
+            showTransitionStyleCrossDissolveView(pvc)
+        }else{
+            // 进入服务首页
+            let vc = AISuperiorityViewController.initFromNib()
+            vc.serviceModel = model
+            showTransitionStyleCrossDissolveView(vc)
+        }
+        
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -361,6 +373,9 @@ extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDel
 		filterBar.hideMenu()
         view.showLoading()
 		let service = AISearchHomeService()
+        var att = resultFilterBar.requestParams
+        att.addEntriesFromDictionary(["keyword": searchText.text ?? ""])
+        AVAnalytics.event("filterSearch", attributes: att)
 		service.filterServices(searchText.text ?? "", page_size: 10, page_number: 1, filterModel: resultFilterBar.requestParams, success: { [weak self] (res) in
             self?.view.hideLoading()
             self?.dataSource = res
@@ -374,8 +389,8 @@ extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDel
 extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
 	func searchHistoryIconView(iconView: AISearchHistoryIconView, didClickAtIndex index: Int) {
 		let vc = AISuperiorityViewController.initFromNib()
-//        vc.viewed = true
 		vc.serviceModel = browseHistory![index]
+        AVAnalytics.event("historyIconClick", label: vc.serviceModel!.sid.toString())
 		showTransitionStyleCrossDissolveView(vc)
 	}
 }
@@ -383,7 +398,7 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
 extension AICustomSearchHomeViewController: GridBubblesViewDelegate {
 	func bubblesView(bubblesView: GridBubblesView, didClickBubbleViewAtIndex index: Int) {
 		let model = bubblesView.bubbleModels[index]
-        
+        AVAnalytics.event("recommendIconClick", label: model.proposal_id.toString())
 		let vc = AIProductInfoViewController.initFromNib()
 		vc.sid = model.proposal_id
 		showTransitionStyleCrossDissolveView(vc)

@@ -54,13 +54,18 @@ class AISuperiorityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Cache Service
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: String(serviceModel?.sid))
         
         // MARK: Init
         initLayoutViews()
         fetchData()
         createBrowserHistory()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // MARK: Cache Service
+        AILocalStore.setCacheAsVisited(serviceModel?.sid ?? 0)
     }
     
     @IBAction func targetServiceDetail(any: AnyObject) {
@@ -83,7 +88,10 @@ class AISuperiorityViewController: UIViewController {
         imageView.setHeight(UIScreen.mainScreen().bounds.height)
         imageView.setLeft(0)
         addNewSubView(imageView, preView: UIView(), color: UIColor.clearColor(), space: 0)
-        imageView.sd_setImageWithURL(NSURL(string: self.selfImage)!, placeholderImage: nil)
+        if let url = NSURL(string: self.selfImage) {
+            imageView.sd_setImageWithURL(url, placeholderImage: nil)
+        }
+        
         
         let holdView = UIView()
         holdView.backgroundColor = UIColor.clearColor()

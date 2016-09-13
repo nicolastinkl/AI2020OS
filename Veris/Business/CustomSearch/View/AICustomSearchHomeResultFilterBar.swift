@@ -82,7 +82,7 @@ class AICustomSearchHomeResultFilterBar: UIView {
 		m.selectedIndex = index
 	}
 	
-	var filterButtonTitles: [String] = ["CustomSearch.sortBy".localized, "CustomSearch.price".localized, "CustomSearch.filter".localized] {
+	var filterButtonTitles: [String] = ["AICustomSearchHomeResultFilterBar.sortBy".localized, "AICustomSearchHomeResultFilterBar.price".localized, "AICustomSearchHomeResultFilterBar.filter".localized] {
 		didSet {
 			setupFilterButtons()
 		}
@@ -106,10 +106,10 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	}
 	var sortTitles: [String] {
 		return [
-			"Price: Low to High",
-			"Price: High to Low",
-			"Avg.Custom Review",
-			"Newest Arrivals"
+			"AICustomSearchHomeResultFilterBar.priceLowToHigh".localized,
+			"AICustomSearchHomeResultFilterBar.priceHighToLow".localized,
+			"AICustomSearchHomeResultFilterBar.avg".localized,
+			"AICustomSearchHomeResultFilterBar.new".localized
 		]
 	}
 	

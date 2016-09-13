@@ -274,13 +274,6 @@
 "Countries.Hungary" = "Hungary";
 "Countries.Japan" = "Japan";
 
-/*
- * ./Veris/Business/CustomSearch
- */
-"CustomSearch.sortBy" = "Sort by";
-"CustomSearch.price" = "Price";
-"CustomSearch.filter" = "Filter";
-"CustomSearch.makeWish" = "   Make a Wish";
 
 
 /*
@@ -322,3 +315,17 @@
 "AISingleServiceCommnentViewController.Review" = "Review";
 
 "AISingleServiceCommnentViewController.PlaceHolder" = "Please tell us how you fell about this experience. This will be of great help for others.";
+
+/// 搜索过滤bar AICustomSearchHomeResultFilterBar
+"AICustomSearchHomeResultFilterBar.priceLowToHigh" = "Price: Low to High";
+"AICustomSearchHomeResultFilterBar.priceHighToLow" = "Price: High to Low";
+"AICustomSearchHomeResultFilterBar.avg" = "Avg.Custom Review";
+"AICustomSearchHomeResultFilterBar.new" = "Newest Arrivals";
+
+"AICustomSearchHomeResultFilterBar.sortBy" = "Sort by";
+"AICustomSearchHomeResultFilterBar.price" = "Price";
+"AICustomSearchHomeResultFilterBar.filter" = "Filter";
+
+/// AICustomSearchHomeViewController
+"AICustomSearchHomeViewController.makeWish" = "   Make a Wish";
+

@@ -212,14 +212,16 @@ class AIWishPreviewController: UIViewController {
         preWishView?.button.setTitle("AIWishPreviewController.readall".localized, forState: UIControlState.Normal)
         //preAverageView?.button.setTitle(String(averageMenoy), forState: UIControlState.Normal)
         preAverageView?.totalButton.setTitle(String(averageTotalMenoy), forState: UIControlState.Normal)
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(AIWishPreviewController.subAverage))
+        preAverageView?.currentPrice = averageMenoy
+        preAverageView?.totalPrice = averageTotalMenoy
+        /*let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(AIWishPreviewController.subAverage))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
         wishAverage?.addGestureRecognizer(swipeLeft)
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(AIWishPreviewController.addAverage))
         swipeRight.direction = .Right
         wishAverage?.addGestureRecognizer(swipeRight)
-        
+        */
         //wishAverage?.button.setTitle("\(Int(model?.money_avg ?? 0))", forState: UIControlState.Normal)
         wishAverage?.inputPrice.text = "\(Int(model?.money_avg ?? 0))"
         wishAverage?.totalButton.setTitle("\(Int(model?.money_adv ?? 0))", forState: UIControlState.Normal)
@@ -243,6 +245,7 @@ class AIWishPreviewController: UIViewController {
             
             self.preAverageView?.button.hidden = true
             self.preAverageView?.leftRMB.hidden = true
+            self.preAverageView?.inputButtonView.hidden = true
             let newDesignButton = DesignableButton()
             newDesignButton.frame = self.preAverageView!.totalButton.frame
             self.preAverageView?.insertSubview(newDesignButton, belowSubview: self.preAverageView!.rightRMB)
