@@ -48,6 +48,7 @@ enum ProcedureStatus: Int {
     case noStart = 0
     case excuting = 1
     case complete = 2
+    case needAuthorize = 3
 }
 
 protocol ExcuteManager {
@@ -193,7 +194,7 @@ class BDKExcuteManager: ExcuteManager {
         let url = AIApplication.AIApplicationServerURL.submitRequestAuthorization.description
         message.url = url
         
-        let data: [String: AnyObject] = ["procedure_inst_id": procedureInstId, "customer_user_id": customerId]
+        let data: [String: AnyObject] = ["procedure_inst_id": procedureInstId]
         message.body = BDKTools.createRequestBody(data)
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
