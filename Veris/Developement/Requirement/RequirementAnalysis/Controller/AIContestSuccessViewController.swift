@@ -75,11 +75,24 @@ import AIAlertView
         self.navigationItem.leftBarButtonItem = leftButtonItem
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
+        
+        
+        
+        let rightImage = UIImage(named: "dismiss_close")
+        let rightButtonItem = UIBarButtonItem(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action:#selector(AIContestSuccessViewController.dismissVC))
+        rightButtonItem.tintColor = UIColor.lightGrayColor()
+        self.navigationItem.rightBarButtonItem = rightButtonItem
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
+//        dismiss_close
     }
     
     func backAction(button: UIBarButtonItem) {
-
         self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func dismissVC() {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
@@ -145,6 +158,7 @@ import AIAlertView
                 let taskDetailVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
                 taskDetailVC.serviceInstanceID = self.serviceInstanceID
                 taskDetailVC.customerUserID = self.customerID
+                taskDetailVC.serviceID = self.serviceID
                 self.navigationController?.pushViewController(taskDetailVC, animated: true)
             }
             }) { (errType, errDes) in
