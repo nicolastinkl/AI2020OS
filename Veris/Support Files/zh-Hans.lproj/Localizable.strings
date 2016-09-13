@@ -291,13 +291,6 @@
 "Countries.Hungary" = "匈牙利";
 "Countries.Japan" = "日本";
 
-/*
- * ./Veris/Business/CustomSearch
- */
-"CustomSearch.sortBy" = "分类";
-"CustomSearch.price" = "价格";
-"CustomSearch.filter" = "过滤";
-"CustomSearch.makeWish" = "   许愿";
 
 /*
  * AIRecommondForYouViewController
@@ -331,3 +324,15 @@
 
 
 
+/// 搜索过滤bar AICustomSearchHomeResultFilterBar
+"AICustomSearchHomeResultFilterBar.priceLowToHigh" = "价格由高到低";
+"AICustomSearchHomeResultFilterBar.priceHighToLow" = "价格由低到高";
+"AICustomSearchHomeResultFilterBar.avg" = "评价由高到低";
+"AICustomSearchHomeResultFilterBar.new" = "产品上架由新到旧";
+
+"AICustomSearchHomeResultFilterBar.sortBy" = "分类";
+"AICustomSearchHomeResultFilterBar.price" = "价格";
+"AICustomSearchHomeResultFilterBar.filter" = "过滤";
+
+/// AICustomSearchHomeViewController
+"AICustomSearchHomeViewController.makeWish" = "   许愿";
