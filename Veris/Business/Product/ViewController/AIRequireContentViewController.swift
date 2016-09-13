@@ -705,6 +705,7 @@ extension AIRequireContentViewController: SESlideTableViewCellDelegate {
 
             let obj = AIWrapperAIContentModelClass(theModel: cellModel)
 
+
             NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AIAIRequirementNotifyOperateCellNotificationName, object: nil, userInfo: ["data":obj, AIApplication.JSONREPONSE.unassignedNum:unassignedNum])
 
         }) { (errType, errDes) -> Void in
@@ -714,6 +715,16 @@ extension AIRequireContentViewController: SESlideTableViewCellDelegate {
 
 
     }
+
+    func sendSaveAsTaskEvent() {
+
+        let attributes: [NSObject : AnyObject] = [AIAnalyticsKeys.CurrentPageName : instanceClassName()]
+
+
+        AIAnalytics.event(AIAnalyticsEvent.SaveAsTaskEvent, attributes: attributes)
+    }
+
+
 
     func slideTableViewCell(cell: SESlideTableViewCell!, willSlideToState slideState: SESlideTableViewCellSlideState) {
     }

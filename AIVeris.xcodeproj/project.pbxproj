@@ -552,6 +552,7 @@
 		81D325ED1D781AB00069F9B7 /* AIQiangDanResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D325EC1D781AB00069F9B7 /* AIQiangDanResultModel.m */; };
 		81D325F01D7822630069F9B7 /* AIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D325EF1D7822630069F9B7 /* AIErrors.swift */; };
 		81F414321D351B8A008DC280 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F414311D351B8A008DC280 /* libsqlite3.0.tbd */; };
+		81F8C1C41D87FAA50068D3C4 /* AIAnalyticsDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F8C1C31D87FAA50068D3C4 /* AIAnalyticsDefines.swift */; };
 		81FAFB891D45B18900DD3477 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAFB881D45B18900DD3477 /* Requirement.swift */; };
 		81FAFBEE1D4716F800DD3477 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAFBBC1D4716F700DD3477 /* TaskDetailViewController.swift */; };
 		81FAFBEF1D4716F800DD3477 /* TaskExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FAFBBD1D4716F700DD3477 /* TaskExecuteStoryboard.storyboard */; };
@@ -1608,6 +1609,7 @@
 		81D325EE1D781B3E0069F9B7 /* AIOCJsonModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOCJsonModels.h; sourceTree = "<group>"; };
 		81D325EF1D7822630069F9B7 /* AIErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIErrors.swift; sourceTree = "<group>"; };
 		81F414311D351B8A008DC280 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		81F8C1C31D87FAA50068D3C4 /* AIAnalyticsDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAnalyticsDefines.swift; sourceTree = "<group>"; };
 		81FAFB881D45B18900DD3477 /* Requirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
 		81FAFBBC1D4716F700DD3477 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		81FAFBBD1D4716F700DD3477 /* TaskExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TaskExecuteStoryboard.storyboard; sourceTree = "<group>"; };
@@ -2210,6 +2212,7 @@
 				847D29931D4B4CA7009E26B8 /* AppUtils.swift */,
 				FB71FEE71D87DD7E004E72D8 /* AIAnalytics.swift */,
 				81D325EF1D7822630069F9B7 /* AIErrors.swift */,
+				81F8C1C31D87FAA50068D3C4 /* AIAnalyticsDefines.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -5586,6 +5589,7 @@
 				81B195691D474A960086EB83 /* AIUtilityTools.swift in Sources */,
 				81433E261CFBE5A700347C29 /* AICollContentViewController.swift in Sources */,
 				81433EA51CFBE5A700347C29 /* AINetEngine.m in Sources */,
+				81F8C1C41D87FAA50068D3C4 /* AIAnalyticsDefines.swift in Sources */,
 				81433D861CFBE5A700347C29 /* MDCSpotlightView.m in Sources */,
 				8175A7F51CFD2710006F2C8F /* RRTagController.swift in Sources */,
 				FB703ADF1D24B7BF00229A08 /* SwiftWebViewBridge.swift in Sources */,
