@@ -188,7 +188,13 @@ class TaskDetailViewController: UIViewController {
             if let jurisdictionStatus = JurisdictionStatus(rawValue: p.permission_value.integerValue) {
                 switch jurisdictionStatus {
                 case .notAuthorized:
-                    authorityState = NeedAuthority(vc: self)
+                    //如果还未授权,status=3 说明已经发送授权申请
+                    if p.status == 3 {
+                        authorityState = WaitingAuthorized(vc: self)
+                    }
+                    else {
+                        authorityState = NeedAuthority(vc: self)
+                    }
                 case .alreadyAuthorized:
                     authorityState = AlreadyAuthorized(vc: self)
                 case .noNeed:
@@ -251,7 +257,8 @@ class TaskDetailViewController: UIViewController {
         }
         
         switch p.status {
-        case ProcedureStatus.noStart.rawValue:
+            //mod by liux at 20160912 增加了一种授权中的服务流程状态
+        case ProcedureStatus.noStart.rawValue, ProcedureStatus.needAuthorize.rawValue:
             updateServiceStatus()
         case ProcedureStatus.excuting.rawValue:
             openTaskCommitViewController()
