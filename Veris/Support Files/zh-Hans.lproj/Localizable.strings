@@ -294,8 +294,8 @@
 
 /// 提交许愿
 "AIWishVowViewController.title" = "许愿";
-"AIWishVowViewController.whatsywish" = "你的心愿?";
-"AIWishVowViewController.howmushyltpayit" = "你愿意为你的心愿支付多少钱?";
+"AIWishVowViewController.whatsywish" = "您的心愿?";
+"AIWishVowViewController.howmushyltpayit" = "您愿意为你的心愿支付多少钱?";
 "AIWishVowViewController.RecommentedWish" = "心愿推荐";
 "AIWishVowViewController.PoplarWish" = "最火心愿";
 "AIWishVowViewController.writewish" = "输入心愿描述.";
@@ -310,12 +310,12 @@
 "AIWishPreviewController.readall" = "查看所有";
 "AIWishPreviewController.floadup" = "收起";
 "AIWishPreviewController.noteyourwish" = "请输入你的心愿描述.";
-"AIWishPreviewController.whatpriceyouwill" = "你愿意为这个心愿支付的价格";
+"AIWishPreviewController.whatpriceyouwill" = "您愿意为这个心愿支付的价格";
 "AIWishPreviewController.average" = "均价";
 "AIWishPreviewController.unit" = "RMB";
 "AIWishPreviewController.wished" = "已许愿";
 "AIWishPreviewController.moreto" = "目标";
-
+"AIWishPreviewController.noteyourwishnotify" = "您已经提交过心愿.";
 
 /// 单一服务评价
 //MARK: AISingleServiceCommnentViewController
@@ -324,7 +324,7 @@
 
 "AISingleServiceCommnentViewController.Review" = "查看";
 
-"AISingleServiceCommnentViewController.PlaceHolder" = "请告诉我们您的宝贵意见，我们将进一步提升我们的服务质量。";
+"AISingleServiceCommnentViewController.PlaceHolder" = "请告诉我们您的宝贵意见，我们将进一步提升服务质量。";
 
 /// 搜索过滤bar AICustomSearchHomeResultFilterBar
 "AICustomSearchHomeResultFilterBar.priceLowToHigh" = "价格由高到低";

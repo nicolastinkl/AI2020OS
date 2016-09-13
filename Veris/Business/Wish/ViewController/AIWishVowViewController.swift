@@ -312,6 +312,8 @@ class AIWishVowViewController: UIViewController {
                     self.typeID = type_id
                     model.service_id = proposal_id
                     model.proposal_type = 3
+                    model.money_adv = Int(self.money)
+                    model.money_avg = Int(self.money)
                     NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: model)
                 } else {
                     AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")

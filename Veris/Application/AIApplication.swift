@@ -446,6 +446,8 @@ struct AIApplication {
         case wishhotAndWishrecommand
         // 许愿纪录
         case queryWishRecordList
+        // 检查是否可以许愿
+        case checkCustomerWish
         // 提交服务执行结果
         case queryQiangDanResult
         case submitServiceNodeResult
@@ -552,6 +554,7 @@ struct AIApplication {
             case .confirmOrderComplete: return AIApplication.KURL_ReleaseURL + "/order/confirm"
             case .submitRequestAuthorization: return AIApplication.KURL_ReleaseURL + "/serviceProcess/submitRequestAuthorization"
             case .startServiceProcess: return AIApplication.KURL_ReleaseURL + "/serviceProcess/startServiceProcess"
+            case .checkCustomerWish: return  AIApplication.KURL_ReleaseURL + "/wish/checkCustomerWish"
             }
         }
     }
