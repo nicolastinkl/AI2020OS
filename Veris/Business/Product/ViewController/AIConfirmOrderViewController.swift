@@ -118,7 +118,7 @@ class AIConfirmOrderViewController: UIViewController {
         //self.priceLabel.font = AITools.myriadLightSemiCondensedWithSize(39 / PurchasedViewDimention.CONVERT_FACTOR)
 
         let name = dataSource?.proposal_name ?? ""
-        self.backButton.setTitle(String(format: " %@",name), forState: UIControlState.Normal)
+        self.backButton.setTitle(String(format: " %@", name), forState: UIControlState.Normal)
         
         if NSString(string: name).containsString("AIBuyerDetailViewController.pregnancy".localized) {
 
@@ -237,13 +237,13 @@ class AIConfirmOrderViewController: UIViewController {
             
             NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
             //back to main view controller
-            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
             
             AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "", closeButtonTitle:nil, duration: 2)
-            //self.showPayViewAction()
+            
         }) { (errType, errDes) -> Void in
             self.view.hideLoading()
-            self.showPayViewAction()
+            
         }
     }
     

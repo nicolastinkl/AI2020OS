@@ -382,7 +382,7 @@ class AISingalCommentView: UIView {
         freshChoosePictureButton.addTarget(self, action: #selector(choosePictureActtion), forControlEvents: UIControlEvents.TouchUpInside)
         freshToolView.addSubview(freshChoosePictureButton)
         // CheckBox
-        let annonymousString = "匿名评价"
+        let annonymousString = "AISingleServiceCommnentViewController.Anonymous".localized
         let font = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         let stringSize = annonymousString.sizeWithFont(font, forWidth: 200)
         size = 50.displaySizeFrom1242DesignSize()

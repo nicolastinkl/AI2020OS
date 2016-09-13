@@ -407,10 +407,14 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         let procedureInstId = viewModel.itemId!
         requester.confirmOrderComplete(procedureInstId, action: "1", success: { (resultCode) in
             AILog("confirmOrderComplete result: \(resultCode)")
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
+            //back to main view controller
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
             //打开支付页面
-            let popupVC = AIPaymentViewController.initFromNib()
-            popupVC.view.frame = self.view.bounds
-            self.showTransitionStyleCrossDissolveView(popupVC)
+//            let popupVC = AIPaymentViewController.initFromNib()
+//            popupVC.view.frame = self.view.bounds
+//            self.showTransitionStyleCrossDissolveView(popupVC)
         }) { (errType, errDes) in
             AIAlertView().showSuccess("确认完成失败!", subTitle: "")
         }

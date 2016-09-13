@@ -316,6 +316,8 @@
 
 "AISingleServiceCommnentViewController.PlaceHolder" = "Please tell us how you fell about this experience. This will be of great help for others.";
 
+"AISingleServiceCommnentViewController.Anonymous" = "Anonymous";
+
 /// 搜索过滤bar AICustomSearchHomeResultFilterBar
 "AICustomSearchHomeResultFilterBar.priceLowToHigh" = "Price: Low to High";
 "AICustomSearchHomeResultFilterBar.priceHighToLow" = "Price: High to Low";

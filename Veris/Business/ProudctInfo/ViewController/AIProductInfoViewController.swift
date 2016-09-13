@@ -123,9 +123,8 @@ class AIProductInfoViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardDidHide(_:)), name: UIKeyboardDidHideNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIProductInfoViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
         
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardDidChange(_:)), name: UIKeyboardDidChangeFrameNotification, object: nil)
     }
     
     func popToRootView() {
@@ -525,7 +524,7 @@ class AIProductInfoViewController: UIViewController {
 		addNewSubView(desLabel, preView: titleLabel)
 		
 		let priceLabel = AILabel()
-		priceLabel.text = "\(dataModel?.price?.price_show ?? "")"
+		//priceLabel.text = "\(dataModel?.price?.price_show ?? "")"
 		priceLabel.setHeight(112 / 3)
 		priceLabel.font = AITools.myriadBoldWithSize(52 / 3)
 		priceLabel.textColor = UIColor(hexString: "#e7c400")
@@ -556,6 +555,7 @@ class AIProductInfoViewController: UIViewController {
                 tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Normal)
                 tag.borderColor = UIColor(hexString: "#0f86e8")
                 singleButton = tag
+                cachePriceLabel?.text = "\(model.price?.price_show ?? "")"
             } else {
                 tag.associatedName = "0"
                 changeButtonNormalState(tag)

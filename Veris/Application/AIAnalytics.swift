@@ -11,7 +11,7 @@ public class AIAnalytics: NSObject {
 	private class func commonParams() -> [NSObject: AnyObject] {
 		let result = [
 			"partyID": AILocalStore.userId,
-			"timestamp": formatter.stringFromDate(NSDate())
+			"date": formatter.stringFromDate(NSDate())
 		]
 		return result as [NSObject: AnyObject]
 	}

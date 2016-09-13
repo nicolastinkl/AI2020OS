@@ -68,7 +68,7 @@ class AICustomSearchHomeViewController: UIViewController {
         // Register Audio Tools Notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.listeningAudioTools), name: AIApplication.Notification.AIListeningAudioTools, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToAllView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomSearchHomeViewController.popToAllView), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
 	}
@@ -97,14 +97,7 @@ class AICustomSearchHomeViewController: UIViewController {
         }) {[weak self] (errType, errDes) in
             self?.view.hideLoading()
 		}
-	}
-	
-	func popToRootView() {
-        while let p = self.parentViewController {
-            p.dismissViewControllerAnimated(false, completion: nil)
-        }
-        self.dismissViewControllerAnimated(false, completion: nil)
-	}
+	}	 
 	
 	func popToAllView() {
 		self.dismissViewControllerAnimated(false, completion: nil)
@@ -388,10 +381,24 @@ extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDel
 
 extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
 	func searchHistoryIconView(iconView: AISearchHistoryIconView, didClickAtIndex index: Int) {
-		let vc = AISuperiorityViewController.initFromNib()
-		vc.serviceModel = browseHistory![index]
-        AIAnalytics.event("historyIconClick", attributes: ["id": vc.serviceModel!.sid.toString()])
-		showTransitionStyleCrossDissolveView(vc)
+		
+        if let browseHistoryPre = browseHistory {
+            let model = browseHistoryPre[index]
+            if AILocalStore.isCacheVisited(model.sid ?? 0) {
+                // 进入服务详情
+                let pvc  = AIProductInfoViewController.initFromNib()
+                pvc.sid = model.sid ?? 0
+                showTransitionStyleCrossDissolveView(pvc)
+            } else {
+                // 进入服务首页
+                let vc = AISuperiorityViewController.initFromNib()
+                vc.serviceModel = model
+                AIAnalytics.event("historyIconClick", attributes: ["id": vc.serviceModel!.sid.toString()])
+                showTransitionStyleCrossDissolveView(vc)
+            }
+            
+        }
+        
 	}
 }
 
