@@ -60,6 +60,11 @@ class AIPaymentViewController: UIViewController {
 
     var dataModel: AIPayInfoModel?
     
+    // Public Var
+    
+    var order_id: String = ""
+    var order_item_id: String = ""
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -207,7 +212,7 @@ class AIPaymentViewController: UIViewController {
     
     func initData() {
         view.showLoading()
-        AIPayInfoServices.reqeustOrderInfo("100000031769", orderitemid: "100000066505", success: { (model) in
+        AIPayInfoServices.reqeustOrderInfo(order_id, orderitemid: order_item_id, success: { (model) in
                 self.view.hideLoading()
                 self.dataModel = model as? AIPayInfoModel
                 self.tableView.reloadData()
