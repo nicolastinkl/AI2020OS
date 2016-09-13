@@ -23,6 +23,9 @@ class AACustomerDialogViewController: AADialogBaseViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+        showRealCustomer(proposalModel?.show_helper.show_head_url, name: proposalModel?.show_helper.show_name)
+
 	}
     
     override func viewDidAppear(animated: Bool) {
@@ -65,7 +68,7 @@ class AACustomerDialogViewController: AADialogBaseViewController {
 	
 	func dial() {
 
-        let notification = [AIRemoteNotificationParameters.AudioAssistantRoomNumber: AudioAssistantManager.fakeRoomNumber, AIRemoteNotificationKeys.NotificationType: AIRemoteNotificationParameters.AudioAssistantType, AIRemoteNotificationKeys.ProposalID: (proposalModel?.proposal_id)!, AIRemoteNotificationKeys.ProposalName: (proposalModel?.proposal_name)!, AIRemoteNotificationKeys.QueryType : 1, AIRemoteNotificationKeys.QueryUserID : AILocalStore.userId]
+        let notification = [AIRemoteNotificationParameters.AudioAssistantRoomNumber: AudioAssistantManager.fakeRoomNumber, AIRemoteNotificationKeys.NotificationType: AIRemoteNotificationParameters.AudioAssistantType, AIRemoteNotificationKeys.ProposalID: (proposalModel?.proposal_id)!, AIRemoteNotificationKeys.ProposalName: (proposalModel?.proposal_name)!, AIRemoteNotificationKeys.QueryType : 1, AIRemoteNotificationKeys.QueryUserID : AILocalStore.userId, AIRemoteNotificationKeys.SenderName : AILocalStore.nickName!, AIRemoteNotificationKeys.SenderIconUrl : AILocalStore.headURL!]
 
 		view.showLoading()
         let user = proposalModel?.provider_id.toString()

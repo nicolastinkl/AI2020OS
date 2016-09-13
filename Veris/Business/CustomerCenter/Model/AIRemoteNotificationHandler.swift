@@ -21,6 +21,10 @@ struct AIRemoteNotificationKeys {
     static let ProposalName = "ProposalName"
     static let QueryType = "QueryType"
     static let QueryUserID = "QueryUserID"
+
+    static let SenderName = "SenderName"
+    static let SenderIconUrl = "SenderIconUrl"
+
 }
 
 
@@ -154,6 +158,8 @@ struct AIRemoteNotificationParameters {
                 let proposalName = paramDic[AIRemoteNotificationKeys.ProposalName] as! String
                 let queryType = paramDic[AIRemoteNotificationKeys.QueryType] as! Int
                 let queryUserID = paramDic[AIRemoteNotificationKeys.QueryUserID] as! Int
+                let senderName = paramDic[AIRemoteNotificationKeys.SenderName] as? String
+                let senderIconUrl = paramDic[AIRemoteNotificationKeys.SenderIconUrl] as? String
 
                 AudioAssistantManager.sharedInstance.connectionStatus = .Dialing
 
@@ -174,6 +180,7 @@ struct AIRemoteNotificationParameters {
                 topVC.presentViewController(buyerDetailViewController, animated: false, completion: {
                     let vc = AAProviderDialogViewController.initFromNib()
                     vc.roomNumber = roomNumber
+                    vc.showRealProvider(senderIconUrl, name: senderName)
                     vc.delegate = buyerDetailViewController
                     buyerDetailViewController.providerDialogViewController = vc
                     buyerDetailViewController.presentViewController(vc, animated: true, completion: nil)

@@ -340,6 +340,20 @@ typedef NS_ENUM(NSInteger, ParamSettingFlag) {
  *  @brief  Proposal详情模型
  *
  */
+
+@protocol AIShowHelperModel @end
+
+@interface AIShowHelperModel : JSONModel
+
+@property (strong, nonatomic) NSString<Optional> * show_id;
+
+@property (strong, nonatomic) NSString<Optional> * show_name;
+
+@property (strong, nonatomic) NSString<Optional> * show_head_url;
+
+@end
+
+
 @protocol AIProposalInstModel @end
 
 @class AIProposalServiceDetail_WishModel;
@@ -357,6 +371,8 @@ typedef NS_ENUM(NSInteger, ParamSettingFlag) {
 @property (strong, nonatomic) NSString<Optional> * order_total_price;
 //@property (nonatomic, strong) AIProposalProvider<Optional> * proposal_provider;
 @property (nonatomic, strong) AIProposalServiceDetail_WishModel<Optional> * wish_list;       // ok
+
+@property (nonatomic, strong) AIShowHelperModel<Optional> *show_helper;
 @end
 
 //==================================== AIProposalServiceDetailModel =============================================

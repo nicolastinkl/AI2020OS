@@ -112,7 +112,13 @@
 @implementation AIProposalProvider
 @end
 
+
+@implementation AIShowHelperModel @end
+
 @implementation AIProposalInstModel
+
+
+
 
 - (id) init
 {
