@@ -472,10 +472,8 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
         if comments == nil {
             return 0
         }
-        
-    //    return 1
-        
-        return comments.count
+     
+        return 1
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -619,7 +617,16 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         
         for img in images {
             let photo = CommentPhoto()
-            photo.url = img.webUrl
+            guard let url = img.webUrl else {
+                continue
+                
+            }
+            
+            if url == nil || url.isEmpty {
+                continue
+            }
+            
+            photo.url = url
             comment.photos.append(photo)
         }
         

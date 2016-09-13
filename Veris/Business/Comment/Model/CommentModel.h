@@ -76,6 +76,7 @@
 @property (strong, nonatomic) NSNumber<Optional> * createDate;
 @property (strong, nonatomic) NSString<Optional> * text;
 @property (strong, nonatomic) NSArray<CommentPhoto, Optional> * photos;
+@property (assign, nonatomic) int anonymousFlag;
 
 @end
 

@@ -326,6 +326,7 @@ private class AbsCommentState: CommentState {
             return
         }
         
+        cell.serviceName.text = m.serviceName
         cell.serviceIcon.asyncLoadImage(m.thumbnailUrl)
         
         cell.starRateView.scorePercent = m.stars
@@ -569,14 +570,24 @@ private class DoneState: AbsCommentState {
         cell.starRateView.userInteractionEnabled = false
         cell.appendComment.finishComment()
         
-        cell.appendCommentBottomMargin.constant -= cell.imageButtonSpace.constant
+
+        cell.appendCommentBottomMargin.constant = 1
+        cell.appendCommentButton?.hidden = true
+        cell.imageButton?.hidden = true
         cell.appendCommentButton?.removeFromSuperview()
         cell.imageButton?.removeFromSuperview()
+
+        
+        cell.setNeedsLayout()
         
         cell.firstComment.inputTextView.text = cell.model?.firstComment?.text
         cell.appendComment.inputTextView.text = cell.model?.appendComment?.text
         
-        cell.cellDelegate?.commentHeightChanged()
+  //      cell.cellDelegate?.commentHeightChanged()
+        
+        if cell.appendComment.inputTextView.text != nil {
+            cell.appendCommentHeight.constant = ServiceCommentTableViewCell.commentAreaMaxHeight
+        }
         
         let firstImages = cell.getImageUrls(false)
         
