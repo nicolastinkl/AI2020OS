@@ -23,6 +23,8 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	
 	weak var delegate: AICustomSearchHomeResultFilterBarDelegate?
 	private var filterButtons: [ImagePositionButton] = []
+	// 货币符号
+	var unit = ""
 	
 	var requestParams: [String: AnyObject] {
 		var result: [String: AnyObject] = [:]
@@ -99,7 +101,11 @@ class AICustomSearchHomeResultFilterBar: UIView {
 			if prices.count == 1 && prices[0].min == nil {
 				return []
 			} else {
-				return prices.filter { $0.min.length > 0 }.map { $0.min ?? "" + " " + $0.max ?? "" }
+				return prices.filter {
+					$0.min.length > 0
+				}.map {
+					$0.min ?? "" + " " + $0.max ?? ""
+				}
 			}
 		}
 		return []

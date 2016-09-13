@@ -35,14 +35,12 @@ class AIAssetsViewCell: UICollectionViewCell {
     
     private var type: String = ""
     var showCamera: Bool = false
-    
+    private var maskbg: UIImage = UIImage(named: "maskbg")!
     private var checkedIcon: UIImage = UIImage(named: "UINaviHaschecked")!
     private var uncheckedIcon: UIImage = UIImage(named: "UINaviunChecked")!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -68,11 +66,17 @@ class AIAssetsViewCell: UICollectionViewCell {
     override func drawRect(rect: CGRect) {
         
         if showCamera {
-            
             UIImage(named: "UINaviCamera")?.drawInRect(CGRectMake(0, 0, rect.width, rect.width))
         } else {
             
             self.image?.drawInRect(CGRectMake(0, 0, rect.width, rect.width))
+            
+            // 蒙板
+            if self.selected {
+                maskbg.drawInRect(CGRectMake(0, 0, rect.width, rect.width))
+            }else{
+                //maskbg.drawInRect(CGRectMake(0, 0, 0, 0))
+            }
             
             var imageSelect: UIImage = uncheckedIcon
             if self.selected {
@@ -85,6 +89,8 @@ class AIAssetsViewCell: UICollectionViewCell {
             let y = CGRectGetMinY(rect) + 3
             
             imageSelect.drawAtPoint(CGPointMake(x, y))
+            
+            
         }
         
     }

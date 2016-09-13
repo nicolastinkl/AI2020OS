@@ -141,7 +141,7 @@ class AIAssetsPickerController: UIViewController {
         //Find the frist Photo Ablum
         assetsLibrary.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (group, stop) in
             if group != nil {
-                debugPrint(group.numberOfAssets())
+                
                 self.groups.addObject(group)
                 self.assetsGroup = group
                 
@@ -162,8 +162,19 @@ class AIAssetsPickerController: UIViewController {
                 
             }
             }) { (error) in
-            debugPrint(error.userInfo)
         }
+        
+       
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+       
+        let item = self.collectionView(self.collctionView, numberOfItemsInSection: 0) - 1
+        let lastItemIndex = NSIndexPath(forItem: item, inSection: 0)
+        self.collctionView.scrollToItemAtIndexPath(lastItemIndex, atScrollPosition: UICollectionViewScrollPosition.Top, animated: false)
+        
     }
     
     /// Action
@@ -230,7 +241,9 @@ class AIAssetsPickerController: UIViewController {
             }
             
             sizeButton.setImage(UIImage(named: "UINaviAble"), forState: UIControlState.Normal)
+            
         } else {
+            
             sizeButton.setTitle(" 原图", forState: UIControlState.Normal)
             sizeButton.setImage(UIImage(named: "UINaviDisable"), forState: UIControlState.Normal)
         }

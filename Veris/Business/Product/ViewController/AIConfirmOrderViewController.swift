@@ -237,13 +237,13 @@ class AIConfirmOrderViewController: UIViewController {
             
             NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
             //back to main view controller
-            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
             
             AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "", closeButtonTitle:nil, duration: 2)
-            //self.showPayViewAction()
+            
         }) { (errType, errDes) -> Void in
             self.view.hideLoading()
-            self.showPayViewAction()
+            
         }
     }
     
