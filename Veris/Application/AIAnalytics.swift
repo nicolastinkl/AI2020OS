@@ -44,3 +44,44 @@ public class AIAnalytics: NSObject {
 		AVAnalytics.endEvent(eventId, primarykey: keyName ?? "")
 	}
 }
+
+extension UIViewController {
+	
+	class func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {
+		let oldMethod = class_getInstanceMethod(clzz, oldSelector)
+		let newMethod = class_getInstanceMethod(clzz, newSelector)
+		method_exchangeImplementations(oldMethod, newMethod)
+	}
+	
+	class func swizzleInit() {
+		swizzlingMethod(UIViewController.self, oldSelector: #selector(UIViewController.viewDidAppear(_:)), newSelector: #selector(UIViewController._analyticsViewDidAppear(_:)))
+		swizzlingMethod(UIViewController.self, oldSelector: #selector(UIViewController.viewDidDisappear(_:)), newSelector: #selector(UIViewController._analyticsViewDidDisappear(_:)))
+	}
+	
+	func _analyticsViewDidAppear(animated: Bool) {
+		_analyticsViewDidAppear(animated)
+		AIAnalytics.beginEvent("pageShow", attributes: [
+			"className": instanceClassName(),
+			"title": title ?? ""
+		])
+	}
+	
+	func _analyticsViewDidDisappear(animated: Bool) {
+		_analyticsViewDidDisappear(animated)
+		AIAnalytics.endEvent("pageShow")
+	}
+	
+	public override class func initialize() {
+		struct Static {
+			static var token: dispatch_once_t = 0
+		}
+		
+		if self !== UIViewController.self {
+			return
+		}
+		
+		dispatch_once(&Static.token) {
+			swizzleInit()
+		}
+	}
+}

@@ -208,13 +208,7 @@ enum UINavigationBarItemPosition {
 
 extension UINavigationController {
 	
-	class func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {
-		let oldMethod = class_getInstanceMethod(clzz, oldSelector)
-		let newMethod = class_getInstanceMethod(clzz, newSelector)
-		method_exchangeImplementations(oldMethod, newMethod)
-	}
-	
-	class func swizzleInit() {
+	class func navswizzleInit() {
 		swizzlingMethod(UINavigationController.self, oldSelector: #selector(UINavigationController.init(rootViewController:)), newSelector: #selector(UINavigationController.init(hackRootViewController:)))
 	}
 	
@@ -233,7 +227,7 @@ extension UINavigationController {
 		}
 		
 		dispatch_once(&Static.token) {
-			swizzleInit()
+			navswizzleInit()
 		}
 	}
 }
