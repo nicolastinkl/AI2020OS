@@ -233,7 +233,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	func searching() {
 		view.endEditing(true)
 		view.showLoading()
-        AVAnalytics.event("searchService", attributes: ["keyword":searchText.text ?? ""])
+        AIAnalytics.event("searchService", attributes: ["keyword":searchText.text ?? ""])
 		let service = AISearchHomeService()
 		service.searchServiceCondition(searchText.text ?? "", page_size: 10, page_number: 1, success: { [weak self](model) in
 			
@@ -301,7 +301,7 @@ extension AICustomSearchHomeViewController: UITableViewDelegate, UITableViewData
             let pvc  = AIProductInfoViewController.initFromNib()
             pvc.sid = model.sid ?? 0
             showTransitionStyleCrossDissolveView(pvc)
-        }else{
+        } else {
             // 进入服务首页
             let vc = AISuperiorityViewController.initFromNib()
             vc.serviceModel = model
@@ -375,7 +375,7 @@ extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDel
 		let service = AISearchHomeService()
         var att = resultFilterBar.requestParams
         att.addEntriesFromDictionary(["keyword": searchText.text ?? ""])
-        AVAnalytics.event("filterSearch", attributes: att)
+        AIAnalytics.event("filterSearch", attributes: att)
 		service.filterServices(searchText.text ?? "", page_size: 10, page_number: 1, filterModel: resultFilterBar.requestParams, success: { [weak self] (res) in
             self?.view.hideLoading()
             self?.dataSource = res
@@ -390,7 +390,7 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
 	func searchHistoryIconView(iconView: AISearchHistoryIconView, didClickAtIndex index: Int) {
 		let vc = AISuperiorityViewController.initFromNib()
 		vc.serviceModel = browseHistory![index]
-        AVAnalytics.event("historyIconClick", label: vc.serviceModel!.sid.toString())
+        AIAnalytics.event("historyIconClick", attributes: ["id": vc.serviceModel!.sid.toString()])
 		showTransitionStyleCrossDissolveView(vc)
 	}
 }
@@ -398,7 +398,7 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
 extension AICustomSearchHomeViewController: GridBubblesViewDelegate {
 	func bubblesView(bubblesView: GridBubblesView, didClickBubbleViewAtIndex index: Int) {
 		let model = bubblesView.bubbleModels[index]
-        AVAnalytics.event("recommendIconClick", label: model.proposal_id.toString())
+        AIAnalytics.event("recommendIconClick", attributes: ["id": model.proposal_id.toString()])
 		let vc = AIProductInfoViewController.initFromNib()
 		vc.sid = model.proposal_id
 		showTransitionStyleCrossDissolveView(vc)
