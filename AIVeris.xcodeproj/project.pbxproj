@@ -802,6 +802,7 @@
 		FB703ADF1D24B7BF00229A08 /* SwiftWebViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */; };
 		FB703AE21D24C05C00229A08 /* AIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703AE11D24C05C00229A08 /* AIWebViewController.swift */; };
 		FB703AE41D24C59400229A08 /* JSSDK.js in Resources */ = {isa = PBXBuildFile; fileRef = FB703AE31D24C59400229A08 /* JSSDK.js */; };
+		FB71FEE81D87DD7E004E72D8 /* AIAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71FEE71D87DD7E004E72D8 /* AIAnalytics.swift */; };
 		FB734EED1D45BD4500FD808A /* NSUserDefaults+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB734EEC1D45BD4500FD808A /* NSUserDefaults+Object.swift */; };
 		FB73551E1D23ACFC00CE549C /* AIProductCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */; };
 		FB7355201D23B7B300CE549C /* UILabel-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */; };
@@ -1961,6 +1962,7 @@
 		FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebViewBridge.swift; sourceTree = "<group>"; };
 		FB703AE11D24C05C00229A08 /* AIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWebViewController.swift; sourceTree = "<group>"; };
 		FB703AE31D24C59400229A08 /* JSSDK.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSSDK.js; sourceTree = "<group>"; };
+		FB71FEE71D87DD7E004E72D8 /* AIAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAnalytics.swift; sourceTree = "<group>"; };
 		FB734EEC1D45BD4500FD808A /* NSUserDefaults+Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Object.swift"; sourceTree = "<group>"; };
 		FB73551D1D23ACFC00CE549C /* AIProductCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductCommentsViewController.swift; sourceTree = "<group>"; };
 		FB73551F1D23B7B300CE549C /* UILabel-Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel-Helper.swift"; sourceTree = "<group>"; };
@@ -2206,6 +2208,7 @@
 				9304550F1D124DE5007AFC0C /* AIAppInit.h */,
 				930455101D124DE5007AFC0C /* AIAppInit.m */,
 				847D29931D4B4CA7009E26B8 /* AppUtils.swift */,
+				FB71FEE71D87DD7E004E72D8 /* AIAnalytics.swift */,
 				81D325EF1D7822630069F9B7 /* AIErrors.swift */,
 			);
 			path = Application;
@@ -5293,6 +5296,7 @@
 				8175A7E71CFD2710006F2C8F /* _OALayoutGuide.m in Sources */,
 				FB7003FF1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift in Sources */,
 				81512ED01D220A8900AE041D /* AIFundManageViewController.swift in Sources */,
+				FB71FEE81D87DD7E004E72D8 /* AIAnalytics.swift in Sources */,
 				81433D2D1CFBE5A700347C29 /* ServiceDetailView.swift in Sources */,
 				81433D471CFBE5A700347C29 /* AITextMessageView.swift in Sources */,
 				81433D561CFBE5A700347C29 /* AILocationSelectHeadView.swift in Sources */,

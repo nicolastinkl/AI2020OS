@@ -23,6 +23,8 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	
 	weak var delegate: AICustomSearchHomeResultFilterBarDelegate?
 	private var filterButtons: [ImagePositionButton] = []
+	// 货币符号
+	var unit = ""
 	
 	var requestParams: [String: AnyObject] {
 		var result: [String: AnyObject] = [:]
@@ -82,7 +84,7 @@ class AICustomSearchHomeResultFilterBar: UIView {
 		m.selectedIndex = index
 	}
 	
-	var filterButtonTitles: [String] = ["CustomSearch.sortBy".localized, "CustomSearch.price".localized, "CustomSearch.filter".localized] {
+	var filterButtonTitles: [String] = ["AICustomSearchHomeResultFilterBar.sortBy".localized, "AICustomSearchHomeResultFilterBar.price".localized, "AICustomSearchHomeResultFilterBar.filter".localized] {
 		didSet {
 			setupFilterButtons()
 		}
@@ -99,17 +101,21 @@ class AICustomSearchHomeResultFilterBar: UIView {
 			if prices.count == 1 && prices[0].min == nil {
 				return []
 			} else {
-				return prices.filter { $0.min.length > 0 }.map { $0.min ?? "" + " " + $0.max ?? "" }
+				return prices.filter {
+					$0.min.length > 0
+				}.map {
+					$0.min ?? "" + " " + $0.max ?? ""
+				}
 			}
 		}
 		return []
 	}
 	var sortTitles: [String] {
 		return [
-			"Price: Low to High",
-			"Price: High to Low",
-			"Avg.Custom Review",
-			"Newest Arrivals"
+			"AICustomSearchHomeResultFilterBar.priceLowToHigh".localized,
+			"AICustomSearchHomeResultFilterBar.priceHighToLow".localized,
+			"AICustomSearchHomeResultFilterBar.avg".localized,
+			"AICustomSearchHomeResultFilterBar.new".localized
 		]
 	}
 	

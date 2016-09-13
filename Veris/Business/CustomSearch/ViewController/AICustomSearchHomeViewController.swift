@@ -173,7 +173,7 @@ class AICustomSearchHomeViewController: UIViewController {
     func setupWishButton() {
 		// Make Wish Button
 		let wishButton = UIButton(type: UIButtonType.Custom)
-		wishButton.setTitle("CustomSearch.makeWish".localized, forState: UIControlState.Normal)
+		wishButton.setTitle("AICustomSearchHomeViewController.makeWish".localized, forState: UIControlState.Normal)
 		wishButton.setImage(UIImage(named: "AI_Search_Home_WIsh"), forState: UIControlState.Normal)
 		view.addSubview(wishButton)
 		wishButton.backgroundColor = UIColor.clearColor()
@@ -226,6 +226,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	func searching() {
 		view.endEditing(true)
 		view.showLoading()
+        AVAnalytics.event("searchService", attributes: ["keyword":searchText.text ?? ""])
 		let service = AISearchHomeService()
 		service.searchServiceCondition(searchText.text ?? "", page_size: 10, page_number: 1, success: { [weak self](model) in
 			
@@ -365,6 +366,9 @@ extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDel
 		filterBar.hideMenu()
         view.showLoading()
 		let service = AISearchHomeService()
+        var att = resultFilterBar.requestParams
+        att.addEntriesFromDictionary(["keyword": searchText.text ?? ""])
+        AVAnalytics.event("filterSearch", attributes: att)
 		service.filterServices(searchText.text ?? "", page_size: 10, page_number: 1, filterModel: resultFilterBar.requestParams, success: { [weak self] (res) in
             self?.view.hideLoading()
             self?.dataSource = res
@@ -391,6 +395,7 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
                 vc.serviceModel = model
                 showTransitionStyleCrossDissolveView(vc)
             }
+            AVAnalytics.event("historyIconClick", label: vc.serviceModel!.sid.toString())
         }
         
 	}
@@ -399,7 +404,7 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
 extension AICustomSearchHomeViewController: GridBubblesViewDelegate {
 	func bubblesView(bubblesView: GridBubblesView, didClickBubbleViewAtIndex index: Int) {
 		let model = bubblesView.bubbleModels[index]
-        
+        AVAnalytics.event("recommendIconClick", label: model.proposal_id.toString())
 		let vc = AIProductInfoViewController.initFromNib()
 		vc.sid = model.proposal_id
 		showTransitionStyleCrossDissolveView(vc)

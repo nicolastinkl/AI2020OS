@@ -89,7 +89,7 @@ class AIDateTimeViewModel: AIBaseViewModel {
     var shouldShowDate = false
     
     class func timestampToTimeViewModel(timeValue: NSNumber) -> AIDateTimeViewModel {
-        let doubleValue = timeValue.doubleValue
+        let doubleValue = timeValue.doubleValue / 1000
         let date = NSDate(timeIntervalSince1970: doubleValue)
         let timeViewModel = AIDateTimeViewModel()
         let dateFormatter = NSDateFormatter()
@@ -132,7 +132,7 @@ class AICustomerOrderDetailTopViewModel: AIBaseViewModel {
 
 // MARK: -> enums
 enum AITimelineLayoutTypeEnum: Int {
-    case Normal = 3, Authoration = 1, ConfirmServiceComplete = 2, ConfirmOrderComplete = 4, Now = 5
+    case Normal = 1, Authoration = 2, ConfirmServiceComplete = 3, ConfirmOrderComplete = 4, Now = 5
 }
 
 enum AITimelineContentTypeEnum: Int {

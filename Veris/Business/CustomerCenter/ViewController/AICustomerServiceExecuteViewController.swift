@@ -31,7 +31,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     var orderInfoIsLoad = false
     var cellHeightArray: Array<CGFloat>!
     var selectedServiceInstIds: Array<String> = []
-    var selectedFilterType = 2
+    var selectedFilterType = 1
     var g_orderId = "100000029231"
     
 
@@ -63,17 +63,17 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
             buttonAll.selected = true
             buttonMessage.selected = false
             buttonNeedReply.selected = false
-            selectedFilterType = 1
+            selectedFilterType = 0
         case 2:
             buttonAll.selected = false
             buttonMessage.selected = true
             buttonNeedReply.selected = false
-            selectedFilterType = 2
+            selectedFilterType = 1
         case 3:
             buttonAll.selected = false
             buttonMessage.selected = false
             buttonNeedReply.selected = true
-            selectedFilterType = 3
+            selectedFilterType = 2
         default:
             break
         }
