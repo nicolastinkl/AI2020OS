@@ -14,6 +14,11 @@ import UIKit
 
 /// Customer 拨号界面
 class AACustomerDialogViewController: AADialogBaseViewController {
+
+    @IBOutlet weak var customerImageView: UIImageView?
+    @IBOutlet weak var customerNameLabel: UILabel?
+
+
     var shouldDial: Bool = true
 	
 	override func viewDidLoad() {
@@ -26,7 +31,8 @@ class AACustomerDialogViewController: AADialogBaseViewController {
             dial()
         }
     }
-	
+
+
 	override func handleCommand(notification: NSNotification) {
 		if let command = notification.object as? AudioAssistantMessage {
 			if command.type == .Command {
@@ -83,4 +89,16 @@ class AACustomerDialogViewController: AADialogBaseViewController {
            self?.shouldDial = true
         })
 	}
+
+    //MARK: 设置头像
+    func showRealCustomer(icon: String?, name: String?) {
+        if icon != nil {
+            let url = NSURL(string: icon!)
+            customerImageView?.sd_setImageWithURL(url)
+        }
+
+        if name != nil {
+            customerNameLabel?.text = name
+        }
+    }
 }

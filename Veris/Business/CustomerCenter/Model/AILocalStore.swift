@@ -19,6 +19,7 @@ class AILocalStore: NSObject {
     private static let repliedStoriesKey = "repliedStoriesKey"
     private static let upvotedCommentsKey = "upvotedCommentsKey"
     private static let accessTokenKey = "accessTokenKey"
+    private static let cacheServiceHome = "cacheServiceHome"
 
     private static let accessMenuTag = "menuTag"
 
@@ -26,14 +27,26 @@ class AILocalStore: NSObject {
 
     static func setIntroAsVisited() {
         userDefaults.setObject(true, forKey: "introKey")
+        userDefaults.synchronize()
     }
 
     static func isIntroVisited() -> Bool {
         return userDefaults.boolForKey("introKey")
     }
 
+    
+    static func setCacheAsVisited(sid: Int) {
+        userDefaults.setObject(true, forKey: "CacheKey_\(sid)")
+        userDefaults.synchronize()
+    }
+    
+    static func isCacheVisited(sid: Int) -> Bool {
+        return userDefaults.boolForKey("CacheKey_\(sid)")
+    }
+    
     static func setAccessMenuTag(tag: Int) {
         userDefaults.setObject(tag, forKey: accessMenuTag)
+        userDefaults.synchronize()
     }
 
     static func setStoryAsReplied(storyId: Int) {

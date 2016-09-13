@@ -1032,17 +1032,12 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                     Card.sharedInstance.showInView(self.view, serviceId: "2", userInfo: ["title":model.service_desc, "name": "Hospital", "url": "\(model.service_thumbnail_icon)"])
 
                     return
-                }
-                /*
-                let bid = "900001004205"
-                if model.service_id == bid.toInt() {
-
+                }else if model.service_desc == "孕妈专车" {
                     // Show View.
-
-                    Card.sharedInstance.showInView(self.view, serviceId: "1", userInfo: ["title": model.service_desc, "name": "Uber", "url": "\(model.service_thumbnail_icon)"])
-
+                    Card.sharedInstance.showInView(self.view, serviceId: "1", userInfo: ["title":model.service_desc, "name": "Uber", "url": "\(model.service_thumbnail_icon)"])
                     return
-                }*/
+                }
+            
                 let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIPageBueryViewController) as! AIPageBueryViewController
                 viewController.delegate = self
                 viewController.proposalId = dataSource.proposal_id
@@ -1050,7 +1045,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                 //remove 孕检挂号
                 var newModel = Array<AIProposalServiceModel>()
                 serviceList?.forEach({ (model) in
-                    if model.service_desc != "孕检挂号" {
+                    if model.service_desc != "孕检挂号" &&  model.service_desc != "孕妈专车" {
                         newModel.append(model as! AIProposalServiceModel)
                     }
                 })                

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -13,6 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AAProviderDialogViewController" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="dialogToolBar" destination="yfp-UL-eK3" id="aNr-K3-dlB"/>
+                <outlet property="providerImageView" destination="lQL-Wc-N3Y" id="Foi-iH-SQU"/>
+                <outlet property="providerNameLabel" destination="UGG-tY-kS4" id="8fe-sa-r8T"/>
                 <outlet property="view" destination="qTe-o2-0l8" id="GSI-51-O77"/>
                 <outlet property="zoomButton" destination="BQe-0D-ayI" id="Q0w-e6-txp"/>
             </connections>
