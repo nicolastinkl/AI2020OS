@@ -127,19 +127,18 @@ public class Localize: NSObject {
      */
     class func defaultLanguage() -> String {
         // 强制默认英语
-        return "en"
-//        var defaultLanguage: String = String()
-//        guard let preferredLanguage = NSBundle.mainBundle().preferredLocalizations.first else {
-//            return LCLDefaultLanguage
-//        }
-//        let availableLanguages: [String] = self.availableLanguages()
-//        if availableLanguages.contains(preferredLanguage) {
-//            defaultLanguage = preferredLanguage
-//        }
-//        else {
-//            defaultLanguage = LCLDefaultLanguage
-//        }
-//        return defaultLanguage
+        //return "en"
+        var defaultLanguage: String = String()
+        guard let preferredLanguage = NSBundle.mainBundle().preferredLocalizations.first else {
+            return LCLDefaultLanguage
+        }
+        let availableLanguages: [String] = self.availableLanguages()
+        if availableLanguages.contains(preferredLanguage) {
+            defaultLanguage = preferredLanguage
+        } else {
+            defaultLanguage = LCLDefaultLanguage
+        }
+        return defaultLanguage
     }
 
     /**

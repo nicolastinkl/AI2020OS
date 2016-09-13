@@ -586,8 +586,8 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func moreButtonAction() {
-        //testComment()
-        self.makeBubbleView()
+        testComment()
+        //self.makeBubbleView()
     }
 
 

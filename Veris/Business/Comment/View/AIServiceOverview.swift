@@ -83,6 +83,8 @@ class AIServiceOverview: UIView {
         let frame = CGRect(x: 0, y: 0, width: iconSize, height: iconSize)
         serviceIcon = UIImageView(frame: frame)
         serviceIcon.sd_setImageWithURL(url, placeholderImage: nil)
+        serviceIcon.layer.cornerRadius = iconSize / 2
+        serviceIcon.layer.masksToBounds = true
         self.addSubview(serviceIcon)
     }
 
