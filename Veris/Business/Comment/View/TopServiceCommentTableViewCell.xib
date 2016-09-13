@@ -152,7 +152,6 @@
                     <constraint firstItem="KHD-vx-MKr" firstAttribute="leading" secondItem="p6X-k0-WVI" secondAttribute="leading" id="B51-Ct-Fhh"/>
                     <constraint firstAttribute="trailingMargin" secondItem="p6X-k0-WVI" secondAttribute="trailing" id="Blv-Gs-41Y"/>
                     <constraint firstItem="RSd-ok-3Z8" firstAttribute="top" secondItem="KHD-vx-MKr" secondAttribute="bottom" constant="18" id="BxX-K7-WZf"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="jar-dt-7oB" secondAttribute="bottom" priority="999" constant="60" id="C2Y-Vb-FA8"/>
                     <constraint firstItem="cn9-zZ-dPP" firstAttribute="leading" secondItem="p6X-k0-WVI" secondAttribute="leading" id="Cg9-3z-vjG"/>
                     <constraint firstItem="p6X-k0-WVI" firstAttribute="leading" secondItem="A7n-mZ-4Oq" secondAttribute="leading" id="ErL-Kg-jZF"/>
                     <constraint firstItem="x1U-b1-lCw" firstAttribute="leading" secondItem="E6C-Yf-t7S" secondAttribute="trailing" constant="8" id="GdN-7T-NQQ"/>
@@ -167,7 +166,7 @@
                     <constraint firstItem="E6C-Yf-t7S" firstAttribute="centerY" secondItem="KHD-vx-MKr" secondAttribute="centerY" id="VgM-hb-60x"/>
                     <constraint firstItem="37D-2z-edC" firstAttribute="centerX" secondItem="Dst-NK-11v" secondAttribute="centerX" id="X40-Uw-EeA"/>
                     <constraint firstAttribute="trailingMargin" secondItem="x1U-b1-lCw" secondAttribute="trailing" id="XH5-ml-Noh"/>
-                    <constraint firstItem="RSd-ok-3Z8" firstAttribute="top" secondItem="jar-dt-7oB" secondAttribute="bottom" priority="999" constant="68" id="ahV-Nf-hoW"/>
+                    <constraint firstItem="RSd-ok-3Z8" firstAttribute="top" secondItem="jar-dt-7oB" secondAttribute="bottom" constant="58" id="Zgz-nM-5g2"/>
                     <constraint firstItem="A7n-mZ-4Oq" firstAttribute="top" secondItem="Dst-NK-11v" secondAttribute="topMargin" priority="999" constant="2" id="e0D-ZG-o8k"/>
                     <constraint firstItem="kpZ-fK-DS0" firstAttribute="trailing" secondItem="p6X-k0-WVI" secondAttribute="trailing" id="eaf-e1-UQy"/>
                     <constraint firstItem="E6C-Yf-t7S" firstAttribute="height" secondItem="KHD-vx-MKr" secondAttribute="height" multiplier="0.7" id="gCg-iC-aQF"/>
@@ -180,22 +179,14 @@
                     <constraint firstItem="jar-dt-7oB" firstAttribute="leading" secondItem="cn9-zZ-dPP" secondAttribute="leading" id="nWk-2k-dPc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="RSd-ok-3Z8" secondAttribute="bottom" constant="-8" id="pnM-y8-iuV"/>
                     <constraint firstItem="jar-dt-7oB" firstAttribute="top" secondItem="jX4-GD-Sod" secondAttribute="bottom" constant="5" id="ugc-ac-UvM"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="KHD-vx-MKr" secondAttribute="bottom" constant="10" id="vU4-aP-i6n"/>
                     <constraint firstItem="EqR-j6-lP0" firstAttribute="centerY" secondItem="q3F-cw-czh" secondAttribute="centerY" id="zAF-h7-aRy"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="C2Y-Vb-FA8"/>
-                        <exclude reference="vU4-aP-i6n"/>
-                        <exclude reference="ahV-Nf-hoW"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="anonymousLabel" destination="x1U-b1-lCw" id="Hn2-N1-go7"/>
                 <outlet property="appendComment" destination="jar-dt-7oB" id="0Cw-6Z-BR3"/>
-                <outlet property="appendCommentBottomMargin" destination="C2Y-Vb-FA8" id="gQa-M3-KIz"/>
+                <outlet property="appendCommentBottomMargin" destination="Zgz-nM-5g2" id="Qv3-EQ-KUj"/>
                 <outlet property="appendCommentButton" destination="kpZ-fK-DS0" id="8gN-oO-fqW"/>
                 <outlet property="appendCommentHeight" destination="8Dg-HP-nlq" id="Aeg-fh-BNM"/>
                 <outlet property="bottomStrokeLine" destination="jX4-GD-Sod" id="L2k-oO-KCg"/>
