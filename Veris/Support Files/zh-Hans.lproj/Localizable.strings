@@ -237,11 +237,6 @@
 "AIContestSuccessViewController.Congratulations" = "抢单成功!";
 
 
-//MARK: AISingleServiceCommnentViewController
-
-"AISingleServiceCommnentViewController.Submit" = "提交";
-
-"AISingleServiceCommnentViewController.Review" = "查看";
 
 //MARK: AIAssetsViewCell
 
@@ -329,5 +324,12 @@
 "AIWishPreviewController.moreto" = "目标";
 
 
+/// 单一服务评价
+//MARK: AISingleServiceCommnentViewController
 
+"AISingleServiceCommnentViewController.Submit" = "提交";
+
+"AISingleServiceCommnentViewController.Review" = "查看";
+
+"AISingleServiceCommnentViewController.PlaceHolder" = "请告诉我们您的宝贵意见，我们将进一步提升我们的服务质量。";
 
