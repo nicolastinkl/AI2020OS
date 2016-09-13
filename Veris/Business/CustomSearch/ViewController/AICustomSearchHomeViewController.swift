@@ -393,9 +393,10 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
                 // 进入服务首页
                 let vc = AISuperiorityViewController.initFromNib()
                 vc.serviceModel = model
+                AVAnalytics.event("historyIconClick", label: vc.serviceModel!.sid.toString())
                 showTransitionStyleCrossDissolveView(vc)
             }
-            AVAnalytics.event("historyIconClick", label: vc.serviceModel!.sid.toString())
+            
         }
         
 	}
