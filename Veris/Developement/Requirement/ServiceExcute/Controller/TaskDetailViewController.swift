@@ -205,7 +205,7 @@ class TaskDetailViewController: UIViewController {
     private func afterAuthorizationSetupUI() {
         if let p = procedure {
             switch p.status {
-            case ProcedureStatus.noStart.rawValue:
+            case ProcedureStatus.noStart.rawValue, ProcedureStatus.needAuthorize.rawValue:
                 TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
                 bottomButton.setTitle("TaskDetailViewController.start".localized, forState: .Normal)
             case ProcedureStatus.excuting.rawValue:

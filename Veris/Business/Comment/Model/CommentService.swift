@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum AnonymousFlag: Int {
+    case noAnonymous = 0
+    case anonymous = 1
+}
+
 
 protocol CommentService: NSObjectProtocol {
     func getSingleComment(userId: String, userType: Int, serviceId: String, success: (responseData: ServiceComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
