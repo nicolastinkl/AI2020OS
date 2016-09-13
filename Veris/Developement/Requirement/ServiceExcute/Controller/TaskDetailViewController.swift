@@ -271,7 +271,11 @@ class TaskDetailViewController: UIViewController {
         
         showLoading()
         
-        manager.submitRequestAuthorization(serviceInstanceID, customerId: c.user_id, success: { (responseData) in
+        guard let procedureInstId = procedure?.procedure_inst_id else {
+            AILog("procedureInstId 不存在！")
+            return
+        }
+        manager.submitRequestAuthorization(procedureInstId.integerValue, customerId: c.user_id, success: { (responseData) in
             
             self.dismissLoading()
             switch responseData {
