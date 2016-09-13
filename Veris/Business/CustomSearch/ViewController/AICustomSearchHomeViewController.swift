@@ -291,11 +291,22 @@ extension AICustomSearchHomeViewController: AISearchHistoryLabelsDelegate {
 extension AICustomSearchHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
 		let model: AISearchServiceModel = dataSource[indexPath.row]
-		let vc = AISuperiorityViewController.initFromNib()
-		vc.serviceModel = model
-		showTransitionStyleCrossDissolveView(vc)
+		
+        if AILocalStore.isCacheVisited(model.sid ?? 0) {            
+            // 进入服务详情
+            let pvc  = AIProductInfoViewController.initFromNib()
+            pvc.sid = model.sid ?? 0
+            showTransitionStyleCrossDissolveView(pvc)
+        }else{
+            // 进入服务首页
+            let vc = AISuperiorityViewController.initFromNib()
+            vc.serviceModel = model
+            showTransitionStyleCrossDissolveView(vc)
+        }
+        
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

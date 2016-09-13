@@ -54,13 +54,18 @@ class AISuperiorityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Cache Service
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: String(serviceModel?.sid))
         
         // MARK: Init
         initLayoutViews()
         fetchData()
         createBrowserHistory()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // MARK: Cache Service
+        AILocalStore.setCacheAsVisited(serviceModel?.sid ?? 0)
     }
     
     @IBAction func targetServiceDetail(any: AnyObject) {

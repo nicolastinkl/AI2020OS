@@ -1045,7 +1045,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                 //remove 孕检挂号
                 var newModel = Array<AIProposalServiceModel>()
                 serviceList?.forEach({ (model) in
-                    if model.service_desc != "孕检挂号" || model.service_desc != "孕妈专车" {
+                    if model.service_desc != "孕检挂号" &&  model.service_desc != "孕妈专车" {
                         newModel.append(model as! AIProposalServiceModel)
                     }
                 })                
