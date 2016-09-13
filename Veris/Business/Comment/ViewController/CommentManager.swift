@@ -187,10 +187,8 @@ class DefaultCommentManager: CommentManager {
                 return imageIsExist(NSURL(string: url)!)
             }
             
-            if valideImages.count != model.imageInfos.count {
-                newModel = model
-                newModel!.imageInfos = NSMutableArray(array: valideImages)
-            }
+            newModel = model
+            newModel!.imageInfos = NSMutableArray(array: valideImages)
             
             return newModel
         }
