@@ -11,6 +11,10 @@ import Spring
 
 class AIWishAverageView: UIView {
     
+    var totalPrice: Int = 0
+    var currentPrice: Int = 0
+
+    
     @IBOutlet weak var button: DesignableButton!
     
     @IBOutlet weak var totalButton: DesignableButton!
@@ -23,7 +27,9 @@ class AIWishAverageView: UIView {
     
     @IBOutlet weak var inputPrice: UITextView!
     
-    /* 随着手触摸点移动button
+    @IBOutlet weak var inputButtonView: UIView!
+    
+    //随着手触摸点移动button
     private var prePosition: CGPoint = CGPointMake(0, 0)
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = touches.first {
@@ -33,8 +39,6 @@ class AIWishAverageView: UIView {
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = touches.first {
-            
-            
             let currentPosition = touch.locationInView(self)
             
 //            let deltaX = fabsf(Float(prePosition.x - currentPosition.x))
@@ -42,9 +46,17 @@ class AIWishAverageView: UIView {
 //            if currentPosition.x > button.left && currentPosition.x < offset{
 //                
 //            }
-            button.setLeft(currentPosition.x-button.width/2)
             
+            let buttonCenter = currentPosition.x - inputButtonView.width/2
+            
+            inputButtonView.setLeft(buttonCenter)
+            
+            let percent = buttonCenter/self.width
+            
+            let text = CGFloat(totalPrice * 2) * CGFloat(percent)
+            
+            inputPrice.text = String(Int(text))
             
         }
-    }*/
+    }
 }
