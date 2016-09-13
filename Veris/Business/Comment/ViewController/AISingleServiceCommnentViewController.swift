@@ -107,10 +107,10 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         serviceModel.serviceName = "华西挂号"
         commentModel.serviceModel = serviceModel
         commentModel.starLevel = 5
-        commentModel.comments = "这次的服务非常好！我非常喜欢，请告诉我美女服务员的电话吧，我要当面感谢她！这次的服务也很好，如果下次需要挂号，都找这个美女挂号员吧！绝对不会让你失望的！"
+        //commentModel.comments = "这次的服务非常好！我非常喜欢，请告诉我美女服务员的电话吧，我要当面感谢她！这次的服务也很好，如果下次需要挂号，都找这个美女挂号员吧！绝对不会让你失望的！"
 
-        let imageName = "http://img.mshishang.com/pics/2016/0718/20160718043725872.jpeg"
-        commentModel.commentPictures = [imageName, imageName, imageName, imageName, imageName, imageName, imageName]
+        //let imageName = "http://img.mshishang.com/pics/2016/0718/20160718043725872.jpeg"
+        //commentModel.commentPictures = [imageName, imageName, imageName, imageName, imageName, imageName, imageName]
         
         singalServiceCommentView = AISingalCommentView(frame: frame, commentModel: commentModel)
         singalServiceCommentView.delegate = self

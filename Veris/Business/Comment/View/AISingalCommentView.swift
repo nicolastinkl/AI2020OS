@@ -19,7 +19,7 @@ class AISingalCommentView: UIView {
 
     weak var delegate: AISingalCommentViewDelegate? = nil
     //MARK: Constants
-    let placeHolder = "Please tell us how you fell about this experience. This will be of great help for others."
+    let placeHolder = "AISingleServiceCommnentViewController.PlaceHolder".localized
     let ReadOnlyTag = 1999
     //MARK: Properties
 
@@ -365,7 +365,7 @@ class AISingalCommentView: UIView {
 
     private func makeFreshChoosePictureView() {
         let x = 40.displaySizeFrom1242DesignSize()
-        let y = CGRectGetMaxY(freshCommentPictureView.frame) + 30.displaySizeFrom1242DesignSize()
+        var y = CGRectGetMaxY(freshCommentPictureView.frame) + 30.displaySizeFrom1242DesignSize()
         let width = freshView.width - x*2
         let height: CGFloat = 90.displaySizeFrom1242DesignSize()
         let frame = CGRect(x: x, y: y, width: width, height: height)
@@ -382,14 +382,15 @@ class AISingalCommentView: UIView {
         freshChoosePictureButton.addTarget(self, action: #selector(choosePictureActtion), forControlEvents: UIControlEvents.TouchUpInside)
         freshToolView.addSubview(freshChoosePictureButton)
         // CheckBox
-        let annonymousString = "Stay anonymous"
+        let annonymousString = "匿名评价"
         let font = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         let stringSize = annonymousString.sizeWithFont(font, forWidth: 200)
         size = 50.displaySizeFrom1242DesignSize()
 
         let boxX = CGRectGetWidth(freshToolView.frame) - stringSize.width - 19.displaySizeFrom1242DesignSize() - size
+        y = 20.displaySizeFrom1242DesignSize()
 
-        freshCheckBox = AIViews.baseButtonWithFrame(CGRect(x: boxX, y: 0, width: size, height: size), normalTitle: "")
+        freshCheckBox = AIViews.baseButtonWithFrame(CGRect(x: boxX, y: y, width: size, height: size), normalTitle: "")
         freshCheckBox.setImage(UIImage(named: "Image_picker"), forState: .Normal)
         freshCheckBox.setImage(UIImage(named: "Image_picker"), forState: .Highlighted)
         freshCheckBox.addTarget(self, action: #selector(choosePictureActtion), forControlEvents: UIControlEvents.TouchUpInside)
@@ -397,7 +398,7 @@ class AISingalCommentView: UIView {
         freshCheckBox.hidden = hasDefaultComment
         // Anonymous
 
-        let labelFrame = CGRect(x: CGRectGetMaxX(freshCheckBox.frame) + 19.displaySizeFrom1242DesignSize(), y: 0, width: stringSize.width, height: size)
+        let labelFrame = CGRect(x: CGRectGetMaxX(freshCheckBox.frame) + 19.displaySizeFrom1242DesignSize(), y: y, width: stringSize.width, height: size)
         freshAnonymousLabel = AIViews.normalLabelWithFrame(labelFrame, text: annonymousString, fontSize: 48.displaySizeFrom1242DesignSize(), color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7))
         freshAnonymousLabel.hidden = hasDefaultComment
         freshToolView.addSubview(freshAnonymousLabel)
