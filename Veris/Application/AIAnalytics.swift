@@ -60,7 +60,7 @@ extension UIViewController {
 	
 	func _analyticsViewDidAppear(animated: Bool) {
 		_analyticsViewDidAppear(animated)
-		AIAnalytics.beginEvent("pageShow", attributes: [
+		AIAnalytics.beginEvent("pageShow", primarykey: instanceClassName(), attributes: [
 			"className": instanceClassName(),
 			"title": title ?? ""
 		])
@@ -68,7 +68,7 @@ extension UIViewController {
 	
 	func _analyticsViewDidDisappear(animated: Bool) {
 		_analyticsViewDidDisappear(animated)
-		AIAnalytics.endEvent("pageShow")
+		AIAnalytics.endEvent("pageShow", primarykey: instanceClassName())
 	}
 	
 	public override class func initialize() {

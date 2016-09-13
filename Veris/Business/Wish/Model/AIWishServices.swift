@@ -57,7 +57,7 @@ struct AIWishServices {
     }
     
     
-    /// 许愿纪录
+    /// 许愿记录
     static func requestListQueryWishs(typeID: Int, complate: ((AnyObject?, String?) -> Void)) {
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.queryWishRecordList.description as String
@@ -73,6 +73,32 @@ struct AIWishServices {
                     }
                 }                
                 complate(contentArray, nil)
+            } else {
+                complate(nil, "data is null")
+            }
+        }) { (error, des) in
+            complate(nil, des)
+        }
+    }
+    
+    
+    /// 检查是否可以许愿
+    static func requestCheckBolWish(typeID: Int, complate: ((AnyObject?, String?) -> Void)) {
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.checkCustomerWish.description as String
+        
+        let body: NSDictionary = ["data":[["type_id": typeID,"user_id":String(AILocalStore.userId)]], "desc":["data_mode":"0", "digest":""]]
+        message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) in
+            if let responseJSON: AnyObject = response {
+                let res = JSONDecoder(responseJSON)
+                let bol = res["result"].bool
+                if bol {
+                    complate("1", nil)
+                } else {
+                    complate("0", nil)
+                }
+                
             } else {
                 complate(nil, "data is null")
             }

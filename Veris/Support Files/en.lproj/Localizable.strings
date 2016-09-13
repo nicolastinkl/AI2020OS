@@ -302,7 +302,7 @@
 "AIWishPreviewController.whatpriceyouwill" = "The price you are willing to pay";
 "AIWishPreviewController.average" = "Average";
 "AIWishPreviewController.unit" = "Euro";
-
+"AIWishPreviewController.noteyourwishnotify" = "You have already submit.";
 "AIWishPreviewController.wished" = "wished";
 "AIWishPreviewController.moreto" = "more to";
 

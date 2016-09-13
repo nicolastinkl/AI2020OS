@@ -39,6 +39,7 @@ class AIWishPreviewController: UIViewController {
     private var averageMenoy: Int = 0
     private var averageTotalMenoy: Int = 0
     private var preAverageView: AIWishAverageView?
+    private var enbleEdit: Bool = false
     
     /**
      Main Init
@@ -63,11 +64,12 @@ class AIWishPreviewController: UIViewController {
         // Reqeust network's queryWishRecordList
         Async.main(after: 0.3) {
             self.initData()
-        }
-        
+        }        
     }
     
     func initData() {
+        
+        // Get Data
         view.showLoading()
         AIWishServices.requestListQueryWishs(self.model?.type_id ?? 0) { (obj, error) in
             self.view.hideLoading()
@@ -76,6 +78,19 @@ class AIWishPreviewController: UIViewController {
                 self.initSubViews(resultArray)
             } else {
                 self.view.showErrorView()
+            }
+        }
+        
+        // 检测是否同一个customer
+        
+        AIWishServices.requestCheckBolWish(self.model?.type_id ?? 0) { (obj, error) in
+            if let result = obj as? String {
+                if result == "0" {
+                    //这里是标识不能再次被编辑和提交
+                    self.enbleEdit = false
+                } else if result == "1" {
+                    self.enbleEdit = true
+                }
             }
         }
     }
@@ -337,6 +352,12 @@ class AIWishPreviewController: UIViewController {
     
     @IBAction func subitAction(sender: AnyObject) {
         if let stext = self.textFeild?.text {
+            
+            if enbleEdit == false {
+                AIAlertView().showError("AIWishPreviewController.noteyourwishnotify".localized, subTitle: "")
+                return
+            }
+            
             if stext.length <= 0 || stext == "AIWishPreviewController.noteyourwish".localized {
                 AIAlertView().showError("AIWishPreviewController.noteyourwish".localized, subTitle: "")
                 return

@@ -504,13 +504,20 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             pvc.sid = model.service_id ?? 0
             vc = pvc
         } else if model.proposal_type == 2 { // tuijian
-
         } else if model.proposal_type == 3 { // wish
             let wvc = AIWishPreviewController.initFromNib()
             let newModel = AIWishHotChildModel()
-            newModel.type_id = model.proposal_id_new
+            if model.proposal_id > 0 {
+                newModel.type_id = model.proposal_id
+            } else {
+                newModel.type_id = model.proposal_id_new
+            }            
             newModel.name = model.proposal_name
             newModel.already_wish = model.order_times
+            let strPrice = NSString(string: model.proposal_price)
+            let newprice = strPrice.stringByReplacingOccurrencesOfString("￥", withString: "")
+            newModel.money_avg = Double(newprice.toInt() ?? 0)
+            newModel.money_adv = Double(newprice.toInt() ?? 0)
             wvc.model = newModel
             vc = wvc
         }

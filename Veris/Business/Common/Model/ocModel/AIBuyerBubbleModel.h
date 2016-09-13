@@ -44,6 +44,10 @@
 
 @property (nonatomic, strong) NSString *borderColor;
 
+//扩展
+@property (assign, nonatomic) NSInteger money_avg;
+@property (assign, nonatomic) NSInteger money_adv;
+
 
 @end
 
