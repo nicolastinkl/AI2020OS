@@ -83,7 +83,10 @@ class AISuperiorityViewController: UIViewController {
         imageView.setHeight(UIScreen.mainScreen().bounds.height)
         imageView.setLeft(0)
         addNewSubView(imageView, preView: UIView(), color: UIColor.clearColor(), space: 0)
-        imageView.sd_setImageWithURL(NSURL(string: self.selfImage)!, placeholderImage: nil)
+        if let url = NSURL(string: self.selfImage) {
+            imageView.sd_setImageWithURL(url, placeholderImage: nil)
+        }
+        
         
         let holdView = UIView()
         holdView.backgroundColor = UIColor.clearColor()
