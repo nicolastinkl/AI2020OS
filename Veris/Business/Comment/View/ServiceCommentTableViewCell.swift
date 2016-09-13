@@ -26,8 +26,11 @@ class ServiceCommentTableViewCell: UITableViewCell {
     @IBOutlet weak var appendCommentBottomMargin: NSLayoutConstraint!
     @IBOutlet weak var checkbox: CheckboxButton!
     @IBOutlet weak var anonymousLabel: UILabel!
+    @IBOutlet weak var imageButtonHeightConstraint: NSLayoutConstraint!
     
     private var hasAppendHeight: CGFloat!
+    private var imageButtonHeight: CGFloat!
+    private var appendCommenToImageButtonSpace: CGFloat!
     
     var delegate: CommentDistrictDelegate?
     var cellDelegate: CommentCellDelegate?
@@ -114,6 +117,8 @@ class ServiceCommentTableViewCell: UITableViewCell {
         appendCommentButton.layer.borderColor = UIColor(hex: "FFFFFFAA").CGColor
         
         hasAppendHeight = height
+        imageButtonHeight = imageButton.height
+        appendCommenToImageButtonSpace = imageButtonSpace.constant
         
         checkbox.layer.cornerRadius = 4
         anonymousLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(40))
@@ -321,6 +326,7 @@ private class AbsCommentState: CommentState {
     func updateUI() {
         
         cell.clearImages()
+        hideImageButton(false)
         
         guard let m = cell.model else {
             return
@@ -358,6 +364,13 @@ private class AbsCommentState: CommentState {
     
     func getAlreadySelectedPhotosNumber() -> Int {
         return 0
+    }
+    
+    func hideImageButton(hide: Bool) {
+        cell.imageButton?.hidden = hide
+        
+        cell.imageButtonSpace.constant = hide ? 0 : cell.appendCommenToImageButtonSpace
+        cell.imageButtonHeightConstraint.constant = hide ? 0 : cell.imageButtonHeight
     }
 }
 
@@ -570,12 +583,14 @@ private class DoneState: AbsCommentState {
         cell.starRateView.userInteractionEnabled = false
         cell.appendComment.finishComment()
         
+        hideImageButton(true)
 
-        cell.appendCommentBottomMargin.constant = 1
-        cell.appendCommentButton?.hidden = true
-        cell.imageButton?.hidden = true
-        cell.appendCommentButton?.removeFromSuperview()
-        cell.imageButton?.removeFromSuperview()
+//        cell.appendCommentBottomMargin.active = true
+//        cell.appendCommentBottomMargin.constant = 1
+//        cell.appendCommentButton?.hidden = true
+//        cell.imageButton?.hidden = true
+//        cell.appendCommentButton?.removeFromSuperview()
+//        cell.imageButton?.removeFromSuperview()
 
         
         cell.setNeedsLayout()

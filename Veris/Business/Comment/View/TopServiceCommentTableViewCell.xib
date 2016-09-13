@@ -181,18 +181,23 @@
                     <constraint firstItem="jar-dt-7oB" firstAttribute="top" secondItem="jX4-GD-Sod" secondAttribute="bottom" constant="5" id="ugc-ac-UvM"/>
                     <constraint firstItem="EqR-j6-lP0" firstAttribute="centerY" secondItem="q3F-cw-czh" secondAttribute="centerY" id="zAF-h7-aRy"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Zgz-nM-5g2"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="anonymousLabel" destination="x1U-b1-lCw" id="Hn2-N1-go7"/>
                 <outlet property="appendComment" destination="jar-dt-7oB" id="0Cw-6Z-BR3"/>
-                <outlet property="appendCommentBottomMargin" destination="Zgz-nM-5g2" id="Qv3-EQ-KUj"/>
                 <outlet property="appendCommentButton" destination="kpZ-fK-DS0" id="8gN-oO-fqW"/>
                 <outlet property="appendCommentHeight" destination="8Dg-HP-nlq" id="Aeg-fh-BNM"/>
                 <outlet property="bottomStrokeLine" destination="jX4-GD-Sod" id="L2k-oO-KCg"/>
                 <outlet property="checkbox" destination="E6C-Yf-t7S" id="Twk-NC-emY"/>
                 <outlet property="firstComment" destination="cn9-zZ-dPP" id="k4V-U6-9QI"/>
                 <outlet property="imageButton" destination="KHD-vx-MKr" id="uGc-cq-zcu"/>
+                <outlet property="imageButtonHeightConstraint" destination="eyG-mC-hj2" id="2Ml-gc-k79"/>
                 <outlet property="imageButtonSpace" destination="Goq-18-8n7" id="IJf-0i-gnZ"/>
                 <outlet property="serviceIcon" destination="A7n-mZ-4Oq" id="are-9D-nLo"/>
                 <outlet property="serviceName" destination="q3F-cw-czh" id="4TI-SW-Y12"/>

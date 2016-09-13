@@ -34,6 +34,10 @@ class CommentUtils {
     }
     
     class func convertStarValueToPercent(starValue: CGFloat) -> CGFloat {
+        if starValue < 0.01 {
+            return 1
+        }
+        
         return starValue / 10.0
     }
     

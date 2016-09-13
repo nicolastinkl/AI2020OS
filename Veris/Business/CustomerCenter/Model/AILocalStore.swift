@@ -110,8 +110,10 @@ class AILocalStore: NSObject {
     }
     
     static var userId: Int {
-        let result: String = userDefaults.objectForKey(AILoginUtil.KEY_USER_ID) as! String
-       return result.toInt()!
+        if let result = userDefaults.objectForKey(AILoginUtil.KEY_USER_ID) as? String {
+            return result.toInt()!
+        }
+       return 0
     }
 
     static var headURL: String? {
