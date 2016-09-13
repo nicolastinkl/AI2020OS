@@ -74,7 +74,7 @@ class AIAssetsViewCell: UICollectionViewCell {
             // 蒙板
             if self.selected {
                 maskbg.drawInRect(CGRectMake(0, 0, rect.width, rect.width))
-            }else{
+            } else {
                 //maskbg.drawInRect(CGRectMake(0, 0, 0, 0))
             }
             
