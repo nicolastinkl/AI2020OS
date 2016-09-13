@@ -75,11 +75,24 @@ import AIAlertView
         self.navigationItem.leftBarButtonItem = leftButtonItem
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
+        
+        
+        
+        let rightImage = UIImage(named: "dismiss_close")
+        let rightButtonItem = UIBarButtonItem(image: rightImage, style: UIBarButtonItemStyle.Plain, target: self, action:#selector(AIContestSuccessViewController.dismissVC))
+        rightButtonItem.tintColor = UIColor.lightGrayColor()
+        self.navigationItem.rightBarButtonItem = rightButtonItem
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
+//        dismiss_close
     }
     
     func backAction(button: UIBarButtonItem) {
-
         self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func dismissVC() {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
