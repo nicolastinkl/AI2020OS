@@ -113,8 +113,7 @@ class StarRateView: UIView {
 
         UIView.animateWithDuration(interval) {
             if let se = weakSelf {
-                let starScore: CGFloat = se.allowIncompleteStar ? se.scorePercent : se.calcCompleteScore(se.scorePercent)
-                se.foregroundStarView.frame = CGRect(x: 0, y: 0, width: se.bounds.size.width * starScore, height: se.bounds.size.height)
+                se.foregroundStarView.frame = CGRect(x: 0, y: 0, width: se.bounds.size.width * se.scorePercent, height: se.bounds.size.height)
             }
 
         }
