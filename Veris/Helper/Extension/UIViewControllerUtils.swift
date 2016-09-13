@@ -170,6 +170,10 @@ extension UIViewController {
             rootVc.presentPopupViewController(viewAlertVC, animated: true)
         }
     }
-
-
+    
+    func setEffectBackgroundView() {
+        let bgView = UIImageView(image: UIImage(named: "effectBgView"))
+        self.view.insertSubview(bgView, atIndex: 0)
+        bgView.frame = UIScreen.mainScreen().bounds
+    }
 }
