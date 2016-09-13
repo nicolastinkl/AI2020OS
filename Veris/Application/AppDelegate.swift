@@ -158,8 +158,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 		AVOSCloud.registerForRemoteNotification()
 		
 		AVAnalytics.setAnalyticsEnabled(true)
-		
-        
+        #if DEBUG
+            AVAnalytics.setLogEnabled(true)
+            AVAnalytics.setChannel("DEBUG")
+        #else
+            AVAnalytics.setLogEnabled(false)
+            AVAnalytics.setChannel("App Store")
+        #endif
         
 	}
     
