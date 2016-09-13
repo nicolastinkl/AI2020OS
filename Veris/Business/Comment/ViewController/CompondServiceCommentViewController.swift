@@ -473,7 +473,7 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
             return 0
         }
      
-        return 1
+        return comments.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

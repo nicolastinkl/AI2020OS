@@ -80,7 +80,7 @@ class ListSubServiceCardView: UIView {
         for i in 0 ..< dataList.count {
             let card = SubServiceCardView.initFromNib("SubServiceCard") as! SubServiceCardView
             
-            card.loadData(modelList[i], proposalData: viewModel.model)
+            card.loadData(modelList[i], viewModel: viewModel)
 
             
             if let viewModel = timelineModels[modelList[i].id] {

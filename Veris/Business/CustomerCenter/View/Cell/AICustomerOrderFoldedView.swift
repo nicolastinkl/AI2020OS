@@ -57,6 +57,9 @@ class AICustomerOrderFoldedView: UIView {
     func loadData(proposalViewModel: ProposalOrderViewModel) {
         self.proposalModel = proposalViewModel.model
         let proposalStateViewModel = proposalViewModel.proposalState!
+        
+        
+        
         statusButton.setTitle(proposalStateViewModel.stateName, forState: UIControlState.Normal)
         statusColorView.backgroundColor = proposalStateViewModel.color
         proposalName.text = proposalModel.name
@@ -65,13 +68,31 @@ class AICustomerOrderFoldedView: UIView {
         
         if let services = proposalModel.service as? [ServiceOrderModel] {
             if services.count > 0 {
-                if let node = services[0].node {
-           //         taskSchedulTimeLabel.text = node.time
+                if let serviceData = getHasNodeService(services) {
+                    if let time = ProposalOrderViewModel.getNodeTime(serviceData.node) {
+                        taskSchedulTimeLabel.text = "\(time)"
+                    }
+                    
+                    if let url = serviceData.provider_icon {
+                        providerIcon.asyncLoadImage(url, placeHoldImg: "contact_icon")
+                        
+                    }
+                    
                     //mod by Shawn at 20160818
-                    taskNameLabel.text = node.procedure_inst_name
+                    taskNameLabel.text = serviceData.node.procedure_inst_name
                 }
             }
         }
+    }
+    
+    private func getHasNodeService(orders: [ServiceOrderModel]) -> ServiceOrderModel? {
+        for order in orders {
+            if order.node != nil {
+                return order
+            }
+        }
+        
+        return nil
     }
 
     // MARK: currentView

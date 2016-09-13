@@ -84,6 +84,17 @@ class ProposalOrderViewModel {
             AILog("proposalState format error! \(model.state)")
         }
     }
+    
+    static func getNodeTime(node: AITimelineBusiModel) -> NSDate? {
+        if let time = node.time_value {
+            if time.doubleValue > 0 {
+                let date = NSDate(timeIntervalSince1970: time.doubleValue / 1000.0)
+                return date
+            }
+        }
+        
+        return nil
+    }
 }
 
 /*
