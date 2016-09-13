@@ -13,13 +13,3 @@ extension NSObject {
         return NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!
     }
 }
-
-
-
-class AIUtilityTools: NSObject {
-
-    
-    
-    
-    
-}
