@@ -62,7 +62,7 @@ struct AIRemoteNotificationParameters {
         dispatch_once(&AISingleton.predicate, {
             AISingleton.instance = AIRemoteNotificationHandler()
             #if DEBUG
-            AVPush.setProductionMode(false)
+                AVPush.setProductionMode(false)
             #endif
             })
         return AISingleton.instance!

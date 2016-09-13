@@ -191,8 +191,7 @@ class TaskDetailViewController: UIViewController {
                     //如果还未授权,status=3 说明已经发送授权申请
                     if p.status == 3 {
                         authorityState = WaitingAuthorized(vc: self)
-                    }
-                    else {
+                    } else {
                         authorityState = NeedAuthority(vc: self)
                     }
                 case .alreadyAuthorized:

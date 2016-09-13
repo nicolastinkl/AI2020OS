@@ -118,7 +118,7 @@ class AIConfirmOrderViewController: UIViewController {
         //self.priceLabel.font = AITools.myriadLightSemiCondensedWithSize(39 / PurchasedViewDimention.CONVERT_FACTOR)
 
         let name = dataSource?.proposal_name ?? ""
-        self.backButton.setTitle(String(format: " %@",name), forState: UIControlState.Normal)
+        self.backButton.setTitle(String(format: " %@", name), forState: UIControlState.Normal)
         
         if NSString(string: name).containsString("AIBuyerDetailViewController.pregnancy".localized) {
 

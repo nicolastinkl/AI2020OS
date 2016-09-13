@@ -9,7 +9,7 @@
 import Foundation
 
 
-class AppUtils {
+class AppUtils: NSObject {
     /*!
      Application hook viewdidload
      */

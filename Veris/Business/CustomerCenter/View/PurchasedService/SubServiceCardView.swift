@@ -79,13 +79,19 @@ class SubServiceCardView: UIView {
         seperator.hidden = true
     }
     
-    func loadData(serviceData: ServiceOrderModel, proposalData: ProposalOrderModel? = nil) {
-        if let pro = proposalData {
+    func loadData(serviceData: ServiceOrderModel, viewModel: ProposalOrderViewModel) {
+        if let pro = viewModel.model {
             proposalModel = pro
             proporsalName.text = pro.name
             messageNumber.text = "\(pro.messages)"
-            statusButton.titleLabel?.text = pro.state
+            
+            if let proposalState = viewModel.proposalState {
+                statusButton.setTitle(proposalState.stateName, forState: .Normal)
+                statusColor.backgroundColor = proposalState.color
+            }
         }
+        
+        
         
         
         serviceModel = serviceData
@@ -97,7 +103,11 @@ class SubServiceCardView: UIView {
         
         if let node = serviceData.node {
             nodeName.text = node.procedure_inst_name
-      //      nodeDate.text = node.time
+            
+            if let time = ProposalOrderViewModel.getNodeTime(node) {
+                nodeDate.text = "\(time)"
+            }
+            
             nodeState.text = node.status
             
             if let url = serviceData.provider_icon {
