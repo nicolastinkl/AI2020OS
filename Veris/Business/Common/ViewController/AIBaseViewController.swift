@@ -62,7 +62,7 @@ class AIBaseViewController: UIViewController {
 
     func makeBackgroundView() {
         let backgroundView = UIImageView(frame: self.view.bounds)
-        backgroundView.image = UIImage(named: "search_background")
+        backgroundView.image = UIImage(named: "effectBgView")
         self.view.addSubview(backgroundView)
     }
 

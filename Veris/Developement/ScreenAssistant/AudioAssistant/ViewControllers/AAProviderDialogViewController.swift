@@ -10,7 +10,12 @@ import UIKit
 
 /// Provider 拨号界面
 class AAProviderDialogViewController: AADialogBaseViewController {
-	
+
+
+    @IBOutlet weak var providerImageView: UIImageView?
+    @IBOutlet weak var providerNameLabel: UILabel?
+
+
 	override func updateUI() {
 		let connectionStatus = AudioAssistantManager.sharedInstance.connectionStatus
 		status = connectionStatus
@@ -60,5 +65,17 @@ class AAProviderDialogViewController: AADialogBaseViewController {
 			self?.view.hideLoading()
 		})
 	}
+
+    //MARK: 设置头像
+    func showRealProvider(icon: String?, name: String?) {
+        if icon != nil {
+            let url = NSURL(string: icon!)
+            providerImageView?.sd_setImageWithURL(url)
+        }
+
+        if name != nil {
+            providerNameLabel?.text = name
+        }
+    }
 	
 }

@@ -5,7 +5,7 @@
 	<key>ATSApplicationFontsPath</key>
 	<string>MyriadProRegular.ttf</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
 	<string>$(PRODUCT_NAME)  Customer</string>
 	<key>CFBundleExecutable</key>

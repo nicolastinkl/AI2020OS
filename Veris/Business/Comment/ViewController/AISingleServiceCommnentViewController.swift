@@ -73,7 +73,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
     func makeSubmitButton() -> UIButton {
         let button = UIButton(type: .Custom)
-        button.frame = CGRect(x: 0, y: 0, width: 80, height: 24)
+        button.frame = CGRect(x: 0, y: 0, width: 80, height: 60.displaySizeFrom1242DesignSize())
         button.setTitle("AISingleServiceCommnentViewController.Submit".localized, forState: UIControlState.Normal)
         button.titleLabel?.textAlignment = .Right
         button.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
@@ -84,8 +84,8 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
 
     func makeTitle() {
-        let y = 60.displaySizeFrom1242DesignSize()
-        let height = 72.displaySizeFrom1242DesignSize()
+        let y: CGFloat = 0//60.displaySizeFrom1242DesignSize()
+        let height: CGFloat = 72.displaySizeFrom1242DesignSize()
         let frame = CGRect(x: 0, y: y, width: 200, height: height)
         let titleLabel = AIViews.normalLabelWithFrame(frame, text: "AISingleServiceCommnentViewController.Review".localized, fontSize: height, color: UIColor.whiteColor())
         titleLabel.textAlignment = .Center
@@ -103,11 +103,11 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
         let commentModel = AICommentModel()
         let serviceModel = AICommentSeviceModel()
-        serviceModel.serviceIcon = "http://img5.imgtn.bdimg.com/it/u=4115455389,1829632566&fm=11&gp=0.jpg"
-        serviceModel.serviceName = "Effoldless Beauty Pregnancy Care"
+        serviceModel.serviceIcon = "http://img.mshishang.com/pics/2016/0718/20160718043725872.jpeg"
+        serviceModel.serviceName = "华西挂号"
         commentModel.serviceModel = serviceModel
         commentModel.starLevel = 5
-        commentModel.comments = "This service is very good! I like it very much! Please tell the beautyful seller's cellphone, I want to thank her face to face!This service is very good! I like it very much! Please tell the beautyful seller's cellphone, I want to thank her face to face!This service is very good! I like it very much! Please tell the beautyful seller's cellphone, I want to thank her face to face!"
+        commentModel.comments = "这次的服务非常好！我非常喜欢，请告诉我美女服务员的电话吧，我要当面感谢她！这次的服务也很好，如果下次需要挂号，都找这个美女挂号员吧！绝对不会让你失望的！"
 
         let imageName = "http://img.mshishang.com/pics/2016/0718/20160718043725872.jpeg"
         commentModel.commentPictures = [imageName, imageName, imageName, imageName, imageName, imageName, imageName]

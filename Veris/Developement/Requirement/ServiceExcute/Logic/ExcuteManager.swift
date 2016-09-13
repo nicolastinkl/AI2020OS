@@ -193,7 +193,7 @@ class BDKExcuteManager: ExcuteManager {
         let url = AIApplication.AIApplicationServerURL.submitRequestAuthorization.description
         message.url = url
         
-        let data: [String: AnyObject] = ["service_instance_id": serviceId, "provider_id": customerId]
+        let data: [String: AnyObject] = ["service_instance_id": serviceId, "customer_user_id": customerId]
         message.body = BDKTools.createRequestBody(data)
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
