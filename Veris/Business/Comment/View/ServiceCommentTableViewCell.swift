@@ -300,7 +300,6 @@ enum CommentStateEnum {
     case CommentEditable
     case CommentFinshed
     case AppendEditing
- //   case AppendEdited
     case Done
 }
 
@@ -581,24 +580,15 @@ private class DoneState: AbsCommentState {
         finished = true
         
         cell.starRateView.userInteractionEnabled = false
+        cell.firstComment.finishComment()
         cell.appendComment.finishComment()
         
         hideImageButton(true)
-
-//        cell.appendCommentBottomMargin.active = true
-//        cell.appendCommentBottomMargin.constant = 1
-//        cell.appendCommentButton?.hidden = true
-//        cell.imageButton?.hidden = true
-//        cell.appendCommentButton?.removeFromSuperview()
-//        cell.imageButton?.removeFromSuperview()
-
         
         cell.setNeedsLayout()
         
         cell.firstComment.inputTextView.text = cell.model?.firstComment?.text
         cell.appendComment.inputTextView.text = cell.model?.appendComment?.text
-        
-  //      cell.cellDelegate?.commentHeightChanged()
         
         if cell.appendComment.inputTextView.text != nil {
             cell.appendCommentHeight.constant = ServiceCommentTableViewCell.commentAreaMaxHeight

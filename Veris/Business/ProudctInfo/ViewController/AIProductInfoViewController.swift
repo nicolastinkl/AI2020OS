@@ -969,7 +969,7 @@ class AIProductInfoViewController: UIViewController {
         showTransitionStyleCrossDissolveView(viewsss)
     }
     
-    func  createBuyerDetailViewController(model: AIBuyerBubbleModel) -> AIBuyerDetailViewController {
+    func createBuyerDetailViewController(model: AIBuyerBubbleModel) -> AIBuyerDetailViewController {
         
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
         viewController.bubbleModel = model

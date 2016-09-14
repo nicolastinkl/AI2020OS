@@ -1047,6 +1047,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                 viewController.delegate = self
                 viewController.proposalId = dataSource.proposal_id
                 
+                
                 //remove 孕检挂号
                 var newModel = Array<AIProposalServiceModel>()
                 serviceList?.forEach({ (model) in
@@ -1056,6 +1057,13 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                 })                
                 viewController.bubbleModelArray = newModel
                 viewController.selectCurrentIndex = indexPath.row
+                
+                                // 分析
+                AIAnalytics.event(.ViewServiceDetail, attributes: [
+                    .OfferingId: dataSource.proposal_id,
+                    .ServiceId: viewController.bubbleModelArray![indexPath.row].service_id
+                    ])
+                
                 showTransitionStyleCrossDissolveView(viewController)
                 // Send Anchor
                 if audioAssistantModel == .Receiver {
@@ -1397,5 +1405,12 @@ extension AIBuyerDetailViewController: AIDialogDelegate {
             self.customerDialogViewController?.dismissViewControllerAnimated(true, completion: nil)
         }
         alertView.showError("Oops！", subTitle: "拨号失败~")
+    }
+}
+
+
+extension AIBuyerDetailViewController: AIAnalyticsPageShowProtocol {
+    func analyticsPageShowParam() -> [AIAnalyticsKeys : AnyObject] {
+        return [.ProposalId: (bubbleModel?.proposal_id)!]
     }
 }

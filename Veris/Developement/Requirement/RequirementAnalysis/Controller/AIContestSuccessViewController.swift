@@ -165,8 +165,16 @@ import AIAlertView
                 self.dismissLoading()
                 AIAlertView().showError("启动工作失败", subTitle: errDes)
         }
+    }
+}
 
-        
-
+extension AIContestSuccessViewController: AIAnalyticsPageShowProtocol {
+    func analyticsPageShowParam() -> [AIAnalyticsKeys : AnyObject] {
+        return [
+            .ProviderId: AILocalStore.userId,
+            .CustomerId: customerID,
+            .ServiceID: serviceID,
+            .ServiceInstanceID: serviceInstanceID
+        ]
     }
 }

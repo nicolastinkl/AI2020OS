@@ -53,6 +53,11 @@ public class AIAnalytics: NSObject {
 	}
 }
 
+// 给PageShow 事件加入参数
+protocol AIAnalyticsPageShowProtocol: NSObjectProtocol {
+	func analyticsPageShowParam() -> [AIAnalyticsKeys: AnyObject]
+}
+
 extension UIViewController {
 	
 	class func swizzlingMethod(clzz: AnyClass, oldSelector: Selector, newSelector: Selector) {
@@ -68,10 +73,14 @@ extension UIViewController {
 	
 	func _analyticsViewDidAppear(animated: Bool) {
 		_analyticsViewDidAppear(animated)
-		AIAnalytics.beginEvent(.PageShow, primarykey: instanceClassName(), attributes: [
-			.ClassName: instanceClassName(),
-			.Title: title ?? ""
-		])
+		var att: [AIAnalyticsKeys: AnyObject] = [
+				.ClassName: instanceClassName(),
+				.Title: title ?? ""
+		]
+		if let p = self as? AIAnalyticsPageShowProtocol {
+			att.addEntriesFromDictionary(p.analyticsPageShowParam())
+		}
+		AIAnalytics.beginEvent(.PageShow, primarykey: instanceClassName(), attributes: att)
 	}
 	
 	func _analyticsViewDidDisappear(animated: Bool) {
