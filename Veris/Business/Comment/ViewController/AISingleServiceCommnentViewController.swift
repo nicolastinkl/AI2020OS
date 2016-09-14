@@ -162,9 +162,18 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         let service = HttpCommentService()
         weak var wf = self
 
-        service.submitComments(userID.toString(), userType: 1, commentList: [SingleComment](), success: { (responseData) in
+        let singleComment = SingleComment()
+        singleComment.service_id = serviceID
+        let level: Int = singalServiceCommentView.freshCommentStar.defaultStarLevel * 2
+        singleComment.rating_level = CGFloat(level)
+        singleComment.photos = singalServiceCommentView.freshCommentPictureView.displayPictureNames
+        singleComment.text = singalServiceCommentView.freshCommentTextView.text ?? ""
+
+        service.submitComments(userID.toString(), userType: 1, commentList: [singleComment], success: { (responseData) in
+            wf?.dismissLoading()
             wf?.dismissViewControllerAnimated(true, completion: nil)
             }) { (errType, errDes) in
+                wf?.dismissLoading()
                 AIAlertView().showError("AISingleServiceCommnentViewController.SubmitError".localized, subTitle: "")
         }
     }

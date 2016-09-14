@@ -86,6 +86,8 @@ class AIChooseStarLevelView: UIView {
             let star: UIButton = stars[index-1]
             star.selected = index <= level
         }
+
+        defaultStarLevel = level
     }
 
     func reframeByWidth(width: CGFloat) {
