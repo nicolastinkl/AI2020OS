@@ -255,7 +255,14 @@ class AIWishPreviewController: UIViewController {
         */
         //wishAverage?.button.setTitle("\(Int(model?.money_avg ?? 0))", forState: UIControlState.Normal)
         wishAverage?.inputPrice.text = "\(Int(model?.money_avg ?? 0))"
-        wishAverage?.totalButton.setTitle("\(Int(model?.money_adv ?? 0))", forState: UIControlState.Normal)
+        let totalPrice = model?.money_adv ?? 0
+        if totalPrice > 9999 {
+            let newTO = totalPrice/10000
+            wishAverage?.totalButton.setTitle("\(newTO)w", forState: UIControlState.Normal)
+        }else{
+            wishAverage?.totalButton.setTitle("\(model?.money_adv ?? 0)", forState: UIControlState.Normal)
+        }
+        
         wishAverage?.averageLabel.text = "AIWishPreviewController.average".localized
         wishAverage?.leftRMB.text = "AIWishPreviewController.unit".localized
         wishAverage?.rightRMB.text = "AIWishPreviewController.unit".localized
