@@ -718,7 +718,7 @@ extension AIRequireContentViewController: SESlideTableViewCellDelegate {
 
     func sendSaveAsTaskEvent() {
 
-        let attributes: [AIAnalyticsKeys : AnyObject] = [.CurrentPageName : instanceClassName()]
+        let attributes: [AIAnalyticsKeys : AnyObject] = [.ClassName : instanceClassName()]
 
 
         AIAnalytics.event(.SaveAsTaskEvent, attributes: attributes)

@@ -226,7 +226,7 @@ class AICustomSearchHomeViewController: UIViewController {
 	func searching() {
 		view.endEditing(true)
 		view.showLoading()
-        AIAnalytics.event("searchService", attributes: ["keyword":searchText.text ?? ""])
+        AIAnalytics.event(.SearchService, attributes: [.Keyword:searchText.text ?? ""])
 		let service = AISearchHomeService()
 		service.searchServiceCondition(searchText.text ?? "", page_size: 10, page_number: 1, success: { [weak self](model) in
 			
@@ -366,9 +366,9 @@ extension AICustomSearchHomeViewController: AICustomSearchHomeResultFilterBarDel
 		filterBar.hideMenu()
         view.showLoading()
 		let service = AISearchHomeService()
-        var att = resultFilterBar.requestParams
-        att.addEntriesFromDictionary(["keyword": searchText.text ?? ""])
-        AIAnalytics.event("filterSearch", attributes: att)
+//        var att = resultFilterBar.requestParams
+//        att.addEntriesFromDictionary([: searchText.text ?? ""])
+        AIAnalytics.event(.FilterSearch, attributes:[.Keyword: searchText.text ?? ""])
 		service.filterServices(searchText.text ?? "", page_size: 10, page_number: 1, filterModel: resultFilterBar.requestParams, success: { [weak self] (res) in
             self?.view.hideLoading()
             self?.dataSource = res
@@ -393,7 +393,7 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
                 // 进入服务首页
                 let vc = AISuperiorityViewController.initFromNib()
                 vc.serviceModel = model
-                AIAnalytics.event("historyIconClick", attributes: ["id": vc.serviceModel!.sid.toString()])
+                AIAnalytics.event(.HistoryIconClick, attributes: [.PartyID: vc.serviceModel!.sid.toString()])
                 showTransitionStyleCrossDissolveView(vc)
             }
             
@@ -405,7 +405,7 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
 extension AICustomSearchHomeViewController: GridBubblesViewDelegate {
 	func bubblesView(bubblesView: GridBubblesView, didClickBubbleViewAtIndex index: Int) {
 		let model = bubblesView.bubbleModels[index]
-        AIAnalytics.event("recommendIconClick", attributes: ["id": model.proposal_id.toString()])
+        AIAnalytics.event(.RecommendIconClick, attributes: [.PartyID: model.proposal_id.toString()])
 		let vc = AIProductInfoViewController.initFromNib()
 		vc.sid = model.proposal_id
 		showTransitionStyleCrossDissolveView(vc)

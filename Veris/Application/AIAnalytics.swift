@@ -16,7 +16,7 @@ public class AIAnalytics: NSObject {
 		return result
 	}
 	
-	private class func convertAtt(input: [AIAnalyticsKeys: AnyObject]) -> [NSObject: AnyObject] {
+	class func convertAtt(input: [AIAnalyticsKeys: AnyObject]) -> [NSObject: AnyObject] {
 		var result = [NSObject: AnyObject]()
 		for (key, value) in input {
 			result[key.rawValue] = value
@@ -38,7 +38,7 @@ public class AIAnalytics: NSObject {
      @param keyName 自定义关键事件的标签. 关键事件标签用于区分同名事件，但不参与统计运算结果.
      @param attributes 自定义事件的属性列表.
      */
-	class func beginEvent(eventId: AIAnalyticsKeys, primarykey keyName: String? = nil, attributes: [AIAnalyticsKeys: AnyObject]!) {
+	class func beginEvent(eventId: AIAnalyticsEvent, primarykey keyName: String? = nil, attributes: [AIAnalyticsKeys: AnyObject]!) {
 		var att = attributes
 		att.addEntriesFromDictionary(commonParams())
 		AVAnalytics.beginEvent(eventId.rawValue, primarykey: keyName ?? "", attributes: convertAtt(att))
@@ -48,8 +48,8 @@ public class AIAnalytics: NSObject {
      @param eventId 自定义事件的Id.
      @param keyName 自定义关键事件的标签. 关键事件标签用于区分同名事件，但不参与统计运算结果.
      */
-	class func endEvent(eventId: String!, primarykey keyName: String? = nil) {
-		AVAnalytics.endEvent(eventId, primarykey: keyName ?? "")
+	class func endEvent(eventId: AIAnalyticsEvent, primarykey keyName: String? = nil) {
+		AVAnalytics.endEvent(eventId.rawValue, primarykey: keyName ?? "")
 	}
 }
 
@@ -68,15 +68,15 @@ extension UIViewController {
 	
 	func _analyticsViewDidAppear(animated: Bool) {
 		_analyticsViewDidAppear(animated)
-		AIAnalytics.beginEvent("pageShow", primarykey: instanceClassName(), attributes: [
-			"className": instanceClassName(),
-			"title": title ?? ""
+		AIAnalytics.beginEvent(.PageShow, primarykey: instanceClassName(), attributes: [
+			.ClassName: instanceClassName(),
+			.Title: title ?? ""
 		])
 	}
 	
 	func _analyticsViewDidDisappear(animated: Bool) {
 		_analyticsViewDidDisappear(animated)
-		AIAnalytics.endEvent("pageShow", primarykey: instanceClassName())
+		AIAnalytics.endEvent(.PageShow, primarykey: instanceClassName())
 	}
 	
 	public override class func initialize() {

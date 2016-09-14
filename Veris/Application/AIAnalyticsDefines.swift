@@ -9,14 +9,24 @@
 import UIKit
 
 enum AIAnalyticsEvent: String {
+    ///
+    case PageShow
     case SaveAsTaskEvent
     /// 给卖家留言
     case LeaveMessage
+    
+    /// 搜索服务
+    case SearchService
+    case FilterSearch
+    
+    case HistoryIconClick
+    case RecommendIconClick
 }
 
 enum AIAnalyticsKeys: String {
     // common
-    case CurrentPageName
+    case ClassName
+    case Title
     case PartyID
     case Date
     
@@ -24,4 +34,7 @@ enum AIAnalyticsKeys: String {
     case OfferingId
     case URL
     case Text
+    /// 搜索服务
+    case Keyword
+    
 }
