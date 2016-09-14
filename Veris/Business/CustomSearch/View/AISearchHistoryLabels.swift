@@ -123,6 +123,7 @@ class AISearchHistoryLabels: UIView {
 
 			let label = AIViews.wrapLabelWithFrame(CGRectMake(x, y, size.width, size.height), text: labelText, fontSize: labelFontSize, color: UIColor ( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.85 ))
             label.font = labelFont
+            label.baselineAdjustment = .AlignCenters
             label.userInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(AISearchHistoryLabels.labelTapped(_:)))
             label.addGestureRecognizer(tap)

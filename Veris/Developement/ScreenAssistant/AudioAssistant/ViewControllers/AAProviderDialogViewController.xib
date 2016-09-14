@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -28,10 +28,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aa_customer" translatesAutoresizingMaskIntoConstraints="NO" id="lQL-Wc-N3Y">
-                    <rect key="frame" x="125" y="144" width="165" height="165"/>
+                    <rect key="frame" x="131" y="144" width="152" height="152"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="152" id="MIT-t9-EHt"/>
+                        <constraint firstAttribute="width" constant="152" id="uYj-BZ-Uj2"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ms.Cusomter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGG-tY-kS4">
-                    <rect key="frame" x="133" y="322" width="150" height="29"/>
+                    <rect key="frame" x="132" y="309" width="150" height="29"/>
                     <fontDescription key="fontDescription" name="MyriadPro-SemiboldSemiCn" family="Myriad Pro" pointSize="28.666669845581055"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
