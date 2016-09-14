@@ -123,7 +123,7 @@ class AIProductInfoViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIServiceContentViewController.keyboardDidHide(_:)), name: UIKeyboardDidHideNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIProductInfoViewController.popToRootView), name: AIApplication.Notification.dissMissPresentViewController, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIProductInfoViewController.popToRootView), name: AIApplication.Notification.WishVowViewControllerNOTIFY, object: nil)
         
     }
     
