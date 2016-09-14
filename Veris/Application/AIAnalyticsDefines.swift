@@ -27,6 +27,8 @@ enum AIAnalyticsEvent: String {
     /// 自由定制
     case DelServiceOptInfo
     case AddServiceOptInfo
+    /// 查看多服务详情
+    case ViewServiceDetail = "serviceDetailBrowseInfo"
 }
 
 enum AIAnalyticsKeys: String {
@@ -40,6 +42,8 @@ enum AIAnalyticsKeys: String {
     case OfferingId = "offeringId"
     case URL = "url"
     case Text = "text"
+    case ProposalId = "proposalId"
+    
     /// 搜索服务
     case Keyword = "keyword"
     case ServiceId = "serviceId"
