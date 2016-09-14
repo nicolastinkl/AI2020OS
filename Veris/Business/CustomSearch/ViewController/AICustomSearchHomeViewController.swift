@@ -393,19 +393,17 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
                 // 进入服务首页
                 let vc = AISuperiorityViewController.initFromNib()
                 vc.serviceModel = model
-                AIAnalytics.event(.HistoryIconClick, attributes: [.PartyID: vc.serviceModel!.sid.toString()])
+                AIAnalytics.event(.HistoryIconClick, attributes: [.ServiceId: vc.serviceModel!.sid.toString()])
                 showTransitionStyleCrossDissolveView(vc)
             }
-            
         }
-        
 	}
 }
 
 extension AICustomSearchHomeViewController: GridBubblesViewDelegate {
 	func bubblesView(bubblesView: GridBubblesView, didClickBubbleViewAtIndex index: Int) {
 		let model = bubblesView.bubbleModels[index]
-        AIAnalytics.event(.RecommendIconClick, attributes: [.PartyID: model.proposal_id.toString()])
+        AIAnalytics.event(.RecommendIconClick, attributes: [.ServiceId: model.proposal_id.toString()])
 		let vc = AIProductInfoViewController.initFromNib()
 		vc.sid = model.proposal_id
 		showTransitionStyleCrossDissolveView(vc)
