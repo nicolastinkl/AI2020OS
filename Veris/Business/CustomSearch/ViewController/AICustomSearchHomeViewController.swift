@@ -396,9 +396,7 @@ extension AICustomSearchHomeViewController: AISearchHistoryIconViewDelegate {
                 AIAnalytics.event(.HistoryIconClick, attributes: [.ServiceId: vc.serviceModel!.sid.toString()])
                 showTransitionStyleCrossDissolveView(vc)
             }
-            
         }
-        
 	}
 }
 

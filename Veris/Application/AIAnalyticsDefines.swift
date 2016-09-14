@@ -23,6 +23,10 @@ enum AIAnalyticsEvent: String {
     case HistoryIconClick
     /// 点击推荐服务
     case RecommendIconClick
+    
+    /// 自由定制
+    case DelServiceOptInfo
+    case AddServiceOptInfo
 }
 
 enum AIAnalyticsKeys: String {
