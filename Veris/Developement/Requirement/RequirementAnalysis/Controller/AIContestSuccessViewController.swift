@@ -61,7 +61,8 @@ import AIAlertView
 
 
     func buildNavigationTitleLabel() {
-
+        //取消navigationbar隐藏
+        self.navigationController?.navigationBarHidden = false
         let NAVIGATION_TITLE = AITools.myriadSemiCondensedWithSize(80 / 3)
         let frame = CGRect(x: 0, y: 0, width: 100, height: 44)
         let titleLabel = UILabel(frame: frame)
