@@ -343,7 +343,7 @@ class TaskResultCommitViewController: UIViewController {
             }
         }
         
-        if audioUrl == nil { // upload fail
+        if imageUrl == nil { // upload fail
             return nil
         }
         
