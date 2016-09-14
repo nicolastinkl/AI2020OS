@@ -115,7 +115,7 @@ extension HttpCommentService: CommentService {
         let url = AIApplication.AIApplicationServerURL.saveComment.description
         message.url = url
         
-        let data: [String: AnyObject] = ["user_id": userID, "user_type": userType, "comment_list": ServiceComment.arrayOfDictionariesFromModels(commentList)]
+        let data: [String: AnyObject] = ["user_id": userID, "user_type": userType, "service_type": "Order", "comment_list": ServiceComment.arrayOfDictionariesFromModels(commentList)]
         message.body = BDKTools.createRequestBody(data)
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
