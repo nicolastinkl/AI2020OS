@@ -10,6 +10,7 @@ import Foundation
 
 class AITimelineViewModel: AIBaseViewModel {
     var itemId: String?
+    var serviceInstanceId: String?
     var layoutType: AITimelineLayoutTypeEnum?
     var operationType: AITimelineOperationTypeEnum?
     var timeModel: AIDateTimeViewModel?
