@@ -89,6 +89,11 @@ class TaskResultCommitViewController: UIViewController {
     
     @IBAction func questButtonClicked(sender: AnyObject) {
         
+        if !validData() {
+            NBMaterialToast.showWithText(self.view, text: "TaskResultCommitViewController.dataNoValid".localized, duration: NBLunchDuration.SHORT)
+            return
+        }
+        
         showLoading()
         
         Async.background({
@@ -96,7 +101,7 @@ class TaskResultCommitViewController: UIViewController {
             guard let urls = self.uploadAttachment() else {
                 self.dismissLoading()
                 
-                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+                NBMaterialToast.showWithText(self.view, text: "TaskResultCommitViewController.dataNoValid".localized, duration: NBLunchDuration.SHORT)
                 return
             }
             
@@ -139,6 +144,28 @@ class TaskResultCommitViewController: UIViewController {
                     NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
             })
         })
+    }
+    
+    private func validData() -> Bool {
+        if !hasImage || cameraIcon.image == nil {
+            return false
+        }
+        
+        if soundPlayButton.hidden {
+            if !note.hidden {
+                if let t = note.text {
+                    if t.isEmpty || t.count < 15 {
+                        return false
+                    }
+                } else {
+                    return false
+                }
+            } else {
+                return false
+            }
+        }
+        
+        return true
     }
     
     func cameraAction(sender: UIGestureRecognizer) {
