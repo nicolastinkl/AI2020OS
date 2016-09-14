@@ -9,6 +9,7 @@
 import UIKit
 import Accelerate
 import Cartography
+import AIAlertView
 
 class ClosureWrapper {
 	var closure: (() -> Void)?
@@ -327,12 +328,31 @@ extension UIViewController {
 
     // MARK: Loading
 
+    /**
+     *  全屏阻塞UI
+     *
+     */
     func showLoading() {
         UIApplication.sharedApplication().keyWindow!.showLoading()
     }
 
+    /**
+     *  取消全屏阻塞UI
+     *
+     */
     func dismissLoading() {
         UIApplication.sharedApplication().keyWindow!.hideLoading()
+    }
+
+
+    /**
+     *  Show Toast Message
+     *
+     */
+    func showToastMessage(message: String) {
+        let alertView = AIAlertView()
+        alertView.showCloseButton = false
+        alertView.showInfo(message, subTitle: "", closeButtonTitle: "", duration: 1, colorStyle: 0x2866BF, colorTextButton: 0xFFFFFF)
     }
 
 }

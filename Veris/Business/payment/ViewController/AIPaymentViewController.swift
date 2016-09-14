@@ -347,6 +347,8 @@ class AIPaymentViewController: UIViewController {
     
     @IBAction func wechatAction(sender: AnyObject) {
         
+        showNotifyPayStatus()
+        /*
         if WXApi.isWXAppInstalled() {
             SVProgressHUD.showWithStatus("正在处理...", maskType: SVProgressHUDMaskType.Gradient)
             let model = MDPayTypeModel()
@@ -364,11 +366,12 @@ class AIPaymentViewController: UIViewController {
             
         } else {
             SVProgressHUD.showErrorWithStatus("该设备未安装微信客户端")
-        }
+        }*/
     }
     
     @IBAction func alipayAction(sender: AnyObject) {
-     
+        showNotifyPayStatus()
+        /*
         // 检测支付宝是否有安装
         
         if UIApplication.sharedApplication().canOpenURL(NSURL(string: "alipay://")!) {
@@ -403,6 +406,7 @@ class AIPaymentViewController: UIViewController {
         } else {
             SVProgressHUD.showErrorWithStatus("该设备未安装支付宝客户端")
         }
+ */
     }
 }
 

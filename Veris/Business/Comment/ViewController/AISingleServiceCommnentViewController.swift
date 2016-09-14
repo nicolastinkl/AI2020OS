@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import AIAlertView
 
 class AISingleServiceCommnentViewController: AIBaseViewController {
 
@@ -19,6 +20,8 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
     var serviceID: Int = 0
 
+    var serviceCommentModel: ServiceComment?
+
     //MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,8 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
         setupNavigationBar()
         makeTitle()
-        makeSubviews()
+        loadComments()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,14 +62,33 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    //MARK: Actions
 
     func loadComments() {
 
+        self.showLoading()
+
         let userID = AILocalStore.userId
-        
-        //HttpCommentService
+        let serviceInstanceID = serviceID
+
+        let service = HttpCommentService()
+        weak var wf = self
+        service.getSingleComment(userID.toString(), userType: 1, serviceId: serviceInstanceID.toString(), success: { (responseData) in
+            wf?.serviceCommentModel = responseData
+            wf?.makeSubviews()
+            wf?.dismissLoading()
+            }) { (errType, errDes) in
+                wf?.serviceCommentModel = nil
+                wf?.makeSubviews()
+                wf?.dismissLoading()
+        }
     }
+
+    func submitComments() {
+
+    }
+
+
 
     //MARK: Configure NavigationBar
     override func setupNavigationBar() {
@@ -111,11 +134,11 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
         let commentModel = AICommentModel()
         let serviceModel = AICommentSeviceModel()
-        serviceModel.serviceIcon = "http://img.mshishang.com/pics/2016/0718/20160718043725872.jpeg"
-        serviceModel.serviceName = "华西挂号"
+        serviceModel.serviceIcon = serviceCommentModel?.service_thumbnail_url
+        serviceModel.serviceName = serviceCommentModel?.service_name
         commentModel.serviceModel = serviceModel
-        commentModel.starLevel = 5
-        //commentModel.comments = "这次的服务非常好！我非常喜欢，请告诉我美女服务员的电话吧，我要当面感谢她！这次的服务也很好，如果下次需要挂号，都找这个美女挂号员吧！绝对不会让你失望的！"
+        commentModel.starLevel = Int((serviceCommentModel?.rating_level)!)
+        //commentModel.comments = serviceCommentModel?.comment_list
 
         //let imageName = "http://img.mshishang.com/pics/2016/0718/20160718043725872.jpeg"
         //commentModel.commentPictures = [imageName, imageName, imageName, imageName, imageName, imageName, imageName]
@@ -130,7 +153,18 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
     //MARK: Actions
 
     func submitAction() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+
+        self.showLoading()
+
+        let userID = AILocalStore.userId
+        let service = HttpCommentService()
+        weak var wf = self
+
+        service.submitComments(userID.toString(), userType: 1, commentList: [SingleComment](), success: { (responseData) in
+            wf?.dismissViewControllerAnimated(true, completion: nil)
+            }) { (errType, errDes) in
+                AIAlertView().showError("AISingleServiceCommnentViewController.SubmitError".localized, subTitle: "")
+        }
     }
 
 
