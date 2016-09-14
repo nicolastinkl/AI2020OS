@@ -143,50 +143,52 @@ struct AIRemoteNotificationParameters {
 
         //如果是抢单通知
         let key = AIRemoteNotificationKeys.NotificationType
-        let paramDic: Dictionary = userinfo["paramList"] as! Dictionary<String, AnyObject>
-
-        if let value = paramDic[key] as? String {
-            if value == AIRemoteNotificationParameters.GrabOrderType {
-                UIViewController.showAlertViewController(paramDic)
-                
-            } else if value == AIRemoteNotificationParameters.AudioAssistantType {
-                // 语音协助的 接受
-                let topVC = topViewController()
-
-                let roomNumber = paramDic[AIRemoteNotificationParameters.AudioAssistantRoomNumber] as! String
-                let proposalID = paramDic[AIRemoteNotificationKeys.ProposalID] as! Int
-                let proposalName = paramDic[AIRemoteNotificationKeys.ProposalName] as! String
-                let queryType = paramDic[AIRemoteNotificationKeys.QueryType] as! Int
-                let queryUserID = paramDic[AIRemoteNotificationKeys.QueryUserID] as! Int
-                let senderName = paramDic[AIRemoteNotificationKeys.SenderName] as? String
-                let senderIconUrl = paramDic[AIRemoteNotificationKeys.SenderIconUrl] as? String
-
-                AudioAssistantManager.sharedInstance.connectionStatus = .Dialing
-
-                let buyerDetailViewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
-
-                let model = AIBuyerBubbleModel()
-                model.proposal_id = proposalID
-                model.proposal_name = proposalName
-                buyerDetailViewController.bubbleModel = model
-                buyerDetailViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-                buyerDetailViewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
-                buyerDetailViewController.isLaunchForAssistant = true
-                buyerDetailViewController.audioAssistantModel = .Receiver
-                buyerDetailViewController.roomNumber = String(format: "%d", roomNumber)
-                buyerDetailViewController.queryUserID = queryUserID
-                buyerDetailViewController.queryType = queryType
-
-                topVC.presentViewController(buyerDetailViewController, animated: false, completion: {
-                    let vc = AAProviderDialogViewController.initFromNib()
-                    vc.roomNumber = roomNumber
-                    vc.showRealProvider(senderIconUrl, name: senderName)
-                    vc.delegate = buyerDetailViewController
-                    buyerDetailViewController.providerDialogViewController = vc
-                    buyerDetailViewController.presentViewController(vc, animated: true, completion: nil)
-                })
+        if let paramDic: Dictionary = userinfo["paramList"] as? Dictionary<String, AnyObject> {
+            
+            if let value = paramDic[key] as? String {
+                if value == AIRemoteNotificationParameters.GrabOrderType {
+                    UIViewController.showAlertViewController(paramDic)
+                    
+                } else if value == AIRemoteNotificationParameters.AudioAssistantType {
+                    // 语音协助的 接受
+                    let topVC = topViewController()
+                    
+                    let roomNumber = paramDic[AIRemoteNotificationParameters.AudioAssistantRoomNumber] as! String
+                    let proposalID = paramDic[AIRemoteNotificationKeys.ProposalID] as! Int
+                    let proposalName = paramDic[AIRemoteNotificationKeys.ProposalName] as! String
+                    let queryType = paramDic[AIRemoteNotificationKeys.QueryType] as! Int
+                    let queryUserID = paramDic[AIRemoteNotificationKeys.QueryUserID] as! Int
+                    let senderName = paramDic[AIRemoteNotificationKeys.SenderName] as? String
+                    let senderIconUrl = paramDic[AIRemoteNotificationKeys.SenderIconUrl] as? String
+                    
+                    AudioAssistantManager.sharedInstance.connectionStatus = .Dialing
+                    
+                    let buyerDetailViewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
+                    
+                    let model = AIBuyerBubbleModel()
+                    model.proposal_id = proposalID
+                    model.proposal_name = proposalName
+                    buyerDetailViewController.bubbleModel = model
+                    buyerDetailViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+                    buyerDetailViewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+                    buyerDetailViewController.isLaunchForAssistant = true
+                    buyerDetailViewController.audioAssistantModel = .Receiver
+                    buyerDetailViewController.roomNumber = String(format: "%d", roomNumber)
+                    buyerDetailViewController.queryUserID = queryUserID
+                    buyerDetailViewController.queryType = queryType
+                    
+                    topVC.presentViewController(buyerDetailViewController, animated: false, completion: {
+                        let vc = AAProviderDialogViewController.initFromNib()
+                        vc.roomNumber = roomNumber
+                        vc.showRealProvider(senderIconUrl, name: senderName)
+                        vc.delegate = buyerDetailViewController
+                        buyerDetailViewController.providerDialogViewController = vc
+                        buyerDetailViewController.presentViewController(vc, animated: true, completion: nil)
+                    })
+                }
             }
         }
+
     }
 
 
