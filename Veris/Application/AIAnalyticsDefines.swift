@@ -8,18 +8,20 @@
 
 import UIKit
 
-public class AIAnalyticsEvent: NSObject {
-
-
-
-    // Event
-    static let SaveAsTaskEvent = "SaveAsTaskEvent"
+enum AIAnalyticsEvent: String {
+    case SaveAsTaskEvent
+    /// 给卖家留言
+    case LeaveMessage
 }
 
-
-public class AIAnalyticsKeys: NSObject {
-    // Keys
-    static let CurrentPageName = "CurrentPageName"
-
-
+enum AIAnalyticsKeys: String {
+    // common
+    case CurrentPageName
+    case PartyID
+    case Date
+    
+    // 卖家留言
+    case OfferingId
+    case URL
+    case Text
 }
