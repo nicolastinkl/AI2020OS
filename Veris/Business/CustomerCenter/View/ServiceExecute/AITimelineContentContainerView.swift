@@ -127,7 +127,7 @@ class AITimelineContentContainerView: UIView {
             case .ConfirmServiceComplete, .ConfirmOrderComplete:
                 let confirmButton = UIButton()
                 
-                confirmButton.setTitle(getButtonText(viewModel), forState: UIControlState.Normal)
+                confirmButton.setTitle(getOperationButtonText(viewModel), forState: UIControlState.Normal)
                 confirmButton.titleLabel?.font = CustomerCenterConstants.Fonts.TimelineButton
                 let backImage = UIColor(hex: "#0f86e8").imageWithColor()
                 confirmButton.setBackgroundImage(backImage, forState: UIControlState.Normal)
@@ -151,10 +151,12 @@ class AITimelineContentContainerView: UIView {
                 })
             //需要接受和拒绝按钮的
             case .Authoration:
+                
                 let acceptButton = UIButton()
                 acceptButton.setBackgroundImage(acceptButtonBgColor.imageWithColor(), forState: UIControlState.Normal)
                 acceptButton.setTitleColor(acceptButtonTextColor, forState: UIControlState.Normal)
                 acceptButton.setTitle("授权", forState: UIControlState.Normal)
+                acceptButton.setTitle("已授权", forState: UIControlState.Disabled)
                 acceptButton.titleLabel?.font = CustomerCenterConstants.Fonts.TimelineButton
                 acceptButton.layer.cornerRadius = buttonContainterHeight / 2
                 acceptButton.layer.masksToBounds = true
@@ -164,6 +166,7 @@ class AITimelineContentContainerView: UIView {
                     make.top.bottom.leading.equalTo(buttonContainerView)
                     make.width.equalTo(acceptButtonWidth)
                 })
+                
                 
                 let ignoreButton = UIButton()
                 ignoreButton.setBackgroundImage(UIColor.clearColor().imageWithColor(), forState: UIControlState.Normal)
@@ -186,6 +189,15 @@ class AITimelineContentContainerView: UIView {
                     make.height.equalTo(buttonContainterHeight)
                     make.top.equalTo(imageContainerView.snp_bottom).offset(15)
                 })
+                //add by liux at 20160914 针对是否已经授权，修改按钮状态
+                if viewModel.operationType == AITimelineOperationTypeEnum.confirmed {
+                    acceptButton.enabled = false
+                    ignoreButton.hidden = true
+                } else {
+                    acceptButton.enabled = true
+                    ignoreButton.hidden = false
+
+                }
             //没有按钮的
             case .Normal:
                 buttonContainerView.snp_updateConstraints(closure: { (make) in
@@ -282,7 +294,7 @@ class AITimelineContentContainerView: UIView {
     }
     
     //根据操作类型决定按钮文字
-    private func getButtonText(viewModel: AITimelineViewModel) -> String {
+    private func getOperationButtonText(viewModel: AITimelineViewModel) -> String {
         var buttonText = ""
         //判断决定按钮文字
         switch viewModel.operationType! {
@@ -295,6 +307,7 @@ class AITimelineContentContainerView: UIView {
         }
         return buttonText
     }
+    
     // MARK: -> event methods
     func confirmServiceCompleteAction(sender: UIButton) {
         if let delegate = delegate {
