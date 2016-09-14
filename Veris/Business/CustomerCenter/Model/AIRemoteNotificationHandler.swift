@@ -141,18 +141,18 @@ struct AIRemoteNotificationParameters {
     
     func didReceiveRemoteNotificationUserInfo(userinfo: [NSObject : AnyObject]) {
 
-        //如果是抢单通知
-        let key = AIRemoteNotificationKeys.NotificationType
-        if let paramDic: Dictionary = userinfo["paramList"] as? Dictionary<String, AnyObject> {
-            
+        if let paramDic: Dictionary<String, AnyObject> = userinfo["paramList"] as? Dictionary<String, AnyObject> {
+            //如果是抢单通知
+            let key = AIRemoteNotificationKeys.NotificationType
+
             if let value = paramDic[key] as? String {
                 if value == AIRemoteNotificationParameters.GrabOrderType {
                     UIViewController.showAlertViewController(paramDic)
-                    
+
                 } else if value == AIRemoteNotificationParameters.AudioAssistantType {
                     // 语音协助的 接受
                     let topVC = topViewController()
-                    
+
                     let roomNumber = paramDic[AIRemoteNotificationParameters.AudioAssistantRoomNumber] as! String
                     let proposalID = paramDic[AIRemoteNotificationKeys.ProposalID] as! Int
                     let proposalName = paramDic[AIRemoteNotificationKeys.ProposalName] as! String
@@ -160,11 +160,11 @@ struct AIRemoteNotificationParameters {
                     let queryUserID = paramDic[AIRemoteNotificationKeys.QueryUserID] as! Int
                     let senderName = paramDic[AIRemoteNotificationKeys.SenderName] as? String
                     let senderIconUrl = paramDic[AIRemoteNotificationKeys.SenderIconUrl] as? String
-                    
+
                     AudioAssistantManager.sharedInstance.connectionStatus = .Dialing
-                    
+
                     let buyerDetailViewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
-                    
+
                     let model = AIBuyerBubbleModel()
                     model.proposal_id = proposalID
                     model.proposal_name = proposalName
@@ -176,7 +176,7 @@ struct AIRemoteNotificationParameters {
                     buyerDetailViewController.roomNumber = String(format: "%d", roomNumber)
                     buyerDetailViewController.queryUserID = queryUserID
                     buyerDetailViewController.queryType = queryType
-                    
+
                     topVC.presentViewController(buyerDetailViewController, animated: false, completion: {
                         let vc = AAProviderDialogViewController.initFromNib()
                         vc.roomNumber = roomNumber

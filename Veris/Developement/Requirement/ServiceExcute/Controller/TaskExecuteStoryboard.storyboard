@@ -87,7 +87,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please check in for Ms. Customer A with the QR code above" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-4s-4DV" userLabel="NodeDesc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-4s-4DV" userLabel="NodeDesc">
                                 <rect key="frame" x="38" y="409" width="524" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -233,7 +233,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="88" placeholderIntrinsicHeight="78" image="camera_yellow" translatesAutoresizingMaskIntoConstraints="NO" id="Chn-Aj-sbn" userLabel="CameraIcon">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="88" placeholderIntrinsicHeight="78" image="camera_yellow" translatesAutoresizingMaskIntoConstraints="NO" id="Chn-Aj-sbn" userLabel="CameraIcon">
                                 <rect key="frame" x="256" y="170" width="88" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="XN5-wH-xIv"/>
@@ -246,7 +246,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="92" placeholderIntrinsicHeight="85" image="pen" translatesAutoresizingMaskIntoConstraints="NO" id="9dj-Mt-82x" userLabel="WriteIcon">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="92" placeholderIntrinsicHeight="85" image="pen" translatesAutoresizingMaskIntoConstraints="NO" id="9dj-Mt-82x" userLabel="WriteIcon">
                                 <rect key="frame" x="254" y="288" width="92" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="85" id="f22-qc-RJl"/>

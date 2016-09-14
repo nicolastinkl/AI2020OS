@@ -61,6 +61,8 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
+        //navigationbar隐藏
+        self.navigationController?.navigationBarHidden = true
         parseInputParams()
         initViews()
         //网络请求
