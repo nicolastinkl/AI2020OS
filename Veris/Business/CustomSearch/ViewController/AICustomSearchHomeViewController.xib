@@ -149,7 +149,7 @@
                             <rect key="frame" x="0.0" y="58" width="600" height="542"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x0X-vW-wdc">
-                                    <rect key="frame" x="0.0" y="52" width="600" height="322"/>
+                                    <rect key="frame" x="0.0" y="50" width="600" height="324"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <outlet property="dataSource" destination="-1" id="SUP-sj-Txb"/>
@@ -169,7 +169,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-recommend" translatesAutoresizingMaskIntoConstraints="NO" id="If7-YO-yqx">
                                             <rect key="frame" x="13" y="5" width="21" height="21"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommendation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy9-i5-jWJ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Recommendation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy9-i5-jWJ">
                                             <rect key="frame" x="43" y="8" width="105" height="16"/>
                                             <fontDescription key="fontDescription" name="MyriadPro-LightSemiCn" family="Myriad Pro" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -193,7 +193,7 @@
                                 <constraint firstItem="7V0-3c-akw" firstAttribute="leading" secondItem="mdy-F9-PrK" secondAttribute="leading" id="F0d-VE-ARI"/>
                                 <constraint firstAttribute="trailing" secondItem="7V0-3c-akw" secondAttribute="trailing" id="STP-Dx-Ien"/>
                                 <constraint firstAttribute="bottom" secondItem="7V0-3c-akw" secondAttribute="bottom" id="YRf-uG-9dw"/>
-                                <constraint firstItem="x0X-vW-wdc" firstAttribute="top" secondItem="T59-kx-bm1" secondAttribute="bottom" constant="2" id="cmX-hC-XT9"/>
+                                <constraint firstItem="x0X-vW-wdc" firstAttribute="top" secondItem="T59-kx-bm1" secondAttribute="bottom" id="cmX-hC-XT9"/>
                                 <constraint firstItem="x0X-vW-wdc" firstAttribute="leading" secondItem="mdy-F9-PrK" secondAttribute="leading" id="jJz-nG-UDr"/>
                                 <constraint firstAttribute="trailing" secondItem="T59-kx-bm1" secondAttribute="trailing" id="jSJ-fB-z90"/>
                                 <constraint firstItem="T59-kx-bm1" firstAttribute="top" secondItem="mdy-F9-PrK" secondAttribute="top" constant="10" id="zqg-rd-qDh"/>

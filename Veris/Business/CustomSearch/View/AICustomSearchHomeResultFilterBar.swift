@@ -24,7 +24,7 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	weak var delegate: AICustomSearchHomeResultFilterBarDelegate?
 	private var filterButtons: [ImagePositionButton] = []
 	// 货币符号
-	var unit = ""
+	var unit = "¥"
 	
 	var requestParams: [String: AnyObject] {
 		var result: [String: AnyObject] = [:]
@@ -32,7 +32,8 @@ class AICustomSearchHomeResultFilterBar: UIView {
 			
 			let sortIndex = indexOf(type: .Sort)
 			if sortIndex != -1 {
-				result["catalog_id"] = (filterModel.catalogs[sortIndex] as! AISearchFilterCatalog).id
+				// 服务器字段叫sort_by
+				result["sort_by"] = sortRequestValues[sortIndex]
 			}
 			
 			let priceIndex = indexOf(type: .Price)
@@ -47,8 +48,7 @@ class AICustomSearchHomeResultFilterBar: UIView {
 			
 			let filterIndex = indexOf(type: .Filter)
 			if filterIndex != -1 {
-				// 服务器字段叫sort_by
-				result["sort_by"] = sortRequestValues[filterIndex]
+				result["catalog_id"] = (filterModel.catalogs[filterIndex] as! AISearchFilterCatalog).id
 			}
 		}
 		
@@ -101,11 +101,21 @@ class AICustomSearchHomeResultFilterBar: UIView {
 			if prices.count == 1 && prices[0].min == nil {
 				return []
 			} else {
-				return prices.filter {
+				let result = prices.filter {
 					$0.min.length > 0
-				}.map {
-					$0.min ?? "" + " " + $0.max ?? ""
-				}
+				}.map({ (price) -> String in
+					var output = ""
+					output += unit
+					output += price.min
+					if price.max != "+" {
+                        output += " - "
+						output += unit
+					}
+					output += price.max
+					return output
+				})
+				AILog(result)
+				return result
 			}
 		}
 		return []
