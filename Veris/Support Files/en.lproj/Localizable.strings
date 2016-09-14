@@ -60,6 +60,8 @@
 //
 "AISellerViewController.2beConfirmed" = "To Be Confirmed";
 
+"AISellerViewController.ServiceFinished" = "Service Finished";
+
 //
 "PurchasedServiceView.home" = "Home Delivery";
 "PurchasedServiceView.yourOrder" = "Your ordered items have arrived at Shanghai storehouse, ready to be sent to Beijing.";
@@ -318,6 +320,8 @@
 "AISingleServiceCommnentViewController.PlaceHolder" = "Please tell us how you fell about this experience. This will be of great help for others.";
 
 "AISingleServiceCommnentViewController.Anonymous" = "Anonymous";
+
+"AISingleServiceCommnentViewController.SubmitError" = "Submit Error! Try again.";
 
 /// 搜索过滤bar AICustomSearchHomeResultFilterBar
 "AICustomSearchHomeResultFilterBar.priceLowToHigh" = "Price: Low to High";

@@ -52,14 +52,15 @@ class AISingalCommentView: UIView {
 
     var lineColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7)
     var textViewPlaceHolder: UITextView!
-    var lCommentModel: AICommentModel!
+    var lCommentModel: AICommentModel?
     var hasDefaultComment: Bool!
+    var hasAdditionalComment: Bool!
     var didShowAddtionalCommentView: Bool = false
 
     //MARK: init
 
 
-    init(frame: CGRect, commentModel: AICommentModel) {
+    init(frame: CGRect, commentModel: AICommentModel?) {
         super.init(frame: frame)
         lCommentModel = commentModel
         makeSubViews()
@@ -72,7 +73,8 @@ class AISingalCommentView: UIView {
     //MARK: func
 
     private func makeSubViews() {
-        hasDefaultComment = lCommentModel.comments != nil || lCommentModel.commentPictures != nil
+        hasDefaultComment = lCommentModel?.comments != nil || lCommentModel?.commentPictures != nil
+        hasAdditionalComment = lCommentModel?.additionalComment != nil && (lCommentModel?.additionalComment?.comments != nil || lCommentModel?.additionalComment?.commentPictures != nil)
         makeLastCommentView()
         makeFreshCommentView()
     }
@@ -106,7 +108,7 @@ class AISingalCommentView: UIView {
         var width = CGRectGetWidth(self.frame) - x*2 - 305.displaySizeFrom1242DesignSize()
         let height = 75.displaySizeFrom1242DesignSize()
         var frame = CGRect(x: x, y: y, width: width, height: height)
-        lastServiceOverview =  AIServiceOverview(frame: frame, service: lCommentModel.serviceModel!, type: ServiceOverviewType.ServiceOverviewTypeSingalLast)
+        lastServiceOverview =  AIServiceOverview(frame: frame, service: (lCommentModel?.serviceModel)!, type: ServiceOverviewType.ServiceOverviewTypeSingalLast)
         lastView.addSubview(lastServiceOverview)
 
         // add line 
@@ -134,14 +136,14 @@ class AISingalCommentView: UIView {
         starInfo.Width = 54.displaySizeFrom1242DesignSize()
         starInfo.Margin = 9.displaySizeFrom1242DesignSize()
 
-        lastCommentStar = AIChooseStarLevelView(frame: frame, starInfo: starInfo, starLevel: (lCommentModel.starLevel?.integerValue)!)
+        lastCommentStar = AIChooseStarLevelView(frame: frame, starInfo: starInfo, starLevel: (lCommentModel?.starLevel?.integerValue)!)
         lastCommentStar.userInteractionEnabled = false
         lastView.addSubview(lastCommentStar)
     }
 
     private func makeLastCommentTextView() {
 
-        if lCommentModel.comments == nil {
+        if lCommentModel?.comments == nil {
             return
         }
 
@@ -150,13 +152,13 @@ class AISingalCommentView: UIView {
         let y = CGRectGetMaxY(lastServiceOverview.frame) + 55.displaySizeFrom1242DesignSize() + margin
         let width = self.width - x*2
         let font = AITools.myriadSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
-        let textSize = lCommentModel.comments?.sizeWithFont(font, forWidth: width)
+        let textSize = lCommentModel?.comments?.sizeWithFont(font, forWidth: width)
         let maxHeight = 228.displaySizeFrom1242DesignSize()
         let height: CGFloat = ((textSize?.height)! + margin*2) > maxHeight ? maxHeight : ((textSize?.height)! + margin*2)
         let frame = CGRect(x: x, y: y, width: width, height: height)
         lastCommentTextView = UITextView(frame: frame)
         lastCommentTextView.backgroundColor = UIColor.clearColor()
-        lastCommentTextView.text = lCommentModel.comments
+        lastCommentTextView.text = lCommentModel?.comments
         lastCommentTextView.font = font
         lastCommentTextView.textColor = AITools.colorWithR(0xfe, g: 0xfe, b: 0xfe, a: 1)
         lastCommentTextView.tag = ReadOnlyTag
@@ -170,7 +172,7 @@ class AISingalCommentView: UIView {
 
     private func makeLastPircureView() {
 
-        if lCommentModel.commentPictures == nil {
+        if lCommentModel?.commentPictures == nil {
             return
         }
 
@@ -184,14 +186,14 @@ class AISingalCommentView: UIView {
         let height: CGFloat = 220.displaySizeFrom1242DesignSize()
         let frame = CGRect(x: x, y: y, width: width, height: height)
 
-        lastCommentPictureView = AICommentPictures(frame: frame, pictures: lCommentModel.commentPictures!)
+        lastCommentPictureView = AICommentPictures(frame: frame, pictures: (lCommentModel?.commentPictures)!)
 
         lastView.addSubview(lastCommentPictureView)
     }
 
     private func makeLastAddtionalButtonView() {
         var yoffset: CGFloat = 0
-        if lCommentModel.commentPictures != nil {
+        if lCommentModel?.commentPictures != nil {
             yoffset = CGRectGetMaxY(lastCommentPictureView.frame)
         } else {
             yoffset = CGRectGetMaxY(lastCommentTextView.frame)
@@ -271,7 +273,7 @@ class AISingalCommentView: UIView {
         let width = CGRectGetWidth(freshView.frame) - x*2
         let height = 142.displaySizeFrom1242DesignSize()
         let frame = CGRect(x: x, y: y, width: width, height: height)
-        freshServiceOverview = AIServiceOverview(frame: frame, service: lCommentModel.serviceModel!, type: ServiceOverviewType.ServiceOverviewTypeSingalFresh)
+        freshServiceOverview = AIServiceOverview(frame: frame, service: (lCommentModel?.serviceModel)!, type: ServiceOverviewType.ServiceOverviewTypeSingalFresh)
         freshView.addSubview(freshServiceOverview)
     }
 
@@ -292,7 +294,7 @@ class AISingalCommentView: UIView {
         starInfo.Margin = 50.displaySizeFrom1242DesignSize()
 
 
-        freshCommentStar = AIChooseStarLevelView(frame: frame, starInfo: starInfo, starLevel: (lCommentModel.starLevel?.integerValue)!)
+        freshCommentStar = AIChooseStarLevelView(frame: frame, starInfo: starInfo, starLevel: (lCommentModel?.starLevel?.integerValue)!)
         freshView.addSubview(freshCommentStar)
 
         // Center Display
@@ -332,6 +334,7 @@ class AISingalCommentView: UIView {
         freshCommentTextView.backgroundColor = UIColor.clearColor()
         freshCommentTextView.font = font
         freshCommentTextView.textColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 1)
+        freshCommentTextView.text = lCommentModel?.additionalComment?.comments
         freshCommentTextView.delegate = self
 
         freshView.addSubview(freshCommentTextView)
@@ -358,12 +361,17 @@ class AISingalCommentView: UIView {
         let height: CGFloat = 0
         let frame = CGRect(x: x, y: y, width: width, height: height)
 
-        freshCommentPictureView = AICommentPictures(frame: frame, pictures: [String]())
+        freshCommentPictureView = AICommentPictures(frame: frame, pictures: lCommentModel?.additionalComment?.commentPictures ?? [String]())
         freshCommentPictureView.delegate = self
         freshView.addSubview(freshCommentPictureView)
     }
 
     private func makeFreshChoosePictureView() {
+
+        if hasAdditionalComment == true {
+            return
+        }
+
         let x = 40.displaySizeFrom1242DesignSize()
         var y = CGRectGetMaxY(freshCommentPictureView.frame) + 30.displaySizeFrom1242DesignSize()
         let width = freshView.width - x*2

@@ -520,7 +520,7 @@
             break;
         case 2: // 已完成
         {
-
+            [self showToastMessage:@"AISellerViewController.ServiceFinished".localized];
         }
             break;
 
