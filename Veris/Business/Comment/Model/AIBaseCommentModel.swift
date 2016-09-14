@@ -17,6 +17,8 @@ class AICommentModel: NSObject {
     var commentPictures: [String]?
     var isAnonymous: Bool?
     var serviceModel: AICommentSeviceModel?
+
+    var additionalComment: AICommentModel?
 }
 
 
