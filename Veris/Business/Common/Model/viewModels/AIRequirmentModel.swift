@@ -146,6 +146,7 @@ class IconServiceIntModel: AIBaseViewModel {
     var serviceInstStatus: ServiceInstStatus!
     var executeProgress: Int!
     var isSelected: Bool = false
+    var serviceID: Int = 0
 
     override init() {
         super.init()
