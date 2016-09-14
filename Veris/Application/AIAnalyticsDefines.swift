@@ -19,22 +19,25 @@ enum AIAnalyticsEvent: String {
     case SearchService
     case FilterSearch
     
+    /// 点击浏览历史
     case HistoryIconClick
+    /// 点击推荐服务
     case RecommendIconClick
 }
 
 enum AIAnalyticsKeys: String {
     // common
-    case ClassName
-    case Title
-    case PartyID
-    case Date
+    case ClassName = "pageMark"
+    case Title = "title"
+    case PartyID = "partyID"
+    case Date = "date"
     
     // 卖家留言
-    case OfferingId
-    case URL
-    case Text
+    case OfferingId = "offeringId"
+    case URL = "url"
+    case Text = "text"
     /// 搜索服务
-    case Keyword
+    case Keyword = "keyword"
+    case ServiceId = "serviceId"
     
 }
