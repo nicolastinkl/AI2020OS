@@ -418,7 +418,6 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             popupVC.order_id = self.g_orderId
             //这个暂时从买家订单列表带过来
             popupVC.order_item_id = self.g_orderItemId
-            popupVC.view.frame = self.view.bounds
             let natigationController = UINavigationController(rootViewController: popupVC)
             self.showTransitionStyleCrossDissolveView(natigationController)
         }) { (errType, errDes) in
