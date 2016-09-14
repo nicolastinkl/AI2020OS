@@ -70,6 +70,7 @@ class AICustomerOrderFoldedView: UIView {
             if services.count > 0 {
                 if let serviceData = getHasNodeService(services) {
                     if let time = ProposalOrderViewModel.getNodeTime(serviceData.node) {
+                        
                         taskSchedulTimeLabel.text = "\(time)"
                     }
                     
@@ -87,7 +88,7 @@ class AICustomerOrderFoldedView: UIView {
     
     private func getHasNodeService(orders: [ServiceOrderModel]) -> ServiceOrderModel? {
         for order in orders {
-            if order.node != nil {
+            if order.node != nil && order.node.procedure_inst_id != nil {
                 return order
             }
         }
