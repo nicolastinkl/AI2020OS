@@ -33,6 +33,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     var selectedServiceInstIds: Array<String> = []
     var selectedFilterType = 1
     var g_orderId = "100000029231"
+    var g_orderItemId = ""
     
 
     // MARK: -> Public class methods
@@ -391,7 +392,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         let requester = AICustomerServiceExecuteHandler.sharedInstance
         let procedureInstId = viewModel.itemId!
         requester.confirmOrderComplete(procedureInstId, action: "1", success: { (resultCode) in
-            AILog("confirmOrderComplete result: \(resultCode)")
+            AILog("confirmServiceComplete result: \(resultCode)")
             //AIAlertView().showSuccess("同意授权成功!", subTitle: "")
             
         }) { (errType, errDes) in
@@ -415,9 +416,13 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             //back to main view controller
             NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
             //打开支付页面
-//            let popupVC = AIPaymentViewController.initFromNib()
-//            popupVC.view.frame = self.view.bounds
-//            self.showTransitionStyleCrossDissolveView(popupVC)
+            let popupVC = AIPaymentViewController.initFromNib()
+            popupVC.order_id = self.g_orderId
+            //这个暂时从买家订单列表带过来
+            popupVC.order_item_id = self.g_orderItemId
+            popupVC.view.frame = self.view.bounds
+            let natigationController = UINavigationController(rootViewController: popupVC)
+            self.showTransitionStyleCrossDissolveView(natigationController)
         }) { (errType, errDes) in
             AIAlertView().showSuccess("确认完成失败!", subTitle: "")
         }

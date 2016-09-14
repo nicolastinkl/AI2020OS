@@ -273,6 +273,7 @@ extension AIProposalTableViewController: SubServiceCardViewDelegate, AIFoldedCel
         
         let serviceExecVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIServiceExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AICustomerServiceExecuteViewController) as! AICustomerServiceExecuteViewController
         serviceExecVC.g_orderId = proposalModel.id
+        serviceExecVC.g_orderItemId = proposalModel.item_id
         //弹出前先收起订单列表
         let parentVC = parentViewController as! AIBuyerViewController
         parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)

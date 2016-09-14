@@ -146,6 +146,7 @@
 @interface ProposalOrderModel : JSONModel
 
 @property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *item_id;
 @property (nonatomic, strong) NSString<Optional> *name;
 // 消息总数
 @property (nonatomic, strong) NSString<Optional> *messages;
