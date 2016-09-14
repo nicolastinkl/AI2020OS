@@ -71,7 +71,7 @@ class AACustomerDialogViewController: AADialogBaseViewController {
         let notification = [AIRemoteNotificationParameters.AudioAssistantRoomNumber: AudioAssistantManager.fakeRoomNumber, AIRemoteNotificationKeys.NotificationType: AIRemoteNotificationParameters.AudioAssistantType, AIRemoteNotificationKeys.ProposalID: (proposalModel?.proposal_id)!, AIRemoteNotificationKeys.ProposalName: (proposalModel?.proposal_name)!, AIRemoteNotificationKeys.QueryType : 1, AIRemoteNotificationKeys.QueryUserID : AILocalStore.userId, AIRemoteNotificationKeys.SenderName : AILocalStore.nickName!, AIRemoteNotificationKeys.SenderIconUrl : AILocalStore.headURL!]
 
 		view.showLoading()
-        let user = proposalModel?.provider_id.toString()
+        let user = proposalModel?.show_helper.show_id
 		AudioAssistantManager.sharedInstance.customerCallRoom(roomNumber: AudioAssistantManager.fakeRoomNumber, sessionDidConnectHandler: { [weak self] in
 			AIRemoteNotificationHandler.defaultHandler().sendAudioAssistantNotification(notification as! [String: AnyObject], toUser: user!)
             AudioAssistantManager.sharedInstance.doPublishAudio()

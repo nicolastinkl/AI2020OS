@@ -38,7 +38,7 @@ internal class AICustomView: UIView {
             var newModels = models
             newModels.insert(model, atIndex: 0)
             fillTags(newModels, isNormal: isNormal)
-        }else{
+        } else {
             fillTags(models, isNormal: isNormal)
         }
         

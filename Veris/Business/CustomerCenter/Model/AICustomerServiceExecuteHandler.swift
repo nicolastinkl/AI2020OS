@@ -225,8 +225,7 @@ class AICustomerServiceExecuteHandler: NSObject {
             if let resultCode = dic["result"] as? String {
                 if resultCode == "1"{
                     success(resultCode: resultCode)
-                }
-                else {
+                } else {
                     fail(errType: AINetError.Format, errDes: AINetErrorDescription.businessError)
                 }
             } else {

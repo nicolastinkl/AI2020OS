@@ -462,7 +462,13 @@ class AIBuyerDetailViewController: UIViewController {
     func handleEnableWhenAppear () {
 
         switch audioAssistantModel {
-        case .None, .Receiver: // 协助者
+        case .None:
+
+            makeSubviewsEnable(customerDialogViewController == nil)
+            break
+
+        case .Receiver:
+
             makeSubviewsEnable(true)
             break
         case .Sender: // 申请者

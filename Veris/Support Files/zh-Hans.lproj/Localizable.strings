@@ -350,3 +350,8 @@
 
 ///
 "AISearchHistoryIconView.title" = "最近浏览";
+
+
+/// AICustomerServiceExecuteViewController
+"AICustomerServiceExecuteViewController.ConfirmError" = "确认失败，请重试!";
+

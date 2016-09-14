@@ -340,3 +340,6 @@
 
 ///
 "AISearchHistoryIconView.title" = "Recently browsed";
+
+/// AICustomerServiceExecuteViewController
+"AICustomerServiceExecuteViewController.ConfirmError" = "Confirm Error!";

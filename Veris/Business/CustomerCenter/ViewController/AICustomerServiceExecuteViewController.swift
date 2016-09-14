@@ -391,17 +391,15 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         let requester = AICustomerServiceExecuteHandler.sharedInstance
         let procedureInstId = viewModel.itemId!
         requester.confirmOrderComplete(procedureInstId, action: "1", success: { (resultCode) in
-            AILog("confirmOrderComplete result: \(resultCode)")
             //AIAlertView().showSuccess("同意授权成功!", subTitle: "")
-            
-        }) { (errType, errDes) in
-            AIAlertView().showSuccess("确认完成失败!", subTitle: "")
             //测试评论打开
             let commentVC = AISingleServiceCommnentViewController()
-            commentVC.serviceID = 0
+            commentVC.serviceID = (viewModel.serviceInstanceId?.toInt())!
             let navi = UINavigationController(rootViewController: commentVC)
             navi.view.frame = self.view.bounds
             self.showTransitionStyleCrossDissolveView(navi)
+        }) { (errType, errDes) in
+            AIAlertView().showError("AICustomerServiceExecuteViewController.ConfirmError".localized, subTitle: "")
         }
         
             }
