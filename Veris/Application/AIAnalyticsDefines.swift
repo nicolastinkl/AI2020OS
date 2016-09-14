@@ -48,4 +48,9 @@ enum AIAnalyticsKeys: String {
     case Keyword = "keyword"
     case ServiceId = "serviceId"
     
+    /// 抢单
+    case ProviderId
+    case CustomerId
+    case ServiceInstanceID
+    case ServiceID
 }

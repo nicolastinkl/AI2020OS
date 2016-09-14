@@ -53,7 +53,7 @@ class AISearchHistoryIconView: UIView {
 	private func setup() {
 		// setup title label
 		titleLabel = UILabel()
-		titleLabel.text = "Recently browsed"
+		titleLabel.text = "AISearchHistoryIconView.title".localized
 		titleLabel.textColor = UIColor.whiteColor()
 		titleLabel.font = Constants.titleLabelFont
 		titleLabel.sizeToFit()

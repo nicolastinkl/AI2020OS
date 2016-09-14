@@ -17,6 +17,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var nodeDesc: UILabel!
     @IBOutlet weak var bottomButton: UIButton!
     
+    @IBOutlet weak var nodeImage: UIImageView!
     @IBOutlet weak var authorizationBg: UIImageView!
     @IBOutlet weak var promptAuthorization: UILabel!
     @IBOutlet weak var waitingIcon: UIImageView!
@@ -133,6 +134,13 @@ class TaskDetailViewController: UIViewController {
         
         nodeTitleLabel.text = p.node_info.node_title
         nodeDesc.text = p.node_info.node_desc
+        
+        if let imageUrl = p.node_info.node_pic {
+            if !imageUrl.isEmpty {
+                nodeImage.hidden = false
+                nodeImage.asyncLoadImage(imageUrl)
+            }
+        }
         
         if let params = p.param_list {
             
