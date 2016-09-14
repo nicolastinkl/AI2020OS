@@ -85,15 +85,18 @@ class ProposalOrderViewModel {
         }
     }
     
-    static func getNodeTime(node: AITimelineBusiModel) -> NSDate? {
+    static func getNodeTime(node: AITimelineBusiModel) -> String? {
         if let time = node.time_value {
             if time.doubleValue > 0 {
                 let date = NSDate(timeIntervalSince1970: time.doubleValue / 1000.0)
-                return date
+                let dateFormat = NSDateFormatter()
+                dateFormat.dateFormat = "MM-dd HH:mm"
+                let timeString = dateFormat.stringFromDate(date)
+                return timeString
             }
         }
         
-        return nil
+        return ""
     }
 }
 

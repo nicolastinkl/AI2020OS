@@ -28,6 +28,7 @@ import Spring
 import Cartography
 import AIAlertView
 import SnapKit
+import IQKeyboardManagerSwift
 
 /// 许愿视图
 class AIWishVowViewController: UIViewController {
@@ -88,6 +89,7 @@ class AIWishVowViewController: UIViewController {
         }
     }
     
+        
     //刷新按钮状态
     func refereshButtonStatus(enble: Bool) {
         if enble {
@@ -177,7 +179,6 @@ class AIWishVowViewController: UIViewController {
         title2.icon.image = UIImage(named: "AI_Wish_Make_hot")
         title2.title.text = "AIWishVowViewController.PoplarWish".localized
         addNewSubView(title2, preView: bubbleScrollViewReCmt, space : 12)
-        
         
         /**
          最火心愿

@@ -21,6 +21,18 @@
 @end
 
 @implementation CompondComment
+
+- (id) init
+{
+    self = [super init];
+    
+    if (self) {
+        _rating_level = 1;
+    }
+    
+    return self;
+}
+
 @end
 
 @implementation RequestResult

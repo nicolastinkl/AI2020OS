@@ -205,7 +205,7 @@
                                 <action selector="audioAction:" destination="-1" eventType="touchUpInside" id="A7L-9m-Lm4"/>
                             </connections>
                         </button>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFS-gw-a38">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFS-gw-a38">
                             <rect key="frame" x="0.0" y="402" width="600" height="198"/>
                         </scrollView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your Could write down your wish here or select from blew." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3dt-K5-wmt" customClass="DesignableTextView" customModule="Spring">

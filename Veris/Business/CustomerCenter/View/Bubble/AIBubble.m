@@ -279,7 +279,6 @@ typedef enum  {
     self.layer.borderWidth = 1.5;
     self.layer.masksToBounds = YES;
     self.clipsToBounds = YES;
- 
     
     /** 这里是算法取颜色值*/
     {
@@ -299,7 +298,6 @@ typedef enum  {
         [UIView commitAnimations];
         
     }
-    
     
     /**
     AIBuyerBubbleProportModel * modelChild = model.service_list.firstObject;

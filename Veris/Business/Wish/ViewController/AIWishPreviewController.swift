@@ -11,6 +11,7 @@ import Foundation
 import Spring
 import Cartography
 import AIAlertView
+import IQKeyboardManagerSwift
 
 //心愿预览
 class AIWishPreviewController: UIViewController {
@@ -44,6 +45,21 @@ class AIWishPreviewController: UIViewController {
     /**
      Main Init
      */
+    
+    
+    // MARK: Method Init
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        IQKeyboardManager.sharedManager().enable = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        IQKeyboardManager.sharedManager().enable = false
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         submitButton.setTitle("AIWishVowViewController.Submit".localized, forState: UIControlState.Normal)
@@ -264,7 +280,7 @@ class AIWishPreviewController: UIViewController {
             let newDesignButton = DesignableButton()
             newDesignButton.frame = self.preAverageView!.totalButton.frame
             self.preAverageView?.insertSubview(newDesignButton, belowSubview: self.preAverageView!.rightRMB)
-            self.preAverageView!.rightRMB.textColor = UIColor.whiteColor()
+            self.preAverageView!.rightRMB.textColor = UIColor(hexString: "FFBA00")
             newDesignButton.cornerRadius = 76/2
             newDesignButton.borderWidth = 2
             newDesignButton.titleLabel?.font = self.preAverageView!.totalButton.titleLabel?.font
@@ -272,6 +288,7 @@ class AIWishPreviewController: UIViewController {
             newDesignButton.backgroundColor = UIColor(hex: "#0C93D9")
             newDesignButton.alpha = 0
             newDesignButton.center = (self.preAverageView!.button.center)
+            newDesignButton.setTitleColor(UIColor(hexString: "FFBA00"), forState: UIControlState.Normal)
             newDesignButton.setTitle(String(averageMenoy), forState: UIControlState.Normal)
             SpringAnimation.springEaseIn(0.5, animations: {
                 newDesignButton.center = self.preAverageView!.totalButton.center

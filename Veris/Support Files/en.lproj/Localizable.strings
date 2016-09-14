@@ -204,6 +204,7 @@
 "TaskDetailViewController.start" = "Start";
 "TaskDetailViewController.complete" = "Complete";
 "TextAndAudioInputViewController.replaceConfirm" = "The previous message will be replaced. Do you want to proceed?";
+"TaskResultCommitViewController.dataNoValid" = "No picture or text is too short, please complete";
 
 /*
  * ./Veris/Business/Comment/ViewController/ImagesReviewViewController
