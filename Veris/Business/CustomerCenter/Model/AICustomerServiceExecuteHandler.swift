@@ -131,7 +131,8 @@ class AICustomerServiceExecuteHandler: NSObject {
                 layoutType = timeline.procedure_inst_type,
                 desc = timeline.procedure_inst_name,
                 timeValue = timeline.time_value,
-                commentStatus = timeline.comment_status
+                commentStatus = timeline.comment_status,
+                serviceInstId = timeline.service_instance_id
             else {
                 fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
                 return
@@ -140,6 +141,7 @@ class AICustomerServiceExecuteHandler: NSObject {
             //创建viewModel
             let viewModel = AITimelineViewModel()
             viewModel.itemId = itemId
+            viewModel.serviceInstanceId = serviceInstId
             viewModel.layoutType = AITimelineLayoutTypeEnum(rawValue: Int(layoutType)!)
             viewModel.operationType = AITimelineOperationTypeEnum(rawValue: Int(commentStatus))
             viewModel.desc = desc

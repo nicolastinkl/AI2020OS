@@ -394,6 +394,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             AILog("confirmOrderComplete result: \(resultCode)")
             //AIAlertView().showSuccess("同意授权成功!", subTitle: "")
             let commentVC = AISingleServiceCommnentViewController()
+            commentVC.serviceID = 0
             let navi = UINavigationController(rootViewController: commentVC)
             navi.view.frame = self.view.bounds
             self.showTransitionStyleCrossDissolveView(navi)

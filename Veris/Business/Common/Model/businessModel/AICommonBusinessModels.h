@@ -114,6 +114,7 @@
 @property (nonatomic, strong) NSString<Optional> *icon;
 @property (nonatomic, strong) NSString<Optional> *name;
 @property (nonatomic, strong) NSString<Optional> *service_intro;
+
 @end
 
 /**
