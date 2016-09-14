@@ -341,3 +341,8 @@
 
 /// AICustomSearchHomeViewController
 "AICustomSearchHomeViewController.makeWish" = "   许愿";
+"AICustomSearchHomeViewController.recent" = "近期搜索";
+"AICustomSearchHomeViewController.everyone" = "热门搜索";
+
+///
+"AISearchHistoryIconView.title" = "Recently browsed";
