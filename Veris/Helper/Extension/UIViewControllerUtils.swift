@@ -167,7 +167,7 @@ extension UIViewController {
             } else {
                 
             }
-            rootVc.presentPopupViewController(viewAlertVC, animated: true)
+            rootVc.presentPopupViewController(navigationController, animated: true)
         }
     }
     

@@ -104,15 +104,15 @@ class AICustomSearchHomeResultFilterBar: UIView {
 				let result = prices.filter {
 					$0.min.length > 0
 				}.map({ (price) -> String in
-                    var output = ""
-                    output += unit
-                    output += price.min
-                    output += " - "
-                    if price.max != "+" {
-                        output += unit
-                    }
-                    output += price.max
-                    return output
+					var output = ""
+					output += unit
+					output += price.min
+					if price.max != "+" {
+                        output += " - "
+						output += unit
+					}
+					output += price.max
+					return output
 				})
 				AILog(result)
 				return result
