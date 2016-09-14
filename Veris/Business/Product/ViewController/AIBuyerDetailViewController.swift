@@ -314,8 +314,7 @@ class AIBuyerDetailViewController: UIViewController {
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let appointmentDate = dateFormatter.dateFromString(appointmentTimeString)
             timestamp = appointmentDate!.timeIntervalSince1970
-        }
-        else{
+        } else {
             timestamp = NSDate().timeIntervalSince1970
         }
         
@@ -579,7 +578,7 @@ class AIBuyerDetailViewController: UIViewController {
 	func initController() {
 		
 		let name = bubbleModel?.proposal_name ?? ""
-		self.backButton.setTitle(String(format: " %@",name), forState: UIControlState.Normal)
+		self.backButton.setTitle(String(format: " %@", name), forState: UIControlState.Normal)
         
 		self.moneyLabel.text = dataSource?.order_total_price
 		
@@ -734,6 +733,12 @@ class AIBuyerDetailViewController: UIViewController {
 		let index = (afterArray as! [AIProposalServiceModel]).indexOf(model)
 		
 		serviceRestoreToolbar.removeLogoAt(indexInDeletedTableView)
+        
+        // 分析
+        AIAnalytics.event(.AddServiceOptInfo, attributes: [
+            .OfferingId: dataSource.proposal_id,
+            .ServiceId: model.service_id
+            ])
 		
 		// 处理小设置按钮添加移除状态
 		if let list = current_service_list as? [AIProposalServiceModel] {
@@ -1032,7 +1037,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                     Card.sharedInstance.showInView(self.view, serviceId: "2", userInfo: ["title":model.service_desc, "name": "Hospital", "url": "\(model.service_thumbnail_icon)"])
 
                     return
-                }else if model.service_desc == "孕妈专车" {
+                } else if model.service_desc == "孕妈专车" {
                     // Show View.
                     Card.sharedInstance.showInView(self.view, serviceId: "1", userInfo: ["title":model.service_desc, "name": "Uber", "url": "\(model.service_thumbnail_icon)"])
                     return
@@ -1041,6 +1046,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                 let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIPageBueryViewController) as! AIPageBueryViewController
                 viewController.delegate = self
                 viewController.proposalId = dataSource.proposal_id
+                
                 
                 //remove 孕检挂号
                 var newModel = Array<AIProposalServiceModel>()
@@ -1051,6 +1057,13 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                 })                
                 viewController.bubbleModelArray = newModel
                 viewController.selectCurrentIndex = indexPath.row
+                
+                                // 分析
+                AIAnalytics.event(.ViewServiceDetail, attributes: [
+                    .OfferingId: dataSource.proposal_id,
+                    .ServiceId: viewController.bubbleModelArray![indexPath.row].service_id
+                    ])
+                
                 showTransitionStyleCrossDissolveView(viewController)
                 // Send Anchor
                 if audioAssistantModel == .Receiver {
@@ -1090,7 +1103,13 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
 // MARK: Extension.
 extension AIBuyerDetailViewController: AIBueryDetailCellDetegate {
 	func removeCellFromSuperView(cell: AIBueryDetailCell, model: AIProposalServiceModel?) {
-		
+        
+        // 分析
+        AIAnalytics.event(.DelServiceOptInfo, attributes: [
+            .OfferingId: dataSource.proposal_id,
+            .ServiceId: (model?.service_id)!
+            ])
+        
 		let index = current_service_list!.indexOfObject(model!)
 		
         // Send Anchor
@@ -1173,7 +1192,6 @@ extension AIBuyerDetailViewController: AISuperSwipeableCellDelegate {
             anchor.selector = "cellDidClose"
             AudioAssistantManager.sharedInstance.sendAnchor(anchor)
         }
-
     }
 	
 	func cellDidOpen(cell: UITableViewCell!) {
@@ -1387,5 +1405,12 @@ extension AIBuyerDetailViewController: AIDialogDelegate {
             self.customerDialogViewController?.dismissViewControllerAnimated(true, completion: nil)
         }
         alertView.showError("Oops！", subTitle: "拨号失败~")
+    }
+}
+
+
+extension AIBuyerDetailViewController: AIAnalyticsPageShowProtocol {
+    func analyticsPageShowParam() -> [AIAnalyticsKeys : AnyObject] {
+        return [.ProposalId: (bubbleModel?.proposal_id)!]
     }
 }

@@ -17,6 +17,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
     var singalServiceCommentView: AISingalCommentView!
 
+    var serviceID: Int = 0
 
     //MARK: Functions
     override func viewDidLoad() {
@@ -58,6 +59,13 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
     }
     */
 
+
+    func loadComments() {
+
+        let userID = AILocalStore.userId
+        
+        //HttpCommentService
+    }
 
     //MARK: Configure NavigationBar
     override func setupNavigationBar() {

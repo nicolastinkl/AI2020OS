@@ -222,6 +222,7 @@
 "TaskDetailViewController.start" = "开始服务";
 "TaskDetailViewController.complete" = "完成";
 "TextAndAudioInputViewController.replaceConfirm" = "之前的信息将被覆盖，需要继续吗?";
+"TaskResultCommitViewController.dataNoValid" = "没有上传图片或文字太短，请补全";
 
 /*
  * ./Veris/Business/Comment/ViewController/ImagesReviewViewController

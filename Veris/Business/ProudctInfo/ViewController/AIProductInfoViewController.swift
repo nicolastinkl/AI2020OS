@@ -969,7 +969,7 @@ class AIProductInfoViewController: UIViewController {
         showTransitionStyleCrossDissolveView(viewsss)
     }
     
-    func  createBuyerDetailViewController(model: AIBuyerBubbleModel) -> AIBuyerDetailViewController {
+    func createBuyerDetailViewController(model: AIBuyerBubbleModel) -> AIBuyerDetailViewController {
         
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
         viewController.bubbleModel = model
@@ -1235,6 +1235,14 @@ extension AIProductInfoViewController: AICustomAudioNotesViewDelegate, AIAudioMe
             audio1.loadingView.startAnimating()
             audio1.loadingView.hidden = false
             refereshBottomView(audio1)
+            
+            
+            
+            let att: [AIAnalyticsKeys: AnyObject] = [
+                .OfferingId: dataModel?.proposal_inst_id ?? "",
+                .URL: audioModel.audio_url ?? ""
+            ]
+            AIAnalytics.event(.LeaveMessage, attributes: att)
             // upload
             let wishid = self.dataModel?.customer_note?.wish_id ?? 0
             let message = AIMessageWrapper.addWishNoteWithWishID(wishid, type: "Voice", content: audioModel.audio_url, duration: audioModel.time)
@@ -1421,6 +1429,13 @@ extension AIProductInfoViewController: UITextViewDelegate {
             if let c = currentAudioView {
                 c.closeThisView()
             }
+            
+            // 
+            let att: [AIAnalyticsKeys: AnyObject] = [
+                .OfferingId: dataModel?.proposal_inst_id ?? "",
+                .Text: newText.content.text ?? "",
+            ]
+            AIAnalytics.event(.LeaveMessage, attributes: att)
             
             // add
             self.view.userInteractionEnabled = false

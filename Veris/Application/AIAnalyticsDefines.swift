@@ -8,18 +8,44 @@
 
 import UIKit
 
-public class AIAnalyticsEvent: NSObject {
-
-
-
-    // Event
-    static let SaveAsTaskEvent = "SaveAsTaskEvent"
+enum AIAnalyticsEvent: String {
+    ///
+    case PageShow
+    case SaveAsTaskEvent
+    /// 给卖家留言
+    case LeaveMessage
+    
+    /// 搜索服务
+    case SearchService
+    case FilterSearch
+    
+    /// 点击浏览历史
+    case HistoryIconClick
+    /// 点击推荐服务
+    case RecommendIconClick
+    
+    /// 自由定制
+    case DelServiceOptInfo
+    case AddServiceOptInfo
+    /// 查看多服务详情
+    case ViewServiceDetail = "serviceDetailBrowseInfo"
 }
 
-
-public class AIAnalyticsKeys: NSObject {
-    // Keys
-    static let CurrentPageName = "CurrentPageName"
-
-
+enum AIAnalyticsKeys: String {
+    // common
+    case ClassName = "pageMark"
+    case Title = "title"
+    case PartyID = "partyID"
+    case Date = "date"
+    
+    // 卖家留言
+    case OfferingId = "offeringId"
+    case URL = "url"
+    case Text = "text"
+    case ProposalId = "proposalId"
+    
+    /// 搜索服务
+    case Keyword = "keyword"
+    case ServiceId = "serviceId"
+    
 }
