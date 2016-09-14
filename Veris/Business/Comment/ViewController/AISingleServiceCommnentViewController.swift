@@ -18,7 +18,9 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
     var singalServiceCommentView: AISingalCommentView!
 
-    var serviceID: Int = 0
+    var serviceID: String = "00"
+
+    var orderID: String = "00"
 
     var serviceCommentModel: ServiceComment?
 
@@ -73,7 +75,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
         let service = HttpCommentService()
         weak var wf = self
-        service.getSingleComment(userID.toString(), userType: 1, serviceId: serviceInstanceID.toString(), success: { (responseData) in
+        service.getSingleComment(userID.toString(), userType: 1, serviceId: serviceInstanceID, success: { (responseData) in
             wf?.serviceCommentModel = responseData
             wf?.makeSubviews()
             wf?.dismissLoading()

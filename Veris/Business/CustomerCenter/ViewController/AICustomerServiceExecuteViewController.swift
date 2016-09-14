@@ -394,7 +394,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             //AIAlertView().showSuccess("同意授权成功!", subTitle: "")
             //测试评论打开
             let commentVC = AISingleServiceCommnentViewController()
-            commentVC.serviceID = (viewModel.serviceInstanceId?.toInt())!
+            commentVC.serviceID = viewModel.serviceInstanceId!
             let navi = UINavigationController(rootViewController: commentVC)
             navi.view.frame = self.view.bounds
             self.showTransitionStyleCrossDissolveView(navi)
