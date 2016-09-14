@@ -33,6 +33,9 @@ class TaskResultCommitViewController: UIViewController {
     
     private var hasImage = false
     
+    private var imageUrl: String!
+    private var audioUrl: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,7 +88,57 @@ class TaskResultCommitViewController: UIViewController {
 //    }
     
     @IBAction func questButtonClicked(sender: AnyObject) {
-        updateServiceStatus()
+        
+        showLoading()
+        
+        Async.background({
+     
+            guard let urls = self.uploadAttachment() else {
+                self.dismissLoading()
+                
+                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+                return
+            }
+            
+            self.imageUrl = urls.imageUrl
+            self.audioUrl = urls.audioUrl
+            
+            self.submitCommentContent({ (responseData) in
+                
+                if responseData.resultCode == ResultCode.success {
+                    
+                    let hasNextNode = responseData.hasNextNode
+                    
+                    self.updateNodeState({ (responseData) in
+                        
+                        self.dismissLoading()
+                        
+                        switch responseData {
+                            
+                            case .success:
+                                self.dismiss()
+                                self.delegate?.hasNextNode(hasNextNode)
+                            
+                            default:
+                            
+                            NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+                        }
+                        
+                        }, fail: { (errType, errDes) in
+                            self.dismissLoading()
+                            NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+                    })
+  
+                } else {
+                    self.dismissLoading()
+                    NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+                }
+                
+                }, fail: { (errType, errDes) in
+                    self.dismissLoading()
+                    NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+            })
+        })
     }
     
     func cameraAction(sender: UIGestureRecognizer) {
@@ -217,113 +270,84 @@ class TaskResultCommitViewController: UIViewController {
 //        presentViewController(alert, animated: true, completion: nil)
 //
 //    }
-    private func updateServiceStatus() {
+ 
+    private func updateNodeState(success: (responseData: ResultCode) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let manager = BDKExcuteManager()
         
-        showLoading()
-        
-        manager.updateServiceNodeStatus(procedureId!, status: ProcedureStatus.complete, success: { (responseData) in       
+        manager.updateServiceNodeStatus(procedureId!, status: ProcedureStatus.complete, success: { (responseData) in
             
-            switch responseData {
-                
-            case .success:
-                self.submitResult()
-                
-            default:
-                self.dismissLoading()
-                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
-            }
+            success(responseData: responseData)
             
         }) { (errType, errDes) in
             
-            self.dismissLoading()
-            
-            NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
-            
+            fail(errType: errType, errDes: errDes)
+
         }
     }
     
+    private func submitCommentContent(success: (responseData: (hasNextNode: Bool, resultCode: ResultCode)) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        
+        let textOrVoiceNode = NodeResultContent()
+        
+        if !note.hidden {
+            if let t = note.text {
+                textOrVoiceNode.note_type = NodeResultType.text.rawValue
+                textOrVoiceNode.note_content = t
+            }
+        } else if !soundPlayButton.hidden {
+            textOrVoiceNode.note_type = NodeResultType.voice.rawValue
+            textOrVoiceNode.note_content = audioUrl
+        }
+        
+        let picNode = NodeResultContent()
+        
+        picNode.note_type = NodeResultType.picture.rawValue
+        picNode.note_content = imageUrl
+        
+        if procedureId == nil {
+            procedureId = 602
+        }
+        
+        let manager = BDKExcuteManager()
+        
+        manager.submitServiceNodeResult(serviceId, procedureId: procedureId!, resultList: [picNode, textOrVoiceNode], success: { (responseData: (hasNextNode: Bool, resultCode: ResultCode)) in
+            
+            success(responseData: responseData)
+  
+        }) { (errType, errDes) in
+            fail(errType: errType, errDes: errDes)
+        }
+    }
     
-    private func submitResult() {
+    private func uploadAttachment() -> (imageUrl: String, audioUrl: String?)? {
+        var audioUrl: String?
+        var imageUrl: String?
         
-        var audioUrl: String!
-        var imageUrl: String!
-        
-        func commitResult() {
-            let manager = BDKExcuteManager()
+        if hasImage && cameraIcon.image != nil {
             
-            let textOrVoiceNode = NodeResultContent()
-            
-            if !note.hidden {
-                if let t = note.text {
-                    textOrVoiceNode.note_type = NodeResultType.text.rawValue
-                    textOrVoiceNode.note_content = t
-                }
-            } else if !soundPlayButton.hidden {
-                textOrVoiceNode.note_type = NodeResultType.voice.rawValue
-                textOrVoiceNode.note_content = audioUrl
+            guard let url = uploadImage() else {
+                
+                return nil
             }
             
+            imageUrl = url
             
-            let picNode = NodeResultContent()
-            
-            picNode.note_type = NodeResultType.picture.rawValue
-            picNode.note_content = imageUrl
-            
-            if procedureId == nil {
-                procedureId = 602
-            }
-            
-            manager.submitServiceNodeResult(serviceId, procedureId: procedureId!, resultList: [picNode, textOrVoiceNode], success: { (responseData: (hasNextNode: Bool, resultCode: ResultCode)) in
-                
-                self.dismissLoading()
-                
-                if responseData.resultCode == ResultCode.success {
-                    self.delegate?.hasNextNode(responseData.hasNextNode)
-                    self.dismiss()
-                } else {
-                    NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+            if !self.soundPlayButton.hidden {
+                guard let url = self.uploadAudio() else {
+                    
+                    return nil
+                    
                 }
                 
-            }) { (errType, errDes) in
-                
-                self.dismissLoading()
-                
-                NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
+                audioUrl = url
             }
         }
         
+        if imageUrl == nil { // upload fail
+            return nil
+        }
         
-        
-        showLoading()
-        
-        Async.background({
-            if self.hasImage && self.cameraIcon.image != nil {
-                
-                guard let url = self.uploadImage() else {
-                    NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
-                    
-                    self.dismissLoading()
-                    return
-                }
-                
-                imageUrl = url
-                
-                if !self.soundPlayButton.hidden {
-                    guard let url = self.uploadAudio() else {
-                        NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
-                        
-                        self.dismissLoading()
-                        return
-
-                    }
-                    
-                    audioUrl = url
-                }
-                
-                commitResult()
-            }
-        })  
+        return (imageUrl!, audioUrl)
     }
     
     private func uploadImage() -> String? {

@@ -86,9 +86,16 @@
     
     for (int i = 0; i < _bubbleModels.count; i++) {
         AIBuyerBubbleModel *model = [_bubbleModels objectAtIndex:i];
-        model.deepColor = [deepColor objectAtIndex:i];
-        model.undertoneColor = [undertoneColor objectAtIndex:i];
-        model.borderColor = [borderColor objectAtIndex:i];
+        if (i >= 15) {
+            int index = arc4random() % 14;
+            model.deepColor = [deepColor objectAtIndex:index];
+            model.undertoneColor = [undertoneColor objectAtIndex:index];
+            model.borderColor = [borderColor objectAtIndex:index];
+        } else {
+            model.deepColor = [deepColor objectAtIndex:i];
+            model.undertoneColor = [undertoneColor objectAtIndex:i];
+            model.borderColor = [borderColor objectAtIndex:i];
+        }
     }
 }
 
