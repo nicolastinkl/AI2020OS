@@ -45,24 +45,24 @@ class AIProductCommentsViewController: UIViewController {
 	}
 	
 	func fetchComments() {
-        view.showLoading()
+		view.showLoading()
 		let service = AIProductAllCommentsService()
 		service.queryAllComments(service_id, filter_type: filterBar.selectedIndex + 1, page_size: 20, page_number: 1, success: { [weak self](res) in
-            self?.view.hideLoading()
+			self?.view.hideLoading()
 			self?.comments = res
 			self?.tableView.reloadData()
 		}) { (errType, errDes) in
-            self.view.hideLoading()
-            self.view.showErrorView()
+			self.view.hideLoading()
+			self.view.showErrorView()
 		}
 	}
-    
-    /**
+	
+	/**
      重新请求数据
      */
-    func retryNetworkingAction() {
-        fetchComments()
-    }
+	func retryNetworkingAction() {
+		fetchComments()
+	}
 	
 	func setupFilterBar() {
 		let titles = [
@@ -88,7 +88,7 @@ class AIProductCommentsViewController: UIViewController {
 		tableView.delegate = self
 		tableView.dataSource = self
 		tableView.backgroundColor = UIColor.clearColor()
-        tableView.backgroundView = UIView()
+		tableView.backgroundView = UIView()
 		tableView.tableFooterView = UIView()
 		tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 		view.addSubview(tableView)
@@ -190,10 +190,10 @@ class AIFilterBar: UIView {
 		}
 		
 		var previousButton: FilterBarButton!
-        
-        let hspace = 1
-        
-        for (i, button) in buttons.enumerate() {
+		
+		let hspace = 1
+		
+		for (i, button) in buttons.enumerate() {
 			button.snp_makeConstraints(closure: { (make) in
 				if i == 0 {
 					make.top.equalTo(self)
@@ -300,11 +300,10 @@ class AIProductCommentCell: UITableViewCell {
 		backgroundColor = UIColor.clearColor()
 		commentInfoView = AICommentInfoView.initFromNib() as! AICommentInfoView
 		contentView.addSubview(commentInfoView)
-        commentInfoView.backgroundColor = UIColor(hexString: "#ffffff", alpha: 0.1)
+		commentInfoView.backgroundColor = UIColor(hexString: "#ffffff", alpha: 0.1)
 		commentInfoView.initSubviews()
 		commentInfoView.snp_makeConstraints { (make) in
-//			make.edges.equalTo(contentView).inset(UIEdgeInsets(top: 3,right:0, bottom:0, left: 0))
-            make.edges.equalTo(contentView).offset(UIEdgeInsets(top: 3, left: 0, bottom: 0, right: 0))
+			make.edges.equalTo(contentView).offset(UIEdgeInsets(top: 3, left: 0, bottom: 0, right: 0))
 		}
 	}
 	
@@ -344,19 +343,19 @@ class AIProductCommentCell: UITableViewCell {
 	}
 	
 	func setup(model: AIProductComment) {
-        var newModel = AICommentInfoModel()
-        newModel.images = model.photos as? [[String: String]]
-        newModel.commentcount = model.replying_count
-        newModel.commentid = model.customer_id
-        newModel.descripation = model.comment
-        newModel.providename = model.customer.name
-        newModel.provideurl = model.customer.portrait_icon
-        newModel.like = model.supporting_count
-        if model.rating_level != nil {
-            newModel.level = model.rating_level.toInt() ?? 0
-        } else {
-            newModel.level = 0
-        }
+		var newModel = AICommentInfoModel()
+		newModel.images = model.photos as? [[String: String]]
+		newModel.commentcount = model.replying_count
+		newModel.commentid = model.customer_id
+		newModel.descripation = model.comment
+		newModel.providename = model.customer.name
+		newModel.provideurl = model.customer.portrait_icon
+		newModel.like = model.supporting_count
+		if model.rating_level != nil {
+			newModel.level = model.rating_level.toInt() ?? 0
+		} else {
+			newModel.level = 0
+		}
 		commentInfoView.fillDataWithModel(newModel)
 	}
 }
