@@ -154,7 +154,7 @@ class TaskResultCommitViewController: UIViewController {
         if soundPlayButton.hidden {
             if !note.hidden {
                 if let t = note.text {
-                    if t.isEmpty || t.count < 15 {
+                    if t.isEmpty || t.count < 1 {
                         return false
                     }
                 } else {
