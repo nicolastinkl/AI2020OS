@@ -23,6 +23,8 @@
 "AIBuyerDetailViewController.SubmitSuccess" = "Order Success !";
 "AIBuyerDetailViewController.SubmitFail" = "Buy Fail !";
 "AIBuyerDetailViewController.selectService" = "Please select all service";
+//
+"AICollContentViewController.submitWorkOrderSuccess" = "Submit work order success！";
 
 //
 "AIBuyerViewController.progress" = "Progress";
@@ -343,3 +345,11 @@
 
 /// AICustomerServiceExecuteViewController
 "AICustomerServiceExecuteViewController.ConfirmError" = "Confirm Error!";
+
+/**
+ *  抢单界面
+ */
+"AIAlertViewController.contestFail.title" = "Oops!";
+"AIAlertViewController.contestFail.text" = "Someone's taken the order one step faster.";
+"AIAlertViewController.contestFail.cancelButton" = "Go offline";
+"AIAlertViewController.contestFail.okButton" = "Continue";

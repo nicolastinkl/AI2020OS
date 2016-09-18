@@ -23,7 +23,8 @@
 "AIBuyerDetailViewController.SubmitSuccess" = "购买成功!";
 "AIBuyerDetailViewController.SubmitFail" = "购买失败!";
 "AIBuyerDetailViewController.selectService" = "请选择全部服务";
-
+//
+"AICollContentViewController.submitWorkOrderSuccess" = "派单成功！";
 //
 "AIBuyerViewController.progress" = "进度";
 
@@ -355,3 +356,10 @@
 /// AICustomerServiceExecuteViewController
 "AICustomerServiceExecuteViewController.ConfirmError" = "确认失败，请重试!";
 
+/**
+ *  抢单界面
+ */
+"AIAlertViewController.contestFail.title" = "对不起!";
+"AIAlertViewController.contestFail.text" = "订单已被别人抢先一步.";
+"AIAlertViewController.contestFail.cancelButton" = "下线";
+"AIAlertViewController.contestFail.okButton" = "继续";
