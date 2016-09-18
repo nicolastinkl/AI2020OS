@@ -31,7 +31,7 @@ class AISingalCommentView: UIView {
             if hasDefaultComment == true {
                 return (lCommentModel.starLevel != nil) ? (lCommentModel.starLevel?.integerValue)! : 0
             } else {
-                return freshCommentStar.defaultStarLevel
+                return freshCommentStar.defaultStarLevel * 2
             }
         }
     }
