@@ -62,6 +62,8 @@
 
 "AISellerViewController.ServiceFinished" = "Service Finished";
 
+"AISellerViewController.ServiceFinishedAfterAuthentication" = "Service Finished. Wait Customer Confirm.";
+
 //
 "PurchasedServiceView.home" = "Home Delivery";
 "PurchasedServiceView.yourOrder" = "Your ordered items have arrived at Shanghai storehouse, ready to be sent to Beijing.";

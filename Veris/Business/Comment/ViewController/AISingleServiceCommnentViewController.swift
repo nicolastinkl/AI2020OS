@@ -139,10 +139,8 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         serviceModel.serviceName = serviceCommentModel?.service_name
         commentModel.serviceModel = serviceModel
         commentModel.starLevel = Int((serviceCommentModel?.rating_level)!)
-        //commentModel.comments = serviceCommentModel?.comment_list
-
-        //let imageName = "http://img.mshishang.com/pics/2016/0718/20160718043725872.jpeg"
-        //commentModel.commentPictures = [imageName, imageName, imageName, imageName, imageName, imageName, imageName]
+        fetchLastComments(commentModel)
+        fetchAdditionalComments(commentModel)
         
         singalServiceCommentView = AISingalCommentView(frame: frame, commentModel: commentModel)
         singalServiceCommentView.delegate = self
@@ -150,6 +148,59 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         self.view.addSubview(singalServiceCommentView)
 
     }
+
+    func fetchLastComments(model: AICommentModel) {
+
+        if serviceCommentModel?.comment_list.count < 1 {
+            return
+        }
+
+        // text
+        let singleComment: SingleComment = serviceCommentModel?.comment_list.first as! SingleComment
+        model.comments = singleComment.text
+
+        // photos
+        if let photos = singleComment.photos {
+
+            var commentPictures = [String]()
+            for obj in photos {
+                let commentPhoto: CommentPhoto = obj as! CommentPhoto
+                if let _ = commentPhoto.url {
+                    commentPictures.append(commentPhoto.url)
+                }
+            }
+
+            model.commentPictures = commentPictures
+        }
+
+    }
+
+
+    func fetchAdditionalComments(model: AICommentModel) {
+
+        if serviceCommentModel?.comment_list.count < 2 {
+            return
+        }
+
+        // text
+        let singleComment: SingleComment = serviceCommentModel?.comment_list.last as! SingleComment
+        model.additionalComment?.comments = singleComment.text
+
+        // photos
+        if let photos = singleComment.photos {
+
+            var commentPictures = [String]()
+            for obj in photos {
+                let commentPhoto: CommentPhoto = obj as! CommentPhoto
+                if let _ = commentPhoto.url {
+                    commentPictures.append(commentPhoto.url)
+                }
+            }
+
+            model.additionalComment?.commentPictures = commentPictures
+        }
+    }
+
 
     //MARK: Actions
 
