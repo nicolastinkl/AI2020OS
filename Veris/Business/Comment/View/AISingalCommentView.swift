@@ -52,7 +52,7 @@ class AISingalCommentView: UIView {
 
     var lineColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7)
     var textViewPlaceHolder: UITextView!
-    var lCommentModel: AICommentModel?
+    var lCommentModel: AICommentModel!
     var hasDefaultComment: Bool!
     var hasAdditionalComment: Bool!
     var didShowAddtionalCommentView: Bool = false
@@ -151,7 +151,7 @@ class AISingalCommentView: UIView {
         let x = 63.displaySizeFrom1242DesignSize()
         let y = CGRectGetMaxY(lastServiceOverview.frame) + 55.displaySizeFrom1242DesignSize() + margin
         let width = self.width - x*2
-        let font = AITools.myriadSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
+        let font = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         let textSize = lCommentModel?.comments?.sizeWithFont(font, forWidth: width)
         let maxHeight = 228.displaySizeFrom1242DesignSize()
         let height: CGFloat = ((textSize?.height)! + margin*2) > maxHeight ? maxHeight : ((textSize?.height)! + margin*2)
@@ -213,6 +213,7 @@ class AISingalCommentView: UIView {
         lastAddtionalCommentButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(40.displaySizeFrom1242DesignSize())
         lastAddtionalCommentButton.titleLabel?.textColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7)
         lastAddtionalCommentButton.addTarget(self, action: #selector(addtionalComment), forControlEvents: UIControlEvents.TouchUpInside)
+        lastAddtionalCommentButton.hidden = hasDefaultComment && hasAdditionalComment
         lastView.addSubview(lastAddtionalCommentButton)
         reSizeSelfAfterDisplayLastCommentsView(lastAddtionalCommentButton)
 
@@ -220,7 +221,7 @@ class AISingalCommentView: UIView {
         let lineFrame = CGRect(x: 0, y: CGRectGetMaxY(lastAddtionalCommentButton.frame) + 25.displaySizeFrom1242DesignSize(), width: CGRectGetWidth(lastView.frame), height: 1)
         lastSeperatorLine = AILine(frame: lineFrame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7), dotted: false)
         lastView.addSubview(lastSeperatorLine)
-
+        lastSeperatorLine.hidden = hasDefaultComment && hasAdditionalComment
         // Set Frame
         frame = lastView.frame
         frame.size.height = CGRectGetMaxY(lineFrame)
@@ -237,7 +238,7 @@ class AISingalCommentView: UIView {
 
         // Make Base View
         let yoffset: CGFloat = hasDefaultComment == true ? CGRectGetMaxY(lastAddtionalCommentButton.frame) : 0
-        let shouldHidden = hasDefaultComment == true
+        let shouldHidden = (hasDefaultComment && lCommentModel.additionalComment == nil)
         let frame = CGRect(x: 0, y: yoffset, width: CGRectGetWidth(self.frame), height: 100)
         freshView = UIView(frame: frame)
         freshView.hidden = shouldHidden
@@ -324,12 +325,22 @@ class AISingalCommentView: UIView {
     private func makeFreshCommentTextView() {
 
         let x = 40.displaySizeFrom1242DesignSize()
-        let y = CGRectGetMaxY(freshSeperatorLine.frame) + 21.displaySizeFrom1242DesignSize()
+        let margin = 21.displaySizeFrom1242DesignSize()
+        let y = CGRectGetMaxY(freshSeperatorLine.frame) + margin
         let width = self.width - x*2
-        let height: CGFloat = 228.displaySizeFrom1242DesignSize()
+
+        let font = AITools.myriadSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
+        let textSize = lCommentModel?.comments?.sizeWithFont(font, forWidth: width)
+        let maxHeight = 228.displaySizeFrom1242DesignSize()
+
+        var height: CGFloat = maxHeight
+
+        if let _ = lCommentModel?.additionalComment?.comments {
+            height = ((textSize?.height)! + margin*2) > maxHeight ? maxHeight : ((textSize?.height)! + margin*2)
+        }
+
         let frame = CGRect(x: x, y: y, width: width, height: height)
 
-        let font = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         freshCommentTextView = UITextView(frame: frame)
         freshCommentTextView.backgroundColor = UIColor.clearColor()
         freshCommentTextView.font = font
@@ -347,14 +358,15 @@ class AISingalCommentView: UIView {
         textViewPlaceHolder.userInteractionEnabled = false
         textViewPlaceHolder.text = placeHolder
         freshView.addSubview(textViewPlaceHolder)
+        textViewPlaceHolder.hidden = freshCommentTextView.text.length > 0
 
     }
 
     private func makeFreshPictureView() {
-        let x = 40.displaySizeFrom1242DesignSize()
+        let x = 63.displaySizeFrom1242DesignSize()
         var y = CGRectGetMaxY(freshSeperatorLine.frame) + 30.displaySizeFrom1242DesignSize()
         if let textView = freshCommentTextView {
-            y = CGRectGetMaxY(textView.frame) + 10.displaySizeFrom1242DesignSize()
+            y = CGRectGetMaxY(textView.frame) + 21.displaySizeFrom1242DesignSize()
         }
 
         let width = freshView.width - x*2

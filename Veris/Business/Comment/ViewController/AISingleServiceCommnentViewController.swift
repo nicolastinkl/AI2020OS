@@ -182,9 +182,12 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
             return
         }
 
+        let additionalComment = AICommentModel()
+
         // text
         let singleComment: SingleComment = serviceCommentModel?.comment_list.last as! SingleComment
-        model.additionalComment?.comments = singleComment.text
+
+        additionalComment.comments = singleComment.text
 
         // photos
         if let photos = singleComment.photos {
@@ -197,7 +200,14 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
                 }
             }
 
-            model.additionalComment?.commentPictures = commentPictures
+            if commentPictures.count > 0 {
+                additionalComment.commentPictures = commentPictures
+            }
+
+        }
+
+        if additionalComment.commentPictures != nil || additionalComment.comments != nil {
+            model.additionalComment = additionalComment
         }
     }
 
