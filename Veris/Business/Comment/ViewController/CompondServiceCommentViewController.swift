@@ -12,7 +12,7 @@ import Cartography
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
-    var serviceID = ""
+    var orderID = ""
     var comments: [ServiceCommentViewModel]!
     private var currentOperateIndex = -1
     private var commentManager: CommentManager!
@@ -169,7 +169,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             
             view.showLoading()
             
-            ser.getCompondComment(userId, userType: 1, serviceId: serviceID, success: { (responseData) in
+            ser.getCompondComment(userId, userType: 1, orderId: orderID, success: { (responseData) in
                 self.view.hideLoading()
                 let re = responseData
                 
