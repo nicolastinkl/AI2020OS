@@ -97,7 +97,6 @@ import AIAlertView
     }
     
     
-
     func loadData() {
 
         let manager = BDKExcuteManager()
