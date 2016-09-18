@@ -150,5 +150,5 @@ enum AITimelineFilterTypeEnum: Int {
 
 //按钮操作类型  1.未确认，2，已确认，3.已评论
 enum AITimelineOperationTypeEnum: Int {
-    case unConfirm = 1, confirmed, commentted
+    case unConfirm = 0, confirmed, commentted
 }
