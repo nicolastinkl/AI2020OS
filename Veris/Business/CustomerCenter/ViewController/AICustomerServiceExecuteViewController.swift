@@ -60,6 +60,11 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
     //点击左边的切换时间线过滤规则按钮事件
     @IBAction func timelineFilterButtonAction(sender: UIButton) {
+        
+        //加载数据时不允许触发刷新
+        if isLoading {
+            return
+        }
         let tag = sender.tag
         switch tag {
         case 1:
@@ -168,6 +173,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         timelineTableView.addHeaderRefreshEndCallback { 
             () -> Void in
             weakSelf?.timelineTableView.reloadData()
+            weakSelf?.isLoading = false
+            weakSelf?.dismissLoading()
         }
         //TODO: 测试方式
         //timelineTableView.rowHeight = UITableViewAutomaticDimension
@@ -239,11 +246,13 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     }
     
     func loadData() {
-        isLoading = true
+        
         let interfaceHandler = AICustomerServiceExecuteHandler.sharedInstance
         
         //刷新订单信息和消息数据
         weak var weakSelf = self
+        weakSelf?.isLoading = true
+        weakSelf?.showLoading()
         interfaceHandler.queryCustomerServiceExecute(g_orderId, success: { (viewModel) in
             weakSelf?.orderInfoContentView?.model = viewModel
             weakSelf?.orderInfoModel = viewModel
@@ -260,7 +269,6 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
                 weakSelf?.timelineTableView.headerEndRefreshing()
                 weakSelf?.timelineModels.removeAll()
                 weakSelf?.timelineModels = weakSelf!.handleViewModels(viewModel)
-                weakSelf?.isLoading = false
             }) { (errType, errDes) in
                 weakSelf?.timelineTableView.headerEndRefreshing()
                 weakSelf?.isLoading = false
@@ -269,6 +277,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         }) { (errType, errDes) in
             weakSelf?.timelineTableView.headerEndRefreshing()
             weakSelf?.isLoading = false
+            weakSelf?.dismissLoading()
             AIAlertView().showError("刷新失败", subTitle: errDes)
         }
     }
@@ -276,6 +285,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     func refreshTimelineData() {
         let interfaceHandler = AICustomerServiceExecuteHandler.sharedInstance
         weak var weakSelf = self
+        isLoading = true
+        self.showLoading()
         interfaceHandler.queryCustomerTimelineList(g_orderId, serviceInstIds: selectedServiceInstIds, filterType: selectedFilterType, success: { (viewModel) in
             
             weakSelf?.timelineModels.removeAll()
@@ -284,6 +295,8 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
             weakSelf?.timelineTableView.headerEndRefreshing()
         }) { (errType, errDes) in
             weakSelf?.timelineTableView.headerEndRefreshing()
+            weakSelf?.isLoading = false
+            weakSelf?.dismissLoading()
             AIAlertView().showError("刷新失败", subTitle: errDes)
         }
     }
@@ -461,10 +474,18 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         }) {
             if !visibleIndexPathArray.isEmpty {
                 //解决异步刷新时的闪退问题，loading状态时不做更新
-                if !isLoading {
-                    getHeight(viewModel, containerHeight: containterHeight)
+                if let viewIndex = timelineModels.indexOf({ (model) -> Bool in
+                    return model.index == viewModel.index
+                }) {
+                    if viewIndex == viewModel.index {
+                        getHeight(viewModel, containerHeight: containterHeight)
                     self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                    }
+                    else {
+                        AILog("timeline model changed!")
+                    }
                 }
+                
                 
             }
         }
