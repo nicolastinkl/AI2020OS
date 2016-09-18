@@ -96,6 +96,8 @@ class AIPaymentViewController: UIViewController {
     
     private func setupNavigationBar() {
         
+        extendedLayoutIncludesOpaqueBars = true
+        
         let backButton = UIButton()
         backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
         backButton.addTarget(self, action: #selector(AIPaymentViewController.closePayAction), forControlEvents: .TouchUpInside)
@@ -110,9 +112,11 @@ class AIPaymentViewController: UIViewController {
                 return (47.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
             }
         }
-        appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor(hexString: "#0f0c2c"), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
+        appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
         appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "AIPaymentViewController.Title".localized)
         setNavigationBarAppearance(navigationBarAppearance: appearance)
+        
+        
     }
     
     func initRegisternotify() {
@@ -124,6 +128,7 @@ class AIPaymentViewController: UIViewController {
      */
     func showNotifyPayStatus() {
 
+        self.title = "支付成功"
 //        topNaviView.hidden = false
 //        self.label_Price_info.text = "成功支付"
 //        
