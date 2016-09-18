@@ -271,7 +271,7 @@ class AICollContentViewController: UIViewController {
     //完成派单的操作1.取消时间线的遮罩，2.隐藏派单按钮，3.发更新网络请求数据的通知
 
     func finishLaunchAction() {
-        AIAlertView().showInfo("AIBuyerDetailViewController.SubmitSuccess".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
+        AIAlertView().showInfo("AICollContentViewController.submitWorkOrderSuccess".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
         timeLineMaskView.hidden = false
         //changeLaunchButtonStatus(false)
         self.launchButtonBgView.frame.size.height = 0

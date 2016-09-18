@@ -161,7 +161,6 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     
 
     func requestGrabOrderInterface() {
-
         //let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
         AIServiceExecuteRequester.defaultHandler().grabOrder(serviceInstId: in_serviceInstId!, success: { (businessInfo) in
             let result = businessInfo.grabResult
@@ -172,8 +171,14 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
                 viewController.serviceID = self.in_sereviceID!.toInt()!
                 self.navigationController?.pushViewController(viewController, animated: true)
             } else {
-
-                AIAlertView().showInfo("Sorry", subTitle: "You failed!")
+                let title = "AIAlertViewController.contestFail.title".localized
+                let text = "AIAlertViewController.contestFail.text".localized
+                let customIcon = UIImage(named: "se_contest_failed")
+                let logoWidth = 200.displaySizeFrom1242DesignSize()
+                self.jssalertConfirm((UIApplication.sharedApplication().keyWindow?.rootViewController)!, title: title, text: text, customIcon: customIcon, customIconSize: CGSizeMake(logoWidth, logoWidth), onComfirm: { () -> Void in
+                    
+                })
+                //AIAlertView().showInfo("Sorry", subTitle: "You failed!")
                 self.dismissPopupViewController(true, completion: nil)
             }
         }) { (errType, errDes) in
@@ -233,5 +238,21 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
             return stringValue
         }
         return nil
+    }
+    
+    private func jssalertConfirm(viewController: UIViewController, title: String, text: String, customIcon: UIImage? = nil, customIconSize: CGSize? = nil, onComfirm: (() -> Void)? = nil, onCancel: (() -> Void)? = nil) {
+        //        let customIcon = UIImage(named: "lemon")
+        let cancel = "AIAlertViewController.contestFail.cancelButton".localized
+        let ok = "AIAlertViewController.contestFail.okButton".localized
+        
+        let alertview = JSSAlertView().show(viewController, title: title, text: text, buttonText: ok, cancelButtonText: cancel, color: UIColorFromHex(0xe7ebf5, alpha: 1), iconImage: customIcon, iconSize: customIconSize)
+        
+        if let comfirm = onComfirm {
+            alertview.addAction(comfirm)
+        }
+        
+        if let cancel = onCancel {
+            alertview.addCancelAction(cancel)
+        }
     }
 }
