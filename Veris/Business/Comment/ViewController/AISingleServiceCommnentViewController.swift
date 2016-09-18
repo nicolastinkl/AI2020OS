@@ -167,7 +167,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         singleComment.rating_level = CGFloat(level)
         singleComment.photos = singalServiceCommentView.freshCommentPictureView.displayPictureNames
         singleComment.text = singalServiceCommentView.freshCommentTextView.text ?? ""
-        singleComment.service_type = "ServiceInstance"
+        singleComment.service_type = CommentType.order.rawValue
         service.submitComments(userID.toString(), userType: 1, commentList: [singleComment], success: { (responseData) in
             wf?.dismissLoading()
             wf?.dismissViewControllerAnimated(true, completion: nil)

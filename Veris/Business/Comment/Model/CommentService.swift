@@ -13,6 +13,11 @@ enum AnonymousFlag: Int {
     case anonymous = 1
 }
 
+enum CommentType: String {
+    case service = "ServiceInstance"
+    case order = "Order"
+}
+
 
 protocol CommentService: NSObjectProtocol {
     func getSingleComment(userId: String, userType: Int, serviceId: String, success: (responseData: ServiceComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void)

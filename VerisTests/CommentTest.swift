@@ -115,9 +115,9 @@ class CommentTest: SBOSSTestCase {
         let newNumbers = numbers.sort { (firstNumber, secondNumber) -> Bool in
             let result = firstNumber.compare(secondNumber)
             
-            return result == NSComparisonResult.OrderedAscending
+            return result == NSComparisonResult.OrderedDescending
         }
         
-        XCTAssertTrue(newNumbers[0].intValue == 1)
+        XCTAssertTrue(newNumbers[0].intValue == 2)
     }
 }

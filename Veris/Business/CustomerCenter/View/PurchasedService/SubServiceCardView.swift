@@ -127,9 +127,6 @@ class SubServiceCardView: UIView {
     }
     
     private func hideNodeView() {
-//        additionDescription.hidden = true
-//        personIcon.hidden = true
-//        nodeLine.hidden = true
         
         nodeLine.removeFromSuperview()
         personIcon.removeFromSuperview()
