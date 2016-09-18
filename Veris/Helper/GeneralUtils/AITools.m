@@ -341,7 +341,7 @@
     if ([self fontsWithLanguageEN]) {
         return [UIFont fontWithName:@"MyriadPro-SemiCn" size:size];
     }else{
-        return [UIFont fontWithName:@"MyriadPro-SemiCn" size:size];
+        return [UIFont systemFontOfSize:size];
         //return [UIFont systemFontOfSize:size * 3/4];
     }
 }
@@ -377,7 +377,7 @@
     if ([self fontsWithLanguageEN]) {
         return [UIFont fontWithName:@"MyriadPro-Cond" size:size];
     }else{
-        return [UIFont fontWithName:@"HiraginoSansGBW6" size:size];
+        return [UIFont systemFontOfSize:size];
     }
 }
 

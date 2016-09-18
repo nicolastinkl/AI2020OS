@@ -77,6 +77,7 @@
 @property (strong, nonatomic) NSString<Optional> * text;
 @property (strong, nonatomic) NSArray<CommentPhoto, Optional> * photos;
 @property (assign, nonatomic) int anonymousFlag;
+@property (nonatomic, strong) NSString<Optional> *service_type; // ServiceInstance  -  Order
 
 @end
 
