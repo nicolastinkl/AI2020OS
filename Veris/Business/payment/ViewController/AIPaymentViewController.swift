@@ -124,12 +124,12 @@ class AIPaymentViewController: UIViewController {
      */
     func showNotifyPayStatus() {
 
-        topNaviView.hidden = false
-        self.label_Price_info.text = "成功支付"
-        
-        topNaviConstraint.constant = 44
-        topNaviView.updateConstraints()
-        
+//        topNaviView.hidden = false
+//        self.label_Price_info.text = "成功支付"
+//        
+//        topNaviConstraint.constant = 44
+//        topNaviView.updateConstraints()
+//        
         // refersh Views Status
         
         SpringAnimation.springWithCompletion(0.3, animations: { 
@@ -179,8 +179,8 @@ class AIPaymentViewController: UIViewController {
     }
     
     func closePayAction() {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
+        //NSNotificationCenter.defaultCenter().removeObserver(self)
+        //NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
         self.dismissViewControllerAnimated(false, completion: nil)
         
     }
@@ -188,7 +188,7 @@ class AIPaymentViewController: UIViewController {
     /// 评价事件
     @IBAction func commitPayAction() {
         let vc = CompondServiceCommentViewController.initFromNib()
-        
+        vc.serviceID = order_id
         let nav = UINavigationController(rootViewController: vc)
         presentViewController(nav, animated: true, completion: nil)
     }

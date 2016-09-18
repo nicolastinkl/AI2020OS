@@ -12,7 +12,7 @@ import Cartography
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
-    var serviceID = "900001004204"
+    var serviceID = ""
     var comments: [ServiceCommentViewModel]!
     private var currentOperateIndex = -1
     private var commentManager: CommentManager!

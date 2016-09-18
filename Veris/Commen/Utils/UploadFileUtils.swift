@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 protocol UploadFileUtils {
     func uploadImage(image: UIImage) -> String?
     func uploadFile(filePathUrl: NSURL) -> String?
@@ -20,7 +19,15 @@ class LeanCloudUploadFileUtils: UploadFileUtils {
         if let data = UIImageJPEGRepresentation(image, 0.5) {
             
             let file = AVFile(data: data)
-            file.save()
+            file.saveInBackgroundWithBlock({ (complate, error) in
+                if complate {
+                    AILog("LeanCloudUploadFileUtils OK")
+                } else {
+                    AILog("LeanCloudUploadFileUtils \(error)")
+                }
+                
+                
+            })
             
             return file.url
         }
