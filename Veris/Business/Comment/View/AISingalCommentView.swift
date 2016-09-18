@@ -411,18 +411,22 @@ class AISingalCommentView: UIView {
         y = 20.displaySizeFrom1242DesignSize()
 
         freshCheckBox = AIViews.baseButtonWithFrame(CGRect(x: boxX, y: y, width: size, height: size), normalTitle: "")
-        freshCheckBox.setImage(UIImage(named: "Image_picker"), forState: .Normal)
-        freshCheckBox.setImage(UIImage(named: "Image_picker"), forState: .Highlighted)
-        freshCheckBox.addTarget(self, action: #selector(choosePictureActtion), forControlEvents: UIControlEvents.TouchUpInside)
+        freshCheckBox.setImage(UIImage(named: "anonymous_uncheck"), forState: .Normal)
+        freshCheckBox.setImage(UIImage(named: "anonymous_check"), forState: .Selected)
+        freshCheckBox.addTarget(self, action: #selector(checkAction), forControlEvents: UIControlEvents.TouchUpInside)
         freshToolView.addSubview(freshCheckBox)
         freshCheckBox.hidden = hasDefaultComment
+        freshCheckBox.exclusiveTouch = true
         // Anonymous
 
         let labelFrame = CGRect(x: CGRectGetMaxX(freshCheckBox.frame) + 19.displaySizeFrom1242DesignSize(), y: y, width: stringSize.width, height: size)
         freshAnonymousLabel = AIViews.normalLabelWithFrame(labelFrame, text: annonymousString, fontSize: 48.displaySizeFrom1242DesignSize(), color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7))
         freshAnonymousLabel.hidden = hasDefaultComment
         freshToolView.addSubview(freshAnonymousLabel)
-
+        freshAnonymousLabel.userInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
+        freshAnonymousLabel.addGestureRecognizer(gesture)
+        freshAnonymousLabel.exclusiveTouch = true
         // Set Frame
         var newFrame = freshView.frame
         newFrame.size.height = CGRectGetMaxY(freshToolView.frame)
@@ -435,6 +439,15 @@ class AISingalCommentView: UIView {
     }
 
     //MARK: Actions
+
+    func tapAction(gesture: UITapGestureRecognizer) {
+        freshCheckBox.selected = !freshCheckBox.selected
+    }
+
+    func checkAction() {
+        freshCheckBox.selected = !freshCheckBox.selected
+    }
+
 
     @objc private func choosePictureActtion() {
         self.delegate?.shoudShowImagePicker()
