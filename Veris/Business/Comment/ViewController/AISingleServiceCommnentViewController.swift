@@ -77,6 +77,11 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         weak var wf = self
         service.getSingleComment(userID.toString(), userType: 1, serviceId: serviceInstanceID, success: { (responseData) in
             wf?.serviceCommentModel = responseData
+
+            if responseData.comment_list.count == 2 {
+                wf?.submitButton.enabled = false
+            }
+
             wf?.makeSubviews()
             wf?.dismissLoading()
             }) { (errType, errDes) in
@@ -110,6 +115,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         button.titleLabel?.textAlignment = .Right
         button.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
         button.setTitleColor(AITools.colorWithHexString("0f86e8"), forState: UIControlState.Normal)
+        button.setTitleColor(AITools.colorWithHexString("FFFFFF"), forState: UIControlState.Disabled)
         button.addTarget(self, action: #selector(submitAction), forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }
@@ -224,8 +230,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
         let singleComment = SingleComment()
         singleComment.service_id = serviceID
-        let level: Int = singalServiceCommentView.freshCommentStar.defaultStarLevel * 2
-        singleComment.rating_level = CGFloat(level)
+        singleComment.rating_level = CGFloat(singalServiceCommentView.currentStarLevel)
         singleComment.photos = singalServiceCommentView.freshCommentPictureView.displayPictureNames
         singleComment.text = singalServiceCommentView.freshCommentTextView.text ?? ""
         singleComment.service_type = "ServiceInstance"

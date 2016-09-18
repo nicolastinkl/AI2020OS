@@ -21,7 +21,7 @@ class AIChooseStarLevelView: UIView {
 
     //MARK: Properties
 
-    var defaultStarLevel = 0
+    var defaultStarLevel: Int = 0
     var shouldChangeStarLevel = true
     var stars = [UIButton]()
     var lStarInfo: StarInfo!
