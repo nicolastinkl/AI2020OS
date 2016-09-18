@@ -42,6 +42,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var customerDescView: UIView!
     @IBOutlet weak var timerControl: DDHTimerControl!
     
+    @IBOutlet weak var seizeButton: DesignableButton!
     @IBOutlet weak var ignoreButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
 
@@ -132,7 +133,12 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         ignoreButton.layer.borderWidth = 1
         ignoreButton.layer.cornerRadius = 8
         ignoreButton.layer.masksToBounds = true
+        ignoreButton.titleLabel?.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+        //seizeButton
+        seizeButton.titleLabel?.font = AITools.myriadLightSemiCondensedWithSize(80.displaySizeFrom1242DesignSize())
         
+        serviceDescLabel.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+        serviceNameLabel.font = AITools.myriadSemiCondensedWithSize(80.displaySizeFrom1242DesignSize())
         self.navigationController?.delegate = self
     }
     

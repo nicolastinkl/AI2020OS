@@ -73,6 +73,9 @@
                                             <constraint firstAttribute="height" constant="29" id="WsJ-Lg-PCc"/>
                                         </constraints>
                                         <state key="normal" title="Ignore"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="ailButtonNormalTitle" value="AIAlertViewController.contest.ignore"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="IgnoreAction:" destination="0qb-9H-gNp" eventType="touchUpInside" id="OIl-GC-Cdo"/>
                                         </connections>
@@ -147,6 +150,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="ailButtonNormalTitle" value="AIAlertViewController.contest.seize"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="answerAction:" destination="0qb-9H-gNp" eventType="touchUpInside" id="dnM-kb-SEX"/>
@@ -285,6 +289,7 @@
                     <connections>
                         <outlet property="customerDescView" destination="x4E-LP-N5A" id="5J3-c2-Avx"/>
                         <outlet property="ignoreButton" destination="60x-ki-hMz" id="DAq-ZN-j5s"/>
+                        <outlet property="seizeButton" destination="V21-cj-kNR" id="QtH-rc-LJw"/>
                         <outlet property="serviceDescLabel" destination="Xcq-QJ-hDF" id="Fbs-wW-0Lx"/>
                         <outlet property="serviceIconImageView" destination="Ted-en-bR9" id="fXY-e5-XHT"/>
                         <outlet property="serviceNameLabel" destination="Gm5-Lt-BTq" id="SXk-OY-aaW"/>

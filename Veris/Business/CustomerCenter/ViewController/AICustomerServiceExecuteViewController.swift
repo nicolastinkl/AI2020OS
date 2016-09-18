@@ -32,9 +32,11 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     var cellHeightArray: Array<CGFloat>!
     var selectedServiceInstIds: Array<String> = []
     var selectedFilterType = 1
+    
     var g_orderId = "100000029231"
     var g_orderItemId = ""
-    
+    //全局数据加载标志，加载时不进行异步的表格更新操作
+    var isLoading = false
 
     // MARK: -> Public class methods
 
@@ -237,6 +239,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     }
     
     func loadData() {
+        isLoading = true
         let interfaceHandler = AICustomerServiceExecuteHandler.sharedInstance
         
         //刷新订单信息和消息数据
@@ -248,7 +251,6 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
             weakSelf?.noticeBadge.badgeValue = viewModel.unConfirmMessageNumber!
             //加载子服务View
             self.serviceInstsView.loadData(viewModel.serviceInsts!)
-            //self.buildServiceInstsView()
             //刷新时间线表格
             var serviceInstIds = Array<String>()
             for serviceInst in viewModel.serviceInsts! {
@@ -258,13 +260,15 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
                 weakSelf?.timelineTableView.headerEndRefreshing()
                 weakSelf?.timelineModels.removeAll()
                 weakSelf?.timelineModels = weakSelf!.handleViewModels(viewModel)
-                //weakSelf?.timelineTableView.reloadData()
+                weakSelf?.isLoading = false
             }) { (errType, errDes) in
                 weakSelf?.timelineTableView.headerEndRefreshing()
+                weakSelf?.isLoading = false
                 AIAlertView().showError("刷新失败", subTitle: errDes)
             }
         }) { (errType, errDes) in
             weakSelf?.timelineTableView.headerEndRefreshing()
+            weakSelf?.isLoading = false
             AIAlertView().showError("刷新失败", subTitle: errDes)
         }
     }
@@ -344,16 +348,20 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let timeLineItem = timelineModels[indexPath.row]
-        if timeLineItem.layoutType == AITimelineLayoutTypeEnum.Now {
-            let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell, forIndexPath: indexPath) as! AITimelineNowTableViewCell
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
-            cell.loadData(timeLineItem, delegate: self)
-            return cell
+        //可能在清空datasource时出现数组越界，所以先判断
+        if timelineModels.count > indexPath.row {
+            let timeLineItem = timelineModels[indexPath.row]
+            if timeLineItem.layoutType == AITimelineLayoutTypeEnum.Now {
+                let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineNowTableViewCell, forIndexPath: indexPath) as! AITimelineNowTableViewCell
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCellWithIdentifier(AIApplication.MainStoryboard.CellIdentifiers.AITimelineTableViewCell, forIndexPath: indexPath) as! AITimelineTableViewCell
+                cell.loadData(timeLineItem, delegate: self)
+                return cell
+            }
+
         }
-        
+        return UITableViewCell()
     }
     
 //    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -366,11 +374,15 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
 //    }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let timeLineItem = timelineModels[indexPath.row]
-        if timeLineItem.cellHeight != 0 {
-            return timeLineItem.cellHeight
+        if timelineModels.count > indexPath.row {
+            let timeLineItem = timelineModels[indexPath.row]
+            if timeLineItem.cellHeight != 0 {
+                return timeLineItem.cellHeight
+            }
+            return AITimelineTableViewCell.caculateHeightWidthData(timeLineItem)
+        } else {
+            return 0
         }
-        return AITimelineTableViewCell.caculateHeightWidthData(timeLineItem)
     }
     
     func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -448,14 +460,12 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
             return visibleIndexPath.row == indexPath.row
         }) {
             if !visibleIndexPathArray.isEmpty {
-                //测试通过自动高度计算
-//                if let cell = timelineTableView.cellForRowAtIndexPath(indexPath) as? AITimelineTableViewCell {
-//                    cell.layoutIfNeeded()
-//                    viewModel.cellHeight = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
-//                    
-//                }
-                getHeight(viewModel, containerHeight: containterHeight)
-                self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                //解决异步刷新时的闪退问题，loading状态时不做更新
+                if !isLoading {
+                    getHeight(viewModel, containerHeight: containterHeight)
+                    self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                }
+                
             }
         }
 

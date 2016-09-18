@@ -353,3 +353,5 @@
 "AIAlertViewController.contestFail.text" = "Someone's taken the order one step faster.";
 "AIAlertViewController.contestFail.cancelButton" = "Go offline";
 "AIAlertViewController.contestFail.okButton" = "Continue";
+"AIAlertViewController.contest.ignore" = "Ignore";
+"AIAlertViewController.contest.seize" = "Seize";

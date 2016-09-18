@@ -363,3 +363,5 @@
 "AIAlertViewController.contestFail.text" = "订单已被别人抢先一步.";
 "AIAlertViewController.contestFail.cancelButton" = "下线";
 "AIAlertViewController.contestFail.okButton" = "继续";
+"AIAlertViewController.contest.ignore" = "忽略";
+"AIAlertViewController.contest.seize" = "抢单";
