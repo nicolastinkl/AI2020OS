@@ -26,6 +26,8 @@ class SubServiceCardView: UIView {
     @IBOutlet weak var additionDescription: UILabel!
     @IBOutlet weak var addtionView: UIView!
     @IBOutlet weak var seperator: UIView!
+    @IBOutlet weak var nodeLine: UIView!
+    @IBOutlet weak var serviceIconBottomConstraint: NSLayoutConstraint!
     
     var delegate: SubServiceCardViewDelegate?
     
@@ -90,10 +92,7 @@ class SubServiceCardView: UIView {
                 statusColor.backgroundColor = proposalState.color
             }
         }
-        
-        
-        
-        
+   
         serviceModel = serviceData
         
         serviceName.text = serviceData.name
@@ -102,23 +101,44 @@ class SubServiceCardView: UIView {
         }
         
         if let node = serviceData.node {
-            nodeName.text = node.procedure_inst_name
             
-            if let time = ProposalOrderViewModel.getNodeTime(node) {
-                nodeDate.text = "\(time)"
+            if let name = node.procedure_inst_name {
+                nodeName.text = name
+                
+                if let time = ProposalOrderViewModel.getNodeTime(node) {
+                    nodeDate.text = "\(time)"
+                }
+                
+                nodeState.text = node.status
+                
+                if let url = serviceData.provider_icon {
+                    personIcon.asyncLoadImage(url, placeHoldImg: "contact_icon")
+                    
+                }
+                
+                if node.procedure_inst_desc != nil {
+                    additionDescription.text = node.procedure_inst_desc
+                }
+            } else {
+                hideNodeView()
             }
             
-            nodeState.text = node.status
-            
-            if let url = serviceData.provider_icon {
-                personIcon.asyncLoadImage(url, placeHoldImg: "contact_icon")
-
-            }
-            
-            if node.procedure_inst_desc != nil {
-                additionDescription.text = node.procedure_inst_desc
-            }
         }
+    }
+    
+    private func hideNodeView() {
+//        additionDescription.hidden = true
+//        personIcon.hidden = true
+//        nodeLine.hidden = true
+        
+        nodeLine.removeFromSuperview()
+        personIcon.removeFromSuperview()
+        nodeDate.removeFromSuperview()
+        nodeName.removeFromSuperview()
+        nodeState.removeFromSuperview()
+        additionDescription.removeFromSuperview()
+        
+        serviceIconBottomConstraint.constant = 1
     }
     
     private func initSubView() {
