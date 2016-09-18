@@ -10,21 +10,25 @@ import Foundation
 import UIKit
 
 
-class ProposalOrderViewModel {
+class ProposalOrderViewModel: AIBaseViewModel {
     var isExpanded: Bool = false
     var model: ProposalOrderModel!
     //订单展开内容viewModel
     var timelineViewModels: [String: AITimelineViewModel]?
     var proposalState: ProposalStateViewModel?
     
-    init() {
+    override init() {
         
     }
     
-    init(model: ProposalOrderModel) {
+    
+    
+    convenience init(model: ProposalOrderModel) {
+        self.init()
         self.model = model
         parseAITimelineViewModel()
         parseProposalModel()
+        
     }
     
     func parseAITimelineViewModel() {
@@ -36,7 +40,8 @@ class ProposalOrderViewModel {
                 layoutType = timeline.procedure_inst_type,
                 desc = timeline.procedure_inst_name,
                 timeValue = timeline.time_value,
-                //commentStatus = timeline.comment_status,
+                commentStatus = timeline.comment_status,
+                serviceInstId = timeline.service_instance_id,
                 contentsBusiModel = timeline.attchments as? [AITimelineContentBusiModel]
                 else {
                     //TODO: 这里应该抛出错误
@@ -51,6 +56,8 @@ class ProposalOrderViewModel {
             viewModel.operationType = AITimelineOperationTypeEnum(rawValue: Int(timeline.comment_status ?? 1))
             viewModel.desc = desc
             viewModel.timeModel = AIDateTimeViewModel.timestampToTimeViewModel(timeValue)
+            viewModel.operationType = AITimelineOperationTypeEnum(rawValue: Int(commentStatus))
+            viewModel.serviceInstanceId = serviceInstId
             //时间线内容
             var contents = [AITimeContentViewModel]()
             for contentBusiModel: AITimelineContentBusiModel in contentsBusiModel {
@@ -72,6 +79,10 @@ class ProposalOrderViewModel {
                 contents.append(content)
             }
             viewModel.contents = contents
+            //add by liux at 20160918 提交接口需要的参数
+            viewModel.orderId = model.id
+            viewModel.orderItemId = model.item_id
+            
             timelineViewModels?[service.id] = viewModel
         }
     }

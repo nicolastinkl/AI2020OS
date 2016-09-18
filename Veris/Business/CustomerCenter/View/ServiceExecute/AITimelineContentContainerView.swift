@@ -212,7 +212,7 @@ class AITimelineContentContainerView: UIView {
     
     func buildImageContentView(url: String) -> UIImageView {
         let imageView = UIImageView()
-        //imageView.contentMode = .ScaleAspectFill
+        imageView.contentMode = .ScaleAspectFit
         self.imageContainerView.addSubview(imageView)
         imageView.snp_makeConstraints { (make) in
             make.leading.trailing.equalTo(self.imageContainerView)

@@ -497,6 +497,9 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
                 }
                 lastDate = timelineDate
             }
+            //为了后面的提交，需要传入的参数，不从网络请求中获取
+            timelineModel.orderId = g_orderId
+            timelineModel.orderItemId = g_orderItemId
         }
         //如果循环到最后都没有，则加在最后
         if !isNowHandled {

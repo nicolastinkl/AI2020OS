@@ -23,6 +23,7 @@
 // THE SOFTWARE.
 
 import Foundation
+import AIAlertView
 
 /// Proposal TableView 独立ViewController
 class AIProposalTableViewController: UIViewController {
@@ -229,6 +230,7 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SwitchedTableViewCell") as! SwitchedTableViewCell
+        // 构造收起时的cell
         if cell.mainView == nil {
             let folderCellView = AICustomerOrderFoldedView.currentView()
             folderCellView.delegate = self
@@ -237,9 +239,9 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         
         (cell.mainView as! AICustomerOrderFoldedView).loadData(dataSource[indexPath.row])
         
-        
+        //改为点展开才构造展开的view, 每次构造cell都重新生成expandView
         if dataSource[indexPath.row].isExpanded {
-            //改为点展开才构造展开的view, 每次构造cell都重新生成expandView
+            
             //if cell.getView("expanded") == nil {
                 let serviceListCard = buildSuvServiceCard(dataSource[indexPath.row])
                 serviceListCard.delegate = self
@@ -267,7 +269,8 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
     
 }
 
-extension AIProposalTableViewController: SubServiceCardViewDelegate, AIFoldedCellViewDelegate {
+//MARK: -> subView所需delegate
+extension AIProposalTableViewController: SubServiceCardViewDelegate, AIFoldedCellViewDelegate, AITimelineContentContainerViewDelegate {
     func statusButtonDidClick(proposalModel: ProposalOrderModel) {
         
         
@@ -277,11 +280,65 @@ extension AIProposalTableViewController: SubServiceCardViewDelegate, AIFoldedCel
         //弹出前先收起订单列表
         let parentVC = parentViewController as! AIBuyerViewController
         parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)
-//        let TopMargin: CGFloat = 15.3
-//        serviceExecVC.view.frame.size.height = UIScreen.mainScreen().bounds.height - TopMargin
-//        presentPopupViewController(serviceExecVC, animated: true)
         parentVC.showTransitionStyleCrossDissolveView(serviceExecVC)
     }
+    
+    func containerImageDidLoad(viewModel viewModel: AITimelineViewModel, containterHeight: CGFloat) {
+        
+    }
+    func confirmServiceButtonDidClick(viewModel viewModel: AITimelineViewModel) {
+        
+        let requester = AICustomerServiceExecuteHandler.sharedInstance
+        let procedureInstId = viewModel.itemId!
+        requester.confirmOrderComplete(procedureInstId, action: "1", success: { (resultCode) in
+            //AIAlertView().showSuccess("同意授权成功!", subTitle: "")
+            //测试评论打开
+            let commentVC = AISingleServiceCommnentViewController()
+            commentVC.serviceID = viewModel.serviceInstanceId!
+            let navi = UINavigationController(rootViewController: commentVC)
+            navi.view.frame = self.view.bounds
+            self.showTransitionStyleCrossDissolveView(navi)
+        }) { (errType, errDes) in
+            AIAlertView().showError("AICustomerServiceExecuteViewController.ConfirmError".localized, subTitle: "")
+        }
+        
+    }
+    func confirmOrderButtonDidClick(viewModel viewModel: AITimelineViewModel) {
+        let requester = AICustomerServiceExecuteHandler.sharedInstance
+        let procedureInstId = viewModel.itemId!
+        requester.confirmOrderComplete(procedureInstId, action: "1", success: { (resultCode) in
+            AILog("confirmOrderComplete result: \(resultCode)")
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
+            //back to main view controller
+            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
+            //打开支付页面
+            let popupVC = AIPaymentViewController.initFromNib()
+            popupVC.order_id = viewModel.orderId!
+            //这个暂时从买家订单列表带过来
+            popupVC.order_item_id = viewModel.orderItemId!
+            let natigationController = UINavigationController(rootViewController: popupVC)
+            self.showTransitionStyleCrossDissolveView(natigationController)
+        }) { (errType, errDes) in
+            AIAlertView().showSuccess("确认完成失败!", subTitle: "")
+        }
+        
+    }
+    func refuseButtonDidClick(viewModel viewModel: AITimelineViewModel) {
+        AIAlertView().showInfo("忽略授权请求!", subTitle: "")
+    }
+    func acceptButtonDidClick(viewModel viewModel: AITimelineViewModel) {
+        let requester = AICustomerServiceExecuteHandler.sharedInstance
+        let procedureInstId = viewModel.itemId!
+        requester.customerAuthorize(procedureInstId, action: "1", success: { (resultCode) in
+            AILog("acceptAuthorize result: \(resultCode)")
+            AIAlertView().showSuccess("同意授权成功!", subTitle: "")
+        }) { (errType, errDes) in
+            AIAlertView().showSuccess("同意授权失败!", subTitle: "")
+        }
+        
+    }
+
 }
 
 extension AIProposalTableViewController : DimentionChangable, ProposalExpandedDelegate {
