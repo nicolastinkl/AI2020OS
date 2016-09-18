@@ -41,17 +41,22 @@
                             <constraint firstAttribute="height" constant="8" id="nWB-8X-nh5"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="陪护人员需要您授权使用取号二维码，来完成排队工作" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-Ve-tDI" userLabel="timeContentLabel">
-                        <rect key="frame" x="55" y="5" width="270" height="36"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="1000" text="陪护人员需要您授权使用取号二维码，来完成排队工作" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-Ve-tDI" userLabel="timeContentLabel">
+                        <rect key="frame" x="55" y="5" width="285" height="36"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="koE-U4-gTo"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="koE-U4-gTo"/>
+                            </mask>
+                        </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Go-Ju-gPS" userLabel="TimelineContentView">
-                        <rect key="frame" x="57" y="46" width="282" height="123"/>
+                        <rect key="frame" x="57" y="46" width="282" height="127.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
@@ -59,34 +64,20 @@
                     <constraint firstItem="uwo-Ve-tDI" firstAttribute="top" secondItem="ICm-BR-fDN" secondAttribute="top" id="1SG-Qv-fOS"/>
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="centerX" secondItem="Fln-wl-yBu" secondAttribute="centerX" id="717-ct-jbu"/>
                     <constraint firstItem="m0A-Nu-kg1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-20" id="9pa-fx-nSF"/>
-                    <constraint firstItem="Fln-wl-yBu" firstAttribute="leading" secondItem="ICm-BR-fDN" secondAttribute="trailing" constant="4" id="IAF-gO-RIp"/>
                     <constraint firstItem="Fln-wl-yBu" firstAttribute="centerY" secondItem="ICm-BR-fDN" secondAttribute="centerY" id="JGz-1Q-xFS"/>
-                    <constraint firstItem="uwo-Ve-tDI" firstAttribute="top" secondItem="Fln-wl-yBu" secondAttribute="top" id="Joc-tn-NdA"/>
-                    <constraint firstItem="lje-Xb-cAI" firstAttribute="top" secondItem="Fln-wl-yBu" secondAttribute="bottom" id="P0k-j7-QcE"/>
                     <constraint firstItem="ICm-BR-fDN" firstAttribute="top" secondItem="m0A-Nu-kg1" secondAttribute="bottom" constant="8" id="WZ3-Pd-eRC"/>
                     <constraint firstItem="uwo-Ve-tDI" firstAttribute="leading" secondItem="Fln-wl-yBu" secondAttribute="trailing" constant="5" id="YUJ-xG-hda"/>
                     <constraint firstAttribute="bottom" secondItem="lje-Xb-cAI" secondAttribute="bottom" id="Znk-xj-ppo"/>
-                    <constraint firstItem="lje-Xb-cAI" firstAttribute="centerY" secondItem="Fln-wl-yBu" secondAttribute="centerY" id="aGU-Vh-2CA"/>
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aik-ka-FKG"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uwo-Ve-tDI" secondAttribute="trailing" constant="20" symbolic="YES" id="b3g-YN-sXc"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uwo-Ve-tDI" secondAttribute="trailing" constant="5" id="b3g-YN-sXc"/>
                     <constraint firstAttribute="trailing" secondItem="6Go-Ju-gPS" secondAttribute="trailing" constant="13" id="hHI-TC-5Gt"/>
                     <constraint firstItem="m0A-Nu-kg1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="hyt-hU-yqC"/>
                     <constraint firstItem="ICm-BR-fDN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="j7Y-aa-LxP"/>
-                    <constraint firstItem="ICm-BR-fDN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="qgh-Nh-ZO7"/>
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="46" id="s3v-za-JDx"/>
                     <constraint firstItem="6Go-Ju-gPS" firstAttribute="top" secondItem="uwo-Ve-tDI" secondAttribute="bottom" constant="5" id="tc3-Vy-2wy"/>
                     <constraint firstItem="6Go-Ju-gPS" firstAttribute="leading" secondItem="lje-Xb-cAI" secondAttribute="trailing" constant="10" id="wgB-d2-HkU"/>
-                    <constraint firstAttribute="bottom" secondItem="6Go-Ju-gPS" secondAttribute="bottom" constant="21" id="x5X-jl-sjI"/>
+                    <constraint firstAttribute="bottom" secondItem="6Go-Ju-gPS" secondAttribute="bottom" constant="17" id="x5X-jl-sjI"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="qgh-Nh-ZO7"/>
-                        <exclude reference="IAF-gO-RIp"/>
-                        <exclude reference="P0k-j7-QcE"/>
-                        <exclude reference="aGU-Vh-2CA"/>
-                        <exclude reference="Joc-tn-NdA"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>

@@ -10,7 +10,11 @@ import Foundation
 
 class AITimelineViewModel: AIBaseViewModel {
     var itemId: String?
+    //提交所需的一系列标示
+    var orderId: String?
+    var orderItemId: String?
     var serviceInstanceId: String?
+    //提交所需的一系列标示 end
     var layoutType: AITimelineLayoutTypeEnum?
     var operationType: AITimelineOperationTypeEnum?
     var timeModel: AIDateTimeViewModel?
