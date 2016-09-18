@@ -12,7 +12,7 @@ import Cartography
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
-    var serviceID = "900001004204"
+    var orderID = ""
     var comments: [ServiceCommentViewModel]!
     private var currentOperateIndex = -1
     private var commentManager: CommentManager!
@@ -143,7 +143,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         func fakeLoad() {
             comments = [ServiceCommentViewModel]()
     
-            for i in 0 ..< 1 {
+            for i in 0 ..< 3 {
                 let model = ServiceCommentViewModel()
                 model.serviceId = "\(i)"
     
@@ -169,7 +169,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             
             view.showLoading()
             
-            ser.getCompondComment(userId, userType: 1, serviceId: serviceID, success: { (responseData) in
+            ser.getCompondComment(userId, userType: 1, orderId: orderID, success: { (responseData) in
                 self.view.hideLoading()
                 let re = responseData
                 
@@ -391,21 +391,25 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     
     private func addImagesToCell(images: [ImageInfo], cell: ServiceCommentTableViewCell) {
         
+        let row = cell.tag
+        
+        let serviceId = comments[row].serviceId
+        
         var imageList = [AIImageView]()
         
         for info in images {
-            let id = createImageId(info)
-            let imageView = createImageView(id)
+            let imageId = createImageId(info)
+            let imageView = createImageView(imageId)
             imageView.image = info.image
             
             let complate: AIImageView.UploadComplate = {
-                [weak self] (id, url, error) in
+                [weak self] (imageId, url, error) in
                 if let u = url {
-                    self?.commentManager.notifyImageUploadResult(id!, url: u)
+                    self?.commentManager.notifyImageUploadResult(serviceId, imageId: imageId!, url: u)
                 }
             }
             
-            imageView.uploadImage(id, complate: complate)
+            imageView.uploadImage(imageId, complate: complate)
             imageList.append(imageView)
         }
         
