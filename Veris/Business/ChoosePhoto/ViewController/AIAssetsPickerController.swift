@@ -139,26 +139,27 @@ class AIAssetsPickerController: UIViewController {
     
     func fetchData() {
         //Find the frist Photo Ablum
+        weak var wf = self
         assetsLibrary.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (group, stop) in
             if group != nil {
                 
-                self.groups.addObject(group)
-                self.assetsGroup = group
+                wf?.groups.addObject(group)
+                wf?.assetsGroup = group
                 
                 group.enumerateAssetsUsingBlock({ (asset, idnex, complate) in
                     
                     if asset != nil {
-                        self.assets.addObject(asset)
+                        wf?.assets.addObject(asset)
                         if let newAsset = (asset.valueForProperty(ALAssetPropertyType)) as? String {
                             if newAsset == ALAssetTypePhoto {
-                                self.numberOfPhotos += 1
+                                wf?.numberOfPhotos += 1
                             }
                             
                         
                         }
                     }
                 })
-                self.collctionView.reloadData()
+                wf?.collctionView.reloadData()
                 
             }
             }) { (error) in
@@ -180,10 +181,10 @@ class AIAssetsPickerController: UIViewController {
     /// Action
     
     @IBAction func finishChooseAction(any: AnyObject) {
-        
+        weak var wf = self
         let newArray = NSMutableArray()
         self.collctionView.indexPathsForSelectedItems()?.forEach({ (indexPath) in
-            newArray.addObject(self.assets.objectAtIndex(indexPath.row))
+            newArray.addObject((wf?.assets.objectAtIndex(indexPath.row))!)
         })
         delegate?.assetsPickerController(self, didFinishPickingAssets: newArray)
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
@@ -193,8 +194,9 @@ class AIAssetsPickerController: UIViewController {
         if self.collctionView.indexPathsForSelectedItems()?.count > 0 {
             let prevc = AIAssetsReviewsController.initFromNib()
             let newArray = NSMutableArray()
+            weak var wf = self
             self.collctionView.indexPathsForSelectedItems()?.forEach({ (indexPath) in
-                newArray.addObject(self.assets.objectAtIndex(indexPath.row))
+                newArray.addObject((wf?.assets.objectAtIndex(indexPath.row))!)
             })
             prevc.assets = newArray
             prevc.maximumNumberOfSelection = self.maximumNumberOfSelection
@@ -222,8 +224,9 @@ class AIAssetsPickerController: UIViewController {
     func refershDataSize(indexPaths: NSArray?) {
         if isRetainImage {
             var size = 0
+            weak var wf = self
             indexPaths?.forEach({ (index) in
-                if let assetObj = self.assets.objectAtIndex(index.row) as? ALAsset {
+                if let assetObj = wf?.assets.objectAtIndex(index.row) as? ALAsset {
                     let representation =  assetObj.defaultRepresentation()
                     let imageBuffer = UnsafeMutablePointer<UInt8>.alloc(Int(representation.size()))
                     let bufferSize = representation.getBytes(imageBuffer, fromOffset: Int64(0),
