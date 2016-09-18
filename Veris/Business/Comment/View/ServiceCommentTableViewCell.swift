@@ -532,8 +532,8 @@ private class AppendEditingState: AbsCommentState {
             self?.cell.appendComment.inputTextView.becomeFirstResponder()
         })
         
-        cell.checkbox.hidden = true
-        cell.anonymousLabel.hidden = true
+        cell.checkbox.hidden = false
+        cell.anonymousLabel.hidden = false
     }
     
     override func addImages(images: [(image: UIImage, imageId: String?)]) {

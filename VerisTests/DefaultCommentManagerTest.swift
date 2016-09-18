@@ -10,6 +10,8 @@ import XCTest
 
 class DefaultCommentManagerTest: XCTestCase {
     
+    private static let imageUrl = "assets-library://asset/asset.JPG?id=B84E8479-475C-4727-A4A4-B77AA9980897&ext=JPG"
+    
     var commentManager: DefaultCommentManager!
 
     override func setUp() {
@@ -32,7 +34,8 @@ class DefaultCommentManagerTest: XCTestCase {
         let images = list!.first!.imageInfos
         let firstImage = images.firstObject as! ImageInfoModel
         
-        XCTAssertEqual(firstImage.localUrl, "assets-library://asset/asset.JPG?id=2539C955-9ED6-43D6-B067-4F5E6B9730DB&ext=JPG")
+        XCTAssertEqual(firstImage.localUrl, DefaultCommentManagerTest.imageUrl)
+        XCTAssertEqual(firstImage.isSuccessUploaded, true)
     }
     
     func testSaveImage() {
@@ -65,7 +68,7 @@ class DefaultCommentManagerTest: XCTestCase {
     
     func saveData() {
         let image = ImageInfoModel()
-        image.localUrl = "assets-library://asset/asset.JPG?id=2539C955-9ED6-43D6-B067-4F5E6B9730DB&ext=JPG"
+        image.localUrl = DefaultCommentManagerTest.imageUrl
         image.imageId = "9"
         image.isSuccessUploaded = true
         
