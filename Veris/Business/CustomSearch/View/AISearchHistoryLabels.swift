@@ -90,7 +90,7 @@ class AISearchHistoryLabels: UIView {
 
 	func makeLabels(startX: CGFloat, startY: CGFloat, labels: [String]) {
 		var tempLabels = [String]()
-		let maxWidth = CGRectGetWidth(self.frame)
+		let maxWidth = CGRectGetWidth(self.frame) - startX * 2
 		var x = startX
 		var y = startY
 

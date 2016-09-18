@@ -295,6 +295,7 @@ class TaskDetailViewController: UIViewController {
             switch responseData {
             case .success:
                 NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
+                self.bottomButton.enabled = false
             default:
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
             }

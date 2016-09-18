@@ -41,13 +41,13 @@ class ProposalOrderViewModel: AIBaseViewModel {
                 desc = timeline.procedure_inst_name,
                 timeValue = timeline.time_value,
                 commentStatus = timeline.comment_status,
-                serviceInstId = timeline.service_instance_id,
-                contentsBusiModel = timeline.attchments as? [AITimelineContentBusiModel]
+                serviceInstId = timeline.service_instance_id
+                //contentsBusiModel = timeline.attchments as? [AITimelineContentBusiModel]
                 else {
                     //TODO: 这里应该抛出错误
                     //fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
                     AILog("ServiceOrderModel format error! \(service.toJSONString())")
-                    return
+                    continue
             }
             //创建viewModel
             let viewModel = AITimelineViewModel()
@@ -60,24 +60,27 @@ class ProposalOrderViewModel: AIBaseViewModel {
             viewModel.serviceInstanceId = serviceInstId
             //时间线内容
             var contents = [AITimeContentViewModel]()
-            for contentBusiModel: AITimelineContentBusiModel in contentsBusiModel {
-                guard let contentType = contentBusiModel.type
-                    else {
-                        //fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
-                        return
+            if let contentsBusiModel = timeline.attchments as? [AITimelineContentBusiModel] {
+                for contentBusiModel: AITimelineContentBusiModel in contentsBusiModel {
+                    guard let contentType = contentBusiModel.type
+                        else {
+                            //fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+                            return
+                    }
+                    let contentUrl = contentBusiModel.content
+                    let content = AITimeContentViewModel(contentType: AITimelineContentTypeEnum(rawValue: Int(contentType)!)!, contentUrl: contentUrl)
+                    //如果有gps信息的话
+                    if let gpsBusiModel = contentBusiModel.map {
+                        let gpsViewModel = AIGPSViewModel()
+                        gpsViewModel.locType = gpsBusiModel.type
+                        gpsViewModel.latitude = Double(gpsBusiModel.latitude)
+                        gpsViewModel.longitude = Double(gpsBusiModel.longitude)
+                        content.location = gpsViewModel
+                    }
+                    contents.append(content)
                 }
-                let contentUrl = contentBusiModel.content
-                let content = AITimeContentViewModel(contentType: AITimelineContentTypeEnum(rawValue: Int(contentType)!)!, contentUrl: contentUrl)
-                //如果有gps信息的话
-                if let gpsBusiModel = contentBusiModel.map {
-                    let gpsViewModel = AIGPSViewModel()
-                    gpsViewModel.locType = gpsBusiModel.type
-                    gpsViewModel.latitude = Double(gpsBusiModel.latitude)
-                    gpsViewModel.longitude = Double(gpsBusiModel.longitude)
-                    content.location = gpsViewModel
-                }
-                contents.append(content)
             }
+            
             viewModel.contents = contents
             //add by liux at 20160918 提交接口需要的参数
             viewModel.orderId = model.id
