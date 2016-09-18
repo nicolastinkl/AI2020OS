@@ -26,7 +26,15 @@ class AISingalCommentView: UIView {
     var lastView: UIView!
     var freshView: UIView!
 
-
+    var currentStarLevel: Int {
+        get {
+            if hasDefaultComment == true {
+                return (lCommentModel.starLevel != nil) ? (lCommentModel.starLevel?.integerValue)! : 0
+            } else {
+                return freshCommentStar.defaultStarLevel
+            }
+        }
+    }
 
     // last
 
