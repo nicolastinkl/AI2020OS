@@ -524,6 +524,12 @@
         }
             break;
 
+        case 3: // 已完成，等待用户确认
+        {
+            [self showToastMessage:@"AISellerViewController.ServiceFinishedAfterAuthentication".localized];
+        }
+            break;
+
         default:
             break;
     }
