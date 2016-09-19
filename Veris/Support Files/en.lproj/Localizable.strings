@@ -326,7 +326,11 @@
 
 "AISingleServiceCommnentViewController.Anonymous" = "Anonymous";
 
-"AISingleServiceCommnentViewController.SubmitError" = "Submit Error! Try again.";
+"AISingleServiceCommnentViewController.StarError" = "Please Choose Star.";
+
+"AISingleServiceCommnentViewController.TextError" = "Please text your comment.";
+
+"AISingleServiceCommnentViewController.TextLessError" = "Please text more than 15 words.";
 
 /// 搜索过滤bar AICustomSearchHomeResultFilterBar
 "AICustomSearchHomeResultFilterBar.priceLowToHigh" = "Price: Low to High";
@@ -358,3 +362,11 @@
 "AIAlertViewController.contestFail.okButton" = "Continue";
 "AIAlertViewController.contest.ignore" = "Ignore";
 "AIAlertViewController.contest.seize" = "Seize";
+
+/// Normal
+
+"Button.QueDing" = "OK";
+"Button.QuXiao" = "Cancel";
+
+
+
