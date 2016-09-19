@@ -144,7 +144,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         serviceModel.serviceIcon = serviceCommentModel?.service_thumbnail_url
         serviceModel.serviceName = serviceCommentModel?.service_name
         commentModel.serviceModel = serviceModel
-        commentModel.starLevel = Int((serviceCommentModel?.rating_level)!)
+        commentModel.starLevel = Int(serviceCommentModel?.rating_level ?? 0)
         fetchLastComments(commentModel)
         fetchAdditionalComments(commentModel)
         
