@@ -131,8 +131,8 @@ class AICustomSearchHomeResultFilterBar: UIView {
 	
 	var sortRequestValues: [String] {
 		return [
-			"priceAscend",
 			"priceDescend",
+			"priceAscend",
 			"avgCustomerReview",
 			"newestArrivals"
 		]
