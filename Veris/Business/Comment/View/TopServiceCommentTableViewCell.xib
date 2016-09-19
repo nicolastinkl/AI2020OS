@@ -57,12 +57,15 @@
                             <constraint firstAttribute="height" constant="30" id="eyG-mC-hj2"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6X-k0-WVI" userLabel="Top Stroke Line View" customClass="StrokeLineView" customModule="Veris" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6X-k0-WVI" userLabel="Top Stroke Line View" customClass="ImageLineView" customModule="Veris" customModuleProvider="target">
                         <rect key="frame" x="22" y="58" width="290" height="1"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="999" constant="1" id="clq-U9-BV7"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="lineImage" value="dottedLine2"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpZ-fK-DS0">
                         <rect key="frame" x="240" y="321" width="72" height="30"/>
@@ -208,5 +211,6 @@
     <resources>
         <image name="Image_picker" width="30" height="30"/>
         <image name="Wave_BG" width="360" height="32"/>
+        <image name="dottedLine2" width="292" height="1"/>
     </resources>
 </document>
