@@ -221,7 +221,6 @@
     NSString *resultCode = [NSString stringWithFormat:@"%@",[des objectForKey:kKeyForResultCode]];
     
     if ([resultCode isKindOfClass:[NSString class]] && ([resultCode isEqualToString:kSuccessCode] || [resultCode isEqualToString:kSuccessCode_1] ) && success) {
-
         success(returnResponseObject);
     } else if ([resultCode isEqualToString:kLogoutCode]) {
         // 通知登录超时
