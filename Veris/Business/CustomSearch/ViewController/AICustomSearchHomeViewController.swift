@@ -197,6 +197,7 @@ class AICustomSearchHomeViewController: UIViewController {
 			wishProxy.centerX == wishProxy.superview!.centerX + 60
 		}
     }
+    
 	func setupRecentlySearchView() {
         var previousView: UIView?
         

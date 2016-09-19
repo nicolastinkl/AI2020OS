@@ -139,6 +139,10 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         
         serviceDescLabel.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         serviceNameLabel.font = AITools.myriadSemiCondensedWithSize(80.displaySizeFrom1242DesignSize())
+        //serviceIconView
+        serviceIconImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        serviceIconImageView.layer.borderWidth = 5
+        //navigationController
         self.navigationController?.delegate = self
     }
     

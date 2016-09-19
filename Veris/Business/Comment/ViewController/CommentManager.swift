@@ -186,6 +186,10 @@ class DefaultCommentManager: CommentManager {
                     return false
                 }
                 
+                if !info.isSuccessUploaded {
+                    return false
+                }
+                
                 return imageIsExist(NSURL(string: url)!)
             }
             

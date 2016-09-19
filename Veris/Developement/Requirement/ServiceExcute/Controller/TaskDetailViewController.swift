@@ -373,6 +373,7 @@ class TaskDetailViewController: UIViewController {
         
         override func bottomBtnClicked() {
             vc.submitAuthorization()
+            TaskDetailViewController.setBottomButtonEnabel(vc.bottomButton, enable: false)
         }
     }
     

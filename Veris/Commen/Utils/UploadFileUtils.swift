@@ -15,23 +15,12 @@ protocol UploadFileUtils {
 
 class LeanCloudUploadFileUtils: UploadFileUtils {
     func uploadImage(image: UIImage) -> String? {
-        //let data = UIImagePNGRepresentation(image)
-        if let data = UIImageJPEGRepresentation(image, 0.5) {
-            
-            let file = AVFile(data: data)
-            file.saveInBackgroundWithBlock({ (complate, error) in
-                if complate {
-                    AILog("LeanCloudUploadFileUtils OK")
-                } else {
-                    AILog("LeanCloudUploadFileUtils \(error)")
-                }
-                
-                
-            })
-            
-            return file.url
-        }
-        return ""
+        let data = UIImageJPEGRepresentation(image, 0.5)
+        
+        let file = AVFile(data: data)
+        file.save()
+        
+        return file.url
     }
     
     func uploadFile(filePathUrl: NSURL) -> String? {

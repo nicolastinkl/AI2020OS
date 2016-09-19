@@ -234,7 +234,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         singleComment.photos = singalServiceCommentView.freshCommentPictureView.displayPictureNames
         singleComment.text = singalServiceCommentView.freshCommentTextView.text ?? ""
         singleComment.service_type = CommentType.service.rawValue
-        singleComment.anonymousFlag = singalServiceCommentView.freshCheckBox.selected ? 1 : 0
+        singleComment.anonymousFlag = singalServiceCommentView.freshCheckBox.selected ? Int32(AnonymousFlag.anonymous.rawValue) : Int32(AnonymousFlag.noAnonymous.rawValue)
         service.submitComments(userID.toString(), userType: 1, commentList: [singleComment], success: { (responseData) in
             wf?.dismissLoading()
             wf?.dismissViewControllerAnimated(true, completion: nil)

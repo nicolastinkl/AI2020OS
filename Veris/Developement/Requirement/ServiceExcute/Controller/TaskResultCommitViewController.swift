@@ -101,7 +101,7 @@ class TaskResultCommitViewController: UIViewController {
             guard let urls = self.uploadAttachment() else {
                 self.dismissLoading()
                 
-                NBMaterialToast.showWithText(self.view, text: "TaskResultCommitViewController.dataNoValid".localized, duration: NBLunchDuration.SHORT)
+                NBMaterialToast.showWithText(self.view, text: "TaskResultCommitViewController.attachmentUploadFail".localized, duration: NBLunchDuration.SHORT)
                 return
             }
             
