@@ -474,27 +474,22 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         }) {
             if !visibleIndexPathArray.isEmpty {
                 //解决异步刷新时的闪退问题，loading状态时不做更新
-                if let viewIndex = timelineModels.indexOf({ (model) -> Bool in
-                    return model.index == viewModel.index
-                }) {
-                    if viewIndex == viewModel.index {
-                        getHeight(viewModel, containerHeight: containterHeight)
+                if !isLoading {
+                    getHeight(viewModel, containerHeight: containterHeight)
                     self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-                    }
-                    else {
-                        AILog("timeline model changed!")
-                    }
                 }
-                
+                else {
+                    AILog("timeline model changed!")
+                }
                 
             }
         }
-
-    }
+    
+}
 
     /**
      <#Description#>
-     
+ 
      - parameter timelineModels: <#timelineModels description#>
      
      - returns: <#return value description#>

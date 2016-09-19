@@ -11,6 +11,8 @@ import UIKit
 class ServiceCommentTableViewCell: UITableViewCell {
     
     private static let commentAreaMaxHeight: CGFloat = 242
+    private let checkboxOffColor = UIColor(hex: "464856")
+    private let checkboxOnColor = UIColor(hex: "B6BBE6")
 
     @IBOutlet weak var imageButton: UIImageView!
     @IBOutlet weak var serviceIcon: UIImageView!
@@ -121,7 +123,12 @@ class ServiceCommentTableViewCell: UITableViewCell {
         appendCommenToImageButtonSpace = imageButtonSpace.constant
         
         checkbox.layer.cornerRadius = 4
+        let checkboxSelector =
+            #selector(ServiceCommentTableViewCell.anonymousCheckBoxAction)
+        checkbox.addTarget(self, action: checkboxSelector, forControlEvents: .TouchUpInside)
         anonymousLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(40))
+        
+        checkbox.backgroundColor = checkbox.on ? checkboxOnColor : checkboxOffColor
     }
 
     override func layoutSubviews() {
@@ -136,6 +143,17 @@ class ServiceCommentTableViewCell: UITableViewCell {
 
     func imageButtonAction(sender: UIGestureRecognizer) {
         delegate?.photoImageButtonClicked(imageButton, buttonParentCell: self)
+    }
+    
+    func anonymousCheckBoxAction() {
+        
+        checkbox.backgroundColor = checkbox.on ? checkboxOnColor : checkboxOffColor
+        
+        if checkbox.on {
+            model?.firstComment?.anonymousFlag = Int32(AnonymousFlag.anonymous.rawValue)
+        } else {
+            model?.firstComment?.anonymousFlag = Int32(AnonymousFlag.noAnonymous.rawValue)
+        }
     }
     
     func addImages(images: [(image: UIImage, imageId: String?)]) {
@@ -482,6 +500,9 @@ private class CommentFinshedState: AbsCommentState {
         
         cell.checkbox.hidden = true
         cell.anonymousLabel.hidden = true
+        if let flag = cell.model?.firstComment?.anonymousFlag {
+            cell.model?.appendComment?.anonymousFlag = flag
+        }
     }
     
     override func addImages(images: [(image: UIImage, imageId: String?)]) {
@@ -534,6 +555,11 @@ private class AppendEditingState: AbsCommentState {
         
         cell.checkbox.hidden = false
         cell.anonymousLabel.hidden = false
+        
+        if let flag = cell.model?.firstComment?.anonymousFlag {
+            cell.model?.appendComment?.anonymousFlag = flag
+        }
+
     }
     
     override func addImages(images: [(image: UIImage, imageId: String?)]) {

@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="孕检无忧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSL-h2-ZvC" userLabel="ServiceName">
-                        <rect key="frame" x="53" y="18" width="135" height="21"/>
+                        <rect key="frame" x="49" y="18" width="139" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="UqZ-tX-6bN"/>
                         </constraints>
@@ -43,26 +43,29 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oUy-xX-H03" userLabel="ServiceIcon">
-                        <rect key="frame" x="22" y="16" width="26" height="26"/>
+                        <rect key="frame" x="18" y="16" width="26" height="26"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="26" id="7Jh-8u-1lm"/>
                             <constraint firstAttribute="width" secondItem="oUy-xX-H03" secondAttribute="height" multiplier="1:1" id="96M-8g-ryG"/>
                         </constraints>
                     </imageView>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_picker" translatesAutoresizingMaskIntoConstraints="NO" id="GsB-aE-nrk" userLabel="ImageFile">
-                        <rect key="frame" x="22" y="321" width="30" height="30"/>
+                        <rect key="frame" x="18" y="321" width="30" height="30"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="GsB-aE-nrk" secondAttribute="height" multiplier="1:1" id="fZJ-v3-Zhn"/>
                             <constraint firstAttribute="height" constant="30" id="i2U-hu-oqm"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iaz-ax-E45" userLabel="Top Stroke Line View" customClass="StrokeLineView" customModule="Veris" customModuleProvider="target">
-                        <rect key="frame" x="22" y="58" width="290" height="1"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iaz-ax-E45" userLabel="Top Stroke Line View" customClass="ImageLineView" customModule="Veris" customModuleProvider="target">
+                        <rect key="frame" x="18" y="58" width="294" height="1"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="999" constant="1" id="r3t-mK-KnX"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="lineImage" value="dottedLine2"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbx-Ya-0Bq">
                         <rect key="frame" x="240" y="321" width="72" height="30"/>
@@ -78,14 +81,14 @@
                         </connections>
                     </button>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxg-Vh-rxo" userLabel="Bottom Stroke Line View" customClass="StrokeLineView" customModule="Veris" customModuleProvider="target">
-                        <rect key="frame" x="22" y="305" width="290" height="1"/>
+                        <rect key="frame" x="18" y="305" width="294" height="1"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="999" constant="1" id="tMw-ek-ria"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="290" placeholderIntrinsicHeight="242" translatesAutoresizingMaskIntoConstraints="NO" id="AA3-rZ-vu2" userLabel="firstComment" customClass="CommentAreaView" customModule="Veris" customModuleProvider="target">
-                        <rect key="frame" x="22" y="58" width="290" height="242"/>
+                        <rect key="frame" x="18" y="58" width="294" height="242"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="242" id="ds9-HY-3bH"/>
@@ -97,7 +100,7 @@
                         </variation>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YW-ax-ngK" userLabel="appendComment" customClass="CommentAreaView" customModule="Veris" customModuleProvider="target">
-                        <rect key="frame" x="22" y="311" width="290" height="0.0"/>
+                        <rect key="frame" x="18" y="311" width="294" height="0.0"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" id="2WB-kR-eEn"/>
@@ -114,7 +117,10 @@
                                 <color key="value" red="0.12941176469999999" green="0.2156862745" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
-                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="value" red="0.13635095942371603" green="0.11728475663452007" blue="0.16771227904040409" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="checkLineWidth">
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -149,7 +155,7 @@
                     <constraint firstItem="q5n-Qs-AxA" firstAttribute="leading" secondItem="gSL-h2-ZvC" secondAttribute="trailing" constant="10" id="bI4-SR-xv1"/>
                     <constraint firstItem="Iaz-ax-E45" firstAttribute="leading" secondItem="oUy-xX-H03" secondAttribute="leading" id="bqh-sW-iYn"/>
                     <constraint firstAttribute="bottomMargin" secondItem="7YW-ax-ngK" secondAttribute="bottom" constant="50" id="c2x-Ad-bcB"/>
-                    <constraint firstItem="oUy-xX-H03" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="14" id="dnS-wh-oyC"/>
+                    <constraint firstItem="oUy-xX-H03" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="dnS-wh-oyC"/>
                     <constraint firstItem="AA3-rZ-vu2" firstAttribute="trailing" secondItem="Iaz-ax-E45" secondAttribute="trailing" id="ee8-Uq-9yi"/>
                     <constraint firstItem="GsB-aE-nrk" firstAttribute="leading" secondItem="Iaz-ax-E45" secondAttribute="leading" id="ewP-Tj-lyR"/>
                     <constraint firstItem="Qxg-Vh-rxo" firstAttribute="top" secondItem="AA3-rZ-vu2" secondAttribute="bottom" constant="5" id="faM-ya-381"/>
@@ -187,5 +193,6 @@
     </objects>
     <resources>
         <image name="Image_picker" width="30" height="30"/>
+        <image name="dottedLine2" width="292" height="1"/>
     </resources>
 </document>
