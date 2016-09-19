@@ -45,10 +45,10 @@
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
-                            <real key="value" value="65"/>
+                            <real key="value" value="68"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
-                            <real key="value" value="65"/>
+                            <real key="value" value="68"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="verticalSpace">
                             <real key="value" value="2"/>
