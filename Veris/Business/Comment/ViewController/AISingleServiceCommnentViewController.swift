@@ -144,7 +144,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         serviceModel.serviceIcon = serviceCommentModel?.service_thumbnail_url
         serviceModel.serviceName = serviceCommentModel?.service_name
         commentModel.serviceModel = serviceModel
-        commentModel.starLevel = Int(serviceCommentModel?.rating_level ?? 0)
+        commentModel.starLevel = Int(serviceCommentModel?.rating_level != 0 ? (serviceCommentModel?.rating_level)! / 2 : 0)
         fetchLastComments(commentModel)
         fetchAdditionalComments(commentModel)
         
@@ -220,8 +220,39 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
     //MARK: Actions
 
+    func showError(error: String) {
+        let alertView = AIAlertView()
+        alertView.showCloseButton = false
+        alertView.addButton("Button.QueDing".localized) {}
+        alertView.showError(error, subTitle: "")
+    }
+
     func submitAction() {
 
+        // condition
+
+        if singalServiceCommentView.currentStarLevel == 0 {
+            showError("AISingleServiceCommnentViewController.StarError".localized)
+            return
+        }
+
+
+        let hasNoText = singalServiceCommentView.freshCommentTextView.text.length == 0
+        let hasNoPhotos = singalServiceCommentView.freshCommentPictureView.displayPictureNames.count == 0
+
+        if hasNoText && hasNoPhotos {
+            showError("AISingleServiceCommnentViewController.TextError".localized)
+            return
+        }
+
+
+        if !hasNoText && singalServiceCommentView.freshCommentTextView.text.length < 15 {
+            showError("AISingleServiceCommnentViewController.TextLessError".localized)
+            return
+        }
+
+
+        //
         self.showLoading()
 
         let userID = AILocalStore.userId
@@ -230,7 +261,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
         let singleComment = SingleComment()
         singleComment.service_id = serviceID
-        singleComment.rating_level = CGFloat(singalServiceCommentView.currentStarLevel)
+        singleComment.rating_level = CGFloat(singalServiceCommentView.currentStarLevel * 2)
         singleComment.photos = singalServiceCommentView.freshCommentPictureView.displayPictureNames
         singleComment.text = singalServiceCommentView.freshCommentTextView.text ?? ""
         singleComment.service_type = CommentType.service.rawValue

@@ -31,7 +31,7 @@ class AISingalCommentView: UIView {
             if hasDefaultComment == true {
                 return (lCommentModel.starLevel != nil) ? (lCommentModel.starLevel?.integerValue)! : 0
             } else {
-                return freshCommentStar.defaultStarLevel * 2
+                return freshCommentStar.defaultStarLevel
             }
         }
     }
@@ -82,7 +82,7 @@ class AISingalCommentView: UIView {
 
     private func makeSubViews() {
         hasDefaultComment = lCommentModel?.comments != nil || lCommentModel?.commentPictures != nil
-        hasAdditionalComment = lCommentModel?.additionalComment != nil && (lCommentModel?.additionalComment?.comments != nil || lCommentModel?.additionalComment?.commentPictures != nil)
+        hasAdditionalComment = lCommentModel?.additionalComment != nil && (lCommentModel?.additionalComment?.comments?.length > 0 || lCommentModel?.additionalComment?.commentPictures != nil)
         makeLastCommentView()
         makeFreshCommentView()
     }
