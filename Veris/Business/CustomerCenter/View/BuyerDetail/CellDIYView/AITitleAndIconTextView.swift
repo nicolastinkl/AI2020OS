@@ -62,7 +62,6 @@ class AITitleAndIconTextView: ServiceParamlView {
 
     private func createIconTextPair(paramList: [AnyObject]) {
         //2043
-
         var preIcon = firstIcon
         var preLabel = firstText
 
