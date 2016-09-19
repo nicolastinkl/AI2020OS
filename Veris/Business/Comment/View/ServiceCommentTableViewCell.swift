@@ -11,7 +11,7 @@ import UIKit
 class ServiceCommentTableViewCell: UITableViewCell {
     
     private static let commentAreaMaxHeight: CGFloat = 242
-    private let checkboxOffColor = UIColor.blackColor()
+    private let checkboxOffColor = UIColor(hex: "464856")
     private let checkboxOnColor = UIColor(hex: "B6BBE6")
 
     @IBOutlet weak var imageButton: UIImageView!
