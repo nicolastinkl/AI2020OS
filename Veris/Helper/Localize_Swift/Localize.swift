@@ -12,7 +12,7 @@ import Foundation
 let LCLCurrentLanguageKey = "LCLCurrentLanguageKey"
 
 /// Default language. English. If English is unavailable defaults to base localization.
-let LCLDefaultLanguage = "en"
+let LCLDefaultLanguage = "zh-Hans"
 
 /// Name for language change notification
 public let LCLLanguageChangeNotification = "LCLLanguageChangeNotification"
