@@ -14,7 +14,11 @@ class ListSubServiceCardView: UIView {
     private var cardList = [SubServiceCardView]()
     private var modelList: [ServiceOrderModel]!
     var timelineModels = [String: AITimelineViewModel]()
+    
+    
     var bottomConstraint: Constraint!
+    let timelineContainerTag: Int = 10
+    
     var delegate: SubServiceCardViewDelegate? {
         didSet {
             guard let d = delegate else {
@@ -31,7 +35,21 @@ class ListSubServiceCardView: UIView {
         }
     }
     //add by liux at 20160918 增加用于处理时间线操作的delegate
-    var timelineDelegate: AITimelineContentContainerViewDelegate?
+    var timelineDelegate: AITimelineContentContainerViewDelegate? {
+        didSet {
+            guard let d = timelineDelegate else {
+                return
+            }
+            
+            for view in subviews {
+                guard let sub = view.viewWithTag(timelineContainerTag) as? AITimelineContentContainerView else {
+                    continue
+                }
+                
+                sub.delegate = d
+            }
+        }
+    }
     
     func addSubService(subService: SubServiceCardView) {
         addSubview(subService)
@@ -87,6 +105,8 @@ class ListSubServiceCardView: UIView {
             
             if let viewModel = timelineModels[modelList[i].id] {
                 let timelineContainerView = AITimelineContentContainerView(viewModel: viewModel, delegate: timelineDelegate)
+                //设置tag,用于给delegate赋值
+                timelineContainerView.tag = timelineContainerTag
                 let caculateHeight = timelineContainerView.getCaculateHeight()
                 card.setContentView(timelineContainerView, height: caculateHeight)
             }

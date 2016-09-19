@@ -23,6 +23,8 @@
 "AIBuyerDetailViewController.SubmitSuccess" = "Order Success !";
 "AIBuyerDetailViewController.SubmitFail" = "Buy Fail !";
 "AIBuyerDetailViewController.selectService" = "Please select all service";
+//
+"AICollContentViewController.submitWorkOrderSuccess" = "Submit work order success！";
 
 //
 "AIBuyerViewController.progress" = "Progress";
@@ -61,6 +63,8 @@
 "AISellerViewController.2beConfirmed" = "To Be Confirmed";
 
 "AISellerViewController.ServiceFinished" = "Service Finished";
+
+"AISellerViewController.ServiceFinishedAfterAuthentication" = "Service Finished. Wait Customer Confirm.";
 
 //
 "PurchasedServiceView.home" = "Home Delivery";
@@ -343,3 +347,13 @@
 
 /// AICustomerServiceExecuteViewController
 "AICustomerServiceExecuteViewController.ConfirmError" = "Confirm Error!";
+
+/**
+ *  抢单界面
+ */
+"AIAlertViewController.contestFail.title" = "Oops!";
+"AIAlertViewController.contestFail.text" = "Someone's taken the order one step faster.";
+"AIAlertViewController.contestFail.cancelButton" = "Go offline";
+"AIAlertViewController.contestFail.okButton" = "Continue";
+"AIAlertViewController.contest.ignore" = "Ignore";
+"AIAlertViewController.contest.seize" = "Seize";

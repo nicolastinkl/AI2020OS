@@ -245,6 +245,7 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
             //if cell.getView("expanded") == nil {
                 let serviceListCard = buildSuvServiceCard(dataSource[indexPath.row])
                 serviceListCard.delegate = self
+                serviceListCard.timelineDelegate = self
                 cell.addCandidateView("expanded", subView: serviceListCard)
             //}
             cell.showView("expanded")
@@ -308,10 +309,6 @@ extension AIProposalTableViewController: SubServiceCardViewDelegate, AIFoldedCel
         let procedureInstId = viewModel.itemId!
         requester.confirmOrderComplete(procedureInstId, action: "1", success: { (resultCode) in
             AILog("confirmOrderComplete result: \(resultCode)")
-            
-            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
-            //back to main view controller
-            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
             //打开支付页面
             let popupVC = AIPaymentViewController.initFromNib()
             popupVC.order_id = viewModel.orderId!
@@ -333,6 +330,7 @@ extension AIProposalTableViewController: SubServiceCardViewDelegate, AIFoldedCel
         requester.customerAuthorize(procedureInstId, action: "1", success: { (resultCode) in
             AILog("acceptAuthorize result: \(resultCode)")
             AIAlertView().showSuccess("同意授权成功!", subTitle: "")
+            self.tableView.headerBeginRefreshing()
         }) { (errType, errDes) in
             AIAlertView().showSuccess("同意授权失败!", subTitle: "")
         }
