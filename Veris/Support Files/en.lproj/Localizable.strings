@@ -358,3 +358,20 @@
 "AIAlertViewController.contestFail.okButton" = "Continue";
 "AIAlertViewController.contest.ignore" = "Ignore";
 "AIAlertViewController.contest.seize" = "Seize";
+
+/// UIRrequirementStoryboard
+"UIRrequirementStoryboard.collaboration" = "collaboration";
+"UIRrequirementStoryboard.assignment" = "assignment";
+"UIRrequirementStoryboard.requirement" = "requirement";
+"UIRrequirementStoryboard.userMessage" = "user message";
+"UIRrequirementStoryboard.addTag" = "Add Tag";
+"UIRrequirementStoryboard.addNote" = "Add Note";
+"UIRrequirementStoryboard.addTask" = "Add Task";
+
+/// AIRequirementHandler
+"AIRequirementHandler.userData" = "UserData";
+
+/// AITaskTimeLineView
+"AITaskTimeLineView.selectTask" = "Select task";
+"AITaskTimeLineView.setTime" = "Set time";
+"AITaskTimeLineView.createTask" = "Create task";

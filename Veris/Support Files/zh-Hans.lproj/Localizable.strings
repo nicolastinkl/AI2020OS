@@ -368,3 +368,15 @@
 "AIAlertViewController.contestFail.okButton" = "继续";
 "AIAlertViewController.contest.ignore" = "忽略";
 "AIAlertViewController.contest.seize" = "抢单";
+
+/// UIRrequirementStoryboard
+"UIRrequirementStoryboard.collaboration" = "协作";
+"UIRrequirementStoryboard.assignment" = "分配";
+"UIRrequirementStoryboard.requirement" = "需求";
+"UIRrequirementStoryboard.userMessage" = "用户留言";
+"UIRrequirementStoryboard.addTag" = "添加标签";
+"UIRrequirementStoryboard.addNote" = "添加备注";
+"UIRrequirementStoryboard.addTask" = "添加任务";
+
+/// AIRequirementHandler
+"AIRequirementHandler.userData" = "用户数据";
