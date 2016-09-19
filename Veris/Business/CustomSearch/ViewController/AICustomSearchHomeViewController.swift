@@ -198,20 +198,33 @@ class AICustomSearchHomeViewController: UIViewController {
 		}
     }
 	func setupRecentlySearchView() {
+        var previousView: UIView?
+        
+        if let recentlySearchTexts = recentlySearchTexts where recentlySearchTexts.count > 0 {
+    		recentlySearchTag = AISearchHistoryLabels(frame: CGRect(x: 13, y: 20, width: screenWidth - 20, height: 200), title: "AICustomSearchHomeViewController.recent".localized, labels: recentlySearchTexts)
+    		recentlySearchTag.delegate = self
+    		holdView.addSubview(recentlySearchTag)
+            previousView = recentlySearchTag
+        }
+        
+        if let everyOneSearchTexts = everyOneSearchTexts where everyOneSearchTexts.count > 0 {
+            everyOneSearchTag = AISearchHistoryLabels(frame: CGRect(x: 13, y: 20, width: screenWidth - 20, height: 200), title: "AICustomSearchHomeViewController.everyone".localized, labels: everyOneSearchTexts)
+            everyOneSearchTag.delegate = self
+            if let previousView = previousView {
+                everyOneSearchTag.setY(previousView.bottom + AITools.displaySizeFrom1242DesignSize(83))
+            }
+            holdView.addSubview(everyOneSearchTag)
+            previousView = everyOneSearchTag
+        }
 		
-		// Make Test Data View
-		recentlySearchTag = AISearchHistoryLabels(frame: CGRect(x: 13, y: 20, width: screenWidth - 20, height: 200), title: "AICustomSearchHomeViewController.recent".localized, labels: recentlySearchTexts)
-		recentlySearchTag.delegate = self
-		holdView.addSubview(recentlySearchTag)
-		everyOneSearchTag = AISearchHistoryLabels(frame: CGRect(x: 13, y: 0, width: screenWidth - 20, height: 200), title: "AICustomSearchHomeViewController.everyone".localized, labels: everyOneSearchTexts)
-		everyOneSearchTag.delegate = self
-		everyOneSearchTag.setY(recentlySearchTag.bottom + AITools.displaySizeFrom1242DesignSize(83))
-		holdView.addSubview(everyOneSearchTag)
+
 		
         if let browseHistory = browseHistory {
             browseHistoryView = AISearchHistoryIconView(items: browseHistory, width: screenWidth)
             browseHistoryView.delegate = self
-            browseHistoryView.setY(everyOneSearchTag.bottom + AITools.displaySizeFrom1242DesignSize(109))
+            if let previousView = previousView {
+                browseHistoryView.setY(previousView.bottom + AITools.displaySizeFrom1242DesignSize(109))
+            }
             holdView.addSubview(browseHistoryView)
         }
 	}
