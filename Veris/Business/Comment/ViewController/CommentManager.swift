@@ -61,6 +61,8 @@ class FileCommentManager: DefaultCommentManager {
         for id in serviceIds {
             modelMap[id] = nil
         }
+        
+        saveModelMap()
     }
     
     override func clearLocalModels() {

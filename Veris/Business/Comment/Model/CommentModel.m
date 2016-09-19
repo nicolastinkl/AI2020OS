@@ -15,6 +15,18 @@
 @end
 
 @implementation SingleComment
+
+- (id) init
+{
+    self = [super init];
+
+    if (self) {
+        _spec_id = @"2201";
+    }
+
+    return self;
+}
+
 @end
 
 @implementation ServiceComment

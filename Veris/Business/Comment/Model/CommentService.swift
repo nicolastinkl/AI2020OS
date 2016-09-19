@@ -13,6 +13,11 @@ enum AnonymousFlag: Int {
     case anonymous = 1
 }
 
+enum CommentType: String {
+    case service = "ServiceInstance"
+    case order = "Order"
+}
+
 
 protocol CommentService: NSObjectProtocol {
     func getSingleComment(userId: String, userType: Int, serviceId: String, success: (responseData: ServiceComment) -> Void, fail: (errType: AINetError, errDes: String) -> Void)
@@ -31,7 +36,7 @@ extension HttpCommentService: CommentService {
         let url = AIApplication.AIApplicationServerURL.serviceComment.description
         message.url = url
         
-        let data: [String: AnyObject] = ["service_id": serviceId, "user_id": userId, "userType": userType]
+        let data: [String: AnyObject] = ["service_id": serviceId, "user_id": userId, "user_type": userType]
         message.body = BDKTools.createRequestBody(data)
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in

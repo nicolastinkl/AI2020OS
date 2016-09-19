@@ -12,7 +12,7 @@ import Cartography
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
-    var orderID = ""
+    var orderID: String!
     var comments: [ServiceCommentViewModel]!
     private var currentOperateIndex = -1
     private var commentManager: CommentManager!
@@ -145,7 +145,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     
             for i in 0 ..< 3 {
                 let model = ServiceCommentViewModel()
-                model.serviceId = "\(i)"
+                model.instanceId = "\(i)"
     
                 if i % 2 != 1 {
                     model.cellState = .CommentEditable
@@ -195,7 +195,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             
             let tempComments = comments.sort { (firstComment, secondComment) -> Bool in
                 let result: NSComparisonResult = firstComment.createDate.compare(secondComment.createDate)
-                return result == NSComparisonResult.OrderedAscending
+                return result == NSComparisonResult.OrderedDescending
             }
             
             var index = 0
@@ -214,7 +214,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         
         
         let mainServiceComment = ServiceCommentViewModel()
-        mainServiceComment.serviceId = model.service_id
+        mainServiceComment.instanceId = orderID
         mainServiceComment.thumbnailUrl = model.service_thumbnail_url
         mainServiceComment.serviceName = model.service_name
         mainServiceComment.stars = CommentUtils.convertStarValueToPercent(model.rating_level)
@@ -243,7 +243,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     
         for subService in subList {
             let subServiceComment = ServiceCommentViewModel()
-            subServiceComment.serviceId = subService.service_id
+            subServiceComment.instanceId = subService.service_instance_id
             subServiceComment.thumbnailUrl = subService.service_thumbnail_url
             subServiceComment.serviceName = subService.service_name
             subServiceComment.stars = CommentUtils.convertStarValueToPercent(subService.rating_level)
@@ -272,7 +272,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     
     private func findSubCommentViewModel(serviceId: String) -> ServiceCommentViewModel? {
         for model in comments {
-            if model.serviceId == serviceId {
+            if model.instanceId == serviceId {
                 return model
             }
         }
@@ -284,7 +284,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         var serviceIds = [String]()
         
         for comment in comments {
-            serviceIds.append(comment.serviceId)
+            serviceIds.append(comment.instanceId)
         }
         
         
@@ -301,12 +301,12 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
             
             for comment in comments {
-                if let model = findLocalModel(comment.serviceId) {
+                if let model = findLocalModel(comment.instanceId) {
                     model.isAppend = comment.cellState != .CommentEditable
                     comment.loaclModel = model
                 } else {
                     comment.loaclModel = ServiceCommentLocalSavedModel()
-                    comment.loaclModel?.serviceId = comment.serviceId
+                    comment.loaclModel?.serviceId = comment.instanceId
                 }
                 
                 comment.imageViews = createLocalImageViews(comment)
@@ -314,7 +314,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         } else {
             for comment in comments {
                 comment.loaclModel = ServiceCommentLocalSavedModel()
-                comment.loaclModel?.serviceId = comment.serviceId
+                comment.loaclModel?.serviceId = comment.instanceId
                 comment.imageViews = createLocalImageViews(comment)
             }
         }
@@ -343,7 +343,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         
         ensureLoaclSavedModelNotNil(row)
         
-        let serviceId = comments[row].serviceId      
+        let serviceId = comments[row].instanceId
         
         for info in infos {
             if info.url == nil {
@@ -393,7 +393,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         
         let row = cell.tag
         
-        let serviceId = comments[row].serviceId
+        let serviceId = comments[row].instanceId
         
         var imageList = [AIImageView]()
         
@@ -610,10 +610,19 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
         let comment = SingleComment()
         
         comment.rating_level = CommentUtils.convertPercentToStarValue(model.stars)
-        comment.service_id = model.serviceId
+        comment.service_id = model.instanceId
         comment.text = model.loaclModel?.text ?? ""
         comment.photos = [CommentPhoto]()
         comment.spec_id = "2201"
+        
+        let isMainService = model.instanceId == orderID
+        
+        if isMainService {
+            comment.service_type = CommentType.order.rawValue
+        } else {
+            comment.service_type = CommentType.service.rawValue
+        }
+        
         
         guard let images = model.loaclModel?.imageInfos else {
             return comment
@@ -694,7 +703,7 @@ extension CompondServiceCommentViewController: ImagesReviewDelegate {
 
 class ServiceCommentViewModel {
     var cellState: CommentStateEnum!
-    var serviceId = ""
+    var instanceId = ""
     var thumbnailUrl = ""
     var serviceName = ""
     var stars: CGFloat = 1

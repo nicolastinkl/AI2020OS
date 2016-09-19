@@ -77,6 +77,11 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         weak var wf = self
         service.getSingleComment(userID.toString(), userType: 1, serviceId: serviceInstanceID, success: { (responseData) in
             wf?.serviceCommentModel = responseData
+
+            if responseData.comment_list.count == 2 {
+                wf?.submitButton.enabled = false
+            }
+
             wf?.makeSubviews()
             wf?.dismissLoading()
             }) { (errType, errDes) in
@@ -110,6 +115,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         button.titleLabel?.textAlignment = .Right
         button.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
         button.setTitleColor(AITools.colorWithHexString("0f86e8"), forState: UIControlState.Normal)
+        button.setTitleColor(AITools.colorWithHexString("FFFFFF"), forState: UIControlState.Disabled)
         button.addTarget(self, action: #selector(submitAction), forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }
@@ -139,10 +145,8 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         serviceModel.serviceName = serviceCommentModel?.service_name
         commentModel.serviceModel = serviceModel
         commentModel.starLevel = Int((serviceCommentModel?.rating_level)!)
-        //commentModel.comments = serviceCommentModel?.comment_list
-
-        //let imageName = "http://img.mshishang.com/pics/2016/0718/20160718043725872.jpeg"
-        //commentModel.commentPictures = [imageName, imageName, imageName, imageName, imageName, imageName, imageName]
+        fetchLastComments(commentModel)
+        fetchAdditionalComments(commentModel)
         
         singalServiceCommentView = AISingalCommentView(frame: frame, commentModel: commentModel)
         singalServiceCommentView.delegate = self
@@ -150,6 +154,69 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         self.view.addSubview(singalServiceCommentView)
 
     }
+
+    func fetchLastComments(model: AICommentModel) {
+
+        if serviceCommentModel?.comment_list.count < 1 {
+            return
+        }
+
+        // text
+        let singleComment: SingleComment = serviceCommentModel?.comment_list.first as! SingleComment
+        model.comments = singleComment.text
+
+        // photos
+        if let photos = singleComment.photos {
+
+            var commentPictures = [String]()
+            for obj in photos {
+                let commentPhoto: CommentPhoto = obj as! CommentPhoto
+                if let _ = commentPhoto.url {
+                    commentPictures.append(commentPhoto.url)
+                }
+            }
+
+            model.commentPictures = commentPictures
+        }
+
+    }
+
+
+    func fetchAdditionalComments(model: AICommentModel) {
+
+        if serviceCommentModel?.comment_list.count < 2 {
+            return
+        }
+
+        let additionalComment = AICommentModel()
+
+        // text
+        let singleComment: SingleComment = serviceCommentModel?.comment_list.last as! SingleComment
+
+        additionalComment.comments = singleComment.text
+
+        // photos
+        if let photos = singleComment.photos {
+
+            var commentPictures = [String]()
+            for obj in photos {
+                let commentPhoto: CommentPhoto = obj as! CommentPhoto
+                if let _ = commentPhoto.url {
+                    commentPictures.append(commentPhoto.url)
+                }
+            }
+
+            if commentPictures.count > 0 {
+                additionalComment.commentPictures = commentPictures
+            }
+
+        }
+
+        if additionalComment.commentPictures != nil || additionalComment.comments != nil {
+            model.additionalComment = additionalComment
+        }
+    }
+
 
     //MARK: Actions
 
@@ -163,11 +230,11 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
         let singleComment = SingleComment()
         singleComment.service_id = serviceID
-        let level: Int = singalServiceCommentView.freshCommentStar.defaultStarLevel * 2
-        singleComment.rating_level = CGFloat(level)
+        singleComment.rating_level = CGFloat(singalServiceCommentView.currentStarLevel)
         singleComment.photos = singalServiceCommentView.freshCommentPictureView.displayPictureNames
         singleComment.text = singalServiceCommentView.freshCommentTextView.text ?? ""
-        singleComment.service_type = "ServiceInstance"
+        singleComment.service_type = CommentType.service.rawValue
+        singleComment.anonymousFlag = singalServiceCommentView.freshCheckBox.selected ? 1 : 0
         service.submitComments(userID.toString(), userType: 1, commentList: [singleComment], success: { (responseData) in
             wf?.dismissLoading()
             wf?.dismissViewControllerAnimated(true, completion: nil)

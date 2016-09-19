@@ -563,7 +563,6 @@ private class AppendEditingState: AbsCommentState {
 
 // 评价和追加评价都已提交完成
 private class DoneState: AbsCommentState {
-    private var finished = false
     
     override func updateUI() {
         super.updateUI()
@@ -572,12 +571,6 @@ private class DoneState: AbsCommentState {
         
         cell.firstComment.userInteractionEnabled = false
         cell.appendComment.userInteractionEnabled = false
-        
-        if finished {
-            return
-        }
-        
-        finished = true
         
         cell.starRateView.userInteractionEnabled = false
         cell.firstComment.finishComment()
