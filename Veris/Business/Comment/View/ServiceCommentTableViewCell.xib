@@ -57,12 +57,15 @@
                             <constraint firstAttribute="height" constant="30" id="i2U-hu-oqm"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iaz-ax-E45" userLabel="Top Stroke Line View" customClass="StrokeLineView" customModule="Veris" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iaz-ax-E45" userLabel="Top Stroke Line View" customClass="ImageLineView" customModule="Veris" customModuleProvider="target">
                         <rect key="frame" x="22" y="58" width="290" height="1"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="999" constant="1" id="r3t-mK-KnX"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="lineImage" value="dottedLine2"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbx-Ya-0Bq">
                         <rect key="frame" x="240" y="321" width="72" height="30"/>
@@ -114,7 +117,10 @@
                                 <color key="value" red="0.12941176469999999" green="0.2156862745" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
-                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="value" red="0.13635095942371603" green="0.11728475663452007" blue="0.16771227904040409" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="checkLineWidth">
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -187,5 +193,6 @@
     </objects>
     <resources>
         <image name="Image_picker" width="30" height="30"/>
+        <image name="dottedLine2" width="292" height="1"/>
     </resources>
 </document>
