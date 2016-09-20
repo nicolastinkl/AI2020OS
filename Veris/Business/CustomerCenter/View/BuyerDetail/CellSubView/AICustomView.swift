@@ -28,7 +28,7 @@ internal class AICustomView: UIView {
 		return selfView
 	}
     
-    func fillTags(models: [AIProposalServiceDetailLabelModel], isNormal: Bool , PlaceHold: Bool) {
+    func fillTags(models: [AIProposalServiceDetailLabelModel], isNormal: Bool, PlaceHold: Bool) {
         if PlaceHold {
             let model = AIProposalServiceDetailLabelModel()
             model.content = "      "

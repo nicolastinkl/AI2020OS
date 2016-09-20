@@ -194,7 +194,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         let singleComment: SingleComment = serviceCommentModel?.comment_list.last as! SingleComment
 
         additionalComment.comments = singleComment.text
-
+        66.displaySizeFrom1242DesignSize()
         // photos
         if let photos = singleComment.photos {
 

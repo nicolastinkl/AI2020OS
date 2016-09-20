@@ -255,7 +255,7 @@ class AIWishPreviewController: UIViewController {
         if totalPrice > 9999 {
             let newTO = totalPrice/10000
             wishAverage?.totalButton.setTitle("\(newTO)w", forState: UIControlState.Normal)
-        }else{
+        } else {
             wishAverage?.totalButton.setTitle("\(model?.money_adv ?? 0)", forState: UIControlState.Normal)
         }
         
@@ -438,5 +438,3 @@ extension AIWishPreviewController: UITextViewDelegate {
     }
     
 }
-
-

@@ -161,7 +161,7 @@ class AIRequireContentViewController: UIViewController {
 
             let customID = baseModel.customer.user_id == nil ? 1 : (baseModel.customer.user_id.integerValue ?? 0)
             //let customID = baseModel.customer.user_id.integerValue ?? 0
-            handler.queryOriginalRequirements(customID, orderID: AIRequirementViewPublicValue.orderPreModel?.order_id ?? 0 , proposal_id : proposal_id, success: { (requirements) -> Void in
+            handler.queryOriginalRequirements(customID, orderID: AIRequirementViewPublicValue.orderPreModel?.order_id ?? 0, proposal_id : proposal_id, success: { (requirements) -> Void in
 
                 self.dataSource  = requirements
 

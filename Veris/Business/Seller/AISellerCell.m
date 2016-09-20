@@ -27,7 +27,7 @@
 #define kSellerIconHeight   55
 #define kStampHeight        40
 
-#define kSmallImageSize     15
+#define kSmallImageSize     12
 
 #define kBigImageSize       20
 
@@ -580,7 +580,8 @@
 - (void)makePrice
 {
     _price = [AIViews normalLabelWithFrame:CGRectMake(0, kMargin5, CGRectGetWidth(self.frame) - kMargin10, CGRectGetHeight(_iconContainer.frame)/2) text:[@"AISerllerCell.dollar" localized] fontSize:22 color:[UIColor whiteColor]];
-    _price.font = [AITools myriadBlackWithSize:66/2.5];
+
+    _price.font = [AITools myriadSemiboldSemiCnWithSize:[AITools displaySizeFrom1242DesignSize:60]];
     _price.textAlignment = NSTextAlignmentRight;
     [_boardView addSubview:_price];
 }

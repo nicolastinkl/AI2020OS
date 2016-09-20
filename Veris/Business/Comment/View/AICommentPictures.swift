@@ -73,7 +73,7 @@ class AICommentPictures: UIView {
         }
 
         let margin: CGFloat = 16.displaySizeFrom1242DesignSize()
-        let size: CGFloat = 220.displaySizeFrom1242DesignSize()
+        let size: CGFloat = (CGRectGetWidth(self.frame) - 64.displaySizeFrom1242DesignSize()) / 5
         var xoffset: CGFloat = 0
         var yoffset: CGFloat = 0
         var shouldNextLine = false
