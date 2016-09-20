@@ -291,6 +291,7 @@ class AIBuyerDetailViewController: UIViewController {
     }
     
     /**
+     add by liux at 20160915
      保存deeplink返回时选择的参数到暂存中。
      TODO:临时实现方案，如果要做到其它参数也能暂存，需要重新考虑
      */
@@ -311,7 +312,7 @@ class AIBuyerDetailViewController: UIViewController {
         var timestamp: NSTimeInterval?
         if let appointmentTimeString = appointmentTimeString {
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             let appointmentDate = dateFormatter.dateFromString(appointmentTimeString)
             timestamp = appointmentDate!.timeIntervalSince1970
         } else {
