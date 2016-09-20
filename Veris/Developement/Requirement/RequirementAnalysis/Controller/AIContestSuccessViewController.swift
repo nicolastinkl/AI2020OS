@@ -93,7 +93,7 @@ import AIAlertView
     }
     
     func dismissVC() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissPopupViewController(true, completion: nil)
     }
     
     
