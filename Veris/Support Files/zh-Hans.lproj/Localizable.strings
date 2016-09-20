@@ -393,3 +393,10 @@
 
 "Button.QueDing" = "确定";
 "Button.QuXiao" = "取消";
+
+"AIRequirementMenuViewController.requirement" = "需求";
+"AIRequirementMenuViewController.assignment" = "分配";
+"AIRequirementMenuViewController.collaboartion" = "协作";
+
+"AISelectedServiceTableVController.distribution" = "  分配";
+"AISelectedServiceTableVController.cancel" = "取消";

@@ -385,3 +385,10 @@
 /// Normal
 "Button.QueDing" = "OK";
 "Button.QuXiao" = "Cancel";
+
+"AIRequirementMenuViewController.requirement" = "requirement";
+"AIRequirementMenuViewController.assignment" = "assignment";
+"AIRequirementMenuViewController.collaboartion" = "collaboardation";
+
+"AISelectedServiceTableVController.distribution" = "  distribution";
+"AISelectedServiceTableVController.cancel" = "cancel";
