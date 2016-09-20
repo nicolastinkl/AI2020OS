@@ -396,7 +396,15 @@
 "Button.QueDing" = "确定";
 "Button.QuXiao" = "取消";
 
+
 // AIProposalTableViewController
 "AIProposalTableViewController.status.onschedule" = "  正 常       ";
 "AIProposalTableViewController.status.actionrequired" = "  操 作       ";
 "AIProposalTableViewController.status.delayed" = "  延 迟       ";
+
+"AIRequirementMenuViewController.requirement" = "需求";
+"AIRequirementMenuViewController.assignment" = "分配";
+"AIRequirementMenuViewController.collaboartion" = "协作";
+
+"AISelectedServiceTableVController.distribution" = "  分配";
+"AISelectedServiceTableVController.cancel" = "取消";

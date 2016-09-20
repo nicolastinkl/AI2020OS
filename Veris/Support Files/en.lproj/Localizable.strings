@@ -388,7 +388,16 @@
 "Button.QueDing" = "OK";
 "Button.QuXiao" = "Cancel";
 
+
 // AIProposalTableViewController
 "AIProposalTableViewController.status.onschedule" = "  On Schedule       ";
 "AIProposalTableViewController.status.actionrequired" = "  Action Required       ";
 "AIProposalTableViewController.status.delayed" = "  Delayed       ";
+
+"AIRequirementMenuViewController.requirement" = "requirement";
+"AIRequirementMenuViewController.assignment" = "assignment";
+"AIRequirementMenuViewController.collaboartion" = "collaboardation";
+
+"AISelectedServiceTableVController.distribution" = "  distribution";
+"AISelectedServiceTableVController.cancel" = "cancel";
+
