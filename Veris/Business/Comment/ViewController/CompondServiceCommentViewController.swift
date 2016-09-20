@@ -184,8 +184,8 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         
-        fakeLoad()
-    //    netLoad()
+        //fakeLoad()
+        netLoad()
     }
     
     private func convertCompondModelToCommentList(model: CompondComment) -> [ServiceCommentViewModel] {
