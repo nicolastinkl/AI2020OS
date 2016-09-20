@@ -231,11 +231,11 @@ extension AIProposalTableViewController: UITableViewDelegate, UITableViewDataSou
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SwitchedTableViewCell") as! SwitchedTableViewCell
         // 构造收起时的cell
-        if cell.mainView == nil {
+        //if cell.mainView == nil {
             let folderCellView = AICustomerOrderFoldedView.currentView()
             folderCellView.delegate = self
             cell.mainView = folderCellView
-        }
+        //}
         
         (cell.mainView as! AICustomerOrderFoldedView).loadData(dataSource[indexPath.row])
         

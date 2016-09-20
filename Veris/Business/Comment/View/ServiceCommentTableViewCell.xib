@@ -107,9 +107,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXu-CS-BiX" userLabel="checkbox" customClass="CheckboxButton" customModule="Veris" customModuleProvider="target">
-                        <rect key="frame" x="241" y="326" width="21" height="21"/>
+                        <rect key="frame" x="245" y="328" width="17" height="17"/>
                         <color key="backgroundColor" red="0.71372549019999998" green="0.73333333329999995" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="17" id="Q7I-jr-BF6"/>
                             <constraint firstAttribute="width" secondItem="lXu-CS-BiX" secondAttribute="height" multiplier="1:1" id="Xks-Kf-4Wd"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -170,6 +171,7 @@
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="c2x-Ad-bcB"/>
+                        <exclude reference="qb1-ZZ-TvG"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

@@ -337,6 +337,12 @@
 
 "AISingleServiceCommnentViewController.SubmitError" = "评论提交失败,请重试.";
 
+"AISingleServiceCommnentViewController.StarError" = "请选择星级";
+
+"AISingleServiceCommnentViewController.TextError" = "请填写评论内容";
+
+"AISingleServiceCommnentViewController.TextLessError" = "输入文字不能少于15个字";
+
 /// 搜索过滤bar AICustomSearchHomeResultFilterBar
 "AICustomSearchHomeResultFilterBar.priceLowToHigh" = "价格由高到低";
 "AICustomSearchHomeResultFilterBar.priceHighToLow" = "价格由低到高";
@@ -368,3 +374,8 @@
 "AIAlertViewController.contestFail.okButton" = "继续";
 "AIAlertViewController.contest.ignore" = "忽略";
 "AIAlertViewController.contest.seize" = "抢单";
+
+/// Normal
+
+"Button.QueDing" = "确定";
+"Button.QuXiao" = "取消";

@@ -163,6 +163,10 @@
                                     <constraint firstAttribute="width" constant="62" id="zJq-NS-kbb"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sdk-Qr-7Ur" userLabel="serviceIconBgView">
+                                <rect key="frame" x="130" y="249" width="153" height="153"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="se_service_icon_434" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-en-bR9" userLabel="serviceIconView" customClass="DesignableImageView" customModule="Spring">
                                 <rect key="frame" x="134" y="253" width="145" height="145"/>
                                 <gestureRecognizers/>
@@ -238,16 +242,22 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dgK-xr-3Zm" secondAttribute="trailing" id="1Bm-Fr-ADC"/>
                             <constraint firstAttribute="trailing" secondItem="XbS-Bs-btI" secondAttribute="trailing" constant="30" id="1vw-yr-fDV"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="top" secondItem="Ted-en-bR9" secondAttribute="bottom" id="4Zd-9r-Jr7"/>
                             <constraint firstItem="Gm5-Lt-BTq" firstAttribute="centerX" secondItem="r0a-wG-2gH" secondAttribute="centerX" id="53l-Jw-gfB"/>
                             <constraint firstItem="2Ru-3N-WVa" firstAttribute="top" secondItem="V21-cj-kNR" secondAttribute="bottom" constant="25" id="86e-sc-UCj"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="leading" secondItem="Ted-en-bR9" secondAttribute="trailing" id="9hf-Ke-4FU"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="width" secondItem="Ted-en-bR9" secondAttribute="width" constant="8" id="BWZ-aI-9It"/>
                             <constraint firstAttribute="trailing" secondItem="sMN-w8-e7a" secondAttribute="trailing" constant="13" id="CAC-UC-mWx"/>
                             <constraint firstItem="x4E-LP-N5A" firstAttribute="top" secondItem="dgK-xr-3Zm" secondAttribute="top" id="Ccf-PD-Pdd"/>
                             <constraint firstAttribute="trailing" secondItem="x4E-LP-N5A" secondAttribute="trailing" id="DKw-2m-yxj"/>
                             <constraint firstItem="V21-cj-kNR" firstAttribute="leading" secondItem="r0a-wG-2gH" secondAttribute="leadingMargin" constant="10" id="FXH-m7-cGW"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="top" secondItem="Ted-en-bR9" secondAttribute="top" id="HbX-lz-wVw"/>
                             <constraint firstItem="Ted-en-bR9" firstAttribute="centerX" secondItem="r0a-wG-2gH" secondAttribute="centerX" id="IV6-1T-IVG"/>
                             <constraint firstItem="2Ru-3N-WVa" firstAttribute="top" secondItem="q9b-9o-iXh" secondAttribute="bottom" id="J9V-zk-IcL"/>
                             <constraint firstAttribute="trailing" secondItem="q9b-9o-iXh" secondAttribute="trailing" id="JCQ-Ud-mqa"/>
                             <constraint firstItem="XbS-Bs-btI" firstAttribute="leading" secondItem="r0a-wG-2gH" secondAttribute="leading" constant="10" id="JN1-45-maU"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="height" secondItem="Ted-en-bR9" secondAttribute="height" constant="8" id="LrG-UD-iwB"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="centerY" secondItem="Ted-en-bR9" secondAttribute="centerY" id="NCE-1B-V3h"/>
                             <constraint firstItem="L7y-pk-2Dp" firstAttribute="bottom" secondItem="x4E-LP-N5A" secondAttribute="bottom" constant="31" id="SIh-cZ-Gwt"/>
                             <constraint firstItem="q9b-9o-iXh" firstAttribute="top" secondItem="x4E-LP-N5A" secondAttribute="bottom" id="Scw-LO-L15"/>
                             <constraint firstItem="Gm5-Lt-BTq" firstAttribute="top" secondItem="Ted-en-bR9" secondAttribute="bottom" constant="13" id="UhK-8w-Oxx"/>
@@ -270,6 +280,7 @@
                             <constraint firstAttribute="leading" secondItem="L7y-pk-2Dp" secondAttribute="leading" constant="-13" id="p0r-9m-3SH"/>
                             <constraint firstItem="2Ru-3N-WVa" firstAttribute="top" secondItem="L7y-pk-2Dp" secondAttribute="bottom" constant="159" id="rqV-F1-IEZ"/>
                             <constraint firstAttribute="trailing" secondItem="Xcq-QJ-hDF" secondAttribute="trailing" constant="13" id="sc5-jz-EIW"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="centerX" secondItem="Ted-en-bR9" secondAttribute="centerX" id="tiD-E7-T2Q"/>
                             <constraint firstItem="L7y-pk-2Dp" firstAttribute="top" secondItem="x4E-LP-N5A" secondAttribute="bottom" constant="-27" id="uAw-T6-1Nc"/>
                             <constraint firstItem="Xcq-QJ-hDF" firstAttribute="leading" secondItem="r0a-wG-2gH" secondAttribute="leading" constant="13" id="v0L-cS-XR7"/>
                             <constraint firstItem="dl0-s3-0mE" firstAttribute="bottom" secondItem="L7y-pk-2Dp" secondAttribute="bottom" constant="-5" id="vrQ-Tp-Csm"/>
@@ -277,6 +288,9 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="YVC-K0-sBa"/>
+                                <exclude reference="4Zd-9r-Jr7"/>
+                                <exclude reference="9hf-Ke-4FU"/>
+                                <exclude reference="HbX-lz-wVw"/>
                                 <exclude reference="p0r-9m-3SH"/>
                                 <exclude reference="uAw-T6-1Nc"/>
                                 <exclude reference="vrQ-Tp-Csm"/>
@@ -291,6 +305,7 @@
                         <outlet property="ignoreButton" destination="60x-ki-hMz" id="DAq-ZN-j5s"/>
                         <outlet property="seizeButton" destination="V21-cj-kNR" id="QtH-rc-LJw"/>
                         <outlet property="serviceDescLabel" destination="Xcq-QJ-hDF" id="Fbs-wW-0Lx"/>
+                        <outlet property="serviceIconBgView" destination="sdk-Qr-7Ur" id="Y6c-YE-agV"/>
                         <outlet property="serviceIconImageView" destination="Ted-en-bR9" id="fXY-e5-XHT"/>
                         <outlet property="serviceNameLabel" destination="Gm5-Lt-BTq" id="SXk-OY-aaW"/>
                         <outlet property="timerControl" destination="sMN-w8-e7a" id="WAL-1I-uLJ"/>

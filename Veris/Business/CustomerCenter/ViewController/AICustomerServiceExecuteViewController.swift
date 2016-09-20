@@ -432,21 +432,26 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
     func confirmOrderButtonDidClick(viewModel viewModel: AITimelineViewModel) {
         let requester = AICustomerServiceExecuteHandler.sharedInstance
         let procedureInstId = viewModel.itemId!
-        requester.confirmOrderComplete(procedureInstId, action: "1", success: { (resultCode) in
-            AILog("confirmOrderComplete result: \(resultCode)")
-            
-            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.UIAIASINFORecoverOrdersNotification, object: nil)
-            //back to main view controller
-            NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.dissMissPresentViewController, object: nil)
-            //打开支付页面
-            let popupVC = AIPaymentViewController.initFromNib()
-            popupVC.order_id = self.g_orderId
-            //这个暂时从买家订单列表带过来
-            popupVC.order_item_id = self.g_orderItemId
-            let natigationController = UINavigationController(rootViewController: popupVC)
-            self.showTransitionStyleCrossDissolveView(natigationController)
-        }) { (errType, errDes) in
-            AIAlertView().showSuccess("确认完成失败!", subTitle: "")
+        let operationType = viewModel.operationType!
+        switch operationType {
+        case .unConfirm:
+            requester.confirmOrderComplete(procedureInstId, action: "1", success: { (resultCode) in
+                AILog("confirmOrderComplete result: \(resultCode)")
+                //打开支付页面
+                let popupVC = AIPaymentViewController.initFromNib()
+                popupVC.order_id = self.g_orderId
+                //这个暂时从买家订单列表带过来
+                popupVC.order_item_id = self.g_orderItemId
+                let natigationController = UINavigationController(rootViewController: popupVC)
+                self.showTransitionStyleCrossDissolveView(natigationController)
+            }) { (errType, errDes) in
+                AIAlertView().showSuccess("确认完成失败!", subTitle: "")
+            }
+        case .confirmed, .commentted:
+            let vc = CompondServiceCommentViewController.initFromNib()
+            vc.orderID = self.g_orderId
+            let nav = UINavigationController(rootViewController: vc)
+            presentViewController(nav, animated: true, completion: nil)
         }
         
     }
