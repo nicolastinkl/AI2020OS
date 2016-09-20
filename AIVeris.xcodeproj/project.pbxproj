@@ -5822,7 +5822,7 @@
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Debug",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
 				HEADER_SEARCH_PATHS = (
@@ -6039,7 +6039,7 @@
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Debug",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
 				HEADER_SEARCH_PATHS = (
@@ -6101,7 +6101,7 @@
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Debug",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Veris/Support Files/AIVeris.pch";
 				HEADER_SEARCH_PATHS = (

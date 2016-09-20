@@ -143,7 +143,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         func fakeLoad() {
             comments = [ServiceCommentViewModel]()
     
-            for i in 0 ..< 3 {
+            for i in 0 ..< 1 {
                 let model = ServiceCommentViewModel()
                 model.instanceId = "\(i)"
     
@@ -184,8 +184,13 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         
-        fakeLoad()
-    //    netLoad()
+     //   fakeLoad()
+        netLoad()
+        
+        Async.main(after: 0.1) {
+            // update cell height
+            self.serviceTableView.reloadData()
+        }
     }
     
     private func convertCompondModelToCommentList(model: CompondComment) -> [ServiceCommentViewModel] {
@@ -355,7 +360,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
     
     private func createImageId(info: ImageInfo) -> String {
-        return info.url!.absoluteString
+        return info.imageId!
     }
     
     private func ensureLoaclSavedModelNotNil(index: Int) {
