@@ -20,15 +20,12 @@ class ProposalOrderViewModel: AIBaseViewModel {
     override init() {
         
     }
-    
-    
-    
+
     convenience init(model: ProposalOrderModel) {
         self.init()
         self.model = model
         parseAITimelineViewModel()
         parseProposalModel()
-        
     }
     
     func parseAITimelineViewModel() {

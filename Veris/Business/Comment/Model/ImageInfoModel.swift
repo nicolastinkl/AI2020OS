@@ -23,7 +23,7 @@ class ImageInfo {
             
             var randomStr = ""
             for _ in 1...4 {
-                let random = (Int(arc4random()) % len);
+                let random = (Int(arc4random()) % len)
                 
                 randomStr += "\(random)"
             }

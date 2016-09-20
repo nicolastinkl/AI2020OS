@@ -396,11 +396,10 @@
 "Button.QueDing" = "确定";
 "Button.QuXiao" = "取消";
 
-
 // AIProposalTableViewController
 "AIProposalTableViewController.status.onschedule" = "  正 常       ";
-"AIProposalTableViewController.status.actionrequired" = "  操 作       ";
-"AIProposalTableViewController.status.delayed" = "  延 迟       ";
+"AIProposalTableViewController.status.actionrequired" = "  待操作       ";
+"AIProposalTableViewController.status.delayed" = "  延 误      ";
 
 "AIRequirementMenuViewController.requirement" = "需求";
 "AIRequirementMenuViewController.assignment" = "分配";
