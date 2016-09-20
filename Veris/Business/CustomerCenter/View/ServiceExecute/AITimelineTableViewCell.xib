@@ -21,7 +21,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="8:46" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICm-BR-fDN" userLabel="timeLabel">
-                        <rect key="frame" x="10" y="5" width="31" height="17"/>
+                        <rect key="frame" x="7" y="5" width="31" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.86274509803921573" green="0.83921568627450982" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -70,6 +70,7 @@
                     <constraint firstAttribute="bottom" secondItem="lje-Xb-cAI" secondAttribute="bottom" id="Znk-xj-ppo"/>
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aik-ka-FKG"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uwo-Ve-tDI" secondAttribute="trailing" constant="5" id="b3g-YN-sXc"/>
+                    <constraint firstItem="lje-Xb-cAI" firstAttribute="leading" secondItem="ICm-BR-fDN" secondAttribute="trailing" constant="8" id="cmf-RV-AOg"/>
                     <constraint firstAttribute="trailing" secondItem="6Go-Ju-gPS" secondAttribute="trailing" constant="13" id="hHI-TC-5Gt"/>
                     <constraint firstItem="m0A-Nu-kg1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="hyt-hU-yqC"/>
                     <constraint firstItem="ICm-BR-fDN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="j7Y-aa-LxP"/>
@@ -78,6 +79,11 @@
                     <constraint firstItem="6Go-Ju-gPS" firstAttribute="leading" secondItem="lje-Xb-cAI" secondAttribute="trailing" constant="10" id="wgB-d2-HkU"/>
                     <constraint firstAttribute="bottom" secondItem="6Go-Ju-gPS" secondAttribute="bottom" constant="17" id="x5X-jl-sjI"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="j7Y-aa-LxP"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
