@@ -164,7 +164,11 @@ class TaskDetailViewController: UIViewController {
                     }
                     //add by liux at 20160920 这段是写死的为了合并doctorName和DepartmentName参数
                     else if node.name == "DoctorName" || node.name == "DepartmentName" {
-                        paramLabel = param1IconLabel
+                        if params[0].name == "time" {
+                            paramLabel = param2IconLabel
+                        } else {
+                            paramLabel = param1IconLabel
+                        }
                         let labelContent = paramLabel!.labelContent!
                         paramLabel?.labelContent = "\(labelContent) - \(node.value)"
                         continue
