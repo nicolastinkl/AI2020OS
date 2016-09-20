@@ -147,9 +147,9 @@ class TaskDetailViewController: UIViewController {
             if params.count != 0 {
                 for index in 0 ..< params.count {
                     
-                    if index > 1 {
-                        break
-                    }
+//                    if index > 1 {
+//                        break
+//                    }
                     
                     guard let node = params[index] as? NodeParam else {
                         continue
@@ -161,6 +161,13 @@ class TaskDetailViewController: UIViewController {
                         paramLabel = param1IconLabel
                     } else if index == 1 {
                         paramLabel = param2IconLabel
+                    }
+                    //add by liux at 20160920 这段是写死的为了合并doctorName和DepartmentName参数
+                    else if node.name == "DoctorName" || node.name == "DepartmentName" {
+                        paramLabel = param1IconLabel
+                        let labelContent = paramLabel!.labelContent!
+                        paramLabel?.labelContent = "\(labelContent) - \(node.value)"
+                        continue
                     }
                     
                     paramLabel?.hidden = false
