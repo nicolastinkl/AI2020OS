@@ -60,6 +60,7 @@
 @interface CompondComment : JSONModel
 
 @property (strong, nonatomic) NSString<Optional> * service_id;
+@property (strong, nonatomic) NSString<Optional> * service_instance_id;
 @property (strong, nonatomic) NSString<Optional> * service_name;
 @property (strong, nonatomic) NSString<Optional> * spec_id;
 @property (strong, nonatomic) NSString<Optional> * service_thumbnail_url;
