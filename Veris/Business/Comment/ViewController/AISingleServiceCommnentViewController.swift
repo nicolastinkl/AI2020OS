@@ -231,6 +231,11 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
 
         // condition
 
+        if singalServiceCommentView.freshView.hidden == true {
+            showError("AISingleServiceCommnentViewController.HiddenError".localized)
+            return
+        }
+
         if singalServiceCommentView.currentStarLevel == 0 {
             showError("AISingleServiceCommnentViewController.StarError".localized)
             return
@@ -263,7 +268,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         singleComment.service_id = serviceID
         singleComment.rating_level = CGFloat(singalServiceCommentView.currentStarLevel * 2)
         singleComment.photos = singalServiceCommentView.freshCommentPictureView.displayPictureNames
-        singleComment.text = singalServiceCommentView.freshCommentTextView.text ?? ""
+        singleComment.text = singalServiceCommentView.freshCommentTextView.text
         singleComment.service_type = CommentType.service.rawValue
         singleComment.anonymousFlag = singalServiceCommentView.freshCheckBox.selected ? Int32(AnonymousFlag.anonymous.rawValue) : Int32(AnonymousFlag.noAnonymous.rawValue)
         service.submitComments(userID.toString(), userType: 1, commentList: [singleComment], success: { (responseData) in

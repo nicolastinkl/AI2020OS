@@ -28,7 +28,7 @@ class AITaskNavigationBar: UIView {
 	lazy var cancelButton: UIButton = { [unowned self] in
 		let cancelButton = UIButton()
 		cancelButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-		cancelButton.setTitle("cancel", forState: .Normal)
+		cancelButton.setTitle("Cancel".localized, forState: .Normal)
 		cancelButton.addTarget(self, action: #selector(AITaskNavigationBar.cancelButtonPressed(_:)), forControlEvents: .TouchUpInside)
 		cancelButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(20)
 
@@ -42,7 +42,7 @@ class AITaskNavigationBar: UIView {
 
 	lazy var saveButton: UIButton = { [unowned self] in
 		let saveButton = UIButton()
-		saveButton.setTitle("save", forState: .Normal)
+		saveButton.setTitle("Save".localized, forState: .Normal)
 		saveButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
 		saveButton.addTarget(self, action: #selector(AITaskNavigationBar.saveButtonPressed(_:)), forControlEvents: .TouchUpInside)
 		saveButton.backgroundColor = UIColor(red: 0.0588, green: 0.5255, blue: 0.9098, alpha: 1.0)

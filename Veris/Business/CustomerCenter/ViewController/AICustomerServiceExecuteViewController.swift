@@ -482,8 +482,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
                 if !isLoading {
                     getHeight(viewModel, containerHeight: containterHeight)
                     self.timelineTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-                }
-                else {
+                } else {
                     AILog("timeline model changed!")
                 }
                 
