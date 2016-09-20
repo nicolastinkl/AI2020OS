@@ -129,6 +129,8 @@ class ServiceCommentTableViewCell: UITableViewCell {
         anonymousLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(40))
         
         checkbox.backgroundColor = checkbox.on ? checkboxOnColor : checkboxOffColor
+        
+        starRateView.delegate = self
     }
 
     override func layoutSubviews() {
@@ -615,7 +617,7 @@ private class DoneState: AbsCommentState {
         
         let firstImages = cell.getImageUrls(false)
         
-        cell.appendComment.imageCollection.addAsyncDownloadImages(firstImages, holdImage: cell.holdImage)
+        cell.firstComment.imageCollection.addAsyncDownloadImages(firstImages, holdImage: cell.holdImage)
         
         let appendImages = cell.getImageUrls(true)
         

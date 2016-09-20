@@ -12,7 +12,7 @@ import Cartography
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
-    var orderID: String = "100000035367"
+    var orderID: String = "100000035695"
     var comments: [ServiceCommentViewModel]!
     private var currentOperateIndex = -1
     private var commentManager: CommentManager!
@@ -143,7 +143,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         func fakeLoad() {
             comments = [ServiceCommentViewModel]()
     
-            for i in 0 ..< 1 {
+            for i in 0 ..< 4 {
                 let model = ServiceCommentViewModel()
                 model.instanceId = "\(i)"
     
@@ -184,7 +184,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         
-     //   fakeLoad()
+    //    fakeLoad()
         netLoad()
         
         Async.main(after: 0.1) {
