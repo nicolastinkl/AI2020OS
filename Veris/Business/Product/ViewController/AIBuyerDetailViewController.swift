@@ -1401,6 +1401,8 @@ extension AIBuyerDetailViewController: AIDialogDelegate {
         queryType = -1
         queryUserID = -1
         audioAssistantModel = .None
+        customerDialogViewController = nil
+        providerDialogViewController = nil
     }
 
     func dialogDidError() {

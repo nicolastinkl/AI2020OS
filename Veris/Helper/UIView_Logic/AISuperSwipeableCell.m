@@ -215,8 +215,11 @@ static CGFloat const kButtonWidthValue = 52.0f;
     if (notifyDelegate) {
         //self.buttonView.hidden = true;
         self.buttonViewWidthConstraint.constant = 0;
-        self.cornerFixView.hidden = true;
-        [self.delegate cellDidClose:self];
+        if (!self.cornerFixView.hidden) {
+            self.cornerFixView.hidden = true;
+            [self.delegate cellDidClose:self];
+        }
+
     }
     
     if (self.startingRightLayoutConstraintConstant == 0 &&
@@ -246,12 +249,19 @@ static CGFloat const kButtonWidthValue = 52.0f;
         //self.buttonView.hidden = false;
 
         self.buttonViewWidthConstraint.constant = kButtonWidthValue;
-        self.cornerFixView.hidden = true;
-        [self.delegate cellDidOpen:self];
+        if (!self.cornerFixView.hidden) {
+            self.cornerFixView.hidden = true;
+            [self.delegate cellDidOpen:self];
+        }
+
     } else {
         self.buttonViewWidthConstraint.constant = kBounceValue;
-        self.cornerFixView.hidden = false;
-        [self.delegate cellDidClose:self];
+
+        if (self.cornerFixView.hidden) {
+            self.cornerFixView.hidden = false;
+            [self.delegate cellDidClose:self];
+        }
+
     }
     
     //1
