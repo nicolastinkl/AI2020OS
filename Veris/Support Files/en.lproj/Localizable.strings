@@ -332,7 +332,7 @@
 
 "AISingleServiceCommnentViewController.TextLessError" = "Please text more than 15 words.";
 
-"AISingleServiceCommnentViewController.HiddenError" = "Please add comments."
+"AISingleServiceCommnentViewController.HiddenError" = "Please add comments.";
 
 /// 搜索过滤bar AICustomSearchHomeResultFilterBar
 "AICustomSearchHomeResultFilterBar.priceLowToHigh" = "Price: Low to High";

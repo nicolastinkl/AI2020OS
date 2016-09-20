@@ -58,7 +58,7 @@ class AISingalCommentView: UIView {
     //
 
 
-    var lineColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7)
+    var lineColor = AITools.colorWithR(0xff, g: 0xff, b: 0xff, a: 0.6)
     var textViewPlaceHolder: UITextView!
     var lCommentModel: AICommentModel!
     var hasDefaultComment: Bool!
@@ -215,7 +215,7 @@ class AISingalCommentView: UIView {
 
         lastAddtionalCommentButton = AIViews.baseButtonWithFrame(frame, normalTitle: "追加评论")
         lastAddtionalCommentButton.layer.cornerRadius = 4
-        lastAddtionalCommentButton.layer.borderColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7).CGColor
+        lastAddtionalCommentButton.layer.borderColor = AITools.colorWithR(0xff, g: 0xff, b: 0xff, a: 0.3).CGColor
         lastAddtionalCommentButton.layer.borderWidth = 1
         lastAddtionalCommentButton.layer.masksToBounds = true
         lastAddtionalCommentButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(40.displaySizeFrom1242DesignSize())
