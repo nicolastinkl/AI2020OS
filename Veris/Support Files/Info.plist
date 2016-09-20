@@ -18,6 +18,11 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+		<string>uber</string>
+	</array>
 	<key>CFBundleShortVersionString</key>
 	<string>V1.1.2.20160919.base.α</string>
 	<key>CFBundleSignature</key>
@@ -97,10 +102,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>373</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>weixin</string>
-	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
