@@ -332,6 +332,8 @@
 
 "AISingleServiceCommnentViewController.TextLessError" = "Please text more than 15 words.";
 
+"AISingleServiceCommnentViewController.HiddenError" = "Please add comments.";
+
 /// 搜索过滤bar AICustomSearchHomeResultFilterBar
 "AICustomSearchHomeResultFilterBar.priceLowToHigh" = "Price: Low to High";
 "AICustomSearchHomeResultFilterBar.priceHighToLow" = "Price: High to Low";
@@ -363,10 +365,23 @@
 "AIAlertViewController.contest.ignore" = "Ignore";
 "AIAlertViewController.contest.seize" = "Seize";
 
-/// Normal
+/// UIRrequirementStoryboard
+"UIRrequirementStoryboard.collaboration" = "collaboration";
+"UIRrequirementStoryboard.assignment" = "assignment";
+"UIRrequirementStoryboard.requirement" = "requirement";
+"UIRrequirementStoryboard.userMessage" = "user message";
+"UIRrequirementStoryboard.addTag" = "Add Tag";
+"UIRrequirementStoryboard.addNote" = "Add Note";
+"UIRrequirementStoryboard.addTask" = "Add Task";
 
+/// AIRequirementHandler
+"AIRequirementHandler.userData" = "UserData";
+
+/// AITaskTimeLineView
+"AITaskTimeLineView.selectTask" = "Select task";
+"AITaskTimeLineView.setTime" = "Set time";
+"AITaskTimeLineView.createTask" = "Create task";
+
+/// Normal
 "Button.QueDing" = "OK";
 "Button.QuXiao" = "Cancel";
-
-
-

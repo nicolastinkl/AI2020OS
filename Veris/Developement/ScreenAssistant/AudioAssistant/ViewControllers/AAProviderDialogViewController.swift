@@ -10,21 +10,19 @@ import UIKit
 
 /// Provider 拨号界面
 class AAProviderDialogViewController: AADialogBaseViewController {
-
-
-    @IBOutlet weak var providerImageView: UIImageView?
-    @IBOutlet weak var providerNameLabel: UILabel?
-
-    var userName: String = "Me"
-    var userIcon: String = "http://himg.bdimg.com/sys/portrait/item/efe1b0e9cbe6d4dad3eabcbe3f31.jpg"
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        showRealProvider(userIcon, name: userName)
-    }
-
-
+	
+	@IBOutlet weak var providerImageView: UIImageView!
+	@IBOutlet weak var providerNameLabel: UILabel!
+	
+	var userName: String = "Me"
+	var userIcon: String = "http://himg.bdimg.com/sys/portrait/item/efe1b0e9cbe6d4dad3eabcbe3f31.jpg"
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		providerNameLabel.font = AITools.myriadSemiboldSemiCnWithSize(86.displaySizeFrom1242DesignSize())
+		showRealProvider(userIcon, name: userName)
+	}
+	
 	override func updateUI() {
 		let connectionStatus = AudioAssistantManager.sharedInstance.connectionStatus
 		status = connectionStatus
@@ -74,17 +72,17 @@ class AAProviderDialogViewController: AADialogBaseViewController {
 			self?.view.hideLoading()
 		})
 	}
-
-    //MARK: 设置头像
-    func showRealProvider(icon: String?, name: String?) {
-        if icon != nil {
-            let url = NSURL(string: icon!)
-            providerImageView?.sd_setImageWithURL(url)
-        }
-
-        if name != nil {
-            providerNameLabel?.text = name
-        }
-    }
+	
+	// MARK: 设置头像
+	func showRealProvider(icon: String?, name: String?) {
+		if icon != nil {
+			let url = NSURL(string: icon!)
+			providerImageView?.sd_setImageWithURL(url)
+		}
+		
+		if name != nil {
+			providerNameLabel?.text = name
+		}
+	}
 	
 }

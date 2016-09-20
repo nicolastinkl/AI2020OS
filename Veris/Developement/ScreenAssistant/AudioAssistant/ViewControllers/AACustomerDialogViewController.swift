@@ -8,41 +8,34 @@
 
 import UIKit
 
-
-
-
-
 /// Customer 拨号界面
 class AACustomerDialogViewController: AADialogBaseViewController {
-
-    @IBOutlet weak var customerImageView: UIImageView?
-    @IBOutlet weak var customerNameLabel: UILabel?
-
-
-    var shouldDial: Bool = true
+	
+	@IBOutlet weak var customerImageView: UIImageView!
+	@IBOutlet weak var customerNameLabel: UILabel!
+	
+	var shouldDial: Bool = true
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-        showRealCustomer(proposalModel?.show_helper.show_head_url, name: proposalModel?.show_helper.show_name)
-
+		customerNameLabel.font = AITools.myriadSemiboldSemiCnWithSize(86.displaySizeFrom1242DesignSize())
+		showRealCustomer(proposalModel?.show_helper.show_head_url, name: proposalModel?.show_helper.show_name)
 	}
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if shouldDial {
-            dial()
-        }
-    }
-
-
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		if shouldDial {
+			dial()
+		}
+	}
+	
 	override func handleCommand(notification: NSNotification) {
 		if let command = notification.object as? AudioAssistantMessage {
 			if command.type == .Command {
 				switch command.content {
 				case AudioAssistantString.HangUp:
 					dialogToolBar(dialogToolBar, clickHangUpButton: nil)
-                    shouldDial = true
+					shouldDial = true
 				default:
 					break
 				}
@@ -67,41 +60,41 @@ class AACustomerDialogViewController: AADialogBaseViewController {
 	}
 	
 	func dial() {
-
-        let notification = [AIRemoteNotificationParameters.AudioAssistantRoomNumber: AudioAssistantManager.fakeRoomNumber, AIRemoteNotificationKeys.NotificationType: AIRemoteNotificationParameters.AudioAssistantType, AIRemoteNotificationKeys.ProposalID: (proposalModel?.proposal_id)!, AIRemoteNotificationKeys.ProposalName: (proposalModel?.proposal_name)!, AIRemoteNotificationKeys.QueryType : 1, AIRemoteNotificationKeys.QueryUserID : AILocalStore.userId, AIRemoteNotificationKeys.SenderName : AILocalStore.nickName!, AIRemoteNotificationKeys.SenderIconUrl : AILocalStore.headURL!]
-
+		
+		let notification = [AIRemoteNotificationParameters.AudioAssistantRoomNumber: AudioAssistantManager.fakeRoomNumber, AIRemoteNotificationKeys.NotificationType: AIRemoteNotificationParameters.AudioAssistantType, AIRemoteNotificationKeys.ProposalID: (proposalModel?.proposal_id)!, AIRemoteNotificationKeys.ProposalName: (proposalModel?.proposal_name)!, AIRemoteNotificationKeys.QueryType: 1, AIRemoteNotificationKeys.QueryUserID: AILocalStore.userId, AIRemoteNotificationKeys.SenderName: AILocalStore.nickName!, AIRemoteNotificationKeys.SenderIconUrl: AILocalStore.headURL!]
+		
 		view.showLoading()
-        let user = proposalModel?.show_helper.show_id
+		let user = proposalModel?.show_helper.show_id
 		AudioAssistantManager.sharedInstance.customerCallRoom(roomNumber: AudioAssistantManager.fakeRoomNumber, sessionDidConnectHandler: { [weak self] in
 			AIRemoteNotificationHandler.defaultHandler().sendAudioAssistantNotification(notification as! [String: AnyObject], toUser: user!)
-            AudioAssistantManager.sharedInstance.doPublishAudio()
-            self?.shouldDial = false
+			AudioAssistantManager.sharedInstance.doPublishAudio()
+			self?.shouldDial = false
 			self?.view.hideLoading()
 			}, didFailHandler: { [weak self] error in
-                
+			
 			// show error
 			self?.view.hideLoading()
-            self?.delegate?.dialogDidError()
+			self?.delegate?.dialogDidError()
 		})
 	}
 	
 	func dialogToolBar(dialogToolBar: DialogToolBar, clickHangUpButton sender: UIButton?) {
 		AudioAssistantManager.sharedInstance.customerHangUpRoom()
-        delegate?.dialogDidFinished()
-        dismissViewControllerAnimated(true, completion: { [weak self] in
-           self?.shouldDial = true
-        })
+		delegate?.dialogDidFinished()
+		dismissViewControllerAnimated(true, completion: { [weak self] in
+			self?.shouldDial = true
+		})
 	}
-
-    //MARK: 设置头像
-    func showRealCustomer(icon: String?, name: String?) {
-        if icon != nil {
-            let url = NSURL(string: icon!)
-            customerImageView?.sd_setImageWithURL(url)
-        }
-
-        if name != nil {
-            customerNameLabel?.text = name
-        }
-    }
+	
+	// MARK: 设置头像
+	func showRealCustomer(icon: String?, name: String?) {
+		if icon != nil {
+			let url = NSURL(string: icon!)
+			customerImageView?.sd_setImageWithURL(url)
+		}
+		
+		if name != nil {
+			customerNameLabel?.text = name
+		}
+	}
 }
