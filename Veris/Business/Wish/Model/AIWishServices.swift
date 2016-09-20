@@ -87,7 +87,7 @@ struct AIWishServices {
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.checkCustomerWish.description as String
         
-        let body: NSDictionary = ["data":[["type_id": typeID,"user_id":String(AILocalStore.userId)]], "desc":["data_mode":"0", "digest":""]]
+        let body: NSDictionary = ["data" : [["type_id" : typeID, "user_id" : String(AILocalStore.userId)]], "desc" : ["data_mode" : "0", "digest" : ""]]
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
