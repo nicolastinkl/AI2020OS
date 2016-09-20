@@ -60,7 +60,7 @@ class AIMapView: UIView {
     //加载一个目标坐标点
     func showTargetAnnotation() {
         targetAnnotation = BMKPointAnnotation()
-        let coor = CLLocationCoordinate2D(latitude: 30.633, longitude: 104.047)
+        let coor = CLLocationCoordinate2D(latitude: 39.981717, longitude: 116.309215)
         targetAnnotation!.coordinate = coor
         _mapView.addAnnotation(targetAnnotation)
         zoomToFitMapAnnotations(_mapView)
@@ -118,9 +118,17 @@ extension AIMapView: BMKMapViewDelegate, BMKLocationServiceDelegate {
             let annotationView = BMKAnnotationView(annotation: annotation, reuseIdentifier: AnnotationViewID)
             //annotationView.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
             annotationView.clipsToBounds = false
-            annotationView.image = UIImage(named: "AI_Search_Home_WIsh")
+            annotationView.image = UIImage(named: "map_car")
             return annotationView
         }
+//        if (annotation as! BMKPointAnnotation) == locationAnnotation {
+//            let AnnotationViewID = "LocationAnnotation"
+//            let annotationView = BMKAnnotationView(annotation: annotation, reuseIdentifier: AnnotationViewID)
+//            //annotationView.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+//            annotationView.clipsToBounds = false
+//            annotationView.image = UIImage(named: "AI_Search_Home_WIsh")
+//            return annotationView
+//        }
         return nil
     }
     

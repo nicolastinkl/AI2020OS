@@ -24,9 +24,9 @@ class CommentUtils {
     }
     
     class func convertPercentToStarValue(percent: CGFloat) -> CGFloat {
-        guard let _ = starDes else {
-            return percent
-        }
+//        guard let _ = starDes else {
+//            return percent
+//        }
         
   //      let value = getMaxValue() * percent
         
