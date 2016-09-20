@@ -16,6 +16,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     var comments: [ServiceCommentViewModel]!
     private var currentOperateIndex = -1
     private var commentManager: CommentManager!
+    private var isSingleService = false
 
     @IBOutlet weak var serviceTableView: UITableView!
 
@@ -75,7 +76,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             
             showLoading()
             
-            commentManager.submitComments("1", userType: 1, commentList: submitList, success: { (responseData) in
+            let userId = AILoginUtil.currentLocalUserID() ?? "1"
+            
+            commentManager.submitComments(userId, userType: 1, commentList: submitList, success: { (responseData) in
                 
                 self.dismissLoading()
                 
@@ -143,7 +146,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         func fakeLoad() {
             comments = [ServiceCommentViewModel]()
     
-            for i in 0 ..< 4 {
+            for i in 0 ..< 1 {
                 let model = ServiceCommentViewModel()
                 model.instanceId = "\(i)"
     
@@ -184,12 +187,22 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         
-   //     fakeLoad()
+  //      fakeLoad()
         netLoad()
         
         Async.main(after: 0.1) {
             // update cell height
             self.serviceTableView.reloadData()
+        }
+    }
+    
+    private func confirmIsSingleService(model: CompondComment) {
+        if let id = model.service_instance_id {
+            if !id.isEmpty {
+                isSingleService = true
+            }
+        } else {
+            isSingleService = false
         }
     }
     
@@ -203,23 +216,34 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                 return result == NSComparisonResult.OrderedDescending
             }
             
-            var index = 0
+            if tempComments.count == 0 {
+                return
+            }
             
-            for comment in tempComments {
-                if index == 0 {
-                    model.firstComment = comment
-                } else if index == 1 {
-                    model.appendComment = comment
-                } else {
-                    break
+            if tempComments.count == 1 {
+                model.firstComment = tempComments[0]
+            } else {
+                var index = 0
+                
+                for comment in tempComments {
+                    if index == 0 {
+                        // the old one is appended comment
+                        model.appendComment = comment
+                    } else if index == 1 {
+                        model.firstComment = comment
+                    } else {
+                        break
+                    }
+                    index += 1
                 }
-                index += 1
             }
         }
         
+        confirmIsSingleService(model)
         
         let mainServiceComment = ServiceCommentViewModel()
-        mainServiceComment.instanceId = orderID
+        
+        mainServiceComment.instanceId = isSingleService ? model.service_instance_id : orderID
         mainServiceComment.thumbnailUrl = model.service_thumbnail_url
         mainServiceComment.serviceName = model.service_name
         mainServiceComment.stars = CommentUtils.convertStarValueToPercent(model.rating_level)
