@@ -27,7 +27,7 @@
 
 #define kBarHeight        50
 
-#define kCommonCellHeight 95
+#define kCommonCellHeight [AITools displaySizeFrom1242DesignSize:305]
 
 
 @interface AISellerViewController ()

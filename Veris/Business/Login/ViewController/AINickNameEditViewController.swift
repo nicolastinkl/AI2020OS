@@ -61,8 +61,8 @@ class AINickNameEditViewController: UIViewController {
 		let service = AILoginService()
 		let usercode = AILoginPublicValue.phoneNumber ?? ""
 		let password = AILoginPublicValue.password ?? ""
-		let nickname = nickNameTextField.text ?? ""
-		let headurl = headImageURL
+		let nickname = nickNameTextField.text ?? "一个人"
+		let headurl = headImageURL ?? "http://imgsrc.baidu.com/forum/pic/item/dafd1c55b319ebc4370a80228326cffc1f171663.jpg"
 		
 		let title = confirmButton.currentTitle ?? ""
 		showButtonLoading(confirmButton)

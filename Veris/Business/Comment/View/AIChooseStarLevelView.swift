@@ -61,8 +61,8 @@ class AIChooseStarLevelView: UIView {
     func makeSignalStar(frame: CGRect) -> UIButton {
         let starButton = UIButton(frame: frame)
 
-        let normalImage = UIImage(named: "star_rating_results_normal")
-        let highlightImage = UIImage(named: "star_rating_results_highlight")
+        let normalImage = UIImage(named: "review_star_gray")
+        let highlightImage = UIImage(named: "review_star_yellow")
         starButton.setBackgroundImage(normalImage, forState: .Normal)
         starButton.setBackgroundImage(highlightImage, forState: .Selected)
         starButton.exclusiveTouch = true
