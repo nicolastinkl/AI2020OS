@@ -123,7 +123,7 @@ class AISingalCommentView: UIView {
         y = CGRectGetMaxY(lastServiceOverview.frame) + 55.displaySizeFrom1242DesignSize()
         width = CGRectGetWidth(self.frame) - x*2
         frame = CGRect(x: x, y: y, width: width, height: 1)
-        let line = AILine(frame: frame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7), dotted: true)
+        let line = AILine(frame: frame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.4), dotted: true)
         lastView.addSubview(line)
 
 
@@ -226,8 +226,8 @@ class AISingalCommentView: UIView {
         reSizeSelfAfterDisplayLastCommentsView(lastAddtionalCommentButton)
 
         // Add Line
-        let lineFrame = CGRect(x: 0, y: CGRectGetMaxY(lastAddtionalCommentButton.frame) + 25.displaySizeFrom1242DesignSize(), width: CGRectGetWidth(lastView.frame), height: 1)
-        lastSeperatorLine = AILine(frame: lineFrame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7), dotted: false)
+        let lineFrame = CGRect(x: 0, y: CGRectGetMaxY(lastAddtionalCommentButton.frame) + 25.displaySizeFrom1242DesignSize(), width: CGRectGetWidth(lastView.frame), height: 0.5)
+        lastSeperatorLine = AILine(frame: lineFrame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.4), dotted: false)
         lastView.addSubview(lastSeperatorLine)
         lastSeperatorLine.hidden = hasDefaultComment && hasAdditionalComment
         // Set Frame

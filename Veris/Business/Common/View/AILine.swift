@@ -22,7 +22,7 @@ class AILine: UIView {
         super.init(frame: frame)
         lineColor = color
         isDotted = dotted
-
+        self.backgroundColor = UIColor.clearColor()
     }
 
     required init?(coder aDecoder: NSCoder) {
