@@ -184,8 +184,8 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         
-        fakeLoad()
-    //    netLoad()
+   //     fakeLoad()
+        netLoad()
         
         Async.main(after: 0.1) {
             // update cell height
@@ -532,10 +532,6 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
     
     func textViewDidEndEditing(textView: UITextView, cell: ServiceCommentTableViewCell) {
         guard let text = textView.text else {
-            return
-        }
-        
-        if text.isEmpty {
             return
         }
         
