@@ -20,15 +20,12 @@ class ProposalOrderViewModel: AIBaseViewModel {
     override init() {
         
     }
-    
-    
-    
+
     convenience init(model: ProposalOrderModel) {
         self.init()
         self.model = model
         parseAITimelineViewModel()
         parseProposalModel()
-        
     }
     
     func parseAITimelineViewModel() {
@@ -126,16 +123,16 @@ class ProposalStateViewModel: AIBaseViewModel {
         self.stateId = stateId
         switch stateId {
         case "1":
-            stateName = "  On Schedule       "
+            stateName = "ProposalStateViewModel.schedule".localized
             color = ProposalStateColorValue.OnSchedule
         case "2":
-            stateName = "  Action Required       "
+            stateName = "ProposalStateViewModel.action".localized
             color = ProposalStateColorValue.ActionRequired
         case "3":
-            stateName = "  Delayed       "
+            stateName = "ProposalStateViewModel.delayed".localized
             color = ProposalStateColorValue.Delayed
         default:
-            stateName = "  On Schedule       "
+            stateName = "ProposalStateViewModel.schedule".localized
             color = ProposalStateColorValue.OnSchedule
         }
     }

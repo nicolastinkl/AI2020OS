@@ -43,7 +43,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     private var panGestureStartY: CGFloat = 0
     private var panGestureThresholdYVelocity: CGFloat = 50
     private var panGestureMaxBeginYOffset: CGFloat = 0.33 * CGRectGetHeight(UIScreen.mainScreen().bounds)
-    private var offsetableWindowYOffset: CGFloat = 0.80 * CGRectGetHeight(UIScreen.mainScreen().bounds)
+    private var offsetableWindowYOffset: CGFloat = CGRectGetHeight(UIScreen.mainScreen().bounds) - 174
     
     private lazy var bubbleViewContainer: UIView = {
         // Create Bubble View of Top.
@@ -301,6 +301,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
         let bgImageView = UIImageView(image: UIImage(named: "Buyer_topBar_Bg"))
         bgImageView.frame = self.view.frame
+        bgImageView.setHeight(bgImageView.height * 2)
         self.view.addSubview(bgImageView)
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIBuyerViewController.reloadDataAfterUserChanged), name: kShouldUpdataUserDataNotification, object: nil)
@@ -559,7 +560,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         // make search
 
         let searchButton = UIButton(type: .Custom)
-        searchButton.frame = CGRectMake(0, 0, buttonWidth, barHeight)
+        searchButton.frame = CGRectMake(0, 7, buttonWidth, barHeight)
         searchButton.setImage(UIImage(named: "Buyer_Search"), forState: UIControlState.Normal)
         searchButton.imageEdgeInsets = UIEdgeInsetsMake(top, top, top, buttonWidth - imageSize - top)
         searchButton.addTarget(self, action: #selector(startSearch), forControlEvents: .TouchUpInside)
@@ -568,10 +569,9 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         // make logo
 
         let logo = UIImage(named: "Buyer_Logo")
-        let logoSie = AITools.imageDisplaySizeFrom1080DesignSize((logo?.size)!).width
         let logoButton = UIButton(type: .Custom)
-        logoButton.frame = CGRectMake(0, 0, logoSie, logoSie)
-        logoButton.setImage(logo, forState: UIControlState.Normal)
+        logoButton.frame = CGRectMake(0, 0, 118.displaySizeFrom1242DesignSize(), 112.displaySizeFrom1242DesignSize())
+        logoButton.setBackgroundImage(logo, forState: UIControlState.Normal)
         logoButton.center = CGPointMake(screenWidth / 2, barHeight / 2 + 5)
         logoButton.addTarget(self, action: #selector(AIBuyerViewController.backToFirstPage), forControlEvents: .TouchUpInside)
 
@@ -581,7 +581,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         // make more
 
         let moreButton = UIButton(type: .Custom)
-        moreButton.frame = CGRectMake(screenWidth - 80, 0, buttonWidth, barHeight)
+        moreButton.frame = CGRectMake(screenWidth - 80, 7, buttonWidth, barHeight)
         moreButton.setImage(UIImage(named: "Buyer_More"), forState: UIControlState.Normal)
         moreButton.imageEdgeInsets = UIEdgeInsetsMake(top, buttonWidth - imageSize - top, top, top)
         moreButton.addTarget(self, action: #selector(AIBuyerViewController.moreButtonAction), forControlEvents: .TouchUpInside)

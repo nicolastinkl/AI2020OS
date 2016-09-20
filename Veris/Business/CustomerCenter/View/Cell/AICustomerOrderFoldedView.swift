@@ -24,7 +24,6 @@ class AICustomerOrderFoldedView: UIView {
     var delegate: AIFoldedCellViewDelegate?
     var proposalModel: ProposalOrderModel!
     
-    
     @IBAction func ServiceDetailAction(sender: UIButton) {
         if let delegate = delegate {
             delegate.statusButtonDidClick(proposalModel!)

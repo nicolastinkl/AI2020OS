@@ -393,3 +393,8 @@
 
 "Button.QueDing" = "确定";
 "Button.QuXiao" = "取消";
+
+/// ProposalStateViewModel
+"ProposalStateViewModel.schedule" = "  正常       ";
+"ProposalStateViewModel.action" = "  待操作       ";
+"ProposalStateViewModel.delayed" = "  延误       ";

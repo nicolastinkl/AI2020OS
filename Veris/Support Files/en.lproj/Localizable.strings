@@ -385,3 +385,8 @@
 /// Normal
 "Button.QueDing" = "OK";
 "Button.QuXiao" = "Cancel";
+
+/// ProposalStateViewModel
+"ProposalStateViewModel.schedule" = "  On Schedule       ";
+"ProposalStateViewModel.action" = "  Action Required       ";
+"ProposalStateViewModel.delayed" = "  Delayed       ";
