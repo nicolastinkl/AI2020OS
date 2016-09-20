@@ -343,7 +343,7 @@
 
 "AISingleServiceCommnentViewController.TextLessError" = "输入文字不能少于15个字";
 
-"AISingleServiceCommnentViewController.HiddenError" = "请追加评论"
+"AISingleServiceCommnentViewController.HiddenError" = "请追加评论";
 
 /// 搜索过滤bar AICustomSearchHomeResultFilterBar
 "AICustomSearchHomeResultFilterBar.priceLowToHigh" = "价格由高到低";
