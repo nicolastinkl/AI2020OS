@@ -28,6 +28,7 @@ class AIWishPreviewController: UIViewController {
     @IBOutlet weak var textpriceConstraint: NSLayoutConstraint!
     @IBOutlet weak var priceConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var contentConstraint: NSLayoutConstraint!
     /// Vars
     
     var model: AIWishHotChildModel?
@@ -41,12 +42,7 @@ class AIWishPreviewController: UIViewController {
     private var averageTotalMenoy: Int = 0
     private var preAverageView: AIWishAverageView?
     private var enbleEdit: Bool = false
-    
-    /**
-     Main Init
-     */
-    
-    
+ 
     // MARK: Method Init
     
     override func viewWillAppear(animated: Bool) {
@@ -319,7 +315,8 @@ class AIWishPreviewController: UIViewController {
         
         self.textpriceConstraint.constant = 90
         self.priceConstraint.constant = 0
-        
+        //self.contentConstraint.constant = 320
+        self.contentScrollview.contentSize = CGSizeMake(self.view.width, 320)
         SpringAnimation.springEaseIn(0.5, animations: {
             self.view.layoutIfNeeded()
             self.view_price.hidden = true
@@ -333,7 +330,8 @@ class AIWishPreviewController: UIViewController {
         
         self.textpriceConstraint.constant = 160
         self.priceConstraint.constant = 132
-        
+        //self.contentConstraint.constant = 150
+        self.contentScrollview.contentSize = CGSizeMake(self.view.width, 150)
         SpringAnimation.springEaseIn(0.5, animations: {
             self.view_price.hidden = false
             self.view.layoutIfNeeded()

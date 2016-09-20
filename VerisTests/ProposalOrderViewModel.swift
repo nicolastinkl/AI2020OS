@@ -126,16 +126,16 @@ class ProposalStateViewModel: AIBaseViewModel {
         self.stateId = stateId
         switch stateId {
         case "1":
-            stateName = "  On Schedule       "
+            stateName = "AIProposalTableViewController.status.onschedule".localized
             color = ProposalStateColorValue.OnSchedule
         case "2":
-            stateName = "  Action Required       "
+            stateName = "AIProposalTableViewController.status.actionrequired".localized
             color = ProposalStateColorValue.ActionRequired
         case "3":
-            stateName = "  Delayed       "
+            stateName = "AIProposalTableViewController.status.delayed".localized
             color = ProposalStateColorValue.Delayed
         default:
-            stateName = "  On Schedule       "
+            stateName = "AIProposalTableViewController.status.onschedule".localized
             color = ProposalStateColorValue.OnSchedule
         }
     }

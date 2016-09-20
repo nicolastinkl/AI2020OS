@@ -12,10 +12,24 @@ import UIKit
 class ImageInfo {
     var image: UIImage?
     var url: NSURL?
+    var imageId: String?
     
     init(image: UIImage, url: NSURL?) {
         self.image = image
         self.url = url
+        
+        if let url = url {
+            let len = url.absoluteString.length
+            
+            var randomStr = ""
+            for _ in 1...4 {
+                let random = (Int(arc4random()) % len);
+                
+                randomStr += "\(random)"
+            }
+            
+            imageId = url.absoluteString + randomStr
+        }
     }
 }
 

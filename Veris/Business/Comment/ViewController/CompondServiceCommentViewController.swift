@@ -12,7 +12,7 @@ import Cartography
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
-    var orderID: String = "100000035367"
+    var orderID: String = "100000035695"
     var comments: [ServiceCommentViewModel]!
     private var currentOperateIndex = -1
     private var commentManager: CommentManager!
@@ -143,7 +143,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         func fakeLoad() {
             comments = [ServiceCommentViewModel]()
     
-            for i in 0 ..< 3 {
+            for i in 0 ..< 4 {
                 let model = ServiceCommentViewModel()
                 model.instanceId = "\(i)"
     
@@ -184,8 +184,13 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         
-        //fakeLoad()
+   //     fakeLoad()
         netLoad()
+        
+        Async.main(after: 0.1) {
+            // update cell height
+            self.serviceTableView.reloadData()
+        }
     }
     
     private func convertCompondModelToCommentList(model: CompondComment) -> [ServiceCommentViewModel] {
@@ -355,7 +360,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
     
     private func createImageId(info: ImageInfo) -> String {
-        return info.url!.absoluteString
+        return info.imageId!
     }
     
     private func ensureLoaclSavedModelNotNil(index: Int) {
@@ -490,7 +495,6 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
             cell = tableView.dequeueReusableCellWithIdentifier("SubServiceCell") as!ServiceCommentTableViewCell
         }
 
-        cell.delegate = self
         cell.cellDelegate = self
         cell.tag = indexPath.row
         
@@ -528,10 +532,6 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
     
     func textViewDidEndEditing(textView: UITextView, cell: ServiceCommentTableViewCell) {
         guard let text = textView.text else {
-            return
-        }
-        
-        if text.isEmpty {
             return
         }
         

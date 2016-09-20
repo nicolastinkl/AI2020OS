@@ -21,7 +21,12 @@ class StarRateView: UIView {
 
     @IBInspectable var scorePercent: CGFloat = 1.0 {
         didSet {
-            setNeedsLayout()
+            let starScore: CGFloat = allowIncompleteStar ? scorePercent : calcCompleteScore(scorePercent)
+            if scorePercent != starScore {
+                scorePercent = starScore
+            }
+            
+            setNeedsLayout()    
         }
     }
     
@@ -95,9 +100,10 @@ class StarRateView: UIView {
     private func calcCompleteScore(realScore: CGFloat) -> CGFloat {
         let floatScroe = Float(realScore * 10)
         
-        // 向上取整
-        var intScore = Int(floatScroe) + 1
+        // 四舍五入
+        var intScore = Int(floatScroe + 0.5)
         
+        // 取偶
         if intScore % 2 == 1 {
             intScore += 1
         }
@@ -240,10 +246,9 @@ class StarRateView: UIView {
         } else {
             scorePercent = percent
         }
-
+        
         delegate?.scroePercentDidChange(self, newScorePercent: scorePercent)
 
-        setNeedsLayout()
     }
 
 }

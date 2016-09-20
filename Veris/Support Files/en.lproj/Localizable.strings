@@ -212,6 +212,8 @@
 "TextAndAudioInputViewController.replaceConfirm" = "The previous message will be replaced. Do you want to proceed?";
 "TaskResultCommitViewController.dataNoValid" = "No picture or text is too short, please complete";
 "TaskResultCommitViewController.attachmentUploadFail" = "Attachment upload failed";
+"TaskDetailViewController.task" = "Task";
+"TaskDetailViewController.detail" = "Details";
 
 /*
  * ./Veris/Business/Comment/ViewController/ImagesReviewViewController
@@ -385,3 +387,17 @@
 /// Normal
 "Button.QueDing" = "OK";
 "Button.QuXiao" = "Cancel";
+
+
+// AIProposalTableViewController
+"AIProposalTableViewController.status.onschedule" = "  On Schedule       ";
+"AIProposalTableViewController.status.actionrequired" = "  Action Required       ";
+"AIProposalTableViewController.status.delayed" = "  Delayed       ";
+
+"AIRequirementMenuViewController.requirement" = "requirement";
+"AIRequirementMenuViewController.assignment" = "assignment";
+"AIRequirementMenuViewController.collaboartion" = "collaboardation";
+
+"AISelectedServiceTableVController.distribution" = "  distribution";
+"AISelectedServiceTableVController.cancel" = "cancel";
+

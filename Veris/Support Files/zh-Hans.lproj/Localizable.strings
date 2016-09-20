@@ -229,6 +229,8 @@
 "TextAndAudioInputViewController.replaceConfirm" = "之前的信息将被覆盖，需要继续吗?";
 "TaskResultCommitViewController.dataNoValid" = "没有上传图片或文字太短，请补全";
 "TaskResultCommitViewController.attachmentUploadFail" = "附件上传失败";
+"TaskDetailViewController.task" = "任务";
+"TaskDetailViewController.detail" = "详情";
 
 /*
  * ./Veris/Business/Comment/ViewController/ImagesReviewViewController
@@ -393,3 +395,16 @@
 
 "Button.QueDing" = "确定";
 "Button.QuXiao" = "取消";
+
+
+// AIProposalTableViewController
+"AIProposalTableViewController.status.onschedule" = "  正 常       ";
+"AIProposalTableViewController.status.actionrequired" = "  操 作       ";
+"AIProposalTableViewController.status.delayed" = "  延 迟       ";
+
+"AIRequirementMenuViewController.requirement" = "需求";
+"AIRequirementMenuViewController.assignment" = "分配";
+"AIRequirementMenuViewController.collaboartion" = "协作";
+
+"AISelectedServiceTableVController.distribution" = "  分配";
+"AISelectedServiceTableVController.cancel" = "取消";
