@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xAz-8s-QX1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xAz-8s-QX1">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -137,18 +137,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="UIRrequirementStoryboard.requirement"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="assignment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIG-e9-chb">
                                 <rect key="frame" x="5" y="105" width="60" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="UIRrequirementStoryboard.assignment"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="collaboration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QA-W6-bkt">
                                 <rect key="frame" x="5" y="160" width="60" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="UIRrequirementStoryboard.collaboration"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -288,6 +297,9 @@
                                         <inset key="titleEdgeInsets" minX="-25" minY="30" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="35" minY="0.0" maxX="0.0" maxY="10"/>
                                         <state key="normal" title="Add Tag" image="AIROAddTag"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="ailButtonNormalTitle" value="UIRrequirementStoryboard.addTag"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="addTagButtonPressed" destination="nVn-6w-g5V" eventType="touchUpInside" id="nZB-aE-SPe"/>
                                         </connections>
@@ -302,6 +314,9 @@
                                         <inset key="titleEdgeInsets" minX="-25" minY="30" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="39" minY="0.0" maxX="0.0" maxY="10"/>
                                         <state key="normal" title="Add Note" image="AIROAddNote"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="ailButtonNormalTitle" value="UIRrequirementStoryboard.addNote"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="addNoteButtonPressed" destination="nVn-6w-g5V" eventType="touchUpInside" id="8oT-Wy-fYM"/>
                                         </connections>
@@ -316,6 +331,9 @@
                                         <inset key="titleEdgeInsets" minX="-25" minY="30" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="10"/>
                                         <state key="normal" title="Add Task" image="AIROAddTask"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="ailButtonNormalTitle" value="UIRrequirementStoryboard.addTask"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="addTaskButtonPressed" destination="nVn-6w-g5V" eventType="touchUpInside" id="EFP-XX-MWa"/>
                                         </connections>
