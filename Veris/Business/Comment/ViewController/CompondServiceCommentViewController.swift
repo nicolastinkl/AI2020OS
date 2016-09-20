@@ -184,8 +184,8 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         
-    //    fakeLoad()
-        netLoad()
+        fakeLoad()
+    //    netLoad()
         
         Async.main(after: 0.1) {
             // update cell height
@@ -495,7 +495,6 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
             cell = tableView.dequeueReusableCellWithIdentifier("SubServiceCell") as!ServiceCommentTableViewCell
         }
 
-        cell.delegate = self
         cell.cellDelegate = self
         cell.tag = indexPath.row
         

@@ -34,7 +34,6 @@ class ServiceCommentTableViewCell: UITableViewCell {
     private var imageButtonHeight: CGFloat!
     private var appendCommenToImageButtonSpace: CGFloat!
     
-    var delegate: CommentDistrictDelegate?
     var cellDelegate: CommentCellDelegate?
     
     private var appendCommentExpanded = false
@@ -144,7 +143,7 @@ class ServiceCommentTableViewCell: UITableViewCell {
     }
 
     func imageButtonAction(sender: UIGestureRecognizer) {
-        delegate?.photoImageButtonClicked(imageButton, buttonParentCell: self)
+        cellDelegate?.photoImageButtonClicked(imageButton, buttonParentCell: self)
     }
     
     func anonymousCheckBoxAction() {
@@ -467,8 +466,6 @@ private class CommentFinshedState: AbsCommentState {
         cell.firstComment.userInteractionEnabled = false
         cell.appendComment.userInteractionEnabled = true
         
-        cell.clearImages()
-        
         let firstImages = cell.getImageUrls(false)
         
         cell.firstComment.imageCollection.addAsyncDownloadImages(firstImages, holdImage: cell.holdImage)
@@ -477,7 +474,7 @@ private class CommentFinshedState: AbsCommentState {
             cell.appendComment.imageCollection.addImages(imageViews)
         }
         
-        if cell.firstComment.imageCollection.images.count >= AbsCommentViewController.maxPhotosNumber {
+        if cell.appendComment.imageCollection.images.count >= AbsCommentViewController.maxPhotosNumber {
             cell.imageButton.hidden = true
         } else {
             cell.imageButton.hidden = false
@@ -545,6 +542,11 @@ private class AppendEditingState: AbsCommentState {
         let firstImages = cell.getImageUrls(false)
         
         cell.firstComment.imageCollection.addAsyncDownloadImages(firstImages, holdImage: cell.holdImage)
+        
+        if let imageViews = cell.model?.imageViews {
+            cell.appendComment.imageCollection.addImages(imageViews)
+        }
+
         
         cell.appendCommentHeight.constant = ServiceCommentTableViewCell.commentAreaMaxHeight
         cell.appendCommentButton.hidden = true
@@ -681,7 +683,7 @@ extension ServiceCommentTableViewCell: StarRateViewDelegate {
     }
 }
 
-protocol CommentCellDelegate: NSObjectProtocol {
+protocol CommentCellDelegate: NSObjectProtocol, CommentDistrictDelegate {
     func appendCommentClicked(clickedButton: UIButton, buttonParentCell: UIView)
     func commentHeightChanged()
     // images: key is ImageTag

@@ -26,8 +26,6 @@ class StarRateView: UIView {
                 scorePercent = starScore
             }
             
-            delegate?.scroePercentDidChange(self, newScorePercent: scorePercent)
-            
             setNeedsLayout()    
         }
     }
@@ -94,9 +92,9 @@ class StarRateView: UIView {
         let offset = tapPoint.x
         let realStarScore: CGFloat = offset / bounds.size.width
         
-   //     let starScore: CGFloat = allowIncompleteStar ? realStarScore : calcCompleteScore(realStarScore)
+        let starScore: CGFloat = allowIncompleteStar ? realStarScore : calcCompleteScore(realStarScore)
 
-        setScorePercent(realStarScore)
+        setScorePercent(starScore)
     }
     
     private func calcCompleteScore(realScore: CGFloat) -> CGFloat {
@@ -248,6 +246,8 @@ class StarRateView: UIView {
         } else {
             scorePercent = percent
         }
+        
+        delegate?.scroePercentDidChange(self, newScorePercent: scorePercent)
 
     }
 
