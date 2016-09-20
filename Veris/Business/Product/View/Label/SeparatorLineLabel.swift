@@ -41,7 +41,7 @@ class SeparatorLineLabel: UIView {
 
     @IBInspectable var labelContent: String? {
         set {
-            label.text = newValue
+            label.text = newValue?.localized
         }
 
         get {
