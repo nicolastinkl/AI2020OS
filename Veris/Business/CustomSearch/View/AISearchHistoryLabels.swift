@@ -20,6 +20,7 @@ class AISearchHistoryLabels: UIView {
 	var historyLabels: [String]?
 	var mainTitleLabel: UPLabel!
 	var containLabels: [String] = [String]()
+    var displayedLabels: [UPLabel] = [UPLabel]()
 	var maxHeight: CGFloat = 0
 	//
     
@@ -90,7 +91,7 @@ class AISearchHistoryLabels: UIView {
 
 	func makeLabels(startX: CGFloat, startY: CGFloat, labels: [String]) {
 		var tempLabels = [String]()
-		let maxWidth = CGRectGetWidth(self.frame) - startX * 2
+		let maxWidth = CGRectGetWidth(self.frame) - horizontalMargin*2
 		var x = startX
 		var y = startY
 
@@ -103,23 +104,28 @@ class AISearchHistoryLabels: UIView {
 			var labelText = historyLabel
 			var size = labelText.sizeWithFont(labelFont, forWidth: maxWidth)
             size.width += 30
-            size.height += 14
+            size.height += 10
 
 			if (x + horizontalMargin + size.width) > maxWidth {
 				let shortLabel = findSuitableLabel(maxWidth - x - horizontalMargin)
-				if shortLabel != "" {
+				if shortLabel != "" { // 找到短的就用短的代替
 					tempLabels.append(labelText)
 					labelText = shortLabel
                     size = labelText.sizeWithFont(labelFont, forWidth: maxWidth)
-                    size.width += 28
+                    size.width += 30
                     size.height += 10
 
-				} else {
+				} else { // 找不到短的就换行
 					x = 0
-					y += verticalMargin + size.height
+                    if let last = displayedLabels.last {
+                        y += verticalMargin + CGRectGetHeight(last.frame)
+                    } else {
+                        y = startY
+                    }
+
 				}
 
-			}
+            }
 
 			let label = AIViews.wrapLabelWithFrame(CGRectMake(x, y, size.width, size.height), text: labelText, fontSize: labelFontSize, color: UIColor ( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.85 ))
             label.font = labelFont
@@ -136,11 +142,11 @@ class AISearchHistoryLabels: UIView {
 			x = CGRectGetMaxX(label.frame) + horizontalMargin
 
 			containLabels.append(labelText)
-
+            displayedLabels.append(label)
             maxHeight = y + size.height
 		}
 
-		if tempLabels.count > 0 {
+		if tempLabels.count > 0 { // 说明还有超长的需要重新显示
 			makeLabels(x, startY: y, labels: tempLabels)
 		}
 	}

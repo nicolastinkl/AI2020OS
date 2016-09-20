@@ -143,7 +143,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
         func fakeLoad() {
             comments = [ServiceCommentViewModel]()
     
-            for i in 0 ..< 1 {
+            for i in 0 ..< 3 {
                 let model = ServiceCommentViewModel()
                 model.instanceId = "\(i)"
     
@@ -184,7 +184,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         
-    //    fakeLoad()
+        //fakeLoad()
         netLoad()
     }
     

@@ -326,7 +326,13 @@
 
 "AISingleServiceCommnentViewController.Anonymous" = "Anonymous";
 
-"AISingleServiceCommnentViewController.SubmitError" = "Submit Error! Try again.";
+"AISingleServiceCommnentViewController.StarError" = "Please Choose Star.";
+
+"AISingleServiceCommnentViewController.TextError" = "Please text your comment.";
+
+"AISingleServiceCommnentViewController.TextLessError" = "Please text more than 15 words.";
+
+"AISingleServiceCommnentViewController.HiddenError" = "Please add comments."
 
 /// 搜索过滤bar AICustomSearchHomeResultFilterBar
 "AICustomSearchHomeResultFilterBar.priceLowToHigh" = "Price: Low to High";
@@ -375,3 +381,7 @@
 "AITaskTimeLineView.selectTask" = "Select task";
 "AITaskTimeLineView.setTime" = "Set time";
 "AITaskTimeLineView.createTask" = "Create task";
+
+/// Normal
+"Button.QueDing" = "OK";
+"Button.QuXiao" = "Cancel";

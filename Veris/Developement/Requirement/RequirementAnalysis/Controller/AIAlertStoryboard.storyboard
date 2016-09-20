@@ -5,21 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="MyriadPro-LightSemiCn.otf">
-            <string>MyriadPro-LightSemiCn</string>
-            <string>MyriadPro-LightSemiCn</string>
-        </mutableArray>
-        <mutableArray key="MyriadPro-SemiCn.otf">
-            <string>MyriadPro-SemiCn</string>
-            <string>MyriadPro-SemiCn</string>
-            <string>MyriadPro-SemiCn</string>
-            <string>MyriadPro-SemiCn</string>
-            <string>MyriadPro-SemiCn</string>
-            <string>MyriadPro-SemiCn</string>
-            <string>MyriadPro-SemiCn</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="fYx-nJ-UtM">
@@ -98,7 +83,7 @@
                                     <constraint firstAttribute="height" constant="73" id="vuj-Q7-OWI"/>
                                 </constraints>
                                 <string key="text">Pregnant women need to accompany the birth, induding number , querning,payment, to brtaoken incoluding number ,que, payment,to betoken.</string>
-                                <fontDescription key="fontDescription" name="MyriadPro-LightSemiCn" family="Myriad Pro" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.1529411765" green="0.1529411765" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -113,7 +98,7 @@
                                     <constraint firstAttribute="height" constant="21" id="U8a-UO-sKD"/>
                                     <constraint firstAttribute="width" constant="192" id="bCi-z8-q5s"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-SemiCn" family="Myriad Pro" pointSize="26.600000381469727"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26.600000381469727"/>
                                 <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -127,7 +112,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8j0-PG-74e"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-SemiCn" family="Myriad Pro" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -142,7 +127,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="2T4-ox-58A"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-SemiCn" family="Myriad Pro" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Answer">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -163,6 +148,10 @@
                                     <constraint firstAttribute="width" constant="62" id="zJq-NS-kbb"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sdk-Qr-7Ur" userLabel="serviceIconBgView">
+                                <rect key="frame" x="130" y="249" width="153" height="153"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="se_service_icon_434" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-en-bR9" userLabel="serviceIconView" customClass="DesignableImageView" customModule="Spring">
                                 <rect key="frame" x="134" y="253" width="145" height="145"/>
                                 <gestureRecognizers/>
@@ -197,13 +186,13 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Haidian District Garden Road, Beijing, 49" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tj8-q6-P9q">
                                         <rect key="frame" x="47" y="12" width="247" height="21"/>
-                                        <fontDescription key="fontDescription" name="MyriadPro-SemiCn" family="Myriad Pro" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="18910888267" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivQ-EI-Mcd">
                                         <rect key="frame" x="47" y="38" width="84" height="17"/>
-                                        <fontDescription key="fontDescription" name="MyriadPro-SemiCn" family="Myriad Pro" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -238,16 +227,22 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dgK-xr-3Zm" secondAttribute="trailing" id="1Bm-Fr-ADC"/>
                             <constraint firstAttribute="trailing" secondItem="XbS-Bs-btI" secondAttribute="trailing" constant="30" id="1vw-yr-fDV"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="top" secondItem="Ted-en-bR9" secondAttribute="bottom" id="4Zd-9r-Jr7"/>
                             <constraint firstItem="Gm5-Lt-BTq" firstAttribute="centerX" secondItem="r0a-wG-2gH" secondAttribute="centerX" id="53l-Jw-gfB"/>
                             <constraint firstItem="2Ru-3N-WVa" firstAttribute="top" secondItem="V21-cj-kNR" secondAttribute="bottom" constant="25" id="86e-sc-UCj"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="leading" secondItem="Ted-en-bR9" secondAttribute="trailing" id="9hf-Ke-4FU"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="width" secondItem="Ted-en-bR9" secondAttribute="width" constant="8" id="BWZ-aI-9It"/>
                             <constraint firstAttribute="trailing" secondItem="sMN-w8-e7a" secondAttribute="trailing" constant="13" id="CAC-UC-mWx"/>
                             <constraint firstItem="x4E-LP-N5A" firstAttribute="top" secondItem="dgK-xr-3Zm" secondAttribute="top" id="Ccf-PD-Pdd"/>
                             <constraint firstAttribute="trailing" secondItem="x4E-LP-N5A" secondAttribute="trailing" id="DKw-2m-yxj"/>
                             <constraint firstItem="V21-cj-kNR" firstAttribute="leading" secondItem="r0a-wG-2gH" secondAttribute="leadingMargin" constant="10" id="FXH-m7-cGW"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="top" secondItem="Ted-en-bR9" secondAttribute="top" id="HbX-lz-wVw"/>
                             <constraint firstItem="Ted-en-bR9" firstAttribute="centerX" secondItem="r0a-wG-2gH" secondAttribute="centerX" id="IV6-1T-IVG"/>
                             <constraint firstItem="2Ru-3N-WVa" firstAttribute="top" secondItem="q9b-9o-iXh" secondAttribute="bottom" id="J9V-zk-IcL"/>
                             <constraint firstAttribute="trailing" secondItem="q9b-9o-iXh" secondAttribute="trailing" id="JCQ-Ud-mqa"/>
                             <constraint firstItem="XbS-Bs-btI" firstAttribute="leading" secondItem="r0a-wG-2gH" secondAttribute="leading" constant="10" id="JN1-45-maU"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="height" secondItem="Ted-en-bR9" secondAttribute="height" constant="8" id="LrG-UD-iwB"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="centerY" secondItem="Ted-en-bR9" secondAttribute="centerY" id="NCE-1B-V3h"/>
                             <constraint firstItem="L7y-pk-2Dp" firstAttribute="bottom" secondItem="x4E-LP-N5A" secondAttribute="bottom" constant="31" id="SIh-cZ-Gwt"/>
                             <constraint firstItem="q9b-9o-iXh" firstAttribute="top" secondItem="x4E-LP-N5A" secondAttribute="bottom" id="Scw-LO-L15"/>
                             <constraint firstItem="Gm5-Lt-BTq" firstAttribute="top" secondItem="Ted-en-bR9" secondAttribute="bottom" constant="13" id="UhK-8w-Oxx"/>
@@ -270,6 +265,7 @@
                             <constraint firstAttribute="leading" secondItem="L7y-pk-2Dp" secondAttribute="leading" constant="-13" id="p0r-9m-3SH"/>
                             <constraint firstItem="2Ru-3N-WVa" firstAttribute="top" secondItem="L7y-pk-2Dp" secondAttribute="bottom" constant="159" id="rqV-F1-IEZ"/>
                             <constraint firstAttribute="trailing" secondItem="Xcq-QJ-hDF" secondAttribute="trailing" constant="13" id="sc5-jz-EIW"/>
+                            <constraint firstItem="sdk-Qr-7Ur" firstAttribute="centerX" secondItem="Ted-en-bR9" secondAttribute="centerX" id="tiD-E7-T2Q"/>
                             <constraint firstItem="L7y-pk-2Dp" firstAttribute="top" secondItem="x4E-LP-N5A" secondAttribute="bottom" constant="-27" id="uAw-T6-1Nc"/>
                             <constraint firstItem="Xcq-QJ-hDF" firstAttribute="leading" secondItem="r0a-wG-2gH" secondAttribute="leading" constant="13" id="v0L-cS-XR7"/>
                             <constraint firstItem="dl0-s3-0mE" firstAttribute="bottom" secondItem="L7y-pk-2Dp" secondAttribute="bottom" constant="-5" id="vrQ-Tp-Csm"/>
@@ -277,6 +273,9 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="YVC-K0-sBa"/>
+                                <exclude reference="4Zd-9r-Jr7"/>
+                                <exclude reference="9hf-Ke-4FU"/>
+                                <exclude reference="HbX-lz-wVw"/>
                                 <exclude reference="p0r-9m-3SH"/>
                                 <exclude reference="uAw-T6-1Nc"/>
                                 <exclude reference="vrQ-Tp-Csm"/>
@@ -291,6 +290,7 @@
                         <outlet property="ignoreButton" destination="60x-ki-hMz" id="DAq-ZN-j5s"/>
                         <outlet property="seizeButton" destination="V21-cj-kNR" id="QtH-rc-LJw"/>
                         <outlet property="serviceDescLabel" destination="Xcq-QJ-hDF" id="Fbs-wW-0Lx"/>
+                        <outlet property="serviceIconBgView" destination="sdk-Qr-7Ur" id="Y6c-YE-agV"/>
                         <outlet property="serviceIconImageView" destination="Ted-en-bR9" id="fXY-e5-XHT"/>
                         <outlet property="serviceNameLabel" destination="Gm5-Lt-BTq" id="SXk-OY-aaW"/>
                         <outlet property="timerControl" destination="sMN-w8-e7a" id="WAL-1I-uLJ"/>
@@ -348,7 +348,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="f8x-hL-wam"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-SemiCn" family="Myriad Pro" pointSize="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -381,7 +381,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rg-UC-rH4">
                                 <rect key="frame" x="37" y="565" width="340" height="0.0"/>
-                                <fontDescription key="fontDescription" name="MyriadPro-LightSemiCn" family="Myriad Pro" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -397,7 +397,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="mX4-mb-lGy"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-SemiCn" family="Myriad Pro" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="开始工作   ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
