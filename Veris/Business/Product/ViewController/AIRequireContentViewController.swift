@@ -161,7 +161,7 @@ class AIRequireContentViewController: UIViewController {
 
             let customID = baseModel.customer.user_id == nil ? 1 : (baseModel.customer.user_id.integerValue ?? 0)
             //let customID = baseModel.customer.user_id.integerValue ?? 0
-            handler.queryOriginalRequirements(customID, orderID: AIRequirementViewPublicValue.orderPreModel?.order_id ?? 0 , proposal_id : proposal_id, success: { (requirements) -> Void in
+            handler.queryOriginalRequirements(customID, orderID: AIRequirementViewPublicValue.orderPreModel?.order_id ?? 0, proposal_id : proposal_id, success: { (requirements) -> Void in
 
                 self.dataSource  = requirements
 
@@ -557,39 +557,38 @@ extension AIRequireContentViewController: ExpendTableViewCellDelegate, AISelecte
 
     func refereshCell(cell: AIRACContentCell, contentModel: [AIIconTagModel]?) {
         // fill data:
-        /*
-         if let contentModel = contentModel {
+        
+        if let contentModel = contentModel {
+            
+            let indexPath = tableview.indexPathForCell(cell)!
+            var currentCellModel = dataSource?[indexPath.section]
+            var child: AIChildContentCellModel = (currentCellModel?.childServices?[indexPath.row - 1])!
+            var array = Array<AIIconTagModel>()
+            array = contentModel.filter({ (model) -> Bool in
+                return true
+            })
+            child.childServerIconArray = array
+            
+            currentCellModel?.childServices?[indexPath.row - 1] = child
+            
+        }
+        
+        let iconView = cell.contentView.viewWithTag(ThisViewTag.IconView.rawValue)
+        
+        _ = iconView?.subviews.filter({ (sview) -> Bool in
+            SpringAnimation.springWithCompletion(0.3, animations: { () -> Void in
+                sview.alpha = 0
+                }, completion: { (complate) -> Void in
+                    sview.removeFromSuperview()
+            })
+            return false
+        })
+        
+        if let iconView = iconView {
+            refereshIconData(iconView, contentModel: contentModel, cell: cell)
+        }
 
-         let indexPath = tableview.indexPathForCell(cell)!
-         var currentCellModel = dataSource?[indexPath.section]
-         var child: AIChildContentCellModel = (currentCellModel?.childServices?[indexPath.row - 1])!
-         var array = Array<AIIconTagModel>()
-         array = contentModel.filter({ (model) -> Bool in
-         return true
-         })
-         child.childServerIconArray = array
-
-         currentCellModel?.childServices?[indexPath.row - 1] = child
-
-         }  */
-        /*
-         let iconView = cell.contentView.viewWithTag(ThisViewTag.IconView.rawValue)
-
-         _ = iconView?.subviews.filter({ (sview) -> Bool in
-         SpringAnimation.springWithCompletion(0.3, animations: { () -> Void in
-         sview.alpha = 0
-         }, completion: { (complate) -> Void in
-         sview.removeFromSuperview()
-         })
-         return false
-         })
-
-         if let iconView = iconView {
-
-         refereshIconData(iconView, contentModel: contentModel, cell: cell)
-         }*/
-
-        self.tableview.headerBeginRefreshing()
+        //self.tableview.headerBeginRefreshing()
 
     }
 

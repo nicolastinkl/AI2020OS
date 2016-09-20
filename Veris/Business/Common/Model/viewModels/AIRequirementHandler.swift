@@ -85,7 +85,7 @@ class AIRequirementHandler: NSObject {
 	 */
     func queryOriginalRequirements(customID: Int, orderID: Int, proposal_id: Int, success: (requirements: [AIContentCellModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
 		let message = AIMessage()
-		let body: NSDictionary = ["data": ["customer_id": customID, "customerOrderId": orderID,"proposal_id":proposal_id], "desc": ["data_mode": "0", "digest": ""]]
+		let body: NSDictionary = ["data": ["customer_id": customID, "customerOrderId": orderID, "proposal_id" : proposal_id], "desc": ["data_mode": "0", "digest": ""]]
 		message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
 		message.url = AIApplication.AIApplicationServerURL.queryOriginalRequirements.description as String
 		

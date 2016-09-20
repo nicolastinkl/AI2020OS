@@ -94,6 +94,9 @@ extension String {
 	}
 }
 
+
+
+
 extension Int {
     func displaySizeFrom1242DesignSize() -> CGFloat {
         let result = AITools.displaySizeFrom1242DesignSize(CGFloat(self))

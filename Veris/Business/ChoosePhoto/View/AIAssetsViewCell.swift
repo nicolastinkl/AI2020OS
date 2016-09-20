@@ -54,7 +54,6 @@ class AIAssetsViewCell: UICollectionViewCell {
         image = UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
         type = assetSuper.valueForProperty(ALAssetPropertyType) as! String
         
-        
     }
     
     override var selected: Bool {
@@ -69,7 +68,6 @@ class AIAssetsViewCell: UICollectionViewCell {
         if showCamera {
             UIImage(named: "UINaviCamera")?.drawInRect(CGRectMake(0, 0, rect.width-offet, rect.width-offet))
         } else {
-            
             self.image?.drawInRect(CGRectMake(0, 0, rect.width-offet, rect.width-offet))
             
             // 蒙板
