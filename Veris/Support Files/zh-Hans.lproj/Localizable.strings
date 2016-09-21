@@ -398,9 +398,9 @@
 "Button.QuXiao" = "取消";
 
 // AIProposalTableViewController
-"AIProposalTableViewController.status.onschedule" = "  计划       ";
-"AIProposalTableViewController.status.actionrequired" = "  等待处理      ";
-"AIProposalTableViewController.status.delayed" = "  延误      ";
+"AIProposalTableViewController.status.onschedule" = "计划";
+"AIProposalTableViewController.status.actionrequired" = "等待处理";
+"AIProposalTableViewController.status.delayed" = "延误";
 
 "AIRequirementMenuViewController.requirement" = "需求";
 "AIRequirementMenuViewController.assignment" = "分配";
