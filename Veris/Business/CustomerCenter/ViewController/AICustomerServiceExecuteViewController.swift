@@ -52,6 +52,9 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     @IBOutlet weak var serviceIconContainerView: UIView!
     @IBOutlet weak var timelineTableView: UITableView!
     @IBOutlet weak var orderInfoView: UIView!
+    
+    @IBOutlet weak var effectBgView: UIImageView!
+    @IBOutlet weak var roundCornerBgView: UIView!
     let messageBadge = GIBadgeView()
     let noticeBadge = GIBadgeView()
 
@@ -147,7 +150,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
 
     func setupViews() {
         //selfview CornerRadius
-        view.setCorner(corners: [.TopLeft, .TopRight], cornerRadii: CGSize(width: 10, height: 10))
+//        view.setCorner(corners: [.TopLeft, .TopRight], cornerRadii: CGSize(width: 10, height: 10))
         //orderInfoView
         orderInfoContentView = AITimelineTopView.createInstance()
         orderInfoView.addSubview(orderInfoContentView!)
@@ -191,6 +194,9 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         noticeBadge.topOffset = 5
         noticeBadge.rightOffset = 5
         noticeBadge.font = AITools.myriadLightSemiExtendedWithSize(12)
+        //effectBgView
+        effectBgView.layer.cornerRadius = 15
+        effectBgView.layer.masksToBounds = true
 
     }
 

@@ -55,7 +55,6 @@ class AIBaseViewController: UIViewController {
     internal func makeBaseProperties() {
 
         makeBackgroundView()
-        makeBlurBackgroundView()
         makeNavigatoinBar()
     }
 
