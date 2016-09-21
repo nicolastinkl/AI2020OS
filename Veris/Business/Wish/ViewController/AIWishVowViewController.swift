@@ -89,7 +89,6 @@ class AIWishVowViewController: UIViewController {
         }
     }
     
-        
     //刷新按钮状态
     func refereshButtonStatus(enble: Bool) {
         if enble {

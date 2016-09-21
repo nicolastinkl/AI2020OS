@@ -132,11 +132,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="3388" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BbX-lX-ldw">
-                            <rect key="frame" x="-2" y="11" width="70" height="40"/>
+                            <rect key="frame" x="-2" y="14" width="70" height="30"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="70" id="JYc-0b-eb9"/>
-                                <constraint firstAttribute="height" constant="40" id="TLJ-40-zYZ"/>
+                                <constraint firstAttribute="height" constant="30" id="TLJ-40-zYZ"/>
                             </constraints>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -148,7 +148,7 @@
                         <constraint firstItem="BbX-lX-ldw" firstAttribute="centerX" secondItem="dU9-BE-Hpk" secondAttribute="centerX" id="36H-7k-XHG"/>
                         <constraint firstItem="ze0-qk-gxP" firstAttribute="centerX" secondItem="dU9-BE-Hpk" secondAttribute="centerX" id="56S-XQ-Dgp"/>
                         <constraint firstAttribute="height" constant="66" id="9jE-7w-I0U"/>
-                        <constraint firstItem="BbX-lX-ldw" firstAttribute="centerY" secondItem="dU9-BE-Hpk" secondAttribute="centerY" constant="-2" id="AMA-8a-43Z"/>
+                        <constraint firstItem="BbX-lX-ldw" firstAttribute="centerY" secondItem="dU9-BE-Hpk" secondAttribute="centerY" constant="-4" id="AMA-8a-43Z"/>
                         <constraint firstItem="ze0-qk-gxP" firstAttribute="top" secondItem="u8S-dh-vqI" secondAttribute="bottom" constant="-16.5" id="h3V-wP-B2S"/>
                         <constraint firstItem="u8S-dh-vqI" firstAttribute="centerY" secondItem="dU9-BE-Hpk" secondAttribute="centerY" id="oDZ-0i-08P"/>
                         <constraint firstAttribute="width" constant="66" id="q05-Px-89T"/>

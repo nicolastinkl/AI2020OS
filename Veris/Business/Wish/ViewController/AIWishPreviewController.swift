@@ -42,6 +42,7 @@ class AIWishPreviewController: UIViewController {
     private var averageTotalMenoy: Int = 0
     private var preAverageView: AIWishAverageView?
     private var enbleEdit: Bool = false
+    private var preContentView: AIWishTextWishsView?
  
     // MARK: Method Init
     
@@ -99,8 +100,11 @@ class AIWishPreviewController: UIViewController {
                 if result == "0" {
                     //这里是标识不能再次被编辑和提交
                     self.enbleEdit = false
+                    self.preContentView?.textfeild.enabled = false
+                    
                 } else if result == "1" {
                     self.enbleEdit = true
+                    self.preContentView?.textfeild.enabled = true
                 }
             }
         }
@@ -211,8 +215,8 @@ class AIWishPreviewController: UIViewController {
             textFeild = newt.textfeild
             newt.textfeild.text = "AIWishPreviewController.noteyourwish".localized
         }
-        
-        
+        preContentView = textField as? AIWishTextWishsView
+        self.preContentView?.textfeild.enabled = false
         textField?.addBottomWholeSSBorderLineLeftMapping(AIApplication.AIColor.AIVIEWLINEColor, leftMapping: 0)
         // will to Pay
         let QuestionTitle2 = AIWishTitleIconView.initFromNib() as! AIWishTitleIconView
