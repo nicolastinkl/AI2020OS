@@ -61,10 +61,11 @@ class TaskDetailViewController: UIViewController {
         guard let userModel = customer else {
             return
         }
-        
+
+        customerView.delegate = self
         customerView.userNameLabel.text = userModel.user_name
         customerView.userIconImageView.sd_setImageWithURL(NSURL(string: userModel.user_portrait_icon), placeholderImage: UIImage(named: "Avatorbibo"))
-        customerView.userPhoneString = userModel.user_phone
+        customerView.userPhoneString = userModel.user_phone ?? nil
         customerView.customerDescLabel.text = ""
     }
     

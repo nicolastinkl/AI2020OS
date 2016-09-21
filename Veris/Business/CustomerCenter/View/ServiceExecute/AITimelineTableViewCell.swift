@@ -54,6 +54,9 @@ class AITimelineTableViewCell: UITableViewCell {
         dotView.backgroundColor = CustomerCenterConstants.Colors.TimelineDotColor
         dotView.layer.cornerRadius = dotView.bounds.width / 2
         dotView.layer.masksToBounds = true
+        //dateLabel
+        dateLabel.font = AITools.myriadLightSemiCondensedWithSize(30.displaySizeFrom1242DesignSize())
+        dateLabel.textColor = CustomerCenterConstants.Colors.DateLabelColor
         
         self.selectionStyle = UITableViewCellSelectionStyle.None
         self.clipsToBounds = true
@@ -71,12 +74,10 @@ class AITimelineTableViewCell: UITableViewCell {
             if timeModel.shouldShowDate {
                 dateLabelTopConstraint.constant = 5
             } else {
-                dateLabelTopConstraint.constant = -15
+                dateLabelTopConstraint.constant = -20
             }
         }
         dateLabel.text = viewModel.timeModel?.date
-        dateLabel.font = AITools.myriadRegularWithSize(30.displaySizeFrom1242DesignSize())
-        dateLabel.textColor = CustomerCenterConstants.Colors.DateLabelColor
         
         for subView in timelineContentContainterView.subviews {
             subView.removeFromSuperview()

@@ -21,14 +21,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="tJR-Kq-12A" userLabel="icon">
-                    <rect key="frame" x="35" y="18" width="12" height="12"/>
+                    <rect key="frame" x="35" y="23" width="10" height="10"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="12" id="0C9-sc-xzc"/>
-                        <constraint firstAttribute="height" constant="12" id="5wC-re-kdp"/>
+                        <constraint firstAttribute="width" constant="10" id="0C9-sc-xzc"/>
+                        <constraint firstAttribute="height" constant="10" id="5wC-re-kdp"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1901A, Wanda Plaza, Haidian District" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mk-QG-O5B" userLabel="firstText">
-                    <rect key="frame" x="54" y="18" width="388" height="13"/>
+                    <rect key="frame" x="52" y="26" width="390" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="aDb-oT-3Tv"/>
                     </constraints>
@@ -39,7 +39,7 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="tJR-Kq-12A" firstAttribute="top" secondItem="hqG-RM-OsG" secondAttribute="bottom" constant="-17" id="5BE-SJ-Vdz"/>
+                <constraint firstItem="tJR-Kq-12A" firstAttribute="top" secondItem="hqG-RM-OsG" secondAttribute="bottom" constant="-12" id="5BE-SJ-Vdz"/>
                 <constraint firstItem="hqG-RM-OsG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35" id="IqU-5q-FxI"/>
                 <constraint firstItem="6mk-QG-O5B" firstAttribute="top" secondItem="tJR-Kq-12A" secondAttribute="top" constant="3" id="Lbi-i1-pPW"/>
                 <constraint firstItem="tJR-Kq-12A" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35" id="YHu-ev-UvN"/>
@@ -65,7 +65,7 @@
                 <outlet property="titleHeight" destination="Hab-yb-krT" id="aze-L0-ez3"/>
                 <outlet property="titleTopConstraint" destination="y1c-7a-U8e" id="MaU-xB-J0P"/>
             </connections>
-            <point key="canvasLocation" x="574" y="361"/>
+            <point key="canvasLocation" x="377" y="293"/>
         </view>
     </objects>
     <resources>
