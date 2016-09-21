@@ -397,7 +397,7 @@
 "Button.QuXiao" = "取消";
 
 // AIProposalTableViewController
-"AIProposalTableViewController.status.onschedule" = "  计划";
+"AIProposalTableViewController.status.onschedule" = "  计划    ";
 "AIProposalTableViewController.status.actionrequired" = "  等待处理      ";
 "AIProposalTableViewController.status.delayed" = "  延误      ";
 
