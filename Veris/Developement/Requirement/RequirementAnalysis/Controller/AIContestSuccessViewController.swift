@@ -123,7 +123,7 @@ import AIAlertView
         self.orderInfoView.descLabel.text = model.service_process.service_desc
         customerBannerView.userNameLabel.text = model.customer.user_name
         customerBannerView.userIconImageView.sd_setImageWithURL(NSURL(string: model.customer.user_portrait_icon), placeholderImage: UIImage(named: "se_customer_icon"))
-        customerBannerView.userPhoneString = model.customer.user_phone
+        customerBannerView.userPhoneString = model.customer.user_phone ?? nil
         customerBannerView.customerDescLabel.text = ""//"怀孕9周"
     }
 

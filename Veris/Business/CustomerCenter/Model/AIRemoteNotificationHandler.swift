@@ -184,7 +184,7 @@ struct AIRemoteNotificationParameters {
                         vc.userIcon = senderIconUrl!
                         vc.delegate = buyerDetailViewController
                         buyerDetailViewController.providerDialogViewController = vc
-                        buyerDetailViewController.presentViewController(vc, animated: true, completion: nil)
+                        buyerDetailViewController.presentViewController(vc, animated: false, completion: nil)
                     })
                 }
             }
