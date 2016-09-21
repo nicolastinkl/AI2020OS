@@ -392,7 +392,7 @@
 /// AIRequirementHandler
 "AIRequirementHandler.userData" = "用户数据";
 
-/// Normal
+/// NormalG
 
 "Button.QueDing" = "确定";
 "Button.QuXiao" = "取消";

@@ -9,6 +9,12 @@
       "scale" : "2x"
     },
     {
+      "alignment-insets" : {
+        "top" : 0,
+        "left" : 0,
+        "bottom" : 9,
+        "right" : 0
+      },
       "idiom" : "universal",
       "filename" : "未标题-13.png",
       "scale" : "3x"

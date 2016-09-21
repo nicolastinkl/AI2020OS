@@ -4,7 +4,7 @@ public class AIAnalytics: NSObject {
 	
 	static let formatter: NSDateFormatter = {
 		let result = NSDateFormatter()
-		result.dateFormat = "yyyy-MM-HH:mm:ss"
+		result.dateFormat = "yyyy-MM-dd HH:mm:ss"
 		return result
 	}()
 	
