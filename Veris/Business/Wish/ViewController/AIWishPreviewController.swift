@@ -272,6 +272,7 @@ class AIWishPreviewController: UIViewController {
     }
     
     func meger() {
+        
         if averageMenoy == averageTotalMenoy {
             
             preAverageView?.userInteractionEnabled = false
@@ -403,7 +404,7 @@ class AIWishPreviewController: UIViewController {
                     self.dismissViewControllerAnimated(false, completion: nil)
                     
                 } else {
-                    AIAlertView().showError("提示", subTitle: "提交失败，请重新提交")
+                    AIAlertView().showError("AIAlertView.Title".localized, subTitle: "AIAlertView.SubmitError".localized)
                 }
             })
         }

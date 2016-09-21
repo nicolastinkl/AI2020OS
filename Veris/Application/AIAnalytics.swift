@@ -4,20 +4,20 @@ public class AIAnalytics: NSObject {
 	
 	static let formatter: NSDateFormatter = {
 		let result = NSDateFormatter()
-		result.dateFormat = "yyyy-MM-hh"
+		result.dateFormat = "yyyy-MM-HH:mm:ss"
 		return result
 	}()
 	
-	private class func commonParams() -> [AIAnalyticsKeys: AnyObject] {
-		let result: [AIAnalyticsKeys: AnyObject] = [
-				.PartyID: AILocalStore.userId ?? 0,
-				.Date: formatter.stringFromDate(NSDate())
+	private class func commonParams() -> [String: String] {
+		let result: [String: String] = [
+			AIAnalyticsKeys.PartyID.rawValue: AILocalStore.userId.toString() ?? "0",
+			AIAnalyticsKeys.Date.rawValue: formatter.stringFromDate(NSDate())
 		]
 		return result
 	}
 	
-	class func convertAtt(input: [AIAnalyticsKeys: AnyObject]) -> [NSObject: AnyObject] {
-		var result = [NSObject: AnyObject]()
+	class func convertAtt(input: [AIAnalyticsKeys: AnyObject]) -> [String: AnyObject] {
+		var result = [String: AnyObject]()
 		for (key, value) in input {
 			result[key.rawValue] = value
 		}
@@ -28,18 +28,28 @@ public class AIAnalytics: NSObject {
 		let string = anchor.toJSONString()
 		if let data = string.dataUsingEncoding(NSUTF8StringEncoding) {
 			if let dic = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject] {
-                AVAnalytics.event(AIAnalyticsEvent.RemoteAssistant.rawValue, attributes: dic)
+				AVAnalytics.event(AIAnalyticsEvent.RemoteAssistant.rawValue, attributes: dic)
 			}
 		}
+	}
+	
+	class func postToServer(eventId: AIAnalyticsEvent, primarykey: String? = nil, attributes: [AIAnalyticsKeys: AnyObject]!) {
+		let url = "http://10.5.1.249:3245/events"
+		let message = AIMessage()
+		message.url = url
+        var body: [String: AnyObject] = ["event": eventId.rawValue]
+		body.addEntriesFromDictionary(body)
+		body.addEntriesFromDictionary(commonParams())
+        body.addEntriesFromDictionary(convertAtt(attributes))
+		message.body = NSMutableDictionary(dictionary: body)
+		AINetEngine.defaultEngine().postMessage(message, success: { (_) in }) { (_, _) in }
 	}
 	
 	/** 自定义事件,数量统计.
      @param  eventId 自定义的事件Id.
      @param  attributes 支持字符串和数字的key-value */
 	class func event(eventId: AIAnalyticsEvent, attributes: [AIAnalyticsKeys: AnyObject]!) {
-		var att = attributes
-		att.addEntriesFromDictionary(commonParams())
-		AVAnalytics.event(eventId.rawValue, attributes: convertAtt(att))
+		postToServer(eventId, attributes: attributes)
 	}
 	
 	/** 自定义事件,时长统计， 记录事件开始。
@@ -49,8 +59,8 @@ public class AIAnalytics: NSObject {
      */
 	class func beginEvent(eventId: AIAnalyticsEvent, primarykey keyName: String? = nil, attributes: [AIAnalyticsKeys: AnyObject]!) {
 		var att = attributes
-		att.addEntriesFromDictionary(commonParams())
-		AVAnalytics.beginEvent(eventId.rawValue, primarykey: keyName ?? "", attributes: convertAtt(att))
+		att.addEntriesFromDictionary([AIAnalyticsKeys.Time: "begin"])
+		postToServer(eventId, primarykey: keyName, attributes: att)
 	}
 	
 	/** 自定义事件,时长统计， 记录事件结束。
@@ -58,7 +68,7 @@ public class AIAnalytics: NSObject {
      @param keyName 自定义关键事件的标签. 关键事件标签用于区分同名事件，但不参与统计运算结果.
      */
 	class func endEvent(eventId: AIAnalyticsEvent, primarykey keyName: String? = nil) {
-		AVAnalytics.endEvent(eventId.rawValue, primarykey: keyName ?? "")
+		postToServer(eventId, primarykey: keyName, attributes: [AIAnalyticsKeys.Time: "end"])
 	}
 }
 

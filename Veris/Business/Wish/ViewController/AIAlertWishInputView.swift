@@ -20,9 +20,9 @@ class AIAlertWishInputView: UIView {
         super.awakeFromNib()
         titleLabel.font = AITools.myriadSemiCondensedWithSize(20)
         titleLabel.textColor = UIColor(hexString: "#5f5f5f")
-        
         textInputView.font = AITools.myriadSemiCondensedWithSize(20)
     }
+    
     @IBAction func closeAction(sender: AnyObject) {
         SpringAnimation.springWithCompletion(0.5, animations: { 
             self.alpha = 0
