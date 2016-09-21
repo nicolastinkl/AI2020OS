@@ -123,7 +123,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         UMSocialWechatHandler.setWXAppId("wxdc1e388c3822c80b", appSecret: "a393c1527aaccb95f3a4c88d6d1455f6", url: "http://www.umeng.com/social")
         //设置手机QQ 的AppId，Appkey，和分享URL，需要#import "UMSocialQQHandler.h"
         UMSocialQQHandler.setQQWithAppId("100424468", appKey: "c7394704798a158208a74ab60104f0ba", url: "http://www.umeng.com/social")
-
         //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和新浪微博后台设置的回调地址一致。http://open.weibo.com/developers/identity/edit
         UMSocialSinaSSOHandler.openNewSinaSSOWithAppKey("3921700954", secret: "04b48b094faeb16683c32669824ebdad", redirectURL: "http://sns.whalecloud.com/sina2/callback")
     }
