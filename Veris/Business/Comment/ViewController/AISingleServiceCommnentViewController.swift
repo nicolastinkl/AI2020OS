@@ -64,6 +64,15 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    override func makeBackgroundView() {
+        super.makeBackgroundView()
+
+        let frame = CGRect(x: 0, y: 192.displaySizeFrom1242DesignSize(), width: CGRectGetWidth(self.view.frame), height: CGRectGetHeight(self.view.frame) - 192.displaySizeFrom1242DesignSize())
+        let view = UIView(frame: frame)
+        view.backgroundColor = UIColor.init(white: 0.2, alpha: 0.5)
+        self.view.addSubview(view)
+    }
     //MARK: Actions
 
     func loadComments() {
@@ -115,7 +124,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         button.titleLabel?.textAlignment = .Right
         button.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
         button.setTitleColor(AITools.colorWithHexString("0f86e8"), forState: UIControlState.Normal)
-        button.setTitleColor(AITools.colorWithHexString("FFFFFF"), forState: UIControlState.Disabled)
+        button.setTitleColor(AITools.colorWithHexString("868c90"), forState: UIControlState.Disabled)
         button.addTarget(self, action: #selector(submitAction), forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }
@@ -267,7 +276,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         let singleComment = SingleComment()
         singleComment.service_id = serviceID
         singleComment.rating_level = CGFloat(singalServiceCommentView.currentStarLevel * 2)
-        singleComment.photos = singalServiceCommentView.freshCommentPictureView.displayPictureNames
+        singleComment.photos = getPhotos(singalServiceCommentView.freshCommentPictureView.displayPictureNames)
         singleComment.text = singalServiceCommentView.freshCommentTextView.text
         singleComment.service_type = CommentType.service.rawValue
         singleComment.anonymousFlag = singalServiceCommentView.freshCheckBox.selected ? Int32(AnonymousFlag.anonymous.rawValue) : Int32(AnonymousFlag.noAnonymous.rawValue)
@@ -280,6 +289,23 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         }
     }
 
+
+
+    func getPhotos(photos: [String]) -> [CommentPhoto] {
+        var commentPhotos = [CommentPhoto]()
+
+        if photos.count == 0 {
+            return commentPhotos
+        }
+
+        for photo in photos {
+            let commentPhoto = CommentPhoto()
+            commentPhoto.url = photo
+            commentPhotos.append(commentPhoto)
+        }
+
+        return commentPhotos
+    }
 
     func openAlbum() {
         let vc = AIAssetsPickerController.initFromNib()
