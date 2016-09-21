@@ -281,7 +281,7 @@ extension AIProposalTableViewController: SubServiceCardViewDelegate, AIFoldedCel
         //弹出前先收起订单列表
         let parentVC = parentViewController as! AIBuyerViewController
         parentVC.finishPanDownwards(parentVC.popTableView, velocity: 0)
-        parentVC.showTransitionStyleCrossDissolveView(serviceExecVC)
+        parentVC.presentViewController(serviceExecVC, animated: true, completion: nil)
     }
     
     func containerImageDidLoad(viewModel viewModel: AITimelineViewModel, containterHeight: CGFloat) {
