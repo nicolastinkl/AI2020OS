@@ -54,7 +54,6 @@ class AIWishPreviewController: UIViewController {
         super.viewWillDisappear(animated)
         IQKeyboardManager.sharedManager().enable = false
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
