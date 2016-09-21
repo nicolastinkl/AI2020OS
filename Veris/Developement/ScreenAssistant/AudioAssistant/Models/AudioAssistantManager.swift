@@ -336,6 +336,5 @@ extension AudioAssistantManager: OTSubscriberKitDelegate {
 	}
 	
 	func subscriber(subscriber: OTSubscriberKit!, didFailWithError error: OTError!) {
-		
 	}
 }
