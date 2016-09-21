@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IdG-Q5-FRk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IdG-Q5-FRk">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -30,7 +30,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iln-jC-B5L" userLabel="TaskDivider" customClass="SeparatorLineLabel" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="90" y="80" width="420" height="20.5"/>
+                                <rect key="frame" x="90" y="80" width="420" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Iln-jC-B5L" secondAttribute="height" multiplier="447:22" id="fg9-P4-Q1p"/>
                                 </constraints>
@@ -40,28 +40,25 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVg-tx-vBz" userLabel="NodeTitle">
-                                <rect key="frame" x="300" y="122.5" width="0.0" height="0.0"/>
+                                <rect key="frame" x="300" y="123" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgw-EZ-OVg" userLabel="DetailsDivider" customClass="SeparatorLineLabel" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="90" y="162.5" width="420" height="21"/>
+                                <rect key="frame" x="90" y="163" width="420" height="20"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="lineImage" value="dottedLine2"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="TaskDetailViewController.detail"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="365" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="hbR-bV-AFI" userLabel="Param1IconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="118" y="182.5" width="365" height="25"/>
+                                <rect key="frame" x="118" y="183" width="365" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="365" id="8CQ-ay-lOW"/>
                                     <constraint firstAttribute="height" constant="25" id="y0o-GN-YqC"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="09:00-09:30, Nov 9th 2015"/>
-                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="8CQ-ay-lOW"/>
@@ -69,17 +66,14 @@
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-Hx-FKW" userLabel="Param2IconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="90" y="212.5" width="420" height="25"/>
+                                <rect key="frame" x="90" y="213" width="420" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="Maternity&amp;Child Care Institution, Haidian District"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dks-8H-wer" userLabel="NodeImage">
-                                <rect key="frame" x="38" y="244.5" width="524" height="128"/>
+                                <rect key="frame" x="38" y="245" width="524" height="128"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="495" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-Fa-Q4p" userLabel="QRCodeView" customClass="ServiceQRCodeView" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="38" y="244.5" width="524" height="128"/>
+                                <rect key="frame" x="38" y="245" width="524" height="128"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WpD-Gl-UP9">
                                         <rect key="frame" x="60" y="54" width="38" height="73"/>
@@ -88,15 +82,15 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-4s-4DV" userLabel="NodeDesc">
-                                <rect key="frame" x="38" y="408.5" width="524" height="0.0"/>
+                                <rect key="frame" x="38" y="409" width="524" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <visualEffectView hidden="YES" opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Urx-E7-6s3" userLabel="WaitingMask">
-                                <rect key="frame" x="-0.5" y="264.5" width="600" height="271.5"/>
+                                <rect key="frame" x="-1" y="265" width="601" height="271"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ynb-Mt-VaY">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="271.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="601" height="271"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -116,10 +110,10 @@
                                 </connections>
                             </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waiting_authorization_bg" translatesAutoresizingMaskIntoConstraints="NO" id="eD3-38-jiq" userLabel="AuthorizationBg">
-                                <rect key="frame" x="-1" y="208.5" width="601" height="74"/>
+                                <rect key="frame" x="-1" y="209" width="601" height="74"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mv-E5-vD5">
-                                <rect key="frame" x="300" y="223.5" width="0.0" height="34"/>
+                                <rect key="frame" x="300" y="224" width="0.0" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99607843137254903" green="0.99607843137254903" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -128,7 +122,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hourglass" translatesAutoresizingMaskIntoConstraints="NO" id="idB-bx-XNu" userLabel="WaitingIcon">
-                                <rect key="frame" x="278" y="133.5" width="44" height="49"/>
+                                <rect key="frame" x="278" y="144" width="44" height="49"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -141,7 +135,7 @@
                             <constraint firstItem="myT-Jx-6RY" firstAttribute="top" secondItem="Urx-E7-6s3" secondAttribute="bottom" id="5m8-cC-cha"/>
                             <constraint firstItem="Fgw-EZ-OVg" firstAttribute="height" secondItem="Iln-jC-B5L" secondAttribute="height" id="9Wm-EZ-cad"/>
                             <constraint firstItem="M5J-Hx-FKW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RAv-3A-A9F" secondAttribute="leadingMargin" constant="8" id="AeO-oP-pc9"/>
-                            <constraint firstItem="eD3-38-jiq" firstAttribute="top" secondItem="idB-bx-XNu" secondAttribute="bottom" constant="26" id="B6R-Ao-lU2"/>
+                            <constraint firstItem="eD3-38-jiq" firstAttribute="top" secondItem="idB-bx-XNu" secondAttribute="bottom" constant="16" id="B6R-Ao-lU2"/>
                             <constraint firstItem="M5J-Hx-FKW" firstAttribute="centerX" secondItem="RAv-3A-A9F" secondAttribute="centerX" id="BNQ-cX-d2w"/>
                             <constraint firstItem="myT-Jx-6RY" firstAttribute="top" secondItem="yUq-Wr-ny2" secondAttribute="bottom" constant="38" id="BkX-9z-GAf"/>
                             <constraint firstItem="Fgw-EZ-OVg" firstAttribute="centerX" secondItem="RAv-3A-A9F" secondAttribute="centerX" id="CJs-OP-jwm"/>
