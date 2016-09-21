@@ -17,7 +17,7 @@
                         <constraint firstAttribute="height" constant="20" id="Hab-yb-krT"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="tJR-Kq-12A" userLabel="icon">
@@ -44,11 +44,17 @@
                 <constraint firstItem="6mk-QG-O5B" firstAttribute="top" secondItem="tJR-Kq-12A" secondAttribute="top" constant="3" id="Lbi-i1-pPW"/>
                 <constraint firstItem="tJR-Kq-12A" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35" id="YHu-ev-UvN"/>
                 <constraint firstAttribute="trailing" secondItem="6mk-QG-O5B" secondAttribute="trailing" constant="8" id="i4x-nd-7NO"/>
+                <constraint firstItem="6mk-QG-O5B" firstAttribute="centerY" secondItem="tJR-Kq-12A" secondAttribute="centerY" id="lGi-P0-tW9"/>
                 <constraint firstItem="6mk-QG-O5B" firstAttribute="leading" secondItem="tJR-Kq-12A" secondAttribute="trailing" constant="7" id="tbM-RJ-WXe"/>
                 <constraint firstAttribute="trailing" secondItem="hqG-RM-OsG" secondAttribute="trailing" constant="8" id="uBF-7d-nFE"/>
                 <constraint firstItem="hqG-RM-OsG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="y1c-7a-U8e"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Lbi-i1-pPW"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="firstIcon" destination="tJR-Kq-12A" id="gwV-DJ-huF"/>
                 <outlet property="firstText" destination="6mk-QG-O5B" id="rBI-7U-4ob"/>
