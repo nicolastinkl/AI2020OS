@@ -1085,10 +1085,6 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                     anchor.selector = "didSelectRowAtIndexPath"
                     AudioAssistantManager.sharedInstance.sendAnchor(anchor)
                 }
-
-
-
-
             }
             // Send Anchor
             if audioAssistantModel == .Receiver {
@@ -1123,7 +1119,7 @@ extension AIBuyerDetailViewController: AIBueryDetailCellDetegate {
         
         if audioAssistantModel == .Receiver {
             let anchor = AIAnchor()
-            anchor.type = AIAnchorType.Normal
+            anchor.type = AIAnchorType.Touch
             anchor.className = instanceClassName()
             anchor.step = AIAnchorStep.After
             anchor.rootViewControllerName = self.instanceClassName()
@@ -1338,7 +1334,7 @@ extension AIBuyerDetailViewController : AnchorProcess {
     
     func processTouchAnchor(anchor: AIAnchor) {
 
-        if anchor.viewComponentName?.containsString("UITableView") == true {// Table
+        if anchor.selector == "didSelectRowAtIndexPath" {// Table
             tableView(tableView, didSelectRowAtIndexPath: NSIndexPath(forRow: anchor.rowIndex!, inSection: anchor.sectionIndex!))
         } else if anchor.selector == "settingButtonClicked" {
             
@@ -1360,7 +1356,6 @@ extension AIBuyerDetailViewController : AnchorProcess {
         } else if anchor.selector == "serviceRestoreToolBar" {
             serviceRestoreToolBar(self.serviceRestoreToolbar, didClickLogoAtIndex: anchor.logoIndex!)
         } else if anchor.selector == "AIBuyerDetailViewController.alert" {
-
             let model = self.deleted_service_list[anchor.logoIndex!] as! AIProposalServiceModel
             restoreService(model)
         }
