@@ -19,6 +19,22 @@ class ListSubServiceCardView: UIView {
     var bottomConstraint: Constraint!
     let timelineContainerTag: Int = 10
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        let shadow = UIImageView()
+        let image = UIImage(named: "customer_order_cell_shadow")
+        shadow.image = image
+        addSubview(shadow)
+        shadow.snp_makeConstraints { (make) in
+            make.edges.equalTo(self)
+        }
+        backgroundColor = UIColor.clearColor()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var delegate: SubServiceCardViewDelegate? {
         didSet {
             guard let d = delegate else {

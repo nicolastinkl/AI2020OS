@@ -127,8 +127,8 @@ class AIPaymentViewController: UIViewController {
      显示支付状态（成功）
      */
     func showNotifyPayStatus() {
-
         self.title = "支付成功"
+        
 //        topNaviView.hidden = false
 //        self.label_Price_info.text = "成功支付"
 //        

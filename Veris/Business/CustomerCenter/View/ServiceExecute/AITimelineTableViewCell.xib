@@ -56,7 +56,7 @@
                         </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Go-Ju-gPS" userLabel="TimelineContentView">
-                        <rect key="frame" x="57" y="51" width="282" height="139.5"/>
+                        <rect key="frame" x="57" y="51" width="282" height="129.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
@@ -77,7 +77,7 @@
                     <constraint firstItem="lje-Xb-cAI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="46" id="s3v-za-JDx"/>
                     <constraint firstItem="6Go-Ju-gPS" firstAttribute="top" secondItem="uwo-Ve-tDI" secondAttribute="bottom" constant="5" id="tc3-Vy-2wy"/>
                     <constraint firstItem="6Go-Ju-gPS" firstAttribute="leading" secondItem="lje-Xb-cAI" secondAttribute="trailing" constant="10" id="wgB-d2-HkU"/>
-                    <constraint firstAttribute="bottom" secondItem="6Go-Ju-gPS" secondAttribute="bottom" id="x5X-jl-sjI"/>
+                    <constraint firstAttribute="bottom" secondItem="6Go-Ju-gPS" secondAttribute="bottom" constant="10" id="x5X-jl-sjI"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">

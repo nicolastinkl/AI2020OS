@@ -316,6 +316,12 @@ class AIProductInfoViewController: UIViewController {
             self.topButton.hidden = true
         }
         
+        if self.scrollview.contentOffset.y >= self.scrollview.height && (self.scrollview.contentOffset.y + self.scrollview.height) >= self.scrollview.contentSize.height {
+            //self.scrollview.setContentOffset(CGPointMake(0, self.scrollview.contentSize.height), animated: false)
+            self.scrollview.scrollEnabled = false
+        } else {
+            self.scrollview.scrollEnabled = true
+        }
 		//animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
 		
 	}

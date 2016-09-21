@@ -236,7 +236,7 @@ class AIBuyerDetailViewController: UIViewController {
 
             // Get Cache Data from target Object.
             if let model = cacheCellModel {
-
+                
                 let newModel = model
                 let ServiceCellProductParamModel1 = ServiceCellProductParamModel()
                 ServiceCellProductParamModel1.param_key = "4"
@@ -244,19 +244,19 @@ class AIBuyerDetailViewController: UIViewController {
                 let param1 = ServiceCellStadandParamModel()
                 param1.param_name = "科室:"
                 param1.param_value = departmentName ?? ""
-                param1.param_icon = "http://171.221.254.231:2999/shoppingcart/LqB8JyHilA5yl.png_100_100"
+                param1.param_icon = "http://171.221.254.231:2999/shoppingcart/DQd6bsVqrsHg1.png_100_100"
                 param1.product_key = "112321"
 
                 let param2 = ServiceCellStadandParamModel()
                 param2.param_name = "医生:"
                 param2.param_value = doctorName ?? ""
-                param2.param_icon = "http://171.221.254.231:2999/shoppingcart/DQd6bsVqrsHg1.png_100_100"
+                param2.param_icon = "http://171.221.254.231:2999/shoppingcart/LqB8JyHilA5yl.png_100_100"
                 param2.product_key = "123"
 
                 let param3 = ServiceCellStadandParamModel()
                 param3.param_name = "时间:"
                 param3.param_value = appointmentTime ?? ""
-                param3.param_icon = "http://171.221.254.231:2999/shoppingcart/DQd6bsVqrsHg1.png_100_100"
+                param3.param_icon = "http://171.221.254.231:2999/shoppingcart/LqB8JyHilA5yl.png_100_100"
                 param3.product_key = "123"
                 ServiceCellProductParamModel1.param_list = [param1, param2, param3]
 
