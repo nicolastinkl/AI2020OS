@@ -14,7 +14,7 @@ class AICustomerBannerView: UIView {
     @IBOutlet weak var userIconImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var customerDescLabel: UILabel!
-    var delegate: UIViewController?
+    weak var delegate: UIViewController?
     var userPhoneString: String?
     //MARK: - Constants
     let USER_NAME_FONT = AITools.myriadSemiCondensedWithSize(60/3)
@@ -36,7 +36,7 @@ class AICustomerBannerView: UIView {
     }
 
 
-    @IBAction func callUser() {
+    @IBAction func callAction() {
 
         if let _ = userPhoneString, _ = delegate {
             let alert = JSSAlertView()

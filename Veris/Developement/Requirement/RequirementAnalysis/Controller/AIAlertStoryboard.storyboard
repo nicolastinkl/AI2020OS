@@ -344,7 +344,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜你" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXu-nF-7su">
-                                <rect key="frame" x="167" y="169" width="81" height="32.5"/>
+                                <rect key="frame" x="167" y="169" width="81" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="f8x-hL-wam"/>
                                 </constraints>
@@ -358,14 +358,14 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HsH-sV-mZx" customClass="AIDottedLineLabelView" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="40" y="226.5" width="334" height="20"/>
+                                <rect key="frame" x="40" y="227" width="334" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="u6Y-g3-eaA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7l-13-FDR" userLabel="OrderInfoView" customClass="AIIconLabelVerticalContainerView" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="36" y="266.5" width="342" height="278.5"/>
+                                <rect key="frame" x="36" y="267" width="342" height="278"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="0aG-fJ-qx5"/>
