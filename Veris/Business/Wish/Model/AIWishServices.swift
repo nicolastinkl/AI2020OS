@@ -92,12 +92,15 @@ struct AIWishServices {
         AINetEngine.defaultEngine().postMessage(message, success: { (response) in
             if let responseJSON: AnyObject = response {
                 let res = JSONDecoder(responseJSON)
-                let bol = res["result"].bool
-                if bol {
-                    complate("1", nil)
-                } else {
-                    complate("0", nil)
+                if let bolRES = res.array?.first {
+                    let bol = bolRES["result"].bool
+                    if bol {
+                        complate("1", nil)
+                    } else {
+                        complate("0", nil)
+                    }
                 }
+                
                 
             } else {
                 complate(nil, "data is null")

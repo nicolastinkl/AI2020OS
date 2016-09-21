@@ -304,7 +304,7 @@
 /// 提交许愿
 "AIWishVowViewController.title" = "许愿";
 "AIWishVowViewController.whatsywish" = "您的心愿?";
-"AIWishVowViewController.howmushyltpayit" = "您愿意为你的心愿支付多少钱?";
+"AIWishVowViewController.howmushyltpayit" = "您愿意为您的心愿支付多少钱?";
 "AIWishVowViewController.RecommentedWish" = "心愿推荐";
 "AIWishVowViewController.PoplarWish" = "最火心愿";
 "AIWishVowViewController.writewish" = "输入心愿描述.";
@@ -408,3 +408,8 @@
 
 "AISelectedServiceTableVController.distribution" = "  分配";
 "AISelectedServiceTableVController.cancel" = "取消";
+
+
+// AIAlertView
+"AIAlertView.Title" = "提示";
+"AIAlertView.SubmitError" = "提交失败，请重新提交";

@@ -401,3 +401,6 @@
 "AISelectedServiceTableVController.distribution" = "  distribution";
 "AISelectedServiceTableVController.cancel" = "cancel";
 
+// AIAlertView
+"AIAlertView.Title" = "title";
+"AIAlertView.SubmitError" = "submit error";
