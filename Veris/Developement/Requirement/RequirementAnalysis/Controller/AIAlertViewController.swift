@@ -45,6 +45,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var seizeButton: DesignableButton!
     @IBOutlet weak var ignoreButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var serviceIconBgView: UIView!
 
     var timerEndDate: NSDate!
     var timer: NSTimer?
@@ -140,8 +141,10 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
         serviceDescLabel.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         serviceNameLabel.font = AITools.myriadSemiCondensedWithSize(80.displaySizeFrom1242DesignSize())
         //serviceIconView
-        serviceIconImageView.layer.borderColor = UIColor.whiteColor().CGColor
-        serviceIconImageView.layer.borderWidth = 5
+        serviceIconBgView.layer.cornerRadius = serviceIconBgView.frame.width / 2
+        serviceIconBgView.layer.masksToBounds = true
+        serviceIconBgView.backgroundColor = UIColor(hexString: "#FFFFFF")
+        serviceIconBgView.alpha = 0.9
         //navigationController
         self.navigationController?.delegate = self
     }

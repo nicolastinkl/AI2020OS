@@ -27,7 +27,7 @@
 
 #define kBarHeight        50
 
-#define kCommonCellHeight 95
+#define kCommonCellHeight [AITools displaySizeFrom1242DesignSize:305]
 
 
 @interface AISellerViewController ()
@@ -240,7 +240,7 @@
 - (void)makeMyWallet {
     CGFloat size = kBarHeight - 10;
     UIButton *wallet = [self commonButtonWithFrame:CGRectMake(5, 5, size, size) title:@"我的\n钱包"];
-
+    wallet.alpha = 0;
     [wallet addTarget:self action:@selector(showMyWallet) forControlEvents:UIControlEventTouchUpInside];
 
     [_bottomView addSubview:wallet];
@@ -251,6 +251,7 @@
     CGFloat size = kBarHeight - 10;
 
     UIButton *work = [self commonButtonWithFrame:CGRectMake(CGRectGetWidth(_bottomView.frame) - size - 5, 5, size, size) title:@"我的\n工作"];
+    work.alpha = 0;
     [work addTarget:self action:@selector(showMyWork) forControlEvents:UIControlEventTouchUpInside];
 
     [_bottomView addSubview:work];

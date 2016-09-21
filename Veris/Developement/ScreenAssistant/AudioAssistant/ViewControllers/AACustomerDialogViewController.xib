@@ -4,11 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="MyriadPro-SemiboldSemiCn.otf">
-            <string>MyriadPro-SemiboldSemiCn</string>
-        </mutableArray>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AACustomerDialogViewController" customModule="Veris" customModuleProvider="target">
             <connections>
@@ -40,9 +35,9 @@
                         <constraint firstAttribute="height" constant="68" placeholder="YES" id="NQI-Zx-3PF"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lafee Smith" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDf-Y5-n10">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Lafee Smith" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDf-Y5-n10">
                     <rect key="frame" x="139" y="309" width="136" height="29"/>
-                    <fontDescription key="fontDescription" name="MyriadPro-SemiboldSemiCn" family="Myriad Pro" pointSize="28.666669845581055"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="28.666669845581055"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

@@ -66,29 +66,39 @@ internal class AIRequirementMenuViewController: UIViewController {
         // Create your badge and add it as a subview to whatever view you want to badgify.
 
         //loadData()
+ 
+        initNotify()
 
+        initLayout()
+    }
+    
+    func initNotify() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyOperateCell(_:)), name: AIApplication.Notification.AIAIRequirementNotifyOperateCellNotificationName, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyClearNumber), name: AIApplication.Notification.AIAIRequirementNotifyClearNumberCellNotificationName, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyGenerateModel(_:)), name: AIApplication.Notification.AIAIRequirementNotifynotifyGenerateModelNotificationName, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyShowRequireMentVC(_:)), name: AIApplication.Notification.AIAIRequirementShowViewControllerNotificationName, object: nil)
+    }
+
+    func initLayout() {
+        
+        // 未读消息处理
+        
         assignButton.addSubview(badge)
         //collaborationButton.addSubview(badge)
         badge.badgeValue = 0
         badge.topOffset = 18
         badge.rightOffset = 9
         badge.font = AITools.myriadLightSemiExtendedWithSize(12)
-
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyOperateCell(_:)), name: AIApplication.Notification.AIAIRequirementNotifyOperateCellNotificationName, object: nil)
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyClearNumber), name: AIApplication.Notification.AIAIRequirementNotifyClearNumberCellNotificationName, object: nil)
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyGenerateModel(_:)), name: AIApplication.Notification.AIAIRequirementNotifynotifyGenerateModelNotificationName, object: nil)
-
-         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIRequirementMenuViewController.notifyShowRequireMentVC(_:)), name: AIApplication.Notification.AIAIRequirementShowViewControllerNotificationName, object: nil)
-
-
-        initLayout()
-    }
-
-    func initLayout() {
-
+        
+        //  初始化国际化问题
+        
+        labelRequire.text = "AIRequirementMenuViewController.requirement".localized
+        assignLabel.text = "AIRequirementMenuViewController.assignment".localized
+        collLabel.text = "AIRequirementMenuViewController.collaboartion".localized
+        
     }
 
 

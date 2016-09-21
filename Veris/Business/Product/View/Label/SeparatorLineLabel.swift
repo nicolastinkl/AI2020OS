@@ -41,7 +41,7 @@ class SeparatorLineLabel: UIView {
 
     @IBInspectable var labelContent: String? {
         set {
-            label.text = newValue
+            label.text = newValue?.localized
         }
 
         get {
@@ -49,5 +49,18 @@ class SeparatorLineLabel: UIView {
         }
     }
 
+    override func intrinsicContentSize() -> CGSize {
+        var size = super.intrinsicContentSize()
+        
+        var height = label.height
+        
+        if label.height > height {
+            height = label.height
+        }
+        
+        size.height = height
+        
+        return size
+    }
 
 }

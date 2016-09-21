@@ -34,4 +34,3 @@ var someStr = "34－4"
 let s = NSString(string: someStr)
 
 let sint = s.intValue
-

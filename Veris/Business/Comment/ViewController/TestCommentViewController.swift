@@ -22,8 +22,7 @@ class TestCommentViewController: UIViewController {
     }
     
     @IBAction func testAction(sender: AnyObject) {
-        let vc = TaskResultCommitViewController.initFromStoryboard(AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, storyboardID: nil)
-        
+        let vc = TaskDetailViewController.initFromStoryboard()
         let nav = UINavigationController(rootViewController: vc)
         presentViewController(nav, animated: true, completion: nil)
     }

@@ -16,7 +16,7 @@ class TaskResultCommitViewController: UIViewController {
     @IBOutlet weak var cameraIcon: UIImageView!
     @IBOutlet weak var questButton: UIButton!
     @IBOutlet weak var soundPlayButton: SoundPlayButton!
-    @IBOutlet weak var hint: UILabel!
+    @IBOutlet weak var hint: SeparatorLineLabel!
     
     @IBOutlet weak var line1: UIView!
     @IBOutlet weak var line2: UIView!
@@ -26,22 +26,35 @@ class TaskResultCommitViewController: UIViewController {
     
     @IBOutlet weak var photoHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var photoWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cameraIconTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var writeIconTopConstraint: NSLayoutConstraint!
     
     var procedureId: Int?
     var serviceId: Int!
     var delegate: TeskResultCommitDelegate?
     
-    private var hasImage = false
+    private var hasImage = false {
+        didSet {
+            changeQuestButtonState()
+            changeConstraintHeight()
+        }
+    }
     
     private var imageUrl: String!
     private var audioUrl: String?
+    private var cameraIconTop: CGFloat = 0
+    private var writeIconTop: CGFloat = 0
+    
+    private static let cameraIconTopMin: CGFloat = 15
+    private static let writeIconTopMin: CGFloat = 15
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationBar()
         
-        hint.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+        hint.label.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+        hint.labelContent = "TaskResultCommitViewController.hint".localized
         note.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         
         note.roundCorner(2)
@@ -67,6 +80,9 @@ class TaskResultCommitViewController: UIViewController {
         longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(TaskResultCommitViewController.longPressAction(_:)))
         longPressGes.minimumPressDuration = 0.3
         soundPlayButton.addGestureRecognizer(longPressGes)
+        
+        cameraIconTop = cameraIconTopConstraint.constant
+        writeIconTop = writeIconTopConstraint.constant
     }
     
     override func canBecomeFirstResponder() -> Bool {
@@ -81,11 +97,11 @@ class TaskResultCommitViewController: UIViewController {
         return false
     }
 
-//    class func initFromStoryboard() -> TaskResultCommitViewController {
-//        
-//        let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskResultCommitViewController) as! TaskResultCommitViewController
-//        return vc
-//    }
+    class func initFromStoryboard() -> TaskResultCommitViewController {
+        
+        let vc = TaskResultCommitViewController.initFromStoryboard(AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, storyboardID: nil)
+        return vc
+    }
     
     @IBAction func questButtonClicked(sender: AnyObject) {
         
@@ -414,6 +430,11 @@ class TaskResultCommitViewController: UIViewController {
         
         TaskDetailViewController.setBottomButtonEnabel(questButton, enable: enable)
     }
+    
+    private func changeConstraintHeight() {
+        cameraIconTopConstraint.constant = hasImage ? TaskResultCommitViewController.cameraIconTopMin : cameraIconTop
+        writeIconTopConstraint.constant = hasImage ? TaskResultCommitViewController.writeIconTopMin : writeIconTop
+    }
 }
 
 extension TaskResultCommitViewController: AIAssetsPickerControllerDelegate {
@@ -448,7 +469,6 @@ extension TaskResultCommitViewController: AIAssetsPickerControllerDelegate {
             hasImage = true
             cameraIcon.image = photos[0].image
             
-            changeQuestButtonState()
         }
     }
     

@@ -190,9 +190,6 @@ class BDKProposalService: MockProposalService {
         let data = ["user_id": AILoginUtil.currentLocalUserID() ?? ""]
         message.body = BDKTools.createRequestBody(data)
         
-//        let body = ["data":["order_role":1, "order_state": "0"], "desc":["data_mode":"0", "digest":""]]
-//        message.body = NSMutableDictionary(dictionary: body)
-
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
 
             do {

@@ -31,7 +31,7 @@ class AISingalCommentView: UIView {
             if hasDefaultComment == true {
                 return (lCommentModel.starLevel != nil) ? (lCommentModel.starLevel?.integerValue)! : 0
             } else {
-                return freshCommentStar.defaultStarLevel * 2
+                return freshCommentStar.defaultStarLevel
             }
         }
     }
@@ -58,7 +58,7 @@ class AISingalCommentView: UIView {
     //
 
 
-    var lineColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7)
+    var lineColor = AITools.colorWithR(0xff, g: 0xff, b: 0xff, a: 0.6)
     var textViewPlaceHolder: UITextView!
     var lCommentModel: AICommentModel!
     var hasDefaultComment: Bool!
@@ -82,7 +82,7 @@ class AISingalCommentView: UIView {
 
     private func makeSubViews() {
         hasDefaultComment = lCommentModel?.comments != nil || lCommentModel?.commentPictures != nil
-        hasAdditionalComment = lCommentModel?.additionalComment != nil && (lCommentModel?.additionalComment?.comments != nil || lCommentModel?.additionalComment?.commentPictures != nil)
+        hasAdditionalComment = lCommentModel?.additionalComment != nil && (lCommentModel?.additionalComment?.comments?.length > 0 || lCommentModel?.additionalComment?.commentPictures != nil)
         makeLastCommentView()
         makeFreshCommentView()
     }
@@ -123,7 +123,7 @@ class AISingalCommentView: UIView {
         y = CGRectGetMaxY(lastServiceOverview.frame) + 55.displaySizeFrom1242DesignSize()
         width = CGRectGetWidth(self.frame) - x*2
         frame = CGRect(x: x, y: y, width: width, height: 1)
-        let line = AILine(frame: frame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7), dotted: true)
+        let line = AILine(frame: frame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.4), dotted: true)
         lastView.addSubview(line)
 
 
@@ -215,7 +215,7 @@ class AISingalCommentView: UIView {
 
         lastAddtionalCommentButton = AIViews.baseButtonWithFrame(frame, normalTitle: "追加评论")
         lastAddtionalCommentButton.layer.cornerRadius = 4
-        lastAddtionalCommentButton.layer.borderColor = AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7).CGColor
+        lastAddtionalCommentButton.layer.borderColor = AITools.colorWithR(0xff, g: 0xff, b: 0xff, a: 0.3).CGColor
         lastAddtionalCommentButton.layer.borderWidth = 1
         lastAddtionalCommentButton.layer.masksToBounds = true
         lastAddtionalCommentButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(40.displaySizeFrom1242DesignSize())
@@ -226,8 +226,8 @@ class AISingalCommentView: UIView {
         reSizeSelfAfterDisplayLastCommentsView(lastAddtionalCommentButton)
 
         // Add Line
-        let lineFrame = CGRect(x: 0, y: CGRectGetMaxY(lastAddtionalCommentButton.frame) + 25.displaySizeFrom1242DesignSize(), width: CGRectGetWidth(lastView.frame), height: 1)
-        lastSeperatorLine = AILine(frame: lineFrame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.7), dotted: false)
+        let lineFrame = CGRect(x: 0, y: CGRectGetMaxY(lastAddtionalCommentButton.frame) + 25.displaySizeFrom1242DesignSize(), width: CGRectGetWidth(lastView.frame), height: 0.5)
+        lastSeperatorLine = AILine(frame: lineFrame, color: AITools.colorWithR(0xf9, g: 0xf9, b: 0xf9, a: 0.4), dotted: false)
         lastView.addSubview(lastSeperatorLine)
         lastSeperatorLine.hidden = hasDefaultComment && hasAdditionalComment
         // Set Frame

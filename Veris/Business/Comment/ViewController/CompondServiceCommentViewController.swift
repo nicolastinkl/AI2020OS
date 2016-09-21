@@ -12,10 +12,11 @@ import Cartography
 
 class CompondServiceCommentViewController: AbsCommentViewController {
 
-    var orderID: String = "100000035367"
+    var orderID: String = "100000035695"
     var comments: [ServiceCommentViewModel]!
     private var currentOperateIndex = -1
     private var commentManager: CommentManager!
+    private var isSingleService = false
 
     @IBOutlet weak var serviceTableView: UITableView!
 
@@ -75,7 +76,9 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             
             showLoading()
             
-            commentManager.submitComments("1", userType: 1, commentList: submitList, success: { (responseData) in
+            let userId = AILoginUtil.currentLocalUserID() ?? "1"
+            
+            commentManager.submitComments(userId, userType: 1, commentList: submitList, success: { (responseData) in
                 
                 self.dismissLoading()
                 
@@ -184,8 +187,23 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             }
         }
         
-    //    fakeLoad()
+  //      fakeLoad()
         netLoad()
+        
+        Async.main(after: 0.1) {
+            // update cell height
+            self.serviceTableView.reloadData()
+        }
+    }
+    
+    private func confirmIsSingleService(model: CompondComment) {
+        if let id = model.service_instance_id {
+            if !id.isEmpty {
+                isSingleService = true
+            }
+        } else {
+            isSingleService = false
+        }
     }
     
     private func convertCompondModelToCommentList(model: CompondComment) -> [ServiceCommentViewModel] {
@@ -198,23 +216,34 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                 return result == NSComparisonResult.OrderedDescending
             }
             
-            var index = 0
+            if tempComments.count == 0 {
+                return
+            }
             
-            for comment in tempComments {
-                if index == 0 {
-                    model.firstComment = comment
-                } else if index == 1 {
-                    model.appendComment = comment
-                } else {
-                    break
+            if tempComments.count == 1 {
+                model.firstComment = tempComments[0]
+            } else {
+                var index = 0
+                
+                for comment in tempComments {
+                    if index == 0 {
+                        // the old one is appended comment
+                        model.appendComment = comment
+                    } else if index == 1 {
+                        model.firstComment = comment
+                    } else {
+                        break
+                    }
+                    index += 1
                 }
-                index += 1
             }
         }
         
+        confirmIsSingleService(model)
         
         let mainServiceComment = ServiceCommentViewModel()
-        mainServiceComment.instanceId = orderID
+        
+        mainServiceComment.instanceId = isSingleService ? model.service_instance_id : orderID
         mainServiceComment.thumbnailUrl = model.service_thumbnail_url
         mainServiceComment.serviceName = model.service_name
         mainServiceComment.stars = CommentUtils.convertStarValueToPercent(model.rating_level)
@@ -355,7 +384,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
     }
     
     private func createImageId(info: ImageInfo) -> String {
-        return info.url!.absoluteString
+        return info.imageId!
     }
     
     private func ensureLoaclSavedModelNotNil(index: Int) {
@@ -490,7 +519,6 @@ extension CompondServiceCommentViewController: UITableViewDataSource, UITableVie
             cell = tableView.dequeueReusableCellWithIdentifier("SubServiceCell") as!ServiceCommentTableViewCell
         }
 
-        cell.delegate = self
         cell.cellDelegate = self
         cell.tag = indexPath.row
         
@@ -528,10 +556,6 @@ extension CompondServiceCommentViewController: CommentCellDelegate {
     
     func textViewDidEndEditing(textView: UITextView, cell: ServiceCommentTableViewCell) {
         guard let text = textView.text else {
-            return
-        }
-        
-        if text.isEmpty {
             return
         }
         

@@ -229,6 +229,8 @@
 "TextAndAudioInputViewController.replaceConfirm" = "之前的信息将被覆盖，需要继续吗?";
 "TaskResultCommitViewController.dataNoValid" = "没有上传图片或文字太短，请补全";
 "TaskResultCommitViewController.attachmentUploadFail" = "附件上传失败";
+"TaskDetailViewController.task" = "任务";
+"TaskDetailViewController.detail" = "详情";
 
 /*
  * ./Veris/Business/Comment/ViewController/ImagesReviewViewController
@@ -337,6 +339,14 @@
 
 "AISingleServiceCommnentViewController.SubmitError" = "评论提交失败,请重试.";
 
+"AISingleServiceCommnentViewController.StarError" = "请选择星级";
+
+"AISingleServiceCommnentViewController.TextError" = "请填写评论内容";
+
+"AISingleServiceCommnentViewController.TextLessError" = "输入文字不能少于15个字";
+
+"AISingleServiceCommnentViewController.HiddenError" = "请追加评论";
+
 /// 搜索过滤bar AICustomSearchHomeResultFilterBar
 "AICustomSearchHomeResultFilterBar.priceLowToHigh" = "价格由高到低";
 "AICustomSearchHomeResultFilterBar.priceHighToLow" = "价格由低到高";
@@ -368,3 +378,32 @@
 "AIAlertViewController.contestFail.okButton" = "继续";
 "AIAlertViewController.contest.ignore" = "忽略";
 "AIAlertViewController.contest.seize" = "抢单";
+
+/// UIRrequirementStoryboard
+"UIRrequirementStoryboard.collaboration" = "协作";
+"UIRrequirementStoryboard.assignment" = "分配";
+"UIRrequirementStoryboard.requirement" = "需求";
+"UIRrequirementStoryboard.userMessage" = "用户留言";
+"UIRrequirementStoryboard.addTag" = "添加标签";
+"UIRrequirementStoryboard.addNote" = "添加备注";
+"UIRrequirementStoryboard.addTask" = "添加任务";
+
+/// AIRequirementHandler
+"AIRequirementHandler.userData" = "用户数据";
+
+/// Normal
+
+"Button.QueDing" = "确定";
+"Button.QuXiao" = "取消";
+
+// AIProposalTableViewController
+"AIProposalTableViewController.status.onschedule" = "  计划";
+"AIProposalTableViewController.status.actionrequired" = "  等待处理      ";
+"AIProposalTableViewController.status.delayed" = "  延误      ";
+
+"AIRequirementMenuViewController.requirement" = "需求";
+"AIRequirementMenuViewController.assignment" = "分配";
+"AIRequirementMenuViewController.collaboartion" = "协作";
+
+"AISelectedServiceTableVController.distribution" = "  分配";
+"AISelectedServiceTableVController.cancel" = "取消";

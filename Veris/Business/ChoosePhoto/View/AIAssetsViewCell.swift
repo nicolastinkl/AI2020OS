@@ -29,6 +29,7 @@ class AIAssetsViewCell: UICollectionViewCell {
     
     var model: AIAssetsPickerModel?
     
+    private let offet: CGFloat = 5
     private var asset: ALAsset?
     
     private var image: UIImage?
@@ -53,7 +54,6 @@ class AIAssetsViewCell: UICollectionViewCell {
         image = UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
         type = assetSuper.valueForProperty(ALAssetPropertyType) as! String
         
-        
     }
     
     override var selected: Bool {
@@ -66,10 +66,9 @@ class AIAssetsViewCell: UICollectionViewCell {
     override func drawRect(rect: CGRect) {
         
         if showCamera {
-            UIImage(named: "UINaviCamera")?.drawInRect(CGRectMake(0, 0, rect.width, rect.width))
+            UIImage(named: "UINaviCamera")?.drawInRect(CGRectMake(0, 0, rect.width-offet, rect.width-offet))
         } else {
-            
-            self.image?.drawInRect(CGRectMake(0, 0, rect.width, rect.width))
+            self.image?.drawInRect(CGRectMake(0, 0, rect.width-offet, rect.width-offet))
             
             // 蒙板
             if self.selected {
@@ -85,7 +84,7 @@ class AIAssetsViewCell: UICollectionViewCell {
                 imageSelect = uncheckedIcon
             }
             
-            let x = CGRectGetMaxX(rect) - checkedIcon.size.width - 3
+            let x = CGRectGetMaxX(rect) - checkedIcon.size.width - 3 - offet
             let y = CGRectGetMinY(rect) + 3
             
             imageSelect.drawAtPoint(CGPointMake(x, y))
