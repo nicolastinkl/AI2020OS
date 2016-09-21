@@ -361,6 +361,7 @@
 "AICustomSearchHomeViewController.makeWish" = "   许愿";
 "AICustomSearchHomeViewController.recent" = "最近搜索";
 "AICustomSearchHomeViewController.everyone" = "热门搜索";
+"AICustomSearchHomeViewController.recommendation" = "推荐";
 
 ///
 "AISearchHistoryIconView.title" = "最近浏览";
@@ -397,7 +398,7 @@
 "Button.QuXiao" = "取消";
 
 // AIProposalTableViewController
-"AIProposalTableViewController.status.onschedule" = "  计划";
+"AIProposalTableViewController.status.onschedule" = "  计划       ";
 "AIProposalTableViewController.status.actionrequired" = "  等待处理      ";
 "AIProposalTableViewController.status.delayed" = "  延误      ";
 
