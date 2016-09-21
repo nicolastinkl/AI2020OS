@@ -331,35 +331,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
 
     func showLoginViewController() {
-
-        // 创建Root
-        self.window = MBFingerTipWindow(frame: UIScreen.mainScreen().bounds)
-
-        // 创建导航控制器
         let loginRootViewController = createLoginRootViewController()
-
         self.window?.rootViewController = loginRootViewController
-        self.window?.makeKeyAndVisible()
     }
 
     func showMainViewController() {
         let root = AIRootViewController()
         let mainRootViewController = UINavigationController(rootViewController: root)
         mainRootViewController.navigationBarHidden = true
-
-        self.window = MBFingerTipWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = mainRootViewController
         self.window?.makeKeyAndVisible()
     }
 
     func showRootViewController() {
-
+        // 需要打开录屏点击icon 演示
+//        let window = MBFingerTipWindow(frame: UIScreen.mainScreen().bounds)
+//        window.alwaysShowTouches = true
+        
+        let window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        self.window = window
         if AILocalStore.didUserLogIn() == true {
             showMainViewController()
-
         } else {
             showLoginViewController()
         }
+        self.window?.makeKeyAndVisible()
     }
 
     //MARK: 配置默认用户
