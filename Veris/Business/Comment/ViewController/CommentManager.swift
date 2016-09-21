@@ -199,11 +199,11 @@ class DefaultCommentManager: CommentManager {
             return newModel
         }
         
+        ensureLocalModelListNotNil()
         localModelList?.removeAll()
         
         for id in serviceIds {
             if let model = getCommentModelFromLocal(id) {
-                ensureLocalModelListNotNil()
                 
                 if let newModel = deleteInvalideImages(model) {
                     if newModel.imageInfos.count != model.imageInfos.count {
@@ -214,6 +214,10 @@ class DefaultCommentManager: CommentManager {
                 } else {
                     localModelList?.append(model)
                 }   
+            } else {
+                let model = ServiceCommentLocalSavedModel()
+                model.serviceId = id
+                localModelList?.append(model)
             }
         }
         

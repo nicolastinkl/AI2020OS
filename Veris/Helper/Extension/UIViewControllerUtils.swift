@@ -26,14 +26,13 @@ extension UIViewController {
      */
     func presentBlurViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> ())?) {
         
-        viewControllerToPresent.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        viewControllerToPresent.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+//        viewControllerToPresent.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+//        viewControllerToPresent.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
         
         let view = viewControllerToPresent.view
         view.backgroundColor = UIColor.clearColor()
 
-        let darkEffect = UIBlurEffect(style: .Dark)
-        let darkView = UIVisualEffectView(effect: darkEffect)
+        let darkView = UIImageView(image: UIImage(named: "effectBgView")!)
         view.insertSubview(darkView, atIndex: 0)
         darkView.snp_makeConstraints { (make) in
             make.edges.equalTo(view)
