@@ -144,7 +144,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.12" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="WxG-LO-6qB" firstAttribute="leading" secondItem="bjO-Fd-kCZ" secondAttribute="trailing" constant="21" id="0Ol-dZ-Esu"/>
                 <constraint firstAttribute="bottom" secondItem="fB4-LE-nDI" secondAttribute="bottom" id="0cD-lm-2XD"/>
@@ -212,7 +211,7 @@
                 <outlet property="statusColor" destination="byb-Ag-J0c" id="sMk-dg-bjA"/>
                 <outlet property="urgeButton" destination="bjO-Fd-kCZ" id="kfH-Bv-612"/>
             </connections>
-            <point key="canvasLocation" x="409" y="263"/>
+            <point key="canvasLocation" x="307" y="265.5"/>
         </view>
     </objects>
     <resources>

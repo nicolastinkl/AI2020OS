@@ -156,10 +156,14 @@ extension UIViewController {
     }
     
     static func showAlertViewController(inParamDic: Dictionary<String, AnyObject>) {
-        
-        let navigationController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateInitialViewController() as! UINavigationController
-        let viewAlertVC = navigationController.viewControllers[0] as! AIAlertViewController
+//        
+//        let navigationController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateInitialViewController() as! UINavigationController
+        //AIAlertViewController
+        //let viewAlertVC = navigationController.viewControllers[0] as! AIAlertViewController
+        let viewAlertVC = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIAlertStoryboard, bundle: nil).instantiateViewControllerWithIdentifier("AIAlertViewController") as! AIAlertViewController
         viewAlertVC.in_paramDic = inParamDic
+        let navigationController = UINavigationController(rootViewController: viewAlertVC)
+        
         if let rootVc = UIApplication.sharedApplication().keyWindow?.rootViewController {
             if rootVc.isKindOfClass(UINavigationController.self) {
                 //rootVc.pop

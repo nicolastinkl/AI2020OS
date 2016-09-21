@@ -4,7 +4,7 @@ public class AIAnalytics: NSObject {
 	
 	static let formatter: NSDateFormatter = {
 		let result = NSDateFormatter()
-		result.dateFormat = "yyyy-MM-HH:mm:ss"
+		result.dateFormat = "yyyy-MM-dd HH:mm:ss"
 		return result
 	}()
 	
@@ -42,7 +42,7 @@ public class AIAnalytics: NSObject {
 		body.addEntriesFromDictionary(commonParams())
         body.addEntriesFromDictionary(convertAtt(attributes))
 		message.body = NSMutableDictionary(dictionary: body)
-		AINetEngine.defaultEngine().postMessage(message, success: { (_) in }) { (_, _) in }
+//		AINetEngine.defaultEngine().postMessage(message, success: { (_) in }) { (_, _) in }
 	}
 	
 	/** 自定义事件,数量统计.
