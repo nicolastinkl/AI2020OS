@@ -24,6 +24,15 @@ public class AIAnalytics: NSObject {
 		return result
 	}
 	
+	class func sendAnchor(anchor: AIAnchor) {
+		let string = anchor.toJSONString()
+		if let data = string.dataUsingEncoding(NSUTF8StringEncoding) {
+			if let dic = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject] {
+                AVAnalytics.event(AIAnalyticsEvent.RemoteAssistant.rawValue, attributes: dic)
+			}
+		}
+	}
+	
 	/** 自定义事件,数量统计.
      @param  eventId 自定义的事件Id.
      @param  attributes 支持字符串和数字的key-value */

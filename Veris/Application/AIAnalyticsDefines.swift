@@ -29,6 +29,9 @@ enum AIAnalyticsEvent: String {
     case AddServiceOptInfo
     /// 查看多服务详情
     case ViewServiceDetail = "serviceDetailBrowseInfo"
+    
+    /// 远程协助
+    case RemoteAssistant
 }
 
 enum AIAnalyticsKeys: String {

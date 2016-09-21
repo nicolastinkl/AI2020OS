@@ -85,20 +85,24 @@ class TaskDetailViewController: UIViewController {
     func buildNavigationTitleLabel() {
         extendedLayoutIncludesOpaqueBars = true
         
-        let NAVIGATION_TITLE = AITools.myriadSemiCondensedWithSize(80 / 3)
-        let frame = CGRect(x: 0, y: 0, width: 100, height: 44)
-        let titleLabel = UILabel(frame: frame)
-        titleLabel.font = NAVIGATION_TITLE
-        titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.text = "TaskResultCommitViewController.title".localized
-        self.navigationItem.titleView = titleLabel
-        let backImage = UIImage(named: "se_back")
+        let backButton = UIButton()
+        backButton.setImage(UIImage(named: "comment-back"), forState: .Normal)
+        backButton.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
         
-        let leftButtonItem = UIBarButtonItem(image: backImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(backAction(_:)))
-        leftButtonItem.tintColor = UIColor.lightGrayColor()
-        self.navigationItem.leftBarButtonItem = leftButtonItem
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.leftBarButtonItems = [backButton]
+        
+        appearance.itemPositionForIndexAtPosition = { index, position in
+            if position == .Left {
+                return (47.displaySizeFrom1242DesignSize(), 55.displaySizeFrom1242DesignSize())
+            } else {
+                return (47.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
+            }
+        }
+        appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor(hexString: "#0f0c2c"), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
+        appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "TaskResultCommitViewController.title".localized)
+        setNavigationBarAppearance(navigationBarAppearance: appearance)
     }
 
     func backAction(button: UIBarButtonItem) {
@@ -178,16 +182,22 @@ class TaskDetailViewController: UIViewController {
                     paramLabel?.hidden = false
                     paramLabel?.labelContent = node.value
        
-                    if let icon = node.icon {
-                        let url = NSURL(string: icon)
-                        paramLabel?.icon.sd_setImageWithURL(url, completed: { (image, error, type, url) in
-                            if let im = image {
-                                let scaleRate = im.size.height / self.paraIconHeight
-                                let newSize = CGSize(width: im.size.width / scaleRate, height: im.size.height / scaleRate)
-                                let newImage = im.resizedImageToFitInSize(newSize, scaleIfSmaller: true)
-                                paramLabel?.icon.image = newImage
-                            }
-                        })
+                    if let iconUrl = node.icon {
+                        if !iconUrl.isEmpty {
+                            let url = NSURL(string: iconUrl)
+                            
+                            paramLabel?.icon.sd_setImageWithURL(url, completed: { (image, error, type, url) in
+                                if let im = image {
+                                    let scaleRate = im.size.height / self.paraIconHeight
+                                    let newSize = CGSize(width: im.size.width / scaleRate, height: im.size.height / scaleRate)
+                                    let newImage = im.resizedImageToFitInSize(newSize, scaleIfSmaller: true)
+                                    paramLabel?.iconImage = newImage
+                                } else {
+                                    paramLabel?.iconImage = nil
+                                }
+                            })
+                        }
+                        
                     }
                     
                 }
@@ -252,6 +262,10 @@ class TaskDetailViewController: UIViewController {
         waitingIcon.hidden = false
         waitingMask.hidden = false
         
+        param1IconLabel.hidden = true
+        param2IconLabel.hidden = true
+        nodeTitleLabel.hidden = true
+        
         TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: false)
         bottomButton.setTitle("TaskDetailViewController.requestAuthoriztion".localized, forState: .Normal)
         bottomButton.setTitle("TaskDetailViewController.requestAuthoriztion".localized, forState: .Disabled)
@@ -262,6 +276,10 @@ class TaskDetailViewController: UIViewController {
         authorizationBg.hidden = true
         waitingIcon.hidden = true
         waitingMask.hidden = true
+        
+        param1IconLabel.hidden = false
+        param2IconLabel.hidden = false
+        nodeTitleLabel.hidden = false
         
         TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
     }

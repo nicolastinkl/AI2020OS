@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IdG-Q5-FRk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IdG-Q5-FRk">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -45,8 +45,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fgw-EZ-OVg" userLabel="DetailsDivider" customClass="SeparatorLineLabel" customModule="Veris" customModuleProvider="target">
-                                <rect key="frame" x="90" y="163" width="420" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgw-EZ-OVg" userLabel="DetailsDivider" customClass="SeparatorLineLabel" customModule="Veris" customModuleProvider="target">
+                                <rect key="frame" x="90" y="163" width="420" height="20"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="lineImage" value="dottedLine2"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="TaskDetailViewController.detail"/>
@@ -59,9 +59,6 @@
                                     <constraint firstAttribute="width" constant="365" id="8CQ-ay-lOW"/>
                                     <constraint firstAttribute="height" constant="25" id="y0o-GN-YqC"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="09:00-09:30, Nov 9th 2015"/>
-                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="8CQ-ay-lOW"/>
@@ -71,9 +68,6 @@
                             <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="420" placeholderIntrinsicHeight="25" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-Hx-FKW" userLabel="Param2IconLabel" customClass="IconLabel" customModule="Veris" customModuleProvider="target">
                                 <rect key="frame" x="90" y="213" width="420" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="labelContent" value="Maternity&amp;Child Care Institution, Haidian District"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dks-8H-wer" userLabel="NodeImage">
                                 <rect key="frame" x="38" y="245" width="524" height="128"/>
@@ -128,7 +122,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hourglass" translatesAutoresizingMaskIntoConstraints="NO" id="idB-bx-XNu" userLabel="WaitingIcon">
-                                <rect key="frame" x="278" y="134" width="44" height="49"/>
+                                <rect key="frame" x="278" y="144" width="44" height="49"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -141,7 +135,7 @@
                             <constraint firstItem="myT-Jx-6RY" firstAttribute="top" secondItem="Urx-E7-6s3" secondAttribute="bottom" id="5m8-cC-cha"/>
                             <constraint firstItem="Fgw-EZ-OVg" firstAttribute="height" secondItem="Iln-jC-B5L" secondAttribute="height" id="9Wm-EZ-cad"/>
                             <constraint firstItem="M5J-Hx-FKW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RAv-3A-A9F" secondAttribute="leadingMargin" constant="8" id="AeO-oP-pc9"/>
-                            <constraint firstItem="eD3-38-jiq" firstAttribute="top" secondItem="idB-bx-XNu" secondAttribute="bottom" constant="26" id="B6R-Ao-lU2"/>
+                            <constraint firstItem="eD3-38-jiq" firstAttribute="top" secondItem="idB-bx-XNu" secondAttribute="bottom" constant="16" id="B6R-Ao-lU2"/>
                             <constraint firstItem="M5J-Hx-FKW" firstAttribute="centerX" secondItem="RAv-3A-A9F" secondAttribute="centerX" id="BNQ-cX-d2w"/>
                             <constraint firstItem="myT-Jx-6RY" firstAttribute="top" secondItem="yUq-Wr-ny2" secondAttribute="bottom" constant="38" id="BkX-9z-GAf"/>
                             <constraint firstItem="Fgw-EZ-OVg" firstAttribute="centerX" secondItem="RAv-3A-A9F" secondAttribute="centerX" id="CJs-OP-jwm"/>
@@ -220,7 +214,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_bg" translatesAutoresizingMaskIntoConstraints="NO" id="rPc-GB-9H5" userLabel="Background">
                                 <rect key="frame" x="0.0" y="-64" width="414" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="89" placeholderIntrinsicHeight="76" image="center_big_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="rKG-Of-V5V" userLabel="CheckIcon">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="89" placeholderIntrinsicHeight="76" image="center_big_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="rKG-Of-V5V" userLabel="CheckIcon">
                                 <rect key="frame" x="143" y="29" width="129" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="129" id="8EA-2u-4bA"/>
@@ -327,23 +321,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5io-6H-auM">
-                                <rect key="frame" x="80" y="152" width="244" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="254" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="El7-GM-Lih" customClass="SeparatorLineLabel" customModule="Veris" customModuleProvider="target">
+                                <rect key="frame" x="40" y="152" width="334" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="ailLabel" value="TaskResultCommitViewController.hint"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="lineImage" value="dottedLine2"/>
                                 </userDefinedRuntimeAttributes>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.019607843140000001" green="0.066666666669999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="vHl-jI-e1W" firstAttribute="top" secondItem="rPc-GB-9H5" secondAttribute="bottom" id="0c0-7E-DVL"/>
                             <constraint firstItem="9dj-Mt-82x" firstAttribute="top" secondItem="ozz-4V-lQu" secondAttribute="bottom" id="84Z-V1-2nQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5io-6H-auM" secondAttribute="trailing" constant="70" id="8bz-kH-PiV"/>
                             <constraint firstItem="4bE-eG-McB" firstAttribute="top" secondItem="9dj-Mt-82x" secondAttribute="bottom" id="B1z-CZ-UCJ"/>
-                            <constraint firstItem="5io-6H-auM" firstAttribute="top" secondItem="rKG-Of-V5V" secondAttribute="bottom" constant="23" id="BpV-vo-Plw"/>
                             <constraint firstItem="nhw-Pv-wfH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="t5j-Dn-XdK" secondAttribute="bottom" constant="20" id="C09-F5-MHe"/>
                             <constraint firstItem="Chn-Aj-sbn" firstAttribute="width" relation="lessThanOrEqual" secondItem="nhw-Pv-wfH" secondAttribute="width" id="CHH-Qj-uwk"/>
                             <constraint firstItem="nhw-Pv-wfH" firstAttribute="leading" secondItem="kxo-KP-55y" secondAttribute="leadingMargin" id="Ggj-fM-2Bb"/>
@@ -354,18 +344,20 @@
                             <constraint firstItem="rKG-Of-V5V" firstAttribute="top" secondItem="O42-o9-763" secondAttribute="bottom" constant="29" id="P8G-bq-P5H"/>
                             <constraint firstItem="rPc-GB-9H5" firstAttribute="leading" secondItem="kxo-KP-55y" secondAttribute="leading" id="Pxg-ON-UdY"/>
                             <constraint firstItem="9dj-Mt-82x" firstAttribute="top" secondItem="Chn-Aj-sbn" secondAttribute="bottom" constant="74" id="Qjp-Vg-PeG"/>
+                            <constraint firstItem="Chn-Aj-sbn" firstAttribute="top" secondItem="El7-GM-Lih" secondAttribute="bottom" constant="60" id="TgH-ui-1uk"/>
                             <constraint firstAttribute="trailing" secondItem="rPc-GB-9H5" secondAttribute="trailing" id="XPa-1G-sQa"/>
+                            <constraint firstItem="El7-GM-Lih" firstAttribute="top" secondItem="rKG-Of-V5V" secondAttribute="bottom" constant="23" id="YUY-3e-6PD"/>
                             <constraint firstItem="nhw-Pv-wfH" firstAttribute="top" secondItem="4bE-eG-McB" secondAttribute="bottom" id="ab2-Tj-CyK"/>
                             <constraint firstItem="Chn-Aj-sbn" firstAttribute="top" secondItem="e9p-rO-vhn" secondAttribute="bottom" id="d0h-Q8-y9A"/>
                             <constraint firstItem="Chn-Aj-sbn" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="eIr-vr-vFN"/>
                             <constraint firstItem="rKG-Of-V5V" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="eMj-oI-Uqk"/>
                             <constraint firstItem="OZl-nm-E9t" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="ehF-jc-1U5"/>
                             <constraint firstItem="e9p-rO-vhn" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="i7a-N9-qDE"/>
+                            <constraint firstItem="El7-GM-Lih" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="jbo-XC-nVG"/>
                             <constraint firstItem="9dj-Mt-82x" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="jf1-JO-RnT"/>
-                            <constraint firstItem="Chn-Aj-sbn" firstAttribute="top" secondItem="5io-6H-auM" secondAttribute="bottom" constant="60" id="nM1-PL-jod"/>
+                            <constraint firstItem="El7-GM-Lih" firstAttribute="leading" secondItem="kxo-KP-55y" secondAttribute="leadingMargin" constant="20" id="pO4-Ge-GLz"/>
                             <constraint firstItem="rPc-GB-9H5" firstAttribute="top" secondItem="kxo-KP-55y" secondAttribute="top" constant="-64" id="rgF-Tg-bz8"/>
                             <constraint firstItem="nhw-Pv-wfH" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="rlg-AM-htW"/>
-                            <constraint firstItem="5io-6H-auM" firstAttribute="leading" secondItem="kxo-KP-55y" secondAttribute="leadingMargin" constant="60" id="sNj-qE-Z02"/>
                             <constraint firstItem="OZl-nm-E9t" firstAttribute="top" secondItem="9dj-Mt-82x" secondAttribute="top" id="u8c-aS-KbS"/>
                             <constraint firstItem="4bE-eG-McB" firstAttribute="centerX" secondItem="kxo-KP-55y" secondAttribute="centerX" id="vSa-MZ-35n"/>
                             <constraint firstItem="ozz-4V-lQu" firstAttribute="top" secondItem="Chn-Aj-sbn" secondAttribute="bottom" id="veb-pK-ao6"/>
@@ -376,9 +368,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="cameraIcon" destination="Chn-Aj-sbn" id="seJ-Gq-SFu"/>
-                        <outlet property="cameraIconTopConstraint" destination="nM1-PL-jod" id="5vI-I7-N5s"/>
+                        <outlet property="cameraIconTopConstraint" destination="Qjp-Vg-PeG" id="Vgf-J0-mhS"/>
                         <outlet property="checkIcon" destination="rKG-Of-V5V" id="7Dt-TF-IGG"/>
-                        <outlet property="hint" destination="5io-6H-auM" id="vaF-CM-c0b"/>
+                        <outlet property="hint" destination="El7-GM-Lih" id="S9c-nO-Gyt"/>
                         <outlet property="line1" destination="e9p-rO-vhn" id="oXx-fe-bww"/>
                         <outlet property="line2" destination="ozz-4V-lQu" id="JEN-bc-B2Y"/>
                         <outlet property="line3" destination="4bE-eG-McB" id="44Z-K0-4Xq"/>
@@ -398,7 +390,7 @@
     </scenes>
     <resources>
         <image name="camera_yellow" width="73" height="73"/>
-        <image name="center_big_checkmark" width="229" height="138"/>
+        <image name="center_big_checkmark" width="129" height="99"/>
         <image name="dottedLine2" width="292" height="1"/>
         <image name="hourglass" width="44" height="49"/>
         <image name="pen" width="73" height="73"/>
