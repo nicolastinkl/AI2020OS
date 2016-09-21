@@ -171,9 +171,8 @@ class AudioAssistantManager: NSObject {
 	}
 	
 	func sendAnchor(anchor: AIAnchor) {
-
+//        AIAnalytics.
         anchor.connectionId = connectionId
-
 		let string = anchor.toJSONString()
 		sendString(string, type: .Anchor)
 	}
