@@ -28,7 +28,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1901A, Wanda Plaza, Haidian District" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mk-QG-O5B" userLabel="firstText">
-                    <rect key="frame" x="52" y="26" width="390" height="13"/>
+                    <rect key="frame" x="52" y="22" width="390" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="aDb-oT-3Tv"/>
                     </constraints>
