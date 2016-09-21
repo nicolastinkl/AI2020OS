@@ -46,7 +46,6 @@ class AITitleAndIconTextView: ServiceParamlView {
         } catch {
 
         }
-
     }
 
     override func loadDataWithModelArray(models: ServiceCellProductParamModel!) {
@@ -101,7 +100,7 @@ class AITitleAndIconTextView: ServiceParamlView {
                     label.width == preLabel.width
                     label.height == preLabel.height
                     label.leading == preLabel.leading
-                    label.top == icon.top + textTopToIcon.constant
+                    label.centerY == icon.centerY
                 }
 
                 frame.size.height += (firstIcon.height + iconMaginTop.constant)

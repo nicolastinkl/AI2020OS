@@ -25,12 +25,13 @@ class AITimelineNowTableViewCell: UITableViewCell {
         dotView.backgroundColor = UIColor(hexString: "#ffffff")
         dotView.layer.cornerRadius = dotView.height / 2
         dotView.layer.masksToBounds = true
-        dotView.layer.borderColor = UIColor(hexString: "#000000", alpha: 0.3).CGColor
+        dotView.layer.borderColor = UIColor(hexString: "#000000", alpha: 0.15).CGColor
         dotView.layer.borderWidth = 2
         let nowDate = NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         timeLabel.text = dateFormatter.stringFromDate(nowDate)
+        timeLabel.font = AITools.myriadSemiCondensedWithSize(40.displaySizeFrom1242DesignSize())
     }
     
 }

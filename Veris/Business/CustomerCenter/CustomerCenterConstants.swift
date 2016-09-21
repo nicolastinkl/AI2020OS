@@ -19,7 +19,7 @@ struct CustomerCenterConstants {
     }
     
     struct Fonts {
-        static let TimeLabelNormal = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
+        static let TimeLabelNormal = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(40))
         static let TimelineButton = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(48))
         //订单列表界面
         static let CustomerOrderTitle = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(60))
