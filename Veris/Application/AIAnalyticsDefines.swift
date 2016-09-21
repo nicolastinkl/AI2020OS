@@ -9,6 +9,7 @@
 import UIKit
 
 enum AIAnalyticsEvent: String {
+
     ///
     case PageShow
     case SaveAsTaskEvent
@@ -40,6 +41,7 @@ enum AIAnalyticsKeys: String {
     case Title = "title"
     case PartyID = "partyID"
     case Date = "date"
+    case Time = "time"
     
     // 卖家留言
     case OfferingId = "offeringId"

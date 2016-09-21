@@ -350,6 +350,7 @@
 "AICustomSearchHomeViewController.makeWish" = "   Make a Wish";
 "AICustomSearchHomeViewController.recent" = "You recently searched";
 "AICustomSearchHomeViewController.everyone" = "Everyone is searching";
+"AICustomSearchHomeViewController.recommendation" = "Recommendation";
 
 ///
 "AISearchHistoryIconView.title" = "Recently browsed";
