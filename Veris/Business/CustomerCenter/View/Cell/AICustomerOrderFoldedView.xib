@@ -68,18 +68,6 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyv-no-0nU">
-                    <rect key="frame" x="371" y="60" width="4" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJY-Ta-Ga2">
-                    <rect key="frame" x="390" y="60" width="4" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68Z-H7-nkn">
                     <rect key="frame" x="352" y="19" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -89,11 +77,9 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="UTC-fW-Zyu" firstAttribute="centerY" secondItem="Oyv-no-0nU" secondAttribute="centerY" id="0yA-mD-4dr"/>
                 <constraint firstItem="y9V-XF-qFi" firstAttribute="centerY" secondItem="xbE-pM-Vxf" secondAttribute="centerY" id="2Ha-wy-ZZq"/>
                 <constraint firstAttribute="bottom" secondItem="ZXV-bO-TR1" secondAttribute="bottom" id="3XY-XO-oOp"/>
                 <constraint firstItem="kiu-eT-y4r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3b8-hG-bIT"/>
-                <constraint firstItem="uJY-Ta-Ga2" firstAttribute="leading" secondItem="Oyv-no-0nU" secondAttribute="trailing" constant="15" id="4O7-c4-7ya"/>
                 <constraint firstAttribute="bottom" secondItem="kiu-eT-y4r" secondAttribute="bottom" id="4W7-mA-r9N"/>
                 <constraint firstItem="y9V-XF-qFi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="4zQ-XH-Tb8"/>
                 <constraint firstItem="68Z-H7-nkn" firstAttribute="centerY" secondItem="228-IE-L7H" secondAttribute="centerY" id="5kU-zf-LnL"/>
@@ -101,7 +87,6 @@
                 <constraint firstItem="EeK-YJ-kkD" firstAttribute="leading" secondItem="UTC-fW-Zyu" secondAttribute="trailing" constant="8" id="AP2-8A-tcZ"/>
                 <constraint firstAttribute="trailing" secondItem="228-IE-L7H" secondAttribute="trailing" constant="-10" id="BCC-6f-iLC"/>
                 <constraint firstItem="y9V-XF-qFi" firstAttribute="centerY" secondItem="228-IE-L7H" secondAttribute="centerY" id="KTU-r3-Rhk"/>
-                <constraint firstItem="UTC-fW-Zyu" firstAttribute="centerY" secondItem="uJY-Ta-Ga2" secondAttribute="centerY" id="MzK-qr-tN5"/>
                 <constraint firstItem="BSo-E9-xE0" firstAttribute="height" secondItem="228-IE-L7H" secondAttribute="height" id="Ntg-yX-dNL"/>
                 <constraint firstItem="y9V-XF-qFi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="SWb-9A-h9c"/>
                 <constraint firstItem="ZXV-bO-TR1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Sww-Jn-Rqy"/>
@@ -111,12 +96,10 @@
                 <constraint firstItem="UTC-fW-Zyu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="WX5-QY-nSq"/>
                 <constraint firstItem="228-IE-L7H" firstAttribute="leading" secondItem="68Z-H7-nkn" secondAttribute="leading" constant="-20" id="Z5J-qV-zeK"/>
                 <constraint firstAttribute="trailing" secondItem="68Z-H7-nkn" secondAttribute="trailing" constant="20" id="cr1-iS-kxL"/>
-                <constraint firstAttribute="trailing" secondItem="uJY-Ta-Ga2" secondAttribute="trailing" constant="20" id="eHJ-ZK-nFH"/>
                 <constraint firstItem="UTC-fW-Zyu" firstAttribute="centerY" secondItem="EeK-YJ-kkD" secondAttribute="centerY" id="hQA-mb-94N"/>
                 <constraint firstItem="xbE-pM-Vxf" firstAttribute="leading" secondItem="y9V-XF-qFi" secondAttribute="trailing" constant="4" id="jcI-RL-3nV"/>
                 <constraint firstAttribute="trailing" secondItem="BSo-E9-xE0" secondAttribute="trailing" id="lXt-ZO-lBp"/>
                 <constraint firstAttribute="trailing" secondItem="ZXV-bO-TR1" secondAttribute="trailing" id="rZu-ob-j80"/>
-                <constraint firstItem="Oyv-no-0nU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EeK-YJ-kkD" secondAttribute="trailing" constant="5" id="sww-fR-lTO"/>
                 <constraint firstItem="UTC-fW-Zyu" firstAttribute="top" secondItem="xbE-pM-Vxf" secondAttribute="bottom" priority="999" constant="20" id="wIt-dk-T9d"/>
                 <constraint firstAttribute="bottom" secondItem="UTC-fW-Zyu" secondAttribute="bottom" constant="18" id="zF6-6J-jKV"/>
             </constraints>
@@ -129,8 +112,6 @@
                 <outlet property="statusColorView" destination="BSo-E9-xE0" id="Z1F-4B-cC0"/>
                 <outlet property="statusLabel" destination="68Z-H7-nkn" id="3Tz-iM-TPI"/>
                 <outlet property="taskNameLabel" destination="EeK-YJ-kkD" id="RUg-fF-P04"/>
-                <outlet property="taskSchedulTimeLabel" destination="uJY-Ta-Ga2" id="al0-Hs-om0"/>
-                <outlet property="taskStatusLabel" destination="Oyv-no-0nU" id="fcK-ch-6ii"/>
             </connections>
             <point key="canvasLocation" x="114" y="288.5"/>
         </view>
