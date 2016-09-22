@@ -199,6 +199,11 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         effectBgView.layer.masksToBounds = true
 
     }
+    
+    func setupNotification() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomerServiceExecuteViewController.refreshTimelineData), name: AIApplication.Notification.AITimelineRefreshNotificationName, object: nil)
+
+    }
 
     func buildServiceInstsView() {
         let frame = serviceIconContainerView.bounds
