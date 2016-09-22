@@ -8,6 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIWishVowViewController" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="howmuchyourpayit" destination="wmT-cF-TRI" id="dfl-Ob-6Mr"/>
+                <outlet property="moneyContanint" destination="fWq-tn-9LP" id="8so-qG-I33"/>
+                <outlet property="moneyType" destination="Hlk-Qn-PUN" id="7Yu-yz-dm5"/>
                 <outlet property="payContent" destination="Mpt-78-G8Q" id="hSU-s1-q1g"/>
                 <outlet property="scrollview" destination="NFS-gw-a38" id="eqy-xO-eft"/>
                 <outlet property="submitButton" destination="82q-6H-fdR" id="aEt-go-9ox"/>
@@ -87,14 +89,14 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="0 Euro" translatesAutoresizingMaskIntoConstraints="NO" id="Mpt-78-G8Q" customClass="DesignableTextView" customModule="Spring">
-                            <rect key="frame" x="38" y="288" width="521" height="33"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="0" translatesAutoresizingMaskIntoConstraints="NO" id="Mpt-78-G8Q" customClass="DesignableTextView" customModule="Spring">
+                            <rect key="frame" x="38" y="288" width="30" height="33"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="F7q-wy-aXF"/>
-                                <constraint firstAttribute="height" constant="55" id="eLn-9p-1H1"/>
+                                <constraint firstAttribute="width" constant="30" id="fWq-tn-9LP"/>
                             </constraints>
-                            <color key="textColor" white="1" alpha="0.59675307079999995" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59675307079999995" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
                             <userDefinedRuntimeAttributes>
@@ -108,11 +110,6 @@
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="eLn-9p-1H1"/>
-                                </mask>
-                            </variation>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="f0B-vL-IWr"/>
                             </connections>
@@ -208,7 +205,7 @@
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFS-gw-a38">
                             <rect key="frame" x="0.0" y="402" width="600" height="198"/>
                         </scrollView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your Could write down your wish here or select from blew." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3dt-K5-wmt" customClass="DesignableTextView" customModule="Spring">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" text="Your Could write down your wish here or select from blew." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3dt-K5-wmt" customClass="DesignableTextView" customModule="Spring">
                             <rect key="frame" x="38" y="112" width="521" height="110"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -238,6 +235,16 @@
                                 <outlet property="delegate" destination="-1" id="rV2-dh-eWo"/>
                             </connections>
                         </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RMB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlk-Qn-PUN">
+                            <rect key="frame" x="51" y="297" width="30" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="Bjp-0j-fPg"/>
+                                <constraint firstAttribute="height" constant="21" id="Qfl-S6-5bZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" white="1" alpha="0.6015850794797688" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -254,6 +261,7 @@
                         <constraint firstItem="82q-6H-fdR" firstAttribute="top" secondItem="2fd-29-3dj" secondAttribute="bottom" constant="150" id="Eby-iT-CyS"/>
                         <constraint firstItem="0Og-OD-FuC" firstAttribute="top" secondItem="Uk4-p7-9sv" secondAttribute="bottom" constant="14" id="GsK-Lb-mUs"/>
                         <constraint firstItem="3dt-K5-wmt" firstAttribute="top" secondItem="dGM-dd-kVe" secondAttribute="bottom" constant="24" id="ID8-xr-V0M"/>
+                        <constraint firstItem="Hlk-Qn-PUN" firstAttribute="leading" secondItem="Mpt-78-G8Q" secondAttribute="trailing" constant="-17" id="IfY-il-tZD"/>
                         <constraint firstItem="uTb-h1-6bt" firstAttribute="trailing" secondItem="2fd-29-3dj" secondAttribute="trailing" constant="-13" id="JmK-Wf-WgG"/>
                         <constraint firstItem="2fd-29-3dj" firstAttribute="leading" secondItem="wmT-cF-TRI" secondAttribute="trailing" constant="-398" id="Jzr-dH-ySi"/>
                         <constraint firstItem="aO9-OW-Fnm" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="16" id="KL5-V5-djt"/>
@@ -264,6 +272,7 @@
                         <constraint firstAttribute="trailing" secondItem="3dt-K5-wmt" secondAttribute="trailing" constant="41" id="Piw-Ln-wio"/>
                         <constraint firstAttribute="trailing" secondItem="82q-6H-fdR" secondAttribute="trailing" constant="30" id="QEL-nn-A88"/>
                         <constraint firstItem="2fd-29-3dj" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" constant="15" id="Quv-EV-hGu"/>
+                        <constraint firstItem="Hlk-Qn-PUN" firstAttribute="top" secondItem="Mpt-78-G8Q" secondAttribute="bottom" constant="-24" id="RQC-5F-qU5"/>
                         <constraint firstItem="82q-6H-fdR" firstAttribute="top" secondItem="3jP-vk-QKj" secondAttribute="bottom" constant="18" id="SGO-tI-jSh"/>
                         <constraint firstItem="Uk4-p7-9sv" firstAttribute="leading" secondItem="gcb-5F-OXg" secondAttribute="leading" id="TN7-lD-zcT"/>
                         <constraint firstItem="Uk4-p7-9sv" firstAttribute="top" secondItem="gcb-5F-OXg" secondAttribute="top" id="UNC-Uy-dUI"/>
@@ -284,6 +293,7 @@
                             <exclude reference="0ZK-Qj-KWs"/>
                             <exclude reference="Jzr-dH-ySi"/>
                             <exclude reference="XTC-6K-jLN"/>
+                            <exclude reference="bme-zq-ay3"/>
                             <exclude reference="Eby-iT-CyS"/>
                             <exclude reference="QEL-nn-A88"/>
                             <exclude reference="gu8-yG-p51"/>
@@ -306,7 +316,7 @@
                 <constraint firstItem="vo2-VV-QY9" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="hqI-fH-MSu"/>
                 <constraint firstItem="gcb-5F-OXg" firstAttribute="top" secondItem="kgd-tX-Y0E" secondAttribute="top" id="uh5-Iw-2bm"/>
             </constraints>
-            <point key="canvasLocation" x="-507" y="324"/>
+            <point key="canvasLocation" x="-780" y="362"/>
         </view>
     </objects>
     <resources>
