@@ -413,3 +413,8 @@
 // AIAlertView
 "AIAlertView.Title" = "提示";
 "AIAlertView.SubmitError" = "提交失败，请重新提交";
+
+
+/// Price
+
+"PriceView.Total" = "总价 ";

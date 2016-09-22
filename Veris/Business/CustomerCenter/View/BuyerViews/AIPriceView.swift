@@ -117,7 +117,7 @@ class AIPriceView: AIServiceParamBaseView {
         addBackgroundView(frame)
         let price: NSString = displayModel!.defaultPrice.price as NSString
         let totalPrice = Double(displayModel!.defaultNumber) * price.doubleValue
-        var PriceStr = "Total "
+        var PriceStr = "PriceView.Total".localized
 
         if let _ = displayModel?.defaultPrice.currency {
             PriceStr += (displayModel?.defaultPrice.currency)!
@@ -142,7 +142,7 @@ class AIPriceView: AIServiceParamBaseView {
         let price: NSString = displayModel!.defaultPrice.price as NSString
 //        let totalPrice = Double(displayModel!.defaultNumber) * price.doubleValue
         let totoalPrice = Double(totalNumber) * price.doubleValue
-        let PriceStr = "Total € \(totoalPrice)"
+        let PriceStr = "PriceView.Total".localized + "￥ " + "\(totoalPrice)"
         totalPriceLabel?.text = PriceStr
 
     }

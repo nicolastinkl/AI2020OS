@@ -316,14 +316,14 @@ class AIProductInfoViewController: UIViewController {
             self.topButton.hidden = true
         }
         
-        if self.scrollview.contentOffset.y >= self.scrollview.height && (self.scrollview.contentOffset.y + self.scrollview.height) >= self.scrollview.contentSize.height {
+        /*if self.scrollview.contentOffset.y >= self.scrollview.height && (self.scrollview.contentOffset.y + self.scrollview.height) >= self.scrollview.contentSize.height {
             //self.scrollview.setContentOffset(CGPointMake(0, self.scrollview.contentSize.height), animated: false)
             self.scrollview.scrollEnabled = false
         } else {
             self.scrollview.scrollEnabled = true
         }
 		//animateImageView(scrollOffset, draggingPoint: scrollViewDragPoint, alpha: 1.0)
-		
+		*/
 	}
 	
 	// MAKE 处理Navigationbar 背景模糊虚化效果.
@@ -1175,7 +1175,8 @@ extension AIProductInfoViewController: UITextFieldDelegate, UIScrollViewDelegate
      刷新位置信息
      */
     func refereshBottomView(prview: UIView) {
-        prview.setTop(prview.top-(self.bottomViewCache?.height)!)
+        preCacheView = self.bottomViewCache
+        prview.setTop(self.scrollview.contentSize.height-prview.height-(self.bottomViewCache?.height)!)
         self.bottomViewCache?.setTop((self.bottomViewCache?.top)! + prview.height)
     }
 }
@@ -1241,8 +1242,6 @@ extension AIProductInfoViewController: AICustomAudioNotesViewDelegate, AIAudioMe
             audio1.loadingView.startAnimating()
             audio1.loadingView.hidden = false
             refereshBottomView(audio1)
-            
-            
             
             let att: [AIAnalyticsKeys: AnyObject] = [
                 .OfferingId: dataModel?.proposal_inst_id ?? "",
@@ -1310,9 +1309,6 @@ extension AIProductInfoViewController: AICustomAudioNotesViewDelegate, AIAudioMe
     }
     
 }
-
-
-
 
 extension AIProductInfoViewController: AIDeleteActionDelegate {
     
