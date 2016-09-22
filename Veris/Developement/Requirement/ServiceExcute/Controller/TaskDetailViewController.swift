@@ -69,6 +69,20 @@ class TaskDetailViewController: UIViewController {
         customerView.customerDescLabel.text = ""
     }
     
+    private func clearUI() {
+        param1IconLabel.iconImage = nil
+        param1IconLabel.labelContent = nil
+        param2IconLabel.iconImage = nil
+        param2IconLabel.labelContent = nil
+        
+        nodeImage.hidden = true
+        nodeImage.image = nil
+        
+        nodeDesc.text = nil
+        nodeTitleLabel.text = nil
+        
+    }
+    
     class func initFromStoryboard() -> TaskDetailViewController {
         let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.TaskExecuteStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.TaskDetailViewController) as! TaskDetailViewController
         return vc
@@ -435,6 +449,7 @@ class TaskDetailViewController: UIViewController {
 extension TaskDetailViewController: TeskResultCommitDelegate {
     func hasNextNode(hasNextNode: Bool) {
         if hasNextNode {
+            clearUI()
             loadData()
         } else {
             self.navigationController?.popToRootViewControllerAnimated(true)
