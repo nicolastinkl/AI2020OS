@@ -130,6 +130,7 @@ class ListSubServiceCardView: UIView {
             
             addSubService(card)
         }
+        self.bottomConstraint.updateOffset(-15)
     }
     
     func buildContentViewModel(timelineViewModels: [String: AITimelineViewModel]) {
