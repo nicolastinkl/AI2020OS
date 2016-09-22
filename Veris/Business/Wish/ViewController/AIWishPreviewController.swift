@@ -59,6 +59,7 @@ class AIWishPreviewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         submitButton.setTitle("AIWishVowViewController.Submit".localized, forState: UIControlState.Normal)
+        submitButton.enabled = false
         if let navi = AINavigationBar.initFromNib() as? AINavigationBar {
             view.addSubview(navi)
             navi.holderViewController = self
@@ -104,6 +105,7 @@ class AIWishPreviewController: UIViewController {
                     
                 } else if result == "1" {
                     self.enbleEdit = true
+                    self.submitButton.enabled = true
                     self.preContentView?.textfeild.enabled = true
                 }
             }

@@ -83,6 +83,7 @@ class CompondServiceCommentViewController: AbsCommentViewController {
                 self.dismissLoading()
                 
                 if responseData.result {
+                    self.postNotifications()
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.LONG)
@@ -96,6 +97,11 @@ class CompondServiceCommentViewController: AbsCommentViewController {
             
             
         }
+    }
+    
+    //add by liux at 20160922 发送通知刷新时间线
+    func postNotifications() {
+        NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AITimelineRefreshNotificationName, object: nil, userInfo: nil)
     }
     
     private func setupNavigationBar() {
