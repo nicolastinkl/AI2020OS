@@ -75,16 +75,15 @@ class TaskDetailViewController: UIViewController {
     }
     
     private func clearUI() {
-        param1IconLabel.iconImage = nil
-        param1IconLabel.labelContent = nil
-        param2IconLabel.iconImage = nil
-        param2IconLabel.labelContent = nil
+        paramNodes = nil
         
         nodeImage.hidden = true
         nodeImage.image = nil
         
         nodeDesc.text = nil
         nodeTitleLabel.text = nil
+        
+        paramTable.reloadData()
         
     }
     
@@ -119,6 +118,7 @@ class TaskDetailViewController: UIViewController {
                 return (47.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
             }
         }
+        
         appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor(hexString: "#0f0c2c"), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
         appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "TaskResultCommitViewController.title".localized)
         setNavigationBarAppearance(navigationBarAppearance: appearance)
