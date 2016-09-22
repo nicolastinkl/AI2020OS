@@ -9,6 +9,8 @@
 import UIKit
 
 class NodeParamTableViewCell: UITableViewCell {
+    
+    private static let paraIconHeight: CGFloat = 20
 
     @IBOutlet weak var iconLabel: IconLabel!
     
@@ -17,6 +19,8 @@ class NodeParamTableViewCell: UITableViewCell {
             guard let paramData = paramData else {
                 return
             }
+            
+            iconLabel.labelContent = paramData.value
             
             guard let iconUrl = paramData.icon else {
                 return
@@ -28,37 +32,22 @@ class NodeParamTableViewCell: UITableViewCell {
             
             let url = NSURL(string: iconUrl)
             
-            paramLabel?.icon.sd_setImageWithURL(url, completed: { (image, error, type, url) in
+            iconLabel.icon.sd_setImageWithURL(url, completed: { (image, error, type, url) in
                 if let im = image {
-                    let scaleRate = im.size.height / self.paraIconHeight
+                    let scaleRate = im.size.height / NodeParamTableViewCell.paraIconHeight
                     let newSize = CGSize(width: im.size.width / scaleRate, height: im.size.height / scaleRate)
                     let newImage = im.resizedImageToFitInSize(newSize, scaleIfSmaller: true)
-                    paramLabel?.iconImage = newImage
+                    self.iconLabel.iconImage = newImage
                 } else {
-                    paramLabel?.iconImage = nil
+                    self.iconLabel.iconImage = nil
                 }
             })
-            
-            if let iconUrl = paramData.icon {
-                if !iconUrl.isEmpty {
-                    
-                }
-                
-            }
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    
+    }   
     
 }

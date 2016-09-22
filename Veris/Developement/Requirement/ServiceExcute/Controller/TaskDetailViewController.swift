@@ -11,8 +11,6 @@ import UIKit
 class TaskDetailViewController: UIViewController {
 
     @IBOutlet weak var nodeTitleLabel: UILabel!
-    @IBOutlet weak var param1IconLabel: IconLabel!
-    @IBOutlet weak var param2IconLabel: IconLabel!
     @IBOutlet weak var QRCodeImage: ServiceQRCodeView!
     @IBOutlet weak var nodeDesc: UILabel!
     @IBOutlet weak var bottomButton: UIButton!
@@ -34,7 +32,7 @@ class TaskDetailViewController: UIViewController {
     private var procedure: Procedure?
     private var customer: AICustomerModel?
     private var authorityState: AuthorityState?
-    
+    private var paramNodes: [NodeParam]?
 
 
     override func viewWillAppear(animated: Bool) {
@@ -56,11 +54,12 @@ class TaskDetailViewController: UIViewController {
         buildNavigationTitleLabel()
         
         paramTable.registerNib(UINib(nibName: "NodeParamTableViewCell", bundle: nil), forCellReuseIdentifier: "ParamCell")
+        paramTable.rowHeight = UITableViewAutomaticDimension
+        paramTable.estimatedRowHeight = 25
         
-        param1IconLabel.hidden = false
-        param2IconLabel.hidden = false
-        QRCodeImage.hidden = false
-   //     loadData()
+        paramTable.hidden = false
+
+        loadData()
     }
     
     private func setupCustomerView() {
@@ -167,62 +166,14 @@ class TaskDetailViewController: UIViewController {
             }
         }
         
-        if let params = p.param_list {
+        if p.param_list != nil {
             
-            if params.count != 0 {
-                for index in 0 ..< params.count {
-                    
-//                    if index > 1 {
-//                        break
-//                    }
-                    
-                    guard let node = params[index] as? NodeParam else {
-                        continue
-                    }
-                    
-                    var paramLabel: IconLabel?
-                    
-                    if index == 0 {
-                        paramLabel = param1IconLabel
-                    } else if index == 1 {
-                        paramLabel = param2IconLabel
-                    }
-                    //add by liux at 20160920 这段是写死的为了合并doctorName和DepartmentName参数
-                    else if node.name == "DoctorName" || node.name == "DepartmentName" {
-                        if params[0].name == "time" {
-                            paramLabel = param2IconLabel
-                        } else {
-                            paramLabel = param1IconLabel
-                        }
-                        let labelContent = paramLabel!.labelContent!
-                        paramLabel?.labelContent = "\(labelContent) - \(node.value)"
-                        continue
-                    }
-                    
-                    paramLabel?.hidden = false
-                    paramLabel?.labelContent = node.value
-       
-                    if let iconUrl = node.icon {
-                        if !iconUrl.isEmpty {
-                            let url = NSURL(string: iconUrl)
-                            
-                            paramLabel?.icon.sd_setImageWithURL(url, completed: { (image, error, type, url) in
-                                if let im = image {
-                                    let scaleRate = im.size.height / self.paraIconHeight
-                                    let newSize = CGSize(width: im.size.width / scaleRate, height: im.size.height / scaleRate)
-                                    let newImage = im.resizedImageToFitInSize(newSize, scaleIfSmaller: true)
-                                    paramLabel?.iconImage = newImage
-                                } else {
-                                    paramLabel?.iconImage = nil
-                                }
-                            })
-                        }
-                        
-                    }
-                    
-                }
+            if let paramNodes = p.param_list as? [NodeParam] {
+                self.paramNodes = paramNodes
+                paramTable.reloadData()
             }
         }
+        
         
         authorityState?.setupAuthorityUI()
     }
@@ -282,8 +233,7 @@ class TaskDetailViewController: UIViewController {
         waitingIcon.hidden = false
         waitingMask.hidden = false
         
-        param1IconLabel.hidden = true
-        param2IconLabel.hidden = true
+        paramTable.hidden = true
         nodeTitleLabel.hidden = true
         
         TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: false)
@@ -297,8 +247,7 @@ class TaskDetailViewController: UIViewController {
         waitingIcon.hidden = true
         waitingMask.hidden = true
         
-        param1IconLabel.hidden = false
-        param2IconLabel.hidden = false
+        paramTable.hidden = false
         nodeTitleLabel.hidden = false
         
         TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
@@ -467,10 +416,18 @@ extension TaskDetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ParamCell") as! NodeParamTableViewCell
+        
+        let node = paramNodes![indexPath.row]
+        cell.paramData = node
+        
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let nodes = paramNodes {
+            return nodes.count
+        }
         
+        return 0
     }
 }
