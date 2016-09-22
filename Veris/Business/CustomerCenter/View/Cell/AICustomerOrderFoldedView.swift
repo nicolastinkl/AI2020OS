@@ -58,7 +58,7 @@ class AICustomerOrderFoldedView: UIView {
 		taskStatusLabel.snp_updateConstraints { (make) in
 			make.centerY.equalTo(taskNameLabel)
 			if taskSchedulTimeLabel.text?.length > 0 {
-				make.trailing.equalTo(taskSchedulTimeLabel.snp_leading)
+				make.trailing.equalTo(taskSchedulTimeLabel.snp_leading).offset(-8)
 			} else {
 				make.trailing.equalTo(statusLabel)
 			}
