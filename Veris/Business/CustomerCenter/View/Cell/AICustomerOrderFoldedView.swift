@@ -13,14 +13,27 @@ class AICustomerOrderFoldedView: UIView {
     
     
     @IBOutlet weak var statusColorView: UIView!
-    @IBOutlet weak var taskSchedulTimeLabel: UILabel!
-    @IBOutlet weak var taskStatusLabel: UILabel!
+//    @IBOutlet weak var taskSchedulTimeLabel: UILabel!
+//    @IBOutlet weak var taskStatusLabel: UILabel!
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var providerIcon: UIImageView!
     @IBOutlet weak var statusButton: UIButton!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var noticeBadgeLabel: DesignableLabel!
     @IBOutlet weak var proposalName: UILabel!
+    
+    lazy var taskSchedulTimeLabel: UILabel = { [unowned self] in
+        let result = UILabel()
+        result.textColor = UIColor.whiteColor()
+        self.addSubview(result)
+        return result
+        }()
+     lazy var taskStatusLabel: UILabel = { [unowned self] in
+        let result = UILabel()
+        result.textColor = UIColor.whiteColor()
+        self.addSubview(result)
+        return result
+        }()
     
     var delegate: AIFoldedCellViewDelegate?
     var proposalModel: ProposalOrderModel!
@@ -35,6 +48,19 @@ class AICustomerOrderFoldedView: UIView {
         super.awakeFromNib()
         
         setupViews()
+    }
+    
+    override func updateConstraints() {
+        taskStatusLabel.snp_updateConstraints { (make) in
+            make.centerY.equalTo(taskNameLabel)
+            make.trailing.equalTo(statusLabel)
+        }
+        
+        taskSchedulTimeLabel.snp_updateConstraints { (make) in
+            make.centerY.equalTo(taskNameLabel)
+            make.trailing.equalTo(statusLabel)
+        }
+        super.updateConstraints()
     }
     
     func setupViews() {
