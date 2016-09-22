@@ -16,6 +16,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var QRCodeImage: ServiceQRCodeView!
     @IBOutlet weak var nodeDesc: UILabel!
     @IBOutlet weak var bottomButton: UIButton!
+    @IBOutlet weak var paramTable: UITableView!
     
     @IBOutlet weak var nodeImage: UIImageView!
     @IBOutlet weak var authorizationBg: UIImageView!
@@ -54,7 +55,12 @@ class TaskDetailViewController: UIViewController {
   
         buildNavigationTitleLabel()
         
-        loadData()
+        paramTable.registerNib(UINib(nibName: "NodeParamTableViewCell", bundle: nil), forCellReuseIdentifier: "ParamCell")
+        
+        param1IconLabel.hidden = false
+        param2IconLabel.hidden = false
+        QRCodeImage.hidden = false
+   //     loadData()
     }
     
     private func setupCustomerView() {
@@ -454,5 +460,17 @@ extension TaskDetailViewController: TeskResultCommitDelegate {
         } else {
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
+    }
+}
+
+extension TaskDetailViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ParamCell") as! NodeParamTableViewCell
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
     }
 }

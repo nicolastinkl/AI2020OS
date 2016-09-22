@@ -582,6 +582,8 @@
 		845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700511D015E7600512597 /* CompondServiceCommentViewController.xib */; };
 		845700581D015FD600512597 /* ServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */; };
 		845700591D015FD600512597 /* ServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */; };
+		8457331B1D937524000BA413 /* NodeParamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845733191D937524000BA413 /* NodeParamTableViewCell.swift */; };
+		8457331C1D937524000BA413 /* NodeParamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8457331A1D937524000BA413 /* NodeParamTableViewCell.xib */; };
 		8458167C1D3C727700448A7B /* CommentAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458167B1D3C727700448A7B /* CommentAreaView.swift */; };
 		8458167E1D3C72AC00448A7B /* CommentAreaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8458167D1D3C72AC00448A7B /* CommentAreaView.xib */; };
 		84687E401D236B960083BD9B /* ImagesCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84687E3F1D236B960083BD9B /* ImagesCollectionView.xib */; };
@@ -1644,6 +1646,8 @@
 		845700511D015E7600512597 /* CompondServiceCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompondServiceCommentViewController.xib; sourceTree = "<group>"; };
 		845700561D015FD600512597 /* ServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
 		845700571D015FD600512597 /* ServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
+		845733191D937524000BA413 /* NodeParamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeParamTableViewCell.swift; sourceTree = "<group>"; };
+		8457331A1D937524000BA413 /* NodeParamTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NodeParamTableViewCell.xib; sourceTree = "<group>"; };
 		8458167B1D3C727700448A7B /* CommentAreaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentAreaView.swift; sourceTree = "<group>"; };
 		8458167D1D3C72AC00448A7B /* CommentAreaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentAreaView.xib; sourceTree = "<group>"; };
 		84687E3F1D236B960083BD9B /* ImagesCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesCollectionView.xib; sourceTree = "<group>"; };
@@ -3873,6 +3877,8 @@
 				81FAFBC31D4716F700DD3477 /* AIIconLabeVerticallView.swift */,
 				81FAFC031D47427300DD3477 /* ServiceQRCodeView.swift */,
 				81FAFC041D47427300DD3477 /* ServiceQRCodeView.xib */,
+				845733191D937524000BA413 /* NodeParamTableViewCell.swift */,
+				8457331A1D937524000BA413 /* NodeParamTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4930,6 +4936,7 @@
 				93BEFFDD1D0D474B00832799 /* AISuperiorityCellView.xib in Resources */,
 				81FAFBEF1D4716F800DD3477 /* TaskExecuteStoryboard.storyboard in Resources */,
 				933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */,
+				8457331C1D937524000BA413 /* NodeParamTableViewCell.xib in Resources */,
 				81B1957E1D485B740086EB83 /* AIAlertStoryboard.storyboard in Resources */,
 				81433D251CFBE5A700347C29 /* MiddleServiceContainer.xib in Resources */,
 				81433E0F1CFBE5A700347C29 /* IconLabel.xib in Resources */,
@@ -5410,6 +5417,7 @@
 				81433D2B1CFBE5A700347C29 /* ServiceCardTextView.swift in Sources */,
 				FB8D126F1D210BC200101EEE /* AIProductQAViewController.swift in Sources */,
 				81433CD71CFBE5A700347C29 /* AIFavoritesServicesModel.swift in Sources */,
+				8457331B1D937524000BA413 /* NodeParamTableViewCell.swift in Sources */,
 				81433D871CFBE5A700347C29 /* UIPopView.swift in Sources */,
 				81433E2D1CFBE5A700347C29 /* AISelectedServiceTableVController.swift in Sources */,
 				8175A7FE1CFD2710006F2C8F /* SDWebImagePrefetcher.m in Sources */,
