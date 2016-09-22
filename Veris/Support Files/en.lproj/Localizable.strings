@@ -404,3 +404,8 @@
 // AIAlertView
 "AIAlertView.Title" = "title";
 "AIAlertView.SubmitError" = "submit error";
+
+
+/// Price
+
+"PriceView.Total" = "Total ";

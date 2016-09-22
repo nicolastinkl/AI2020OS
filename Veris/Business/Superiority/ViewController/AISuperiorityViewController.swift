@@ -53,8 +53,6 @@ class AISuperiorityViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         // MARK: Init
         initLayoutViews()
         fetchData()
