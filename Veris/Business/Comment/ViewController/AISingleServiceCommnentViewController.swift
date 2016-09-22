@@ -344,8 +344,8 @@ extension AISingleServiceCommnentViewController: AIAssetsPickerControllerDelegat
         var pictures = [UIImage]()
 
         for asset in assets {
-            if let item = asset as? ALAsset {
-                let image = UIImage(CGImage: item.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+            if asset is ALAsset {
+                let image = AIALAssetsImageOperator.thumbnailImageForAsset(asset as! ALAsset, maxPixelSize: 500)
                 pictures.append(image)
             }
         }

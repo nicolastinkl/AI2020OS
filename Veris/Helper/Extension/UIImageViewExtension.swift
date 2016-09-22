@@ -14,21 +14,6 @@ extension UIImageView {
 
     func loadFromAsset(url: NSURL) {
         
-//        let library = ALAssetsLibrary()
-//        
-//        library.assetForURL(url, resultBlock: { [weak self] (asset)  in
-//            
-//            if let asset = asset {
-//                let rep = asset.defaultRepresentation()
-//                
-//                if let iref = rep.fullResolutionImage() {
-//                    self?.image = UIImage(CGImage: iref.takeRetainedValue())
-//                }
-//            }
-//            
-//            }) { (error) in
-//                
-//        }
         
         let assets = PHAsset.fetchAssetsWithALAssetURLs([url], options: nil)
         
