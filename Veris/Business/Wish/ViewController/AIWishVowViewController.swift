@@ -40,12 +40,13 @@ class AIWishVowViewController: UIViewController {
     @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var whatsyourwish: UILabel!
     @IBOutlet weak var howmuchyourpayit: UILabel!
-    
+    @IBOutlet weak var moneyType: UILabel!
     
     private var preCacheView: UIView?
     private var currentAlertView: AIAlertWishInputView?
     private var cucacheModel: AIWishHotModel?
     
+    @IBOutlet weak var moneyContanint: NSLayoutConstraint!
     /// reqeust json args
     private var typeID: Int = 0
     private var name: String = ""
@@ -64,7 +65,7 @@ class AIWishVowViewController: UIViewController {
         whatsyourwish.text = "AIWishVowViewController.whatsywish".localized
         howmuchyourpayit.text = "AIWishVowViewController.howmushyltpayit".localized
         wishContent.text = "AIWishVowViewController.writewish".localized
-        payContent.text = "AIWishVowViewController.writeprice".localized
+        moneyType.text = "AIWishVowViewController.writeprice".localized
         submitButton.setTitle("AIWishVowViewController.Submit".localized, forState: UIControlState.Normal)
         
         // Register Audio Tools Notification
@@ -295,7 +296,11 @@ class AIWishVowViewController: UIViewController {
     
     func realSubmitAction() {
         
-        if let text = currentAlertView?.textInputView.text {            
+        if let text = currentAlertView?.textInputView.text {
+            if text.length <= 0 {
+                AIAlertView().showError("提示", subTitle: "请输入心愿名称")
+                return
+            }
             view.showLoading()
             self.name = text
             AIWishServices.requestMakeWishs(typeID, name: text, money: money, contents: contents, complate: { (obj, error) in
@@ -361,7 +366,10 @@ extension AIWishVowViewController: UITextViewDelegate {
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         let text = textView.text
-        if text == "AIWishVowViewController.writewish".localized || text == "AIWishVowViewController.writeprice".localized {
+        if text == "AIWishVowViewController.writewish".localized {
+            textView.text = ""
+            textView.textColor = UIColor(hex: "#FFFFFF")
+        } else if text == "0" {
             textView.text = ""
             textView.textColor = UIColor(hex: "#FFFFFF")
         }
@@ -380,6 +388,22 @@ extension AIWishVowViewController: UITextViewDelegate {
             }
         } else {
             refereshButtonStatus(false)
+        }
+        
+        // money change
+        if textView.tag == 2 {
+            let length = textView.text.length
+            if length <= 1 {
+                self.moneyContanint.constant = 30
+                SpringAnimation.spring(0.3, animations: { 
+                    self.payContent.layoutIfNeeded()
+                })
+            } else {
+                self.moneyContanint.constant = 30 + CGFloat(length - 1) * 10
+                SpringAnimation.spring(0.3, animations: {
+                    self.payContent.layoutIfNeeded()
+                })
+            }
         }
     }
 }

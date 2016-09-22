@@ -304,13 +304,13 @@
 /// 提交许愿
 "AIWishVowViewController.title" = "许愿";
 "AIWishVowViewController.whatsywish" = "您的心愿?";
-"AIWishVowViewController.howmushyltpayit" = "您愿意为您的心愿支付多少钱?";
+"AIWishVowViewController.howmushyltpayit" = "您愿意为心愿支付多少钱?";
 "AIWishVowViewController.RecommentedWish" = "心愿推荐";
 "AIWishVowViewController.PoplarWish" = "最火心愿";
 "AIWishVowViewController.writewish" = "输入心愿描述.";
-"AIWishVowViewController.writeprice" = "0 RMB";
+"AIWishVowViewController.writeprice" = "RMB";
 "AIWishVowViewController.Submit" = "提交";
-"AIWishVowViewController.NameYourWish" = "心愿名称.";
+"AIWishVowViewController.NameYourWish" = "请输入心愿名称";
 "AIWishVowViewController.Mywish" = "我的心愿";
 
 /// 许愿预览 AIWishPreviewController
@@ -318,8 +318,8 @@
 "AIWishPreviewController.seewhatsay" = "看看别人的许愿";
 "AIWishPreviewController.readall" = "查看所有";
 "AIWishPreviewController.floadup" = "收起";
-"AIWishPreviewController.noteyourwish" = "请输入你的心愿描述.";
-"AIWishPreviewController.whatpriceyouwill" = "您愿意为这个心愿支付的价格";
+"AIWishPreviewController.noteyourwish" = "请输入您的心愿描述.";
+"AIWishPreviewController.whatpriceyouwill" = "您愿意为心愿支付的价格";
 "AIWishPreviewController.average" = "均价";
 "AIWishPreviewController.unit" = "RMB";
 "AIWishPreviewController.wished" = "已许愿";

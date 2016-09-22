@@ -21,6 +21,10 @@ class AIAlertWishInputView: UIView {
         titleLabel.font = AITools.myriadSemiCondensedWithSize(20)
         titleLabel.textColor = UIColor(hexString: "#5f5f5f")
         textInputView.font = AITools.myriadSemiCondensedWithSize(20)
+        
+        buttonSubmit.setTitle("AIWishVowViewController.Submit".localized, forState: UIControlState.Normal)
+        textInputView.text = "AIWishVowViewController.Mywish".localized
+        titleLabel.text  = "AIWishVowViewController.NameYourWish".localized
     }
     
     @IBAction func closeAction(sender: AnyObject) {
