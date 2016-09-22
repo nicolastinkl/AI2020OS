@@ -177,6 +177,9 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         timelineTableView.addHeaderRefreshEndCallback { 
             () -> Void in
             weakSelf?.timelineTableView.reloadData()
+            let rowIndex = weakSelf?.timelineModels.count > 0 ? (weakSelf?.timelineModels.count)! - 1 : 0
+            let lastIndexPath = NSIndexPath(forRow: rowIndex, inSection: 0)
+            weakSelf?.timelineTableView.scrollToRowAtIndexPath(lastIndexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false)
             weakSelf?.isLoading = false
             weakSelf?.dismissLoading()
         }
@@ -476,6 +479,7 @@ extension AICustomerServiceExecuteViewController : UITableViewDelegate, UITableV
         requester.customerAuthorize(procedureInstId, action: "1", success: { (resultCode) in
             AILog("acceptAuthorize result: \(resultCode)")
             AIAlertView().showSuccess("同意授权成功!", subTitle: "")
+            self.filterTimeline()
         }) { (errType, errDes) in
             AIAlertView().showSuccess("同意授权失败!", subTitle: "")
         }
