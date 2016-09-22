@@ -127,6 +127,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupViews()
+        setupNotification()
         timelineTableView.headerBeginRefreshing()
         loadData()
         loadStaticData()
@@ -201,7 +202,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
     }
     
     func setupNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomerServiceExecuteViewController.refreshTimelineData), name: AIApplication.Notification.AITimelineRefreshNotificationName, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AICustomerServiceExecuteViewController.filterTimeline), name: AIApplication.Notification.AITimelineRefreshNotificationName, object: nil)
 
     }
 
