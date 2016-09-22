@@ -14,6 +14,7 @@ class SubServiceCardView: UIView {
     @IBOutlet weak var proporsalName: UILabel!
     @IBOutlet weak var messageNumber: UILabel!
     @IBOutlet weak var statusButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var serviceIcon: UIImageView!
     @IBOutlet weak var personIcon: UIImageView!
     @IBOutlet weak var statusColor: UIView!
@@ -76,6 +77,7 @@ class SubServiceCardView: UIView {
         proporsalName.removeFromSuperview()
         messageNumber.removeFromSuperview()
         statusButton.removeFromSuperview()
+        statusLabel.removeFromSuperview()
         statusColor.removeFromSuperview()
         
         seperator.hidden = true
@@ -88,7 +90,7 @@ class SubServiceCardView: UIView {
             messageNumber.text = "\(pro.messages)"
             
             if let proposalState = viewModel.proposalState {
-                statusButton.setTitle(proposalState.stateName, forState: .Normal)
+                statusLabel.text = proposalState.stateName
                 statusColor.backgroundColor = proposalState.color
             }
         }
@@ -146,7 +148,7 @@ class SubServiceCardView: UIView {
         messageNumber.font = CustomerCenterConstants.Fonts.CustomerOrderBadge
         messageNumber.makeRound()
         statusButton.makeRound()
-        statusButton.titleLabel?.font = CustomerCenterConstants.Fonts.CustomerOrderStatus
+        statusLabel.font = CustomerCenterConstants.Fonts.CustomerOrderStatus
         
 //        leftButton.makeRound()
 //        rightButton.makeRound()
