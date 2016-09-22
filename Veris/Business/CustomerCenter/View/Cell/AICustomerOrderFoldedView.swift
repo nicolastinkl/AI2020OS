@@ -18,6 +18,7 @@ class AICustomerOrderFoldedView: UIView {
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var providerIcon: UIImageView!
     @IBOutlet weak var statusButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var noticeBadgeLabel: DesignableLabel!
     @IBOutlet weak var proposalName: UILabel!
     
@@ -41,7 +42,8 @@ class AICustomerOrderFoldedView: UIView {
         statusButton.setBackgroundImage(buttonBgImage, forState: UIControlState.Normal)
         statusButton.layer.cornerRadius = 10
         statusButton.layer.masksToBounds = true
-        statusButton.titleLabel?.font = CustomerCenterConstants.Fonts.CustomerOrderStatus
+//        statusButton.titleLabel?.font = CustomerCenterConstants.Fonts.CustomerOrderStatus
+        statusLabel.font = CustomerCenterConstants.Fonts.CustomerOrderStatus
         
         noticeBadgeLabel.layer.cornerRadius = 8
         noticeBadgeLabel.layer.masksToBounds = true
@@ -58,8 +60,8 @@ class AICustomerOrderFoldedView: UIView {
         let proposalStateViewModel = proposalViewModel.proposalState!
         
         
-        
-        statusButton.setTitle(proposalStateViewModel.stateName, forState: UIControlState.Normal)
+        statusLabel.text = proposalStateViewModel.stateName
+//        statusButton.setTitle(proposalStateViewModel.stateName, forState: UIControlState.Normal)
         statusColorView.backgroundColor = proposalStateViewModel.color
         proposalName.text = proposalModel.name
         noticeBadgeLabel.text = "\(proposalModel.messages)"
