@@ -223,6 +223,8 @@ struct AIApplication {
         static let AIRemoteAssistantManagerMessageReceivedNotificaitonName = "AIRemoteAssistantManagerMessageReceivedNotificaitonName"
         static let AIRemoteAssistantAnchorOperationCompletedNotificationName = "AIRemoteAssistantAnchorOperationCompletedNotificationName"
         static let AIDeepLinkupdateDeepLinkView = "AIDeepLinkupdateDeepLinkView"
+        // 刷新时间线通知
+        static let AITimelineRefreshNotificationName = "AITimelineRefreshNotificationName"
         
         //语音识别
         

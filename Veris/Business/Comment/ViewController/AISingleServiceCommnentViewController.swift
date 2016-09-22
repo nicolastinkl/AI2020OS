@@ -282,6 +282,7 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         singleComment.anonymousFlag = singalServiceCommentView.freshCheckBox.selected ? Int32(AnonymousFlag.anonymous.rawValue) : Int32(AnonymousFlag.noAnonymous.rawValue)
         service.submitComments(userID.toString(), userType: 1, commentList: [singleComment], success: { (responseData) in
             wf?.dismissLoading()
+            wf?.postNotifications()
             wf?.dismissViewControllerAnimated(true, completion: nil)
             }) { (errType, errDes) in
                 wf?.dismissLoading()
@@ -289,7 +290,10 @@ class AISingleServiceCommnentViewController: AIBaseViewController {
         }
     }
 
-
+    //add by liux at 20160922 发送通知刷新时间线
+    func postNotifications() {
+        NSNotificationCenter.defaultCenter().postNotificationName(AIApplication.Notification.AITimelineRefreshNotificationName, object: nil, userInfo: nil)
+    }
 
     func getPhotos(photos: [String]) -> [CommentPhoto] {
         var commentPhotos = [CommentPhoto]()
