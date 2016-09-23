@@ -16,7 +16,12 @@ public extension String {
     var count: Int {
         return length
     }
+
+    var floatValue: Float {
+        return (self as NSString).floatValue
+    }
 }
+
 
 public extension SequenceType {
 	public func reject(@noescape exludesElement: (Self.Generator.Element) throws -> Bool) rethrows -> [Self.Generator.Element] {

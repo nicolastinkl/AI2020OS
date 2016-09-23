@@ -182,3 +182,4 @@
 // OCJsonModels
 #import "AIOCJsonModels.h"
 
+#import "AIALAssetsImageOperator.h"
