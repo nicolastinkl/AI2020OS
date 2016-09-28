@@ -14,7 +14,7 @@ class AIRegistViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var promoteLabel: AILoginPromptLabel!
     @IBOutlet weak var regionTitleLabel: UILabel!
     @IBOutlet weak var regionSelectContainerView: UIView!
-    @IBOutlet weak var nextStepButton: AIChangeStatusButton!
+    weak var nextStepButton: AIChangeStatusButton!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var regionSelectButton: UIButton!
 

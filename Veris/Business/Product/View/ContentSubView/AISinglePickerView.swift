@@ -91,7 +91,7 @@ public class AISinglePickerView: AIServiceParamBaseView {
 
     class func currentView() -> AISinglePickerView {
 
-        let selfview =  NSBundle.mainBundle().loadNibNamed("AISinglePickerView", owner: self, options: nil).first  as! AISinglePickerView
+        let selfview =  NSBundle.mainBundle().loadNibNamed("AISinglePickerView", owner: self, options: nil)!.first  as! AISinglePickerView
         return selfview
     }
 

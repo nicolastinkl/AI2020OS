@@ -27,7 +27,7 @@ class AIOrderCellEShopSubView: UIView {
 
     // MARK: currentView
     class func currentView() -> AIOrderCellEShopSubView {
-        let selfView = NSBundle.mainBundle().loadNibNamed("AIOrderCellEShopSubView", owner: self, options: nil).first  as! AIOrderCellEShopSubView
+        let selfView = NSBundle.mainBundle().loadNibNamed("AIOrderCellEShopSubView", owner: self, options: nil)!.first  as! AIOrderCellEShopSubView
 
         //config statusLabel
         selfView.statusLabel.layer.borderWidth = 1

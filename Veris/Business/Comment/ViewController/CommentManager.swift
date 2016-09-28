@@ -242,7 +242,7 @@ class DefaultCommentManager: CommentManager {
         
         if !exist {
             let fileManager = NSFileManager.defaultManager()
-            exist = fileManager.fileExistsAtPath(url.absoluteString)
+            exist = fileManager.fileExistsAtPath(url.absoluteString!)
         }
         
         return exist

@@ -19,7 +19,7 @@ class AIErrorRetryView: SpringView {
     - returns: Self
     */
     class func currentView() -> AIErrorRetryView {
-        let cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.ViewIdentifiers.AIErrorRetryView, owner: self, options: nil).first  as! AIErrorRetryView
+        let cell = NSBundle.mainBundle().loadNibNamed(AIApplication.MainStoryboard.ViewIdentifiers.AIErrorRetryView, owner: self, options: nil)!.first  as! AIErrorRetryView
         return cell
     }
 

@@ -39,7 +39,7 @@ class AIAssignServiceView: UIView {
     let serviceNameFontSize: CGFloat = 48 / 3
     
     class func currentView() -> AIAssignServiceView {
-        let selfview =  NSBundle.mainBundle().loadNibNamed("AIAssignServiceView", owner: self, options: nil).first  as! AIAssignServiceView
+        let selfview =  NSBundle.mainBundle().loadNibNamed("AIAssignServiceView", owner: self, options: nil)!.first  as! AIAssignServiceView
         
         selfview.curModelNum = 0
         selfview.nextModelNum = 1

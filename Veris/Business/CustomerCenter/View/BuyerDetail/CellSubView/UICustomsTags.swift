@@ -51,7 +51,7 @@ internal class UICustomsTags: SpringView {
 	
 	// MARK: currentView
 	class func currentView() -> UICustomsTags {
-		let selfView = NSBundle.mainBundle().loadNibNamed("UICustomsTags", owner: self, options: nil).first as! UICustomsTags
+		let selfView = NSBundle.mainBundle().loadNibNamed("UICustomsTags", owner: self, options: nil)!.first as! UICustomsTags
 		
 		// Init Font...
 		selfView.content.font = AITools.myriadLightSemiCondensedWithSize(35 / 2.5)

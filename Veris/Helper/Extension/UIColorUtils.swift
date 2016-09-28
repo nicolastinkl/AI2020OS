@@ -89,7 +89,7 @@ extension UIColor {
         CGContextSetFillColorWithColor(context, self.CGColor)
         CGContextFillRect(context, rect)
 
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
         return image
@@ -108,7 +108,7 @@ extension UIColor {
         CGContextSetFillColorWithColor(context, self.CGColor)
         CGContextFillRect(context, rect)
 
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
         return image
@@ -140,7 +140,7 @@ extension UIColor {
             let backgroundColorImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
 
-            return UIColor(patternImage: backgroundColorImage)
+            return UIColor(patternImage: backgroundColorImage!)
             //TODO:还有两个实现没写完
         case UIGradientStyle.UIGradientStyleRadial:
             UIGraphicsBeginImageContextWithOptions(frame.size, false, UIScreen.mainScreen().scale)
@@ -157,7 +157,7 @@ extension UIColor {
             let myCentrePoint = CGPoint(x: frame.size.width / 2, y: frame
                 .size.height / 2)
             let myRadius = min(frame.size.height, frame.size.width)
-            CGContextDrawRadialGradient(UIGraphicsGetCurrentContext(), myGradient, myCentrePoint, 0, myCentrePoint, myRadius, CGGradientDrawingOptions.DrawsAfterEndLocation)
+            CGContextDrawRadialGradient(UIGraphicsGetCurrentContext()!, myGradient!, myCentrePoint, 0, myCentrePoint, myRadius, CGGradientDrawingOptions.DrawsAfterEndLocation)
 
             // Grab it as an Image
             let backgroundColorImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -165,7 +165,7 @@ extension UIColor {
             // Clean up
             UIGraphicsEndImageContext()
 
-            return UIColor(patternImage: backgroundColorImage)
+            return UIColor(patternImage: backgroundColorImage!)
 
         case UIGradientStyle.UIGradientStyleTopToBottom:
 
@@ -187,7 +187,7 @@ extension UIColor {
             let backgroundColorImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
 
-            return UIColor(patternImage: backgroundColorImage)
+            return UIColor(patternImage: backgroundColorImage!)
         }
     }
 

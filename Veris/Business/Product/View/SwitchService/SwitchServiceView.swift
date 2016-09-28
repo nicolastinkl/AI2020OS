@@ -92,7 +92,7 @@ class SwitchServiceView: UIView {
 
         let nib = NSBundle.mainBundle().loadNibNamed("SwitchServiceView", owner: self, options: nil)
 
-        return nib.first as! SwitchServiceView
+        return nib!.first as! SwitchServiceView
     }
 
     func setService(service: Service) {

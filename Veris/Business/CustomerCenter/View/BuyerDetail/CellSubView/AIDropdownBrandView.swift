@@ -340,7 +340,7 @@ class BrandIconLabel: VerticalIconLabel {
 
 		let context = CIContext(options: nil)
 		let cgiimage = context.createCGImage(output!, fromRect: (output?.extent)!)
-		let newImage = UIImage(CGImage: cgiimage, scale: 0, orientation: image.imageOrientation)
+		let newImage = UIImage(CGImage: cgiimage!, scale: 0, orientation: image.imageOrientation)
 
 		return newImage
 	}

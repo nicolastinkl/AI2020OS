@@ -12,8 +12,8 @@ import AIAlertView
 class AINickNameEditViewController: UIViewController {
 	
 	@IBOutlet weak var headImageView: AIImageView!
-	@IBOutlet weak var nickNameTextField: AILoginBaseTextField!
-	@IBOutlet weak var confirmButton: AIChangeStatusButton!
+	weak var nickNameTextField: AILoginBaseTextField!
+	weak var confirmButton: AIChangeStatusButton!
 	
 	var headImageURL: String = ""
 	override func viewDidLoad() {

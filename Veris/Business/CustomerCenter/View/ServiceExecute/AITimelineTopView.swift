@@ -21,7 +21,7 @@ class AITimelineTopView: UIView {
     @IBOutlet weak var progressBar: YLProgressBar!
 
     static func createInstance() -> AITimelineTopView {
-        let viewThis = NSBundle.mainBundle().loadNibNamed("AITimelineTopView", owner: self, options: nil).first  as! AITimelineTopView
+        let viewThis = NSBundle.mainBundle().loadNibNamed("AITimelineTopView", owner: self, options: nil)!.first  as! AITimelineTopView
 
         return viewThis
     }

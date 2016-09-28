@@ -387,10 +387,10 @@ class canvasLineView: UIView {
         bezierPath.addLineToPoint(CGPoint(x: rect.width, y: 0))
         UIColor(hexString: "#FFFFFF", alpha: 0.65) .setStroke()
         bezierPath.lineWidth = 0.5
-        CGContextSaveGState(context)
-        CGContextSetLineDash(context, 0, [4, 4], 2)
+        CGContextSaveGState(context!)
+        CGContextSetLineDash(context!, 0, [4, 4], 2)
         bezierPath.stroke()
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
         backgroundColor = UIColor.clearColor()        
     }
 }

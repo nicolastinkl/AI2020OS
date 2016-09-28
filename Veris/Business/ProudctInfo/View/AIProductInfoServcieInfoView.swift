@@ -46,10 +46,10 @@ class AIProductInfoServcieInfoView: UIView {
         let textFontAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(8), NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: textStyle]
         
         let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSize(width: textRect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
-        CGContextSaveGState(context)
-        CGContextClipToRect(context, textRect)
+        CGContextSaveGState(context!)
+        CGContextClipToRect(context!, textRect)
         textTextContent.drawInRect(CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
         
         
         //// text2 Drawing
@@ -71,10 +71,10 @@ class AIProductInfoServcieInfoView: UIView {
         let text3FontAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(8), NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: text3Style]
         
         let text3TextHeight: CGFloat = text3TextContent.boundingRectWithSize(CGSize(width: text3Rect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text3FontAttributes, context: nil).size.height
-        CGContextSaveGState(context)
-        CGContextClipToRect(context, text3Rect)
+        CGContextSaveGState(context!)
+        CGContextClipToRect(context!, text3Rect)
         text3TextContent.drawInRect(CGRect(x: text3Rect.minX, y: text3Rect.minY + (text3Rect.height - text3TextHeight) / 2, width: text3Rect.width, height: text3TextHeight), withAttributes: text3FontAttributes)
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
         
         
         //// Text 4 Drawing
@@ -86,10 +86,10 @@ class AIProductInfoServcieInfoView: UIView {
         let text4FontAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(8), NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: text4Style]
         
         let text4TextHeight: CGFloat = text4TextContent.boundingRectWithSize(CGSize(width: text4Rect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text4FontAttributes, context: nil).size.height
-        CGContextSaveGState(context)
-        CGContextClipToRect(context, text4Rect)
+        CGContextSaveGState(context!)
+        CGContextClipToRect(context!, text4Rect)
         text4TextContent.drawInRect(CGRect(x: text4Rect.minX, y: text4Rect.minY + (text4Rect.height - text4TextHeight) / 2, width: text4Rect.width, height: text4TextHeight), withAttributes: text4FontAttributes)
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
     }
     
 }

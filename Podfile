@@ -13,7 +13,7 @@ def aiveris_pods
     
     # HTTP-NET-ENGINE
     
-    pod 'Alamofire', '~> 3.1.4'
+    pod 'Alamofire', '~> 3.5.0'
     
     # JSON TOOL
     
@@ -21,11 +21,11 @@ def aiveris_pods
     
     # UI/UX
     
-    pod 'Spring', :git => 'https://github.com/asiainfomobile/Spring.git', :branch => 'swift2'
+    pod 'Spring', :git => 'https://github.com/asiainfomobile/Spring.git', :branch => 'swift-2.3-migration'
     
-    pod 'Cartography', '~> 0.6.0'
+    pod 'Cartography', '~> 0.7.0'
     
-    pod 'SnapKit', '~> 0.18.0'
+    pod 'SnapKit', '~> 0.22.0'
     
     pod 'AIAlertView', :git => 'https://github.com/asiainfomobile/AIAlertView.git'
     
@@ -49,4 +49,12 @@ end
 
 target 'VerisTests' do
     aiveris_pods
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '2.3'
+        end
+    end
 end

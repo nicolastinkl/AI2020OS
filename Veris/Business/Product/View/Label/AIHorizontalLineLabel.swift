@@ -18,8 +18,8 @@ class AIHorizontalLineLabel: UILabel {
 
         let ctx = UIGraphicsGetCurrentContext()
 
-        CGContextSetStrokeColorWithColor(ctx, textColor.CGColor)
-        CGContextSetLineWidth(ctx, 1)
+        CGContextSetStrokeColorWithColor(ctx!, textColor.CGColor)
+        CGContextSetLineWidth(ctx!, 1)
 
         var offsetX: CGFloat = 0
 
@@ -49,9 +49,9 @@ class AIHorizontalLineLabel: UILabel {
         let leftPoint = CGPointMake(rect.origin.x + offsetX - PADDING, rect.origin.y + offsetY)
         let rightPoint = CGPointMake(rect.origin.x + offsetX + textRect.width + PADDING, rect.origin.y + offsetY)
 
-        CGContextMoveToPoint(ctx, leftPoint.x, leftPoint.y)
-        CGContextAddLineToPoint(ctx, rightPoint.x, rightPoint.y)
-        CGContextStrokePath(ctx)
+        CGContextMoveToPoint(ctx!, leftPoint.x, leftPoint.y)
+        CGContextAddLineToPoint(ctx!, rightPoint.x, rightPoint.y)
+        CGContextStrokePath(ctx!)
     }
 
     override func textRectForBounds(bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {

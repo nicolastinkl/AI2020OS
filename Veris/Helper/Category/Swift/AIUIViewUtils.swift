@@ -506,17 +506,17 @@ extension UIImage {
 		let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: sizetoFit)
 		
 		UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.mainScreen().scale)
-		CGContextAddPath(UIGraphicsGetCurrentContext(),
+		CGContextAddPath(UIGraphicsGetCurrentContext()!,
 			UIBezierPath(roundedRect: rect, byRoundingCorners: UIRectCorner.AllCorners,
 				cornerRadii: CGSize(width: radius, height: radius)).CGPath)
-		CGContextClip(UIGraphicsGetCurrentContext())
+		CGContextClip(UIGraphicsGetCurrentContext()!)
 		
 		self.drawInRect(rect)
-		CGContextDrawPath(UIGraphicsGetCurrentContext(), .FillStroke)
+		CGContextDrawPath(UIGraphicsGetCurrentContext()!, .FillStroke)
 		let output = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		
-		return output
+		return output!
 	}
 }
 

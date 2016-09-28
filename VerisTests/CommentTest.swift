@@ -46,7 +46,7 @@ class CommentTest: SBOSSTestCase {
     func testGetCompondComment() {
         let readyExpectation = expectationWithDescription("done")
         
-        service.getCompondComment("10012", userType: 1, serviceId: "900001001008", success: { (responseData) in
+        service.getCompondComment("10012", userType: 1, orderId: "900001001008", success: { (responseData) in
             
             let re = responseData
             print("getCompondComment success:\(re)")

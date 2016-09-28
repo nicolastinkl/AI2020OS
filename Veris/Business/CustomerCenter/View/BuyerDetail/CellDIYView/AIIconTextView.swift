@@ -26,7 +26,7 @@ class AIIconTextView: UIView {
     }
 
     static func createInstance() -> AIIconTextView {
-        return NSBundle.mainBundle().loadNibNamed("AIIconTextView", owner: self, options: nil).first as! AIIconTextView
+        return NSBundle.mainBundle().loadNibNamed("AIIconTextView", owner: self, options: nil)!.first as! AIIconTextView
     }
 
     func loadData(json jonsStr: String) {

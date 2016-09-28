@@ -23,7 +23,7 @@ internal class AICustomView: UIView {
 	private lazy var selectedTagsArray = [AIProposalServiceDetailLabelModel]()
 	// MARK: currentView
 	class func currentView() -> AICustomView {
-		let selfView = NSBundle.mainBundle().loadNibNamed("AICustomView", owner: self, options: nil).first as! AICustomView
+		let selfView = NSBundle.mainBundle().loadNibNamed("AICustomView", owner: self, options: nil)!.first as! AICustomView
 		
 		return selfView
 	}

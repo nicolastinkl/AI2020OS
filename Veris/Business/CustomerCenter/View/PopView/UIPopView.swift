@@ -23,7 +23,7 @@ import Spring
 
     // MARK: currentView
     class func currentView() -> UIPopView {
-        let selfView = NSBundle.mainBundle().loadNibNamed("UIPopView", owner: self, options: nil).first  as! UIPopView
+        let selfView = NSBundle.mainBundle().loadNibNamed("UIPopView", owner: self, options: nil)!.first  as! UIPopView
         return selfView
     }
 

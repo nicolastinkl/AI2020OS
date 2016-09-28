@@ -33,7 +33,7 @@ class AITitleAndIconTextView: ServiceParamlView {
     }
 
     static func createInstance() -> AITitleAndIconTextView {
-        return NSBundle.mainBundle().loadNibNamed("AITitleAndIconTextView", owner: self, options: nil).first  as! AITitleAndIconTextView
+        return NSBundle.mainBundle().loadNibNamed("AITitleAndIconTextView", owner: self, options: nil)!.first  as! AITitleAndIconTextView
     }
 
     override func loadData(json jonsStr: String) {

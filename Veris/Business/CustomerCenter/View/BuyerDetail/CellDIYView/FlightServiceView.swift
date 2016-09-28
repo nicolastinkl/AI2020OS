@@ -18,7 +18,7 @@ class FlightServiceView: ServiceParamlView {
     @IBOutlet weak var arriveTime: UILabel!
 
     static func createInstance() -> FlightServiceView {
-        return NSBundle.mainBundle().loadNibNamed("FlightServiceView", owner: self, options: nil).first  as! FlightServiceView
+        return NSBundle.mainBundle().loadNibNamed("FlightServiceView", owner: self, options: nil)!.first  as! FlightServiceView
     }
 
     override func awakeFromNib() {

@@ -24,7 +24,7 @@ class AIValidateRegistViewController: UIViewController, UIGestureRecognizerDeleg
     @IBOutlet weak var validationButtonWidthConstrant: NSLayoutConstraint!
     @IBOutlet weak var validationButton: UIButton!
     @IBOutlet weak var identifyTextField: UITextField!
-    @IBOutlet weak var nextStepButton: AIChangeStatusButton!
+    weak var nextStepButton: AIChangeStatusButton!
     
     @IBOutlet weak var promoteLabel: AILoginPromptLabel!
     @IBOutlet weak var validateInfoLabel: AIAnimatedPromptLabel!

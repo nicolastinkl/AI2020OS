@@ -240,13 +240,14 @@ class CustomizedNavigationBar: UINavigationBar {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		var barBg: UIView?
+        /*
 		for v in subviews {
 			if v.isKindOfClass(NSClassFromString("_UINavigationBarBackground")!) {
 				v.backgroundColor = barColor
 				barBg = v
 			}
 		}
-		
+		*/
 		if let barBg = barBg {
 			for v in barBg.subviews {
 				if v.height < 1 {

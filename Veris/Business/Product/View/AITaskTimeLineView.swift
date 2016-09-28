@@ -180,19 +180,6 @@ class AITaskTimeLineView: UIView {
 		line3.addAnimation(animation3, forKey: "3")
 	}
 
-	override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-		if let anim = anim as? CABasicAnimation {
-			let path: CGPath = anim.toValue as! CGPath
-			if line1.animationForKey("1") == anim {
-				line1.path = path
-			} else if line2.animationForKey("2") == anim {
-				line2.path = path
-			} else {
-				line3.path = path
-			}
-		}
-	}
-
 	func makeAnimationToNewPath(newPath: CGPath) -> CABasicAnimation {
 		let animation: CABasicAnimation = CABasicAnimation(keyPath: "path")
 		animation.duration = 0.25
@@ -242,4 +229,21 @@ class AITaskTimeLineView: UIView {
 			delegate.taskTimeLineViewDidClickRemarkLogo(self)
 		}
 	}
+}
+
+extension AITaskTimeLineView: CAAnimationDelegate {
+    
+    func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+        if let anim = anim as? CABasicAnimation {
+            let path: CGPath = anim.toValue as! CGPath
+            if line1.animationForKey("1") == anim {
+                line1.path = path
+            } else if line2.animationForKey("2") == anim {
+                line2.path = path
+            } else {
+                line3.path = path
+            }
+        }
+    }
+
 }

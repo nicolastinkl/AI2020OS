@@ -34,7 +34,7 @@ public class AIEventTimerView: AIServiceParamBaseView {
 
     class func currentView() -> AIEventTimerView {
 
-        let selfview =  NSBundle.mainBundle().loadNibNamed("AIEventTimerView", owner: self, options: nil).first  as! AIEventTimerView
+        let selfview =  NSBundle.mainBundle().loadNibNamed("AIEventTimerView", owner: self, options: nil)!.first  as! AIEventTimerView
         selfview.title.font = AITools.myriadSemiCondensedWithSize(43/PurchasedViewDimention.CONVERT_FACTOR)
         selfview.timeContent.titleLabel?.font = AITools.myriadSemiCondensedWithSize(43/PurchasedViewDimention.CONVERT_FACTOR)
         return selfview

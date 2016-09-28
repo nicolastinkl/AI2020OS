@@ -16,7 +16,7 @@ class AITextMessageView: AIWishMessageView {
 	weak var delegate: AIDeleteActionDelegate?
 	
 	class func currentView() -> AITextMessageView {
-		let selfView = NSBundle.mainBundle().loadNibNamed("AITextMessageView", owner: self, options: nil).first as! AITextMessageView
+		let selfView = NSBundle.mainBundle().loadNibNamed("AITextMessageView", owner: self, options: nil)!.first as! AITextMessageView
 		selfView.content.font = AITools.myriadLightSemiCondensedWithSize(36 / 2.5)
 		
 		let longPressGes = UILongPressGestureRecognizer(target: selfView, action: #selector(AITextMessageView.handleLongPress(_:)))

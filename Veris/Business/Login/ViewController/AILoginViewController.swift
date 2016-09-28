@@ -14,15 +14,15 @@ import IQKeyboardManagerSwift
 class AILoginViewController: UIViewController {
     
     // MARK: -IBOutlets
-    @IBOutlet weak var loginButton: AIChangeStatusButton!
+    weak var loginButton: AIChangeStatusButton!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var appNameCenterXConstraint: NSLayoutConstraint!
     @IBOutlet weak var appNameViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoImageTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var appNameUserIdMarginConstraint: NSLayoutConstraint!
-    @IBOutlet weak var userIdTextField: AILoginBaseTextField!
-    @IBOutlet weak var passwordTextField: AILoginPasswordTextField!
+    weak var userIdTextField: AILoginBaseTextField!
+    weak var passwordTextField: AILoginPasswordTextField!
     @IBOutlet weak var logoImageCenterXConstraint: NSLayoutConstraint!
     @IBOutlet weak var validateInfoLabel: AIAnimatedPromptLabel!
     

@@ -22,7 +22,7 @@ class OrderAndBuyerInfoView: UIView {
     @IBOutlet weak var progressBar: YLProgressBar!
 
     static func createInstance() -> OrderAndBuyerInfoView {
-        let viewThis = NSBundle.mainBundle().loadNibNamed("OrderAndBuyerInfoView", owner: self, options: nil).first  as! OrderAndBuyerInfoView
+        let viewThis = NSBundle.mainBundle().loadNibNamed("OrderAndBuyerInfoView", owner: self, options: nil)!.first  as! OrderAndBuyerInfoView
 
         return viewThis
     }

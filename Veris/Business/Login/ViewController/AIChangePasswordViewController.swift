@@ -13,8 +13,8 @@ import SVProgressHUD
 class AIChangePasswordViewController: UIViewController, UIGestureRecognizerDelegate {
 	
 	@IBOutlet weak var validateInfoLabel: AIAnimatedPromptLabel!
-	@IBOutlet weak var confirmButton: AIChangeStatusButton!
-	@IBOutlet weak var passwordTextField: AILoginPasswordTextField!
+	weak var confirmButton: AIChangeStatusButton!
+	weak var passwordTextField: AILoginPasswordTextField!
 	
 	var loginService = AILoginService()
 	

@@ -62,7 +62,7 @@ public class AIDatePickerView: AIServiceParamBaseView {
 	}
 	
 	class func currentView() -> AIDatePickerView {
-		let view = NSBundle.mainBundle().loadNibNamed("AIDatePickerView", owner: self, options: nil).first as! AIDatePickerView
+		let view = NSBundle.mainBundle().loadNibNamed("AIDatePickerView", owner: self, options: nil)!.first as! AIDatePickerView
 		
 		return view
 	}

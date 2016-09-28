@@ -43,7 +43,7 @@ class AirTicketGroupView: UIView {
 
         for index in 0 ..< tickets.count {
             let nib = NSBundle.mainBundle().loadNibNamed("AirTicketView", owner: self, options: nil)
-            guard let ticket: AirTicketView = nib.first as? AirTicketView else {
+            guard let ticket: AirTicketView = nib!.first as? AirTicketView else {
                 continue
             }
 

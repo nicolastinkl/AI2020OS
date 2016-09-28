@@ -19,7 +19,7 @@ class ImageInfo {
         self.url = url
         
         if let url = url {
-            let len = url.absoluteString.length
+            let len = url.absoluteString!.length
             
             var randomStr = ""
             for _ in 1...4 {
@@ -28,7 +28,7 @@ class ImageInfo {
                 randomStr += "\(random)"
             }
             
-            imageId = url.absoluteString + randomStr
+            imageId = url.absoluteString! + randomStr
         }
     }
 }

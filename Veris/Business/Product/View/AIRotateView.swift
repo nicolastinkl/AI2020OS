@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AIRotateView: UIView {
+class AIRotateView: UIView, CAAnimationDelegate {
 
     var curServiceNameLabel: UILabel!
     var nextServiceNameLabel: UILabel!
@@ -132,11 +132,11 @@ class AIRotateView: UIView {
         view.layer.addAnimation(animationGroup, forKey: nil)
     }
 
-    override func animationDidStart(anim: CAAnimation) {
+    func animationDidStart(anim: CAAnimation) {
         nextServiceNameLabel.text = models![nextModelNum].serviceName
     }
 
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+    func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         if nextModelNum == (models?.count)! - 1 {
             curModelNum = nextModelNum
             nextModelNum = 0

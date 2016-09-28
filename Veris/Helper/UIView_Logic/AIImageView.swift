@@ -72,7 +72,7 @@ public class AIImageView: UIImageView {
 
     public func setImgURL(url: NSURL?, placeholderImage: UIImage?) {
         self.placeholderImage = placeholderImage
-        if url?.URLString.length > 10 {
+        if let length = url?.absoluteString?.length where length > 10 {
             self.url = url
         } else {
             self.alpha=0.2
@@ -100,7 +100,7 @@ public class AIImageView: UIImageView {
             if showProgress {
                 
                 //SDWebImageOptions.ContinueInBackground
-                if url?.URLString.length > 10 {
+                if url?.absoluteString!.length > 10 {
                     self.cacheURL = url
                     if SDWebImageManager.sharedManager().cachedImageExistsForURL(url) {
                         let cacheKey = SDWebImageManager.sharedManager().cacheKeyForURL(url)
@@ -257,19 +257,19 @@ class AIProgressWebHoldView: UIView {
         let circleRect: CGRect = CGRectInset(newRectS, 1.0, 1.0)
         let colorBackAlpha: CGColorRef = CGColorCreateCopyWithAlpha(backgroundTintColor.CGColor, 0.1)!
         progressTintColor.setStroke()
-        CGContextSetFillColorWithColor(context, colorBackAlpha)
-        CGContextSetLineWidth(context, 1.0)
-        CGContextFillEllipseInRect(context, circleRect)
-        CGContextStrokeEllipseInRect(context, circleRect)
+        CGContextSetFillColorWithColor(context!, colorBackAlpha)
+        CGContextSetLineWidth(context!, 1.0)
+        CGContextFillEllipseInRect(context!, circleRect)
+        CGContextStrokeEllipseInRect(context!, circleRect)
 
         let radius: CGFloat = (newRectS.size.width) / 2 - 3//(allRect.size.width - 4) / 2 - 3
         let startAngle: CGFloat = -(CGFloat(M_PI) / 2)
         let endAngle: CGFloat = (self.progress * 2 * CGFloat(M_PI)) + startAngle
         progressTintColor.setFill()
-        CGContextMoveToPoint(context, center.x, center.y)
-        CGContextAddArc(context, center.x, center.y, radius, startAngle, endAngle, 0)
-        CGContextClosePath(context)
-        CGContextFillPath(context)
+        CGContextMoveToPoint(context!, center.x, center.y)
+        CGContextAddArc(context!, center.x, center.y, radius, startAngle, endAngle, 0)
+        CGContextClosePath(context!)
+        CGContextFillPath(context!)
         
     }
 }

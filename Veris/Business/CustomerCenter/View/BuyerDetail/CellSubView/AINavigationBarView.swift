@@ -16,7 +16,7 @@ internal class AINavigationBarView: UIView {
     var naviDetailBar: AIDetailTopMenuView?
 
     class func currentView() -> AINavigationBarView {
-        let selfView = NSBundle.mainBundle().loadNibNamed("AINavigationBarView", owner: self, options: nil).first  as! AINavigationBarView
+        let selfView = NSBundle.mainBundle().loadNibNamed("AINavigationBarView", owner: self, options: nil)!.first  as! AINavigationBarView
         selfView.backButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(60/PurchasedViewDimention.CONVERT_FACTOR)
 
         let customView = AIDetailTopMenuView.currentView()

@@ -38,11 +38,11 @@ class EvernoteTransition: NSObject, UIViewControllerAnimatedTransitioning, UIVie
 
 	func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
 		let nextVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-		transitionContext.containerView()?.backgroundColor = UIColor(red: 56.0/255.0, green: 51/255.0, blue: 76/255.0, alpha: 1.0)
+		transitionContext.containerView().backgroundColor = UIColor(red: 56.0/255.0, green: 51/255.0, blue: 76/255.0, alpha: 1.0)
 		selectCell.frame = isPresent ? originFrame : finalFrame
 		let addView = nextVC?.view
 		addView!.hidden = isPresent ? true : false
-		transitionContext.containerView()?.addSubview(addView!)
+		transitionContext.containerView().addSubview(addView!)
 //		let removeCons = isPresent ? selectCell.labelLeadCons : selectCell.horizonallyCons
 //		let addCons = isPresent ? selectCell.horizonallyCons : selectCell.labelLeadCons
 //		selectCell.removeConstraint(removeCons)

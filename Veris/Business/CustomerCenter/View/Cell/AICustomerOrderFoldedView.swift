@@ -128,7 +128,7 @@ class AICustomerOrderFoldedView: UIView {
 	
 	// MARK: currentView
 	class func currentView() -> AICustomerOrderFoldedView {
-		let selfView = NSBundle.mainBundle().loadNibNamed("AICustomerOrderFoldedView", owner: self, options: nil).first as! AICustomerOrderFoldedView
+		let selfView = NSBundle.mainBundle().loadNibNamed("AICustomerOrderFoldedView", owner: self, options: nil)!.first as! AICustomerOrderFoldedView
 		return selfView
 	}
 	

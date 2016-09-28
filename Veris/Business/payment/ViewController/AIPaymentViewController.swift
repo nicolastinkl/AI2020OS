@@ -429,10 +429,10 @@ class StrokeLineView: UIView {
         bezierPath.addLineToPoint(CGPoint(x: rect.width, y: 0))
         color.setStroke()
         bezierPath.lineWidth = 0.5
-        CGContextSaveGState(context)
-        CGContextSetLineDash(context, 0, [6, 2], 2)
+        CGContextSaveGState(context!)
+        CGContextSetLineDash(context!, 0, [6, 2], 2)
         bezierPath.stroke()
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
 
     }
 }

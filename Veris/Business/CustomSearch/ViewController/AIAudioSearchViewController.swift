@@ -149,13 +149,14 @@ class AIAudioSearchViewController: UIViewController {
     }
 
     func playStartSearchSound() {
-
-        SoundPlayer().playSound("va_start.wav")
+        //mod by liux , xcode8报错暂时屏蔽
+        //SoundPlayer().playSound("va_start.wav")
 
     }
 
     func playEndSearchSound() {
-        SoundPlayer().playSound("voicesearch.mp3")
+        //mod by liux , xcode8报错暂时屏蔽
+        //SoundPlayer().playSound("voicesearch.mp3")
     }
 
     func playAlertSound() {

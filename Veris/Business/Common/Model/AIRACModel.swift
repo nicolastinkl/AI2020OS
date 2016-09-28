@@ -65,7 +65,7 @@ internal struct AIContentCellModel: JSONJoy {
 
         category = decoder["requirement_category"].string ?? decoder["block_category"].string
          ?? ""
-        id = random()/100000000 // identity the cell Cache.
+        id = Int(arc4random()/100000000) // identity the cell Cache.
 
         if let category = category {
 

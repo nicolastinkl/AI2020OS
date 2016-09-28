@@ -161,7 +161,7 @@ class AIServiceSearchView: UIView, UITextFieldDelegate {
     }
 
     class func currentView() -> AIServiceSearchView {
-        let view = NSBundle.mainBundle().loadNibNamed("AIServiceSearchView", owner: self, options: nil).first as! AIServiceSearchView
+        let view = NSBundle.mainBundle().loadNibNamed("AIServiceSearchView", owner: self, options: nil)!.first as! AIServiceSearchView
         view.initDefaultViewAttr()
         return view
     }

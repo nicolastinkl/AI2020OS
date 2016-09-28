@@ -34,7 +34,7 @@ class ServiceSettingView: UIView {
     }
 
     static func createInstance() -> ServiceSettingView {
-        return NSBundle.mainBundle().loadNibNamed("ServiceSettingView", owner: self, options: nil).first  as! ServiceSettingView
+        return NSBundle.mainBundle().loadNibNamed("ServiceSettingView", owner: self, options: nil)!.first  as! ServiceSettingView
     }
 
     func adjustSizeAfterSetData() {
