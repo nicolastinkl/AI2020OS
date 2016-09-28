@@ -451,7 +451,7 @@ extension TaskResultCommitViewController: AIAssetsPickerControllerDelegate {
         
         for asset in assets {
             if let item = asset as? ALAsset {
-                let image = UIImage(CGImage: item.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+                let image = AIALAssetsImageOperator.thumbnailImageForAsset(asset as! ALAsset, maxPixelSize: 500)
                 let url = item.defaultRepresentation().url()
                 
                 photos.append(ImageInfo(image: image, url: url))

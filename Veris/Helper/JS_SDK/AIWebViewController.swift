@@ -9,8 +9,10 @@
 import UIKit
 
 class AIWebViewController: UIViewController {
-	var webView: UIWebView!
+	
+    var webView: UIWebView!
 	var bridge: SwiftWebViewBridge!
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = UIColor.whiteColor()
@@ -18,6 +20,7 @@ class AIWebViewController: UIViewController {
 		let refresh = UIBarButtonItem(barButtonSystemItem: .Refresh, target: webView, action: #selector(UIWebView.reload))
 		navigationItem.rightBarButtonItem = refresh
 	}
+    
 	func setupWebView() {
 		
 		webView = UIWebView(frame: .zero)

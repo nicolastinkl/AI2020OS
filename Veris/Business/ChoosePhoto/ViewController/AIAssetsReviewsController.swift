@@ -65,7 +65,7 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
         pageControl.transform = CGAffineTransformMakeScale(0.8, 0.8)
         return pageControl
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -118,7 +118,7 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
         assets.forEach { (asset) in
             var image = UIImage(named: "")
             if asset is ALAsset {
-                image = UIImage(CGImage: asset.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+                image = AIALAssetsImageOperator.thumbnailImageForAsset(asset as! ALAsset, maxPixelSize: 500)
             } else {
                 image = asset as? UIImage
             }

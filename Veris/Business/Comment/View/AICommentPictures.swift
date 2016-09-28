@@ -40,7 +40,8 @@ class AICommentPictures: UIView {
 
         if picture is String {
             let url = NSURL(string: picture as! String)
-            imageView.sd_setImageWithURL(url, placeholderImage: nil)
+            let loadingImage = UIImage(named: "image_loading")
+            imageView.sd_setImageWithURL(url, placeholderImage: loadingImage)
         } else if picture is UIImage {
             imageView.image = picture as? UIImage
             imageView.uploadImage("\(tag)", complate: { (id, url, error) in

@@ -340,7 +340,7 @@ extension AICustomSearchHomeViewController: AIAssetsPickerControllerDelegate {
 	 */
 	func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
 		let assetSuper = assets.firstObject as! ALAsset
-		let image = UIImage(CGImage: assetSuper.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+		let image = AIALAssetsImageOperator.thumbnailImageForAsset(assetSuper, maxPixelSize: 500)
 		view.showLoading()
 		AIImageRecongizeService().getImageInfo(image) { [weak self](res, error) in
 			self?.view.hideLoading()

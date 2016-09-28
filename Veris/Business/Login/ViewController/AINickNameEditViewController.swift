@@ -98,7 +98,7 @@ extension AINickNameEditViewController: AIAssetsPickerControllerDelegate {
      */
 	func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
         let assetSuper = assets.firstObject as! ALAsset
-        let image = UIImage(CGImage: assetSuper.defaultRepresentation().fullResolutionImage().takeUnretainedValue())
+        let image = AIALAssetsImageOperator.thumbnailImageForAsset(assetSuper, maxPixelSize: 500)
 		uploadImage(image)
 	}
 	
