@@ -34,15 +34,17 @@ public class AIAnalytics: NSObject {
 	}
 	
 	class func postToServer(eventId: AIAnalyticsEvent, primarykey: String? = nil, attributes: [AIAnalyticsKeys: AnyObject]!) {
-		let url = "http://10.5.1.249:3245/events"
-		let message = AIMessage()
-		message.url = url
-        var body: [String: AnyObject] = ["event": eventId.rawValue]
-		body.addEntriesFromDictionary(body)
-		body.addEntriesFromDictionary(commonParams())
-        body.addEntriesFromDictionary(convertAtt(attributes))
-		message.body = NSMutableDictionary(dictionary: body)
-//		AINetEngine.defaultEngine().postMessage(message, success: { (_) in }) { (_, _) in }
+        #if DEBUG
+            let url = "http://171.221.254.231:3245/events"
+            let message = AIMessage()
+            message.url = url
+            var body: [String: AnyObject] = ["event": eventId.rawValue]
+            body.addEntriesFromDictionary(body)
+            body.addEntriesFromDictionary(commonParams())
+            body.addEntriesFromDictionary(convertAtt(attributes))
+            message.body = NSMutableDictionary(dictionary: body)
+            AINetEngine.defaultEngine().postMessage(message, success: { (_) in }) { (_, _) in }
+        #endif
 	}
 	
 	/** 自定义事件,数量统计.
