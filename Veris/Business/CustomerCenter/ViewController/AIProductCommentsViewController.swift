@@ -345,6 +345,7 @@ class AIProductCommentCell: UITableViewCell {
 	func setup(model: AIProductComment) {
 		var newModel = AICommentInfoModel()
 		newModel.images = model.photos as? [[String: String]]
+        newModel.time = Double(model.time)
 		newModel.commentcount = model.replying_count
 		newModel.commentid = model.customer_id
 		newModel.descripation = model.comment
