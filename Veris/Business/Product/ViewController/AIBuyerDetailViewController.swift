@@ -1054,7 +1054,7 @@ extension AIBuyerDetailViewController: UITableViewDataSource, UITableViewDelegat
                 viewController.delegate = self
                 viewController.proposalId = dataSource.proposal_id
                 
-                
+
                 //remove 孕检挂号
                 var newModel = Array<AIProposalServiceModel>()
                 serviceList?.forEach({ (model) in
