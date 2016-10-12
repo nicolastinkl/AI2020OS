@@ -11,15 +11,15 @@ import UIKit
 class AIJobTableViewCell: UITableViewCell {
     //MARK: Constants
 
-    let cellMargin = 80.displaySizeFrom1242DesignSize()
-    let IconMargin: CGFloat = 20.displaySizeFrom1242DesignSize()
-    let StatusVerticalMargin: CGFloat = 50.displaySizeFrom1242DesignSize()
-    let StatusHorizontalMarin: CGFloat = 90.displaySizeFrom1242DesignSize()
-    let IconSize: CGFloat = 60.displaySizeFrom1242DesignSize()
-    let DescriptionFontSize = 60.displaySizeFrom1242DesignSize()
-    let cellWidth = UIScreen.mainScreen().bounds.size.width
-    let topViewHeight = 40.displaySizeFrom1242DesignSize() + 60.displaySizeFrom1242DesignSize()
-    let bottomViewHeight = 200.displaySizeFrom1242DesignSize()
+    private let cellMargin = 80.displaySizeFrom1242DesignSize()
+    private let IconMargin: CGFloat = 20.displaySizeFrom1242DesignSize()
+    private let StatusVerticalMargin: CGFloat = 50.displaySizeFrom1242DesignSize()
+    private let StatusHorizontalMarin: CGFloat = 90.displaySizeFrom1242DesignSize()
+    private let IconSize: CGFloat = 60.displaySizeFrom1242DesignSize()
+    private let DescriptionFontSize = 60.displaySizeFrom1242DesignSize()
+    private let cellWidth = UIScreen.mainScreen().bounds.size.width
+    private let topViewHeight = 40.displaySizeFrom1242DesignSize() + 60.displaySizeFrom1242DesignSize()
+    private let bottomViewHeight = 200.displaySizeFrom1242DesignSize()
 
     //MARK: Public Property
     var jobIconView: UIImageView!
@@ -28,9 +28,9 @@ class AIJobTableViewCell: UITableViewCell {
 
     var jobActionButton: UIButton!
 
-    var topView: UIView!
+    private var topView: UIView!
 
-    var bottomView: UIView!
+    private var bottomView: UIView!
 
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
