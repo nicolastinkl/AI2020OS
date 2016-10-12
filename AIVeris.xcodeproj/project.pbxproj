@@ -5810,6 +5810,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				COPY_PHASE_STRIP = YES;
+				DEBUG_ACTIVITY_MODE = "";
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = T2362RFKT6;
 				ENABLE_BITCODE = NO;
@@ -6041,6 +6042,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = T2362RFKT6;
@@ -6105,6 +6108,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				COPY_PHASE_STRIP = YES;
+				DEBUG_ACTIVITY_MODE = "";
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = T2362RFKT6;
 				ENABLE_BITCODE = NO;
