@@ -127,7 +127,7 @@ class AICommentInfoView: UIView {
         
         let dateFormat = NSDateFormatter()
         dateFormat.dateFormat = "MM-dd HH:mm:ss"
-        let destDateString = dateFormat.stringFromDate(NSDate(timeIntervalSinceNow: model.time ?? 0))
+        let destDateString = dateFormat.stringFromDate(NSDate(timeIntervalSince1970: model.time ?? 0))
          
         //评论图片
         commentDate.text = destDateString
