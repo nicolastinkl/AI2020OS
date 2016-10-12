@@ -17,7 +17,17 @@ class AIWorkQualificationView: UIView {
     @IBOutlet weak var carousel: iCarousel!
     @IBOutlet weak var imageTitleLabel: UILabel!
     
-    var items: [Int] = []
+    var qualificationsModel: [AIWorkQualificationBusiModel] = [AIWorkQualificationBusiModel]()
+    var cachedCellViewDic = [String: UIView]()
+    var viewModel: AIWorkOpportunityDetailViewModel? {
+        didSet {
+            if let _ = viewModel {
+                qualificationsModel = viewModel?.qualificationsBusiModel?.work_qualifications as! [AIWorkQualificationBusiModel]
+                loadData()
+            }
+        }
+    }
+    
     //MARK: -> Constants
     
     
@@ -29,11 +39,6 @@ class AIWorkQualificationView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        for i in 0...99 {
-            items.append(i)
-        }
-        
         setupViews()
     }
     
@@ -46,38 +51,38 @@ class AIWorkQualificationView: UIView {
         carousel.dataSource = self
         carousel.delegate = self
     }
+    
+    func loadData() {
+        cachedCellViewDic.removeAll()
+        carousel.reloadData()
+    }
 }
 
 
 extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
     
     func numberOfItemsInCarousel(carousel: iCarousel) -> Int {
-        return items.count
+        return qualificationsModel.count
     }
     
     func carousel(carousel: iCarousel, viewForItemAtIndex index: Int, reusingView view: UIView?) -> UIView {
-        var label: UILabel
         var itemView: UIImageView
-        
+        let qualicationModel = qualificationsModel[index]
+        let cellKey = "\(qualicationModel.type_id).\(qualicationModel.aspect_type)"
         //create new view if no view is available for recycling
-        if view == nil {
+        if cachedCellViewDic[cellKey] == nil {
             //don't do anything specific to the index within
             //this `if (view == nil) {...}` statement because the view will be
             //recycled and used with other index values later
             itemView = UIImageView(frame:CGRect(x:0, y:0, width:200, height:200))
-            itemView.image = UIImage(named: "wm-icon2")
-            itemView.contentMode = .Center
-            
-            label = UILabel(frame:itemView.bounds)
-            label.backgroundColor = UIColor.clearColor()
-            label.textAlignment = .Center
-            label.font = label.font.fontWithSize(50)
-            label.tag = 1
-            itemView.addSubview(label)
-        } else {
+            itemView.contentMode = .ScaleAspectFit
+            itemView.sd_setImageWithURL(NSURL(string: qualicationModel.aspect_photo)!, placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
+
+            cachedCellViewDic[cellKey] = itemView
+        }
+        else {
             //get a reference to the label in the recycled view
-            itemView = view as! UIImageView
-            label = itemView.viewWithTag(1) as! UILabel!
+            itemView = cachedCellViewDic[cellKey] as! UIImageView
         }
         
         //set item label
@@ -85,8 +90,7 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
         //views outside of the `if (view == nil) {...}` check otherwise
         //you'll get weird issues with carousel item content appearing
         //in the wrong place in the carousel
-        label.text = "\(items[index])"
-        
+        imageTitleLabel.text = "\(qualicationModel.type_name)"
         return itemView
     }
     
@@ -97,7 +101,10 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
     
     //占位视图的数量
     func numberOfPlaceholdersInCarousel(carousel: iCarousel) -> Int {
-        return 3
+        if qualificationsModel.count >= 3 {
+            return 3
+        }
+        return 0 
     }
     
     func carousel(carousel: iCarousel, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {

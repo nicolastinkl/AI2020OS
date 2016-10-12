@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AIAlertView
 
 class AIWorkInfoViewController: UIViewController {
     
@@ -21,6 +22,16 @@ class AIWorkInfoViewController: UIViewController {
     @IBOutlet weak var commitButton: UIButton!
     
     var curStep: Int = 1
+    
+    //MARK: -> variable passed from previous page
+    var in_workId: String? {
+        didSet {
+            if let _ = in_workId {
+                loadData()
+            }
+        }
+    }
+    var viewModel: AIWorkOpportunityDetailViewModel?
     //MARK: -> Constants
 
     
@@ -60,6 +71,33 @@ class AIWorkInfoViewController: UIViewController {
         commitButton.layer.masksToBounds = true
         commitButton.setTitle("Next", forState: UIControlState.Normal)
         makeNavigationItem()
+    }
+    
+    func loadData() {
+        let requestHandler = AIWorkManageRequestHandler.sharedInstance
+        weak var weakSelf = self
+        requestHandler.queryWorkOpportunity(in_workId!, success: { (busiModel1) in
+            requestHandler.queryWorkQualification(self.in_workId!, success: { (busiModel2) in
+                requestHandler.parseWorkBusiModelsToViewModel(workOpptunityBusiModel: busiModel1, workQualificationsBusiModel: busiModel2, success: { (viewModel) in
+                    weakSelf?.viewModel = viewModel
+                    weakSelf?.bindViewData()
+                    }, fail: { (errType, errDes) in
+                        AIAlertView().showError("数据转换失败", subTitle: errDes)
+                })
+                }, fail: { (errType, errDes) in
+                    AIAlertView().showError("数据请求失败", subTitle: errDes)
+            })
+            }) { (errType, errDes) in
+                AIAlertView().showError("数据请求失败", subTitle: errDes)
+        }
+    }
+    
+    func bindViewData() {
+        //给子view赋值
+        qualificationView.viewModel = viewModel
+        jobDesContainerView.workDetailModel = viewModel
+        let imageUrl = viewModel!.opportunityBusiModel!.work_thumbnail!
+        serviceIconView.sd_setImageWithURL(NSURL(string: imageUrl), placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
     }
 
     func switchTabsTo(step: Int) {

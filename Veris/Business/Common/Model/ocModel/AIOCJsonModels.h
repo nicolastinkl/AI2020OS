@@ -15,3 +15,6 @@
 #import "AIQiangDanResultModel.h"
 
 #import "ExcuteModel.h"
+
+//工作机会相关model
+#import "AIWorkManageBusiModel.h"
