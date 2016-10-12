@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIWorkOpportunityIndexViewController" customModule="Veris" customModuleProvider="target">
@@ -13,21 +14,20 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhX-l3-TGP" customClass="AIWorkManageHeaderView" customModule="Veris" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="242"/>
-                    <color key="backgroundColor" red="0.66345050059999999" green="0.65288446730000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yhX-l3-TGP" customClass="AIWorkManageHeaderView" customModule="Veris" customModuleProvider="target">
+                    <frame key="frameInset" width="600" height="242"/>
+                    <color key="backgroundColor" red="0.66345050059999999" green="0.65288446730000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="242" id="md3-L8-49h"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMa-Lw-ter" userLabel="navigationBar">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CMa-Lw-ter" userLabel="navigationBar">
+                    <frame key="frameInset" width="600" height="68"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAi-sk-Eom">
-                            <rect key="frame" x="0.0" y="22" width="46" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="GHy-7K-VAB"/>
                                 <constraint firstAttribute="width" constant="46" id="Ooh-WC-98A"/>
@@ -37,26 +37,24 @@
                                 <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="xvr-q7-ax6"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQY-aY-8CZ" userLabel="searchTextFieldContainer">
-                            <rect key="frame" x="46" y="13" width="502" height="42"/>
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bQY-aY-8CZ" userLabel="searchTextFieldContainer">
+                            <frame key="frameInset" minX="46" minY="13" width="502" height="42"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqo-dd-PSV">
-                                    <rect key="frame" x="466" y="9" width="26" height="24"/>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqo-dd-PSV">
+                                    <frame key="frameInset" minX="466" minY="9" width="26" height="24"/>
                                     <state key="normal" image="wm-camera"/>
                                     <connections>
                                         <action selector="cameraButtonPressed:" destination="-1" eventType="touchUpInside" id="XRv-RF-go2"/>
                                     </connections>
                                 </button>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FKo-Zy-48E">
-                                    <rect key="frame" x="31" y="9" width="435" height="24"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FKo-Zy-48E">
+                                    <frame key="frameInset" minX="31" minY="9" width="435" height="24"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wm-search" translatesAutoresizingMaskIntoConstraints="NO" id="lV7-22-D4C">
-                                    <rect key="frame" x="7" y="9" width="24" height="24"/>
-                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wm-search" translatesAutoresizingMaskIntoConstraints="NO" id="lV7-22-D4C"/>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="0.52000000000000002" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.52000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="FKo-Zy-48E" firstAttribute="centerY" secondItem="bQY-aY-8CZ" secondAttribute="centerY" id="8QV-k6-bql"/>
                                 <constraint firstItem="Jqo-dd-PSV" firstAttribute="leading" secondItem="FKo-Zy-48E" secondAttribute="trailing" id="Anl-Mk-omw"/>
@@ -74,8 +72,8 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf5-QP-6bc">
-                            <rect key="frame" x="561" y="23" width="26" height="22"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf5-QP-6bc">
+                            <frame key="frameInset" minX="561" minY="23" width="26" height="22"/>
                             <state key="normal" image="wm-search2"/>
                             <connections>
                                 <action selector="rightButtonPressed:" destination="-1" eventType="touchUpInside" id="adR-Yo-a2h"/>
@@ -94,7 +92,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="CMa-Lw-ter" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3eE-or-bbN"/>
                 <constraint firstItem="yhX-l3-TGP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SvL-Tp-eZO"/>

@@ -42,6 +42,9 @@
 		12D7649E1D0D469A002B001B /* AILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764991D0D469A002B001B /* AILoginViewController.swift */; };
 		12D7649F1D0D469A002B001B /* AILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7649A1D0D469A002B001B /* AILoginService.swift */; };
 		12D764A11D0D46AA002B001B /* AILoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D764A01D0D46AA002B001B /* AILoginStoryboard.storyboard */; };
+		12DC8D8E1DAA2CDF003117E4 /* AIWorkManageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DC8D8D1DAA2CDF003117E4 /* AIWorkManageViewModel.swift */; };
+		12DC8D911DAA2D1E003117E4 /* AIWorkManageBusiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DC8D901DAA2D1E003117E4 /* AIWorkManageBusiModel.m */; };
+		12DC8D931DAA4E42003117E4 /* AIWorkManageRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DC8D921DAA4E42003117E4 /* AIWorkManageRequestHandler.swift */; };
 		12DFC0C31D47581600025D4F /* AICommonBusinessModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC0C21D47581600025D4F /* AICommonBusinessModels.m */; };
 		12FBCB8B1D581B0300E333D6 /* AIWorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCB8A1D581B0300E333D6 /* AIWorkInfoViewController.swift */; };
 		12FBCB8D1D59CB1600E333D6 /* AIWorkQualificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCB8C1D59CB1600E333D6 /* AIWorkQualificationView.swift */; };
@@ -889,6 +892,10 @@
 		12D764991D0D469A002B001B /* AILoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewController.swift; sourceTree = "<group>"; };
 		12D7649A1D0D469A002B001B /* AILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginService.swift; sourceTree = "<group>"; };
 		12D764A01D0D46AA002B001B /* AILoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AILoginStoryboard.storyboard; sourceTree = "<group>"; };
+		12DC8D8D1DAA2CDF003117E4 /* AIWorkManageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkManageViewModel.swift; sourceTree = "<group>"; };
+		12DC8D8F1DAA2D03003117E4 /* AIWorkManageBusiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIWorkManageBusiModel.h; sourceTree = "<group>"; };
+		12DC8D901DAA2D1E003117E4 /* AIWorkManageBusiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWorkManageBusiModel.m; sourceTree = "<group>"; };
+		12DC8D921DAA4E42003117E4 /* AIWorkManageRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkManageRequestHandler.swift; sourceTree = "<group>"; };
 		12DFC0BF1D47031600025D4F /* AICustomerServiceExecBusiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AICustomerServiceExecBusiModel.h; sourceTree = "<group>"; };
 		12DFC0C11D4711EA00025D4F /* AICommonBusinessModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AICommonBusinessModels.h; sourceTree = "<group>"; };
 		12DFC0C21D47581600025D4F /* AICommonBusinessModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICommonBusinessModels.m; sourceTree = "<group>"; };
@@ -2123,6 +2130,23 @@
 				12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		12DC8D8B1DAA2C9A003117E4 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				12DC8D8D1DAA2CDF003117E4 /* AIWorkManageViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		12DC8D8C1DAA2C9A003117E4 /* businessModel */ = {
+			isa = PBXGroup;
+			children = (
+				12DC8D8F1DAA2D03003117E4 /* AIWorkManageBusiModel.h */,
+				12DC8D901DAA2D1E003117E4 /* AIWorkManageBusiModel.m */,
+			);
+			path = businessModel;
 			sourceTree = "<group>";
 		};
 		12DFC0BD1D4701AD00025D4F /* businessModel */ = {
@@ -4244,7 +4268,10 @@
 		935E58CD1D5315D900252B83 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				12DC8D8B1DAA2C9A003117E4 /* viewModel */,
+				12DC8D8C1DAA2C9A003117E4 /* businessModel */,
 				813861001D5B0A590050C0D0 /* AIJobSurveyModel.swift */,
+				12DC8D921DAA4E42003117E4 /* AIWorkManageRequestHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5149,6 +5176,7 @@
 				FB2373261D4F785100A8B38A /* AIRecommondForYouService.swift in Sources */,
 				81433D7A1CFBE5A700347C29 /* AIServiceTypes.m in Sources */,
 				9392B5831D1CD9F10007F241 /* MD5DataSigner.m in Sources */,
+				12DC8D931DAA4E42003117E4 /* AIWorkManageRequestHandler.swift in Sources */,
 				81433E941CFBE5A700347C29 /* FLEXKeyboardHelpViewController.m in Sources */,
 				81433E211CFBE5A700347C29 /* VerticalIconLabel.swift in Sources */,
 				8175A8001CFD2710006F2C8F /* UIImage+GIF.m in Sources */,
@@ -5157,6 +5185,7 @@
 				81433D0C1CFBE5A700347C29 /* ProposalService.swift in Sources */,
 				81433CF31CFBE5A700347C29 /* AIRequirmentModel.swift in Sources */,
 				81433D4C1CFBE5A700347C29 /* UICustomsTags.swift in Sources */,
+				12DC8D8E1DAA2CDF003117E4 /* AIWorkManageViewModel.swift in Sources */,
 				81433D751CFBE5A700347C29 /* AIPriceView.swift in Sources */,
 				9352BC7C1D64583A003CD476 /* AIAudioSearchButtonView.swift in Sources */,
 				81433D2C1CFBE5A700347C29 /* ServiceContainerView.swift in Sources */,
@@ -5395,6 +5424,7 @@
 				8175A7BF1CFD2710006F2C8F /* JSONSerializer.swift in Sources */,
 				81433D031CFBE5A700347C29 /* AIOrderMangerProtocol.swift in Sources */,
 				81B1956C1D474A960086EB83 /* AACustomerDialogViewController.swift in Sources */,
+				12DC8D911DAA2D1E003117E4 /* AIWorkManageBusiModel.m in Sources */,
 				81433E2B1CFBE5A700347C29 /* AIRequirementMenuViewController.swift in Sources */,
 				C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */,
 				8175A7D91CFD2710006F2C8F /* JSONModelArray.m in Sources */,

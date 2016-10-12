@@ -466,7 +466,10 @@ struct AIApplication {
         case submitRequestAuthorization
         // 启动服务流程实例
         case startServiceProcess
-
+        // 查询工作机会详情
+        case queryWorkOpportunity
+        // 查询工作机会资质
+        case getWorkQualification
         
         
         var description: String {
@@ -557,6 +560,9 @@ struct AIApplication {
             case .submitRequestAuthorization: return AIApplication.KURL_ReleaseURL + "/serviceProcess/submitRequestAuthorization"
             case .startServiceProcess: return AIApplication.KURL_ReleaseURL + "/serviceProcess/startServiceProcess"
             case .checkCustomerWish: return  AIApplication.KURL_ReleaseURL + "/wish/checkCustomerWish"
+            //工作机会相关接口
+            case .queryWorkOpportunity: return AIApplication.KURL_ReleaseURL + "/workopportunity/queryWorkOpportunity"
+            case .getWorkQualification: return AIApplication.KURL_ReleaseURL + "/workopportunity/getWorkQualification"
             }
         }
     }

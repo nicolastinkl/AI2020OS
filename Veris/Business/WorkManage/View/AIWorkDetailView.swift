@@ -16,6 +16,7 @@ class AIWorkDetailView: UIView {
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var showAllButton: UIButton!
     @IBOutlet weak var jobDetailTitleLabel: UILabel!
+    var contentLabel: UILabel!
     
     @IBAction func showAllAction(sender: UIButton) {
         
@@ -27,7 +28,13 @@ class AIWorkDetailView: UIView {
     let CONTENT_TOP_MARGIN = 56.displaySizeFrom1242DesignSize()
     let CONTENT_FONT = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
     
-    
+    var workDetailModel: AIWorkOpportunityDetailViewModel? {
+        didSet {
+            if let workDetailModel = workDetailModel {
+                contentLabel.text = workDetailModel.opportunityBusiModel?.work_desc
+            }
+        }
+    }
     
     //MARK: -> overrides
     required init?(coder aDecoder: NSCoder) {
@@ -68,7 +75,7 @@ class AIWorkDetailView: UIView {
             make.trailing.bottom.equalTo(containerView).offset(-QUOTE_LEFT_MARGIN)
         }
         //contentLabel
-        let contentLabel = UILabel()
+        contentLabel = UILabel()
         contentLabel.font = CONTENT_FONT
         contentLabel.text = "To help maintain the health of patients, instruments and Grooming: When a patient for personal reasons can not complete their own personal hygiene, organize themselves, to help their carers should be completed, such as the face, hair, oral hygiene, denture care, brush, dressing, to assist the use the potty or toilet, potty and so on. To help patients meet the nutritional needs such as feeding, water, meals and other assistance. Safeguard patient safety: to help the patient get out.To help maintain the health of patients, instruments and Grooming: When a patient for personal reasons can not complete their own personal hygiene, organize themselves, to help their carers should be completed, such as the face, hair, oral hygiene, denture care, brush, dressing, to assist the use the potty or toilet, potty and so on. To help patients meet the nutritional needs such as feeding, water, meals and other assistance. Safeguard patient safety: to help the patient get out.To help maintain the health of patients, instruments and Grooming: When a patient for personal reasons can not complete their own personal hygiene, organize themselves, to help their carers should be completed, such as the face, hair, oral hygiene, denture care, brush, dressing, to assist the use the potty or toilet, potty and so on. To help patients meet the nutritional needs such as feeding, water, meals and other assistance. Safeguard patient safety: to help the patient get out.To help maintain the health of patients, instruments and Grooming: When a patient for personal reasons can not complete their own personal hygiene, organize themselves, to help their carers should be completed, such as the face, hair, oral hygiene, denture care, brush, dressing, to assist the use the potty or toilet, potty and so on. To help patients meet the nutritional needs such as feeding, water, meals and other assistance. Safeguard patient safety: to help the patient get out."
         contentLabel.numberOfLines = 0
