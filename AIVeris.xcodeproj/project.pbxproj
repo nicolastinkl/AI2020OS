@@ -571,6 +571,10 @@
 		81FAFC131D47458000DD3477 /* AIContestSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAFC121D47458000DD3477 /* AIContestSuccessViewController.swift */; };
 		8412C7631D2A6429003F34AF /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412C7621D2A6429003F34AF /* PaddingLabel.swift */; };
 		842936921D17870D00795C57 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842936911D17870D00795C57 /* CheckboxButton.swift */; };
+		842CE6D51DAF28CA0038E5C0 /* CapitalFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842CE6D41DAF28CA0038E5C0 /* CapitalFlow.storyboard */; };
+		842CE6D71DAF293C0038E5C0 /* CapitalFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CE6D61DAF293C0038E5C0 /* CapitalFlowViewController.swift */; };
+		842CE6DB1DAF7C2E0038E5C0 /* CapitalFlowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CE6D91DAF7C2E0038E5C0 /* CapitalFlowCell.swift */; };
+		842CE6DC1DAF7C2E0038E5C0 /* CapitalFlowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842CE6DA1DAF7C2E0038E5C0 /* CapitalFlowCell.xib */; };
 		844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */; };
 		844AFA211CE1DA5900C58B1C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA201CE1DA5900C58B1C /* CoreMedia.framework */; };
 		844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844AFA221CE1DA6800C58B1C /* CoreVideo.framework */; };
@@ -1635,6 +1639,10 @@
 		81FAFC121D47458000DD3477 /* AIContestSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIContestSuccessViewController.swift; sourceTree = "<group>"; };
 		8412C7621D2A6429003F34AF /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		842936911D17870D00795C57 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
+		842CE6D41DAF28CA0038E5C0 /* CapitalFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CapitalFlow.storyboard; sourceTree = "<group>"; };
+		842CE6D61DAF293C0038E5C0 /* CapitalFlowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalFlowViewController.swift; sourceTree = "<group>"; };
+		842CE6D91DAF7C2E0038E5C0 /* CapitalFlowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalFlowCell.swift; sourceTree = "<group>"; };
+		842CE6DA1DAF7C2E0038E5C0 /* CapitalFlowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CapitalFlowCell.xib; sourceTree = "<group>"; };
 		844AFA1E1CE1DA4700C58B1C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		844AFA201CE1DA5900C58B1C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		844AFA221CE1DA6800C58B1C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -2249,6 +2257,7 @@
 		814339291CFBE5A600347C29 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				842CE6D11DAF28550038E5C0 /* MyWallet */,
 				935E58CB1D5315D900252B83 /* WorkManage */,
 				81512ECE1D2209E300AE041D /* FundManage */,
 				93E4C3F31D20C2C8007EB116 /* ChoosePhoto */,
@@ -3945,6 +3954,41 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		842CE6D11DAF28550038E5C0 /* MyWallet */ = {
+			isa = PBXGroup;
+			children = (
+				842CE6D21DAF28550038E5C0 /* CapitalFlow */,
+			);
+			path = MyWallet;
+			sourceTree = "<group>";
+		};
+		842CE6D21DAF28550038E5C0 /* CapitalFlow */ = {
+			isa = PBXGroup;
+			children = (
+				842CE6D81DAF7BEE0038E5C0 /* View */,
+				842CE6D31DAF28A00038E5C0 /* ViewController */,
+			);
+			path = CapitalFlow;
+			sourceTree = "<group>";
+		};
+		842CE6D31DAF28A00038E5C0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				842CE6D41DAF28CA0038E5C0 /* CapitalFlow.storyboard */,
+				842CE6D61DAF293C0038E5C0 /* CapitalFlowViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		842CE6D81DAF7BEE0038E5C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				842CE6D91DAF7C2E0038E5C0 /* CapitalFlowCell.swift */,
+				842CE6DA1DAF7C2E0038E5C0 /* CapitalFlowCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8457004B1D012D3500512597 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -4905,6 +4949,7 @@
 				81433EB91CFBE5A700347C29 /* MyriadPro-Bold.otf in Resources */,
 				81433D291CFBE5A700347C29 /* ServiceCardDetailIcon.xib in Resources */,
 				932762E81D1D2E60002F7FA0 /* AIPayListInfoCellView.xib in Resources */,
+				842CE6D51DAF28CA0038E5C0 /* CapitalFlow.storyboard in Resources */,
 				81433EBC1CFBE5A700347C29 /* MyriadPro-LightSemiCn.otf in Resources */,
 				81433E0A1CFBE5A700347C29 /* AIBueryDetailCell.xib in Resources */,
 				81433E011CFBE5A700347C29 /* AirTicketView.xib in Resources */,
@@ -4981,6 +5026,7 @@
 				81433E111CFBE5A700347C29 /* SeparatorLineLabel.xib in Resources */,
 				935987011D20FCB900BBED4E /* AIAssetsReviewsController.xib in Resources */,
 				81B1956D1D474A960086EB83 /* AACustomerDialogViewController.xib in Resources */,
+				842CE6DC1DAF7C2E0038E5C0 /* CapitalFlowCell.xib in Resources */,
 				81433D381CFBE5A700347C29 /* AIAudioMessageView.xib in Resources */,
 				81433EBB1CFBE5A700347C29 /* MyriadPro-Light.otf in Resources */,
 				81433EBD1CFBE5A700347C29 /* MyriadPro-LightSemiExt.otf in Resources */,
@@ -5412,6 +5458,7 @@
 				12D7649F1D0D469A002B001B /* AILoginService.swift in Sources */,
 				81433E1D1CFBE5A700347C29 /* SwitchExampleViewController.swift in Sources */,
 				81433E681CFBE5A700347C29 /* FLEXToolbarItem.m in Sources */,
+				842CE6D71DAF293C0038E5C0 /* CapitalFlowViewController.swift in Sources */,
 				8175A7FF1CFD2710006F2C8F /* UIButton+WebCache.m in Sources */,
 				93C81F8A1D2B5CF500D84D46 /* AIServerProviderView.swift in Sources */,
 				81433CE91CFBE5A700347C29 /* ProposalEnum.swift in Sources */,
@@ -5494,6 +5541,7 @@
 				8483169F1D33374200082D38 /* CommentService.swift in Sources */,
 				81433E591CFBE5A700347C29 /* FLEXArgumentInputStringView.m in Sources */,
 				81433EAD1CFBE5A700347C29 /* KGNAutoLayout.swift in Sources */,
+				842CE6DB1DAF7C2E0038E5C0 /* CapitalFlowCell.swift in Sources */,
 				81433E9C1CFBE5A700347C29 /* FLEXImagePreviewViewController.m in Sources */,
 				81433CFD1CFBE5A700347C29 /* AIViews.m in Sources */,
 				81433D7B1CFBE5A700347C29 /* AIStarRate.m in Sources */,
