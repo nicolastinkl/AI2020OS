@@ -41,7 +41,6 @@ class TaskDetailViewController: UIViewController {
         self.navigationController?.navigationBarHidden = false
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -402,12 +401,17 @@ class TaskDetailViewController: UIViewController {
 }
 
 extension TaskDetailViewController: TeskResultCommitDelegate {
+    /**
+     根据是否有下一个执行节点进行下一步操作
+     
+     - parameter hasNextNode: 是否有下一个执行节点
+     */
     func hasNextNode(hasNextNode: Bool) {
         if hasNextNode {
             clearUI()
             loadData()
         } else {
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            navigationController?.popToRootViewControllerAnimated(true)
         }
     }
 }
