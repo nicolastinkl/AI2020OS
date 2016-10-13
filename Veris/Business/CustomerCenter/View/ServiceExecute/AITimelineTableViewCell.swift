@@ -37,6 +37,7 @@ class AITimelineTableViewCell: UITableViewCell {
     static let defaultImageHeight: CGFloat = 118
     static let defaultMapHeight: CGFloat = 130
     static let voiceHeight: CGFloat = 22
+    static let defaultLabelHeight: CGFloat = 50
 
     // MARK: -> override methods
     override func awakeFromNib() {
@@ -51,6 +52,7 @@ class AITimelineTableViewCell: UITableViewCell {
         timeLabel.textColor = CustomerCenterConstants.Colors.TimeLabelColor
         timeLabel.font = CustomerCenterConstants.Fonts.TimeLabelNormal
         timeContentLabel.font = CustomerCenterConstants.Fonts.TimelineButton
+        timeContentLabel.sizeToFit()
         dotView.backgroundColor = CustomerCenterConstants.Colors.TimelineDotColor
         dotView.layer.cornerRadius = dotView.bounds.width / 2
         dotView.layer.masksToBounds = true
@@ -74,7 +76,7 @@ class AITimelineTableViewCell: UITableViewCell {
             if timeModel.shouldShowDate {
                 dateLabelTopConstraint.constant = 5
             } else {
-                dateLabelTopConstraint.constant = -20
+                dateLabelTopConstraint.constant = -15
             }
         }
         dateLabel.text = viewModel.timeModel?.date
@@ -112,6 +114,7 @@ class AITimelineTableViewCell: UITableViewCell {
             case .Image: totalHeight += defaultImageHeight
             case .LocationMap: totalHeight += defaultMapHeight
             case .Voice: totalHeight += voiceHeight
+            case .Text: totalHeight += defaultLabelHeight
             }
         }
         if viewModel.timeModel?.shouldShowDate == true {

@@ -17,6 +17,7 @@ class AIWorkQualificationView: UIView {
     @IBOutlet weak var carousel: iCarousel!
     @IBOutlet weak var imageTitleLabel: UILabel!
     @IBOutlet weak var scrollDotView: UIView!
+    @IBOutlet weak var uploadTimeLabel: UILabel!
     
     var qualificationsModel: [AIWorkQualificationBusiModel] = [AIWorkQualificationBusiModel]()
     var cachedCellViewDic = [String: UIView]()
@@ -31,6 +32,11 @@ class AIWorkQualificationView: UIView {
     }
     
     //MARK: -> Constants
+    let SAMPLE_TEXT_COLOR = UIColor.redColor()
+    let SAMPLE_TEXT_FONT = AITools.myriadSemiboldSemiCnWithSize(70.displaySizeFrom1242DesignSize())
+    let UPLOAD_TIME_LABEL_COLOR = UIColor(hexString: "#ffffff", alpha: 0.6)
+    let UPLOAD_TIME_LABEL_FONT = AITools.myriadLightSemiExtendedWithSize(32.displaySizeFrom1242DesignSize())
+    let IMAGE_TITLE_LABEL_FONT = AITools.myriadLightSemiExtendedWithSize(42.displaySizeFrom1242DesignSize())
     
     
     //MARK: -> overrides
@@ -53,6 +59,9 @@ class AIWorkQualificationView: UIView {
         carousel.dataSource = self
         carousel.delegate = self
         
+        uploadTimeLabel.font = UPLOAD_TIME_LABEL_FONT
+        uploadTimeLabel.textColor = UPLOAD_TIME_LABEL_COLOR
+        imageTitleLabel.font = IMAGE_TITLE_LABEL_FONT
     }
     
     private func buildScrollDotView() {
@@ -90,17 +99,31 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
     }
     
     func carousel(carousel: iCarousel, viewForItemAtIndex index: Int, reusingView view: UIView?) -> UIView {
+        var label: UILabel
         var itemView: UIImageView
         let qualicationModel = qualificationsModel[index]
         let cellKey = "\(qualicationModel.type_id).\(qualicationModel.aspect_type)"
         if cachedCellViewDic[cellKey] == nil {
-            itemView = UIImageView(frame:CGRect(x:0, y:0, width:200, height:200))
+            itemView = UIImageView(frame:CGRect(x:0, y:0, width:300, height:300))
             itemView.contentMode = .ScaleAspectFit
             itemView.sd_setImageWithURL(NSURL(string: qualicationModel.aspect_photo)!, placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
-
+            //样本图片标志
+            //var labelFrame = itemView.bounds
+            label = UILabel(frame:itemView.bounds)
+            label.backgroundColor = UIColor.clearColor()
+            label.textAlignment = .Center
+            label.font = SAMPLE_TEXT_FONT
+            label.textColor = SAMPLE_TEXT_COLOR
+            label.tag = 1
+            if qualicationModel.uploaded == "0" {
+                label.text = "样本"
+            } else {
+                label.text = ""
+            }
+            itemView.addSubview(label)
+            //加入缓存
             cachedCellViewDic[cellKey] = itemView
-        }
-        else {
+        } else {
             //get a reference to the label in the recycled view
             itemView = cachedCellViewDic[cellKey] as! UIImageView
         }
@@ -144,10 +167,13 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
             let qualicationModel = qualificationsModel[carousel.currentItemIndex]
             imageTitleLabel.text = "\(qualicationModel.type_name)"
             for (index, subView) in cachedDotViewArray.enumerate() {
+                
                 if index == carousel.currentItemIndex {
                     subView.image = UIImage(named: "dot_select")
+                    
                 } else {
                     subView.image = UIImage(named: "dot_unselect")
+                    
                 }
             }
         }
