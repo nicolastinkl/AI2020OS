@@ -33,28 +33,29 @@ internal class AIPageBueryViewController: UIViewController {
 
     // MARK: -> Internal class methods
 
-    private lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl()
+    func initPageControl() {
+        pageControl = UIPageControl()
         pageControl.numberOfPages = self.bubbleModelArray?.count ?? 0
         pageControl.currentPage = 0
         pageControl.currentPageIndicatorTintColor = UIColor(hex: "0c93d9")
         pageControl.transform = CGAffineTransformMakeScale(0.8, 0.8)
-        return pageControl
-    }()
+    }
+    private var pageControl: UIPageControl!
 
-    lazy var pageScrollView: UIScrollView = {
+    func initPageScrollView() {
         // Setup the paging scroll view
-        let pageScrollView = UIScrollView()
+        pageScrollView = UIScrollView()
         pageScrollView.backgroundColor = UIColor.clearColor()
         pageScrollView.pagingEnabled = true
         pageScrollView.showsHorizontalScrollIndicator = false
-        return pageScrollView
-    }()
+    }
+    var pageScrollView: UIScrollView!
 
 
     // MARK: -> Internal init methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         //初始化背景
         initBground()
@@ -104,6 +105,8 @@ internal class AIPageBueryViewController: UIViewController {
     }
 
     func initControls() {
+        initPageControl()
+        initPageScrollView()
 
         // init layout
         pageScrollView.delegate = self

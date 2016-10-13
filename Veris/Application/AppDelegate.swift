@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	var didFinishGetBuyerListData: Bool = false
 	var didFinishGetBuyerProposalData: Bool = false
 	
-    private lazy var router: CDDeepLinkRouter = CDDeepLinkRouter()
+    var router: CDDeepLinkRouter = CDDeepLinkRouter()
 
 	let WX_APPID: String = "wx483dafc09117a3d0"
     var _mapManager: BMKMapManager?

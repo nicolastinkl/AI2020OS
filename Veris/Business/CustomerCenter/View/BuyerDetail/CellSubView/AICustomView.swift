@@ -19,12 +19,11 @@ internal class AICustomView: UIView {
 	@IBOutlet weak var unselectView: DesignableView!
 	@IBOutlet weak var selectView: DesignableView!
 	
-	private lazy var allTagsArray = [AIProposalServiceDetailLabelModel]()
-	private lazy var selectedTagsArray = [AIProposalServiceDetailLabelModel]()
+	private var allTagsArray = [AIProposalServiceDetailLabelModel]()
+	private var selectedTagsArray = [AIProposalServiceDetailLabelModel]()
 	// MARK: currentView
 	class func currentView() -> AICustomView {
 		let selfView = NSBundle.mainBundle().loadNibNamed("AICustomView", owner: self, options: nil)!.first as! AICustomView
-		
 		return selfView
 	}
     

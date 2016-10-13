@@ -801,6 +801,7 @@
 		FB664CE91D619B2000E88A2F /* AISearchServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB664CE81D619B2000E88A2F /* AISearchServiceModel.m */; };
 		FB664CEE1D61ABF400E88A2F /* AIProviderDetailJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB664CED1D61ABF400E88A2F /* AIProviderDetailJSONModel.m */; };
 		FB67FA501D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB67FA4F1D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift */; };
+		FB6ED9571DAF20EB00A1C365 /* AIWorkOpportunityPopularChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6ED9561DAF20EB00A1C365 /* AIWorkOpportunityPopularChartView.swift */; };
 		FB7003FF1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7003FE1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift */; };
 		FB703ADE1D24B7BF00229A08 /* SwiftWebViewBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */; };
 		FB703ADF1D24B7BF00229A08 /* SwiftWebViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */; };
@@ -1969,6 +1970,7 @@
 		FB664CEC1D61ABF400E88A2F /* AIProviderDetailJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIProviderDetailJSONModel.h; sourceTree = "<group>"; };
 		FB664CED1D61ABF400E88A2F /* AIProviderDetailJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIProviderDetailJSONModel.m; sourceTree = "<group>"; };
 		FB67FA4F1D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkOpportunityIndexViewController.swift; sourceTree = "<group>"; };
+		FB6ED9561DAF20EB00A1C365 /* AIWorkOpportunityPopularChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkOpportunityPopularChartView.swift; sourceTree = "<group>"; };
 		FB7003FE1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-CustomizeNavigationBar.swift"; sourceTree = "<group>"; };
 		FB703ADC1D24B7BF00229A08 /* SwiftWebViewBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SwiftWebViewBridge.js; sourceTree = "<group>"; };
 		FB703ADD1D24B7BF00229A08 /* SwiftWebViewBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebViewBridge.swift; sourceTree = "<group>"; };
@@ -4280,6 +4282,7 @@
 				12FBCB8C1D59CB1600E333D6 /* AIWorkQualificationView.swift */,
 				12FBCB901D5ACBB100E333D6 /* AIWorkQualificationView.xib */,
 				813861021D5B0BFD0050C0D0 /* AIJobTableViewCell.swift */,
+				FB6ED9561DAF20EB00A1C365 /* AIWorkOpportunityPopularChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4786,7 +4789,6 @@
 				93D5A3451B709C1C00DDB158 /* Sources */,
 				93D5A3461B709C1C00DDB158 /* Frameworks */,
 				93D5A3471B709C1C00DDB158 /* Resources */,
-				FB9DEBB51D17CBDC00B3595D /* ShellScript */,
 				1ACF41E9EAB5B097EBFBEF2E /* Embed Pods Frameworks */,
 				DE9DEC5021D6061243B05730 /* Copy Pods Resources */,
 			);
@@ -5102,19 +5104,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		FB9DEBB51D17CBDC00B3595D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nif [ $(swiftlint version) == '0.11.1' ]; then\nswiftlint\nelse\necho \"请升级swiftlint , brew upgrade swiftlint\"\nfi\nelse\necho \"请安装swiftlint , brew install swiftlint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -5448,6 +5437,7 @@
 				12933BD91D191CD4008A1693 /* AICustomerServiceExecuteModel.swift in Sources */,
 				8175A7E11CFD2710006F2C8F /* MJRefreshConst.m in Sources */,
 				81433CF11CFBE5A700347C29 /* AIRequirementHandler.swift in Sources */,
+				FB6ED9571DAF20EB00A1C365 /* AIWorkOpportunityPopularChartView.swift in Sources */,
 				12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */,
 				9392B58B1D1CE37A0007F241 /* AIAliPayOrder.swift in Sources */,
 				81433E2A1CFBE5A700347C29 /* AIRequireContentViewController.swift in Sources */,

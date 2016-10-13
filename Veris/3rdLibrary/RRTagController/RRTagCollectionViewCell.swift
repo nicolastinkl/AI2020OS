@@ -18,22 +18,22 @@ class RRTagCollectionViewCell: UICollectionViewCell {
 		static let blue = UIColorFromHex(0x0f86e8)
 	}
 	
-	lazy var textContent: UILabel! = { [unowned self] in
-		let textContent = UILabel(frame: CGRect.zero)
+    func initTextContent() {
+		textContent = UILabel(frame: CGRect.zero)
 		textContent.layer.masksToBounds = true
 		
 		textContent.layer.borderColor = Constants.blue.CGColor
 		textContent.font = Constants.font
 		textContent.textAlignment = NSTextAlignment.Center
-		self.contentView.addSubview(textContent)
-		return textContent
-	}()
+		contentView.addSubview(textContent)
+    }
+	var textContent: UILabel!
 	
-	lazy var addIcon: UIImageView = { [unowned self] in
-		let result = UIImageView(image: UIImage(named: "addTag")!)
-		self.contentView.addSubview(result)
-		return result
-	}()
+    func initAddIcon() {
+		addIcon = UIImageView(image: UIImage(named: "addTag")!)
+		contentView.addSubview(addIcon)
+    }
+	var addIcon: UIImageView!
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -45,8 +45,8 @@ class RRTagCollectionViewCell: UICollectionViewCell {
 	}
 	
 	func setup() {
-		_ = textContent
-		_ = addIcon
+        initTextContent()
+        initAddIcon()
 		layer.borderWidth = 2 / 3
 		layer.borderColor = Constants.blue.CGColor
 	}
