@@ -16,9 +16,11 @@ class AIWorkQualificationView: UIView {
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var carousel: iCarousel!
     @IBOutlet weak var imageTitleLabel: UILabel!
+    @IBOutlet weak var scrollDotView: UIView!
     
     var qualificationsModel: [AIWorkQualificationBusiModel] = [AIWorkQualificationBusiModel]()
     var cachedCellViewDic = [String: UIView]()
+    var cachedDotViewArray = [UIImageView]()
     var viewModel: AIWorkOpportunityDetailViewModel? {
         didSet {
             if let _ = viewModel {
@@ -50,11 +52,33 @@ class AIWorkQualificationView: UIView {
         carousel.type = .Rotary
         carousel.dataSource = self
         carousel.delegate = self
+        
+    }
+    
+    private func buildScrollDotView() {
+        let maxDotCount = 5
+        let dotWidth = 16.displaySizeFrom1242DesignSize()
+        let marginWidth = (scrollDotView.width - (dotWidth * CGFloat(qualificationsModel.count))) / CGFloat(qualificationsModel.count - 1)
+        //清除所有subView
+        for subView in scrollDotView.subviews {
+            subView.removeFromSuperview()
+        }
+        cachedDotViewArray.removeAll()
+        for index in 0 ..< (qualificationsModel.count < maxDotCount ? qualificationsModel.count : maxDotCount) {
+            let dotImageView = UIImageView()
+            let x = CGFloat(index) * (dotWidth + marginWidth)
+            let frame = CGRect(x: x, y: 0, width: dotWidth, height: dotWidth)
+            dotImageView.frame = frame
+            dotImageView.image = UIImage(named: "dot_unselect")
+            scrollDotView.addSubview(dotImageView)
+            cachedDotViewArray.append(dotImageView)
+        }
     }
     
     func loadData() {
         cachedCellViewDic.removeAll()
         carousel.reloadData()
+        buildScrollDotView()
     }
 }
 
@@ -69,11 +93,7 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
         var itemView: UIImageView
         let qualicationModel = qualificationsModel[index]
         let cellKey = "\(qualicationModel.type_id).\(qualicationModel.aspect_type)"
-        //create new view if no view is available for recycling
         if cachedCellViewDic[cellKey] == nil {
-            //don't do anything specific to the index within
-            //this `if (view == nil) {...}` statement because the view will be
-            //recycled and used with other index values later
             itemView = UIImageView(frame:CGRect(x:0, y:0, width:200, height:200))
             itemView.contentMode = .ScaleAspectFit
             itemView.sd_setImageWithURL(NSURL(string: qualicationModel.aspect_photo)!, placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
@@ -84,13 +104,6 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
             //get a reference to the label in the recycled view
             itemView = cachedCellViewDic[cellKey] as! UIImageView
         }
-        
-        //set item label
-        //remember to always set any properties of your carousel item
-        //views outside of the `if (view == nil) {...}` check otherwise
-        //you'll get weird issues with carousel item content appearing
-        //in the wrong place in the carousel
-        imageTitleLabel.text = "\(qualicationModel.type_name)"
         return itemView
     }
     
@@ -124,6 +137,20 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
             return 0.5
         }
         return value
+    }
+    
+    func carouselCurrentItemIndexDidChange(carousel: iCarousel) {
+        if carousel.currentItemIndex != -1 && qualificationsModel.count > 0 {
+            let qualicationModel = qualificationsModel[carousel.currentItemIndex]
+            imageTitleLabel.text = "\(qualicationModel.type_name)"
+            for (index, subView) in cachedDotViewArray.enumerate() {
+                if index == carousel.currentItemIndex {
+                    subView.image = UIImage(named: "dot_select")
+                } else {
+                    subView.image = UIImage(named: "dot_unselect")
+                }
+            }
+        }
     }
 }
 

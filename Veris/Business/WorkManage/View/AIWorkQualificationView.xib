@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="carousel" destination="89t-xG-a4h" id="lsb-jM-6d1"/>
                 <outlet property="imageTitleLabel" destination="itp-uk-hzf" id="OxP-l6-U6k"/>
+                <outlet property="scrollDotView" destination="aG2-oi-sJ6" id="PXe-Xb-iNi"/>
                 <outlet property="switchButton" destination="kGk-xZ-ZUY" id="R32-Rz-nSW"/>
                 <outlet property="topTitleLabel" destination="Ga9-c9-6rk" id="bsb-5O-hze"/>
                 <outlet property="uploadButton" destination="Dbh-mi-oVy" id="lya-0Q-Pns"/>
@@ -81,17 +82,26 @@
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aG2-oi-sJ6" userLabel="scroll_dot_view">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="7" id="Rvv-s4-y99"/>
+                                <constraint firstAttribute="width" constant="53" id="q3h-bg-MI5"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="Dbh-mi-oVy" firstAttribute="top" secondItem="89t-xG-a4h" secondAttribute="bottom" constant="10" id="3lJ-iO-rIb"/>
                         <constraint firstAttribute="bottom" secondItem="Dbh-mi-oVy" secondAttribute="bottom" constant="5" id="Auv-kh-Jto"/>
                         <constraint firstAttribute="trailing" secondItem="89t-xG-a4h" secondAttribute="trailing" constant="5" id="H8G-Xg-9nW"/>
                         <constraint firstItem="itp-uk-hzf" firstAttribute="centerX" secondItem="Eu6-iJ-6yB" secondAttribute="centerX" id="M5T-Ze-Adf"/>
+                        <constraint firstItem="Dbh-mi-oVy" firstAttribute="top" secondItem="aG2-oi-sJ6" secondAttribute="bottom" constant="5" id="aQE-1S-szo"/>
                         <constraint firstItem="Dbh-mi-oVy" firstAttribute="centerX" secondItem="Eu6-iJ-6yB" secondAttribute="centerX" id="fCr-n8-6AJ"/>
                         <constraint firstItem="89t-xG-a4h" firstAttribute="leading" secondItem="Eu6-iJ-6yB" secondAttribute="leading" constant="5" id="hZw-sR-be2"/>
                         <constraint firstItem="89t-xG-a4h" firstAttribute="top" secondItem="itp-uk-hzf" secondAttribute="bottom" constant="10" id="kZM-R2-nV2"/>
-                        <constraint firstItem="itp-uk-hzf" firstAttribute="top" secondItem="Eu6-iJ-6yB" secondAttribute="top" constant="50" id="kn1-Pp-HlV"/>
+                        <constraint firstItem="itp-uk-hzf" firstAttribute="top" secondItem="Eu6-iJ-6yB" secondAttribute="top" constant="13" id="kn1-Pp-HlV"/>
+                        <constraint firstItem="aG2-oi-sJ6" firstAttribute="top" secondItem="89t-xG-a4h" secondAttribute="bottom" constant="5" id="zNp-Qw-NL9"/>
+                        <constraint firstItem="aG2-oi-sJ6" firstAttribute="centerX" secondItem="Eu6-iJ-6yB" secondAttribute="centerX" id="zt5-cy-T6Q"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7AT-b9-A2Q" userLabel="CertifiDescContainerView">
@@ -115,6 +125,7 @@
                     <exclude reference="7AT-b9-A2Q"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="26.5" y="52.5"/>
         </view>
     </objects>
     <resources>
