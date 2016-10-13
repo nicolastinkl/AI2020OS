@@ -559,7 +559,7 @@ struct AIApplication {
             case .submitRequestAuthorization: return AIApplication.KURL_ReleaseURL + "/serviceProcess/submitRequestAuthorization"
             case .startServiceProcess: return AIApplication.KURL_ReleaseURL + "/serviceProcess/startServiceProcess"
             case .checkCustomerWish: return  AIApplication.KURL_ReleaseURL + "/wish/checkCustomerWish"
-            case .submitQuestions: return AIApplication.KURL_ReleaseURL + "/service/submitQuestions"
+            case .submitQuestions: return AIApplication.KURL_ReleaseURL + "/service/submitQuestion"
             }
         }
     }

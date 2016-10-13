@@ -35,8 +35,8 @@ class AIProductQAService: NSObject {
         let body = ["data": ["service_id": service_id, "question": question], "desc": ["data_mode": "0", "digest": ""]]
         message.body = NSMutableDictionary(dictionary: body)
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-            if let result = response["result"] as? String {
-                if result == "success" {
+            if let result = response["question_id"] as? Int {
+                if result > 0 {
                     success(true)
                 } else {
                     success(false)

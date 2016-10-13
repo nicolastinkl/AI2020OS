@@ -23,7 +23,14 @@ class AIProductQAViewController: UIViewController {
 		setupNavigationItems()
 		setupData()
 		setupTableView()
+        setupNotify()
 	}
+    
+    func setupNotify() {
+        NSNotificationCenter.defaultCenter().addObserverForName("AIProductQAViewController_Refersh_TableView", object: nil, queue: NSOperationQueue.mainQueue()) { (notify) in
+            self.tableView.headerBeginRefreshing()
+        }
+    }
 	
 	func setupNavigationItems() {
 		let commentButton = UIButton()
@@ -46,8 +53,9 @@ class AIProductQAViewController: UIViewController {
 		service.allQuestions(service_id, success: { [weak self] response in
 			self?.items = response
 			self?.tableView.reloadData()
+            self?.tableView.headerEndRefreshing()
 		}) { (errType, errDes) in
-			
+			self.tableView.headerEndRefreshing()
 		}
 	}
 	
@@ -68,6 +76,12 @@ class AIProductQAViewController: UIViewController {
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.registerClass(AIProductQuestionCell.self, forCellReuseIdentifier: "q")
 		tableView.registerClass(AIProductAnswerCell.self, forCellReuseIdentifier: "a")
+        
+        // Add Pull To Referesh..
+        weak var weakSelf = self
+        self.tableView.addHeaderWithCallback { () -> Void in
+            weakSelf!.setupData()
+        }
 	}
 	
 	// MARK: - target action
@@ -211,8 +225,7 @@ class AIProductQACommitViewController: UIViewController {
         setupNavigationItems()
         
         setupTextView()
-        
-    }
+    }    
     
     func setupNavigationItems() {
         let commentButton = UIButton()
@@ -221,7 +234,6 @@ class AIProductQACommitViewController: UIViewController {
             return (47.displaySizeFrom1242DesignSize(), 50.displaySizeFrom1242DesignSize())
         }
         commentButton.addTarget(self, action: #selector(AIProductQACommitViewController.submit), forControlEvents: UIControlEvents.TouchUpInside)
-        
     }
     
     func setupTextView() {
@@ -238,6 +250,7 @@ class AIProductQACommitViewController: UIViewController {
             view.showLoading()
             AIProductQAService().submitQuestion(self.service_id, question: textView.text, success: { (complate) in
                     self.view.hideLoading()
+                    NSNotificationCenter.defaultCenter().postNotificationName("AIProductQAViewController_Refersh_TableView", object: nil)
                     self.navigationController?.popViewControllerAnimated(true)
                 }, fail: { (errType, errDes) in
                     self.view.hideLoading()
