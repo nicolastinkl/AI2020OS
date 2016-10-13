@@ -779,6 +779,7 @@
 		C9C298D01D6D905A00E34766 /* AIAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C298CF1D6D905A00E34766 /* AIAlertView.framework */; };
 		C9C298D41D7D7ED600E34766 /* AIProductinfoBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */; };
 		C9C298D61D7D7FC100E34766 /* AIProductinfoBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */; };
+		C9FE4B161DAF37C30054D499 /* AIProductExeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE4B151DAF37C30054D499 /* AIProductExeService.swift */; };
 		FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
@@ -1929,6 +1930,7 @@
 		C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductinfoBottomView.xib; sourceTree = "<group>"; };
 		C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductinfoBottomView.swift; sourceTree = "<group>"; };
 		C9D4A6621D6BEDA000FEDED7 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		C9FE4B151DAF37C30054D499 /* AIProductExeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductExeService.swift; sourceTree = "<group>"; };
 		FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		FB0181001D0D125400213DF8 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		FB0181011D0D125400213DF8 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -2684,6 +2686,7 @@
 				FB664CEC1D61ABF400E88A2F /* AIProviderDetailJSONModel.h */,
 				FB664CED1D61ABF400E88A2F /* AIProviderDetailJSONModel.m */,
 				FB2373271D4F78F300A8B38A /* AIProductQAService.swift */,
+				C9FE4B151DAF37C30054D499 /* AIProductExeService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5243,6 +5246,7 @@
 				81433E191CFBE5A700347C29 /* GIBadgeView.m in Sources */,
 				81433CE41CFBE5A700347C29 /* AIOrderPreModel.m in Sources */,
 				933763021CFD7040006B997D /* AIModelSerice.swift in Sources */,
+				C9FE4B161DAF37C30054D499 /* AIProductExeService.swift in Sources */,
 				81433E891CFBE5A700347C29 /* FLEXDefaultsExplorerViewController.m in Sources */,
 				81433E691CFBE5A700347C29 /* FLEXWindow.m in Sources */,
 				81433E8E1CFBE5A700347C29 /* FLEXObjectExplorerFactory.m in Sources */,

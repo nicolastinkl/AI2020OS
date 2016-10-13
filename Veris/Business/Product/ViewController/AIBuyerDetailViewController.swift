@@ -623,7 +623,15 @@ class AIBuyerDetailViewController: UIViewController {
 	// MARK: - 删除service
 	
 	func logoMoveToServiceRestoreToolBar(logo: UIImageView, completion: (() -> Void)?) {
-		let window = UIApplication.sharedApplication().keyWindow
+		// 添加删除网络请求             
+        AIProductExeService().removeOrAddServiceFromDIYService(0, deleteOrAdd: 0, success: { (response) in
+            
+            }) { (errType, errDes) in
+                
+        }
+        
+        
+        let window = UIApplication.sharedApplication().keyWindow
 		let fromFrameOnWindow = logo.convertRect(logo.bounds, toView: window)
 		
 		let index = min(deleted_service_list.count - 1, 5)
@@ -732,7 +740,15 @@ class AIBuyerDetailViewController: UIViewController {
 		}
 	}
 	
+    //回复服务
 	func restoreService(model: AIProposalServiceModel) {
+        
+        AIProductExeService().removeOrAddServiceFromDIYService(0, deleteOrAdd: 0, success: { (response) in
+            
+        }) { (errType, errDes) in
+            
+        }
+        
 		let indexInDeletedTableView = deleted_service_list.indexOfObject(model)
 		model.service_del_flag = ServiceDeletedStatus.NotDeleted.rawValue
 		deleted_service_list.removeObject(model)
