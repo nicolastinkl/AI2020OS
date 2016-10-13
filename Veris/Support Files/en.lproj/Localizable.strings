@@ -192,6 +192,7 @@
 "Cancel" = "Cancel";
 "Save" = "Save";
 "GetDataFailed" = "Failed to get data";
+"Filter" = "filter";
 
 /*
  * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard
@@ -409,3 +410,6 @@
 /// Price
 
 "PriceView.Total" = "Total ";
+
+/// CapitalFlow
+"CapitalFlowViewController.title" = "Capital flow";

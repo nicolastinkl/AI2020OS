@@ -209,6 +209,7 @@
 "Cancel" = "取消";
 "Save" = "保存";
 "GetDataFailed" = "获取数据失败";
+"Filter" = "筛选";
 
 /*
  * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard
@@ -418,3 +419,6 @@
 /// Price
 
 "PriceView.Total" = "总价 ";
+
+/// CapitalFlow
+"CapitalFlowViewController.title" = "资产流水";

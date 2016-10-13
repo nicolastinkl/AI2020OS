@@ -11,11 +11,10 @@ import UIKit
 class TaskDetailViewController: UIViewController {
 
     @IBOutlet weak var nodeTitleLabel: UILabel!
-    @IBOutlet weak var param1IconLabel: IconLabel!
-    @IBOutlet weak var param2IconLabel: IconLabel!
     @IBOutlet weak var QRCodeImage: ServiceQRCodeView!
     @IBOutlet weak var nodeDesc: UILabel!
     @IBOutlet weak var bottomButton: UIButton!
+    @IBOutlet weak var paramTable: UITableView!
     
     @IBOutlet weak var nodeImage: UIImageView!
     @IBOutlet weak var authorizationBg: UIImageView!
@@ -33,7 +32,7 @@ class TaskDetailViewController: UIViewController {
     private var procedure: Procedure?
     private var customer: AICustomerModel?
     private var authorityState: AuthorityState?
-    
+    private var paramNodes: [NodeParam]?
 
 
     override func viewWillAppear(animated: Bool) {
@@ -41,7 +40,6 @@ class TaskDetailViewController: UIViewController {
         self.navigationController?.navigationBar.opaque = false
         self.navigationController?.navigationBarHidden = false
     }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +52,12 @@ class TaskDetailViewController: UIViewController {
   
         buildNavigationTitleLabel()
         
+        paramTable.registerNib(UINib(nibName: "NodeParamTableViewCell", bundle: nil), forCellReuseIdentifier: "ParamCell")
+        paramTable.rowHeight = UITableViewAutomaticDimension
+        paramTable.estimatedRowHeight = 25
+        
+        paramTable.hidden = false
+
         loadData()
     }
     
@@ -70,16 +74,15 @@ class TaskDetailViewController: UIViewController {
     }
     
     private func clearUI() {
-        param1IconLabel.iconImage = nil
-        param1IconLabel.labelContent = nil
-        param2IconLabel.iconImage = nil
-        param2IconLabel.labelContent = nil
+        paramNodes = nil
         
         nodeImage.hidden = true
         nodeImage.image = nil
         
         nodeDesc.text = nil
         nodeTitleLabel.text = nil
+        
+        paramTable.reloadData()
         
     }
     
@@ -114,6 +117,7 @@ class TaskDetailViewController: UIViewController {
                 return (47.displaySizeFrom1242DesignSize(), 40.displaySizeFrom1242DesignSize())
             }
         }
+        
         appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor(hexString: "#0f0c2c"), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
         appearance.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 51.displaySizeFrom1242DesignSize(), font: AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize()), textColor: UIColor.whiteColor(), text: "TaskResultCommitViewController.title".localized)
         setNavigationBarAppearance(navigationBarAppearance: appearance)
@@ -161,62 +165,14 @@ class TaskDetailViewController: UIViewController {
             }
         }
         
-        if let params = p.param_list {
+        if p.param_list != nil {
             
-            if params.count != 0 {
-                for index in 0 ..< params.count {
-                    
-//                    if index > 1 {
-//                        break
-//                    }
-                    
-                    guard let node = params[index] as? NodeParam else {
-                        continue
-                    }
-                    
-                    var paramLabel: IconLabel?
-                    
-                    if index == 0 {
-                        paramLabel = param1IconLabel
-                    } else if index == 1 {
-                        paramLabel = param2IconLabel
-                    }
-                    //add by liux at 20160920 这段是写死的为了合并doctorName和DepartmentName参数
-                    else if node.name == "DoctorName" || node.name == "DepartmentName" {
-                        if params[0].name == "time" {
-                            paramLabel = param2IconLabel
-                        } else {
-                            paramLabel = param1IconLabel
-                        }
-                        let labelContent = paramLabel!.labelContent!
-                        paramLabel?.labelContent = "\(labelContent) - \(node.value)"
-                        continue
-                    }
-                    
-                    paramLabel?.hidden = false
-                    paramLabel?.labelContent = node.value
-       
-                    if let iconUrl = node.icon {
-                        if !iconUrl.isEmpty {
-                            let url = NSURL(string: iconUrl)
-                            
-                            paramLabel?.icon.sd_setImageWithURL(url, completed: { (image, error, type, url) in
-                                if let im = image {
-                                    let scaleRate = im.size.height / self.paraIconHeight
-                                    let newSize = CGSize(width: im.size.width / scaleRate, height: im.size.height / scaleRate)
-                                    let newImage = im.resizedImageToFitInSize(newSize, scaleIfSmaller: true)
-                                    paramLabel?.iconImage = newImage
-                                } else {
-                                    paramLabel?.iconImage = nil
-                                }
-                            })
-                        }
-                        
-                    }
-                    
-                }
+            if let paramNodes = p.param_list as? [NodeParam] {
+                self.paramNodes = paramNodes
+                paramTable.reloadData()
             }
         }
+        
         
         authorityState?.setupAuthorityUI()
     }
@@ -276,8 +232,7 @@ class TaskDetailViewController: UIViewController {
         waitingIcon.hidden = false
         waitingMask.hidden = false
         
-        param1IconLabel.hidden = true
-        param2IconLabel.hidden = true
+        paramTable.hidden = true
         nodeTitleLabel.hidden = true
         
         TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: false)
@@ -291,8 +246,7 @@ class TaskDetailViewController: UIViewController {
         waitingIcon.hidden = true
         waitingMask.hidden = true
         
-        param1IconLabel.hidden = false
-        param2IconLabel.hidden = false
+        paramTable.hidden = false
         nodeTitleLabel.hidden = false
         
         TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: true)
@@ -447,12 +401,37 @@ class TaskDetailViewController: UIViewController {
 }
 
 extension TaskDetailViewController: TeskResultCommitDelegate {
+    /**
+     根据是否有下一个执行节点进行下一步操作
+     
+     - parameter hasNextNode: 是否有下一个执行节点
+     */
     func hasNextNode(hasNextNode: Bool) {
         if hasNextNode {
             clearUI()
             loadData()
         } else {
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            navigationController?.popToRootViewControllerAnimated(true)
         }
+    }
+}
+
+extension TaskDetailViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ParamCell") as! NodeParamTableViewCell
+        
+        let node = paramNodes![indexPath.row]
+        cell.paramData = node
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let nodes = paramNodes {
+            return nodes.count
+        }
+        
+        return 0
     }
 }
