@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AIAlertView
 
 class AIWorkManageViewController: AIBaseViewController {
 
@@ -14,17 +15,32 @@ class AIWorkManageViewController: AIBaseViewController {
 
     var mainTableView: UITableView!
 
+    var queryMessage: AIMessage!
+
+    var subcribledJobs: [AISubscribledJobModel]!
 
     //MARK: Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         setupNavigationBar()
         makeTableView()
         makeMainShowButton()
+
+        self.title = "My Job"
     }
+
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        AINetEngine.defaultEngine().cancelMessage(queryMessage)
+    }
+
+    //MARK: Make Content View
+
+
+
 
 
     //MARK: Main Button
@@ -72,9 +88,52 @@ class AIWorkManageViewController: AIBaseViewController {
         mainTableView.separatorStyle = .None
         mainTableView.showsVerticalScrollIndicator = false
         self.view.addSubview(mainTableView)
+
+        makeRefreshAction()
     }
 
+    //MARK: 查询数据
 
+    func startQuery() {
+        queryMessage = AIMessage()
+        queryMessage.url = AIApplication.AIApplicationServerURL.querySubscribedWorkOpportunity.description
+        queryMessage.body = ["user_id" : AILocalStore.userId]
+
+        weak var wf = self
+        AINetEngine.defaultEngine().postMessage(queryMessage, success: { (response) in
+            if response is [AISubscribledJobModel] {
+                wf!.subcribledJobs = response as! [AISubscribledJobModel]
+                wf!.mainTableView.reloadData()
+            }
+
+            wf!.mainTableView.headerEndRefreshing()
+        }) { (errorType, errorDesc) in
+            AIAlertView().showError("出错啦！", subTitle: errorDesc)
+            wf!.mainTableView.headerEndRefreshing()
+        }
+        
+    }
+
+    func makeRefreshAction() {
+
+        if mainTableView == nil {
+            return
+        }
+
+        weak var wf = self
+        mainTableView.addHeaderWithCallback { 
+            wf!.startQuery()
+        }
+
+        mainTableView.addHeaderRefreshEndCallback { 
+            wf!.mainTableView.headerEndRefreshing()
+        }
+
+
+
+
+
+    }
 
 }
 
@@ -104,6 +163,23 @@ extension AIWorkManageViewController: UITableViewDataSource {
 
 }
 
+
+extension AIWorkManageViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        let bar = self.navigationController?.navigationBar
+        let barHeight = CGRectGetHeight((bar?.frame)!)
+        if offset > 0 && offset <= barHeight {
+            let alpha = (barHeight - offset) / barHeight
+            bar?.alpha = alpha > 0 ? alpha : 0
+        } else if offset < 0 && offset >= -barHeight {
+            if bar?.alpha <= 0 {
+                let alpha = (barHeight + offset) / barHeight
+                bar?.alpha = alpha
+            }
+        }
+    }
+}
 
 extension AIWorkManageViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
