@@ -143,8 +143,7 @@ internal class UICustomsTags: SpringView {
                     
                     
                     //send change button state observer.
-                    let dict = ["label_id": model.label_id, "newState": strongSelf.selfModel?.selected_flag]
-                    
+                    let dict = ["label_id": model.label_id, "newState": strongSelf.selfModel?.selected_flag ?? 0]
                     NSNotificationCenter.defaultCenter().postNotificationName("referCustomDataStuctNOTIFY", object: nil, userInfo: dict)
                     
                     
