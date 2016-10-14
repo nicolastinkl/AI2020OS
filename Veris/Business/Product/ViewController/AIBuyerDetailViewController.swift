@@ -64,7 +64,7 @@ class AIBuyerDetailViewController: UIViewController {
 	// MARK: Assistant
 	var isLaunchForAssistant: Bool = false
 	var roomNumber: String?
-	
+    
 	// MARK: swift controls
 	
 	@IBOutlet weak var bgLabel: DesignableLabel!
@@ -623,18 +623,24 @@ class AIBuyerDetailViewController: UIViewController {
 	// MARK: - 删除service
 	
 	func logoMoveToServiceRestoreToolBar(logo: UIImageView, completion: (() -> Void)?) {
-		// 添加删除网络请求             
-        AIProductExeService().removeOrAddServiceFromDIYService(0, deleteOrAdd: 0, success: { (response) in
+		
+        // 添加删除网络请求
+        
+        let index = min(deleted_service_list.count - 1, 5)
+        let sigleModel  = dataSource.service_list[index] as! AIProposalServiceModel
+        
+        AIProductExeService().removeOrAddServiceFromDIYService(sigleModel.proposalItemId, deleteOrAdd: 1, success: { (response) in
             
-            }) { (errType, errDes) in
-                
+        }) { (errType, errDes) in
+            
         }
         
         
         let window = UIApplication.sharedApplication().keyWindow
 		let fromFrameOnWindow = logo.convertRect(logo.bounds, toView: window)
 		
-		let index = min(deleted_service_list.count - 1, 5)
+		
+        
 		let toolbarFrameOnWindow = serviceRestoreToolbar.convertRect(serviceRestoreToolbar.bounds, toView: window)
 		// FIXME: Variable 'toFrameX' was written to, but never read
 		var toFrameX: CGFloat = 0
@@ -740,7 +746,7 @@ class AIBuyerDetailViewController: UIViewController {
 		}
 	}
 	
-    //回复服务
+    //恢复服务
 	func restoreService(model: AIProposalServiceModel) {
         
         AIProductExeService().removeOrAddServiceFromDIYService(0, deleteOrAdd: 0, success: { (response) in

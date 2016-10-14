@@ -415,6 +415,8 @@ struct AIApplication {
         case queryProvider
         // 2.6.4 所有问题（常见问题）
         case allQuestions
+        // 2.6.4 删除定制服务
+        case setProposalItemDisableFlag
         // 2.6.4 提交问题
         case submitQuestions
         // 2.2.1 最近搜索
@@ -560,6 +562,7 @@ struct AIApplication {
             case .startServiceProcess: return AIApplication.KURL_ReleaseURL + "/serviceProcess/startServiceProcess"
             case .checkCustomerWish: return  AIApplication.KURL_ReleaseURL + "/wish/checkCustomerWish"
             case .submitQuestions: return AIApplication.KURL_ReleaseURL + "/service/submitQuestion"
+            case .setProposalItemDisableFlag: return  AIApplication.KURL_ReleaseURL + "/proposal/setProposalItemDisableFlag"
             }
         }
     }
