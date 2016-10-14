@@ -21,18 +21,17 @@ class AICustomerOrderFoldedView: UIView {
 	@IBOutlet weak var noticeBadgeLabel: DesignableLabel!
 	@IBOutlet weak var proposalName: UILabel!
 	
-	lazy var taskSchedulTimeLabel: UILabel = { [unowned self] in
-		let result = UILabel()
-		result.textColor = UIColor.whiteColor()
-		self.addSubview(result)
-		return result
-	}()
-	lazy var taskStatusLabel: UILabel = { [unowned self] in
-		let result = UILabel()
-		result.textColor = UIColor.whiteColor()
-		self.addSubview(result)
-		return result
-	}()
+    func initLabels() {
+		taskSchedulTimeLabel = UILabel()
+		taskSchedulTimeLabel.textColor = UIColor.whiteColor()
+		self.addSubview(taskSchedulTimeLabel)
+		taskStatusLabel = UILabel()
+		taskStatusLabel.textColor = UIColor.whiteColor()
+		self.addSubview(taskStatusLabel)
+    }
+    
+	var taskSchedulTimeLabel: UILabel!
+	var taskStatusLabel: UILabel!
 	
 	var delegate: AIFoldedCellViewDelegate?
 	var proposalModel: ProposalOrderModel!
@@ -68,6 +67,7 @@ class AICustomerOrderFoldedView: UIView {
 	}
 	
 	func setupViews() {
+        initLabels()
 		let buttonBgImage = UIColor(hexString: "#ffffff", alpha: 0.15).imageWithColor()
 		statusButton.setBackgroundImage(buttonBgImage, forState: UIControlState.Normal)
 		statusButton.layer.cornerRadius = 10

@@ -25,8 +25,9 @@ class AITaskNavigationBar: UIView {
 	}
 
 	weak var delegate: AITaskNavigationBarDelegate?
-	lazy var cancelButton: UIButton = { [unowned self] in
-		let cancelButton = UIButton()
+    
+    func initCancelButton() {
+		cancelButton = UIButton()
 		cancelButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
 		cancelButton.setTitle("Cancel".localized, forState: .Normal)
 		cancelButton.addTarget(self, action: #selector(AITaskNavigationBar.cancelButtonPressed(_:)), forControlEvents: .TouchUpInside)
@@ -37,11 +38,11 @@ class AITaskNavigationBar: UIView {
 			make.leading.equalTo(self).offset(Constants.margin)
 			make.centerY.equalTo(self)
 		}
-		return cancelButton
-	}()
+    }
+	var cancelButton: UIButton!
 
-	lazy var saveButton: UIButton = { [unowned self] in
-		let saveButton = UIButton()
+    func initSaveButton() {
+		saveButton = UIButton()
 		saveButton.setTitle("Save".localized, forState: .Normal)
 		saveButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
 		saveButton.addTarget(self, action: #selector(AITaskNavigationBar.saveButtonPressed(_:)), forControlEvents: .TouchUpInside)
@@ -56,19 +57,19 @@ class AITaskNavigationBar: UIView {
 			make.width.equalTo(Constants.saveButtonWidth)
 			make.height.equalTo(Constants.saveButtonHeight)
 		}
-		return saveButton
-	}()
+    }
+	var saveButton: UIButton!
 
-	lazy var titleLabel: UILabel = { [unowned self] in
-		let result = UILabel()
-		result.textColor = UIColor.whiteColor()
-		result.font = AITools.myriadSemiCondensedWithSize(72 / 3)
-		self.addSubview(result)
-		result.snp_makeConstraints(closure: { (make) in
+    func initTitleLabel() {
+		titleLabel = UILabel()
+		titleLabel.textColor = UIColor.whiteColor()
+		titleLabel.font = AITools.myriadSemiCondensedWithSize(72 / 3)
+		self.addSubview(titleLabel)
+		titleLabel.snp_makeConstraints(closure: { (make) in
 			make.center.equalTo(self)
 		})
-		return result
-	}()
+    }
+	var titleLabel: UILabel!
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -80,8 +81,9 @@ class AITaskNavigationBar: UIView {
 	}
 
 	func setup() {
-		_ = saveButton
-		_ = cancelButton
+        initSaveButton()
+        initCancelButton()
+        initTitleLabel()
 	}
 
 	func cancelButtonPressed(sender: UIButton) {

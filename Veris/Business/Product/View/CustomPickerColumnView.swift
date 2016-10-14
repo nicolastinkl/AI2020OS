@@ -15,6 +15,7 @@ class CustomPickerColumnView: UIView {
 
 	func setup() {
 		clipsToBounds = true
+        initViews()
 		if row != 1 {
 			let height = CGRectGetHeight(bounds) / 3
 			scrollView.contentOffset = CGPoint(x: 0, y: CGFloat(row - 1) * height)
@@ -34,26 +35,29 @@ class CustomPickerColumnView: UIView {
 
 	weak var delegate: CustomPickerColumnViewDelegate?
 
-	lazy var scrollView: UIScrollView = { [unowned self] in
-		let result = UIScrollView()
-		result.showsVerticalScrollIndicator = false
-		result.alwaysBounceVertical = true
-		result.clipsToBounds = false
-		result.pagingEnabled = true
-		result.frame = self.bounds
-		result.delegate = self
-		self.addSubview(result)
-		return result
-	}()
+    func initViews() {
+        // setup scrollview
+		let scrollView = UIScrollView()
+		scrollView.showsVerticalScrollIndicator = false
+		scrollView.alwaysBounceVertical = true
+		scrollView.clipsToBounds = false
+		scrollView.pagingEnabled = true
+		scrollView.frame = self.bounds
+		scrollView.delegate = self
+		self.addSubview(scrollView)
+        
+        
+        // setup line
+		let verticalLineView = UIImageView(image: UIImage(named: "datePickerLine"))
+		self.scrollView.addSubview(verticalLineView)
+        
+        setupSubviews()
+    }
+	var scrollView: UIScrollView!
 
-	lazy var verticalLineView: UIImageView = { [unowned self] in
-		let result = UIImageView(image: UIImage(named: "datePickerLine"))
-		self.scrollView.addSubview(result)
-		return result
-	}()
+	var verticalLineView: UIImageView!
 
-	lazy var views: [UIView] = {
-		[unowned self] in
+    func setupSubviews() {
 		var result = [UIView]()
 		for i in 0 ... 2 {
 
@@ -107,8 +111,9 @@ class CustomPickerColumnView: UIView {
 			result.append(view)
 		}
 
-		return result
-	}()
+        views = result
+	} 
+	var views: [UIView]!
 
 	override func layoutSubviews() {
 		super.layoutSubviews()

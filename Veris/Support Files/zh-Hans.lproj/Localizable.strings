@@ -209,6 +209,7 @@
 "Cancel" = "取消";
 "Save" = "保存";
 "GetDataFailed" = "获取数据失败";
+"Filter" = "筛选";
 
 /*
  * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard
@@ -420,6 +421,7 @@
 "PriceView.Total" = "总价 ";
 
 
+
 // AIWorkManageViewController
 
 "AIWorkManageViewController.Title" = "我的工作";
@@ -437,3 +439,7 @@
 "AIWorkManageViewController.OnlineCountFormat" = "此期间已有 %@ 个人开始赚钱";
 
 "AIWorkManageViewController.NeedUpload" = "还需上传证件才能接单";
+
+/// CapitalFlow
+"CapitalFlowViewController.title" = "资产流水";
+

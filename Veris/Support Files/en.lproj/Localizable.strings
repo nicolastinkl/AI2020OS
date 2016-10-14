@@ -192,6 +192,7 @@
 "Cancel" = "Cancel";
 "Save" = "Save";
 "GetDataFailed" = "Failed to get data";
+"Filter" = "filter";
 
 /*
  * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard
@@ -410,6 +411,7 @@
 
 "PriceView.Total" = "Total ";
 
+
 // AIWorkManageViewController
 
 "AIWorkManageViewController.Title" = "My Job";
@@ -427,3 +429,7 @@
 "AIWorkManageViewController.OnlineCountFormat" = "%@ persons got to work";
 
 "AIWorkManageViewController.NeedUpload" = "Information upload needed";
+
+/// CapitalFlow
+"CapitalFlowViewController.title" = "Capital flow";
+

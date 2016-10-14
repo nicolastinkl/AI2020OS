@@ -28,6 +28,7 @@ class AITimelineContentContainerView: UIView {
     let subViewMargin: CGFloat = 11
     let defaultImageHeight: CGFloat = 118
     let defaultMapHeight: CGFloat = 130
+    let defaultLabelHeight: CGFloat = 50
     
     //MARK: -> overrides
     override init(frame: CGRect) {
@@ -96,7 +97,9 @@ class AITimelineContentContainerView: UIView {
                 case AITimelineContentTypeEnum.Voice:
                     let voiceView = buildVoiceContentView(timeContentModel.contentUrl!, time: 2)
                     containerSubViews.append(voiceView)
-                    
+                case .Text:
+                    let textView = buildTextContentView(timeContentModel.contentUrl!)
+                    containerSubViews.append(textView)
                 }
                 if index == 0 {
                     containerSubViews[0].snp_makeConstraints(closure: { (make) in
@@ -293,6 +296,20 @@ class AITimelineContentContainerView: UIView {
         return mapView
     }
     
+    func buildTextContentView(text: String) -> UILabel {
+        let label = UILabel()
+        imageContainerView.addSubview(label)
+        imageContainerViewHeight += defaultLabelHeight
+        label.textColor = UIColor.whiteColor()
+        label.font = CustomerCenterConstants.Fonts.TimeLabelNormal
+        label.text = text
+        label.snp_makeConstraints { (make) in
+            make.leading.trailing.equalTo(self.imageContainerView)
+            make.height.equalTo(defaultLabelHeight)
+        }
+        return label
+    }
+    
     //根据操作类型决定按钮文字
     private func getOperationButtonText(viewModel: AITimelineViewModel) -> String {
         var buttonText = ""
@@ -370,6 +387,8 @@ class AITimelineContentContainerView: UIView {
                         totalHeight += defaultImageHeight
                     case .Voice:
                         totalHeight += voiceHeight
+                    case .Text:
+                        totalHeight += defaultLabelHeight
                     }
                 }
             }

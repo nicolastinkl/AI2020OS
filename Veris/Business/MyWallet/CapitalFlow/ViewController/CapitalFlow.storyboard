@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2333a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Capital Flow View Controller-->
+        <scene sceneID="kbi-h3-UR7">
+            <objects>
+                <viewController storyboardIdentifier="CapitalFlowViewController" id="ujG-BF-pv6" customClass="CapitalFlowViewController" customModule="Veris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6wI-RW-f7U"/>
+                        <viewControllerLayoutGuide type="bottom" id="q5G-Yx-9yK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qnk-H4-DNO">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdh-gV-vWa" userLabel="Filter">
+                                <state key="normal" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="ailButtonNormalTitle" value="Filter"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="filteAction:" destination="ujG-BF-pv6" eventType="touchUpInside" id="MDA-R4-ahr"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u5F-kf-fjg">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ujG-BF-pv6" id="OhG-da-ykn"/>
+                                    <outlet property="delegate" destination="ujG-BF-pv6" id="0AQ-5d-dUL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="u5F-kf-fjg" firstAttribute="leading" secondItem="Qnk-H4-DNO" secondAttribute="leadingMargin" constant="-16" id="UOu-ZU-JY2"/>
+                            <constraint firstItem="q5G-Yx-9yK" firstAttribute="top" secondItem="u5F-kf-fjg" secondAttribute="bottom" id="Vj1-Bi-Fbo"/>
+                            <constraint firstItem="u5F-kf-fjg" firstAttribute="top" secondItem="Zdh-gV-vWa" secondAttribute="bottom" constant="8" id="VpX-eH-dNq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zdh-gV-vWa" secondAttribute="trailing" constant="-4" id="mkB-fU-5aQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u5F-kf-fjg" secondAttribute="trailing" constant="-16" id="nn4-O3-Chs"/>
+                            <constraint firstItem="Zdh-gV-vWa" firstAttribute="top" secondItem="6wI-RW-f7U" secondAttribute="bottom" constant="8" id="uz2-Aq-I8g"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="u5F-kf-fjg" id="Wj9-kA-0sH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ege-YW-usX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-210.40000000000001" y="141.67916041979012"/>
+        </scene>
+    </scenes>
+</document>

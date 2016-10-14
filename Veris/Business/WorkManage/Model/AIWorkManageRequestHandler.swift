@@ -12,7 +12,8 @@ class AIWorkManageRequestHandler: NSObject {
     
     struct AINetErrorDescription {
         static let FormatError = "BusinessModel data error."
-        static let businessError = "Backend data error."
+        static let BusinessError = "Backend data error."
+        static let BusinessFail = "Backend business fail."
     }
     
     //单例变量
@@ -97,11 +98,44 @@ class AIWorkManageRequestHandler: NSObject {
         guard let _ = workOpptunityBusiModel.work_name,
             _ = workQualificationsBusiModel.work_qualifications
             else {
-                fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+                fail(errType: AINetError.Failed, errDes: AINetErrorDescription.BusinessFail)
                 return
         }
         viewModel.opportunityBusiModel = workOpptunityBusiModel
         viewModel.qualificationsBusiModel = workQualificationsBusiModel
         success(viewModel: viewModel)
+    }
+    
+    /**
+     查询工作机会详情
+     
+     - parameter workId:  工作机会id
+     - parameter success:
+     - parameter fail:
+     */
+    func subscribeWorkOpportunity(workId: NSString, success: (resultCode: String) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        
+        let message = AIMessage()
+        let body = ["data": ["work_id": workId], "desc": ["data_mode": "0", "digest": ""]]
+        message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
+        message.url = AIApplication.AIApplicationServerURL.subscribeWorkOpportunity.description as String
+        
+        //weak var weakSelf = self
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            do{
+                let dic = response as! [NSObject: AnyObject]
+                if let resultCode = dic["result_code"] as? String where resultCode == "1" {
+                    success(resultCode: resultCode)
+                } else {
+                    fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+                }
+                
+            } catch {
+                fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
+            }
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes)
+        }
     }
 }
