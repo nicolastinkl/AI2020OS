@@ -104,6 +104,9 @@ class AIWorkManageViewController: AIBaseViewController {
         AINetEngine.defaultEngine().postMessage(queryMessage, success: { (response) in
             if response is [AnyObject] {
                 wf!.subcribledJobs = response as! [AnyObject]
+                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
+                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
+                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
                 wf!.mainTableView.reloadData()
             }
 
@@ -202,17 +205,14 @@ extension AIWorkManageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
         let bar = self.navigationController?.navigationBar
-        let barHeight = CGRectGetHeight((bar?.frame)!)
-        if offset > 0 && offset <= barHeight {
-            let alpha = (barHeight - offset) / barHeight
-            bar?.alpha = alpha > 0 ? alpha : 0
-        } else if offset < 0 && offset >= -barHeight {
-            if bar?.alpha <= 0 {
-                let alpha = (barHeight + offset) / barHeight
-                bar?.alpha = alpha
-            }
+
+        if offset > 0 {
+            bar?.alpha = 0
+        } else if offset <= 0 {
+            bar?.alpha = 1
         }
     }
+
 }
 
 extension AIWorkManageViewController: UITableViewDelegate {
