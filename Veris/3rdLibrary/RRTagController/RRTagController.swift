@@ -37,8 +37,8 @@ class RRTagController: UIViewController, UICollectionViewDelegate, UICollectionV
 			self._totalTagsSelected = (self._totalTagsSelected < 0) ? 0 : self._totalTagsSelected
 		}
 	}
-
-	lazy var collectionTag: UICollectionView = {
+    
+    func initCollectionTag() {
 		let layoutCollectionView = RRFlowLayout()
 		layoutCollectionView.sectionInset = UIEdgeInsets(top: 0, left: 54 / 3, bottom: 0, right: 54 / 3)
 		layoutCollectionView.itemSize = CGSize(width: 90, height: 20)
@@ -46,23 +46,25 @@ class RRTagController: UIViewController, UICollectionViewDelegate, UICollectionV
 		layoutCollectionView.minimumInteritemSpacing = 26 / 3
 		var frame = self.view.frame
 		frame.size.height -= 44
-		let collectionTag = UICollectionView(frame: frame, collectionViewLayout: layoutCollectionView)
+		collectionTag = UICollectionView(frame: frame, collectionViewLayout: layoutCollectionView)
 		collectionTag.contentInset = UIEdgeInsets(top: 115 / 3, left: 0, bottom: 20, right: 0)
 		collectionTag.delegate = self
 		collectionTag.dataSource = self
 		collectionTag.backgroundColor = UIColor.clearColor()
 		collectionTag.registerClass(RRTagCollectionViewCell.self, forCellWithReuseIdentifier: RRTagCollectionViewCellIdentifier)
-		return collectionTag
-	}()
+    }
 
-	lazy var addNewTagCell: RRTagCollectionViewCell = {
-		let addNewTagCell = RRTagCollectionViewCell()
+	var collectionTag: UICollectionView!
+    
+    func initAddNewTagCell() {
+		addNewTagCell = RRTagCollectionViewCell()
 		addNewTagCell.contentView.addSubview(addNewTagCell.textContent)
 		addNewTagCell.textContent.text = "+"
 		addNewTagCell.frame.size = RRTagCollectionViewCellAddTagSize
 		addNewTagCell.backgroundColor = UIColor.grayColor()
-		return addNewTagCell
-	}()
+    }
+
+	var addNewTagCell: RRTagCollectionViewCell!
 
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return tags.count + 1
@@ -116,6 +118,8 @@ class RRTagController: UIViewController, UICollectionViewDelegate, UICollectionV
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        initCollectionTag()
+        initAddNewTagCell()
 		totalTagsSelected = 0
 		self.view.addSubview(collectionTag)
 	}

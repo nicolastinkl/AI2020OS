@@ -20,3 +20,9 @@
 @implementation AIWorkOpportunityBusiModel
 
 @end
+
+
+@implementation AISubscribledJobModel
+
+
+@end

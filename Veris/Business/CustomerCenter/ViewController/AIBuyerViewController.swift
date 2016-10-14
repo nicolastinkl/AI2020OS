@@ -45,21 +45,16 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     private var panGestureMaxBeginYOffset: CGFloat = 0.33 * CGRectGetHeight(UIScreen.mainScreen().bounds)
     private var offsetableWindowYOffset: CGFloat = CGRectGetHeight(UIScreen.mainScreen().bounds) - 174
     
-    private lazy var bubbleViewContainer: UIView = {
-        // Create Bubble View of Top.
+    func initBubbleContainer() {
+        if bubbleViewContainer != nil {
+            return
+        }
         let height = CGRectGetHeight(self.view.bounds) - AITools.displaySizeFrom1080DesignSize(116)
-        return UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, height))
-    }()
+        bubbleViewContainer = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, height))
+    }
+    var bubbleViewContainer: UIView!
 
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: self.view.bounds, style: .Plain)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .None
-        tableView.showsVerticalScrollIndicator = true
-        tableView.backgroundColor = UIColor.clearColor()
-        return  tableView
-    }()
+    private var tableView: UITableView!
 
     var topBar: UIView!
 
@@ -197,8 +192,14 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: - 构造列表区域
     func makeTableView () {
+        tableView = UITableView(frame: self.view.bounds, style: .Plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .None
+        tableView.showsVerticalScrollIndicator = true
+        tableView.backgroundColor = UIColor.clearColor()
         view.addSubview(tableView)
-
+        initBubbleContainer()
         tableView.tableHeaderView = bubbleViewContainer
 
     }
@@ -320,6 +321,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
             view.insertSubview(tableView, belowSubview: self.topBar)
 
+            initBubbleContainer()
             tableView.tableHeaderView = self.bubbleViewContainer
             tableView.headerBeginRefreshing()
         }
@@ -374,6 +376,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         // add bubbles
         bubbles = AIBubblesView(frame: frame, models: NSMutableArray(array: self.dataSourcePop))
         bubbles.tag = bubblesTag
+        initBubbleContainer()
         bubbleViewContainer.addSubview(bubbles)
 
         weak var wf = self

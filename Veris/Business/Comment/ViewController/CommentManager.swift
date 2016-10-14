@@ -333,8 +333,6 @@ class DefaultCommentManager: CommentManager {
                     imageInfo.isSuccessUploaded = false
                 }
             
-                print("\(modelTuple.model)")
-            
                 s.saveCommentModelToLocal(serviceId, model: modelTuple.model)
         }
         

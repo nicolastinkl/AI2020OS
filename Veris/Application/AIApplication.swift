@@ -472,6 +472,8 @@ struct AIApplication {
         case getWorkQualification
         // 订阅工作机会
         case subscribeWorkOpportunity
+        // 查询已订阅的工作机会
+        case querySubscribedWorkOpportunity
         
         
         var description: String {
@@ -566,6 +568,7 @@ struct AIApplication {
             case .queryWorkOpportunity: return AIApplication.KURL_ReleaseURL + "/workopportunity/queryWorkOpportunity"
             case .getWorkQualification: return AIApplication.KURL_ReleaseURL + "/workopportunity/getWorkQualification"
             case .subscribeWorkOpportunity: return AIApplication.KURL_ReleaseURL + "/workopportunity/subscribeWorkOpportunity"
+            case .querySubscribedWorkOpportunity: return AIApplication.KURL_ReleaseURL + "/workopportunity/querySubscribedWorkOpportunity"
             }
         }
     }

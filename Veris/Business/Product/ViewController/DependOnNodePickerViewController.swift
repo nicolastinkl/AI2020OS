@@ -102,7 +102,7 @@ class DependOnNodePickerViewController: UIViewController {
 		}
 
 		for i in 0 ... 7 {
-			let imageView = CycleImageView()
+            let imageView = CycleImageView(frame: .zero)
 			imageView.tag = i
 			imageView.userInteractionEnabled = true
 			imageView.cycleColor = UIColorFromHex(0x0f86e8)
@@ -309,16 +309,25 @@ extension DependOnNodePickerViewController: UITableViewDelegate {
 }
 
 class CycleImageView: UIImageView {
-	lazy var imageView: UIImageView = { [unowned self] in
-		let result = UIImageView()
-		self.addSubview(result)
-		result.snp_makeConstraints(closure: { (make) in
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initImageView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func initImageView() {
+		imageView = UIImageView()
+		self.addSubview(imageView)
+		imageView.snp_makeConstraints(closure: { (make) in
 			make.center.equalTo(self)
 			make.top.equalTo(4)
 			make.leading.equalTo(4)
 		})
-		return result
-	}()
+    }
+    var imageView: UIImageView!
 
 	var selected: Bool = false {
 		didSet {

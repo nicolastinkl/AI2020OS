@@ -56,18 +56,21 @@ class AIAssetsReviewsController: UIViewController, UIScrollViewDelegate {
             
     // MARK: -> Internal class methods
     
-    private lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl()
+    var pageControl: UIPageControl!
+    func setupPageControl() {
+        pageControl = UIPageControl()
         pageControl.numberOfPages = 0
         pageControl.currentPage = 0
         pageControl.hidden = true
         pageControl.currentPageIndicatorTintColor = UIColor(hex: "0c93d9")
         pageControl.transform = CGAffineTransformMakeScale(0.8, 0.8)
-        return pageControl
-    }()
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupPageControl()
         
         // Init..
         view.addSubview(pageControl)

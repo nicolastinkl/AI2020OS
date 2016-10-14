@@ -1,0 +1,10 @@
+# 备份检查脚本
+if which swiftlint >/dev/null; then
+if [ $(swiftlint version) == '0.11.1' ]; then
+swiftlint
+else
+echo "请升级swiftlint , brew upgrade swiftlint"
+fi
+else
+echo "请安装swiftlint , brew install swiftlint"
+fi

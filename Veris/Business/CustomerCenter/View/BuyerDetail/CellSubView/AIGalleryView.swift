@@ -44,42 +44,35 @@ internal class AIGalleryView: UIView, UIScrollViewDelegate {
         }
     }
 
-    /**
-     private lazy var imageView:AIImageView = {
-     let imView = AIImageView()
-     imView.image = smallPlace()
-     imView.contentMode = .ScaleAspectFill
-     imView.clipsToBounds = true
-     return imView
-     }()
-     */
 
 
-    private lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl()
+    func initPageControl() {
+        pageControl = UIPageControl()
         pageControl.numberOfPages = self.imageModelArray?.count ?? 0
         pageControl.currentPage = 0
         pageControl.transform = CGAffineTransformMakeScale(0.8, 0.8)
         pageControl.tag = 12
-        return pageControl
-    }()
+    }
+    private var pageControl: UIPageControl!
 
-    private lazy var pageScrollView: UIScrollView = {
+    
+    func initPageScrollView() {
         // Setup the paging scroll view
-        let pageScrollView = UIScrollView()
+        pageScrollView = UIScrollView()
         pageScrollView.backgroundColor = UIColor.clearColor()
         pageScrollView.pagingEnabled = true
         pageScrollView.showsHorizontalScrollIndicator = false
         pageScrollView.userInteractionEnabled = true
         pageScrollView.showsVerticalScrollIndicator = false
         pageScrollView.tag = 12
-        return pageScrollView
-    }()
+    }
+    private var pageScrollView: UIScrollView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.userInteractionEnabled = true
-
+        initPageControl()
+        initPageControl()
         self.addSubview(pageScrollView)
         pageScrollView.frame = frame
 
