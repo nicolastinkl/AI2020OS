@@ -32,15 +32,14 @@ class AIWorkManageViewController: AIBaseViewController {
     }
 
 
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        AINetEngine.defaultEngine().cancelMessage(queryMessage)
-    }
 
     //MARK: Make Content View
 
 
-
+    override func clickBackAction () {
+        super.clickBackAction()
+        AINetEngine.defaultEngine().cancelMessage(queryMessage)
+    }
 
 
     //MARK: Main Button
@@ -150,7 +149,7 @@ extension AIWorkManageViewController: UITableViewDataSource {
         let reuseIdentifier: String = "JobReuseCell"
         let cell = AIJobTableViewCell(style: .Default, reuseIdentifier: reuseIdentifier)
         cell.backgroundColor = UIColor.clearColor()
-
+        cell.actionDelegate = self
         let jobData: [String : AnyObject] = subcribledJobs[indexPath.section] as! [String : AnyObject]
 
         do {
@@ -164,6 +163,38 @@ extension AIWorkManageViewController: UITableViewDataSource {
         return cell
     }
 
+}
+
+
+extension AIWorkManageViewController: AIJobTableViewCellDelegate {
+    func didTriggerJobActionToUploadInformation() {
+
+    }
+
+    func didTriggerJobActionToUploadStateParams(params: [String : AnyObject]) {
+
+        self.showLoading()
+
+        var body: [String : AnyObject] = ["user_id" : AILocalStore.userId]
+        body.addEntriesFromDictionary(params)
+
+
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.updateWorkStatus.description
+        message.body = BDKTools.createRequestBody(body)
+
+        weak var wf = self
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) in
+            let result: NSNumber = response["result"] as! NSNumber
+            if result.boolValue == true {
+                wf!.mainTableView.headerBeginRefreshing()
+            }
+            wf!.dismissLoading()
+        }) { (errorType, errorDesc) in
+            wf!.dismissLoading()
+            AIAlertView().showError(errorDesc, subTitle: "")
+        }
+    }
 }
 
 

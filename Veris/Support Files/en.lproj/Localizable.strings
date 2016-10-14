@@ -430,6 +430,14 @@
 
 "AIWorkManageViewController.NeedUpload" = "Information upload needed";
 
+// button title
+
+"AIWorkManageViewController.GoOnlineTitle" = "Go Online";
+
+"AIWorkManageViewController.GoOfflineTitle" = "Go Offline";
+
+"AIWorkManageViewController.UploadInformationTitle" = "Upload Information";
+
 /// CapitalFlow
 "CapitalFlowViewController.title" = "Capital flow";
 
