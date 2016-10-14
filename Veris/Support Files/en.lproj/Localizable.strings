@@ -409,3 +409,21 @@
 /// Price
 
 "PriceView.Total" = "Total ";
+
+// AIWorkManageViewController
+
+"AIWorkManageViewController.Title" = "My Job";
+
+"AIWorkManageViewController.SeeMore" = "See More Opportunity";
+
+"AIWorkManageViewController.SubscribledTimeFormat" = "Subscribled on %@";
+
+"AIWorkManageViewController.ServedFormat" = "%@ customer served";
+
+"AIWorkManageViewController.OnlineTimeFormat" = "Worked for %@";
+
+"AIWorkManageViewController.OfflineTimeFormat" = "Rested for %@";
+
+"AIWorkManageViewController.OnlineCountFormat" = "%@ persons got to work";
+
+"AIWorkManageViewController.NeedUpload" = "Information upload needed";

@@ -418,3 +418,22 @@
 /// Price
 
 "PriceView.Total" = "总价 ";
+
+
+// AIWorkManageViewController
+
+"AIWorkManageViewController.Title" = "我的工作";
+
+"AIWorkManageViewController.SeeMore" = "查看更多工作机会";
+
+"AIWorkManageViewController.SubscribledTimeFormat" = "%@ 订阅";
+
+"AIWorkManageViewController.ServedFormat" = "已成交 %@";
+
+"AIWorkManageViewController.OnlineTimeFormat" = "您已经工作 %@";
+
+"AIWorkManageViewController.OfflineTimeFormat" = "您已经休息 %@";
+
+"AIWorkManageViewController.OnlineCountFormat" = "此期间已有 %@ 个人开始赚钱";
+
+"AIWorkManageViewController.NeedUpload" = "还需上传证件才能接单";

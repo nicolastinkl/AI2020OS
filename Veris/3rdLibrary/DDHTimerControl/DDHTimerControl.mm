@@ -7,7 +7,7 @@
 //
 
 #import "DDHTimerControl.h"
-
+#import "AITools.h"
 const CGFloat kDDHInsetX = 10.0f;
 const CGFloat kDDHInsetY = kDDHInsetX;
 //const CGFloat kDDHLabelWidth = 40;
@@ -169,7 +169,8 @@ const CGFloat kDDHInsetY = kDDHInsetX;
     NSMutableParagraphStyle* labelStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
     labelStyle.alignment = NSTextAlignmentCenter;
     //TODO modified the font ...
-    NSDictionary *labelFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"MyriadPro-SemiCn" size:self.fontSize], NSForegroundColorAttributeName:self.color, NSParagraphStyleAttributeName: labelStyle};
+
+    NSDictionary *labelFontAttributes = @{NSFontAttributeName: [AITools myriadSemiCondensedWithSize:self.fontSize], NSForegroundColorAttributeName:self.color, NSParagraphStyleAttributeName: labelStyle};
     
     self.minutesOrSecondsLabel.attributedText = [[NSAttributedString alloc] initWithString:expression attributes:labelFontAttributes];
 }
