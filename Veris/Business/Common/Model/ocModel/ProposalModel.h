@@ -285,6 +285,8 @@ typedef NS_ENUM(NSInteger, ParamSettingFlag) {
 
 
 @interface AIProposalServiceModel : JSONModel
+
+@property (assign, nonatomic) NSInteger proposalItemId; //proposalItemId
 @property (assign, nonatomic) NSInteger service_id;
 @property (strong, nonatomic) NSString<Optional> * state;
 @property (assign, nonatomic) NSInteger set_flag;
