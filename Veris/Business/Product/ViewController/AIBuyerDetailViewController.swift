@@ -802,6 +802,17 @@ class AIBuyerDetailViewController: UIViewController {
 		
 	}
 	
+    func reloadAllLogos() {
+        // setup
+//        deleted_service_list = something
+        
+        serviceRestoreToolbar.serviceModels = deleted_service_list
+        serviceRestoreToolbar.reloadAllLogos()
+        tableView.reloadData()
+        deletedTableView.reloadData()
+    }
+    
+    
 	func initData() {
 		self.tableView.hideErrorView()
 		if let m = bubbleModel {
