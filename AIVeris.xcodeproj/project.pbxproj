@@ -549,8 +549,6 @@
 		81B6005C1D25169E0052ADC8 /* AIDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B6005B1D25169E0052ADC8 /* AIDefines.swift */; };
 		81BB86771CFE894200899B58 /* AICustomSearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86761CFE894200899B58 /* AICustomSearchHomeViewController.swift */; };
 		81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB86791CFEB7F300899B58 /* AISearchHistoryLabels.swift */; };
-		81BC13531DACE38800BFCAD1 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90D02621D8E8686008046D9 /* CardDeepLinkKit.framework */; };
-		81BC13541DACE38800BFCAD1 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C90D02621D8E8686008046D9 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C092911BAFE6A1003FFF35 /* CoreGraphics.framework */; };
 		81D325E71D7816680069F9B7 /* AICustomerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D325E61D7816680069F9B7 /* AICustomerModel.m */; };
 		81D325EA1D7819490069F9B7 /* AIAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D325E91D7819490069F9B7 /* AIAddressModel.m */; };
@@ -776,6 +774,7 @@
 		93E8469B1D2A0FB400CD4BD0 /* AIUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */; };
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
+		C93F057B1DB481B000F09DF5 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93F057A1DB481B000F09DF5 /* CardDeepLinkKit.framework */; };
 		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
 		C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */; };
 		C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */; };
@@ -856,7 +855,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				819A0EE71D80400600A84BBB /* AVOSCloudCrashReporting.framework in CopyFiles */,
-				81BC13541DACE38800BFCAD1 /* CardDeepLinkKit.framework in CopyFiles */,
 				819A0EE51D80400600A84BBB /* AVOSCloud.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1937,7 +1935,7 @@
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
 		93FD2FDE1D13E7A400B88355 /* searchJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchJson.json; sourceTree = "<group>"; };
 		A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C90D02621D8E8686008046D9 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
+		C93F057A1DB481B000F09DF5 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = Debug/CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		C95179D61D40C73600446498 /* AICommentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoModel.swift; sourceTree = "<group>"; };
 		C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductProviderViewControler.swift; sourceTree = "<group>"; };
 		C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductProviderViewControler.xib; sourceTree = "<group>"; };
@@ -2047,6 +2045,7 @@
 				1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
+				C93F057B1DB481B000F09DF5 /* CardDeepLinkKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
 				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
 				844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */,
@@ -2073,7 +2072,6 @@
 				9392B57D1D1CD9F10007F241 /* AlipaySDK.framework in Frameworks */,
 				93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */,
 				819A0EE41D80400600A84BBB /* AVOSCloud.framework in Frameworks */,
-				81BC13531DACE38800BFCAD1 /* CardDeepLinkKit.framework in Frameworks */,
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
@@ -3797,7 +3795,7 @@
 		81B195781D4852BE0086EB83 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				C90D02621D8E8686008046D9 /* CardDeepLinkKit.framework */,
+				C93F057A1DB481B000F09DF5 /* CardDeepLinkKit.framework */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -5937,7 +5935,6 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "81835a6f-1126-48cd-94a0-7aa437900fd3";
 				PROVISIONING_PROFILE = "6defedf0-7db7-4835-a59a-c8176b10d1b9";
 				PROVISIONING_PROFILE_SPECIFIER = aicd2020sbossDisProvisioningProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
@@ -6174,7 +6171,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
 				PROVISIONING_PROFILE = "6defedf0-7db7-4835-a59a-c8176b10d1b9";
-
 				PROVISIONING_PROFILE_SPECIFIER = aicd2020sbossDisProvisioningProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";

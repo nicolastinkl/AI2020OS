@@ -46,6 +46,7 @@ class AIProductInfoViewController: UIViewController {
 	
 	private let topImage = AIImageView()
     var sid: Int = 0
+    var proposal_id: Int = 0 //服务定制
     private var dataModel: AIProdcutinfoModel?
 	
     private var currentAudioView: AIAudioInputView?
@@ -606,7 +607,7 @@ class AIProductInfoViewController: UIViewController {
 			tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
 			
 			tag.setTitle("自由定制", forState: UIControlState.Normal)
-            tag.addTarget(self, action: #selector(AIProductInfoViewController.showDetailView(_:)), forControlEvents: UIControlEvents.TouchDown)
+            tag.addTarget(self, action: #selector(AIProductInfoViewController.showDiyCustomView(_:)), forControlEvents: UIControlEvents.TouchDown)
 			tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Highlighted)
 			tag.layer.masksToBounds = true
 			let lineView = UIView()
@@ -1000,6 +1001,15 @@ class AIProductInfoViewController: UIViewController {
     }
     
     // MARK: - DIY ACTION
+    func showDiyCustomView(sender: AnyObject) {
+        let model = AIBuyerBubbleModel()
+        model.proposal_id = proposal_id//dataModel?.proposal_inst_id ?? 0//dataModel?.proposal_inst_id ?? 0
+        model.proposal_name = dataModel?.name ?? ""
+        let viewsss = createBuyerDetailViewController(model)
+        viewsss.customNoteModel = dataModel?.customer_note
+        showTransitionStyleCrossDissolveView(viewsss)
+    }
+    
     func showDetailView(sender: AnyObject) {
         let model = AIBuyerBubbleModel()
         model.proposal_id = dataModel?.proposal_inst_id ?? 0
