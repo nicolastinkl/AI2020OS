@@ -440,6 +440,14 @@
 
 "AIWorkManageViewController.NeedUpload" = "还需上传证件才能接单";
 
+// button title
+
+"AIWorkManageViewController.GoOnlineTitle" = "开始接单";
+
+"AIWorkManageViewController.GoOfflineTitle" = "停止接单";
+
+"AIWorkManageViewController.UploadInformationTitle" = "补齐资料";
+
 /// CapitalFlow
 "CapitalFlowViewController.title" = "资产流水";
 

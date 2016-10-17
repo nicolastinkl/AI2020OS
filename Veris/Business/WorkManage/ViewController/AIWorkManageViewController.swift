@@ -32,15 +32,14 @@ class AIWorkManageViewController: AIBaseViewController {
     }
 
 
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        AINetEngine.defaultEngine().cancelMessage(queryMessage)
-    }
 
     //MARK: Make Content View
 
 
-
+    override func clickBackAction () {
+        super.clickBackAction()
+        AINetEngine.defaultEngine().cancelMessage(queryMessage)
+    }
 
 
     //MARK: Main Button
@@ -105,6 +104,9 @@ class AIWorkManageViewController: AIBaseViewController {
         AINetEngine.defaultEngine().postMessage(queryMessage, success: { (response) in
             if response is [AnyObject] {
                 wf!.subcribledJobs = response as! [AnyObject]
+                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
+                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
+                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
                 wf!.mainTableView.reloadData()
             }
 
@@ -150,7 +152,7 @@ extension AIWorkManageViewController: UITableViewDataSource {
         let reuseIdentifier: String = "JobReuseCell"
         let cell = AIJobTableViewCell(style: .Default, reuseIdentifier: reuseIdentifier)
         cell.backgroundColor = UIColor.clearColor()
-
+        cell.actionDelegate = self
         let jobData: [String : AnyObject] = subcribledJobs[indexPath.section] as! [String : AnyObject]
 
         do {
@@ -167,21 +169,50 @@ extension AIWorkManageViewController: UITableViewDataSource {
 }
 
 
+extension AIWorkManageViewController: AIJobTableViewCellDelegate {
+    func didTriggerJobActionToUploadInformation() {
+
+    }
+
+    func didTriggerJobActionToUploadStateParams(params: [String : AnyObject]) {
+
+        self.showLoading()
+
+        var body: [String : AnyObject] = ["user_id" : AILocalStore.userId]
+        body.addEntriesFromDictionary(params)
+
+
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.updateWorkStatus.description
+        message.body = BDKTools.createRequestBody(body)
+
+        weak var wf = self
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) in
+            let result: NSNumber = response["result"] as! NSNumber
+            if result.boolValue == true {
+                wf!.mainTableView.headerBeginRefreshing()
+            }
+            wf!.dismissLoading()
+        }) { (errorType, errorDesc) in
+            wf!.dismissLoading()
+            AIAlertView().showError(errorDesc, subTitle: "")
+        }
+    }
+}
+
+
 extension AIWorkManageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
         let bar = self.navigationController?.navigationBar
-        let barHeight = CGRectGetHeight((bar?.frame)!)
-        if offset > 0 && offset <= barHeight {
-            let alpha = (barHeight - offset) / barHeight
-            bar?.alpha = alpha > 0 ? alpha : 0
-        } else if offset < 0 && offset >= -barHeight {
-            if bar?.alpha <= 0 {
-                let alpha = (barHeight + offset) / barHeight
-                bar?.alpha = alpha
-            }
+
+        if offset > 0 {
+            bar?.alpha = 0
+        } else if offset <= 0 {
+            bar?.alpha = 1
         }
     }
+
 }
 
 extension AIWorkManageViewController: UITableViewDelegate {

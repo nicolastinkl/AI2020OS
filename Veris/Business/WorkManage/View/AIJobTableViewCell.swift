@@ -8,7 +8,18 @@
 
 import UIKit
 
+
+protocol AIJobTableViewCellDelegate: class {
+    func didTriggerJobActionToUploadStateParams(params: [String : AnyObject])
+    func didTriggerJobActionToUploadInformation()
+}
+
 class AIJobTableViewCell: UITableViewCell {
+
+    //MARK: Public
+
+    weak var actionDelegate: AIJobTableViewCellDelegate?
+    var curDataModel: AISubscribledJobModel!
     //MARK: Constants
 
     private let cellMargin = 80.displaySizeFrom1242DesignSize()
@@ -19,6 +30,7 @@ class AIJobTableViewCell: UITableViewCell {
     private let DescriptionFontSize = 60.displaySizeFrom1242DesignSize()
     private let cellWidth = UIScreen.mainScreen().bounds.size.width
     private let topViewHeight = 98.displaySizeFrom1242DesignSize()
+    private let contentWidth = UIScreen.mainScreen().bounds.size.width - 40.displaySizeFrom1242DesignSize()
 
     // Bottom
     private let bottomViewHeight = 297.displaySizeFrom1242DesignSize()
@@ -71,7 +83,7 @@ class AIJobTableViewCell: UITableViewCell {
 
 
     func resetContentView() {
-        self.contentView.frame = CGRect(x: IconMargin, y: 0, width: cellWidth-IconMargin*2, height: topViewHeight + bottomViewHeight)
+        self.contentView.frame = CGRect(x: IconMargin, y: 0, width: contentWidth, height: topViewHeight + bottomViewHeight)
         self.contentView.layer.cornerRadius = 4
         self.contentView.clipsToBounds = true
         self.contentView.backgroundColor = UIColor(white: 0.3, alpha: 0.3)
@@ -87,7 +99,7 @@ class AIJobTableViewCell: UITableViewCell {
     // MARK: Top View
 
     func makeTopView() {
-        let frame = CGRect(x: 0, y: 0, width: cellWidth-IconMargin*2, height: topViewHeight)
+        let frame = CGRect(x: 0, y: 0, width: contentWidth, height: topViewHeight)
         topView = UIView(frame: frame)
         topView.backgroundColor = UIColor(white: 0.1, alpha: 0.15)
 
@@ -117,7 +129,7 @@ class AIJobTableViewCell: UITableViewCell {
 
     func makeBottomView() {
         let y = CGRectGetMaxY(topView.frame)
-        let frame = CGRect(x: 0, y: y, width: cellWidth, height: bottomViewHeight)
+        let frame = CGRect(x: 0, y: y, width: cellWidth-IconMargin*2, height: bottomViewHeight)
         bottomView = UIView(frame: frame)
         self.contentView.addSubview(bottomView)
 
@@ -126,8 +138,43 @@ class AIJobTableViewCell: UITableViewCell {
         makeSubscribledTimeView()
         makeServedConsumerView()
         makeStatusView()
+        makeJobActionButton()
     }
 
+    func makeJobActionButton() {
+        let width = 349.displaySizeFrom1242DesignSize()
+        let height = 74.displaySizeFrom1242DesignSize()
+        let x = contentWidth - width - 35.displaySizeFrom1242DesignSize()
+        let y = (bottomViewHeight - height) / 2
+        let frame = CGRect(x: x, y: y, width: width, height: height)
+        jobActionButton = AIViews.baseButtonWithFrame(frame, normalTitle: "")
+        jobActionButton.layer.cornerRadius = height / 2
+        jobActionButton.layer.masksToBounds = true
+        jobActionButton.layer.borderWidth = 1
+        jobActionButton.layer.borderColor = UIColor.whiteColor().CGColor
+        jobActionButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(40.displaySizeFrom1242DesignSize())
+        jobActionButton.addTarget(self, action: #selector(AIJobTableViewCell.jobAction), forControlEvents: .TouchUpInside)
+        jobActionButton.alpha = curDataModel == nil ? 0 : 1
+        bottomView.addSubview(jobActionButton)
+    }
+
+    // Button Action
+    func jobAction() {
+        switch curDataModel.work_state {
+        case "0": // 资料不齐
+            actionDelegate?.didTriggerJobActionToUploadInformation()
+            break
+        case "1": // 接单中
+            actionDelegate?.didTriggerJobActionToUploadStateParams(["work_id" : curDataModel.work_id, "work_state": curDataModel.work_state])
+            break
+        case "2": // 休息中
+            actionDelegate?.didTriggerJobActionToUploadStateParams(["work_id" : curDataModel.work_id, "work_state": curDataModel.work_state])
+            break
+        default:
+            break
+
+        }
+    }
 
     func makeCommonDescView(iconName: String, descText: String, originalY: CGFloat) -> (UIImageView, UPLabel) {
 
@@ -246,12 +293,26 @@ class AIJobTableViewCell: UITableViewCell {
 
     }
 
+    func jobActionTitle(state: String) -> String {
+        switch state {
+        case "0": // 资料不齐
+            return "AIWorkManageViewController.UploadInformationTitle".localized
+        case "1": // 接单中
+            return "AIWorkManageViewController.GoOfflineTitle".localized
+        case "2": // 休息中
+            return "AIWorkManageViewController.GoOnlineTitle".localized
+
+        default:
+            return "..."
+        }
+    }
+
     func formatedDate(date: String) -> String {
         return ""
     }
 
     func resetCellModel(model: AISubscribledJobModel) {
-
+        curDataModel = model
         // title
         jobIconView.sd_setImageWithURL(NSURL(string:model.work_thumbnail), placeholderImage: UIImage(named: "defaultIcon"))
         jobDescriptionLabel.text = model.work_name
@@ -267,6 +328,10 @@ class AIJobTableViewCell: UITableViewCell {
         // line3
         statusImageView.image = statusImage(model.work_state)
         statusLabel.text = statusText(model.work_state, model: model)
+
+        // button
+        jobActionButton.setTitle(jobActionTitle(model.work_state), forState: .Normal)
+        jobActionButton.alpha = 1
     }
 
 
