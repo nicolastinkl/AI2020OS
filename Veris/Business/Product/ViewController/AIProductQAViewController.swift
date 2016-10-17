@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import AIAlertView
+// QA 界面
 class AIProductQAViewController: UIViewController {
 	var service_id: Int!
 	
@@ -22,23 +23,39 @@ class AIProductQAViewController: UIViewController {
 		setupNavigationItems()
 		setupData()
 		setupTableView()
+        setupNotify()
 	}
+    
+    func setupNotify() {
+        NSNotificationCenter.defaultCenter().addObserverForName("AIProductQAViewController_Refersh_TableView", object: nil, queue: NSOperationQueue.mainQueue()) { (notify) in
+            self.tableView.headerBeginRefreshing()
+        }
+    }
 	
 	func setupNavigationItems() {
-//		let commentButton = UIButton()
-//		commentButton.setImage(UIImage(named: "qa_comment"), forState: .Normal)
-		setupNavigationBarLikeQA(title: "常见问题", rightBarButtonItems: []) { (index) -> (bottomPadding: CGFloat, spacing: CGFloat) in
+		let commentButton = UIButton()
+		commentButton.setImage(UIImage(named: "qa_comment"), forState: .Normal)
+		setupNavigationBarLikeQA(title: "常见问题", rightBarButtonItems: [commentButton]) { (index) -> (bottomPadding: CGFloat, spacing: CGFloat) in
 			return (47.displaySizeFrom1242DesignSize(), 50.displaySizeFrom1242DesignSize())
 		}
+        commentButton.addTarget(self, action: #selector(AIProductQAViewController.showCommitViewControoller), forControlEvents: UIControlEvents.TouchUpInside)
+        
 	}
+    
+    func showCommitViewControoller() {
+        let qaView = AIProductQACommitViewController()
+        qaView.service_id = self.service_id
+        showViewController(qaView, sender: self)
+    }
 	
 	func setupData() {
 		let service = AIProductQAService()
 		service.allQuestions(service_id, success: { [weak self] response in
 			self?.items = response
 			self?.tableView.reloadData()
+            self?.tableView.headerEndRefreshing()
 		}) { (errType, errDes) in
-			
+			self.tableView.headerEndRefreshing()
 		}
 	}
 	
@@ -59,6 +76,12 @@ class AIProductQAViewController: UIViewController {
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.registerClass(AIProductQuestionCell.self, forCellReuseIdentifier: "q")
 		tableView.registerClass(AIProductAnswerCell.self, forCellReuseIdentifier: "a")
+        
+        // Add Pull To Referesh..
+        weak var weakSelf = self
+        self.tableView.addHeaderWithCallback { () -> Void in
+            weakSelf!.setupData()
+        }
 	}
 	
 	// MARK: - target action
@@ -181,4 +204,60 @@ class AIProductAnswerCell: AIProductQACell {
 		contentLabel.textColor = UIColor (red: 1.0, green: 1.0, blue: 1.0, alpha: 0.6)
 		contentLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1242DesignSize(42))
 	}
+}
+
+// 咨询界面
+class AIProductQACommitViewController: UIViewController {
+    
+    var service_id: Int!
+    
+    private lazy var textView: UITextView = { [unowned self] in
+        let tx = UITextView(frame: UIScreen.mainScreen().bounds)
+        tx.textColor = UIColor(hexString: "#ffffff", alpha: 0.3)
+        tx.returnKeyType = UIReturnKeyType.Go
+        tx.backgroundColor = UIColor.clearColor()
+        return tx
+        }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupNavigationItems()
+        
+        setupTextView()
+    }    
+    
+    func setupNavigationItems() {
+        let commentButton = UIButton()
+        commentButton.setTitle("提交", forState: UIControlState.Normal)
+        setupNavigationBarLikeQA(title: "我要咨询", rightBarButtonItems: [commentButton]) { (index) -> (bottomPadding: CGFloat, spacing: CGFloat) in
+            return (47.displaySizeFrom1242DesignSize(), 50.displaySizeFrom1242DesignSize())
+        }
+        commentButton.addTarget(self, action: #selector(AIProductQACommitViewController.submit), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    func setupTextView() {
+        
+        self.view.addSubview(textView)
+        textView.becomeFirstResponder()
+        
+    }
+    
+    //提交咨询
+    func submit() {
+        
+        if textView.text.length > 0 {
+            view.showLoading()
+            AIProductQAService().submitQuestion(self.service_id, question: textView.text, success: { (complate) in
+                    self.view.hideLoading()
+                    NSNotificationCenter.defaultCenter().postNotificationName("AIProductQAViewController_Refersh_TableView", object: nil)
+                    self.navigationController?.popViewControllerAnimated(true)
+                }, fail: { (errType, errDes) in
+                    self.view.hideLoading()
+                    AIAlertView().showError("提交失败".localized, subTitle: "AIAudioMessageView.info".localized, closeButtonTitle:nil, duration: 2)
+            })
+        }
+    }
+ 
+    
 }

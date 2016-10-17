@@ -40,9 +40,8 @@ internal class AICustomView: UIView {
         } else {
             fillTags(models, isNormal: isNormal)
         }
-        
     }
-   
+    
 	/**
 	 TODO: 处理数据填充和标签初始化
 	 */
@@ -153,7 +152,7 @@ extension AICustomView: AIElasticDownTagStateDelegete {
 	 - parameter viewModel: viewModel description
 	 */
 	func releaseTagState(newState: tagState, viewModel: AIProposalServiceDetailLabelModel) {
-		
+        
 		// 处理已选按钮的释放
 		let array = selectedTagsArray.filter { (oldModel) -> Bool in
 			return oldModel.label_id != viewModel.label_id
@@ -190,18 +189,18 @@ extension AICustomView: AIElasticDownTagStateDelegete {
 	
 	/**
 	 处理可变数组数据的处理
-
 	 - parameter newState: tag改变之后的状态
 	 */
 	func changeTagState(newState: tagState, viewModel: AIProposalServiceDetailLabelModel) {
-		
+       
+        
 		if newState == tagState.normal {
 			// remove this view from list
 			
 			let array = selectedTagsArray.filter { (oldModel) -> Bool in
 				return oldModel.label_id != viewModel.label_id
 			}
-			
+            
 			// remove
 			selectedTagsArray = array
 			

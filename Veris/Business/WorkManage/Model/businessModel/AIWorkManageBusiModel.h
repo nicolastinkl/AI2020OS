@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString<Optional> *aspect_type;
 @property (nonatomic, strong) NSString<Optional> *aspect_photo;
 @property (nonatomic, strong) NSString<Optional> *uploaded;
+@property (nonatomic, strong) NSString<Optional> *upload_date;
 @end
 
 //工作机会资质列表

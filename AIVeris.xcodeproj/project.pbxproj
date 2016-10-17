@@ -45,6 +45,7 @@
 		12DC8D8E1DAA2CDF003117E4 /* AIWorkManageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DC8D8D1DAA2CDF003117E4 /* AIWorkManageViewModel.swift */; };
 		12DC8D911DAA2D1E003117E4 /* AIWorkManageBusiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DC8D901DAA2D1E003117E4 /* AIWorkManageBusiModel.m */; };
 		12DC8D931DAA4E42003117E4 /* AIWorkManageRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DC8D921DAA4E42003117E4 /* AIWorkManageRequestHandler.swift */; };
+		12DC8D951DB0B98F003117E4 /* AIWorkUploadPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12DC8D941DB0B98F003117E4 /* AIWorkUploadPopView.xib */; };
 		12DFC0C31D47581600025D4F /* AICommonBusinessModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC0C21D47581600025D4F /* AICommonBusinessModels.m */; };
 		12FBCB8B1D581B0300E333D6 /* AIWorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCB8A1D581B0300E333D6 /* AIWorkInfoViewController.swift */; };
 		12FBCB8D1D59CB1600E333D6 /* AIWorkQualificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCB8C1D59CB1600E333D6 /* AIWorkQualificationView.swift */; };
@@ -785,6 +786,7 @@
 		C9C298D01D6D905A00E34766 /* AIAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C298CF1D6D905A00E34766 /* AIAlertView.framework */; };
 		C9C298D41D7D7ED600E34766 /* AIProductinfoBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */; };
 		C9C298D61D7D7FC100E34766 /* AIProductinfoBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */; };
+		C9FE4B161DAF37C30054D499 /* AIProductExeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE4B151DAF37C30054D499 /* AIProductExeService.swift */; };
 		FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
@@ -900,6 +902,7 @@
 		12DC8D8F1DAA2D03003117E4 /* AIWorkManageBusiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIWorkManageBusiModel.h; sourceTree = "<group>"; };
 		12DC8D901DAA2D1E003117E4 /* AIWorkManageBusiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWorkManageBusiModel.m; sourceTree = "<group>"; };
 		12DC8D921DAA4E42003117E4 /* AIWorkManageRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkManageRequestHandler.swift; sourceTree = "<group>"; };
+		12DC8D941DB0B98F003117E4 /* AIWorkUploadPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWorkUploadPopView.xib; sourceTree = "<group>"; };
 		12DFC0BF1D47031600025D4F /* AICustomerServiceExecBusiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AICustomerServiceExecBusiModel.h; sourceTree = "<group>"; };
 		12DFC0C11D4711EA00025D4F /* AICommonBusinessModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AICommonBusinessModels.h; sourceTree = "<group>"; };
 		12DFC0C21D47581600025D4F /* AICommonBusinessModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICommonBusinessModels.m; sourceTree = "<group>"; };
@@ -1946,6 +1949,7 @@
 		C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductinfoBottomView.xib; sourceTree = "<group>"; };
 		C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductinfoBottomView.swift; sourceTree = "<group>"; };
 		C9D4A6621D6BEDA000FEDED7 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		C9FE4B151DAF37C30054D499 /* AIProductExeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductExeService.swift; sourceTree = "<group>"; };
 		FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		FB0181001D0D125400213DF8 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		FB0181011D0D125400213DF8 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -2717,6 +2721,7 @@
 				FB664CEC1D61ABF400E88A2F /* AIProviderDetailJSONModel.h */,
 				FB664CED1D61ABF400E88A2F /* AIProviderDetailJSONModel.m */,
 				FB2373271D4F78F300A8B38A /* AIProductQAService.swift */,
+				C9FE4B151DAF37C30054D499 /* AIProductExeService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4333,6 +4338,7 @@
 				12FBCB901D5ACBB100E333D6 /* AIWorkQualificationView.xib */,
 				813861021D5B0BFD0050C0D0 /* AIJobTableViewCell.swift */,
 				FB6ED9561DAF20EB00A1C365 /* AIWorkOpportunityPopularChartView.swift */,
+				12DC8D941DB0B98F003117E4 /* AIWorkUploadPopView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5010,6 +5016,7 @@
 				81B1957E1D485B740086EB83 /* AIAlertStoryboard.storyboard in Resources */,
 				81433D251CFBE5A700347C29 /* MiddleServiceContainer.xib in Resources */,
 				81433E0F1CFBE5A700347C29 /* IconLabel.xib in Resources */,
+				12DC8D951DB0B98F003117E4 /* AIWorkUploadPopView.xib in Resources */,
 				81433D4F1CFBE5A700347C29 /* AIAddressRouteView.xib in Resources */,
 				81433D3C1CFBE5A700347C29 /* AICustomAudioNotesView.xib in Resources */,
 				933BC8431D002434005E1789 /* AIWishVowViewController.xib in Resources */,
@@ -5308,6 +5315,7 @@
 				81433E191CFBE5A700347C29 /* GIBadgeView.m in Sources */,
 				81433CE41CFBE5A700347C29 /* AIOrderPreModel.m in Sources */,
 				933763021CFD7040006B997D /* AIModelSerice.swift in Sources */,
+				C9FE4B161DAF37C30054D499 /* AIProductExeService.swift in Sources */,
 				81433E891CFBE5A700347C29 /* FLEXDefaultsExplorerViewController.m in Sources */,
 				81433E691CFBE5A700347C29 /* FLEXWindow.m in Sources */,
 				81433E8E1CFBE5A700347C29 /* FLEXObjectExplorerFactory.m in Sources */,
@@ -5889,6 +5897,7 @@
 				DEBUG_ACTIVITY_MODE = "";
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = T2362RFKT6;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj *.txt";
@@ -5929,6 +5938,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
 				PROVISIONING_PROFILE = "81835a6f-1126-48cd-94a0-7aa437900fd3";
+				PROVISIONING_PROFILE = "6defedf0-7db7-4835-a59a-c8176b10d1b9";
 				PROVISIONING_PROFILE_SPECIFIER = aicd2020sbossDisProvisioningProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
@@ -6123,6 +6133,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = T2362RFKT6;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj *.txt";
@@ -6162,7 +6173,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "81835a6f-1126-48cd-94a0-7aa437900fd3";
+				PROVISIONING_PROFILE = "6defedf0-7db7-4835-a59a-c8176b10d1b9";
+
 				PROVISIONING_PROFILE_SPECIFIER = aicd2020sbossDisProvisioningProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
@@ -6187,6 +6199,7 @@
 				DEBUG_ACTIVITY_MODE = "";
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = T2362RFKT6;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj *.txt";
@@ -6226,7 +6239,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "81835a6f-1126-48cd-94a0-7aa437900fd3";
+				PROVISIONING_PROFILE = "6defedf0-7db7-4835-a59a-c8176b10d1b9";
 				PROVISIONING_PROFILE_SPECIFIER = aicd2020sbossDisProvisioningProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
