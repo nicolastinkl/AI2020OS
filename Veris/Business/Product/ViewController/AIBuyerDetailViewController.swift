@@ -110,7 +110,7 @@ class AIBuyerDetailViewController: UIViewController {
 		get {
 			guard dataSource?.service_list == nil else {
 				let result = dataSource?.service_list.filter () {
-					return ($0 as! AIProposalServiceModel).service_del_flag == ServiceDeletedStatus.NotDeleted.rawValue
+					return ($0 as! AIProposalServiceModel).service_del_flag == ServiceDeletedStatus.NotDeleted.rawValue && ($0 as! AIProposalServiceModel).disableFlag == 0
 				}
 				return result
 			}
@@ -829,6 +829,16 @@ class AIBuyerDetailViewController: UIViewController {
 					viewController.serviceRestoreToolbar.removeAllLogos()
 					viewController.dataSource = responseData
 					
+                    //delete data 
+                    
+                    _ = responseData.service_list.filter({ (obj) -> Bool in
+                        if  (obj as! AIProposalServiceModel).disableFlag == 1 {
+                            viewController.deleted_service_list.addObject(obj)
+                        }
+                        
+                        return false
+                    })
+                    
 					// initControl Data
 					// viewController.initProderView()
 					viewController.initController()

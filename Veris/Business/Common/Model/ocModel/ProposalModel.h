@@ -293,6 +293,7 @@ typedef NS_ENUM(NSInteger, ParamSettingFlag) {
 @property (assign, nonatomic) int type;
 @property (assign, nonatomic) NSInteger service_rating_level;
 
+@property (assign, nonatomic) NSInteger disableFlag; //服务器返回字段.
 @property (assign, nonatomic) NSInteger param_setting_flag;
 @property (nonatomic, assign) NSInteger service_del_flag;
 @property (nonatomic, assign) NSInteger is_deletable;
