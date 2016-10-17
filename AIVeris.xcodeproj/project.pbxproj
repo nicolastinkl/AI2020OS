@@ -28,6 +28,8 @@
 		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
 		1273444D1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */; };
 		1273444F1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */; };
+		1275299F1DB4D93C00B7AFDD /* AIWorkQualificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275299D1DB4D93C00B7AFDD /* AIWorkQualificationTableViewCell.swift */; };
+		127529A01DB4D93C00B7AFDD /* AIWorkQualificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1275299E1DB4D93C00B7AFDD /* AIWorkQualificationTableViewCell.xib */; };
 		12873EE71D20C0BA00C3AF9A /* LoginConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */; };
 		12933BD41D17E71B008A1693 /* AITimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */; };
 		12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */; };
@@ -46,6 +48,7 @@
 		12DC8D911DAA2D1E003117E4 /* AIWorkManageBusiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DC8D901DAA2D1E003117E4 /* AIWorkManageBusiModel.m */; };
 		12DC8D931DAA4E42003117E4 /* AIWorkManageRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DC8D921DAA4E42003117E4 /* AIWorkManageRequestHandler.swift */; };
 		12DC8D951DB0B98F003117E4 /* AIWorkUploadPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12DC8D941DB0B98F003117E4 /* AIWorkUploadPopView.xib */; };
+		12DC8D971DB47347003117E4 /* AIWorkUploadPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DC8D961DB47347003117E4 /* AIWorkUploadPopView.swift */; };
 		12DFC0C31D47581600025D4F /* AICommonBusinessModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC0C21D47581600025D4F /* AICommonBusinessModels.m */; };
 		12FBCB8B1D581B0300E333D6 /* AIWorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCB8A1D581B0300E333D6 /* AIWorkInfoViewController.swift */; };
 		12FBCB8D1D59CB1600E333D6 /* AIWorkQualificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCB8C1D59CB1600E333D6 /* AIWorkQualificationView.swift */; };
@@ -883,6 +886,8 @@
 		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
 		1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomerOrderFoldedView.xib; sourceTree = "<group>"; };
 		1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerOrderFoldedView.swift; sourceTree = "<group>"; };
+		1275299D1DB4D93C00B7AFDD /* AIWorkQualificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkQualificationTableViewCell.swift; sourceTree = "<group>"; };
+		1275299E1DB4D93C00B7AFDD /* AIWorkQualificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWorkQualificationTableViewCell.xib; sourceTree = "<group>"; };
 		12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConstants.swift; sourceTree = "<group>"; };
 		12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTableViewCell.swift; sourceTree = "<group>"; };
 		12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTableViewCell.xib; sourceTree = "<group>"; };
@@ -902,6 +907,7 @@
 		12DC8D901DAA2D1E003117E4 /* AIWorkManageBusiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWorkManageBusiModel.m; sourceTree = "<group>"; };
 		12DC8D921DAA4E42003117E4 /* AIWorkManageRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkManageRequestHandler.swift; sourceTree = "<group>"; };
 		12DC8D941DB0B98F003117E4 /* AIWorkUploadPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWorkUploadPopView.xib; sourceTree = "<group>"; };
+		12DC8D961DB47347003117E4 /* AIWorkUploadPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkUploadPopView.swift; sourceTree = "<group>"; };
 		12DFC0BF1D47031600025D4F /* AICustomerServiceExecBusiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AICustomerServiceExecBusiModel.h; sourceTree = "<group>"; };
 		12DFC0C11D4711EA00025D4F /* AICommonBusinessModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AICommonBusinessModels.h; sourceTree = "<group>"; };
 		12DFC0C21D47581600025D4F /* AICommonBusinessModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICommonBusinessModels.m; sourceTree = "<group>"; };
@@ -4336,6 +4342,9 @@
 				813861021D5B0BFD0050C0D0 /* AIJobTableViewCell.swift */,
 				FB6ED9561DAF20EB00A1C365 /* AIWorkOpportunityPopularChartView.swift */,
 				12DC8D941DB0B98F003117E4 /* AIWorkUploadPopView.xib */,
+				12DC8D961DB47347003117E4 /* AIWorkUploadPopView.swift */,
+				1275299D1DB4D93C00B7AFDD /* AIWorkQualificationTableViewCell.swift */,
+				1275299E1DB4D93C00B7AFDD /* AIWorkQualificationTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5015,6 +5024,7 @@
 				81433E0F1CFBE5A700347C29 /* IconLabel.xib in Resources */,
 				12DC8D951DB0B98F003117E4 /* AIWorkUploadPopView.xib in Resources */,
 				81433D4F1CFBE5A700347C29 /* AIAddressRouteView.xib in Resources */,
+				127529A01DB4D93C00B7AFDD /* AIWorkQualificationTableViewCell.xib in Resources */,
 				81433D3C1CFBE5A700347C29 /* AICustomAudioNotesView.xib in Resources */,
 				933BC8431D002434005E1789 /* AIWishVowViewController.xib in Resources */,
 				81433D2F1CFBE5A700347C29 /* ServiceSettingView.xib in Resources */,
@@ -5528,6 +5538,7 @@
 				FBAE7FD51D115428002FF522 /* AIOrderTableModel.m in Sources */,
 				81B1957F1D485B740086EB83 /* AIAlertViewController.swift in Sources */,
 				81433CD61CFBE5A700347C29 /* AIFavoriteContentModel.swift in Sources */,
+				12DC8D971DB47347003117E4 /* AIWorkUploadPopView.swift in Sources */,
 				81433DFF1CFBE5A700347C29 /* AirTicketGroupView.swift in Sources */,
 				81433E911CFBE5A700347C29 /* FLEXViewControllerExplorerViewController.m in Sources */,
 				81433E391CFBE5A700347C29 /* DependOnNodePickerViewController.swift in Sources */,
@@ -5561,6 +5572,7 @@
 				8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */,
 				81433DFD1CFBE5A700347C29 /* DependOnNodeCell.swift in Sources */,
 				81433E611CFBE5A700347C29 /* FLEXFieldEditorViewController.m in Sources */,
+				1275299F1DB4D93C00B7AFDD /* AIWorkQualificationTableViewCell.swift in Sources */,
 				81433CE31CFBE5A700347C29 /* AIOrderManagementModels.m in Sources */,
 				81433DFC1CFBE5A700347C29 /* CustomXibView.swift in Sources */,
 				81433E3F1CFBE5A700347C29 /* AIUIDevice.swift in Sources */,

@@ -8,43 +8,115 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIWorkUploadPopView" customModule="Veris" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf3-iD-1ya">
-                    <color key="backgroundColor" red="0.90588235294117647" green="0.92156862745098034" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozM-Ci-HVC" userLabel="backgroundView">
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="work_upload_album" translatesAutoresizingMaskIntoConstraints="NO" id="ti6-HK-5Su">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGW-pK-lwy">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdE-ar-3lI">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="34" id="dHM-tc-c1C"/>
+                                <constraint firstAttribute="height" constant="34" id="ptd-ZC-Vhg"/>
+                            </constraints>
+                            <state key="normal" image="work_upload_cancel"/>
+                            <connections>
+                                <action selector="cancelAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="JnG-e8-GA5"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSD-is-i2R" userLabel="lineView">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="5h7-Pv-QdZ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf3-iD-1ya">
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqg-aq-HrV" userLabel="takePhotoButton">
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="60" id="MgI-bA-cZf"/>
+                                        <constraint firstAttribute="height" constant="60" id="dpZ-Y9-VST"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="work_upload_photo"/>
+                                    <connections>
+                                        <action selector="takePhotoActionWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="9dG-k8-lPC"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ML-5a-cDS" userLabel="albumsButton">
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="Dhf-4B-2zi"/>
+                                        <constraint firstAttribute="width" constant="60" id="nvy-3o-dzm"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="work_upload_album"/>
+                                    <connections>
+                                        <action selector="choosePhotoActionWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="e1v-ky-Va4"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take a photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl4-uo-Q4Z">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select from albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHg-t2-YaA">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.90588235294117647" green="0.92156862745098034" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="dl4-uo-Q4Z" firstAttribute="top" secondItem="wqg-aq-HrV" secondAttribute="bottom" constant="18" id="9QP-kq-fXs"/>
+                                <constraint firstItem="dl4-uo-Q4Z" firstAttribute="centerX" secondItem="wqg-aq-HrV" secondAttribute="centerX" id="D3C-Hm-KKg"/>
+                                <constraint firstAttribute="height" constant="172" id="LiX-7a-Qth"/>
+                                <constraint firstItem="tHg-t2-YaA" firstAttribute="top" secondItem="dl4-uo-Q4Z" secondAttribute="top" id="RlI-AD-0lA"/>
+                                <constraint firstItem="9ML-5a-cDS" firstAttribute="top" secondItem="wqg-aq-HrV" secondAttribute="top" id="SPA-BR-q8F"/>
+                                <constraint firstAttribute="trailing" secondItem="9ML-5a-cDS" secondAttribute="trailing" constant="60" id="c5M-6C-5JY"/>
+                                <constraint firstItem="wqg-aq-HrV" firstAttribute="leading" secondItem="Kf3-iD-1ya" secondAttribute="leading" constant="60" id="pvX-uF-5vt"/>
+                                <constraint firstItem="wqg-aq-HrV" firstAttribute="top" secondItem="Kf3-iD-1ya" secondAttribute="top" constant="47" id="sdI-4C-sJz"/>
+                                <constraint firstItem="tHg-t2-YaA" firstAttribute="centerX" secondItem="9ML-5a-cDS" secondAttribute="centerX" id="uIJ-ch-Da9"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="34" id="F9C-c6-duv"/>
-                        <constraint firstAttribute="width" constant="34" id="QNR-AK-yps"/>
-                    </constraints>
-                </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSD-is-i2R" userLabel="lineView">
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="1" id="5h7-Pv-QdZ"/>
+                        <constraint firstItem="Kf3-iD-1ya" firstAttribute="leading" secondItem="eGW-pK-lwy" secondAttribute="leading" id="0c3-Ns-JYI"/>
+                        <constraint firstItem="Kf3-iD-1ya" firstAttribute="top" secondItem="uSD-is-i2R" secondAttribute="bottom" id="1Pz-j8-GCH"/>
+                        <constraint firstAttribute="trailing" secondItem="mdE-ar-3lI" secondAttribute="trailing" id="7aT-Hf-uya"/>
+                        <constraint firstAttribute="bottom" secondItem="Kf3-iD-1ya" secondAttribute="bottom" id="8fL-Nw-Asi"/>
+                        <constraint firstItem="mdE-ar-3lI" firstAttribute="top" secondItem="eGW-pK-lwy" secondAttribute="top" id="AbQ-WR-6nK"/>
+                        <constraint firstAttribute="trailing" secondItem="Kf3-iD-1ya" secondAttribute="trailing" id="RP8-jT-xv6"/>
+                        <constraint firstItem="mdE-ar-3lI" firstAttribute="centerX" secondItem="uSD-is-i2R" secondAttribute="centerX" id="Z2P-ch-VCG"/>
+                        <constraint firstAttribute="height" constant="221" id="nIm-SD-br6"/>
+                        <constraint firstItem="uSD-is-i2R" firstAttribute="top" secondItem="mdE-ar-3lI" secondAttribute="bottom" id="rFp-5g-V9j"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="ti6-HK-5Su" firstAttribute="trailing" secondItem="Kf3-iD-1ya" secondAttribute="trailing" id="789-oa-WWl"/>
-                <constraint firstItem="Kf3-iD-1ya" firstAttribute="top" secondItem="uSD-is-i2R" secondAttribute="bottom" constant="-1" id="BWN-2D-8RP"/>
-                <constraint firstAttribute="bottom" secondItem="Kf3-iD-1ya" secondAttribute="bottom" id="IrR-uo-BV5"/>
-                <constraint firstItem="Kf3-iD-1ya" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="41" id="QfU-MV-dKb"/>
-                <constraint firstItem="uSD-is-i2R" firstAttribute="top" secondItem="ti6-HK-5Su" secondAttribute="bottom" id="WG1-n4-HPk"/>
-                <constraint firstItem="uSD-is-i2R" firstAttribute="centerX" secondItem="ti6-HK-5Su" secondAttribute="centerX" id="YWU-ti-zZR"/>
-                <constraint firstAttribute="trailing" secondItem="Kf3-iD-1ya" secondAttribute="trailing" constant="49" id="oRy-eC-xQ3"/>
-                <constraint firstItem="Kf3-iD-1ya" firstAttribute="top" secondItem="ti6-HK-5Su" secondAttribute="bottom" constant="37" id="pDA-BL-nWP"/>
-                <constraint firstItem="ti6-HK-5Su" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="39" id="sm2-Or-zaB"/>
+                <constraint firstAttribute="bottom" secondItem="ozM-Ci-HVC" secondAttribute="bottom" id="2WT-EQ-mNP"/>
+                <constraint firstAttribute="trailing" secondItem="eGW-pK-lwy" secondAttribute="trailing" constant="41" id="4LH-5b-wLU"/>
+                <constraint firstAttribute="trailing" secondItem="ozM-Ci-HVC" secondAttribute="trailing" id="M0x-f7-lhw"/>
+                <constraint firstItem="ozM-Ci-HVC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Oxr-DE-Ls6"/>
+                <constraint firstAttribute="bottom" secondItem="eGW-pK-lwy" secondAttribute="bottom" id="VKU-pH-C8X"/>
+                <constraint firstItem="ozM-Ci-HVC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fuM-fQ-UJK"/>
+                <constraint firstItem="eGW-pK-lwy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="41" id="u4M-Ia-elt"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-71.5" y="84"/>
+            <connections>
+                <outlet property="containerBottomConstraint" destination="VKU-pH-C8X" id="62t-XA-Vvi"/>
+                <outlet property="popupContainerView" destination="eGW-pK-lwy" id="dWa-FI-MAK"/>
+                <outlet property="selectPhotoLabel" destination="tHg-t2-YaA" id="f7F-x3-Qbo"/>
+                <outlet property="subContainerView" destination="Kf3-iD-1ya" id="x6d-Qs-HiR"/>
+                <outlet property="takePhotoLabel" destination="dl4-uo-Q4Z" id="jJd-wc-GxW"/>
+            </connections>
+            <point key="canvasLocation" x="-71.5" y="133.5"/>
         </view>
     </objects>
     <resources>
-        <image name="work_upload_album" width="414" height="10"/>
+        <image name="work_upload_album" width="60" height="60"/>
+        <image name="work_upload_cancel" width="34" height="34"/>
+        <image name="work_upload_photo" width="60" height="60"/>
     </resources>
 </document>
