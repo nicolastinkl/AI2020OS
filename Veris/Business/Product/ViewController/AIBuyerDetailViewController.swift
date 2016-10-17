@@ -834,8 +834,8 @@ class AIBuyerDetailViewController: UIViewController {
                     _ = responseData.service_list.filter({ (obj) -> Bool in
                         if  (obj as! AIProposalServiceModel).disableFlag == 1 {
                             viewController.deleted_service_list.addObject(obj)
+                            
                         }
-                        
                         return false
                     })
                     
