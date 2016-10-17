@@ -46,25 +46,50 @@
 
 @interface AISubscribledJobModel : JSONModel
 
+/**
+ * 订阅时间
+ */
 @property (nonatomic, strong) NSString<Optional> *subscribed_date;
 
 @property (nonatomic, strong) NSString<Optional> *work_id;
 
 @property (nonatomic, strong) NSString<Optional> *work_state;
 
+/**
+ * 服务次数
+ */
 @property (nonatomic, strong) NSString<Optional> *service_counts;
 
-@property (nonatomic, strong) NSString<Optional> *offline_date;
+/**
+ * 最近一次下线的时间
+ */
+@property (nonatomic, strong) NSString<Optional> *offline_date; 
 
+
+/**
+ * 最近一次上线时间
+ */
 @property (nonatomic, strong) NSString<Optional> *online_date;
 
 @property (nonatomic, strong) NSString<Optional> *work_name;
 
 @property (nonatomic, strong) NSString<Optional> *work_desc;
 
+/**
+ * 工作机会缩略图url
+ */
 @property (nonatomic, strong) NSString<Optional> *work_thumbnail;
 
+/**
+ * 工作机会详情图url
+ */
 @property (nonatomic, strong) NSString<Optional> *work_img;
+
+/**
+ * 当前在线人数
+ */
+@property (nonatomic, strong) NSString<Optional> *online_number;
+
 
 @end
 

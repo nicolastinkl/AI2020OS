@@ -17,7 +17,7 @@ class AIWorkManageViewController: AIBaseViewController {
 
     var queryMessage: AIMessage!
 
-    var subcribledJobs: [AISubscribledJobModel]!
+    var subcribledJobs: [AnyObject]!
 
     //MARK: Functions
 
@@ -28,19 +28,18 @@ class AIWorkManageViewController: AIBaseViewController {
         makeTableView()
         makeMainShowButton()
 
-        self.title = "My Job"
+        self.title = "AIWorkManageViewController.Title".localized
     }
 
 
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        AINetEngine.defaultEngine().cancelMessage(queryMessage)
-    }
 
     //MARK: Make Content View
 
 
-
+    override func clickBackAction () {
+        super.clickBackAction()
+        AINetEngine.defaultEngine().cancelMessage(queryMessage)
+    }
 
 
     //MARK: Main Button
@@ -52,7 +51,7 @@ class AIWorkManageViewController: AIBaseViewController {
         let width = CGRectGetWidth(self.view.frame) - x * 2
         let height = AITools.displaySizeFrom1080DesignSize(185)
         let frame = CGRect(x: x, y: y, width: width, height: height)
-        let mainButton = AIViews.baseButtonWithFrame(frame, normalTitle: "See More Opportunity")
+        let mainButton = AIViews.baseButtonWithFrame(frame, normalTitle: "AIWorkManageViewController.SeeMore".localized)
         mainButton.titleLabel?.font = AITools.myriadSemiboldSemiCnWithSize(AITools.displaySizeFrom1080DesignSize(60))
         mainButton.titleLabel?.textColor = UIColor.whiteColor()
         mainButton.layer.cornerRadius = height / 2
@@ -87,9 +86,11 @@ class AIWorkManageViewController: AIBaseViewController {
         mainTableView.backgroundColor = UIColor.clearColor()
         mainTableView.separatorStyle = .None
         mainTableView.showsVerticalScrollIndicator = false
+        
         self.view.addSubview(mainTableView)
 
         makeRefreshAction()
+        mainTableView.headerBeginRefreshing()
     }
 
     //MARK: 查询数据
@@ -101,14 +102,17 @@ class AIWorkManageViewController: AIBaseViewController {
 
         weak var wf = self
         AINetEngine.defaultEngine().postMessage(queryMessage, success: { (response) in
-            if response is [AISubscribledJobModel] {
-                wf!.subcribledJobs = response as! [AISubscribledJobModel]
+            if response is [AnyObject] {
+                wf!.subcribledJobs = response as! [AnyObject]
+                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
+                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
+                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
                 wf!.mainTableView.reloadData()
             }
 
             wf!.mainTableView.headerEndRefreshing()
         }) { (errorType, errorDesc) in
-            AIAlertView().showError("出错啦！", subTitle: errorDesc)
+            AIAlertView().showError(errorDesc, subTitle: "")
             wf!.mainTableView.headerEndRefreshing()
         }
         
@@ -128,11 +132,6 @@ class AIWorkManageViewController: AIBaseViewController {
         mainTableView.addHeaderRefreshEndCallback { 
             wf!.mainTableView.headerEndRefreshing()
         }
-
-
-
-
-
     }
 
 }
@@ -144,7 +143,8 @@ extension AIWorkManageViewController: UITableViewDataSource {
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+
+        return subcribledJobs != nil ? subcribledJobs.count : 0
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -152,11 +152,16 @@ extension AIWorkManageViewController: UITableViewDataSource {
         let reuseIdentifier: String = "JobReuseCell"
         let cell = AIJobTableViewCell(style: .Default, reuseIdentifier: reuseIdentifier)
         cell.backgroundColor = UIColor.clearColor()
-        let model = AIJobSurveyModel()
-        model.jobIcon = "http://img5.imgtn.bdimg.com/it/u=4115455389,1829632566&fm=11&gp=0.jpg"
-        model.jobDescription = "Private Transport"
+        cell.actionDelegate = self
+        let jobData: [String : AnyObject] = subcribledJobs[indexPath.section] as! [String : AnyObject]
 
-        cell.resetCellModel(model)
+        do {
+            let model: AISubscribledJobModel = try AISubscribledJobModel(dictionary: jobData)
+            cell.resetCellModel(model)
+        } catch {
+
+        }
+
 
         return cell
     }
@@ -164,21 +169,50 @@ extension AIWorkManageViewController: UITableViewDataSource {
 }
 
 
+extension AIWorkManageViewController: AIJobTableViewCellDelegate {
+    func didTriggerJobActionToUploadInformation() {
+
+    }
+
+    func didTriggerJobActionToUploadStateParams(params: [String : AnyObject]) {
+
+        self.showLoading()
+
+        var body: [String : AnyObject] = ["user_id" : AILocalStore.userId]
+        body.addEntriesFromDictionary(params)
+
+
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.updateWorkStatus.description
+        message.body = BDKTools.createRequestBody(body)
+
+        weak var wf = self
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) in
+            let result: NSNumber = response["result"] as! NSNumber
+            if result.boolValue == true {
+                wf!.mainTableView.headerBeginRefreshing()
+            }
+            wf!.dismissLoading()
+        }) { (errorType, errorDesc) in
+            wf!.dismissLoading()
+            AIAlertView().showError(errorDesc, subTitle: "")
+        }
+    }
+}
+
+
 extension AIWorkManageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
         let bar = self.navigationController?.navigationBar
-        let barHeight = CGRectGetHeight((bar?.frame)!)
-        if offset > 0 && offset <= barHeight {
-            let alpha = (barHeight - offset) / barHeight
-            bar?.alpha = alpha > 0 ? alpha : 0
-        } else if offset < 0 && offset >= -barHeight {
-            if bar?.alpha <= 0 {
-                let alpha = (barHeight + offset) / barHeight
-                bar?.alpha = alpha
-            }
+
+        if offset > 0 {
+            bar?.alpha = 0
+        } else if offset <= 0 {
+            bar?.alpha = 1
         }
     }
+
 }
 
 extension AIWorkManageViewController: UITableViewDelegate {
@@ -187,7 +221,7 @@ extension AIWorkManageViewController: UITableViewDelegate {
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+        return 395.displaySizeFrom1242DesignSize()
     }
 
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

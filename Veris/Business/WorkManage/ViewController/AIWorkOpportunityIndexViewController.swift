@@ -17,7 +17,19 @@ class AIWorkOpportunityIndexViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		headerView.delegate = self
+        setupAIWorkOpportunityPopularChartView()
+        
 	}
+    
+    func setupAIWorkOpportunityPopularChartView() {
+        
+        let v =  AIWorkOpportunityPopularChartView()
+        view.addSubview(v)
+        v.snp_makeConstraints { (make) in
+            make.top.equalTo(headerView.snp_bottom)
+            make.leading.trailing.equalTo(view)
+        }
+    }
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()

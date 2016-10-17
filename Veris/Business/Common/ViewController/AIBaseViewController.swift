@@ -61,7 +61,7 @@ class AIBaseViewController: UIViewController {
 
     func makeBackgroundView() {
         let backgroundView = UIImageView(frame: self.view.bounds)
-        backgroundView.image = UIImage(named: "effectBgView")
+        backgroundView.image = UIImage(named: "Job_Background")
         self.view.addSubview(backgroundView)
     }
 
@@ -108,9 +108,13 @@ class AIBaseViewController: UIViewController {
         button.frame = CGRect(x: 0, y: 0, width: 80, height: height)
         button.setImage(image, forState: .Normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 60)
-        button.addTarget(self, action: #selector(UIViewController.dismiss), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(clickBackAction), forControlEvents: .TouchUpInside)
 
         return button
+    }
+
+    func clickBackAction() {
+        self.dismiss()
     }
 
 }
