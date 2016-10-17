@@ -97,7 +97,6 @@ internal class UICustomsTags: SpringView {
 		currentTagState = model
 		updateStateLayout(model)
 		self.delegateNew?.changeTagState(self.currentTagState, viewModel: self.selfModel!)
-		
 	}
 	
 	/**
@@ -117,7 +116,6 @@ internal class UICustomsTags: SpringView {
 				strongSelf.delegateNew?.changeTagState(strongSelf.currentTagState, viewModel: strongSelf.selfModel!)
 			}
 		}
-		
 	}
 	
 	/// 通用函数
@@ -134,12 +132,22 @@ internal class UICustomsTags: SpringView {
 				if let strongSelf = self {
 					strongSelf.updateStateLayout(strongSelf.currentTagState)
 					block()
+                    
+                    
 					// 修改model 数据
 					if strongSelf.selfModel?.selected_flag == 0 {
 						strongSelf.selfModel?.selected_flag = 1
 					} else {
 						strongSelf.selfModel?.selected_flag = 0
 					}
+                    
+                    
+                    //send change button state observer.
+                    let dict = ["label_id": model.label_id, "newState": strongSelf.selfModel?.selected_flag ?? 0]
+                    NSNotificationCenter.defaultCenter().postNotificationName("referCustomDataStuctNOTIFY", object: nil, userInfo: dict)
+                    
+                    
+                    
 				}
 				
 				}, fail: { (errorView, error) -> Void in

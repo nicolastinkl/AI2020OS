@@ -46,6 +46,7 @@ class AIProductInfoViewController: UIViewController {
 	
 	private let topImage = AIImageView()
     var sid: Int = 0
+    var proposal_id: Int = 0 //服务定制
     private var dataModel: AIProdcutinfoModel?
 	
     private var currentAudioView: AIAudioInputView?
@@ -53,7 +54,9 @@ class AIProductInfoViewController: UIViewController {
     var curTextField: UITextField?
     private var singleButton: DesignableButton?
     var curAudioView: AIAudioMessageView?
+    
     // 缓存输入信息
+    var customNoteModelCache: AIProductInfoCustomerNote?
     private var inputMessageCache: String = ""
     var serviceContentType: AIServiceContentType = .None
     private var audioView_AudioRecordView: AIAudioRecordView?
@@ -78,13 +81,13 @@ class AIProductInfoViewController: UIViewController {
         }
     }
     
-    
     // MARK: - Init Function
 	/**
 	 Init
 	 */
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
 		// Add ContentOffSet Listen.
 		configureObserver()
 		
@@ -97,11 +100,19 @@ class AIProductInfoViewController: UIViewController {
         // add addKeyboardNotifications
         addKeyboardNotifications()
         
+        // add Notify
+        addNotifyListen()
+        
 		// Make UIScrollView.
 		Async.main(after: 0.1) {
             self.requestData()			
 		}
 	}
+    
+    func addNotifyListen() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AIProductInfoViewController.referCustomDataStuct(_:)), name: "referCustomDataStuctNOTIFY", object: nil)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         IQKeyboardManager.sharedManager().enable = false
@@ -245,6 +256,7 @@ class AIProductInfoViewController: UIViewController {
             if let model = response as? AIProdcutinfoModel {
                 self.view.hideErrorView()
                 self.dataModel = model
+                self.customNoteModelCache = model.customer_note
                 self.initScrollViewData()
             } else {
                 self.view.showErrorView()
@@ -595,7 +607,7 @@ class AIProductInfoViewController: UIViewController {
 			tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
 			
 			tag.setTitle("自由定制", forState: UIControlState.Normal)
-            tag.addTarget(self, action: #selector(AIProductInfoViewController.showDetailView(_:)), forControlEvents: UIControlEvents.TouchDown)
+            tag.addTarget(self, action: #selector(AIProductInfoViewController.showDiyCustomView(_:)), forControlEvents: UIControlEvents.TouchDown)
 			tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Highlighted)
 			tag.layer.masksToBounds = true
 			let lineView = UIView()
@@ -812,12 +824,35 @@ class AIProductInfoViewController: UIViewController {
     
     }
     
-    
     @IBAction func targetProInfoAction(any: AnyObject) {
         showTransitionStyleCrossDissolveView(AIProductProviderViewControler.initFromNib())
     }
     
-
+    // 刷新数据结构
+    func referCustomDataStuct (notify: NSNotification) {
+        if let model = customNoteModelCache {
+            if let dict = notify.userInfo {
+                let label_id = dict["label_id"] as? Int ?? 0
+                let newState = dict["newState"] as? Int ?? 0
+                // update cache
+                var newModel = AIProductInfoTagListModel()
+                var newArray = model.tag_list?.filter({ (childModel) -> Bool in
+                    if let cid = childModel.instance_id {
+                        if cid == label_id {
+                            //处理状态
+                            newModel = childModel                            
+                            newModel.is_chosen = newState
+                            return false
+                        }
+                    }
+                    return true
+                })
+                newArray?.append(newModel)
+                customNoteModelCache?.tag_list = newArray
+            }
+        }
+    }
+    
     private func addCustomView(preView: UIView) -> UIView? {
         
         var viw: UIView = preView
@@ -966,6 +1001,15 @@ class AIProductInfoViewController: UIViewController {
     }
     
     // MARK: - DIY ACTION
+    func showDiyCustomView(sender: AnyObject) {
+        let model = AIBuyerBubbleModel()
+        model.proposal_id = proposal_id//dataModel?.proposal_inst_id ?? 0//dataModel?.proposal_inst_id ?? 0
+        model.proposal_name = dataModel?.name ?? ""
+        let viewsss = createBuyerDetailViewController(model)
+        viewsss.customNoteModel = dataModel?.customer_note
+        showTransitionStyleCrossDissolveView(viewsss)
+    }
+    
     func showDetailView(sender: AnyObject) {
         let model = AIBuyerBubbleModel()
         model.proposal_id = dataModel?.proposal_inst_id ?? 0
@@ -985,6 +1029,7 @@ class AIProductInfoViewController: UIViewController {
         return viewController
     }
     
+
     //跳转订单确认界面
     func configOrderAction() {
         
@@ -994,7 +1039,8 @@ class AIProductInfoViewController: UIViewController {
         //pakcage id in selectedPID.
         if let vc = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIConfirmOrderViewController) as? AIConfirmOrderViewController {
             vc.dataSource  = model
-            vc.customNoteModel = dataModel?.customer_note
+            //cache 部分tags
+            vc.customNoteModel = customNoteModelCache//dataModel?.customer_note
             showTransitionStyleCrossDissolveView(vc)
         }
     }

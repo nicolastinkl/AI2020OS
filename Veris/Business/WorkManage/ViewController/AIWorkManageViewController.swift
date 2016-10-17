@@ -212,7 +212,6 @@ extension AIWorkManageViewController: UIScrollViewDelegate {
             bar?.alpha = 1
         }
     }
-
 }
 
 extension AIWorkManageViewController: UITableViewDelegate {

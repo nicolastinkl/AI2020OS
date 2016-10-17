@@ -64,7 +64,7 @@ class AIBuyerDetailViewController: UIViewController {
 	// MARK: Assistant
 	var isLaunchForAssistant: Bool = false
 	var roomNumber: String?
-	
+    
 	// MARK: swift controls
 	
 	@IBOutlet weak var bgLabel: DesignableLabel!
@@ -110,7 +110,7 @@ class AIBuyerDetailViewController: UIViewController {
 		get {
 			guard dataSource?.service_list == nil else {
 				let result = dataSource?.service_list.filter () {
-					return ($0 as! AIProposalServiceModel).service_del_flag == ServiceDeletedStatus.NotDeleted.rawValue
+					return ($0 as! AIProposalServiceModel).service_del_flag == ServiceDeletedStatus.NotDeleted.rawValue && ($0 as! AIProposalServiceModel).disableFlag == 0
 				}
 				return result
 			}
@@ -623,41 +623,56 @@ class AIBuyerDetailViewController: UIViewController {
 	// MARK: - 删除service
 	
 	func logoMoveToServiceRestoreToolBar(logo: UIImageView, completion: (() -> Void)?) {
-		let window = UIApplication.sharedApplication().keyWindow
-		let fromFrameOnWindow = logo.convertRect(logo.bounds, toView: window)
 		
-		let index = min(deleted_service_list.count - 1, 5)
-		let toolbarFrameOnWindow = serviceRestoreToolbar.convertRect(serviceRestoreToolbar.bounds, toView: window)
-		// FIXME: Variable 'toFrameX' was written to, but never read
-		var toFrameX: CGFloat = 0
-		
-		if index < 3 {
-			toFrameX = serviceRestoreToolbar.LOGO_SPACE + (serviceRestoreToolbar.LOGO_WIDTH + serviceRestoreToolbar.LOGO_SPACE) * CGFloat(index)
-		} else {
-			toFrameX = CGRectGetWidth(toolbarFrameOnWindow) - (serviceRestoreToolbar.LOGO_SPACE + (serviceRestoreToolbar.LOGO_WIDTH + serviceRestoreToolbar.LOGO_SPACE) * CGFloat(5 - index)) - serviceRestoreToolbar.LOGO_WIDTH
-		}
-		
-		let toFrameOnWindow = CGRectMake(CGRectGetMinX(toolbarFrameOnWindow) + toFrameX, CGRectGetMinY(toolbarFrameOnWindow) + (CGRectGetHeight(toolbarFrameOnWindow) - serviceRestoreToolbar.LOGO_WIDTH) / 2, serviceRestoreToolbar.LOGO_WIDTH, serviceRestoreToolbar.LOGO_WIDTH)
-		
-		let fakeLogo = UIImageView(image: logo.image)
-		fakeLogo.frame = fromFrameOnWindow
-		
-		window?.addSubview(fakeLogo)
-		let duration = 0.75
-		UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-		UIView.animateWithDuration(duration, animations: { () -> Void in
-			fakeLogo.frame = toFrameOnWindow
-		}) { (success) -> Void in
-			if let c = completion {
-				c()
-				// 0.01 to fix logo blink issue
-				dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((0.01) * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
-					fakeLogo.removeFromSuperview()
-					UIApplication.sharedApplication().endIgnoringInteractionEvents()
-				})
-				
-			}
-		}
+        // 添加删除网络请求
+        
+        let index = min(deleted_service_list.count - 1, 5)
+        let sigleModel  = dataSource.service_list[index] as! AIProposalServiceModel
+        
+        func tagetAction() {
+            
+            let window = UIApplication.sharedApplication().keyWindow
+            let fromFrameOnWindow = logo.convertRect(logo.bounds, toView: window)
+            
+            
+            let toolbarFrameOnWindow = serviceRestoreToolbar.convertRect(serviceRestoreToolbar.bounds, toView: window)
+            // FIXME: Variable 'toFrameX' was written to, but never read
+            var toFrameX: CGFloat = 0
+            
+            if index < 3 {
+                toFrameX = serviceRestoreToolbar.LOGO_SPACE + (serviceRestoreToolbar.LOGO_WIDTH + serviceRestoreToolbar.LOGO_SPACE) * CGFloat(index)
+            } else {
+                toFrameX = CGRectGetWidth(toolbarFrameOnWindow) - (serviceRestoreToolbar.LOGO_SPACE + (serviceRestoreToolbar.LOGO_WIDTH + serviceRestoreToolbar.LOGO_SPACE) * CGFloat(5 - index)) - serviceRestoreToolbar.LOGO_WIDTH
+            }
+            
+            let toFrameOnWindow = CGRectMake(CGRectGetMinX(toolbarFrameOnWindow) + toFrameX, CGRectGetMinY(toolbarFrameOnWindow) + (CGRectGetHeight(toolbarFrameOnWindow) - serviceRestoreToolbar.LOGO_WIDTH) / 2, serviceRestoreToolbar.LOGO_WIDTH, serviceRestoreToolbar.LOGO_WIDTH)
+            
+            let fakeLogo = UIImageView(image: logo.image)
+            fakeLogo.frame = fromFrameOnWindow
+            
+            window?.addSubview(fakeLogo)
+            let duration = 0.75
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            UIView.animateWithDuration(duration, animations: { () -> Void in
+                fakeLogo.frame = toFrameOnWindow
+            }) { (success) -> Void in
+                if let c = completion {
+                    c()
+                    // 0.01 to fix logo blink issue
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((0.01) * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
+                        fakeLogo.removeFromSuperview()
+                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    })
+                }
+            }
+        }
+        AIProductExeService().removeOrAddServiceFromDIYService(sigleModel.proposalItemId, deleteOrAdd: 1, success: { (response) in
+            tagetAction()
+        }) { (errType, errDes) in
+            AIAlertView().showError("提示", subTitle: "网络请求失败")
+        }
+        
+        
 	}
 	
 	@IBAction func closeThisViewController() {
@@ -732,45 +747,72 @@ class AIBuyerDetailViewController: UIViewController {
 		}
 	}
 	
+    //恢复服务
 	func restoreService(model: AIProposalServiceModel) {
-		let indexInDeletedTableView = deleted_service_list.indexOfObject(model)
-		model.service_del_flag = ServiceDeletedStatus.NotDeleted.rawValue
-		deleted_service_list.removeObject(model)
-		let afterArray = current_service_list
-		let index = (afterArray as! [AIProposalServiceModel]).indexOf(model)
-		
-		serviceRestoreToolbar.removeLogoAt(indexInDeletedTableView)
         
-        // 分析
-        AIAnalytics.event(.AddServiceOptInfo, attributes: [
-            .OfferingId: dataSource.proposal_id,
-            .ServiceId: model.service_id
-            ])
+        let index = min(deleted_service_list.count - 1, 5)
+        let sigleModel  = dataSource.service_list[index] as! AIProposalServiceModel
+        
+        func tagetAction() {
+            let indexInDeletedTableView = deleted_service_list.indexOfObject(model)
+            model.service_del_flag = ServiceDeletedStatus.NotDeleted.rawValue
+            deleted_service_list.removeObject(model)
+            let afterArray = current_service_list
+            let index = (afterArray as! [AIProposalServiceModel]).indexOf(model)
+            
+            serviceRestoreToolbar.removeLogoAt(indexInDeletedTableView)
+            
+            // 分析
+            AIAnalytics.event(.AddServiceOptInfo, attributes: [
+                .OfferingId: dataSource.proposal_id,
+                .ServiceId: model.service_id
+                ])
+            
+            // 处理小设置按钮添加移除状态
+            if let list = current_service_list as? [AIProposalServiceModel] {
+                self.menuLightView?.refershDeleteMedelView(list)
+            }
+            
+            if isDeletedTableViewOpen {
+                deletedTableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: indexInDeletedTableView, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
+                UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+                // 0.3s 以下的时间都会引起 下面删除了cell 上面不显示cell的问题，，因为使用了cell的缓存机制
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
+                    self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: index!, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    if self.deleted_service_list.count == 0 {
+                        self.closeDeletedTableView(true)
+                    } else {
+                        self.deletedTableViewOpen(self.isDeletedTableViewOpen, animated: true)
+                    }
+                })
+            } else {
+                deletedTableView.reloadData()
+                self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: index!, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
+            }
+        }
+        
+        AIProductExeService().removeOrAddServiceFromDIYService(sigleModel.proposalItemId, deleteOrAdd: 0, success: { (response) in
+            tagetAction()
+        }) { (errType, errDes) in
+            AIAlertView().showError("提示", subTitle: "网络请求失败")
+        }
+        
+        
 		
-		// 处理小设置按钮添加移除状态
-		if let list = current_service_list as? [AIProposalServiceModel] {
-			self.menuLightView?.refershDeleteMedelView(list)
-		}
-		
-		if isDeletedTableViewOpen {
-			deletedTableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: indexInDeletedTableView, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
-			UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-			// 0.3s 以下的时间都会引起 下面删除了cell 上面不显示cell的问题，，因为使用了cell的缓存机制
-			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
-				self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: index!, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
-				UIApplication.sharedApplication().endIgnoringInteractionEvents()
-				if self.deleted_service_list.count == 0 {
-					self.closeDeletedTableView(true)
-				} else {
-					self.deletedTableViewOpen(self.isDeletedTableViewOpen, animated: true)
-				}
-			})
-		} else {
-			deletedTableView.reloadData()
-			self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: index!, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
-		}
 	}
 	
+    func reloadAllLogos() {
+        // setup
+//        deleted_service_list = something
+        
+        serviceRestoreToolbar.serviceModels = deleted_service_list
+        serviceRestoreToolbar.reloadAllLogos()
+        tableView.reloadData()
+        deletedTableView.reloadData()
+    }
+    
+    
 	func initData() {
 		self.tableView.hideErrorView()
 		if let m = bubbleModel {
@@ -798,6 +840,16 @@ class AIBuyerDetailViewController: UIViewController {
 					viewController.serviceRestoreToolbar.removeAllLogos()
 					viewController.dataSource = responseData
 					
+                    //delete data 
+                    
+                    _ = responseData.service_list.filter({ (obj) -> Bool in
+                        if  (obj as! AIProposalServiceModel).disableFlag == 1 {
+                            viewController.deleted_service_list.addObject(obj)
+                        }
+                        
+                        return false
+                    })
+                    
 					// initControl Data
 					// viewController.initProderView()
 					viewController.initController()

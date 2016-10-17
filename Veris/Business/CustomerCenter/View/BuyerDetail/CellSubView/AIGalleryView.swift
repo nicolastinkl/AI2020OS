@@ -72,7 +72,7 @@ internal class AIGalleryView: UIView, UIScrollViewDelegate {
         super.init(frame: frame)
         self.userInteractionEnabled = true
         initPageControl()
-        initPageControl()
+        initPageScrollView()
         self.addSubview(pageScrollView)
         pageScrollView.frame = frame
 

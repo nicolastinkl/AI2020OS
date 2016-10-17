@@ -104,20 +104,35 @@ class ServiceRestoreToolBar: UIView {
 
 		super.updateConstraints()
 	}
+    
+    func reloadAllLogos() {
+        removeAllLogos()
+        for model in serviceModels! {
+            addLogo(model as! AIProposalServiceModel)
+        }
+    }
+    
+    func addLogo(model: AIProposalServiceModel) {
+        if let imageURL = model.service_thumbnail_icon {
+            let logo = UIImageView()
+            logo.userInteractionEnabled = true
+            logo.layer.cornerRadius = LOGO_WIDTH / 2
+            logo.clipsToBounds = true
+            logo.asyncLoadImage(imageURL)
+            let tap = UITapGestureRecognizer(target: self, action: #selector(ServiceRestoreToolBar.logoTapped(_:)))
+            logo.addGestureRecognizer(tap)
+            logos.append(logo)
+            addSubview(logo)
+            
+            setNeedsUpdateConstraints()
+            updateConstraintsIfNeeded()
+            layoutIfNeeded()
+        }
+    }
 
 	func appendLogoAtLast() {
 		if let model = serviceModels?.lastObject {
-			if let imageURL = model.service_thumbnail_icon {
-				let logo = UIImageView()
-				logo.userInteractionEnabled = true
-				logo.layer.cornerRadius = LOGO_WIDTH / 2
-				logo.clipsToBounds = true
-				logo.asyncLoadImage(imageURL)
-				let tap = UITapGestureRecognizer(target: self, action: #selector(ServiceRestoreToolBar.logoTapped(_:)))
-				logo.addGestureRecognizer(tap)
-				logos.append(logo)
-				addSubview(logo)
-			}
+            addLogo(model as! AIProposalServiceModel)
 		}
 		setNeedsUpdateConstraints()
 		updateConstraintsIfNeeded()

@@ -179,6 +179,7 @@ class AIConfirmOrderViewController: UIViewController {
             if wish.label_list != nil || (wish.hope_list != nil) {
                 if wish.hope_list.count > 0 || wish.label_list.count > 0 {
                     let custView = AICustomView.currentView()
+                    custView.userInteractionEnabled = false  //处理订单界面不可点击标签处理
                     let heisss = 200 + wish.label_list.count * 16
                     custView.setHeight(CGFloat(heisss))
                     //addNewSubView(custView, preView: viw)
