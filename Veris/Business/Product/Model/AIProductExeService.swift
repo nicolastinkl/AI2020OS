@@ -9,6 +9,7 @@
 import Foundation
 
 class AIProductExeService: NSObject {
+    
     func removeOrAddServiceFromDIYService(service_id: Int, deleteOrAdd: Int, success: (Bool) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         // delete 1 ,   add 0
@@ -22,6 +23,6 @@ class AIProductExeService: NSObject {
             fail(errType: error, errDes: errorDes ?? "")
         }
         
-        
     }
+    
 }
