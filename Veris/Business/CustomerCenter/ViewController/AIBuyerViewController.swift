@@ -469,7 +469,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
 
             // 处理detailViewController
             let detailViewController = createBuyerDetailViewController(model)
-
+            
             detailViewController.view.alpha = 0
             let detailScale: CGFloat = bubble.radius * 2 / CGRectGetWidth(self.view.frame)
             
@@ -506,6 +506,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
         if model.proposal_type == 1 { // shoucang
             let pvc = AIProductInfoViewController.initFromNib()
             pvc.sid = model.service_id ?? 0
+            pvc.proposal_id = model.proposal_id ?? 0
             vc = pvc
         } else if model.proposal_type == 2 { // tuijian
         } else if model.proposal_type == 3 { // wish
@@ -525,7 +526,7 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
             wvc.model = newModel
             vc = wvc
         }
-
+        
         vc.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         vc.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
 
@@ -535,7 +536,6 @@ class AIBuyerViewController: UIViewController, UITableViewDataSource, UITableVie
     class func createBuyerDetailViewController() -> AIBuyerDetailViewController {
 
         let viewController = UIStoryboard(name: AIApplication.MainStoryboard.MainStoryboardIdentifiers.UIBuyerStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIBuyerDetailViewController) as! AIBuyerDetailViewController
-
         viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         viewController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
 

@@ -140,7 +140,7 @@ struct AIProductInfoTagListModel: JSONJoy {
     var chosen_times: Int?
     var create_time: String?
     var is_chosen: Int?
-    
+    init() {}
     init(_ decoder: JSONDecoder) {
         instance_id = decoder["instance_id"].integer ?? 0
         tag_id = decoder["tag_id"].integer ?? 0

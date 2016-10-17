@@ -32,7 +32,6 @@ class AIProductProviderViewControler: UIViewController {
             })
             navi.titleLabel.text = ""
             navi.videoButton.setTitle("关注", forState: UIControlState.Normal)
-            
         }
      
         Async.main(after: 0.1) { 
@@ -129,8 +128,6 @@ class AIProductProviderViewControler: UIViewController {
         }
         */
         addNewSubView(bubbleViewContain, preView: pLabel44)
-        
-        
     }
     
     
