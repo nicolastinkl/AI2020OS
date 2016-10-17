@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf3-iD-1ya">
+                    <color key="backgroundColor" red="0.90588235294117647" green="0.92156862745098034" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="work_upload_album" translatesAutoresizingMaskIntoConstraints="NO" id="ti6-HK-5Su">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="F9C-c6-duv"/>
+                        <constraint firstAttribute="width" constant="34" id="QNR-AK-yps"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSD-is-i2R" userLabel="lineView">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="5h7-Pv-QdZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ti6-HK-5Su" firstAttribute="trailing" secondItem="Kf3-iD-1ya" secondAttribute="trailing" id="789-oa-WWl"/>
+                <constraint firstItem="Kf3-iD-1ya" firstAttribute="top" secondItem="uSD-is-i2R" secondAttribute="bottom" constant="-1" id="BWN-2D-8RP"/>
+                <constraint firstAttribute="bottom" secondItem="Kf3-iD-1ya" secondAttribute="bottom" id="IrR-uo-BV5"/>
+                <constraint firstItem="Kf3-iD-1ya" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="41" id="QfU-MV-dKb"/>
+                <constraint firstItem="uSD-is-i2R" firstAttribute="top" secondItem="ti6-HK-5Su" secondAttribute="bottom" id="WG1-n4-HPk"/>
+                <constraint firstItem="uSD-is-i2R" firstAttribute="centerX" secondItem="ti6-HK-5Su" secondAttribute="centerX" id="YWU-ti-zZR"/>
+                <constraint firstAttribute="trailing" secondItem="Kf3-iD-1ya" secondAttribute="trailing" constant="49" id="oRy-eC-xQ3"/>
+                <constraint firstItem="Kf3-iD-1ya" firstAttribute="top" secondItem="ti6-HK-5Su" secondAttribute="bottom" constant="37" id="pDA-BL-nWP"/>
+                <constraint firstItem="ti6-HK-5Su" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="39" id="sm2-Or-zaB"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-71.5" y="84"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="work_upload_album" width="414" height="10"/>
+    </resources>
+</document>

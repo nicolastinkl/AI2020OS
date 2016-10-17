@@ -62,6 +62,7 @@ class AIWorkQualificationView: UIView {
         uploadTimeLabel.font = UPLOAD_TIME_LABEL_FONT
         uploadTimeLabel.textColor = UPLOAD_TIME_LABEL_COLOR
         imageTitleLabel.font = IMAGE_TITLE_LABEL_FONT
+        uploadTimeLabel.hidden = true
     }
     
     private func buildScrollDotView() {
@@ -108,8 +109,10 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
             itemView.contentMode = .ScaleAspectFit
             itemView.sd_setImageWithURL(NSURL(string: qualicationModel.aspect_photo)!, placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
             //样本图片标志
-            //var labelFrame = itemView.bounds
-            label = UILabel(frame:itemView.bounds)
+            var labelFrame = itemView.bounds
+            labelFrame.origin.x += 100
+            labelFrame.origin.y += 100
+            label = UILabel(frame:labelFrame)
             label.backgroundColor = UIColor.clearColor()
             label.textAlignment = .Center
             label.font = SAMPLE_TEXT_FONT
@@ -166,6 +169,14 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
         if carousel.currentItemIndex != -1 && qualificationsModel.count > 0 {
             let qualicationModel = qualificationsModel[carousel.currentItemIndex]
             imageTitleLabel.text = "\(qualicationModel.type_name)"
+            //判断是否上传
+            if qualicationModel.uploaded == "1" {
+                uploadTimeLabel.hidden = false
+                uploadTimeLabel.text = "上传于 \(qualicationModel.upload_date)"
+            } else {
+                uploadTimeLabel.hidden = true
+            }
+            //轮播dot
             for (index, subView) in cachedDotViewArray.enumerate() {
                 
                 if index == carousel.currentItemIndex {
