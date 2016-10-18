@@ -39,11 +39,24 @@ class AIWorkInfoViewController: UIViewController {
         }
     }
     var viewModel: AIWorkOpportunityDetailViewModel?
-    //MARK: -> Constants
-
+    //保存全局的条款是否checkbox是否勾选
+    var isAcceptTerm: Bool = false
     
+    //MARK: -> Constants
+    static let title1IconOff = UIImage(named: "work_1_off")
+    static let title1IconOn = UIImage(named: "work_1_on")
+    static let title2IconOff = UIImage(named: "work_2_off")
+    static let title2IconOn = UIImage(named: "work_2_on")
+    
+    //MARK: -> IBAction
     @IBAction func commitAction(sender: UIButton) {
-        switchTabsTo(2)
+        if curStep == 1{
+            //这里还有一个逻辑，当checkbox选中才能点下一步
+            switchTabsTo(2)
+        } else {
+            subscribeWork()
+        }
+        
     }
     
     @IBAction func stepOneAction(sender: AnyObject) {
@@ -55,10 +68,7 @@ class AIWorkInfoViewController: UIViewController {
     }
     
     
-    static let title1IconOff = UIImage(named: "work_1_off")
-    static let title1IconOn = UIImage(named: "work_1_on")
-    static let title2IconOff = UIImage(named: "work_2_off")
-    static let title2IconOn = UIImage(named: "work_2_on")
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +90,7 @@ class AIWorkInfoViewController: UIViewController {
         makeNavigationItem()
         buildPopupView()
         qualificationView.delegate = self
+        jobDesContainerView.delegate = self
     }
     
     private func buildPopupView() {
@@ -130,6 +141,7 @@ class AIWorkInfoViewController: UIViewController {
             jobDesContainerView.hidden = false
             qualificationView.hidden = true
             commitButton.setTitle("Next", forState: UIControlState.Normal)
+            commitButton.enabled = isAcceptTerm
         } else {
             curStep = 2
             title1Icon.image = AIWorkInfoViewController.title1IconOff
@@ -143,12 +155,20 @@ class AIWorkInfoViewController: UIViewController {
     }
     
     func makeNavigationItem() {
-        
         setupNavigationBarLikeLogin(title: "Hospital Chaperone", needCloseButton: false)
+    }
+    
+    func subscribeWork() {
+        let requestHandler = AIWorkManageRequestHandler.sharedInstance
+        requestHandler.subscribeWorkOpportunity(in_workId!, success: { (resultCode) in
+            AIAlertView().showError("订阅成功", subTitle: self.viewModel!.opportunityBusiModel!.work_name)
+            }) { (errType, errDes) in
+                AIAlertView().showError("订阅失败", subTitle: errDes)
+        }
     }
 }
 
-extension AIWorkInfoViewController: AIWorkQualificationViewDelegate {
+extension AIWorkInfoViewController: AIWorkQualificationViewDelegate, AIWorkDetailViewDelegate {
     func uploadAction(carousel: iCarousel, qualificationBusiModel: AIWorkQualificationBusiModel) {
         //把弹出view放到最上面
         view.bringSubviewToFront(uploadPopView)
@@ -159,4 +179,8 @@ extension AIWorkInfoViewController: AIWorkQualificationViewDelegate {
         }
     }
     
+    func acceptTerm(isAccept: Bool) {
+        commitButton.enabled = isAccept
+        isAcceptTerm = isAccept
+    }
 }

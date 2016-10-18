@@ -172,7 +172,9 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
         weak var weakSelf = self
         timelineTableView.addHeaderWithCallback { 
             () -> Void in
-            weakSelf?.refreshTimelineData()
+            //mode by liux at 1018 需要刷新整个页面
+            //weakSelf?.refreshTimelineData()
+            weakSelf?.loadData()
         }
         timelineTableView.addHeaderRefreshEndCallback { 
             () -> Void in
