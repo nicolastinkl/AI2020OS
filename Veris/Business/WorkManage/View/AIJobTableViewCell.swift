@@ -102,7 +102,6 @@ class AIJobTableViewCell: UITableViewCell {
         let frame = CGRect(x: 0, y: 0, width: contentWidth, height: topViewHeight)
         topView = UIView(frame: frame)
         topView.backgroundColor = UIColor(white: 0.1, alpha: 0.15)
-        makeGradientColorForTopView()
 
         self.contentView.addSubview(topView)
 
