@@ -23,11 +23,10 @@ class AIWorkInfoViewController: UIViewController {
     @IBOutlet weak var jobDescTitleLabel: UIButton!
     @IBOutlet weak var serviceIconView: UIImageView!
     @IBOutlet weak var commitButton: UIButton!
-    @IBOutlet weak var qualificationTableView: UITableView!
     
     //extra view
     var uploadPopView: AIWorkUploadPopView!
-    let TableCellIdentifier = "AIWorkQualificationTableViewCell"
+    
     var qualificationShowMode = 1
     var curStep: Int = 1
     
@@ -81,7 +80,6 @@ class AIWorkInfoViewController: UIViewController {
         makeNavigationItem()
         buildPopupView()
         qualificationView.delegate = self
-        setupTableView()
     }
     
     private func buildPopupView() {
@@ -120,7 +118,6 @@ class AIWorkInfoViewController: UIViewController {
         jobDesContainerView.workDetailModel = viewModel
         let imageUrl = viewModel!.opportunityBusiModel!.work_thumbnail!
         serviceIconView.sd_setImageWithURL(NSURL(string: imageUrl), placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
-        qualificationTableView.reloadData()
     }
 
     func switchTabsTo(step: Int) {
@@ -132,7 +129,6 @@ class AIWorkInfoViewController: UIViewController {
             Qualification.selected = false
             jobDesContainerView.hidden = false
             qualificationView.hidden = true
-            qualificationTableView.hidden = true
             commitButton.setTitle("Next", forState: UIControlState.Normal)
         } else {
             curStep = 2
@@ -142,7 +138,6 @@ class AIWorkInfoViewController: UIViewController {
             Qualification.selected = true
             jobDesContainerView.hidden = true
             qualificationView.hidden = false
-            qualificationTableView.hidden = true
             commitButton.setTitle("Subscribe", forState: UIControlState.Normal)
         }
     }
@@ -164,32 +159,4 @@ extension AIWorkInfoViewController: AIWorkQualificationViewDelegate {
         }
     }
     
-    func switchQualificationViewAction() {
-        qualificationTableView.hidden = !qualificationTableView.hidden
-        qualificationView.hidden = !qualificationView.hidden
-    }
-}
-
-extension AIWorkInfoViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func setupTableView() {
-        qualificationTableView.registerNib(UINib(nibName: TableCellIdentifier, bundle: nil), forCellReuseIdentifier: TableCellIdentifier)
-        qualificationTableView.delegate = self
-        qualificationTableView.dataSource = self
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(TableCellIdentifier, forIndexPath: indexPath) as! AIWorkQualificationTableViewCell
-        let qualificationModel: AIWorkQualificationBusiModel = viewModel!.qualificationsBusiModel!.work_qualifications[indexPath.row] as! AIWorkQualificationBusiModel
-        cell.viewModel = qualificationModel
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel,
-            qualificationsBusiModel = viewModel.qualificationsBusiModel else {
-                return 0
-        }
-        return qualificationsBusiModel.work_qualifications.count
-    }
 }
