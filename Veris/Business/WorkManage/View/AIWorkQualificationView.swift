@@ -11,6 +11,8 @@ import iCarousel
 
 class AIWorkQualificationView: UIView {
     
+    
+    @IBOutlet weak var qualificationContainerView: UIView!
     @IBOutlet weak var topTitleLabel: UILabel!
     @IBOutlet weak var switchButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
@@ -18,6 +20,9 @@ class AIWorkQualificationView: UIView {
     @IBOutlet weak var imageTitleLabel: UILabel!
     @IBOutlet weak var scrollDotView: UIView!
     @IBOutlet weak var uploadTimeLabel: UILabel!
+    @IBOutlet weak var qualificationTableView: UITableView!
+    
+    let TableCellIdentifier = "AIWorkQualificationTableViewCell"
     
     var qualificationsModel: [AIWorkQualificationBusiModel] = [AIWorkQualificationBusiModel]()
     var cachedCellViewDic = [String: UIView]()
@@ -43,9 +48,8 @@ class AIWorkQualificationView: UIView {
     }
     
     @IBAction func switchAction(sender: UIButton) {
-        if let delegate = delegate {
-            delegate.switchQualificationViewAction()
-        }
+        qualificationContainerView.hidden = !qualificationContainerView.hidden
+        qualificationTableView.hidden = !qualificationTableView.hidden
     }
     
     //MARK: -> Constants
@@ -80,6 +84,8 @@ class AIWorkQualificationView: UIView {
         uploadTimeLabel.textColor = UPLOAD_TIME_LABEL_COLOR
         imageTitleLabel.font = IMAGE_TITLE_LABEL_FONT
         uploadTimeLabel.hidden = true
+        
+        setupTableView()
     }
     
     private func buildScrollDotView() {
@@ -106,6 +112,7 @@ class AIWorkQualificationView: UIView {
         cachedCellViewDic.removeAll()
         carousel.reloadData()
         buildScrollDotView()
+        qualificationTableView.reloadData()
     }
 }
 
@@ -208,6 +215,31 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
     }
 }
 
+extension AIWorkQualificationView: UITableViewDelegate, UITableViewDataSource {
+    
+    func setupTableView() {
+        qualificationTableView.registerNib(UINib(nibName: TableCellIdentifier, bundle: nil), forCellReuseIdentifier: TableCellIdentifier)
+        qualificationTableView.delegate = self
+        qualificationTableView.dataSource = self
+        qualificationTableView.rowHeight = 120
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(TableCellIdentifier, forIndexPath: indexPath) as! AIWorkQualificationTableViewCell
+        let qualificationModel: AIWorkQualificationBusiModel = viewModel!.qualificationsBusiModel!.work_qualifications[indexPath.row] as! AIWorkQualificationBusiModel
+        cell.viewModel = qualificationModel
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let viewModel = viewModel,
+            qualificationsBusiModel = viewModel.qualificationsBusiModel else {
+                return 0
+        }
+        return qualificationsBusiModel.work_qualifications.count
+    }
+}
+
 extension UIButton {
     func setRoundBorder() {
         self.layer.borderColor = UIColor.whiteColor().CGColor
@@ -227,5 +259,4 @@ extension UIButton {
 
 protocol AIWorkQualificationViewDelegate {
     func uploadAction(carousel: iCarousel, qualificationBusiModel: AIWorkQualificationBusiModel)
-    func switchQualificationViewAction()
 }

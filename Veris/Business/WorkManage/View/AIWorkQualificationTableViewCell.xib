@@ -35,6 +35,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="VRl-y7-1sb" secondAttribute="trailing" id="3PU-S2-i4d"/>
                     <constraint firstAttribute="bottom" secondItem="VRl-y7-1sb" secondAttribute="bottom" id="GC1-9x-kFm"/>
@@ -42,6 +43,7 @@
                     <constraint firstItem="VRl-y7-1sb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oAS-Dc-Qfv"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="qualificationImageView" destination="EHl-3U-AtP" id="jcb-bZ-zKI"/>
                 <outlet property="qualificationLabel" destination="nkw-MR-Nlx" id="dL5-GQ-npm"/>
