@@ -30,9 +30,7 @@ class ServiceRestoreToolBar: UIView {
 	var constraintGroups = [ConstraintGroup]()
 
 	func bgTapped(sender: UITapGestureRecognizer) {
-		if let d = delegate {
-			d.serviceRestoreToolBarDidClickBlankArea!(self)
-		}
+        delegate?.serviceRestoreToolBarDidClickBlankArea?(self)
 	}
 
 	override init(frame: CGRect) {
@@ -66,7 +64,7 @@ class ServiceRestoreToolBar: UIView {
 			} else {
 				index = logos.indexOf(g.view as! UIImageView)!
 			}
-			d.serviceRestoreToolBar!(self, didClickLogoAtIndex: index)
+			d.serviceRestoreToolBar?(self, didClickLogoAtIndex: index)
 		}
 	}
 
