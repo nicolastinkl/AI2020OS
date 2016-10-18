@@ -36,6 +36,9 @@
 		12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */; };
 		12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */; };
 		12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */; };
+		12CBF2181DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CBF2161DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.xib */; };
+		12CBF2191DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CBF2171DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.swift */; };
+		12CBF21B1DB5BE5B00600BE7 /* AIWorkUploadPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CBF21A1DB5BE5B00600BE7 /* AIWorkUploadPopView.swift */; };
 		12D7649B1D0D469A002B001B /* AIRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764961D0D469A002B001B /* AIRegistViewController.swift */; };
 		12D7649C1D0D469A002B001B /* AIValidateRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */; };
 		12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764981D0D469A002B001B /* AISelectRegionViewController.swift */; };
@@ -890,6 +893,9 @@
 		12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChangePasswordViewController.swift; sourceTree = "<group>"; };
 		12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginUtil.swift; sourceTree = "<group>"; };
 		12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginCommonView.swift; sourceTree = "<group>"; };
+		12CBF2161DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWorkQualificationTableViewCell.xib; sourceTree = "<group>"; };
+		12CBF2171DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkQualificationTableViewCell.swift; sourceTree = "<group>"; };
+		12CBF21A1DB5BE5B00600BE7 /* AIWorkUploadPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkUploadPopView.swift; sourceTree = "<group>"; };
 		12D764961D0D469A002B001B /* AIRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRegistViewController.swift; sourceTree = "<group>"; };
 		12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIValidateRegistViewController.swift; sourceTree = "<group>"; };
 		12D764981D0D469A002B001B /* AISelectRegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectRegionViewController.swift; sourceTree = "<group>"; };
@@ -4328,6 +4334,9 @@
 		935E58CF1D5315D900252B83 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				12CBF21A1DB5BE5B00600BE7 /* AIWorkUploadPopView.swift */,
+				12CBF2161DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.xib */,
+				12CBF2171DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.swift */,
 				935E58D11D5315D900252B83 /* AIWorkDetailView.swift */,
 				935E58D21D5315D900252B83 /* AIWorkDetailView.xib */,
 				935E58D31D5315D900252B83 /* AIWorkManageHeaderView.swift */,
@@ -5016,6 +5025,7 @@
 				81433E0F1CFBE5A700347C29 /* IconLabel.xib in Resources */,
 				12DC8D951DB0B98F003117E4 /* AIWorkUploadPopView.xib in Resources */,
 				81433D4F1CFBE5A700347C29 /* AIAddressRouteView.xib in Resources */,
+				12CBF2181DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.xib in Resources */,
 				81433D3C1CFBE5A700347C29 /* AICustomAudioNotesView.xib in Resources */,
 				933BC8431D002434005E1789 /* AIWishVowViewController.xib in Resources */,
 				81433D2F1CFBE5A700347C29 /* ServiceSettingView.xib in Resources */,
@@ -5245,6 +5255,7 @@
 				1273444F1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift in Sources */,
 				81433E101CFBE5A700347C29 /* SeparatorLineLabel.swift in Sources */,
 				9352BC801D655BD5003CD476 /* AIPayInfoServices.swift in Sources */,
+				12CBF21B1DB5BE5B00600BE7 /* AIWorkUploadPopView.swift in Sources */,
 				81433E6E1CFBE5A700347C29 /* FLEXTableContentViewController.m in Sources */,
 				81433E001CFBE5A700347C29 /* AirTicketView.swift in Sources */,
 				93A9DA571D0131C000F16610 /* AICommentInfoView.swift in Sources */,
@@ -5563,6 +5574,7 @@
 				8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */,
 				81433DFD1CFBE5A700347C29 /* DependOnNodeCell.swift in Sources */,
 				81433E611CFBE5A700347C29 /* FLEXFieldEditorViewController.m in Sources */,
+				12CBF2191DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.swift in Sources */,
 				81433CE31CFBE5A700347C29 /* AIOrderManagementModels.m in Sources */,
 				81433DFC1CFBE5A700347C29 /* CustomXibView.swift in Sources */,
 				81433E3F1CFBE5A700347C29 /* AIUIDevice.swift in Sources */,

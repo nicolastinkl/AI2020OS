@@ -10,6 +10,8 @@
             <connections>
                 <outlet property="carousel" destination="89t-xG-a4h" id="lsb-jM-6d1"/>
                 <outlet property="imageTitleLabel" destination="itp-uk-hzf" id="OxP-l6-U6k"/>
+                <outlet property="qualificationContainerView" destination="Eu6-iJ-6yB" id="vKe-F2-GdL"/>
+                <outlet property="qualificationTableView" destination="8WL-Tb-7Jy" id="V3L-hF-X0W"/>
                 <outlet property="scrollDotView" destination="aG2-oi-sJ6" id="PXe-Xb-iNi"/>
                 <outlet property="switchButton" destination="kGk-xZ-ZUY" id="R32-Rz-nSW"/>
                 <outlet property="topTitleLabel" destination="Ga9-c9-6rk" id="bsb-5O-hze"/>
@@ -118,28 +120,25 @@
                         <constraint firstItem="aG2-oi-sJ6" firstAttribute="centerX" secondItem="Eu6-iJ-6yB" secondAttribute="centerX" id="zt5-cy-T6Q"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7AT-b9-A2Q" userLabel="CertifiDescContainerView">
-                    <frame key="frameInset" minY="59" width="600" height="482"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8WL-Tb-7Jy" userLabel="qualificationTableView">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="8WL-Tb-7Jy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9NP-IV-hlJ"/>
                 <constraint firstItem="6Wq-GF-R1x" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="E8K-A1-p8w"/>
+                <constraint firstAttribute="bottom" secondItem="8WL-Tb-7Jy" secondAttribute="bottom" id="GQv-0J-NsD"/>
+                <constraint firstItem="8WL-Tb-7Jy" firstAttribute="top" secondItem="Eu6-iJ-6yB" secondAttribute="top" id="Hwx-ms-xjK"/>
                 <constraint firstAttribute="trailing" secondItem="Eu6-iJ-6yB" secondAttribute="trailing" id="L8O-T0-mAe"/>
                 <constraint firstAttribute="bottom" secondItem="Eu6-iJ-6yB" secondAttribute="bottom" constant="50" id="TEW-Pd-8S9"/>
+                <constraint firstAttribute="trailing" secondItem="8WL-Tb-7Jy" secondAttribute="trailing" id="ThV-4e-uOm"/>
                 <constraint firstAttribute="trailing" secondItem="6Wq-GF-R1x" secondAttribute="trailing" id="VgH-pY-N57"/>
                 <constraint firstItem="6Wq-GF-R1x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YTV-bz-yk8"/>
                 <constraint firstItem="Eu6-iJ-6yB" firstAttribute="top" secondItem="6Wq-GF-R1x" secondAttribute="bottom" id="YkV-WP-dZZ"/>
                 <constraint firstItem="Eu6-iJ-6yB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eFN-qA-42f"/>
             </constraints>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="7AT-b9-A2Q"/>
-                </mask>
-            </variation>
-            <point key="canvasLocation" x="26.5" y="52.5"/>
+            <point key="canvasLocation" x="26" y="52"/>
         </view>
     </objects>
     <resources>
