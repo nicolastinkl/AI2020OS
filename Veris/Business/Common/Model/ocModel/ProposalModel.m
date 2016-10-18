@@ -7,7 +7,7 @@
 //
 
 #import "ProposalModel.h"
-
+#import "JSONKeyMapper.h"
 
 @implementation AIBaseModel
 
@@ -105,6 +105,17 @@
     
     return self;
 }
+
+
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{
+                                                                  @"disableFlag": @"service_del_flag"
+                                                                  }];
+}
+
+
+//key mapping: disableFlag
 
 
 @end
