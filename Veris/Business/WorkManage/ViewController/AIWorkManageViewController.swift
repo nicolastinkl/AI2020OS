@@ -104,9 +104,6 @@ class AIWorkManageViewController: AIBaseViewController {
         AINetEngine.defaultEngine().postMessage(queryMessage, success: { (response) in
             if response is [AnyObject] {
                 wf!.subcribledJobs = response as! [AnyObject]
-                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
-                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
-                wf!.subcribledJobs.appendContentsOf( wf!.subcribledJobs)
                 wf!.mainTableView.reloadData()
             }
 

@@ -63,7 +63,7 @@
 
 @interface TextDescModel : JSONModel
 
-@property (nonatomic, strong) NSString<Optional> *desc;
+@property (nonatomic, strong) NSString<Optional> *textDesc;
 
 @end
 
