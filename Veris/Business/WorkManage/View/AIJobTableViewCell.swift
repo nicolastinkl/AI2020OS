@@ -102,6 +102,7 @@ class AIJobTableViewCell: UITableViewCell {
         let frame = CGRect(x: 0, y: 0, width: contentWidth, height: topViewHeight)
         topView = UIView(frame: frame)
         topView.backgroundColor = UIColor(white: 0.1, alpha: 0.15)
+        makeGradientColorForTopView()
 
         self.contentView.addSubview(topView)
 
@@ -109,6 +110,44 @@ class AIJobTableViewCell: UITableViewCell {
         makeJobDescription()
     }
 
+
+    func makeGradientColorForTopView() {
+
+
+        switch curDataModel.work_state {
+        case "0": // 资料不齐
+            makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("b32b1d"), darkColor: UIColor.clearColor())
+            break
+        case "1": // 接单中
+            makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("41ac3d"), darkColor: UIColor.clearColor())
+            break
+        case "2": // 休息中
+            makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("ff8e1f"), darkColor: UIColor.clearColor())
+            break
+        default:
+            break
+
+        }
+
+
+    }
+
+    func makeGradientColorsForView(view: UIView, lightColor: UIColor, darkColor: UIColor) {
+
+        if let layer = topView.layer.sublayers?.first {
+            if layer is CAGradientLayer {
+                layer.removeFromSuperlayer()
+            }
+        }
+
+        let gradient = CAGradientLayer()
+        gradient.colors = [lightColor.CGColor, darkColor.CGColor]
+        gradient.frame = topView.bounds
+        gradient.startPoint = CGPoint(x: 1, y: 0.5)
+        gradient.endPoint = CGPoint(x: 0, y: 0.5)
+
+        topView.layer.insertSublayer(gradient, atIndex: 0)
+    }
 
     func makeJobIcon() {
         jobIconView = UIImageView(frame: CGRect(x: IconMargin, y: IconMargin, width: IconSize, height: IconSize))
@@ -281,7 +320,7 @@ class AIJobTableViewCell: UITableViewCell {
     func statusText(state: String, model: AISubscribledJobModel) -> String {
         switch state {
         case "0": // 资料不齐
-            return String(format: "AIWorkManageViewController.OnlineCountFormat".localized, model.online_number ?? "")
+            return String(format: "AIWorkManageViewController.OnlineCountFormat".localized, model.online_count ?? "")
         case "1": // 接单中
             return String(format: "AIWorkManageViewController.OnlineTimeFormat".localized, model.online_date ?? "")
         case "2": // 休息中
@@ -313,6 +352,7 @@ class AIJobTableViewCell: UITableViewCell {
 
     func resetCellModel(model: AISubscribledJobModel) {
         curDataModel = model
+        makeGradientColorForTopView()
         // title
         jobIconView.sd_setImageWithURL(NSURL(string:model.work_thumbnail), placeholderImage: UIImage(named: "defaultIcon"))
         jobDescriptionLabel.text = model.work_name
