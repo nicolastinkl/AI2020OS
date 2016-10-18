@@ -18,7 +18,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VRl-y7-1sb">
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.ID Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkw-MR-Nlx">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -30,8 +30,8 @@
                             <constraint firstItem="nkw-MR-Nlx" firstAttribute="leading" secondItem="VRl-y7-1sb" secondAttribute="leading" constant="20" id="S9Q-Nb-DVG"/>
                             <constraint firstItem="EHl-3U-AtP" firstAttribute="top" secondItem="nkw-MR-Nlx" secondAttribute="bottom" constant="8" id="TdB-W5-RrB"/>
                             <constraint firstItem="EHl-3U-AtP" firstAttribute="leading" secondItem="VRl-y7-1sb" secondAttribute="leading" constant="39" id="UJx-aU-t8H"/>
-                            <constraint firstAttribute="bottom" secondItem="EHl-3U-AtP" secondAttribute="bottom" constant="1.5" id="kI1-3b-3Vd"/>
-                            <constraint firstItem="nkw-MR-Nlx" firstAttribute="top" secondItem="VRl-y7-1sb" secondAttribute="top" constant="8" id="pMc-gg-JqD"/>
+                            <constraint firstAttribute="bottom" secondItem="EHl-3U-AtP" secondAttribute="bottom" constant="3" id="kI1-3b-3Vd"/>
+                            <constraint firstItem="nkw-MR-Nlx" firstAttribute="top" secondItem="VRl-y7-1sb" secondAttribute="top" constant="15" id="pMc-gg-JqD"/>
                         </constraints>
                     </view>
                 </subviews>
