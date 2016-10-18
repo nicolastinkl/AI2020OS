@@ -62,7 +62,7 @@ class AIConfirmOrderViewController: UIViewController {
         /**
          Config.
          */
-        ConfigTableView()
+        configTableView()
         
         /**
          Data Referesh.
@@ -102,7 +102,7 @@ class AIConfirmOrderViewController: UIViewController {
         }
     }
     
-    func ConfigTableView() {
+    func configTableView() {
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         

@@ -20,8 +20,8 @@ protocol AIBuyerDetailDelegate: class {
 }
 
 enum ServiceDeletedStatus: Int {
-	case Deleted
-	case NotDeleted
+	case Deleted = 0
+	case NotDeleted = 1
 }
 
 enum AudioAssiatantModel {
@@ -726,7 +726,7 @@ class AIBuyerDetailViewController: UIViewController {
 		let contentLabelHeight = contentLabel.height
 		let navigationBarMaxY = CGRectGetMaxY(navigationView.frame)
 		let maxHeight = (window?.height)! - navigationBarMaxY - contentLabelHeight - buyerBottom.height - 10 // 10 is magic number hehe
-		let constant = isOpen ? min(maxHeight, deletedTableView.contentSize.height) : 0
+		let constant = isOpen ? min(maxHeight, 241.667) : 0
 		let duration = animated ? 0.25 : 0
 		let restoreToolBarAlpha: CGFloat = isOpen ? 0 : 1
 		isDeletedTableViewAnimating = true
@@ -839,12 +839,11 @@ class AIBuyerDetailViewController: UIViewController {
 					viewController.dataSource = responseData
 					
                     //delete data 
-                    _ = responseData.service_list.filter({ (obj) -> Bool in
+                    
+                    responseData.service_list.forEach({ (obj) in
                         if  (obj as! AIProposalServiceModel).service_del_flag == 0 {
                             viewController.deleted_service_list.addObject(obj)
-                            viewController.reloadAllLogos()
                         }
-                        return false
                     })
                     
 					// initControl Data
@@ -856,6 +855,7 @@ class AIBuyerDetailViewController: UIViewController {
 					viewController.initBottomView()
 					
 					viewController.tableView.headerEndRefreshing()
+                    viewController.reloadAllLogos()
 					
 					// Display View some Icons.
 					
@@ -958,7 +958,7 @@ extension AIBuyerDetailViewController: ServiceRestoreToolBarDelegate {
             AudioAssistantManager.sharedInstance.sendAnchor(anchor)
         }
 		
-		if !isDeletedTableViewOpen && deleted_service_list.count > 0 {
+		if !isDeletedTableViewOpen {
 			openDeletedTableView(true)
 		}
 	}
@@ -1435,6 +1435,7 @@ extension AIBuyerDetailViewController : AnchorProcess {
     }
 }
 
+// MARK: - AIDialogDelegate
 extension AIBuyerDetailViewController: AIDialogDelegate {
     func dialogDidFinished() {
         cleanQueryData()

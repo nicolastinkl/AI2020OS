@@ -112,24 +112,21 @@ class AIJobTableViewCell: UITableViewCell {
 
 
     func makeGradientColorForTopView() {
-
-
-        switch curDataModel.work_state {
-        case "0": // 资料不齐
-            makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("b32b1d"), darkColor: UIColor.clearColor())
-            break
-        case "1": // 接单中
-            makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("41ac3d"), darkColor: UIColor.clearColor())
-            break
-        case "2": // 休息中
-            makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("ff8e1f"), darkColor: UIColor.clearColor())
-            break
-        default:
-            break
-
+        if let curDataModel = curDataModel {
+            switch curDataModel.work_state {
+            case "0": // 资料不齐
+                makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("b32b1d"), darkColor: UIColor.clearColor())
+                break
+            case "1": // 接单中
+                makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("41ac3d"), darkColor: UIColor.clearColor())
+                break
+            case "2": // 休息中
+                makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("ff8e1f"), darkColor: UIColor.clearColor())
+                break
+            default:
+                break
+            }
         }
-
-
     }
 
     func makeGradientColorsForView(view: UIView, lightColor: UIColor, darkColor: UIColor) {
