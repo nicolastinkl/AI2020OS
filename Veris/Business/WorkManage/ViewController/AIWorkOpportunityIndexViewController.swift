@@ -22,11 +22,10 @@ class AIWorkOpportunityIndexViewController: UIViewController {
 	}
     
     func setupAIWorkOpportunityPopularChartView() {
-        
         let v =  AIWorkOpportunityPopularChartView()
         view.addSubview(v)
         v.snp_makeConstraints { (make) in
-            make.top.equalTo(headerView.snp_bottom)
+            make.top.equalTo(headerView.snp_bottom).offset(73.displaySizeFrom1242DesignSize())
             make.leading.trailing.equalTo(view)
         }
     }
