@@ -4,17 +4,13 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>.DS_Store</key>
-		<data>
-		pLW9pFL4U1BNmg60J6eDAFDVmf0=
-		</data>
 		<key>CardDeepLinkKit.bundle/CardAlertView.nib</key>
 		<data>
-		+LQTmkB1KGfMlkyhwatctrKKO8Q=
+		cvdJOCg7Ai1dgwqxW2lSAtzsVms=
 		</data>
 		<key>CardDeepLinkKit.bundle/LoadingView.nib</key>
 		<data>
-		m3nwM5gxf4FGKeKUetml9gooz4Q=
+		UGiGVqI85PVc20+IikpnRMovMiY=
 		</data>
 		<key>CardDeepLinkKit.bundle/dp_bg.png</key>
 		<data>
@@ -58,7 +54,7 @@
 		</data>
 		<key>Modules/CardDeepLinkKit.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		4L9d+Itwh53U9uvYIMdYPjQ+w4s=
+		CDVy43V/vi/NYFSNsa1vv6g2Ax0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -71,22 +67,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+LQTmkB1KGfMlkyhwatctrKKO8Q=
+			cvdJOCg7Ai1dgwqxW2lSAtzsVms=
 			</data>
 			<key>hash2</key>
 			<data>
-			V4rGf8mexMjIz/Gp+RSpKGYDvnY93xd/rs4al2rOd+c=
+			7fSk1oaf775ZGB8lkEWQL6UTMmT2sUt0jf91PvoD4jU=
 			</data>
 		</dict>
 		<key>CardDeepLinkKit.bundle/LoadingView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			m3nwM5gxf4FGKeKUetml9gooz4Q=
+			UGiGVqI85PVc20+IikpnRMovMiY=
 			</data>
 			<key>hash2</key>
 			<data>
-			LND2E/SdY9EG+MhGNA5+b2Kp9LttOcvXYlAvj8Vc42o=
+			6x94i4wDA8G1Mnj+JgUC7yjilRJ9lK2ccn1CbldgNRo=
 			</data>
 		</dict>
 		<key>CardDeepLinkKit.bundle/dp_bg.png</key>
@@ -192,11 +188,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4L9d+Itwh53U9uvYIMdYPjQ+w4s=
+			CDVy43V/vi/NYFSNsa1vv6g2Ax0=
 			</data>
 			<key>hash2</key>
 			<data>
-			gatweEh3E0+YoWS/NsKnXVDFuD2bPMEugnLqludCOMw=
+			GWYaH7LRshra2P1YLCAZrOW7U6KusJm+TrF/0ojNLgI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
