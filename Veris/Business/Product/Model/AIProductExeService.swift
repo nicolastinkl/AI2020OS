@@ -15,7 +15,7 @@ class AIProductExeService: NSObject {
         // delete 1 ,   add 0
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.setProposalItemDisableFlag.description
-        let body = ["data": ["service_id": service_id, "disableFlag": deleteOrAdd], "desc": ["data_mode": "0", "digest": ""]]
+        let body = ["data": ["proposalItemId": service_id, "disableFlag": deleteOrAdd], "desc": ["data_mode": "0", "digest": ""]]
         message.body = NSMutableDictionary(dictionary: body)
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             success(true)

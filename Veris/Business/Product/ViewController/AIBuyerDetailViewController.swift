@@ -110,7 +110,7 @@ class AIBuyerDetailViewController: UIViewController {
 		get {
 			guard dataSource?.service_list == nil else {
 				let result = dataSource?.service_list.filter () {
-					return ($0 as! AIProposalServiceModel).service_del_flag == ServiceDeletedStatus.NotDeleted.rawValue
+					return ($0 as! AIProposalServiceModel).service_del_flag == ServiceDeletedStatus.NotDeleted.rawValue && ($0 as! AIProposalServiceModel).disableFlag == 0
 				}
 				return result
 			}
@@ -802,6 +802,17 @@ class AIBuyerDetailViewController: UIViewController {
 		
 	}
 	
+    func reloadAllLogos() {
+        // setup
+//        deleted_service_list = something
+        
+        serviceRestoreToolbar.serviceModels = deleted_service_list
+        serviceRestoreToolbar.reloadAllLogos()
+        tableView.reloadData()
+        deletedTableView.reloadData()
+    }
+    
+    
 	func initData() {
 		self.tableView.hideErrorView()
 		if let m = bubbleModel {
@@ -829,6 +840,17 @@ class AIBuyerDetailViewController: UIViewController {
 					viewController.serviceRestoreToolbar.removeAllLogos()
 					viewController.dataSource = responseData
 					
+                    //delete data 
+                    
+                    _ = responseData.service_list.filter({ (obj) -> Bool in
+                        if  (obj as! AIProposalServiceModel).disableFlag == 1 {
+                            viewController.deleted_service_list.addObject(obj)
+//                            viewController.re
+                            
+                        }
+                        return false
+                    })
+                    
 					// initControl Data
 					// viewController.initProderView()
 					viewController.initController()
