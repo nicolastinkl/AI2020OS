@@ -88,7 +88,7 @@
 /**
  * 当前在线人数
  */
-@property (nonatomic, strong) NSString<Optional> *online_number;
+@property (nonatomic, strong) NSString<Optional> *online_count;
 
 
 @end

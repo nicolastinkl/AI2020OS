@@ -110,7 +110,7 @@ class AIBuyerDetailViewController: UIViewController {
 		get {
 			guard dataSource?.service_list == nil else {
 				let result = dataSource?.service_list.filter () {
-					return ($0 as! AIProposalServiceModel).service_del_flag == ServiceDeletedStatus.NotDeleted.rawValue && ($0 as! AIProposalServiceModel).disableFlag == 0
+					return ($0 as! AIProposalServiceModel).service_del_flag == ServiceDeletedStatus.NotDeleted.rawValue
 				}
 				return result
 			}
@@ -666,12 +666,12 @@ class AIBuyerDetailViewController: UIViewController {
                 }
             }
         }
-        AIProductExeService().removeOrAddServiceFromDIYService(sigleModel.proposalItemId, deleteOrAdd: 1, success: { (response) in
+        AIProductExeService().removeOrAddServiceFromDIYService(sigleModel.proposalItemId, deleteOrAdd: 0, success: { (response) in
             tagetAction()
         }) { (errType, errDes) in
             AIAlertView().showError("提示", subTitle: "网络请求失败")
         }
-        
+
         
 	}
 	
@@ -792,13 +792,11 @@ class AIBuyerDetailViewController: UIViewController {
             }
         }
         
-        AIProductExeService().removeOrAddServiceFromDIYService(sigleModel.proposalItemId, deleteOrAdd: 0, success: { (response) in
+        AIProductExeService().removeOrAddServiceFromDIYService(sigleModel.proposalItemId, deleteOrAdd: 1, success: { (response) in
             tagetAction()
         }) { (errType, errDes) in
             AIAlertView().showError("提示", subTitle: "网络请求失败")
         }
-        
-        
 		
 	}
 	
@@ -841,12 +839,10 @@ class AIBuyerDetailViewController: UIViewController {
 					viewController.dataSource = responseData
 					
                     //delete data 
-                    
                     _ = responseData.service_list.filter({ (obj) -> Bool in
-                        if  (obj as! AIProposalServiceModel).disableFlag == 1 {
+                        if  (obj as! AIProposalServiceModel).service_del_flag == 0 {
                             viewController.deleted_service_list.addObject(obj)
-//                            viewController.re
-                            
+                            viewController.reloadAllLogos()
                         }
                         return false
                     })

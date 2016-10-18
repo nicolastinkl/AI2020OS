@@ -92,7 +92,7 @@ class AccommodationService: ServiceParamlView {
             var desc: String = ""
 
             for de in model.facility_desc {
-                let str = de.desc
+                let str = de.textDesc
                 desc.appendContentsOf(str + " ")
             }
 
