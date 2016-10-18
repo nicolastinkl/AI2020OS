@@ -109,9 +109,7 @@
 
 + (JSONKeyMapper *)keyMapper
 {
-    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{
-                                                                  @"disableFlag": @"service_del_flag"
-                                                                  }];
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"disableFlag": @"service_del_flag"}];
 }
 
 
