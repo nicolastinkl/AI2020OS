@@ -127,6 +127,9 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s7t-gV-nyD" userLabel="QualificationView" customClass="AIWorkQualificationView" customModule="Veris" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iB8-Ye-UNs" userLabel="QualificationTableView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -134,6 +137,7 @@
                             <constraint firstItem="IBl-fd-pzu" firstAttribute="top" secondItem="J3B-8G-ZLp" secondAttribute="topMargin" constant="67" id="2og-gK-mzh"/>
                             <constraint firstItem="K7v-Q5-9Te" firstAttribute="top" secondItem="o0H-Ym-vnt" secondAttribute="bottom" id="Bi1-6X-wAq"/>
                             <constraint firstAttribute="bottomMargin" secondItem="K7v-Q5-9Te" secondAttribute="bottom" id="ENd-LJ-tfb"/>
+                            <constraint firstItem="Vas-M9-hP6" firstAttribute="top" secondItem="iB8-Ye-UNs" secondAttribute="bottom" constant="5" id="I3R-Nv-t3S"/>
                             <constraint firstItem="s7t-gV-nyD" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leading" id="Jk2-8h-HkL"/>
                             <constraint firstItem="K7v-Q5-9Te" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leading" id="N1i-YW-dvf"/>
                             <constraint firstAttribute="trailing" secondItem="yei-7k-JdY" secondAttribute="trailing" id="OJU-Ri-8VT"/>
@@ -143,6 +147,7 @@
                             <constraint firstItem="K7v-Q5-9Te" firstAttribute="top" secondItem="J3B-8G-ZLp" secondAttribute="topMargin" id="Zfn-ED-Kqj"/>
                             <constraint firstItem="IvE-Hg-qRG" firstAttribute="top" secondItem="yei-7k-JdY" secondAttribute="bottom" id="aGB-Vi-34C"/>
                             <constraint firstItem="s7t-gV-nyD" firstAttribute="top" secondItem="yei-7k-JdY" secondAttribute="bottom" id="bqN-JQ-b2C"/>
+                            <constraint firstItem="iB8-Ye-UNs" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leading" id="dba-DF-0RQ"/>
                             <constraint firstAttribute="trailing" secondItem="K7v-Q5-9Te" secondAttribute="trailing" id="eBb-qQ-clQ"/>
                             <constraint firstItem="IBl-fd-pzu" firstAttribute="top" secondItem="J3B-8G-ZLp" secondAttribute="topMargin" constant="21" id="em8-1M-Qpq"/>
                             <constraint firstItem="yei-7k-JdY" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leading" id="fT9-cB-CaQ"/>
@@ -153,7 +158,9 @@
                             <constraint firstItem="IBl-fd-pzu" firstAttribute="top" secondItem="J3B-8G-ZLp" secondAttribute="topMargin" constant="40" id="l5C-b3-KC2"/>
                             <constraint firstItem="IBl-fd-pzu" firstAttribute="top" secondItem="o0H-Ym-vnt" secondAttribute="bottom" constant="20" id="lvn-pJ-p4r"/>
                             <constraint firstItem="Vas-M9-hP6" firstAttribute="top" secondItem="IvE-Hg-qRG" secondAttribute="bottom" constant="5" id="m4B-Dj-B2B"/>
+                            <constraint firstItem="iB8-Ye-UNs" firstAttribute="top" secondItem="yei-7k-JdY" secondAttribute="top" id="nZx-6J-3pZ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Vas-M9-hP6" secondAttribute="bottom" constant="13" id="qOh-KP-96A"/>
+                            <constraint firstAttribute="trailing" secondItem="iB8-Ye-UNs" secondAttribute="trailing" id="rl3-6Z-Ybq"/>
                             <constraint firstItem="IvE-Hg-qRG" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leading" id="vBb-0f-MWV"/>
                             <constraint firstItem="Vas-M9-hP6" firstAttribute="leading" secondItem="J3B-8G-ZLp" secondAttribute="leadingMargin" constant="13" id="w0r-d8-SBN"/>
                         </constraints>
@@ -172,6 +179,7 @@
                         <outlet property="commitButton" destination="Vas-M9-hP6" id="1YE-vp-vNa"/>
                         <outlet property="jobDesContainerView" destination="IvE-Hg-qRG" id="acT-UN-JB7"/>
                         <outlet property="jobDescTitleLabel" destination="3YF-FX-enR" id="T21-sA-wDS"/>
+                        <outlet property="qualificationTableView" destination="iB8-Ye-UNs" id="7Nb-yv-K3o"/>
                         <outlet property="qualificationView" destination="s7t-gV-nyD" id="DgA-4D-9Sm"/>
                         <outlet property="serviceIconView" destination="MqE-Ja-tyD" id="RpW-oT-RDo"/>
                         <outlet property="title1Icon" destination="79s-o3-HlK" id="qcq-de-hxw"/>

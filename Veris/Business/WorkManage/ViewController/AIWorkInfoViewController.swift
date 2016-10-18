@@ -8,6 +8,9 @@
 
 import UIKit
 import AIAlertView
+import iCarousel
+import Spring
+import SnapKit
 
 class AIWorkInfoViewController: UIViewController {
     
@@ -20,7 +23,12 @@ class AIWorkInfoViewController: UIViewController {
     @IBOutlet weak var jobDescTitleLabel: UIButton!
     @IBOutlet weak var serviceIconView: UIImageView!
     @IBOutlet weak var commitButton: UIButton!
+    @IBOutlet weak var qualificationTableView: UITableView!
     
+    //extra view
+    var uploadPopView: AIWorkUploadPopView!
+    let TableCellIdentifier = "AIWorkQualificationTableViewCell"
+    var qualificationShowMode = 1
     var curStep: Int = 1
     
     //MARK: -> variable passed from previous page
@@ -71,6 +79,19 @@ class AIWorkInfoViewController: UIViewController {
         commitButton.layer.masksToBounds = true
         commitButton.setTitle("Next", forState: UIControlState.Normal)
         makeNavigationItem()
+        buildPopupView()
+        qualificationView.delegate = self
+        setupTableView()
+    }
+    
+    private func buildPopupView() {
+        
+        uploadPopView = AIWorkUploadPopView.createInstance()
+        uploadPopView.alpha = 0
+        view.addSubview(uploadPopView)
+        uploadPopView.snp_makeConstraints { (make) in
+            make.leading.trailing.top.bottom.equalTo(self.view)
+        }
     }
     
     func loadData() {
@@ -81,6 +102,7 @@ class AIWorkInfoViewController: UIViewController {
                 requestHandler.parseWorkBusiModelsToViewModel(workOpptunityBusiModel: busiModel1, workQualificationsBusiModel: busiModel2, success: { (viewModel) in
                     weakSelf?.viewModel = viewModel
                     weakSelf?.bindViewData()
+                    
                     }, fail: { (errType, errDes) in
                         AIAlertView().showError("数据转换失败", subTitle: errDes)
                 })
@@ -98,6 +120,7 @@ class AIWorkInfoViewController: UIViewController {
         jobDesContainerView.workDetailModel = viewModel
         let imageUrl = viewModel!.opportunityBusiModel!.work_thumbnail!
         serviceIconView.sd_setImageWithURL(NSURL(string: imageUrl), placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
+        qualificationTableView.reloadData()
     }
 
     func switchTabsTo(step: Int) {
@@ -109,6 +132,7 @@ class AIWorkInfoViewController: UIViewController {
             Qualification.selected = false
             jobDesContainerView.hidden = false
             qualificationView.hidden = true
+            qualificationTableView.hidden = true
             commitButton.setTitle("Next", forState: UIControlState.Normal)
         } else {
             curStep = 2
@@ -118,6 +142,7 @@ class AIWorkInfoViewController: UIViewController {
             Qualification.selected = true
             jobDesContainerView.hidden = true
             qualificationView.hidden = false
+            qualificationTableView.hidden = true
             commitButton.setTitle("Subscribe", forState: UIControlState.Normal)
         }
     }
@@ -125,5 +150,46 @@ class AIWorkInfoViewController: UIViewController {
     func makeNavigationItem() {
         
         setupNavigationBarLikeLogin(title: "Hospital Chaperone", needCloseButton: false)
+    }
+}
+
+extension AIWorkInfoViewController: AIWorkQualificationViewDelegate {
+    func uploadAction(carousel: iCarousel, qualificationBusiModel: AIWorkQualificationBusiModel) {
+        //把弹出view放到最上面
+        view.bringSubviewToFront(uploadPopView)
+        SpringAnimation.spring(0.5) {
+            self.uploadPopView.alpha = 1
+            self.uploadPopView.containerBottomConstraint.constant = 300
+            self.uploadPopView.layoutIfNeeded()
+        }
+    }
+    
+    func switchQualificationViewAction() {
+        qualificationTableView.hidden = !qualificationTableView.hidden
+        qualificationView.hidden = !qualificationView.hidden
+    }
+}
+
+extension AIWorkInfoViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func setupTableView() {
+        qualificationTableView.registerNib(UINib(nibName: TableCellIdentifier, bundle: nil), forCellReuseIdentifier: TableCellIdentifier)
+        qualificationTableView.delegate = self
+        qualificationTableView.dataSource = self
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(TableCellIdentifier, forIndexPath: indexPath) as! AIWorkQualificationTableViewCell
+        let qualificationModel: AIWorkQualificationBusiModel = viewModel!.qualificationsBusiModel!.work_qualifications[indexPath.row] as! AIWorkQualificationBusiModel
+        cell.viewModel = qualificationModel
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let viewModel = viewModel,
+            qualificationsBusiModel = viewModel.qualificationsBusiModel else {
+                return 0
+        }
+        return qualificationsBusiModel.work_qualifications.count
     }
 }

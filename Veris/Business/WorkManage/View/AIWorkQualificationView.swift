@@ -22,12 +22,29 @@ class AIWorkQualificationView: UIView {
     var qualificationsModel: [AIWorkQualificationBusiModel] = [AIWorkQualificationBusiModel]()
     var cachedCellViewDic = [String: UIView]()
     var cachedDotViewArray = [UIImageView]()
+    var delegate: AIWorkQualificationViewDelegate?
     var viewModel: AIWorkOpportunityDetailViewModel? {
         didSet {
             if let _ = viewModel {
                 qualificationsModel = viewModel?.qualificationsBusiModel?.work_qualifications as! [AIWorkQualificationBusiModel]
                 loadData()
             }
+        }
+    }
+    
+    @IBAction func uploadAction(sender: UIButton) {
+        if let delegate = delegate {
+            let index = carousel.currentItemIndex
+            if qualificationsModel.count >= index {
+                delegate.uploadAction(carousel, qualificationBusiModel: qualificationsModel[index])
+            }
+            
+        }
+    }
+    
+    @IBAction func switchAction(sender: UIButton) {
+        if let delegate = delegate {
+            delegate.switchQualificationViewAction()
         }
     }
     
@@ -206,4 +223,9 @@ extension UIButton {
             make.width.equalTo(buttonWidth.width + 20)
         }
     }
+}
+
+protocol AIWorkQualificationViewDelegate {
+    func uploadAction(carousel: iCarousel, qualificationBusiModel: AIWorkQualificationBusiModel)
+    func switchQualificationViewAction()
 }
