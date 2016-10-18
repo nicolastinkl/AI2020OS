@@ -134,8 +134,8 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
             itemView.sd_setImageWithURL(NSURL(string: qualicationModel.aspect_photo)!, placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
             //样本图片标志
             var labelFrame = itemView.bounds
-            labelFrame.origin.x += 100
-            labelFrame.origin.y += 100
+            labelFrame.origin.x += 65
+            labelFrame.origin.y += 65
             label = UILabel(frame:labelFrame)
             label.backgroundColor = UIColor.clearColor()
             label.textAlignment = .Center

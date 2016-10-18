@@ -12,15 +12,25 @@ class AIWorkDetailView: UIView {
 
     //MARK: -> IB vars
     @IBOutlet weak var acceptTitleLabel: UILabel!
-    @IBOutlet weak var checkboxImage: UIImageView!
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var showAllButton: UIButton!
     @IBOutlet weak var jobDetailTitleLabel: UILabel!
+    
+    @IBOutlet weak var acceptCheckbox: UIButton!
     var contentLabel: UILabel!
+    var delegate: AIWorkDetailViewDelegate?
     
     @IBAction func showAllAction(sender: UIButton) {
         
     }
+    
+    @IBAction func acceptAction(sender: UIButton) {
+        acceptCheckbox.selected = !acceptCheckbox.selected
+        if let delegate = delegate {
+            delegate.acceptTerm(acceptCheckbox.selected)
+        }
+    }
+    
     
     //MARK: -> Contants
     let QUOTE_LEFT_MARGIN = 56.displaySizeFrom1242DesignSize()
@@ -94,4 +104,8 @@ class AIWorkDetailView: UIView {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
     }
+}
+
+protocol AIWorkDetailViewDelegate {
+    func acceptTerm(isAccept: Bool)
 }

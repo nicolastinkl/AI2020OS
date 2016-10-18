@@ -125,7 +125,7 @@ class AIWorkManageRequestHandler: NSObject {
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             do{
                 let dic = response as! [NSObject: AnyObject]
-                if let resultCode = dic["result_code"] as? String where resultCode == "1" {
+                if let resultCode = dic["result"] as? String where resultCode == "true" {
                     success(resultCode: resultCode)
                 } else {
                     fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)

@@ -9,8 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIWorkDetailView" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="acceptCheckbox" destination="2mU-pc-Y1i" id="X5t-gR-zdq"/>
                 <outlet property="acceptTitleLabel" destination="Ttd-Fz-9vk" id="33R-w4-HIT"/>
-                <outlet property="checkboxImage" destination="49g-wJ-hp1" id="Q1f-PC-Bsj"/>
                 <outlet property="detailScrollView" destination="aoj-40-qh6" id="DHs-cg-EpJ"/>
                 <outlet property="jobDetailTitleLabel" destination="Ttd-Fz-9vk" id="jv1-yk-0ot"/>
                 <outlet property="showAllButton" destination="GVS-ia-p0d" id="9I9-pe-bQY"/>
@@ -63,12 +63,17 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoj-40-qh6"/>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="work_checkbox_off" translatesAutoresizingMaskIntoConstraints="NO" id="49g-wJ-hp1">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mU-pc-Y1i">
                     <constraints>
-                        <constraint firstAttribute="height" constant="18" id="Gjj-rQ-kJy"/>
-                        <constraint firstAttribute="width" constant="18" id="f09-Dr-mqc"/>
+                        <constraint firstAttribute="width" constant="18" id="3bW-JD-33S"/>
+                        <constraint firstAttribute="height" constant="18" id="Kqz-us-Dnc"/>
                     </constraints>
-                </imageView>
+                    <state key="normal" image="work_checkbox_off"/>
+                    <state key="selected" image="work_checkbox_on"/>
+                    <connections>
+                        <action selector="acceptAction:" destination="-1" eventType="touchUpInside" id="y31-Ia-ais"/>
+                    </connections>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I accept terms and conditions." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqF-hO-6w4">
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,21 +84,22 @@
             <constraints>
                 <constraint firstItem="iSN-Qj-x3V" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="-8" id="7Np-Ax-uJa"/>
                 <constraint firstItem="aoj-40-qh6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FDd-JJ-Dvo"/>
-                <constraint firstAttribute="bottom" secondItem="49g-wJ-hp1" secondAttribute="bottom" constant="10" id="FMN-65-JS3"/>
-                <constraint firstItem="kqF-hO-6w4" firstAttribute="centerY" secondItem="49g-wJ-hp1" secondAttribute="centerY" id="GW6-TX-qcM"/>
-                <constraint firstItem="49g-wJ-hp1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="LG9-n3-Jde"/>
+                <constraint firstItem="2mU-pc-Y1i" firstAttribute="centerY" secondItem="kqF-hO-6w4" secondAttribute="centerY" id="NIv-oQ-Nh3"/>
+                <constraint firstAttribute="bottom" secondItem="2mU-pc-Y1i" secondAttribute="bottom" constant="10" id="PDo-G2-AOT"/>
                 <constraint firstItem="aoj-40-qh6" firstAttribute="top" secondItem="iSN-Qj-x3V" secondAttribute="bottom" id="SP0-2b-Pqd"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kqF-hO-6w4" secondAttribute="trailing" constant="10" id="Y3g-uU-UlE"/>
                 <constraint firstItem="iSN-Qj-x3V" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="-8" id="amy-G3-lAg"/>
-                <constraint firstItem="kqF-hO-6w4" firstAttribute="leading" secondItem="49g-wJ-hp1" secondAttribute="trailing" constant="24" id="gew-ft-pkK"/>
-                <constraint firstItem="49g-wJ-hp1" firstAttribute="top" secondItem="aoj-40-qh6" secondAttribute="bottom" constant="15" id="i9q-Jl-QtT"/>
+                <constraint firstItem="kqF-hO-6w4" firstAttribute="leading" secondItem="2mU-pc-Y1i" secondAttribute="trailing" constant="24" id="k0c-qg-eHS"/>
+                <constraint firstItem="2mU-pc-Y1i" firstAttribute="top" secondItem="aoj-40-qh6" secondAttribute="bottom" constant="15" id="q5y-y2-aul"/>
                 <constraint firstAttribute="trailing" secondItem="aoj-40-qh6" secondAttribute="trailing" id="vsV-bK-Vyd"/>
+                <constraint firstItem="2mU-pc-Y1i" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="wMy-ig-28c"/>
                 <constraint firstAttribute="trailingMargin" secondItem="iSN-Qj-x3V" secondAttribute="trailing" constant="-8" id="zz7-Sl-QPS"/>
             </constraints>
         </view>
     </objects>
     <resources>
         <image name="work_checkbox_off" width="18" height="18"/>
+        <image name="work_checkbox_on" width="18" height="18"/>
         <image name="work_detail_icon" width="36" height="34"/>
     </resources>
 </document>
