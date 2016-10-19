@@ -87,6 +87,8 @@ class AIWorkInfoViewController: UIViewController {
         commitButton.layer.cornerRadius = 180.displaySizeFrom1242DesignSize() / 2
         commitButton.layer.masksToBounds = true
         commitButton.setTitle("Next", forState: UIControlState.Normal)
+        commitButton.setBackgroundImage(UIColor.grayColor().imageWithColor(), forState: UIControlState.Disabled)
+        commitButton.enabled = false
         makeNavigationItem()
         buildPopupView()
         qualificationView.delegate = self
