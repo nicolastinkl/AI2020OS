@@ -6,11 +6,11 @@
 	<dict>
 		<key>CardDeepLinkKit.bundle/CardAlertView.nib</key>
 		<data>
-		XqoGMkeooTRmvTNkz+PjQtyhF24=
+		L+P7KSeFaBwJysiDkUOwuaX8JQk=
 		</data>
 		<key>CardDeepLinkKit.bundle/LoadingView.nib</key>
 		<data>
-		0hrFk45bNP4H/69dRWl7Fi4D/bs=
+		g3yE0SeezJTXcrzlOQorM4ck/e8=
 		</data>
 		<key>CardDeepLinkKit.bundle/dp_bg.png</key>
 		<data>
@@ -36,25 +36,9 @@
 		<data>
 		D+rTeNj/vvUquVj/0RToNfxeRqo=
 		</data>
-		<key>Headers/CardDeepLinkKit-Swift.h</key>
-		<data>
-		bGK7jxJx+Z0BEc4n3ufPb/Sdye0=
-		</data>
 		<key>Headers/CardDeepLinkKit.h</key>
 		<data>
 		ETHJYj/IJxdZiWMJ+CA1CkMLnTA=
-		</data>
-		<key>Info.plist</key>
-		<data>
-		MNcsReFpAovJbUS7Qy4ftraq/DM=
-		</data>
-		<key>Modules/CardDeepLinkKit.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		RdaClFT1SR0fln+wxB049ffE7EU=
-		</data>
-		<key>Modules/CardDeepLinkKit.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		Ep8TlYrMVqzh8fu1i+oDXAUe5+k=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -67,22 +51,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XqoGMkeooTRmvTNkz+PjQtyhF24=
+			L+P7KSeFaBwJysiDkUOwuaX8JQk=
 			</data>
 			<key>hash2</key>
 			<data>
-			SQiZqFl6gDIMgc2c52IX65JGKLtCZ98NymqCIHaUCCg=
+			rbkh50+RwSQ5gTQQWYXV8MvoxDq8y06qIEvG2sTQoY0=
 			</data>
 		</dict>
 		<key>CardDeepLinkKit.bundle/LoadingView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0hrFk45bNP4H/69dRWl7Fi4D/bs=
+			g3yE0SeezJTXcrzlOQorM4ck/e8=
 			</data>
 			<key>hash2</key>
 			<data>
-			kt0MngHvVRusSUVaI38HnMr9B33DeuAmVtq0gHjbLKw=
+			g9M+Hg6xBUEHLTNSviluwodg3T/UlYBkGkZIRybOxTg=
 			</data>
 		</dict>
 		<key>CardDeepLinkKit.bundle/dp_bg.png</key>
@@ -151,17 +135,6 @@
 			G7btc8EJeixoOH9KHcCCQFcFb+15hry/YiJSs1geFBU=
 			</data>
 		</dict>
-		<key>Headers/CardDeepLinkKit-Swift.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bGK7jxJx+Z0BEc4n3ufPb/Sdye0=
-			</data>
-			<key>hash2</key>
-			<data>
-			pZOCYLhhTjYvSOto0eY9IKqxN8kzM+E4z4zjLMtpRtQ=
-			</data>
-		</dict>
 		<key>Headers/CardDeepLinkKit.h</key>
 		<dict>
 			<key>hash</key>
@@ -171,28 +144,6 @@
 			<key>hash2</key>
 			<data>
 			LELzNSRSKvuuIKC4uT9ekwUi2fsHqdxQJi/N+s2KZXo=
-			</data>
-		</dict>
-		<key>Modules/CardDeepLinkKit.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			RdaClFT1SR0fln+wxB049ffE7EU=
-			</data>
-			<key>hash2</key>
-			<data>
-			F18ZKqHApsLYVhC6wbMohpbf9ne+DGKEn0nlenwfLYI=
-			</data>
-		</dict>
-		<key>Modules/CardDeepLinkKit.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Ep8TlYrMVqzh8fu1i+oDXAUe5+k=
-			</data>
-			<key>hash2</key>
-			<data>
-			an9HsloaIYUPHBTP9gQL7Lo3jMds8oSPTN+x0X1OtuU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
