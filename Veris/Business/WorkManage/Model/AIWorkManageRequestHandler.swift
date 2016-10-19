@@ -123,17 +123,14 @@ class AIWorkManageRequestHandler: NSObject {
         //weak var weakSelf = self
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-            do{
-                let dic = response as! [NSObject: AnyObject]
-                if let resultCode = dic["result"] as? String where resultCode == "true" {
-                    success(resultCode: resultCode)
-                } else {
-                    fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
-                }
-                
-            } catch {
+
+            let dic = response as! [NSObject: AnyObject]
+            if let resultCode = dic["result"] as? String where resultCode == "true" {
+                success(resultCode: resultCode)
+            } else {
                 fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
             }
+
         }) { (error: AINetError, errorDes: String!) -> Void in
             fail(errType: error, errDes: errorDes)
         }
