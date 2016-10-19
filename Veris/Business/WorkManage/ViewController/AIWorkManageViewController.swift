@@ -46,13 +46,13 @@ class AIWorkManageViewController: AIBaseViewController {
 
 
     func makeMainShowButton() {
-        let x = AITools.displaySizeFrom1080DesignSize(40)
-        let y = CGRectGetHeight(self.view.frame) - AITools.displaySizeFrom1080DesignSize(210)
+        let x = AITools.displaySizeFrom1080DesignSize(39)
+        let y = CGRectGetHeight(self.view.frame) - AITools.displaySizeFrom1080DesignSize(229)
         let width = CGRectGetWidth(self.view.frame) - x * 2
-        let height = AITools.displaySizeFrom1080DesignSize(185)
+        let height = AITools.displaySizeFrom1080DesignSize(182)
         let frame = CGRect(x: x, y: y, width: width, height: height)
         let mainButton = AIViews.baseButtonWithFrame(frame, normalTitle: "AIWorkManageViewController.SeeMore".localized)
-        mainButton.titleLabel?.font = AITools.myriadSemiboldSemiCnWithSize(AITools.displaySizeFrom1080DesignSize(60))
+        mainButton.titleLabel?.font = AITools.myriadSemiboldSemiCnWithSize(AITools.displaySizeFrom1080DesignSize(80))
         mainButton.titleLabel?.textColor = UIColor.whiteColor()
         mainButton.layer.cornerRadius = height / 2
         mainButton.clipsToBounds = true
@@ -79,6 +79,10 @@ class AIWorkManageViewController: AIBaseViewController {
     //MARK: 构造表格
 
     func makeTableView() {
+
+        var tableFrame = self.view.bounds
+        tableFrame.size.height = tableFrame.size.height - AITools.displaySizeFrom1080DesignSize(229)
+
         mainTableView = UITableView(frame: self.view.bounds, style: .Grouped)
         mainTableView.dataSource = self
         mainTableView.delegate = self
