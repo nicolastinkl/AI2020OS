@@ -28,6 +28,7 @@
 		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
 		1273444D1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */; };
 		1273444F1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */; };
+		128401B11DB700F30023D4F8 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128401B01DB700F30023D4F8 /* CardDeepLinkKit.framework */; };
 		12873EE71D20C0BA00C3AF9A /* LoginConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */; };
 		12933BD41D17E71B008A1693 /* AITimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */; };
 		12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */; };
@@ -455,7 +456,6 @@
 		81433ECB1CFBE5A700347C29 /* UIColor+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C261CFBE5A700347C29 /* UIColor+TDAdditions.m */; };
 		81433ECC1CFBE5A700347C29 /* UIImage+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */; };
 		81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81433F1F1CFBE80700347C29 /* Default-568h@2x.png */; };
-		81433F211DB4DA0600F00E65 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81433F201DB4DA0600F00E65 /* CardDeepLinkKit.framework */; };
 		81512ED01D220A8900AE041D /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */; };
 		8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7141CFD2710006F2C8F /* AIImageView.swift */; };
 		8175A7BA1CFD2710006F2C8F /* AISwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */; };
@@ -779,7 +779,6 @@
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
 		C93F057C1DB5CBA400F09DF5 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81433F201DB4DA0600F00E65 /* CardDeepLinkKit.framework */; };
-		C93F057D1DB5CBA400F09DF5 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81433F201DB4DA0600F00E65 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
 		C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */; };
 		C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */; };
@@ -860,7 +859,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				819A0EE71D80400600A84BBB /* AVOSCloudCrashReporting.framework in CopyFiles */,
-				C93F057D1DB5CBA400F09DF5 /* CardDeepLinkKit.framework in CopyFiles */,
 				819A0EE51D80400600A84BBB /* AVOSCloud.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -888,6 +886,7 @@
 		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
 		1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomerOrderFoldedView.xib; sourceTree = "<group>"; };
 		1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerOrderFoldedView.swift; sourceTree = "<group>"; };
+		128401B01DB700F30023D4F8 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = Debug/CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConstants.swift; sourceTree = "<group>"; };
 		12933BD21D17E71B008A1693 /* AITimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineTableViewCell.swift; sourceTree = "<group>"; };
 		12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTableViewCell.xib; sourceTree = "<group>"; };
@@ -1470,7 +1469,7 @@
 		81433C271CFBE5A700347C29 /* UIImage+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TDAdditions.h"; sourceTree = "<group>"; };
 		81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TDAdditions.m"; sourceTree = "<group>"; };
 		81433F1F1CFBE80700347C29 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		81433F201DB4DA0600F00E65 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = Debug/CardDeepLinkKit.framework; sourceTree = "<group>"; };
+		81433F201DB4DA0600F00E65 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = /Users/liuxian/workspace/asiainfoWorkSpec/AI2020OS/Veris/Developement/DeepLink/Debug/CardDeepLinkKit.framework; sourceTree = "<absolute>"; };
 		81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIFundManageViewController.swift; path = FundManage/AIFundManageViewController.swift; sourceTree = "<group>"; };
 		8175A7141CFD2710006F2C8F /* AIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageView.swift; sourceTree = "<group>"; };
 		8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwiftyJSON.swift; sourceTree = "<group>"; };
@@ -2054,6 +2053,7 @@
 				1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
+				128401B11DB700F30023D4F8 /* CardDeepLinkKit.framework in Frameworks */,
 				C93F057C1DB5CBA400F09DF5 /* CardDeepLinkKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
 				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
@@ -2081,7 +2081,6 @@
 				9392B57D1D1CD9F10007F241 /* AlipaySDK.framework in Frameworks */,
 				93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */,
 				819A0EE41D80400600A84BBB /* AVOSCloud.framework in Frameworks */,
-				81433F211DB4DA0600F00E65 /* CardDeepLinkKit.framework in Frameworks */,
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
@@ -3805,7 +3804,7 @@
 		81B195781D4852BE0086EB83 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				81433F201DB4DA0600F00E65 /* CardDeepLinkKit.framework */,
+				128401B01DB700F30023D4F8 /* CardDeepLinkKit.framework */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
