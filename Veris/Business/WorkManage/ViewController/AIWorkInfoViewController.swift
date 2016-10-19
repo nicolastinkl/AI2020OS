@@ -213,6 +213,11 @@ extension AIWorkInfoViewController: AIWorkUploadPopViewDelegate {
         let scanVC = AIScanBankCardViewController()
         let nav = UINavigationController(rootViewController: scanVC)
         showTransitionStyleCrossDissolveView(nav)
+
+        if let model = viewModel?.qualificationsBusiModel?.work_qualifications[qualificationView.carousel.currentItemIndex] as? AIWorkQualificationBusiModel {
+            scanVC.aspectID = model.aspect_type.toInt()!
+        }
+
     }
 
 
