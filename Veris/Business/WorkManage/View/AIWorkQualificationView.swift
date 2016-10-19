@@ -157,10 +157,7 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
         if cachedCellViewDic[cellKey] == nil {
             itemView = UIImageView(frame:CGRect(x:0, y:0, width:300, height:300))
             itemView.contentMode = .ScaleAspectFit
-            if let _ = qualicationModel.aspect_photo {
-                itemView.sd_setImageWithURL(NSURL(string: qualicationModel.aspect_photo)!, placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
-            }
-
+            itemView.sd_setImageWithURL(NSURL(string: qualicationModel.aspect_photo ?? "")!, placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
             //样本图片标志
             var labelFrame = itemView.bounds
             labelFrame.origin.x += 65
