@@ -28,15 +28,24 @@ class AIWorkUploadPopView: UIView {
     @IBOutlet weak var selectPhotoLabel: UILabel!
     
     weak var delegate: AIWorkUploadPopViewDelegate?
-
+    
+    
     @IBAction func takePhotoAction(sender: UIButton) {
         self.delegate?.shouldTakePhoto()
     }
     
-    @IBAction func choosePhotoAction(sender: AnyObject) {
+    @IBAction func choosePhotoAction(sender: UIButton) {
         self.delegate?.shouldTakePhoto()
     }
-    
+//
+//    @IBAction func takePhotoAction(sender: UIButton) {
+//        self.delegate?.shouldTakePhoto()
+//    }
+//    
+//    @IBAction func choosePhotoAction(sender: AnyObject) {
+//        self.delegate?.shouldTakePhoto()
+//    }
+//    
     @IBAction func cancelAction(sender: UIButton) {
 
         SpringAnimation.spring(0.5) {
