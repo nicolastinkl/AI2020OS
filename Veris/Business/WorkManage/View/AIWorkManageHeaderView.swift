@@ -17,9 +17,13 @@ class AIWorkManageHeaderView: UIView {
 	var openWidth: CGFloat = 135
 	weak var delegate: AIWorkManageHeaderViewDelegate?
 	
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		setup()
 	}
 	
 	private var filterColors = [

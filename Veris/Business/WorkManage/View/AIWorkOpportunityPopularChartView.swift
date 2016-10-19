@@ -21,6 +21,7 @@ class AIWorkOpportunityPopularChartView: UIView {
         UIColor(hexString: "#1c789f"),
         UIColor(hexString: "#7b3990"),
         ]
+    
     // fake
     var data = [
         (number: 26438, numberText: "26,428 Orders", name: "Food Delivery"),

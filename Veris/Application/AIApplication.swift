@@ -433,6 +433,13 @@ struct AIApplication {
         // 3.8.5 查询评论统计信息
         case queryRatingStatistics
         case getOpenTokToken
+        // 2.12.2 查询供需最大的工作机会
+        case queryMostRequestedWork
+        // 2.12.3 查询最新工作机会
+        case queryNewestWorkOpportunity
+        // 2.12.1 查询最受欢迎的工作机会
+        case queryMostPopularWork
+        
         
         // 图像识别
         case uploadAndIdentify
@@ -578,7 +585,9 @@ struct AIApplication {
             case .updateWorkStatus: return AIApplication.KURL_ReleaseURL + "/workopportunity/updateWorkStatus"
             case .submitQuestions: return AIApplication.KURL_ReleaseURL + "/service/submitQuestion"
             case .setProposalItemDisableFlag: return  AIApplication.KURL_ReleaseURL + "/proposal/setProposalItemDisableFlag"
-
+            case .queryMostRequestedWork: return AIApplication.KURL_ReleaseURL + "/workopportunity/queryMostRequestedWork"
+            case .queryNewestWorkOpportunity: return AIApplication.KURL_ReleaseURL + "/workopportunity/queryNewestWorkOpportunity"
+            case .queryMostPopularWork: return AIApplication.KURL_ReleaseURL + "/workopportunity/queryMostPopularWork"
             }
         }
     }

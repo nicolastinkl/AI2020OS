@@ -10,23 +10,76 @@ import UIKit
 
 class AIWorkOpportunityIndexViewController: UIViewController {
 	
-	@IBOutlet weak var headerView: AIWorkManageHeaderView!
-	
+	var headerView: AIWorkManageHeaderView!
+    var chartView: AIWorkOpportunityPopularChartView!
+    @IBOutlet weak var navigationBar: UIView!
+    
+    var scrollView: UIScrollView!
+    var containerView: UIView!
+    
 	var once = false
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		headerView.delegate = self
+        setupContainerView()
+        setupAIWorkManageHeaderView()
         setupAIWorkOpportunityPopularChartView()
-        
+        setupAIWorkOpportunityWhatsNewView()
 	}
     
-    func setupAIWorkOpportunityPopularChartView() {
-        let v =  AIWorkOpportunityPopularChartView()
-        view.addSubview(v)
+    func setupContainerView() {
+        scrollView = UIScrollView()
+        view.insertSubview(scrollView, belowSubview: navigationBar)
+        
+        containerView = UIView()
+        scrollView.addSubview(containerView)
+        
+        // setup constraints
+        scrollView.snp_makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+        
+        containerView.snp_makeConstraints { (make) in
+            make.width.equalTo(view)
+            make.top.leading.bottom.equalTo(scrollView)
+        }
+    }
+    
+    func setupAIWorkManageHeaderView() {
+        headerView = AIWorkManageHeaderView(frame: .zero)
+        containerView.addSubview(headerView)
+		headerView.delegate = self
+        
+        headerView.snp_makeConstraints { (make) in
+            make.top.leading.trailing.equalTo(containerView)
+            make.height.equalTo(242)
+        }
+    }
+    
+    func setupAIWorkOpportunityWhatsNewView() {
+        var services = [AISearchServiceModel]()
+        for i in 0...10 {
+            let service = AISearchServiceModel()
+            service.sid = i
+            service.name = "service name"
+            service.icon = "http://oc3j76nok.bkt.clouddn.com/%E9%99%AA%E6%8A%A4.png"
+            services.append(service)
+        }
+        let v = AIWorkOpportunityWhatsNewView(services: services)
+        containerView.addSubview(v)
+        
         v.snp_makeConstraints { (make) in
+            make.top.equalTo(chartView.snp_bottom).offset(108.displaySizeFrom1242DesignSize())
+            make.bottom.leading.trailing.equalTo(containerView)
+        }
+    }
+    
+    func setupAIWorkOpportunityPopularChartView() {
+        chartView =  AIWorkOpportunityPopularChartView()
+        containerView.addSubview(chartView)
+        chartView.snp_makeConstraints { (make) in
             make.top.equalTo(headerView.snp_bottom).offset(73.displaySizeFrom1242DesignSize())
-            make.leading.trailing.equalTo(view)
+            make.leading.trailing.equalTo(containerView)
         }
     }
 	
