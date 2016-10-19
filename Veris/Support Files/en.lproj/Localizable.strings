@@ -441,3 +441,14 @@
 /// CapitalFlow
 "CapitalFlowViewController.title" = "Capital flow";
 
+// AIWorkInfoViewController
+"AIWorkInfoViewController.JobDescriptionTitle" = "Job Description";
+"AIWorkInfoViewController.QualificationTitle" = "Qualification";
+"AIWorkInfoViewController.descriptionInfoDesc" = "Here is what you have to know about this job.";
+"AIWorkInfoViewController.ReadAll" = "Read all";
+"AIWorkInfoViewController.AcceptTermsTitle" = "I accept terms and conditions.";
+"AIWorkInfoViewController.Next" = "Next";
+"AIWorkInfoViewController.Subscribe" = "Subscribe";
+"AIWorkInfoViewController.ViewDetails" = "View Details";
+"AIWorkInfoViewController.Upload" = "Upload";
+"AIWorkInfoViewController.UploadTitleDesc" = "Please upload your ID and certificate.";

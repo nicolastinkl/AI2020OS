@@ -38,9 +38,19 @@ class AIWorkInfoViewController: UIViewController {
             }
         }
     }
+    var in_workName: String = "陪护"
+    
     var viewModel: AIWorkOpportunityDetailViewModel?
     //保存全局的条款是否checkbox是否勾选
     var isAcceptTerm: Bool = false
+    //工作机会是否以订阅
+    var isSubscribed: Bool? {
+        didSet {
+            if let isSubscribed = isSubscribed {
+                commitButton.hidden = isSubscribed
+            }
+        }
+    }
     
     //MARK: -> Constants
     static let title1IconOff = UIImage(named: "work_1_off")
@@ -86,13 +96,15 @@ class AIWorkInfoViewController: UIViewController {
         //commitButton
         commitButton.layer.cornerRadius = 180.displaySizeFrom1242DesignSize() / 2
         commitButton.layer.masksToBounds = true
-        commitButton.setTitle("Next", forState: UIControlState.Normal)
+        commitButton.setTitle("AIWorkInfoViewController.Next".localized, forState: UIControlState.Normal)
         commitButton.setBackgroundImage(UIColor.grayColor().imageWithColor(), forState: UIControlState.Disabled)
         commitButton.enabled = false
         makeNavigationItem()
         buildPopupView()
         qualificationView.delegate = self
         jobDesContainerView.delegate = self
+        Qualification.setTitle("AIWorkInfoViewController.QualificationTitle".localized, forState: UIControlState.Normal)
+        jobDescTitleLabel.setTitle("AIWorkInfoViewController.JobDescriptionTitle".localized, forState: .Normal)
     }
     
     private func buildPopupView() {
@@ -131,6 +143,12 @@ class AIWorkInfoViewController: UIViewController {
         jobDesContainerView.workDetailModel = viewModel
         let imageUrl = viewModel!.opportunityBusiModel!.work_thumbnail!
         serviceIconView.sd_setImageWithURL(NSURL(string: imageUrl), placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
+        //设置是否订阅标志
+        if viewModel!.opportunityBusiModel!.subscribed_flag.intValue == 1 {
+            isSubscribed = true
+        } else {
+            isSubscribed = false
+        }
     }
 
     func switchTabsTo(step: Int) {
@@ -142,7 +160,7 @@ class AIWorkInfoViewController: UIViewController {
             Qualification.selected = false
             jobDesContainerView.hidden = false
             qualificationView.hidden = true
-            commitButton.setTitle("Next", forState: UIControlState.Normal)
+            commitButton.setTitle("AIWorkInfoViewController.Next".localized, forState: UIControlState.Normal)
             commitButton.enabled = isAcceptTerm
         } else {
             curStep = 2
@@ -152,12 +170,12 @@ class AIWorkInfoViewController: UIViewController {
             Qualification.selected = true
             jobDesContainerView.hidden = true
             qualificationView.hidden = false
-            commitButton.setTitle("Subscribe", forState: UIControlState.Normal)
+            commitButton.setTitle("AIWorkInfoViewController.Subscribe".localized, forState: UIControlState.Normal)
         }
     }
     
     func makeNavigationItem() {
-        setupNavigationBarLikeLogin(title: "Hospital Chaperone", needCloseButton: false)
+        setupNavigationBarLikeLogin(title: in_workName, needCloseButton: false)
     }
     
     func subscribeWork() {

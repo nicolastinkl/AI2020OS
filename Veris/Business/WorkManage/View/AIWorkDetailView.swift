@@ -15,6 +15,7 @@ class AIWorkDetailView: UIView {
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var showAllButton: UIButton!
     @IBOutlet weak var jobDetailTitleLabel: UILabel!
+    @IBOutlet weak var acceptTermTitleLabel: UILabel!
     
     @IBOutlet weak var acceptCheckbox: UIButton!
     var contentLabel: UILabel!
@@ -60,6 +61,9 @@ class AIWorkDetailView: UIView {
     func setupViews() {
         setRoundCorner(showAllButton)
         buildScrollView()
+        acceptTitleLabel.text = "AIWorkInfoViewController.descriptionInfoDesc".localized
+        acceptTermTitleLabel.text = "AIWorkInfoViewController.AcceptTermsTitle".localized
+        showAllButton.setTitle("AIWorkInfoViewController.ReadAll".localized, forState: .Normal)
     }
     
     private func buildScrollView() {

@@ -21,6 +21,8 @@ class AIWorkQualificationView: UIView {
     @IBOutlet weak var scrollDotView: UIView!
     @IBOutlet weak var uploadTimeLabel: UILabel!
     @IBOutlet weak var qualificationTableView: UITableView!
+    @IBOutlet weak var gradiatebgView: UIView!
+    @IBOutlet weak var lineView2: UIView!
     
     let TableCellIdentifier = "AIWorkQualificationTableViewCell"
     
@@ -36,6 +38,7 @@ class AIWorkQualificationView: UIView {
             }
         }
     }
+    var gradientLayer: CAGradientLayer!
     
     @IBAction func uploadAction(sender: UIButton) {
         if let delegate = delegate {
@@ -50,6 +53,8 @@ class AIWorkQualificationView: UIView {
     @IBAction func switchAction(sender: UIButton) {
         qualificationContainerView.hidden = !qualificationContainerView.hidden
         qualificationTableView.hidden = !qualificationTableView.hidden
+        lineView2.hidden = !lineView2.hidden
+        gradientLayer.hidden = !gradientLayer.hidden
     }
     
     //MARK: -> Constants
@@ -71,6 +76,14 @@ class AIWorkQualificationView: UIView {
         setupViews()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer.frame = gradiatebgView.bounds
+//        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+//        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        
+    }
+    
     func setupViews() {
         switchButton.setRoundBorder()
         switchButton.setButtonWidth()
@@ -86,6 +99,19 @@ class AIWorkQualificationView: UIView {
         uploadTimeLabel.hidden = true
         
         setupTableView()
+        setupGradientView()
+        
+        topTitleLabel.text = "AIWorkInfoViewController.UploadTitleDesc".localized
+        switchButton.setTitle("AIWorkInfoViewController.ViewDetails".localized, forState: UIControlState.Normal)
+    }
+    
+    private func setupGradientView() {
+        gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor(hexString: "#000000", alpha: 0).CGColor, UIColor(hexString: "#000000", alpha: 0.7).CGColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        gradientLayer.hidden = true
+        gradiatebgView.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
     
     private func buildScrollDotView() {
