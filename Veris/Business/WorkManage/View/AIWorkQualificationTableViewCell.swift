@@ -36,7 +36,7 @@ class AIWorkQualificationTableViewCell: UITableViewCell {
     }
     
     func bindData(viewModel: AIWorkQualificationBusiModel) {
-        let url = NSURL(string: viewModel.aspect_photo)
+        let url = NSURL(string: viewModel.aspect_photo ?? "")
         qualificationImageView.sd_setImageWithURL(url, placeholderImage: UIImage(), options: SDWebImageOptions.RetryFailed)
         qualificationLabel.text = viewModel.type_name
     }
