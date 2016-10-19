@@ -186,3 +186,66 @@ extension AIWorkInfoViewController: AIWorkQualificationViewDelegate, AIWorkDetai
         isAcceptTerm = isAccept
     }
 }
+
+
+
+extension AIWorkInfoViewController: AIWorkUploadPopViewDelegate {
+
+    func shouldTakePhoto() {
+        let scanVC = AIScanBankCardViewController()
+        let nav = UINavigationController(rootViewController: scanVC)
+        showTransitionStyleCrossDissolveView(nav)
+    }
+
+
+    func shouldChoosePhoto() {
+        let vc = AIAssetsPickerController.initFromNib()
+        vc.delegate = self
+        vc.maximumNumberOfSelection = 1
+        let nav = UINavigationController(rootViewController: vc)
+        showTransitionStyleCrossDissolveView(nav)
+    }
+}
+
+extension AIWorkInfoViewController: AIAssetsPickerControllerDelegate {
+    /**
+     完成选择
+
+     1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
+     2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
+
+
+        for asset in assets {
+            if asset is ALAsset {
+                //let image = AIALAssetsImageOperator.thumbnailImageForAsset(asset as! ALAsset, maxPixelSize: 500)
+
+            }
+        }
+
+
+    }
+
+    /**
+     取消选择
+     */
+    func assetsPickerControllerDidCancel() {
+
+    }
+
+    /**
+     选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+
+    }
+
+    /**
+     取消选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+}
+

@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import AIAlertView
+
 
 class AIScanBankCardViewController: AIBaseViewController {
 
+    // Private
+
+    private var imagePickerController: UIImagePickerController!
+
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        makeSubViews()
         // Do any additional setup after loading the view.
     }
 
@@ -21,22 +28,45 @@ class AIScanBankCardViewController: AIBaseViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
-    override func setupNavigationBar() {
-
-        let backButton = goBackButtonWithImage("comment-back")
-        navigatonBarAppearance?.leftBarButtonItems = [backButton]
-        setNavigationBarAppearance(navigationBarAppearance: navigatonBarAppearance!)
-    }
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func makeSubViews() {
+        makeCamera()
+
     }
-    */
+
+    func makeCamera() {
+        //初始化
+        imagePickerController = UIImagePickerController();
+        imagePickerController.delegate = self;//通过代理来传递拍照的图片
+        imagePickerController.allowsEditing = true;//允许编辑
+        imagePickerController.showsCameraControls = false 
+
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            imagePickerController.sourceType = .Camera
+            presentViewController(imagePickerController, animated: false, completion: nil)
+        } else {
+            AIAlertView().showError("No Camera!", subTitle: "")
+        }
+
+    }
+
 
 }
+
+extension AIScanBankCardViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let image = info[UIImagePickerControllerEditedImage]
+
+        if let _ = image {
+
+        }
+
+        picker.dismiss()
+        self.dismiss()
+
+    }
+
+}
+
