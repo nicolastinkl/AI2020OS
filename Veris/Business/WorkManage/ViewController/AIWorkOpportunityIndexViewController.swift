@@ -54,6 +54,7 @@ extension AIWorkOpportunityIndexViewController: AIWorkManageHeaderViewDelegate {
         // did at index
         let workInfoVC = UIStoryboard(name:  AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIWorkManageStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIWorkInfoViewController) as! AIWorkInfoViewController
         workInfoVC.in_workId = "100000000300"
+        workInfoVC.in_workName = "陪护"
         let navigationController = UINavigationController(rootViewController: workInfoVC)
         navigationController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         navigationController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen

@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIWorkDetailView" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="acceptCheckbox" destination="2mU-pc-Y1i" id="X5t-gR-zdq"/>
+                <outlet property="acceptTermTitleLabel" destination="kqF-hO-6w4" id="ZxU-Pj-YME"/>
                 <outlet property="acceptTitleLabel" destination="Ttd-Fz-9vk" id="33R-w4-HIT"/>
                 <outlet property="detailScrollView" destination="aoj-40-qh6" id="DHs-cg-EpJ"/>
                 <outlet property="jobDetailTitleLabel" destination="Ttd-Fz-9vk" id="jv1-yk-0ot"/>

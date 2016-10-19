@@ -23,8 +23,6 @@ class AIWorkManageViewController: AIBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupNavigationBar()
         makeTableView()
         makeMainShowButton()
 

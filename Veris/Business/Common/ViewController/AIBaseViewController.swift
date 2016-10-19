@@ -92,11 +92,15 @@ class AIBaseViewController: UIViewController {
         navigatonBarAppearance!.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
         let font = AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize())
         navigatonBarAppearance!.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 40.displaySizeFrom1242DesignSize(), font: font, textColor: UIColor.whiteColor(), text: "")
+
+        setupNavigationBar()
     }
 
     //MARK:
     func setupNavigationBar() {
-
+        let backButton = goBackButtonWithImage("comment-back")
+        navigatonBarAppearance?.leftBarButtonItems = [backButton]
+        setNavigationBarAppearance(navigationBarAppearance: navigatonBarAppearance!)
     }
 
     //MARK: 提供默认的返回按钮

@@ -38,6 +38,7 @@
 @property (nonatomic, strong) NSString<Optional> *work_desc;
 @property (nonatomic, strong) NSString<Optional> *work_thumbnail;
 @property (nonatomic, strong) NSString<Optional> *work_img;
+@property (nonatomic, strong) NSNumber<Optional> *subscribed_flag;
 @end
 
 // 查询已订阅的工作机会

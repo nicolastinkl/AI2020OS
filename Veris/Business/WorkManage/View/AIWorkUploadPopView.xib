@@ -42,7 +42,7 @@
                                     </constraints>
                                     <state key="normal" title="Button" image="work_upload_photo"/>
                                     <connections>
-                                        <action selector="takePhotoActionWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="9dG-k8-lPC"/>
+                                        <action selector="takePhotoAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="n38-eA-dgj"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ML-5a-cDS" userLabel="albumsButton">
@@ -52,7 +52,7 @@
                                     </constraints>
                                     <state key="normal" title="Button" image="work_upload_album"/>
                                     <connections>
-                                        <action selector="choosePhotoActionWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="e1v-ky-Va4"/>
+                                        <action selector="choosePhotoAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="eAd-YY-nPx"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take a photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl4-uo-Q4Z">
