@@ -111,6 +111,7 @@ class AIWorkInfoViewController: UIViewController {
         
         uploadPopView = AIWorkUploadPopView.createInstance()
         uploadPopView.alpha = 0
+        uploadPopView.delegate = self
         view.addSubview(uploadPopView)
         uploadPopView.snp_makeConstraints { (make) in
             make.leading.trailing.top.bottom.equalTo(self.view)
