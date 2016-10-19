@@ -9,6 +9,15 @@ import Spring
 import UIKit
 import SnapKit
 
+protocol AIWorkUploadPopViewDelegate: class {
+
+    func shouldChoosePhoto()
+
+    func shouldTakePhoto()
+
+}
+
+
 class AIWorkUploadPopView: UIView {
     
     
@@ -18,11 +27,14 @@ class AIWorkUploadPopView: UIView {
     @IBOutlet weak var takePhotoLabel: UILabel!
     @IBOutlet weak var selectPhotoLabel: UILabel!
     
-    
+    weak var delegate: AIWorkUploadPopViewDelegate?
+
     @IBAction func takePhotoAction(sender: UIButton) {
+        self.delegate?.shouldTakePhoto()
     }
     
     @IBAction func choosePhotoAction(sender: AnyObject) {
+        self.delegate?.shouldTakePhoto()
     }
     
     @IBAction func cancelAction(sender: UIButton) {
