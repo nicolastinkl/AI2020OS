@@ -61,6 +61,7 @@
 		813860FF1D5AC4E20050C0D0 /* AIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860FE1D5AC4E20050C0D0 /* AIBaseViewController.swift */; };
 		813861011D5B0A590050C0D0 /* AIJobSurveyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813861001D5B0A590050C0D0 /* AIJobSurveyModel.swift */; };
 		813861031D5B0BFD0050C0D0 /* AIJobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813861021D5B0BFD0050C0D0 /* AIJobTableViewCell.swift */; };
+		81397C171DB7494E00E407F4 /* AIScanBankCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81397C161DB7494E00E407F4 /* AIScanBankCardViewController.swift */; };
 		81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
 		81433CD11CFBE5A700347C29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339281CFBE5A600347C29 /* AppDelegate.swift */; };
 		81433CD21CFBE5A700347C29 /* AIBuyServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143392C1CFBE5A600347C29 /* AIBuyServiceModel.swift */; };
@@ -931,6 +932,7 @@
 		813860FE1D5AC4E20050C0D0 /* AIBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBaseViewController.swift; sourceTree = "<group>"; };
 		813861001D5B0A590050C0D0 /* AIJobSurveyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIJobSurveyModel.swift; sourceTree = "<group>"; };
 		813861021D5B0BFD0050C0D0 /* AIJobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIJobTableViewCell.swift; sourceTree = "<group>"; };
+		81397C161DB7494E00E407F4 /* AIScanBankCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIScanBankCardViewController.swift; sourceTree = "<group>"; };
 		814339261CFBE5A600347C29 /* AIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIApplication.swift; sourceTree = "<group>"; };
 		814339271CFBE5A600347C29 /* AIVeris-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AIVeris-Bridging-Header.h"; sourceTree = "<group>"; };
 		814339281CFBE5A600347C29 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -4364,6 +4366,7 @@
 				935E58D51D5315D900252B83 /* AIWorkManageViewController.swift */,
 				FB67FA4F1D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift */,
 				935E58D61D5315D900252B83 /* AIWorkOpportunityIndexViewController.xib */,
+				81397C161DB7494E00E407F4 /* AIScanBankCardViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -5345,6 +5348,7 @@
 				813861011D5B0A590050C0D0 /* AIJobSurveyModel.swift in Sources */,
 				81433E431CFBE5A700347C29 /* JSSAlertView-Extension.swift in Sources */,
 				9352BC781D630E42003CD476 /* AIAlertWishInputView.swift in Sources */,
+				81397C171DB7494E00E407F4 /* AIScanBankCardViewController.swift in Sources */,
 				93A0ABDE1D12AD6200562090 /* JSONAPI.m in Sources */,
 				9392B5821D1CD9F10007F241 /* DataVerifier.m in Sources */,
 				81433D3F1CFBE5A700347C29 /* AIDetailTopMenuView.swift in Sources */,

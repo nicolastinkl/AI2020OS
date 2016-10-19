@@ -93,7 +93,7 @@ class AIJobTableViewCell: UITableViewCell {
     func resetContentView() {
         let x = (CGRectGetWidth(self.contentView.frame) - kContentWidth) / 2
         self.contentView.frame = CGRect(x: x, y: 0, width: kContentWidth, height: kTopViewHeight + kBottomViewHeight)
-        self.contentView.layer.cornerRadius = 10
+        self.contentView.layer.cornerRadius = 8
         self.contentView.clipsToBounds = true
         self.contentView.backgroundColor = UIColor(white: 0.3, alpha: 0.3)
     }
