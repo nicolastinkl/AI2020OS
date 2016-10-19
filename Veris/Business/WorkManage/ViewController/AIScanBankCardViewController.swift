@@ -19,6 +19,7 @@ class AIScanBankCardViewController: AIBaseViewController {
     private let kScanRate: CGFloat = 1179 / 722
     private let kSideMargin: CGFloat = 32.displaySizeFrom1242DesignSize()
 
+    private let kMarginColor: UIColor = UIColor.init(white: 0, alpha: 0.4)
 
     //MARK: Private
 
@@ -52,10 +53,11 @@ class AIScanBankCardViewController: AIBaseViewController {
         imagePickerController = UIImagePickerController();
         imagePickerController.delegate = self;//通过代理来传递拍照的图片
         imagePickerController.allowsEditing = true;//允许编辑
-        imagePickerController.showsCameraControls = false
+
 
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             imagePickerController.sourceType = .Camera
+            imagePickerController.showsCameraControls = false
             presentViewController(imagePickerController, animated: false, completion: nil)
         } else {
             AIAlertView().showError("No Camera!", subTitle: "")
@@ -77,8 +79,25 @@ class AIScanBankCardViewController: AIBaseViewController {
         let  topFrame = CGRect(x: 0, y: 0, width: screenWidth, height: topViewHeight)
 
         let topView = UIView(frame: topFrame)
-        topView.backgroundColor = UIColor.init(white: 0, alpha: 0.4)
+        topView.backgroundColor = kMarginColor
         self.view.addSubview(topView)
+
+        // add left
+        let leftWidth = 32.displaySizeFrom1242DesignSize()
+        let leftHeight = scanHeight
+        let leftFrame = CGRect(x: 0, y: CGRectGetMaxY(topView.frame), width: leftWidth, height: leftHeight)
+        let leftView = UIView(frame: leftFrame)
+        leftView.backgroundColor = kMarginColor
+        self.view.addSubview(leftView)
+
+        // add right
+
+        let rightWidth = 32.displaySizeFrom1242DesignSize()
+        let rightHeight = scanHeight
+        let rightFrame = CGRect(x: screenWidth - rightWidth, y: CGRectGetMaxY(topView.frame), width: rightWidth, height: rightHeight)
+        let rightView = UIView(frame: rightFrame)
+        rightView.backgroundColor = kMarginColor
+        self.view.addSubview(rightView)
 
         // add scan 
 
@@ -91,7 +110,7 @@ class AIScanBankCardViewController: AIBaseViewController {
         let bottomFrame = CGRect(x: 0, y: CGRectGetMaxY(scanView.frame), width: screenWidth, height: bottomViewHeight)
 
         let bottomView = UIView(frame: bottomFrame)
-        bottomView.backgroundColor = UIColor.init(white: 0, alpha: 0.4)
+        bottomView.backgroundColor = kMarginColor
         self.view.addSubview(bottomView)
 
 
