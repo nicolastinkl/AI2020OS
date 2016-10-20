@@ -12,15 +12,26 @@ class AIWorkDetailView: UIView {
 
     //MARK: -> IB vars
     @IBOutlet weak var acceptTitleLabel: UILabel!
-    @IBOutlet weak var checkboxImage: UIImageView!
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var showAllButton: UIButton!
     @IBOutlet weak var jobDetailTitleLabel: UILabel!
+    @IBOutlet weak var acceptTermTitleLabel: UILabel!
+    
+    @IBOutlet weak var acceptCheckbox: UIButton!
     var contentLabel: UILabel!
+    var delegate: AIWorkDetailViewDelegate?
     
     @IBAction func showAllAction(sender: UIButton) {
         
     }
+    
+    @IBAction func acceptAction(sender: UIButton) {
+        acceptCheckbox.selected = !acceptCheckbox.selected
+        if let delegate = delegate {
+            delegate.acceptTerm(acceptCheckbox.selected)
+        }
+    }
+    
     
     //MARK: -> Contants
     let QUOTE_LEFT_MARGIN = 56.displaySizeFrom1242DesignSize()
@@ -50,6 +61,9 @@ class AIWorkDetailView: UIView {
     func setupViews() {
         setRoundCorner(showAllButton)
         buildScrollView()
+        acceptTitleLabel.text = "AIWorkInfoViewController.descriptionInfoDesc".localized
+        acceptTermTitleLabel.text = "AIWorkInfoViewController.AcceptTermsTitle".localized
+        showAllButton.setTitle("AIWorkInfoViewController.ReadAll".localized, forState: .Normal)
     }
     
     private func buildScrollView() {
@@ -77,7 +91,7 @@ class AIWorkDetailView: UIView {
         //contentLabel
         contentLabel = UILabel()
         contentLabel.font = CONTENT_FONT
-        contentLabel.text = "To help maintain the health of patients, instruments and Grooming: When a patient for personal reasons can not complete their own personal hygiene, organize themselves, to help their carers should be completed, such as the face, hair, oral hygiene, denture care, brush, dressing, to assist the use the potty or toilet, potty and so on. To help patients meet the nutritional needs such as feeding, water, meals and other assistance. Safeguard patient safety: to help the patient get out.To help maintain the health of patients, instruments and Grooming: When a patient for personal reasons can not complete their own personal hygiene, organize themselves, to help their carers should be completed, such as the face, hair, oral hygiene, denture care, brush, dressing, to assist the use the potty or toilet, potty and so on. To help patients meet the nutritional needs such as feeding, water, meals and other assistance. Safeguard patient safety: to help the patient get out.To help maintain the health of patients, instruments and Grooming: When a patient for personal reasons can not complete their own personal hygiene, organize themselves, to help their carers should be completed, such as the face, hair, oral hygiene, denture care, brush, dressing, to assist the use the potty or toilet, potty and so on. To help patients meet the nutritional needs such as feeding, water, meals and other assistance. Safeguard patient safety: to help the patient get out.To help maintain the health of patients, instruments and Grooming: When a patient for personal reasons can not complete their own personal hygiene, organize themselves, to help their carers should be completed, such as the face, hair, oral hygiene, denture care, brush, dressing, to assist the use the potty or toilet, potty and so on. To help patients meet the nutritional needs such as feeding, water, meals and other assistance. Safeguard patient safety: to help the patient get out."
+        contentLabel.text = ""
         contentLabel.numberOfLines = 0
         contentLabel.textColor = UIColor.whiteColor()
         containerView.addSubview(contentLabel)
@@ -94,4 +108,8 @@ class AIWorkDetailView: UIView {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
     }
+}
+
+protocol AIWorkDetailViewDelegate {
+    func acceptTerm(isAccept: Bool)
 }

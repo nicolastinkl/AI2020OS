@@ -578,7 +578,7 @@ struct AIApplication {
             case .checkCustomerWish: return  AIApplication.KURL_ReleaseURL + "/wish/checkCustomerWish"
 
             //工作机会相关接口
-            case .queryWorkOpportunity: return AIApplication.KURL_ReleaseURL + "/workopportunity/queryWorkOpportunity"
+            case .queryWorkOpportunity: return AIApplication.KURL_ReleaseURL + "/workopportunity/queryWorkOpportunitySubscribed"
             case .getWorkQualification: return AIApplication.KURL_ReleaseURL + "/workopportunity/getWorkQualification"
             case .subscribeWorkOpportunity: return AIApplication.KURL_ReleaseURL + "/workopportunity/subscribeWorkOpportunity"
             case .querySubscribedWorkOpportunity: return AIApplication.KURL_ReleaseURL + "/workopportunity/querySubscribedWorkOpportunity"

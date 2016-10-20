@@ -22,22 +22,26 @@ class AIJobTableViewCell: UITableViewCell {
     var curDataModel: AISubscribledJobModel!
     //MARK: Constants
 
-    private let cellMargin = 80.displaySizeFrom1242DesignSize()
-    private let IconMargin: CGFloat = 20.displaySizeFrom1242DesignSize()
-    private let StatusVerticalMargin: CGFloat = 56.displaySizeFrom1242DesignSize()
-    private let StatusHorizontalMarin: CGFloat = 95.displaySizeFrom1242DesignSize()
-    private let IconSize: CGFloat = 58.displaySizeFrom1242DesignSize()
-    private let DescriptionFontSize = 60.displaySizeFrom1242DesignSize()
-    private let cellWidth = UIScreen.mainScreen().bounds.size.width
-    private let topViewHeight = 98.displaySizeFrom1242DesignSize()
-    private let contentWidth = UIScreen.mainScreen().bounds.size.width - 40.displaySizeFrom1242DesignSize()
+    private let kCellMargin = 80.displaySizeFrom1242DesignSize()
+    private let kIconMargin: CGFloat = 20.displaySizeFrom1242DesignSize()
+    private let kStatusVerticalMargin: CGFloat = 56.displaySizeFrom1242DesignSize()
+    private let kStatusHorizontalMarin: CGFloat = 95.displaySizeFrom1242DesignSize()
+    private let kIconSize: CGFloat = 58.displaySizeFrom1242DesignSize()
+    private let kDescriptionFontSize = 60.displaySizeFrom1242DesignSize()
+    private let kCellWidth = UIScreen.mainScreen().bounds.size.width
+    private let kTopViewHeight = 98.displaySizeFrom1242DesignSize()
+    private let kContentWidth = UIScreen.mainScreen().bounds.size.width - 80.displaySizeFrom1242DesignSize()
+    private let kRightSideMargin = 35.displaySizeFrom1242DesignSize()
 
     // Bottom
-    private let bottomViewHeight = 297.displaySizeFrom1242DesignSize()
-    private let bottomLabelWidth = (UIScreen.mainScreen().bounds.size.width - 95.displaySizeFrom1242DesignSize()) / 2
-    private let bottomIconSize = 42.displaySizeFrom1242DesignSize()
-    private let bottomLabelFontSize = 42.displaySizeFrom1242DesignSize()
-    private let bottomIcomMargin = 12.displaySizeFrom1242DesignSize()
+    private let kBottomViewHeight = 297.displaySizeFrom1242DesignSize()
+    private let kBottomLabelWidth = (UIScreen.mainScreen().bounds.size.width - 95.displaySizeFrom1242DesignSize()) / 2
+    private let kBottomIconSize = 42.displaySizeFrom1242DesignSize()
+    private let kBottomLabelFontSize = 42.displaySizeFrom1242DesignSize()
+    private let kBottomIcomMargin = 12.displaySizeFrom1242DesignSize()
+
+
+
 
     //MARK: Public Property
     var jobIconView: UIImageView!
@@ -48,6 +52,10 @@ class AIJobTableViewCell: UITableViewCell {
 
     private var topView: UIView!
 
+    // TopView 
+
+    var stateIconView: UIImageView!
+    var gradientLayer: CAGradientLayer!
 
     // Bottom View
     private var bottomView: UIView!
@@ -83,8 +91,9 @@ class AIJobTableViewCell: UITableViewCell {
 
 
     func resetContentView() {
-        self.contentView.frame = CGRect(x: IconMargin, y: 0, width: contentWidth, height: topViewHeight + bottomViewHeight)
-        self.contentView.layer.cornerRadius = 4
+        let x = (CGRectGetWidth(self.contentView.frame) - kContentWidth) / 2
+        self.contentView.frame = CGRect(x: x, y: 0, width: kContentWidth, height: kTopViewHeight + kBottomViewHeight)
+        self.contentView.layer.cornerRadius = 8
         self.contentView.clipsToBounds = true
         self.contentView.backgroundColor = UIColor(white: 0.3, alpha: 0.3)
     }
@@ -99,10 +108,9 @@ class AIJobTableViewCell: UITableViewCell {
     // MARK: Top View
 
     func makeTopView() {
-        let frame = CGRect(x: 0, y: 0, width: contentWidth, height: topViewHeight)
+        let frame = CGRect(x: 0, y: 0, width: kContentWidth, height: kTopViewHeight)
         topView = UIView(frame: frame)
-        topView.backgroundColor = UIColor(white: 0.1, alpha: 0.15)
-        makeGradientColorForTopView()
+        topView.backgroundColor = UIColor(white: 0.1, alpha: 0.2)
 
         self.contentView.addSubview(topView)
 
@@ -116,12 +124,15 @@ class AIJobTableViewCell: UITableViewCell {
             switch curDataModel.work_state {
             case "0": // 资料不齐
                 makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("b32b1d"), darkColor: UIColor.clearColor())
+                makeStateIcon("Job_Question")
                 break
             case "1": // 接单中
                 makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("41ac3d"), darkColor: UIColor.clearColor())
+                makeStateIcon("Job_Oneline")
                 break
             case "2": // 休息中
                 makeGradientColorsForView(topView, lightColor: AITools.colorWithHexString("ff8e1f"), darkColor: UIColor.clearColor())
+                makeStateIcon("Job_Offline")
                 break
             default:
                 break
@@ -131,30 +142,49 @@ class AIJobTableViewCell: UITableViewCell {
 
     func makeGradientColorsForView(view: UIView, lightColor: UIColor, darkColor: UIColor) {
 
-        if let layer = topView.layer.sublayers?.first {
-            if layer is CAGradientLayer {
-                layer.removeFromSuperlayer()
-            }
+        if let layer = gradientLayer {
+            layer.removeFromSuperlayer()
         }
 
-        let gradient = CAGradientLayer()
-        gradient.colors = [lightColor.CGColor, darkColor.CGColor]
-        gradient.frame = topView.bounds
-        gradient.startPoint = CGPoint(x: 1, y: 0.5)
-        gradient.endPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [lightColor.CGColor, darkColor.CGColor]
+        let width = 422.displaySizeFrom1242DesignSize()
+        let height = CGRectGetHeight(topView.frame)
+        let x = CGRectGetWidth(topView.frame) - width
+        gradientLayer.frame = CGRect(x: x, y: 0, width: width, height: height)
+        gradientLayer.startPoint = CGPoint(x: 1, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 0.5)
 
-        topView.layer.insertSublayer(gradient, atIndex: 0)
+        topView.layer.insertSublayer(gradientLayer, atIndex: 0)
+    }
+
+
+    func makeStateIcon(iconName: String) {
+
+        if stateIconView == nil {
+            let width = 59.displaySizeFrom1242DesignSize()
+            let height = 54.displaySizeFrom1242DesignSize()
+            let x = CGRectGetWidth(topView.frame) - width - kRightSideMargin
+            let y = (kTopViewHeight - height) / 2
+
+            let iconFrame = CGRect(x: x, y: y, width: width, height: height)
+            stateIconView = UIImageView(frame: iconFrame)
+        }
+
+        stateIconView.image = UIImage(named: iconName)
+
+        topView.addSubview(stateIconView)
     }
 
     func makeJobIcon() {
-        jobIconView = UIImageView(frame: CGRect(x: IconMargin, y: IconMargin, width: IconSize, height: IconSize))
+        jobIconView = UIImageView(frame: CGRect(x: kIconMargin, y: kIconMargin, width: kIconSize, height: kIconSize))
         topView.addSubview(jobIconView)
     }
 
     func makeJobDescription() {
-        let x = CGRectGetMaxX(jobIconView!.frame) + IconMargin
+        let x = CGRectGetMaxX(jobIconView!.frame) + kIconMargin
         let width: CGFloat = 300
-        jobDescriptionLabel = AIViews.normalLabelWithFrame( CGRect(x: x, y: IconMargin, width: width, height: DescriptionFontSize), text: "", fontSize: DescriptionFontSize, color: UIColor.whiteColor())
+        jobDescriptionLabel = AIViews.normalLabelWithFrame( CGRect(x: x, y: kIconMargin, width: width, height: kDescriptionFontSize), text: "", fontSize: kDescriptionFontSize, color: UIColor.whiteColor())
         topView.addSubview(jobDescriptionLabel)
     }
 
@@ -165,10 +195,10 @@ class AIJobTableViewCell: UITableViewCell {
 
     func makeBottomView() {
         let y = CGRectGetMaxY(topView.frame)
-        let frame = CGRect(x: 0, y: y, width: cellWidth-IconMargin*2, height: bottomViewHeight)
+        let frame = CGRect(x: 0, y: y, width: kContentWidth, height: kBottomViewHeight)
         bottomView = UIView(frame: frame)
         self.contentView.addSubview(bottomView)
-
+        bottomView.backgroundColor = UIColor(white: 0.5, alpha: 0.4)
         //
 
         makeSubscribledTimeView()
@@ -180,8 +210,8 @@ class AIJobTableViewCell: UITableViewCell {
     func makeJobActionButton() {
         let width = 349.displaySizeFrom1242DesignSize()
         let height = 74.displaySizeFrom1242DesignSize()
-        let x = contentWidth - width - 35.displaySizeFrom1242DesignSize()
-        let y = (bottomViewHeight - height) / 2
+        let x = kContentWidth - width - kRightSideMargin
+        let y = (kBottomViewHeight - height) / 2
         let frame = CGRect(x: x, y: y, width: width, height: height)
         jobActionButton = AIViews.baseButtonWithFrame(frame, normalTitle: "")
         jobActionButton.layer.cornerRadius = height / 2
@@ -215,16 +245,16 @@ class AIJobTableViewCell: UITableViewCell {
     func makeCommonDescView(iconName: String, descText: String, originalY: CGFloat) -> (UIImageView, UPLabel) {
 
 
-        var x = StatusHorizontalMarin
+        var x = kStatusHorizontalMarin
 
-        let iconFrame = CGRect(x: x, y: originalY, width: bottomIconSize, height: bottomIconSize)
+        let iconFrame = CGRect(x: x, y: originalY, width: kBottomIconSize, height: kBottomIconSize)
         let imageView = UIImageView(image: UIImage(named: iconName))
         imageView.frame = iconFrame
 
-        x += bottomIcomMargin + bottomIconSize
+        x += kBottomIcomMargin + kBottomIconSize
 
-        let frame = CGRect(x: x, y: originalY, width: bottomLabelWidth, height: bottomLabelFontSize)
-        let label: UPLabel = AIViews.normalLabelWithFrame(frame, text: descText, fontSize: bottomLabelFontSize, color: UIColor.whiteColor())
+        let frame = CGRect(x: x, y: originalY, width: kBottomLabelWidth, height: kBottomLabelFontSize)
+        let label: UPLabel = AIViews.normalLabelWithFrame(frame, text: descText, fontSize: kBottomLabelFontSize, color: UIColor.whiteColor())
 
 
         return (imageView, label)
@@ -232,7 +262,7 @@ class AIJobTableViewCell: UITableViewCell {
 
     func makeSubscribledTimeView() {
 
-        let (imageView, label) = makeCommonDescView("", descText: "", originalY: StatusVerticalMargin)
+        let (imageView, label) = makeCommonDescView("", descText: "", originalY: kStatusVerticalMargin)
         bottomView.addSubview(imageView)
         bottomView.addSubview(label)
 

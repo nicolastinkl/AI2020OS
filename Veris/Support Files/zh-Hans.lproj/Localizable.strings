@@ -451,3 +451,14 @@
 /// CapitalFlow
 "CapitalFlowViewController.title" = "资产流水";
 
+// AIWorkInfoViewController
+"AIWorkInfoViewController.JobDescriptionTitle" = "职位描述";
+"AIWorkInfoViewController.QualificationTitle" = "工作前提";
+"AIWorkInfoViewController.descriptionInfoDesc" = "工作内容.";
+"AIWorkInfoViewController.ReadAll" = "阅读所有";
+"AIWorkInfoViewController.AcceptTermsTitle" = "同意条款";
+"AIWorkInfoViewController.Next" = "下一步";
+"AIWorkInfoViewController.Subscribe" = "订阅";
+"AIWorkInfoViewController.ViewDetails" = "查看详情";
+"AIWorkInfoViewController.Upload" = "上传";
+"AIWorkInfoViewController.UploadTitleDesc" = "你需要有以下证明";

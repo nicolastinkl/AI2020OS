@@ -38,12 +38,35 @@ class AIWorkInfoViewController: UIViewController {
             }
         }
     }
-    var viewModel: AIWorkOpportunityDetailViewModel?
-    //MARK: -> Constants
-
+    var in_workName: String = "陪护"
     
+    var viewModel: AIWorkOpportunityDetailViewModel?
+    //保存全局的条款是否checkbox是否勾选
+    var isAcceptTerm: Bool = false
+    //工作机会是否以订阅
+    var isSubscribed: Bool? {
+        didSet {
+            if let isSubscribed = isSubscribed {
+                commitButton.hidden = isSubscribed
+            }
+        }
+    }
+    
+    //MARK: -> Constants
+    static let title1IconOff = UIImage(named: "work_1_off")
+    static let title1IconOn = UIImage(named: "work_1_on")
+    static let title2IconOff = UIImage(named: "work_2_off")
+    static let title2IconOn = UIImage(named: "work_2_on")
+    
+    //MARK: -> IBAction
     @IBAction func commitAction(sender: UIButton) {
-        switchTabsTo(2)
+        if curStep == 1{
+            //这里还有一个逻辑，当checkbox选中才能点下一步
+            switchTabsTo(2)
+        } else {
+            subscribeWork()
+        }
+        
     }
     
     @IBAction func stepOneAction(sender: AnyObject) {
@@ -55,10 +78,7 @@ class AIWorkInfoViewController: UIViewController {
     }
     
     
-    static let title1IconOff = UIImage(named: "work_1_off")
-    static let title1IconOn = UIImage(named: "work_1_on")
-    static let title2IconOff = UIImage(named: "work_2_off")
-    static let title2IconOn = UIImage(named: "work_2_on")
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,16 +96,22 @@ class AIWorkInfoViewController: UIViewController {
         //commitButton
         commitButton.layer.cornerRadius = 180.displaySizeFrom1242DesignSize() / 2
         commitButton.layer.masksToBounds = true
-        commitButton.setTitle("Next", forState: UIControlState.Normal)
+        commitButton.setTitle("AIWorkInfoViewController.Next".localized, forState: UIControlState.Normal)
+        commitButton.setBackgroundImage(UIColor.grayColor().imageWithColor(), forState: UIControlState.Disabled)
+        commitButton.enabled = false
         makeNavigationItem()
         buildPopupView()
         qualificationView.delegate = self
+        jobDesContainerView.delegate = self
+        Qualification.setTitle("AIWorkInfoViewController.QualificationTitle".localized, forState: UIControlState.Normal)
+        jobDescTitleLabel.setTitle("AIWorkInfoViewController.JobDescriptionTitle".localized, forState: .Normal)
     }
     
     private func buildPopupView() {
         
         uploadPopView = AIWorkUploadPopView.createInstance()
         uploadPopView.alpha = 0
+        uploadPopView.delegate = self
         view.addSubview(uploadPopView)
         uploadPopView.snp_makeConstraints { (make) in
             make.leading.trailing.top.bottom.equalTo(self.view)
@@ -118,6 +144,12 @@ class AIWorkInfoViewController: UIViewController {
         jobDesContainerView.workDetailModel = viewModel
         let imageUrl = viewModel!.opportunityBusiModel!.work_thumbnail!
         serviceIconView.sd_setImageWithURL(NSURL(string: imageUrl), placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
+        //设置是否订阅标志
+        if viewModel!.opportunityBusiModel!.subscribed_flag.intValue == 1 {
+            isSubscribed = true
+        } else {
+            isSubscribed = false
+        }
     }
 
     func switchTabsTo(step: Int) {
@@ -129,7 +161,8 @@ class AIWorkInfoViewController: UIViewController {
             Qualification.selected = false
             jobDesContainerView.hidden = false
             qualificationView.hidden = true
-            commitButton.setTitle("Next", forState: UIControlState.Normal)
+            commitButton.setTitle("AIWorkInfoViewController.Next".localized, forState: UIControlState.Normal)
+            commitButton.enabled = isAcceptTerm
         } else {
             curStep = 2
             title1Icon.image = AIWorkInfoViewController.title1IconOff
@@ -138,17 +171,25 @@ class AIWorkInfoViewController: UIViewController {
             Qualification.selected = true
             jobDesContainerView.hidden = true
             qualificationView.hidden = false
-            commitButton.setTitle("Subscribe", forState: UIControlState.Normal)
+            commitButton.setTitle("AIWorkInfoViewController.Subscribe".localized, forState: UIControlState.Normal)
         }
     }
     
     func makeNavigationItem() {
-        
-        setupNavigationBarLikeLogin(title: "Hospital Chaperone", needCloseButton: false)
+        setupNavigationBarLikeLogin(title: in_workName, needCloseButton: false)
+    }
+    
+    func subscribeWork() {
+        let requestHandler = AIWorkManageRequestHandler.sharedInstance
+        requestHandler.subscribeWorkOpportunity(in_workId!, success: { (resultCode) in
+            AIAlertView().showError("订阅成功", subTitle: self.viewModel!.opportunityBusiModel!.work_name)
+            }) { (errType, errDes) in
+                AIAlertView().showError("订阅失败", subTitle: errDes)
+        }
     }
 }
 
-extension AIWorkInfoViewController: AIWorkQualificationViewDelegate {
+extension AIWorkInfoViewController: AIWorkQualificationViewDelegate, AIWorkDetailViewDelegate {
     func uploadAction(carousel: iCarousel, qualificationBusiModel: AIWorkQualificationBusiModel) {
         //把弹出view放到最上面
         view.bringSubviewToFront(uploadPopView)
@@ -159,4 +200,76 @@ extension AIWorkInfoViewController: AIWorkQualificationViewDelegate {
         }
     }
     
+    func acceptTerm(isAccept: Bool) {
+        commitButton.enabled = isAccept
+        isAcceptTerm = isAccept
+    }
 }
+
+
+
+extension AIWorkInfoViewController: AIWorkUploadPopViewDelegate {
+
+    func shouldTakePhoto() {
+        let scanVC = AIScanBankCardViewController()
+        let nav = UINavigationController(rootViewController: scanVC)
+        showTransitionStyleCrossDissolveView(nav)
+
+        if let model = viewModel?.qualificationsBusiModel?.work_qualifications[qualificationView.carousel.currentItemIndex] as? AIWorkQualificationBusiModel {
+            scanVC.aspectID = model.aspect_type.toInt()!
+        }
+
+    }
+
+
+    func shouldChoosePhoto() {
+        let vc = AIAssetsPickerController.initFromNib()
+        vc.delegate = self
+        vc.maximumNumberOfSelection = 1
+        let nav = UINavigationController(rootViewController: vc)
+        showTransitionStyleCrossDissolveView(nav)
+    }
+}
+
+extension AIWorkInfoViewController: AIAssetsPickerControllerDelegate {
+    /**
+     完成选择
+
+     1. 缩略图： UIImage(CGImage: assetSuper.thumbnail().takeUnretainedValue())
+     2. 完整图： UIImage(CGImage: assetSuper.fullResolutionImage().takeUnretainedValue())
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
+
+
+        for asset in assets {
+            if asset is ALAsset {
+                //let image = AIALAssetsImageOperator.thumbnailImageForAsset(asset as! ALAsset, maxPixelSize: 500)
+
+            }
+        }
+
+
+    }
+
+    /**
+     取消选择
+     */
+    func assetsPickerControllerDidCancel() {
+
+    }
+
+    /**
+     选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+
+    }
+
+    /**
+     取消选中某张照片
+     */
+    func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+}
+

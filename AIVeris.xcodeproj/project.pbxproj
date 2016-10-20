@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		120D20A31D360A710001C6A9 /* AITimelineContentContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120D20A21D360A710001C6A9 /* AITimelineContentContainerView.swift */; };
+		121D1FD21DB86203005151E9 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121D1FD11DB86203005151E9 /* CardDeepLinkKit.framework */; };
+		121D1FD31DB86214005151E9 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121D1FD11DB86203005151E9 /* CardDeepLinkKit.framework */; };
+		121D1FD41DB86214005151E9 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 121D1FD11DB86203005151E9 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		122E7BDE1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */; };
 		122E7BDF1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */; };
 		1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */; };
@@ -61,6 +64,7 @@
 		813860FF1D5AC4E20050C0D0 /* AIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860FE1D5AC4E20050C0D0 /* AIBaseViewController.swift */; };
 		813861011D5B0A590050C0D0 /* AIJobSurveyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813861001D5B0A590050C0D0 /* AIJobSurveyModel.swift */; };
 		813861031D5B0BFD0050C0D0 /* AIJobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813861021D5B0BFD0050C0D0 /* AIJobTableViewCell.swift */; };
+		81397C171DB7494E00E407F4 /* AIScanBankCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81397C161DB7494E00E407F4 /* AIScanBankCardViewController.swift */; };
 		81433CD01CFBE5A700347C29 /* AIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339261CFBE5A600347C29 /* AIApplication.swift */; };
 		81433CD11CFBE5A700347C29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814339281CFBE5A600347C29 /* AppDelegate.swift */; };
 		81433CD21CFBE5A700347C29 /* AIBuyServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143392C1CFBE5A600347C29 /* AIBuyServiceModel.swift */; };
@@ -455,7 +459,6 @@
 		81433ECB1CFBE5A700347C29 /* UIColor+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C261CFBE5A700347C29 /* UIColor+TDAdditions.m */; };
 		81433ECC1CFBE5A700347C29 /* UIImage+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */; };
 		81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81433F1F1CFBE80700347C29 /* Default-568h@2x.png */; };
-		81433F211DB4DA0600F00E65 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81433F201DB4DA0600F00E65 /* CardDeepLinkKit.framework */; };
 		81512ED01D220A8900AE041D /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */; };
 		8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7141CFD2710006F2C8F /* AIImageView.swift */; };
 		8175A7BA1CFD2710006F2C8F /* AISwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */; };
@@ -778,8 +781,6 @@
 		93E8469B1D2A0FB400CD4BD0 /* AIUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */; };
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
-		C93F057C1DB5CBA400F09DF5 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81433F201DB4DA0600F00E65 /* CardDeepLinkKit.framework */; };
-		C93F057D1DB5CBA400F09DF5 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81433F201DB4DA0600F00E65 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
 		C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */; };
 		C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */; };
@@ -862,7 +863,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				819A0EE71D80400600A84BBB /* AVOSCloudCrashReporting.framework in CopyFiles */,
-				C93F057D1DB5CBA400F09DF5 /* CardDeepLinkKit.framework in CopyFiles */,
+				121D1FD41DB86214005151E9 /* CardDeepLinkKit.framework in CopyFiles */,
 				819A0EE51D80400600A84BBB /* AVOSCloud.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -871,6 +872,7 @@
 
 /* Begin PBXFileReference section */
 		120D20A21D360A710001C6A9 /* AITimelineContentContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineContentContainerView.swift; sourceTree = "<group>"; };
+		121D1FD11DB86203005151E9 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineNowTableViewCell.swift; sourceTree = "<group>"; };
 		122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineNowTableViewCell.xib; sourceTree = "<group>"; };
 		1234F99A1D349FAE0009FB4F /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
@@ -932,6 +934,7 @@
 		813860FE1D5AC4E20050C0D0 /* AIBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBaseViewController.swift; sourceTree = "<group>"; };
 		813861001D5B0A590050C0D0 /* AIJobSurveyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIJobSurveyModel.swift; sourceTree = "<group>"; };
 		813861021D5B0BFD0050C0D0 /* AIJobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIJobTableViewCell.swift; sourceTree = "<group>"; };
+		81397C161DB7494E00E407F4 /* AIScanBankCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIScanBankCardViewController.swift; sourceTree = "<group>"; };
 		814339261CFBE5A600347C29 /* AIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIApplication.swift; sourceTree = "<group>"; };
 		814339271CFBE5A600347C29 /* AIVeris-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AIVeris-Bridging-Header.h"; sourceTree = "<group>"; };
 		814339281CFBE5A600347C29 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1472,7 +1475,6 @@
 		81433C271CFBE5A700347C29 /* UIImage+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TDAdditions.h"; sourceTree = "<group>"; };
 		81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TDAdditions.m"; sourceTree = "<group>"; };
 		81433F1F1CFBE80700347C29 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		81433F201DB4DA0600F00E65 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = Debug/CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIFundManageViewController.swift; path = FundManage/AIFundManageViewController.swift; sourceTree = "<group>"; };
 		8175A7141CFD2710006F2C8F /* AIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageView.swift; sourceTree = "<group>"; };
 		8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwiftyJSON.swift; sourceTree = "<group>"; };
@@ -2058,7 +2060,7 @@
 				1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
-				C93F057C1DB5CBA400F09DF5 /* CardDeepLinkKit.framework in Frameworks */,
+				121D1FD31DB86214005151E9 /* CardDeepLinkKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
 				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
 				844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */,
@@ -2085,7 +2087,7 @@
 				9392B57D1D1CD9F10007F241 /* AlipaySDK.framework in Frameworks */,
 				93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */,
 				819A0EE41D80400600A84BBB /* AVOSCloud.framework in Frameworks */,
-				81433F211DB4DA0600F00E65 /* CardDeepLinkKit.framework in Frameworks */,
+				121D1FD21DB86203005151E9 /* CardDeepLinkKit.framework in Frameworks */,
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
@@ -3809,7 +3811,7 @@
 		81B195781D4852BE0086EB83 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				81433F201DB4DA0600F00E65 /* CardDeepLinkKit.framework */,
+				121D1FD11DB86203005151E9 /* CardDeepLinkKit.framework */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -4367,6 +4369,7 @@
 				935E58D51D5315D900252B83 /* AIWorkManageViewController.swift */,
 				FB67FA4F1D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift */,
 				935E58D61D5315D900252B83 /* AIWorkOpportunityIndexViewController.xib */,
+				81397C161DB7494E00E407F4 /* AIScanBankCardViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -5348,6 +5351,7 @@
 				813861011D5B0A590050C0D0 /* AIJobSurveyModel.swift in Sources */,
 				81433E431CFBE5A700347C29 /* JSSAlertView-Extension.swift in Sources */,
 				9352BC781D630E42003CD476 /* AIAlertWishInputView.swift in Sources */,
+				81397C171DB7494E00E407F4 /* AIScanBankCardViewController.swift in Sources */,
 				93A0ABDE1D12AD6200562090 /* JSONAPI.m in Sources */,
 				9392B5821D1CD9F10007F241 /* DataVerifier.m in Sources */,
 				81433D3F1CFBE5A700347C29 /* AIDetailTopMenuView.swift in Sources */,

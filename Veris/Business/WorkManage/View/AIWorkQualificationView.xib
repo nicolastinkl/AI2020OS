@@ -9,7 +9,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIWorkQualificationView" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="carousel" destination="89t-xG-a4h" id="lsb-jM-6d1"/>
+                <outlet property="gradiatebgView" destination="gmR-CE-pnJ" id="Trb-CL-yxf"/>
                 <outlet property="imageTitleLabel" destination="itp-uk-hzf" id="OxP-l6-U6k"/>
+                <outlet property="lineView2" destination="1H8-ao-lv8" id="MhA-Vm-ZW8"/>
                 <outlet property="qualificationContainerView" destination="Eu6-iJ-6yB" id="vKe-F2-GdL"/>
                 <outlet property="qualificationTableView" destination="8WL-Tb-7Jy" id="V3L-hF-X0W"/>
                 <outlet property="scrollDotView" destination="aG2-oi-sJ6" id="PXe-Xb-iNi"/>
@@ -120,23 +122,41 @@
                         <constraint firstItem="aG2-oi-sJ6" firstAttribute="centerX" secondItem="Eu6-iJ-6yB" secondAttribute="centerX" id="zt5-cy-T6Q"/>
                     </constraints>
                 </view>
-                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8WL-Tb-7Jy" userLabel="qualificationTableView">
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8WL-Tb-7Jy" userLabel="qualificationTableView">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmR-CE-pnJ">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="kWA-WI-fxN"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1H8-ao-lv8" userLabel="lineView2">
+                    <color key="backgroundColor" red="0.63137254901960782" green="0.64313725490196072" blue="0.72941176470588232" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="jGg-4G-BaO"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="8WL-Tb-7Jy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9NP-IV-hlJ"/>
                 <constraint firstItem="6Wq-GF-R1x" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="E8K-A1-p8w"/>
-                <constraint firstAttribute="bottom" secondItem="8WL-Tb-7Jy" secondAttribute="bottom" id="GQv-0J-NsD"/>
+                <constraint firstAttribute="bottom" secondItem="8WL-Tb-7Jy" secondAttribute="bottom" constant="18" id="GQv-0J-NsD"/>
+                <constraint firstItem="gmR-CE-pnJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Hp2-AN-iY9"/>
                 <constraint firstItem="8WL-Tb-7Jy" firstAttribute="top" secondItem="Eu6-iJ-6yB" secondAttribute="top" id="Hwx-ms-xjK"/>
                 <constraint firstAttribute="trailing" secondItem="Eu6-iJ-6yB" secondAttribute="trailing" id="L8O-T0-mAe"/>
+                <constraint firstItem="1H8-ao-lv8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Mlo-ix-xyd"/>
                 <constraint firstAttribute="bottom" secondItem="Eu6-iJ-6yB" secondAttribute="bottom" constant="50" id="TEW-Pd-8S9"/>
                 <constraint firstAttribute="trailing" secondItem="8WL-Tb-7Jy" secondAttribute="trailing" id="ThV-4e-uOm"/>
                 <constraint firstAttribute="trailing" secondItem="6Wq-GF-R1x" secondAttribute="trailing" id="VgH-pY-N57"/>
                 <constraint firstItem="6Wq-GF-R1x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YTV-bz-yk8"/>
                 <constraint firstItem="Eu6-iJ-6yB" firstAttribute="top" secondItem="6Wq-GF-R1x" secondAttribute="bottom" id="YkV-WP-dZZ"/>
                 <constraint firstItem="Eu6-iJ-6yB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eFN-qA-42f"/>
+                <constraint firstAttribute="bottom" secondItem="1H8-ao-lv8" secondAttribute="bottom" constant="18" id="gUg-kG-Cfk"/>
+                <constraint firstAttribute="trailing" secondItem="1H8-ao-lv8" secondAttribute="trailing" constant="20" id="l35-Jv-0Fm"/>
+                <constraint firstAttribute="trailing" secondItem="gmR-CE-pnJ" secondAttribute="trailing" id="or3-OG-LRa"/>
+                <constraint firstItem="gmR-CE-pnJ" firstAttribute="bottom" secondItem="1H8-ao-lv8" secondAttribute="bottom" id="ssr-vn-WxT"/>
             </constraints>
             <point key="canvasLocation" x="26" y="52"/>
         </view>
