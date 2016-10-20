@@ -49,7 +49,15 @@ class VerticalIconLabel: UIView {
 			layoutIfNeeded()
 		}
 	}
+    
+    var font: UIFont = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(42)) {
+        didSet {
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+    }
 	
+    
 	lazy var imageView: UIImageView = { [unowned self] in
 		let result = UIImageView()
 		self.addSubview(result)
@@ -58,7 +66,7 @@ class VerticalIconLabel: UIView {
 	
 	lazy var label: UILabel = { [unowned self] in
 		let result = UILabel()
-		result.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(42))
+		result.font = self.font
 		result.textColor = self.textColor
 		result.textAlignment = .Center
 		self.addSubview(result)

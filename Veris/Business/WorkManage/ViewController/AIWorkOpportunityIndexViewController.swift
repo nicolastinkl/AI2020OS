@@ -10,32 +10,105 @@ import UIKit
 
 class AIWorkOpportunityIndexViewController: UIViewController {
 	
-	@IBOutlet weak var headerView: AIWorkManageHeaderView!
-	
+	var headerView: AIWorkManageHeaderView!
+    var chartView: AIWorkOpportunityPopularChartView!
+    @IBOutlet weak var navigationBar: UIView!
+    
+    var mostRequestedServices = [AISearchServiceModel]()
+    var mostPopularServices = [AISearchServiceModel]()
+    var whatsNewServices = [AISearchServiceModel]()
+    
+    var scrollView: UIScrollView!
+    var containerView: UIView!
+    
 	var once = false
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		headerView.delegate = self
-        setupAIWorkOpportunityPopularChartView()
+        setupContainerView()
         
+        fetchData()
 	}
     
-    func setupAIWorkOpportunityPopularChartView() {
-        let v =  AIWorkOpportunityPopularChartView()
-        view.addSubview(v)
-        v.snp_makeConstraints { (make) in
-            make.top.equalTo(headerView.snp_bottom).offset(73.displaySizeFrom1242DesignSize())
-            make.leading.trailing.equalTo(view)
+    func fetchData() {
+        let service = AIWorkOpportunityService()
+        service.queryMostRequestedWork({ [weak self] (result) in
+            self?.mostRequestedServices = result
+            self?.setupAIWorkManageHeaderView()
+            service.queryMostPopularWork({ [weak self] (result) in
+                self?.mostPopularServices = result
+                self?.setupAIWorkOpportunityPopularChartView()
+                
+                service.queryNewestWorkOpportunity({ [weak self] (result) in
+                    self?.whatsNewServices = result
+                    self?.setupAIWorkOpportunityWhatsNewView()
+                }) { (errType, errDes) in
+                }
+            }) { (errType, errDes) in
+            }
+        }) { (errType, errDes) in
+        }
+        
+        
+    }
+    
+    func setupContainerView() {
+        scrollView = UIScrollView()
+        view.insertSubview(scrollView, belowSubview: navigationBar)
+        
+        containerView = UIView()
+        scrollView.addSubview(containerView)
+        
+        // setup constraints
+        scrollView.snp_makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+        
+        containerView.snp_makeConstraints { (make) in
+            make.width.equalTo(view)
+            make.top.leading.bottom.equalTo(scrollView)
         }
     }
+    
+    func setupAIWorkManageHeaderView() {
+        headerView = AIWorkManageHeaderView(frame: .zero)
+        headerView.services = mostRequestedServices
+        containerView.addSubview(headerView)
+		headerView.delegate = self
+        headerView.snp_makeConstraints { (make) in
+            make.top.leading.trailing.equalTo(containerView)
+            make.height.equalTo(242)
+        }
+    }
+    
+    func setupAIWorkOpportunityPopularChartView() {
+        chartView =  AIWorkOpportunityPopularChartView(services: mostPopularServices)
+        containerView.addSubview(chartView)
+        chartView.snp_makeConstraints { (make) in
+            make.top.equalTo(headerView.snp_bottom).offset(73.displaySizeFrom1242DesignSize())
+            make.leading.trailing.equalTo(containerView)
+        }
+    }
+    
+    func setupAIWorkOpportunityWhatsNewView() {
+        let v = AIWorkOpportunityWhatsNewView(services: whatsNewServices)
+        containerView.addSubview(v)
+        
+        v.snp_makeConstraints { (make) in
+            make.top.equalTo(chartView.snp_bottom).offset(108.displaySizeFrom1242DesignSize())
+            make.bottom.leading.trailing.equalTo(containerView)
+        }
+    }
+
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
-		if once == false {
-			headerView.setIndex(0)
-			once = true
-		}
+        if let headerView = headerView {
+            if once == false {
+                headerView.setIndex(0)
+                once = true
+            }
+        }
 	}
 	
 	@IBAction func backButtonPressed(sender: AnyObject) {

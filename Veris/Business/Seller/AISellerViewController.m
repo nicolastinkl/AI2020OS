@@ -269,6 +269,7 @@
 //    AIScanBankCardViewController *scanVC = [[AIScanBankCardViewController alloc] init];
 //    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:scanVC];
 
+
 //    AIAssetsPickerController * vc = [AIAssetsPickerController initFromNib];
 //
 //
