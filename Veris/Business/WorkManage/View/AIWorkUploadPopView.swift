@@ -39,12 +39,8 @@ class AIWorkUploadPopView: UIView {
     }
 
     @IBAction func cancelAction(sender: UIButton) {
+        dismiss()
 
-        SpringAnimation.spring(0.5) {
-            self.alpha = 0
-            self.containerBottomConstraint.constant = -221
-            self.layoutIfNeeded()
-        }
     }
 
     //MARK: -> overrides
@@ -67,4 +63,15 @@ class AIWorkUploadPopView: UIView {
         
         return viewThis
     }
+
+    //MARK: Public
+
+    func dismiss() {
+        SpringAnimation.spring(0.5) {
+            self.alpha = 0
+            self.containerBottomConstraint.constant = -221
+            self.layoutIfNeeded()
+        }
+    }
+
 }
