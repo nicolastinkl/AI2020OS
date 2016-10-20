@@ -21,16 +21,9 @@ class AIWorkOpportunityPopularChartView: UIView {
         UIColor(hexString: "#1c789f"),
         UIColor(hexString: "#7b3990"),
         ]
-    // fake
-    var data = [
-        (number: 26438, numberText: "26,428 Orders", name: "Food Delivery"),
-        (number: 15400, numberText: "15,400 Orders", name: "Housekeeping"),
-        (number: 10389, numberText: "10,389 Orders", name: "Onsite Hair Salon"),
-        (number: 6519, numberText: "6,519 Orders", name: "Laundry"),
-        (number: 5219, numberText: "5,219 Orders", name: "Manicure"),
-        (number: 2167, numberText: "2,167 Orders", name: "Personal Shopper")
-    ]
     
+    var services = [AISearchServiceModel]()
+
     let longest = 919.displaySizeFrom1242DesignSize()
     let shortest = 259.displaySizeFrom1242DesignSize()
     let diff = 660.displaySizeFrom1242DesignSize()
@@ -42,9 +35,14 @@ class AIWorkOpportunityPopularChartView: UIView {
     var dailyLabel: UILabel!
     var installed = false
     
+    convenience init(services: [AISearchServiceModel]) {
+        self.init(frame: .zero)
+        self.services = services
+        setup()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,8 +50,38 @@ class AIWorkOpportunityPopularChartView: UIView {
     }
     
     func setup() {
+        fullfillServices()
         setupChartBars()
         setupTitleLabels()
+    }
+    
+    func fullfillServices() {
+        // 后台返回数据不够6个
+        if services.count < 6 {
+            var copy = [AISearchServiceModel]()
+            while copy.count < 6 {
+                if let service = services.first {
+                    let s = AISearchServiceModel()
+                    s.name = service.name
+                    s.sid = service.sid
+                    s.order_time = service.order_time
+                    s.desc = service.desc
+                    copy.append(s)
+                }
+            }
+            let fakeNumbers = [
+            26438,
+            15400,
+            10389,
+            6519,
+            5219,
+            2167
+                ]
+            for (i, service) in copy.enumerate() {
+                service.order_time = String(format: "%d", fakeNumbers[i])
+            }
+            services = copy
+        }
     }
     
     func setupTitleLabels() {
@@ -73,20 +101,22 @@ class AIWorkOpportunityPopularChartView: UIView {
     
     func setupChartBars() {
         // setup chart bars
-        data = data.sort({ (a, b) -> Bool in
-            return a.number > b.number
+        services = services.sort({ (a, b) -> Bool in
+            return a.order_time.toInt()! > b.order_time.toInt()!
         })
         
-        let unitLength = diff / CGFloat(data.first!.number - data.last!.number)
+        let unitLength = diff / CGFloat(services.first!.order_time.toInt()! - services.last!.order_time.toInt()!)
         
         for i in 0...5 {
-            var length = unitLength * CGFloat(data[i].number) + shortest
+            let service = services[i]
+            var length = unitLength * CGFloat(service.order_time.toInt()!) + shortest
             if i == 0 {
                 length = longest
             } else if i == 5 {
                 length = shortest
             }
-            let chartBar = AIWorkOpportunityPopularChartBarView(color: colors[i], name: data[i].name, numberText: data[i].numberText, barLength: length)
+            let numberText = String(format: "%@ Orders", service.order_time)
+            let chartBar = AIWorkOpportunityPopularChartBarView(color: colors[i], name: service.name, numberText: numberText, barLength: length)
             chartBars.append(chartBar)
             addSubview(chartBar)
         }

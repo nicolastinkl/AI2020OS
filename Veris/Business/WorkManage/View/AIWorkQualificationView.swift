@@ -54,7 +54,10 @@ class AIWorkQualificationView: UIView {
         qualificationContainerView.hidden = !qualificationContainerView.hidden
         qualificationTableView.hidden = !qualificationTableView.hidden
         lineView2.hidden = !lineView2.hidden
+        gradiatebgView.hidden = !gradiatebgView.hidden
         gradientLayer.hidden = !gradientLayer.hidden
+        gradientLayer.opacity = gradientLayer.hidden ? 0 : 1
+        
     }
     
     //MARK: -> Constants

@@ -915,7 +915,6 @@ didCompleteWithError:(NSError *)error
     // delegate may be nil when completing a task in the background
     if (delegate) {
         [delegate URLSession:session task:task didCompleteWithError:error];
-
         [self removeDelegateForTask:task];
     }
 
