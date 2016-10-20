@@ -14,6 +14,10 @@ class AIWorkOpportunityIndexViewController: UIViewController {
     var chartView: AIWorkOpportunityPopularChartView!
     @IBOutlet weak var navigationBar: UIView!
     
+    var mostRequestedServices = [AISearchServiceModel]()
+    var mostPopularServices = [AISearchServiceModel]()
+    var whatsNewServices = [AISearchServiceModel]()
+    
     var scrollView: UIScrollView!
     var containerView: UIView!
     
@@ -22,10 +26,31 @@ class AIWorkOpportunityIndexViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         setupContainerView()
-        setupAIWorkManageHeaderView()
-        setupAIWorkOpportunityPopularChartView()
-        setupAIWorkOpportunityWhatsNewView()
+        
+        fetchData()
 	}
+    
+    func fetchData() {
+        let service = AIWorkOpportunityService()
+        service.queryMostRequestedWork({ [weak self] (result) in
+            self?.mostRequestedServices = result
+            self?.setupAIWorkManageHeaderView()
+            service.queryMostPopularWork({ [weak self] (result) in
+                self?.mostPopularServices = result
+                self?.setupAIWorkOpportunityPopularChartView()
+                
+                service.queryNewestWorkOpportunity({ [weak self] (result) in
+                    self?.whatsNewServices = result
+                    self?.setupAIWorkOpportunityWhatsNewView()
+                }) { (errType, errDes) in
+                }
+            }) { (errType, errDes) in
+            }
+        }) { (errType, errDes) in
+        }
+        
+        
+    }
     
     func setupContainerView() {
         scrollView = UIScrollView()
@@ -47,25 +72,26 @@ class AIWorkOpportunityIndexViewController: UIViewController {
     
     func setupAIWorkManageHeaderView() {
         headerView = AIWorkManageHeaderView(frame: .zero)
+        headerView.services = mostRequestedServices
         containerView.addSubview(headerView)
 		headerView.delegate = self
-        
         headerView.snp_makeConstraints { (make) in
             make.top.leading.trailing.equalTo(containerView)
             make.height.equalTo(242)
         }
     }
     
-    func setupAIWorkOpportunityWhatsNewView() {
-        var services = [AISearchServiceModel]()
-        for i in 0...10 {
-            let service = AISearchServiceModel()
-            service.sid = i
-            service.name = "service name"
-            service.icon = "http://oc3j76nok.bkt.clouddn.com/%E9%99%AA%E6%8A%A4.png"
-            services.append(service)
+    func setupAIWorkOpportunityPopularChartView() {
+        chartView =  AIWorkOpportunityPopularChartView(services: mostPopularServices)
+        containerView.addSubview(chartView)
+        chartView.snp_makeConstraints { (make) in
+            make.top.equalTo(headerView.snp_bottom).offset(73.displaySizeFrom1242DesignSize())
+            make.leading.trailing.equalTo(containerView)
         }
-        let v = AIWorkOpportunityWhatsNewView(services: services)
+    }
+    
+    func setupAIWorkOpportunityWhatsNewView() {
+        let v = AIWorkOpportunityWhatsNewView(services: whatsNewServices)
         containerView.addSubview(v)
         
         v.snp_makeConstraints { (make) in
@@ -73,22 +99,16 @@ class AIWorkOpportunityIndexViewController: UIViewController {
             make.bottom.leading.trailing.equalTo(containerView)
         }
     }
-    
-    func setupAIWorkOpportunityPopularChartView() {
-        chartView =  AIWorkOpportunityPopularChartView()
-        containerView.addSubview(chartView)
-        chartView.snp_makeConstraints { (make) in
-            make.top.equalTo(headerView.snp_bottom).offset(73.displaySizeFrom1242DesignSize())
-            make.leading.trailing.equalTo(containerView)
-        }
-    }
+
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
-		if once == false {
-			headerView.setIndex(0)
-			once = true
-		}
+        if let headerView = headerView {
+            if once == false {
+                headerView.setIndex(0)
+                once = true
+            }
+        }
 	}
 	
 	@IBAction func backButtonPressed(sender: AnyObject) {

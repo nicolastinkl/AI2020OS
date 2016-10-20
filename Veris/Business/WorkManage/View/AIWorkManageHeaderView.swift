@@ -14,9 +14,18 @@ protocol AIWorkManageHeaderViewDelegate: NSObjectProtocol {
 
 class AIWorkManageHeaderView: UIView {
 	
-	var openWidth: CGFloat = 135
+    var services = [AISearchServiceModel]() {
+        didSet {
+            while services.count < 5 {
+                if let service = services.first {
+                    services.append(service)
+                }
+            }
+            updateUI()
+        }
+    }
 	weak var delegate: AIWorkManageHeaderViewDelegate?
-	
+	let openWidth: CGFloat = 135
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -91,6 +100,14 @@ class AIWorkManageHeaderView: UIView {
 			layoutIfNeeded()
 		}
 	}
+    
+    func updateUI() {
+        for (i, cardView) in cardViews.enumerate() {
+            let service = services[i]
+            cardView.titleText = service.name
+            cardView.subTitle = String(format: "%@ Requests", service.order_time ?? 0)
+        }
+    }
 	
 	func cardViewTapped(tap: UITapGestureRecognizer) {
 		let i = tap.view!.tag

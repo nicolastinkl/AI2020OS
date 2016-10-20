@@ -23,8 +23,7 @@ class AIWorkOpportunityService: NSObject {
         message.body = NSMutableDictionary(dictionary: body)
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-            let responseDic = response as! [NSObject: AnyObject]
-            if let serviceList = responseDic["service_list"] as? [AnyObject] {
+            if let serviceList = response as? [NSObject] {
                 let result = AISearchServiceModel.arrayOfModelsFromDictionaries(serviceList) as NSArray as! [AISearchServiceModel]
                 success(result)
             } else {
@@ -38,6 +37,28 @@ class AIWorkOpportunityService: NSObject {
 //    2.12.3.	查询最新工作机会
 //    queryNewestWorkOpportunity
     func queryNewestWorkOpportunity(success: ([AISearchServiceModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.queryNewestWorkOpportunity.description
+        let data =     [
+        "user_id": AIUser.currentUser().userId,
+        "page_size": 10,
+        "page_number": 1
+        ] as NSMutableDictionary
+        
+        let body = ["data": data, "desc": ["data_mode": "0", "digest": ""]]
+        message.body = NSMutableDictionary(dictionary: body)
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            if let serviceList = response as? [NSObject] {
+                let result = AISearchServiceModel.arrayOfModelsFromDictionaries(serviceList) as NSArray as! [AISearchServiceModel]
+                success(result)
+            } else {
+                success([])
+            }
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes ?? "")
+        }
     }
 //    
 //    
@@ -45,5 +66,24 @@ class AIWorkOpportunityService: NSObject {
 //    queryMostPopularWork
     
     func queryMostPopularWork(success: ([AISearchServiceModel]) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+        
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.queryMostPopularWork.description
+        let data = [
+            :] as NSMutableDictionary
+        
+        let body = ["data": data, "desc": ["data_mode": "0", "digest": ""]]
+        message.body = NSMutableDictionary(dictionary: body)
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            if let serviceList = response as? [NSObject] {
+                let result = AISearchServiceModel.arrayOfModelsFromDictionaries(serviceList) as NSArray as! [AISearchServiceModel]
+                success(result)
+            } else {
+                success([])
+            }
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            fail(errType: error, errDes: errorDes ?? "")
+        }
     }
 }

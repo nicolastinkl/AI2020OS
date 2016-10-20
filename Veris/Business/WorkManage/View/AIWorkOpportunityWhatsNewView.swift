@@ -50,7 +50,7 @@ class AIWorkOpportunityWhatsNewView: UIView {
             icon.tag = i
             icon.text = service.name
             icon.imageSpaceToLabel = 33.displaySizeFrom1242DesignSize()
-            icon.imageView.sd_setImageWithURL(NSURL(string: service.icon))
+            icon.imageView.sd_setImageWithURL(NSURL(string: service.icon ?? ""))
             addSubview(icon)
             icons.append(icon)
         }
@@ -65,6 +65,10 @@ class AIWorkOpportunityWhatsNewView: UIView {
                     make.height.equalTo(iconHeight)
                     make.leading.equalTo(marginLeft)
                     make.top.equalTo(titleLabel.snp_bottom).offset(64.displaySizeFrom1242DesignSize())
+                    if i == count - 1 {
+                        // last one
+                        make.bottom.equalTo(self)
+                    }
                 })
             } else {
                 
@@ -75,6 +79,10 @@ class AIWorkOpportunityWhatsNewView: UIView {
                         make.width.equalTo(iconWidth)
                         make.height.equalTo(iconHeight)
                         make.leading.equalTo(marginLeft)
+                        if i == count - 1 {
+                            // last one
+                            make.bottom.equalTo(self)
+                        }
                     })
                 case 1: fallthrough
                 case 2:
