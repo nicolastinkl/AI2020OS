@@ -266,14 +266,18 @@
 }
 
 - (void)showMyWork {
-    AIScanBankCardViewController *scanVC = [[AIScanBankCardViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:scanVC];
+//    AIScanBankCardViewController *scanVC = [[AIScanBankCardViewController alloc] init];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:scanVC];
 
-
+//    AIAssetsPickerController * vc = [AIAssetsPickerController initFromNib];
+//
+//
+//    vc.maximumNumberOfSelection = 1;
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
 
     // 演示屏蔽
-//    AIWorkManageViewController *workManageViewController = [[AIWorkManageViewController alloc] init];
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:workManageViewController];
+    AIWorkManageViewController *workManageViewController = [[AIWorkManageViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:workManageViewController];
     [self presentViewController:nav animated:YES completion:nil];
 }
 
