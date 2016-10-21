@@ -158,8 +158,8 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
         let qualicationModel = qualificationsModel[index]
         let cellKey = "\(qualicationModel.type_id).\(qualicationModel.aspect_type)"
         if cachedCellViewDic[cellKey] == nil {
-            itemView = UIImageView(frame:CGRect(x:0, y:0, width:300, height:300))
-            itemView.contentMode = .ScaleAspectFit
+            itemView = UIImageView(frame:CGRect(x:0, y:0, width:200, height:200))
+            itemView.contentMode = .ScaleAspectFill
             itemView.sd_setImageWithURL(NSURL(string: qualicationModel.aspect_photo ?? "")!, placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
             //样本图片标志
             var labelFrame = itemView.bounds
