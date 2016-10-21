@@ -637,7 +637,7 @@ class AIBuyerDetailViewController: UIViewController {
             
             
             let toolbarFrameOnWindow = serviceRestoreToolbar.convertRect(serviceRestoreToolbar.bounds, toView: window)
-            // FIXME: Variable 'toFrameX' was written to, but never read
+            //  Variable 'toFrameX' was written to, but never read
             var toFrameX: CGFloat = 0
             
             if index < 3 {
@@ -767,8 +767,8 @@ class AIBuyerDetailViewController: UIViewController {
     //恢复服务
 	func restoreService(model: AIProposalServiceModel) {
         
-        let index = min(deleted_service_list.count - 1, 5)
-        let sigleModel  = dataSource.service_list[index] as! AIProposalServiceModel
+        //let index = min(deleted_service_list.count - 1, 5)
+        //let sigleModel  = dataSource.service_list[index] as! AIProposalServiceModel
         
         func tagetAction() {
             let indexInDeletedTableView = deleted_service_list.indexOfObject(model)
@@ -809,7 +809,7 @@ class AIBuyerDetailViewController: UIViewController {
             }
         }
         
-        AIProductExeService().removeOrAddServiceFromDIYService(sigleModel.proposalItemId, deleteOrAdd: 0, success: { (response) in
+        AIProductExeService().removeOrAddServiceFromDIYService(model.proposalItemId, deleteOrAdd: 0, success: { (response) in
             tagetAction()
             //刷新价格
             self.refershPrice()
@@ -874,7 +874,7 @@ class AIBuyerDetailViewController: UIViewController {
                         respArray.append(obj)
                     })
                     
-                    var newres = responseData
+                    let newres = responseData
                     newres.service_list = respArray
                     viewController.dataSource = newres
 					// initControl Data
