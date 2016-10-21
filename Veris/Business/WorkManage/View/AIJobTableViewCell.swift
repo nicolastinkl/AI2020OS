@@ -231,10 +231,10 @@ class AIJobTableViewCell: UITableViewCell {
             actionDelegate?.didTriggerJobActionToUploadInformation()
             break
         case "1": // 接单中
-            actionDelegate?.didTriggerJobActionToUploadStateParams(["work_id" : curDataModel.work_id, "work_state": curDataModel.work_state])
+            actionDelegate?.didTriggerJobActionToUploadStateParams(["work_id" : curDataModel.work_id, "work_state": 2])
             break
         case "2": // 休息中
-            actionDelegate?.didTriggerJobActionToUploadStateParams(["work_id" : curDataModel.work_id, "work_state": curDataModel.work_state])
+            actionDelegate?.didTriggerJobActionToUploadStateParams(["work_id" : curDataModel.work_id, "work_state": 1])
             break
         default:
             break

@@ -60,7 +60,7 @@ class AIWorkInfoViewController: UIViewController {
     
     //MARK: -> IBAction
     @IBAction func commitAction(sender: UIButton) {
-        if curStep == 1{
+        if curStep == 1 {
             //这里还有一个逻辑，当checkbox选中才能点下一步
             switchTabsTo(2)
         } else {
@@ -76,8 +76,6 @@ class AIWorkInfoViewController: UIViewController {
     @IBAction func stepTwoAction(sender: AnyObject) {
         switchTabsTo(2)
     }
-    
-    
     
 
     override func viewDidLoad() {
@@ -183,6 +181,7 @@ class AIWorkInfoViewController: UIViewController {
         let requestHandler = AIWorkManageRequestHandler.sharedInstance
         requestHandler.subscribeWorkOpportunity(in_workId!, success: { (resultCode) in
             AIAlertView().showError("订阅成功", subTitle: self.viewModel!.opportunityBusiModel!.work_name)
+            // 返回2就是没有上传资料，稍后补全
             }) { (errType, errDes) in
                 AIAlertView().showError("订阅失败", subTitle: errDes)
         }
@@ -272,4 +271,3 @@ extension AIWorkInfoViewController: AIAssetsPickerControllerDelegate {
         
     }
 }
-
