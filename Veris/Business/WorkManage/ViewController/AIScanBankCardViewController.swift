@@ -54,7 +54,7 @@ class AIScanBankCardViewController: AIBaseViewController {
 
     func makeCamera() {
         //初始化
-        imagePickerController = UIImagePickerController();
+        imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self;//通过代理来传递拍照的图片
         imagePickerController.allowsEditing = true;//允许编辑
 
@@ -230,4 +230,3 @@ extension AIScanBankCardViewController: UIImagePickerControllerDelegate, UINavig
     }
 
 }
-
