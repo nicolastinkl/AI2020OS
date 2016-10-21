@@ -1003,7 +1003,11 @@ class AIProductInfoViewController: UIViewController {
     // MARK: - DIY ACTION
     func showDiyCustomView(sender: AnyObject) {
         let model = AIBuyerBubbleModel()
-        model.proposal_id = proposal_id//dataModel?.proposal_inst_id ?? 0//dataModel?.proposal_inst_id ?? 0
+        if proposal_id <= 0 {
+            model.proposal_id = dataModel?.proposal_inst_id ?? 0
+        } else {
+            model.proposal_id = proposal_id
+        }
         model.proposal_name = dataModel?.name ?? ""
         let viewsss = createBuyerDetailViewController(model)
         viewsss.customNoteModel = dataModel?.customer_note
