@@ -604,7 +604,8 @@ class AIBuyerDetailViewController: UIViewController {
 			self.totalMoneyLabel.attributedText = richText
 			
 		} else {
-			self.totalMoneyLabel.text = dataSource?.proposal_price
+            self.refershPrice()
+			//self.totalMoneyLabel.text = dataSource?.proposal_price
 		}
 		
 		self.totalMoneyLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
@@ -623,12 +624,12 @@ class AIBuyerDetailViewController: UIViewController {
 	
 	// MARK: - 删除service
 	
-	func logoMoveToServiceRestoreToolBar(logo: UIImageView, completion: (() -> Void)?) {
+	func logoMoveToServiceRestoreToolBar(model: AIProposalServiceModel?, logo: UIImageView, completion: (() -> Void)?) {
 		
         // 添加删除网络请求
         
         let index = min(deleted_service_list.count - 1, 5)
-        let sigleModel  = dataSource.service_list[index] as! AIProposalServiceModel
+       // let sigleModel  = dataSource.service_list[index] as! AIProposalServiceModel
         
         func tagetAction() {
             
@@ -667,7 +668,7 @@ class AIBuyerDetailViewController: UIViewController {
                 }
             }
         }
-        AIProductExeService().removeOrAddServiceFromDIYService(sigleModel.proposalItemId, deleteOrAdd: 1, success: { (response) in
+        AIProductExeService().removeOrAddServiceFromDIYService(model!.proposalItemId, deleteOrAdd: 1, success: { (response) in
             tagetAction()
             //刷新价格
             self.refershPrice()
@@ -1228,7 +1229,7 @@ extension AIBuyerDetailViewController: AIBueryDetailCellDetegate {
 		
 		deleted_service_list.addObject(model!)
 		
-		logoMoveToServiceRestoreToolBar(logo, completion: { () -> Void in
+		logoMoveToServiceRestoreToolBar(model, logo: logo, completion: { () -> Void in
 			self.serviceRestoreToolbar.serviceModels = self.deleted_service_list
 			self.serviceRestoreToolbar.appendLogoAtLast()
 			cell.closeCell()
