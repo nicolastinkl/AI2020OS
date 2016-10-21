@@ -171,10 +171,13 @@ class AIAssetsPickerController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-       
+       /*
         let item = self.collectionView(self.collctionView, numberOfItemsInSection: 0) - 1
         let lastItemIndex = NSIndexPath(forItem: item, inSection: 0)
-        self.collctionView.scrollToItemAtIndexPath(lastItemIndex, atScrollPosition: UICollectionViewScrollPosition.Top, animated: false)
+        if lastItemIndex.row >= 0 {
+            //self.collctionView.scrollToItemAtIndexPath(lastItemIndex, atScrollPosition: UICollectionViewScrollPosition.Top, animated: false)
+        }*/
+        
         
     }
     
