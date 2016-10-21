@@ -110,6 +110,7 @@ class AIBuyerDetailViewController: UIViewController {
 		get {
 			guard dataSource?.service_list == nil else {
 				let result = dataSource?.service_list.filter () {
+                    
 					return ($0 as! AIProposalServiceModel).service_del_flag == ServiceDeletedStatus.NotDeleted.rawValue
 				}
 				return result
@@ -603,7 +604,8 @@ class AIBuyerDetailViewController: UIViewController {
 			self.totalMoneyLabel.attributedText = richText
 			
 		} else {
-			self.totalMoneyLabel.text = dataSource?.proposal_price
+            self.refershPrice()
+			//self.totalMoneyLabel.text = dataSource?.proposal_price
 		}
 		
 		self.totalMoneyLabel.textColor = AITools.colorWithR(253, g: 225, b: 50)
@@ -622,12 +624,12 @@ class AIBuyerDetailViewController: UIViewController {
 	
 	// MARK: - 删除service
 	
-	func logoMoveToServiceRestoreToolBar(logo: UIImageView, completion: (() -> Void)?) {
+	func logoMoveToServiceRestoreToolBar(model: AIProposalServiceModel?, logo: UIImageView, completion: (() -> Void)?) {
 		
         // 添加删除网络请求
         
         let index = min(deleted_service_list.count - 1, 5)
-        let sigleModel  = dataSource.service_list[index] as! AIProposalServiceModel
+       // let sigleModel  = dataSource.service_list[index] as! AIProposalServiceModel
         
         func tagetAction() {
             
@@ -636,7 +638,7 @@ class AIBuyerDetailViewController: UIViewController {
             
             
             let toolbarFrameOnWindow = serviceRestoreToolbar.convertRect(serviceRestoreToolbar.bounds, toView: window)
-            // FIXME: Variable 'toFrameX' was written to, but never read
+            //  Variable 'toFrameX' was written to, but never read
             var toFrameX: CGFloat = 0
             
             if index < 3 {
@@ -666,14 +668,30 @@ class AIBuyerDetailViewController: UIViewController {
                 }
             }
         }
-        AIProductExeService().removeOrAddServiceFromDIYService(sigleModel.proposalItemId, deleteOrAdd: 0, success: { (response) in
+        AIProductExeService().removeOrAddServiceFromDIYService(model!.proposalItemId, deleteOrAdd: 1, success: { (response) in
             tagetAction()
+            //刷新价格
+            self.refershPrice()
+            
         }) { (errType, errDes) in
             AIAlertView().showError("提示", subTitle: "网络请求失败")
         }
 
         
 	}
+    func refershPrice() {
+        //刷新价格
+        var priceThis = 0
+        self.dataSource.service_list.forEach({ (modelClass) in
+            let modelClass1 = modelClass  as! AIProposalServiceModel
+            if modelClass1.service_del_flag == ServiceDeletedStatus.NotDeleted.rawValue {
+                priceThis += modelClass1.real_price
+            }
+            
+        })
+        
+        self.totalMoneyLabel.text = "￥\(priceThis)/次"
+    }
 	
 	@IBAction func closeThisViewController() {
 		delegate?.closeAIBDetailViewController()
@@ -750,8 +768,8 @@ class AIBuyerDetailViewController: UIViewController {
     //恢复服务
 	func restoreService(model: AIProposalServiceModel) {
         
-        let index = min(deleted_service_list.count - 1, 5)
-        let sigleModel  = dataSource.service_list[index] as! AIProposalServiceModel
+        //let index = min(deleted_service_list.count - 1, 5)
+        //let sigleModel  = dataSource.service_list[index] as! AIProposalServiceModel
         
         func tagetAction() {
             let indexInDeletedTableView = deleted_service_list.indexOfObject(model)
@@ -792,8 +810,10 @@ class AIBuyerDetailViewController: UIViewController {
             }
         }
         
-        AIProductExeService().removeOrAddServiceFromDIYService(sigleModel.proposalItemId, deleteOrAdd: 1, success: { (response) in
+        AIProductExeService().removeOrAddServiceFromDIYService(model.proposalItemId, deleteOrAdd: 0, success: { (response) in
             tagetAction()
+            //刷新价格
+            self.refershPrice()
         }) { (errType, errDes) in
             AIAlertView().showError("提示", subTitle: "网络请求失败")
         }
@@ -836,16 +856,28 @@ class AIBuyerDetailViewController: UIViewController {
 					viewController.deleted_service_list.removeAllObjects()
 					viewController.serviceRestoreToolbar.serviceModels = viewController.deleted_service_list
 					viewController.serviceRestoreToolbar.removeAllLogos()
-					viewController.dataSource = responseData
+					
 					
                     //delete data 
-                    
+                    var respArray = Array<AnyObject>()
                     responseData.service_list.forEach({ (obj) in
+                        
+                        if (obj as! AIProposalServiceModel).disableFlag == 0 {
+                            (obj as! AIProposalServiceModel).service_del_flag = 1
+                        } else {
+                            (obj as! AIProposalServiceModel).service_del_flag = 0
+                        }
+                        
                         if  (obj as! AIProposalServiceModel).service_del_flag == 0 {
                             viewController.deleted_service_list.addObject(obj)
                         }
+                        
+                        respArray.append(obj)
                     })
                     
+                    let newres = responseData
+                    newres.service_list = respArray
+                    viewController.dataSource = newres
 					// initControl Data
 					// viewController.initProderView()
 					viewController.initController()
@@ -896,6 +928,8 @@ extension AIBuyerDetailViewController: ServiceRestoreToolBarDelegate {
 	
 	// MARK: - ServiceRestoreToolBarDelegate
 	func serviceRestoreToolBar(serviceRestoreToolBar: ServiceRestoreToolBar, didClickLogoAtIndex index: Int) {
+        
+        
         // Send Anchor
         if audioAssistantModel == .Receiver {
             let anchor = AIAnchor()
@@ -1195,7 +1229,7 @@ extension AIBuyerDetailViewController: AIBueryDetailCellDetegate {
 		
 		deleted_service_list.addObject(model!)
 		
-		logoMoveToServiceRestoreToolBar(logo, completion: { () -> Void in
+		logoMoveToServiceRestoreToolBar(model, logo: logo, completion: { () -> Void in
 			self.serviceRestoreToolbar.serviceModels = self.deleted_service_list
 			self.serviceRestoreToolbar.appendLogoAtLast()
 			cell.closeCell()

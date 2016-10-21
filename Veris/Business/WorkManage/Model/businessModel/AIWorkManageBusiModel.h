@@ -14,7 +14,7 @@
 
 @interface AIWorkQualificationBusiModel : JSONModel
 @property (nonatomic, strong) NSString<Optional> *type_name;
-@property (nonatomic, strong) NSNumber<Optional> *type_id;
+@property (nonatomic, strong) NSString<Optional> *type_id;
 @property (nonatomic, strong) NSString<Optional> *aspect_type;
 @property (nonatomic, strong) NSString<Optional> *aspect_photo;
 @property (nonatomic, strong) NSString<Optional> *uploaded;
