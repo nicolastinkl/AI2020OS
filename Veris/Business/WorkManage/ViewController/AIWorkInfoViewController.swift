@@ -187,6 +187,54 @@ class AIWorkInfoViewController: UIViewController {
                 AIAlertView().showError("订阅失败", subTitle: errDes)
         }
     }
+
+
+    //MARK: Upload Qualifications
+
+    func handleUploadPhoto(photo: UIImage) {
+        if let model = viewModel?.qualificationsBusiModel?.work_qualifications[qualificationView.carousel.currentItemIndex] as? AIWorkQualificationBusiModel {
+
+            self.showLoading()
+            let urlString = LeanCloudUploadFileUtils().uploadImage(photo)
+
+            if urlString != nil {
+                let cellKey = "\(model.type_id).\(model.aspect_type)"
+                let itemImageView = qualificationView.cachedCellViewDic[cellKey] as! UIImageView
+
+                uploadAspectPhoto(urlString!, type_id: model.type_id!, aspect_type: model.aspect_type!, completion: { 
+                    itemImageView.image = photo
+                })
+                self.dismissLoading()
+            } else {
+                self.dismissLoading()
+                AIAlertView().showError("上传失败", subTitle: "")
+            }
+        }
+
+    }
+
+    func uploadAspectPhoto(aspect_photo: String, type_id: String, aspect_type: String, completion: (() -> Void)?) {
+        self.showLoading()
+
+        let body: [String : AnyObject] = ["user_id" : AILocalStore.userId, "type_id" : type_id, "aspect_type" : aspect_type, "aspect_photo" : aspect_photo]
+
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.uploadWorkQualification.description
+        message.body = BDKTools.createRequestBody(body)
+
+        weak var wf = self
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) in
+            let result: NSNumber = response["result"] as! NSNumber
+            if result.boolValue == true {
+                // 替换原来的图片
+                completion?()
+            }
+            wf!.dismissLoading()
+        }) { (errorType, errorDesc) in
+            wf!.dismissLoading()
+            AIAlertView().showError(errorDesc, subTitle: "")
+        }
+    }
 }
 
 extension AIWorkInfoViewController: AIWorkQualificationViewDelegate, AIWorkDetailViewDelegate {
@@ -211,22 +259,24 @@ extension AIWorkInfoViewController: AIWorkQualificationViewDelegate, AIWorkDetai
 extension AIWorkInfoViewController: AIWorkUploadPopViewDelegate {
 
     func shouldTakePhoto() {
+
+        uploadPopView.dismiss()
+
         let scanVC = AIScanBankCardViewController()
+        scanVC.delegate = self
         let nav = UINavigationController(rootViewController: scanVC)
         showTransitionStyleCrossDissolveView(nav)
-
-        if let model = viewModel?.qualificationsBusiModel?.work_qualifications[qualificationView.carousel.currentItemIndex] as? AIWorkQualificationBusiModel {
-            scanVC.aspectID = model.aspect_type.toInt()!
-        }
-
     }
 
 
     func shouldChoosePhoto() {
+        uploadPopView.dismiss()
+
         let vc = AIAssetsPickerController.initFromNib()
         vc.delegate = self
         vc.maximumNumberOfSelection = 1
         let nav = UINavigationController(rootViewController: vc)
+        nav.navigationBarHidden = true
         showTransitionStyleCrossDissolveView(nav)
     }
 }
@@ -240,15 +290,14 @@ extension AIWorkInfoViewController: AIAssetsPickerControllerDelegate {
      */
     func assetsPickerController(picker: AIAssetsPickerController, didFinishPickingAssets assets: NSArray) {
 
+        if let asset = assets.firstObject {
 
-        for asset in assets {
             if asset is ALAsset {
-                //let image = AIALAssetsImageOperator.thumbnailImageForAsset(asset as! ALAsset, maxPixelSize: 500)
-
+                let image = AIALAssetsImageOperator.thumbnailImageForAsset(asset as! ALAsset, maxPixelSize: 500)
+                // 准备上传图片
+                handleUploadPhoto(image)
             }
         }
-
-
     }
 
     /**
@@ -270,6 +319,14 @@ extension AIWorkInfoViewController: AIAssetsPickerControllerDelegate {
      */
     func assetsPickerController(picker: AIAssetsPickerController, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         
+    }
+}
+
+extension AIWorkInfoViewController: AIScanBankCardDelegate {
+    func didScanBankCardImage(image: UIImage) {
+        if let _ : UIImage = image {
+            handleUploadPhoto(image)
+        }
     }
 }
 

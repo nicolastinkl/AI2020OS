@@ -38,6 +38,7 @@ class AICommentPictures: UIView {
 
         let imageView = AIImageView(frame: frame)
 
+        weak var wf = self
         if picture is String {
             let url = NSURL(string: picture as! String)
             let loadingImage = UIImage(named: "image_loading")
@@ -45,7 +46,7 @@ class AICommentPictures: UIView {
         } else if picture is UIImage {
             imageView.image = picture as? UIImage
             imageView.uploadImage("\(tag)", complate: { (id, url, error) in
-                self.displayPictureNames.append((url?.absoluteString)!)
+                wf?.displayPictureNames.append((url?.absoluteString)!)
             })
         }
 
