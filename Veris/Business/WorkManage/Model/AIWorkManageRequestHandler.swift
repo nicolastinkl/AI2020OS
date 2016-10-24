@@ -36,7 +36,7 @@ class AIWorkManageRequestHandler: NSObject {
         //weak var weakSelf = self
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-            do{
+            do {
                 let dic = response as! [NSObject: AnyObject]
                 let originalRequirements = try AIWorkOpportunityBusiModel(dictionary: dic)
                 originalRequirements.work_id = workId as String
@@ -66,7 +66,7 @@ class AIWorkManageRequestHandler: NSObject {
         //weak var weakSelf = self
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
-            do{
+            do {
                 let dic = response as! [NSObject: AnyObject]
                 let originalRequirements = try AIWorkQualificationsBusiModel(dictionary: dic)
                 success(busiModel: originalRequirements)
@@ -125,8 +125,8 @@ class AIWorkManageRequestHandler: NSObject {
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
 
             let dic = response as! [NSObject: AnyObject]
-            if let resultCode = dic["result"] as? String where resultCode == "true" {
-                success(resultCode: resultCode)
+            if let resultCode = dic["result"] as? Bool where resultCode == true {
+                success(resultCode: "true")
             } else {
                 fail(errType: AINetError.Format, errDes: AINetErrorDescription.FormatError)
             }
