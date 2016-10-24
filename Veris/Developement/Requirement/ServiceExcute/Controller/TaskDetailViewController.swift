@@ -44,7 +44,7 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bottomButton.layer.cornerRadius = bottomButton.height / 2
+        
         nodeDesc.font = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(48))
         nodeTitleLabel.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(80))
         bottomButton.titleLabel?.font = AITools.myriadSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(72))
@@ -59,6 +59,10 @@ class TaskDetailViewController: UIViewController {
         paramTable.hidden = false
 
         loadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        bottomButton.roundCorner(bottomButton.height / 2)
     }
     
     private func setupCustomerView() {
@@ -236,7 +240,6 @@ class TaskDetailViewController: UIViewController {
         nodeTitleLabel.hidden = true
         
         TaskDetailViewController.setBottomButtonEnabel(bottomButton, enable: false)
-        bottomButton.setTitle("TaskDetailViewController.requestAuthoriztion".localized, forState: .Normal)
         bottomButton.setTitle("TaskDetailViewController.requestAuthoriztion".localized, forState: .Disabled)
     }
     
@@ -293,7 +296,7 @@ class TaskDetailViewController: UIViewController {
             switch responseData {
             case .success:
                 NBMaterialToast.showWithText(self.view, text: "SubmitSuccess".localized, duration: NBLunchDuration.SHORT)
-                self.bottomButton.enabled = false
+                TaskDetailViewController.setBottomButtonEnabel(self.bottomButton, enable: false)
             default:
                 NBMaterialToast.showWithText(self.view, text: "SubmitFailed".localized, duration: NBLunchDuration.SHORT)
             }
