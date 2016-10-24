@@ -29,6 +29,8 @@
 // 提交类型：Text, Voice, Picture
 @property (strong, nonatomic) NSString<Optional> * note_type;
 @property (strong, nonatomic) NSString<Optional> * note_content;
+// 当note_type为Voice时，voice_length为声音文件的长度，单位是秒
+@property (strong, nonatomic) NSString<Optional> * voice_length;
 
 @end
 
