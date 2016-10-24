@@ -33,19 +33,17 @@ public class AIAnalytics: NSObject {
 		}
 	}
 	
-	class func postToServer(eventId: AIAnalyticsEvent, primarykey: String? = nil, attributes: [AIAnalyticsKeys: AnyObject]!) {
-        #if DEBUG
-            let url = "http://171.221.254.231:3245/events"
-            let message = AIMessage()
-            message.url = url
-            var body: [String: AnyObject] = ["event": eventId.rawValue]
-            body.addEntriesFromDictionary(body)
-            body.addEntriesFromDictionary(commonParams())
-            body.addEntriesFromDictionary(convertAtt(attributes))
-            message.body = NSMutableDictionary(dictionary: body)
-            AINetEngine.defaultEngine().postMessage(message, success: { (_) in }) { (_, _) in }
-        #endif
-	}
+    class func postToServer(eventId: AIAnalyticsEvent, primarykey: String? = nil, attributes: [AIAnalyticsKeys: AnyObject]!) {
+        let url = "http://171.221.254.231:3245/events"
+        let message = AIMessage()
+        message.url = url
+        var body: [String: AnyObject] = ["event": eventId.rawValue]
+        body.addEntriesFromDictionary(body)
+        body.addEntriesFromDictionary(commonParams())
+        body.addEntriesFromDictionary(convertAtt(attributes))
+        message.body = NSMutableDictionary(dictionary: body)
+        AINetEngine.defaultEngine().postMessage(message, success: { (_) in }) { (_, _) in }
+    }
 	
 	/** 自定义事件,数量统计.
      @param  eventId 自定义的事件Id.
