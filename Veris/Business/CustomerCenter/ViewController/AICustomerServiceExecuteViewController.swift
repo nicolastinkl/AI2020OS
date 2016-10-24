@@ -282,7 +282,7 @@ internal class AICustomerServiceExecuteViewController: UIViewController {
             for serviceInst in viewModel.serviceInsts! {
                 serviceInstIds.append("\(serviceInst.serviceInstId)")
             }
-            interfaceHandler.queryCustomerTimelineList(self.g_orderId, serviceInstIds: serviceInstIds, filterType: 1, success: { (viewModel) in
+            interfaceHandler.queryCustomerTimelineList(self.g_orderId, serviceInstIds: serviceInstIds, filterType: self.selectedFilterType, success: { (viewModel) in
                 weakSelf?.timelineTableView.headerEndRefreshing()
                 weakSelf?.timelineModels.removeAll()
                 weakSelf?.timelineModels = weakSelf!.handleViewModels(viewModel)
