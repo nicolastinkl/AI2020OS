@@ -504,6 +504,7 @@
             successViewController.serviceInstanceID = model.service.service_instance_id;
             successViewController.serviceID = model.service.service_id;
             successViewController.customerID = model.customer.user_id;
+            successViewController.orderID = model.order_id;
             nextViewController = successViewController;
         }
 

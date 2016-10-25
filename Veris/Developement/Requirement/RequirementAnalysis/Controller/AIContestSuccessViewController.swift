@@ -22,6 +22,7 @@ import AIAlertView
     var serviceInstanceID: Int = 0
     var serviceID: Int = 0
     var customerID: Int = 0
+    var orderID: Int = 0
     var qiangDanResultModel: AIQiangDanResultModel?
     //MARK: Life Cycle
 
@@ -102,7 +103,7 @@ import AIAlertView
         let manager = BDKExcuteManager()
         self.showLoading()
 
-        let body = ["service_instance_id": serviceInstanceID, "service_id" : serviceID, "customer_user_id" : customerID]
+        let body = ["service_instance_id": serviceInstanceID, "service_id" : serviceID, "customer_user_id" : customerID, "order_id" : orderID]
         manager.queryQaingDanResultInfo(body, success: { (resultModel) in
             if let model: AIQiangDanResultModel = resultModel {
                 self.fillRealData(model)
