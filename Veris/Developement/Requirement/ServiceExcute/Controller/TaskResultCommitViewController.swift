@@ -57,9 +57,6 @@ class TaskResultCommitViewController: UIViewController {
         hint.labelContent = "TaskResultCommitViewController.hint".localized
         note.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         
-        note.roundCorner(2)
-
-        questButton.layer.cornerRadius = questButton.height / 2
         TaskDetailViewController.setBottomButtonEnabel(questButton, enable: false)
         
         let cameraSelector =
@@ -83,6 +80,11 @@ class TaskResultCommitViewController: UIViewController {
         
         cameraIconTop = cameraIconTopConstraint.constant
         writeIconTop = writeIconTopConstraint.constant
+    }
+    
+    override func viewDidLayoutSubviews() {
+        questButton.roundCorner(questButton.height / 2)
+        note.roundCorner(2)
     }
     
     override func canBecomeFirstResponder() -> Bool {
@@ -340,6 +342,7 @@ class TaskResultCommitViewController: UIViewController {
         } else if !soundPlayButton.hidden {
             textOrVoiceNode.note_type = NodeResultType.voice.rawValue
             textOrVoiceNode.note_content = audioUrl
+            textOrVoiceNode.voice_length = String(soundPlayButton.soundTimeInterval)
         }
         
         let picNode = NodeResultContent()

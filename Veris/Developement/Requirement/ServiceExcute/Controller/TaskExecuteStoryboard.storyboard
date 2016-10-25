@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="myT-Jx-6RY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RAv-3A-A9F">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_bg" translatesAutoresizingMaskIntoConstraints="NO" id="EgG-Gs-Anh" userLabel="Background"/>
@@ -180,7 +180,7 @@
                         <viewControllerLayoutGuide type="bottom" id="vHl-jI-e1W"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kxo-KP-55y">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_bg" translatesAutoresizingMaskIntoConstraints="NO" id="rPc-GB-9H5" userLabel="Background"/>
