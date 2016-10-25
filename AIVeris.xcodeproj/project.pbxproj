@@ -56,9 +56,11 @@
 		16E7F5C2B86F7A124E6FB458 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */; };
 		810E87291DBE2595003156AC /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810FD58E1DBE257100DE4045 /* CardDeepLinkKit.framework */; };
 		810E872D1DBEEF13003156AC /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810E872B1DBEEF02003156AC /* CardDeepLinkKit.framework */; };
-		810E87301DBEEF26003156AC /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810E872F1DBEEF26003156AC /* CardDeepLinkKit.framework */; };
 		810E87311DBEEF2C003156AC /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810E872F1DBEEF26003156AC /* CardDeepLinkKit.framework */; };
-		810E87321DBEEF2C003156AC /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 810E872F1DBEEF26003156AC /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		810E87361DBEF1C0003156AC /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810E87351DBEF1C0003156AC /* CardDeepLinkKit.framework */; };
+		810FA3001DBEF2BD0038B8AC /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810FA2FF1DBEF2BD0038B8AC /* CardDeepLinkKit.framework */; };
+		810FA3011DBEF2C80038B8AC /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810FA2FF1DBEF2BD0038B8AC /* CardDeepLinkKit.framework */; };
+		810FA3021DBEF2C80038B8AC /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 810FA2FF1DBEF2BD0038B8AC /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		810FD58B1DBE20DC00DE4045 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810FD58A1DBE20DC00DE4045 /* CardDeepLinkKit.framework */; };
 		8116991C1D93BA6800C2D6EA /* AIALAssetsImageOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8116991B1D93BA6800C2D6EA /* AIALAssetsImageOperator.m */; };
 		813860F51D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */; };
@@ -867,7 +869,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				819A0EE71D80400600A84BBB /* AVOSCloudCrashReporting.framework in CopyFiles */,
-				810E87321DBEEF2C003156AC /* CardDeepLinkKit.framework in CopyFiles */,
+				810FA3021DBEF2C80038B8AC /* CardDeepLinkKit.framework in CopyFiles */,
 				819A0EE51D80400600A84BBB /* AVOSCloud.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -930,7 +932,9 @@
 		5293440786150C2B14661D8C /* Pods_VerisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VerisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E080193263E9011ADC252AB /* Pods-VerisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		810E872B1DBEEF02003156AC /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = /Users/wangli/Projects/AsiaInfo/GutHub/AppStore/Veris/Developement/DeepLink/CardDeepLinkKit.framework; sourceTree = "<absolute>"; };
-		810E872F1DBEEF26003156AC /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = Device/CardDeepLinkKit.framework; sourceTree = "<group>"; };
+		810E872F1DBEEF26003156AC /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = /Users/wangli/Projects/AsiaInfo/GutHub/AppStore/Veris/Developement/DeepLink/Device/CardDeepLinkKit.framework; sourceTree = "<absolute>"; };
+		810E87351DBEF1C0003156AC /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = /Users/wangli/Projects/AsiaInfo/GutHub/AppStore/Veris/Developement/DeepLink/Simulator/CardDeepLinkKit.framework; sourceTree = "<absolute>"; };
+		810FA2FF1DBEF2BD0038B8AC /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = Simulator/CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		810FD58A1DBE20DC00DE4045 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = /Users/wangli/Projects/AsiaInfo/GutHub/AppStore/Veris/Developement/DeepLink/Universal/CardDeepLinkKit.framework; sourceTree = "<absolute>"; };
 		810FD58E1DBE257100DE4045 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = /Users/wangli/Projects/AsiaInfo/GutHub/AppStore/Veris/Developement/DeepLink/Device/CardDeepLinkKit.framework; sourceTree = "<absolute>"; };
 		8116991A1D93BA6800C2D6EA /* AIALAssetsImageOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIALAssetsImageOperator.h; sourceTree = "<group>"; };
@@ -2066,6 +2070,7 @@
 				81F414321D351B8A008DC280 /* libsqlite3.0.tbd in Frameworks */,
 				93B25AB81B9D7EB500CD1FEB /* CoreTelephony.framework in Frameworks */,
 				1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */,
+				810E87361DBEF1C0003156AC /* CardDeepLinkKit.framework in Frameworks */,
 				810E87311DBEEF2C003156AC /* CardDeepLinkKit.framework in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
@@ -2075,6 +2080,7 @@
 				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
 				844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */,
 				844AFA251CE1DA7300C58B1C /* GLKit.framework in Frameworks */,
+				810FA3001DBEF2BD0038B8AC /* CardDeepLinkKit.framework in Frameworks */,
 				81B195741D474A960086EB83 /* OpenTok.framework in Frameworks */,
 				819A0EE61D80400600A84BBB /* AVOSCloudCrashReporting.framework in Frameworks */,
 				844AFA231CE1DA6800C58B1C /* CoreVideo.framework in Frameworks */,
@@ -2083,7 +2089,6 @@
 				81A0458F1C11675500296E56 /* CoreAudio.framework in Frameworks */,
 				937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */,
 				FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */,
-				810E87301DBEEF26003156AC /* CardDeepLinkKit.framework in Frameworks */,
 				810E872D1DBEEF13003156AC /* CardDeepLinkKit.framework in Frameworks */,
 				93B523921BB8F0F400DFB1C9 /* CoreMotion.framework in Frameworks */,
 				93A0ABF51D12C43400562090 /* libWeChatSDK.a in Frameworks */,
@@ -2100,6 +2105,7 @@
 				9392B57D1D1CD9F10007F241 /* AlipaySDK.framework in Frameworks */,
 				93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */,
 				819A0EE41D80400600A84BBB /* AVOSCloud.framework in Frameworks */,
+				810FA3011DBEF2C80038B8AC /* CardDeepLinkKit.framework in Frameworks */,
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
@@ -3823,7 +3829,7 @@
 		81B195781D4852BE0086EB83 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				810E872F1DBEEF26003156AC /* CardDeepLinkKit.framework */,
+				810FA2FF1DBEF2BD0038B8AC /* CardDeepLinkKit.framework */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -5947,9 +5953,8 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Device",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Universal",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Simulator",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -6183,8 +6188,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Device",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Universal",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Simulator",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -6248,9 +6252,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink/$(CONFIGURATION)",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Device",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Universal",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Simulator",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
