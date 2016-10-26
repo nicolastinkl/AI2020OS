@@ -105,7 +105,7 @@ class AIWorkManageHeaderView: UIView {
         for (i, cardView) in cardViews.enumerate() {
             let service = services[i]
             cardView.titleText = service.name
-            cardView.subTitle = String(format: "%@ Requests", service.order_time ?? 0)
+            cardView.subTitle = String(format: "AIWorkManageHeaderView.request".localized, service.order_time ?? 0)
         }
     }
 	

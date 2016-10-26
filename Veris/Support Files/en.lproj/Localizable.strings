@@ -452,3 +452,14 @@
 "AIWorkInfoViewController.ViewDetails" = "View Details";
 "AIWorkInfoViewController.Upload" = "Upload";
 "AIWorkInfoViewController.UploadTitleDesc" = "Please upload your ID and certificate.";
+
+//AIWorkManageHeaderView
+"AIWorkManageHeaderView.request" = "%@ Requests";
+
+//AIWorkOpportunityPopularChartView
+"AIWorkOpportunityPopularChartView.title" = "What's Popular";
+"AIWorkOpportunityPopularChartView.subtitle" = "Daily";
+"AIWorkOpportunityPopularChartView.orders" = "%@ Orders";
+
+//AIWorkOpportunityWhatsNewView
+"AIWorkOpportunityWhatsNewView.title" = "What's New";

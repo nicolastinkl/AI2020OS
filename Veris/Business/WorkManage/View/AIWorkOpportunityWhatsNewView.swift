@@ -34,7 +34,8 @@ class AIWorkOpportunityWhatsNewView: UIView {
         titleLabel = UILabel()
         titleLabel.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.text = "What's New"
+        titleLabel.text = "AIWorkOpportunityWhatsNewView.title".localized
+
         addSubview(titleLabel)
         titleLabel.snp_makeConstraints { (make) in
             make.leading.equalTo(marginLeft)
