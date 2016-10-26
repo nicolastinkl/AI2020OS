@@ -15,6 +15,7 @@ import AIAlertView
 class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	
 	var window: UIWindow?
+    
 	//
 	var didFinishGetSellerData: Bool = false
 	var didFinishGetBuyerListData: Bool = false
