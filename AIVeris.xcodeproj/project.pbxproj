@@ -3989,6 +3989,9 @@
 		842CE6D11DAF28550038E5C0 /* MyWallet */ = {
 			isa = PBXGroup;
 			children = (
+				C9FE35641DC0AEAA00B16C9F /* Balance */,
+				C9FE356A1DC0AEAA00B16C9F /* WillPay */,
+				C9FE35701DC0AEAA00B16C9F /* WillReceiver */,
 				842CE6D21DAF28550038E5C0 /* CapitalFlow */,
 			);
 			path = MyWallet;
@@ -4766,6 +4769,75 @@
 				847D29A01D546424009E26B8 /* UIImageViewExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		C9FE35641DC0AEAA00B16C9F /* Balance */ = {
+			isa = PBXGroup;
+			children = (
+				C9FE35651DC0AEAA00B16C9F /* View */,
+				C9FE35661DC0AEAA00B16C9F /* ViewController */,
+			);
+			path = Balance;
+			sourceTree = "<group>";
+		};
+		C9FE35651DC0AEAA00B16C9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9FE35661DC0AEAA00B16C9F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C9FE356A1DC0AEAA00B16C9F /* WillPay */ = {
+			isa = PBXGroup;
+			children = (
+				C9FE356B1DC0AEAA00B16C9F /* View */,
+				C9FE356C1DC0AEAA00B16C9F /* ViewController */,
+			);
+			path = WillPay;
+			sourceTree = "<group>";
+		};
+		C9FE356B1DC0AEAA00B16C9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9FE356C1DC0AEAA00B16C9F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C9FE35701DC0AEAA00B16C9F /* WillReceiver */ = {
+			isa = PBXGroup;
+			children = (
+				C9FE35711DC0AEAA00B16C9F /* View */,
+				C9FE35721DC0AEAA00B16C9F /* ViewController */,
+			);
+			path = WillReceiver;
+			sourceTree = "<group>";
+		};
+		C9FE35711DC0AEAA00B16C9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9FE35721DC0AEAA00B16C9F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		FB0180FE1D0D125400213DF8 /* libWeiboSDK */ = {
