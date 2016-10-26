@@ -20,7 +20,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdh-gV-vWa" userLabel="Filter">
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="ailButtonNormalTitle" value="Filter"/>
                                 </userDefinedRuntimeAttributes>
@@ -28,16 +30,25 @@
                                     <action selector="filteAction:" destination="ujG-BF-pv6" eventType="touchUpInside" id="MDA-R4-ahr"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u5F-kf-fjg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u5F-kf-fjg" customClass="SKSTableView" customModule="Veris" customModuleProvider="target">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="ujG-BF-pv6" id="OhG-da-ykn"/>
-                                    <outlet property="delegate" destination="ujG-BF-pv6" id="0AQ-5d-dUL"/>
+                                    <outlet property="dataSource" destination="ujG-BF-pv6" id="lFy-9d-KfH"/>
+                                    <outlet property="delegate" destination="ujG-BF-pv6" id="2zb-1n-XiS"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyV-O2-w8p" userLabel="FilterViewContainer">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="179" id="5ey-dB-U2E"/>
+                                    <constraint firstAttribute="height" constant="1" id="aLy-5z-yjc"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.2156862745" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="kyV-O2-w8p" firstAttribute="top" secondItem="u5F-kf-fjg" secondAttribute="top" id="PgK-pH-R12"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kyV-O2-w8p" secondAttribute="trailing" constant="-16" id="Qq3-Pg-bG6"/>
                             <constraint firstItem="u5F-kf-fjg" firstAttribute="leading" secondItem="Qnk-H4-DNO" secondAttribute="leadingMargin" constant="-16" id="UOu-ZU-JY2"/>
                             <constraint firstItem="q5G-Yx-9yK" firstAttribute="top" secondItem="u5F-kf-fjg" secondAttribute="bottom" id="Vj1-Bi-Fbo"/>
                             <constraint firstItem="u5F-kf-fjg" firstAttribute="top" secondItem="Zdh-gV-vWa" secondAttribute="bottom" constant="8" id="VpX-eH-dNq"/>
@@ -48,12 +59,48 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="tableView" destination="u5F-kf-fjg" id="Wj9-kA-0sH"/>
+                        <outlet property="filterViewContainer" destination="kyV-O2-w8p" id="f9q-lc-k8k"/>
+                        <outlet property="tableView" destination="u5F-kf-fjg" id="Nar-qH-SJP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ege-YW-usX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-210.40000000000001" y="141.67916041979012"/>
+        </scene>
+        <!--Filter View Controller-->
+        <scene sceneID="AZg-f8-ciu">
+            <objects>
+                <viewController storyboardIdentifier="FilterViewController" id="no8-H4-EGm" customClass="FilterViewController" customModule="Veris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y4K-Bl-be1"/>
+                        <viewControllerLayoutGuide type="bottom" id="dbf-4X-sdL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e68-da-tZ4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AXk-C1-dlh" customClass="SKSTableView" customModule="Veris" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.71372549019999998" green="0.73333333329999995" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="179" id="C5D-F9-A3Q"/>
+                                    <constraint firstAttribute="height" constant="1" id="u3q-uC-vrF"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AXk-C1-dlh" firstAttribute="top" secondItem="e68-da-tZ4" secondAttribute="top" id="AzA-sE-lgG"/>
+                            <constraint firstAttribute="trailing" secondItem="AXk-C1-dlh" secondAttribute="trailing" id="Tbt-8f-8Qu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="AXk-C1-dlh" id="Tng-fP-LOV"/>
+                        <outlet property="tableViewHeight" destination="u3q-uC-vrF" id="Zmv-Oc-0Hh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gVD-XF-G73" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="151.57421289355324"/>
         </scene>
     </scenes>
 </document>
