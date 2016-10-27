@@ -6036,7 +6036,7 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/CardDeepLinkKit.framework",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 					"$(SRCROOT)/**",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -6048,7 +6048,7 @@
 				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/libWeiboSDK",
@@ -6272,7 +6272,7 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/CardDeepLinkKit.framework",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 					"$(SRCROOT)/**",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -6284,7 +6284,7 @@
 				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/libWeiboSDK",
@@ -6336,7 +6336,7 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/CardDeepLinkKit.framework",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 					"$(SRCROOT)/**",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -6348,7 +6348,7 @@
 				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/libWeiboSDK",
