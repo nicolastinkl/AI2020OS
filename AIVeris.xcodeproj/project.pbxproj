@@ -34,9 +34,6 @@
 		12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */; };
 		12933BD71D18D6C2008A1693 /* CustomerCenterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD61D18D6C2008A1693 /* CustomerCenterConstants.swift */; };
 		12933BD91D191CD4008A1693 /* AICustomerServiceExecuteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD81D191CD4008A1693 /* AICustomerServiceExecuteModel.swift */; };
-		12C3578D1DB9F5D300F6AC0F /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C3578C1DB9F5D300F6AC0F /* CardDeepLinkKit.framework */; };
-		12C3578E1DBA013700F6AC0F /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C3578C1DB9F5D300F6AC0F /* CardDeepLinkKit.framework */; };
-		12C3578F1DBA013700F6AC0F /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12C3578C1DB9F5D300F6AC0F /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */; };
 		12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */; };
 		12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */; };
@@ -468,6 +465,9 @@
 		81433ECC1CFBE5A700347C29 /* UIImage+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */; };
 		81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81433F1F1CFBE80700347C29 /* Default-568h@2x.png */; };
 		81512ED01D220A8900AE041D /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */; };
+		816D8C071DBF009A0074B179 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */; };
+		816D8C081DBF00A30074B179 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */; };
+		816D8C091DBF00A30074B179 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7141CFD2710006F2C8F /* AIImageView.swift */; };
 		8175A7BA1CFD2710006F2C8F /* AISwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */; };
 		8175A7BB1CFD2710006F2C8F /* AIUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7171CFD2710006F2C8F /* AIUINavigationController.m */; };
@@ -674,6 +674,11 @@
 		84871EF31D8F88490003142D /* ImageLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84871EF21D8F88490003142D /* ImageLineView.swift */; };
 		84970C211D654E0D006612B2 /* AIProviderDetailServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373291D4F7A4100A8B38A /* AIProviderDetailServiceTest.swift */; };
 		8497E7291D210E7F00774729 /* TopServiceCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */; };
+		84CB784B1DBEF655001EBB6D /* expandableImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CB78471DBEF655001EBB6D /* expandableImage.png */; };
+		84CB784C1DBEF655001EBB6D /* expandableImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CB78481DBEF655001EBB6D /* expandableImage@2x.png */; };
+		84CB784D1DBEF655001EBB6D /* SKSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB78491DBEF655001EBB6D /* SKSTableView.swift */; };
+		84CB784E1DBEF655001EBB6D /* SKSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB784A1DBEF655001EBB6D /* SKSTableViewCell.swift */; };
+		84CB78501DBF0A1C001EBB6D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB784F1DBF0A1C001EBB6D /* FilterViewController.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
 		84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */; };
 		84F2E5BA1D17D02E009E0C72 /* SubServiceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */; };
@@ -871,7 +876,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				819A0EE71D80400600A84BBB /* AVOSCloudCrashReporting.framework in CopyFiles */,
-				12C3578F1DBA013700F6AC0F /* CardDeepLinkKit.framework in CopyFiles */,
+				816D8C091DBF00A30074B179 /* CardDeepLinkKit.framework in CopyFiles */,
 				819A0EE51D80400600A84BBB /* AVOSCloud.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -905,7 +910,6 @@
 		12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTableViewCell.xib; sourceTree = "<group>"; };
 		12933BD61D18D6C2008A1693 /* CustomerCenterConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerCenterConstants.swift; sourceTree = "<group>"; };
 		12933BD81D191CD4008A1693 /* AICustomerServiceExecuteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AICustomerServiceExecuteModel.swift; path = ../AICustomerServiceExecuteModel.swift; sourceTree = "<group>"; };
-		12C3578C1DB9F5D300F6AC0F /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChangePasswordViewController.swift; sourceTree = "<group>"; };
 		12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginUtil.swift; sourceTree = "<group>"; };
 		12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginCommonView.swift; sourceTree = "<group>"; };
@@ -1492,6 +1496,7 @@
 		81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TDAdditions.m"; sourceTree = "<group>"; };
 		81433F1F1CFBE80700347C29 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIFundManageViewController.swift; path = FundManage/AIFundManageViewController.swift; sourceTree = "<group>"; };
+		816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		8175A7141CFD2710006F2C8F /* AIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageView.swift; sourceTree = "<group>"; };
 		8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwiftyJSON.swift; sourceTree = "<group>"; };
 		8175A7161CFD2710006F2C8F /* AIUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIUINavigationController.h; sourceTree = "<group>"; };
@@ -1747,6 +1752,11 @@
 		8484D8891D7E5E74001F1A54 /* FileCommentManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCommentManagerTest.swift; sourceTree = "<group>"; };
 		84871EF21D8F88490003142D /* ImageLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLineView.swift; sourceTree = "<group>"; };
 		8497E7281D210E7F00774729 /* TopServiceCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopServiceCommentTableViewCell.swift; sourceTree = "<group>"; };
+		84CB78471DBEF655001EBB6D /* expandableImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expandableImage.png; sourceTree = "<group>"; };
+		84CB78481DBEF655001EBB6D /* expandableImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expandableImage@2x.png"; sourceTree = "<group>"; };
+		84CB78491DBEF655001EBB6D /* SKSTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSTableView.swift; sourceTree = "<group>"; };
+		84CB784A1DBEF655001EBB6D /* SKSTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSTableViewCell.swift; sourceTree = "<group>"; };
+		84CB784F1DBF0A1C001EBB6D /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
 		84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubServiceCardView.swift; sourceTree = "<group>"; };
@@ -2076,7 +2086,7 @@
 				1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
-				12C3578E1DBA013700F6AC0F /* CardDeepLinkKit.framework in Frameworks */,
+				816D8C081DBF00A30074B179 /* CardDeepLinkKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
 				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
 				844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */,
@@ -2103,7 +2113,7 @@
 				9392B57D1D1CD9F10007F241 /* AlipaySDK.framework in Frameworks */,
 				93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */,
 				819A0EE41D80400600A84BBB /* AVOSCloud.framework in Frameworks */,
-				12C3578D1DB9F5D300F6AC0F /* CardDeepLinkKit.framework in Frameworks */,
+				816D8C071DBF009A0074B179 /* CardDeepLinkKit.framework in Frameworks */,
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
@@ -3563,6 +3573,7 @@
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				84CB78461DBEF655001EBB6D /* SKSTableView2.3 */,
 				8484D8581D7034D6001F1A54 /* MenuPopOverView */,
 				8484D8371D6C2CF3001F1A54 /* NBMaterialDialog */,
 				FB2E41EA1D461821001DDB5D /* MBFingerTipWindow */,
@@ -3828,7 +3839,7 @@
 		81B195781D4852BE0086EB83 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				12C3578C1DB9F5D300F6AC0F /* CardDeepLinkKit.framework */,
+				816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -3995,6 +4006,9 @@
 		842CE6D11DAF28550038E5C0 /* MyWallet */ = {
 			isa = PBXGroup;
 			children = (
+				C9FE35641DC0AEAA00B16C9F /* Balance */,
+				C9FE356A1DC0AEAA00B16C9F /* WillPay */,
+				C9FE35701DC0AEAA00B16C9F /* WillReceiver */,
 				842CE6D21DAF28550038E5C0 /* CapitalFlow */,
 			);
 			path = MyWallet;
@@ -4013,6 +4027,7 @@
 			isa = PBXGroup;
 			children = (
 				842CE6D41DAF28CA0038E5C0 /* CapitalFlow.storyboard */,
+				84CB784F1DBF0A1C001EBB6D /* FilterViewController.swift */,
 				842CE6D61DAF293C0038E5C0 /* CapitalFlowViewController.swift */,
 				12F60C2B1DBEFBBA00F98DF2 /* AIBusinessCurrencyViewController.swift */,
 			);
@@ -4179,6 +4194,17 @@
 				8484D8771D76D9EF001F1A54 /* UploadFileUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		84CB78461DBEF655001EBB6D /* SKSTableView2.3 */ = {
+			isa = PBXGroup;
+			children = (
+				84CB78471DBEF655001EBB6D /* expandableImage.png */,
+				84CB78481DBEF655001EBB6D /* expandableImage@2x.png */,
+				84CB78491DBEF655001EBB6D /* SKSTableView.swift */,
+				84CB784A1DBEF655001EBB6D /* SKSTableViewCell.swift */,
+			);
+			path = SKSTableView2.3;
 			sourceTree = "<group>";
 		};
 		930455121D124E71007AFC0C /* XunfeiLib */ = {
@@ -4769,6 +4795,75 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		C9FE35641DC0AEAA00B16C9F /* Balance */ = {
+			isa = PBXGroup;
+			children = (
+				C9FE35651DC0AEAA00B16C9F /* View */,
+				C9FE35661DC0AEAA00B16C9F /* ViewController */,
+			);
+			path = Balance;
+			sourceTree = "<group>";
+		};
+		C9FE35651DC0AEAA00B16C9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9FE35661DC0AEAA00B16C9F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C9FE356A1DC0AEAA00B16C9F /* WillPay */ = {
+			isa = PBXGroup;
+			children = (
+				C9FE356B1DC0AEAA00B16C9F /* View */,
+				C9FE356C1DC0AEAA00B16C9F /* ViewController */,
+			);
+			path = WillPay;
+			sourceTree = "<group>";
+		};
+		C9FE356B1DC0AEAA00B16C9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9FE356C1DC0AEAA00B16C9F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C9FE35701DC0AEAA00B16C9F /* WillReceiver */ = {
+			isa = PBXGroup;
+			children = (
+				C9FE35711DC0AEAA00B16C9F /* View */,
+				C9FE35721DC0AEAA00B16C9F /* ViewController */,
+			);
+			path = WillReceiver;
+			sourceTree = "<group>";
+		};
+		C9FE35711DC0AEAA00B16C9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9FE35721DC0AEAA00B16C9F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		FB0180FE1D0D125400213DF8 /* libWeiboSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -4925,7 +5020,7 @@
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = T2362RFKT6;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
 								enabled = 0;
@@ -5053,6 +5148,7 @@
 				C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */,
 				938008681D5B2C5800FAD140 /* AIWishTextWishsView.xib in Resources */,
 				81433DF71CFBE5A700347C29 /* AIEventTimerView.xib in Resources */,
+				84CB784B1DBEF655001EBB6D /* expandableImage.png in Resources */,
 				81433DB31CFBE5A700347C29 /* BuyerMessageCell.xib in Resources */,
 				93A0ABF61D12C43400562090 /* read_me.txt in Resources */,
 				93BEFFDD1D0D474B00832799 /* AISuperiorityCellView.xib in Resources */,
@@ -5088,6 +5184,7 @@
 				81433EBB1CFBE5A700347C29 /* MyriadPro-Light.otf in Resources */,
 				81433EBD1CFBE5A700347C29 /* MyriadPro-LightSemiExt.otf in Resources */,
 				81FAFC0D1D47427300DD3477 /* ServiceQRCodeView.xib in Resources */,
+				84CB784C1DBEF655001EBB6D /* expandableImage@2x.png in Resources */,
 				12D764A11D0D46AA002B001B /* AILoginStoryboard.storyboard in Resources */,
 				81433E311CFBE5A700347C29 /* AITaskInputViewController.xib in Resources */,
 				81433D621CFBE5A700347C29 /* AIShoppingListViewCell.xib in Resources */,
@@ -5451,6 +5548,7 @@
 				81433ECA1CFBE5A700347C29 /* TDImageColors.m in Sources */,
 				81B1956E1D474A960086EB83 /* AADialogBaseViewController.swift in Sources */,
 				81433D4E1CFBE5A700347C29 /* AIAddressRouteView.swift in Sources */,
+				84CB784E1DBEF655001EBB6D /* SKSTableViewCell.swift in Sources */,
 				8175A7E81CFD2710006F2C8F /* OAStackView+Constraint.m in Sources */,
 				847D29881D484BF3009E26B8 /* ServiceCommentModel.swift in Sources */,
 				81433E4C1CFBE5A700347C29 /* UIImageUtils.swift in Sources */,
@@ -5561,6 +5659,7 @@
 				9392B58B1D1CE37A0007F241 /* AIAliPayOrder.swift in Sources */,
 				81433E2A1CFBE5A700347C29 /* AIRequireContentViewController.swift in Sources */,
 				FB7355201D23B7B300CE549C /* UILabel-Helper.swift in Sources */,
+				84CB784D1DBEF655001EBB6D /* SKSTableView.swift in Sources */,
 				8484D8491D6C2CF3001F1A54 /* UIFont+Roboto.swift in Sources */,
 				81433E0B1CFBE5A700347C29 /* JTSScrollIndicator.m in Sources */,
 				81433DFB1CFBE5A700347C29 /* CustomPickerColumnView.swift in Sources */,
@@ -5656,6 +5755,7 @@
 				81433CD51CFBE5A700347C29 /* AICustomerModels.swift in Sources */,
 				9304551C1D125312007AFC0C /* AIWaterView.swift in Sources */,
 				81433DAC1CFBE5A700347C29 /* AIVerticalScrollView.swift in Sources */,
+				84CB78501DBF0A1C001EBB6D /* FilterViewController.swift in Sources */,
 				81433E991CFBE5A700347C29 /* FLEXUtility.m in Sources */,
 				81433E9B1CFBE5A700347C29 /* FLEXHierarchyTableViewController.m in Sources */,
 				81433E331CFBE5A700347C29 /* AITaskTagViewController.swift in Sources */,
@@ -5923,6 +6023,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/Developement/DeepLink/CardDeepLinkKit.framework";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -5951,7 +6052,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_ACTIVITY_MODE = "";
 				DEFINES_MODULE = NO;
@@ -5967,9 +6068,8 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Release",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Debug",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
+					"$(SRCROOT)/**",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -5979,8 +6079,8 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink/Release";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/libWeiboSDK",
@@ -5996,8 +6096,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "81835a6f-1126-48cd-94a0-7aa437900fd3";
+				PROVISIONING_PROFILE_SPECIFIER = aicd2020sbossDisProvisioningProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -6102,6 +6202,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/Developement/DeepLink/CardDeepLinkKit.framework";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -6155,6 +6256,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/Developement/DeepLink/CardDeepLinkKit.framework";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -6184,7 +6286,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_ACTIVITY_MODE = "";
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
@@ -6202,9 +6304,8 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/$(CONFIGURATION)",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Debug",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
+					"$(SRCROOT)/**",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -6214,8 +6315,8 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink/$(CONFIGURATION)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/libWeiboSDK",
@@ -6231,8 +6332,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "81835a6f-1126-48cd-94a0-7aa437900fd3";
+				PROVISIONING_PROFILE_SPECIFIER = aicd2020sbossDisProvisioningProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -6251,7 +6352,7 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_ACTIVITY_MODE = "";
 				DEFINES_MODULE = NO;
@@ -6267,9 +6368,8 @@
 					"$(PROJECT_DIR)/Veris/3rdLibrary/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/$(CONFIGURATION)",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink/Debug",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
+					"$(SRCROOT)/**",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -6279,8 +6379,8 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Veris/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink/$(CONFIGURATION)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)/Veris/Developement/DeepLink";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/libWeiboSDK",
@@ -6296,8 +6396,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "81835a6f-1126-48cd-94a0-7aa437900fd3";
+				PROVISIONING_PROFILE_SPECIFIER = aicd2020sbossDisProvisioningProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

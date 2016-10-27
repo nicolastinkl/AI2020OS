@@ -56,6 +56,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
     var in_serviceSpecId: String? = "100000000202"
     var in_customerUserID: String? = "100000000202"
     var in_sereviceID: String? = "100000000202"
+    var in_orderID: String? = "100000036593"
     
     let TIMER_TEXT_FONT = AITools.myriadSemiCondensedWithSize(70 / 3)
     
@@ -112,6 +113,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
             in_serviceInstId = anyToString(in_paramDic["GrabOrderServiceInstId"])
             in_customerUserID = anyToString(in_paramDic["GrabCustomerUserId"])
             in_sereviceID = anyToString(in_paramDic["GrabOrderServiceId"])
+            in_orderID = anyToString(in_paramDic["GrabOrderId"])
         }
     }
 
@@ -182,6 +184,7 @@ class AIAlertViewController: UIViewController, UINavigationControllerDelegate {
                 viewController.serviceInstanceID = self.in_serviceInstId!.toInt()!
                 viewController.customerID = self.in_customerUserID!.toInt()!
                 viewController.serviceID = self.in_sereviceID!.toInt()!
+                viewController.orderID = self.in_orderID!.toInt()!
                 self.navigationController?.pushViewController(viewController, animated: true)
             } else {
                 let title = "AIAlertViewController.contestFail.title".localized
