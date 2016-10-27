@@ -10,7 +10,7 @@
         <!--Business Currency View Controller-->
         <scene sceneID="vjV-PW-UHS">
             <objects>
-                <viewController id="55S-3J-Dnt" customClass="AIBusinessCurrencyViewController" customModule="Veris" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AIBusinessCurrencyViewController" id="55S-3J-Dnt" customClass="AIBusinessCurrencyViewController" customModule="Veris" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Iu-JT-XSH"/>
                         <viewControllerLayoutGuide type="bottom" id="QZB-HV-htz"/>
@@ -28,7 +28,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asw-A3-nE3">
                                 <state key="normal" title="使用规则"/>
                                 <connections>
-                                    <action selector="showRuleAction:" destination="55S-3J-Dnt" eventType="touchUpInside" id="iZr-pM-RBo"/>
+                                    <action selector="showRuleAction:" destination="55S-3J-Dnt" eventType="touchUpInside" id="yKc-xj-UYE"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0no-zo-VXw">

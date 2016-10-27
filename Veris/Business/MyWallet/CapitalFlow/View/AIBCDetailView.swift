@@ -9,6 +9,10 @@
 import UIKit
 
 class AIBCDetailView: UIView {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentScrollView: UIScrollView!
+    
 
     static func createInstance() -> AIBCDetailView {
         let viewThis = NSBundle.mainBundle().loadNibNamed("AIBCDetailView", owner: self, options: nil)!.first  as! AIBCDetailView

@@ -48,6 +48,10 @@
                 <constraint firstAttribute="bottom" secondItem="Yc4-3O-5mP" secondAttribute="bottom" id="VMJ-1K-i6m"/>
                 <constraint firstItem="Yc4-3O-5mP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pE1-mj-K5n"/>
             </constraints>
+            <connections>
+                <outlet property="contentScrollView" destination="T3W-3O-H5y" id="oAn-gU-zdK"/>
+                <outlet property="titleLabel" destination="P8t-Tc-fgS" id="zju-c2-mDu"/>
+            </connections>
         </view>
     </objects>
 </document>

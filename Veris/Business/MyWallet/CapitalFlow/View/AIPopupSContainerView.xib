@@ -6,14 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIPopupSContainerView" customModule="Veris" customModuleProvider="target">
-            <connections>
-                <outlet property="backgroundView" destination="eox-T9-yya" id="3cg-6F-x0L"/>
-                <outlet property="closeButton" destination="GLj-a5-RAA" id="mqu-95-wqJ"/>
-                <outlet property="containerBottomConstraint" destination="ppx-mQ-eFp" id="g4A-Pg-HI3"/>
-                <outlet property="contentView" destination="3Pn-Fu-TlG" id="czn-sU-iMD"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIPopupSContainerView" customModule="Veris" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -30,6 +23,9 @@
                                 <constraint firstAttribute="height" constant="34" id="s5L-8B-29t"/>
                             </constraints>
                             <state key="normal" image="work_upload_cancel"/>
+                            <connections>
+                                <action selector="closeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="9dE-H9-czr"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w3f-m4-YeZ" userLabel="lineView">
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,11 +63,15 @@
                 <constraint firstAttribute="bottom" secondItem="eox-T9-yya" secondAttribute="bottom" id="ytJ-UL-lL4"/>
             </constraints>
             <connections>
+                <outlet property="backgroundView" destination="eox-T9-yya" id="88H-Su-B0B"/>
+                <outlet property="closeButton" destination="GLj-a5-RAA" id="EHA-JF-lzf"/>
+                <outlet property="containerBottomConstraint" destination="ppx-mQ-eFp" id="qTh-iU-99b"/>
                 <outlet property="containerView" destination="JX6-ce-UU7" id="B2m-um-6gm"/>
+                <outlet property="contentView" destination="3Pn-Fu-TlG" id="AkN-NH-Ejb"/>
             </connections>
         </view>
     </objects>
     <resources>
-        <image name="work_upload_cancel" width="34" height="34"/>
+        <image name="work_upload_cancel" width="36" height="34"/>
     </resources>
 </document>

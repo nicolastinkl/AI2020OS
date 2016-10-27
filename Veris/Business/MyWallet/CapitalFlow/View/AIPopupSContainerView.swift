@@ -18,6 +18,11 @@ class AIPopupSContainerView: UIView {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var containerBottomConstraint: NSLayoutConstraint!
     
+
+    @IBAction func closeAction(sender: UIButton) {
+        dismiss()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -32,8 +37,15 @@ class AIPopupSContainerView: UIView {
     }
     
     static func createInstance() -> AIPopupSContainerView {
-        let selfView = NSBundle.mainBundle().loadNibNamed("AIPopupSContainerView", owner: self, options: nil)!.first as! AIPopupSContainerView
-        return selfView
+        let nib = NSBundle.mainBundle().loadNibNamed("AIPopupSContainerView", owner: self, options: nil)
+        if let nib = nib {
+            let selfView = nib.first as! AIPopupSContainerView
+            return selfView
+        } else {
+            return AIPopupSContainerView()
+        }
+        
+        
     }
     
     func buildContent(subView: UIView) {
@@ -58,3 +70,4 @@ class AIPopupSContainerView: UIView {
         }
     }
 }
+
