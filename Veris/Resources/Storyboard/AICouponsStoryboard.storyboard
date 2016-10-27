@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="55S-3J-Dnt">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Business Currency View Controller-->
+        <scene sceneID="vjV-PW-UHS">
+            <objects>
+                <viewController id="55S-3J-Dnt" customClass="AIBusinessCurrencyViewController" customModule="Veris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Iu-JT-XSH"/>
+                        <viewControllerLayoutGuide type="bottom" id="QZB-HV-htz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z3f-In-fq9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scrollball_4" translatesAutoresizingMaskIntoConstraints="NO" id="ZKN-B8-B4F"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的商家币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pl-Zh-JXA">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asw-A3-nE3">
+                                <state key="normal" title="使用规则"/>
+                                <connections>
+                                    <action selector="showRuleAction:" destination="55S-3J-Dnt" eventType="touchUpInside" id="iZr-pM-RBo"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0no-zo-VXw">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZKN-B8-B4F" firstAttribute="leading" secondItem="z3f-In-fq9" secondAttribute="leading" constant="16" id="0My-qs-Je8"/>
+                            <constraint firstItem="5pl-Zh-JXA" firstAttribute="centerY" secondItem="ZKN-B8-B4F" secondAttribute="centerY" id="5gb-lS-8qN"/>
+                            <constraint firstItem="0no-zo-VXw" firstAttribute="leading" secondItem="z3f-In-fq9" secondAttribute="leading" id="7d3-zQ-R22"/>
+                            <constraint firstItem="5pl-Zh-JXA" firstAttribute="leading" secondItem="ZKN-B8-B4F" secondAttribute="trailing" constant="8" id="Adr-SW-8Pb"/>
+                            <constraint firstAttribute="trailing" secondItem="Asw-A3-nE3" secondAttribute="trailing" constant="19" id="Mbt-VG-32Q"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="0no-zo-VXw" secondAttribute="bottom" id="WOp-w6-OFN"/>
+                            <constraint firstItem="0no-zo-VXw" firstAttribute="top" secondItem="Asw-A3-nE3" secondAttribute="bottom" constant="30" id="ajC-2r-omL"/>
+                            <constraint firstItem="ZKN-B8-B4F" firstAttribute="top" secondItem="z3f-In-fq9" secondAttribute="topMargin" constant="20" id="djt-Gj-4Nc"/>
+                            <constraint firstItem="Asw-A3-nE3" firstAttribute="top" secondItem="z3f-In-fq9" secondAttribute="topMargin" constant="35" id="kMu-al-nlH"/>
+                            <constraint firstAttribute="trailing" secondItem="0no-zo-VXw" secondAttribute="trailing" id="kTL-Dz-RV5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currencyTableView" destination="0no-zo-VXw" id="Uga-c5-DmV"/>
+                        <outlet property="ruleDescButton" destination="Asw-A3-nE3" id="s6s-Aq-kTh"/>
+                        <outlet property="viewTitleLabel" destination="5pl-Zh-JXA" id="pP1-u0-idB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXR-10-mnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-959.20000000000005" y="55.322338830584712"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4rk-tW-pAY">
+            <objects>
+                <viewController id="EzR-j4-fqc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aXG-ZJ-YLX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bod-t3-lnP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dFT-qr-0gB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scrollball_4" translatesAutoresizingMaskIntoConstraints="NO" id="H3O-rk-CMi"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的优惠券" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MC-L6-lr1">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSL-S0-ekv">
+                                <state key="normal" title="更多 &gt;"/>
+                                <connections>
+                                    <action selector="showRuleAction:" destination="55S-3J-Dnt" eventType="touchUpInside" id="s5A-77-lNt"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3vP-Mh-3WT">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="location_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="bGI-2g-igg">
+                                <frame key="frameInset" minX="181" minY="639" width="52" height="29"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0E6-t9-c7K">
+                                <state key="normal" title="查找周边更多优惠"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0E6-t9-c7K" firstAttribute="top" secondItem="bGI-2g-igg" secondAttribute="bottom" constant="8" id="5vJ-Pf-hPF"/>
+                            <constraint firstItem="8MC-L6-lr1" firstAttribute="leading" secondItem="H3O-rk-CMi" secondAttribute="trailing" constant="8" id="9Bw-Ie-4hw"/>
+                            <constraint firstAttribute="trailing" secondItem="VSL-S0-ekv" secondAttribute="trailing" constant="20" id="Guf-Um-4t0"/>
+                            <constraint firstItem="H3O-rk-CMi" firstAttribute="top" secondItem="dFT-qr-0gB" secondAttribute="topMargin" constant="15" id="JXg-4W-yNI"/>
+                            <constraint firstItem="8MC-L6-lr1" firstAttribute="centerY" secondItem="H3O-rk-CMi" secondAttribute="centerY" id="JpP-R8-lOY"/>
+                            <constraint firstItem="bGI-2g-igg" firstAttribute="centerX" secondItem="dFT-qr-0gB" secondAttribute="centerX" id="KDz-xt-u2m"/>
+                            <constraint firstItem="3vP-Mh-3WT" firstAttribute="leading" secondItem="dFT-qr-0gB" secondAttribute="leading" id="M0t-tB-5lr"/>
+                            <constraint firstItem="3vP-Mh-3WT" firstAttribute="top" secondItem="VSL-S0-ekv" secondAttribute="bottom" constant="30" id="aBB-Lt-TIV"/>
+                            <constraint firstItem="H3O-rk-CMi" firstAttribute="leading" secondItem="dFT-qr-0gB" secondAttribute="leading" constant="27" id="c2s-gy-LPX"/>
+                            <constraint firstItem="VSL-S0-ekv" firstAttribute="top" secondItem="dFT-qr-0gB" secondAttribute="topMargin" constant="35" id="fMn-aW-GYP"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="0E6-t9-c7K" secondAttribute="bottom" constant="30" id="ft1-q9-NJj"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="3vP-Mh-3WT" secondAttribute="bottom" constant="150" id="mKg-hE-gpK"/>
+                            <constraint firstItem="0E6-t9-c7K" firstAttribute="centerX" secondItem="dFT-qr-0gB" secondAttribute="centerX" id="nyD-mW-3bo"/>
+                            <constraint firstAttribute="trailing" secondItem="3vP-Mh-3WT" secondAttribute="trailing" id="yGX-V2-hqG"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="icu-FR-Yew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57.971014492753625" y="54.619565217391312"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="location_icon_white" width="9" height="12"/>
+        <image name="scrollball_4" width="27" height="27"/>
+    </resources>
+</document>
