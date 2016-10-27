@@ -465,9 +465,7 @@
 		81433ECC1CFBE5A700347C29 /* UIImage+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */; };
 		81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81433F1F1CFBE80700347C29 /* Default-568h@2x.png */; };
 		81512ED01D220A8900AE041D /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */; };
-		816D8C071DBF009A0074B179 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */; };
 		816D8C081DBF00A30074B179 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */; };
-		816D8C091DBF00A30074B179 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7141CFD2710006F2C8F /* AIImageView.swift */; };
 		8175A7BA1CFD2710006F2C8F /* AISwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */; };
 		8175A7BB1CFD2710006F2C8F /* AIUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7171CFD2710006F2C8F /* AIUINavigationController.m */; };
@@ -814,6 +812,8 @@
 		FB2373261D4F785100A8B38A /* AIRecommondForYouService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373251D4F785100A8B38A /* AIRecommondForYouService.swift */; };
 		FB2373281D4F78F300A8B38A /* AIProductQAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373271D4F78F300A8B38A /* AIProductQAService.swift */; };
 		FB2E41ED1D461821001DDB5D /* MBFingerTipWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */; };
+		FB3330051DC05F7400C77A61 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC0B34F1DC05F4300631FDD /* CardDeepLinkKit.framework */; };
+		FB3330061DC05F7400C77A61 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC0B34F1DC05F4300631FDD /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FB49E9D61D65914100EF67F7 /* AIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49E9D51D65914100EF67F7 /* AIUser.swift */; };
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB58838D1D51C7930080588B /* AISearchHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB58838C1D51C7930080588B /* AISearchHomeService.swift */; };
@@ -854,6 +854,7 @@
 		FBAE7FD81D115428002FF522 /* AISellerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FCF1D115428002FF522 /* AISellerViewController.m */; };
 		FBAE7FD91D115428002FF522 /* AISellingProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD11D115428002FF522 /* AISellingProgressBar.m */; };
 		FBAE7FDA1D115428002FF522 /* AISellserAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */; };
+		FBC0B3501DC05F4400631FDD /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC0B34F1DC05F4300631FDD /* CardDeepLinkKit.framework */; };
 		FBDF21551D531E3200DEBB15 /* 89897384.json in Resources */ = {isa = PBXBuildFile; fileRef = FBDF21541D531E3200DEBB15 /* 89897384.json */; };
 		FD6E63660FC29EFB7CB17D2E /* Pods_VerisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5293440786150C2B14661D8C /* Pods_VerisTests.framework */; };
 /* End PBXBuildFile section */
@@ -876,7 +877,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				819A0EE71D80400600A84BBB /* AVOSCloudCrashReporting.framework in CopyFiles */,
-				816D8C091DBF00A30074B179 /* CardDeepLinkKit.framework in CopyFiles */,
+				FB3330061DC05F7400C77A61 /* CardDeepLinkKit.framework in CopyFiles */,
 				819A0EE51D80400600A84BBB /* AVOSCloud.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1496,7 +1497,7 @@
 		81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TDAdditions.m"; sourceTree = "<group>"; };
 		81433F1F1CFBE80700347C29 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIFundManageViewController.swift; path = FundManage/AIFundManageViewController.swift; sourceTree = "<group>"; };
-		816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
+		816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = /Users/zx/Documents/Project/AI2020OS/Veris/Developement/DeepLink/CardDeepLinkKit.framework; sourceTree = "<absolute>"; };
 		8175A7141CFD2710006F2C8F /* AIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageView.swift; sourceTree = "<group>"; };
 		8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwiftyJSON.swift; sourceTree = "<group>"; };
 		8175A7161CFD2710006F2C8F /* AIUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIUINavigationController.h; sourceTree = "<group>"; };
@@ -2056,6 +2057,7 @@
 		FBAE7FD11D115428002FF522 /* AISellingProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellingProgressBar.m; sourceTree = "<group>"; };
 		FBAE7FD21D115428002FF522 /* AISellserAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellserAnimationView.h; sourceTree = "<group>"; };
 		FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellserAnimationView.m; sourceTree = "<group>"; };
+		FBC0B34F1DC05F4300631FDD /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		FBDF21541D531E3200DEBB15 /* 89897384.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 89897384.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2086,6 +2088,7 @@
 				1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
+				FBC0B3501DC05F4400631FDD /* CardDeepLinkKit.framework in Frameworks */,
 				816D8C081DBF00A30074B179 /* CardDeepLinkKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
 				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
@@ -2109,11 +2112,11 @@
 				81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */,
 				93B25AB61B9D7EA900CD1FEB /* Security.framework in Frameworks */,
 				93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */,
+				FB3330051DC05F7400C77A61 /* CardDeepLinkKit.framework in Frameworks */,
 				93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */,
 				9392B57D1D1CD9F10007F241 /* AlipaySDK.framework in Frameworks */,
 				93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */,
 				819A0EE41D80400600A84BBB /* AVOSCloud.framework in Frameworks */,
-				816D8C071DBF009A0074B179 /* CardDeepLinkKit.framework in Frameworks */,
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
@@ -3839,7 +3842,7 @@
 		81B195781D4852BE0086EB83 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */,
+				FBC0B34F1DC05F4300631FDD /* CardDeepLinkKit.framework */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -6070,6 +6073,7 @@
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -6306,6 +6310,7 @@
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -6370,6 +6375,7 @@
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
