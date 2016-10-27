@@ -18,6 +18,7 @@ class StarRateView: UIView {
     private var foregroundStars: [UIImageView]!
     private var backgroundStars: [UIImageView]!
     private var oldFrame: CGRect?
+    private var hasInit = false
 
     @IBInspectable var scorePercent: CGFloat = 1.0 {
         didSet {
@@ -84,7 +85,7 @@ class StarRateView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        buildDataAndUI()
+   //     buildDataAndUI()
     }
 
     func userTapRateView(sender: UIGestureRecognizer) {
@@ -113,6 +114,11 @@ class StarRateView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        if !hasInit {
+            buildDataAndUI()
+            hasInit = true
+        }
 
         let interval = self.hasAnimation ? 0.2 : 0
         weak var weakSelf: StarRateView? = self
@@ -124,6 +130,8 @@ class StarRateView: UIView {
 
         }
     }
+    
+    
 
     override func updateConstraints() {
         super.updateConstraints()
