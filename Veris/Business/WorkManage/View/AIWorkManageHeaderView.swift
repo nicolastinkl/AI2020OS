@@ -31,6 +31,8 @@ class AIWorkManageHeaderView: UIView {
         setup()
     }
     
+    var titleLabel: UILabel!
+    
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
@@ -71,6 +73,17 @@ class AIWorkManageHeaderView: UIView {
 			addSubview(space)
 			cardSpaceViews.append(space)
 		}
+        
+        // setup titleLabel
+        titleLabel = UILabel()
+        titleLabel.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
+        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.text = "心愿排行"
+        addSubview(titleLabel)
+        titleLabel.snp_makeConstraints { (make) in
+            make.leading.equalTo(42.displaySizeFrom1242DesignSize())
+            make.bottom.equalTo(self).offset(-180.displaySizeFrom1242DesignSize())
+        }
 		
 		setIndex(0)
 	}
@@ -105,7 +118,7 @@ class AIWorkManageHeaderView: UIView {
         for (i, cardView) in cardViews.enumerate() {
             let service = services[i]
             cardView.titleText = service.name
-            cardView.subTitle = String(format: "%@ Requests", service.order_time ?? 0)
+            cardView.subTitle = String(format: "AIWorkManageHeaderView.request".localized, service.order_time ?? 0)
         }
     }
 	

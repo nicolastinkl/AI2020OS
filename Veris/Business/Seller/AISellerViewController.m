@@ -22,6 +22,7 @@
 #import "Veris-Swift.h"
 #import "AIServerConfig.h"
 #import "AIOrderTableModel.h"
+#import <UIKit/UIKit.h>
 
 #define kTablePadding     15
 
@@ -260,8 +261,10 @@
 
 - (void)showMyWallet {
     // 演示屏蔽
-    AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:fundManageViewController];
+    //AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AICouponsStoryboard" bundle:nil];
+    AIBusinessCurrencyViewController *bcViewController = [storyboard instantiateViewControllerWithIdentifier:@"AIBusinessCurrencyViewController"];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:bcViewController];
     [self presentViewController:nav animated:YES completion:nil];
 }
 

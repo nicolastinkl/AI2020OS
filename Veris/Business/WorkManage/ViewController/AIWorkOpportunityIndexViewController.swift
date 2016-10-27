@@ -85,7 +85,7 @@ class AIWorkOpportunityIndexViewController: UIViewController {
         chartView =  AIWorkOpportunityPopularChartView(services: mostPopularServices)
         containerView.addSubview(chartView)
         chartView.snp_makeConstraints { (make) in
-            make.top.equalTo(headerView.snp_bottom).offset(73.displaySizeFrom1242DesignSize())
+            make.top.equalTo(headerView.snp_bottom).offset(63.displaySizeFrom1242DesignSize())
             make.leading.trailing.equalTo(containerView)
         }
     }

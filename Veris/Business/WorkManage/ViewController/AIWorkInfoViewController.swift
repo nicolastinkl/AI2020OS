@@ -174,7 +174,7 @@ class AIWorkInfoViewController: UIViewController {
     }
     
     func makeNavigationItem() {
-        setupNavigationBarLikeLogin(title: in_workName, needCloseButton: false)
+        setupNavigationBarLikeWorkInfo(title: in_workName, needCloseButton: false)
     }
     
     func subscribeWork() {
