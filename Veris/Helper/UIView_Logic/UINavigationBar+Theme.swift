@@ -124,7 +124,7 @@ extension UIViewController {
         }
         
         appearance.itemPositionForIndexAtPosition = { index, position in
-            return (0, 40.displaySizeFrom1242DesignSize())
+            return (0, 57.displaySizeFrom1242DesignSize())
         }
         appearance.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
         
