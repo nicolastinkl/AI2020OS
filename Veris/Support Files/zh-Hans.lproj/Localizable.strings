@@ -462,6 +462,8 @@
 "AIWorkInfoViewController.ViewDetails" = "查看详情";
 "AIWorkInfoViewController.Upload" = "上传";
 "AIWorkInfoViewController.UploadTitleDesc" = "你需要有以下证明";
+"AIWorkInfoViewController.TakePhotoLabel" = "拍 照";
+"AIWorkInfoViewController.ChoosePhotoLabel" = "从相册选取";
 
 //AIWorkManageHeaderView
 "AIWorkManageHeaderView.request" = "%@ 人";

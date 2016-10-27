@@ -30,7 +30,7 @@ class AIWorkQualificationTableViewCell: UITableViewCell {
     
     func setupViews() {
         qualificationImageView.contentMode = .ScaleAspectFit
-        qualificationLabel.font = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+        qualificationLabel.font = AITools.myriadSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
         qualificationLabel.textColor = UIColor.whiteColor()
         self.selectionStyle = .None
     }

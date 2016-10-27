@@ -452,6 +452,8 @@
 "AIWorkInfoViewController.ViewDetails" = "View Details";
 "AIWorkInfoViewController.Upload" = "Upload";
 "AIWorkInfoViewController.UploadTitleDesc" = "Please upload your ID and certificate.";
+"AIWorkInfoViewController.TakePhotoLabel" = "Take a photo";
+"AIWorkInfoViewController.ChoosePhotoLabel" = "Select from albums";
 
 //AIWorkManageHeaderView
 "AIWorkManageHeaderView.request" = "%@ Requests";
