@@ -230,9 +230,9 @@
     button.titleLabel.font = [AITools myriadRegularWithSize:12];
     button.titleLabel.numberOfLines = 0;
     button.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    button.layer.borderColor = [UIColor whiteColor].CGColor;
-    button.layer.borderWidth = 1;
-    button.layer.cornerRadius = 2;
+//    button.layer.borderColor = [UIColor whiteColor].CGColor;
+//    button.layer.borderWidth = 1;
+//    button.layer.cornerRadius = 2;
 
     return button;
 }

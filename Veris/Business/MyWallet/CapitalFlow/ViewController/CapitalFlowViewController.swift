@@ -26,8 +26,9 @@ class CapitalFlowViewController: UIViewController {
         tableView.estimatedRowHeight = 25
         
         loadData()
+        
         addFilteViewController()
-
+        
     }
     
     class func initFromStoryboard() -> CapitalFlowViewController {
@@ -149,4 +150,3 @@ class CapitalFlowModel {
     var type = ""
     var flowNumber: Float = 0
 }
-

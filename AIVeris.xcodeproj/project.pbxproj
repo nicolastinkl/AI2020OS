@@ -793,9 +793,13 @@
 		C95179DF1D40D36700446498 /* AIProvideIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DE1D40D36700446498 /* AIProvideIView.xib */; };
 		C95179E11D41B41600446498 /* AIAptitudeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179E01D41B41600446498 /* AIAptitudeView.swift */; };
 		C95179E31D41B47000446498 /* AIAptitudeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179E21D41B47000446498 /* AIAptitudeView.xib */; };
+		C9AF97961DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */; };
+		C9AF979C1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF979B1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib */; };
+		C9AF979E1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF979D1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift */; };
 		C9C298D01D6D905A00E34766 /* AIAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C298CF1D6D905A00E34766 /* AIAlertView.framework */; };
 		C9C298D41D7D7ED600E34766 /* AIProductinfoBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */; };
 		C9C298D61D7D7FC100E34766 /* AIProductinfoBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */; };
+		C9FE35801DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE357F1DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift */; };
 		C9FE4B161DAF37C30054D499 /* AIProductExeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE4B151DAF37C30054D499 /* AIProductExeService.swift */; };
 		FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
@@ -1966,10 +1970,14 @@
 		C95179DE1D40D36700446498 /* AIProvideIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProvideIView.xib; sourceTree = "<group>"; };
 		C95179E01D41B41600446498 /* AIAptitudeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAptitudeView.swift; sourceTree = "<group>"; };
 		C95179E21D41B47000446498 /* AIAptitudeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAptitudeView.xib; sourceTree = "<group>"; };
+		C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIMyWalletBalanceViewController.xib; sourceTree = "<group>"; };
+		C9AF979B1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWalletBaseViewCotroller.xib; sourceTree = "<group>"; };
+		C9AF979D1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWalletBaseViewCotroller.swift; sourceTree = "<group>"; };
 		C9C298CF1D6D905A00E34766 /* AIAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AIAlertView.framework; path = "../../../Library/Developer/Xcode/DerivedData/AIVeris-bispjrgyvuzileblnxwqhatxzked/Build/Products/Debug-iphoneos/AIAlertView.framework"; sourceTree = "<group>"; };
 		C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductinfoBottomView.xib; sourceTree = "<group>"; };
 		C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductinfoBottomView.swift; sourceTree = "<group>"; };
 		C9D4A6621D6BEDA000FEDED7 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		C9FE357F1DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMyWalletBalanceViewController.swift; sourceTree = "<group>"; };
 		C9FE4B151DAF37C30054D499 /* AIProductExeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductExeService.swift; sourceTree = "<group>"; };
 		FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		FB0181001D0D125400213DF8 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
@@ -3989,6 +3997,7 @@
 		842CE6D11DAF28550038E5C0 /* MyWallet */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF97981DC1E51F00ECC7EF /* WalanceBase */,
 				C9FE35641DC0AEAA00B16C9F /* Balance */,
 				C9FE356A1DC0AEAA00B16C9F /* WillPay */,
 				C9FE35701DC0AEAA00B16C9F /* WillReceiver */,
@@ -4771,6 +4780,32 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		C9AF97981DC1E51F00ECC7EF /* WalanceBase */ = {
+			isa = PBXGroup;
+			children = (
+				C9AF97991DC1E51F00ECC7EF /* View */,
+				C9AF979A1DC1E51F00ECC7EF /* ViewController */,
+			);
+			name = WalanceBase;
+			path = Balance/WalanceBase;
+			sourceTree = "<group>";
+		};
+		C9AF97991DC1E51F00ECC7EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9AF979A1DC1E51F00ECC7EF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C9AF979D1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift */,
+				C9AF979B1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		C9FE35641DC0AEAA00B16C9F /* Balance */ = {
 			isa = PBXGroup;
 			children = (
@@ -4790,6 +4825,8 @@
 		C9FE35661DC0AEAA00B16C9F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C9FE357F1DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift */,
+				C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4996,7 +5033,7 @@
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = T2362RFKT6;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
 								enabled = 0;
@@ -5085,6 +5122,7 @@
 				1265F62D1D4F755200130ECF /* AIWorkManageStoryboard.storyboard in Resources */,
 				93C8C9AA1D14035B00F1DFCF /* AICustomSearchHomeCell.xib in Resources */,
 				93A0AB9C1D12AA1B00562090 /* AIPaymentViewController.xib in Resources */,
+				C9AF979C1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib in Resources */,
 				938008641D5B225600FAD140 /* AIWishTitleIconView.xib in Resources */,
 				845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */,
 				81433D571CFBE5A700347C29 /* AILocationSelectHeadView.xib in Resources */,
@@ -5097,6 +5135,7 @@
 				81433EC01CFBE5A700347C29 /* MyriadProRegular.ttf in Resources */,
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
 				FB703AE41D24C59400229A08 /* JSSDK.js in Resources */,
+				C9AF97961DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib in Resources */,
 				8458167E1D3C72AC00448A7B /* CommentAreaView.xib in Resources */,
 				93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */,
 				935E58DE1D5315D900252B83 /* AIWorkOpportunityIndexViewController.xib in Resources */,
@@ -5528,6 +5567,7 @@
 				81433DA41CFBE5A700347C29 /* AIServiceSearchView.swift in Sources */,
 				9378C3E51D2131E3004D42EA /* AIAssetsViewCell.swift in Sources */,
 				81433E6A1CFBE5A700347C29 /* FLEXDatabaseManager.m in Sources */,
+				C9FE35801DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift in Sources */,
 				81B195671D474A960086EB83 /* AIAnchor.swift in Sources */,
 				81B195681D474A960086EB83 /* AIAnchorManager.swift in Sources */,
 				81433D0A1CFBE5A700347C29 /* AITransformManager.swift in Sources */,
@@ -5859,6 +5899,7 @@
 				81433D9B1CFBE5A700347C29 /* AILimitListView.swift in Sources */,
 				81433E631CFBE5A700347C29 /* FLEXMethodCallingViewController.m in Sources */,
 				81433D271CFBE5A700347C29 /* ServiceCardDetailFlag.swift in Sources */,
+				C9AF979E1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift in Sources */,
 				813860FB1D597D020050C0D0 /* AIBaseCommentModel.swift in Sources */,
 				81433CF61CFBE5A700347C29 /* AIScrollLabel.m in Sources */,
 				9392B5861D1CD9F10007F241 /* RSADataSigner.m in Sources */,
@@ -6020,11 +6061,11 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_ACTIVITY_MODE = "";
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = T2362RFKT6;
+				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -6064,8 +6105,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "81835a6f-1126-48cd-94a0-7aa437900fd3";
-				PROVISIONING_PROFILE_SPECIFIER = aicd2020sbossDisProvisioningProfile;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -6254,13 +6295,13 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_ACTIVITY_MODE = "";
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = T2362RFKT6;
+				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -6300,8 +6341,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "81835a6f-1126-48cd-94a0-7aa437900fd3";
-				PROVISIONING_PROFILE_SPECIFIER = aicd2020sbossDisProvisioningProfile;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -6320,11 +6361,11 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Star VATS Technologies Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_ACTIVITY_MODE = "";
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = T2362RFKT6;
+				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -6364,8 +6405,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = asiainfo.aicd2020.sboss;
 				PRODUCT_NAME = Veris;
-				PROVISIONING_PROFILE = "81835a6f-1126-48cd-94a0-7aa437900fd3";
-				PROVISIONING_PROFILE_SPECIFIER = aicd2020sbossDisProvisioningProfile;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Veris/Application/AIVeris-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
