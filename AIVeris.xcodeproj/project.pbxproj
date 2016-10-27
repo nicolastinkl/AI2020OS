@@ -576,6 +576,12 @@
 		81FAFC0D1D47427300DD3477 /* ServiceQRCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81FAFC041D47427300DD3477 /* ServiceQRCodeView.xib */; };
 		81FAFC131D47458000DD3477 /* AIContestSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAFC121D47458000DD3477 /* AIContestSuccessViewController.swift */; };
 		8412C7631D2A6429003F34AF /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412C7621D2A6429003F34AF /* PaddingLabel.swift */; };
+		84132CC41DC1AC4F000AE195 /* CostItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84132CC31DC1AC4F000AE195 /* CostItemCell.swift */; };
+		84132CC61DC1AC72000AE195 /* CostItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84132CC51DC1AC72000AE195 /* CostItemCell.xib */; };
+		84132CC91DC1F43D000AE195 /* CostItemSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84132CC71DC1F43D000AE195 /* CostItemSubCell.swift */; };
+		84132CCA1DC1F43D000AE195 /* CostItemSubCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84132CC81DC1F43D000AE195 /* CostItemSubCell.xib */; };
+		84132CCD1DC1F9AF000AE195 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84132CCB1DC1F9AF000AE195 /* TransactionCell.swift */; };
+		84132CCE1DC1F9AF000AE195 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84132CCC1DC1F9AF000AE195 /* TransactionCell.xib */; };
 		842936921D17870D00795C57 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842936911D17870D00795C57 /* CheckboxButton.swift */; };
 		842CE6D51DAF28CA0038E5C0 /* CapitalFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842CE6D41DAF28CA0038E5C0 /* CapitalFlow.storyboard */; };
 		842CE6D71DAF293C0038E5C0 /* CapitalFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CE6D61DAF293C0038E5C0 /* CapitalFlowViewController.swift */; };
@@ -601,6 +607,7 @@
 		8458167E1D3C72AC00448A7B /* CommentAreaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8458167D1D3C72AC00448A7B /* CommentAreaView.xib */; };
 		84687E401D236B960083BD9B /* ImagesCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84687E3F1D236B960083BD9B /* ImagesCollectionView.xib */; };
 		84687E421D236BB90083BD9B /* ImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84687E411D236BB90083BD9B /* ImagesCollectionView.swift */; };
+		846A1DEA1DC0AEEF0031415E /* BillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A1DE91DC0AEEF0031415E /* BillDetailViewController.swift */; };
 		846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */; };
 		846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */; };
 		846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */; };
@@ -1659,6 +1666,12 @@
 		81FAFC041D47427300DD3477 /* ServiceQRCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ServiceQRCodeView.xib; path = ../../RequirementAnalysis/View/ServiceQRCodeView.xib; sourceTree = "<group>"; };
 		81FAFC121D47458000DD3477 /* AIContestSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIContestSuccessViewController.swift; sourceTree = "<group>"; };
 		8412C7621D2A6429003F34AF /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		84132CC31DC1AC4F000AE195 /* CostItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostItemCell.swift; sourceTree = "<group>"; };
+		84132CC51DC1AC72000AE195 /* CostItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CostItemCell.xib; sourceTree = "<group>"; };
+		84132CC71DC1F43D000AE195 /* CostItemSubCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostItemSubCell.swift; sourceTree = "<group>"; };
+		84132CC81DC1F43D000AE195 /* CostItemSubCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CostItemSubCell.xib; sourceTree = "<group>"; };
+		84132CCB1DC1F9AF000AE195 /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		84132CCC1DC1F9AF000AE195 /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		842936911D17870D00795C57 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		842CE6D41DAF28CA0038E5C0 /* CapitalFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CapitalFlow.storyboard; sourceTree = "<group>"; };
 		842CE6D61DAF293C0038E5C0 /* CapitalFlowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalFlowViewController.swift; sourceTree = "<group>"; };
@@ -1685,6 +1698,7 @@
 		8458167D1D3C72AC00448A7B /* CommentAreaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentAreaView.xib; sourceTree = "<group>"; };
 		84687E3F1D236B960083BD9B /* ImagesCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesCollectionView.xib; sourceTree = "<group>"; };
 		84687E411D236BB90083BD9B /* ImagesCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesCollectionView.swift; sourceTree = "<group>"; };
+		846A1DE91DC0AEEF0031415E /* BillDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillDetailViewController.swift; sourceTree = "<group>"; };
 		846AED8D1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopServiceCommentTableViewCell.xib; sourceTree = "<group>"; };
 		846AED8F1D13CFC200C8BCE9 /* CommentHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentHelp.swift; sourceTree = "<group>"; };
 		846AED911D13D1DB00C8BCE9 /* AbsCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsCommentViewController.swift; sourceTree = "<group>"; };
@@ -4009,6 +4023,7 @@
 				842CE6D41DAF28CA0038E5C0 /* CapitalFlow.storyboard */,
 				84CB784F1DBF0A1C001EBB6D /* FilterViewController.swift */,
 				842CE6D61DAF293C0038E5C0 /* CapitalFlowViewController.swift */,
+				846A1DE91DC0AEEF0031415E /* BillDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4018,6 +4033,12 @@
 			children = (
 				842CE6D91DAF7C2E0038E5C0 /* CapitalFlowCell.swift */,
 				842CE6DA1DAF7C2E0038E5C0 /* CapitalFlowCell.xib */,
+				84132CC31DC1AC4F000AE195 /* CostItemCell.swift */,
+				84132CC51DC1AC72000AE195 /* CostItemCell.xib */,
+				84132CC71DC1F43D000AE195 /* CostItemSubCell.swift */,
+				84132CC81DC1F43D000AE195 /* CostItemSubCell.xib */,
+				84132CCB1DC1F9AF000AE195 /* TransactionCell.swift */,
+				84132CCC1DC1F9AF000AE195 /* TransactionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4994,6 +5015,7 @@
 				81433DF31CFBE5A700347C29 /* ContentsCellView.xib in Resources */,
 				81433EBE1CFBE5A700347C29 /* MyriadPro-SemiboldSemiCn.otf in Resources */,
 				FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */,
+				84132CC61DC1AC72000AE195 /* CostItemCell.xib in Resources */,
 				935E58DB1D5315D900252B83 /* AIWorkDetailView.xib in Resources */,
 				81FAFBF21D4716F800DD3477 /* AICustomerBannerView.xib in Resources */,
 				9352BC841D656143003CD476 /* AIPayAmountView.xib in Resources */,
@@ -5007,6 +5029,7 @@
 				81433E011CFBE5A700347C29 /* AirTicketView.xib in Resources */,
 				FB5D3FF61D5C1B0D00211A8E /* AIWorkManageHeaderCardView.xib in Resources */,
 				8457004D1D012D7D00512597 /* CommentDistrictView.xib in Resources */,
+				84132CCE1DC1F9AF000AE195 /* TransactionCell.xib in Resources */,
 				12FBCB911D5ACBB100E333D6 /* AIWorkQualificationView.xib in Resources */,
 				81433D511CFBE5A700347C29 /* AIConfirmOrderCellView.xib in Resources */,
 				8484D8341D66EBBB001F1A54 /* TestCommentViewController.xib in Resources */,
@@ -5015,6 +5038,7 @@
 				93A0AB9C1D12AA1B00562090 /* AIPaymentViewController.xib in Resources */,
 				938008641D5B225600FAD140 /* AIWishTitleIconView.xib in Resources */,
 				845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */,
+				84132CCA1DC1F43D000AE195 /* CostItemSubCell.xib in Resources */,
 				81433D571CFBE5A700347C29 /* AILocationSelectHeadView.xib in Resources */,
 				81433D441CFBE5A700347C29 /* AINavigationBarView.xib in Resources */,
 				81433D401CFBE5A700347C29 /* AIDetailTopMenuView.xib in Resources */,
@@ -5260,6 +5284,7 @@
 				81433E271CFBE5A700347C29 /* AIConfirmOrderViewController.swift in Sources */,
 				935986FF1D20FB9D00BBED4E /* AIAssetsReviewsController.swift in Sources */,
 				FBAE7FD71D115428002FF522 /* AISellerModel.m in Sources */,
+				84132CC91DC1F43D000AE195 /* CostItemSubCell.swift in Sources */,
 				93C61FC31D01196F0063C2BF /* ServiceCommentViewController.swift in Sources */,
 				81433EB61CFBE5A700347C29 /* UIColorUtils.swift in Sources */,
 				81433E2E1CFBE5A700347C29 /* AIServiceContentViewController.swift in Sources */,
@@ -5390,6 +5415,7 @@
 				81433D011CFBE5A700347C29 /* AIOrderDetailService.swift in Sources */,
 				81433E561CFBE5A700347C29 /* FLEXArgumentInputJSONObjectView.m in Sources */,
 				81433EA31CFBE5A700347C29 /* AIMessage.m in Sources */,
+				84132CC41DC1AC4F000AE195 /* CostItemCell.swift in Sources */,
 				C9C298D61D7D7FC100E34766 /* AIProductinfoBottomView.swift in Sources */,
 				847D299F1D542B59009E26B8 /* AssetUtils.swift in Sources */,
 				81433E971CFBE5A700347C29 /* FLEXResources.m in Sources */,
@@ -5508,6 +5534,7 @@
 				81433E681CFBE5A700347C29 /* FLEXToolbarItem.m in Sources */,
 				842CE6D71DAF293C0038E5C0 /* CapitalFlowViewController.swift in Sources */,
 				8175A7FF1CFD2710006F2C8F /* UIButton+WebCache.m in Sources */,
+				846A1DEA1DC0AEEF0031415E /* BillDetailViewController.swift in Sources */,
 				93C81F8A1D2B5CF500D84D46 /* AIServerProviderView.swift in Sources */,
 				81433CE91CFBE5A700347C29 /* ProposalEnum.swift in Sources */,
 				FB73551E1D23ACFC00CE549C /* AIProductCommentsViewController.swift in Sources */,
@@ -5724,6 +5751,7 @@
 				81433D761CFBE5A700347C29 /* AIServiceCoverage.m in Sources */,
 				81433E7D1CFBE5A700347C29 /* FLEXSystemLogTableViewCell.m in Sources */,
 				93BEFFDB1D0D472700832799 /* AISuperiorityCellView.swift in Sources */,
+				84132CCD1DC1F9AF000AE195 /* TransactionCell.swift in Sources */,
 				8175A7E41CFD2710006F2C8F /* UIScrollView+MJExtension.m in Sources */,
 				8175A7F21CFD2710006F2C8F /* UIImage+ColorAtPixel.m in Sources */,
 				81433E551CFBE5A700347C29 /* FLEXArgumentInputFontView.m in Sources */,
@@ -5998,6 +6026,7 @@
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = arm64;
 			};
@@ -6233,6 +6262,7 @@
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = arm64;
 			};
@@ -6298,6 +6328,7 @@
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 2.3;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = arm64;
 			};
