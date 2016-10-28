@@ -83,6 +83,7 @@ class AIWorkOpportunityIndexViewController: UIViewController {
     
     func setupAIWorkOpportunityPopularChartView() {
         chartView =  AIWorkOpportunityPopularChartView(services: mostPopularServices)
+        chartView.delegate = self
         containerView.addSubview(chartView)
         chartView.snp_makeConstraints { (make) in
             make.top.equalTo(headerView.snp_bottom).offset(63.displaySizeFrom1242DesignSize())
@@ -92,6 +93,7 @@ class AIWorkOpportunityIndexViewController: UIViewController {
     
     func setupAIWorkOpportunityWhatsNewView() {
         let v = AIWorkOpportunityWhatsNewView(services: whatsNewServices)
+        v.delegate = self
         containerView.addSubview(v)
         
         v.snp_makeConstraints { (make) in
@@ -134,4 +136,30 @@ extension AIWorkOpportunityIndexViewController: AIWorkManageHeaderViewDelegate {
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
 
+}
+
+extension AIWorkOpportunityIndexViewController: AIWorkOpportunityPopularChartViewDelegate {
+    func chartBarDidClick(index: Int) {
+        let model = mostPopularServices[index]
+        let workInfoVC = UIStoryboard(name:  AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIWorkManageStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIWorkInfoViewController) as! AIWorkInfoViewController
+        workInfoVC.in_workId = model.sid.toString()
+        workInfoVC.in_workName = model.name
+        let navigationController = UINavigationController(rootViewController: workInfoVC)
+        navigationController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        navigationController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        self.presentViewController(navigationController, animated: true, completion: nil)
+    }
+}
+
+extension AIWorkOpportunityIndexViewController: AIWorkOpportunityWhatsNewViewDelegate {
+    func whatsNewViewDidClick(index: Int) {
+        let model = whatsNewServices[index]
+        let workInfoVC = UIStoryboard(name:  AIApplication.MainStoryboard.MainStoryboardIdentifiers.AIWorkManageStoryboard, bundle: nil).instantiateViewControllerWithIdentifier(AIApplication.MainStoryboard.ViewControllerIdentifiers.AIWorkInfoViewController) as! AIWorkInfoViewController
+        workInfoVC.in_workId = model.sid.toString()
+        workInfoVC.in_workName = model.name
+        let navigationController = UINavigationController(rootViewController: workInfoVC)
+        navigationController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        navigationController.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        self.presentViewController(navigationController, animated: true, completion: nil)
+    }
 }
