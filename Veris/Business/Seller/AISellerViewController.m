@@ -256,16 +256,21 @@
     [_bottomView addSubview:work];
 }
 
-
+//HBDR9296D0797D6D
 #pragma mark - Main Action
 
 - (void)showMyWallet {
     // 演示屏蔽
-    //AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AICouponsStoryboard" bundle:nil];
+    AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:fundManageViewController];
+     [self presentViewController:nav animated:YES completion:nil];
+    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AICouponsStoryboard" bundle:nil];
     AIBusinessCurrencyViewController *bcViewController = [storyboard instantiateViewControllerWithIdentifier:@"AIBusinessCurrencyViewController"];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:bcViewController];
     [self presentViewController:nav animated:YES completion:nil];
+     */
+    
+    
 }
 
 - (void)showMyWork {

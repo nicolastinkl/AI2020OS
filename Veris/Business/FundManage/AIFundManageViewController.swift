@@ -18,7 +18,8 @@ class AIFundManageViewController: AIBaseViewController {
         setupNavigationBar()
         
         // add view controller to this vc
-        let vc = AIMyWalletBalanceViewController.initFromNib()
+        //let vc = AIMyWalletBalanceViewController.initFromNib()
+        let vc = AIBalanceRechargeViewController.init()
         presentBlurViewController(vc, animated: true, completion: nil)
     }
 
@@ -33,6 +34,7 @@ class AIFundManageViewController: AIBaseViewController {
         let backButton = goBackButtonWithImage("comment-back")
         navigatonBarAppearance?.leftBarButtonItems = [backButton]
         setNavigationBarAppearance(navigationBarAppearance: navigatonBarAppearance!)
+        
     }
 
     //MARK:

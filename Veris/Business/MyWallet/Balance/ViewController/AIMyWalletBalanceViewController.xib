@@ -87,6 +87,7 @@
                 <constraint firstItem="daF-TX-Mbi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="33" id="vAt-nP-6ns"/>
                 <constraint firstItem="LYp-Kf-DW5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="77" id="y7B-Qa-sVm"/>
             </constraints>
+            <point key="canvasLocation" x="-144" y="-24"/>
         </view>
     </objects>
     <resources>

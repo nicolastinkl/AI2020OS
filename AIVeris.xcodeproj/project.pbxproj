@@ -465,7 +465,6 @@
 		81433ECC1CFBE5A700347C29 /* UIImage+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */; };
 		81433F201CFBE80700347C29 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81433F1F1CFBE80700347C29 /* Default-568h@2x.png */; };
 		81512ED01D220A8900AE041D /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */; };
-		816D8C081DBF00A30074B179 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */; };
 		8175A7B91CFD2710006F2C8F /* AIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7141CFD2710006F2C8F /* AIImageView.swift */; };
 		8175A7BA1CFD2710006F2C8F /* AISwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */; };
 		8175A7BB1CFD2710006F2C8F /* AIUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7171CFD2710006F2C8F /* AIUINavigationController.m */; };
@@ -802,6 +801,7 @@
 		C9AF97961DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */; };
 		C9AF979C1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF979B1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib */; };
 		C9AF979E1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF979D1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift */; };
+		C9AF97A01DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */; };
 		C9C298D01D6D905A00E34766 /* AIAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C298CF1D6D905A00E34766 /* AIAlertView.framework */; };
 		C9C298D41D7D7ED600E34766 /* AIProductinfoBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */; };
 		C9C298D61D7D7FC100E34766 /* AIProductinfoBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */; };
@@ -1501,7 +1501,6 @@
 		81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TDAdditions.m"; sourceTree = "<group>"; };
 		81433F1F1CFBE80700347C29 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIFundManageViewController.swift; path = FundManage/AIFundManageViewController.swift; sourceTree = "<group>"; };
-		816D8C061DBF009A0074B179 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = /Users/zx/Documents/Project/AI2020OS/Veris/Developement/DeepLink/CardDeepLinkKit.framework; sourceTree = "<absolute>"; };
 		8175A7141CFD2710006F2C8F /* AIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageView.swift; sourceTree = "<group>"; };
 		8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwiftyJSON.swift; sourceTree = "<group>"; };
 		8175A7161CFD2710006F2C8F /* AIUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIUINavigationController.h; sourceTree = "<group>"; };
@@ -1990,6 +1989,7 @@
 		C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIMyWalletBalanceViewController.xib; sourceTree = "<group>"; };
 		C9AF979B1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWalletBaseViewCotroller.xib; sourceTree = "<group>"; };
 		C9AF979D1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWalletBaseViewCotroller.swift; sourceTree = "<group>"; };
+		C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBalanceRechargeViewController.swift; sourceTree = "<group>"; };
 		C9C298CF1D6D905A00E34766 /* AIAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AIAlertView.framework; path = "../../../Library/Developer/Xcode/DerivedData/AIVeris-bispjrgyvuzileblnxwqhatxzked/Build/Products/Debug-iphoneos/AIAlertView.framework"; sourceTree = "<group>"; };
 		C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductinfoBottomView.xib; sourceTree = "<group>"; };
 		C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductinfoBottomView.swift; sourceTree = "<group>"; };
@@ -2097,7 +2097,6 @@
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
 				FBC0B3501DC05F4400631FDD /* CardDeepLinkKit.framework in Frameworks */,
-				816D8C081DBF00A30074B179 /* CardDeepLinkKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
 				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
 				844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */,
@@ -4854,6 +4853,7 @@
 			children = (
 				C9FE357F1DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift */,
 				C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */,
+				C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -5462,6 +5462,7 @@
 				84512D4F1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift in Sources */,
 				81433E161CFBE5A700347C29 /* PriceAndStepperView.swift in Sources */,
 				81433E471CFBE5A700347C29 /* UIImage+Resize.m in Sources */,
+				C9AF97A01DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift in Sources */,
 				8484D85A1D703514001F1A54 /* MenuPopOverView.swift in Sources */,
 				8175A7C61CFD2710006F2C8F /* AFHTTPRequestOperation.m in Sources */,
 				81433DAB1CFBE5A700347C29 /* AITimePickerView.swift in Sources */,
