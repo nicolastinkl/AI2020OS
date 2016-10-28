@@ -806,8 +806,6 @@
 		C95179E11D41B41600446498 /* AIAptitudeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179E01D41B41600446498 /* AIAptitudeView.swift */; };
 		C95179E31D41B47000446498 /* AIAptitudeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179E21D41B47000446498 /* AIAptitudeView.xib */; };
 		C9AF97961DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */; };
-		C9AF979C1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF979B1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib */; };
-		C9AF979E1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF979D1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift */; };
 		C9AF97A01DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */; };
 		C9C298D01D6D905A00E34766 /* AIAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C298CF1D6D905A00E34766 /* AIAlertView.framework */; };
 		C9C298D41D7D7ED600E34766 /* AIProductinfoBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */; };
@@ -2001,8 +1999,6 @@
 		C95179E01D41B41600446498 /* AIAptitudeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAptitudeView.swift; sourceTree = "<group>"; };
 		C95179E21D41B47000446498 /* AIAptitudeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAptitudeView.xib; sourceTree = "<group>"; };
 		C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIMyWalletBalanceViewController.xib; sourceTree = "<group>"; };
-		C9AF979B1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWalletBaseViewCotroller.xib; sourceTree = "<group>"; };
-		C9AF979D1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWalletBaseViewCotroller.swift; sourceTree = "<group>"; };
 		C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBalanceRechargeViewController.swift; sourceTree = "<group>"; };
 		C9C298CF1D6D905A00E34766 /* AIAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AIAlertView.framework; path = "../../../Library/Developer/Xcode/DerivedData/AIVeris-bispjrgyvuzileblnxwqhatxzked/Build/Products/Debug-iphoneos/AIAlertView.framework"; sourceTree = "<group>"; };
 		C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductinfoBottomView.xib; sourceTree = "<group>"; };
@@ -4030,7 +4026,6 @@
 		842CE6D11DAF28550038E5C0 /* MyWallet */ = {
 			isa = PBXGroup;
 			children = (
-				C9AF97981DC1E51F00ECC7EF /* WalanceBase */,
 				C9FE35641DC0AEAA00B16C9F /* Balance */,
 				C9FE356A1DC0AEAA00B16C9F /* WillPay */,
 				C9FE35701DC0AEAA00B16C9F /* WillReceiver */,
@@ -4827,32 +4822,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		C9AF97981DC1E51F00ECC7EF /* WalanceBase */ = {
-			isa = PBXGroup;
-			children = (
-				C9AF97991DC1E51F00ECC7EF /* View */,
-				C9AF979A1DC1E51F00ECC7EF /* ViewController */,
-			);
-			name = WalanceBase;
-			path = Balance/WalanceBase;
-			sourceTree = "<group>";
-		};
-		C9AF97991DC1E51F00ECC7EF /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C9AF979A1DC1E51F00ECC7EF /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C9AF979D1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift */,
-				C9AF979B1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		C9FE35641DC0AEAA00B16C9F /* Balance */ = {
 			isa = PBXGroup;
 			children = (
@@ -5173,7 +5142,6 @@
 				1265F62D1D4F755200130ECF /* AIWorkManageStoryboard.storyboard in Resources */,
 				93C8C9AA1D14035B00F1DFCF /* AICustomSearchHomeCell.xib in Resources */,
 				93A0AB9C1D12AA1B00562090 /* AIPaymentViewController.xib in Resources */,
-				C9AF979C1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib in Resources */,
 				938008641D5B225600FAD140 /* AIWishTitleIconView.xib in Resources */,
 				845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */,
 				84132CCA1DC1F43D000AE195 /* CostItemSubCell.xib in Resources */,
@@ -5963,7 +5931,6 @@
 				81433D9B1CFBE5A700347C29 /* AILimitListView.swift in Sources */,
 				81433E631CFBE5A700347C29 /* FLEXMethodCallingViewController.m in Sources */,
 				81433D271CFBE5A700347C29 /* ServiceCardDetailFlag.swift in Sources */,
-				C9AF979E1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift in Sources */,
 				813860FB1D597D020050C0D0 /* AIBaseCommentModel.swift in Sources */,
 				81433CF61CFBE5A700347C29 /* AIScrollLabel.m in Sources */,
 				9392B5861D1CD9F10007F241 /* RSADataSigner.m in Sources */,
