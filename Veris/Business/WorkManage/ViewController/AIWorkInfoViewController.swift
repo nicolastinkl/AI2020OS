@@ -194,6 +194,7 @@ class AIWorkInfoViewController: UIViewController {
         if let model = viewModel?.qualificationsBusiModel?.work_qualifications[qualificationView.carousel.currentItemIndex] as? AIWorkQualificationBusiModel {
 
             self.showLoading()
+
             let urlString = LeanCloudUploadFileUtils().uploadImage(photo)
 
             if urlString != nil {
@@ -294,7 +295,10 @@ extension AIWorkInfoViewController: AIAssetsPickerControllerDelegate {
             if asset is ALAsset {
                 let image = AIALAssetsImageOperator.thumbnailImageForAsset(asset as! ALAsset, maxPixelSize: 500)
                 // 准备上传图片
-                handleUploadPhoto(image)
+                weak var wf = self
+                dispatch_async(dispatch_get_main_queue(), { 
+                    wf!.handleUploadPhoto(image)
+                })
             }
         }
     }
@@ -324,7 +328,10 @@ extension AIWorkInfoViewController: AIAssetsPickerControllerDelegate {
 extension AIWorkInfoViewController: AIScanBankCardDelegate {
     func didScanBankCardImage(image: UIImage) {
         if let _ : UIImage = image {
-            handleUploadPhoto(image)
+            weak var wf = self
+            dispatch_async(dispatch_get_main_queue(), {
+                wf!.handleUploadPhoto(image)
+            })
         }
     }
 }
