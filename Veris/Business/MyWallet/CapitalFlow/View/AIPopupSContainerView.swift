@@ -18,6 +18,7 @@ class AIPopupSContainerView: UIView {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var containerBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var containerHeightConstraint: NSLayoutConstraint!
 
     @IBAction func closeAction(sender: UIButton) {
         dismiss()

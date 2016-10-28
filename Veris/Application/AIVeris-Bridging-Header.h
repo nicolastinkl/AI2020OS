@@ -23,6 +23,8 @@
 // 自定义滑块
 #import "JTSScrollIndicator.h"
 
+#import "AISellserAnimationView.h"
+
 // iCarousel
 
 //#import "iCarousel.h"

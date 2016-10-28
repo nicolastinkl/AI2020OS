@@ -30,6 +30,37 @@
 
 // 截取指定区域
 
++ (UIImage *)lowImageFromView:(UIView *)view inRect:(CGRect)rect
+{
+    CGSize s = rect.size;
+    CGPoint pt = rect.origin;
+    // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了
+
+    UIGraphicsBeginImageContextWithOptions(s, YES, 1);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextConcatCTM(context, CGAffineTransformMakeTranslation(-(int)pt.x, -(int)pt.y));
+    [view.layer renderInContext:context];
+    UIImage *screenImage = UIGraphicsGetImageFromCurrentImageContext();
+
+    UIGraphicsEndImageContext();
+
+
+
+    /*
+    // 压缩
+    CGFloat scale = 0.1;
+    UIGraphicsBeginImageContext(CGSizeMake(screenImage.size.width*scale, screenImage.size.height*scale));
+    [screenImage drawInRect:CGRectMake(0, 0, screenImage.size.width * scale, screenImage.size.height *scale)];
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+     */
+
+
+    return screenImage;
+
+}
+
+
 + (UIImage *)imageFromView:(UIView *)view inRect:(CGRect)rect
 {
     

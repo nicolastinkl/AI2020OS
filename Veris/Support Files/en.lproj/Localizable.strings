@@ -439,7 +439,10 @@
 "AIWorkManageViewController.UploadInformationTitle" = "Upload Information";
 
 /// CapitalFlow
-"CapitalFlowViewController.title" = "Capital flow";
+"CapitalFlowViewController.title" = "Capital Flow";
+"BillDetailViewController.CostDetails" = "Cost Details";
+"BillDetailViewController.TransactionDetails" = "Transaction Details";
+"BillDetailViewController.Title" = "Billing Details";
 
 // AIWorkInfoViewController
 "AIWorkInfoViewController.JobDescriptionTitle" = "Job Description";
@@ -452,6 +455,8 @@
 "AIWorkInfoViewController.ViewDetails" = "View Details";
 "AIWorkInfoViewController.Upload" = "Upload";
 "AIWorkInfoViewController.UploadTitleDesc" = "Please upload your ID and certificate.";
+"AIWorkInfoViewController.TakePhotoLabel" = "Take a photo";
+"AIWorkInfoViewController.ChoosePhotoLabel" = "Select from albums";
 
 //AIWorkManageHeaderView
 "AIWorkManageHeaderView.request" = "%@ Requests";

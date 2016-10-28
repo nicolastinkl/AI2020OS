@@ -11,6 +11,7 @@ import IQKeyboardManagerSwift
 import CardDeepLinkKit
 import AIAlertView
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 	

@@ -56,6 +56,12 @@ class AIWorkUploadPopView: UIView {
     func setupViews() {
         subContainerView.layer.cornerRadius = 8
         subContainerView.layer.masksToBounds = true
+        takePhotoLabel.text = "AIWorkInfoViewController.TakePhotoLabel".localized
+        takePhotoLabel.font = AITools.myriadLightSemiExtendedWithSize(48.displaySizeFrom1242DesignSize())
+        takePhotoLabel.textColor = UIColor(hexString: "#5f5f5f")
+        selectPhotoLabel.text = "AIWorkInfoViewController.ChoosePhotoLabel".localized
+        selectPhotoLabel.font = AITools.myriadLightSemiExtendedWithSize(48.displaySizeFrom1242DesignSize())
+        selectPhotoLabel.textColor = UIColor(hexString: "#5f5f5f")
     }
 
     static func createInstance() -> AIWorkUploadPopView {

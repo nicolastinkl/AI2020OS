@@ -40,6 +40,7 @@ class AIWorkDetailView: UIView {
     
     let CONTENT_FONT = AITools.myriadLightSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
     let BUTTON_FONT = AITools.myriadLightSemiExtendedWithSize(32.displaySizeFrom1242DesignSize())
+    let TERM_TITLE_FONT = AITools.myriadLightSemiExtendedWithSize(36.displaySizeFrom1242DesignSize())
     
     var workDetailModel: AIWorkOpportunityDetailViewModel? {
         didSet {
@@ -65,6 +66,7 @@ class AIWorkDetailView: UIView {
         buildScrollView()
         acceptTitleLabel.text = "AIWorkInfoViewController.descriptionInfoDesc".localized
         acceptTermTitleLabel.text = "AIWorkInfoViewController.AcceptTermsTitle".localized
+        acceptTermTitleLabel.font = TERM_TITLE_FONT
         showAllButton.setTitle("AIWorkInfoViewController.ReadAll".localized, forState: .Normal)
         showAllButton.titleLabel?.font = BUTTON_FONT
     }

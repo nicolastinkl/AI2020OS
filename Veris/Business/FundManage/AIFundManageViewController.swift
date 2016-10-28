@@ -14,9 +14,13 @@ class AIFundManageViewController: AIBaseViewController {
         super.viewDidLoad()
         //makeBackButton()
         // Do any additional setup after loading the view.
-        self.title = "My Job"
+        self.title = "My Wattet"
         setupNavigationBar()
-
+        
+        // add view controller to this vc
+        //let vc = AIMyWalletBalanceViewController.initFromNib()
+        let vc = AIBalanceRechargeViewController.init()
+        presentBlurViewController(vc, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,15 +28,13 @@ class AIFundManageViewController: AIBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-
-
     //MARK: NavigationBar
     override func setupNavigationBar() {
 
         let backButton = goBackButtonWithImage("comment-back")
         navigatonBarAppearance?.leftBarButtonItems = [backButton]
         setNavigationBarAppearance(navigationBarAppearance: navigatonBarAppearance!)
+        
     }
 
     //MARK:
