@@ -19,7 +19,7 @@ class AIFundManageViewController: AIBaseViewController {
         
         // add view controller to this vc
         //let vc = AIMyWalletBalanceViewController.initFromNib()
-        let vc = AIBalanceRechargeViewController.init()
+        let vc = AIWillPayVController.init()
         presentBlurViewController(vc, animated: true, completion: nil)
     }
 

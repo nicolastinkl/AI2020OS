@@ -807,6 +807,11 @@
 		C95179E31D41B47000446498 /* AIAptitudeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179E21D41B47000446498 /* AIAptitudeView.xib */; };
 		C9AF97961DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */; };
 		C9AF97A01DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */; };
+		C9AF97A41DC32D7800ECC7EF /* AIWillPayVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97A31DC32D7800ECC7EF /* AIWillPayVController.swift */; };
+		C9AF97A61DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97A51DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift */; };
+		C9AF97A81DC32DBF00ECC7EF /* AIWillPayVControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF97A71DC32DBF00ECC7EF /* AIWillPayVControllerCell.xib */; };
+		C9AF97AB1DC3328800ECC7EF /* AIWillPayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97AA1DC3328800ECC7EF /* AIWillPayService.swift */; };
+		C9AF97AD1DC3461900ECC7EF /* AIWillReceiverVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97AC1DC3461900ECC7EF /* AIWillReceiverVController.swift */; };
 		C9C298D01D6D905A00E34766 /* AIAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C298CF1D6D905A00E34766 /* AIAlertView.framework */; };
 		C9C298D41D7D7ED600E34766 /* AIProductinfoBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */; };
 		C9C298D61D7D7FC100E34766 /* AIProductinfoBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */; };
@@ -2000,6 +2005,11 @@
 		C95179E21D41B47000446498 /* AIAptitudeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAptitudeView.xib; sourceTree = "<group>"; };
 		C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIMyWalletBalanceViewController.xib; sourceTree = "<group>"; };
 		C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBalanceRechargeViewController.swift; sourceTree = "<group>"; };
+		C9AF97A31DC32D7800ECC7EF /* AIWillPayVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillPayVController.swift; sourceTree = "<group>"; };
+		C9AF97A51DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillPayVControllerCell.swift; sourceTree = "<group>"; };
+		C9AF97A71DC32DBF00ECC7EF /* AIWillPayVControllerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWillPayVControllerCell.xib; sourceTree = "<group>"; };
+		C9AF97AA1DC3328800ECC7EF /* AIWillPayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillPayService.swift; sourceTree = "<group>"; };
+		C9AF97AC1DC3461900ECC7EF /* AIWillReceiverVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillReceiverVController.swift; sourceTree = "<group>"; };
 		C9C298CF1D6D905A00E34766 /* AIAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AIAlertView.framework; path = "../../../Library/Developer/Xcode/DerivedData/AIVeris-bispjrgyvuzileblnxwqhatxzked/Build/Products/Debug-iphoneos/AIAlertView.framework"; sourceTree = "<group>"; };
 		C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductinfoBottomView.xib; sourceTree = "<group>"; };
 		C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductinfoBottomView.swift; sourceTree = "<group>"; };
@@ -4822,6 +4832,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		C9AF97A91DC3327500ECC7EF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C9AF97AA1DC3328800ECC7EF /* AIWillPayService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		C9FE35641DC0AEAA00B16C9F /* Balance */ = {
 			isa = PBXGroup;
 			children = (
@@ -4851,6 +4869,7 @@
 		C9FE356A1DC0AEAA00B16C9F /* WillPay */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF97A91DC3327500ECC7EF /* Service */,
 				C9FE356B1DC0AEAA00B16C9F /* View */,
 				C9FE356C1DC0AEAA00B16C9F /* ViewController */,
 			);
@@ -4860,6 +4879,8 @@
 		C9FE356B1DC0AEAA00B16C9F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF97A51DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift */,
+				C9AF97A71DC32DBF00ECC7EF /* AIWillPayVControllerCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4867,6 +4888,7 @@
 		C9FE356C1DC0AEAA00B16C9F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF97A31DC32D7800ECC7EF /* AIWillPayVController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4890,6 +4912,7 @@
 		C9FE35721DC0AEAA00B16C9F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF97AC1DC3461900ECC7EF /* AIWillReceiverVController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -5095,6 +5118,7 @@
 				81433D3E1CFBE5A700347C29 /* AICustomView.xib in Resources */,
 				81433D321CFBE5A700347C29 /* TopServiceContainer.xib in Resources */,
 				933BC83E1D002434005E1789 /* AINavigationBar.xib in Resources */,
+				C9AF97A81DC32DBF00ECC7EF /* AIWillPayVControllerCell.xib in Resources */,
 				8484D8531D6E841D001F1A54 /* AudioRecoderViewController.xib in Resources */,
 				81433E1F1CFBE5A700347C29 /* SwitchServiceView.xib in Resources */,
 				81433D971CFBE5A700347C29 /* AIAssignServiceView.xib in Resources */,
@@ -5744,6 +5768,7 @@
 				FB67FA501D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift in Sources */,
 				81433E9D1CFBE5A700347C29 /* Localize.swift in Sources */,
 				8175A7D81CFD2710006F2C8F /* JSONModel.m in Sources */,
+				C9AF97A61DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift in Sources */,
 				FB74E0161D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.swift in Sources */,
 				81433E981CFBE5A700347C29 /* FLEXRuntimeUtility.m in Sources */,
 				81433E811CFBE5A700347C29 /* FLEXNetworkSettingsTableViewController.m in Sources */,
@@ -5785,6 +5810,7 @@
 				81433CF71CFBE5A700347C29 /* AIBaseTagsView.m in Sources */,
 				8175A7CE1CFD2710006F2C8F /* AFURLSessionManager.m in Sources */,
 				8175A7BC1CFD2710006F2C8F /* Async.swift in Sources */,
+				C9AF97A41DC32D7800ECC7EF /* AIWillPayVController.swift in Sources */,
 				81433D941CFBE5A700347C29 /* AIRootViewController.m in Sources */,
 				81433E291CFBE5A700347C29 /* AIPageBueryViewController.swift in Sources */,
 				81433E1C1CFBE5A700347C29 /* SevenSwitch.swift in Sources */,
@@ -5960,6 +5986,7 @@
 				81433E491CFBE5A700347C29 /* UP_NSString+Format.mm in Sources */,
 				81433DAA1CFBE5A700347C29 /* AITimelineCellBaseView.swift in Sources */,
 				C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */,
+				C9AF97AB1DC3328800ECC7EF /* AIWillPayService.swift in Sources */,
 				81433D1C1CFBE5A700347C29 /* AccommodationService.swift in Sources */,
 				8484D8361D66EBF9001F1A54 /* TestCommentViewController.swift in Sources */,
 				936B32A51D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift in Sources */,
@@ -6007,6 +6034,7 @@
 				81433D851CFBE5A700347C29 /* MDCFocalPointView.m in Sources */,
 				81433D821CFBE5A700347C29 /* AIOrderDescView.swift in Sources */,
 				81D325E71D7816680069F9B7 /* AICustomerModel.m in Sources */,
+				C9AF97AD1DC3461900ECC7EF /* AIWillReceiverVController.swift in Sources */,
 				81433D341CFBE5A700347C29 /* TransportService.swift in Sources */,
 				81433D8A1CFBE5A700347C29 /* ProposalExpandedView.swift in Sources */,
 			);
