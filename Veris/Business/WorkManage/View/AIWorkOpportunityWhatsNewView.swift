@@ -16,7 +16,7 @@ class AIWorkOpportunityWhatsNewView: UIView {
     var titleLabel: UILabel!
     
     let iconWidth = 304.displaySizeFrom1242DesignSize()
-    let iconHeight = (304 + 33 + 48).displaySizeFrom1242DesignSize()
+    let iconHeight = (304 + 33 + 42).displaySizeFrom1242DesignSize()
     let marginLeft = 48.displaySizeFrom1242DesignSize()
     let vSpaceBetweenIcons = 102.displaySizeFrom1242DesignSize()
 
@@ -34,7 +34,8 @@ class AIWorkOpportunityWhatsNewView: UIView {
         titleLabel = UILabel()
         titleLabel.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.text = "What's New"
+        titleLabel.text = "AIWorkOpportunityWhatsNewView.title".localized
+
         addSubview(titleLabel)
         titleLabel.snp_makeConstraints { (make) in
             make.leading.equalTo(marginLeft)
@@ -46,10 +47,10 @@ class AIWorkOpportunityWhatsNewView: UIView {
         for (i, service) in services.enumerate() {
             let icon = VerticalIconLabel()
             icon.imageWidth = iconWidth
-            icon.font = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+            icon.font = AITools.myriadLightSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
             icon.tag = i
             icon.text = service.name
-            icon.imageSpaceToLabel = 33.displaySizeFrom1242DesignSize()
+            icon.imageSpaceToLabel = 21.displaySizeFrom1242DesignSize()
             icon.imageView.sd_setImageWithURL(NSURL(string: service.icon ?? ""))
             addSubview(icon)
             icons.append(icon)

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2333a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sX8-eo-0L2" customClass="CostItemCell" customModule="Veris" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sX8-eo-0L2" id="vls-19-gz0">
+                <frame key="frameInset" width="375" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dR-dA-YA3" userLabel="ItemName">
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV4-zN-rfk" userLabel="CostNumber">
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="expandableImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="ibM-Sj-lVu" userLabel="ExpandableImage"/>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ibM-Sj-lVu" secondAttribute="trailing" constant="8" id="43T-J9-MMJ"/>
+                    <constraint firstItem="1dR-dA-YA3" firstAttribute="centerY" secondItem="gV4-zN-rfk" secondAttribute="centerY" id="6bU-J2-cJ0"/>
+                    <constraint firstItem="gV4-zN-rfk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1dR-dA-YA3" secondAttribute="trailing" constant="20" id="9OO-cj-Q43"/>
+                    <constraint firstItem="ibM-Sj-lVu" firstAttribute="centerY" secondItem="vls-19-gz0" secondAttribute="centerY" id="FfD-wy-hjN"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="gV4-zN-rfk" secondAttribute="bottom" constant="3" id="RTy-cw-eia"/>
+                    <constraint firstItem="1dR-dA-YA3" firstAttribute="leading" secondItem="vls-19-gz0" secondAttribute="leading" id="bY1-27-pd3"/>
+                    <constraint firstItem="gV4-zN-rfk" firstAttribute="top" secondItem="vls-19-gz0" secondAttribute="topMargin" constant="3" id="cuh-2M-pyU"/>
+                    <constraint firstItem="ibM-Sj-lVu" firstAttribute="leading" secondItem="gV4-zN-rfk" secondAttribute="trailing" constant="6" id="hEW-qP-AYD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="costNumber" destination="gV4-zN-rfk" id="mKt-hF-5Pj"/>
+                <outlet property="expandIcon" destination="ibM-Sj-lVu" id="eri-OO-hAi"/>
+                <outlet property="itemName" destination="1dR-dA-YA3" id="iE6-WX-Yfe"/>
+            </connections>
+            <point key="canvasLocation" x="26.5" y="52"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="expandableImage.png" width="8" height="5"/>
+    </resources>
+</document>

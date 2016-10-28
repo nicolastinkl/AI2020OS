@@ -52,6 +52,7 @@ class VerticalIconLabel: UIView {
     
     var font: UIFont = AITools.myriadLightSemiCondensedWithSize(AITools.displaySizeFrom1080DesignSize(42)) {
         didSet {
+            label.font = font
             setNeedsLayout()
             layoutIfNeeded()
         }

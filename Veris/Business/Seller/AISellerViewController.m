@@ -22,6 +22,7 @@
 #import "Veris-Swift.h"
 #import "AIServerConfig.h"
 #import "AIOrderTableModel.h"
+#import <UIKit/UIKit.h>
 
 #define kTablePadding     15
 
@@ -230,9 +231,9 @@
     button.titleLabel.font = [AITools myriadRegularWithSize:12];
     button.titleLabel.numberOfLines = 0;
     button.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    button.layer.borderColor = [UIColor whiteColor].CGColor;
-    button.layer.borderWidth = 1;
-    button.layer.cornerRadius = 2;
+//    button.layer.borderColor = [UIColor whiteColor].CGColor;
+//    button.layer.borderWidth = 1;
+//    button.layer.cornerRadius = 2;
 
     return button;
 }
@@ -255,14 +256,21 @@
     [_bottomView addSubview:work];
 }
 
-
+//HBDR9296D0797D6D
 #pragma mark - Main Action
 
 - (void)showMyWallet {
     // 演示屏蔽
     AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:fundManageViewController];
+     [self presentViewController:nav animated:YES completion:nil];
+    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AICouponsStoryboard" bundle:nil];
+    AIBusinessCurrencyViewController *bcViewController = [storyboard instantiateViewControllerWithIdentifier:@"AIBusinessCurrencyViewController"];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:bcViewController];
     [self presentViewController:nav animated:YES completion:nil];
+     */
+    
+    
 }
 
 - (void)showMyWork {

@@ -95,7 +95,7 @@ class AIWorkInfoViewController: UIViewController {
         commitButton.layer.cornerRadius = 180.displaySizeFrom1242DesignSize() / 2
         commitButton.layer.masksToBounds = true
         commitButton.setTitle("AIWorkInfoViewController.Next".localized, forState: UIControlState.Normal)
-        commitButton.setBackgroundImage(UIColor.grayColor().imageWithColor(), forState: UIControlState.Disabled)
+        commitButton.setBackgroundImage(UIColor(hexString: "#2d2e58").imageWithColor(), forState: UIControlState.Disabled)
         commitButton.enabled = false
         makeNavigationItem()
         buildPopupView()
@@ -174,7 +174,7 @@ class AIWorkInfoViewController: UIViewController {
     }
     
     func makeNavigationItem() {
-        setupNavigationBarLikeLogin(title: in_workName, needCloseButton: false)
+        setupNavigationBarLikeWorkInfo(title: in_workName, needCloseButton: false)
     }
     
     func subscribeWork() {
@@ -243,7 +243,7 @@ extension AIWorkInfoViewController: AIWorkQualificationViewDelegate, AIWorkDetai
         view.bringSubviewToFront(uploadPopView)
         SpringAnimation.spring(0.5) {
             self.uploadPopView.alpha = 1
-            self.uploadPopView.containerBottomConstraint.constant = 300
+            self.uploadPopView.containerBottomConstraint.constant = 350
             self.uploadPopView.layoutIfNeeded()
         }
     }

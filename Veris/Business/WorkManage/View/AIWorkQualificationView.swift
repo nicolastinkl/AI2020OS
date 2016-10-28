@@ -89,9 +89,14 @@ class AIWorkQualificationView: UIView {
     
     func setupViews() {
         switchButton.setRoundBorder()
-        switchButton.setButtonWidth()
-        uploadButton.setRoundBorder()
-        uploadButton.setButtonWidth()
+        switchButton.setButtonWidth(10)
+        switchButton.titleLabel?.font = UPLOAD_TIME_LABEL_FONT
+        uploadButton.layer.borderColor = UIColor.whiteColor().CGColor
+        uploadButton.layer.borderWidth = 1
+        uploadButton.layer.cornerRadius = 78.displaySizeFrom1242DesignSize() / 2
+        //uploadButton.layer.masksToBounds = true
+        uploadButton.setButtonWidth(20)
+        uploadButton.titleLabel?.font = IMAGE_TITLE_LABEL_FONT
         carousel.type = .Rotary
         carousel.dataSource = self
         carousel.delegate = self
@@ -106,6 +111,7 @@ class AIWorkQualificationView: UIView {
         
         topTitleLabel.text = "AIWorkInfoViewController.UploadTitleDesc".localized
         switchButton.setTitle("AIWorkInfoViewController.ViewDetails".localized, forState: UIControlState.Normal)
+        uploadButton.setTitle("AIWorkInfoViewController.Upload".localized, forState: UIControlState.Normal)
     }
     
     private func setupGradientView() {
@@ -158,8 +164,10 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
         let qualicationModel = qualificationsModel[index]
         let cellKey = "\(qualicationModel.type_id).\(qualicationModel.aspect_type)"
         if cachedCellViewDic[cellKey] == nil {
-            itemView = UIImageView(frame:CGRect(x:0, y:0, width:200, height:200))
-            itemView.contentMode = .ScaleAspectFill
+            itemView = UIImageView(frame:CGRect(x:0, y:0, width:250, height:180))
+            itemView.contentMode = .ScaleAspectFit
+            itemView.layer.cornerRadius = 5
+            itemView.layer.masksToBounds = true
             itemView.sd_setImageWithURL(NSURL(string: qualicationModel.aspect_photo ?? "")!, placeholderImage: UIImage(named: "wm-icon2")!, options: SDWebImageOptions.RetryFailed)
             //样本图片标志
             var labelFrame = itemView.bounds
@@ -172,7 +180,7 @@ extension AIWorkQualificationView: iCarouselDelegate, iCarouselDataSource {
             label.textColor = SAMPLE_TEXT_COLOR
             label.tag = 1
             if qualicationModel.uploaded == "0" {
-                label.text = "样本"
+                label.text = "示例"
             } else {
                 label.text = ""
             }
@@ -276,12 +284,12 @@ extension UIButton {
         self.layer.cornerRadius = 5
     }
     
-    func setButtonWidth() {
+    func setButtonWidth(paddingWidth: CGFloat?) {
         let title = self.titleForState(UIControlState.Normal)
         let font = self.titleLabel?.font
         let buttonWidth = title!.sizeWithFont(font!, forWidth: 1000)
         self.snp_remakeConstraints { (make) in
-            make.width.equalTo(buttonWidth.width + 20)
+            make.width.equalTo(buttonWidth.width + paddingWidth! ?? 10)
         }
     }
 }

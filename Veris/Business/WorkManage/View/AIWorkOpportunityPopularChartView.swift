@@ -88,14 +88,14 @@ class AIWorkOpportunityPopularChartView: UIView {
         titleLabel = UILabel()
         titleLabel.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.text = "What's Popular"
+        titleLabel.text = "AIWorkOpportunityPopularChartView.title".localized
         
         addSubview(titleLabel)
         
         dailyLabel = UILabel()
         dailyLabel.font = AITools.myriadSemiCondensedWithSize(25.displaySizeFrom1242DesignSize())
         dailyLabel.textColor = UIColor(hexString: "#d8d6d6")
-        dailyLabel.text = "Daily"
+        dailyLabel.text = "AIWorkOpportunityPopularChartView.subtitle".localized
         addSubview(dailyLabel)
     }
     
@@ -115,7 +115,7 @@ class AIWorkOpportunityPopularChartView: UIView {
             } else if i == 5 {
                 length = shortest
             }
-            let numberText = String(format: "%@ Orders", service.order_time)
+            let numberText = String(format: "AIWorkOpportunityPopularChartView.orders".localized, service.order_time)
             let chartBar = AIWorkOpportunityPopularChartBarView(color: colors[i], name: service.name, numberText: numberText, barLength: length)
             chartBars.append(chartBar)
             addSubview(chartBar)

@@ -450,6 +450,9 @@
 
 /// CapitalFlow
 "CapitalFlowViewController.title" = "资产流水";
+"BillDetailViewController.CostDetails" = "费用详情";
+"BillDetailViewController.TransactionDetails" = "交易详情";
+"BillDetailViewController.Title" = "账单详情";
 
 // AIWorkInfoViewController
 "AIWorkInfoViewController.JobDescriptionTitle" = "职位描述";
@@ -462,3 +465,16 @@
 "AIWorkInfoViewController.ViewDetails" = "查看详情";
 "AIWorkInfoViewController.Upload" = "上传";
 "AIWorkInfoViewController.UploadTitleDesc" = "你需要有以下证明";
+"AIWorkInfoViewController.TakePhotoLabel" = "拍 照";
+"AIWorkInfoViewController.ChoosePhotoLabel" = "从相册选取";
+
+//AIWorkManageHeaderView
+"AIWorkManageHeaderView.request" = "%@ 人";
+
+//AIWorkOpportunityPopularChartView
+"AIWorkOpportunityPopularChartView.title" = "成交量排行";
+"AIWorkOpportunityPopularChartView.subtitle" = "今日";
+"AIWorkOpportunityPopularChartView.orders" = "%@ 单";
+
+//AIWorkOpportunityWhatsNewView
+"AIWorkOpportunityWhatsNewView.title" = "最新上线";

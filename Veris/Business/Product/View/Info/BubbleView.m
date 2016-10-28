@@ -13,7 +13,7 @@
 
 #define kDeleteButtonWidth  40
 
-@interface BubbleView ()
+@interface BubbleView ()<CAAnimationDelegate>
 {
     UIButton *_deleteButton;
 }
