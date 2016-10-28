@@ -55,7 +55,7 @@ class AIBalanceRechargeViewController: AIBaseViewController {
         
         view.addSubview(price_List_Left_Line)
         price_List_Left_Line.backgroundColor = UIColor.clearColor()
-                
+        
         let accountLabel = UILabel(frame: CGRectMake(maxWidth-95/3, 386/3, 100, 50))
         accountLabel.text = "账户充值"
         accountLabel.textColor = UIColor(hexString: "#ffffff")
