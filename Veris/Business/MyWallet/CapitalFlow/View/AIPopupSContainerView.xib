@@ -65,7 +65,8 @@
             <connections>
                 <outlet property="backgroundView" destination="eox-T9-yya" id="88H-Su-B0B"/>
                 <outlet property="closeButton" destination="GLj-a5-RAA" id="EHA-JF-lzf"/>
-                <outlet property="containerBottomConstraint" destination="ppx-mQ-eFp" id="qTh-iU-99b"/>
+                <outlet property="containerBottomConstraint" destination="MZB-1O-nSG" id="qBC-2D-ZE6"/>
+                <outlet property="containerHeightConstraint" destination="InG-Rc-Cf4" id="wGS-dC-sLM"/>
                 <outlet property="containerView" destination="JX6-ce-UU7" id="B2m-um-6gm"/>
                 <outlet property="contentView" destination="3Pn-Fu-TlG" id="AkN-NH-Ejb"/>
             </connections>

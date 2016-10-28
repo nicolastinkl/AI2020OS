@@ -243,8 +243,7 @@ class CustomizedNavigationBar: UINavigationBar {
         // _UIBarBackground
         
 		for v in subviews {
-            let hackbg = NSClassFromString("_UIBarBackground") ?? NSClassFromString("_UINavigationBarBackground")!
-			if v.isKindOfClass(hackbg) {
+			if v.isKindOfClass( NSClassFromString("_UIBarBackground") ?? NSClassFromString("_UINavigationBarBackground")!) {
 				v.backgroundColor = barColor
 				barBg = v
 			}

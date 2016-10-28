@@ -45,7 +45,7 @@ class SKSTableViewCell: UITableViewCell {
         isExpandable = true
     }
     
-    func createExpandableView() -> UIView {
+    func createExpandableView() -> UIView? {
         if SKSTableViewCell.buttonBackgroundImage == nil {
             SKSTableViewCell.buttonBackgroundImage = UIImage(named: "expandableImage.png")
         }

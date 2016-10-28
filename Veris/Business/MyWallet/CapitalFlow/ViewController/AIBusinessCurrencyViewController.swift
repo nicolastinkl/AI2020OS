@@ -62,6 +62,7 @@ class AIBusinessCurrencyViewController: AIBaseViewController {
         }
         
         bcDetailView = AIBCDetailView.createInstance()
+        popupRuleView.buildContent(bcDetailView)
     }
 
     // MARK: -> delegates
