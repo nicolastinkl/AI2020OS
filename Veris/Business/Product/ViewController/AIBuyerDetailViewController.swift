@@ -7,13 +7,13 @@
 //
 
 import Foundation
-
 import UIKit
 import Spring
 import Cartography
 import AIAlertView
-import CardDeepLinkKit
 import SnapKit
+import CardDeepLinkKit
+
 
 protocol AIBuyerDetailDelegate: class {
 	func closeAIBDetailViewController()
