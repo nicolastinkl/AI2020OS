@@ -48,21 +48,36 @@ class AIScanBankCardViewController: AIBaseViewController {
     func makeSubViews() {
         self.title = "扫描照片"
         makeCamera()
-        makeOverlayView()
-        makeActions()
+
+        if imagePickerController != nil {
+            makeOverlayView()
+            makeActions()
+        }
+
     }
 
     func makeCamera() {
         //初始化
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self;//通过代理来传递拍照的图片
-        imagePickerController.allowsEditing = true;//允许编辑
+        imagePickerController.allowsEditing = false;//允许编辑
 
 
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             imagePickerController.sourceType = .Camera
             imagePickerController.showsCameraControls = false
-            presentViewController(imagePickerController, animated: false, completion: nil)
+            imagePickerController.cameraViewTransform = CGAffineTransformMakeScale(2, 2)
+
+            //
+            self.addChildViewController(imagePickerController)
+            imagePickerController.didMoveToParentViewController(self)
+            //imagePickerController.view.transform = CGAffineTransformMakeScale(1.3, 1.3)
+            var frame = imagePickerController.view.frame
+            let offset = CGRectGetHeight(imagePickerController.view.frame) * 0.15
+            frame.origin.y += 192.displaySizeFrom1242DesignSize()
+            imagePickerController.view.frame = frame
+            self.view.addSubview(imagePickerController.view)
+
         } else {
             AIAlertView().showError("No Camera!", subTitle: "")
         }
@@ -206,8 +221,14 @@ class AIScanBankCardViewController: AIBaseViewController {
     }
 
     func cancelAction() {
-        self.dismiss()
+        dismissSelf()
     }
+
+
+    func dismissSelf() {
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+
 
 
 }
@@ -215,18 +236,24 @@ class AIScanBankCardViewController: AIBaseViewController {
 extension AIScanBankCardViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let image = info[UIImagePickerControllerEditedImage]
+        let image = info[UIImagePickerControllerOriginalImage]
+        let lowImageData = UIImageJPEGRepresentation(image as! UIImage, 0.1)
+        let lowImage = UIImage(data: lowImageData!)
+        if let _ = lowImage {
+            let imageView = UIImageView(image: lowImage)
+            imageView.frame = picker.view.frame
+            var rect = scanView.frame
+            rect.origin.y += 192.displaySizeFrom1242DesignSize()
+            let scalesImage: UIImage = AISellserAnimationView.lowImageFromView(imageView, inRect: rect)
+            self.delegate?.didScanBankCardImage(scalesImage)
+            self.dismissViewControllerAnimated(false, completion: {
 
-        if let _ = image {
-            self.delegate?.didScanBankCardImage(image as! UIImage)
-        } else {
-            self.delegate?.didScanBankCardImage(info[UIImagePickerControllerOriginalImage] as! UIImage)
+            })
         }
 
-
-        picker.dismiss()
-        self.dismiss()
-
     }
+
+
+
 
 }

@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>V1.1.2.20161025.alpha</string>
+	<string>V1.1.2.20161028.alpha</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -109,6 +109,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Veris要使用相机才能采集正确的信息</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
