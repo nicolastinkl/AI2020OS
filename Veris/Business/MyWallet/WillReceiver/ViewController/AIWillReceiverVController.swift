@@ -49,15 +49,12 @@ class AIWillReceiverVController: AIBaseViewController {
         tableview.dataSource = self
         tableview.delegate = self
         
-        
         let model1 = AIWillPayService.AIWillPayServiceModel()
         model1.saddress = "医院"
         model1.sname  = "海淀"
         model1.stime = 12
         model1.sprice = "¥23"
         model1.simageurl = ""
-        
-        
         
         let model2 = AIWillPayService.AIWillPayServiceModel()
         model2.saddress = "服务器地址"
@@ -79,12 +76,13 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("cell")
-        if (cell == nil ) {
-            cell = AIWillPayVControllerCell.initFromNib() as? AIWillPayVControllerCell
-        }
+//        var cell = AIWillPayVControllerCell.initFromNib() as? AIWillPayVControllerCell
+        //tableView.dequeueReusableCellWithIdentifier("cell")
+//        if (cell == nil ) {
+//            cell = AIWillPayVControllerCell.initFromNib() as? AIWillPayVControllerCell
+//        }
         
-        return cell ?? UITableViewCell()
+        return   UITableViewCell()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

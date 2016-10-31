@@ -809,9 +809,9 @@
 		C9AF97A01DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */; };
 		C9AF97A41DC32D7800ECC7EF /* AIWillPayVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97A31DC32D7800ECC7EF /* AIWillPayVController.swift */; };
 		C9AF97A61DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97A51DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift */; };
-		C9AF97A81DC32DBF00ECC7EF /* AIWillPayVControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF97A71DC32DBF00ECC7EF /* AIWillPayVControllerCell.xib */; };
 		C9AF97AB1DC3328800ECC7EF /* AIWillPayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97AA1DC3328800ECC7EF /* AIWillPayService.swift */; };
 		C9AF97AD1DC3461900ECC7EF /* AIWillReceiverVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97AC1DC3461900ECC7EF /* AIWillReceiverVController.swift */; };
+		C9AF97B31DC6F46B00ECC7EF /* AIWillPayVControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF97B21DC6F46B00ECC7EF /* AIWillPayVControllerCell.xib */; };
 		C9C298D01D6D905A00E34766 /* AIAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C298CF1D6D905A00E34766 /* AIAlertView.framework */; };
 		C9C298D41D7D7ED600E34766 /* AIProductinfoBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */; };
 		C9C298D61D7D7FC100E34766 /* AIProductinfoBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */; };
@@ -2007,9 +2007,9 @@
 		C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBalanceRechargeViewController.swift; sourceTree = "<group>"; };
 		C9AF97A31DC32D7800ECC7EF /* AIWillPayVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillPayVController.swift; sourceTree = "<group>"; };
 		C9AF97A51DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillPayVControllerCell.swift; sourceTree = "<group>"; };
-		C9AF97A71DC32DBF00ECC7EF /* AIWillPayVControllerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWillPayVControllerCell.xib; sourceTree = "<group>"; };
 		C9AF97AA1DC3328800ECC7EF /* AIWillPayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillPayService.swift; sourceTree = "<group>"; };
 		C9AF97AC1DC3461900ECC7EF /* AIWillReceiverVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillReceiverVController.swift; sourceTree = "<group>"; };
+		C9AF97B21DC6F46B00ECC7EF /* AIWillPayVControllerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWillPayVControllerCell.xib; sourceTree = "<group>"; };
 		C9C298CF1D6D905A00E34766 /* AIAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AIAlertView.framework; path = "../../../Library/Developer/Xcode/DerivedData/AIVeris-bispjrgyvuzileblnxwqhatxzked/Build/Products/Debug-iphoneos/AIAlertView.framework"; sourceTree = "<group>"; };
 		C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductinfoBottomView.xib; sourceTree = "<group>"; };
 		C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductinfoBottomView.swift; sourceTree = "<group>"; };
@@ -4880,7 +4880,7 @@
 			isa = PBXGroup;
 			children = (
 				C9AF97A51DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift */,
-				C9AF97A71DC32DBF00ECC7EF /* AIWillPayVControllerCell.xib */,
+				C9AF97B21DC6F46B00ECC7EF /* AIWillPayVControllerCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5118,7 +5118,6 @@
 				81433D3E1CFBE5A700347C29 /* AICustomView.xib in Resources */,
 				81433D321CFBE5A700347C29 /* TopServiceContainer.xib in Resources */,
 				933BC83E1D002434005E1789 /* AINavigationBar.xib in Resources */,
-				C9AF97A81DC32DBF00ECC7EF /* AIWillPayVControllerCell.xib in Resources */,
 				8484D8531D6E841D001F1A54 /* AudioRecoderViewController.xib in Resources */,
 				81433E1F1CFBE5A700347C29 /* SwitchServiceView.xib in Resources */,
 				81433D971CFBE5A700347C29 /* AIAssignServiceView.xib in Resources */,
@@ -5148,6 +5147,7 @@
 				84132CC61DC1AC72000AE195 /* CostItemCell.xib in Resources */,
 				935E58DB1D5315D900252B83 /* AIWorkDetailView.xib in Resources */,
 				81FAFBF21D4716F800DD3477 /* AICustomerBannerView.xib in Resources */,
+				C9AF97B31DC6F46B00ECC7EF /* AIWillPayVControllerCell.xib in Resources */,
 				9352BC841D656143003CD476 /* AIPayAmountView.xib in Resources */,
 				81433D241CFBE5A700347C29 /* FlightServiceView.xib in Resources */,
 				81433EB91CFBE5A700347C29 /* MyriadPro-Bold.otf in Resources */,

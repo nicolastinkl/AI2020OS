@@ -9,7 +9,7 @@
 import Foundation
 
 
-class AIWillPayService: Object {
+class AIWillPayService {
     
     class AIWillPayServiceModel: JSONModel {
         
@@ -19,9 +19,7 @@ class AIWillPayService: Object {
         var simageurl: String?
         var sprice: String?
         var stime: Double?
-        init() {
-            
-        }
+       
         
     }
     
