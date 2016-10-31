@@ -21,5 +21,10 @@
 
 + (void)startAnimationOnSellerViewController:(AISellerViewController *)sellerViewController;
 
++ (UIImage *)lowImageFromView:(UIView *)view inRect:(CGRect)rect;
+
++ (UIImage *)imageFromView:(UIView *)view inRect:(CGRect)rect;
+
++ (UIImage*)imageFromView:(UIView*)view;
 
 @end

@@ -48,6 +48,9 @@
 		12CE5DC71DC327B20075EBD7 /* AICouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CE5DC51DC327B20075EBD7 /* AICouponTableViewCell.xib */; };
 		12CE5DCA1DC328F30075EBD7 /* AIIconCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DC81DC328F30075EBD7 /* AIIconCouponTableViewCell.swift */; };
 		12CE5DCB1DC328F30075EBD7 /* AIIconCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CE5DC91DC328F30075EBD7 /* AIIconCouponTableViewCell.xib */; };
+		12CE5DCD1DC74DF00075EBD7 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; };
+		12CE5DCE1DC74DFB0075EBD7 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; };
+		12CE5DCF1DC74DFB0075EBD7 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12D7649B1D0D469A002B001B /* AIRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764961D0D469A002B001B /* AIRegistViewController.swift */; };
 		12D7649C1D0D469A002B001B /* AIValidateRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */; };
 		12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764981D0D469A002B001B /* AISelectRegionViewController.swift */; };
@@ -806,6 +809,8 @@
 		93E8469B1D2A0FB400CD4BD0 /* AIUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */; };
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
+		C900614F1DC7204E0001A963 /* AIRechargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900614E1DC7204E0001A963 /* AIRechargeView.swift */; };
+		C90061511DC720560001A963 /* AIRechargeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90061501DC720550001A963 /* AIRechargeView.xib */; };
 		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
 		C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */; };
 		C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */; };
@@ -814,9 +819,12 @@
 		C95179E11D41B41600446498 /* AIAptitudeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179E01D41B41600446498 /* AIAptitudeView.swift */; };
 		C95179E31D41B47000446498 /* AIAptitudeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179E21D41B47000446498 /* AIAptitudeView.xib */; };
 		C9AF97961DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */; };
-		C9AF979C1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF979B1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib */; };
-		C9AF979E1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF979D1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift */; };
 		C9AF97A01DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */; };
+		C9AF97A41DC32D7800ECC7EF /* AIWillPayVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97A31DC32D7800ECC7EF /* AIWillPayVController.swift */; };
+		C9AF97A61DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97A51DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift */; };
+		C9AF97AB1DC3328800ECC7EF /* AIWillPayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97AA1DC3328800ECC7EF /* AIWillPayService.swift */; };
+		C9AF97AD1DC3461900ECC7EF /* AIWillReceiverVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AF97AC1DC3461900ECC7EF /* AIWillReceiverVController.swift */; };
+		C9AF97B31DC6F46B00ECC7EF /* AIWillPayVControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AF97B21DC6F46B00ECC7EF /* AIWillPayVControllerCell.xib */; };
 		C9C298D01D6D905A00E34766 /* AIAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C298CF1D6D905A00E34766 /* AIAlertView.framework */; };
 		C9C298D41D7D7ED600E34766 /* AIProductinfoBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */; };
 		C9C298D61D7D7FC100E34766 /* AIProductinfoBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */; };
@@ -831,8 +839,6 @@
 		FB2373261D4F785100A8B38A /* AIRecommondForYouService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373251D4F785100A8B38A /* AIRecommondForYouService.swift */; };
 		FB2373281D4F78F300A8B38A /* AIProductQAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2373271D4F78F300A8B38A /* AIProductQAService.swift */; };
 		FB2E41ED1D461821001DDB5D /* MBFingerTipWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2E41EC1D461821001DDB5D /* MBFingerTipWindow.m */; };
-		FB3330051DC05F7400C77A61 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC0B34F1DC05F4300631FDD /* CardDeepLinkKit.framework */; };
-		FB3330061DC05F7400C77A61 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC0B34F1DC05F4300631FDD /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FB49E9D61D65914100EF67F7 /* AIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49E9D51D65914100EF67F7 /* AIUser.swift */; };
 		FB5702871D1A73E3006BA7C6 /* AISearchHistoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5702861D1A73E3006BA7C6 /* AISearchHistoryIconView.swift */; };
 		FB58838D1D51C7930080588B /* AISearchHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB58838C1D51C7930080588B /* AISearchHomeService.swift */; };
@@ -873,7 +879,6 @@
 		FBAE7FD81D115428002FF522 /* AISellerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FCF1D115428002FF522 /* AISellerViewController.m */; };
 		FBAE7FD91D115428002FF522 /* AISellingProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD11D115428002FF522 /* AISellingProgressBar.m */; };
 		FBAE7FDA1D115428002FF522 /* AISellserAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */; };
-		FBC0B3501DC05F4400631FDD /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC0B34F1DC05F4300631FDD /* CardDeepLinkKit.framework */; };
 		FBDF21551D531E3200DEBB15 /* 89897384.json in Resources */ = {isa = PBXBuildFile; fileRef = FBDF21541D531E3200DEBB15 /* 89897384.json */; };
 		FD6E63660FC29EFB7CB17D2E /* Pods_VerisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5293440786150C2B14661D8C /* Pods_VerisTests.framework */; };
 /* End PBXBuildFile section */
@@ -896,7 +901,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				819A0EE71D80400600A84BBB /* AVOSCloudCrashReporting.framework in CopyFiles */,
-				FB3330061DC05F7400C77A61 /* CardDeepLinkKit.framework in CopyFiles */,
+				12CE5DCF1DC74DFB0075EBD7 /* CardDeepLinkKit.framework in CopyFiles */,
 				819A0EE51D80400600A84BBB /* AVOSCloud.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -944,6 +949,7 @@
 		12CE5DC51DC327B20075EBD7 /* AICouponTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICouponTableViewCell.xib; sourceTree = "<group>"; };
 		12CE5DC81DC328F30075EBD7 /* AIIconCouponTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIconCouponTableViewCell.swift; sourceTree = "<group>"; };
 		12CE5DC91DC328F30075EBD7 /* AIIconCouponTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIIconCouponTableViewCell.xib; sourceTree = "<group>"; };
+		12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		12D764961D0D469A002B001B /* AIRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRegistViewController.swift; sourceTree = "<group>"; };
 		12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIValidateRegistViewController.swift; sourceTree = "<group>"; };
 		12D764981D0D469A002B001B /* AISelectRegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectRegionViewController.swift; sourceTree = "<group>"; };
@@ -1524,6 +1530,7 @@
 		81433C281CFBE5A700347C29 /* UIImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TDAdditions.m"; sourceTree = "<group>"; };
 		81433F1F1CFBE80700347C29 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIFundManageViewController.swift; path = FundManage/AIFundManageViewController.swift; sourceTree = "<group>"; };
+		815FC5561DC3446A000239C7 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		8175A7141CFD2710006F2C8F /* AIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIImageView.swift; sourceTree = "<group>"; };
 		8175A7151CFD2710006F2C8F /* AISwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISwiftyJSON.swift; sourceTree = "<group>"; };
 		8175A7161CFD2710006F2C8F /* AIUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIUINavigationController.h; sourceTree = "<group>"; };
@@ -2009,6 +2016,8 @@
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
 		93FD2FDE1D13E7A400B88355 /* searchJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchJson.json; sourceTree = "<group>"; };
 		A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C900614E1DC7204E0001A963 /* AIRechargeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRechargeView.swift; sourceTree = "<group>"; };
+		C90061501DC720550001A963 /* AIRechargeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRechargeView.xib; sourceTree = "<group>"; };
 		C95179D61D40C73600446498 /* AICommentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoModel.swift; sourceTree = "<group>"; };
 		C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductProviderViewControler.swift; sourceTree = "<group>"; };
 		C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductProviderViewControler.xib; sourceTree = "<group>"; };
@@ -2017,9 +2026,12 @@
 		C95179E01D41B41600446498 /* AIAptitudeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAptitudeView.swift; sourceTree = "<group>"; };
 		C95179E21D41B47000446498 /* AIAptitudeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIAptitudeView.xib; sourceTree = "<group>"; };
 		C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIMyWalletBalanceViewController.xib; sourceTree = "<group>"; };
-		C9AF979B1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWalletBaseViewCotroller.xib; sourceTree = "<group>"; };
-		C9AF979D1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWalletBaseViewCotroller.swift; sourceTree = "<group>"; };
 		C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBalanceRechargeViewController.swift; sourceTree = "<group>"; };
+		C9AF97A31DC32D7800ECC7EF /* AIWillPayVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillPayVController.swift; sourceTree = "<group>"; };
+		C9AF97A51DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillPayVControllerCell.swift; sourceTree = "<group>"; };
+		C9AF97AA1DC3328800ECC7EF /* AIWillPayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillPayService.swift; sourceTree = "<group>"; };
+		C9AF97AC1DC3461900ECC7EF /* AIWillReceiverVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWillReceiverVController.swift; sourceTree = "<group>"; };
+		C9AF97B21DC6F46B00ECC7EF /* AIWillPayVControllerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWillPayVControllerCell.xib; sourceTree = "<group>"; };
 		C9C298CF1D6D905A00E34766 /* AIAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AIAlertView.framework; path = "../../../Library/Developer/Xcode/DerivedData/AIVeris-bispjrgyvuzileblnxwqhatxzked/Build/Products/Debug-iphoneos/AIAlertView.framework"; sourceTree = "<group>"; };
 		C9C298D31D7D7ED600E34766 /* AIProductinfoBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductinfoBottomView.xib; sourceTree = "<group>"; };
 		C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductinfoBottomView.swift; sourceTree = "<group>"; };
@@ -2095,7 +2107,6 @@
 		FBAE7FD11D115428002FF522 /* AISellingProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellingProgressBar.m; sourceTree = "<group>"; };
 		FBAE7FD21D115428002FF522 /* AISellserAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellserAnimationView.h; sourceTree = "<group>"; };
 		FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellserAnimationView.m; sourceTree = "<group>"; };
-		FBC0B34F1DC05F4300631FDD /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		FBDF21541D531E3200DEBB15 /* 89897384.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 89897384.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2126,7 +2137,7 @@
 				1234F99B1D349FAE0009FB4F /* libstdc++.6.0.9.tbd in Frameworks */,
 				93A0ABF81D12C4BD00562090 /* libz.tbd in Frameworks */,
 				93C33F2F1B9C25EC007BF506 /* UIKit.framework in Frameworks */,
-				FBC0B3501DC05F4400631FDD /* CardDeepLinkKit.framework in Frameworks */,
+				12CE5DCE1DC74DFB0075EBD7 /* CardDeepLinkKit.framework in Frameworks */,
 				9392B57F1D1CD9F10007F241 /* libssl.a in Frameworks */,
 				9304551A1D124F8A007AFC0C /* AddressBook.framework in Frameworks */,
 				844AFA271CE1DA8B00C58B1C /* libc++.tbd in Frameworks */,
@@ -2149,11 +2160,11 @@
 				81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */,
 				93B25AB61B9D7EA900CD1FEB /* Security.framework in Frameworks */,
 				93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */,
-				FB3330051DC05F7400C77A61 /* CardDeepLinkKit.framework in Frameworks */,
 				93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */,
 				9392B57D1D1CD9F10007F241 /* AlipaySDK.framework in Frameworks */,
 				93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */,
 				819A0EE41D80400600A84BBB /* AVOSCloud.framework in Frameworks */,
+				12CE5DCD1DC74DF00075EBD7 /* CardDeepLinkKit.framework in Frameworks */,
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
@@ -2271,6 +2282,7 @@
 		61647BAFC7200B01794A2E67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				815FC5551DC3446A000239C7 /* DeepLink */,
 				C9C298CF1D6D905A00E34766 /* AIAlertView.framework */,
 				847D29801D47504C009E26B8 /* AVKit.framework */,
 				847D297C1D474FA2009E26B8 /* AssetsLibrary.framework */,
@@ -3610,6 +3622,15 @@
 			name = FundManage;
 			sourceTree = "<group>";
 		};
+		815FC5551DC3446A000239C7 /* DeepLink */ = {
+			isa = PBXGroup;
+			children = (
+				815FC5561DC3446A000239C7 /* CardDeepLinkKit.framework */,
+			);
+			name = DeepLink;
+			path = Veris/Developement/DeepLink;
+			sourceTree = "<group>";
+		};
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -3879,7 +3900,7 @@
 		81B195781D4852BE0086EB83 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				FBC0B34F1DC05F4300631FDD /* CardDeepLinkKit.framework */,
+				12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -4046,7 +4067,6 @@
 		842CE6D11DAF28550038E5C0 /* MyWallet */ = {
 			isa = PBXGroup;
 			children = (
-				C9AF97981DC1E51F00ECC7EF /* WalanceBase */,
 				C9FE35641DC0AEAA00B16C9F /* Balance */,
 				C9FE356A1DC0AEAA00B16C9F /* WillPay */,
 				C9FE35701DC0AEAA00B16C9F /* WillReceiver */,
@@ -4851,30 +4871,12 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		C9AF97981DC1E51F00ECC7EF /* WalanceBase */ = {
+		C9AF97A91DC3327500ECC7EF /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				C9AF97991DC1E51F00ECC7EF /* View */,
-				C9AF979A1DC1E51F00ECC7EF /* ViewController */,
+				C9AF97AA1DC3328800ECC7EF /* AIWillPayService.swift */,
 			);
-			name = WalanceBase;
-			path = Balance/WalanceBase;
-			sourceTree = "<group>";
-		};
-		C9AF97991DC1E51F00ECC7EF /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C9AF979A1DC1E51F00ECC7EF /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C9AF979D1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift */,
-				C9AF979B1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib */,
-			);
-			path = ViewController;
+			name = Service;
 			sourceTree = "<group>";
 		};
 		C9FE35641DC0AEAA00B16C9F /* Balance */ = {
@@ -4889,6 +4891,8 @@
 		C9FE35651DC0AEAA00B16C9F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C900614E1DC7204E0001A963 /* AIRechargeView.swift */,
+				C90061501DC720550001A963 /* AIRechargeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4906,6 +4910,7 @@
 		C9FE356A1DC0AEAA00B16C9F /* WillPay */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF97A91DC3327500ECC7EF /* Service */,
 				C9FE356B1DC0AEAA00B16C9F /* View */,
 				C9FE356C1DC0AEAA00B16C9F /* ViewController */,
 			);
@@ -4915,6 +4920,8 @@
 		C9FE356B1DC0AEAA00B16C9F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF97A51DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift */,
+				C9AF97B21DC6F46B00ECC7EF /* AIWillPayVControllerCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4922,6 +4929,7 @@
 		C9FE356C1DC0AEAA00B16C9F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF97A31DC32D7800ECC7EF /* AIWillPayVController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4945,6 +4953,7 @@
 		C9FE35721DC0AEAA00B16C9F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C9AF97AC1DC3461900ECC7EF /* AIWillReceiverVController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -5180,6 +5189,7 @@
 				935E58DB1D5315D900252B83 /* AIWorkDetailView.xib in Resources */,
 				81FAFBF21D4716F800DD3477 /* AICustomerBannerView.xib in Resources */,
 				12CE5DC31DC327970075EBD7 /* AICurrencyTableViewCell.xib in Resources */,
+				C9AF97B31DC6F46B00ECC7EF /* AIWillPayVControllerCell.xib in Resources */,
 				9352BC841D656143003CD476 /* AIPayAmountView.xib in Resources */,
 				81433D241CFBE5A700347C29 /* FlightServiceView.xib in Resources */,
 				81433EB91CFBE5A700347C29 /* MyriadPro-Bold.otf in Resources */,
@@ -5198,7 +5208,6 @@
 				1265F62D1D4F755200130ECF /* AIWorkManageStoryboard.storyboard in Resources */,
 				93C8C9AA1D14035B00F1DFCF /* AICustomSearchHomeCell.xib in Resources */,
 				93A0AB9C1D12AA1B00562090 /* AIPaymentViewController.xib in Resources */,
-				C9AF979C1DC1E54500ECC7EF /* AIWalletBaseViewCotroller.xib in Resources */,
 				938008641D5B225600FAD140 /* AIWishTitleIconView.xib in Resources */,
 				845700531D015E7600512597 /* CompondServiceCommentViewController.xib in Resources */,
 				84132CCA1DC1F43D000AE195 /* CostItemSubCell.xib in Resources */,
@@ -5305,6 +5314,7 @@
 				8484D84D1D6D3A2F001F1A54 /* TextAndAudioInputViewController.xib in Resources */,
 				93C61FC41D01196F0063C2BF /* ServiceCommentViewController.xib in Resources */,
 				81433D5A1CFBE5A700347C29 /* AINumberCountControl.xib in Resources */,
+				C90061511DC720560001A963 /* AIRechargeView.xib in Resources */,
 				81433EC51CFBE5A700347C29 /* start.mp4 in Resources */,
 				12F60C361DC055E600F98DF2 /* AIPopupSContainerView.xib in Resources */,
 				81433D201CFBE5A700347C29 /* AITitleAndIconTextView.xib in Resources */,
@@ -5551,6 +5561,7 @@
 				FB7E6A801D2A0B8F000E2615 /* ImagePositionButton.swift in Sources */,
 				81433E801CFBE5A700347C29 /* FLEXNetworkRecorder.m in Sources */,
 				81B195801D485B740086EB83 /* AIGladOrderViewController.swift in Sources */,
+				C900614F1DC7204E0001A963 /* AIRechargeView.swift in Sources */,
 				81433E401CFBE5A700347C29 /* AIUIViewUtils.swift in Sources */,
 				8175A7E91CFD2710006F2C8F /* OAStackView+Hiding.m in Sources */,
 				FB734EED1D45BD4500FD808A /* NSUserDefaults+Object.swift in Sources */,
@@ -5805,6 +5816,7 @@
 				FB67FA501D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift in Sources */,
 				81433E9D1CFBE5A700347C29 /* Localize.swift in Sources */,
 				8175A7D81CFD2710006F2C8F /* JSONModel.m in Sources */,
+				C9AF97A61DC32DAB00ECC7EF /* AIWillPayVControllerCell.swift in Sources */,
 				FB74E0161D29FDA300472F68 /* AICustomSearchHomeResultFilterBar.swift in Sources */,
 				81433E981CFBE5A700347C29 /* FLEXRuntimeUtility.m in Sources */,
 				81433E811CFBE5A700347C29 /* FLEXNetworkSettingsTableViewController.m in Sources */,
@@ -5846,6 +5858,7 @@
 				81433CF71CFBE5A700347C29 /* AIBaseTagsView.m in Sources */,
 				8175A7CE1CFD2710006F2C8F /* AFURLSessionManager.m in Sources */,
 				8175A7BC1CFD2710006F2C8F /* Async.swift in Sources */,
+				C9AF97A41DC32D7800ECC7EF /* AIWillPayVController.swift in Sources */,
 				81433D941CFBE5A700347C29 /* AIRootViewController.m in Sources */,
 				81433E291CFBE5A700347C29 /* AIPageBueryViewController.swift in Sources */,
 				81433E1C1CFBE5A700347C29 /* SevenSwitch.swift in Sources */,
@@ -5994,7 +6007,6 @@
 				81433D9B1CFBE5A700347C29 /* AILimitListView.swift in Sources */,
 				81433E631CFBE5A700347C29 /* FLEXMethodCallingViewController.m in Sources */,
 				81433D271CFBE5A700347C29 /* ServiceCardDetailFlag.swift in Sources */,
-				C9AF979E1DC1E55000ECC7EF /* AIWalletBaseViewCotroller.swift in Sources */,
 				813860FB1D597D020050C0D0 /* AIBaseCommentModel.swift in Sources */,
 				81433CF61CFBE5A700347C29 /* AIScrollLabel.m in Sources */,
 				9392B5861D1CD9F10007F241 /* RSADataSigner.m in Sources */,
@@ -6024,6 +6036,7 @@
 				81433E491CFBE5A700347C29 /* UP_NSString+Format.mm in Sources */,
 				81433DAA1CFBE5A700347C29 /* AITimelineCellBaseView.swift in Sources */,
 				C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */,
+				C9AF97AB1DC3328800ECC7EF /* AIWillPayService.swift in Sources */,
 				81433D1C1CFBE5A700347C29 /* AccommodationService.swift in Sources */,
 				8484D8361D66EBF9001F1A54 /* TestCommentViewController.swift in Sources */,
 				936B32A51D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift in Sources */,
@@ -6072,6 +6085,7 @@
 				81433D851CFBE5A700347C29 /* MDCFocalPointView.m in Sources */,
 				81433D821CFBE5A700347C29 /* AIOrderDescView.swift in Sources */,
 				81D325E71D7816680069F9B7 /* AICustomerModel.m in Sources */,
+				C9AF97AD1DC3461900ECC7EF /* AIWillReceiverVController.swift in Sources */,
 				81433D341CFBE5A700347C29 /* TransportService.swift in Sources */,
 				81433D8A1CFBE5A700347C29 /* ProposalExpandedView.swift in Sources */,
 			);
@@ -6128,7 +6142,10 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/Developement/DeepLink/CardDeepLinkKit.framework";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
+					"$(SRCROOT)/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -6175,7 +6192,6 @@
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 					"$(SRCROOT)/**",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -6225,6 +6241,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
 				INFOPLIST_FILE = VerisTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -6247,6 +6264,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
 				INFOPLIST_FILE = VerisTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -6270,6 +6288,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Veris/3rdLibrary/Frameworks",
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
 				INFOPLIST_FILE = VerisTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -6309,7 +6328,10 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/Developement/DeepLink/CardDeepLinkKit.framework";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
+					"$(SRCROOT)/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -6363,7 +6385,10 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Veris/Developement/DeepLink/CardDeepLinkKit.framework";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
+					"$(SRCROOT)/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -6413,7 +6438,6 @@
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 					"$(SRCROOT)/**",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -6479,7 +6503,6 @@
 					"$(PROJECT_DIR)/Veris/Developement/ScreenAssistant/OpenTok",
 					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 					"$(SRCROOT)/**",
-					"$(PROJECT_DIR)/Veris/Developement/DeepLink",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
