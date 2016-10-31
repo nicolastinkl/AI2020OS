@@ -261,14 +261,15 @@
 
 - (void)showMyWallet {
     // 演示屏蔽
-    AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:fundManageViewController];
-     [self presentViewController:nav animated:YES completion:nil];
-    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AICouponsStoryboard" bundle:nil];
-    AIBusinessCurrencyViewController *bcViewController = [storyboard instantiateViewControllerWithIdentifier:@"AIBusinessCurrencyViewController"];
+//    AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] init];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:fundManageViewController];
+//     [self presentViewController:nav animated:YES completion:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AICouponsStoryboard" bundle:nil];
+    //AICouponViewController AIBusinessCurrencyViewController
+    AIBusinessCurrencyViewController *bcViewController = [storyboard instantiateViewControllerWithIdentifier:@"AICouponViewController"];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:bcViewController];
     [self presentViewController:nav animated:YES completion:nil];
-     */
+     
     
     
 }

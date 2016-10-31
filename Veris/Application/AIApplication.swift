@@ -131,7 +131,10 @@ struct AIApplication {
             // MARK: SERVICE EXECUTE
             static let AITimelineTableViewCell = "AITimelineTableViewCell"
             static let AITimelineNowTableViewCell = "AITimelineNowTableViewCell"
-
+            // MARK: MY_WALLET
+            static let AICurrencyTableViewCell = "AICurrencyTableViewCell"
+            static let AICouponTableViewCell = "AICouponTableViewCell"
+            static let AIIconCouponTableViewCell = "AIIconCouponTableViewCell"
         }
 
         /*!
