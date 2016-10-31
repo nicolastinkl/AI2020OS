@@ -8,10 +8,15 @@
 
 import UIKit
 
+@objc protocol AIWorkOpportunityWhatsNewViewDelegate: NSObjectProtocol {
+    optional func whatsNewViewDidClick(index: Int)
+}
+
 class AIWorkOpportunityWhatsNewView: UIView {
 
     var services: [AISearchServiceModel]!
     private var icons = [VerticalIconLabel]()
+    var delegate: AIWorkOpportunityWhatsNewViewDelegate?
     
     var titleLabel: UILabel!
     
@@ -30,6 +35,9 @@ class AIWorkOpportunityWhatsNewView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func iconDidClick(g: UITapGestureRecognizer) {
+       delegate?.whatsNewViewDidClick?(g.view!.tag)
+    }
     func setup() {
         titleLabel = UILabel()
         titleLabel.font = AITools.myriadSemiCondensedWithSize(60.displaySizeFrom1242DesignSize())
@@ -47,12 +55,15 @@ class AIWorkOpportunityWhatsNewView: UIView {
         for (i, service) in services.enumerate() {
             let icon = VerticalIconLabel()
             icon.imageWidth = iconWidth
+            icon.userInteractionEnabled = true
             icon.font = AITools.myriadLightSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
             icon.tag = i
             icon.text = service.name
             icon.imageSpaceToLabel = 21.displaySizeFrom1242DesignSize()
             icon.imageView.sd_setImageWithURL(NSURL(string: service.icon ?? ""))
             addSubview(icon)
+            let tap = UITapGestureRecognizer(target: self, action: #selector(AIWorkOpportunityWhatsNewView.iconDidClick(_:)))
+            icon.addGestureRecognizer(tap)
             icons.append(icon)
         }
         // setup icons constraints

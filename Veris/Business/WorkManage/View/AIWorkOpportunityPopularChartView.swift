@@ -8,10 +8,15 @@
 
 import UIKit
 
+@objc protocol AIWorkOpportunityPopularChartViewDelegate: NSObjectProtocol {
+    optional func chartBarDidClick(index: Int)
+}
+
 class AIWorkOpportunityPopularChartView: UIView {
     
     var opportunities: [String]? = nil
     var chartBars: [AIWorkOpportunityPopularChartBarView] = []
+    var delegate: AIWorkOpportunityPopularChartViewDelegate?
     
     let colors = [
         UIColor(hexString: "#b32b1d"),
@@ -118,6 +123,8 @@ class AIWorkOpportunityPopularChartView: UIView {
             let numberText = String(format: "AIWorkOpportunityPopularChartView.orders".localized, service.order_time)
             let chartBar = AIWorkOpportunityPopularChartBarView(color: colors[i], name: service.name, numberText: numberText, barLength: length)
             chartBars.append(chartBar)
+            let tap = UITapGestureRecognizer(target: self, action: #selector(AIWorkOpportunityPopularChartView.chartBarDidClick(_:)))
+            chartBar.addGestureRecognizer(tap)
             addSubview(chartBar)
         }
     }
@@ -152,6 +159,10 @@ class AIWorkOpportunityPopularChartView: UIView {
                 })
             }
         }
+    }
+    
+    func chartBarDidClick(g: UITapGestureRecognizer) {
+        delegate?.chartBarDidClick?(g.view!.tag)
     }
     
     class func needsUpdateConstraints() -> Bool {
