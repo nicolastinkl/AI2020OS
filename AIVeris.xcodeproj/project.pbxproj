@@ -798,6 +798,8 @@
 		93E8469B1D2A0FB400CD4BD0 /* AIUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E8469A1D2A0FB400CD4BD0 /* AIUIButton.swift */; };
 		93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */; };
 		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
+		C900614F1DC7204E0001A963 /* AIRechargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900614E1DC7204E0001A963 /* AIRechargeView.swift */; };
+		C90061511DC720560001A963 /* AIRechargeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90061501DC720550001A963 /* AIRechargeView.xib */; };
 		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
 		C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */; };
 		C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */; };
@@ -1996,6 +1998,8 @@
 		93EC4A6A1D055679007F599E /* AISuperiorityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISuperiorityModel.swift; sourceTree = "<group>"; };
 		93FD2FDE1D13E7A400B88355 /* searchJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchJson.json; sourceTree = "<group>"; };
 		A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C900614E1DC7204E0001A963 /* AIRechargeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRechargeView.swift; sourceTree = "<group>"; };
+		C90061501DC720550001A963 /* AIRechargeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRechargeView.xib; sourceTree = "<group>"; };
 		C95179D61D40C73600446498 /* AICommentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoModel.swift; sourceTree = "<group>"; };
 		C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductProviderViewControler.swift; sourceTree = "<group>"; };
 		C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductProviderViewControler.xib; sourceTree = "<group>"; };
@@ -4852,6 +4856,8 @@
 		C9FE35651DC0AEAA00B16C9F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C900614E1DC7204E0001A963 /* AIRechargeView.swift */,
+				C90061501DC720550001A963 /* AIRechargeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5270,6 +5276,7 @@
 				8484D84D1D6D3A2F001F1A54 /* TextAndAudioInputViewController.xib in Resources */,
 				93C61FC41D01196F0063C2BF /* ServiceCommentViewController.xib in Resources */,
 				81433D5A1CFBE5A700347C29 /* AINumberCountControl.xib in Resources */,
+				C90061511DC720560001A963 /* AIRechargeView.xib in Resources */,
 				81433EC51CFBE5A700347C29 /* start.mp4 in Resources */,
 				12F60C361DC055E600F98DF2 /* AIPopupSContainerView.xib in Resources */,
 				81433D201CFBE5A700347C29 /* AITitleAndIconTextView.xib in Resources */,
@@ -5515,6 +5522,7 @@
 				FB7E6A801D2A0B8F000E2615 /* ImagePositionButton.swift in Sources */,
 				81433E801CFBE5A700347C29 /* FLEXNetworkRecorder.m in Sources */,
 				81B195801D485B740086EB83 /* AIGladOrderViewController.swift in Sources */,
+				C900614F1DC7204E0001A963 /* AIRechargeView.swift in Sources */,
 				81433E401CFBE5A700347C29 /* AIUIViewUtils.swift in Sources */,
 				8175A7E91CFD2710006F2C8F /* OAStackView+Hiding.m in Sources */,
 				FB734EED1D45BD4500FD808A /* NSUserDefaults+Object.swift in Sources */,

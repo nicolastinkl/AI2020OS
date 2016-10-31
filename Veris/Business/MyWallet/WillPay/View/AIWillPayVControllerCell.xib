@@ -37,10 +37,12 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="djm-Cx-1NW">
-                    <frame key="frameInset" minX="378" minY="75" width="202" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djm-Cx-1NW">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="175" id="b5l-va-fAw"/>
+                        <constraint firstAttribute="height" constant="31" id="fFJ-oE-Mej"/>
+                    </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eX1-xm-lkx">
                     <constraints>
@@ -53,8 +55,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="djm-Cx-1NW" firstAttribute="top" secondItem="eX1-xm-lkx" secondAttribute="bottom" constant="34.5" id="83R-vg-y1w"/>
                 <constraint firstAttribute="trailing" secondItem="eX1-xm-lkx" secondAttribute="trailing" constant="20" id="Rj9-zD-tOC"/>
                 <constraint firstItem="eX1-xm-lkx" firstAttribute="top" secondItem="Js1-t3-8AJ" secondAttribute="top" constant="20" id="fbl-bW-BE8"/>
+                <constraint firstAttribute="trailing" secondItem="djm-Cx-1NW" secondAttribute="trailing" constant="20" id="kcc-oh-WBe"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

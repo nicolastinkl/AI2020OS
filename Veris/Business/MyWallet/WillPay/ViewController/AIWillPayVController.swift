@@ -95,11 +95,27 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
                 make.edges.equalTo((cell?.contentView)!)
             }
             //绘制我要付款和我要申述按钮
-            let buttonSS = DesignableButton(frame: CGRectMake(0, 0,0, 0))
-            let buttonSurePay = DesignableButton(frame: CGRectMake(0, 0,0, 0))
+            let buttonSS = DesignableButton(frame: CGRectMake(0, 0, 244/3, 96/3))
+            let buttonSurePay = DesignableButton(frame: CGRectMake(244/3+10, 0, 244/3, 96/3))
+            
+            buttonSS.cornerRadius = 5
+            buttonSS.borderColor = UIColor(hex: "0f86e8")
+            buttonSS.borderWidth = 3/2
+            buttonSS.backgroundColor = UIColor.clearColor()
+            buttonSS.setTitle("我要申诉", forState: UIControlState.Normal)
+            buttonSS.setTitleColor(UIColor(hex: "0f86e8"), forState: UIControlState.Normal)
+            buttonSS.titleLabel?.font = UIFont.systemFontOfSize(15)
+            buttonSurePay.titleLabel?.font = UIFont.systemFontOfSize(15)            
+            buttonSurePay.cornerRadius = 5
+            buttonSurePay.backgroundColor =  UIColor(hex: "0f86e8")
+            buttonSurePay.setTitle("确定付款", forState: UIControlState.Normal)
+            buttonSurePay.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             
             contentView?.buttonView.addSubview(buttonSS)
             contentView?.buttonView.addSubview(buttonSurePay)
+            
+            buttonSS.addTarget(self, action: #selector(AIWillPayVController.showAIRechargeView), forControlEvents: UIControlEvents.TouchUpInside)
+            
         }
         
         cell?.selectionStyle = .None
@@ -111,9 +127,20 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
         contentView?.nameLabel.text = model.sname ?? ""
         contentView?.priceLabel.text = model.sprice ?? ""
         let url = NSURL(string: model.simageurl ?? "")!
-        contentView?.icon.setImageWithURL(url)
+        contentView?.icon.sd_setImageWithURL(url)
             
         return cell!
+    }
+    
+    func showAIRechargeView() {
+        if let viewrech = AIRechargeView.initFromNib() as? AIRechargeView {
+            view.addSubview(viewrech)
+            viewrech.initSettings()
+            viewrech.snp_makeConstraints { (make) in
+                make.edges.equalTo(view)
+            }
+        }
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

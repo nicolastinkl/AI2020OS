@@ -28,7 +28,7 @@ class AIWillReceiverVController: AIBaseViewController {
         let maxWidth = UIScreen.mainScreen().bounds.size.width
         
         let payInfoLabel = UILabel(frame: CGRectMake(0, 0, maxWidth, 50))
-        payInfoLabel.text = "我的待付"
+        payInfoLabel.text = "我的待收"
         payInfoLabel.textAlignment = .Center
         payInfoLabel.textColor = UIColor(hexString: "#ffffff", alpha: 1)
         view.addSubview(payInfoLabel)
