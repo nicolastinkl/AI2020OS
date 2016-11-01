@@ -10,56 +10,57 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="78" id="KGk-i7-Jjw" customClass="CapitalFlowCell" customModule="Veris" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="351" height="74"/>
+            <rect key="frame" x="0.0" y="0.0" width="351" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="351" height="73"/>
+                <frame key="frameInset" width="351" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZS-xk-PdC" userLabel="ItemName">
-                        <frame key="frameInset" width="1000" height="1000"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZS-xk-PdC" userLabel="ItemName">
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWB-X2-GLx" userLabel="Date">
-                        <frame key="frameInset" width="1000" height="1000"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWB-X2-GLx" userLabel="Date">
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVO-ri-XNV" userLabel="FlowNumber">
-                        <frame key="frameInset" width="1000" height="1000"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVO-ri-XNV" userLabel="FlowNumber">
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ka0-Zl-mZU" userLabel="Type">
-                        <frame key="frameInset" width="1000" height="1000"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ka0-Zl-mZU" userLabel="Type">
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payRightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="RJ5-0s-Pid">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flowRightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="RJ5-0s-Pid"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfF-mX-Ua9" userLabel="Seperator">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="12" id="DG8-1I-fjr"/>
-                            <constraint firstAttribute="width" constant="6" id="iVd-uO-pzC"/>
+                            <constraint firstAttribute="height" constant="1" id="YPF-b0-FuZ"/>
                         </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="VZS-xk-PdC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="4Nx-58-OdQ"/>
-                    <constraint firstItem="RJ5-0s-Pid" firstAttribute="leading" secondItem="kVO-ri-XNV" secondAttribute="trailing" constant="6" id="IHb-Ni-IsY"/>
-                    <constraint firstItem="PWB-X2-GLx" firstAttribute="top" secondItem="VZS-xk-PdC" secondAttribute="bottom" constant="8" id="Otp-jq-dOk"/>
-                    <constraint firstItem="ka0-Zl-mZU" firstAttribute="centerY" secondItem="PWB-X2-GLx" secondAttribute="centerY" id="Saf-wE-qH6"/>
-                    <constraint firstItem="kVO-ri-XNV" firstAttribute="centerY" secondItem="VZS-xk-PdC" secondAttribute="centerY" id="cNg-rM-YCr"/>
-                    <constraint firstItem="PWB-X2-GLx" firstAttribute="leading" secondItem="VZS-xk-PdC" secondAttribute="leading" id="chm-LG-whh"/>
-                    <constraint firstItem="RJ5-0s-Pid" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fAI-Eo-CHl"/>
-                    <constraint firstAttribute="trailing" secondItem="RJ5-0s-Pid" secondAttribute="trailing" constant="10" id="hHo-ja-HPI"/>
-                    <constraint firstItem="VZS-xk-PdC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="v25-gG-aFe"/>
-                    <constraint firstItem="ka0-Zl-mZU" firstAttribute="trailing" secondItem="kVO-ri-XNV" secondAttribute="trailing" id="vr9-HY-eMh"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="PWB-X2-GLx" secondAttribute="bottom" constant="8.3333333333333357" id="yAT-o1-P01"/>
+                    <constraint firstItem="PWB-X2-GLx" firstAttribute="top" secondItem="VZS-xk-PdC" secondAttribute="bottom" constant="10" id="2Xl-1K-fZH"/>
+                    <constraint firstItem="RJ5-0s-Pid" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2hf-1s-PZM"/>
+                    <constraint firstItem="ka0-Zl-mZU" firstAttribute="centerY" secondItem="PWB-X2-GLx" secondAttribute="centerY" id="7U8-3J-XZ0"/>
+                    <constraint firstItem="VZS-xk-PdC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="BE8-hC-FE0"/>
+                    <constraint firstItem="VfF-mX-Ua9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="BOK-jU-mTX"/>
+                    <constraint firstItem="VZS-xk-PdC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="Hl6-un-Y39"/>
+                    <constraint firstItem="ka0-Zl-mZU" firstAttribute="trailing" secondItem="kVO-ri-XNV" secondAttribute="trailing" id="LNN-1X-Obi"/>
+                    <constraint firstItem="RJ5-0s-Pid" firstAttribute="leading" secondItem="kVO-ri-XNV" secondAttribute="trailing" constant="12" id="M2Q-w6-Qcp"/>
+                    <constraint firstItem="kVO-ri-XNV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VZS-xk-PdC" secondAttribute="trailing" constant="20" id="d6i-Dt-Zgl"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="PWB-X2-GLx" secondAttribute="bottom" constant="16" id="elz-mk-Nae"/>
+                    <constraint firstAttribute="trailing" secondItem="RJ5-0s-Pid" secondAttribute="trailing" constant="17" id="hq9-F1-EKX"/>
+                    <constraint firstAttribute="bottom" secondItem="VfF-mX-Ua9" secondAttribute="bottom" id="o65-Vu-g9N"/>
+                    <constraint firstItem="kVO-ri-XNV" firstAttribute="centerY" secondItem="VZS-xk-PdC" secondAttribute="centerY" id="u1F-ga-vwc"/>
+                    <constraint firstItem="PWB-X2-GLx" firstAttribute="leading" secondItem="VZS-xk-PdC" secondAttribute="leading" id="uyV-zL-8yj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="VfF-mX-Ua9" secondAttribute="trailing" constant="-8" id="vs3-v2-SNL"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -67,12 +68,13 @@
                 <outlet property="date" destination="PWB-X2-GLx" id="Nfe-wJ-ZD7"/>
                 <outlet property="flowNumber" destination="kVO-ri-XNV" id="7b2-9h-3Pk"/>
                 <outlet property="itemName" destination="VZS-xk-PdC" id="nbf-00-HiN"/>
+                <outlet property="seperator" destination="VfF-mX-Ua9" id="zs5-H7-lNM"/>
                 <outlet property="type" destination="ka0-Zl-mZU" id="ka2-XN-eZW"/>
             </connections>
             <point key="canvasLocation" x="40.5" y="69"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="payRightArrow" width="3" height="6"/>
+        <image name="flowRightArrow" width="8" height="5"/>
     </resources>
 </document>

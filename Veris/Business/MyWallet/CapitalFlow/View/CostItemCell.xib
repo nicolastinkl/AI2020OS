@@ -26,7 +26,7 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="expandableImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="ibM-Sj-lVu" userLabel="ExpandableImage"/>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-down" translatesAutoresizingMaskIntoConstraints="NO" id="ibM-Sj-lVu" userLabel="ExpandableImage"/>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ibM-Sj-lVu" secondAttribute="trailing" constant="8" id="43T-J9-MMJ"/>
@@ -49,6 +49,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="expandableImage.png" width="8" height="5"/>
+        <image name="search-down" width="8" height="5"/>
     </resources>
 </document>

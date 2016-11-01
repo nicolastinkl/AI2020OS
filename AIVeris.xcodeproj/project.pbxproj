@@ -588,6 +588,10 @@
 		84132CCA1DC1F43D000AE195 /* CostItemSubCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84132CC81DC1F43D000AE195 /* CostItemSubCell.xib */; };
 		84132CCD1DC1F9AF000AE195 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84132CCB1DC1F9AF000AE195 /* TransactionCell.swift */; };
 		84132CCE1DC1F9AF000AE195 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84132CCC1DC1F9AF000AE195 /* TransactionCell.xib */; };
+		84132CD01DC3283D000AE195 /* FilteTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84132CCF1DC3283D000AE195 /* FilteTypeCell.swift */; };
+		84132CD21DC32863000AE195 /* FilteTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84132CD11DC32863000AE195 /* FilteTypeCell.xib */; };
+		84132CD51DC32B08000AE195 /* FilteTypeSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84132CD31DC32B08000AE195 /* FilteTypeSubCell.swift */; };
+		84132CD61DC32B08000AE195 /* FilteTypeSubCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84132CD41DC32B08000AE195 /* FilteTypeSubCell.xib */; };
 		842936921D17870D00795C57 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842936911D17870D00795C57 /* CheckboxButton.swift */; };
 		842CE6D51DAF28CA0038E5C0 /* CapitalFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842CE6D41DAF28CA0038E5C0 /* CapitalFlow.storyboard */; };
 		842CE6D71DAF293C0038E5C0 /* CapitalFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CE6D61DAF293C0038E5C0 /* CapitalFlowViewController.swift */; };
@@ -1689,6 +1693,10 @@
 		84132CC81DC1F43D000AE195 /* CostItemSubCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CostItemSubCell.xib; sourceTree = "<group>"; };
 		84132CCB1DC1F9AF000AE195 /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		84132CCC1DC1F9AF000AE195 /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		84132CCF1DC3283D000AE195 /* FilteTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteTypeCell.swift; sourceTree = "<group>"; };
+		84132CD11DC32863000AE195 /* FilteTypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilteTypeCell.xib; sourceTree = "<group>"; };
+		84132CD31DC32B08000AE195 /* FilteTypeSubCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteTypeSubCell.swift; sourceTree = "<group>"; };
+		84132CD41DC32B08000AE195 /* FilteTypeSubCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilteTypeSubCell.xib; sourceTree = "<group>"; };
 		842936911D17870D00795C57 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		842CE6D41DAF28CA0038E5C0 /* CapitalFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CapitalFlow.storyboard; sourceTree = "<group>"; };
 		842CE6D61DAF293C0038E5C0 /* CapitalFlowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalFlowViewController.swift; sourceTree = "<group>"; };
@@ -4069,6 +4077,10 @@
 				84132CC81DC1F43D000AE195 /* CostItemSubCell.xib */,
 				84132CCB1DC1F9AF000AE195 /* TransactionCell.swift */,
 				84132CCC1DC1F9AF000AE195 /* TransactionCell.xib */,
+				84132CCF1DC3283D000AE195 /* FilteTypeCell.swift */,
+				84132CD11DC32863000AE195 /* FilteTypeCell.xib */,
+				84132CD31DC32B08000AE195 /* FilteTypeSubCell.swift */,
+				84132CD41DC32B08000AE195 /* FilteTypeSubCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5153,6 +5165,7 @@
 				93A0AB921D129FEB00562090 /* voicesearch.mp3 in Resources */,
 				935E58DE1D5315D900252B83 /* AIWorkOpportunityIndexViewController.xib in Resources */,
 				846AED8E1D13903800C8BCE9 /* TopServiceCommentTableViewCell.xib in Resources */,
+				84132CD61DC32B08000AE195 /* FilteTypeSubCell.xib in Resources */,
 				C95179E31D41B47000446498 /* AIAptitudeView.xib in Resources */,
 				84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */,
 				81433D9A1CFBE5A700347C29 /* AIErrorRetryView.xib in Resources */,
@@ -5236,6 +5249,7 @@
 				81433DF51CFBE5A700347C29 /* AIDatePickerView.xib in Resources */,
 				12F60C321DBF581B00F98DF2 /* AICouponDetailView.xib in Resources */,
 				81B195701D474A960086EB83 /* AAProviderDialogViewController.xib in Resources */,
+				84132CD21DC32863000AE195 /* FilteTypeCell.xib in Resources */,
 				8484D84D1D6D3A2F001F1A54 /* TextAndAudioInputViewController.xib in Resources */,
 				93C61FC41D01196F0063C2BF /* ServiceCommentViewController.xib in Resources */,
 				81433D5A1CFBE5A700347C29 /* AINumberCountControl.xib in Resources */,
@@ -5629,6 +5643,7 @@
 				8175A7F01CFD2710006F2C8F /* OBShapedButton.m in Sources */,
 				81433D051CFBE5A700347C29 /* AIProviderDataObtainer.swift in Sources */,
 				8175A7C21CFD2710006F2C8F /* UINavigationBar+Awesome.m in Sources */,
+				84132CD51DC32B08000AE195 /* FilteTypeSubCell.swift in Sources */,
 				939310681D1A8E5300F716C9 /* AIProductInfoServcieInfoView.swift in Sources */,
 				81433D431CFBE5A700347C29 /* AINavigationBarView.swift in Sources */,
 				81433D421CFBE5A700347C29 /* AIGalleryView.swift in Sources */,
@@ -5861,6 +5876,7 @@
 				84132CCD1DC1F9AF000AE195 /* TransactionCell.swift in Sources */,
 				8175A7E41CFD2710006F2C8F /* UIScrollView+MJExtension.m in Sources */,
 				8175A7F21CFD2710006F2C8F /* UIImage+ColorAtPixel.m in Sources */,
+				84132CD01DC3283D000AE195 /* FilteTypeCell.swift in Sources */,
 				81433E551CFBE5A700347C29 /* FLEXArgumentInputFontView.m in Sources */,
 				81433E021CFBE5A700347C29 /* GBSlideOutToUnlockView.m in Sources */,
 				81FAFBF01D4716F800DD3477 /* TaskResultCommitViewController.swift in Sources */,

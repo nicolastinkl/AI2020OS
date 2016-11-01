@@ -12,6 +12,7 @@ class CapitalFlowViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var filterViewContainer: UIView!
+    @IBOutlet weak var filteButton: UIButton!
     
     var capitalData: [CapitalFlowModel]?
     private var vc: FilterViewController!
@@ -20,6 +21,8 @@ class CapitalFlowViewController: UIViewController {
         super.viewDidLoad()
 
         setupNavigationBar()
+        
+        filteButton.titleLabel!.font = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
         
         tableView.registerNib(UINib(nibName: "CapitalFlowCell", bundle: nil), forCellReuseIdentifier: "CapitalFlowCell")
         tableView.rowHeight = UITableViewAutomaticDimension
