@@ -4,7 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-<<<<<<< HEAD
 		<key>CardAlertView.nib</key>
 		<data>
 		IigpncXZUuSyri8lDh3bV70EHL0=
@@ -16,15 +15,6 @@
 		<key>CardDeepLinkKit.bundle/LoadingView.nib</key>
 		<data>
 		PlbDtvTED5p96roqMjTCtrx2cGE=
-=======
-		<key>CardDeepLinkKit.bundle/CardAlertView.nib</key>
-		<data>
-		08opgW9+irjaGc1+LkNfarsN4fo=
-		</data>
-		<key>CardDeepLinkKit.bundle/LoadingView.nib</key>
-		<data>
-		peqq+bmTLtT3UsR6nlTim2Y+PHQ=
->>>>>>> fe5f40f6002a34485b74a8c1249ee62a68ee5b34
 		</data>
 		<key>CardDeepLinkKit.bundle/dp_bg.png</key>
 		<data>
@@ -50,7 +40,6 @@
 		<data>
 		D+rTeNj/vvUquVj/0RToNfxeRqo=
 		</data>
-<<<<<<< HEAD
 		<key>Headers/CardDeepLinkKit-Swift.h</key>
 		<data>
 		bGK7jxJx+Z0BEc4n3ufPb/Sdye0=
@@ -74,11 +63,6 @@
 		<key>Modules/CardDeepLinkKit.swiftmodule/arm64.swiftmodule</key>
 		<data>
 		Ep8TlYrMVqzh8fu1i+oDXAUe5+k=
-=======
-		<key>Headers/CardDeepLinkKit.h</key>
-		<data>
-		ETHJYj/IJxdZiWMJ+CA1CkMLnTA=
->>>>>>> fe5f40f6002a34485b74a8c1249ee62a68ee5b34
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -87,7 +71,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-<<<<<<< HEAD
 		<key>CardAlertView.nib</key>
 		<dict>
 			<key>hash</key>
@@ -99,44 +82,26 @@
 			1yMDMhGXwveeUum6hxTp+7xmFrVOZ6GRxJXsTfdQHP0=
 			</data>
 		</dict>
-=======
->>>>>>> fe5f40f6002a34485b74a8c1249ee62a68ee5b34
 		<key>CardDeepLinkKit.bundle/CardAlertView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-<<<<<<< HEAD
 			vSv+5xNh6xyiyhElxILsc4f/MFo=
 			</data>
 			<key>hash2</key>
 			<data>
 			eHzJblLOi02OX+6M9S/kiz7if3JlPzo9lxaNepBCoTc=
-=======
-			08opgW9+irjaGc1+LkNfarsN4fo=
-			</data>
-			<key>hash2</key>
-			<data>
-			yXD/T1+FizqVlhePypj7e/rQpbPLwz32HlIFF7Gn6TA=
->>>>>>> fe5f40f6002a34485b74a8c1249ee62a68ee5b34
 			</data>
 		</dict>
 		<key>CardDeepLinkKit.bundle/LoadingView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-<<<<<<< HEAD
 			PlbDtvTED5p96roqMjTCtrx2cGE=
 			</data>
 			<key>hash2</key>
 			<data>
 			hsXyG4H+DF5DZNrfeX8pb48UlmysBTrtPdZROd6HNpA=
-=======
-			peqq+bmTLtT3UsR6nlTim2Y+PHQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			9YPwAnmho3BDHkc+60q+OyHe/ojOJ9UXlQgOguKjOu0=
->>>>>>> fe5f40f6002a34485b74a8c1249ee62a68ee5b34
 			</data>
 		</dict>
 		<key>CardDeepLinkKit.bundle/dp_bg.png</key>
@@ -205,7 +170,6 @@
 			G7btc8EJeixoOH9KHcCCQFcFb+15hry/YiJSs1geFBU=
 			</data>
 		</dict>
-<<<<<<< HEAD
 		<key>Headers/CardDeepLinkKit-Swift.h</key>
 		<dict>
 			<key>hash</key>
@@ -217,13 +181,10 @@
 			pZOCYLhhTjYvSOto0eY9IKqxN8kzM+E4z4zjLMtpRtQ=
 			</data>
 		</dict>
-=======
->>>>>>> fe5f40f6002a34485b74a8c1249ee62a68ee5b34
 		<key>Headers/CardDeepLinkKit.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-<<<<<<< HEAD
 			lzp6g4OHM3YmWBnI8/5buPKzQpY=
 			</data>
 			<key>hash2</key>
@@ -262,13 +223,6 @@
 			<key>hash2</key>
 			<data>
 			an9HsloaIYUPHBTP9gQL7Lo3jMds8oSPTN+x0X1OtuU=
-=======
-			ETHJYj/IJxdZiWMJ+CA1CkMLnTA=
-			</data>
-			<key>hash2</key>
-			<data>
-			LELzNSRSKvuuIKC4uT9ekwUi2fsHqdxQJi/N+s2KZXo=
->>>>>>> fe5f40f6002a34485b74a8c1249ee62a68ee5b34
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
