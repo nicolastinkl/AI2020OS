@@ -531,8 +531,6 @@
 		8175A8031CFD2710006F2C8F /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7AF1CFD2710006F2C8F /* UIImageView+HighlightedWebCache.m */; };
 		8175A8041CFD2710006F2C8F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7B11CFD2710006F2C8F /* UIImageView+WebCache.m */; };
 		8175A8051CFD2710006F2C8F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7B31CFD2710006F2C8F /* UIView+WebCacheOperation.m */; };
-		819A0EE41D80400600A84BBB /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A0EE01D803FFB00A84BBB /* AVOSCloud.framework */; };
-		819A0EE51D80400600A84BBB /* AVOSCloud.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 819A0EE01D803FFB00A84BBB /* AVOSCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		819A0EE61D80400600A84BBB /* AVOSCloudCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A0EE11D803FFB00A84BBB /* AVOSCloudCrashReporting.framework */; };
 		819A0EE71D80400600A84BBB /* AVOSCloudCrashReporting.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 819A0EE11D803FFB00A84BBB /* AVOSCloudCrashReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		819A0F461D66A6460087A50A /* AICommentPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A0F451D66A6460087A50A /* AICommentPictures.swift */; };
@@ -802,6 +800,8 @@
 		93FD2FDF1D13E7A400B88355 /* searchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FD2FDE1D13E7A400B88355 /* searchJson.json */; };
 		C900614F1DC7204E0001A963 /* AIRechargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900614E1DC7204E0001A963 /* AIRechargeView.swift */; };
 		C90061511DC720560001A963 /* AIRechargeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90061501DC720550001A963 /* AIRechargeView.xib */; };
+		C90061521DC73AC30001A963 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A0EE01D803FFB00A84BBB /* AVOSCloud.framework */; };
+		C90061531DC73AC30001A963 /* AVOSCloud.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 819A0EE01D803FFB00A84BBB /* AVOSCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
 		C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */; };
 		C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */; };
@@ -893,7 +893,7 @@
 			files = (
 				819A0EE71D80400600A84BBB /* AVOSCloudCrashReporting.framework in CopyFiles */,
 				815FC5541DC343CB000239C7 /* CardDeepLinkKit.framework in CopyFiles */,
-				819A0EE51D80400600A84BBB /* AVOSCloud.framework in CopyFiles */,
+				C90061531DC73AC30001A963 /* AVOSCloud.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2114,6 +2114,7 @@
 				844AFA1F1CE1DA4700C58B1C /* AudioToolbox.framework in Frameworks */,
 				1234F9A91D351C530009FB4F /* BaiduMapAPI_Base.framework in Frameworks */,
 				1234F99E1D349FFA0009FB4F /* CoreLocation.framework in Frameworks */,
+				C90061521DC73AC30001A963 /* AVOSCloud.framework in Frameworks */,
 				1234F99C1D349FE30009FB4F /* OpenGLES.framework in Frameworks */,
 				81F414321D351B8A008DC280 /* libsqlite3.0.tbd in Frameworks */,
 				93B25AB81B9D7EB500CD1FEB /* CoreTelephony.framework in Frameworks */,
@@ -2146,7 +2147,6 @@
 				93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */,
 				9392B57D1D1CD9F10007F241 /* AlipaySDK.framework in Frameworks */,
 				93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */,
-				819A0EE41D80400600A84BBB /* AVOSCloud.framework in Frameworks */,
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,

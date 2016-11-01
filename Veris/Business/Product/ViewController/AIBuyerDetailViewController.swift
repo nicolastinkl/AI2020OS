@@ -14,7 +14,6 @@ import AIAlertView
 import SnapKit
 import CardDeepLinkKit
 
-
 protocol AIBuyerDetailDelegate: class {
 	func closeAIBDetailViewController()
 }
