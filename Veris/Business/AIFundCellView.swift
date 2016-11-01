@@ -16,9 +16,14 @@ class AIFundCellView: UIView {
     @IBOutlet weak var des: UILabel!
     @IBOutlet weak var title: UILabel!
     
+    @IBOutlet weak var bgimage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         self.round.layer.cornerRadius = 5
         self.round.layer.masksToBounds = true
+        
+        self.bgimage.layer.cornerRadius = 8
+        self.bgimage.layer.masksToBounds = true
+        
     }
 }

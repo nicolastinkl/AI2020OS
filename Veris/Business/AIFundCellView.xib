@@ -84,6 +84,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="bgimage" destination="iuK-hR-hX0" id="avI-3x-fek"/>
                 <outlet property="des" destination="s6f-Co-F58" id="OH3-do-yNb"/>
                 <outlet property="price" destination="fWd-0o-498" id="zFp-fU-6S5"/>
                 <outlet property="round" destination="P6X-wG-slb" id="gZL-Ps-WVU"/>

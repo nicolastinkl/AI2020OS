@@ -42,6 +42,39 @@ class AIFundManageViewController: AIBaseViewController {
                 cell.round.backgroundColor = UIColor(hex: color)
                 self.addNewSubView(cell)
                 index  = index + 1
+                cell.tag = index
+                let tap = UITapGestureRecognizer(target: self, action: Selector("showAction:"))
+                cell.addGestureRecognizer(tap)
+            }
+        }
+        
+    }
+    
+    //跳转点击事件分发
+    func showAction(ges: UITapGestureRecognizer) {
+        if let tag = ges.view?.tag {
+            switch tag {
+            case 1:
+                //我的余额
+                break
+            case 2:
+                //我的信用积分
+                break
+            case 3:
+                //我的商家币
+                break
+            case 4:
+                //我的优惠券
+                break
+            case 5:
+                //我的资金账户
+                break
+            case 6:
+                //我的会员卡
+                break
+                
+            default:
+                break
             }
         }
         
