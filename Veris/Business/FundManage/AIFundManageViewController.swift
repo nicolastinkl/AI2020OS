@@ -10,6 +10,13 @@ import UIKit
 
 class AIFundManageViewController: AIBaseViewController {
 
+    @IBOutlet weak var contentScrollView: UIScrollView!
+    private var preCacheView: UIView = UIView()
+    
+    private let contentArray = ["我的余额", "我的信用积分", "我的商家币", "我的优惠券", "我的资金账户", "我的会员卡"]
+    private let contentArrayColor = ["#7b3990", "#1c789f", "#619505", "#f79a00", "#d05126", "#b32b1d"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //makeBackButton()
@@ -19,10 +26,28 @@ class AIFundManageViewController: AIBaseViewController {
         
         // add view controller to this vc
         //let vc = AIMyWalletBalanceViewController.initFromNib()
-        let vc = AIWillPayVController.init()
-        presentBlurViewController(vc, animated: true, completion: nil)
+        //let vc = AIWillPayVController.init()
+        //presentBlurViewController(vc, animated: true, completion: nil)        
+       
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        var index = 0
+        contentArray.forEach { (string) in
+            if let cell = AIFundCellView.initFromNib() as? AIFundCellView {
+                cell.title.text = string
+                let color = contentArrayColor[index]
+                cell.round.backgroundColor = UIColor(hex: color)
+                self.addNewSubView(cell)
+                index  = index + 1
+            }
+        }
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -33,10 +58,24 @@ class AIFundManageViewController: AIBaseViewController {
 
         let backButton = goBackButtonWithImage("comment-back")
         navigatonBarAppearance?.leftBarButtonItems = [backButton]
+        let font = AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize())
+        navigatonBarAppearance!.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 40.displaySizeFrom1242DesignSize(), font: font, textColor: UIColor.whiteColor(), text: "我的钱包")
         setNavigationBarAppearance(navigationBarAppearance: navigatonBarAppearance!)
+        
         
     }
 
     //MARK:
-
+    
+    /**
+     copy from old View Controller.
+     */
+    func addNewSubView(cview: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
+        contentScrollView.addSubview(cview)
+        cview.setWidth(self.view.width)
+        cview.setTop(preCacheView.top + preCacheView.height+space)
+        cview.backgroundColor = color
+        contentScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), cview.top + cview.height)
+        preCacheView = cview
+    }
 }
