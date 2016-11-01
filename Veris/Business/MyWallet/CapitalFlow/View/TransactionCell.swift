@@ -14,8 +14,8 @@ class TransactionCell: UITableViewCell {
     @IBOutlet weak var value: UILabel!
     
     override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+        itemName.font = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+        value.font = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
     }
     
 }

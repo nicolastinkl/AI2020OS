@@ -19,9 +19,16 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKb-TT-hfT">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eaf-aQ-0PL">
+                                    <frame key="frameInset"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdh-gV-vWa" userLabel="Filter">
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="ailButtonNormalTitle" value="Filter"/>
@@ -30,7 +37,7 @@
                                     <action selector="filteAction:" destination="ujG-BF-pv6" eventType="touchUpInside" id="MDA-R4-ahr"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u5F-kf-fjg" customClass="SKSTableView" customModule="Veris" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u5F-kf-fjg" customClass="SKSTableView" customModule="Veris" customModuleProvider="target">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ujG-BF-pv6" id="lFy-9d-KfH"/>
@@ -45,13 +52,17 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.12941176469999999" green="0.2156862745" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="YKb-TT-hfT" firstAttribute="leading" secondItem="Qnk-H4-DNO" secondAttribute="leading" id="DT8-wD-XAy"/>
                             <constraint firstItem="kyV-O2-w8p" firstAttribute="top" secondItem="u5F-kf-fjg" secondAttribute="top" id="PgK-pH-R12"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kyV-O2-w8p" secondAttribute="trailing" constant="-16" id="Qq3-Pg-bG6"/>
                             <constraint firstItem="u5F-kf-fjg" firstAttribute="leading" secondItem="Qnk-H4-DNO" secondAttribute="leadingMargin" constant="-16" id="UOu-ZU-JY2"/>
                             <constraint firstItem="q5G-Yx-9yK" firstAttribute="top" secondItem="u5F-kf-fjg" secondAttribute="bottom" id="Vj1-Bi-Fbo"/>
                             <constraint firstItem="u5F-kf-fjg" firstAttribute="top" secondItem="Zdh-gV-vWa" secondAttribute="bottom" constant="8" id="VpX-eH-dNq"/>
+                            <constraint firstItem="q5G-Yx-9yK" firstAttribute="top" secondItem="YKb-TT-hfT" secondAttribute="bottom" id="ahN-pK-D9x"/>
+                            <constraint firstAttribute="trailing" secondItem="YKb-TT-hfT" secondAttribute="trailing" id="bum-ek-81F"/>
+                            <constraint firstItem="YKb-TT-hfT" firstAttribute="top" secondItem="6wI-RW-f7U" secondAttribute="bottom" id="kcD-ka-1yH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Zdh-gV-vWa" secondAttribute="trailing" constant="-4" id="mkB-fU-5aQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u5F-kf-fjg" secondAttribute="trailing" constant="-16" id="nn4-O3-Chs"/>
                             <constraint firstItem="Zdh-gV-vWa" firstAttribute="top" secondItem="6wI-RW-f7U" secondAttribute="bottom" constant="8" id="uz2-Aq-I8g"/>
@@ -59,6 +70,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="filteButton" destination="Zdh-gV-vWa" id="ugT-Lw-kGX"/>
                         <outlet property="filterViewContainer" destination="kyV-O2-w8p" id="f9q-lc-k8k"/>
                         <outlet property="tableView" destination="u5F-kf-fjg" id="Nar-qH-SJP"/>
                     </connections>

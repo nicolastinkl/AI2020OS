@@ -24,9 +24,11 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.registerClass(SKSTableViewCell.self, forCellReuseIdentifier: "SKSTableViewCell")
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SubTableViewCell")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 25
         
+        tableView.registerNib(UINib(nibName: "FilteTypeCell", bundle: nil), forCellReuseIdentifier: "FilteTypeCell")
+        tableView.registerNib(UINib(nibName: "FilteTypeSubCell", bundle: nil), forCellReuseIdentifier: "FilteTypeSubCell")
         tableView.sksTableViewDelegate = self
 
         loadData()
@@ -92,42 +94,29 @@ extension FilterViewController: SKSTableViewDelegate {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "SKSTableViewCell"
+        let cellIdentifier = "FilteTypeCell"
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? SKSTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! FilteTypeCell
         
-        if cell == nil {
-            cell = SKSTableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
-        }
-        
-        cell?.backgroundColor = UIColor.clearColor()
-        cell?.selectionStyle = .None
         
         if let data = filteData?[cellForRowAtIndexPath.row] {
-            cell?.textLabel?.text = data.name
+            cell.typeName?.text = data.name
             
-            cell?.isExpandable = data.subItems.count > 0
+            cell.isExpandable = data.subItems.count > 0
         }
         
-        return cell!
+        return cell
     }
     
     func tableView(tableView: UITableView, cellForSubRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "SubTableViewCell"
+        let cellIdentifier = "FilteTypeSubCell"
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! FilteTypeSubCell
+
         
-        if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
-        }
+        cell.typeName?.text = filteData?[indexPath.row].subItems[indexPath.subRow].name
         
-        cell?.backgroundColor = UIColor.clearColor()
-        cell?.selectionStyle = .None
-        
-        cell?.textLabel?.text = filteData?[indexPath.row].subItems[indexPath.subRow].name
-        cell?.accessoryType = .DisclosureIndicator
-        
-        return cell!
+        return cell
     }
 }
 
