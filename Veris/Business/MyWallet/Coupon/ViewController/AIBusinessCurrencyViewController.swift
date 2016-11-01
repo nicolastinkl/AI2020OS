@@ -20,14 +20,18 @@ class AIBusinessCurrencyViewController: AIBaseViewController {
     var popupRuleView: AIPopupSContainerView!
     var bcDetailView: AIBCDetailView!
     
+    let cellIdentifier = AIApplication.MainStoryboard.CellIdentifiers.AICurrencyTableViewCell
+    
     // MARK: -> Interface Builder actions
     
     
     @IBAction func showRuleAction(sender: UIButton) {
         view.bringSubviewToFront(popupRuleView)
+        popupRuleView.containerHeightConstraint.constant = 500
+        popupRuleView.layoutIfNeeded()
         SpringAnimation.spring(0.5) {
             self.popupRuleView.alpha = 1
-            self.popupRuleView.containerBottomConstraint.constant = 300
+            self.popupRuleView.containerBottomConstraint.constant = 100
             self.popupRuleView.layoutIfNeeded()
         }
     }
@@ -75,13 +79,17 @@ extension AIBusinessCurrencyViewController: UITableViewDelegate, UITableViewData
     func setupTableView() {
         currencyTableView.delegate = self
         currencyTableView.dataSource = self
+        currencyTableView.separatorStyle = .None
+        currencyTableView.allowsSelection = false
+        currencyTableView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        return cell
     }
 }

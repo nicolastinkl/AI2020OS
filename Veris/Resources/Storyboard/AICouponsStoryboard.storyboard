@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0no-zo-VXw">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="-959.20000000000005" y="55.322338830584712"/>
         </scene>
-        <!--View Controller-->
+        <!--Coupon View Controller-->
         <scene sceneID="4rk-tW-pAY">
             <objects>
-                <viewController id="EzR-j4-fqc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AICouponViewController" id="EzR-j4-fqc" customClass="AICouponViewController" customModule="Veris" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aXG-ZJ-YLX"/>
                         <viewControllerLayoutGuide type="bottom" id="Bod-t3-lnP"/>
@@ -80,17 +80,19 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSL-S0-ekv">
                                 <state key="normal" title="更多 &gt;"/>
                                 <connections>
+                                    <action selector="moreCouponAction:" destination="EzR-j4-fqc" eventType="touchUpInside" id="RTJ-X0-iWk"/>
                                     <action selector="showRuleAction:" destination="55S-3J-Dnt" eventType="touchUpInside" id="s5A-77-lNt"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3vP-Mh-3WT">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="location_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="bGI-2g-igg">
-                                <frame key="frameInset" minX="181" minY="639" width="52" height="29"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="bGI-2g-igg"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0E6-t9-c7K">
                                 <state key="normal" title="查找周边更多优惠"/>
+                                <connections>
+                                    <action selector="locationAction:" destination="EzR-j4-fqc" eventType="touchUpInside" id="BGM-Gg-KiI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,10 +113,59 @@
                             <constraint firstAttribute="trailing" secondItem="3vP-Mh-3WT" secondAttribute="trailing" id="yGX-V2-hqG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="couponTableView" destination="3vP-Mh-3WT" id="hUK-HM-Au1"/>
+                        <outlet property="locationButton" destination="0E6-t9-c7K" id="Ad7-Qj-3ai"/>
+                        <outlet property="locationIcon" destination="bGI-2g-igg" id="HHs-0z-lR5"/>
+                        <outlet property="moreButton" destination="VSL-S0-ekv" id="1Hg-j1-Wge"/>
+                        <outlet property="titleLabel" destination="8MC-L6-lr1" id="yDe-rg-Vfa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icu-FR-Yew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-57.971014492753625" y="54.619565217391312"/>
+        </scene>
+        <!--More Coupon View Controller-->
+        <scene sceneID="mDt-bf-6gU">
+            <objects>
+                <viewController storyboardIdentifier="AIMoreCouponViewController" id="Iln-cw-0Xk" customClass="AIMoreCouponViewController" customModule="Veris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ohY-VM-Y62"/>
+                        <viewControllerLayoutGuide type="bottom" id="cX2-ts-DA5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xW8-Nq-ECC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTL-th-eMV" userLabel="tabContainerView">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="rr6-Ex-9pl"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uzs-lR-b2C">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Uzs-lR-b2C" firstAttribute="top" secondItem="QTL-th-eMV" secondAttribute="bottom" id="K2X-dj-np5"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Uzs-lR-b2C" secondAttribute="bottom" id="Omy-8f-xGc"/>
+                            <constraint firstAttribute="trailing" secondItem="QTL-th-eMV" secondAttribute="trailing" id="Vy6-Jv-3DC"/>
+                            <constraint firstAttribute="trailing" secondItem="Uzs-lR-b2C" secondAttribute="trailing" id="eBi-OC-tbF"/>
+                            <constraint firstItem="Uzs-lR-b2C" firstAttribute="leading" secondItem="xW8-Nq-ECC" secondAttribute="leading" id="g5F-1M-vhW"/>
+                            <constraint firstItem="QTL-th-eMV" firstAttribute="leading" secondItem="xW8-Nq-ECC" secondAttribute="leading" id="uLt-cF-wKj"/>
+                            <constraint firstAttribute="topMargin" secondItem="QTL-th-eMV" secondAttribute="top" id="uzk-xG-ehT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tabContainerView" destination="QTL-th-eMV" id="dV5-A0-59R"/>
+                        <outlet property="tableView" destination="Uzs-lR-b2C" id="8If-5M-3Cr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K2y-l9-xGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="834.78260869565224" y="54.619565217391312"/>
         </scene>
     </scenes>
     <resources>
