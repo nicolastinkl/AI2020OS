@@ -493,6 +493,9 @@ struct AIApplication {
         // 上传工作机会服务资质
         case uploadWorkQualification
         
+        // 资金流水
+        case getCapitalFlowList
+        
         var description: String {
 
             switch self {
@@ -594,6 +597,9 @@ struct AIApplication {
             case .queryNewestWorkOpportunity: return AIApplication.KURL_ReleaseURL + "/workopportunity/queryNewestWorkOpportunity"
             case .queryMostPopularWork: return AIApplication.KURL_ReleaseURL + "/workopportunity/queryMostPopularWork"
             case .uploadWorkQualification: return AIApplication.KURL_ReleaseURL + "/workopportunity/uploadWorkQualification"
+                
+            // 资金流水相关接口
+            case .getCapitalFlowList: return AIApplication.KURL_ReleaseURL + "/account/moneyList"
             }
         }
     }

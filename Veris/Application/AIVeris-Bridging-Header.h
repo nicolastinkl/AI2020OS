@@ -184,3 +184,7 @@
 #import "AIOCJsonModels.h"
 
 #import "AIALAssetsImageOperator.h"
+
+
+// CapitalFlow
+#import "CapitalFlowModel.h"
