@@ -13,7 +13,6 @@ class AIFundBaseViewCotroller: UIViewController {
     
     @IBOutlet weak var bgview: UIView!
     @IBOutlet weak var round: UIView!
- 
     @IBOutlet weak var containView: UIView!
     
     override func viewDidLoad() {
@@ -24,6 +23,7 @@ class AIFundBaseViewCotroller: UIViewController {
         
         self.round.layer.cornerRadius = 5
         self.round.layer.masksToBounds = true
+        
     }
     
     // MARK: -> Internal methods
