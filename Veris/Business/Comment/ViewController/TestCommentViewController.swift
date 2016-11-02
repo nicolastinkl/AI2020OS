@@ -22,7 +22,7 @@ class TestCommentViewController: UIViewController {
     }
     
     @IBAction func testAction(sender: AnyObject) {
-        let vc = BillDetailViewController.initFromStoryboard()
+        let vc = CapitalFlowViewController.initFromStoryboard()
         let nav = UINavigationController(rootViewController: vc)
         presentViewController(nav, animated: true, completion: nil)
     }

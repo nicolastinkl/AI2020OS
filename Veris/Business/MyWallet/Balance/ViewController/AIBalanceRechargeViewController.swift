@@ -40,6 +40,7 @@ class AIBalanceRechargeViewController: AIBaseViewController {
         view.addSubview(backButton)
         backButton.setLeft(7)
         backButton.setTop(12)
+        
     }
 
     func setFont(label: UILabel) {
@@ -66,8 +67,6 @@ class AIBalanceRechargeViewController: AIBaseViewController {
         payMoneyLabel.textColor = UIColor(hexString: "#ffffff", alpha: 0.6)
         setFont(payMoneyLabel)
         view.addSubview(payMoneyLabel)
-        
-        
         
         let accountLabel = UILabel(frame: CGRectMake(maxWidth-95/3-100, 276/3, 100, 50))
         accountLabel.text = "账户充值"

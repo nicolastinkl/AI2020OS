@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Bhh-a8-5LY">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balanceicon" translatesAutoresizingMaskIntoConstraints="NO" id="5Ps-z1-VUl">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="136" id="GRv-0k-frg"/>
+                        <constraint firstAttribute="width" constant="136" id="wwd-6f-G1N"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿斯顿" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLY-LA-EPQ">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="SYy-dE-24z"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿斯顿" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAE-Ra-PPC">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Rb4-PW-ZtX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿斯顿" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJh-cU-f8d">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="ddr-yE-Tfd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUm-yg-642">
+                    <color key="backgroundColor" red="0.058823529409999999" green="0.52549019610000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="pum-Jg-Q7s"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="充值">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="EJh-cU-f8d" secondAttribute="trailing" constant="76" id="6zx-aL-jwn"/>
+                <constraint firstAttribute="trailing" secondItem="gAE-Ra-PPC" secondAttribute="trailing" constant="76" id="7DT-xs-aaY"/>
+                <constraint firstAttribute="trailing" secondItem="vUm-yg-642" secondAttribute="trailing" constant="25" id="GZu-ye-nN2"/>
+                <constraint firstItem="gAE-Ra-PPC" firstAttribute="top" secondItem="LLY-LA-EPQ" secondAttribute="bottom" constant="8" id="L9U-eg-fnH"/>
+                <constraint firstItem="vUm-yg-642" firstAttribute="leading" secondItem="Bhh-a8-5LY" secondAttribute="leading" constant="24" id="MUB-3W-XWy"/>
+                <constraint firstItem="5Ps-z1-VUl" firstAttribute="top" secondItem="Bhh-a8-5LY" secondAttribute="top" constant="100" id="Sbp-RU-QpF"/>
+                <constraint firstItem="gAE-Ra-PPC" firstAttribute="leading" secondItem="Bhh-a8-5LY" secondAttribute="leading" constant="77" id="V3s-PL-ntQ"/>
+                <constraint firstItem="EJh-cU-f8d" firstAttribute="leading" secondItem="Bhh-a8-5LY" secondAttribute="leading" constant="77" id="X8N-Ib-MlI"/>
+                <constraint firstItem="LLY-LA-EPQ" firstAttribute="leading" secondItem="Bhh-a8-5LY" secondAttribute="leading" constant="77" id="Ytl-r2-uFk"/>
+                <constraint firstAttribute="trailing" secondItem="LLY-LA-EPQ" secondAttribute="trailing" constant="76" id="diQ-jv-DKf"/>
+                <constraint firstItem="vUm-yg-642" firstAttribute="top" secondItem="EJh-cU-f8d" secondAttribute="bottom" constant="26" id="kXj-oO-KNJ"/>
+                <constraint firstItem="5Ps-z1-VUl" firstAttribute="centerX" secondItem="Bhh-a8-5LY" secondAttribute="centerX" id="tBi-xU-2AJ"/>
+                <constraint firstItem="EJh-cU-f8d" firstAttribute="top" secondItem="gAE-Ra-PPC" secondAttribute="bottom" constant="16" id="zSN-mz-8uw"/>
+                <constraint firstItem="LLY-LA-EPQ" firstAttribute="top" secondItem="5Ps-z1-VUl" secondAttribute="bottom" constant="23" id="zSX-hf-xdG"/>
+            </constraints>
+            <point key="canvasLocation" x="-144" y="-24"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="balanceicon" width="134" height="134"/>
+    </resources>
+</document>

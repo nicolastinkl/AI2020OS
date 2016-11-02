@@ -24,11 +24,6 @@ class AIBaseViewController: UIViewController {
         }
     }
 
-
-
-
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         makeBaseProperties()
