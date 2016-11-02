@@ -70,9 +70,8 @@ class AIFundManageViewController: AIBaseViewController {
                 //我的余额
                 let holdVC = AIMyWalletBalanceViewController.initFromNib()
                 let vc = AIFundBaseViewCotroller.initFromNib()
-                vc.setupFillView(holdVC)
                 presentViewController(vc, animated: true, completion: nil)
-                
+                vc.setupFillView(holdVC)
                 break
             case 2:
                 //我的信用积分

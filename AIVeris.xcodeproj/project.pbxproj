@@ -3706,8 +3706,8 @@
 				C9301A611DC88A2800F5C613 /* view */,
 				81512ECF1D220A8900AE041D /* AIFundManageViewController.swift */,
 				C9301A5F1DC883A500F5C613 /* AIFundManageViewController.xib */,
-				C908F8161DC9D4A400E5D6C8 /* AIFundBaseViewCotroller.xib */,
 				C908F8181DC9D58900E5D6C8 /* AIFundBaseViewCotroller.swift */,
+				C908F8161DC9D4A400E5D6C8 /* AIFundBaseViewCotroller.xib */,
 			);
 			name = FundManage;
 			sourceTree = "<group>";
