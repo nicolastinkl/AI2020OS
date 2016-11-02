@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import Spring
 
-
 //// 余额充值
 class AIBalanceRechargeViewController: AIBaseViewController {
     
