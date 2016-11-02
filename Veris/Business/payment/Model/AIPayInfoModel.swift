@@ -37,6 +37,11 @@ class AIPayInfoModel: JSONJoy {
     var total_fee: String?
     var deduct_fee: String?
     var pay_fee: String?
+    var pay_method: String?
+    var unit: String?
+    var amout: String?
+    var time: String?
+    var transaction_id: String?
     
     var paymentItem = Array<AIPaymentItemModel>()
     
@@ -45,7 +50,7 @@ class AIPayInfoModel: JSONJoy {
         orderid = decoder["pre_paymentid"].string ?? ""
         servicename = decoder["service_name"].string ?? ""
         serviceicon = decoder["service_icon"].string ?? ""
-        servicestars = decoder["servicestars"].string ?? ""
+        servicestars = decoder["stars"].string ?? ""
         providerphone = decoder["providerphone"].string ?? ""
         totalorders = decoder["total_orders"].string ?? ""
         proposal_price = decoder["proposal_price"].string ?? ""
@@ -58,6 +63,11 @@ class AIPayInfoModel: JSONJoy {
         total_fee = "\(decoder["total_fee"].double ?? 0)"
         deduct_fee = "\(decoder["deduct_fee"].double ?? 0)"
         pay_fee = "\(decoder["pay_fee"].double ?? 0)"
+        pay_method = decoder["pay_method"].string ?? ""
+        unit = decoder["unit"].string ?? ""
+        amout = decoder["amout"].string ?? ""
+        time = decoder["time"].string ?? ""
+        transaction_id = decoder["transaction_id"].string ?? ""
     }
 }
 

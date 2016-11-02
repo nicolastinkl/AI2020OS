@@ -15,6 +15,8 @@
 
 // 列表项名称
 @property (strong, nonatomic) NSString<Optional> * name;
+// 帐单ID
+@property (strong, nonatomic) NSString<Optional> * bill_id;
 // 发生时间
 @property (strong, nonatomic) NSNumber<Optional> * time;
 // 金额
