@@ -497,6 +497,9 @@ struct AIApplication {
         // 查询优惠券
         case queryMyVoucher
         
+        // 资金流水
+        case getCapitalFlowList
+        
         var description: String {
 
             switch self {
@@ -602,6 +605,10 @@ struct AIApplication {
             // 我的钱包相关接口
             case .queryMyCoins: return AIApplication.KURL_ReleaseURL + "/account/myCoins"
             case .queryMyVoucher: return AIApplication.KURL_ReleaseURL + "/account/myVoucher"
+
+            // 资金流水相关接口
+            case .getCapitalFlowList: return AIApplication.KURL_ReleaseURL + "/account/moneyList"
+
             }
         }
     }
