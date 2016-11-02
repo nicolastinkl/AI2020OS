@@ -72,7 +72,7 @@ class AIFundManageViewController: AIBaseViewController {
                 let vc = AIFundBaseViewCotroller.initFromNib()
                 vc.setupFillView(holdVC)
                 presentViewController(vc, animated: true, completion: nil)
-                 
+                
                 break
             case 2:
                 //我的信用积分
