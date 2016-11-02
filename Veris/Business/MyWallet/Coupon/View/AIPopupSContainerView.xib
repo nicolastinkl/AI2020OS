@@ -52,7 +52,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="JX6-ce-UU7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="42" id="1GK-cC-Ont"/>
                 <constraint firstAttribute="bottom" secondItem="JX6-ce-UU7" secondAttribute="bottom" id="MZB-1O-nSG"/>

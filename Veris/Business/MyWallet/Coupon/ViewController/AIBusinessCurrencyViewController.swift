@@ -81,6 +81,7 @@ extension AIBusinessCurrencyViewController: UITableViewDelegate, UITableViewData
         currencyTableView.dataSource = self
         currencyTableView.separatorStyle = .None
         currencyTableView.allowsSelection = false
+        currencyTableView.rowHeight = 56
         currencyTableView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
     

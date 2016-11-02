@@ -17,19 +17,30 @@ class AIIconCouponTableViewCell: UITableViewCell {
     @IBOutlet weak var couponNameLabel: UILabel!
     @IBOutlet weak var couponIconImageView: UIImageView!
     
+    var delegate: AIIconCouponTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupViews()
     }
 
     
     @IBAction func useAction(sender: UIButton) {
+        if let delegate = delegate {
+            delegate.useAction()
+        }
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func setupViews() {
+        backgroundImageView.layer.cornerRadius = 8
+        backgroundImageView.layer.masksToBounds = true
+        useButton.layer.cornerRadius = 5
+        useButton.layer.masksToBounds = true
+    }
+    
+}
 
-        // Configure the view for the selected state
-    }
-    
+protocol AIIconCouponTableViewCellDelegate: NSObjectProtocol {
+    func useAction()
 }

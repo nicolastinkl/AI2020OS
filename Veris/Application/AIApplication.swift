@@ -492,6 +492,10 @@ struct AIApplication {
         case updateWorkStatus
         // 上传工作机会服务资质
         case uploadWorkQualification
+        // 查询我的商家币
+        case queryMyCoins
+        // 查询优惠券
+        case queryMyVoucher
         
         var description: String {
 
@@ -594,6 +598,10 @@ struct AIApplication {
             case .queryNewestWorkOpportunity: return AIApplication.KURL_ReleaseURL + "/workopportunity/queryNewestWorkOpportunity"
             case .queryMostPopularWork: return AIApplication.KURL_ReleaseURL + "/workopportunity/queryMostPopularWork"
             case .uploadWorkQualification: return AIApplication.KURL_ReleaseURL + "/workopportunity/uploadWorkQualification"
+                
+            // 我的钱包相关接口
+            case .queryMyCoins: return AIApplication.KURL_ReleaseURL + "/account/myCoins"
+            case .queryMyVoucher: return AIApplication.KURL_ReleaseURL + "/account/myVoucher"
             }
         }
     }

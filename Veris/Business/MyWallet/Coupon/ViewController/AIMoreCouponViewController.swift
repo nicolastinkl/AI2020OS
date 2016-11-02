@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Spring
 
 class AIMoreCouponViewController: UIViewController {
     
@@ -20,13 +21,17 @@ class AIMoreCouponViewController: UIViewController {
         "0",
         "0"
     ]
+    var popupDetailView: AIPopupSContainerView!
+    var couponDetailView: AICouponDetailView!
     
     let cellIdentifier = AIApplication.MainStoryboard.CellIdentifiers.AIIconCouponTableViewCell
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        // Do any additional setup after loading the view.
+        setupFilterBar()
+        buildBgView()
+        setupPopupView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +39,7 @@ class AIMoreCouponViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setupFilterBar() {
+    private func setupFilterBar() {
         let titles = [
             "可用",
             "已使用",
@@ -50,9 +55,30 @@ class AIMoreCouponViewController: UIViewController {
             make.height.equalTo(AITools.displaySizeFrom1242DesignSize(143))
         }
     }
+    
+    private func buildBgView() {
+        let bgView = UIImageView()
+        bgView.image = UIImage(named: "effectBgView")
+        view.insertSubview(bgView, atIndex: 0)
+        bgView.snp_makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+        }
+    }
+    
+    private func setupPopupView() {
+        popupDetailView = AIPopupSContainerView.createInstance()
+        popupDetailView.alpha = 0
+        view.addSubview(popupDetailView)
+        popupDetailView.snp_makeConstraints { (make) in
+            make.leading.trailing.top.bottom.equalTo(self.view)
+        }
+        
+        couponDetailView = AICouponDetailView.createInstance()
+        popupDetailView.buildContent(couponDetailView)
+    }
 
 }
-
+//MARK: -> tableview delegates
 extension AIMoreCouponViewController: UITableViewDelegate, UITableViewDataSource {
     
     func setupTableView() {
@@ -60,6 +86,7 @@ extension AIMoreCouponViewController: UITableViewDelegate, UITableViewDataSource
         tableView.dataSource = self
         tableView.separatorStyle = .None
         tableView.allowsSelection = false
+        tableView.rowHeight = 93
         tableView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
     
@@ -69,14 +96,29 @@ extension AIMoreCouponViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AIIconCouponTableViewCell
+        cell.delegate = self
         return cell
         
     }
 }
 
-extension AIMoreCouponViewController: AIFilterBarDelegate {
+//MARK: -> delegates
+extension AIMoreCouponViewController: AIFilterBarDelegate, AIIconCouponTableViewCellDelegate {
+    
     func filterBar(filterBar: AIFilterBar, didSelectIndex: Int) {
         //fetchComments()
+        tableView.reloadData()
+    }
+    
+    func useAction() {
+        view.bringSubviewToFront(popupDetailView)
+        popupDetailView.containerHeightConstraint.constant = 400
+        popupDetailView.layoutIfNeeded()
+        SpringAnimation.spring(0.5) {
+            self.popupDetailView.alpha = 1
+            self.popupDetailView.containerBottomConstraint.constant = 200
+            self.popupDetailView.layoutIfNeeded()
+        }
     }
 }

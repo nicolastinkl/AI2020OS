@@ -18,3 +18,6 @@
 
 //工作机会相关model
 #import "AIWorkManageBusiModel.h"
+
+//商家币和优惠券相关model
+#import "AICouponBusiModel.h"

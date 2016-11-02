@@ -57,6 +57,9 @@
 		12CE5DEF1DC77AB20075EBD7 /* AIIconCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CE5DDF1DC77AB20075EBD7 /* AIIconCouponTableViewCell.xib */; };
 		12CE5DF01DC77AB20075EBD7 /* AIPopupSContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DE01DC77AB20075EBD7 /* AIPopupSContainerView.swift */; };
 		12CE5DF11DC77AB20075EBD7 /* AIPopupSContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CE5DE11DC77AB20075EBD7 /* AIPopupSContainerView.xib */; };
+		12CE5DF41DC77DA80075EBD7 /* AICouponBusiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DF31DC77DA80075EBD7 /* AICouponBusiModel.m */; };
+		12CE5DF61DC8893F0075EBD7 /* AICouponViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DF51DC8893F0075EBD7 /* AICouponViewModel.swift */; };
+		12CE5DF81DC88B9C0075EBD7 /* AICouponRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DF71DC88B9C0075EBD7 /* AICouponRequestHandler.swift */; };
 		12D7649B1D0D469A002B001B /* AIRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764961D0D469A002B001B /* AIRegistViewController.swift */; };
 		12D7649C1D0D469A002B001B /* AIValidateRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */; };
 		12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764981D0D469A002B001B /* AISelectRegionViewController.swift */; };
@@ -956,6 +959,10 @@
 		12CE5DDF1DC77AB20075EBD7 /* AIIconCouponTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIIconCouponTableViewCell.xib; sourceTree = "<group>"; };
 		12CE5DE01DC77AB20075EBD7 /* AIPopupSContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIPopupSContainerView.swift; sourceTree = "<group>"; };
 		12CE5DE11DC77AB20075EBD7 /* AIPopupSContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIPopupSContainerView.xib; sourceTree = "<group>"; };
+		12CE5DF21DC77D8F0075EBD7 /* AICouponBusiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AICouponBusiModel.h; sourceTree = "<group>"; };
+		12CE5DF31DC77DA80075EBD7 /* AICouponBusiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICouponBusiModel.m; sourceTree = "<group>"; };
+		12CE5DF51DC8893F0075EBD7 /* AICouponViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICouponViewModel.swift; sourceTree = "<group>"; };
+		12CE5DF71DC88B9C0075EBD7 /* AICouponRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICouponRequestHandler.swift; sourceTree = "<group>"; };
 		12D764961D0D469A002B001B /* AIRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRegistViewController.swift; sourceTree = "<group>"; };
 		12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIValidateRegistViewController.swift; sourceTree = "<group>"; };
 		12D764981D0D469A002B001B /* AISelectRegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectRegionViewController.swift; sourceTree = "<group>"; };
@@ -2244,6 +2251,10 @@
 		12CE5DE21DC77AB20075EBD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				12CE5DF21DC77D8F0075EBD7 /* AICouponBusiModel.h */,
+				12CE5DF31DC77DA80075EBD7 /* AICouponBusiModel.m */,
+				12CE5DF51DC8893F0075EBD7 /* AICouponViewModel.swift */,
+				12CE5DF71DC88B9C0075EBD7 /* AICouponRequestHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5505,6 +5516,7 @@
 				9392B5831D1CD9F10007F241 /* MD5DataSigner.m in Sources */,
 				12DC8D931DAA4E42003117E4 /* AIWorkManageRequestHandler.swift in Sources */,
 				81433E941CFBE5A700347C29 /* FLEXKeyboardHelpViewController.m in Sources */,
+				12CE5DF41DC77DA80075EBD7 /* AICouponBusiModel.m in Sources */,
 				81433E211CFBE5A700347C29 /* VerticalIconLabel.swift in Sources */,
 				8175A8001CFD2710006F2C8F /* UIImage+GIF.m in Sources */,
 				81433E7F1CFBE5A700347C29 /* FLEXNetworkHistoryTableViewController.m in Sources */,
@@ -5844,6 +5856,7 @@
 				81433D7B1CFBE5A700347C29 /* AIStarRate.m in Sources */,
 				81433D411CFBE5A700347C29 /* AIDropdownBrandView.swift in Sources */,
 				84687E421D236BB90083BD9B /* ImagesCollectionView.swift in Sources */,
+				12CE5DF61DC8893F0075EBD7 /* AICouponViewModel.swift in Sources */,
 				81433D451CFBE5A700347C29 /* AIProviderView.swift in Sources */,
 				FB67FA501D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift in Sources */,
 				81433E9D1CFBE5A700347C29 /* Localize.swift in Sources */,
@@ -6059,6 +6072,7 @@
 				813861031D5B0BFD0050C0D0 /* AIJobTableViewCell.swift in Sources */,
 				8175A7DD1CFD2710006F2C8F /* JSONKeyMapper.m in Sources */,
 				81433CD11CFBE5A700347C29 /* AppDelegate.swift in Sources */,
+				12CE5DF81DC88B9C0075EBD7 /* AICouponRequestHandler.swift in Sources */,
 				FBAE7FC41D115188002FF522 /* EvernoteTransition.swift in Sources */,
 				81433DAD1CFBE5A700347C29 /* AOTag.m in Sources */,
 				81433DA71CFBE5A700347C29 /* AITaskNavigationBar.swift in Sources */,

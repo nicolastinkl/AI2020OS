@@ -52,6 +52,7 @@ extension AICouponViewController: UITableViewDelegate, UITableViewDataSource {
         couponTableView.dataSource = self
         couponTableView.separatorStyle = .None
         couponTableView.allowsSelection = false
+        couponTableView.rowHeight = 78
         couponTableView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 
