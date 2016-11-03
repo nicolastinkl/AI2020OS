@@ -18,8 +18,10 @@ class BillDetailViewController: UIViewController {
     @IBOutlet weak var costDetailsTableView: SKSTableView!
     @IBOutlet weak var transactionDetailsTableView: UITableView!
     
-    private var costData: [CostItem]?
-    private var transitionData: [TransictionItem]?
+    var orderId: String?
+    var billId: String?
+    
+    private var payInfop: AIPayInfoModel?
     
     private let subCellIdentifier = "CostItemSubCell"
     private let cellIdentifier = "CostItemCell"
@@ -80,28 +82,45 @@ class BillDetailViewController: UIViewController {
     }
     
     private func loadData() {
-        costData = [CostItem]()
         
-        var item = CostItem(name: "全程陪护", cost: "32元")
-        costData?.append(item)
+        if orderId != nil && billId != nil {
+            showLoading()
+            
+            AIPayInfoServices.reqeustOrderInfo(orderId!, billId: billId!, success: { (model) in
+                self.dismissLoading()
+                self.dataModel = model
+                self.transactionDetailsTableView.reloadData()
+                self.costDetailsTableView.reloadData()
+                
+            }) { (errType, errDes) in
+                self.dismissLoading()
+                NBMaterialToast.showWithText(self.view, text: "GetDataFailed".localized, duration: NBLunchDuration.SHORT)
+            }
+
+        }
         
-        item = CostItem(name: "神州孕妈专车", cost: "40元")
-        var subItem = CostItem(name: "里程费", cost: "25元")
-        item.subItems.append(subItem)
-        subItem = CostItem(name: "时长费", cost: "15元")
-        item.subItems.append(subItem)
-        costData?.append(item)
-        
-        costDetailsTableView.reloadData()
-        
-        transitionData = [TransictionItem]()
-        
-        var tritem = TransictionItem(name: "支付宝支付", value: "62.0元")
-        transitionData?.append(tritem)
-        tritem = TransictionItem(name: "支付宝支付", value: "62.0元")
-        transitionData?.append(tritem)
-        tritem = TransictionItem(name: "支付宝支付", value: "62.0元")
-        transitionData?.append(tritem)
+//        costData = [CostItem]()
+//        
+//        var item = CostItem(name: "全程陪护", cost: "32元")
+//        costData?.append(item)
+//        
+//        item = CostItem(name: "神州孕妈专车", cost: "40元")
+//        var subItem = CostItem(name: "里程费", cost: "25元")
+//        item.subItems.append(subItem)
+//        subItem = CostItem(name: "时长费", cost: "15元")
+//        item.subItems.append(subItem)
+//        costData?.append(item)
+//        
+//        costDetailsTableView.reloadData()
+//        
+//        transitionData = [TransictionItem]()
+//        
+//        var tritem = TransictionItem(name: "支付宝支付", value: "62.0元")
+//        transitionData?.append(tritem)
+//        tritem = TransictionItem(name: "支付宝支付", value: "62.0元")
+//        transitionData?.append(tritem)
+//        tritem = TransictionItem(name: "支付宝支付", value: "62.0元")
+//        transitionData?.append(tritem)
         
         transactionDetailsTableView.reloadData()
     }
@@ -116,9 +135,9 @@ extension BillDetailViewController: SKSTableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == costDetailsTableView {
-            return costData?.count ?? 0
+            return  0
         } else {
-            return transitionData?.count ?? 0
+            return  0
         }
     }
     
