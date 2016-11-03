@@ -83,6 +83,8 @@
 		8109975A1DC9EF8B001475D1 /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810997561DC9EF8B001475D1 /* AIFundManageViewController.swift */; };
 		8109975B1DC9EF8B001475D1 /* AIFundManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810997571DC9EF8B001475D1 /* AIFundManageViewController.xib */; };
 		8109975F1DC9F06A001475D1 /* AICreditScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8109975E1DC9F06A001475D1 /* AICreditScoreViewController.swift */; };
+		810997841DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810997821DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift */; };
+		810997851DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810997831DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib */; };
 		8116991C1D93BA6800C2D6EA /* AIALAssetsImageOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8116991B1D93BA6800C2D6EA /* AIALAssetsImageOperator.m */; };
 		813860F51D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */; };
 		813860F71D5979030050C0D0 /* AIChooseStarLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860F61D5979030050C0D0 /* AIChooseStarLevelView.swift */; };
@@ -706,6 +708,8 @@
 		84CB784E1DBEF655001EBB6D /* SKSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB784A1DBEF655001EBB6D /* SKSTableViewCell.swift */; };
 		84CB78501DBF0A1C001EBB6D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB784F1DBF0A1C001EBB6D /* FilterViewController.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
+		84EBF4FB1DCAE745002F6269 /* CapitalFlowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EBF4F91DCAE745002F6269 /* CapitalFlowModel.m */; };
+		84EBF4FC1DCAE745002F6269 /* CapitalFlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBF4FA1DCAE745002F6269 /* CapitalFlowService.swift */; };
 		84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */; };
 		84F2E5BA1D17D02E009E0C72 /* SubServiceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */; };
 		84F2E5BD1D17F155009E0C72 /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5BB1D17F155009E0C72 /* ExpandableTableViewCell.swift */; };
@@ -824,11 +828,7 @@
 		C90061511DC720560001A963 /* AIRechargeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90061501DC720550001A963 /* AIRechargeView.xib */; };
 		C90061521DC73AC30001A963 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A0EE01D803FFB00A84BBB /* AVOSCloud.framework */; };
 		C90061531DC73AC30001A963 /* AVOSCloud.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 819A0EE01D803FFB00A84BBB /* AVOSCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-
-		C908F8171DC9D4A400E5D6C8 /* AIFundBaseViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = C908F8161DC9D4A400E5D6C8 /* AIFundBaseViewCotroller.xib */; };
-		C908F8191DC9D58900E5D6C8 /* AIFundBaseViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C908F8181DC9D58900E5D6C8 /* AIFundBaseViewCotroller.swift */; };
 		C928CB561DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C928CB551DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift */; };
-
 		C9301A591DC86DA600F5C613 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; };
 		C9301A5C1DC8731A00F5C613 /* AITiXianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */; };
 		C9301A5E1DC8736C00F5C613 /* AITiXianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */; };
@@ -1012,6 +1012,8 @@
 		810997561DC9EF8B001475D1 /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundManageViewController.swift; sourceTree = "<group>"; };
 		810997571DC9EF8B001475D1 /* AIFundManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFundManageViewController.xib; sourceTree = "<group>"; };
 		8109975E1DC9F06A001475D1 /* AICreditScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AICreditScoreViewController.swift; path = ViewController/AICreditScoreViewController.swift; sourceTree = "<group>"; };
+		810997821DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundBaseViewCotroller.swift; sourceTree = "<group>"; };
+		810997831DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFundBaseViewCotroller.xib; sourceTree = "<group>"; };
 		8116991A1D93BA6800C2D6EA /* AIALAssetsImageOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIALAssetsImageOperator.h; sourceTree = "<group>"; };
 		8116991B1D93BA6800C2D6EA /* AIALAssetsImageOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIALAssetsImageOperator.m; sourceTree = "<group>"; };
 		813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleServiceCommnentViewController.swift; sourceTree = "<group>"; };
@@ -1834,6 +1836,9 @@
 		84CB784A1DBEF655001EBB6D /* SKSTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSTableViewCell.swift; sourceTree = "<group>"; };
 		84CB784F1DBF0A1C001EBB6D /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
+		84EBF4F81DCAE745002F6269 /* CapitalFlowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapitalFlowModel.h; sourceTree = "<group>"; };
+		84EBF4F91DCAE745002F6269 /* CapitalFlowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapitalFlowModel.m; sourceTree = "<group>"; };
+		84EBF4FA1DCAE745002F6269 /* CapitalFlowService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalFlowService.swift; sourceTree = "<group>"; };
 		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
 		84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubServiceCardView.swift; sourceTree = "<group>"; };
 		84F2E5BB1D17F155009E0C72 /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
@@ -2053,11 +2058,7 @@
 		A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C900614E1DC7204E0001A963 /* AIRechargeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRechargeView.swift; sourceTree = "<group>"; };
 		C90061501DC720550001A963 /* AIRechargeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRechargeView.xib; sourceTree = "<group>"; };
-
-		C908F8161DC9D4A400E5D6C8 /* AIFundBaseViewCotroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFundBaseViewCotroller.xib; sourceTree = "<group>"; };
-		C908F8181DC9D58900E5D6C8 /* AIFundBaseViewCotroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundBaseViewCotroller.swift; sourceTree = "<group>"; };
 		C928CB551DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBalanceTixianViewController.swift; sourceTree = "<group>"; };
-
 		C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITiXianViewController.swift; sourceTree = "<group>"; };
 		C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITiXianViewController.xib; sourceTree = "<group>"; };
 		C95179D61D40C73600446498 /* AICommentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoModel.swift; sourceTree = "<group>"; };
@@ -2429,6 +2430,8 @@
 		810997551DC9EF8B001475D1 /* ViewContoller */ = {
 			isa = PBXGroup;
 			children = (
+				810997821DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift */,
+				810997831DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib */,
 				810997561DC9EF8B001475D1 /* AIFundManageViewController.swift */,
 				810997571DC9EF8B001475D1 /* AIFundManageViewController.xib */,
 			);
@@ -4212,6 +4215,7 @@
 		842CE6D21DAF28550038E5C0 /* CapitalFlow */ = {
 			isa = PBXGroup;
 			children = (
+				84EBF4F71DCAE745002F6269 /* Model */,
 				842CE6D81DAF7BEE0038E5C0 /* View */,
 				842CE6D31DAF28A00038E5C0 /* ViewController */,
 			);
@@ -4404,6 +4408,16 @@
 				84CB784A1DBEF655001EBB6D /* SKSTableViewCell.swift */,
 			);
 			path = SKSTableView2.3;
+			sourceTree = "<group>";
+		};
+		84EBF4F71DCAE745002F6269 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84EBF4F81DCAE745002F6269 /* CapitalFlowModel.h */,
+				84EBF4F91DCAE745002F6269 /* CapitalFlowModel.m */,
+				84EBF4FA1DCAE745002F6269 /* CapitalFlowService.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		930455121D124E71007AFC0C /* XunfeiLib */ = {
@@ -5407,6 +5421,7 @@
 				81433D881CFBE5A700347C29 /* UIPopView.xib in Resources */,
 				93C289C61D178A27003F0473 /* AISuperiorityIconTextView.xib in Resources */,
 				81433D3A1CFBE5A700347C29 /* AIAudioRecordView.xib in Resources */,
+				810997851DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib in Resources */,
 				81433E141CFBE5A700347C29 /* OrderAndBuyerInfoView.xib in Resources */,
 				81433E111CFBE5A700347C29 /* SeparatorLineLabel.xib in Resources */,
 				935987011D20FCB900BBED4E /* AIAssetsReviewsController.xib in Resources */,
@@ -5658,6 +5673,7 @@
 				84512D4F1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift in Sources */,
 				81433E161CFBE5A700347C29 /* PriceAndStepperView.swift in Sources */,
 				81433E471CFBE5A700347C29 /* UIImage+Resize.m in Sources */,
+				84EBF4FC1DCAE745002F6269 /* CapitalFlowService.swift in Sources */,
 				C9AF97A01DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift in Sources */,
 				8484D85A1D703514001F1A54 /* MenuPopOverView.swift in Sources */,
 				8175A7C61CFD2710006F2C8F /* AFHTTPRequestOperation.m in Sources */,
@@ -5920,6 +5936,7 @@
 				C9301A5C1DC8731A00F5C613 /* AITiXianViewController.swift in Sources */,
 				813860F51D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift in Sources */,
 				81433DA01CFBE5A700347C29 /* AIRACClosureTableViewDataSource.swift in Sources */,
+				84EBF4FB1DCAE745002F6269 /* CapitalFlowModel.m in Sources */,
 				FB2373281D4F78F300A8B38A /* AIProductQAService.swift in Sources */,
 				8175A7F11CFD2710006F2C8F /* OBShapedImageView.m in Sources */,
 				8175A7F41CFD2710006F2C8F /* RRTagCollectionViewCell.swift in Sources */,
@@ -6065,6 +6082,7 @@
 				81433E831CFBE5A700347C29 /* FLEXNetworkTransactionDetailTableViewController.m in Sources */,
 				8175A7F71CFD2710006F2C8F /* NSData+ImageContentType.m in Sources */,
 				846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */,
+				810997841DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift in Sources */,
 				81433E061CFBE5A700347C29 /* CurveModel.m in Sources */,
 				846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */,
 				932762EA1D1D3225002F7FA0 /* AIPayInfoModel.swift in Sources */,
