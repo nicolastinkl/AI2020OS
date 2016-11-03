@@ -50,39 +50,39 @@ class AIBalanceTixianViewController: AIBaseViewController {
         let maxWidth = UIScreen.mainScreen().bounds.size.width
  
         let payInfoLabel = UILabel(frame: CGRectMake(95/3, 276/3, 100, 50))
-        payInfoLabel.text = "付款信息"
+        payInfoLabel.text = "提现账户"
         payInfoLabel.textColor = UIColor(hexString: "#ffffff", alpha: 0.6)
         view.addSubview(payInfoLabel)
         setFont(payInfoLabel)
         
         let fuStyleLabel = UILabel(frame: CGRectMake(95/3, 386/3, 100, 50))
-        fuStyleLabel.text = "付款方式"
+        fuStyleLabel.text = "到账时间"
         setFont(fuStyleLabel)
         fuStyleLabel.textColor = UIColor(hexString: "#ffffff", alpha: 0.6)
         view.addSubview(fuStyleLabel)
         
         let payMoneyLabel = UILabel(frame: CGRectMake(95/3, 496/3, 100, 50))
-        payMoneyLabel.text = "付款金额"
+        payMoneyLabel.text = "提现金额"
         payMoneyLabel.textColor = UIColor(hexString: "#ffffff", alpha: 0.6)
         setFont(payMoneyLabel)
         view.addSubview(payMoneyLabel)
         
         let accountLabel = UILabel(frame: CGRectMake(maxWidth-95/3-100, 276/3, 100, 50))
-        accountLabel.text = "账户充值"
+        accountLabel.text = "支付宝（*****@gmail.com）"
         accountLabel.textAlignment = .Right
         accountLabel.textColor = UIColor(hexString: "#ffffff")
         setFont(accountLabel)
         view.addSubview(accountLabel)
         
         let accountNumberLabel = UILabel(frame: CGRectMake(maxWidth-95/3-300, 386/3, 300, 50))
-        accountNumberLabel.text = "招商银行储值卡(*3422)"
+        accountNumberLabel.text = "当日即可到账"
         accountNumberLabel.textAlignment = .Right
         accountNumberLabel.textColor = UIColor(hexString: "#ffffff")
         view.addSubview(accountNumberLabel)
         setFont(accountNumberLabel)
         
         let accountMoneyLabel = UITextField(frame: CGRectMake(maxWidth-95/3-300, 496/3, 300, 50))
-        accountMoneyLabel.text = "请输入充值金额"
+        accountMoneyLabel.text = "请输入金额"
         accountMoneyLabel.font = UIFont.systemFontOfSize(16)
         accountMoneyLabel.textAlignment = .Right
         accountMoneyLabel.textColor = UIColor(hexString: "#fee300")
@@ -102,15 +102,18 @@ class AIBalanceTixianViewController: AIBaseViewController {
         
         let buttonSubmit = DesignableButton(frame:  CGRectMake(95/3, accountMoneyLabel.top + 150, maxWidth-(95/3)*2, 45))
         buttonSubmit.backgroundColor = UIColor(hexString: "#1086E8")
-        buttonSubmit.setTitle("确认付款", forState: UIControlState.Normal)
+        buttonSubmit.setTitle("确认提现", forState: UIControlState.Normal)
         buttonSubmit.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         buttonSubmit.titleLabel?.font = UIFont.systemFontOfSize(16)
         buttonSubmit.cornerRadius = 5
         view.addSubview(buttonSubmit)
-        
+        buttonSubmit.addTarget(self, action: #selector(AIBalanceTixianViewController.tixianAction), forControlEvents: UIControlEvents.TouchUpInside)
         
     }
     
-    
+    func tixianAction() {
+        let s = AITiXianViewController.initFromNib()
+        presentBlurViewController(s, animated: true, completion: nil)
+    }
     
 }
