@@ -40,7 +40,7 @@ class AIMyWalletBalanceViewController: UIViewController {
     }
     
     @IBAction func tixianAction(sender: AnyObject) {
-        let bevc = AITiXianViewController.initFromNib()
+        let bevc = AIBalanceTixianViewController()
         self.presentBlurViewController(bevc, animated: true, completion: nil)
     }
     

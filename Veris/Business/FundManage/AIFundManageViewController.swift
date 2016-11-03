@@ -122,7 +122,7 @@ class AIFundManageViewController: AIBaseViewController {
         let backButton = goBackButtonWithImage("comment-back")
         navigatonBarAppearance?.leftBarButtonItems = [backButton]
         let font = AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize())
-        navigatonBarAppearance!.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 40.displaySizeFrom1242DesignSize(), font: font, textColor: UIColor.whiteColor(), text: "我的钱包")
+        navigatonBarAppearance?.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 40.displaySizeFrom1242DesignSize(), font: font, textColor: UIColor.whiteColor(), text: "我的钱包")
         setNavigationBarAppearance(navigationBarAppearance: navigatonBarAppearance!)
         
         zijinButton.layer.cornerRadius = 4
