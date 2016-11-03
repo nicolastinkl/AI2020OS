@@ -80,6 +80,8 @@
 		8109975A1DC9EF8B001475D1 /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810997561DC9EF8B001475D1 /* AIFundManageViewController.swift */; };
 		8109975B1DC9EF8B001475D1 /* AIFundManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810997571DC9EF8B001475D1 /* AIFundManageViewController.xib */; };
 		8109975F1DC9F06A001475D1 /* AICreditScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8109975E1DC9F06A001475D1 /* AICreditScoreViewController.swift */; };
+		810997841DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810997821DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift */; };
+		810997851DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810997831DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib */; };
 		8116991C1D93BA6800C2D6EA /* AIALAssetsImageOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8116991B1D93BA6800C2D6EA /* AIALAssetsImageOperator.m */; };
 		813860F51D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */; };
 		813860F71D5979030050C0D0 /* AIChooseStarLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860F61D5979030050C0D0 /* AIChooseStarLevelView.swift */; };
@@ -1003,6 +1005,8 @@
 		810997561DC9EF8B001475D1 /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundManageViewController.swift; sourceTree = "<group>"; };
 		810997571DC9EF8B001475D1 /* AIFundManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFundManageViewController.xib; sourceTree = "<group>"; };
 		8109975E1DC9F06A001475D1 /* AICreditScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AICreditScoreViewController.swift; path = ViewController/AICreditScoreViewController.swift; sourceTree = "<group>"; };
+		810997821DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundBaseViewCotroller.swift; sourceTree = "<group>"; };
+		810997831DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFundBaseViewCotroller.xib; sourceTree = "<group>"; };
 		8116991A1D93BA6800C2D6EA /* AIALAssetsImageOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIALAssetsImageOperator.h; sourceTree = "<group>"; };
 		8116991B1D93BA6800C2D6EA /* AIALAssetsImageOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIALAssetsImageOperator.m; sourceTree = "<group>"; };
 		813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleServiceCommnentViewController.swift; sourceTree = "<group>"; };
@@ -2413,6 +2417,8 @@
 		810997551DC9EF8B001475D1 /* ViewContoller */ = {
 			isa = PBXGroup;
 			children = (
+				810997821DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift */,
+				810997831DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib */,
 				810997561DC9EF8B001475D1 /* AIFundManageViewController.swift */,
 				810997571DC9EF8B001475D1 /* AIFundManageViewController.xib */,
 			);
@@ -5390,6 +5396,7 @@
 				81433D881CFBE5A700347C29 /* UIPopView.xib in Resources */,
 				93C289C61D178A27003F0473 /* AISuperiorityIconTextView.xib in Resources */,
 				81433D3A1CFBE5A700347C29 /* AIAudioRecordView.xib in Resources */,
+				810997851DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib in Resources */,
 				81433E141CFBE5A700347C29 /* OrderAndBuyerInfoView.xib in Resources */,
 				81433E111CFBE5A700347C29 /* SeparatorLineLabel.xib in Resources */,
 				935987011D20FCB900BBED4E /* AIAssetsReviewsController.xib in Resources */,
@@ -6046,6 +6053,7 @@
 				81433E831CFBE5A700347C29 /* FLEXNetworkTransactionDetailTableViewController.m in Sources */,
 				8175A7F71CFD2710006F2C8F /* NSData+ImageContentType.m in Sources */,
 				846AED901D13CFC200C8BCE9 /* CommentHelp.swift in Sources */,
+				810997841DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift in Sources */,
 				81433E061CFBE5A700347C29 /* CurveModel.m in Sources */,
 				846AED921D13D1DB00C8BCE9 /* AbsCommentViewController.swift in Sources */,
 				932762EA1D1D3225002F7FA0 /* AIPayInfoModel.swift in Sources */,
