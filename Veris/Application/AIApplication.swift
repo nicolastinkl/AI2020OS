@@ -604,7 +604,7 @@ struct AIApplication {
                 
             // 我的钱包相关接口
             case .queryMyCoins: return AIApplication.KURL_ReleaseURL + "/account/myCoins"
-            case .queryMyVoucher: return AIApplication.KURL_ReleaseURL + "/account/myVoucher"
+            case .queryMyVoucher: return AIApplication.KURL_ReleaseURL + "/account/myVouchers"
 
             // 资金流水相关接口
             case .getCapitalFlowList: return AIApplication.KURL_ReleaseURL + "/account/moneyList"
