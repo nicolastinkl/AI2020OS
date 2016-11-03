@@ -8,6 +8,7 @@
 
 import UIKit
 import Spring
+import AIAlertView
 
 class AIBusinessCurrencyViewController: AIBaseViewController {
 
@@ -21,6 +22,8 @@ class AIBusinessCurrencyViewController: AIBaseViewController {
     var bcDetailView: AIBCDetailView!
     
     let cellIdentifier = AIApplication.MainStoryboard.CellIdentifiers.AICurrencyTableViewCell
+    
+    var viewModel: AICurrencysViewModel?
     
     // MARK: -> Interface Builder actions
     
@@ -40,8 +43,9 @@ class AIBusinessCurrencyViewController: AIBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         setupViews()
+        //currencyTableView.headerBeginRefreshing()
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +59,16 @@ class AIBusinessCurrencyViewController: AIBaseViewController {
         setupPopupView()
         //为导航栏留出位置
         edgesForExtendedLayout = .None
+    }
+    
+    func loadData() {
+        let requestHandler = AICouponRequestHandler.sharedInstance
+        requestHandler.queryMyCurrencys({ (busiModel) in
+            self.viewModel = busiModel
+            self.currencyTableView.headerEndRefreshing()
+            }) { (errType, errDes) in
+                AIAlertView().showError("数据刷新失败", subTitle: errDes)
+        }
     }
     
     private func setupPopupView() {
@@ -83,14 +97,27 @@ extension AIBusinessCurrencyViewController: UITableViewDelegate, UITableViewData
         currencyTableView.allowsSelection = false
         currencyTableView.rowHeight = 56
         currencyTableView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        weak var weakSelf = self
+        currencyTableView.addHeaderWithCallback { 
+            weakSelf?.loadData()
+        }
+        currencyTableView.addHeaderRefreshEndCallback { 
+            weakSelf?.currencyTableView.reloadData()
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if let viewModel = viewModel {
+           return viewModel.currencysModel!.count
+        }
+        return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AICurrencyTableViewCell
+        if let viewModel = viewModel {
+           cell.model = viewModel.currencysModel![indexPath.row]
+        }
         return cell
     }
 }

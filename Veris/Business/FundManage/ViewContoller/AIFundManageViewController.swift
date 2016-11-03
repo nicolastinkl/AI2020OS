@@ -78,9 +78,15 @@ class AIFundManageViewController: AIBaseViewController {
                 break
             case 3:
                 //我的商家币
+                let vc = UIStoryboard(name: "AICouponsStoryboard", bundle: nil).instantiateViewControllerWithIdentifier("AIBusinessCurrencyViewController") as! AIBusinessCurrencyViewController
+                let navigationController = UINavigationController(rootViewController: vc)
+                presentViewController(navigationController, animated: true, completion: nil)
                 break
             case 4:
                 //我的优惠券
+                let vc = UIStoryboard(name: "AICouponsStoryboard", bundle: nil).instantiateViewControllerWithIdentifier("AICouponViewController") as! AICouponViewController
+                let navigationController = UINavigationController(rootViewController: vc)
+                presentViewController(navigationController, animated: true, completion: nil)
                 break
             case 5:
                 //我的资金账户

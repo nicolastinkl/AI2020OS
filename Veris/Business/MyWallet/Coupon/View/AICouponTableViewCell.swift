@@ -15,16 +15,29 @@ class AICouponTableViewCell: UITableViewCell {
     @IBOutlet weak var discountAmountLabel: UILabel!
     @IBOutlet weak var discountUnitLabel: UILabel!
     
+    var model: AIVoucherBusiModel? {
+        didSet {
+            if let model = model {
+                bindData(model)
+            }
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupViews()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setupViews() {
+        
+    }
+    
+    func bindData(model: AIVoucherBusiModel) {
+        couponNameLabel.text = model.name
+        expireDateLabel.text = "有效期至\(model.expire_time!)"
+        discountAmountLabel.text = model.amount
+        discountUnitLabel.text = model.unit
     }
     
 }
