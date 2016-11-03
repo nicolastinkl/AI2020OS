@@ -90,6 +90,13 @@ class AIFundManageViewController: AIBaseViewController {
                 break
             case 5:
                 //我的资金账户
+                let holdVC = AIFundAccountViewController.initFromNib()
+                let vc = AIFundBaseViewCotroller.initFromNib()
+                vc.potColor = UIColor.orangeColor()
+                vc.privacyLabelHide = true
+                vc.title = "我的资金账户"
+                presentViewController(vc, animated: true, completion: nil)
+                vc.setupFillView(holdVC)
                 break
             case 6:
                 //我的会员卡
