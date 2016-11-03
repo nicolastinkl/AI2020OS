@@ -8,6 +8,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AITiXianViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="complateButton" destination="vUm-yg-642" id="MJ7-wW-I23"/>
+                <outlet property="email" destination="gAE-Ra-PPC" id="bOA-yM-F6I"/>
+                <outlet property="name" destination="LLY-LA-EPQ" id="HyT-Bg-Bbf"/>
+                <outlet property="toast" destination="EJh-cU-f8d" id="50F-9O-soa"/>
                 <outlet property="view" destination="Bhh-a8-5LY" id="NZq-Hy-sOH"/>
             </connections>
         </placeholder>
@@ -52,29 +56,51 @@
                         <constraint firstAttribute="height" constant="46" id="pum-Jg-Q7s"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                    <state key="normal" title="提现">
+                    <state key="normal" title="完成">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提现金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQc-fm-YGy">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="92" id="AH4-Z9-Fli"/>
+                        <constraint firstAttribute="height" constant="22" id="Tim-eU-T81"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥400" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lt-Ij-6eJ">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="WAE-TV-oBl"/>
+                        <constraint firstAttribute="width" constant="92" id="d1G-D8-H9k"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.8980392157" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="EJh-cU-f8d" secondAttribute="trailing" constant="76" id="6zx-aL-jwn"/>
                 <constraint firstAttribute="trailing" secondItem="gAE-Ra-PPC" secondAttribute="trailing" constant="76" id="7DT-xs-aaY"/>
+                <constraint firstAttribute="trailing" secondItem="3lt-Ij-6eJ" secondAttribute="trailing" constant="25" id="8OA-Kb-tQx"/>
                 <constraint firstAttribute="trailing" secondItem="vUm-yg-642" secondAttribute="trailing" constant="25" id="GZu-ye-nN2"/>
                 <constraint firstItem="gAE-Ra-PPC" firstAttribute="top" secondItem="LLY-LA-EPQ" secondAttribute="bottom" constant="8" id="L9U-eg-fnH"/>
                 <constraint firstItem="vUm-yg-642" firstAttribute="leading" secondItem="Bhh-a8-5LY" secondAttribute="leading" constant="24" id="MUB-3W-XWy"/>
+                <constraint firstItem="pQc-fm-YGy" firstAttribute="leading" secondItem="Bhh-a8-5LY" secondAttribute="leading" constant="24" id="R4M-43-8uB"/>
+                <constraint firstItem="vUm-yg-642" firstAttribute="top" secondItem="3lt-Ij-6eJ" secondAttribute="bottom" constant="8" id="SHv-jd-Qo7"/>
                 <constraint firstItem="5Ps-z1-VUl" firstAttribute="top" secondItem="Bhh-a8-5LY" secondAttribute="top" constant="100" id="Sbp-RU-QpF"/>
                 <constraint firstItem="gAE-Ra-PPC" firstAttribute="leading" secondItem="Bhh-a8-5LY" secondAttribute="leading" constant="77" id="V3s-PL-ntQ"/>
                 <constraint firstItem="EJh-cU-f8d" firstAttribute="leading" secondItem="Bhh-a8-5LY" secondAttribute="leading" constant="77" id="X8N-Ib-MlI"/>
                 <constraint firstItem="LLY-LA-EPQ" firstAttribute="leading" secondItem="Bhh-a8-5LY" secondAttribute="leading" constant="77" id="Ytl-r2-uFk"/>
                 <constraint firstAttribute="trailing" secondItem="LLY-LA-EPQ" secondAttribute="trailing" constant="76" id="diQ-jv-DKf"/>
-                <constraint firstItem="vUm-yg-642" firstAttribute="top" secondItem="EJh-cU-f8d" secondAttribute="bottom" constant="26" id="kXj-oO-KNJ"/>
+                <constraint firstItem="vUm-yg-642" firstAttribute="top" secondItem="EJh-cU-f8d" secondAttribute="bottom" constant="50" id="kXj-oO-KNJ"/>
+                <constraint firstItem="vUm-yg-642" firstAttribute="top" secondItem="pQc-fm-YGy" secondAttribute="bottom" constant="8" id="oQg-rb-JKH"/>
                 <constraint firstItem="5Ps-z1-VUl" firstAttribute="centerX" secondItem="Bhh-a8-5LY" secondAttribute="centerX" id="tBi-xU-2AJ"/>
                 <constraint firstItem="EJh-cU-f8d" firstAttribute="top" secondItem="gAE-Ra-PPC" secondAttribute="bottom" constant="16" id="zSN-mz-8uw"/>
                 <constraint firstItem="LLY-LA-EPQ" firstAttribute="top" secondItem="5Ps-z1-VUl" secondAttribute="bottom" constant="23" id="zSX-hf-xdG"/>
             </constraints>
-            <point key="canvasLocation" x="-144" y="-24"/>
+            <point key="canvasLocation" x="-144.5" y="-24.5"/>
         </view>
     </objects>
     <resources>

@@ -824,6 +824,11 @@
 		C90061511DC720560001A963 /* AIRechargeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90061501DC720550001A963 /* AIRechargeView.xib */; };
 		C90061521DC73AC30001A963 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A0EE01D803FFB00A84BBB /* AVOSCloud.framework */; };
 		C90061531DC73AC30001A963 /* AVOSCloud.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 819A0EE01D803FFB00A84BBB /* AVOSCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+
+		C908F8171DC9D4A400E5D6C8 /* AIFundBaseViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = C908F8161DC9D4A400E5D6C8 /* AIFundBaseViewCotroller.xib */; };
+		C908F8191DC9D58900E5D6C8 /* AIFundBaseViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C908F8181DC9D58900E5D6C8 /* AIFundBaseViewCotroller.swift */; };
+		C928CB561DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C928CB551DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift */; };
+
 		C9301A591DC86DA600F5C613 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; };
 		C9301A5C1DC8731A00F5C613 /* AITiXianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */; };
 		C9301A5E1DC8736C00F5C613 /* AITiXianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */; };
@@ -2048,6 +2053,11 @@
 		A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C900614E1DC7204E0001A963 /* AIRechargeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRechargeView.swift; sourceTree = "<group>"; };
 		C90061501DC720550001A963 /* AIRechargeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRechargeView.xib; sourceTree = "<group>"; };
+
+		C908F8161DC9D4A400E5D6C8 /* AIFundBaseViewCotroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFundBaseViewCotroller.xib; sourceTree = "<group>"; };
+		C908F8181DC9D58900E5D6C8 /* AIFundBaseViewCotroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundBaseViewCotroller.swift; sourceTree = "<group>"; };
+		C928CB551DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBalanceTixianViewController.swift; sourceTree = "<group>"; };
+
 		C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITiXianViewController.swift; sourceTree = "<group>"; };
 		C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITiXianViewController.xib; sourceTree = "<group>"; };
 		C95179D61D40C73600446498 /* AICommentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoModel.swift; sourceTree = "<group>"; };
@@ -5016,6 +5026,7 @@
 				C9FE357F1DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift */,
 				C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */,
 				C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */,
+				C928CB551DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift */,
 				C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */,
 				C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */,
 			);
@@ -5628,6 +5639,7 @@
 				81433E321CFBE5A700347C29 /* AITaskNoteEditViewController.swift in Sources */,
 				81433DA21CFBE5A700347C29 /* AIRequireProtocol.swift in Sources */,
 				81433E841CFBE5A700347C29 /* FLEXNetworkTransactionTableViewCell.m in Sources */,
+				C928CB561DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift in Sources */,
 				81433E601CFBE5A700347C29 /* FLEXFieldEditorView.m in Sources */,
 				81433D791CFBE5A700347C29 /* AIServiceParamView.swift in Sources */,
 				81433D611CFBE5A700347C29 /* AIShoppingListViewCell.swift in Sources */,
