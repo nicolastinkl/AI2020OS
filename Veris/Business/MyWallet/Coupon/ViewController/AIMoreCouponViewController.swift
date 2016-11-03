@@ -8,11 +8,18 @@
 
 import UIKit
 import Spring
+import AIAlertView
 
 class AIMoreCouponViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tabContainerView: UIView!
+    
+    
+    @IBAction func locateAction(sender: AnyObject) {
+        let nearCouponViewController = UIStoryboard(name: "AICouponsStoryboard", bundle: nil).instantiateViewControllerWithIdentifier("AINearCouponViewController") as! AINearCouponViewController
+        self.navigationController?.pushViewController(nearCouponViewController, animated: true)
+    }
     
     var filterBar: AIFilterBar!
     var commentsNumbers = [
@@ -24,6 +31,8 @@ class AIMoreCouponViewController: UIViewController {
     var couponDetailView: AICouponDetailView!
     
     let cellIdentifier = AIApplication.MainStoryboard.CellIdentifiers.AIIconCouponTableViewCell
+    
+    var viewModel: AICouponsViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +84,16 @@ class AIMoreCouponViewController: UIViewController {
         couponDetailView = AICouponDetailView.createInstance()
         popupDetailView.buildContent(couponDetailView)
     }
+    
+    func loadData() {
+        let requestHandler = AICouponRequestHandler.sharedInstance
+        requestHandler.queryMyCoupons(filterBar.selectedIndex.toString(), locationModel: nil, success: { (busiModel) in
+            self.viewModel = busiModel
+            self.tableView.headerEndRefreshing()
+        }) { (errType, errDes) in
+            AIAlertView().showError("数据刷新失败", subTitle: errDes)
+        }
+    }
 
 }
 //MARK: -> tableview delegates
@@ -87,16 +106,29 @@ extension AIMoreCouponViewController: UITableViewDelegate, UITableViewDataSource
         tableView.allowsSelection = false
         tableView.rowHeight = 93
         tableView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        weak var weakSelf = self
+        tableView.addHeaderWithCallback {
+            weakSelf?.loadData()
+        }
+        tableView.addHeaderRefreshEndCallback {
+            weakSelf?.tableView.reloadData()
+        }
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if let viewModel = viewModel {
+            return viewModel.couponsModel!.count
+        }
+        return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AIIconCouponTableViewCell
         cell.delegate = self
+        if let viewModel = viewModel {
+            cell.model = viewModel.couponsModel![indexPath.row]
+        }
         return cell
         
     }
@@ -107,7 +139,7 @@ extension AIMoreCouponViewController: AIFilterBarDelegate, AIIconCouponTableView
     
     func filterBar(filterBar: AIFilterBar, didSelectIndex: Int) {
         //fetchComments()
-        tableView.reloadData()
+        loadData()
     }
     
     func useAction() {
