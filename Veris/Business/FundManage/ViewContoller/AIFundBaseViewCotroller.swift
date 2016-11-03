@@ -11,13 +11,20 @@ import UIKit
 
 class AIFundBaseViewCotroller: UIViewController {
     
+    var privacyLabelHide = false
+    var potColor = UIColor.whiteColor()
+    
     @IBOutlet weak var bgview: UIView!
     @IBOutlet weak var round: UIView!
     @IBOutlet weak var containView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var privacyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        round.backgroundColor = potColor
+        privacyLabel.hidden = privacyLabelHide
+        titleLabel.text = title
         self.bgview.layer.cornerRadius = 10
         self.bgview.layer.masksToBounds = true
         
