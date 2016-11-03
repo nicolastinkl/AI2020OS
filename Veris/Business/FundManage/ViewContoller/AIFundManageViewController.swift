@@ -22,7 +22,6 @@ class AIFundManageViewController: AIBaseViewController {
     private let contentArray = ["我的余额", "我的信用积分", "我的商家币", "我的优惠券", "我的资金账户", "我的会员卡"]
     private let contentArrayColor = ["#7b3990", "#1c789f", "#619505", "#f79a00", "#d05126", "#b32b1d"]
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         //makeBackButton()
@@ -31,13 +30,16 @@ class AIFundManageViewController: AIBaseViewController {
         setupNavigationBar()
         
         // add view controller to this vc
-        //let vc = AIMyWalletBalanceViewController.initFromNib()
         
-       
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if contentScrollView.subviews.count > 0 {
+            return
+        }
         
         var index = 0
         contentArray.forEach { (string) in
@@ -66,6 +68,10 @@ class AIFundManageViewController: AIBaseViewController {
             switch tag {
             case 1:
                 //我的余额
+                let holdVC = AIMyWalletBalanceViewController.initFromNib()
+                let vc = AIFundBaseViewCotroller.initFromNib()
+                presentViewController(vc, animated: true, completion: nil)
+                vc.setupFillView(holdVC)
                 break
             case 2:
                 //我的信用积分
@@ -92,7 +98,7 @@ class AIFundManageViewController: AIBaseViewController {
                 //年收入
                 break
             case 8:
-                // 待fu
+                // 待付
                 let vc = AIWillPayVController.init()
                 presentBlurViewController(vc, animated: true, completion: nil)
                 

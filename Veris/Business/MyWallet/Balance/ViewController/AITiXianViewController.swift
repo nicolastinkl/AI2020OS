@@ -10,8 +10,11 @@ import Foundation
 import UIKit
 
 ///提现详情
-class AITiXianViewController: UIViewController {
+class AITiXianViewController: AIBaseViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     
 }

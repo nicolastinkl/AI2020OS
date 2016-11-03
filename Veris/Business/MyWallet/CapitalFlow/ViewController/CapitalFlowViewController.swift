@@ -14,7 +14,7 @@ class CapitalFlowViewController: UIViewController {
     @IBOutlet weak var filterViewContainer: UIView!
     @IBOutlet weak var filteButton: UIButton!
     
-    var capitalData: [CapitalFlowModel]?
+    var capitalData: [CapitalFlowItem]?
     private var vc: FilterViewController!
     
     override func viewDidLoad() {
@@ -28,10 +28,9 @@ class CapitalFlowViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 25
         
+        createFilteViewController()
+        
         loadData()
-        
-        addFilteViewController()
-        
     }
     
     class func initFromStoryboard() -> CapitalFlowViewController {
@@ -48,12 +47,6 @@ class CapitalFlowViewController: UIViewController {
             addChildViewController(vc)
             tableView.addSubview(vc.view)
             vc.didMoveToParentViewController(self)
-            
-//            transitionFromViewController(self, toViewController: vc, duration: 10, options: .TransitionFlipFromTop, animations: {
-//                
-//                }, completion: { (finished) in
-//                    
-//            })
         }
     }
     
@@ -80,32 +73,57 @@ class CapitalFlowViewController: UIViewController {
     }
     
     private func loadData() {
-        capitalData = [CapitalFlowModel]()
+        showLoading()
         
-        var model = CapitalFlowModel()
-        model.itemName = "孕检无忧"
-        model.date = "2016.05.31 19:20:18"
-        model.flowNumber = -50
-        model.type = "信用付款"
+        let service = HttpCapitalFlowService()
         
-        capitalData?.append(model)
-        
-        model = CapitalFlowModel()
-        model.itemName = "孕检无忧"
-        model.date = "2016.05.30 19:20:18"
-        model.flowNumber = +52
-        model.type = "现金退款"
-        
-        capitalData?.append(model)
-        
-        if capitalData != nil {
-            tableView.reloadData()
+        service.getCapitalFlowList(CapitalType.all, success: { (responseData) in
+            
+            self.dismissLoading()
+            self.capitalData = responseData.money_list as? [CapitalFlowItem]
+            
+            if self.capitalData != nil {
+                self.tableView.reloadData()
+            }
+            
+            }) { (errType, errDes) in
+                self.dismissLoading()
+                NBMaterialToast.showWithText(self.view, text: "GetDataFailed".localized, duration: NBLunchDuration.SHORT)
         }
+        
+//        capitalData = [CapitalFlowModel]()
+//        
+//        var model = CapitalFlowModel()
+//        model.itemName = "孕检无忧"
+//        model.date = "2016.05.31 19:20:18"
+//        model.flowNumber = -50
+//        model.type = "信用付款"
+//        
+//        capitalData?.append(model)
+//        
+//        model = CapitalFlowModel()
+//        model.itemName = "孕检无忧"
+//        model.date = "2016.05.30 19:20:18"
+//        model.flowNumber = +52
+//        model.type = "现金退款"
+//        
+//        capitalData?.append(model)
+//        
+//        if capitalData != nil {
+//            tableView.reloadData()
+//        }
     }
     
-    private func addFilteViewController() {
+    private func createFilteViewController() {
         vc = FilterViewController.initFromStoryboard()
-    //    addChildViewController(vc)
+    }
+    
+    private func convertDate(date: NSNumber) -> String {
+        let date = NSDate(timeIntervalSince1970: date.doubleValue / 1000.0)
+        let dateFormat = NSDateFormatter()
+        dateFormat.dateFormat = "MM-dd HH:mm"
+        let timeString = dateFormat.stringFromDate(date)
+        return timeString
     }
 
     /*
@@ -126,9 +144,9 @@ extension CapitalFlowViewController: UITableViewDataSource, UITableViewDelegate 
         let cell = tableView.dequeueReusableCellWithIdentifier("CapitalFlowCell") as! CapitalFlowCell
         
         if let model = capitalData?[indexPath.row] {
-            cell.itemName.text = model.itemName
-            cell.date.text = model.date
-            cell.flowNumber.text = String.init(format: "%.2f", model.flowNumber)
+            cell.itemName.text = model.name
+            cell.date.text = self.convertDate(model.time)
+            cell.flowNumber.text = String.init(format: "%.2f", model.amout)
             cell.type.text = model.type
         }
         
@@ -139,17 +157,5 @@ extension CapitalFlowViewController: UITableViewDataSource, UITableViewDelegate 
         
         return capitalData?.count ?? 0
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("===========>" + "\(indexPath.row)")
-    }
 }
 
-
-
-class CapitalFlowModel {
-    var itemName = ""
-    var date = ""
-    var type = ""
-    var flowNumber: Float = 0
-}
