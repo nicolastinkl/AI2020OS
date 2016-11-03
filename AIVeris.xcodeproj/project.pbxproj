@@ -19,6 +19,8 @@
 		1234F9AB1D351C530009FB4F /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A71D351C530009FB4F /* BaiduMapAPI_Map.framework */; };
 		1234F9AC1D351C530009FB4F /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */; };
 		1234F9AE1D351C7E0009FB4F /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1234F9AD1D351C7E0009FB4F /* mapapi.bundle */; };
+		123531041DC9CA6E00C5702E /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DFB1DC9CA440075EBD7 /* CardDeepLinkKit.framework */; };
+		123531051DC9CA6E00C5702E /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12CE5DFB1DC9CA440075EBD7 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		123A1F861D2F94F900542D06 /* AITimelineTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123A1F841D2F94F900542D06 /* AITimelineTopView.xib */; };
 		123A1F871D2F94F900542D06 /* AITimelineTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1F851D2F94F900542D06 /* AITimelineTopView.swift */; };
 		1265F6291D47841400130ECF /* AICustomerServiceExecuteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1265F6281D47841400130ECF /* AICustomerServiceExecuteHandler.swift */; };
@@ -39,7 +41,6 @@
 		12CBF2181DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CBF2161DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.xib */; };
 		12CBF2191DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CBF2171DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.swift */; };
 		12CBF21B1DB5BE5B00600BE7 /* AIWorkUploadPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CBF21A1DB5BE5B00600BE7 /* AIWorkUploadPopView.swift */; };
-		12CE5DCD1DC74DF00075EBD7 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; };
 		12CE5DCE1DC74DFB0075EBD7 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; };
 		12CE5DE31DC77AB20075EBD7 /* AIBusinessCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DD21DC77AB20075EBD7 /* AIBusinessCurrencyViewController.swift */; };
 		12CE5DE41DC77AB20075EBD7 /* AICouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DD31DC77AB20075EBD7 /* AICouponViewController.swift */; };
@@ -59,6 +60,8 @@
 		12CE5DF41DC77DA80075EBD7 /* AICouponBusiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DF31DC77DA80075EBD7 /* AICouponBusiModel.m */; };
 		12CE5DF61DC8893F0075EBD7 /* AICouponViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DF51DC8893F0075EBD7 /* AICouponViewModel.swift */; };
 		12CE5DF81DC88B9C0075EBD7 /* AICouponRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DF71DC88B9C0075EBD7 /* AICouponRequestHandler.swift */; };
+		12CE5DFA1DC9C75B0075EBD7 /* AINearCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DF91DC9C75B0075EBD7 /* AINearCouponViewController.swift */; };
+		12CE5DFC1DC9CA440075EBD7 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DFB1DC9CA440075EBD7 /* CardDeepLinkKit.framework */; };
 		12D7649B1D0D469A002B001B /* AIRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764961D0D469A002B001B /* AIRegistViewController.swift */; };
 		12D7649C1D0D469A002B001B /* AIValidateRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */; };
 		12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764981D0D469A002B001B /* AISelectRegionViewController.swift */; };
@@ -705,6 +708,8 @@
 		84CB784E1DBEF655001EBB6D /* SKSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB784A1DBEF655001EBB6D /* SKSTableViewCell.swift */; };
 		84CB78501DBF0A1C001EBB6D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB784F1DBF0A1C001EBB6D /* FilterViewController.swift */; };
 		84E51EFA1D1242930026AF22 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E51EF91D1242930026AF22 /* StarRateView.swift */; };
+		84EBF4FB1DCAE745002F6269 /* CapitalFlowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EBF4F91DCAE745002F6269 /* CapitalFlowModel.m */; };
+		84EBF4FC1DCAE745002F6269 /* CapitalFlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBF4FA1DCAE745002F6269 /* CapitalFlowService.swift */; };
 		84F2E5B81D17C7A9009E0C72 /* SubServiceCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */; };
 		84F2E5BA1D17D02E009E0C72 /* SubServiceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */; };
 		84F2E5BD1D17F155009E0C72 /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E5BB1D17F155009E0C72 /* ExpandableTableViewCell.swift */; };
@@ -823,8 +828,8 @@
 		C90061511DC720560001A963 /* AIRechargeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90061501DC720550001A963 /* AIRechargeView.xib */; };
 		C90061521DC73AC30001A963 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A0EE01D803FFB00A84BBB /* AVOSCloud.framework */; };
 		C90061531DC73AC30001A963 /* AVOSCloud.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 819A0EE01D803FFB00A84BBB /* AVOSCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C928CB561DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C928CB551DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift */; };
 		C9301A591DC86DA600F5C613 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; };
-		C9301A5A1DC86DA600F5C613 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9301A5C1DC8731A00F5C613 /* AITiXianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */; };
 		C9301A5E1DC8736C00F5C613 /* AITiXianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */; };
 		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
@@ -917,7 +922,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				819A0EE71D80400600A84BBB /* AVOSCloudCrashReporting.framework in CopyFiles */,
-				C9301A5A1DC86DA600F5C613 /* CardDeepLinkKit.framework in CopyFiles */,
+				123531051DC9CA6E00C5702E /* CardDeepLinkKit.framework in CopyFiles */,
 				C90061531DC73AC30001A963 /* AVOSCloud.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -956,7 +961,7 @@
 		12CBF2161DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIWorkQualificationTableViewCell.xib; sourceTree = "<group>"; };
 		12CBF2171DB5BDD700600BE7 /* AIWorkQualificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkQualificationTableViewCell.swift; sourceTree = "<group>"; };
 		12CBF21A1DB5BE5B00600BE7 /* AIWorkUploadPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkUploadPopView.swift; sourceTree = "<group>"; };
-		12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
+		12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = /Users/liuxian/workspace/asiainfoWorkSpec/AI2020OS/Veris/Developement/DeepLink/CardDeepLinkKit.framework; sourceTree = "<absolute>"; };
 		12CE5DD21DC77AB20075EBD7 /* AIBusinessCurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBusinessCurrencyViewController.swift; sourceTree = "<group>"; };
 		12CE5DD31DC77AB20075EBD7 /* AICouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICouponViewController.swift; sourceTree = "<group>"; };
 		12CE5DD41DC77AB20075EBD7 /* AIMoreCouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMoreCouponViewController.swift; sourceTree = "<group>"; };
@@ -976,6 +981,8 @@
 		12CE5DF31DC77DA80075EBD7 /* AICouponBusiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICouponBusiModel.m; sourceTree = "<group>"; };
 		12CE5DF51DC8893F0075EBD7 /* AICouponViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICouponViewModel.swift; sourceTree = "<group>"; };
 		12CE5DF71DC88B9C0075EBD7 /* AICouponRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICouponRequestHandler.swift; sourceTree = "<group>"; };
+		12CE5DF91DC9C75B0075EBD7 /* AINearCouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AINearCouponViewController.swift; sourceTree = "<group>"; };
+		12CE5DFB1DC9CA440075EBD7 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		12D764961D0D469A002B001B /* AIRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRegistViewController.swift; sourceTree = "<group>"; };
 		12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIValidateRegistViewController.swift; sourceTree = "<group>"; };
 		12D764981D0D469A002B001B /* AISelectRegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectRegionViewController.swift; sourceTree = "<group>"; };
@@ -1829,6 +1836,9 @@
 		84CB784A1DBEF655001EBB6D /* SKSTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSTableViewCell.swift; sourceTree = "<group>"; };
 		84CB784F1DBF0A1C001EBB6D /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		84E51EF91D1242930026AF22 /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
+		84EBF4F81DCAE745002F6269 /* CapitalFlowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapitalFlowModel.h; sourceTree = "<group>"; };
+		84EBF4F91DCAE745002F6269 /* CapitalFlowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapitalFlowModel.m; sourceTree = "<group>"; };
+		84EBF4FA1DCAE745002F6269 /* CapitalFlowService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalFlowService.swift; sourceTree = "<group>"; };
 		84F2E5B71D17C7A9009E0C72 /* SubServiceCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubServiceCard.xib; sourceTree = "<group>"; };
 		84F2E5B91D17D02E009E0C72 /* SubServiceCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubServiceCardView.swift; sourceTree = "<group>"; };
 		84F2E5BB1D17F155009E0C72 /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
@@ -2048,6 +2058,7 @@
 		A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIVeris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C900614E1DC7204E0001A963 /* AIRechargeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRechargeView.swift; sourceTree = "<group>"; };
 		C90061501DC720550001A963 /* AIRechargeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRechargeView.xib; sourceTree = "<group>"; };
+		C928CB551DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBalanceTixianViewController.swift; sourceTree = "<group>"; };
 		C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITiXianViewController.swift; sourceTree = "<group>"; };
 		C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITiXianViewController.xib; sourceTree = "<group>"; };
 		C95179D61D40C73600446498 /* AICommentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoModel.swift; sourceTree = "<group>"; };
@@ -2189,15 +2200,16 @@
 				930455141D124E71007AFC0C /* iflyMSC.framework in Frameworks */,
 				9392B57E1D1CD9F10007F241 /* libcrypto.a in Frameworks */,
 				1234F9AC1D351C530009FB4F /* BaiduMapAPI_Search.framework in Frameworks */,
+				123531041DC9CA6E00C5702E /* CardDeepLinkKit.framework in Frameworks */,
 				1234F9AB1D351C530009FB4F /* BaiduMapAPI_Map.framework in Frameworks */,
 				81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */,
 				93B25AB61B9D7EA900CD1FEB /* Security.framework in Frameworks */,
 				93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */,
+				12CE5DFC1DC9CA440075EBD7 /* CardDeepLinkKit.framework in Frameworks */,
 				C9301A591DC86DA600F5C613 /* CardDeepLinkKit.framework in Frameworks */,
 				93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */,
 				9392B57D1D1CD9F10007F241 /* AlipaySDK.framework in Frameworks */,
 				93C33F391B9C2825007BF506 /* SystemConfiguration.framework in Frameworks */,
-				12CE5DCD1DC74DF00075EBD7 /* CardDeepLinkKit.framework in Frameworks */,
 				93C33F371B9C2813007BF506 /* QuartzCore.framework in Frameworks */,
 				93C33F331B9C27B1007BF506 /* CoreText.framework in Frameworks */,
 				93C33F311B9C25F8007BF506 /* Foundation.framework in Frameworks */,
@@ -2251,6 +2263,7 @@
 				12CE5DD21DC77AB20075EBD7 /* AIBusinessCurrencyViewController.swift */,
 				12CE5DD31DC77AB20075EBD7 /* AICouponViewController.swift */,
 				12CE5DD41DC77AB20075EBD7 /* AIMoreCouponViewController.swift */,
+				12CE5DF91DC9C75B0075EBD7 /* AINearCouponViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4022,7 +4035,7 @@
 		81B195781D4852BE0086EB83 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */,
+				12CE5DFB1DC9CA440075EBD7 /* CardDeepLinkKit.framework */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -4202,6 +4215,7 @@
 		842CE6D21DAF28550038E5C0 /* CapitalFlow */ = {
 			isa = PBXGroup;
 			children = (
+				84EBF4F71DCAE745002F6269 /* Model */,
 				842CE6D81DAF7BEE0038E5C0 /* View */,
 				842CE6D31DAF28A00038E5C0 /* ViewController */,
 			);
@@ -4394,6 +4408,16 @@
 				84CB784A1DBEF655001EBB6D /* SKSTableViewCell.swift */,
 			);
 			path = SKSTableView2.3;
+			sourceTree = "<group>";
+		};
+		84EBF4F71DCAE745002F6269 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84EBF4F81DCAE745002F6269 /* CapitalFlowModel.h */,
+				84EBF4F91DCAE745002F6269 /* CapitalFlowModel.m */,
+				84EBF4FA1DCAE745002F6269 /* CapitalFlowService.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		930455121D124E71007AFC0C /* XunfeiLib */ = {
@@ -5016,6 +5040,7 @@
 				C9FE357F1DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift */,
 				C9AF97951DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib */,
 				C9AF979F1DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift */,
+				C928CB551DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift */,
 				C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */,
 				C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */,
 			);
@@ -5629,6 +5654,7 @@
 				81433E321CFBE5A700347C29 /* AITaskNoteEditViewController.swift in Sources */,
 				81433DA21CFBE5A700347C29 /* AIRequireProtocol.swift in Sources */,
 				81433E841CFBE5A700347C29 /* FLEXNetworkTransactionTableViewCell.m in Sources */,
+				C928CB561DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift in Sources */,
 				81433E601CFBE5A700347C29 /* FLEXFieldEditorView.m in Sources */,
 				81433D791CFBE5A700347C29 /* AIServiceParamView.swift in Sources */,
 				81433D611CFBE5A700347C29 /* AIShoppingListViewCell.swift in Sources */,
@@ -5647,6 +5673,7 @@
 				84512D4F1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift in Sources */,
 				81433E161CFBE5A700347C29 /* PriceAndStepperView.swift in Sources */,
 				81433E471CFBE5A700347C29 /* UIImage+Resize.m in Sources */,
+				84EBF4FC1DCAE745002F6269 /* CapitalFlowService.swift in Sources */,
 				C9AF97A01DC1FB0500ECC7EF /* AIBalanceRechargeViewController.swift in Sources */,
 				8484D85A1D703514001F1A54 /* MenuPopOverView.swift in Sources */,
 				8175A7C61CFD2710006F2C8F /* AFHTTPRequestOperation.m in Sources */,
@@ -5743,6 +5770,7 @@
 				12CE5DF01DC77AB20075EBD7 /* AIPopupSContainerView.swift in Sources */,
 				81433E951CFBE5A700347C29 /* FLEXKeyboardShortcutManager.m in Sources */,
 				81433E201CFBE5A700347C29 /* UIBezierPageView.swift in Sources */,
+				12CE5DFA1DC9C75B0075EBD7 /* AINearCouponViewController.swift in Sources */,
 				81433E8B1CFBE5A700347C29 /* FLEXGlobalsTableViewControllerEntry.m in Sources */,
 				81433DA11CFBE5A700347C29 /* AIRACContentCell.swift in Sources */,
 				8175A7C81CFD2710006F2C8F /* AFHTTPSessionManager.m in Sources */,
@@ -5908,6 +5936,7 @@
 				C9301A5C1DC8731A00F5C613 /* AITiXianViewController.swift in Sources */,
 				813860F51D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift in Sources */,
 				81433DA01CFBE5A700347C29 /* AIRACClosureTableViewDataSource.swift in Sources */,
+				84EBF4FB1DCAE745002F6269 /* CapitalFlowModel.m in Sources */,
 				FB2373281D4F78F300A8B38A /* AIProductQAService.swift in Sources */,
 				8175A7F11CFD2710006F2C8F /* OBShapedImageView.m in Sources */,
 				8175A7F41CFD2710006F2C8F /* RRTagCollectionViewCell.swift in Sources */,

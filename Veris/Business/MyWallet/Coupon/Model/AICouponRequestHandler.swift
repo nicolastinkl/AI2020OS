@@ -65,7 +65,7 @@ class AICouponRequestHandler: NSObject {
      */
     func queryMyCurrencys(success: (busiModel: AICurrencysViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
-        let body = ["data": [], "desc": ["data_mode": "0", "digest": ""]]
+        let body = ["data": [:], "desc": ["data_mode": "0", "digest": ""]]
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         message.url = AIApplication.AIApplicationServerURL.queryMyCoins.description as String
         

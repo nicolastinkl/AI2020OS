@@ -19,6 +19,14 @@ class AIIconCouponTableViewCell: UITableViewCell {
     
     var delegate: AIIconCouponTableViewCellDelegate?
     
+    var model: AIVoucherBusiModel? {
+        didSet {
+            if let model = model {
+                bindData(model)
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -39,6 +47,12 @@ class AIIconCouponTableViewCell: UITableViewCell {
         useButton.layer.masksToBounds = true
     }
     
+    func bindData(model: AIVoucherBusiModel) {
+        couponNameLabel.text = model.name
+        expireDateLabel.text = "有效期至\(model.expire_time!)"
+        
+        couponIconImageView.sd_setImageWithURL(NSURL(string: model.icon), placeholderImage: UIImage(), options: SDWebImageOptions.RetryFailed)
+    }
 }
 
 protocol AIIconCouponTableViewCellDelegate: NSObjectProtocol {

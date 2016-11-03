@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,7 +88,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3vP-Mh-3WT">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="bGI-2g-igg"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet_location_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bGI-2g-igg"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0E6-t9-c7K">
                                 <state key="normal" title="查找周边更多优惠"/>
                                 <connections>
@@ -95,7 +96,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0E6-t9-c7K" firstAttribute="top" secondItem="bGI-2g-igg" secondAttribute="bottom" constant="8" id="5vJ-Pf-hPF"/>
                             <constraint firstItem="8MC-L6-lr1" firstAttribute="leading" secondItem="H3O-rk-CMi" secondAttribute="trailing" constant="8" id="9Bw-Ie-4hw"/>
@@ -108,7 +109,7 @@
                             <constraint firstItem="H3O-rk-CMi" firstAttribute="leading" secondItem="dFT-qr-0gB" secondAttribute="leading" constant="27" id="c2s-gy-LPX"/>
                             <constraint firstItem="VSL-S0-ekv" firstAttribute="top" secondItem="dFT-qr-0gB" secondAttribute="topMargin" constant="35" id="fMn-aW-GYP"/>
                             <constraint firstAttribute="bottomMargin" secondItem="0E6-t9-c7K" secondAttribute="bottom" constant="30" id="ft1-q9-NJj"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="3vP-Mh-3WT" secondAttribute="bottom" constant="150" id="mKg-hE-gpK"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="3vP-Mh-3WT" secondAttribute="bottom" constant="100" id="mKg-hE-gpK"/>
                             <constraint firstItem="0E6-t9-c7K" firstAttribute="centerX" secondItem="dFT-qr-0gB" secondAttribute="centerX" id="nyD-mW-3bo"/>
                             <constraint firstAttribute="trailing" secondItem="3vP-Mh-3WT" secondAttribute="trailing" id="yGX-V2-hqG"/>
                         </constraints>
@@ -146,14 +147,28 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uzs-lR-b2C">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet_location_icon" translatesAutoresizingMaskIntoConstraints="NO" id="hlB-RF-DE4"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdi-pg-QX3">
+                                <state key="normal" title="搜索周边可用优惠券">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.47999999999999998" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="locateAction:" destination="Iln-cw-0Xk" eventType="touchUpInside" id="0Ck-CD-SW4"/>
+                                    <action selector="locationAction:" destination="EzR-j4-fqc" eventType="touchUpInside" id="y0C-7r-pIv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Uzs-lR-b2C" firstAttribute="top" secondItem="QTL-th-eMV" secondAttribute="bottom" id="K2X-dj-np5"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Uzs-lR-b2C" secondAttribute="bottom" id="Omy-8f-xGc"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Uzs-lR-b2C" secondAttribute="bottom" constant="100" id="Omy-8f-xGc"/>
+                            <constraint firstItem="Rdi-pg-QX3" firstAttribute="top" secondItem="hlB-RF-DE4" secondAttribute="bottom" constant="8" id="U6a-aj-E66"/>
                             <constraint firstAttribute="trailing" secondItem="QTL-th-eMV" secondAttribute="trailing" id="Vy6-Jv-3DC"/>
+                            <constraint firstItem="Rdi-pg-QX3" firstAttribute="centerX" secondItem="xW8-Nq-ECC" secondAttribute="centerXWithinMargins" id="dw3-2M-jls"/>
                             <constraint firstAttribute="trailing" secondItem="Uzs-lR-b2C" secondAttribute="trailing" id="eBi-OC-tbF"/>
                             <constraint firstItem="Uzs-lR-b2C" firstAttribute="leading" secondItem="xW8-Nq-ECC" secondAttribute="leading" id="g5F-1M-vhW"/>
+                            <constraint firstItem="hlB-RF-DE4" firstAttribute="centerX" secondItem="Rdi-pg-QX3" secondAttribute="centerX" id="pcZ-Jf-7eX"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Rdi-pg-QX3" secondAttribute="bottom" constant="30" id="qrs-tB-PAL"/>
                             <constraint firstItem="QTL-th-eMV" firstAttribute="leading" secondItem="xW8-Nq-ECC" secondAttribute="leading" id="uLt-cF-wKj"/>
                             <constraint firstAttribute="topMargin" secondItem="QTL-th-eMV" secondAttribute="top" id="uzk-xG-ehT"/>
                         </constraints>
@@ -167,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="834.78260869565224" y="54.619565217391312"/>
         </scene>
-        <!--View Controller-->
+        <!--Near Coupon View Controller-->
         <scene sceneID="ABP-ZS-Cqo">
             <objects>
-                <viewController id="dL1-da-lNS" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AINearCouponViewController" id="dL1-da-lNS" customClass="AINearCouponViewController" customModule="Veris" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I8x-Yc-ERC"/>
                         <viewControllerLayoutGuide type="bottom" id="q2Z-d0-iPW"/>
@@ -178,16 +193,120 @@
                     <view key="view" contentMode="scaleToFill" id="Qmh-lg-xXI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siT-SZ-4Sa" userLabel="locationFailView">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_fail_icon" translatesAutoresizingMaskIntoConstraints="NO" id="xHV-Uc-o2m"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定位失败" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbR-Fv-ynn">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7S-19-bzA">
+                                        <state key="normal" title="重试">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="retryAction:" destination="dL1-da-lNS" eventType="touchUpInside" id="7nY-aS-XuI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-dj-Sj8">
+                                        <state key="normal" title="手动选择位置&gt;">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="manulLocateAction:" destination="dL1-da-lNS" eventType="touchUpInside" id="QWN-tb-2jO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="cbR-Fv-ynn" firstAttribute="centerX" secondItem="xHV-Uc-o2m" secondAttribute="centerX" id="Npu-jb-dO5"/>
+                                    <constraint firstItem="xHV-Uc-o2m" firstAttribute="centerX" secondItem="siT-SZ-4Sa" secondAttribute="centerX" id="Wau-zZ-DgJ"/>
+                                    <constraint firstItem="d7S-19-bzA" firstAttribute="top" secondItem="xHV-Uc-o2m" secondAttribute="bottom" constant="41" id="fW9-CC-fGl"/>
+                                    <constraint firstItem="yf8-dj-Sj8" firstAttribute="top" secondItem="d7S-19-bzA" secondAttribute="bottom" constant="18" id="lzK-n8-WlQ"/>
+                                    <constraint firstItem="d7S-19-bzA" firstAttribute="centerX" secondItem="xHV-Uc-o2m" secondAttribute="centerX" id="mxz-S5-Jl4"/>
+                                    <constraint firstItem="cbR-Fv-ynn" firstAttribute="bottom" secondItem="xHV-Uc-o2m" secondAttribute="bottom" constant="-60" id="rh5-Ia-a2g"/>
+                                    <constraint firstItem="yf8-dj-Sj8" firstAttribute="centerX" secondItem="d7S-19-bzA" secondAttribute="centerX" id="sOP-RT-W9C"/>
+                                    <constraint firstItem="xHV-Uc-o2m" firstAttribute="top" secondItem="siT-SZ-4Sa" secondAttribute="top" constant="102" id="wQu-ii-NLn"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dk3-Vx-RBE">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4q-1N-Z7c" userLabel="bottomView">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="se_dotline" translatesAutoresizingMaskIntoConstraints="NO" id="FwH-vN-igA" userLabel="dotLine">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="nGD-gO-boM"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_fail_face" translatesAutoresizingMaskIntoConstraints="NO" id="ewM-KS-9xn" userLabel="locationStatusIcon">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Nok-P3-PSQ"/>
+                                            <constraint firstAttribute="height" constant="30" id="ahF-vj-R1j"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="位置信息获取失败" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FR6-Tv-44b">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="FwH-vN-igA" firstAttribute="top" secondItem="n4q-1N-Z7c" secondAttribute="top" id="1nD-Aa-vS6"/>
+                                    <constraint firstAttribute="height" constant="47" id="H9e-xK-qiZ"/>
+                                    <constraint firstItem="ewM-KS-9xn" firstAttribute="leading" secondItem="n4q-1N-Z7c" secondAttribute="leading" constant="17" id="MNO-G9-2ul"/>
+                                    <constraint firstItem="FR6-Tv-44b" firstAttribute="centerY" secondItem="ewM-KS-9xn" secondAttribute="centerY" id="Xse-m2-9MZ"/>
+                                    <constraint firstItem="FwH-vN-igA" firstAttribute="leading" secondItem="n4q-1N-Z7c" secondAttribute="leading" constant="20" id="cf7-cf-XCA"/>
+                                    <constraint firstItem="FR6-Tv-44b" firstAttribute="centerX" secondItem="n4q-1N-Z7c" secondAttribute="centerX" id="kRs-yQ-pS5"/>
+                                    <constraint firstItem="ewM-KS-9xn" firstAttribute="centerY" secondItem="n4q-1N-Z7c" secondAttribute="centerY" id="vc9-sS-dPJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="FwH-vN-igA" secondAttribute="trailing" constant="20" id="w0L-IB-I1g"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="n4q-1N-Z7c" secondAttribute="bottom" id="DKI-eG-8pk"/>
+                            <constraint firstAttribute="topMargin" secondItem="siT-SZ-4Sa" secondAttribute="top" id="DWx-dV-3ZB"/>
+                            <constraint firstAttribute="trailing" secondItem="siT-SZ-4Sa" secondAttribute="trailing" id="Fsf-Qv-PFd"/>
+                            <constraint firstAttribute="trailing" secondItem="Dk3-Vx-RBE" secondAttribute="trailing" id="HDT-eP-TQ0"/>
+                            <constraint firstItem="n4q-1N-Z7c" firstAttribute="top" secondItem="siT-SZ-4Sa" secondAttribute="bottom" id="eob-z3-hIE"/>
+                            <constraint firstItem="Dk3-Vx-RBE" firstAttribute="leading" secondItem="Qmh-lg-xXI" secondAttribute="leading" id="gOa-04-If9"/>
+                            <constraint firstItem="n4q-1N-Z7c" firstAttribute="top" secondItem="Dk3-Vx-RBE" secondAttribute="bottom" id="gX8-Fz-7d1"/>
+                            <constraint firstAttribute="trailing" secondItem="n4q-1N-Z7c" secondAttribute="trailing" id="guk-3X-tPc"/>
+                            <constraint firstItem="n4q-1N-Z7c" firstAttribute="leading" secondItem="Qmh-lg-xXI" secondAttribute="leading" id="jgI-Zl-fPN"/>
+                            <constraint firstItem="siT-SZ-4Sa" firstAttribute="leading" secondItem="Qmh-lg-xXI" secondAttribute="leading" id="kK2-Qv-vWX"/>
+                            <constraint firstAttribute="topMargin" secondItem="Dk3-Vx-RBE" secondAttribute="top" id="kiS-ur-xtU"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Dk3-Vx-RBE"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="couponTableView" destination="Dk3-Vx-RBE" id="Nvr-Lw-C77"/>
+                        <outlet property="dotLine" destination="FwH-vN-igA" id="uMo-xh-mak"/>
+                        <outlet property="locationContainerView" destination="siT-SZ-4Sa" id="6M0-M9-mQy"/>
+                        <outlet property="locationLabel" destination="FR6-Tv-44b" id="KQ9-ky-k2b"/>
+                        <outlet property="locationStatusIcon" destination="ewM-KS-9xn" id="rCs-Xp-6dn"/>
+                        <outlet property="locationStatusImage" destination="xHV-Uc-o2m" id="s6T-gu-U2z"/>
+                        <outlet property="manulLocateButton" destination="yf8-dj-Sj8" id="8CL-p7-A7A"/>
+                        <outlet property="retryButton" destination="d7S-19-bzA" id="Hrn-JR-tx3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PMp-NJ-Qhe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1743" y="52"/>
+            <point key="canvasLocation" x="1740.5797101449277" y="54.619565217391312"/>
         </scene>
     </scenes>
     <resources>
-        <image name="location_icon_white" width="9" height="12"/>
+        <image name="location_fail_face" width="14" height="14"/>
+        <image name="location_fail_icon" width="296" height="296"/>
         <image name="scrollball_4" width="27" height="27"/>
+        <image name="se_dotline" width="1" height="1"/>
+        <image name="wallet_location_icon" width="20" height="27"/>
     </resources>
 </document>

@@ -78,9 +78,15 @@ class AIFundManageViewController: AIBaseViewController {
                 break
             case 3:
                 //我的商家币
+                let vc = UIStoryboard(name: "AICouponsStoryboard", bundle: nil).instantiateViewControllerWithIdentifier("AIBusinessCurrencyViewController") as! AIBusinessCurrencyViewController
+                let navigationController = UINavigationController(rootViewController: vc)
+                presentViewController(navigationController, animated: true, completion: nil)
                 break
             case 4:
                 //我的优惠券
+                let vc = UIStoryboard(name: "AICouponsStoryboard", bundle: nil).instantiateViewControllerWithIdentifier("AICouponViewController") as! AICouponViewController
+                let navigationController = UINavigationController(rootViewController: vc)
+                presentViewController(navigationController, animated: true, completion: nil)
                 break
             case 5:
                 //我的资金账户
@@ -122,7 +128,7 @@ class AIFundManageViewController: AIBaseViewController {
         let backButton = goBackButtonWithImage("comment-back")
         navigatonBarAppearance?.leftBarButtonItems = [backButton]
         let font = AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize())
-        navigatonBarAppearance!.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 40.displaySizeFrom1242DesignSize(), font: font, textColor: UIColor.whiteColor(), text: "我的钱包")
+        navigatonBarAppearance?.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 40.displaySizeFrom1242DesignSize(), font: font, textColor: UIColor.whiteColor(), text: "我的钱包")
         setNavigationBarAppearance(navigationBarAppearance: navigatonBarAppearance!)
         
         zijinButton.layer.cornerRadius = 4
