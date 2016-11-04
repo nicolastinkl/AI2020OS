@@ -14,7 +14,14 @@ class FilterViewController: UIViewController {
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     
-    var filteData: [FilteType]?
+    var filteData: [CapitalClassification]? {
+        didSet {
+            if filteData != nil {
+                tableView.reloadData()
+            }
+        }
+    }
+    var delegate: CapitalFilterDelegate?
     
     class func initFromStoryboard() -> FilterViewController {
         let vc = UIStoryboard(name: "CapitalFlow", bundle: nil).instantiateViewControllerWithIdentifier("FilterViewController") as! FilterViewController
@@ -30,10 +37,7 @@ class FilterViewController: UIViewController {
         tableView.registerNib(UINib(nibName: "FilteTypeCell", bundle: nil), forCellReuseIdentifier: "FilteTypeCell")
         tableView.registerNib(UINib(nibName: "FilteTypeSubCell", bundle: nil), forCellReuseIdentifier: "FilteTypeSubCell")
         tableView.sksTableViewDelegate = self
-
-        loadData()
-        
-        
+  
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,25 +58,6 @@ class FilterViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
-    private func loadData() {
-        filteData = [FilteType]()
-        
-        var filteType = FilteType(name: "全部")
-        filteData?.append(filteType)
-        
-        filteType = FilteType(name: "现金")
-        
-        var subType = FilteType(name: "付款")
-        filteType.subItems.append(subType)
-        subType = FilteType(name: "退款")
-        filteType.subItems.append(subType)
-        
-        filteData?.append(filteType)
-        
-        tableView.reloadData()
-    }
-
 }
 
 extension FilterViewController: SKSTableViewDelegate {
@@ -86,7 +71,7 @@ extension FilterViewController: SKSTableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfSubRowsAtIndexPath indexPath: NSIndexPath) -> Int {
-        if let subRows = filteData?[indexPath.row].subItems {
+        if let subRows = filteData?[indexPath.row].lists {
             return subRows.count
         } else {
             return 0
@@ -100,9 +85,14 @@ extension FilterViewController: SKSTableViewDelegate {
         
         
         if let data = filteData?[cellForRowAtIndexPath.row] {
-            cell.typeName?.text = data.name
+            cell.typeName?.text = data.type_name
             
-            cell.isExpandable = data.subItems.count > 0
+            if data.lists != nil {
+                cell.isExpandable = data.lists.count > 0
+            } else {
+                cell.isExpandable = false
+            }
+            
         }
         
         return cell
@@ -114,18 +104,21 @@ extension FilterViewController: SKSTableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! FilteTypeSubCell
 
         
-        cell.typeName?.text = filteData?[indexPath.row].subItems[indexPath.subRow].name
+        cell.typeName?.text = filteData?[indexPath.row].lists[indexPath.subRow].name
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectSubRowAtIndexPath indexPath: NSIndexPath) {
+        if let subRows = filteData?[indexPath.row].lists {
+            if let type = subRows[indexPath.subRow] as? CapitalTypeItem {
+                delegate?.capitalTypeDidSelect(type)
+            }
+        }
+    }
 }
 
-class FilteType {
-    var name: String
-    var subItems = [FilteType]()
-    
-    init(name: String) {
-        self.name = name
-    }  
+protocol CapitalFilterDelegate {
+    func capitalTypeDidSelect(type: CapitalTypeItem)
 }
 
