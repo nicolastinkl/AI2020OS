@@ -31,6 +31,11 @@ class AIFundManageViewController: AIBaseViewController {
         
         // add view controller to this vc
         
+        AIFundManageServices.reqeustIndexInfo({ (model) in
+            
+            }) { (error) in
+                
+        }
         
     }
     

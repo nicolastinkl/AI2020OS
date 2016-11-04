@@ -505,6 +505,10 @@ struct AIApplication {
         // 资金类型
         case getCapitalTypeList
         
+        //我的钱包首页
+        case accountIndex
+        
+        
         var description: String {
 
             switch self {
@@ -617,7 +621,7 @@ struct AIApplication {
             case .getCapitalFlowList: return AIApplication.KURL_ReleaseURL + "/account/moneyList"
             case .getCapitalTypeList: return AIApplication.KURL_ReleaseURL + "/account/moneyListType"
                 
-
+            case .accountIndex: return AIApplication.KURL_ReleaseURL + "/account/index"
             }
         }
     }

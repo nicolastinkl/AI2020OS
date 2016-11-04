@@ -127,7 +127,7 @@
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rz6-3o-F8q"/>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="WIP-ik-c74" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="69" id="IwQ-Sy-98k"/>
                 <constraint firstAttribute="trailing" secondItem="Rz6-3o-F8q" secondAttribute="trailing" id="RBc-Mg-8GL"/>
