@@ -229,7 +229,6 @@
 
     for (NSHTTPCookie *cookie in cookies) {
         // Here I see the correct rails session cookie
-        AIOCLog(@"cookie: %@", cookie);
     }
 
     NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];
