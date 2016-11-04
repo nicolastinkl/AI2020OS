@@ -91,8 +91,16 @@ class AIFundManageViewController: AIBaseViewController {
             case 4:
                 //我的优惠券
                 let vc = UIStoryboard(name: "AICouponsStoryboard", bundle: nil).instantiateViewControllerWithIdentifier("AICouponViewController") as! AICouponViewController
-                let navigationController = UINavigationController(rootViewController: vc)
-                presentViewController(navigationController, animated: true, completion: nil)
+                let containerVC = AIFundBaseViewCotroller.initFromNib()
+                containerVC.potColor = UIColor.orangeColor()
+                containerVC.privacyLabelHide = true
+                containerVC.title = "我的优惠券"
+                let navigationController = UINavigationController(rootViewController: containerVC)
+                presentViewController(navigationController, animated: true, completion: {
+                    containerVC.setupFillView(vc)
+                })
+                //presentViewController(containerVC, animated: true, completion: nil)
+                
                 break
             case 5:
                 //我的资金账户

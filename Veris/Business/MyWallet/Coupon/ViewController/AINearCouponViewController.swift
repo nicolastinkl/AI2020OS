@@ -50,9 +50,18 @@ class AINearCouponViewController: UIViewController {
         setupPopupView()
         setupTableView()
         buildBgView()
-        
+        setupNavigationController()
         dotLine.image = UIImage(named: "se_dotline")?.resizableImageWithCapInsets(UIEdgeInsetsZero, resizingMode: UIImageResizingMode.Tile)
     }
+    
+    func setupNavigationController() {
+        if let navController = self.navigationController {
+            setupNavigationBarLikeWorkInfo(title: "周边优惠券", needCloseButton: false)
+            navController.navigationBarHidden = false
+            edgesForExtendedLayout = .None
+        }
+    }
+
     
     private func setupPopupView() {
         popupDetailView = AIPopupSContainerView.createInstance()

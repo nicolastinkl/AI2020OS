@@ -9,7 +9,7 @@
 import UIKit
 import AIAlertView
 
-class AICouponViewController: AIBaseViewController {
+class AICouponViewController: UIViewController {
     
     //MARK: -> IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -39,14 +39,22 @@ class AICouponViewController: AIBaseViewController {
         // Do any additional setup after loading the view.
         setupTableView()
         //为导航栏留出位置
-        edgesForExtendedLayout = .None
+        //edgesForExtendedLayout = .None
         couponTableView.headerBeginRefreshing()
         loadData()
+        setupNavigationController()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupNavigationController() {
+        if let navController = self.navigationController {
+            //setupNavigationBarLikeWorkInfo(title: "", needCloseButton: false)
+            navController.navigationBarHidden = true
+        }
     }
     
     func loadData() {
