@@ -903,6 +903,10 @@
 		FBAE7FD91D115428002FF522 /* AISellingProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD11D115428002FF522 /* AISellingProgressBar.m */; };
 		FBAE7FDA1D115428002FF522 /* AISellserAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */; };
 		FBDF21551D531E3200DEBB15 /* 89897384.json in Resources */ = {isa = PBXBuildFile; fileRef = FBDF21541D531E3200DEBB15 /* 89897384.json */; };
+		FBE7118B1DCB21AA001E3268 /* AIFundDeletableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE711891DCB21AA001E3268 /* AIFundDeletableCell.swift */; };
+		FBE7118C1DCB21AA001E3268 /* AIFundDeletableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE7118A1DCB21AA001E3268 /* AIFundDeletableCell.xib */; };
+		FBE7118E1DCB3CF9001E3268 /* AIFundAccountContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7118D1DCB3CF9001E3268 /* AIFundAccountContentView.swift */; };
+		FBE711901DCB3D02001E3268 /* AIFundAccountContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE7118F1DCB3D02001E3268 /* AIFundAccountContentView.xib */; };
 		FD6E63660FC29EFB7CB17D2E /* Pods_VerisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5293440786150C2B14661D8C /* Pods_VerisTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -2155,6 +2159,10 @@
 		FBAE7FD21D115428002FF522 /* AISellserAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellserAnimationView.h; sourceTree = "<group>"; };
 		FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellserAnimationView.m; sourceTree = "<group>"; };
 		FBDF21541D531E3200DEBB15 /* 89897384.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 89897384.json; sourceTree = "<group>"; };
+		FBE711891DCB21AA001E3268 /* AIFundDeletableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundDeletableCell.swift; sourceTree = "<group>"; };
+		FBE7118A1DCB21AA001E3268 /* AIFundDeletableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFundDeletableCell.xib; sourceTree = "<group>"; };
+		FBE7118D1DCB3CF9001E3268 /* AIFundAccountContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundAccountContentView.swift; sourceTree = "<group>"; };
+		FBE7118F1DCB3D02001E3268 /* AIFundAccountContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFundAccountContentView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2424,8 +2432,12 @@
 		810997521DC9EF8B001475D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FBE7118D1DCB3CF9001E3268 /* AIFundAccountContentView.swift */,
+				FBE7118F1DCB3D02001E3268 /* AIFundAccountContentView.xib */,
 				810997531DC9EF8B001475D1 /* AIFundCellView.swift */,
 				810997541DC9EF8B001475D1 /* AIFundCellView.xib */,
+				FBE711891DCB21AA001E3268 /* AIFundDeletableCell.swift */,
+				FBE7118A1DCB21AA001E3268 /* AIFundDeletableCell.xib */,
 			);
 			name = View;
 			path = FundManage/View;
@@ -5323,6 +5335,7 @@
 				933BC8401D002434005E1789 /* AISuperiorityViewController.xib in Resources */,
 				81433E171CFBE5A700347C29 /* ProposalViewTest.storyboard in Resources */,
 				126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */,
+				FBE7118C1DCB21AA001E3268 /* AIFundDeletableCell.xib in Resources */,
 				FB703ADE1D24B7BF00229A08 /* SwiftWebViewBridge.js in Resources */,
 				81433DA91CFBE5A700347C29 /* AITaskTimeLineView.xib in Resources */,
 				9380086A1D5B2DF300FAD140 /* AIWishAverageView.xib in Resources */,
@@ -5442,6 +5455,7 @@
 				12D764A11D0D46AA002B001B /* AILoginStoryboard.storyboard in Resources */,
 				12CE5DE71DC77AB20075EBD7 /* AIBCDetailView.xib in Resources */,
 				81433E311CFBE5A700347C29 /* AITaskInputViewController.xib in Resources */,
+				FBE711901DCB3D02001E3268 /* AIFundAccountContentView.xib in Resources */,
 				81433D621CFBE5A700347C29 /* AIShoppingListViewCell.xib in Resources */,
 				81433D641CFBE5A700347C29 /* AIStartEndTimeView.xib in Resources */,
 				81433EC61CFBE5A700347C29 /* Assets.xcassets in Resources */,
@@ -5628,6 +5642,7 @@
 				81433E941CFBE5A700347C29 /* FLEXKeyboardHelpViewController.m in Sources */,
 				12CE5DF41DC77DA80075EBD7 /* AICouponBusiModel.m in Sources */,
 				81433E211CFBE5A700347C29 /* VerticalIconLabel.swift in Sources */,
+				FBE7118B1DCB21AA001E3268 /* AIFundDeletableCell.swift in Sources */,
 				8175A8001CFD2710006F2C8F /* UIImage+GIF.m in Sources */,
 				81433E7F1CFBE5A700347C29 /* FLEXNetworkHistoryTableViewController.m in Sources */,
 				81433E341CFBE5A700347C29 /* AITimelineFilterViewController.swift in Sources */,
@@ -6169,6 +6184,7 @@
 				FB6600FA1D123C01004667E2 /* AISellerCollectionViewCell.m in Sources */,
 				81D325ED1D781AB00069F9B7 /* AIQiangDanResultModel.m in Sources */,
 				1265F6291D47841400130ECF /* AICustomerServiceExecuteHandler.swift in Sources */,
+				FBE7118E1DCB3CF9001E3268 /* AIFundAccountContentView.swift in Sources */,
 				81433D9B1CFBE5A700347C29 /* AILimitListView.swift in Sources */,
 				81433E631CFBE5A700347C29 /* FLEXMethodCallingViewController.m in Sources */,
 				81433D271CFBE5A700347C29 /* ServiceCardDetailFlag.swift in Sources */,

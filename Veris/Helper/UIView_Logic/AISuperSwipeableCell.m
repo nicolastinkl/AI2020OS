@@ -11,7 +11,6 @@
 @interface AISuperSwipeableCell() <UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *buttonView;
-@property (nonatomic, weak) IBOutlet UIView *myContentView;
 @property (nonatomic, weak) IBOutlet UILabel *maskLabel;
 @property (nonatomic, weak) IBOutlet UIView *cornerFixView; //圆角修复view
 
