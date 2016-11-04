@@ -36,7 +36,7 @@ class AIFundBaseViewCotroller: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        navController.navigationBarHidden = true
+        self.navigationController!.navigationBarHidden = true
     }
     
     // MARK: -> Internal methods
