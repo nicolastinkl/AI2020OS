@@ -20,7 +20,6 @@ protocol AIBueryDetailCellDetegate: class {
 // MARK: AIBueryDetailCell
 // MARK: -
 internal class AIBueryDetailCell: AISuperSwipeableCell { //
-	
 	// MARK: -
 	// MARK: Internal access (aka public for current module)
 	// MARK: -
@@ -28,15 +27,7 @@ internal class AIBueryDetailCell: AISuperSwipeableCell { //
 	internal var cellHeight: CGFloat = 0
 	
 	// MARK: -> Internal enums
-	internal var isNormal: Bool = true // true: 正常  false :移除状态
-	
-	internal var isCanSwipeDelate: Bool = true
-	
-	internal var currentIndexPath: NSIndexPath?
-	
 	@IBOutlet weak var buttonView: SpringView!
-	
-	internal var recordPosition: CGPoint?
 	
 	var currentModel: AIProposalServiceModel? {
 		didSet {
@@ -75,9 +66,7 @@ internal class AIBueryDetailCell: AISuperSwipeableCell { //
 	}
 	
 	class func currentView() -> AIBueryDetailCell {
-		
 		let selfview = NSBundle.mainBundle().loadNibNamed("AIBueryDetailCell", owner: self, options: nil)!.first as! AIBueryDetailCell
-		
 		return selfview
 	}
 	
