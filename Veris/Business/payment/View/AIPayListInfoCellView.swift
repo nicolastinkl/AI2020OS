@@ -46,7 +46,7 @@ class AIPayListInfoCellView: UITableViewCell {
 	func setCellContent(item: AIPaymentItemModel, isExpanded: Bool) {
 		
 		self.payName.text = item.name ?? ""
-		self.payPrice.text = "\(item.amout ?? "")元"
+		self.payPrice.text = item.value ?? ""
 		
 		self.arrowDirectIcon.image = item.details.count > 0 ? UIImage(named: "AI_Search_Home_right") : nil
 		
@@ -68,7 +68,7 @@ class AIPayListInfoCellView: UITableViewCell {
                 let name = UILabel()
                 name.text = model.name ?? ""
                 let price = UILabel()
-                price.text = "\(model.amout ?? "")元"
+                price.text = item.value ?? ""
                 
                 expendListView.addSubview(name)
                 expendListView.addSubview(price)

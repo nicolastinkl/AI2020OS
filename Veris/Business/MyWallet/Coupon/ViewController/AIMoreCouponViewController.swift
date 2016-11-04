@@ -42,11 +42,20 @@ class AIMoreCouponViewController: UIViewController {
         setupPopupView()
         tableView.headerBeginRefreshing()
         loadData()
+        setupNavigationController()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupNavigationController() {
+        if let navController = self.navigationController {
+            setupNavigationBarLikeWorkInfo(title: "我的优惠券", needCloseButton: false)
+            navController.navigationBarHidden = false
+            edgesForExtendedLayout = .None
+        }
     }
     
     private func setupFilterBar() {
@@ -140,7 +149,7 @@ extension AIMoreCouponViewController: UITableViewDelegate, UITableViewDataSource
 extension AIMoreCouponViewController: AIFilterBarDelegate, AIIconCouponTableViewCellDelegate {
     
     func filterBar(filterBar: AIFilterBar, didSelectIndex: Int) {
-        //fetchComments()
+        tableView.headerBeginRefreshing()
         loadData()
     }
     

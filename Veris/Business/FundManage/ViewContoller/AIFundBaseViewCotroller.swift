@@ -31,6 +31,12 @@ class AIFundBaseViewCotroller: UIViewController {
         self.round.layer.cornerRadius = 5
         self.round.layer.masksToBounds = true
         
+        setupNavigationController()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController!.navigationBarHidden = true
     }
     
     // MARK: -> Internal methods
@@ -43,6 +49,12 @@ class AIFundBaseViewCotroller: UIViewController {
     
     func setupFillView(vc: UIViewController) {
         addSubViewController(vc)
+    }
+    
+    func setupNavigationController() {
+        if let navController = self.navigationController {
+            setupNavigationBarLikeWorkInfo(title: "", needCloseButton: false)
+        }
     }
     
     @IBAction func closeView(sender: AnyObject) {

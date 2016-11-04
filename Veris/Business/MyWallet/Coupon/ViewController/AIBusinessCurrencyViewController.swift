@@ -10,7 +10,7 @@ import UIKit
 import Spring
 import AIAlertView
 
-class AIBusinessCurrencyViewController: AIBaseViewController {
+class AIBusinessCurrencyViewController: UIViewController {
 
     // MARK: -> Interface Builder variables
     
@@ -58,7 +58,7 @@ class AIBusinessCurrencyViewController: AIBaseViewController {
         setupTableView()
         setupPopupView()
         //为导航栏留出位置
-        edgesForExtendedLayout = .None
+        //edgesForExtendedLayout = .None
     }
     
     func loadData() {

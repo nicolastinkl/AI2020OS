@@ -193,6 +193,7 @@
 "Save" = "Save";
 "GetDataFailed" = "Failed to get data";
 "Filter" = "filter";
+"Call" = "Call";
 
 /*
  * ./Veris/Requirement/ServiceExcute/Controller/TaskExecuteStoryboard.storyboard

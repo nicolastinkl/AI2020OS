@@ -20,12 +20,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scrollball_4" translatesAutoresizingMaskIntoConstraints="NO" id="ZKN-B8-B4F"/>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的商家币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pl-Zh-JXA">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asw-A3-nE3">
                                 <state key="normal" title="使用规则"/>
                                 <connections>
@@ -36,24 +30,19 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZKN-B8-B4F" firstAttribute="leading" secondItem="z3f-In-fq9" secondAttribute="leading" constant="16" id="0My-qs-Je8"/>
-                            <constraint firstItem="5pl-Zh-JXA" firstAttribute="centerY" secondItem="ZKN-B8-B4F" secondAttribute="centerY" id="5gb-lS-8qN"/>
                             <constraint firstItem="0no-zo-VXw" firstAttribute="leading" secondItem="z3f-In-fq9" secondAttribute="leading" id="7d3-zQ-R22"/>
-                            <constraint firstItem="5pl-Zh-JXA" firstAttribute="leading" secondItem="ZKN-B8-B4F" secondAttribute="trailing" constant="8" id="Adr-SW-8Pb"/>
                             <constraint firstAttribute="trailing" secondItem="Asw-A3-nE3" secondAttribute="trailing" constant="19" id="Mbt-VG-32Q"/>
                             <constraint firstAttribute="bottomMargin" secondItem="0no-zo-VXw" secondAttribute="bottom" id="WOp-w6-OFN"/>
-                            <constraint firstItem="0no-zo-VXw" firstAttribute="top" secondItem="Asw-A3-nE3" secondAttribute="bottom" constant="30" id="ajC-2r-omL"/>
-                            <constraint firstItem="ZKN-B8-B4F" firstAttribute="top" secondItem="z3f-In-fq9" secondAttribute="topMargin" constant="20" id="djt-Gj-4Nc"/>
-                            <constraint firstItem="Asw-A3-nE3" firstAttribute="top" secondItem="z3f-In-fq9" secondAttribute="topMargin" constant="35" id="kMu-al-nlH"/>
+                            <constraint firstItem="0no-zo-VXw" firstAttribute="top" secondItem="Asw-A3-nE3" secondAttribute="bottom" constant="10" id="ajC-2r-omL"/>
+                            <constraint firstItem="Asw-A3-nE3" firstAttribute="top" secondItem="z3f-In-fq9" secondAttribute="topMargin" constant="10" id="kMu-al-nlH"/>
                             <constraint firstAttribute="trailing" secondItem="0no-zo-VXw" secondAttribute="trailing" id="kTL-Dz-RV5"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="currencyTableView" destination="0no-zo-VXw" id="Uga-c5-DmV"/>
                         <outlet property="ruleDescButton" destination="Asw-A3-nE3" id="s6s-Aq-kTh"/>
-                        <outlet property="viewTitleLabel" destination="5pl-Zh-JXA" id="pP1-u0-idB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXR-10-mnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -72,12 +61,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scrollball_4" translatesAutoresizingMaskIntoConstraints="NO" id="H3O-rk-CMi"/>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的优惠券" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MC-L6-lr1">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSL-S0-ekv">
                                 <state key="normal" title="更多 &gt;"/>
                                 <connections>
@@ -99,15 +82,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0E6-t9-c7K" firstAttribute="top" secondItem="bGI-2g-igg" secondAttribute="bottom" constant="8" id="5vJ-Pf-hPF"/>
-                            <constraint firstItem="8MC-L6-lr1" firstAttribute="leading" secondItem="H3O-rk-CMi" secondAttribute="trailing" constant="8" id="9Bw-Ie-4hw"/>
                             <constraint firstAttribute="trailing" secondItem="VSL-S0-ekv" secondAttribute="trailing" constant="20" id="Guf-Um-4t0"/>
-                            <constraint firstItem="H3O-rk-CMi" firstAttribute="top" secondItem="dFT-qr-0gB" secondAttribute="topMargin" constant="15" id="JXg-4W-yNI"/>
-                            <constraint firstItem="8MC-L6-lr1" firstAttribute="centerY" secondItem="H3O-rk-CMi" secondAttribute="centerY" id="JpP-R8-lOY"/>
                             <constraint firstItem="bGI-2g-igg" firstAttribute="centerX" secondItem="dFT-qr-0gB" secondAttribute="centerX" id="KDz-xt-u2m"/>
                             <constraint firstItem="3vP-Mh-3WT" firstAttribute="leading" secondItem="dFT-qr-0gB" secondAttribute="leading" id="M0t-tB-5lr"/>
-                            <constraint firstItem="3vP-Mh-3WT" firstAttribute="top" secondItem="VSL-S0-ekv" secondAttribute="bottom" constant="30" id="aBB-Lt-TIV"/>
-                            <constraint firstItem="H3O-rk-CMi" firstAttribute="leading" secondItem="dFT-qr-0gB" secondAttribute="leading" constant="27" id="c2s-gy-LPX"/>
-                            <constraint firstItem="VSL-S0-ekv" firstAttribute="top" secondItem="dFT-qr-0gB" secondAttribute="topMargin" constant="35" id="fMn-aW-GYP"/>
+                            <constraint firstItem="3vP-Mh-3WT" firstAttribute="top" secondItem="VSL-S0-ekv" secondAttribute="bottom" constant="10" id="aBB-Lt-TIV"/>
+                            <constraint firstItem="VSL-S0-ekv" firstAttribute="top" secondItem="dFT-qr-0gB" secondAttribute="topMargin" constant="10" id="fMn-aW-GYP"/>
                             <constraint firstAttribute="bottomMargin" secondItem="0E6-t9-c7K" secondAttribute="bottom" constant="30" id="ft1-q9-NJj"/>
                             <constraint firstAttribute="bottomMargin" secondItem="3vP-Mh-3WT" secondAttribute="bottom" constant="100" id="mKg-hE-gpK"/>
                             <constraint firstItem="0E6-t9-c7K" firstAttribute="centerX" secondItem="dFT-qr-0gB" secondAttribute="centerX" id="nyD-mW-3bo"/>
@@ -119,7 +98,6 @@
                         <outlet property="locationButton" destination="0E6-t9-c7K" id="Ad7-Qj-3ai"/>
                         <outlet property="locationIcon" destination="bGI-2g-igg" id="HHs-0z-lR5"/>
                         <outlet property="moreButton" destination="VSL-S0-ekv" id="1Hg-j1-Wge"/>
-                        <outlet property="titleLabel" destination="8MC-L6-lr1" id="yDe-rg-Vfa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icu-FR-Yew" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -305,7 +283,6 @@
     <resources>
         <image name="location_fail_face" width="14" height="14"/>
         <image name="location_fail_icon" width="296" height="296"/>
-        <image name="scrollball_4" width="27" height="27"/>
         <image name="se_dotline" width="1" height="1"/>
         <image name="wallet_location_icon" width="20" height="27"/>
     </resources>

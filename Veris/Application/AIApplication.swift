@@ -502,6 +502,8 @@ struct AIApplication {
         
         // 资金流水
         case getCapitalFlowList
+        // 资金类型
+        case getCapitalTypeList
         
         var description: String {
 
@@ -613,6 +615,8 @@ struct AIApplication {
                 
             // 资金流水相关接口
             case .getCapitalFlowList: return AIApplication.KURL_ReleaseURL + "/account/moneyList"
+            case .getCapitalTypeList: return AIApplication.KURL_ReleaseURL + "/account/moneyListType"
+                
 
             }
         }

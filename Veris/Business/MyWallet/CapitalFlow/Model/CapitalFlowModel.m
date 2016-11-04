@@ -15,3 +15,13 @@
 @implementation CapitalFlowList
 
 @end
+
+@implementation CapitalTypeItem
+@end
+
+@implementation CapitalClassification
+@end
+
+@implementation CapitalTypeList
+@end
+

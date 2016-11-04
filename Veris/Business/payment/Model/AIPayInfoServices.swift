@@ -12,13 +12,22 @@ import Foundation
 class AIPayInfoServices: NSObject {
     
     //请求订单信息
-    static func reqeustOrderInfo(order: String, orderitemid: String, success: (AnyObject?) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
-        let userId = NSUserDefaults.standardUserDefaults().objectForKey(kDefault_UserID) as! String
+    static func reqeustOrderInfo(order: String, orderitemid: String? = nil, billId: String? = nil, success: (AIPayInfoModel?) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         let message = AIMessage()
         message.url = AIApplication.AIApplicationServerURL.queryPayment.description
         
-        let body = ["data" : ["order_id" : order, "order_item_id" : orderitemid, "user_id" : userId], "desc" : ["data_mode" : "0", "digest" : ""]]
-        message.body = NSMutableDictionary(dictionary: body)
+        var data: [String: AnyObject] = ["order_id": order]
+        
+        if let orderItemId = orderitemid {
+            data["order_item_id"] = orderItemId
+        }
+        
+        if let billId = billId {
+            data["bill_id"] = billId
+        }
+        
+        message.body = BDKTools.createRequestBody(data)
+        
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             if let responseJSON: AnyObject = response {
                 let model = AIPayInfoModel(JSONDecoder(responseJSON))
