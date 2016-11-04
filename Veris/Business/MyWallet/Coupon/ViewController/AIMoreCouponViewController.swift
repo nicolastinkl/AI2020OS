@@ -40,6 +40,8 @@ class AIMoreCouponViewController: UIViewController {
         setupFilterBar()
         buildBgView()
         setupPopupView()
+        tableView.headerBeginRefreshing()
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
