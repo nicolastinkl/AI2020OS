@@ -333,7 +333,6 @@ forHTTPHeaderField:(NSString *)field
         AIOCLog(@"\nbody=%@", [[NSString alloc] initWithData:mutableRequest.HTTPBody encoding:NSUTF8StringEncoding]);
         AIOCLog(@"\nurl=%@", mutableRequest.URL.absoluteString);
     }
-
 	return mutableRequest;
 }
 

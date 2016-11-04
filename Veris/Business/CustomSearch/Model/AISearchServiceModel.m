@@ -21,3 +21,5 @@
 @implementation AISearchFilterModel @end
 @implementation AISearchFilterCatalog @end
 @implementation AISearchFilterPrice @end
+@implementation AICapitalAccount @end
+@implementation AIMemberCard @end

@@ -8,33 +8,33 @@
 
 import UIKit
 
-struct CardInfo {
-    var title: String
-    var type: String
-    var number: String
-    var color: UIColor
-    var icon: String
-    
-}
 
 class AIFundAccountViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
     let cellHeight: CGFloat = 94
-    var fakeData = [
-        CardInfo(title: "招商银行", type: "储蓄卡", number: "**** **** **** 9663", color: UIColor(hexString: "#b6241e", alpha: 0.2), icon: "招商-图标"),
-        CardInfo(title: "建设银行", type: "储蓄卡", number: "**** **** **** 2471", color: UIColor(hexString: "#136fcb", alpha: 0.2), icon: "建设-图标"),
-        CardInfo(title: "支付宝", type: "张三丰", number: "zha***@163.com", color: UIColor(hexString: "#17b1ef", alpha: 0.2), icon: "支付宝-图标"),
-        ]
+    var fakeData: [AICapitalAccount] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+        fetchData()
+    }
+    
+    func fetchData() {
+        let service = AIFundAccountService()
+        service.capitalAccounts({ [weak self] (accounts) in
+            self?.fakeData = accounts
+            self?.tableView.reloadData()
+            }) { (errType, errDes) in
+        }
+    }
+    
+    func setupTableView() {
         let cellNib = UINib(nibName: "AIFundDeletableCell", bundle: nil)
         tableView.backgroundColor = UIColor.clearColor()
         tableView.registerNib(cellNib, forCellReuseIdentifier: "cell")
-        tableViewHeightConstraint.constant = cellHeight * 3
     }
 
 }
@@ -69,14 +69,13 @@ extension AIFundAccountViewController: UITableViewDataSource {
         }
         
         let cardInfo = fakeData[indexPath.row]
-        contentView.title = cardInfo.title
-        contentView.subtitle = cardInfo.type
-        contentView.detail = cardInfo.number
+        contentView.title = cardInfo.method_name
+        contentView.subtitle = cardInfo.method_spec_code
+        contentView.detail = cardInfo.mch_id
         contentView.imageName = cardInfo.icon
-        contentView.backgroundColor = cardInfo.color
         
         cell.delegate = self
-        cell.canDelete = true
+        cell.canDelete = false
         return cell
     }
 }

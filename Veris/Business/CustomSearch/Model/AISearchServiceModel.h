@@ -62,3 +62,24 @@
 @property (nonatomic, strong) NSString *sort_by;
 @property (nonatomic, strong) NSArray<Optional, AISearchServiceModel> *service_list;
 @end
+
+#pragma mark - 我的钱包
+//2.14.3.	资金帐户列表
+@protocol AICapitalAccount @end
+
+@interface AICapitalAccount : JSONModel
+@property (nonatomic, strong) NSNumber *id;
+@property (nonatomic, strong) NSString *method_name;
+@property (nonatomic, strong) NSString *method_spec_code;
+@property (nonatomic, strong) NSString *mch_id;
+@property (nonatomic, strong) NSString *icon;
+@end
+
+//2.14.12.	我的会员卡
+
+@protocol AIMemberCard @end
+@interface AIMemberCard : JSONModel
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *icon;
+@end
