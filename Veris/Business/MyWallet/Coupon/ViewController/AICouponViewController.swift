@@ -40,7 +40,7 @@ class AICouponViewController: AIBaseViewController {
         setupTableView()
         //为导航栏留出位置
         edgesForExtendedLayout = .None
-        //couponTableView.headerBeginRefreshing()
+        couponTableView.headerBeginRefreshing()
         loadData()
     }
 

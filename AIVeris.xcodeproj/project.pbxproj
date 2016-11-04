@@ -82,9 +82,9 @@
 		810997591DC9EF8B001475D1 /* AIFundCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810997541DC9EF8B001475D1 /* AIFundCellView.xib */; };
 		8109975A1DC9EF8B001475D1 /* AIFundManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810997561DC9EF8B001475D1 /* AIFundManageViewController.swift */; };
 		8109975B1DC9EF8B001475D1 /* AIFundManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810997571DC9EF8B001475D1 /* AIFundManageViewController.xib */; };
-		8109975F1DC9F06A001475D1 /* AICreditScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8109975E1DC9F06A001475D1 /* AICreditScoreViewController.swift */; };
 		810997841DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810997821DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift */; };
 		810997851DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810997831DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib */; };
+		810997881DCB25B6001475D1 /* AICreditScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810997871DCB25B6001475D1 /* AICreditScoreViewController.swift */; };
 		8116991C1D93BA6800C2D6EA /* AIALAssetsImageOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8116991B1D93BA6800C2D6EA /* AIALAssetsImageOperator.m */; };
 		813860F51D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */; };
 		813860F71D5979030050C0D0 /* AIChooseStarLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860F61D5979030050C0D0 /* AIChooseStarLevelView.swift */; };
@@ -1017,9 +1017,9 @@
 		810997541DC9EF8B001475D1 /* AIFundCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFundCellView.xib; sourceTree = "<group>"; };
 		810997561DC9EF8B001475D1 /* AIFundManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundManageViewController.swift; sourceTree = "<group>"; };
 		810997571DC9EF8B001475D1 /* AIFundManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFundManageViewController.xib; sourceTree = "<group>"; };
-		8109975E1DC9F06A001475D1 /* AICreditScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AICreditScoreViewController.swift; path = ViewController/AICreditScoreViewController.swift; sourceTree = "<group>"; };
 		810997821DCAE7B7001475D1 /* AIFundBaseViewCotroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundBaseViewCotroller.swift; sourceTree = "<group>"; };
 		810997831DCAE7B7001475D1 /* AIFundBaseViewCotroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIFundBaseViewCotroller.xib; sourceTree = "<group>"; };
+		810997871DCB25B6001475D1 /* AICreditScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICreditScoreViewController.swift; sourceTree = "<group>"; };
 		8116991A1D93BA6800C2D6EA /* AIALAssetsImageOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIALAssetsImageOperator.h; sourceTree = "<group>"; };
 		8116991B1D93BA6800C2D6EA /* AIALAssetsImageOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIALAssetsImageOperator.m; sourceTree = "<group>"; };
 		813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleServiceCommnentViewController.swift; sourceTree = "<group>"; };
@@ -2460,15 +2460,15 @@
 		8109975C1DC9F011001475D1 /* Credit */ = {
 			isa = PBXGroup;
 			children = (
-				8109975D1DC9F011001475D1 /* ViewController */,
-				8109975E1DC9F06A001475D1 /* AICreditScoreViewController.swift */,
+				810997861DCB25B6001475D1 /* ViewController */,
 			);
 			path = Credit;
 			sourceTree = "<group>";
 		};
-		8109975D1DC9F011001475D1 /* ViewController */ = {
+		810997861DCB25B6001475D1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				810997871DCB25B6001475D1 /* AICreditScoreViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -6055,7 +6055,6 @@
 				C95179E11D41B41600446498 /* AIAptitudeView.swift in Sources */,
 				12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */,
 				81433E731CFBE5A700347C29 /* FLEXCookiesTableViewController.m in Sources */,
-				8109975F1DC9F06A001475D1 /* AICreditScoreViewController.swift in Sources */,
 				81FAFBF31D4716F800DD3477 /* AIDottedLineLabelView.swift in Sources */,
 				81433EAE1CFBE5A700347C29 /* KMActivityIndicator.m in Sources */,
 				8175A7CD1CFD2710006F2C8F /* AFURLResponseSerialization.m in Sources */,
@@ -6224,6 +6223,7 @@
 				936B32A51D2F8B07004465AD /* StickyCollectionViewFlowLayout.swift in Sources */,
 				933BC84A1D00252D005E1789 /* AIProductInfoViewController.swift in Sources */,
 				81433E231CFBE5A700347C29 /* YLProgressBar.m in Sources */,
+				810997881DCB25B6001475D1 /* AICreditScoreViewController.swift in Sources */,
 				81FAFC0C1D47427300DD3477 /* ServiceQRCodeView.swift in Sources */,
 				81433CE61CFBE5A700347C29 /* AIProposalServiceParser.m in Sources */,
 				81433D8F1CFBE5A700347C29 /* AIBuyerViewController.swift in Sources */,

@@ -44,7 +44,7 @@ class AIBusinessCurrencyViewController: AIBaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupViews()
-        //currencyTableView.headerBeginRefreshing()
+        currencyTableView.headerBeginRefreshing()
         loadData()
     }
 
