@@ -10,6 +10,7 @@ import UIKit
 
 class AIMyMemberCardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UITextField!
     
     let cellHeight: CGFloat = 94
     var data: [AIMemberCard] = []
@@ -17,7 +18,18 @@ class AIMyMemberCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupSearchBar()
         fetchData()
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func setupSearchBar() {
+        
+        searchBar.attributedPlaceholder = NSAttributedString(string:"请输入您要查找的内容",
+                                                               attributes:[NSForegroundColorAttributeName: UIColor(hexString: "#ffffff", alpha: 0.5)])
     }
     
     func fetchData() {
