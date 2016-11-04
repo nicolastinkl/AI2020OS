@@ -21,7 +21,7 @@ class BillDetailViewController: UIViewController {
     var orderId: String?
     var billId: String?
     
-    private var payInfop: AIPayInfoModel?
+    private var payInfo: AIPayInfoModel?
     
     private let subCellIdentifier = "CostItemSubCell"
     private let cellIdentifier = "CostItemCell"
@@ -57,6 +57,16 @@ class BillDetailViewController: UIViewController {
     }
     
     @IBAction func callActiion(sender: AnyObject) {
+        
+        if let phoneNumber = payInfo?.providerphone {
+            let alert = JSSAlertView()
+            
+            alert.info( self, title: phoneNumber, text: "", buttonText: "Call".localized, cancelButtonText: "Cancel".localized)
+            alert.defaultColor = UIColorFromHex(0xe7ebf5, alpha: 1)
+            alert.addAction {
+                UIApplication.sharedApplication().openURL(NSURL(string: "tel:\(phoneNumber)")!)
+            }
+        }   
     }
 
     private func setupNavigationBar() {
@@ -88,7 +98,10 @@ class BillDetailViewController: UIViewController {
             
             AIPayInfoServices.reqeustOrderInfo(orderId!, billId: billId!, success: { (model) in
                 self.dismissLoading()
-                self.dataModel = model
+                self.payInfo = model
+                
+                self.loadUserData()
+                
                 self.transactionDetailsTableView.reloadData()
                 self.costDetailsTableView.reloadData()
                 
@@ -99,30 +112,29 @@ class BillDetailViewController: UIViewController {
 
         }
         
-//        costData = [CostItem]()
-//        
-//        var item = CostItem(name: "全程陪护", cost: "32元")
-//        costData?.append(item)
-//        
-//        item = CostItem(name: "神州孕妈专车", cost: "40元")
-//        var subItem = CostItem(name: "里程费", cost: "25元")
-//        item.subItems.append(subItem)
-//        subItem = CostItem(name: "时长费", cost: "15元")
-//        item.subItems.append(subItem)
-//        costData?.append(item)
-//        
-//        costDetailsTableView.reloadData()
-//        
-//        transitionData = [TransictionItem]()
-//        
-//        var tritem = TransictionItem(name: "支付宝支付", value: "62.0元")
-//        transitionData?.append(tritem)
-//        tritem = TransictionItem(name: "支付宝支付", value: "62.0元")
-//        transitionData?.append(tritem)
-//        tritem = TransictionItem(name: "支付宝支付", value: "62.0元")
-//        transitionData?.append(tritem)
-        
         transactionDetailsTableView.reloadData()
+    }
+    
+    private func loadUserData() {
+        if let data = payInfo {
+            if let url = data.serviceicon {
+                providerIcon.asyncLoadImage(url)
+            }
+            
+            serviceName.text = data.servicename ?? ""
+            
+            var stars: CGFloat = 1
+            
+            if let starsString = data.servicestars {
+                stars = CGFloat ( (starsString as NSString).floatValue)
+            }
+            starView.scorePercent = stars
+            
+            rateLabel.text = String(format: "%.1f", stars)
+            
+            orderCount.text = data.totalorders
+            
+        }
     }
 
 }
@@ -135,14 +147,14 @@ extension BillDetailViewController: SKSTableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == costDetailsTableView {
-            return  0
+            return  payInfo?.paymentItem.count ?? 0
         } else {
-            return  0
+            return  payInfo?.deal_items.count ?? 0
         }
     }
     
     func tableView(tableView: UITableView, numberOfSubRowsAtIndexPath indexPath: NSIndexPath) -> Int {
-        if let subRows = costData?[indexPath.row].subItems {
+        if let subRows = payInfo?.paymentItem[indexPath.row].details {
             return subRows.count
         } else {
             return 0
@@ -156,20 +168,19 @@ extension BillDetailViewController: SKSTableViewDelegate {
             cell?.backgroundColor = UIColor.clearColor()
             cell?.selectionStyle = .None
             
-            if let data = costData?[cellForRowAtIndexPath.row] {
+            if let data = payInfo?.paymentItem[cellForRowAtIndexPath.row] {
                 cell?.itemName?.text = data.name
-                cell?.costNumber?.text = data.cost
-                
-                cell?.isExpandable = data.subItems.count > 0
+                cell?.costNumber?.text = data.value ?? ""
+                cell?.isExpandable = data.details.count > 0
             }
             
             return cell!
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(transitionCellIdentifier) as? TransactionCell
             
-            if let data = transitionData?[cellForRowAtIndexPath.row] {
+            if let data = payInfo?.deal_items[cellForRowAtIndexPath.row] {
                 cell?.itemName?.text = data.name
-                cell?.value?.text = data.value
+                cell?.value?.text = data.value ?? ""
             }
             
             return cell!
@@ -180,32 +191,11 @@ extension BillDetailViewController: SKSTableViewDelegate {
    
         let cell = tableView.dequeueReusableCellWithIdentifier(subCellIdentifier) as? CostItemSubCell
         
-        if let data = costData?[indexPath.row].subItems[indexPath.subRow] {
+        if let data = payInfo?.paymentItem[indexPath.row].details[indexPath.subRow] {
             cell?.itemName?.text = data.name
-            cell?.costNumber?.text = data.cost
+            cell?.costNumber?.text = data.value ?? ""
         }
         
         return cell!
-    }
-}
-
-class CostItem {
-    var name: String
-    var cost: String
-    var subItems = [CostItem]()
-    
-    init(name: String, cost: String) {
-        self.name = name
-        self.cost = cost
-    }
-}
-
-class TransictionItem {
-    var name: String
-    var value: String
-    
-    init(name: String, value: String) {
-        self.name = name
-        self.value = value
     }
 }
