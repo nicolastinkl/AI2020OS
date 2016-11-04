@@ -106,7 +106,7 @@ class AIFundManageViewController: AIBaseViewController {
                 //我的资金账户
                 let holdVC = AIFundAccountViewController.initFromNib()
                 let vc = AIFundBaseViewCotroller.initFromNib()
-                vc.potColor = UIColor.orangeColor()
+                vc.potColor = UIColor(hexString: "#ca4722")
                 vc.privacyLabelHide = true
                 vc.title = "我的资金账户"
                 presentViewController(vc, animated: true, completion: nil)
@@ -116,7 +116,7 @@ class AIFundManageViewController: AIBaseViewController {
                 //我的会员卡
                 let holdVC = AIMyMemberCardViewController.initFromNib()
                 let vc = AIFundBaseViewCotroller.initFromNib()
-                vc.potColor = UIColor.orangeColor()
+                vc.potColor = UIColor(hexString: "#aa261b")
                 vc.privacyLabelHide = true
                 vc.title = "我的会员卡"
                 presentViewController(vc, animated: true, completion: nil)
@@ -143,11 +143,6 @@ class AIFundManageViewController: AIBaseViewController {
         }
         
         
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //MARK: NavigationBar
@@ -197,11 +192,6 @@ class AIFundManageViewController: AIBaseViewController {
             let tap = UITapGestureRecognizer(target: self, action: #selector(AIFundManageViewController.showAction(_:)))
             self.daishouView.addGestureRecognizer(tap)
         }
-       
-        
-        
-       
-        
         
     }
 

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIMyMemberCardViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="LTj-Ok-KkB" id="m4h-nQ-zWb"/>
                 <outlet property="view" destination="5Ff-Co-7XR" id="nkI-pA-2GH"/>
             </connections>
         </placeholder>
@@ -25,7 +26,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="TPp-0r-2Tg"/>
                     </constraints>
-                    <state key="normal" title="导入用会员信息" image="fund-account-add">
+                    <state key="normal" title=" 导入会员信息" image="fund-account-add">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -38,6 +39,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="520"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="999" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="wug-UJ-ijJ"/>
+                        <outlet property="delegate" destination="-1" id="CdP-JS-cxG"/>
+                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

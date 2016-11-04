@@ -14,7 +14,7 @@ class AIFundAccountViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let cellHeight: CGFloat = 94
-    var fakeData: [AICapitalAccount] = []
+    var data: [AICapitalAccount] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class AIFundAccountViewController: UIViewController {
     func fetchData() {
         let service = AIFundAccountService()
         service.capitalAccounts({ [weak self] (accounts) in
-            self?.fakeData = accounts
+            self?.data = accounts
             self?.tableView.reloadData()
             }) { (errType, errDes) in
         }
@@ -36,7 +36,6 @@ class AIFundAccountViewController: UIViewController {
         tableView.backgroundColor = UIColor.clearColor()
         tableView.registerNib(cellNib, forCellReuseIdentifier: "cell")
     }
-
 }
 
 extension AIFundAccountViewController: UITableViewDelegate {
@@ -52,7 +51,7 @@ extension AIFundAccountViewController: UITableViewDelegate {
 
 extension AIFundAccountViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fakeData.count
+        return data.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -68,11 +67,11 @@ extension AIFundAccountViewController: UITableViewDataSource {
             })
         }
         
-        let cardInfo = fakeData[indexPath.row]
+        let cardInfo = data[indexPath.row]
         contentView.title = cardInfo.method_name
         contentView.subtitle = cardInfo.method_spec_code
         contentView.detail = cardInfo.mch_id
-        contentView.imageName = cardInfo.icon
+        contentView.iconURL = cardInfo.icon
         
         cell.delegate = self
         cell.canDelete = false

@@ -910,6 +910,8 @@
 		FBAE7FD91D115428002FF522 /* AISellingProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD11D115428002FF522 /* AISellingProgressBar.m */; };
 		FBAE7FDA1D115428002FF522 /* AISellserAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */; };
 		FBDF21551D531E3200DEBB15 /* 89897384.json in Resources */ = {isa = PBXBuildFile; fileRef = FBDF21541D531E3200DEBB15 /* 89897384.json */; };
+		FBE136CF1DCC75480008F406 /* AIMemberCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE136CE1DCC75480008F406 /* AIMemberCardContentView.swift */; };
+		FBE136D11DCC754F0008F406 /* AIMemberCardContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE136D01DCC754F0008F406 /* AIMemberCardContentView.xib */; };
 		FD6E63660FC29EFB7CB17D2E /* Pods_VerisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5293440786150C2B14661D8C /* Pods_VerisTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -2169,6 +2171,8 @@
 		FBAE7FD21D115428002FF522 /* AISellserAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISellserAnimationView.h; sourceTree = "<group>"; };
 		FBAE7FD31D115428002FF522 /* AISellserAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISellserAnimationView.m; sourceTree = "<group>"; };
 		FBDF21541D531E3200DEBB15 /* 89897384.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 89897384.json; sourceTree = "<group>"; };
+		FBE136CE1DCC75480008F406 /* AIMemberCardContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMemberCardContentView.swift; sourceTree = "<group>"; };
+		FBE136D01DCC754F0008F406 /* AIMemberCardContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIMemberCardContentView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5123,6 +5127,8 @@
 				FB1013BB1DCC375800BC9E8A /* AIFundCellView.xib */,
 				FB1013BC1DCC375800BC9E8A /* AIFundDeletableCell.swift */,
 				FB1013BD1DCC375800BC9E8A /* AIFundDeletableCell.xib */,
+				FBE136CE1DCC75480008F406 /* AIMemberCardContentView.swift */,
+				FBE136D01DCC754F0008F406 /* AIMemberCardContentView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5341,6 +5347,7 @@
 				81433EBA1CFBE5A700347C29 /* MyriadPro-Cond.otf in Resources */,
 				81433DA51CFBE5A700347C29 /* AIServiceSearchView.xib in Resources */,
 				936B32A71D2F948B004465AD /* AIProposalCollCell.xib in Resources */,
+				FBE136D11DCC754F0008F406 /* AIMemberCardContentView.xib in Resources */,
 				81433D361CFBE5A700347C29 /* AIAudioInputView.xib in Resources */,
 				12CE5DEF1DC77AB20075EBD7 /* AIIconCouponTableViewCell.xib in Resources */,
 				C9C298D41D7D7ED600E34766 /* AIProductinfoBottomView.xib in Resources */,
@@ -5796,6 +5803,7 @@
 				8175A7FD1CFD2710006F2C8F /* SDWebImageManager.m in Sources */,
 				81AE2DE11D64666800CD2157 /* AIServiceOverview.swift in Sources */,
 				81433D061CFBE5A700347C29 /* AIRemoteNotificationHandler.swift in Sources */,
+				FBE136CF1DCC75480008F406 /* AIMemberCardContentView.swift in Sources */,
 				847D29851D4751E9009E26B8 /* ImageInfoModel.swift in Sources */,
 				81433CFA1CFBE5A700347C29 /* AITagLabel.m in Sources */,
 				81433CE01CFBE5A700347C29 /* AIBuyerBubbleModel.m in Sources */,

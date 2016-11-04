@@ -21,9 +21,12 @@ class AIFundAccountContentView: UIView {
         "支付宝": UIColor(hexString: "#17b1ef", alpha: 0.2)
     ]
     
-    var imageName: String? {
+    var iconURL: String? {
         didSet {
-            imageView.image = UIImage(named: imageName ?? "")
+            if let url = iconURL {
+                let encode = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+                imageView.sd_setImageWithURL(NSURL(string: encode))
+            }
         }
     }
     

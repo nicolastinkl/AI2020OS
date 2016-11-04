@@ -59,7 +59,7 @@
                 <outlet property="subtitleLabel" destination="GIm-MN-9a1" id="hpu-ha-atg"/>
                 <outlet property="titleLabel" destination="YOz-fv-AeA" id="vv6-5s-MJR"/>
             </connections>
-            <point key="canvasLocation" x="-128" y="-60.5"/>
+            <point key="canvasLocation" x="-193" y="-63"/>
         </view>
     </objects>
 </document>
