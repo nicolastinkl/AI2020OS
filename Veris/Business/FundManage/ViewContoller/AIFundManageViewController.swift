@@ -79,8 +79,14 @@ class AIFundManageViewController: AIBaseViewController {
             case 3:
                 //我的商家币
                 let vc = UIStoryboard(name: "AICouponsStoryboard", bundle: nil).instantiateViewControllerWithIdentifier("AIBusinessCurrencyViewController") as! AIBusinessCurrencyViewController
-                let navigationController = UINavigationController(rootViewController: vc)
-                presentViewController(navigationController, animated: true, completion: nil)
+                let containerVC = AIFundBaseViewCotroller.initFromNib()
+                containerVC.potColor = UIColor.orangeColor()
+                containerVC.privacyLabelHide = true
+                containerVC.title = "我的商家币"
+//                let navigationController = UINavigationController(rootViewController: vc)
+//                presentViewController(navigationController, animated: true, completion: nil)
+                presentViewController(containerVC, animated: true, completion: nil)
+                containerVC.setupFillView(vc)
                 break
             case 4:
                 //我的优惠券
