@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Be-dr-wdR">
-                    <rect key="frame" x="20" y="22.5" width="50" height="50"/>
+                    <rect key="frame" x="20" y="23" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="Ru9-Bz-d7i"/>
                         <constraint firstAttribute="height" constant="50" id="VNu-Ih-DVT"/>
@@ -29,13 +29,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIm-MN-9a1">
-                    <rect key="frame" x="78" y="51.5" width="42" height="21"/>
+                    <rect key="frame" x="78" y="52" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9f-8O-yJ4">
-                    <rect key="frame" x="148" y="51.5" width="42" height="21"/>
+                    <rect key="frame" x="148" y="52" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
                 <outlet property="subtitleLabel" destination="GIm-MN-9a1" id="hpu-ha-atg"/>
                 <outlet property="titleLabel" destination="YOz-fv-AeA" id="vv6-5s-MJR"/>
             </connections>
-            <point key="canvasLocation" x="-128" y="-60.5"/>
+            <point key="canvasLocation" x="-193" y="-63"/>
         </view>
     </objects>
 </document>

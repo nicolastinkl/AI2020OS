@@ -68,14 +68,16 @@
     return self;
 }
 
-- (void)addHeaders:(NSDictionary *)headers
+- (void)addHeadersOfMessage:(AIMessage *)message
 {
-    
     NSMutableDictionary *allHeaders = [[NSMutableDictionary alloc] init];
     [allHeaders addEntriesFromDictionary:self.commonHeaders];
-    [allHeaders addEntriesFromDictionary:headers];
+    [allHeaders addEntriesFromDictionary:message.header];
     
-    AIOCLog(@"allHeaders:%@\n", allHeaders);
+    if (![message.url isEqualToString:@"http://171.221.254.231:3245/events"]) {
+        AIOCLog(@"allHeaders:%@\n", allHeaders);
+    }
+    
     
     for (NSString *key in allHeaders.allKeys) {
         id value = [allHeaders objectForKey:key];
@@ -90,7 +92,7 @@
 - (void)postMessage:(AIMessage *)message success:(net_success_block)success fail:(net_fail_block)fail
 {
     // 设置头部
-    [self addHeaders:message.header];
+    [self addHeadersOfMessage:message];
     	
     __weak typeof(self) weakSelf = self;
     __weak AFHTTPSessionManager *weakManager = _sessionManager;
@@ -118,7 +120,7 @@
 - (void)getMessage:(AIMessage *)message success:(net_success_block)success fail:(net_fail_block)fail
 {
     // 设置头部
-    [self addHeaders:message.header];
+    [self addHeadersOfMessage:message];
     
     __weak typeof(self) weakSelf = self;
     NSURLSessionDataTask *curTask = [_sessionManager GET:message.url parameters:message.body success:^(NSURLSessionDataTask *task, id responseObject) {

@@ -40,3 +40,33 @@
 @property (strong, nonatomic) NSArray<CapitalFlowItem, Optional> * money_list;
 
 @end
+
+@protocol CapitalTypeItem
+@end
+
+@interface CapitalTypeItem : JSONModel
+
+@property (strong, nonatomic) NSString<Optional> * name;
+@property (strong, nonatomic) NSString<Optional> * code;
+
+@end
+
+@protocol CapitalClassification
+@end
+
+@interface CapitalClassification : JSONModel
+
+@property (strong, nonatomic) NSString<Optional> * type_name;
+@property (strong, nonatomic) NSArray<CapitalTypeItem, Optional> * lists;
+
+@end
+
+@protocol CapitalTypeList
+@end
+
+@interface CapitalTypeList : JSONModel
+
+@property (strong, nonatomic) NSArray<CapitalClassification, Optional> * types;
+
+@end
+

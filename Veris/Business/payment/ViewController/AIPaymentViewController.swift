@@ -219,7 +219,7 @@ class AIPaymentViewController: UIViewController {
         view.showLoading()
         AIPayInfoServices.reqeustOrderInfo(order_id, orderitemid: order_item_id, success: { (model) in
                 self.view.hideLoading()
-                self.dataModel = model as? AIPayInfoModel
+                self.dataModel = model
                 self.tableView.reloadData()
             
             Async.main(after: 0.3) {

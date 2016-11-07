@@ -442,7 +442,10 @@ struct AIApplication {
         case queryNewestWorkOpportunity
         // 2.12.1 查询最受欢迎的工作机会
         case queryMostPopularWork
-        
+        // 2.14.3.	资金帐户列表
+        case capitalAccounts
+        // 2.14.12.	我的会员卡
+        case queryMemberCard
         
         // 图像识别
         case uploadAndIdentify
@@ -499,6 +502,8 @@ struct AIApplication {
         
         // 资金流水
         case getCapitalFlowList
+        // 资金类型
+        case getCapitalTypeList
         
         var description: String {
 
@@ -605,9 +610,13 @@ struct AIApplication {
             // 我的钱包相关接口
             case .queryMyCoins: return AIApplication.KURL_ReleaseURL + "/account/myCoins"
             case .queryMyVoucher: return AIApplication.KURL_ReleaseURL + "/account/myVouchers"
-
+            case .capitalAccounts: return AIApplication.KURL_ReleaseURL + "/account/capitalAccts"
+            case .queryMemberCard: return AIApplication.KURL_ReleaseURL + "/account/queryMemberCard"
+                
             // 资金流水相关接口
             case .getCapitalFlowList: return AIApplication.KURL_ReleaseURL + "/account/moneyList"
+            case .getCapitalTypeList: return AIApplication.KURL_ReleaseURL + "/account/moneyListType"
+                
 
             }
         }

@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIFundAccountViewController" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="Z5j-an-LfY" id="Lp3-W4-rcy"/>
-                <outlet property="tableViewHeightConstraint" destination="Xio-Jp-kuY" id="yRC-Le-JVr"/>
                 <outlet property="view" destination="rM4-XZ-PlF" id="oLB-s4-BLF"/>
             </connections>
         </placeholder>
@@ -37,11 +36,8 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z5j-an-LfY">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="229"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="589"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="229" id="Xio-Jp-kuY"/>
-                    </constraints>
                     <inset key="separatorInset" minX="999" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="eiS-OY-w3V"/>
@@ -54,6 +50,7 @@
                 <constraint firstAttribute="trailing" secondItem="bR5-Hq-kZV" secondAttribute="trailing" constant="25" id="0sN-ua-zrL"/>
                 <constraint firstItem="Z5j-an-LfY" firstAttribute="top" secondItem="rM4-XZ-PlF" secondAttribute="top" id="1LN-sr-J00"/>
                 <constraint firstItem="Z5j-an-LfY" firstAttribute="leading" secondItem="rM4-XZ-PlF" secondAttribute="leading" id="HNf-bc-bDV"/>
+                <constraint firstItem="bR5-Hq-kZV" firstAttribute="top" secondItem="Z5j-an-LfY" secondAttribute="bottom" constant="20" id="Ihk-Qs-dE1"/>
                 <constraint firstItem="bR5-Hq-kZV" firstAttribute="leading" secondItem="rM4-XZ-PlF" secondAttribute="leading" constant="24" id="SCh-oO-MIO"/>
                 <constraint firstAttribute="trailing" secondItem="Z5j-an-LfY" secondAttribute="trailing" id="jXf-Kf-djN"/>
                 <constraint firstAttribute="bottom" secondItem="bR5-Hq-kZV" secondAttribute="bottom" constant="81" id="pkv-B6-x1N"/>

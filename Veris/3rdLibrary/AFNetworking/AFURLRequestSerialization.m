@@ -329,9 +329,10 @@ forHTTPHeaderField:(NSString *)field
     mutableRequest = [[self requestBySerializingRequest:mutableRequest withParameters:parameters error:error] mutableCopy];
 
     //AIOCLog(@"\nheader=%@", mutableRequest.allHTTPHeaderFields);
-    AIOCLog(@"\nbody=%@", [[NSString alloc] initWithData:mutableRequest.HTTPBody encoding:NSUTF8StringEncoding]);
-    AIOCLog(@"\nurl=%@", mutableRequest.URL.absoluteString);
-
+    if (![mutableRequest.URL.absoluteString isEqualToString:@"http://171.221.254.231:3245/events"]) {
+        AIOCLog(@"\nbody=%@", [[NSString alloc] initWithData:mutableRequest.HTTPBody encoding:NSUTF8StringEncoding]);
+        AIOCLog(@"\nurl=%@", mutableRequest.URL.absoluteString);
+    }
 	return mutableRequest;
 }
 

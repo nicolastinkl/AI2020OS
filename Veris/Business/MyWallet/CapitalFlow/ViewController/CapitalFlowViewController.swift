@@ -15,6 +15,7 @@ class CapitalFlowViewController: UIViewController {
     @IBOutlet weak var filteButton: UIButton!
     
     var capitalData: [CapitalFlowItem]?
+    var capitalTypeList: CapitalTypeList?
     private var vc: FilterViewController!
     
     override func viewDidLoad() {
@@ -30,7 +31,8 @@ class CapitalFlowViewController: UIViewController {
         
         createFilteViewController()
         
-        loadData()
+        loadData(nil)
+        loadCapitalType()
     }
     
     class func initFromStoryboard() -> CapitalFlowViewController {
@@ -44,10 +46,23 @@ class CapitalFlowViewController: UIViewController {
             vc.view.removeFromSuperview()
             vc.removeFromParentViewController()
         } else {
-            addChildViewController(vc)
-            tableView.addSubview(vc.view)
-            vc.didMoveToParentViewController(self)
+            if let list = capitalTypeList?.types as? [CapitalClassification] {
+                showFiltViewController(list)
+            } else {
+                reloadCapitalType()
+            }
+            
         }
+    }
+    
+    private func showFiltViewController(capitalTypeList: [CapitalClassification]) {
+        if vc.filteData == nil {
+            vc.filteData = capitalTypeList
+        }
+        
+        addChildViewController(vc)
+        tableView.addSubview(vc.view)
+        vc.didMoveToParentViewController(self)
     }
     
     private func setupNavigationBar() {
@@ -72,12 +87,12 @@ class CapitalFlowViewController: UIViewController {
         setNavigationBarAppearance(navigationBarAppearance: appearance)
     }
     
-    private func loadData() {
+    func loadData(type: String?) {
         showLoading()
         
         let service = HttpCapitalFlowService()
         
-        service.getCapitalFlowList(CapitalType.all, success: { (responseData) in
+        service.getCapitalFlowList(type, success: { (responseData) in
             
             self.dismissLoading()
             self.capitalData = responseData.money_list as? [CapitalFlowItem]
@@ -90,6 +105,8 @@ class CapitalFlowViewController: UIViewController {
                 self.dismissLoading()
                 NBMaterialToast.showWithText(self.view, text: "GetDataFailed".localized, duration: NBLunchDuration.SHORT)
         }
+        
+        
         
 //        capitalData = [CapitalFlowModel]()
 //        
@@ -114,8 +131,38 @@ class CapitalFlowViewController: UIViewController {
 //        }
     }
     
+    private func loadCapitalType() {
+        let service = HttpCapitalFlowService()
+        
+        service.getCapitalTypeList({ (responseData) in
+            self.capitalTypeList = responseData
+            }) { (errType, errDes) in
+                
+        }
+    }
+    
+    private func reloadCapitalType() {
+        showLoading()
+        let service = HttpCapitalFlowService()
+        
+        service.getCapitalTypeList({ (responseData) in
+            self.dismissLoading()
+            self.capitalTypeList = responseData
+            
+            if let list = self.capitalTypeList?.types as? [CapitalClassification] {
+                self.showFiltViewController(list)
+            }
+            
+        }) { (errType, errDes) in
+            self.dismissLoading()
+            NBMaterialToast.showWithText(self.view, text: "GetDataFailed".localized, duration: NBLunchDuration.SHORT)
+
+        }
+    }
+    
     private func createFilteViewController() {
         vc = FilterViewController.initFromStoryboard()
+        vc.delegate = self
     }
     
     private func convertDate(date: NSNumber) -> String {
@@ -125,17 +172,6 @@ class CapitalFlowViewController: UIViewController {
         let timeString = dateFormat.stringFromDate(date)
         return timeString
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension CapitalFlowViewController: UITableViewDataSource, UITableViewDelegate {
@@ -156,6 +192,22 @@ extension CapitalFlowViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return capitalData?.count ?? 0
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let itemData = capitalData![indexPath.row]
+        let vc = BillDetailViewController.initFromStoryboard()
+        vc.billId = itemData.bill_id
+        vc.orderId = itemData.rela_id
+        
+        let nav = UINavigationController(rootViewController: vc)
+        presentViewController(nav, animated: true, completion: nil)
+    }
+}
+
+extension CapitalFlowViewController: CapitalFilterDelegate {
+    func capitalTypeDidSelect(type: CapitalTypeItem) {
+        loadData(type.code)
     }
 }
 

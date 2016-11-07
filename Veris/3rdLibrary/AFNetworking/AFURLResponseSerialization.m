@@ -260,7 +260,9 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
                 if ([data length] > 0) {
                     
                     NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                    AIOCLog(@"\nresponse=====\n%@========\n", str);
+                    if (![response.URL.absoluteString isEqualToString:@"http://171.221.254.231:3245/events"]) {
+                        AIOCLog(@"\nresponse=====\n%@========\n", str);
+                    }
                     responseObject = [NSJSONSerialization JSONObjectWithData:data options:self.readingOptions error:&serializationError];
                 } else {
                     return nil;

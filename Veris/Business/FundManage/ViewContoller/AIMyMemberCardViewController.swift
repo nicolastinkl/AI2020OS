@@ -1,33 +1,44 @@
 //
-//  AIFundAccountViewController.swift
+//  AIMyMemberCardViewController.swift
 //  AIVeris
 //
-//  Created by zx on 11/3/16.
+//  Created by zx on 11/4/16.
 //  Copyright © 2016 ___ASIAINFO___. All rights reserved.
 //
 
 import UIKit
 
-
-class AIFundAccountViewController: UIViewController {
-    
+class AIMyMemberCardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UITextField!
     
     let cellHeight: CGFloat = 94
-    var data: [AICapitalAccount] = []
+    var data: [AIMemberCard] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupSearchBar()
         fetchData()
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func setupSearchBar() {
+        
+        searchBar.attributedPlaceholder = NSAttributedString(string:"请输入您要查找的内容",
+                                                               attributes:[NSForegroundColorAttributeName: UIColor(hexString: "#ffffff", alpha: 0.5)])
     }
     
     func fetchData() {
         let service = AIFundAccountService()
-        service.capitalAccounts({ [weak self] (accounts) in
-            self?.data = accounts
+        service.queryMemberCard({ [weak self] (cards) in
+            self?.data = cards
             self?.tableView.reloadData()
             }) { (errType, errDes) in
+                
         }
     }
     
@@ -38,7 +49,8 @@ class AIFundAccountViewController: UIViewController {
     }
 }
 
-extension AIFundAccountViewController: UITableViewDelegate {
+
+extension AIMyMemberCardViewController: UITableViewDelegate {
     
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -49,18 +61,18 @@ extension AIFundAccountViewController: UITableViewDelegate {
     }
 }
 
-extension AIFundAccountViewController: UITableViewDataSource {
+extension AIMyMemberCardViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! AIFundDeletableCell
-        var contentView: AIFundAccountContentView!
-        if let view = cell.myContentView.viewWithTag(233) as? AIFundAccountContentView {
+        var contentView: AIMemberCardContentView!
+        if let view = cell.myContentView.viewWithTag(233) as? AIMemberCardContentView {
             contentView = view
         } else {
-            contentView = AIFundAccountContentView.initFromNib() as! AIFundAccountContentView
+            contentView = AIMemberCardContentView.initFromNib() as! AIMemberCardContentView
             cell.myContentView.addSubview(contentView)
             contentView.snp_makeConstraints(closure: { (make) in
                 make.edges.equalTo(cell.myContentView)
@@ -68,9 +80,7 @@ extension AIFundAccountViewController: UITableViewDataSource {
         }
         
         let cardInfo = data[indexPath.row]
-        contentView.title = cardInfo.method_name
-        contentView.subtitle = cardInfo.method_spec_code
-        contentView.detail = cardInfo.mch_id
+        contentView.title = cardInfo.name
         contentView.iconURL = cardInfo.icon
         
         cell.delegate = self
@@ -79,7 +89,7 @@ extension AIFundAccountViewController: UITableViewDataSource {
     }
 }
 
-extension AIFundAccountViewController: AISuperSwipeableCellDelegate {
+extension AIMyMemberCardViewController: AISuperSwipeableCellDelegate {
     
     func cellDidAimationFrame(position: CGFloat, cell: UITableViewCell!) {
     }

@@ -15,10 +15,18 @@ class AIFundAccountContentView: UIView {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
+    var fakeData: [String: UIColor] = [
+        "招商银行": UIColor(hexString: "#b6241e", alpha: 0.2),
+        "建设银行": UIColor(hexString: "#136fcb", alpha: 0.2),
+        "支付宝": UIColor(hexString: "#17b1ef", alpha: 0.2)
+    ]
     
-    var imageName: String? {
+    var iconURL: String? {
         didSet {
-            imageView.image = UIImage(named: imageName ?? "")
+            if let url = iconURL {
+                let encode = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+                imageView.sd_setImageWithURL(NSURL(string: encode))
+            }
         }
     }
     
@@ -31,6 +39,9 @@ class AIFundAccountContentView: UIView {
     var subtitle: String? {
         didSet {
             subtitleLabel.text = subtitle
+            if let key = subtitle {
+                backgroundColor = fakeData[key]
+            }
         }
     }
     
@@ -42,6 +53,8 @@ class AIFundAccountContentView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        clipsToBounds = true
+        layer.cornerRadius = 10
         titleLabel.font = AITools.myriadRegularWithSize(52.displaySizeFrom1242DesignSize())
         titleLabel.textColor = UIColor.whiteColor()
     

@@ -28,7 +28,7 @@
 static CGFloat const kBounceValue = 20.0f;
 static CGFloat const kOffsetValue = 21.0f;
 
-static CGFloat const kButtonWidthValue = 52.0f;
+static CGFloat const kButtonWidthValue = 69;
 
 @implementation AISuperSwipeableCell
 
