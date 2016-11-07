@@ -50,8 +50,10 @@ class AIIconCouponTableViewCell: UITableViewCell {
     func bindData(model: AIVoucherBusiModel) {
         couponNameLabel.text = model.name
         expireDateLabel.text = "有效期至\(model.expire_time!)"
-        
-        couponIconImageView.sd_setImageWithURL(NSURL(string: model.icon), placeholderImage: UIImage(), options: SDWebImageOptions.RetryFailed)
+        if let url = model.icon {
+            let encode = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+            couponIconImageView.sd_setImageWithURL(NSURL(string: encode), placeholderImage: UIImage(), options: SDWebImageOptions.RetryFailed)
+        }
     }
 }
 

@@ -23,9 +23,9 @@ class AIMoreCouponViewController: UIViewController {
     
     var filterBar: AIFilterBar!
     var commentsNumbers = [
-        "0",
-        "0",
-        "0"
+        "",
+        "",
+        ""
     ]
     var popupDetailView: AIPopupSContainerView!
     var couponDetailView: AICouponDetailView!
