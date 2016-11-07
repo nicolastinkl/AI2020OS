@@ -138,7 +138,6 @@ class AIFundManageViewController: AIBaseViewController {
                 let holdVC = AIMyWalletBalanceViewController.initFromNib()
                 let vc = AIFundBaseViewCotroller.initFromNib()
                 showTransitionStyleCrossDissolveView(vc)
-                //presentViewController(vc, animated: true, completion: nil)
                 vc.setupFillView(holdVC)
                 break
             case 2:
@@ -151,9 +150,7 @@ class AIFundManageViewController: AIBaseViewController {
                 containerVC.potColor = UIColor.orangeColor()
                 containerVC.privacyLabelHide = true
                 containerVC.title = "我的商家币"
-//                let navigationController = UINavigationController(rootViewController: vc)
-//                presentViewController(navigationController, animated: true, completion: nil)
-                presentViewController(containerVC, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(containerVC)
                 containerVC.setupFillView(vc)
                 break
             case 4:
@@ -164,11 +161,9 @@ class AIFundManageViewController: AIBaseViewController {
                 containerVC.privacyLabelHide = true
                 containerVC.title = "我的优惠券"
                 let navigationController = UINavigationController(rootViewController: containerVC)
-                presentViewController(navigationController, animated: true, completion: {
-                    containerVC.setupFillView(vc)
-                })
-                //presentViewController(containerVC, animated: true, completion: nil)
-                
+                showTransitionStyleCrossDissolveView(navigationController)
+                //containerVC.setupFillView(navigationController)
+            
                 break
             case 5:
                 //我的资金账户
@@ -177,7 +172,7 @@ class AIFundManageViewController: AIBaseViewController {
                 vc.potColor = UIColor(hexString: "#ca4722")
                 vc.privacyLabelHide = true
                 vc.title = "我的资金账户"
-                presentViewController(vc, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(vc)
                 vc.setupFillView(holdVC)
                 break
             case 6:
@@ -187,7 +182,7 @@ class AIFundManageViewController: AIBaseViewController {
                 vc.potColor = UIColor(hexString: "#aa261b")
                 vc.privacyLabelHide = true
                 vc.title = "我的会员卡"
-                presentViewController(vc, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(vc)
                 vc.setupFillView(holdVC)
                 break
             case 7:
@@ -196,13 +191,13 @@ class AIFundManageViewController: AIBaseViewController {
             case 8:
                 // 待付
                 let vc = AIWillPayVController.init()
-                presentBlurViewController(vc, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(vc)
                 
                 break
             case 9:
                 // 待收
                 let vc = AIWillReceiverVController.init()
-                presentBlurViewController(vc, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(vc)
                 break
                 
             default:
