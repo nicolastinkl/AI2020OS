@@ -94,10 +94,10 @@ class BillDetailViewController: UIViewController {
     private func loadData() {
         
         if orderId != nil && billId != nil {
-            showLoading()
+            view.showLoading()
             
             AIPayInfoServices.reqeustOrderInfo(orderId!, billId: billId!, success: { (model) in
-                self.dismissLoading()
+                self.view.hideLoading()
                 self.payInfo = model
                 
                 self.loadUserData()
@@ -106,13 +106,11 @@ class BillDetailViewController: UIViewController {
                 self.costDetailsTableView.reloadData()
                 
             }) { (errType, errDes) in
-                self.dismissLoading()
+                self.view.hideLoading()
                 NBMaterialToast.showWithText(self.view, text: "GetDataFailed".localized, duration: NBLunchDuration.SHORT)
             }
 
         }
-        
-        transactionDetailsTableView.reloadData()
     }
     
     private func loadUserData() {
@@ -165,12 +163,15 @@ extension BillDetailViewController: SKSTableViewDelegate {
         if tableView == costDetailsTableView {
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? CostItemCell
             
-            cell?.backgroundColor = UIColor.clearColor()
-            cell?.selectionStyle = .None
+            cell?.isExpandable = false
+   //         cell?.backgroundColor = UIColor.clearColor()
+   //         cell?.selectionStyle = .None
             
             if let data = payInfo?.paymentItem[cellForRowAtIndexPath.row] {
                 cell?.itemName?.text = data.name
                 cell?.costNumber?.text = data.value ?? ""
+                cell?.isExpandable = data.details.count > 0
+                
                 cell?.isExpandable = data.details.count > 0
             }
             
