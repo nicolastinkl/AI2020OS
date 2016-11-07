@@ -507,7 +507,10 @@ struct AIApplication {
         
         //我的钱包首页
         case accountIndex
-        
+        //我的余额
+        case blanceInfo
+        //我的待收
+        case waitPayOrders
         
         var description: String {
 
@@ -622,6 +625,8 @@ struct AIApplication {
             case .getCapitalTypeList: return AIApplication.KURL_ReleaseURL + "/account/moneyListType"
                 
             case .accountIndex: return AIApplication.KURL_ReleaseURL + "/account/index"
+            case .blanceInfo: return  AIApplication.KURL_ReleaseURL + "/account/balance"
+            case .waitPayOrders: return  AIApplication.KURL_ReleaseURL + "/account/waitPayOrders"
             }
         }
     }

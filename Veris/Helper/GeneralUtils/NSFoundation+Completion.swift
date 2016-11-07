@@ -49,4 +49,17 @@ public extension Int {
     public func toString() -> String {
         return String(self)
     }
+    
+    //转化为时间
+    public func toDate() -> String {
+        
+        let mydateFormatter = NSDateFormatter()
+        mydateFormatter.dateFormat = "EEE, MMM d, YYYY hh:mm:ss.SSSSxxx"
+        let date = mydateFormatter.stringFromDate(NSDate(timeIntervalSince1970: Double(self)))
+        return date
+        
+    }
+    
+    
+    
 }

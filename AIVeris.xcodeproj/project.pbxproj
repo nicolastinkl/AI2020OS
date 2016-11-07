@@ -2089,7 +2089,7 @@
 		C9FE357F1DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMyWalletBalanceViewController.swift; sourceTree = "<group>"; };
 		C9FE4B151DAF37C30054D499 /* AIProductExeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductExeService.swift; sourceTree = "<group>"; };
 		C9FEAC021DCC8E3300C1E72F /* AIFundManageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundManageServices.swift; sourceTree = "<group>"; };
-		C9FEAC041DCC923600C1E72F /* AIFundManageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundManageModel.swift; sourceTree = "<group>"; };
+		C9FEAC041DCC923600C1E72F /* AIFundManageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIFundManageModel.swift; path = ../AIFundManageModel.swift; sourceTree = "<group>"; };
 		FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		FB0181001D0D125400213DF8 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		FB0181011D0D125400213DF8 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -5097,7 +5097,6 @@
 			isa = PBXGroup;
 			children = (
 				C9FEAC021DCC8E3300C1E72F /* AIFundManageServices.swift */,
-				C9FEAC041DCC923600C1E72F /* AIFundManageModel.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -5165,6 +5164,7 @@
 		FB1013D11DCC37C700BC9E8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C9FEAC041DCC923600C1E72F /* AIFundManageModel.swift */,
 				FB1013D21DCC37DD00BC9E8A /* AIFundAccountService.swift */,
 			);
 			path = Model;

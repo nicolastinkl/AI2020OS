@@ -18,9 +18,14 @@ class AIFundManageViewController: AIBaseViewController {
     @IBOutlet weak var nianshouruView: UIView!
     @IBOutlet weak var daishouView: UIView!
     @IBOutlet weak var daifuView: UIView!
+    @IBOutlet weak var daishou: UILabel!
+    @IBOutlet weak var daifu: UILabel!
+    @IBOutlet weak var total: UILabel!
     
     private let contentArray = ["我的余额", "我的信用积分", "我的商家币", "我的优惠券", "我的资金账户", "我的会员卡"]
     private let contentArrayColor = ["#7b3990", "#1c789f", "#619505", "#f79a00", "#d05126", "#b32b1d"]
+    
+    private var dataSource: AIFundManageModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +37,11 @@ class AIFundManageViewController: AIBaseViewController {
         // add view controller to this vc
         
         AIFundManageServices.reqeustIndexInfo({ (model) in
-            
+            self.dataSource = model
+            Async.main(after: 1) {
+                self.fillViewWithData()
+            }
             }) { (error) in
-                
         }
         
     }
@@ -45,11 +52,64 @@ class AIFundManageViewController: AIBaseViewController {
         if contentScrollView.subviews.count > 0 {
             return
         }
-        
+      
+    }
+    
+    func fillViewWithData() {
         var index = 0
-        contentArray.forEach { (string) in
+        daifu.text = String(dataSource?.total_wait_pay_amout ?? 0)
+        daishou.text = String(dataSource?.total_wait_collection_amout ?? 0)
+        total.text = String(dataSource?.total_income_amout ?? 0)
+        
+        
+        localCode {
+            let badge = GIBadgeView()
+            badge.badgeValue = self.dataSource?.total_income_items ?? 0
+            badge.topOffset = 10
+            badge.rightOffset = 5
+            badge.font = AITools.myriadLightSemiExtendedWithSize(12)
+            self.nianshouruView.addSubview(badge)
+            self.nianshouruView.tag = 7
+            let tap = UITapGestureRecognizer(target: self, action: #selector(AIFundManageViewController.showAction(_:)))
+            self.nianshouruView.addGestureRecognizer(tap)
+        }
+        
+        localCode {
+            let badge = GIBadgeView()
+            badge.badgeValue =  self.dataSource?.total_wait_pay_items ?? 0
+            badge.topOffset = 10
+            badge.rightOffset = 5
+            badge.font = AITools.myriadLightSemiExtendedWithSize(12)
+            self.daifuView.addSubview(badge)
+            self.daifuView.tag = 8
+            let tap = UITapGestureRecognizer(target: self, action: #selector(AIFundManageViewController.showAction(_:)))
+            self.daifuView.addGestureRecognizer(tap)
+        }
+        
+        localCode {
+            let badge = GIBadgeView()
+            badge.badgeValue =  self.dataSource?.total_wait_collection_items ?? 0
+            badge.topOffset = 10
+            badge.rightOffset = 5
+            badge.font = AITools.myriadLightSemiExtendedWithSize(12)
+            self.daishouView.addSubview(badge)
+            self.daishouView.tag = 9
+            let tap = UITapGestureRecognizer(target: self, action: #selector(AIFundManageViewController.showAction(_:)))
+            self.daishouView.addGestureRecognizer(tap)
+        }
+        
+        
+        
+        dataSource?.drawers.forEach({ (model) in
+            
+            let string = contentArray[index]
+            
             if let cell = AIFundCellView.initFromNib() as? AIFundCellView {
                 cell.title.text = string
+                cell.des.text = model.desc ?? ""
+                cell.price.text = String( model.amout ?? 0)
+                cell.unit.text = model.unit ?? ""
+                
                 let color = contentArrayColor[index]
                 cell.round.backgroundColor = UIColor(hex: color)
                 self.addNewSubView(cell)
@@ -58,7 +118,7 @@ class AIFundManageViewController: AIBaseViewController {
                 let tap = UITapGestureRecognizer(target: self, action: #selector(AIFundManageViewController.showAction(_:)))
                 cell.addGestureRecognizer(tap)
             }
-        }
+        })
         
     }
     
@@ -162,41 +222,7 @@ class AIFundManageViewController: AIBaseViewController {
         zijinButton.layer.cornerRadius = 4
         zijinButton.layer.masksToBounds = true
         
-        localCode {
-            let badge = GIBadgeView()
-            badge.badgeValue = 13
-            badge.topOffset = 10
-            badge.rightOffset = 5
-            badge.font = AITools.myriadLightSemiExtendedWithSize(12)
-            self.nianshouruView.addSubview(badge)
-            self.nianshouruView.tag = 7
-            let tap = UITapGestureRecognizer(target: self, action: #selector(AIFundManageViewController.showAction(_:)))
-            self.nianshouruView.addGestureRecognizer(tap)
-        }
         
-        localCode {
-            let badge = GIBadgeView()
-            badge.badgeValue = 5
-            badge.topOffset = 10
-            badge.rightOffset = 5
-            badge.font = AITools.myriadLightSemiExtendedWithSize(12)
-            self.daifuView.addSubview(badge)
-            self.daifuView.tag = 8
-            let tap = UITapGestureRecognizer(target: self, action: #selector(AIFundManageViewController.showAction(_:)))
-            self.daifuView.addGestureRecognizer(tap)
-        }
-        
-        localCode {
-            let badge = GIBadgeView()
-            badge.badgeValue = 8
-            badge.topOffset = 10
-            badge.rightOffset = 5
-            badge.font = AITools.myriadLightSemiExtendedWithSize(12)
-            self.daishouView.addSubview(badge)
-            self.daishouView.tag = 9
-            let tap = UITapGestureRecognizer(target: self, action: #selector(AIFundManageViewController.showAction(_:)))
-            self.daishouView.addGestureRecognizer(tap)
-        }
         
     }
 

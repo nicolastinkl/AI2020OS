@@ -14,7 +14,8 @@ class AIFundCellView: UIView {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var round: UIView!
     @IBOutlet weak var des: UILabel!
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var title: UILabel!    
+    @IBOutlet weak var unit: UILabel!
     
     @IBOutlet weak var bgimage: UIImageView!
     override func awakeFromNib() {
