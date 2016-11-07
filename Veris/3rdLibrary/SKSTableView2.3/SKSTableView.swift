@@ -272,7 +272,7 @@ extension SKSTableView: UITableViewDelegate {
                 
                 cell.accessoryViewAnimation()
                 
-                if correspondingIndexPath?.subRow == 0 {
+                if correspondingIndexPath?.subRow == NSIndexPath.ParentRow {
                     sksTableViewDelegate?.tableView?(self, didSelectRowAtIndexPath: indexTmp)
                 } else {
                     sksTableViewDelegate?.tableView?(self, didSelectSubRowAtIndexPath: correspondingIndexPath!)

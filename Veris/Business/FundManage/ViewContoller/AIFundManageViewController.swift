@@ -124,7 +124,9 @@ class AIFundManageViewController: AIBaseViewController {
     
     //资金点击触发
     @IBAction func moneyListAction(sender: AnyObject) {
-        
+        let vc = CapitalFlowViewController.initFromStoryboard()
+        let nav = UINavigationController(rootViewController: vc)
+        presentBlurViewController(nav, animated: true, completion: nil)
     }
     
     //跳转点击事件分发
