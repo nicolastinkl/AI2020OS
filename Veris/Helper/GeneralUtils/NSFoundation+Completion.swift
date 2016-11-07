@@ -54,7 +54,7 @@ public extension Int {
     public func toDate() -> String {
         
         let mydateFormatter = NSDateFormatter()
-        mydateFormatter.dateFormat = "EEE, MMM d, YYYY hh:mm:ss.SSSSxxx"
+        mydateFormatter.dateFormat = "MM.DD hh:mm:ss"
         let date = mydateFormatter.stringFromDate(NSDate(timeIntervalSince1970: Double(self)))
         return date
         

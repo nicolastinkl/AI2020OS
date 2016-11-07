@@ -73,6 +73,23 @@ class AIFundManageServices: NSObject {
         }
     }
     
+    // 提醒
+    static func reqeustNotifyPay(bill_id: String, success: (Bool) -> Void, fail: (String) -> Void) {
+        let message = AIMessage()
+        message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""], "data":["bill_id":bill_id]])
+        message.url = AIApplication.AIApplicationServerURL.noticePay.description
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            
+            if let responseJSON: AnyObject = response {
+                success(true)
+            } else {
+                success(false)
+            }
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            
+        }
+    }
     
     // 查询我的待付
     

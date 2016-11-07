@@ -114,7 +114,7 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
             contentView?.buttonView.addSubview(buttonSS)
             contentView?.buttonView.addSubview(buttonSurePay)
             
-            buttonSS.addTarget(self, action: #selector(AIWillPayVController.showAIRechargeView), forControlEvents: UIControlEvents.TouchUpInside)
+            buttonSS.addTarget(self, action: #selector(AIWillPayVController.notifyPay), forControlEvents: UIControlEvents.TouchUpInside)
             
         }
         
@@ -132,14 +132,14 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
     
-    func showAIRechargeView() {
-        if let viewrech = AIRechargeView.initFromNib() as? AIRechargeView {
-            view.addSubview(viewrech)
-            viewrech.initSettings()
-            viewrech.snp_makeConstraints { (make) in
-                make.edges.equalTo(view)
-            }
+    //notify pay
+    func notifyPay() {
+        AIFundManageServices.reqeustNotifyPay("", success: { (bol) in
+            
+            }) { (error) in
+                
         }
+        
         
     }
     

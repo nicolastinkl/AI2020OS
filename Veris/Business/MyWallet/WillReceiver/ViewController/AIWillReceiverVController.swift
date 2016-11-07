@@ -104,7 +104,7 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
             contentView?.buttonView.addSubview(buttonSS)
             contentView?.buttonView.addSubview(buttonSurePay)
             
-            buttonSS.addTarget(self, action: #selector(AIWillPayVController.showAIRechargeView), forControlEvents: UIControlEvents.TouchUpInside)
+            buttonSurePay.addTarget(self, action: #selector(AIWillPayVController.showAIRechargeView), forControlEvents: UIControlEvents.TouchUpInside)
             
         }
         
