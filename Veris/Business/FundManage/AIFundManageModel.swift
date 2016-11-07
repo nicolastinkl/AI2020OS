@@ -20,7 +20,7 @@ class AIFundManageModel: JSONJoy {
     let total_wait_collection_unit: String?
     
     
-    let drawers = Array<AIFundManageModelDrawer>()
+    var drawers = Array<AIFundManageModelDrawer>()
     
     required init(_ decoder: JSONDecoder) {
         
@@ -33,7 +33,7 @@ class AIFundManageModel: JSONJoy {
         
         if let addrs = decoder["drawers"].array {
             for addrDecoder in addrs {
-                self.drawers.append(AIFundManageModelDrawer(addrDecoder))
+                drawers.append(AIFundManageModelDrawer(addrDecoder))
             }
         }
     }
