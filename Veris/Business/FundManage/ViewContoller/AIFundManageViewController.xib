@@ -9,9 +9,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AIFundManageViewController" customModule="Veris" customModuleProvider="target">
             <connections>
                 <outlet property="contentScrollView" destination="Rz6-3o-F8q" id="1bV-Mb-yur"/>
+                <outlet property="daifu" destination="rBS-eT-rwi" id="d5B-FQ-j6G"/>
                 <outlet property="daifuView" destination="Qif-lh-0FW" id="Ofp-xW-b3z"/>
+                <outlet property="daishou" destination="ijO-8j-z6v" id="zle-Li-4zs"/>
                 <outlet property="daishouView" destination="vDP-AR-M0K" id="MAR-Vi-h5O"/>
                 <outlet property="nianshouruView" destination="hdZ-ev-qf2" id="SDY-AK-D2f"/>
+                <outlet property="total" destination="Mse-Ri-Nd8" id="8m1-ab-UNa"/>
                 <outlet property="view" destination="iN0-l3-epB" id="nbm-OU-8Hl"/>
                 <outlet property="zijinButton" destination="WIP-ik-c74" id="ofu-bC-p3x"/>
             </connections>
@@ -44,7 +47,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBS-eT-rwi">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBS-eT-rwi">
                             <frame key="frameInset" minX="-5" minY="36" width="87" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -74,7 +77,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3209" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijO-8j-z6v">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijO-8j-z6v">
                             <frame key="frameInset" minX="-5" minY="36" width="87" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -111,7 +114,7 @@
                             <color key="textColor" white="1" alpha="0.45611702129999998" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="98" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mse-Ri-Nd8">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mse-Ri-Nd8">
                             <frame key="frameInset" minX="-5" minY="36" width="87" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -127,7 +130,7 @@
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rz6-3o-F8q"/>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="WIP-ik-c74" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="69" id="IwQ-Sy-98k"/>
                 <constraint firstAttribute="trailing" secondItem="Rz6-3o-F8q" secondAttribute="trailing" id="RBc-Mg-8GL"/>

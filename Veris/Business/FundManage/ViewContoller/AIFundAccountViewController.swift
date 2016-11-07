@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class AIFundAccountViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
