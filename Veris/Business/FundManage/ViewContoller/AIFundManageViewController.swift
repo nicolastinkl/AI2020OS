@@ -10,7 +10,7 @@ import UIKit
 
 /// 我的钱包首页
 class AIFundManageViewController: AIBaseViewController {
-
+    
     @IBOutlet weak var contentScrollView: UIScrollView!
     private var preCacheView: UIView = UIView()
     @IBOutlet weak var zijinButton: UIButton!
@@ -137,7 +137,8 @@ class AIFundManageViewController: AIBaseViewController {
                 //我的余额
                 let holdVC = AIMyWalletBalanceViewController.initFromNib()
                 let vc = AIFundBaseViewCotroller.initFromNib()
-                presentViewController(vc, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(vc)
+                //presentViewController(vc, animated: true, completion: nil)
                 vc.setupFillView(holdVC)
                 break
             case 2:

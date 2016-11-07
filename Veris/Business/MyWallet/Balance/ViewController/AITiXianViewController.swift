@@ -31,6 +31,14 @@ class AITiXianViewController: AIBaseViewController {
         
     }
     
+    override func makeBackgroundView() {
+        
+    }
+    
+    @IBAction func complateAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     //MARK: NavigationBar
     /*
     override func setupNavigationBar() {

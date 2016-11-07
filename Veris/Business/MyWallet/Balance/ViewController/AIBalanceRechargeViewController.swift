@@ -108,7 +108,20 @@ class AIBalanceRechargeViewController: AIBaseViewController {
         buttonSubmit.cornerRadius = 5
         view.addSubview(buttonSubmit)
         
+        buttonSubmit.addTarget(self, action: #selector(AIBalanceRechargeViewController.chargeAction), forControlEvents: UIControlEvents.TouchUpInside)
         
+    }
+    
+    func chargeAction() {
+        if let viewrech = AIRechargePaylistView.initFromNib() as? AIRechargePaylistView {
+            view.addSubview(viewrech)
+            viewrech.initSettings()
+            viewrech.snp_makeConstraints { (make) in
+                make.edges.equalTo(view)
+            }
+            
+            viewrech.initSettings()
+        }
     }
     
     

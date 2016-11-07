@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Spring
+
 
 class AIRechargeView: UIView {
     
@@ -23,5 +25,11 @@ class AIRechargeView: UIView {
         //self.bgview.masksToBounds = true
     }
     
-    
+    @IBAction func closeViewAction(sender: AnyObject) {
+        SpringAnimation.springWithCompletion(0.3, animations: {
+            self.alpha = 0
+        }) { (complate) in
+            self.removeFromSuperview()
+        }
+    }
 }
