@@ -161,9 +161,12 @@ class AIFundManageViewController: AIBaseViewController {
                 containerVC.privacyLabelHide = true
                 containerVC.title = "我的优惠券"
                 let navigationController = UINavigationController(rootViewController: containerVC)
-                showTransitionStyleCrossDissolveView(navigationController)
-                //containerVC.setupFillView(navigationController)
-            
+                presentViewController(navigationController, animated: true, completion: { 
+                    containerVC.setupFillView(vc)
+                })
+//                showTransitionStyleCrossDissolveView(navigationController, completion: {
+//                    containerVC.setupFillView(vc)
+//                })
                 break
             case 5:
                 //我的资金账户

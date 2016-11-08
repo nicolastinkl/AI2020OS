@@ -33,7 +33,7 @@ class AIMoreCouponViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         setupFilterBar()
-        //buildBgView()
+        buildBgView()
         setupPopupView()
         tableView.headerBeginRefreshing()
         loadData()

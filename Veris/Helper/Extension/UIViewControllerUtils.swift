@@ -147,13 +147,13 @@ extension UIViewController {
     /**
       显示模糊视图
      */
-    func showTransitionStyleCrossDissolveView(vc: UIViewController) {
+    func showTransitionStyleCrossDissolveView(vc: UIViewController, completion: (() -> Void)? = nil) {
         let menuViewController = vc
         menuViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         menuViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-//        showViewController(menuViewController, sender: self)
-        presentViewController(menuViewController, animated: true, completion: nil)
+        presentViewController(menuViewController, animated: true, completion: completion)
     }
+    
     
     static func showAlertViewController(inParamDic: Dictionary<String, AnyObject>) {
 //        
