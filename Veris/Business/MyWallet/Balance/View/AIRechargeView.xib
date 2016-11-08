@@ -35,7 +35,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="close_black"/>
                             <connections>
-                                <action selector="closeViewActionWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="o71-JK-tM2"/>
+                                <action selector="closeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ydn-XT-L1L"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="支付密码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqb-vo-ZyR">
@@ -73,11 +73,17 @@
                             <state key="normal" title="充值">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="submitAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="3se-Nn-zpW"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geN-dD-G9c">
                             <frame key="frameInset" minX="250" minY="183" width="62" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="忘记密码"/>
+                            <connections>
+                                <action selector="forgetAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="B0b-xf-MXl"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,8 +100,12 @@
             </constraints>
             <connections>
                 <outlet property="bgview" destination="1eh-YC-bLl" id="1Po-gC-sJT"/>
+                <outlet property="button" destination="HfQ-7s-vfh" id="pFQ-JV-08G"/>
+                <outlet property="money" destination="Akq-kX-Pvf" id="F2K-xZ-M6K"/>
+                <outlet property="subtitle" destination="WU5-0N-pd2" id="577-3b-8Dx"/>
+                <outlet property="title" destination="tqb-vo-ZyR" id="LrB-zJ-M3s"/>
             </connections>
-            <point key="canvasLocation" x="-432" y="56"/>
+            <point key="canvasLocation" x="-796" y="-109"/>
         </view>
     </objects>
     <resources>

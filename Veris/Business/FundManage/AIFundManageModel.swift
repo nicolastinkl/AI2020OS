@@ -100,7 +100,7 @@ class AIFundBlanceModel: JSONJoy {
 //我的待收 和我的待付
 class AIFundWillWithDrawModel: JSONJoy {
     
-    let id: String?
+    let id: Int?
     let icon: String?
     let name: String?
     let vendor: String?  //商品名称
@@ -109,17 +109,19 @@ class AIFundWillWithDrawModel: JSONJoy {
     let expire_time: Int?
     let unit: String?
     
+    let noticed: String?
     let gender: String?  //付款人性别
     let payer: String?   //付款人姓名
     
     
     required init(_ decoder: JSONDecoder) {
-        id = decoder["id"].string ?? ""
+        id = decoder["id"].integer ?? 0
         icon = decoder["icon"].string ?? ""
         name = decoder["name"].string ?? ""
         vendor = decoder["vendor"].string ?? ""
         unit = decoder["unit"].string ?? ""
         
+        noticed = decoder["noticed"].string ?? ""
         time = decoder["time"].integer ?? 0
         price = decoder["price"].double ?? 0
         expire_time = decoder["expire_time"].integer ?? 0

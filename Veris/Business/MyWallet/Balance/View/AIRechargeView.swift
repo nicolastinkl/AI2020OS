@@ -1,3 +1,4 @@
+
 //
 //  AIRechargeView.swift
 //  AIVeris
@@ -9,10 +10,20 @@
 import Foundation
 import Spring
 
+enum AIRechargeViewType {
+    case charge
+    case tixian
+    case pay
+}
 
 class AIRechargeView: UIView {
     
     @IBOutlet weak var bgview: UIView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var subtitle: UILabel!
+    @IBOutlet weak var money: UILabel!
+    @IBOutlet weak var button: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -20,16 +31,29 @@ class AIRechargeView: UIView {
         self.bgview.layer.masksToBounds = true
     }
     
-    func initSettings() {
-        //self.bgview.cornerRadius = 5
-        //self.bgview.masksToBounds = true
+    func initSettings(type: AIRechargeViewType) {
+        if (type == AIRechargeViewType.pay) {
+            title.text = ""
+            
+        }
     }
     
-    @IBAction func closeViewAction(sender: AnyObject) {
+    @IBAction func forgetAction(sender: AnyObject) {
+        
+        
+    }
+    
+    @IBAction func closeAction(sender: AnyObject) {
+        
         SpringAnimation.springWithCompletion(0.3, animations: {
             self.alpha = 0
         }) { (complate) in
             self.removeFromSuperview()
         }
+        
+    }
+
+    @IBAction func submitAction(sender: AnyObject) {
+        
     }
 }
