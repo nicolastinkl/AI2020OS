@@ -81,14 +81,15 @@ class SKSTableView: UITableView {
      */
     var shouldExpandOnlyOneCell = true
     
-    func refreshData() {
+    
+    override func reloadData() {
         expandableCells = nil
         
-        reloadData()
+        super.reloadData()
     }
     
     func refreshDataWithScrollingToIndexPath(indexPath: NSIndexPath) {
-        refreshData()
+        reloadData()
 
         if indexPath.section < numberOfSections && indexPath.row < numberOfRowsInSection(indexPath.section) {
             
@@ -126,7 +127,7 @@ class SKSTableView: UITableView {
      - returns: 相对NSIndexPath
      */
     func correspondingIndexPathForRowAtIndexPath(indexPath: NSIndexPath) -> NSIndexPath? {
-        var correspondingIndexPath: NSIndexPath? = nil
+        var correspondingIndexPath: NSIndexPath? = NSIndexPath.indexPathForSubRow(NSIndexPath.ParentRow, row: indexPath.row, section: indexPath.section)
         
         guard let rows = expandableCells?[indexPath.section] else {
             return nil
@@ -251,6 +252,9 @@ extension SKSTableView: UITableViewDelegate {
             
             if correspondingIndexPath != nil {
                 let indexTmp = NSIndexPath(forRow: correspondingIndexPath!.row, inSection: correspondingIndexPath!.section)
+                let subRowTemp = correspondingIndexPath!.subRow
+                indexTmp.subRow = correspondingIndexPath!.subRow
+                
                 let numberOfSubRows = numberOfSubRowsAtIndexPath(indexTmp)
                 
                 var expandedIndexPaths = [NSIndexPath]()
@@ -272,7 +276,7 @@ extension SKSTableView: UITableViewDelegate {
                 
                 cell.accessoryViewAnimation()
                 
-                if correspondingIndexPath?.subRow == NSIndexPath.ParentRow {
+                if subRowTemp == NSIndexPath.ParentRow {
                     sksTableViewDelegate?.tableView?(self, didSelectRowAtIndexPath: indexTmp)
                 } else {
                     sksTableViewDelegate?.tableView?(self, didSelectSubRowAtIndexPath: correspondingIndexPath!)

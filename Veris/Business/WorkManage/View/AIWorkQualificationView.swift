@@ -112,6 +112,8 @@ class AIWorkQualificationView: UIView {
         topTitleLabel.text = "AIWorkInfoViewController.UploadTitleDesc".localized
         switchButton.setTitle("AIWorkInfoViewController.ViewDetails".localized, forState: UIControlState.Normal)
         uploadButton.setTitle("AIWorkInfoViewController.Upload".localized, forState: UIControlState.Normal)
+        
+        
     }
     
     private func setupGradientView() {

@@ -37,6 +37,8 @@ class HttpCapitalFlowService: CapitalFlowService {
         if let type = type {
             let data: [String: AnyObject] = ["type": type]
             message.body = BDKTools.createRequestBody(data)
+        } else {
+            message.body = BDKTools.createRequestBody([String: AnyObject]())
         }
         
         
