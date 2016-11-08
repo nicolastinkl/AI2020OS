@@ -68,7 +68,7 @@ class AINearCouponViewController: UIViewController {
         setupNavigationController()
         dotLine.image = UIImage(named: "se_dotline")?.resizableImageWithCapInsets(UIEdgeInsetsZero, resizingMode: UIImageResizingMode.Tile)
         
-        retryButton.backgroundColor = UIColor.blueColor()
+        retryButton.backgroundColor = UIColor(hexString: "#1086E8")
         retryButton.layer.cornerRadius = 8
         retryButton.layer.masksToBounds = true
         
