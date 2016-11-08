@@ -42,9 +42,7 @@ class CapitalFlowViewController: UIViewController {
 
     @IBAction func filteAction(sender: AnyObject) {
         if vc.parentViewController != nil {
-            vc.willMoveToParentViewController(nil)
-            vc.view.removeFromSuperview()
-            vc.removeFromParentViewController()
+            removeFiltViewController()
         } else {
             if let list = capitalTypeList?.types as? [CapitalClassification] {
                 showFiltViewController(list)
@@ -63,6 +61,12 @@ class CapitalFlowViewController: UIViewController {
         addChildViewController(vc)
         tableView.addSubview(vc.view)
         vc.didMoveToParentViewController(self)
+    }
+    
+    private func removeFiltViewController() {
+        vc.willMoveToParentViewController(nil)
+        vc.view.removeFromSuperview()
+        vc.removeFromParentViewController()
     }
     
     private func setupNavigationBar() {
@@ -201,12 +205,13 @@ extension CapitalFlowViewController: UITableViewDataSource, UITableViewDelegate 
         vc.orderId = itemData.rela_id
         
         let nav = UINavigationController(rootViewController: vc)
-        presentViewController(nav, animated: true, completion: nil)
+        presentBlurViewController(nav, animated: true, completion: nil)
     }
 }
 
 extension CapitalFlowViewController: CapitalFilterDelegate {
     func capitalTypeDidSelect(type: CapitalTypeItem) {
+        removeFiltViewController()
         loadData(type.code)
     }
 }

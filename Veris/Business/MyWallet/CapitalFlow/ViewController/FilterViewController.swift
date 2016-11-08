@@ -14,13 +14,7 @@ class FilterViewController: UIViewController {
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     
-    var filteData: [CapitalClassification]? {
-        didSet {
-            if filteData != nil {
-                tableView.reloadData()
-            }
-        }
-    }
+    var filteData: [CapitalClassification]?
     var delegate: CapitalFilterDelegate?
     
     class func initFromStoryboard() -> FilterViewController {
@@ -56,6 +50,10 @@ class FilterViewController: UIViewController {
             self.tableViewHeight.constant = 350
             self.view.setNeedsUpdateConstraints()
             self.view.layoutIfNeeded()
+        }
+        
+        if filteData != nil {
+            tableView.reloadData()
         }
     }
 }

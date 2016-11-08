@@ -34,6 +34,9 @@
                             <frame key="frameInset" minX="21" minY="11" width="39" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="close_black"/>
+                            <connections>
+                                <action selector="closeViewActionWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="o71-JK-tM2"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="支付密码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqb-vo-ZyR">
                             <frame key="frameInset" minX="86" minY="11" width="161" height="31"/>

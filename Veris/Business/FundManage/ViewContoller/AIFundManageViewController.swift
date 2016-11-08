@@ -10,7 +10,7 @@ import UIKit
 
 /// 我的钱包首页
 class AIFundManageViewController: AIBaseViewController {
-
+    
     @IBOutlet weak var contentScrollView: UIScrollView!
     private var preCacheView: UIView = UIView()
     @IBOutlet weak var zijinButton: UIButton!
@@ -124,7 +124,9 @@ class AIFundManageViewController: AIBaseViewController {
     
     //资金点击触发
     @IBAction func moneyListAction(sender: AnyObject) {
-        
+        let vc = CapitalFlowViewController.initFromStoryboard()
+        let nav = UINavigationController(rootViewController: vc)
+        presentBlurViewController(nav, animated: true, completion: nil)
     }
     
     //跳转点击事件分发
@@ -135,7 +137,7 @@ class AIFundManageViewController: AIBaseViewController {
                 //我的余额
                 let holdVC = AIMyWalletBalanceViewController.initFromNib()
                 let vc = AIFundBaseViewCotroller.initFromNib()
-                presentViewController(vc, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(vc)
                 vc.setupFillView(holdVC)
                 break
             case 2:
@@ -148,9 +150,7 @@ class AIFundManageViewController: AIBaseViewController {
                 containerVC.potColor = UIColor.orangeColor()
                 containerVC.privacyLabelHide = true
                 containerVC.title = "我的商家币"
-//                let navigationController = UINavigationController(rootViewController: vc)
-//                presentViewController(navigationController, animated: true, completion: nil)
-                presentViewController(containerVC, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(containerVC)
                 containerVC.setupFillView(vc)
                 break
             case 4:
@@ -161,11 +161,9 @@ class AIFundManageViewController: AIBaseViewController {
                 containerVC.privacyLabelHide = true
                 containerVC.title = "我的优惠券"
                 let navigationController = UINavigationController(rootViewController: containerVC)
-                presentViewController(navigationController, animated: true, completion: {
-                    containerVC.setupFillView(vc)
-                })
-                //presentViewController(containerVC, animated: true, completion: nil)
-                
+                showTransitionStyleCrossDissolveView(navigationController)
+                //containerVC.setupFillView(navigationController)
+            
                 break
             case 5:
                 //我的资金账户
@@ -174,7 +172,7 @@ class AIFundManageViewController: AIBaseViewController {
                 vc.potColor = UIColor(hexString: "#ca4722")
                 vc.privacyLabelHide = true
                 vc.title = "我的资金账户"
-                presentViewController(vc, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(vc)
                 vc.setupFillView(holdVC)
                 break
             case 6:
@@ -184,7 +182,7 @@ class AIFundManageViewController: AIBaseViewController {
                 vc.potColor = UIColor(hexString: "#aa261b")
                 vc.privacyLabelHide = true
                 vc.title = "我的会员卡"
-                presentViewController(vc, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(vc)
                 vc.setupFillView(holdVC)
                 break
             case 7:
@@ -193,13 +191,13 @@ class AIFundManageViewController: AIBaseViewController {
             case 8:
                 // 待付
                 let vc = AIWillPayVController.init()
-                presentBlurViewController(vc, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(vc)
                 
                 break
             case 9:
                 // 待收
                 let vc = AIWillReceiverVController.init()
-                presentBlurViewController(vc, animated: true, completion: nil)
+                showTransitionStyleCrossDissolveView(vc)
                 break
                 
             default:
@@ -222,8 +220,7 @@ class AIFundManageViewController: AIBaseViewController {
         zijinButton.layer.cornerRadius = 4
         zijinButton.layer.masksToBounds = true
         
-        
-        
+         
     }
 
     //MARK:

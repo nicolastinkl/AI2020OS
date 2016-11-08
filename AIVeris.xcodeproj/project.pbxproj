@@ -826,6 +826,8 @@
 		C9301A591DC86DA600F5C613 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; };
 		C9301A5C1DC8731A00F5C613 /* AITiXianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */; };
 		C9301A5E1DC8736C00F5C613 /* AITiXianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */; };
+		C939A3151DD085C900782F7F /* AIRechargePaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C939A3131DD085C900782F7F /* AIRechargePaylistView.swift */; };
+		C939A3161DD085C900782F7F /* AIRechargePaylistView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C939A3141DD085C900782F7F /* AIRechargePaylistView.xib */; };
 		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
 		C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */; };
 		C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */; };
@@ -2068,6 +2070,8 @@
 		C928CB551DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBalanceTixianViewController.swift; sourceTree = "<group>"; };
 		C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITiXianViewController.swift; sourceTree = "<group>"; };
 		C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITiXianViewController.xib; sourceTree = "<group>"; };
+		C939A3131DD085C900782F7F /* AIRechargePaylistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRechargePaylistView.swift; sourceTree = "<group>"; };
+		C939A3141DD085C900782F7F /* AIRechargePaylistView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRechargePaylistView.xib; sourceTree = "<group>"; };
 		C95179D61D40C73600446498 /* AICommentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoModel.swift; sourceTree = "<group>"; };
 		C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductProviderViewControler.swift; sourceTree = "<group>"; };
 		C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductProviderViewControler.xib; sourceTree = "<group>"; };
@@ -5023,6 +5027,8 @@
 		C9FE35651DC0AEAA00B16C9F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C939A3131DD085C900782F7F /* AIRechargePaylistView.swift */,
+				C939A3141DD085C900782F7F /* AIRechargePaylistView.xib */,
 				C900614E1DC7204E0001A963 /* AIRechargeView.swift */,
 				C90061501DC720550001A963 /* AIRechargeView.xib */,
 			);
@@ -5417,6 +5423,7 @@
 				1234F9AE1D351C7E0009FB4F /* mapapi.bundle in Resources */,
 				FB1013D71DCC675D00BC9E8A /* AIMyMemberCardViewController.xib in Resources */,
 				81433EC01CFBE5A700347C29 /* MyriadProRegular.ttf in Resources */,
+				C939A3161DD085C900782F7F /* AIRechargePaylistView.xib in Resources */,
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
 				FB703AE41D24C59400229A08 /* JSSDK.js in Resources */,
 				C9AF97961DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib in Resources */,
@@ -5842,6 +5849,7 @@
 				938008621D5B223D00FAD140 /* AIWishTitleIconView.swift in Sources */,
 				933BC83D1D002434005E1789 /* AINavigationBar.swift in Sources */,
 				81433CD81CFBE5A700347C29 /* AIModels.swift in Sources */,
+				C939A3151DD085C900782F7F /* AIRechargePaylistView.swift in Sources */,
 				81433D071CFBE5A700347C29 /* AIRemoteRequestQueue.swift in Sources */,
 				81433D951CFBE5A700347C29 /* AIDeleteActionDelegate.swift in Sources */,
 				81433CF21CFBE5A700347C29 /* AIRequirementViewModel.swift in Sources */,

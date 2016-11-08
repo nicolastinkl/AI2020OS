@@ -23,7 +23,7 @@ class AIWillReceiverVController: AIBaseViewController {
         
         initLayout()
         
-        AIFundManageServices.reqeustWillWithdrawInfo({ (model) in
+        AIFundManageServices.reqeustWillCollectInfo({ (model) in
             self.dataSource = model ?? []
             self.tableview.reloadData()
             }) { (error) in
@@ -104,17 +104,16 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
             contentView?.buttonView.addSubview(buttonSS)
             contentView?.buttonView.addSubview(buttonSurePay)
             
-            //buttonSurePay.addTarget(self, action: #selector(AIWillPayVController.showAIRechargeView), forControlEvents: UIControlEvents.TouchUpInside)
-            
+            buttonSurePay.addTarget(self, action: #selector(AIWillReceiverVController.notifyPay(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         }
         
         cell?.selectionStyle = .None
         
         cell?.backgroundColor = UIColor.clearColor()
         let model = dataSource[indexPath.row]
-        contentView?.addresss.text = model.vendor ?? ""
+        contentView?.addresss.text = model.name ?? ""
         contentView?.time.text = model.time?.toDate()
-        contentView?.nameLabel.text = model.name ?? ""
+        contentView?.nameLabel.text =  model.payer ?? ""
         contentView?.priceLabel.text = String(model.price ?? 0)
         let url = NSURL(string: model.icon ?? "")!
         contentView?.icon.sd_setImageWithURL(url)
@@ -122,16 +121,27 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
         return cell!
     }
     
-    func showAIRechargeView() {
-        if let viewrech = AIRechargeView.initFromNib() as? AIRechargeView {
-            view.addSubview(viewrech)
-            viewrech.initSettings()
-            viewrech.snp_makeConstraints { (make) in
-                make.edges.equalTo(view)
+    //notify pay
+    func notifyPay(any: AnyObject) {
+        if let s = any as? DesignableButton {
+            if let ss = s.superview?.superview?.superview?.superview as? UITableViewCell {
+                if let indexPath = tableview.indexPathForCell(ss) {
+                    let model = dataSource[indexPath.row]
+                    AIFundManageServices.reqeustNotifyPay( model.id ?? "", success: { (bol) in
+                        if(bol) {
+                            s.setTitle("已提醒", forState: UIControlState.Normal)
+                            s.enabled = false
+                        }
+                    }) { (error) in
+                        
+                    }
+                }
+                
             }
         }
-        
     }
+    
+    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
