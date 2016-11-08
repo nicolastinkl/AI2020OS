@@ -13,7 +13,7 @@ import Spring
 //// 余额充值
 class AIBalanceRechargeViewController: AIBaseViewController {
     
-    let accountMoneyLabel: UITextField?
+    var accountMoneyLabel: UITextField? = nil
     
     override func viewDidLoad() {
         
@@ -109,7 +109,7 @@ class AIBalanceRechargeViewController: AIBaseViewController {
         price_List_Left_Line2.backgroundColor = UIColor.clearColor()
         view.addSubview(price_List_Left_Line2)
         
-        let buttonSubmit = DesignableButton(frame:  CGRectMake(95/3, accountMoneyLabel.top + 150, maxWidth-(95/3)*2, 45))
+        let buttonSubmit = DesignableButton(frame:  CGRectMake(95/3, accountMoneyLabel!.top + 150, maxWidth-(95/3)*2, 45))
         buttonSubmit.backgroundColor = UIColor(hexString: "#1086E8")
         buttonSubmit.setTitle("确认付款", forState: UIControlState.Normal)
         buttonSubmit.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
