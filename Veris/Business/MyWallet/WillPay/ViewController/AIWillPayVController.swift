@@ -129,7 +129,7 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
                     if let viewrech = AIRechargeView.initFromNib() as? AIRechargeView {
                         view.addSubview(viewrech)
                         viewrech.alpha = 0
-                        viewrech.initSettings(AIRechargeViewType.pay)
+                        
                         viewrech.snp_makeConstraints { (make) in
                             make.edges.equalTo(view)
                         }
@@ -138,6 +138,7 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
                             viewrech.alpha = 1
                             }, completion: { (s) in
                         })
+                        viewrech.initSettings(AIRechargeViewType.pay)
                     }
                 }
             }
