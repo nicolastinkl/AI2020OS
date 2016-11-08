@@ -826,6 +826,8 @@
 		C9301A591DC86DA600F5C613 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; };
 		C9301A5C1DC8731A00F5C613 /* AITiXianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */; };
 		C9301A5E1DC8736C00F5C613 /* AITiXianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */; };
+		C939A3151DD085C900782F7F /* AIRechargePaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C939A3131DD085C900782F7F /* AIRechargePaylistView.swift */; };
+		C939A3161DD085C900782F7F /* AIRechargePaylistView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C939A3141DD085C900782F7F /* AIRechargePaylistView.xib */; };
 		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
 		C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */; };
 		C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */; };
@@ -845,6 +847,8 @@
 		C9C298D61D7D7FC100E34766 /* AIProductinfoBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C298D51D7D7FC100E34766 /* AIProductinfoBottomView.swift */; };
 		C9FE35801DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE357F1DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift */; };
 		C9FE4B161DAF37C30054D499 /* AIProductExeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE4B151DAF37C30054D499 /* AIProductExeService.swift */; };
+		C9FEAC031DCC8E3300C1E72F /* AIFundManageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FEAC021DCC8E3300C1E72F /* AIFundManageServices.swift */; };
+		C9FEAC051DCC923600C1E72F /* AIFundManageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FEAC041DCC923600C1E72F /* AIFundManageModel.swift */; };
 		FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */; };
 		FB01810C1D0D125400213DF8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB0181081D0D125400213DF8 /* WeiboSDK.bundle */; };
 		FB01810E1D0D650100213DF8 /* AISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01810D1D0D650100213DF8 /* AISearchBar.swift */; };
@@ -2066,6 +2070,8 @@
 		C928CB551DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBalanceTixianViewController.swift; sourceTree = "<group>"; };
 		C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITiXianViewController.swift; sourceTree = "<group>"; };
 		C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITiXianViewController.xib; sourceTree = "<group>"; };
+		C939A3131DD085C900782F7F /* AIRechargePaylistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRechargePaylistView.swift; sourceTree = "<group>"; };
+		C939A3141DD085C900782F7F /* AIRechargePaylistView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRechargePaylistView.xib; sourceTree = "<group>"; };
 		C95179D61D40C73600446498 /* AICommentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoModel.swift; sourceTree = "<group>"; };
 		C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductProviderViewControler.swift; sourceTree = "<group>"; };
 		C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductProviderViewControler.xib; sourceTree = "<group>"; };
@@ -2086,6 +2092,8 @@
 		C9D4A6621D6BEDA000FEDED7 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		C9FE357F1DC1A2FA00B16C9F /* AIMyWalletBalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIMyWalletBalanceViewController.swift; sourceTree = "<group>"; };
 		C9FE4B151DAF37C30054D499 /* AIProductExeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductExeService.swift; sourceTree = "<group>"; };
+		C9FEAC021DCC8E3300C1E72F /* AIFundManageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFundManageServices.swift; sourceTree = "<group>"; };
+		C9FEAC041DCC923600C1E72F /* AIFundManageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIFundManageModel.swift; path = ../AIFundManageModel.swift; sourceTree = "<group>"; };
 		FB0180FF1D0D125400213DF8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		FB0181001D0D125400213DF8 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		FB0181011D0D125400213DF8 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -5019,6 +5027,8 @@
 		C9FE35651DC0AEAA00B16C9F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C939A3131DD085C900782F7F /* AIRechargePaylistView.swift */,
+				C939A3141DD085C900782F7F /* AIRechargePaylistView.xib */,
 				C900614E1DC7204E0001A963 /* AIRechargeView.swift */,
 				C90061501DC720550001A963 /* AIRechargeView.xib */,
 			);
@@ -5089,6 +5099,14 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		C9FEAC011DCC8E1900C1E72F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C9FEAC021DCC8E3300C1E72F /* AIFundManageServices.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		FB0180FE1D0D125400213DF8 /* libWeiboSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -5111,6 +5129,7 @@
 		FB1013B61DCC375800BC9E8A /* FundManage */ = {
 			isa = PBXGroup;
 			children = (
+				C9FEAC011DCC8E1900C1E72F /* Service */,
 				FB1013D11DCC37C700BC9E8A /* Model */,
 				FB1013B71DCC375800BC9E8A /* View */,
 				FB1013BE1DCC375800BC9E8A /* ViewContoller */,
@@ -5151,6 +5170,7 @@
 		FB1013D11DCC37C700BC9E8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C9FEAC041DCC923600C1E72F /* AIFundManageModel.swift */,
 				FB1013D21DCC37DD00BC9E8A /* AIFundAccountService.swift */,
 			);
 			path = Model;
@@ -5403,6 +5423,7 @@
 				1234F9AE1D351C7E0009FB4F /* mapapi.bundle in Resources */,
 				FB1013D71DCC675D00BC9E8A /* AIMyMemberCardViewController.xib in Resources */,
 				81433EC01CFBE5A700347C29 /* MyriadProRegular.ttf in Resources */,
+				C939A3161DD085C900782F7F /* AIRechargePaylistView.xib in Resources */,
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
 				FB703AE41D24C59400229A08 /* JSSDK.js in Resources */,
 				C9AF97961DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib in Resources */,
@@ -5738,6 +5759,7 @@
 				81433E5C1CFBE5A700347C29 /* FLEXArgumentInputTextView.m in Sources */,
 				938008661D5B2C4C00FAD140 /* AIWishTextWishsView.swift in Sources */,
 				9392B5851D1CD9F10007F241 /* openssl_wrapper.m in Sources */,
+				C9FEAC051DCC923600C1E72F /* AIFundManageModel.swift in Sources */,
 				12873EE71D20C0BA00C3AF9A /* LoginConstants.swift in Sources */,
 				8175A7EE1CFD2710006F2C8F /* OAStackViewDistributionStrategy.m in Sources */,
 				81433CEF1CFBE5A700347C29 /* AIBaseModel.swift in Sources */,
@@ -5827,6 +5849,7 @@
 				938008621D5B223D00FAD140 /* AIWishTitleIconView.swift in Sources */,
 				933BC83D1D002434005E1789 /* AINavigationBar.swift in Sources */,
 				81433CD81CFBE5A700347C29 /* AIModels.swift in Sources */,
+				C939A3151DD085C900782F7F /* AIRechargePaylistView.swift in Sources */,
 				81433D071CFBE5A700347C29 /* AIRemoteRequestQueue.swift in Sources */,
 				81433D951CFBE5A700347C29 /* AIDeleteActionDelegate.swift in Sources */,
 				81433CF21CFBE5A700347C29 /* AIRequirementViewModel.swift in Sources */,
@@ -6269,6 +6292,7 @@
 				8175A7DC1CFD2710006F2C8F /* JSONModelError.m in Sources */,
 				81433E751CFBE5A700347C29 /* FLEXFileBrowserSearchOperation.m in Sources */,
 				81433E301CFBE5A700347C29 /* AITaskInputViewController.swift in Sources */,
+				C9FEAC031DCC8E3300C1E72F /* AIFundManageServices.swift in Sources */,
 				8175A7E31CFD2710006F2C8F /* MJRefreshHeaderView.m in Sources */,
 				81D325F01D7822630069F9B7 /* AIErrors.swift in Sources */,
 				8175A7E51CFD2710006F2C8F /* UIScrollView+MJRefresh.m in Sources */,

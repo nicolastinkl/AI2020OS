@@ -499,11 +499,20 @@ struct AIApplication {
         case queryMyCoins
         // 查询优惠券
         case queryMyVoucher
-        
         // 资金流水
         case getCapitalFlowList
         // 资金类型
         case getCapitalTypeList
+        //我的钱包首页
+        case accountIndex
+        //我的余额
+        case blanceInfo
+        //我的待付
+        case waitPayOrders
+        //我的待收
+        case waitCollectOrders
+        //我的待收-提醒
+        case noticePay
         
         var description: String {
 
@@ -617,7 +626,11 @@ struct AIApplication {
             case .getCapitalFlowList: return AIApplication.KURL_ReleaseURL + "/account/moneyList"
             case .getCapitalTypeList: return AIApplication.KURL_ReleaseURL + "/account/moneyListType"
                 
-
+            case .accountIndex: return AIApplication.KURL_ReleaseURL + "/account/index"
+            case .blanceInfo: return  AIApplication.KURL_ReleaseURL + "/account/balance"
+            case .waitPayOrders: return  AIApplication.KURL_ReleaseURL + "/account/waitPayOrders"
+            case .waitCollectOrders: return  AIApplication.KURL_ReleaseURL + "/account/waitCollectOrders"
+            case .noticePay: return  AIApplication.KURL_ReleaseURL + "/account/noticePay"
             }
         }
     }
