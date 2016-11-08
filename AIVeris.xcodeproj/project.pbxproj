@@ -945,6 +945,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		041D87C4032921288C230213 /* Pods-VerisTests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.distribution.xcconfig"; sourceTree = "<group>"; };
 		120D20A21D360A710001C6A9 /* AITimelineContentContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineContentContainerView.swift; sourceTree = "<group>"; };
 		122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineNowTableViewCell.swift; sourceTree = "<group>"; };
 		122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineNowTableViewCell.xib; sourceTree = "<group>"; };
@@ -1023,6 +1024,7 @@
 		5293440786150C2B14661D8C /* Pods_VerisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VerisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E080193263E9011ADC252AB /* Pods-VerisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		810997871DCB25B6001475D1 /* AICreditScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICreditScoreViewController.swift; sourceTree = "<group>"; };
+		810D19618ECB62414369ED9F /* Pods-AIVeris.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.distribution.xcconfig"; sourceTree = "<group>"; };
 		8116991A1D93BA6800C2D6EA /* AIALAssetsImageOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIALAssetsImageOperator.h; sourceTree = "<group>"; };
 		8116991B1D93BA6800C2D6EA /* AIALAssetsImageOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIALAssetsImageOperator.m; sourceTree = "<group>"; };
 		813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleServiceCommnentViewController.swift; sourceTree = "<group>"; };
@@ -5240,6 +5242,8 @@
 				459E2FAC4C1547F753408EF1 /* Pods-AIVeris.release.xcconfig */,
 				7E080193263E9011ADC252AB /* Pods-VerisTests.debug.xcconfig */,
 				156E8DB358B5989BFE7F032F /* Pods-VerisTests.release.xcconfig */,
+				810D19618ECB62414369ED9F /* Pods-AIVeris.distribution.xcconfig */,
+				041D87C4032921288C230213 /* Pods-VerisTests.distribution.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -5251,12 +5255,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84717F251D3483E300AE7E9A /* Build configuration list for PBXNativeTarget "VerisTests" */;
 			buildPhases = (
-				3EEC33E266E9C72782035903 /* Check Pods Manifest.lock */,
+				3EEC33E266E9C72782035903 /* [CP] Check Pods Manifest.lock */,
 				84717F181D3483E300AE7E9A /* Sources */,
 				84717F191D3483E300AE7E9A /* Frameworks */,
 				84717F1A1D3483E300AE7E9A /* Resources */,
-				C992D0365AC907496D45BDDE /* Embed Pods Frameworks */,
-				E880EA4F845D8AE3715B9C52 /* Copy Pods Resources */,
+				C992D0365AC907496D45BDDE /* [CP] Embed Pods Frameworks */,
+				E880EA4F845D8AE3715B9C52 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5272,13 +5276,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93D5A3711B709C1D00DDB158 /* Build configuration list for PBXNativeTarget "AIVeris" */;
 			buildPhases = (
-				135EB6A5927C40A8DF1CE19A /* Check Pods Manifest.lock */,
+				135EB6A5927C40A8DF1CE19A /* [CP] Check Pods Manifest.lock */,
 				9324A4721CCF58DF00A0A397 /* CopyFiles */,
 				93D5A3451B709C1C00DDB158 /* Sources */,
 				93D5A3461B709C1C00DDB158 /* Frameworks */,
 				93D5A3471B709C1C00DDB158 /* Resources */,
-				1ACF41E9EAB5B097EBFBEF2E /* Embed Pods Frameworks */,
-				DE9DEC5021D6061243B05730 /* Copy Pods Resources */,
+				1ACF41E9EAB5B097EBFBEF2E /* [CP] Embed Pods Frameworks */,
+				DE9DEC5021D6061243B05730 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5536,29 +5540,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		135EB6A5927C40A8DF1CE19A /* Check Pods Manifest.lock */ = {
+		135EB6A5927C40A8DF1CE19A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		1ACF41E9EAB5B097EBFBEF2E /* Embed Pods Frameworks */ = {
+		1ACF41E9EAB5B097EBFBEF2E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5566,29 +5570,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3EEC33E266E9C72782035903 /* Check Pods Manifest.lock */ = {
+		3EEC33E266E9C72782035903 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C992D0365AC907496D45BDDE /* Embed Pods Frameworks */ = {
+		C992D0365AC907496D45BDDE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5596,14 +5600,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DE9DEC5021D6061243B05730 /* Copy Pods Resources */ = {
+		DE9DEC5021D6061243B05730 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5611,14 +5615,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E880EA4F845D8AE3715B9C52 /* Copy Pods Resources */ = {
+		E880EA4F845D8AE3715B9C52 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -6400,7 +6404,7 @@
 		};
 		817AF02D1D499F6400009F9F /* Distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 459E2FAC4C1547F753408EF1 /* Pods-AIVeris.release.xcconfig */;
+			baseConfigurationReference = 810D19618ECB62414369ED9F /* Pods-AIVeris.distribution.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
@@ -6465,7 +6469,7 @@
 		};
 		817AF02E1D499F6400009F9F /* Distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 156E8DB358B5989BFE7F032F /* Pods-VerisTests.release.xcconfig */;
+			baseConfigurationReference = 041D87C4032921288C230213 /* Pods-VerisTests.distribution.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
