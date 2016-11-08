@@ -146,7 +146,7 @@ class AIFilterBar: UIView {
 			updateUI()
 		}
 	}
-	var subtitles: [String] {
+	var subtitles: [String]? {
 		didSet {
 			updateUI()
 		}
@@ -169,9 +169,13 @@ class AIFilterBar: UIView {
 		}
 	}
 	
-	init(titles: [String], subtitles: [String]) {
+	init(titles: [String], subtitles: [String]?) {
 		self.titles = titles
-		self.subtitles = subtitles
+        //add by liux at 20161107 subtitles改为可选
+        if let subtitles = subtitles {
+            self.subtitles = subtitles
+        }
+		
 		super.init(frame: .zero)
 		setup()
 	}
@@ -180,7 +184,7 @@ class AIFilterBar: UIView {
 		let count = titles.count
 		for i in 0..<count {
 			let title = titles[i]
-			let subtitle = subtitles[i]
+            let subtitle = subtitles?[i]
 			let button = FilterBarButton(title: title, subtitle: subtitle)
 			let tap = UITapGestureRecognizer(target: self, action: #selector(AIFilterBar.buttonPressed(_:)))
 			button.addGestureRecognizer(tap)
@@ -231,7 +235,7 @@ class AIFilterBar: UIView {
 	
 	class FilterBarButton: UIView {
 		var title: String
-		var subtitle: String
+		var subtitle: String?
 		var normalBackgroundColor = UIColor(hexString: "#d6d8fd", alpha: 0.15)
 		var selectedBackgroundColor = UIColor(hexString: "#d6d8fd", alpha: 0.3)
 		var selected = false {
@@ -254,7 +258,7 @@ class AIFilterBar: UIView {
 			static let subtitleColor = UIColor (red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
 		}
 		
-		init(title: String, subtitle: String) {
+		init(title: String, subtitle: String?) {
 			self.title = title
 			self.subtitle = subtitle
 			super.init(frame: .zero)
@@ -265,22 +269,28 @@ class AIFilterBar: UIView {
 			backgroundColor = normalBackgroundColor
 			titleLabel = UILabel.label(Constants.titleFont, textColor: Constants.titleColor)
 			titleLabel.text = title
-			
-			subtitleLabel = UILabel.label(Constants.subtitleFont, textColor: Constants.subtitleColor)
-			subtitleLabel.text = subtitle
-			
-			addSubview(titleLabel)
-			addSubview(subtitleLabel)
-			
-			titleLabel.snp_makeConstraints { (make) in
-				make.bottom.equalTo(self.snp_centerY).offset(0)
-				make.centerX.equalTo(self)
-			}
-			
-			subtitleLabel.snp_makeConstraints { (make) in
-				make.top.equalTo(self.snp_centerY).offset(4)
-				make.centerX.equalTo(self)
-			}
+            addSubview(titleLabel)
+            
+            if let subtitle = subtitle {
+                subtitleLabel = UILabel.label(Constants.subtitleFont, textColor: Constants.subtitleColor)
+                subtitleLabel.text = subtitle
+                addSubview(subtitleLabel)
+                
+                subtitleLabel.snp_makeConstraints { (make) in
+                    make.top.equalTo(self.snp_centerY).offset(4)
+                    make.centerX.equalTo(self)
+                }
+                
+                titleLabel.snp_makeConstraints { (make) in
+                    make.bottom.equalTo(self.snp_centerY).offset(0)
+                    make.centerX.equalTo(self)
+                }
+            } else {
+                titleLabel.snp_makeConstraints { (make) in
+                    make.centerY.equalTo(self.snp_centerY).offset(0)
+                    make.centerX.equalTo(self)
+                }
+            }
 		}
 		
 		required init?(coder aDecoder: NSCoder) {

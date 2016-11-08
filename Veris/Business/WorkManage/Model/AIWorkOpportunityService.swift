@@ -42,7 +42,7 @@ class AIWorkOpportunityService: NSObject {
         message.url = AIApplication.AIApplicationServerURL.queryNewestWorkOpportunity.description
         let data =     [
         "user_id": AIUser.currentUser().userId,
-        "page_size": 10,
+        "page_size": 100,
         "page_number": 1
         ] as NSMutableDictionary
         

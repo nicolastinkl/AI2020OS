@@ -22,11 +22,6 @@ class AIMoreCouponViewController: UIViewController {
     }
     
     var filterBar: AIFilterBar!
-    var commentsNumbers = [
-        "0",
-        "0",
-        "0"
-    ]
     var popupDetailView: AIPopupSContainerView!
     var couponDetailView: AICouponDetailView!
     
@@ -38,7 +33,7 @@ class AIMoreCouponViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         setupFilterBar()
-        buildBgView()
+        //buildBgView()
         setupPopupView()
         tableView.headerBeginRefreshing()
         loadData()
@@ -65,7 +60,7 @@ class AIMoreCouponViewController: UIViewController {
             "已过期"
         ]
         
-        filterBar = AIFilterBar(titles: titles, subtitles: commentsNumbers)
+        filterBar = AIFilterBar(titles: titles, subtitles: nil)
         filterBar.selectedIndex = 0
         filterBar.delegate = self
         view.addSubview(filterBar)
@@ -98,7 +93,8 @@ class AIMoreCouponViewController: UIViewController {
     
     func loadData() {
         let requestHandler = AICouponRequestHandler.sharedInstance
-        requestHandler.queryMyCoupons(filterBar.selectedIndex.toString(), locationModel: nil, success: { (busiModel) in
+        let filterIndex = filterBar.selectedIndex + 1
+        requestHandler.queryMyCoupons(filterIndex.toString(), city: nil , locationModel: nil, success: { (busiModel) in
             self.viewModel = busiModel
             self.tableView.headerEndRefreshing()
         }) { (errType, errDes) in
@@ -153,7 +149,9 @@ extension AIMoreCouponViewController: AIFilterBarDelegate, AIIconCouponTableView
         loadData()
     }
     
-    func useAction() {
+    func useAction(model model: AIVoucherBusiModel) {
+        //更新数据
+        couponDetailView.model = model
         view.bringSubviewToFront(popupDetailView)
         popupDetailView.containerHeightConstraint.constant = 400
         popupDetailView.layoutIfNeeded()

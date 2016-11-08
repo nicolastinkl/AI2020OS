@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSString<Optional> *amount;
 @property (nonatomic, strong) NSString<Optional> *unit;
 @property (nonatomic, strong) NSString<Optional> *expire_time;
+@property (nonatomic, strong) NSString<Optional> *desc;
+
 @end
 
 //商家币 coins: business currency

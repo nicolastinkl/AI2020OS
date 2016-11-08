@@ -14,6 +14,7 @@ class AIBCDetailView: UIView {
     @IBOutlet weak var contentScrollView: UIScrollView!
     
     var contentLabel: UILabel!
+    var containerView: UIView!
     
     //MARK: -> Constants
     let CONTENT_FONT = AITools.myriadLightSemiCondensedWithSize(42.displaySizeFrom1242DesignSize())
@@ -32,28 +33,35 @@ class AIBCDetailView: UIView {
         setupViews()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        containerView.snp_updateConstraints { (make) in
+            make.width.equalTo(contentScrollView.snp_width)
+        }
+    }
+    
     func setupViews() {
         buildScrollView()
     }
     
     func buildScrollView() {
-        let containerView = UIView()
+        containerView = UIView()
         //containerView
         containerView.backgroundColor = UIColor.clearColor()
         contentScrollView.addSubview(containerView)
         containerView.snp_makeConstraints { (make) in
             make.edges.equalTo(contentScrollView)
-            make.width.equalTo(self.snp_width)
+            make.width.equalTo(contentScrollView.snp_width)
         }
         //contentLabel
         contentLabel = UILabel()
         contentLabel.font = CONTENT_FONT
         contentLabel.textColor = CONTENT_TEXT_COLOR
-        contentLabel.text = "四姑娘山长年被冰雪覆盖，四季有雪。因其有四座美丽的山峰相连，最高最美的那座山峰就是第四峰，故称四姑娘山。从北到南分别为四姑娘山、巴郎山，有很多个景点双桥沟、长坪沟、海子沟都可以进山，门票60-80不等,双桥沟可以做观光大巴直达山上摸雪，海子沟只能徒步或是骑马到第二峰，第二峰脚下有个海子，都挺美的。只要是晴天，沿途随时可见四姑娘山美丽的面容，山下遍地野花、山上白雪皑皑，天空蓝的很不真实，变幻万千的云雾很是震撼人心"
+        contentLabel.text = "  商家币是商家的虚拟货币。您可以使用商家币兑换部分或全部服务产品；也可以参与抽奖得到免费的商品或者现金红包，也可以进行线上线下商家的积分兑入。商家币的使用解释权归各商户所有。\n  商家币是商家的虚拟货币。您可以使用商家币兑换部分或全部服务产品；也可以参与抽奖得到免费的商品或者现金红包，也可以进行线上线下商家的积分兑入。商家币的使用解释权归各商户所有。\n  商家币是商家的虚拟货币。您可以使用商家币兑换部分或全部服务产品；也可以参与抽奖得到免费的商品或者现金红包，也可以进行线上线下商家的积分兑入。商家币的使用解释权归各商户所有。"
         contentLabel.numberOfLines = 0
         contentScrollView.addSubview(contentLabel)
         contentLabel.snp_makeConstraints { (make) in
-            make.edges.equalTo(containerView)
+            make.edges.equalTo(containerView).offset(0)
         }
 
         //titleLabel
