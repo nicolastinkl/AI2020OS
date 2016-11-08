@@ -153,6 +153,7 @@ extension AINearCouponViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AIIconCouponTableViewCell
         cell.delegate = self
+        cell.useButtonText = "获取"
         if let viewModel = viewModel {
             cell.model = viewModel.couponsModel![indexPath.row]
         }
@@ -165,6 +166,9 @@ extension AINearCouponViewController: UITableViewDelegate, UITableViewDataSource
 extension AINearCouponViewController: AIIconCouponTableViewCellDelegate, PickerUIButtonDelegate {
     
     func useAction(model model: AIVoucherBusiModel) {
+        //更新数据
+        couponDetailView.model = model
+        couponDetailView.useButton.setTitle("获取", forState: UIControlState.Normal)
         view.bringSubviewToFront(popupDetailView)
         popupDetailView.containerHeightConstraint.constant = 400
         popupDetailView.layoutIfNeeded()

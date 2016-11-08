@@ -133,6 +133,7 @@ extension AIMoreCouponViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AIIconCouponTableViewCell
         cell.delegate = self
+        cell.useButtonText = "立即使用"
         if let viewModel = viewModel {
             cell.model = viewModel.couponsModel![indexPath.row]
         }
