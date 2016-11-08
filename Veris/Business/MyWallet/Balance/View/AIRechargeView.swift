@@ -64,5 +64,21 @@ class AIRechargeView: UIView {
 
     @IBAction func submitAction(sender: AnyObject) {
         
+        var lists = Array<AnyObject>()
+        if let model  = PlaceholdObject as? AIFundWillWithDrawModel {
+            lists.append(["billId":model.id ?? ""])
+            lists.append(["userId":AILocalStore.userId])
+            lists.append(["ruleType":"BALANCE_PAY"])
+            
+        }
+        showLoadingWithMessage("正在检查资金帐户")
+        AIFundManageServices.reqeustCheckPayInfo(lists, success: { (obj) in
+            if(obj) {
+            
+            }
+            
+            }) { (error) in
+                
+        }
     }
 }

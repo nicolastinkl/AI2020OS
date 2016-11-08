@@ -23,12 +23,13 @@ class AIWillPayVController: AIBaseViewController {
         initNavigation()
         
         initLayout()
-        
+        view.showLoading()
         AIFundManageServices.reqeustWillPayInfo({ (model) in
             self.dataSource = model ?? []
             self.tableview.reloadData()
+            self.view.hideLoading()
         }) { (error) in
-            
+            self.view.hideLoading()
         }
         
     }
@@ -93,11 +94,12 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
             buttonSS.backgroundColor = UIColor.clearColor()
             buttonSS.setTitle("我要申诉", forState: UIControlState.Normal)
             buttonSS.setTitleColor(UIColor(hex: "0f86e8"), forState: UIControlState.Normal)
+            buttonSS.addTarget(self, action: #selector(AIWillPayVController.callPhone), forControlEvents: UIControlEvents.TouchUpInside)
             buttonSS.titleLabel?.font = UIFont.systemFontOfSize(15)
             buttonSurePay.titleLabel?.font = UIFont.systemFontOfSize(15)            
             buttonSurePay.cornerRadius = 5
             buttonSurePay.backgroundColor =  UIColor(hex: "0f86e8")
-            buttonSurePay.setTitle("确定付款", forState: UIControlState.Normal)
+            buttonSurePay.setTitle("确认付款", forState: UIControlState.Normal)
             buttonSurePay.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             
             contentView?.buttonView.addSubview(buttonSS)
@@ -120,12 +122,29 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
     
+    func callPhone() {
+        let alert = JSSAlertView()
+        
+        alert.info( self, title:"400-8888-8888", text: "", buttonText: "Call", cancelButtonText: "Cancel")
+        alert.defaultColor = UIColorFromHex(0xe7ebf5, alpha: 1)
+        alert.addAction {
+            UIApplication.sharedApplication().openURL(NSURL(string: "tel:400-8888-8888")!)
+        }
+    }
+    
     func showAIRechargeView(any: AnyObject) {
         
         if let s = any as? DesignableButton {
             if let ss = s.superview?.superview?.superview?.superview as? UITableViewCell {
                 if let indexPath = tableview.indexPathForCell(ss) {
                     let model = dataSource[indexPath.row]
+                    
+                    let popupVC = AIPaymentViewController.initFromNib()
+                    popupVC.order_id = model.id ?? ""
+                    let natigationController = UINavigationController(rootViewController: popupVC)
+                    self.showTransitionStyleCrossDissolveView(natigationController)
+                    
+                    /*
                     if let viewrech = AIRechargeView.initFromNib() as? AIRechargeView {
                         view.addSubview(viewrech)
                         viewrech.alpha = 0
@@ -139,12 +158,15 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
                             }, completion: { (s) in
                         })
                         viewrech.initSettings(AIRechargeViewType.pay)
-                    }
+                        viewrech.button.associatedName = (model.id ?? 0).toString()
+                       // viewrech.button.addTarget(self, action: #selector(AIWillPayVController.targetPay(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+                    }*/
                 }
             }
         }
         
     }
+    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

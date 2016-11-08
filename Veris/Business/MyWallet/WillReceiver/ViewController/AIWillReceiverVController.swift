@@ -22,12 +22,14 @@ class AIWillReceiverVController: AIBaseViewController {
         initNavigation()
         
         initLayout()
-        
+        view.showLoading()
         AIFundManageServices.reqeustWillCollectInfo({ (model) in
             self.dataSource = model ?? []
             self.tableview.reloadData()
+            self.view.hideLoading()
             }) { (error) in
                 
+                self.view.hideLoading()
         }
     }
     
@@ -138,7 +140,7 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
             if let ss = s.superview?.superview?.superview?.superview as? UITableViewCell {
                 if let indexPath = tableview.indexPathForCell(ss) {
                     let model = dataSource[indexPath.row]
-                    AIFundManageServices.reqeustNotifyPay( (model.id ?? 0).toString(), success: { (bol) in
+                    AIFundManageServices.reqeustNotifyPay(model.id ?? "", success: { (bol) in
                         if(bol) {
                             s.setTitle("已提醒", forState: UIControlState.Normal)
                             

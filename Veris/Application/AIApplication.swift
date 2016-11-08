@@ -513,6 +513,10 @@ struct AIApplication {
         case waitCollectOrders
         //我的待收-提醒
         case noticePay
+        //检查支付
+        case checkBalancePay
+        //检查余额
+        case checkBalance
         
         var description: String {
 
@@ -631,6 +635,8 @@ struct AIApplication {
             case .waitPayOrders: return  AIApplication.KURL_ReleaseURL + "/account/waitPayOrders"
             case .waitCollectOrders: return  AIApplication.KURL_ReleaseURL + "/account/waitCollectOrders"
             case .noticePay: return  AIApplication.KURL_ReleaseURL + "/account/noticePay"
+            case .checkBalancePay: return AIApplication.KURL_ReleaseURL + "/sboss/checkBalancePay"
+            case .checkBalance: return AIApplication.KURL_ReleaseURL + "/account/checkBalance"
             }
         }
     }

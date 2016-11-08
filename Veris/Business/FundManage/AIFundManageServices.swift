@@ -106,7 +106,7 @@ class AIFundManageServices: NSObject {
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
-            if let responseJSON: AnyObject = response {
+            if let _  = response {
                 success(true)
             } else {
                 success(false)
@@ -116,6 +116,72 @@ class AIFundManageServices: NSObject {
         }
     }
     
-    // 查询我的待付
+    // 检查我的支付
+    static func reqeustCheckPayInfo(data: Array<AnyObject>, success: (Bool) -> Void, fail: (String) -> Void) {
+        let message = AIMessage()
+        message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""], "data":data])
+        message.url = AIApplication.AIApplicationServerURL.checkBalancePay.description
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            if let responseJSON: AnyObject = response {
+                if let response = JSONDecoder(responseJSON)["list"].array {
+                    for itemJSON in response {
+                        let pass = itemJSON["pass"].integer ?? 0
+                        if (pass ==  1) {
+                            success(true)
+                        } else {
+                            success(false)
+                        }
+                    }
+                }
+            } else {
+                success(false)
+            }
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            
+        }
+    }
+    
+    // 支付 充值 提现
+    static func reqeustWithdraw(data: Array<AnyObject>, success: (Bool) -> Void, fail: (String) -> Void) {
+        let message = AIMessage()
+        message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""], "data":data])
+        message.url = AIApplication.AIApplicationServerURL.checkBalancePay.description
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            if let responseJSON: AnyObject = response {
+                if let response = JSONDecoder(responseJSON)["list"].array {
+                    for itemJSON in response {
+                        let pass = itemJSON["pass"].integer ?? 0
+                        if (pass ==  1) {
+                            success(true)
+                        } else {
+                            success(false)
+                        }
+                    }
+                }
+            } else {
+                success(false)
+            }
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            
+        }
+    }
+    
+    
+    // 检查余额支付
+    static func reqeustCheckPayBlanceInfo(billid: String, success: (Bool) -> Void, fail: (String) -> Void) {
+        let message = AIMessage()
+        message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""], "data":billid])
+        message.url = AIApplication.AIApplicationServerURL.checkBalance.description
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            if let responseJSON: AnyObject = response {                
+                success(JSONDecoder(responseJSON)["result"].bool)
+            } else {
+                success(false)
+            }
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            
+        }
+    }
+
     
 }

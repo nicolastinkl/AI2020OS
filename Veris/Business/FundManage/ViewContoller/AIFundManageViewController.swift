@@ -162,7 +162,7 @@ class AIFundManageViewController: AIBaseViewController {
                 containerVC.title = "我的优惠券"
                 let navigationController = UINavigationController(rootViewController: containerVC)
                 showTransitionStyleCrossDissolveView(navigationController)
-                //containerVC.setupFillView(navigationController)
+                containerVC.setupFillView(vc)
             
                 break
             case 5:
