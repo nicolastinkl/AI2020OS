@@ -25,6 +25,7 @@ class AIRechargeView: UIView {
     @IBOutlet weak var button: UIButton!
     
     var PlaceholdObject: AnyObject?
+    var moneyNumber: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,6 +47,16 @@ class AIRechargeView: UIView {
             if let model  = PlaceholdObject as? AIFundWillWithDrawModel {
                 money.text = "¥\(model.price ?? 0)"
             }
+        } else if (type == AIRechargeViewType.charge) {
+            title.text = "支付密码"
+            subtitle.text = "充值"
+            button.setTitle("充值", forState: UIControlState.Normal)
+            money.text = "¥\(moneyNumber)"
+        } else if (type == AIRechargeViewType.tixian) {
+            title.text = "支付密码"
+            subtitle.text = "提现"
+            button.setTitle("提现", forState: UIControlState.Normal)
+            money.text = "¥\(moneyNumber)"
         }
     }
     

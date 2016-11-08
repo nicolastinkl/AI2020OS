@@ -144,23 +144,6 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
                     let natigationController = UINavigationController(rootViewController: popupVC)
                     self.showTransitionStyleCrossDissolveView(natigationController)
                     
-                    /*
-                    if let viewrech = AIRechargeView.initFromNib() as? AIRechargeView {
-                        view.addSubview(viewrech)
-                        viewrech.alpha = 0
-                        
-                        viewrech.snp_makeConstraints { (make) in
-                            make.edges.equalTo(view)
-                        }
-                        viewrech.PlaceholdObject = model
-                        SpringAnimation.springWithCompletion(0.3, animations: {
-                            viewrech.alpha = 1
-                            }, completion: { (s) in
-                        })
-                        viewrech.initSettings(AIRechargeViewType.pay)
-                        viewrech.button.associatedName = (model.id ?? 0).toString()
-                       // viewrech.button.addTarget(self, action: #selector(AIWillPayVController.targetPay(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-                    }*/
                 }
             }
         }

@@ -73,6 +73,9 @@
                             <state key="normal">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="submitActionWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="LGW-SV-PGp"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geN-dD-G9c">
                             <frame key="frameInset" minX="250" minY="183" width="62" height="30"/>
@@ -111,7 +114,7 @@
         </view>
     </objects>
     <resources>
-        <image name="close_black" width="16" height="16"/>
+        <image name="close_black" width="13" height="24"/>
         <image name="iconieac" width="16" height="16"/>
     </resources>
 </document>

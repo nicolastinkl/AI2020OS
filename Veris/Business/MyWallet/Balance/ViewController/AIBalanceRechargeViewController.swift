@@ -13,6 +13,8 @@ import Spring
 //// 余额充值
 class AIBalanceRechargeViewController: AIBaseViewController {
     
+    let accountMoneyLabel: UITextField?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -74,19 +76,26 @@ class AIBalanceRechargeViewController: AIBaseViewController {
         setFont(accountLabel)
         view.addSubview(accountLabel)
         
-        let accountNumberLabel = UILabel(frame: CGRectMake(maxWidth-95/3-300, 386/3, 300, 50))
-        accountNumberLabel.text = "招商银行储值卡(*3422)"
+        let accountNumberLabel = UILabel(frame: CGRectMake(maxWidth-95/3-320, 386/3, 300, 50))
+        accountNumberLabel.text = ""
         accountNumberLabel.textAlignment = .Right
         accountNumberLabel.textColor = UIColor(hexString: "#ffffff")
         view.addSubview(accountNumberLabel)
         setFont(accountNumberLabel)
+        accountNumberLabel.userInteractionEnabled = true
+        accountNumberLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIBalanceRechargeViewController.chargeAction)))
         
-        let accountMoneyLabel = UITextField(frame: CGRectMake(maxWidth-95/3-300, 496/3, 300, 50))
-        accountMoneyLabel.text = "请输入充值金额"
-        accountMoneyLabel.font = UIFont.systemFontOfSize(16)
-        accountMoneyLabel.textAlignment = .Right
-        accountMoneyLabel.textColor = UIColor(hexString: "#fee300")
-        view.addSubview(accountMoneyLabel)
+        let accountImg = UIImageView(frame:  CGRectMake(accountNumberLabel.right, 386/3, 10, 12))
+        accountImg.image = UIImage(named:"flowRightArrow")
+        view.addSubview(accountImg)
+        
+        
+        accountMoneyLabel = UITextField(frame: CGRectMake(maxWidth-95/3-300, 496/3, 300, 50))
+        accountMoneyLabel?.placeholder = "请输入充值金额"
+        accountMoneyLabel?.font = UIFont.systemFontOfSize(16)
+        accountMoneyLabel?.textAlignment = .Right
+        accountMoneyLabel?.textColor = UIColor(hexString: "#fee300")
+        view.addSubview(accountMoneyLabel!)
 
         let price_List_Left_Line = StrokeLineView(frame: CGRectMake(payInfoLabel.left, payInfoLabel.top + 40, maxWidth-(95/3)*2, 1))
         price_List_Left_Line.backgroundColor = UIColor.clearColor()
@@ -108,8 +117,36 @@ class AIBalanceRechargeViewController: AIBaseViewController {
         buttonSubmit.cornerRadius = 5
         view.addSubview(buttonSubmit)
         
-        buttonSubmit.addTarget(self, action: #selector(AIBalanceRechargeViewController.chargeAction), forControlEvents: UIControlEvents.TouchUpInside)
+        buttonSubmit.addTarget(self, action: #selector(AIBalanceRechargeViewController.submit), forControlEvents: UIControlEvents.TouchUpInside)
         
+        view.showLoading()
+        //监测充值方式
+        AIFundAccountService().capitalAccounts({ (array) in
+            self.view.hideLoading()
+            if let model = array.first {
+                accountNumberLabel.text = "\(model.method_name)\(model.method_spec_code)"
+            }
+        }) { (errType, errDes) in
+            self.view.hideLoading()
+        }
+    }
+    
+    func submit() {
+        if let viewrech = AIRechargeView.initFromNib() as? AIRechargeView {
+            view.addSubview(viewrech)
+            viewrech.alpha = 0
+            
+            viewrech.snp_makeConstraints { (make) in
+                make.edges.equalTo(view)
+            } 
+            SpringAnimation.springWithCompletion(0.3, animations: {
+                viewrech.alpha = 1
+                }, completion: { (s) in
+            })
+            viewrech.moneyNumber = accountMoneyLabel?.text?.toInt() ?? 0
+            viewrech.initSettings(AIRechargeViewType.charge)
+        
+        }
     }
     
     func chargeAction() {
