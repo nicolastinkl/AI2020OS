@@ -50,10 +50,10 @@ class AIFundManageServices: NSObject {
     }
     
     // 查询我的待收
-    static func reqeustWillWithdrawInfo(success: ([AIFundWillWithDrawModel]?) -> Void, fail: (String) -> Void) {
+    static func reqeustWillCollectInfo(success: ([AIFundWillWithDrawModel]?) -> Void, fail: (String) -> Void) {
         let message = AIMessage()
         message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""], "data":[]])
-        message.url = AIApplication.AIApplicationServerURL.waitPayOrders.description
+        message.url = AIApplication.AIApplicationServerURL.waitCollectOrders.description
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             var arrayJson = Array<AIFundWillWithDrawModel>()
@@ -72,6 +72,31 @@ class AIFundManageServices: NSObject {
             
         }
     }
+
+    // 查询我的待付款
+    static func reqeustWillPayInfo(success: ([AIFundWillWithDrawModel]?) -> Void, fail: (String) -> Void) {
+        let message = AIMessage()
+        message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""], "data":[]])
+        message.url = AIApplication.AIApplicationServerURL.waitPayOrders.description
+        
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
+            var arrayJson = Array<AIFundWillWithDrawModel>()
+            if let responseJSON: AnyObject = response {
+                if let response = JSONDecoder(responseJSON)["orders"].array {
+                    for itemJSON in response {
+                        let model = AIFundWillWithDrawModel(itemJSON)
+                        arrayJson.append(model)
+                    }
+                }
+                success(arrayJson)
+            } else {
+                success(nil)
+            }
+        }) { (error: AINetError, errorDes: String!) -> Void in
+            
+        }
+    }
+    
     
     // 提醒
     static func reqeustNotifyPay(bill_id: String, success: (Bool) -> Void, fail: (String) -> Void) {

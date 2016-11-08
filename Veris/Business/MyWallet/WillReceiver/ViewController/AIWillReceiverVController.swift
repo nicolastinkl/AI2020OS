@@ -23,7 +23,7 @@ class AIWillReceiverVController: AIBaseViewController {
         
         initLayout()
         
-        AIFundManageServices.reqeustWillWithdrawInfo({ (model) in
+        AIFundManageServices.reqeustWillCollectInfo({ (model) in
             self.dataSource = model ?? []
             self.tableview.reloadData()
             }) { (error) in
@@ -111,9 +111,9 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
         
         cell?.backgroundColor = UIColor.clearColor()
         let model = dataSource[indexPath.row]
-        contentView?.addresss.text = model.vendor ?? ""
+        contentView?.addresss.text = model.name ?? ""
         contentView?.time.text = model.time?.toDate()
-        contentView?.nameLabel.text = model.name ?? ""
+        contentView?.nameLabel.text =  model.payer ?? ""
         contentView?.priceLabel.text = String(model.price ?? 0)
         let url = NSURL(string: model.icon ?? "")!
         contentView?.icon.sd_setImageWithURL(url)

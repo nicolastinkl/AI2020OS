@@ -220,8 +220,7 @@ class AIFundManageViewController: AIBaseViewController {
         zijinButton.layer.cornerRadius = 4
         zijinButton.layer.masksToBounds = true
         
-        
-        
+         
     }
 
     //MARK:

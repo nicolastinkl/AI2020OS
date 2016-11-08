@@ -53,10 +53,12 @@ public extension Int {
     //转化为时间
     public func toDate() -> String {
         
-        let mydateFormatter = NSDateFormatter()
-        mydateFormatter.dateFormat = "MM.DD hh:mm:ss"
-        let date = mydateFormatter.stringFromDate(NSDate(timeIntervalSince1970: Double(self)))
-        return date
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd HH:mm:ss"
+        let date = NSDate(timeIntervalSinceNow: Double(self))
+        let dateString = dateFormatter.stringFromDate(date)
+        //let date = mydateFormatter.stringFromDate(NSDate(timeIntervalSince1970: Double(self)))
+        return dateString
         
     }
     
