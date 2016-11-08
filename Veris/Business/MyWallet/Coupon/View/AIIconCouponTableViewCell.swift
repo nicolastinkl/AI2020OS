@@ -36,7 +36,7 @@ class AIIconCouponTableViewCell: UITableViewCell {
     
     @IBAction func useAction(sender: UIButton) {
         if let delegate = delegate {
-            delegate.useAction()
+            delegate.useAction(model: model!)
         }
     }
     
@@ -58,5 +58,5 @@ class AIIconCouponTableViewCell: UITableViewCell {
 }
 
 protocol AIIconCouponTableViewCellDelegate: NSObjectProtocol {
-    func useAction()
+    func useAction(model model: AIVoucherBusiModel)
 }

@@ -15,6 +15,8 @@ class AICurrencyTableViewCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
     
+    let NAME_FONT = AITools.myriadSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+    
     var model: AICoinBusiModel? {
         didSet {
             if let model = model {

@@ -27,17 +27,22 @@ class AICouponRequestHandler: NSObject {
      - parameter success:
      - parameter fail:
      */
-    func queryMyCoupons(type: NSString,locationModel: AIGPSViewModel?, success: (busiModel: AICouponsViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
+    func queryMyCoupons(type: NSString, city: NSString?, locationModel: AIGPSViewModel?, success: (busiModel: AICouponsViewModel) -> Void, fail: (errType: AINetError, errDes: String) -> Void) {
         
         let message = AIMessage()
+        let dataDic: NSMutableDictionary = ["type": type]
         //多层次的话，body类型必须显示指定
-        var body: NSMutableDictionary = ["data": ["type": type], "desc": ["data_mode": "0", "digest": ""]]
+        let body: NSMutableDictionary = ["desc": ["data_mode": "0", "digest": ""]]
         if let locationModel = locationModel {
             let latitude: NSString = NSString(string: "\(locationModel.latitude!)")
             let longitude: NSString = NSString(string: "\(locationModel.longitude!)")
             let gpsType: NSString = NSString(string: "BAIDU")
-            body = ["data": ["type": type, "location": ["latidute": latitude, "longidute": longitude, "type": gpsType]], "desc": ["data_mode": "0", "digest": ""]]
+            dataDic.setObject([["latidute": latitude, "longidute": longitude, "type": gpsType]], forKey: "location")
         }
+        if let city = city {
+            dataDic.setObject(city, forKey: "city")
+        }
+        body.setObject(dataDic, forKey: "data")
         message.body.addEntriesFromDictionary(body as [NSObject: AnyObject])
         message.url = AIApplication.AIApplicationServerURL.queryMyVoucher.description as String
         
