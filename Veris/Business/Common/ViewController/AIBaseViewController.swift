@@ -59,6 +59,9 @@ class AIBaseViewController: UIViewController {
         backgroundView.image = UIImage(named: "Job_Background")
         //mod by liux at 20161027 适用于storyboard创建的viewController
         self.view.insertSubview(backgroundView, atIndex: 0)
+        backgroundView.snp_makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
         //self.view.addSubview(backgroundView)
     }
 

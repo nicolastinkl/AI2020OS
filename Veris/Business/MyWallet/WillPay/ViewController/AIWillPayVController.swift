@@ -103,7 +103,7 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
             contentView?.buttonView.addSubview(buttonSS)
             contentView?.buttonView.addSubview(buttonSurePay)
             
-            buttonSurePay.addTarget(self, action: #selector(AIWillPayVController.showAIRechargeView), forControlEvents: UIControlEvents.TouchUpInside)
+            buttonSurePay.addTarget(self, action: #selector(AIWillPayVController.showAIRechargeView(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         }
         
         cell?.selectionStyle = .None
@@ -120,12 +120,26 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
     
-    func showAIRechargeView() {
-        if let viewrech = AIRechargeView.initFromNib() as? AIRechargeView {
-            view.addSubview(viewrech)
-            viewrech.initSettings(AIRechargeViewType.pay)
-            viewrech.snp_makeConstraints { (make) in
-                make.edges.equalTo(view)
+    func showAIRechargeView(any: AnyObject) {
+        
+        if let s = any as? DesignableButton {
+            if let ss = s.superview?.superview?.superview?.superview as? UITableViewCell {
+                if let indexPath = tableview.indexPathForCell(ss) {
+                    let model = dataSource[indexPath.row]
+                    if let viewrech = AIRechargeView.initFromNib() as? AIRechargeView {
+                        view.addSubview(viewrech)
+                        viewrech.alpha = 0
+                        viewrech.initSettings(AIRechargeViewType.pay)
+                        viewrech.snp_makeConstraints { (make) in
+                            make.edges.equalTo(view)
+                        }
+                        viewrech.PlaceholdObject = model
+                        SpringAnimation.springWithCompletion(0.3, animations: {
+                            viewrech.alpha = 1
+                            }, completion: { (s) in
+                        })
+                    }
+                }
             }
         }
         

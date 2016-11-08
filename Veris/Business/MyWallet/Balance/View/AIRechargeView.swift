@@ -24,22 +24,32 @@ class AIRechargeView: UIView {
     @IBOutlet weak var money: UILabel!
     @IBOutlet weak var button: UIButton!
     
+    var PlaceholdObject: AnyObject?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.bgview.layer.cornerRadius = 5
         self.bgview.layer.masksToBounds = true
+        
+        self.button.layer.cornerRadius = 4
+        self.button.layer.masksToBounds = true
+        
     }
     
     func initSettings(type: AIRechargeViewType) {
         if (type == AIRechargeViewType.pay) {
-            title.text = ""
+            title.text = "支付密码"
+            subtitle.text = "支付"
+            button.setTitle("支付", forState: UIControlState.Normal)
             
+            if let model  = PlaceholdObject as? AIFundWillWithDrawModel {
+                money.text = "¥\(model.price ?? 0)"
+            }
         }
     }
     
     @IBAction func forgetAction(sender: AnyObject) {
-        
         
     }
     
@@ -50,7 +60,6 @@ class AIRechargeView: UIView {
         }) { (complate) in
             self.removeFromSuperview()
         }
-        
     }
 
     @IBAction func submitAction(sender: AnyObject) {
