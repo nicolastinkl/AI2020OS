@@ -144,6 +144,7 @@ class AIBalanceTixianViewController: AIBaseViewController {
             viewrech.moneyNumber = accountMoneyLabel?.text?.toInt() ?? 0
             viewrech.initSettings(AIRechargeViewType.tixian)
             viewrech.PlaceholdObject = currentPayModel
+            viewrech.viewControllerPre = self
         }
         
     }
