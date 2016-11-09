@@ -91,7 +91,6 @@ class AIPaymentViewController: UIViewController {
         
         //showNotifyPayStatus()
         
-        
     }
     
     private func setupNavigationBar() {
@@ -337,6 +336,45 @@ class AIPaymentViewController: UIViewController {
         alipayLineView.setWidth(view.width - offset * 2)
         wechatLineView.setHeight(1)
         alipayLineView.setHeight(1)
+        
+        //余额支付
+        
+        //绘制我要付款和我要申述按钮
+        let buttonSS = DesignableButton(frame: CGRectMake(alipayLineView.left, alipayLineView.top + 10, alipayLineView.width, 45))
+        
+
+        buttonSS.cornerRadius = 5
+        buttonSS.borderColor = UIColor(hex: "0f86e8")
+        buttonSS.borderWidth = 3/2
+        buttonSS.backgroundColor = UIColor.clearColor()
+        buttonSS.setTitle("余额支付", forState: UIControlState.Normal)
+        buttonSS.setTitleColor(UIColor(hex: "0f86e8"), forState: UIControlState.Normal)
+        buttonSS.addTarget(self, action: #selector(AIPaymentViewController.payfromBlance), forControlEvents: UIControlEvents.TouchUpInside)
+        buttonSS.titleLabel?.font = UIFont.systemFontOfSize(15)
+        payView.addSubview(buttonSS)
+    }
+    
+    func payfromBlance() {
+        
+        view.showLoading()
+        AIFundManageServices.reqeustCheckPayBlanceInfo(self.order_id, success: { (bol) in
+            
+            self.view.hideLoading()
+            if(bol) {
+                //OK
+            } else {
+                let alert = JSSAlertView()
+                alert.info( self, title:"", text: "余额不足", buttonText: "充值", cancelButtonText: "取消")
+                alert.defaultColor = UIColorFromHex(0xe7ebf5, alpha: 1)
+                alert.addAction {
+                    let bevc = AIBalanceRechargeViewController()
+                    self.showTransitionStyleCrossDissolveView(bevc)
+                }
+            }
+        }) { (error) in
+            self.view.hideLoading()
+                
+        }
     }
     
     @IBAction func callPhone(sender: AnyObject) {

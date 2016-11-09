@@ -25,6 +25,9 @@ class AIBusinessCurrencyViewController: UIViewController {
     
     var viewModel: AICurrencysViewModel?
     
+    // MARK: -> Constants
+    let BUTTON_FONT = AITools.myriadLightSemiExtendedWithSize(36.displaySizeFrom1242DesignSize())
+    
     // MARK: -> Interface Builder actions
     
     
@@ -59,6 +62,7 @@ class AIBusinessCurrencyViewController: UIViewController {
         setupPopupView()
         //为导航栏留出位置
         //edgesForExtendedLayout = .None
+        ruleDescButton.titleLabel?.font = BUTTON_FONT
     }
     
     func loadData() {

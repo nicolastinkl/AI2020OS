@@ -13,7 +13,7 @@ import Spring
 class AIWillPayVController: AIBaseViewController {
     
     private let tableview = UITableView(frame: CGRectMake(0, 50, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
-    private var dataSource = Array<AIWillPayService.AIWillPayServiceModel>()
+    private var dataSource = Array<AIFundWillWithDrawModel>()
     
     private let CellIdentifier = "CellID"
     override func viewDidLoad() {
@@ -23,6 +23,14 @@ class AIWillPayVController: AIBaseViewController {
         initNavigation()
         
         initLayout()
+        view.showLoading()
+        AIFundManageServices.reqeustWillPayInfo({ (model) in
+            self.dataSource = model ?? []
+            self.tableview.reloadData()
+            self.view.hideLoading()
+        }) { (error) in
+            self.view.hideLoading()
+        }
         
     }
     
@@ -56,24 +64,6 @@ class AIWillPayVController: AIBaseViewController {
         
         view.addSubview(tableview)
         
-        let model1 = AIWillPayService.AIWillPayServiceModel()
-        model1.saddress = "医院"
-        model1.sname  = "海淀"
-        model1.stime = 12
-        model1.sprice = "¥23"
-        model1.simageurl = "http://ofmrrc6zd.bkt.clouddn.com/%E5%AD%95%E6%A3%80%E6%97%A0%E5%BF%A7%E6%9C%8D%E5%8A%A1-%E5%9B%BE%E6%A0%87.png"
-        
-        
-        let model2 = AIWillPayService.AIWillPayServiceModel()
-        model2.saddress = "服务器地址"
-        model2.sname  = "服务"
-        model2.stime = 123232
-        model2.sprice = "¥800"
-        model2.simageurl = "http://ofmrrc6zd.bkt.clouddn.com/%E6%98%A5%E9%9B%A8%E6%9C%8D%E5%8A%A1-%E5%9B%BE%E6%A0%87.png"
-        
-        dataSource.append(model1)
-        dataSource.append(model2)
-        tableview.reloadData()
 
     }
 }
@@ -104,43 +94,63 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
             buttonSS.backgroundColor = UIColor.clearColor()
             buttonSS.setTitle("我要申诉", forState: UIControlState.Normal)
             buttonSS.setTitleColor(UIColor(hex: "0f86e8"), forState: UIControlState.Normal)
+            buttonSS.addTarget(self, action: #selector(AIWillPayVController.callPhone), forControlEvents: UIControlEvents.TouchUpInside)
             buttonSS.titleLabel?.font = UIFont.systemFontOfSize(15)
             buttonSurePay.titleLabel?.font = UIFont.systemFontOfSize(15)            
             buttonSurePay.cornerRadius = 5
             buttonSurePay.backgroundColor =  UIColor(hex: "0f86e8")
-            buttonSurePay.setTitle("确定付款", forState: UIControlState.Normal)
+            buttonSurePay.setTitle("确认付款", forState: UIControlState.Normal)
             buttonSurePay.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             
             contentView?.buttonView.addSubview(buttonSS)
             contentView?.buttonView.addSubview(buttonSurePay)
             
-            buttonSurePay.addTarget(self, action: #selector(AIWillPayVController.showAIRechargeView), forControlEvents: UIControlEvents.TouchUpInside)
+            buttonSurePay.addTarget(self, action: #selector(AIWillPayVController.showAIRechargeView(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         }
         
         cell?.selectionStyle = .None
         
         cell?.backgroundColor = UIColor.clearColor()
         let model = dataSource[indexPath.row]
-        contentView?.addresss.text = model.saddress ?? ""
-        contentView?.time.text = String(model.stime ?? 0)
-        contentView?.nameLabel.text = model.sname ?? ""
-        contentView?.priceLabel.text = model.sprice ?? ""
-        let url = NSURL(string: model.simageurl ?? "")!
+        contentView?.addresss.text = model.vendor ?? ""
+        contentView?.time.text = model.time?.toDate()
+        contentView?.nameLabel.text = model.name ?? ""
+        contentView?.priceLabel.text = String(model.price ?? 0)
+        let url = NSURL(string: model.icon ?? "")!
         contentView?.icon.sd_setImageWithURL(url)
             
         return cell!
     }
     
-    func showAIRechargeView() {
-        if let viewrech = AIRechargeView.initFromNib() as? AIRechargeView {
-            view.addSubview(viewrech)
-            viewrech.initSettings()
-            viewrech.snp_makeConstraints { (make) in
-                make.edges.equalTo(view)
+    func callPhone() {
+        let alert = JSSAlertView()
+        
+        alert.info( self, title:"400-8888-8888", text: "", buttonText: "Call", cancelButtonText: "Cancel")
+        alert.defaultColor = UIColorFromHex(0xe7ebf5, alpha: 1)
+        alert.addAction {
+            UIApplication.sharedApplication().openURL(NSURL(string: "tel:400-8888-8888")!)
+        }
+    }
+    
+    func showAIRechargeView(any: AnyObject) {
+        
+        if let s = any as? DesignableButton {
+            if let ss = s.superview?.superview?.superview?.superview as? UITableViewCell {
+                if let indexPath = tableview.indexPathForCell(ss) {
+                    let model = dataSource[indexPath.row]
+                    
+                    let popupVC = AIPaymentViewController.initFromNib()
+                    popupVC.order_id = model.id ?? ""
+                    let natigationController = UINavigationController(rootViewController: popupVC)
+                    self.showTransitionStyleCrossDissolveView(natigationController)
+                    
+                }
             }
         }
         
     }
+    
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

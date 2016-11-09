@@ -25,7 +25,7 @@
                                 <constraint firstAttribute="height" constant="0.67000000000000004" id="sBJ-5W-L3d"/>
                             </constraints>
                         </view>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3W-3O-H5y"/>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T3W-3O-H5y"/>
                     </subviews>
                     <color key="backgroundColor" red="0.90588235289999997" green="0.92156862750000001" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>

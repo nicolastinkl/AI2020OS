@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balanceicon" translatesAutoresizingMaskIntoConstraints="NO" id="daF-TX-Mbi">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="daF-TX-Mbi">
                     <constraints>
                         <constraint firstAttribute="width" constant="136" id="B2V-Bi-egZ"/>
                         <constraint firstAttribute="height" constant="136" id="gdr-Hu-u9b"/>
@@ -102,7 +102,4 @@
             <point key="canvasLocation" x="-142" y="-52"/>
         </view>
     </objects>
-    <resources>
-        <image name="balanceicon" width="134" height="134"/>
-    </resources>
 </document>

@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AICouponDetailView" customModule="Veris" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZV-MF-ESM">
@@ -51,13 +51,20 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.购买商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kj-IO-K9e">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.购买商品" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kj-IO-K9e">
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SE-TJ-RIk">
-                            <state key="normal" title="立即使用"/>
+                            <color key="backgroundColor" red="0.062745098039215685" green="0.52549019607843139" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="Lxh-IJ-Kiu"/>
+                                <constraint firstAttribute="width" constant="81" id="qbc-Ax-Mkk"/>
+                            </constraints>
+                            <state key="normal" title="立即使用">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
                             <connections>
                                 <action selector="useAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="aDd-yw-E3h"/>
                             </connections>
@@ -77,9 +84,11 @@
                         <constraint firstItem="unY-u9-1Bu" firstAttribute="top" secondItem="wZV-MF-ESM" secondAttribute="top" constant="100" id="KCb-qG-eq6"/>
                         <constraint firstAttribute="bottom" secondItem="4SE-TJ-RIk" secondAttribute="bottom" constant="28" id="LWS-dr-cIG"/>
                         <constraint firstItem="Xp2-zn-EAh" firstAttribute="leading" secondItem="CxG-2E-meL" secondAttribute="trailing" constant="8" id="Olf-5c-V2u"/>
-                        <constraint firstAttribute="trailing" secondItem="Xp2-zn-EAh" secondAttribute="trailing" constant="36" id="RcA-of-MON"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5kj-IO-K9e" secondAttribute="trailing" constant="20" id="P9C-h8-qOx"/>
+                        <constraint firstAttribute="trailing" secondItem="Xp2-zn-EAh" secondAttribute="trailing" constant="20" id="RcA-of-MON"/>
                         <constraint firstItem="A5x-Rx-hxC" firstAttribute="top" secondItem="wZV-MF-ESM" secondAttribute="top" constant="24" id="ZpL-k2-4mn"/>
                         <constraint firstItem="Qqv-y6-sYb" firstAttribute="leading" secondItem="4qT-0s-pqt" secondAttribute="leading" id="b68-Z1-nSe"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4qT-0s-pqt" secondAttribute="trailing" constant="75" id="m63-J3-stW"/>
                         <constraint firstItem="Y9X-Zb-vSf" firstAttribute="leading" secondItem="unY-u9-1Bu" secondAttribute="leading" id="nP3-sg-ckS"/>
                         <constraint firstItem="5kj-IO-K9e" firstAttribute="leading" secondItem="Y9X-Zb-vSf" secondAttribute="leading" id="qmR-y7-3Ye"/>
                         <constraint firstItem="CxG-2E-meL" firstAttribute="centerY" secondItem="Xp2-zn-EAh" secondAttribute="centerY" id="smr-e5-8HS"/>

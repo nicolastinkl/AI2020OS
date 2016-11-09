@@ -38,22 +38,43 @@ class FilterViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func didMoveToParentViewController(parent: UIViewController?) {
+     
+    func displayTableView() {
+        if tableViewHeight.constant != 0 {
+            tableViewHeight.constant = 0
+            view.setNeedsUpdateConstraints()
+            view.layoutIfNeeded()
+        }
         
-        self.tableViewHeight.constant = 0
-        self.view.setNeedsUpdateConstraints()
-        self.view.layoutIfNeeded()
-        
-        UIView.animateWithDuration(0.2) {
-            
+        UIView.animateWithDuration(0.2, animations: {
             self.tableViewHeight.constant = 350
             self.view.setNeedsUpdateConstraints()
             self.view.layoutIfNeeded()
+        }) { (finished) in
+            if finished {
+                self.delegate?.filteTableViewDidDisplay()
+            }
+            
+            
         }
         
         if filteData != nil {
             tableView.reloadData()
+        }
+    }
+    
+    func hideTableView() {
+        
+        UIView.animateWithDuration(0.2, animations: { 
+            self.tableViewHeight.constant = 0
+            self.view.setNeedsUpdateConstraints()
+            self.view.layoutIfNeeded()
+            }) { (finished) in
+                if finished {
+                    self.delegate?.filteTableViewDidHide()
+                }
+                
+                
         }
     }
 }
@@ -118,5 +139,7 @@ extension FilterViewController: SKSTableViewDelegate {
 
 protocol CapitalFilterDelegate {
     func capitalTypeDidSelect(type: CapitalTypeItem)
+    func filteTableViewDidDisplay()
+    func filteTableViewDidHide()
 }
 

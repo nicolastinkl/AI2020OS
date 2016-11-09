@@ -52,7 +52,7 @@ class AIFundBaseViewCotroller: UIViewController {
     }
     
     func setupNavigationController() {
-        if let navController = self.navigationController {
+        if let _ = self.navigationController {
             setupNavigationBarLikeWorkInfo(title: "", needCloseButton: false)
         }
     }

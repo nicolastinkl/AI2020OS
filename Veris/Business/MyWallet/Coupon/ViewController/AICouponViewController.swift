@@ -17,9 +17,12 @@ class AICouponViewController: UIViewController {
     @IBOutlet weak var couponTableView: UITableView!
     @IBOutlet weak var locationIcon: UIImageView!
     @IBOutlet weak var locationButton: UIButton!
-
     
+    //MARK: -> Constants
     let cellIdentifier = AIApplication.MainStoryboard.CellIdentifiers.AICouponTableViewCell
+    let BUTTON_FONT = AITools.myriadLightSemiCondensedWithSize(48.displaySizeFrom1242DesignSize())
+    let BUTTON_TEXT_COLOR = UIColor(hexString: "#ffffff", alpha: 0.5)
+    
     //MARK: -> IBOutlets actions
     var viewModel: AICouponsViewModel?
     
@@ -38,6 +41,7 @@ class AICouponViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupTableView()
+        setupViews()
         //为导航栏留出位置
         //edgesForExtendedLayout = .None
         couponTableView.headerBeginRefreshing()
@@ -50,6 +54,13 @@ class AICouponViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupViews() {
+        moreButton.titleLabel?.font = BUTTON_FONT
+        moreButton.setTitleColor(BUTTON_TEXT_COLOR, forState: UIControlState.Normal)
+        locationButton.titleLabel?.font = BUTTON_FONT
+        locationButton.setTitleColor(BUTTON_TEXT_COLOR, forState: .Normal)
+    }
+    
     func setupNavigationController() {
         if let navController = self.navigationController {
             //setupNavigationBarLikeWorkInfo(title: "", needCloseButton: false)
@@ -59,7 +70,7 @@ class AICouponViewController: UIViewController {
     
     func loadData() {
         let requestHandler = AICouponRequestHandler.sharedInstance
-        requestHandler.queryMyCoupons("0", locationModel: nil, success: { (busiModel) in
+        requestHandler.queryMyCoupons("0", city: nil, locationModel: nil, success: { (busiModel) in
             self.viewModel = busiModel
             self.couponTableView.headerEndRefreshing()
             }) { (errType, errDes) in

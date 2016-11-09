@@ -22,12 +22,14 @@ class AIWillReceiverVController: AIBaseViewController {
         initNavigation()
         
         initLayout()
-        
-        AIFundManageServices.reqeustWillWithdrawInfo({ (model) in
+        view.showLoading()
+        AIFundManageServices.reqeustWillCollectInfo({ (model) in
             self.dataSource = model ?? []
             self.tableview.reloadData()
+            self.view.hideLoading()
             }) { (error) in
                 
+                self.view.hideLoading()
         }
     }
     
@@ -72,6 +74,7 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell")
+        let model = dataSource[indexPath.row]
         var contentView: AIWillPayVControllerCell?
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: "cell")
@@ -98,22 +101,32 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
             buttonSurePay.borderColor = UIColor(hex: "ffffff")
             buttonSurePay.borderWidth = 0.5
             buttonSurePay.backgroundColor = UIColor.clearColor()
-            buttonSurePay.setTitle("提醒付款", forState: UIControlState.Normal)
-            buttonSurePay.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            
             
             contentView?.buttonView.addSubview(buttonSS)
             contentView?.buttonView.addSubview(buttonSurePay)
             
             buttonSurePay.addTarget(self, action: #selector(AIWillReceiverVController.notifyPay(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            
+            if model.noticed == "0" {
+                buttonSurePay.setTitle("提醒付款", forState: UIControlState.Normal)
+                buttonSurePay.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            } else {
+                buttonSurePay.setTitle("已提醒", forState: UIControlState.Normal)
+                buttonSurePay.setTitleColor(UIColor(hexString:"#FFFFFF", alpha: 0.5), forState: UIControlState.Normal)
+                buttonSurePay.borderColor = UIColor(hexString:"#FFFFFF", alpha: 0.5)
+                buttonSurePay.enabled = false
+                
+            }
         }
         
         cell?.selectionStyle = .None
         
         cell?.backgroundColor = UIColor.clearColor()
-        let model = dataSource[indexPath.row]
-        contentView?.addresss.text = model.vendor ?? ""
+        
+        contentView?.addresss.text = model.name ?? ""
         contentView?.time.text = model.time?.toDate()
-        contentView?.nameLabel.text = model.name ?? ""
+        contentView?.nameLabel.text =  model.payer ?? ""
         contentView?.priceLabel.text = String(model.price ?? 0)
         let url = NSURL(string: model.icon ?? "")!
         contentView?.icon.sd_setImageWithURL(url)
@@ -127,10 +140,16 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
             if let ss = s.superview?.superview?.superview?.superview as? UITableViewCell {
                 if let indexPath = tableview.indexPathForCell(ss) {
                     let model = dataSource[indexPath.row]
-                    AIFundManageServices.reqeustNotifyPay( model.id ?? "", success: { (bol) in
+                    AIFundManageServices.reqeustNotifyPay(model.id ?? "", success: { (bol) in
                         if(bol) {
                             s.setTitle("已提醒", forState: UIControlState.Normal)
+                            
+                            s.setTitleColor(UIColor(hexString:"#FFFFFF", alpha: 0.5), forState: UIControlState.Normal)
+                            s.borderColor = UIColor(hexString:"#FFFFFF", alpha: 0.5)
+                            
                             s.enabled = false
+                            NBMaterialToast.showWithText(self.view, text: "已经提醒付款", duration: NBLunchDuration.SHORT)
+                            
                         }
                     }) { (error) in
                         

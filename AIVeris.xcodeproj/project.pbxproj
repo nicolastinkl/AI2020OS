@@ -20,7 +20,6 @@
 		1234F9AC1D351C530009FB4F /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234F9A81D351C530009FB4F /* BaiduMapAPI_Search.framework */; };
 		1234F9AE1D351C7E0009FB4F /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1234F9AD1D351C7E0009FB4F /* mapapi.bundle */; };
 		123531041DC9CA6E00C5702E /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DFB1DC9CA440075EBD7 /* CardDeepLinkKit.framework */; };
-		123531051DC9CA6E00C5702E /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12CE5DFB1DC9CA440075EBD7 /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		123A1F861D2F94F900542D06 /* AITimelineTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 123A1F841D2F94F900542D06 /* AITimelineTopView.xib */; };
 		123A1F871D2F94F900542D06 /* AITimelineTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1F851D2F94F900542D06 /* AITimelineTopView.swift */; };
 		1265F6291D47841400130ECF /* AICustomerServiceExecuteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1265F6281D47841400130ECF /* AICustomerServiceExecuteHandler.swift */; };
@@ -35,6 +34,9 @@
 		12933BD51D17E71B008A1693 /* AITimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */; };
 		12933BD71D18D6C2008A1693 /* CustomerCenterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD61D18D6C2008A1693 /* CustomerCenterConstants.swift */; };
 		12933BD91D191CD4008A1693 /* AICustomerServiceExecuteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BD81D191CD4008A1693 /* AICustomerServiceExecuteModel.swift */; };
+		12A3894B1DD1EBAD003E15FD /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A3894A1DD1EBAD003E15FD /* CardDeepLinkKit.framework */; };
+		12B2DF3D1DD1EBCD00974A71 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A3894A1DD1EBAD003E15FD /* CardDeepLinkKit.framework */; };
+		12B2DF3E1DD1EBCD00974A71 /* CardDeepLinkKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12A3894A1DD1EBAD003E15FD /* CardDeepLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12C7C3211D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */; };
 		12C7C3231D0FE729000BC8A7 /* AILoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */; };
 		12C7C3251D1008E0000BC8A7 /* AILoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */; };
@@ -61,7 +63,6 @@
 		12CE5DF61DC8893F0075EBD7 /* AICouponViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DF51DC8893F0075EBD7 /* AICouponViewModel.swift */; };
 		12CE5DF81DC88B9C0075EBD7 /* AICouponRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DF71DC88B9C0075EBD7 /* AICouponRequestHandler.swift */; };
 		12CE5DFA1DC9C75B0075EBD7 /* AINearCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CE5DF91DC9C75B0075EBD7 /* AINearCouponViewController.swift */; };
-		12CE5DFC1DC9CA440075EBD7 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DFB1DC9CA440075EBD7 /* CardDeepLinkKit.framework */; };
 		12D7649B1D0D469A002B001B /* AIRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764961D0D469A002B001B /* AIRegistViewController.swift */; };
 		12D7649C1D0D469A002B001B /* AIValidateRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */; };
 		12D7649D1D0D469A002B001B /* AISelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D764981D0D469A002B001B /* AISelectRegionViewController.swift */; };
@@ -829,6 +830,8 @@
 		C9301A591DC86DA600F5C613 /* CardDeepLinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5DCC1DC74DF00075EBD7 /* CardDeepLinkKit.framework */; };
 		C9301A5C1DC8731A00F5C613 /* AITiXianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */; };
 		C9301A5E1DC8736C00F5C613 /* AITiXianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */; };
+		C939A3151DD085C900782F7F /* AIRechargePaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C939A3131DD085C900782F7F /* AIRechargePaylistView.swift */; };
+		C939A3161DD085C900782F7F /* AIRechargePaylistView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C939A3141DD085C900782F7F /* AIRechargePaylistView.xib */; };
 		C95179D71D40C73600446498 /* AICommentInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D61D40C73600446498 /* AICommentInfoModel.swift */; };
 		C95179D91D40D05E00446498 /* AIProductProviderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */; };
 		C95179DB1D40D18E00446498 /* AIProductProviderViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */; };
@@ -938,7 +941,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				819A0EE71D80400600A84BBB /* AVOSCloudCrashReporting.framework in CopyFiles */,
-				123531051DC9CA6E00C5702E /* CardDeepLinkKit.framework in CopyFiles */,
+				12B2DF3E1DD1EBCD00974A71 /* CardDeepLinkKit.framework in CopyFiles */,
 				C90061531DC73AC30001A963 /* AVOSCloud.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -946,6 +949,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		041D87C4032921288C230213 /* Pods-VerisTests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.distribution.xcconfig"; sourceTree = "<group>"; };
 		120D20A21D360A710001C6A9 /* AITimelineContentContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineContentContainerView.swift; sourceTree = "<group>"; };
 		122E7BDC1D2B460B00FD7D17 /* AITimelineNowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITimelineNowTableViewCell.swift; sourceTree = "<group>"; };
 		122E7BDD1D2B460B00FD7D17 /* AITimelineNowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineNowTableViewCell.xib; sourceTree = "<group>"; };
@@ -971,6 +975,7 @@
 		12933BD31D17E71B008A1693 /* AITimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITimelineTableViewCell.xib; sourceTree = "<group>"; };
 		12933BD61D18D6C2008A1693 /* CustomerCenterConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerCenterConstants.swift; sourceTree = "<group>"; };
 		12933BD81D191CD4008A1693 /* AICustomerServiceExecuteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AICustomerServiceExecuteModel.swift; path = ../AICustomerServiceExecuteModel.swift; sourceTree = "<group>"; };
+		12A3894A1DD1EBAD003E15FD /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
 		12C7C3201D0F9A4F000BC8A7 /* AIChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIChangePasswordViewController.swift; sourceTree = "<group>"; };
 		12C7C3221D0FE729000BC8A7 /* AILoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginUtil.swift; sourceTree = "<group>"; };
 		12C7C3241D1008E0000BC8A7 /* AILoginCommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginCommonView.swift; sourceTree = "<group>"; };
@@ -998,7 +1003,7 @@
 		12CE5DF51DC8893F0075EBD7 /* AICouponViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICouponViewModel.swift; sourceTree = "<group>"; };
 		12CE5DF71DC88B9C0075EBD7 /* AICouponRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICouponRequestHandler.swift; sourceTree = "<group>"; };
 		12CE5DF91DC9C75B0075EBD7 /* AINearCouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AINearCouponViewController.swift; sourceTree = "<group>"; };
-		12CE5DFB1DC9CA440075EBD7 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardDeepLinkKit.framework; sourceTree = "<group>"; };
+		12CE5DFB1DC9CA440075EBD7 /* CardDeepLinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardDeepLinkKit.framework; path = /Users/liuxian/workspace/asiainfoWorkSpec/AI2020OS/Veris/Developement/DeepLink/CardDeepLinkKit.framework; sourceTree = "<absolute>"; };
 		12D764961D0D469A002B001B /* AIRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRegistViewController.swift; sourceTree = "<group>"; };
 		12D764971D0D469A002B001B /* AIValidateRegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIValidateRegistViewController.swift; sourceTree = "<group>"; };
 		12D764981D0D469A002B001B /* AISelectRegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISelectRegionViewController.swift; sourceTree = "<group>"; };
@@ -1025,6 +1030,7 @@
 		7E080193263E9011ADC252AB /* Pods-VerisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		810556841DD31BCE00544767 /* IACreditImproveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IACreditImproveViewController.swift; sourceTree = "<group>"; };
 		810997871DCB25B6001475D1 /* AICreditScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICreditScoreViewController.swift; sourceTree = "<group>"; };
+		810D19618ECB62414369ED9F /* Pods-AIVeris.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIVeris.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris.distribution.xcconfig"; sourceTree = "<group>"; };
 		8116991A1D93BA6800C2D6EA /* AIALAssetsImageOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIALAssetsImageOperator.h; sourceTree = "<group>"; };
 		8116991B1D93BA6800C2D6EA /* AIALAssetsImageOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIALAssetsImageOperator.m; sourceTree = "<group>"; };
 		813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AISingleServiceCommnentViewController.swift; sourceTree = "<group>"; };
@@ -2075,6 +2081,8 @@
 		C928CB551DCAE3D3004BEDD6 /* AIBalanceTixianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBalanceTixianViewController.swift; sourceTree = "<group>"; };
 		C9301A5B1DC8731A00F5C613 /* AITiXianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITiXianViewController.swift; sourceTree = "<group>"; };
 		C9301A5D1DC8736C00F5C613 /* AITiXianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITiXianViewController.xib; sourceTree = "<group>"; };
+		C939A3131DD085C900782F7F /* AIRechargePaylistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIRechargePaylistView.swift; sourceTree = "<group>"; };
+		C939A3141DD085C900782F7F /* AIRechargePaylistView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIRechargePaylistView.xib; sourceTree = "<group>"; };
 		C95179D61D40C73600446498 /* AICommentInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICommentInfoModel.swift; sourceTree = "<group>"; };
 		C95179D81D40D05E00446498 /* AIProductProviderViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIProductProviderViewControler.swift; sourceTree = "<group>"; };
 		C95179DA1D40D18E00446498 /* AIProductProviderViewControler.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIProductProviderViewControler.xib; sourceTree = "<group>"; };
@@ -2227,18 +2235,19 @@
 				81A0458F1C11675500296E56 /* CoreAudio.framework in Frameworks */,
 				937EA3811C02BB2700AF776B /* AVFoundation.framework in Frameworks */,
 				FB01810B1D0D125400213DF8 /* libWeiboSDK.a in Frameworks */,
+				12B2DF3D1DD1EBCD00974A71 /* CardDeepLinkKit.framework in Frameworks */,
 				93B523921BB8F0F400DFB1C9 /* CoreMotion.framework in Frameworks */,
 				93A0ABF51D12C43400562090 /* libWeChatSDK.a in Frameworks */,
 				930455181D124EF5007AFC0C /* libSunFlower.a in Frameworks */,
 				930455141D124E71007AFC0C /* iflyMSC.framework in Frameworks */,
 				9392B57E1D1CD9F10007F241 /* libcrypto.a in Frameworks */,
 				1234F9AC1D351C530009FB4F /* BaiduMapAPI_Search.framework in Frameworks */,
+				12A3894B1DD1EBAD003E15FD /* CardDeepLinkKit.framework in Frameworks */,
 				123531041DC9CA6E00C5702E /* CardDeepLinkKit.framework in Frameworks */,
 				1234F9AB1D351C530009FB4F /* BaiduMapAPI_Map.framework in Frameworks */,
 				81C092921BAFE6A1003FFF35 /* CoreGraphics.framework in Frameworks */,
 				93B25AB61B9D7EA900CD1FEB /* Security.framework in Frameworks */,
 				93B25AB41B9D7E9C00CD1FEB /* MobileCoreServices.framework in Frameworks */,
-				12CE5DFC1DC9CA440075EBD7 /* CardDeepLinkKit.framework in Frameworks */,
 				C9301A591DC86DA600F5C613 /* CardDeepLinkKit.framework in Frameworks */,
 				93B25AAA1B9D7B7D00CD1FEB /* ImageIO.framework in Frameworks */,
 				9392B57D1D1CD9F10007F241 /* AlipaySDK.framework in Frameworks */,
@@ -4040,7 +4049,7 @@
 		81B195781D4852BE0086EB83 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				12CE5DFB1DC9CA440075EBD7 /* CardDeepLinkKit.framework */,
+				12A3894A1DD1EBAD003E15FD /* CardDeepLinkKit.framework */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -5042,6 +5051,8 @@
 		C9FE35651DC0AEAA00B16C9F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C939A3131DD085C900782F7F /* AIRechargePaylistView.swift */,
+				C939A3141DD085C900782F7F /* AIRechargePaylistView.xib */,
 				C900614E1DC7204E0001A963 /* AIRechargeView.swift */,
 				C90061501DC720550001A963 /* AIRechargeView.xib */,
 			);
@@ -5253,6 +5264,8 @@
 				459E2FAC4C1547F753408EF1 /* Pods-AIVeris.release.xcconfig */,
 				7E080193263E9011ADC252AB /* Pods-VerisTests.debug.xcconfig */,
 				156E8DB358B5989BFE7F032F /* Pods-VerisTests.release.xcconfig */,
+				810D19618ECB62414369ED9F /* Pods-AIVeris.distribution.xcconfig */,
+				041D87C4032921288C230213 /* Pods-VerisTests.distribution.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -5264,12 +5277,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84717F251D3483E300AE7E9A /* Build configuration list for PBXNativeTarget "VerisTests" */;
 			buildPhases = (
-				3EEC33E266E9C72782035903 /* Check Pods Manifest.lock */,
+				3EEC33E266E9C72782035903 /* [CP] Check Pods Manifest.lock */,
 				84717F181D3483E300AE7E9A /* Sources */,
 				84717F191D3483E300AE7E9A /* Frameworks */,
 				84717F1A1D3483E300AE7E9A /* Resources */,
-				C992D0365AC907496D45BDDE /* Embed Pods Frameworks */,
-				E880EA4F845D8AE3715B9C52 /* Copy Pods Resources */,
+				C992D0365AC907496D45BDDE /* [CP] Embed Pods Frameworks */,
+				E880EA4F845D8AE3715B9C52 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5285,13 +5298,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93D5A3711B709C1D00DDB158 /* Build configuration list for PBXNativeTarget "AIVeris" */;
 			buildPhases = (
-				135EB6A5927C40A8DF1CE19A /* Check Pods Manifest.lock */,
+				135EB6A5927C40A8DF1CE19A /* [CP] Check Pods Manifest.lock */,
 				9324A4721CCF58DF00A0A397 /* CopyFiles */,
 				93D5A3451B709C1C00DDB158 /* Sources */,
 				93D5A3461B709C1C00DDB158 /* Frameworks */,
 				93D5A3471B709C1C00DDB158 /* Resources */,
-				1ACF41E9EAB5B097EBFBEF2E /* Embed Pods Frameworks */,
-				DE9DEC5021D6061243B05730 /* Copy Pods Resources */,
+				1ACF41E9EAB5B097EBFBEF2E /* [CP] Embed Pods Frameworks */,
+				DE9DEC5021D6061243B05730 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5436,6 +5449,7 @@
 				1234F9AE1D351C7E0009FB4F /* mapapi.bundle in Resources */,
 				FB1013D71DCC675D00BC9E8A /* AIMyMemberCardViewController.xib in Resources */,
 				81433EC01CFBE5A700347C29 /* MyriadProRegular.ttf in Resources */,
+				C939A3161DD085C900782F7F /* AIRechargePaylistView.xib in Resources */,
 				81433EBF1CFBE5A700347C29 /* MyriadPro-SemiCn.otf in Resources */,
 				FB703AE41D24C59400229A08 /* JSSDK.js in Resources */,
 				C9AF97961DC1A8F400ECC7EF /* AIMyWalletBalanceViewController.xib in Resources */,
@@ -5548,29 +5562,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		135EB6A5927C40A8DF1CE19A /* Check Pods Manifest.lock */ = {
+		135EB6A5927C40A8DF1CE19A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		1ACF41E9EAB5B097EBFBEF2E /* Embed Pods Frameworks */ = {
+		1ACF41E9EAB5B097EBFBEF2E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5578,29 +5592,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3EEC33E266E9C72782035903 /* Check Pods Manifest.lock */ = {
+		3EEC33E266E9C72782035903 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C992D0365AC907496D45BDDE /* Embed Pods Frameworks */ = {
+		C992D0365AC907496D45BDDE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5608,14 +5622,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DE9DEC5021D6061243B05730 /* Copy Pods Resources */ = {
+		DE9DEC5021D6061243B05730 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5623,14 +5637,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIVeris/Pods-AIVeris-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E880EA4F845D8AE3715B9C52 /* Copy Pods Resources */ = {
+		E880EA4F845D8AE3715B9C52 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5863,6 +5877,7 @@
 				938008621D5B223D00FAD140 /* AIWishTitleIconView.swift in Sources */,
 				933BC83D1D002434005E1789 /* AINavigationBar.swift in Sources */,
 				81433CD81CFBE5A700347C29 /* AIModels.swift in Sources */,
+				C939A3151DD085C900782F7F /* AIRechargePaylistView.swift in Sources */,
 				81433D071CFBE5A700347C29 /* AIRemoteRequestQueue.swift in Sources */,
 				81433D951CFBE5A700347C29 /* AIDeleteActionDelegate.swift in Sources */,
 				81433CF21CFBE5A700347C29 /* AIRequirementViewModel.swift in Sources */,
@@ -6414,7 +6429,7 @@
 		};
 		817AF02D1D499F6400009F9F /* Distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 459E2FAC4C1547F753408EF1 /* Pods-AIVeris.release.xcconfig */;
+			baseConfigurationReference = 810D19618ECB62414369ED9F /* Pods-AIVeris.distribution.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
@@ -6479,7 +6494,7 @@
 		};
 		817AF02E1D499F6400009F9F /* Distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 156E8DB358B5989BFE7F032F /* Pods-VerisTests.release.xcconfig */;
+			baseConfigurationReference = 041D87C4032921288C230213 /* Pods-VerisTests.distribution.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

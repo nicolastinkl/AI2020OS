@@ -11,7 +11,6 @@ import UIKit
 class CapitalFlowViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var filterViewContainer: UIView!
     @IBOutlet weak var filteButton: UIButton!
     
     var capitalData: [CapitalFlowItem]?
@@ -61,12 +60,12 @@ class CapitalFlowViewController: UIViewController {
         addChildViewController(vc)
         tableView.addSubview(vc.view)
         vc.didMoveToParentViewController(self)
+        vc.displayTableView()
     }
     
     private func removeFiltViewController() {
-        vc.willMoveToParentViewController(nil)
-        vc.view.removeFromSuperview()
-        vc.removeFromParentViewController()
+        vc.hideTableView()
+        
     }
     
     private func setupNavigationBar() {
@@ -146,11 +145,11 @@ class CapitalFlowViewController: UIViewController {
     }
     
     private func reloadCapitalType() {
-        showLoading()
+        view.showLoading()
         let service = HttpCapitalFlowService()
         
         service.getCapitalTypeList({ (responseData) in
-            self.dismissLoading()
+            self.view.hideLoading()
             self.capitalTypeList = responseData
             
             if let list = self.capitalTypeList?.types as? [CapitalClassification] {
@@ -158,7 +157,7 @@ class CapitalFlowViewController: UIViewController {
             }
             
         }) { (errType, errDes) in
-            self.dismissLoading()
+            self.view.hideLoading()
             NBMaterialToast.showWithText(self.view, text: "GetDataFailed".localized, duration: NBLunchDuration.SHORT)
 
         }
@@ -186,7 +185,7 @@ extension CapitalFlowViewController: UITableViewDataSource, UITableViewDelegate 
         if let model = capitalData?[indexPath.row] {
             cell.itemName.text = model.name
             cell.date.text = self.convertDate(model.time)
-            cell.flowNumber.text = String.init(format: "%.2f", model.amout)
+            cell.flowNumber.text = String.init(format: "%.2f", model.amout.floatValue)
             cell.type.text = model.type
         }
         
@@ -214,5 +213,14 @@ extension CapitalFlowViewController: CapitalFilterDelegate {
         removeFiltViewController()
         loadData(type.code)
     }
+    
+    func filteTableViewDidDisplay() {
+        
+    }
+    
+    func filteTableViewDidHide() {
+        vc.willMoveToParentViewController(nil)
+        vc.view.removeFromSuperview()
+        vc.removeFromParentViewController()
+    }
 }
-

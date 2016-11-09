@@ -22,11 +22,6 @@ class AIMoreCouponViewController: UIViewController {
     }
     
     var filterBar: AIFilterBar!
-    var commentsNumbers = [
-        "0",
-        "0",
-        "0"
-    ]
     var popupDetailView: AIPopupSContainerView!
     var couponDetailView: AICouponDetailView!
     
@@ -65,7 +60,7 @@ class AIMoreCouponViewController: UIViewController {
             "已过期"
         ]
         
-        filterBar = AIFilterBar(titles: titles, subtitles: commentsNumbers)
+        filterBar = AIFilterBar(titles: titles, subtitles: nil)
         filterBar.selectedIndex = 0
         filterBar.delegate = self
         view.addSubview(filterBar)
@@ -98,12 +93,17 @@ class AIMoreCouponViewController: UIViewController {
     
     func loadData() {
         let requestHandler = AICouponRequestHandler.sharedInstance
-        requestHandler.queryMyCoupons(filterBar.selectedIndex.toString(), locationModel: nil, success: { (busiModel) in
+        let filterIndex = filterBar.selectedIndex + 1
+        requestHandler.queryMyCoupons(filterIndex.toString(), city: nil, locationModel: nil, success: { (busiModel) in
             self.viewModel = busiModel
             self.tableView.headerEndRefreshing()
         }) { (errType, errDes) in
             AIAlertView().showError("数据刷新失败", subTitle: errDes)
         }
+    }
+    
+    private func canUseCoupon() -> Bool {
+        return filterBar.selectedIndex == 0
     }
 
 }
@@ -137,6 +137,8 @@ extension AIMoreCouponViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AIIconCouponTableViewCell
         cell.delegate = self
+        cell.useButtonText = "立即使用"
+        cell.useButton.hidden = !canUseCoupon()
         if let viewModel = viewModel {
             cell.model = viewModel.couponsModel![indexPath.row]
         }
@@ -153,7 +155,9 @@ extension AIMoreCouponViewController: AIFilterBarDelegate, AIIconCouponTableView
         loadData()
     }
     
-    func useAction() {
+    func useAction(model model: AIVoucherBusiModel) {
+        //更新数据
+        couponDetailView.model = model
         view.bringSubviewToFront(popupDetailView)
         popupDetailView.containerHeightConstraint.constant = 400
         popupDetailView.layoutIfNeeded()

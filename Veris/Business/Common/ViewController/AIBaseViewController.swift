@@ -57,9 +57,8 @@ class AIBaseViewController: UIViewController {
     func makeBackgroundView() {
         backgroundImageView = UIImageView(frame: self.view.bounds)
         backgroundImageView.image = UIImage(named: "Job_Background")
-        //mod by liux at 20161027 适用于storyboard创建的viewController
         self.view.insertSubview(backgroundImageView, atIndex: 0)
-        //self.view.addSubview(backgroundView)
+        self.view.addSubview(backgroundView)
     }
 
     func makeBlurBackgroundView() {

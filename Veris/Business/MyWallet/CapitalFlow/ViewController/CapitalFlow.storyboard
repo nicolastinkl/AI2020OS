@@ -44,19 +44,10 @@
                                     <outlet property="delegate" destination="ujG-BF-pv6" id="2zb-1n-XiS"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyV-O2-w8p" userLabel="FilterViewContainer">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="179" id="5ey-dB-U2E"/>
-                                    <constraint firstAttribute="height" constant="1" id="aLy-5z-yjc"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YKb-TT-hfT" firstAttribute="leading" secondItem="Qnk-H4-DNO" secondAttribute="leading" id="DT8-wD-XAy"/>
-                            <constraint firstItem="kyV-O2-w8p" firstAttribute="top" secondItem="u5F-kf-fjg" secondAttribute="top" id="PgK-pH-R12"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kyV-O2-w8p" secondAttribute="trailing" constant="-16" id="Qq3-Pg-bG6"/>
                             <constraint firstItem="u5F-kf-fjg" firstAttribute="leading" secondItem="Qnk-H4-DNO" secondAttribute="leadingMargin" constant="-16" id="UOu-ZU-JY2"/>
                             <constraint firstItem="q5G-Yx-9yK" firstAttribute="top" secondItem="u5F-kf-fjg" secondAttribute="bottom" id="Vj1-Bi-Fbo"/>
                             <constraint firstItem="u5F-kf-fjg" firstAttribute="top" secondItem="Zdh-gV-vWa" secondAttribute="bottom" constant="8" id="VpX-eH-dNq"/>
@@ -71,7 +62,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="filteButton" destination="Zdh-gV-vWa" id="ugT-Lw-kGX"/>
-                        <outlet property="filterViewContainer" destination="kyV-O2-w8p" id="f9q-lc-k8k"/>
                         <outlet property="tableView" destination="u5F-kf-fjg" id="Nar-qH-SJP"/>
                     </connections>
                 </viewController>
@@ -91,8 +81,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AXk-C1-dlh" customClass="SKSTableView" customModule="Veris" customModuleProvider="target">
-                                <color key="backgroundColor" red="0.71372549019999998" green="0.73333333329999995" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filteVC_backbround" translatesAutoresizingMaskIntoConstraints="NO" id="ru8-hB-Tm0"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AXk-C1-dlh" customClass="SKSTableView" customModule="Veris" customModuleProvider="target">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="179" id="C5D-F9-A3Q"/>
                                     <constraint firstAttribute="height" constant="1" id="u3q-uC-vrF"/>
@@ -101,8 +92,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ru8-hB-Tm0" firstAttribute="top" secondItem="AXk-C1-dlh" secondAttribute="top" id="3Kz-h8-hYJ"/>
+                            <constraint firstItem="ru8-hB-Tm0" firstAttribute="leading" secondItem="AXk-C1-dlh" secondAttribute="leading" id="9Ea-HA-jRR"/>
                             <constraint firstItem="AXk-C1-dlh" firstAttribute="top" secondItem="e68-da-tZ4" secondAttribute="top" id="AzA-sE-lgG"/>
+                            <constraint firstItem="ru8-hB-Tm0" firstAttribute="trailing" secondItem="AXk-C1-dlh" secondAttribute="trailing" id="S0w-JV-Wi9"/>
                             <constraint firstAttribute="trailing" secondItem="AXk-C1-dlh" secondAttribute="trailing" id="Tbt-8f-8Qu"/>
+                            <constraint firstItem="ru8-hB-Tm0" firstAttribute="bottom" secondItem="AXk-C1-dlh" secondAttribute="bottom" id="cyr-Ht-P2k"/>
                         </constraints>
                     </view>
                     <connections>
@@ -126,20 +121,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AAf-Qb-Vsa">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AAf-Qb-Vsa">
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MzY-rt-d0R">
                                     <frame key="frameInset"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aa_customer" translatesAutoresizingMaskIntoConstraints="NO" id="u05-pF-JfG" userLabel="ProviderIcon">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u05-pF-JfG" userLabel="ProviderIcon">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="62" id="TLf-yL-PmM"/>
                                                 <constraint firstAttribute="height" constant="62" id="gn6-4r-9cq"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ServiceName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkc-za-3te">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkc-za-3te">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.99607843137254903" green="0.99607843137254903" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYY-2D-jQp">
@@ -159,12 +154,12 @@
                                                 <constraint firstAttribute="width" constant="100" id="fQR-9D-GFv"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcU-xo-V9q" userLabel="Rate">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcU-xo-V9q" userLabel="Rate">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.95294117647058818" green="0.75686274509803919" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XD-Or-Wea" userLabel="OrderCount">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XD-Or-Wea" userLabel="OrderCount">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.23999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -200,6 +195,7 @@
                                             </connections>
                                         </tableView>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="u05-pF-JfG" firstAttribute="leading" secondItem="MzY-rt-d0R" secondAttribute="leading" constant="27" id="0c5-dK-H66"/>
                                         <constraint firstItem="OJF-ew-x5f" firstAttribute="top" secondItem="0gz-hV-a3Z" secondAttribute="bottom" constant="55" id="2zE-fg-iC4"/>
@@ -230,10 +226,11 @@
                                         <constraint firstItem="wGq-j9-E6M" firstAttribute="leading" secondItem="MzY-rt-d0R" secondAttribute="leading" constant="67" id="wLI-Tk-bbc"/>
                                     </constraints>
                                 </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AAf-Qb-Vsa" firstAttribute="top" secondItem="1he-rl-NH9" secondAttribute="bottom" id="19h-Q2-vNP"/>
                             <constraint firstItem="AAf-Qb-Vsa" firstAttribute="leading" secondItem="7fF-3g-flX" secondAttribute="leading" id="Bo4-wL-VB8"/>
@@ -259,8 +256,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="aa_customer" width="3" height="6"/>
         <image name="dottedLine2" width="292" height="1"/>
+        <image name="filteVC_backbround" width="8" height="5"/>
         <image name="paycall" width="3" height="6"/>
     </resources>
 </document>
