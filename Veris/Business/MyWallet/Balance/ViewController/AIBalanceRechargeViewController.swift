@@ -85,17 +85,19 @@ class AIBalanceRechargeViewController: AIBaseViewController {
         accountNumberLabel.userInteractionEnabled = true
         accountNumberLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AIBalanceRechargeViewController.chargeAction)))
         
-        let accountImg = UIImageView(frame:  CGRectMake(accountNumberLabel.right, 386/3, 10, 12))
+        let accountImg = UIImageView(frame:  CGRectMake(accountNumberLabel.right+5, 386/3+20, 10, 12))
         accountImg.image = UIImage(named:"flowRightArrow")
         view.addSubview(accountImg)
         
         
         accountMoneyLabel = UITextField(frame: CGRectMake(maxWidth-95/3-300, 496/3, 300, 50))
-        accountMoneyLabel?.placeholder = "请输入充值金额"
+        
         accountMoneyLabel?.font = UIFont.systemFontOfSize(16)
         accountMoneyLabel?.textAlignment = .Right
         accountMoneyLabel?.textColor = UIColor(hexString: "#fee300")
         view.addSubview(accountMoneyLabel!)
+    
+        accountMoneyLabel?.attributedPlaceholder = NSAttributedString(string: "请输入充值金额", attributes: [NSForegroundColorAttributeName:UIColor(hexString: "#fee300")])
 
         let price_List_Left_Line = StrokeLineView(frame: CGRectMake(payInfoLabel.left, payInfoLabel.top + 40, maxWidth-(95/3)*2, 1))
         price_List_Left_Line.backgroundColor = UIColor.clearColor()
