@@ -36,15 +36,31 @@ class AIFundManageViewController: AIBaseViewController {
         
         // add view controller to this vc
         
+        refersh()
+        
+        // notify
+        
+        NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Blance", object: nil, queue: NSOperationQueue.mainQueue()) { (notify) in
+            self.contentScrollView.subviews.forEach({ (sview) in
+                sview.removeFromSuperview()
+                self.preCacheView = UIView()
+                self.contentScrollView.contentSize = CGSizeMake(0, 0)
+            })
+            self.refersh()
+        }
+    }
+    
+    func refersh() {
         AIFundManageServices.reqeustIndexInfo({ (model) in
             self.dataSource = model
             Async.main(after: 1) {
                 self.fillViewWithData()
             }
-            }) { (error) in
+        }) { (error) in
         }
         
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

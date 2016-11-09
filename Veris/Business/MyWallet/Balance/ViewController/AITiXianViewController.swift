@@ -18,13 +18,15 @@ class AITiXianViewController: AIBaseViewController {
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var toast: UILabel!
     
+    var mthcode: String = ""
+    var moneynumber: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //setupNavigationBar()
         
-        name.text = "张三丰"
-        email.text = "adsf@da.com"
+        name.text = ""
+        email.text = mthcode
         toast.text = "提现申请提交成功"
         complateButton.layer.cornerRadius = 5
         complateButton.layer.masksToBounds = true

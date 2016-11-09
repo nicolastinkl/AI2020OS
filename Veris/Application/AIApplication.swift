@@ -522,6 +522,9 @@ struct AIApplication {
         //检查余额
         case checkBalance
 
+        // 充值 提现
+        case withdraw
+
         
         var description: String {
 
@@ -643,6 +646,7 @@ struct AIApplication {
             case .queryCreditScore: return AIApplication.KURL_ReleaseURL + "/account/queryCreditScore"
             case .checkBalancePay: return AIApplication.KURL_ReleaseURL + "/sboss/checkBalancePay"
             case .checkBalance: return AIApplication.KURL_ReleaseURL + "/account/checkBalance"
+            case .withdraw: return AIApplication.KURL_ReleaseURL + "/account/withdraw"
             }
         }
     }

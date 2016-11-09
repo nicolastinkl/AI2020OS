@@ -9,6 +9,7 @@
 
 import Foundation
 import Spring
+import AIAlertView
 
 enum AIRechargeViewType {
     case charge
@@ -26,6 +27,7 @@ class AIRechargeView: UIView {
     
     var PlaceholdObject: AnyObject?
     var moneyNumber: Int = 0
+    private var currentStatus: AIRechargeViewType? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,6 +41,7 @@ class AIRechargeView: UIView {
     }
     
     func initSettings(type: AIRechargeViewType) {
+        currentStatus = type
         if (type == AIRechargeViewType.pay) {
             title.text = "支付密码"
             subtitle.text = "支付"
@@ -74,22 +77,70 @@ class AIRechargeView: UIView {
     }
 
     @IBAction func submitAction(sender: AnyObject) {
-        
-        var lists = Array<AnyObject>()
-        if let model  = PlaceholdObject as? AIFundWillWithDrawModel {
-            lists.append(["billId":model.id ?? ""])
-            lists.append(["userId":AILocalStore.userId])
-            lists.append(["ruleType":"BALANCE_PAY"])
-            
+        if moneyNumber <= 0 {
+            return
         }
+        
+        //获取金额
+        var lists = Dictionary<String, AnyObject>()
+        var account = Dictionary<String, AnyObject>()
+        if let model  = PlaceholdObject as? AICapitalAccount {
+            account["id"] = "\(model.id.intValue)"
+            account["method_spec_code"] = model.method_spec_code
+            account["method_name"] = model.method_name
+            account["mch_id"] = model.mch_id
+        }
+        lists["account"] = account
+        if let currentStatus = currentStatus {
+            if currentStatus == AIRechargeViewType.charge {
+                lists["payment_spec_code"] = "RECHARGE_CASH"
+            } else if currentStatus == AIRechargeViewType.tixian {
+                lists["payment_spec_code"] = "WITHDRAW_CASH"
+            }
+        }
+        
+        lists["amout"] = "\(moneyNumber)"
+        lists["money_type"] = "CNY"
+        lists["unit"] = "元"
         showLoadingWithMessage("正在检查资金帐户")
-        AIFundManageServices.reqeustCheckPayInfo(lists, success: { (obj) in
+        AIFundManageServices.reqeustWithdraw(lists, success: { (obj) in
             if(obj) {
-            
+                self.dismissLoading()
+                AIAlertView().showSuccess("操作成功", subTitle: "")
+                NSNotificationCenter.defaultCenter().postNotificationName("NSNotificationCenter_Blance", object: nil)
+                self.removeFromSuperview()
+                
+                if let currentStatus = self.currentStatus {
+                    if currentStatus == AIRechargeViewType.charge {
+                        if let vc = UIApplication.sharedApplication().windows.first?.rootViewController {
+                            let s = AITiXianViewController.initFromNib()
+                            if let model  = self.PlaceholdObject as? AICapitalAccount {
+                                 s.mthcode = model.method_name
+                            }
+                            s.moneynumber = self.moneyNumber
+                            vc.showTransitionStyleCrossDissolveView(s)
+                        }
+                    } else if currentStatus == AIRechargeViewType.tixian {
+                        if let vc = UIApplication.sharedApplication().windows.first?.rootViewController {
+                            let s = AITiXianViewController.initFromNib()
+                            if let model  = self.PlaceholdObject as? AICapitalAccount {
+                                s.mthcode = model.method_name
+                            }
+                            s.moneynumber = self.moneyNumber
+                            vc.showTransitionStyleCrossDissolveView(s)
+                        }
+                    }
+                }
+                
+                
             }
             
-            }) { (error) in
-                
+        }) { (error) in
+            self.dismissLoading()
+            AIAlertView().showError("充值失败", subTitle: error)
         }
+        
     }
+    
+    
 }

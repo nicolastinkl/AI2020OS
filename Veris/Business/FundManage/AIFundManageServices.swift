@@ -167,22 +167,13 @@ class AIFundManageServices: NSObject {
     }
     
     // 支付 充值 提现
-    static func reqeustWithdraw(data: Array<AnyObject>, success: (Bool) -> Void, fail: (String) -> Void) {
+    static func reqeustWithdraw(data: Dictionary<String, AnyObject>, success: (Bool) -> Void, fail: (String) -> Void) {
         let message = AIMessage()
         message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""], "data":data])
-        message.url = AIApplication.AIApplicationServerURL.checkBalancePay.description
+        message.url = AIApplication.AIApplicationServerURL.withdraw.description
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             if let responseJSON: AnyObject = response {
-                if let response = JSONDecoder(responseJSON)["list"].array {
-                    for itemJSON in response {
-                        let pass = itemJSON["pass"].integer ?? 0
-                        if (pass ==  1) {
-                            success(true)
-                        } else {
-                            success(false)
-                        }
-                    }
-                }
+                success(JSONDecoder(responseJSON)["result"].bool)
             } else {
                 success(false)
             }
