@@ -13,6 +13,8 @@ import Spring
 //// 余额提现
 class AIBalanceTixianViewController: AIBaseViewController {
     
+    var accountMoneyLabel: UITextField? = nil
+    private var currentPayModel: AICapitalAccount? = nil
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -82,12 +84,12 @@ class AIBalanceTixianViewController: AIBaseViewController {
         setFont(accountNumberLabel)
         
         let accountMoneyLabel = UITextField(frame: CGRectMake(maxWidth-95/3-300, 496/3, 300, 50))
-        accountMoneyLabel.text = "请输入金额"
         accountMoneyLabel.font = UIFont.systemFontOfSize(16)
         accountMoneyLabel.textAlignment = .Right
         accountMoneyLabel.textColor = UIColor(hexString: "#fee300")
         view.addSubview(accountMoneyLabel)
-
+        accountMoneyLabel.attributedPlaceholder = NSAttributedString(string: "请输入金额", attributes: [NSForegroundColorAttributeName:UIColor(hexString: "#fee300")])
+        self.accountMoneyLabel = accountMoneyLabel
         let price_List_Left_Line = StrokeLineView(frame: CGRectMake(payInfoLabel.left, payInfoLabel.top + 40, maxWidth-(95/3)*2, 1))
         price_List_Left_Line.backgroundColor = UIColor.clearColor()
         view.addSubview(price_List_Left_Line)
@@ -109,11 +111,41 @@ class AIBalanceTixianViewController: AIBaseViewController {
         view.addSubview(buttonSubmit)
         buttonSubmit.addTarget(self, action: #selector(AIBalanceTixianViewController.tixianAction), forControlEvents: UIControlEvents.TouchUpInside)
         
+        view.showLoading()
+        //监测充值方式
+        AIFundAccountService().capitalAccounts({ (array) in
+            self.view.hideLoading()
+            if let model = array.first {
+                let ss1: String = ( model.mch_id as NSString).substringToIndex(4)
+                accountLabel.text = "\(model.method_name)\(model.method_spec_code)(\(ss1)***)"
+                self.currentPayModel = model
+            }
+        }) { (errType, errDes) in
+            self.view.hideLoading()
+        }
+        
     }
     
     func tixianAction() {
-        let s = AITiXianViewController.initFromNib()
-        presentBlurViewController(s, animated: true, completion: nil)
+        //let s = AITiXianViewController.initFromNib()
+        //presentBlurViewController(s, animated: true, completion: nil)
+        
+        if let viewrech = AIRechargeView.initFromNib() as? AIRechargeView {
+            view.addSubview(viewrech)
+            viewrech.alpha = 0
+            
+            viewrech.snp_makeConstraints { (make) in
+                make.edges.equalTo(view)
+            }
+            SpringAnimation.springWithCompletion(0.3, animations: {
+                viewrech.alpha = 1
+                }, completion: { (s) in
+            })
+            viewrech.moneyNumber = accountMoneyLabel?.text?.toInt() ?? 0
+            viewrech.initSettings(AIRechargeViewType.tixian)
+            viewrech.PlaceholdObject = currentPayModel
+        }
+        
     }
     
 }

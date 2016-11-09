@@ -14,6 +14,7 @@ import Spring
 class AIBalanceRechargeViewController: AIBaseViewController {
     
     var accountMoneyLabel: UITextField? = nil
+    private var currentPayModel: AICapitalAccount? = nil
     
     override func viewDidLoad() {
         
@@ -89,7 +90,6 @@ class AIBalanceRechargeViewController: AIBaseViewController {
         accountImg.image = UIImage(named:"flowRightArrow")
         view.addSubview(accountImg)
         
-        
         accountMoneyLabel = UITextField(frame: CGRectMake(maxWidth-95/3-300, 496/3, 300, 50))
         
         accountMoneyLabel?.font = UIFont.systemFontOfSize(16)
@@ -126,7 +126,9 @@ class AIBalanceRechargeViewController: AIBaseViewController {
         AIFundAccountService().capitalAccounts({ (array) in
             self.view.hideLoading()
             if let model = array.first {
-                accountNumberLabel.text = "\(model.method_name)\(model.method_spec_code)"
+                let ss1: String = ( model.mch_id as NSString).substringToIndex(4)
+                accountNumberLabel.text = "\(model.method_name)\(model.method_spec_code)(\(ss1)***)"                
+                self.currentPayModel = model
             }
         }) { (errType, errDes) in
             self.view.hideLoading()
@@ -147,7 +149,7 @@ class AIBalanceRechargeViewController: AIBaseViewController {
             })
             viewrech.moneyNumber = accountMoneyLabel?.text?.toInt() ?? 0
             viewrech.initSettings(AIRechargeViewType.charge)
-        
+            viewrech.PlaceholdObject = currentPayModel
         }
     }
     
