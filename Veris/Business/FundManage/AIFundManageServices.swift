@@ -81,7 +81,7 @@ class AIFundManageServices: NSObject {
         
         AINetEngine.defaultEngine().postMessage(message, success: { (response) -> Void in
             
-            if let responseJSON: AnyObject = response {
+            if let _ = response {
                 success(true)
             } else {
                 success(false)
@@ -92,5 +92,27 @@ class AIFundManageServices: NSObject {
     }
     
     // 查询我的待付
+
+    // 查询我的信用积分
+    static func queryCreditScoreSuccess(success: (AICreditScoreModel) -> Void, fail: (String) -> Void) {
+        let message = AIMessage()
+        message.url = AIApplication.AIApplicationServerURL.queryCreditScore.description
+        message.body.addEntriesFromDictionary(["desc":["data_mode":"0", "digest":""]])
+
+
+        AINetEngine.defaultEngine().postMessage(message, success: { (response) in
+
+            do {
+                let dic = response as! [NSObject: AnyObject]
+                let scoreModel = try AICreditScoreModel(dictionary: dic)
+                success(scoreModel)
+
+            } catch {
+                fail("获取信用失败")
+            }
+        }) { (error, errorDesc) in
+            fail(errorDesc)
+        }
+    }
     
 }

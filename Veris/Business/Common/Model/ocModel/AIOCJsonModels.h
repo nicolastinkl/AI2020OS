@@ -21,3 +21,6 @@
 
 //商家币和优惠券相关model
 #import "AICouponBusiModel.h"
+
+// 我的信用积分
+#import "AICreditScoreModel.h"

@@ -142,6 +142,9 @@ class AIFundManageViewController: AIBaseViewController {
                 break
             case 2:
                 //我的信用积分
+                let vc = AICreditScoreViewController()
+                let navigationController = UINavigationController(rootViewController: vc)
+                presentViewController(navigationController, animated: true, completion: nil)
                 break
             case 3:
                 //我的商家币

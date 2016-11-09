@@ -78,6 +78,7 @@
 		12FBCB8D1D59CB1600E333D6 /* AIWorkQualificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCB8C1D59CB1600E333D6 /* AIWorkQualificationView.swift */; };
 		12FBCB911D5ACBB100E333D6 /* AIWorkQualificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12FBCB901D5ACBB100E333D6 /* AIWorkQualificationView.xib */; };
 		16E7F5C2B86F7A124E6FB458 /* Pods_AIVeris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A810CAC7303763C960CD9074 /* Pods_AIVeris.framework */; };
+		810556851DD31BCE00544767 /* IACreditImproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810556841DD31BCE00544767 /* IACreditImproveViewController.swift */; };
 		810997881DCB25B6001475D1 /* AICreditScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810997871DCB25B6001475D1 /* AICreditScoreViewController.swift */; };
 		8116991C1D93BA6800C2D6EA /* AIALAssetsImageOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8116991B1D93BA6800C2D6EA /* AIALAssetsImageOperator.m */; };
 		813860F51D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813860F41D59789D0050C0D0 /* AISingleServiceCommnentViewController.swift */; };
@@ -580,6 +581,8 @@
 		81D325EA1D7819490069F9B7 /* AIAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D325E91D7819490069F9B7 /* AIAddressModel.m */; };
 		81D325ED1D781AB00069F9B7 /* AIQiangDanResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D325EC1D781AB00069F9B7 /* AIQiangDanResultModel.m */; };
 		81D325F01D7822630069F9B7 /* AIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D325EF1D7822630069F9B7 /* AIErrors.swift */; };
+		81D83EBB1DD1D69500986D9E /* AIWBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D83EBA1DD1D69500986D9E /* AIWBaseViewController.swift */; };
+		81D83EC21DD2C0E600986D9E /* AICreditScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D83EC11DD2C0E600986D9E /* AICreditScoreModel.m */; };
 		81F414321D351B8A008DC280 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F414311D351B8A008DC280 /* libsqlite3.0.tbd */; };
 		81F8C1C41D87FAA50068D3C4 /* AIAnalyticsDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F8C1C31D87FAA50068D3C4 /* AIAnalyticsDefines.swift */; };
 		81FAFB891D45B18900DD3477 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FAFB881D45B18900DD3477 /* Requirement.swift */; };
@@ -1020,6 +1023,7 @@
 		503E6327D0C6936333F981D4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5293440786150C2B14661D8C /* Pods_VerisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VerisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E080193263E9011ADC252AB /* Pods-VerisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VerisTests/Pods-VerisTests.debug.xcconfig"; sourceTree = "<group>"; };
+		810556841DD31BCE00544767 /* IACreditImproveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IACreditImproveViewController.swift; sourceTree = "<group>"; };
 		810997871DCB25B6001475D1 /* AICreditScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICreditScoreViewController.swift; sourceTree = "<group>"; };
 		8116991A1D93BA6800C2D6EA /* AIALAssetsImageOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIALAssetsImageOperator.h; sourceTree = "<group>"; };
 		8116991B1D93BA6800C2D6EA /* AIALAssetsImageOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIALAssetsImageOperator.m; sourceTree = "<group>"; };
@@ -1734,6 +1738,9 @@
 		81D325EC1D781AB00069F9B7 /* AIQiangDanResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIQiangDanResultModel.m; sourceTree = "<group>"; };
 		81D325EE1D781B3E0069F9B7 /* AIOCJsonModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIOCJsonModels.h; sourceTree = "<group>"; };
 		81D325EF1D7822630069F9B7 /* AIErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIErrors.swift; sourceTree = "<group>"; };
+		81D83EBA1DD1D69500986D9E /* AIWBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWBaseViewController.swift; sourceTree = "<group>"; };
+		81D83EC01DD2C0E600986D9E /* AICreditScoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICreditScoreModel.h; sourceTree = "<group>"; };
+		81D83EC11DD2C0E600986D9E /* AICreditScoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICreditScoreModel.m; sourceTree = "<group>"; };
 		81F414311D351B8A008DC280 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		81F8C1C31D87FAA50068D3C4 /* AIAnalyticsDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAnalyticsDefines.swift; sourceTree = "<group>"; };
 		81FAFB881D45B18900DD3477 /* Requirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
@@ -2446,6 +2453,7 @@
 		8109975C1DC9F011001475D1 /* Credit */ = {
 			isa = PBXGroup;
 			children = (
+				81D83EBF1DD2C0E600986D9E /* Model */,
 				810997861DCB25B6001475D1 /* ViewController */,
 			);
 			path = Credit;
@@ -2455,6 +2463,8 @@
 			isa = PBXGroup;
 			children = (
 				810997871DCB25B6001475D1 /* AICreditScoreViewController.swift */,
+				81D83EBA1DD1D69500986D9E /* AIWBaseViewController.swift */,
+				810556841DD31BCE00544767 /* IACreditImproveViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4080,6 +4090,15 @@
 				FB5934181D59BAD500CBE237 /* GridBubblesView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		81D83EBF1DD2C0E600986D9E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				81D83EC01DD2C0E600986D9E /* AICreditScoreModel.h */,
+				81D83EC11DD2C0E600986D9E /* AICreditScoreModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		81FAFB851D45B17500DD3477 /* Developement */ = {
@@ -5732,6 +5751,7 @@
 				81433CF51CFBE5A700347C29 /* AIOpeningView.m in Sources */,
 				FB1013CD1DCC375800BC9E8A /* AIFundBaseViewCotroller.swift in Sources */,
 				84512D4F1D2A8BC8007E2E8A /* SwitchedTableViewCell.swift in Sources */,
+				810556851DD31BCE00544767 /* IACreditImproveViewController.swift in Sources */,
 				81433E161CFBE5A700347C29 /* PriceAndStepperView.swift in Sources */,
 				81433E471CFBE5A700347C29 /* UIImage+Resize.m in Sources */,
 				84EBF4FC1DCAE745002F6269 /* CapitalFlowService.swift in Sources */,
@@ -5778,6 +5798,7 @@
 				8175A7E91CFD2710006F2C8F /* OAStackView+Hiding.m in Sources */,
 				FB734EED1D45BD4500FD808A /* NSUserDefaults+Object.swift in Sources */,
 				84512D531D2BA6BF007E2E8A /* ListSubServiceCardView.swift in Sources */,
+				81D83EC21DD2C0E600986D9E /* AICreditScoreModel.m in Sources */,
 				81433E871CFBE5A700347C29 /* FLEXArrayExplorerViewController.m in Sources */,
 				81433D1F1CFBE5A700347C29 /* AITitleAndIconTextView.swift in Sources */,
 				81433E8C1CFBE5A700347C29 /* FLEXImageExplorerViewController.m in Sources */,
@@ -6157,6 +6178,7 @@
 				8484D84C1D6D3A2F001F1A54 /* TextAndAudioInputViewController.swift in Sources */,
 				81433E4A1CFBE5A700347C29 /* UP_NSString+Size.m in Sources */,
 				81433EAF1CFBE5A700347C29 /* KMDetailsPageView.m in Sources */,
+				81D83EBB1DD1D69500986D9E /* AIWBaseViewController.swift in Sources */,
 				12D7649C1D0D469A002B001B /* AIValidateRegistViewController.swift in Sources */,
 				81433D761CFBE5A700347C29 /* AIServiceCoverage.m in Sources */,
 				81433E7D1CFBE5A700347C29 /* FLEXSystemLogTableViewCell.m in Sources */,

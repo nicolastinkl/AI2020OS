@@ -513,6 +513,9 @@ struct AIApplication {
         case waitPayOrders
         //我的待收-提醒
         case noticePay
+
+        //查询我的信用积分
+        case queryCreditScore
         
         var description: String {
 
@@ -631,6 +634,7 @@ struct AIApplication {
             case .waitPayOrders: return  AIApplication.KURL_ReleaseURL + "/account/waitPayOrders"
                 
             case .noticePay: return  AIApplication.KURL_ReleaseURL + "/account/noticePay"
+            case .queryCreditScore: return AIApplication.KURL_ReleaseURL + "/account/queryCreditScore"
             }
         }
     }
