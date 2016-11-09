@@ -101,6 +101,10 @@ class AIMoreCouponViewController: UIViewController {
             AIAlertView().showError("数据刷新失败", subTitle: errDes)
         }
     }
+    
+    private func canUseCoupon() -> Bool {
+        return filterBar.selectedIndex == 0
+    }
 
 }
 //MARK: -> tableview delegates
@@ -134,6 +138,7 @@ extension AIMoreCouponViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AIIconCouponTableViewCell
         cell.delegate = self
         cell.useButtonText = "立即使用"
+        cell.useButton.hidden = !canUseCoupon()
         if let viewModel = viewModel {
             cell.model = viewModel.couponsModel![indexPath.row]
         }
