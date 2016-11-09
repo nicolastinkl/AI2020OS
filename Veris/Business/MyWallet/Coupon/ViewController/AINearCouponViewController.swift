@@ -68,7 +68,7 @@ class AINearCouponViewController: UIViewController {
         setupNavigationController()
         dotLine.image = UIImage(named: "se_dotline")?.resizableImageWithCapInsets(UIEdgeInsetsZero, resizingMode: UIImageResizingMode.Tile)
         
-        retryButton.backgroundColor = UIColor.blueColor()
+        retryButton.backgroundColor = UIColor(hexString: "#1086E8")
         retryButton.layer.cornerRadius = 8
         retryButton.layer.masksToBounds = true
         
@@ -153,6 +153,7 @@ extension AINearCouponViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AIIconCouponTableViewCell
         cell.delegate = self
+        cell.useButtonText = "获取"
         if let viewModel = viewModel {
             cell.model = viewModel.couponsModel![indexPath.row]
         }
@@ -165,6 +166,9 @@ extension AINearCouponViewController: UITableViewDelegate, UITableViewDataSource
 extension AINearCouponViewController: AIIconCouponTableViewCellDelegate, PickerUIButtonDelegate {
     
     func useAction(model model: AIVoucherBusiModel) {
+        //更新数据
+        couponDetailView.model = model
+        couponDetailView.useButton.setTitle("获取", forState: UIControlState.Normal)
         view.bringSubviewToFront(popupDetailView)
         popupDetailView.containerHeightConstraint.constant = 400
         popupDetailView.layoutIfNeeded()
@@ -184,7 +188,7 @@ extension AINearCouponViewController: AIIconCouponTableViewCellDelegate, PickerU
 
 // MARK: --> 重写button子类让它弹出pickerView
 class PickerUIButton: UIButton, UIPickerViewDelegate, UIPickerViewDataSource {
-    let citys = ["北京市","南京市","成都市","长沙市"]
+    let citys = ["北京市", "南京市", "成都市", "长沙市"]
     var delegate: PickerUIButtonDelegate?
     
     lazy var _picker: UIPickerView = {[weak self] in

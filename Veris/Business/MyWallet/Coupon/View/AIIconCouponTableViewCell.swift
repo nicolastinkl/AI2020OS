@@ -18,6 +18,17 @@ class AIIconCouponTableViewCell: UITableViewCell {
     @IBOutlet weak var couponIconImageView: UIImageView!
     
     var delegate: AIIconCouponTableViewCellDelegate?
+    var useButtonText: String? {
+        didSet {
+            if let useButtonText = useButtonText {
+                let width = useButtonText.sizeWithFont(useButton.titleLabel!.font!, forWidth: 1000).width + 23
+                useButton.setTitle(useButtonText, forState: UIControlState.Normal)
+                useButton.snp_remakeConstraints(closure: { (make) in
+                    make.width.equalTo(width)
+                })
+            }
+        }
+    }
     
     var model: AIVoucherBusiModel? {
         didSet {
@@ -45,6 +56,7 @@ class AIIconCouponTableViewCell: UITableViewCell {
         backgroundImageView.layer.masksToBounds = true
         useButton.layer.cornerRadius = 5
         useButton.layer.masksToBounds = true
+        
     }
     
     func bindData(model: AIVoucherBusiModel) {

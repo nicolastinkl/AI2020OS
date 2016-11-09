@@ -185,7 +185,7 @@ extension CapitalFlowViewController: UITableViewDataSource, UITableViewDelegate 
         if let model = capitalData?[indexPath.row] {
             cell.itemName.text = model.name
             cell.date.text = self.convertDate(model.time)
-            cell.flowNumber.text = String.init(format: "%.2f", model.amout)
+            cell.flowNumber.text = String.init(format: "%.2f", model.amout.floatValue)
             cell.type.text = model.type
         }
         
@@ -224,4 +224,3 @@ extension CapitalFlowViewController: CapitalFilterDelegate {
         vc.removeFromParentViewController()
     }
 }
-

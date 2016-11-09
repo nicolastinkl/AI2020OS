@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="92"/>
+                <frame key="frameInset" width="320" height="92.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeW-q6-3IS">
@@ -51,6 +51,7 @@
                             <constraint firstAttribute="trailing" secondItem="TXf-21-MEw" secondAttribute="trailing" id="AhN-xk-cg9"/>
                             <constraint firstAttribute="bottom" secondItem="OWK-fj-3zO" secondAttribute="bottom" constant="13" id="Dhh-cD-wCV"/>
                             <constraint firstItem="i1Z-lb-Ydv" firstAttribute="top" secondItem="7wb-Ti-Bjh" secondAttribute="bottom" constant="8" id="Hry-5a-vHh"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7wb-Ti-Bjh" secondAttribute="trailing" constant="30" id="LNT-8T-BG7"/>
                             <constraint firstAttribute="bottom" secondItem="TXf-21-MEw" secondAttribute="bottom" constant="0.6666666666666714" id="NtY-Mf-KCe"/>
                             <constraint firstItem="UCh-Il-M7P" firstAttribute="centerY" secondItem="aeW-q6-3IS" secondAttribute="centerY" id="SyG-RV-agX"/>
                             <constraint firstItem="TXf-21-MEw" firstAttribute="top" secondItem="aeW-q6-3IS" secondAttribute="top" constant="8" id="T4L-oM-rWW"/>

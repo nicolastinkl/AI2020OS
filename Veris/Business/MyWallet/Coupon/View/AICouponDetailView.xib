@@ -88,6 +88,7 @@
                         <constraint firstAttribute="trailing" secondItem="Xp2-zn-EAh" secondAttribute="trailing" constant="20" id="RcA-of-MON"/>
                         <constraint firstItem="A5x-Rx-hxC" firstAttribute="top" secondItem="wZV-MF-ESM" secondAttribute="top" constant="24" id="ZpL-k2-4mn"/>
                         <constraint firstItem="Qqv-y6-sYb" firstAttribute="leading" secondItem="4qT-0s-pqt" secondAttribute="leading" id="b68-Z1-nSe"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4qT-0s-pqt" secondAttribute="trailing" constant="75" id="m63-J3-stW"/>
                         <constraint firstItem="Y9X-Zb-vSf" firstAttribute="leading" secondItem="unY-u9-1Bu" secondAttribute="leading" id="nP3-sg-ckS"/>
                         <constraint firstItem="5kj-IO-K9e" firstAttribute="leading" secondItem="Y9X-Zb-vSf" secondAttribute="leading" id="qmR-y7-3Ye"/>
                         <constraint firstItem="CxG-2E-meL" firstAttribute="centerY" secondItem="Xp2-zn-EAh" secondAttribute="centerY" id="smr-e5-8HS"/>
