@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 		
         //MARK: Share
         configUmengShare()
-    
+        
         // DeepLink
         router.registerBlock({ (deeplink) in
             
