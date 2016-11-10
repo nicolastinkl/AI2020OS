@@ -15,7 +15,7 @@ class AIBaseViewController: UIViewController {
     private var goBackButton: UIButton?
 
     //MARK: Public Properties
-
+    var backgroundImageView: UIImageView!
     var navigatonBarAppearance: UINavigationBarAppearance?
 
     var shouldShowBlurBackground: Bool? {
@@ -55,14 +55,10 @@ class AIBaseViewController: UIViewController {
 
 
     func makeBackgroundView() {
-        let backgroundView = UIImageView(frame: self.view.bounds)
-        backgroundView.image = UIImage(named: "Job_Background")
-        //mod by liux at 20161027 适用于storyboard创建的viewController
-        self.view.insertSubview(backgroundView, atIndex: 0)
-        backgroundView.snp_makeConstraints { (make) in
-            make.edges.equalTo(view)
-        }
-        //self.view.addSubview(backgroundView)
+        backgroundImageView = UIImageView(frame: self.view.bounds)
+        backgroundImageView.image = UIImage(named: "Job_Background")
+        self.view.insertSubview(backgroundImageView, atIndex: 0)
+        self.view.addSubview(backgroundView)
     }
 
     func makeBlurBackgroundView() {
