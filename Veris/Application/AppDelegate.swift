@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         //MARK: Share
         configUmengShare()
     
-	// DeepLink
+        // DeepLink
         router.registerBlock({ (deeplink) in
             
             debugPrint("deeplink1 \(deeplink.queryParameters)")
@@ -92,6 +92,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         handleLoacalNotifications()
         //处理app未启动时的抢单和远程协助请求
         handleRemoteNotifications(app: application, launchOptions: launchOptions)
+        
+        #if DEBUG
+            FLEXManager.sharedManager().showExplorer()
+        #endif
 		return true
 		
 	}

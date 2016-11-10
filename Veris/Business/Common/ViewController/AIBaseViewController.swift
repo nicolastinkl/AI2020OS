@@ -58,14 +58,15 @@ class AIBaseViewController: UIViewController {
         backgroundImageView = UIImageView(frame: self.view.bounds)
         backgroundImageView.image = UIImage(named: "Job_Background")
         self.view.insertSubview(backgroundImageView, atIndex: 0)
-        self.view.addSubview(backgroundImageView)
+        //self.view.addSubview(backgroundImageView)
     }
 
     func makeBlurBackgroundView() {
         let blurEffect = UIBlurEffect(style: .Dark)
         blurBackgroundView = UIVisualEffectView(effect: blurEffect)
         blurBackgroundView?.frame = self.view.bounds
-        self.view.addSubview(blurBackgroundView!)
+        //self.view.addSubview(blurBackgroundView!)
+        self.view.insertSubview(blurBackgroundView!, atIndex: 0)
     }
 
     //Make navigatonBarAppearance

@@ -40,7 +40,7 @@ class AIFundManageViewController: AIBaseViewController {
         
         // notify
         
-        NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Blance", object: nil, queue: NSOperationQueue.mainQueue()) { (notify) in
+NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Blance", object: nil, queue: NSOperationQueue.mainQueue()) { (notify) in
             self.contentScrollView.subviews.forEach({ (sview) in
                 sview.removeFromSuperview()
                 self.preCacheView = UIView()
