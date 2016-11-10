@@ -17,20 +17,36 @@ class AITiXianViewController: AIBaseViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var toast: UILabel!
+    @IBOutlet weak var money: UILabel!
+    @IBOutlet weak var image: UIImageView!
     
     var mthcode: String = ""
     var moneynumber: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setupNavigationBar()
         
-        name.text = ""
-        email.text = mthcode
-        toast.text = "提现申请提交成功"
         complateButton.layer.cornerRadius = 5
         complateButton.layer.masksToBounds = true
         
+    }
+    
+    func targetType(type: Int) {
+        if type == 1 {
+            name.text = ""
+            email.text = mthcode
+            toast.text = "提现申请提交成功"
+            money.text = "¥\(moneynumber)"
+        } else if type == 2 { //充值
+            view.subviews.forEach({ (sview) in
+                if sview is UILabel {
+                    (sview as! UILabel).text = ""
+                }
+            })
+            
+            image.image = UIImage(named: "complate_charge")
+        }
     }
     
     override func makeBackgroundView() {

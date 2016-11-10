@@ -119,7 +119,8 @@ class AIRechargeView: UIView {
                                  s.mthcode = model.method_name
                             }
                             s.moneynumber = self.moneyNumber
-                            vc.showTransitionStyleCrossDissolveView(s)
+                            vc.presentPopupViewController(s, animated: true)
+                            s.targetType(2)
                         }
                     } else if currentStatus == AIRechargeViewType.tixian {
                         if let vc = self.viewControllerPre {
@@ -128,7 +129,8 @@ class AIRechargeView: UIView {
                                 s.mthcode = model.method_name
                             }
                             s.moneynumber = self.moneyNumber
-                            vc.showTransitionStyleCrossDissolveView(s)
+                            vc.presentPopupViewController(s, animated: true)
+                            s.targetType(2)
                         }
                     }
                 }
