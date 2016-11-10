@@ -150,6 +150,7 @@ class AIBalanceRechargeViewController: AIBaseViewController {
             viewrech.moneyNumber = accountMoneyLabel?.text?.toInt() ?? 0
             viewrech.initSettings(AIRechargeViewType.charge)
             viewrech.PlaceholdObject = currentPayModel
+            viewrech.viewControllerPre = self
         }
     }
     

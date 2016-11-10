@@ -10,6 +10,8 @@
             <connections>
                 <outlet property="complateButton" destination="vUm-yg-642" id="MJ7-wW-I23"/>
                 <outlet property="email" destination="gAE-Ra-PPC" id="bOA-yM-F6I"/>
+                <outlet property="image" destination="5Ps-z1-VUl" id="uFO-Tr-CIQ"/>
+                <outlet property="money" destination="3lt-Ij-6eJ" id="7zZ-rI-Ipd"/>
                 <outlet property="name" destination="LLY-LA-EPQ" id="HyT-Bg-Bbf"/>
                 <outlet property="toast" destination="EJh-cU-f8d" id="50F-9O-soa"/>
                 <outlet property="view" destination="Bhh-a8-5LY" id="NZq-Hy-sOH"/>
@@ -107,6 +109,6 @@
         </view>
     </objects>
     <resources>
-        <image name="balanceicon" width="134" height="134"/>
+        <image name="balanceicon" width="16" height="16"/>
     </resources>
 </document>

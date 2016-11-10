@@ -58,7 +58,7 @@ class AIBaseViewController: UIViewController {
         backgroundImageView = UIImageView(frame: self.view.bounds)
         backgroundImageView.image = UIImage(named: "Job_Background")
         self.view.insertSubview(backgroundImageView, atIndex: 0)
-        self.view.addSubview(backgroundView)
+        self.view.addSubview(backgroundImageView)
     }
 
     func makeBlurBackgroundView() {

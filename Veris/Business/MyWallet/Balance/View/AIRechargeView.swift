@@ -28,6 +28,7 @@ class AIRechargeView: UIView {
     var PlaceholdObject: AnyObject?
     var moneyNumber: Int = 0
     private var currentStatus: AIRechargeViewType? = nil
+    var viewControllerPre: UIViewController? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -102,7 +103,7 @@ class AIRechargeView: UIView {
         lists["amout"] = "\(moneyNumber)"
         lists["money_type"] = "CNY"
         lists["unit"] = "元"
-        showLoadingWithMessage("正在检查资金帐户")
+        showLoadingWithMessage("正在处理中...")
         AIFundManageServices.reqeustWithdraw(lists, success: { (obj) in
             if(obj) {
                 self.dismissLoading()
@@ -112,22 +113,24 @@ class AIRechargeView: UIView {
                 
                 if let currentStatus = self.currentStatus {
                     if currentStatus == AIRechargeViewType.charge {
-                        if let vc = UIApplication.sharedApplication().windows.first?.rootViewController {
+                        if let vc = self.viewControllerPre {
                             let s = AITiXianViewController.initFromNib()
                             if let model  = self.PlaceholdObject as? AICapitalAccount {
                                  s.mthcode = model.method_name
                             }
                             s.moneynumber = self.moneyNumber
-                            vc.showTransitionStyleCrossDissolveView(s)
+                            vc.presentPopupViewController(s, animated: true)
+                            s.targetType(2)
                         }
                     } else if currentStatus == AIRechargeViewType.tixian {
-                        if let vc = UIApplication.sharedApplication().windows.first?.rootViewController {
+                        if let vc = self.viewControllerPre {
                             let s = AITiXianViewController.initFromNib()
                             if let model  = self.PlaceholdObject as? AICapitalAccount {
                                 s.mthcode = model.method_name
                             }
                             s.moneynumber = self.moneyNumber
-                            vc.showTransitionStyleCrossDissolveView(s)
+                            vc.presentPopupViewController(s, animated: true)
+                            s.targetType(2)
                         }
                     }
                 }
