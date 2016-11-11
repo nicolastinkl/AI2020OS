@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIP-ik-c74">
-                    <color key="backgroundColor" red="0.058823529409999999" green="0.52549019610000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="27" id="Ada-Fn-tCD"/>
                         <constraint firstAttribute="width" constant="69" id="LXI-s3-svC"/>
@@ -91,6 +91,14 @@
                             <color key="textColor" white="1" alpha="0.45611702129999998" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Mo-Ps-7Ks">
+                            <frame key="frameInset" minX="1" minY="5" width="0.5" height="82"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -108,7 +116,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dT-Vx-05R">
-                            <frame key="frameInset" minX="61" minY="55" width="13" height="22"/>
+                            <frame key="frameInset" minX="65" minY="55" width="13" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="0.45611702129999998" colorSpace="calibratedWhite"/>
@@ -119,6 +127,14 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                             <color key="textColor" red="1" green="0.8980392157" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbU-ug-7tY">
+                            <frame key="frameInset" minX="82" minY="5" width="0.5" height="82"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -140,12 +156,12 @@
                 <constraint firstItem="vDP-AR-M0K" firstAttribute="top" secondItem="WIP-ik-c74" secondAttribute="bottom" constant="22" id="dMK-cW-3hA"/>
                 <constraint firstItem="Rz6-3o-F8q" firstAttribute="top" secondItem="hdZ-ev-qf2" secondAttribute="bottom" constant="3" id="eUB-Ie-sZT"/>
                 <constraint firstItem="WIP-ik-c74" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fdt-pG-og7"/>
-                <constraint firstItem="hdZ-ev-qf2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="opP-q8-E8n"/>
+                <constraint firstItem="hdZ-ev-qf2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="opP-q8-E8n"/>
                 <constraint firstItem="Qif-lh-0FW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="p3W-Pi-Zdq"/>
                 <constraint firstItem="hdZ-ev-qf2" firstAttribute="top" secondItem="WIP-ik-c74" secondAttribute="bottom" constant="22" id="tEC-0I-ydw"/>
-                <constraint firstAttribute="trailing" secondItem="vDP-AR-M0K" secondAttribute="trailing" constant="16" id="y2g-FW-QRA"/>
+                <constraint firstAttribute="trailing" secondItem="vDP-AR-M0K" secondAttribute="trailing" constant="40" id="y2g-FW-QRA"/>
             </constraints>
-            <point key="canvasLocation" x="-110.5" y="50.5"/>
+            <point key="canvasLocation" x="-528.5" y="-56.5"/>
         </view>
     </objects>
 </document>

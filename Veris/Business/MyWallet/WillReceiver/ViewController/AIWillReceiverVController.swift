@@ -28,7 +28,6 @@ class AIWillReceiverVController: AIBaseViewController {
             self.tableview.reloadData()
             self.view.hideLoading()
             }) { (error) in
-                
                 self.view.hideLoading()
         }
     }

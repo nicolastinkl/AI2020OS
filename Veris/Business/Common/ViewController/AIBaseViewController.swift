@@ -53,7 +53,6 @@ class AIBaseViewController: UIViewController {
         makeNavigatoinBar()
     }
 
-
     func makeBackgroundView() {
         backgroundImageView = UIImageView(frame: self.view.bounds)
         backgroundImageView.image = UIImage(named: "Job_Background")
