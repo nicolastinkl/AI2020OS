@@ -185,6 +185,6 @@
 
 #import "AIALAssetsImageOperator.h"
 
-
+#import "FLEXManager.h"
 // CapitalFlow
 #import "CapitalFlowModel.h"

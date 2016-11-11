@@ -263,22 +263,12 @@
     // 演示屏蔽
     AIFundManageViewController *fundManageViewController = [[AIFundManageViewController alloc] initWithNibName:@"AIFundManageViewController" bundle:nil];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:fundManageViewController];
+    nav.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    nav.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:nav animated:YES completion:nil];
-    
-    
-    /*
-     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AICouponsStoryboard" bundle:nil];
-    //AICouponViewController AIBusinessCurrencyViewController
-    AIBusinessCurrencyViewController *bcViewController = [storyboard instantiateViewControllerWithIdentifier:@"AICouponViewController"];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:bcViewController];
-    [self presentViewController:nav animated:YES completion:nil];
-     */
-    
-    
 }
 
 - (void)showMyWork {
-
     // 演示屏蔽
     AIWorkManageViewController *workManageViewController = [[AIWorkManageViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:workManageViewController];

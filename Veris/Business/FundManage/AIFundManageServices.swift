@@ -25,7 +25,7 @@ class AIFundManageServices: NSObject {
                 success(nil)
             }
         }) { (error: AINetError, errorDes: String!) -> Void in
-            
+            fail(errorDes)
         }
     }
     
@@ -45,7 +45,7 @@ class AIFundManageServices: NSObject {
                 success(nil)
             }
         }) { (error: AINetError, errorDes: String!) -> Void in
-            
+            fail(errorDes)
         }
     }
     
@@ -66,10 +66,10 @@ class AIFundManageServices: NSObject {
                 }                
                 success(arrayJson)
             } else {
-                success(nil)
+                success([])
             }
         }) { (error: AINetError, errorDes: String!) -> Void in
-            
+            fail(errorDes)
         }
     }
 
@@ -93,7 +93,7 @@ class AIFundManageServices: NSObject {
                 success(nil)
             }
         }) { (error: AINetError, errorDes: String!) -> Void in
-            
+            fail(errorDes)
         }
     }
     
@@ -113,7 +113,7 @@ class AIFundManageServices: NSObject {
                 success(false)
             }
         }) { (error: AINetError, errorDes: String!) -> Void in
-            
+            fail(errorDes)
         }
     }
 

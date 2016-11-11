@@ -39,7 +39,7 @@ class AIFundBaseViewCotroller: UIViewController {
         self.navigationController?.navigationBarHidden = true
     }
     
-    // MARK: -> Internal methods
+    // MARK: -> Internal methods
     func addSubViewController(viewController: UIViewController, toView: UIView? = nil) {
         self.addChildViewController(viewController)
         containView.addSubview(viewController.view)

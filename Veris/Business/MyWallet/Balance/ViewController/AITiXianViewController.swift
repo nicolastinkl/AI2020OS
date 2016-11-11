@@ -25,8 +25,7 @@ class AITiXianViewController: AIBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+         
         complateButton.layer.cornerRadius = 5
         complateButton.layer.masksToBounds = true
         
@@ -44,13 +43,15 @@ class AITiXianViewController: AIBaseViewController {
                     (sview as! UILabel).text = ""
                 }
             })
-            
+            toast.text = "付款成功"
             image.image = UIImage(named: "complate_charge")
         }
     }
     
     override func makeBackgroundView() {
-        
+        let backgroundImageView = UIImageView(frame: self.view.bounds)
+        backgroundImageView.image = UIImage(named: "FakeLogin_BG")
+        self.view.insertSubview(backgroundImageView, atIndex: 0)
     }
     
     @IBAction func complateAction(sender: AnyObject) {

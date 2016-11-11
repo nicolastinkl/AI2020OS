@@ -553,13 +553,21 @@ class AIProductInfoViewController: UIViewController {
 		tagsView.setHeight(165 / 3)
         let countPackage = dataModel?.package?.count ?? 0
         var index = 0
+        var ziyouID = 0
         dataModel?.package?.forEach({ (model) in
             // add tag view.
             let tag = DesignableButton()
             tag.borderColor = UIColor.whiteColor()
             tag.borderWidth = 0.5
             tag.cornerRadius = 14
-            tagsView.addSubview(tag)
+            if let name = model.name {
+                if name == "自由定制" {
+                    ziyouID = model.pid ?? 0
+                } else {
+                    tagsView.addSubview(tag)
+                }
+            }
+            
             tag.titleLabel?.textColor = UIColor.whiteColor()
             tag.titleLabel?.font = UIFont.systemFontOfSize(13)
             let len = model.name?.length ?? 1
@@ -605,7 +613,9 @@ class AIProductInfoViewController: UIViewController {
 			tag.frame = CGRectMake(self.view.width - width - 14 - 10, 14, width, 80 / 3)
 			
 			tag.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-			
+			tag.tag = ziyouID
+            tag.associatedName = "0"
+            changeButtonNormalState(tag)
 			tag.setTitle("自由定制", forState: UIControlState.Normal)
             tag.addTarget(self, action: #selector(AIProductInfoViewController.showDiyCustomView(_:)), forControlEvents: UIControlEvents.TouchDown)
 			tag.setBackgroundImage(UIColor(hexString: "#0f86e8").imageWithColor(), forState: UIControlState.Highlighted)
@@ -965,7 +975,6 @@ class AIProductInfoViewController: UIViewController {
                 }
             }
             
-            
             if let tagCon = button.associatedName?.toInt() {
                 if tagCon == 1 {
                     button.associatedName = "0"
@@ -1002,6 +1011,7 @@ class AIProductInfoViewController: UIViewController {
     
     // MARK: - DIY ACTION
     func showDiyCustomView(sender: AnyObject) {
+        changeButtonState(sender)
         let model = AIBuyerBubbleModel()
         if proposal_id <= 0 {
             model.proposal_id = dataModel?.proposal_inst_id ?? 0
