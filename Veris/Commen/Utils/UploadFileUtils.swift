@@ -23,11 +23,11 @@ class LeanCloudUploadFileUtils: UploadFileUtils {
         return file.url
     }
 
-    func uploadImage(image: UIImage, competion:(Bool, NSError!) -> Void) {
+    func uploadImage(image: UIImage, competion:(String?, NSError!) -> Void) {
         let data = UIImageJPEGRepresentation(image, 0.1)
         let file = AVFile(data: data)
         file.saveInBackgroundWithBlock { (success, error) in
-            competion(success, error)
+            competion(file.url, error)
         }
 
     }
