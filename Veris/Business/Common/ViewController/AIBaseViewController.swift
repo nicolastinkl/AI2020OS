@@ -53,12 +53,14 @@ class AIBaseViewController: UIViewController {
         makeNavigatoinBar()
     }
 
-
     func makeBackgroundView() {
         backgroundImageView = UIImageView(frame: self.view.bounds)
         backgroundImageView.image = UIImage(named: "Job_Background")
         self.view.insertSubview(backgroundImageView, atIndex: 0)
         //self.view.addSubview(backgroundImageView)
+        backgroundImageView.snp_makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
     }
 
     func makeBlurBackgroundView() {
@@ -67,6 +69,9 @@ class AIBaseViewController: UIViewController {
         blurBackgroundView?.frame = self.view.bounds
         //self.view.addSubview(blurBackgroundView!)
         self.view.insertSubview(blurBackgroundView!, atIndex: 0)
+        backgroundImageView.snp_makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
     }
 
     //Make navigatonBarAppearance

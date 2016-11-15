@@ -123,11 +123,17 @@ class ServiceCardDetailFlag: ServiceParamlView {
 		flagLabel.layer.cornerRadius = CORNER_RADIOS_SIZE
 		flagLabel.layer.masksToBounds = true
 		flagLabel.textAlignment = NSTextAlignment.Center
+        
 		// MARK: - TODO
 		if let index = colorInfo.indexOf(text) {
 			flagLabel.backgroundColor = colorArray[index]
 		} else {
-			flagLabel.backgroundColor = colorArray[number]
+            if number < colorArray.count {
+                flagLabel.backgroundColor = colorArray[number]
+            } else {
+                flagLabel.backgroundColor = colorArray.first!
+            }
+			
 		}
 		flagContainer.addSubview(flagLabel)
 		return flagLabel.frame

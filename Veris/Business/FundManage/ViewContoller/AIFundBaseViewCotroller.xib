@@ -48,8 +48,8 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-w4-4Lq">
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="kfB-o3-oJF"/>
-                                <constraint firstAttribute="height" constant="17" id="nvG-fb-Psw"/>
+                                <constraint firstAttribute="width" constant="40" id="kfB-o3-oJF"/>
+                                <constraint firstAttribute="height" constant="30" id="nvG-fb-Psw"/>
                             </constraints>
                             <state key="normal" image="arrowdown"/>
                             <connections>
@@ -60,7 +60,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="qzN-9q-Opl"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" white="1" alpha="0.50598404255319152" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -88,7 +88,7 @@
                         <constraint firstItem="fp1-GU-pNV" firstAttribute="top" secondItem="nvU-AO-yyM" secondAttribute="bottom" constant="8" id="NR7-sU-sYH"/>
                         <constraint firstItem="wyg-w4-4Lq" firstAttribute="leading" secondItem="O2I-Hv-soj" secondAttribute="leading" constant="8" id="WkE-SJ-6c4"/>
                         <constraint firstItem="nvU-AO-yyM" firstAttribute="leading" secondItem="eZX-gT-RIH" secondAttribute="trailing" constant="20" id="YOR-Qc-5Js"/>
-                        <constraint firstAttribute="bottom" secondItem="wyg-w4-4Lq" secondAttribute="bottom" constant="13" id="Yyy-Ah-D1I"/>
+                        <constraint firstAttribute="bottom" secondItem="wyg-w4-4Lq" secondAttribute="bottom" constant="6" id="Yyy-Ah-D1I"/>
                         <constraint firstItem="nvU-AO-yyM" firstAttribute="top" secondItem="h9J-XC-Lha" secondAttribute="bottom" constant="7" id="asa-ef-eO6"/>
                         <constraint firstItem="eAy-Ge-OAd" firstAttribute="leading" secondItem="O2I-Hv-soj" secondAttribute="leading" id="dtY-Fh-q7s"/>
                         <constraint firstAttribute="trailing" secondItem="6mI-g4-eWk" secondAttribute="trailing" constant="42" id="h36-FM-ulx"/>

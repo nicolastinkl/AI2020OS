@@ -73,10 +73,21 @@ NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Bl
     
     func fillViewWithData() {
         var index = 0
+        
         daifu.text = String(dataSource?.total_wait_pay_amout ?? 0)
         daishou.text = String(dataSource?.total_wait_collection_amout ?? 0)
         total.text = String(dataSource?.total_income_amout ?? 0)
         
+        
+        
+        zijinButton.layer.cornerRadius = 5
+        zijinButton.layer.borderColor = UIColor(hex: "0f86e8").CGColor
+        zijinButton.layer.borderWidth = 0.5
+        zijinButton.backgroundColor = UIColor.clearColor()
+        zijinButton.setTitle("资金流水", forState: UIControlState.Normal)
+        zijinButton.setTitleColor(UIColor(hex: "0f86e8"), forState: UIControlState.Normal)
+        zijinButton.titleLabel?.font = UIFont.systemFontOfSize(15)
+        zijinButton.layer.masksToBounds = true
         
         localCode {
             let badge = GIBadgeView()
@@ -153,7 +164,9 @@ NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Bl
                 //我的余额
                 let holdVC = AIMyWalletBalanceViewController.initFromNib()
                 let vc = AIFundBaseViewCotroller.initFromNib()
-                showTransitionStyleCrossDissolveView(vc)
+                vc.potColor = UIColor(hex: contentArrayColor.first!)
+                vc.title = "我的余额"
+                showTransitionStyleCrossDissolveView(vc)                
                 vc.setupFillView(holdVC)
                 break
             case 2:
@@ -249,7 +262,7 @@ NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Bl
     /**
      copy from old View Controller.
      */
-    func addNewSubView(cview: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = 0) {
+    func addNewSubView(cview: UIView, color: UIColor = UIColor.clearColor(), space: CGFloat = -10) {
         contentScrollView.addSubview(cview)
         cview.setWidth(self.view.width)
         cview.setTop(preCacheView.top + preCacheView.height+space)
