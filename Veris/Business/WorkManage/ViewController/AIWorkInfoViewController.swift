@@ -195,20 +195,22 @@ class AIWorkInfoViewController: UIViewController {
 
             self.showLoading()
 
-            let urlString = LeanCloudUploadFileUtils().uploadImage(photo)
+            LeanCloudUploadFileUtils().uploadImage(photo, competion: { (urlString, error) in
+                if urlString != nil {
+                    let cellKey = "\(model.type_id).\(model.aspect_type)"
+                    let itemImageView = self.qualificationView.cachedCellViewDic[cellKey] as! UIImageView
 
-            if urlString != nil {
-                let cellKey = "\(model.type_id).\(model.aspect_type)"
-                let itemImageView = qualificationView.cachedCellViewDic[cellKey] as! UIImageView
+                    self.uploadAspectPhoto(urlString!, type_id: model.type_id!, aspect_type: model.aspect_type!, completion: {
+                        itemImageView.image = photo
+                        self.dismissLoading()
+                    })
 
-                uploadAspectPhoto(urlString!, type_id: model.type_id!, aspect_type: model.aspect_type!, completion: { 
-                    itemImageView.image = photo
-                })
-                self.dismissLoading()
-            } else {
-                self.dismissLoading()
-                AIAlertView().showError("上传失败", subTitle: "")
-            }
+                } else {
+                    self.dismissLoading()
+                    AIAlertView().showError("上传失败", subTitle: "")
+                }
+            })
+
         }
 
     }
@@ -293,7 +295,7 @@ extension AIWorkInfoViewController: AIAssetsPickerControllerDelegate {
         if let asset = assets.firstObject {
 
             if asset is ALAsset {
-                let image = AIALAssetsImageOperator.thumbnailImageForAsset(asset as! ALAsset, maxPixelSize: 500)
+                let image = AIALAssetsImageOperator.thumbnailImageForAsset(asset as! ALAsset, maxPixelSize: 300)
                 // 准备上传图片
                 weak var wf = self
                 dispatch_async(dispatch_get_main_queue(), { 
