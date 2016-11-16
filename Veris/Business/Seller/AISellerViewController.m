@@ -43,6 +43,8 @@
 
 @property (nonatomic, strong) NSMutableArray *tableHeaderList; // array of sort String
 
+@property (nonatomic, strong) UIScrollView *scrollView;
+
 @end
 
 @implementation AISellerViewController
