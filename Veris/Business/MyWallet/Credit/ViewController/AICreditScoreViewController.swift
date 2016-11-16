@@ -25,7 +25,7 @@ class AICreditScoreViewController: AIWBaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setIndicatorDotColor(AITools.colorWithR(0x7b, g: 0x39, b: 0x90))
+        setIndicatorDotColor(AITools.colorWithR(26, g: 109, b: 149))
         titleLabel.text = "我的信用积分"
         bottomLabel.text = "您的信息将会同步评估"
         loadData()
@@ -59,10 +59,12 @@ class AICreditScoreViewController: AIWBaseViewController {
     }
 
     func loadData() {
-
+        self.showLoading()
         AIFundManageServices.queryCreditScoreSuccess({ (model) in
+            self.dismissLoading()
             self.parseModel(model)
             }) { (error) in
+                self.dismissLoading()
                 AIAlertView().showError(error, subTitle: "")
         }
     }
@@ -79,9 +81,10 @@ class AICreditScoreViewController: AIWBaseViewController {
         // creditScoreLabel
         let creditScoreLabelFontSize = 150.displaySizeFrom1242DesignSize()
         let creditScoreLabelFrame = CGRect(x: 0.displaySizeFrom1242DesignSize(), y: 173.displaySizeFrom1242DesignSize(), width: maxWidth, height: creditScoreLabelFontSize)
-        creditScoreLabel = AIViews.normalLabelWithFrame(creditScoreLabelFrame, text: "996", fontSize: creditScoreLabelFontSize, color: AITools.colorWithR(0xde, g: 0xe3, b: 0x00))
+        creditScoreLabel = AIViews.normalLabelWithFrame(creditScoreLabelFrame, text: "0", fontSize: creditScoreLabelFontSize, color: AITools.colorWithR(0xde, g: 0xe3, b: 0x00))
         creditScoreLabel.font = AITools.myriadSemiCondensedWithSize(creditScoreLabelFontSize)
         creditScoreLabel.textAlignment = .Center
+
         scoreView.addSubview(creditScoreLabel)
 
         let descFontSize = 48.displaySizeFrom1242DesignSize()
@@ -89,7 +92,7 @@ class AICreditScoreViewController: AIWBaseViewController {
         let desLabel = AIViews.normalLabelWithFrame(descFrame, text: "我的信用积分", fontSize: descFontSize, color: UIColor.whiteColor())
         desLabel.textAlignment = .Center
         desLabel.alpha = 0.6
-        creditScoreLabel.font = AITools.myriadSemiCondensedWithSize(descFontSize)
+        desLabel.font = AITools.myriadSemiCondensedWithSize(descFontSize)
         scoreView.addSubview(desLabel)
 
         // Line
@@ -104,13 +107,13 @@ class AICreditScoreViewController: AIWBaseViewController {
         let rankHeight = 152.displaySizeFrom1242DesignSize()
         let rankFrame = CGRect(x: 0, y: horLine.frame.maxY, width: maxWidth/2, height: rankHeight)
 
-        rankLabel = AIViews.normalLabelWithFrame(rankFrame, text: "好友中排名 20", fontSize: 48.displaySizeFrom1242DesignSize(), color: UIColor.init(white: 1, alpha: 0.48))
+        rankLabel = AIViews.normalLabelWithFrame(rankFrame, text: "好友中排名 0", fontSize: 48.displaySizeFrom1242DesignSize(), color: UIColor.init(white: 1, alpha: 0.48))
         rankLabel.textAlignment = .Center
 
         scoreView.addSubview(rankLabel)
 
         let timeFrame = CGRect(x: maxWidth/2 + 66.displaySizeFrom1242DesignSize(), y: horLine.frame.maxY, width: maxWidth/2-66.displaySizeFrom1242DesignSize(), height: rankHeight)
-        timeLabel = AIViews.normalLabelWithFrame(timeFrame, text: "评估时间: 2016.7.10", fontSize: 48.displaySizeFrom1242DesignSize(), color: UIColor.init(white: 1, alpha: 0.48))
+        timeLabel = AIViews.normalLabelWithFrame(timeFrame, text: "评估时间: ", fontSize: 48.displaySizeFrom1242DesignSize(), color: UIColor.init(white: 1, alpha: 0.48))
         timeLabel.textAlignment = .Center
 
         scoreView.addSubview(timeLabel)

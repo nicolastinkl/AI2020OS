@@ -69,7 +69,7 @@ class AIBalanceTixianViewController: AIBaseViewController {
         setFont(payMoneyLabel)
         view.addSubview(payMoneyLabel)
         
-        let accountLabel = UILabel(frame: CGRectMake(maxWidth-95/3-100, 276/3, 100, 50))
+        let accountLabel = UILabel(frame: CGRectMake(maxWidth-95/3-300, 276/3, 300, 50))
         accountLabel.text = "支付宝（*****@gmail.com）"
         accountLabel.textAlignment = .Right
         accountLabel.textColor = UIColor(hexString: "#ffffff")

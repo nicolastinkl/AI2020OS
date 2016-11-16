@@ -61,6 +61,22 @@
                             <color key="textColor" white="1" alpha="0.45611702129999998" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbU-ug-7tY">
+                            <frame key="frameInset" minX="-20" minY="5" width="0.5" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="0.72406914893617036" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Mo-Ps-7Ks">
+                            <frame key="frameInset" minX="100" minY="5" width="0.5" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="0.72406914893617036" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -89,14 +105,6 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="0.45611702129999998" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Mo-Ps-7Ks">
-                            <frame key="frameInset" minX="1" minY="5" width="0.5" height="82"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -129,14 +137,6 @@
                             <color key="textColor" red="1" green="0.8980392157" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbU-ug-7tY">
-                            <frame key="frameInset" minX="82" minY="5" width="0.5" height="82"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -161,7 +161,7 @@
                 <constraint firstItem="hdZ-ev-qf2" firstAttribute="top" secondItem="WIP-ik-c74" secondAttribute="bottom" constant="22" id="tEC-0I-ydw"/>
                 <constraint firstAttribute="trailing" secondItem="vDP-AR-M0K" secondAttribute="trailing" constant="40" id="y2g-FW-QRA"/>
             </constraints>
-            <point key="canvasLocation" x="-528.5" y="-56.5"/>
+            <point key="canvasLocation" x="-496" y="-163"/>
         </view>
     </objects>
 </document>

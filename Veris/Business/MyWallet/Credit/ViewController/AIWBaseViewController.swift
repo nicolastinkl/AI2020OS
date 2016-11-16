@@ -115,9 +115,15 @@ class AIWBaseViewController: AIBaseViewController {
         let frame = CGRect(x: 90.displaySizeFrom1242DesignSize(), y: y, width: buttonWidth, height: buttonHeight)
         hideButton = AIViews.baseButtonWithFrame(frame, normalTitle: "")
         hideButton.setImage(UIImage(named: "Wallet_Dismiss"), forState: .Normal)
-        hideButton.addTarget(self, action: #selector(self.dismissSelf), forControlEvents: .TouchUpInside)
+        //hideButton.addTarget(self, action: #selector(self.dismissSelf), forControlEvents: .TouchUpInside)
         contentView.addSubview(hideButton)
 
+        let tapView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        tapView.center = hideButton.center
+        let getsture = UITapGestureRecognizer(target: self, action: #selector(self.dismissSelf))
+        tapView.addGestureRecognizer(getsture)
+    
+        contentView.addSubview(tapView)
         // bottomLabel
 
         let labelX = hideButton.frame.maxX + 5
