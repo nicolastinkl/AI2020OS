@@ -64,7 +64,7 @@
     // Do any additional setup after loading the view.
 
 
-
+    [self makeContentScrollView];
     [self makeBackGroundView];
     [self makeTableView];
     [self makeBottomBar];
@@ -73,14 +73,31 @@
 }
 
 
+- (void)makeContentScrollView
+{
+    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame)*2, CGRectGetHeight(self.view.frame));
+    [self.view addSubview:self.scrollView];
 
-- (void)viewTapped {
-#if DEBUG
-    AIRequirementViewController *requirementVC = [UIStoryboard storyboardWithName:@"UIRrequirementStoryboard" bundle:nil].instantiateInitialViewController;
-    [self.navigationController pushViewController:requirementVC animated:YES];
-#endif
+    /// test
+
+    // add logo
+
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, 80, 80);
+    button.center = CGPointMake(CGRectGetWidth(self.view.frame)*1.5, CGRectGetHeight(self.view.frame)/3);
+    [button setImage:[UIImage imageNamed:@"top_logo_default"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"top_logo_click"] forState:UIControlStateHighlighted];
+    [button addTarget:self action:@selector(gotoMyteam) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:button];
 }
 
+
+- (void)gotoMyteam
+{
+
+}
 
 
 - (AIMessage *)getServiceListWithUserID:(NSInteger)userID role:(NSInteger)role {
@@ -343,7 +360,7 @@
     });
 
 
-    [self.view addSubview:self.tableView];
+    [self.scrollView addSubview:self.tableView];
     //[self makeMaskForTable];
 }
 
