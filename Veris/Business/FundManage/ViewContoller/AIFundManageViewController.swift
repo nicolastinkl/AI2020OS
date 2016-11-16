@@ -68,7 +68,6 @@ NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Bl
         if contentScrollView.subviews.count > 0 {
             return
         }
-      
     }
     
     func fillViewWithData() {
@@ -77,8 +76,6 @@ NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Bl
         daifu.text = String(dataSource?.total_wait_pay_amout ?? 0)
         daishou.text = String(dataSource?.total_wait_collection_amout ?? 0)
         total.text = String(dataSource?.total_income_amout ?? 0)
-        
-        
         
         zijinButton.layer.cornerRadius = 5
         zijinButton.layer.borderColor = UIColor(hex: "0f86e8").CGColor
@@ -239,8 +236,6 @@ NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Bl
                 break
             }
         }
-        
-        
     }
     
     //MARK: NavigationBar
