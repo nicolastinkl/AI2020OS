@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bR5-Hq-kZV">
-                    <rect key="frame" x="24" y="609" width="365" height="46"/>
+                    <rect key="frame" x="24" y="630" width="365" height="46"/>
                     <color key="backgroundColor" red="0.058823529409999999" green="0.52549019610000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="SbF-8T-kw7"/>
@@ -36,7 +36,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z5j-an-LfY">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="589"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="610"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="999" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <connections>
@@ -53,7 +53,7 @@
                 <constraint firstItem="bR5-Hq-kZV" firstAttribute="top" secondItem="Z5j-an-LfY" secondAttribute="bottom" constant="20" id="Ihk-Qs-dE1"/>
                 <constraint firstItem="bR5-Hq-kZV" firstAttribute="leading" secondItem="rM4-XZ-PlF" secondAttribute="leading" constant="24" id="SCh-oO-MIO"/>
                 <constraint firstAttribute="trailing" secondItem="Z5j-an-LfY" secondAttribute="trailing" id="jXf-Kf-djN"/>
-                <constraint firstAttribute="bottom" secondItem="bR5-Hq-kZV" secondAttribute="bottom" constant="81" id="pkv-B6-x1N"/>
+                <constraint firstAttribute="bottom" secondItem="bR5-Hq-kZV" secondAttribute="bottom" constant="60" id="pkv-B6-x1N"/>
             </constraints>
             <point key="canvasLocation" x="-147.5" y="21.5"/>
         </view>
