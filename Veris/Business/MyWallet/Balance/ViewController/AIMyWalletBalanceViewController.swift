@@ -31,8 +31,16 @@ class AIMyWalletBalanceViewController: UIViewController {
         
         AIFundManageServices.reqeustBlanceInfo({ (model) in
             self.name.text = model?.user_name ?? ""
-            self.money.text = "余额\(model?.balance_amout ?? 0)元"
-            self.tixianmoney.text  = "可提现金额\(model?.withdraw_balance_amout ?? 0)元"
+            
+            let monsddsf = "\(model?.balance_amout ?? 0)"
+            let sss = "余额\(model?.balance_amout ?? 0)元"
+            let mString = NSMutableAttributedString(string: sss)
+            
+            mString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(30.0), range: NSMakeRange(mString.length-monsddsf.length-1, monsddsf.length))
+            mString.addAttribute(NSForegroundColorAttributeName, value: UIColor(hexString: "fee300"), range: NSMakeRange(mString.length-monsddsf.length-1, monsddsf.length))
+           self.money.attributedText = mString
+            
+            self.tixianmoney.text  = "可提现\(model?.withdraw_balance_amout ?? 0)元"
             self.imageview.sd_setImageWithURL(NSURL(string:model?.user_head_url ?? ""))
             }) { (error) in                
         }

@@ -92,9 +92,9 @@
                 <constraint firstItem="wrm-ff-fQj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="77" id="YR4-40-c3A"/>
                 <constraint firstAttribute="trailing" secondItem="LYp-Kf-DW5" secondAttribute="trailing" constant="76" id="dkm-vX-1dQ"/>
                 <constraint firstItem="ws7-bm-ffe" firstAttribute="top" secondItem="vGj-Hd-Wmz" secondAttribute="bottom" constant="18" id="kNU-Ft-pcq"/>
-                <constraint firstItem="vGj-Hd-Wmz" firstAttribute="top" secondItem="LYp-Kf-DW5" secondAttribute="bottom" constant="26" id="lWc-PI-tZn"/>
+                <constraint firstItem="vGj-Hd-Wmz" firstAttribute="top" secondItem="LYp-Kf-DW5" secondAttribute="bottom" constant="15" id="lWc-PI-tZn"/>
                 <constraint firstItem="PFr-2k-JhL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="77" id="mLF-DJ-9UB"/>
-                <constraint firstItem="LYp-Kf-DW5" firstAttribute="top" secondItem="wrm-ff-fQj" secondAttribute="bottom" constant="16" id="nWV-fm-HJB"/>
+                <constraint firstItem="LYp-Kf-DW5" firstAttribute="top" secondItem="wrm-ff-fQj" secondAttribute="bottom" constant="40" id="nWV-fm-HJB"/>
                 <constraint firstAttribute="trailing" secondItem="PFr-2k-JhL" secondAttribute="trailing" constant="76" id="tiy-dh-gzC"/>
                 <constraint firstItem="daF-TX-Mbi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="33" id="vAt-nP-6ns"/>
                 <constraint firstItem="LYp-Kf-DW5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="77" id="y7B-Qa-sVm"/>
