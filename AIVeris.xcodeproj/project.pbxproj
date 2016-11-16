@@ -29,6 +29,11 @@
 		126F82251D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */; };
 		1271EFBE1DD55DF4002004D4 /* AITeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1271EFBC1DD55DF4002004D4 /* AITeamDetailViewController.swift */; };
 		1271EFBF1DD55DF4002004D4 /* AITeamDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1271EFBD1DD55DF4002004D4 /* AITeamDetailViewController.xib */; };
+		1271EFC21DDAFDE7002004D4 /* AITeamDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1271EFC01DDAFDE7002004D4 /* AITeamDetailTableViewCell.swift */; };
+		1271EFC31DDAFDE7002004D4 /* AITeamDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1271EFC11DDAFDE7002004D4 /* AITeamDetailTableViewCell.xib */; };
+		1271EFC61DDAFE36002004D4 /* AITeamDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1271EFC41DDAFE36002004D4 /* AITeamDetailCollectionViewCell.swift */; };
+		1271EFC71DDAFE36002004D4 /* AITeamDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1271EFC51DDAFE36002004D4 /* AITeamDetailCollectionViewCell.xib */; };
+		1271EFC91DDB2B78002004D4 /* AITeamDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1271EFC81DDB2B78002004D4 /* AITeamDetailViewModel.swift */; };
 		1273444D1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */; };
 		1273444F1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */; };
 		12873EE71D20C0BA00C3AF9A /* LoginConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */; };
@@ -972,6 +977,11 @@
 		126F82241D138EAE009B1C6D /* AIServiceExecuteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AIServiceExecuteStoryboard.storyboard; sourceTree = "<group>"; };
 		1271EFBC1DD55DF4002004D4 /* AITeamDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITeamDetailViewController.swift; sourceTree = "<group>"; };
 		1271EFBD1DD55DF4002004D4 /* AITeamDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITeamDetailViewController.xib; sourceTree = "<group>"; };
+		1271EFC01DDAFDE7002004D4 /* AITeamDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITeamDetailTableViewCell.swift; sourceTree = "<group>"; };
+		1271EFC11DDAFDE7002004D4 /* AITeamDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITeamDetailTableViewCell.xib; sourceTree = "<group>"; };
+		1271EFC41DDAFE36002004D4 /* AITeamDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITeamDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		1271EFC51DDAFE36002004D4 /* AITeamDetailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITeamDetailCollectionViewCell.xib; sourceTree = "<group>"; };
+		1271EFC81DDB2B78002004D4 /* AITeamDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITeamDetailViewModel.swift; sourceTree = "<group>"; };
 		1273444C1D29F64D00D7CCEF /* AICustomerOrderFoldedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AICustomerOrderFoldedView.xib; sourceTree = "<group>"; };
 		1273444E1D29F66A00D7CCEF /* AICustomerOrderFoldedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICustomerOrderFoldedView.swift; sourceTree = "<group>"; };
 		12873EE61D20C0BA00C3AF9A /* LoginConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConstants.swift; sourceTree = "<group>"; };
@@ -2306,6 +2316,7 @@
 		1271EFB91DD55DB2002004D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1271EFC81DDB2B78002004D4 /* AITeamDetailViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2322,6 +2333,10 @@
 		1271EFBB1DD55DB2002004D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1271EFC01DDAFDE7002004D4 /* AITeamDetailTableViewCell.swift */,
+				1271EFC11DDAFDE7002004D4 /* AITeamDetailTableViewCell.xib */,
+				1271EFC41DDAFE36002004D4 /* AITeamDetailCollectionViewCell.swift */,
+				1271EFC51DDAFE36002004D4 /* AITeamDetailCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5451,6 +5466,7 @@
 				FB0181101D0D650E00213DF8 /* AISearchBar.xib in Resources */,
 				84132CC61DC1AC72000AE195 /* CostItemCell.xib in Resources */,
 				935E58DB1D5315D900252B83 /* AIWorkDetailView.xib in Resources */,
+				1271EFC71DDAFE36002004D4 /* AITeamDetailCollectionViewCell.xib in Resources */,
 				81FAFBF21D4716F800DD3477 /* AICustomerBannerView.xib in Resources */,
 				C9AF97B31DC6F46B00ECC7EF /* AIWillPayVControllerCell.xib in Resources */,
 				9352BC841D656143003CD476 /* AIPayAmountView.xib in Resources */,
@@ -5526,6 +5542,7 @@
 				12CE5DEB1DC77AB20075EBD7 /* AICouponTableViewCell.xib in Resources */,
 				93BEFFDD1D0D474B00832799 /* AISuperiorityCellView.xib in Resources */,
 				81FAFBEF1D4716F800DD3477 /* TaskExecuteStoryboard.storyboard in Resources */,
+				1271EFC31DDAFDE7002004D4 /* AITeamDetailTableViewCell.xib in Resources */,
 				933BC82D1D001EA5005E1789 /* AICustomSearchHomeViewController.xib in Resources */,
 				8457331C1D937524000BA413 /* NodeParamTableViewCell.xib in Resources */,
 				81B1957E1D485B740086EB83 /* AIAlertStoryboard.storyboard in Resources */,
@@ -5747,6 +5764,7 @@
 				FB2373261D4F785100A8B38A /* AIRecommondForYouService.swift in Sources */,
 				81433D7A1CFBE5A700347C29 /* AIServiceTypes.m in Sources */,
 				9392B5831D1CD9F10007F241 /* MD5DataSigner.m in Sources */,
+				1271EFC91DDB2B78002004D4 /* AITeamDetailViewModel.swift in Sources */,
 				12DC8D931DAA4E42003117E4 /* AIWorkManageRequestHandler.swift in Sources */,
 				81433E941CFBE5A700347C29 /* FLEXKeyboardHelpViewController.m in Sources */,
 				12CE5DF41DC77DA80075EBD7 /* AICouponBusiModel.m in Sources */,
@@ -6014,6 +6032,7 @@
 				842CE6D71DAF293C0038E5C0 /* CapitalFlowViewController.swift in Sources */,
 				8175A7FF1CFD2710006F2C8F /* UIButton+WebCache.m in Sources */,
 				846A1DEA1DC0AEEF0031415E /* BillDetailViewController.swift in Sources */,
+				1271EFC61DDAFE36002004D4 /* AITeamDetailCollectionViewCell.swift in Sources */,
 				93C81F8A1D2B5CF500D84D46 /* AIServerProviderView.swift in Sources */,
 				81433CE91CFBE5A700347C29 /* ProposalEnum.swift in Sources */,
 				FB73551E1D23ACFC00CE549C /* AIProductCommentsViewController.swift in Sources */,
@@ -6044,6 +6063,7 @@
 				81433D2B1CFBE5A700347C29 /* ServiceCardTextView.swift in Sources */,
 				FB8D126F1D210BC200101EEE /* AIProductQAViewController.swift in Sources */,
 				81433CD71CFBE5A700347C29 /* AIFavoritesServicesModel.swift in Sources */,
+				1271EFC21DDAFDE7002004D4 /* AITeamDetailTableViewCell.swift in Sources */,
 				8457331B1D937524000BA413 /* NodeParamTableViewCell.swift in Sources */,
 				81433D871CFBE5A700347C29 /* UIPopView.swift in Sources */,
 				81433E2D1CFBE5A700347C29 /* AISelectedServiceTableVController.swift in Sources */,
