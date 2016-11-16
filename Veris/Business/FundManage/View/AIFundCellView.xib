@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AIFundCellView" customModule="Veris" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hongBottom" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-hR-hX0"/>
@@ -40,7 +40,7 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hongBottomline" translatesAutoresizingMaskIntoConstraints="NO" id="gvh-Fi-9SL">
                     <constraints>
-                        <constraint firstAttribute="height" constant="2" id="zNt-hQ-9IF"/>
+                        <constraint firstAttribute="height" constant="3" id="zNt-hQ-9IF"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6X-wG-slb">
@@ -67,16 +67,16 @@
                 <constraint firstItem="gvh-Fi-9SL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="46" id="7NJ-OL-TbN"/>
                 <constraint firstAttribute="trailing" secondItem="hCz-SJ-cvV" secondAttribute="trailing" constant="139" id="A1g-OF-fwP"/>
                 <constraint firstItem="rpZ-L1-6RG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="27" id="JZz-ic-aNk"/>
-                <constraint firstItem="gvh-Fi-9SL" firstAttribute="top" secondItem="hCz-SJ-cvV" secondAttribute="bottom" constant="7" id="NOI-yq-VbL"/>
+                <constraint firstItem="gvh-Fi-9SL" firstAttribute="top" secondItem="hCz-SJ-cvV" secondAttribute="bottom" constant="3" id="NOI-yq-VbL"/>
                 <constraint firstItem="iuK-hR-hX0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PJ6-ba-7QD"/>
                 <constraint firstAttribute="trailing" secondItem="rpZ-L1-6RG" secondAttribute="trailing" constant="16" id="Rzd-08-WSX"/>
                 <constraint firstItem="fWd-0o-498" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="22" id="Ucr-Sz-O1W"/>
                 <constraint firstAttribute="trailing" secondItem="iuK-hR-hX0" secondAttribute="trailing" id="XBz-L0-v4Y"/>
                 <constraint firstItem="hCz-SJ-cvV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="19" id="dZV-LL-bfO"/>
                 <constraint firstItem="s6f-Co-F58" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="46" id="goH-zO-VJu"/>
-                <constraint firstItem="s6f-Co-F58" firstAttribute="top" secondItem="gvh-Fi-9SL" secondAttribute="bottom" constant="9" id="hfd-Zf-Hlt"/>
+                <constraint firstItem="s6f-Co-F58" firstAttribute="top" secondItem="gvh-Fi-9SL" secondAttribute="bottom" constant="5" id="hfd-Zf-Hlt"/>
                 <constraint firstItem="iuK-hR-hX0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iR0-si-bW5"/>
-                <constraint firstItem="P6X-wG-slb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="ily-Zi-adr"/>
+                <constraint firstItem="P6X-wG-slb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="26" id="ily-Zi-adr"/>
                 <constraint firstItem="P6X-wG-slb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="27" id="jEV-Sf-qr4"/>
                 <constraint firstItem="fWd-0o-498" firstAttribute="leading" secondItem="gvh-Fi-9SL" secondAttribute="trailing" constant="10" id="peh-sk-jVX"/>
                 <constraint firstAttribute="trailing" secondItem="s6f-Co-F58" secondAttribute="trailing" constant="16" id="qx1-RB-aGD"/>
@@ -91,7 +91,7 @@
                 <outlet property="title" destination="hCz-SJ-cvV" id="FoY-Mh-qWb"/>
                 <outlet property="unit" destination="rpZ-L1-6RG" id="1cx-qf-GLb"/>
             </connections>
-            <point key="canvasLocation" x="-128" y="-63"/>
+            <point key="canvasLocation" x="123" y="103"/>
         </view>
     </objects>
     <resources>

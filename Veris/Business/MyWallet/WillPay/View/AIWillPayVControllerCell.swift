@@ -21,8 +21,14 @@ class AIWillPayVControllerCell: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
          let maxWidth = UIScreen.mainScreen().bounds.size.width
+        
+        nameLabel.textColor  = UIColor(hexString: "#ffffff")
+        addresss.textColor  = UIColor(hexString: "#ffffff", alpha: 0.6)
+        addresss.font = AITools.myriadLightWithSize(56.displaySizeFrom1242DesignSize())
+        time.font = AITools.myriadLightWithSize(42.displaySizeFrom1242DesignSize())
+        time.textColor  = UIColor(hexString: "#ffffff", alpha: 0.4)
         //add line 
-        let line = StrokeLineView(frame: CGRectMake(95/3, 118, maxWidth-(95/3)*2, 1))
+        let line = StrokeLineView(frame: CGRectMake(23, 150, maxWidth-(23)*2, 1))
         line.backgroundColor = UIColor.clearColor()
         addSubview(line)
         

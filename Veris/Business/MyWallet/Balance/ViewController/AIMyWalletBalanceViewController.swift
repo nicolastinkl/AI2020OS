@@ -47,14 +47,21 @@ class AIMyWalletBalanceViewController: UIViewController {
     }
     
     @IBAction func rechargeAction(sender: AnyObject) {
-        let bevc = AIBalanceRechargeViewController()
-        self.presentBlurViewController(bevc, animated: true, completion: nil)
+        
+        let containerVC = AIBalanceRechargeViewController()
+        containerVC.title = "余额充值"
+        let vc = UINavigationController(rootViewController: containerVC)
+        showTransitionStyleCrossDissolveView(vc)
+        
         
     }
     
     @IBAction func tixianAction(sender: AnyObject) {
-        let bevc = AIBalanceTixianViewController()
-        self.presentBlurViewController(bevc, animated: true, completion: nil)
+        let containerVC = AIBalanceTixianViewController()
+        containerVC.title = "余额提现"
+        let vc = UINavigationController(rootViewController: containerVC)
+        showTransitionStyleCrossDissolveView(vc)
+        
     }
     
 }

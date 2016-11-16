@@ -19,31 +19,11 @@ class AIBalanceTixianViewController: AIBaseViewController {
         
         super.viewDidLoad()
         
-        self.title = "余额提现"
-        
-        initNavigation()
         
         initLayout()
         
     }
     
-    func initNavigation() {
-        let maxWidth = UIScreen.mainScreen().bounds.size.width
-        
-        let payInfoLabel = UILabel(frame: CGRectMake(0, 0, maxWidth, 50))
-        payInfoLabel.text = "余额提现"
-        payInfoLabel.textAlignment = .Center
-        payInfoLabel.textColor = UIColor(hexString: "#ffffff", alpha: 1)
-        view.addSubview(payInfoLabel)
-        payInfoLabel.font = UIFont.systemFontOfSize(24)
-        
-        let backButton = goBackButtonWithImage("comment-back")
-        view.addSubview(backButton)
-        backButton.setLeft(7)
-        backButton.setTop(12)
-        
-    }
-
     func setFont(label: UILabel) {
         label.font = UIFont.systemFontOfSize(16)
     }
@@ -51,54 +31,54 @@ class AIBalanceTixianViewController: AIBaseViewController {
     func initLayout() {
         let maxWidth = UIScreen.mainScreen().bounds.size.width
  
-        let payInfoLabel = UILabel(frame: CGRectMake(95/3, 276/3, 100, 50))
+        let payInfoLabel = UILabel(frame: CGRectMake(95/3, 140, 100, 20))
         payInfoLabel.text = "提现账户"
         payInfoLabel.textColor = UIColor(hexString: "#ffffff", alpha: 0.6)
         view.addSubview(payInfoLabel)
         setFont(payInfoLabel)
         
-        let fuStyleLabel = UILabel(frame: CGRectMake(95/3, 386/3, 100, 50))
+        let fuStyleLabel = UILabel(frame: CGRectMake(95/3, 140+13*2, 100, 20))
         fuStyleLabel.text = "到账时间"
         setFont(fuStyleLabel)
         fuStyleLabel.textColor = UIColor(hexString: "#ffffff", alpha: 0.6)
         view.addSubview(fuStyleLabel)
         
-        let payMoneyLabel = UILabel(frame: CGRectMake(95/3, 496/3, 100, 50))
+        let payMoneyLabel = UILabel(frame: CGRectMake(95/3, 140+13*2+13*2, 100, 20))
         payMoneyLabel.text = "提现金额"
         payMoneyLabel.textColor = UIColor(hexString: "#ffffff", alpha: 0.6)
         setFont(payMoneyLabel)
         view.addSubview(payMoneyLabel)
         
-        let accountLabel = UILabel(frame: CGRectMake(maxWidth-95/3-300, 276/3, 300, 50))
+        let accountLabel = UILabel(frame: CGRectMake(maxWidth-95/3-300, 140, 300, 20))
         accountLabel.text = "支付宝（*****@gmail.com）"
         accountLabel.textAlignment = .Right
         accountLabel.textColor = UIColor(hexString: "#ffffff")
         setFont(accountLabel)
         view.addSubview(accountLabel)
         
-        let accountNumberLabel = UILabel(frame: CGRectMake(maxWidth-95/3-300, 386/3, 300, 50))
+        let accountNumberLabel = UILabel(frame: CGRectMake(maxWidth-95/3-300, 140 + 13*2, 300, 20))
         accountNumberLabel.text = "当日即可到账"
         accountNumberLabel.textAlignment = .Right
         accountNumberLabel.textColor = UIColor(hexString: "#ffffff")
         view.addSubview(accountNumberLabel)
         setFont(accountNumberLabel)
         
-        let accountMoneyLabel = UITextField(frame: CGRectMake(maxWidth-95/3-300, 496/3, 300, 50))
+        let accountMoneyLabel = UITextField(frame: CGRectMake(maxWidth-95/3-300, 140 + 13*2 + 13*2, 300, 20))
         accountMoneyLabel.font = UIFont.systemFontOfSize(16)
         accountMoneyLabel.textAlignment = .Right
         accountMoneyLabel.textColor = UIColor(hexString: "#fee300")
         view.addSubview(accountMoneyLabel)
         accountMoneyLabel.attributedPlaceholder = NSAttributedString(string: "请输入金额", attributes: [NSForegroundColorAttributeName:UIColor(hexString: "#fee300")])
         self.accountMoneyLabel = accountMoneyLabel
-        let price_List_Left_Line = StrokeLineView(frame: CGRectMake(payInfoLabel.left, payInfoLabel.top + 40, maxWidth-(95/3)*2, 1))
+        let price_List_Left_Line = StrokeLineView(frame: CGRectMake(payInfoLabel.left, payInfoLabel.top + 60, maxWidth-(95/3)*2, 1))
         price_List_Left_Line.backgroundColor = UIColor.clearColor()
         view.addSubview(price_List_Left_Line)
         
-        let price_List_Left_Line1 = StrokeLineView(frame: CGRectMake(payInfoLabel.left, fuStyleLabel.top + 40, maxWidth-(95/3)*2, 1))
+        let price_List_Left_Line1 = StrokeLineView(frame: CGRectMake(payInfoLabel.left, fuStyleLabel.top + 60, maxWidth-(95/3)*2, 1))
         price_List_Left_Line1.backgroundColor = UIColor.clearColor()
         view.addSubview(price_List_Left_Line1)
         
-        let price_List_Left_Line2 = StrokeLineView(frame: CGRectMake(payInfoLabel.left, payMoneyLabel.top + 40, maxWidth-(95/3)*2, 1))
+        let price_List_Left_Line2 = StrokeLineView(frame: CGRectMake(payInfoLabel.left, payMoneyLabel.top + 60, maxWidth-(95/3)*2, 1))
         price_List_Left_Line2.backgroundColor = UIColor.clearColor()
         view.addSubview(price_List_Left_Line2)
         

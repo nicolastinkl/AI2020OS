@@ -54,8 +54,9 @@ class AIBaseViewController: UIViewController {
     }
 
     func makeBackgroundView() {
+        //"Job_Background"
         backgroundImageView = UIImageView(frame: self.view.bounds)
-        backgroundImageView.image = UIImage(named: "Job_Background")
+        backgroundImageView.image = UIImage(named: "FakeLogin_BG")
         self.view.insertSubview(backgroundImageView, atIndex: 0)
         //self.view.addSubview(backgroundImageView)
         backgroundImageView.snp_makeConstraints { (make) in
@@ -92,8 +93,8 @@ class AIBaseViewController: UIViewController {
         }
 
         navigatonBarAppearance!.barOption = UINavigationBarAppearance.BarOption(backgroundColor: UIColor.clearColor(), backgroundImage: nil, removeShadowImage: true, height: AITools.displaySizeFrom1242DesignSize(192))
-        let font = AITools.myriadSemiCondensedWithSize(72.displaySizeFrom1242DesignSize())
-        navigatonBarAppearance!.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 40.displaySizeFrom1242DesignSize(), font: font, textColor: UIColor.whiteColor(), text: "")
+        let font = AITools.myriadSemiCondensedWithSize(70.displaySizeFrom1242DesignSize())
+        navigatonBarAppearance!.titleOption = UINavigationBarAppearance.TitleOption(bottomPadding: 40.displaySizeFrom1242DesignSize(), font: font, textColor: UIColor.whiteColor(), text: self.title ?? "")
 
         setupNavigationBar()
     }

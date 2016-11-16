@@ -61,6 +61,16 @@ NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Bl
         
     }
     
+    override func makeBackgroundView() {
+        backgroundImageView = UIImageView(frame: self.view.bounds)
+        backgroundImageView.image = UIImage(named: "FakeLogin_BG")
+        self.view.insertSubview(backgroundImageView, atIndex: 0)
+        //self.view.addSubview(backgroundImageView)
+        backgroundImageView.snp_makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+    }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -123,6 +133,7 @@ NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Bl
         }
         
         
+        //self.contentScrollView.contentInset = UIEdgeInsetsMake(-10, 0, 0, 0)
         
         dataSource?.drawers.forEach({ (model) in
             
@@ -222,13 +233,17 @@ NSNotificationCenter.defaultCenter().addObserverForName("NSNotificationCenter_Bl
                 break
             case 8:
                 // 待付
-                let vc = AIWillPayVController.init()
+                let containerVC = AIWillPayVController.init()
+                containerVC.title = "我的待付"
+                let vc = UINavigationController(rootViewController: containerVC)
                 showTransitionStyleCrossDissolveView(vc)
                 
                 break
             case 9:
                 // 待收
-                let vc = AIWillReceiverVController.init()
+                let containerVC = AIWillReceiverVController.init()
+                containerVC.title = "我的待收"
+                let vc = UINavigationController(rootViewController: containerVC)
                 showTransitionStyleCrossDissolveView(vc)
                 break
                 

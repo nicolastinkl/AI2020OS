@@ -12,7 +12,7 @@ import Spring
 
 class AIWillPayVController: AIBaseViewController {
     
-    private let tableview = UITableView(frame: CGRectMake(0, 50, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
+    private let tableview = UITableView(frame: CGRectMake(0, 55, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
     private var dataSource = Array<AIFundWillWithDrawModel>()
     
     private let CellIdentifier = "CellID"
@@ -20,7 +20,6 @@ class AIWillPayVController: AIBaseViewController {
         
         super.viewDidLoad()
         
-        initNavigation()
         
         initLayout()
         view.showLoading()
@@ -34,22 +33,6 @@ class AIWillPayVController: AIBaseViewController {
         
     }
     
-    func initNavigation() {
-        let maxWidth = UIScreen.mainScreen().bounds.size.width
-        
-        let payInfoLabel = UILabel(frame: CGRectMake(0, 0, maxWidth, 50))
-        payInfoLabel.text = "我的待付"
-        payInfoLabel.textAlignment = .Center
-        payInfoLabel.textColor = UIColor(hexString: "#ffffff", alpha: 1)
-        view.addSubview(payInfoLabel)
-        payInfoLabel.font = UIFont.systemFontOfSize(24)
-        
-        let backButton = goBackButtonWithImage("comment-back")
-        view.addSubview(backButton)
-        backButton.setLeft(7)
-        backButton.setTop(12)
-        
-    }
     
     func setFont(label: UILabel) {
         label.font = UIFont.systemFontOfSize(16)
@@ -90,7 +73,7 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
             
             buttonSS.cornerRadius = 5
             buttonSS.borderColor = UIColor(hex: "0f86e8")
-            buttonSS.borderWidth = 3/2
+            buttonSS.borderWidth = 0.5
             buttonSS.backgroundColor = UIColor.clearColor()
             buttonSS.setTitle("我要申诉", forState: UIControlState.Normal)
             buttonSS.setTitleColor(UIColor(hex: "0f86e8"), forState: UIControlState.Normal)
@@ -115,7 +98,7 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
         contentView?.addresss.text = model.vendor ?? ""
         contentView?.time.text = model.time?.toDate()
         contentView?.nameLabel.text = model.name ?? ""
-        contentView?.priceLabel.text = String(model.price ?? 0)
+        contentView?.priceLabel.text = "¥\(String(model.price ?? 0))"
         let url = NSURL(string: model.icon ?? "")!
         contentView?.icon.sd_setImageWithURL(url)
             
@@ -156,7 +139,7 @@ extension AIWillPayVController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 120
+        return 150
     }
     
     

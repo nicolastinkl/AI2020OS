@@ -22,28 +22,10 @@ class AIBalanceRechargeViewController: AIBaseViewController {
         
         self.title = "余额充值"
         
-        initNavigation()
-        
         initLayout()
         
     }
     
-    func initNavigation() {
-        let maxWidth = UIScreen.mainScreen().bounds.size.width
-        
-        let payInfoLabel = UILabel(frame: CGRectMake(0, 0, maxWidth, 50))
-        payInfoLabel.text = "余额充值"
-        payInfoLabel.textAlignment = .Center
-        payInfoLabel.textColor = UIColor(hexString: "#ffffff", alpha: 1)
-        view.addSubview(payInfoLabel)
-        payInfoLabel.font = UIFont.systemFontOfSize(24)
-        
-        let backButton = goBackButtonWithImage("comment-back")
-        view.addSubview(backButton)
-        backButton.setLeft(7)
-        backButton.setTop(12)
-        
-    }
 
     func setFont(label: UILabel) {
         label.font = UIFont.systemFontOfSize(16)

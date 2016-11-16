@@ -19,9 +19,10 @@ class AIWillReceiverVController: AIBaseViewController {
         
         super.viewDidLoad()
         
-        initNavigation()
+        //initNavigation()
         
         initLayout()
+        
         view.showLoading()
         AIFundManageServices.reqeustWillCollectInfo({ (model) in
             self.dataSource = model ?? []
@@ -35,17 +36,16 @@ class AIWillReceiverVController: AIBaseViewController {
     func initNavigation() {
         let maxWidth = UIScreen.mainScreen().bounds.size.width
         
-        let payInfoLabel = UILabel(frame: CGRectMake(0, 0, maxWidth, 50))
+        let payInfoLabel = UILabel(frame: CGRectMake(0, 24, maxWidth, 50))
         payInfoLabel.text = "我的待收"
         payInfoLabel.textAlignment = .Center
         payInfoLabel.textColor = UIColor(hexString: "#ffffff", alpha: 1)
         view.addSubview(payInfoLabel)
-        payInfoLabel.font = UIFont.systemFontOfSize(24)
-        
+        payInfoLabel.font = AITools.myriadLightWithSize(72/3)
         let backButton = goBackButtonWithImage("comment-back")
         view.addSubview(backButton)
-        backButton.setLeft(7)
-        backButton.setTop(12)
+        backButton.setLeft(55/3)
+        backButton.setTop(24)
     }
     
     func setFont(label: UILabel) {
@@ -88,7 +88,7 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
             
             buttonSS.cornerRadius = 5
             buttonSS.borderColor = UIColor(hex: "0f86e8")
-            buttonSS.borderWidth = 3/2
+            buttonSS.borderWidth = 0.5
             buttonSS.backgroundColor = UIColor.clearColor()
             buttonSS.setTitle("", forState: UIControlState.Normal)
             buttonSS.setTitleColor(UIColor(hex: "0f86e8"), forState: UIControlState.Normal)
@@ -126,7 +126,7 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
         contentView?.addresss.text = model.name ?? ""
         contentView?.time.text = model.time?.toDate()
         contentView?.nameLabel.text =  model.payer ?? ""
-        contentView?.priceLabel.text = String(model.price ?? 0)
+        contentView?.priceLabel.text = "¥\(String(model.price ?? 0))"
         let url = NSURL(string: model.icon ?? "")!
         contentView?.icon.sd_setImageWithURL(url)
         
@@ -166,6 +166,6 @@ extension AIWillReceiverVController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 120
+        return 150
     }
 }
