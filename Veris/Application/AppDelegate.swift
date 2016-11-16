@@ -94,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         handleRemoteNotifications(app: application, launchOptions: launchOptions)
         
         #if DEBUG
-            FLEXManager.sharedManager().showExplorer()
+//            FLEXManager.sharedManager().showExplorer()
         #endif
 		return true
 		

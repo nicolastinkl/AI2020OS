@@ -65,6 +65,14 @@
     self.downDirectionViewController = sellerViewController;
     [sellerViewController didMoveToParentViewController:self];
     
+    // right
+    AIPersonalCenterHomeViewController *personalCenterVC = [[AIPersonalCenterHomeViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:personalCenterVC];
+    nav.view.frame = self.view.bounds;
+    [self addChildViewController:nav];
+    self.rightDirectionViewController = nav;
+    [nav didMoveToParentViewController:self];
+    
     // default
     [self.view addSubview:self.upDirectionViewController.view];
     _currentViewController = self.upDirectionViewController;
@@ -104,6 +112,14 @@
         case 3: // 3:left
             break;
         case 4: // 4:right
+            // 个人中心
+            if (_currentViewController == self.rightDirectionViewController) {
+                return;
+            }
+            [self transitionFromViewController:_currentViewController toViewController:self.rightDirectionViewController duration:0 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:^(BOOL finished) {
+                _currentViewController = self.rightDirectionViewController;
+            }];
+            
             break;
             
     }

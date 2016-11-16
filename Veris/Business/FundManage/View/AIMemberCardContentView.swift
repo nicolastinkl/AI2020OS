@@ -29,6 +29,7 @@ class AIMemberCardContentView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         clipsToBounds = true
+        backgroundColor = UIColor(hexString: "#ffffff", alpha: 0.2)
         layer.cornerRadius = 10
         titleLabel.font = AITools.myriadRegularWithSize(60.displaySizeFrom1242DesignSize())
         titleLabel.textColor = UIColor.whiteColor()
