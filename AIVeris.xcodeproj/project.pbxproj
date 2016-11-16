@@ -518,15 +518,6 @@
 		8175A7E41CFD2710006F2C8F /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A76D1CFD2710006F2C8F /* UIScrollView+MJExtension.m */; };
 		8175A7E51CFD2710006F2C8F /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A76F1CFD2710006F2C8F /* UIScrollView+MJRefresh.m */; };
 		8175A7E61CFD2710006F2C8F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7711CFD2710006F2C8F /* UIView+MJExtension.m */; };
-		8175A7E71CFD2710006F2C8F /* _OALayoutGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7741CFD2710006F2C8F /* _OALayoutGuide.m */; };
-		8175A7E81CFD2710006F2C8F /* OAStackView+Constraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7761CFD2710006F2C8F /* OAStackView+Constraint.m */; };
-		8175A7E91CFD2710006F2C8F /* OAStackView+Hiding.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7781CFD2710006F2C8F /* OAStackView+Hiding.m */; };
-		8175A7EA1CFD2710006F2C8F /* OAStackView+Traversal.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A77A1CFD2710006F2C8F /* OAStackView+Traversal.m */; };
-		8175A7EB1CFD2710006F2C8F /* OAStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A77C1CFD2710006F2C8F /* OAStackView.m */; };
-		8175A7EC1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A77E1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m */; };
-		8175A7ED1CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7801CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.m */; };
-		8175A7EE1CFD2710006F2C8F /* OAStackViewDistributionStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7821CFD2710006F2C8F /* OAStackViewDistributionStrategy.m */; };
-		8175A7EF1CFD2710006F2C8F /* OATransformLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7841CFD2710006F2C8F /* OATransformLayer.m */; };
 		8175A7F01CFD2710006F2C8F /* OBShapedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7871CFD2710006F2C8F /* OBShapedButton.m */; };
 		8175A7F11CFD2710006F2C8F /* OBShapedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A7891CFD2710006F2C8F /* OBShapedImageView.m */; };
 		8175A7F21CFD2710006F2C8F /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8175A78B1CFD2710006F2C8F /* UIImage+ColorAtPixel.m */; };
@@ -893,6 +884,16 @@
 		FB664CE91D619B2000E88A2F /* AISearchServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB664CE81D619B2000E88A2F /* AISearchServiceModel.m */; };
 		FB664CEE1D61ABF400E88A2F /* AIProviderDetailJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB664CED1D61ABF400E88A2F /* AIProviderDetailJSONModel.m */; };
 		FB67FA501D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB67FA4F1D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift */; };
+		FB6D70481DDAF9FD00D707F0 /* AIPersonalCenterHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6D70461DDAF9FD00D707F0 /* AIPersonalCenterHomeViewController.swift */; };
+		FB6D70491DDAF9FD00D707F0 /* AIPersonalCenterHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6D70471DDAF9FD00D707F0 /* AIPersonalCenterHomeViewController.xib */; };
+		FB6D705B1DDAFF5A00D707F0 /* FDGapLayoutGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D704C1DDAFF5A00D707F0 /* FDGapLayoutGuide.m */; };
+		FB6D705C1DDAFF5A00D707F0 /* FDLayoutSpacer.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D704E1DDAFF5A00D707F0 /* FDLayoutSpacer.m */; };
+		FB6D705D1DDAFF5A00D707F0 /* FDStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D70501DDAFF5A00D707F0 /* FDStackView.m */; };
+		FB6D705E1DDAFF5A00D707F0 /* FDStackViewAlignmentLayoutArrangement.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D70521DDAFF5A00D707F0 /* FDStackViewAlignmentLayoutArrangement.m */; };
+		FB6D705F1DDAFF5A00D707F0 /* FDStackViewDistributionLayoutArrangement.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D70541DDAFF5A00D707F0 /* FDStackViewDistributionLayoutArrangement.m */; };
+		FB6D70601DDAFF5A00D707F0 /* FDStackViewExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D70561DDAFF5A00D707F0 /* FDStackViewExtensions.m */; };
+		FB6D70611DDAFF5A00D707F0 /* FDStackViewLayoutArrangement.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D70581DDAFF5A00D707F0 /* FDStackViewLayoutArrangement.m */; };
+		FB6D70621DDAFF5A00D707F0 /* FDTransformLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D705A1DDAFF5A00D707F0 /* FDTransformLayer.m */; };
 		FB6ED9571DAF20EB00A1C365 /* AIWorkOpportunityPopularChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6ED9561DAF20EB00A1C365 /* AIWorkOpportunityPopularChartView.swift */; };
 		FB6FD0681DB5FBD400593EB3 /* AIWorkOpportunityWhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FD0671DB5FBD400593EB3 /* AIWorkOpportunityWhatsNewView.swift */; };
 		FB7003FF1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7003FE1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift */; };
@@ -1647,24 +1648,6 @@
 		8175A76F1CFD2710006F2C8F /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		8175A7701CFD2710006F2C8F /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		8175A7711CFD2710006F2C8F /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
-		8175A7731CFD2710006F2C8F /* _OALayoutGuide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _OALayoutGuide.h; sourceTree = "<group>"; };
-		8175A7741CFD2710006F2C8F /* _OALayoutGuide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _OALayoutGuide.m; sourceTree = "<group>"; };
-		8175A7751CFD2710006F2C8F /* OAStackView+Constraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAStackView+Constraint.h"; sourceTree = "<group>"; };
-		8175A7761CFD2710006F2C8F /* OAStackView+Constraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAStackView+Constraint.m"; sourceTree = "<group>"; };
-		8175A7771CFD2710006F2C8F /* OAStackView+Hiding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAStackView+Hiding.h"; sourceTree = "<group>"; };
-		8175A7781CFD2710006F2C8F /* OAStackView+Hiding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAStackView+Hiding.m"; sourceTree = "<group>"; };
-		8175A7791CFD2710006F2C8F /* OAStackView+Traversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAStackView+Traversal.h"; sourceTree = "<group>"; };
-		8175A77A1CFD2710006F2C8F /* OAStackView+Traversal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAStackView+Traversal.m"; sourceTree = "<group>"; };
-		8175A77B1CFD2710006F2C8F /* OAStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAStackView.h; sourceTree = "<group>"; };
-		8175A77C1CFD2710006F2C8F /* OAStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAStackView.m; sourceTree = "<group>"; };
-		8175A77D1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAStackViewAlignmentStrategy.h; sourceTree = "<group>"; };
-		8175A77E1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAStackViewAlignmentStrategy.m; sourceTree = "<group>"; };
-		8175A77F1CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAStackViewAlignmentStrategyBaseline.h; sourceTree = "<group>"; };
-		8175A7801CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAStackViewAlignmentStrategyBaseline.m; sourceTree = "<group>"; };
-		8175A7811CFD2710006F2C8F /* OAStackViewDistributionStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAStackViewDistributionStrategy.h; sourceTree = "<group>"; };
-		8175A7821CFD2710006F2C8F /* OAStackViewDistributionStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAStackViewDistributionStrategy.m; sourceTree = "<group>"; };
-		8175A7831CFD2710006F2C8F /* OATransformLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OATransformLayer.h; sourceTree = "<group>"; };
-		8175A7841CFD2710006F2C8F /* OATransformLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATransformLayer.m; sourceTree = "<group>"; };
 		8175A7861CFD2710006F2C8F /* OBShapedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBShapedButton.h; sourceTree = "<group>"; };
 		8175A7871CFD2710006F2C8F /* OBShapedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBShapedButton.m; sourceTree = "<group>"; };
 		8175A7881CFD2710006F2C8F /* OBShapedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBShapedImageView.h; sourceTree = "<group>"; };
@@ -2161,6 +2144,24 @@
 		FB664CEC1D61ABF400E88A2F /* AIProviderDetailJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIProviderDetailJSONModel.h; sourceTree = "<group>"; };
 		FB664CED1D61ABF400E88A2F /* AIProviderDetailJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIProviderDetailJSONModel.m; sourceTree = "<group>"; };
 		FB67FA4F1D5AD92E006B2809 /* AIWorkOpportunityIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkOpportunityIndexViewController.swift; sourceTree = "<group>"; };
+		FB6D70461DDAF9FD00D707F0 /* AIPersonalCenterHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIPersonalCenterHomeViewController.swift; sourceTree = "<group>"; };
+		FB6D70471DDAF9FD00D707F0 /* AIPersonalCenterHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIPersonalCenterHomeViewController.xib; sourceTree = "<group>"; };
+		FB6D704B1DDAFF5A00D707F0 /* FDGapLayoutGuide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDGapLayoutGuide.h; sourceTree = "<group>"; };
+		FB6D704C1DDAFF5A00D707F0 /* FDGapLayoutGuide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDGapLayoutGuide.m; sourceTree = "<group>"; };
+		FB6D704D1DDAFF5A00D707F0 /* FDLayoutSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDLayoutSpacer.h; sourceTree = "<group>"; };
+		FB6D704E1DDAFF5A00D707F0 /* FDLayoutSpacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDLayoutSpacer.m; sourceTree = "<group>"; };
+		FB6D704F1DDAFF5A00D707F0 /* FDStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDStackView.h; sourceTree = "<group>"; };
+		FB6D70501DDAFF5A00D707F0 /* FDStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDStackView.m; sourceTree = "<group>"; };
+		FB6D70511DDAFF5A00D707F0 /* FDStackViewAlignmentLayoutArrangement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDStackViewAlignmentLayoutArrangement.h; sourceTree = "<group>"; };
+		FB6D70521DDAFF5A00D707F0 /* FDStackViewAlignmentLayoutArrangement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDStackViewAlignmentLayoutArrangement.m; sourceTree = "<group>"; };
+		FB6D70531DDAFF5A00D707F0 /* FDStackViewDistributionLayoutArrangement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDStackViewDistributionLayoutArrangement.h; sourceTree = "<group>"; };
+		FB6D70541DDAFF5A00D707F0 /* FDStackViewDistributionLayoutArrangement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDStackViewDistributionLayoutArrangement.m; sourceTree = "<group>"; };
+		FB6D70551DDAFF5A00D707F0 /* FDStackViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDStackViewExtensions.h; sourceTree = "<group>"; };
+		FB6D70561DDAFF5A00D707F0 /* FDStackViewExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDStackViewExtensions.m; sourceTree = "<group>"; };
+		FB6D70571DDAFF5A00D707F0 /* FDStackViewLayoutArrangement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDStackViewLayoutArrangement.h; sourceTree = "<group>"; };
+		FB6D70581DDAFF5A00D707F0 /* FDStackViewLayoutArrangement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDStackViewLayoutArrangement.m; sourceTree = "<group>"; };
+		FB6D70591DDAFF5A00D707F0 /* FDTransformLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDTransformLayer.h; sourceTree = "<group>"; };
+		FB6D705A1DDAFF5A00D707F0 /* FDTransformLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDTransformLayer.m; sourceTree = "<group>"; };
 		FB6ED9561DAF20EB00A1C365 /* AIWorkOpportunityPopularChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkOpportunityPopularChartView.swift; sourceTree = "<group>"; };
 		FB6FD0671DB5FBD400593EB3 /* AIWorkOpportunityWhatsNewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIWorkOpportunityWhatsNewView.swift; sourceTree = "<group>"; };
 		FB7003FE1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-CustomizeNavigationBar.swift"; sourceTree = "<group>"; };
@@ -2549,6 +2550,7 @@
 		814339291CFBE5A600347C29 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				FB6D70451DDAF9E900D707F0 /* PersonalCenter */,
 				1271EFB81DD55D92002004D4 /* TeamManage */,
 				FB1013B61DCC375800BC9E8A /* FundManage */,
 				842CE6D11DAF28550038E5C0 /* MyWallet */,
@@ -3821,6 +3823,7 @@
 		8175A7211CFD2710006F2C8F /* 3rdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				FB6D704A1DDAFF5A00D707F0 /* FDStackView */,
 				84CB78461DBEF655001EBB6D /* SKSTableView2.3 */,
 				8484D8581D7034D6001F1A54 /* MenuPopOverView */,
 				8484D8371D6C2CF3001F1A54 /* NBMaterialDialog */,
@@ -3837,7 +3840,6 @@
 				81433B351CFBE5A700347C29 /* Frameworks */,
 				8175A74F1CFD2710006F2C8F /* JSONModel */,
 				8175A7611CFD2710006F2C8F /* MJRefresh */,
-				8175A7721CFD2710006F2C8F /* OAStackView */,
 				8175A7851CFD2710006F2C8F /* OBShapedButton */,
 				8175A78E1CFD2710006F2C8F /* RRTagController */,
 				8175A7921CFD2710006F2C8F /* SDWebImage */,
@@ -3939,31 +3941,6 @@
 				8175A7711CFD2710006F2C8F /* UIView+MJExtension.m */,
 			);
 			path = MJRefresh;
-			sourceTree = "<group>";
-		};
-		8175A7721CFD2710006F2C8F /* OAStackView */ = {
-			isa = PBXGroup;
-			children = (
-				8175A7751CFD2710006F2C8F /* OAStackView+Constraint.h */,
-				8175A7761CFD2710006F2C8F /* OAStackView+Constraint.m */,
-				8175A7771CFD2710006F2C8F /* OAStackView+Hiding.h */,
-				8175A7781CFD2710006F2C8F /* OAStackView+Hiding.m */,
-				8175A7791CFD2710006F2C8F /* OAStackView+Traversal.h */,
-				8175A77A1CFD2710006F2C8F /* OAStackView+Traversal.m */,
-				8175A77B1CFD2710006F2C8F /* OAStackView.h */,
-				8175A77C1CFD2710006F2C8F /* OAStackView.m */,
-				8175A77D1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.h */,
-				8175A77E1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m */,
-				8175A77F1CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.h */,
-				8175A7801CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.m */,
-				8175A7811CFD2710006F2C8F /* OAStackViewDistributionStrategy.h */,
-				8175A7821CFD2710006F2C8F /* OAStackViewDistributionStrategy.m */,
-				8175A7831CFD2710006F2C8F /* OATransformLayer.h */,
-				8175A7841CFD2710006F2C8F /* OATransformLayer.m */,
-				8175A7731CFD2710006F2C8F /* _OALayoutGuide.h */,
-				8175A7741CFD2710006F2C8F /* _OALayoutGuide.m */,
-			);
-			path = OAStackView;
 			sourceTree = "<group>";
 		};
 		8175A7851CFD2710006F2C8F /* OBShapedButton */ = {
@@ -5247,6 +5224,38 @@
 			path = MBFingerTipWindow;
 			sourceTree = "<group>";
 		};
+		FB6D70451DDAF9E900D707F0 /* PersonalCenter */ = {
+			isa = PBXGroup;
+			children = (
+				FB6D70461DDAF9FD00D707F0 /* AIPersonalCenterHomeViewController.swift */,
+				FB6D70471DDAF9FD00D707F0 /* AIPersonalCenterHomeViewController.xib */,
+			);
+			path = PersonalCenter;
+			sourceTree = "<group>";
+		};
+		FB6D704A1DDAFF5A00D707F0 /* FDStackView */ = {
+			isa = PBXGroup;
+			children = (
+				FB6D704B1DDAFF5A00D707F0 /* FDGapLayoutGuide.h */,
+				FB6D704C1DDAFF5A00D707F0 /* FDGapLayoutGuide.m */,
+				FB6D704D1DDAFF5A00D707F0 /* FDLayoutSpacer.h */,
+				FB6D704E1DDAFF5A00D707F0 /* FDLayoutSpacer.m */,
+				FB6D704F1DDAFF5A00D707F0 /* FDStackView.h */,
+				FB6D70501DDAFF5A00D707F0 /* FDStackView.m */,
+				FB6D70511DDAFF5A00D707F0 /* FDStackViewAlignmentLayoutArrangement.h */,
+				FB6D70521DDAFF5A00D707F0 /* FDStackViewAlignmentLayoutArrangement.m */,
+				FB6D70531DDAFF5A00D707F0 /* FDStackViewDistributionLayoutArrangement.h */,
+				FB6D70541DDAFF5A00D707F0 /* FDStackViewDistributionLayoutArrangement.m */,
+				FB6D70551DDAFF5A00D707F0 /* FDStackViewExtensions.h */,
+				FB6D70561DDAFF5A00D707F0 /* FDStackViewExtensions.m */,
+				FB6D70571DDAFF5A00D707F0 /* FDStackViewLayoutArrangement.h */,
+				FB6D70581DDAFF5A00D707F0 /* FDStackViewLayoutArrangement.m */,
+				FB6D70591DDAFF5A00D707F0 /* FDTransformLayer.h */,
+				FB6D705A1DDAFF5A00D707F0 /* FDTransformLayer.m */,
+			);
+			path = FDStackView;
+			sourceTree = "<group>";
+		};
 		FB703ADB1D24B7BF00229A08 /* SwiftWebViewBridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -5565,6 +5574,7 @@
 				81433D621CFBE5A700347C29 /* AIShoppingListViewCell.xib in Resources */,
 				FB1013C61DCC375800BC9E8A /* AIFundAccountContentView.xib in Resources */,
 				81433D641CFBE5A700347C29 /* AIStartEndTimeView.xib in Resources */,
+				FB6D70491DDAF9FD00D707F0 /* AIPersonalCenterHomeViewController.xib in Resources */,
 				81433EC61CFBE5A700347C29 /* Assets.xcassets in Resources */,
 				81433D4B1CFBE5A700347C29 /* ServiceRestoreToolBar.xib in Resources */,
 				C95179DF1D40D36700446498 /* AIProvideIView.xib in Resources */,
@@ -5752,6 +5762,7 @@
 				12CE5DF41DC77DA80075EBD7 /* AICouponBusiModel.m in Sources */,
 				81433E211CFBE5A700347C29 /* VerticalIconLabel.swift in Sources */,
 				8175A8001CFD2710006F2C8F /* UIImage+GIF.m in Sources */,
+				FB6D705F1DDAFF5A00D707F0 /* FDStackViewDistributionLayoutArrangement.m in Sources */,
 				81433E7F1CFBE5A700347C29 /* FLEXNetworkHistoryTableViewController.m in Sources */,
 				81433E341CFBE5A700347C29 /* AITimelineFilterViewController.swift in Sources */,
 				81433D0C1CFBE5A700347C29 /* ProposalService.swift in Sources */,
@@ -5827,7 +5838,6 @@
 				9392B5851D1CD9F10007F241 /* openssl_wrapper.m in Sources */,
 				C9FEAC051DCC923600C1E72F /* AIFundManageModel.swift in Sources */,
 				12873EE71D20C0BA00C3AF9A /* LoginConstants.swift in Sources */,
-				8175A7EE1CFD2710006F2C8F /* OAStackViewDistributionStrategy.m in Sources */,
 				81433CEF1CFBE5A700347C29 /* AIBaseModel.swift in Sources */,
 				81BB867A1CFEB7F300899B58 /* AISearchHistoryLabels.swift in Sources */,
 				81433EA11CFBE5A700347C29 /* UIView+MaterialDesign.m in Sources */,
@@ -5848,7 +5858,6 @@
 				81B195801D485B740086EB83 /* AIGladOrderViewController.swift in Sources */,
 				C900614F1DC7204E0001A963 /* AIRechargeView.swift in Sources */,
 				81433E401CFBE5A700347C29 /* AIUIViewUtils.swift in Sources */,
-				8175A7E91CFD2710006F2C8F /* OAStackView+Hiding.m in Sources */,
 				FB734EED1D45BD4500FD808A /* NSUserDefaults+Object.swift in Sources */,
 				84512D531D2BA6BF007E2E8A /* ListSubServiceCardView.swift in Sources */,
 				81D83EC21DD2C0E600986D9E /* AICreditScoreModel.m in Sources */,
@@ -5901,6 +5910,7 @@
 				81433E0E1CFBE5A700347C29 /* IconLabel.swift in Sources */,
 				8175A7C71CFD2710006F2C8F /* AFHTTPRequestOperationManager.m in Sources */,
 				81433E2F1CFBE5A700347C29 /* AITaskEditViewController.swift in Sources */,
+				FB6D70601DDAFF5A00D707F0 /* FDStackViewExtensions.m in Sources */,
 				81433E5D1CFBE5A700347C29 /* FLEXArgumentInputView.m in Sources */,
 				81433E181CFBE5A700347C29 /* ProposalServiceDetailBaseView.m in Sources */,
 				845700521D015E7600512597 /* CompondServiceCommentViewController.swift in Sources */,
@@ -5932,7 +5942,6 @@
 				81433D731CFBE5A700347C29 /* AIHorizontalBarChart.m in Sources */,
 				81433E7A1CFBE5A700347C29 /* FLEXLiveObjectsTableViewController.m in Sources */,
 				81433E051CFBE5A700347C29 /* BubbleView.m in Sources */,
-				8175A7E71CFD2710006F2C8F /* _OALayoutGuide.m in Sources */,
 				FB7003FF1D3CB9C600F28692 /* UIViewController-CustomizeNavigationBar.swift in Sources */,
 				FB71FEE81D87DD7E004E72D8 /* AIAnalytics.swift in Sources */,
 				81433D2D1CFBE5A700347C29 /* ServiceDetailView.swift in Sources */,
@@ -5947,7 +5956,6 @@
 				81B1956E1D474A960086EB83 /* AADialogBaseViewController.swift in Sources */,
 				81433D4E1CFBE5A700347C29 /* AIAddressRouteView.swift in Sources */,
 				84CB784E1DBEF655001EBB6D /* SKSTableViewCell.swift in Sources */,
-				8175A7E81CFD2710006F2C8F /* OAStackView+Constraint.m in Sources */,
 				847D29881D484BF3009E26B8 /* ServiceCommentModel.swift in Sources */,
 				81433E4C1CFBE5A700347C29 /* UIImageUtils.swift in Sources */,
 				81433E5B1CFBE5A700347C29 /* FLEXArgumentInputSwitchView.m in Sources */,
@@ -5965,7 +5973,7 @@
 				81433D3B1CFBE5A700347C29 /* AICustomAudioNotesView.swift in Sources */,
 				81B195751D474A960086EB83 /* TBScreenCapture.m in Sources */,
 				81FAFBEE1D4716F800DD3477 /* TaskDetailViewController.swift in Sources */,
-				8175A7ED1CFD2710006F2C8F /* OAStackViewAlignmentStrategyBaseline.m in Sources */,
+				FB6D70481DDAF9FD00D707F0 /* AIPersonalCenterHomeViewController.swift in Sources */,
 				FB989FBA1D73D5B200DD33BC /* AIProductAllCommentsService.swift in Sources */,
 				81433D221CFBE5A700347C29 /* BottomServiceContainerView.swift in Sources */,
 				FBAE7FD61D115428002FF522 /* AISellerCell.m in Sources */,
@@ -5985,11 +5993,9 @@
 				81433CEC1CFBE5A700347C29 /* ServiceOrderDetailModel.m in Sources */,
 				81433D491CFBE5A700347C29 /* AIWishMessageView.swift in Sources */,
 				120D20A31D360A710001C6A9 /* AITimelineContentContainerView.swift in Sources */,
-				8175A7EB1CFD2710006F2C8F /* OAStackView.m in Sources */,
 				81433DA61CFBE5A700347C29 /* AITaskDataModel.swift in Sources */,
 				81433E7E1CFBE5A700347C29 /* FLEXSystemLogTableViewController.m in Sources */,
 				8484D85D1D7681EA001F1A54 /* ExcuteModel.m in Sources */,
-				8175A7EC1CFD2710006F2C8F /* OAStackViewAlignmentStrategy.m in Sources */,
 				81FAFB891D45B18900DD3477 /* Requirement.swift in Sources */,
 				84F2E5BA1D17D02E009E0C72 /* SubServiceCardView.swift in Sources */,
 				84F2E5BD1D17F155009E0C72 /* ExpandableTableViewCell.swift in Sources */,
@@ -6051,7 +6057,6 @@
 				93A0ABE01D12AD6200562090 /* JSONModel+networking.m in Sources */,
 				12CE5DE41DC77AB20075EBD7 /* AICouponViewController.swift in Sources */,
 				813860FF1D5AC4E20050C0D0 /* AIBaseViewController.swift in Sources */,
-				8175A7EF1CFD2710006F2C8F /* OATransformLayer.m in Sources */,
 				8484D8571D6FD70E001F1A54 /* SoundPlayButton.swift in Sources */,
 				8484D8611D768873001F1A54 /* ExcuteManager.swift in Sources */,
 				8175A7CA1CFD2710006F2C8F /* AFSecurityPolicy.m in Sources */,
@@ -6067,6 +6072,7 @@
 				8484D8491D6C2CF3001F1A54 /* UIFont+Roboto.swift in Sources */,
 				81433E0B1CFBE5A700347C29 /* JTSScrollIndicator.m in Sources */,
 				81433DFB1CFBE5A700347C29 /* CustomPickerColumnView.swift in Sources */,
+				FB6D705C1DDAFF5A00D707F0 /* FDLayoutSpacer.m in Sources */,
 				FB7A4E1F1D1D2BA300DBE07E /* AIImageRecongizeService.swift in Sources */,
 				81433D111CFBE5A700347C29 /* AIOrderCellEShopSubView.swift in Sources */,
 				81433E571CFBE5A700347C29 /* FLEXArgumentInputNotSupportedView.m in Sources */,
@@ -6121,6 +6127,7 @@
 				81433E851CFBE5A700347C29 /* FLEXNetworkObserver.m in Sources */,
 				81433E281CFBE5A700347C29 /* AILimitListViewController.swift in Sources */,
 				81433E091CFBE5A700347C29 /* AIBueryDetailCell.swift in Sources */,
+				FB6D705E1DDAFF5A00D707F0 /* FDStackViewAlignmentLayoutArrangement.m in Sources */,
 				81B6005C1D25169E0052ADC8 /* AIDefines.swift in Sources */,
 				81433E4E1CFBE5A700347C29 /* UIViewController+AIPopup.swift in Sources */,
 				FB2373241D4F75B500A8B38A /* AIProviderDetailService.swift in Sources */,
@@ -6199,6 +6206,7 @@
 				12DFC0C31D47581600025D4F /* AICommonBusinessModels.m in Sources */,
 				81433D231CFBE5A700347C29 /* FlightServiceView.swift in Sources */,
 				81433E451CFBE5A700347C29 /* UIIMage+Color.m in Sources */,
+				FB6D705D1DDAFF5A00D707F0 /* FDStackView.m in Sources */,
 				81433E581CFBE5A700347C29 /* FLEXArgumentInputNumberView.m in Sources */,
 				FB1BABEA1DB60BA50091BBA4 /* AIWorkOpportunityService.swift in Sources */,
 				81433EB31CFBE5A700347C29 /* Player.swift in Sources */,
@@ -6270,6 +6278,7 @@
 				81433E8A1CFBE5A700347C29 /* FLEXDictionaryExplorerViewController.m in Sources */,
 				93A0ABDF1D12AD6200562090 /* JSONHTTPClient.m in Sources */,
 				93C289C41D178A1A003F0473 /* AISuperiorityIconTextView.swift in Sources */,
+				FB6D70611DDAFF5A00D707F0 /* FDStackViewLayoutArrangement.m in Sources */,
 				81433D151CFBE5A700347C29 /* AIBubblesView.m in Sources */,
 				8116991C1D93BA6800C2D6EA /* AIALAssetsImageOperator.m in Sources */,
 				8175A7F81CFD2710006F2C8F /* SDImageCache.m in Sources */,
@@ -6321,7 +6330,6 @@
 				935E58DD1D5315D900252B83 /* AIWorkManageViewController.swift in Sources */,
 				81433E671CFBE5A700347C29 /* FLEXManager.m in Sources */,
 				81433E541CFBE5A700347C29 /* FLEXArgumentInputFontsPickerView.m in Sources */,
-				8175A7EA1CFD2710006F2C8F /* OAStackView+Traversal.m in Sources */,
 				81433E8F1CFBE5A700347C29 /* FLEXObjectExplorerViewController.m in Sources */,
 				813861031D5B0BFD0050C0D0 /* AIJobTableViewCell.swift in Sources */,
 				8175A7DD1CFD2710006F2C8F /* JSONKeyMapper.m in Sources */,
@@ -6346,6 +6354,7 @@
 				81433CE61CFBE5A700347C29 /* AIProposalServiceParser.m in Sources */,
 				81433D8F1CFBE5A700347C29 /* AIBuyerViewController.swift in Sources */,
 				12CE5DEC1DC77AB20075EBD7 /* AICurrencyTableViewCell.swift in Sources */,
+				FB6D705B1DDAFF5A00D707F0 /* FDGapLayoutGuide.m in Sources */,
 				81433CDC1CFBE5A700347C29 /* AIServiceCatalogModel.swift in Sources */,
 				12933BD71D18D6C2008A1693 /* CustomerCenterConstants.swift in Sources */,
 				81433E6D1CFBE5A700347C29 /* FLEXTableContentCell.m in Sources */,
@@ -6375,6 +6384,7 @@
 				81433CE51CFBE5A700347C29 /* AIProposalServiceCellModel.m in Sources */,
 				81433E121CFBE5A700347C29 /* UnderlineLabel.swift in Sources */,
 				81433CED1CFBE5A700347C29 /* PriceAccount.swift in Sources */,
+				FB6D70621DDAFF5A00D707F0 /* FDTransformLayer.m in Sources */,
 				81433D741CFBE5A700347C29 /* AIInputView.swift in Sources */,
 				93EC4A6B1D055679007F599E /* AISuperiorityModel.swift in Sources */,
 				8484D8751D76CCA2001F1A54 /* UILabelPadding.swift in Sources */,
