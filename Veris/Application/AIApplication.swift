@@ -135,6 +135,9 @@ struct AIApplication {
             static let AICurrencyTableViewCell = "AICurrencyTableViewCell"
             static let AICouponTableViewCell = "AICouponTableViewCell"
             static let AIIconCouponTableViewCell = "AIIconCouponTableViewCell"
+            // MARK: TEAM_MANAGE
+            static let AITeamDetailCollectionViewCell = "AITeamDetailCollectionViewCell"
+            static let AITeamDetailTableViewCell = "AITeamDetailTableViewCell"
         }
 
         /*!

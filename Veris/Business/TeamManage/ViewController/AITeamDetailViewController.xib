@@ -11,6 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AITeamDetailViewController" customModule="Veris" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="nZx-UY-wgr" id="7IR-rH-TMN"/>
+                <outlet property="lineView" destination="lF0-eD-Ab9" id="iVg-jJ-dxv"/>
+                <outlet property="operButton" destination="989-Yr-RwT" id="Tq2-g1-0cg"/>
+                <outlet property="tableView" destination="O4P-b1-kyb" id="S8t-C5-LYC"/>
+                <outlet property="teamNameLabel" destination="cyO-Vt-3PM" id="dqJ-lU-KEO"/>
+                <outlet property="titleIconView" destination="g98-Vs-zmv" id="am8-vq-BGv"/>
+                <outlet property="topView" destination="DoQ-N4-MTA" id="Yyc-lT-FVA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,7 +33,7 @@
                             <rect key="frame" x="21" y="12" width="26" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Legwork" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyO-Vt-3PM">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Legwork" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyO-Vt-3PM" userLabel="teamName">
                             <rect key="frame" x="66" y="15" width="66" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -37,9 +44,12 @@
                             <rect key="frame" x="290" y="10" width="57" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Disband"/>
+                            <connections>
+                                <action selector="operationAction:" destination="-1" eventType="touchUpInside" id="63E-zf-yyS"/>
+                            </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.12549019607843137" green="0.11372549019607843" blue="0.25882352941176467" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="51" id="Ecy-Tb-Cw7"/>
                     </constraints>
@@ -62,7 +72,7 @@
                     <rect key="frame" x="0.0" y="167" width="375" height="500"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xPI-U0-w1a">
-                        <size key="itemSize" width="50" height="50"/>
+                        <size key="itemSize" width="56" height="83"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>

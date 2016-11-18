@@ -12,7 +12,7 @@ class AIFundAccountViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let cellHeight: CGFloat = 94
+    let cellHeight: CGFloat = 104
     var data: [AICapitalAccount] = []
 
     override func viewDidLoad() {

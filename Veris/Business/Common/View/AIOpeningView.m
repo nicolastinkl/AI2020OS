@@ -19,14 +19,9 @@ typedef NS_ENUM(NSInteger, AIMovementDirection) {
     AIMovementRight = 4,
 };
 
-
-
 #define kAnimationDuration    0.5
-
 #define kMaxMoveSize      80
-
 #define kMaxMoveOffset    30
-
 
 @interface AIOpeningView ()
 {
@@ -52,14 +47,9 @@ typedef NS_ENUM(NSInteger, AIMovementDirection) {
 
 }
 
-
-
 @end
 
-
 @implementation AIOpeningView
-
-
 
 - (id)initWithFrame:(CGRect)frame
 {
